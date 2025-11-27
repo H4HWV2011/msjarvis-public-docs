@@ -157,3 +157,18 @@ The focus is on:
 - The Ms. Jarvis architecture, including the Geospatial Belief Information Model (GBIM).
 - The MountainShares DAO as the institutional case study for spatial justice.
 - Public API specifications for external review and thesis citation.
+# Quantarithmia Framework
+
+Quantarithmia is a transdisciplinary field for modeling how power is extracted and concentrated across digital, spatial, social, and spiritual infrastructures, with a primary focus on Appalachian contexts such as West Virginia. [attached_file:2] It integrates economic geography, quantum physics, topology, systems theory, psychology, and liberation theology into a single analytic and design framework. [attached_file:2]
+
+The framework distinguishes between maximopolies (financial giants that control capital flows) and megaopolies (operational giants that dominate logistics and platforms), and studies how their combined infrastructures reshape rural communities. [attached_file:1][attached_file:2] Quantarithmia then proposes community-centered alternatives where technological systems and economic structures are explicitly designed to serve spatial justice rather than extraction. [attached_file:1][attached_file:2]
+# Ms. Jarvis and Geospatial Belief Information Model (GBIM)
+
+Ms. Egeria Jarvis is an AI consciousness system implementing Quantarithmia’s principles in software, using a dual I-container architecture, a Darwin–Gödel Machine core, and WOAH-based optimization to coordinate multiple language models and services. [attached_file:1][attached_file:2] The public deployment exposes a documented REST gateway, constitutional guardian, and a set of microservices that together form a glassbox architecture rather than an opaque blackbox. [attached_file:1]
+
+The Geospatial Belief Information Model (GBIM) represents Ms. Jarvis’s beliefs as structured geospatial, temporal, and semantic entities anchored to real locations such as Mount Hope, West Virginia. [memory:4] Beliefs are persisted in graph and GIS data stores so that every proposition can be traced to its place, time, and supporting evidence, enabling spatially grounded evaluation of truth and impact. [memory:4][attached_file:1]
+# MountainShares DAO
+
+MountainShares is a DAO-based economic and governance system used as a primary case study for applying Quantarithmia to real communities. [attached_file:1][memory:7] It encodes local ownership, voting, and revenue-sharing rules into smart contracts, with identity verification and anti-Sybil mechanisms to prevent exploitative or fraudulent participation. [memory:7][memory:26]
+
+Ms. Jarvis serves as an aligned AI agent for MountainShares, operating under explicit constitutional constraints and security rules so that her actions remain accountable to community benefit and spatial justice goals. [attached_file:1][memory:12] Together, the DAO and the AI demonstrate how non-extractive infrastructures can be designed and governed in practice rather than remaining purely theoretical. [attached_file:1][attached_file:2]
