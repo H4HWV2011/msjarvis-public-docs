@@ -172,3 +172,8 @@ The Geospatial Belief Information Model (GBIM) represents Ms. Jarvis’s beliefs
 MountainShares is a DAO-based economic and governance system used as a primary case study for applying Quantarithmia to real communities. [attached_file:1][memory:7] It encodes local ownership, voting, and revenue-sharing rules into smart contracts, with identity verification and anti-Sybil mechanisms to prevent exploitative or fraudulent participation. [memory:7][memory:26]
 
 Ms. Jarvis serves as an aligned AI agent for MountainShares, operating under explicit constitutional constraints and security rules so that her actions remain accountable to community benefit and spatial justice goals. [attached_file:1][memory:12] Together, the DAO and the AI demonstrate how non-extractive infrastructures can be designed and governed in practice rather than remaining purely theoretical. [attached_file:1][attached_file:2]
+
+- [Thesis Systems Overview](thesis/00-thesis-overview.md)
+- [Researcher Position](thesis/01-researcher-position.md)
+- [API Overview](docs/API-OVERVIEW.md)
+- [Security Overview](security/SECURITY-OVERVIEW.md)
