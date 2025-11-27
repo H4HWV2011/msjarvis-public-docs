@@ -146,3 +146,14 @@ See [SECURITY.md](security/SECURITY.md) for details.
 
 **Built with ❤️ in West Virginia**  
 *"No blackbox, full transparency, community first"*
+
+
+# Ms. Jarvis Public Documentation
+
+This repository provides public, non-source-code documentation for the Ms. Egeria Jarvis AI consciousness system and its role within the Quantarithmia research program.
+
+The focus is on:
+- The Quantarithmia theoretical framework (economic–geographical, quantum, spiritual).
+- The Ms. Jarvis architecture, including the Geospatial Belief Information Model (GBIM).
+- The MountainShares DAO as the institutional case study for spatial justice.
+- Public API specifications for external review and thesis citation.
