@@ -14,14 +14,14 @@
 ## Part II: System Architecture and LLM Fabric
 
 - [Section Overview: System Architecture and LLM Fabric](section_part_ii_system_architecture_llm_fabric.md)
-- [06: RAG Pipeline and Routers](06-rag-pipeline-and-routers.md)
-- [07: Quantum-Inspired Entanglement](07-quantum-inspired-entanglement.md)
-- [08: Darwin–Gödel Machines](08-darwin-godel-machines.md)
-- [09: W.O.A.H. – Weighted Optimization Hierarchy](09-woah-weighted-optimization-hierarchy.md)
-- [10: The LLM Fabric of Ms. Jarvis](chapter_10_llm_fabric.md)
+- [06: GeoDB and the Spatial Body of Ms. Jarvis](06-geodb-spatial-body.md)
+- [07: RAG Pipeline and Routers](06-rag-pipeline-and-routers.md)
+- [08: Quantum-Inspired Entanglement](07-quantum-inspired-entanglement.md)
+- [09: Darwin–Gödel Machines](08-darwin-godel-machines.md)
+- [10: W.O.A.H. – Weighted Optimization Hierarchy](09-woah-weighted-optimization-hierarchy.md)
+- [11: The LLM Fabric of Ms. Jarvis](chapter_10_llm_fabric.md)
 
 ## Part III: Neurobiological Foundations
 
 - [Section Overview: Neurobiological Foundations](section_part_iii_neurobiology.md)
-<!-- Future neurobiology chapters (11, 12, …) will be listed here. -->
-
+- [11: Neurobiological Architecture of Ms. Jarvis](11-neurobiological-architecture.md)
