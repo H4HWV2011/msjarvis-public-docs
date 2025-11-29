@@ -30,3 +30,7 @@
 - [14: Pituitary and Global Modes](14-pituitary-and-global-modes.md)
 - [15: Executive Coordination Overview](15-prefrontal-coordinator-overview.md)
 - [16: Limits and Evaluation of the Biological Framing](16-limits-and-evaluation-of-metaphor.md)
+
+## Part IV: Consciousness Structures and Containers
+
+- [Section Overview: Consciousness Structures and Containers](section_part_iv_consciousness.md)
