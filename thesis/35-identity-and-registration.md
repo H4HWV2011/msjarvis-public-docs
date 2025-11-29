@@ -1,83 +1,83 @@
 # 35. Identity, Registration, and Two-Part Access Control
 
-This chapter describes how identity and registration are handled for higher-impact capabilities. It outlines a two-part access control process, the treatment of sensitive identifiers, and how these mechanisms connect to barrier, container, and governance layers.
+This chapter describes how identity and registration are handled when people use capabilities that can affect more than a single exchange. It sets out a two-step process for confirming who is behind certain actions, how sensitive details are kept separate from general data, and how this structure connects to barrier, container, and governance layers. The same approach applies to anyone using these capabilities, including the original builder, once the system is exposed online.
 
-## 35.1 Motivation for Strong Identity Controls
+## 35.1 Why Strong Identity Controls Exist
 
-Certain actions have potential effects beyond a single interaction:
+Some interactions reach beyond ordinary questions and answers:
 
 - Higher-impact operations:
-  - Changes to shared records, cooperative structures, or infrastructure settings.
-- Accountability:
-  - The need to trace who initiated or approved significant actions, within agreed privacy and governance frameworks.
-- Abuse prevention:
-  - Protection against misuse, such as automated creation of many accounts or attempts to trigger sensitive operations anonymously.
+  - Actions that touch shared records, cooperative arrangements, or infrastructure-related settings can affect many people, not just the current session.
+- Traceable responsibility:
+  - There needs to be a way to see which person initiated or approved these actions, under rules agreed by communities and partners.
+- Protection against misuse:
+  - Without friction, one person could create many fronts or trigger sensitive operations without any way to distinguish them from others.
 
-These concerns motivate stronger registration and identity controls for specific roles and capabilities.
+These pressures make it necessary to do more than accept anonymous input when certain roles or tools are involved.
 
-## 35.2 Two-Part Registration Process
+## 35.2 Two-Step Registration for People
 
-For roles that require higher levels of trust, registration involves two main steps:
+For roles that unlock stronger capabilities, sign-up works in two stages:
 
-- Document-based verification:
-  - A check against official identification, such as a government-issued license or similar document, confirming basic identity attributes.
-- Biometric verification:
-  - A separate step that confirms that the person presenting the document matches a live biometric sample, adding resistance to impersonation.
+- Document check:
+  - A check against a real-world identifier, such as a state-issued document or similar record, to confirm that basic attributes match a real person.
+- Live check:
+  - A separate step that confirms that the person in front of the system matches the document, using a live sample rather than a static copy.
 
-The combination provides a stronger basis for tying certain actions to specific individuals, while still allowing technical measures for privacy and separation.
+The intent is that any person, including the builder, who wants to use these elevated features goes through the same process. Everyday, lower-risk use can still be possible without this, but anything that can move shared levers requires it.
 
-## 35.3 Handling of Sensitive Identifiers
+## 35.3 How Sensitive Details Are Treated
 
-Sensitive registration data is treated differently from general information:
+Details collected during registration are handled differently from normal interaction data:
 
-- Segregation:
-  - Raw identifiers and biometric references are stored in tightly controlled locations, separate from general semantic memory and logs.
-- Indirection:
-  - Internal processes use anonymized or pseudonymous keys that reference registration records, rather than working directly with personal details.
-- Minimal exposure:
-  - Components that do not need direct access to registration data only see derived attributes, such as role or eligibility flags.
+- Kept apart:
+  - Raw identifiers and live samples are stored in tightly restricted locations and never put into the general semantic stores or routine logs.
+- Indirect references:
+  - Internal components work with opaque keys and flags that point back to registration records, rather than seeing or passing around full personal details.
+- Limited visibility:
+  - Parts of the system that only need to know “this session is cleared for role X” see that fact, not the underlying documents or samples.
 
-This reduces the chance that sensitive information will leak into contexts where it is not needed.
+This setup is meant to keep personal information out of areas where it is not needed while still allowing strong ties between certain actions and real people.
 
-## 35.4 Links to Roles and Capabilities
+## 35.4 How Roles and Abilities Are Connected
 
-Registration state is linked to what an individual is allowed to do:
+Registration state is linked directly to what a person can do:
 
-- Role assignment:
-  - Verified identities can be associated with roles that grant access to certain tools, data views, or decision processes.
-- Capability gating:
-  - Higher-impact actions, such as proposing changes to infrastructure or governance settings, require both an appropriate role and a confirmed registration state.
-- Dynamic adjustments:
-  - Roles and permissions can be updated over time, for example when responsibilities change or new safeguards are added.
+- Roles:
+  - Once confirmed, a person can be assigned one or more roles that define which tools, data views, or decision processes they can reach.
+- Gates:
+  - Actions such as proposing changes to shared infrastructure, adjusting cooperative settings, or touching sensitive collections require both an appropriate role and an active, confirmed registration state.
+- Changes over time:
+  - Roles and permissions can be raised, lowered, or removed as responsibilities change, or if new safety measures are introduced.
 
-These links are enforced at the same points where routing and mode decisions are made.
+Checks based on this structure are applied where routes are chosen and where global settings are enforced.
 
-## 35.5 Interaction with Barrier and Container Layers
+## 35.5 How Identity Signals Enter Other Layers
 
-Identity and registration information interacts with other layers of the architecture:
+Information about identity does not flow everywhere, but it does shape behavior:
 
 - Barrier policies:
-  - Source and content rules can depend on whether an input is associated with a registered identity, a lower-trust channel, or an automated process.
-- Container records:
-  - Events involving higher-impact actions include references to pseudonymous identity keys and roles, supporting later analysis of patterns and responsibilities.
-- Memory and introspection:
-  - Aggregated views of how different roles use particular capabilities can be written into long-term stores and introspective records, informing governance discussions.
+  - Rules that govern which sources and contents are allowed can differ depending on whether a request comes from a registered person, a general channel, or an automated process.
+- Container and memory records:
+  - Events involving higher-impact actions include pseudonymous keys and roles, so later analysis can see patterns in how different roles are used, without exposing raw personal data.
+- Learning from use:
+  - Aggregated views of how registered sessions interact can be used to refine prompts, routes, and safeguards, so the system learns from real use while still respecting privacy boundaries.
 
-This integration allows identity-related structure to influence behavior without exposing raw personal data.
+In this way, identity-related structure influences decisions and learning without turning personal details into general training material.
 
-## 35.6 Oversight and Governance
+## 35.6 Oversight and Rules for Identity Use
 
-Identity controls are themselves subject to governance:
+The mechanisms described here are themselves under shared control:
 
-- Policy definition:
-  - Cooperative partners and relevant stakeholders define criteria for which actions require registration, what verification steps are acceptable, and how long records are retained.
-- Audit:
-  - Logs of registration events and high-impact actions can be reviewed to ensure that identity requirements are being applied correctly and fairly.
-- Adaptation:
-  - As laws, norms, and community expectations evolve, policies and technical implementations can be updated while keeping a clear record of changes.
+- Policy setting:
+  - Cooperative partners and other stakeholders define which actions require registration, what forms of evidence are acceptable, and how long different kinds of records are kept.
+- Review:
+  - Records of sign-ups and higher-impact actions can be checked to see whether the rules are being applied consistently and without favoritism.
+- Change management:
+  - As laws, norms, or local expectations shift, both written policies and technical implementations can be updated, with changes recorded so that people can see how and why the system evolved.
 
-These practices help align identity mechanisms with broader social and legal expectations.
+The goal is to make identity use something that communities can understand and shape, rather than a hidden, fixed feature.
 
 ## 35.7 Summary
 
-Identity, registration, and two-part access control provide a structured way to connect higher-impact actions to verified individuals, while limiting the spread of sensitive information. By combining document and biometric checks, using indirection for internal references, and linking roles and capabilities to registration state, the system supports accountability and abuse prevention within the same architectural framework used for barrier, container, and governance layers.
+The registration and access structure described here is meant to tie certain kinds of actions to real people in a controlled way. It uses a two-step check for roles that can affect shared settings, keeps sensitive details out of general data flows, and ties roles and abilities to registration state. In practice, this means that anyone who wants to use higher-impact capabilities, including the original builder, does so under the same rules. At the same time, aggregated signals from registered sessions help the system learn how to serve people better, without treating their personal details as general-purpose data.
