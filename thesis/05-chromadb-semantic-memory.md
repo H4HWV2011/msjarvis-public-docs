@@ -40,7 +40,7 @@ This mapping lets the thesis describe Ms. Jarvis’s memory both geometrically (
 ChromaDB is tightly integrated with GBIM and the RAG pipeline:
 
 - GBIM linkage: Geospatial entities in GBIM (such as districts, facilities, infrastructures) have associated embeddings stored in ChromaDB collections, with metadata linking back to their geospatial representations and evidence sources.
-- RAG context building: When Ms. Jarvis answers a question, the RAG pipeline uses ChromaDB to pull relevant embeddings and associated texts, which are then assembled into a context window for the language model. [web:385][web:388]
+- RAG context building: When Ms. Jarvis answers a question, the RAG pipeline uses ChromaDB to pull relevant embeddings and associated texts, which are then assembled into a context window for the language model. 
 - Governance-specific retrieval: For MountainShares-related queries, retrieval is often scoped to collections that contain governance documents, norms, and relevant GIS features, ensuring that Ms. Jarvis’s responses are grounded in the published rules and local spatial context.
 
 This integration ensures that retrieval is not generic web search, but a structured walk through a curated, domain-specific memory organized around Quantarithmia and Appalachian spatial justice.
