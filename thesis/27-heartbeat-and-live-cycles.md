@@ -26,6 +26,8 @@ Heartbeat signals are generated in a few primary ways:
 - Aggregated indicators:
   - Simple combined measures, such as counts of successful checks versus failures over a window, support higher-level judgments about health.
 
+In practice, these checks include the components that implement retrieval, such as vector search over internal collections, belief-graph queries, and spatial filters, along with the routing layer that ties them together. When probes detect increased error rates or latency in these components, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve.
+
 Failures or anomalies in these signals can trigger alerts or mode changes.
 
 ## 27.3 Periodic Narrative Jobs
@@ -34,6 +36,7 @@ Alongside low-level checks, the system runs scheduled jobs that produce narrativ
 
 - Internal summaries:
   - On a regular cadence, jobs request concise descriptions of recent activity from the coordinator, drawing on introspective records and container paths.
+  - To assemble these summaries, the coordinator uses retrieval to pull recent entries from semantic memory, belief structures, and spatial layers, then asks a language model to synthesize a short account that can be stored back into the introspective layer.
 - External updates:
   - Some of these narratives are prepared for external platforms, subject to additional filters and constraints.
 - Feedback:
@@ -64,6 +67,8 @@ Heartbeat and narrative cycles interact with internal layers:
   - Narrative jobs can pass through container intake and background stages, allowing them to influence patterns about what the system emphasizes.
 - Long-term memory:
   - Especially significant cycles, such as major status changes or public communications, may be consolidated into long-term stores.
+- Retrieval stack:
+  - As heartbeat summaries and narratives are embedded into semantic memory and linked into belief and spatial layers, they become part of the material that retrieval can surface for future questions about system behavior and performance.
 
 This integration means that the system’s own ongoing behavior becomes part of what it remembers and reasons about.
 
