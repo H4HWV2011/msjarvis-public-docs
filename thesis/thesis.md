@@ -60,8 +60,9 @@
 - [32: Spiritual Root and the Mother Carrie Protocol](32-spiritual-root-and-mother-carrie.md)
 - [33: Swarm Functions and Eternal Watchdogs](33-swarm-functions-and-eternal-watchdogs.md)
 - [34: Identity, Registration, and Two-Part Access Control](34-identity-and-registration.md)
-- [35: External Communication Channels and Authority Boundaries](35-external-communication-and-authority.md)
+- [35: Constitutional Principles Service and Governance Layer](35-constitutional-principles-service.md)
+- [36: External Communication Channels and Authority Boundaries](36-external-communication-and-authority.md)
 
 ## Part VII: Evaluation, Risks, and Future Work
 
-- [36: Operational Evaluation of Ms. Jarvis](36-operational-evaluation.md)
+- [37: Operational Evaluation of Ms. Jarvis](37-operational-evaluation.md)
