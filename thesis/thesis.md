@@ -40,3 +40,4 @@
 - [20: Identity-Focused Retention Layer](20-identity-focused-retention.md)
 - [21: Dual Tracks for Meaning-Oriented and Analytical Processing](21-dual-tracks-meaning-and-analysis.md)
 - [22: Feedback into Introspective, Memory, and Control Layers](22-feedback-into-broader-layers.md)
+- [23: Consciousness Coordinator and Service Integration](23-consciousness-coordinator-and-services.md)
