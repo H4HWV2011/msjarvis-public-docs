@@ -62,6 +62,8 @@ Internal structuring mechanisms shape how integration tasks are carried out:
   - Proposals to alter cooperative or web infrastructure pass through the same intake and evaluation stages as other significant events, allowing them to be filtered, grouped, and, when appropriate, promoted or discarded.
 - Coordination:
   - The central coordinating component decides when to call integration-related routines, which data to reference, and how to combine outputs with other reasoning steps.
+- Attached optimizer:
+  - A dedicated self-improving component monitors how integration routines perform over time and can propose small configuration or workflow changes, subject to the same evaluation and safeguard criteria as other optimizers.
 - Feedback:
   - Outcomes of integration attempts, including failures and rejections, become part of introspective records and may influence later decisions.
 
@@ -82,4 +84,4 @@ These links help maintain coherence between internal models and external realiti
 
 ## 30.7 Summary
 
-Integration with cooperative structures and hosting platforms is handled through scoped interfaces, layered safeguards, and the same container and coordination mechanisms that govern other activities. This allows the system to contribute to planning and maintenance tasks while keeping external actions constrained, logged, and open to review.
+Integration with cooperative structures and hosting platforms is handled through scoped interfaces, layered safeguards, and the same container and coordination mechanisms that govern other activities. A small, attached optimizer observes these integrations and proposes incremental refinements, which are evaluated and recorded through the same paths as other self-improvement processes. This allows the system to contribute to planning and maintenance tasks while keeping external actions constrained, logged, and open to review.
