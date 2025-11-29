@@ -51,19 +51,20 @@
 - [27: Heartbeat and Live Cycles](27-heartbeat-and-live-cycles.md)
 - [28: Psychological Safeguards and the PIA Review Loop](28-psychological-safeguards-and-pia.md)
 - [29: Linguistic Foundations and the AAACPE Scraper](29-linguistics-and-aaacpe.md)
-- [30: MountainShares and Web Infrastructure Integration](30-mountainshares-and-infrastructure.md)
-- [31: Fractal Optimization and the 69 DGM Connectors](31-fractal-optimization-and-dgms.md)
-- [32: Language Model Ensemble and Judge Systems in Live Operation](32-llm-ensemble-and-judges.md)
+- [30: AAPCAppE Scraper and Appalachian English Corpus Integration](30-aapcappE-scraper-and-corpus.md)
+- [31: MountainShares and Web Infrastructure Integration](31-mountainshares-and-infrastructure.md)
+- [32: Fractal Optimization and the 69 DGM Connectors](32-fractal-optimization-and-dgms.md)
+- [33: Language Model Ensemble and Judge Systems in Live Operation](33-llm-ensemble-and-judges.md)
 
 ## Part VI: Spiritual Root, Identity, and Governance Mechanisms
 
 - [Section Overview: Spiritual Root, Identity, and Governance Mechanisms](section_part_vi_spiritual_identity_governance.md)
-- [32: Spiritual Root and the Mother Carrie Protocol](32-spiritual-root-and-mother-carrie.md)
-- [33: Swarm Functions and Eternal Watchdogs](33-swarm-functions-and-eternal-watchdogs.md)
-- [34: Identity, Registration, and Two-Part Access Control](34-identity-and-registration.md)
-- [35: Constitutional Principles Service and Governance Layer](35-constitutional-principles-service.md)
-- [36: External Communication Channels and Authority Boundaries](36-external-communication-and-authority.md)
+- [34: Spiritual Root and the Mother Carrie Protocol](34-spiritual-root-and-mother-carrie.md)
+- [35: Swarm Functions and Eternal Watchdogs](35-swarm-functions-and-eternal-watchdogs.md)
+- [36: Identity, Registration, and Two-Part Access Control](36-identity-and-registration.md)
+- [37: Constitutional Principles Service and Governance Layer](37-constitutional-principles-service.md)
+- [38: External Communication Channels and Authority Boundaries](38-external-communication-and-authority.md)
 
 ## Part VII: Evaluation, Risks, and Future Work
 
-- [37: Operational Evaluation of Ms. Jarvis](37-operational-evaluation.md)
+- [39: Operational Evaluation of Ms. Jarvis](39-operational-evaluation.md)
