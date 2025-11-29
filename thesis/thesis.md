@@ -36,3 +36,4 @@
 - [Section Overview: Consciousness Structures and Containers](section_part_iv_consciousness.md)
 - [17: Container Architecture and Routing](17-container-architecture-and-routing.md)
 - [18: First-Stage Evaluation and Immediate Filtering](18-first-stage-evaluation.md)
+- [19: Background Store and Ongoing Review](19-background-store-and-patterns.md)
