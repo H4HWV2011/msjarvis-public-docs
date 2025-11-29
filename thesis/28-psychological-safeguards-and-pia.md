@@ -39,7 +39,7 @@ During live interactions, guidance informs behavior in several ways:
 - Content filters:
   - Outputs that match known problematic patterns may be blocked, softened, or redirected toward safer alternatives.
 
-These mechanisms rely on the same retrieval and container structures described in earlier parts, but focus on interaction risk rather than factual content.
+These mechanisms rely on the same retrieval and container structures described in earlier parts, but focus on interaction risk rather than factual content. They are driven by cues about human well-being and potential harm, not by topic popularity, system health, or curiosity signals from other live cycles.
 
 ## 28.4 The PIA Review Loop
 
@@ -52,7 +52,7 @@ A dedicated review loop periodically examines behavior over windows of time:
 - Outputs:
   - Suggestions for tightening or relaxing specific policies, adding new prompts or templates, or highlighting cases for human review.
 
-The loop runs on a schedule that balances responsiveness with resource use.
+The loop runs on a schedule that balances responsiveness with resource use and can be aligned with other live cycles, such as heartbeat and narrative jobs, so that interaction risk is reviewed alongside technical and operational metrics.
 
 ## 28.5 Integration with Barrier and Global Modes
 
@@ -82,4 +82,4 @@ These records support later evaluation of whether the safeguards are working as 
 
 ## 28.7 Summary
 
-Psychological guidance and the PIA review loop provide a structured way to bring knowledge about human behavior and risk into the system’s operation. They inform live interaction decisions, adjust barrier and mode settings, and create a trail of how concerns and mitigations have evolved, complementing the more technical layers described elsewhere.
+Psychological guidance and the PIA review loop provide a structured way to bring knowledge about human behavior and risk into the system’s operation. They inform live interaction decisions, adjust barrier and mode settings, and create a trail of how concerns and mitigations have evolved, complementing the more technical layers described elsewhere. In combination with the content-focused and status-focused cycles in this part, they ensure that relational and emotional risks are treated as first-class concerns in the same control stack as technical performance and knowledge updates.
