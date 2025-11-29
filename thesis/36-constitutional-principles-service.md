@@ -1,4 +1,4 @@
-# 35. Constitutional Principles Service and Governance Layer
+# 36. Constitutional Principles Service and Governance Layer
 
 This chapter describes the service that exposes high-level principles and rules as a running component in the system. Rather than existing only as documentation, these principles are made available through an interface that other services can call when planning, evaluating, or constraining actions.
 

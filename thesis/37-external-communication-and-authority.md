@@ -1,4 +1,4 @@
-# 35. External Communication Channels and Authority Boundaries
+# 37. External Communication Channels and Authority Boundaries
 
 This chapter describes how the system uses external communication channels, such as email and hosting platforms, and how authority over these channels is constrained by governance, identity, and safeguard mechanisms. The focus is on roles, limits, and recording practices rather than on specific credentials or configuration details.
 

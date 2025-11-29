@@ -1,4 +1,4 @@
-# 34. Identity, Registration, and Two-Part Access Control
+# 35. Identity, Registration, and Two-Part Access Control
 
 This chapter describes how identity and registration are handled for higher-impact capabilities. It outlines a two-part access control process, the treatment of sensitive identifiers, and how these mechanisms connect to barrier, container, and governance layers.
 
