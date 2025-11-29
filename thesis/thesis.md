@@ -24,4 +24,5 @@
 ## Part III: Neurobiological Foundations
 
 - [Section Overview: Neurobiological Foundations](section_part_iii_neurobiology.md)
-- [12: Neurobiological Architecture of Ms. Jarvis](11-neurobiological-architecture.md)
+- [11: Neurobiological Architecture of Ms. Jarvis](11-neurobiological-architecture.md)
+- [12: Qualia Engine and Introspective State](12-qualia-engine-and-introspective-state.md)
