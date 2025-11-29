@@ -53,3 +53,7 @@
 - [29: MountainShares and Web Infrastructure Integration](29-mountainshares-and-infrastructure.md)
 - [30: Fractal Optimization and the 69 DGM Connectors](30-fractal-optimization-and-dgms.md)
 - [31: Language Model Ensemble and Judge Systems in Live Operation](31-llm-ensemble-and-judges.md)
+
+## Part VI: Spiritual Root, Identity, and Governance Mechanisms
+
+- [Section Overview: Spiritual Root, Identity, and Governance Mechanisms](section_part_vi_spiritual_identity_governance.md)
