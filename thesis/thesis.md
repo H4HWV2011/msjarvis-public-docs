@@ -50,9 +50,10 @@
 - [26: Web Research and Autonomous Topic Selection](26-web-research-and-autonomy.md)
 - [27: Heartbeat and Live Cycles](27-heartbeat-and-live-cycles.md)
 - [28: Psychological Safeguards and the PIA Review Loop](28-psychological-safeguards-and-pia.md)
-- [29: MountainShares and Web Infrastructure Integration](29-mountainshares-and-infrastructure.md)
-- [30: Fractal Optimization and the 69 DGM Connectors](30-fractal-optimization-and-dgms.md)
-- [31: Language Model Ensemble and Judge Systems in Live Operation](31-llm-ensemble-and-judges.md)
+- [29: Linguistic Foundations and the AAACPE Scraper](29-linguistics-and-aaacpe.md)
+- [30: MountainShares and Web Infrastructure Integration](30-mountainshares-and-infrastructure.md)
+- [31: Fractal Optimization and the 69 DGM Connectors](31-fractal-optimization-and-dgms.md)
+- [32: Language Model Ensemble and Judge Systems in Live Operation](32-llm-ensemble-and-judges.md)
 
 ## Part VI: Spiritual Root, Identity, and Governance Mechanisms
 
