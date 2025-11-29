@@ -50,7 +50,6 @@
 - [26: Web Research and Autonomous Topic Selection](26-web-research-and-autonomy.md)
 - [27: Heartbeat and Live Cycles](27-heartbeat-and-live-cycles.md)
 - [28: Psychological Safeguards and the PIA Review Loop](28-psychological-safeguards-and-pia.md)
-- [29: Linguistic Foundations and the AAACPE Scraper](29-linguistics-and-aaacpe.md)
 - [30: AAPCAppE Scraper and Appalachian English Corpus Integration](30-aapcappE-scraper-and-corpus.md)
 - [31: MountainShares and Web Infrastructure Integration](31-mountainshares-and-infrastructure.md)
 - [32: Fractal Optimization and the 69 DGM Connectors](32-fractal-optimization-and-dgms.md)
