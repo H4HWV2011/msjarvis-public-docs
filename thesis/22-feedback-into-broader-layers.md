@@ -32,14 +32,14 @@ These updates help answer questions about what the system has been focusing on a
 
 When patterns or central entries are judged important beyond the container layer, they trigger updates to long-term memory:
 
-- Vector collections:
-  - Canonical summaries from deep-retention layers are embedded and stored in appropriate collections with tags linking them to paths, stages, and domains.
-- Belief graph:
-  - New or strengthened relationships discovered through background patterns can be written as edges between existing or newly created nodes.
-- Spatial references:
-  - Entries that involve specific places carry identifiers from the geospatial backend, ensuring that spatial queries can discover them.
+- Vector collections (ChromaDB):
+  - Canonical summaries from deep-retention layers are embedded and stored in specific ChromaDB collections with tags linking them to paths, stages, and domains, making them directly available to retrieval-augmented generation.
+- Belief graph (GBIM):
+  - New or strengthened relationships discovered through background patterns can be written as edges between existing or newly created nodes in the GBIM graph, updating the structured view of actors, places, and norms.
+- Spatial references (GeoDB/PostGIS):
+  - Entries that involve specific places carry identifiers from the PostGIS-backed geodatabase, ensuring that spatial queries and geo-aware retrieval can discover them.
 
-These updates allow later retrieval to surface not only raw documents but also distilled insights from the container processes.
+These updates allow later retrieval pipelines to surface not only raw documents but also distilled insights from the container processes.
 
 ## 22.4 Influence on Global Settings and Coordination
 

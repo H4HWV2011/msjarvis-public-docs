@@ -59,7 +59,7 @@ This representation helps maintain context and traceability even as the system c
 Entries in this layer influence the rest of the system in several ways:
 
 - Retrieval bias:
-  - When new questions arise, retrieval components can give higher weight to items and regions associated with these central entries.
+  - When new questions arise, retrieval components drawing on ChromaDB, GBIM, and GeoDB can give higher weight to items and regions associated with these central entries, shaping which material the retrieval pipeline returns.
 - Evaluation framing:
   - Judge components can consult these entries as reference points when scoring outputs or deciding on constraints.
 - Narrative emphasis:

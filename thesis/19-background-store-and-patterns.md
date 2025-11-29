@@ -93,7 +93,7 @@ The background store connects to other parts of the system in several ways:
 - Introspective layer:
   - Summaries of emerging and stable patterns can be written into introspective records, providing context for current behavior.
 - Consolidation layer:
-  - Promotion decisions can trigger updates to vector collections, belief graphs, and spatial links.
+  - Promotion decisions can trigger updates to vector collections in ChromaDB, belief structures in the GBIM graph, and spatial links in the PostGIS-backed geodatabase, which are then available to the retrieval pipeline.
 - Global control:
   - Observed patterns can inform adjustments to settings, such as emphasis on particular regions, topics, or roles.
 
