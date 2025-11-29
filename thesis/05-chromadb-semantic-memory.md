@@ -1,15 +1,15 @@
 # ChromaDB as Semantic Memory (Draft)
 
-This chapter describes how Ms. Egeria Jarvis uses ChromaDB as the primary semantic memory layer backing the Hilbert-space state and GBIM. ChromaDB is a vector database: it stores high-dimensional embedding vectors with associated metadata and enables efficient similarity search over them. [web:380] In this system, ChromaDB is not just a convenience library; it is the concrete implementation of long-term, queryable memory for documents, GIS features, governance texts, and thesis materials.
+This chapter describes how Ms. Egeria Jarvis uses ChromaDB as the primary semantic memory layer backing the Hilbert-space state and GBIM. ChromaDB is a vector database: it stores high-dimensional embedding vectors with associated metadata and enables efficient similarity search over them. In this system, ChromaDB is not just a convenience library; it is the concrete implementation of long-term, queryable memory for documents, GIS features, governance texts, and thesis materials.
 
-Within the thesis, ChromaDB is treated as the bridge between abstract Hilbert-space state and actual stored knowledge: it is where beliefs, contexts, and references are made durable and retrievable for reasoning and retrieval-augmented generation (RAG). [web:381][web:392]
+Within the thesis, ChromaDB is treated as the bridge between abstract Hilbert-space state and actual stored knowledge: it is where beliefs, contexts, and references are made durable and retrievable for reasoning and retrieval-augmented generation (RAG). 
 
 ## Role in Ms. Jarvis Architecture
 
 In the Ms. Jarvis architecture, ChromaDB plays several key roles:
 
 - Semantic memory store: Embeddings of texts, geospatial entities, and other artifacts are stored in collections, each corresponding to a particular domain (for example, GIS, governance, thesis, logs).
-- Retrieval engine: At query time, services project inputs into the embedding space and use ChromaDB similarity search to retrieve the most relevant items for context and reasoning. [web:382][web:389]
+- Retrieval engine: At query time, services project inputs into the embedding space and use ChromaDB similarity search to retrieve the most relevant items for context and reasoning. 
 - Structural backbone: Because collections and metadata are explicitly defined, ChromaDB’s structure mirrors core parts of GBIM and the thesis organization, making it easier to reason about what Ms. Jarvis “knows” and how that knowledge is organized.
 
 This design makes the memory system inspectable: researchers can see collections, document counts, and metadata, rather than relying on opaque, hidden state.
@@ -23,13 +23,13 @@ ChromaDB is organized into multiple collections, each tuned to a specific type o
 - Thesis and theory: Quantarithmia framework texts, methodological notes, and research memos, enabling Ms. Jarvis to reason about the theory that defines her own architecture.
 - Logs and traces (selected): Curated, privacy-respecting summaries of past interactions or system behaviors, used for method tracking and reflective analysis rather than raw surveillance.
 
-Each collection stores embeddings plus metadata (such as IDs, source type, timestamps, geography tags), allowing queries to be filtered or scoped by domain, time, and place. [web:396]
+Each collection stores embeddings plus metadata (such as IDs, source type, timestamps, geography tags), allowing queries to be filtered or scoped by domain, time, and place. 
 
 ## From Hilbert Space to ChromaDB
 
 Conceptually, ChromaDB is one concrete realization of the Hilbert-space state described in the previous chapter:
 
-- Embeddings as vectors: The embedding model maps texts and entities into a high-dimensional vector space; ChromaDB stores these vectors and exposes operations like nearest-neighbor search. [web:382]
+- Embeddings as vectors: The embedding model maps texts and entities into a high-dimensional vector space; ChromaDB stores these vectors and exposes operations like nearest-neighbor search. 
 - Collections as subspaces: Each ChromaDB collection corresponds to a subspace or region of the overall Hilbert space, grouping related vectors by purpose and domain.
 - Queries as projections: Incoming queries are embedded and then used to probe the relevant collections, effectively projecting the query into the appropriate subspace and retrieving nearby vectors for further reasoning.
 
@@ -49,8 +49,8 @@ This integration ensures that retrieval is not generic web search, but a structu
 
 Running ChromaDB as a production memory layer introduces practical concerns:
 
-- Reliability and persistence: ChromaDB must be configured with durable storage and appropriate backup strategies so that Ms. Jarvis’s long-term memory is not brittle or easily lost. [web:387]
-- Performance and scaling: As collections grow (for example, large GIS corpora or expanding thesis materials), index choices and hardware resources affect query latency and throughput. [web:381]
+- Reliability and persistence: ChromaDB must be configured with durable storage and appropriate backup strategies so that Ms. Jarvis’s long-term memory is not brittle or easily lost. 
+- Performance and scaling: As collections grow (for example, large GIS corpora or expanding thesis materials), index choices and hardware resources affect query latency and throughput. 
 - Security and privacy: Only documentation and research-appropriate content are stored in this public-facing ChromaDB; sensitive operational data, private user information, or secret keys are explicitly excluded, in line with the repository’s “documentation only” boundary.
 
 These operational details connect the conceptual role of ChromaDB to the realities of maintaining a live research and governance-support system.
@@ -59,7 +59,7 @@ These operational details connect the conceptual role of ChromaDB to the realiti
 
 Current use of ChromaDB has limits:
 
-- Model and index dependence: Retrieval quality depends on embedding models, index parameters, and collection design; changes to any of these can alter Ms. Jarvis’s apparent “memory” and must be managed carefully. [web:389]
+- Model and index dependence: Retrieval quality depends on embedding models, index parameters, and collection design; changes to any of these can alter Ms. Jarvis’s apparent “memory” and must be managed carefully. 
 - Semantic gaps: Some types of knowledge (embodied experience, spiritual narratives, complex trauma histories) are difficult to represent as short text embeddings and may require additional representational strategies.
 - Evolving schema: As GBIM and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will likely need revision.
 
