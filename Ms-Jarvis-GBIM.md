@@ -6,7 +6,7 @@ In practice, GBIM combines geospatial data, temporal context, and semantic relat
 
 ## Core GBIM Ideas
 
-- Geospatial anchoring: Beliefs are tied to concrete places using GIS data (for example, 19,155 West Virginia location records) so that analysis is grounded in real communities rather than generic, placeless averages.
+- Geospatial anchoring: Beliefs are tied to concrete places using GIS data (for example, hundreds of thousands of West Virginia geospatial records across infrastructure, population, political, and environmental layers) so that analysis is grounded in real communities rather than generic, placeless averages.
 - Temporal and evidential traceability: Each belief is associated with time (when it was formed or updated) and references to its evidence sources (data, documents, observations), enabling versioned, auditable reasoning over time.
 - Graph and GIS storage: GBIM uses graph-style relationships and geospatial data stores so that connections between people, infrastructures, events, and places can be explored, visualized, and audited instead of disappearing inside a black-box model.
 - Spatial justice lens: By embedding geography directly into the belief structure, Ms. Jarvis can evaluate not just “what is true,” but “who is affected, where, and in what way,” which is essential for spatial justice and community-first design.
