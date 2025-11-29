@@ -57,3 +57,7 @@
 ## Part VI: Spiritual Root, Identity, and Governance Mechanisms
 
 - [Section Overview: Spiritual Root, Identity, and Governance Mechanisms](section_part_vi_spiritual_identity_governance.md)
+
+## Part VII: Evaluation, Risks, and Future Work
+
+- [36: Operational Evaluation of Ms. Jarvis](36-operational-evaluation.md)
