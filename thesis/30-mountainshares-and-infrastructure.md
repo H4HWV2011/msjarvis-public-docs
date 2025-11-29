@@ -64,6 +64,8 @@ Internal structuring mechanisms shape how integration tasks are carried out:
   - The central coordinating component decides when to call integration-related routines, which data to reference, and how to combine outputs with other reasoning steps.
 - Attached optimizer:
   - A dedicated self-improving component monitors how integration routines perform over time and can propose small configuration or workflow changes, subject to the same evaluation and safeguard criteria as other optimizers.
+- Attached optimizer:
+  - A dedicated self-improving component monitors how integration routines perform over time and can propose small configuration or workflow changes, subject to the same evaluation and safeguard criteria as other optimizers.
 - Feedback:
   - Outcomes of integration attempts, including failures and rejections, become part of introspective records and may influence later decisions.
 
