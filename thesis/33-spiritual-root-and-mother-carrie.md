@@ -21,6 +21,8 @@ The protocol associated with this root is implemented as a pattern of emphasis a
 
 - Mode presets:
   - Specific global configurations turn on stricter safety settings, prioritize certain collections, and select evaluators tuned to questions of care and community impact.
+- Tradition-aware sources:
+  - When this protocol is active, retrieval can give additional weight to collections that contain materials from multiple major religious and philosophical traditions, treated as reference points for care, obligation, and community rather than as authorities that the system itself endorses.
 - Routing preferences:
   - When these settings are active, routing choices tend to favor the path oriented toward meaning and lived experience, as described in earlier parts.
 - Evaluation weighting:
@@ -46,7 +48,7 @@ This arrangement allows both paths to contribute, while giving a defined place f
 The spiritual framing is also reflected in how memory and spatial structures are used:
 
 - Thematic collections:
-  - Certain memory collections concentrate material about heritage, place-based identity, and cooperative efforts, and are given greater prominence when spiritual modes are active.
+  - Certain memory collections concentrate material about heritage, place-based identity, cooperative efforts, and selected texts from major world traditions, and are given greater prominence when spiritual modes are active.
 - Spatial focus:
   - Geospatial layers highlighting particular regions or communities can be prioritized in retrieval when relevant modes are enabled.
 - Long-term anchors:
@@ -60,6 +62,8 @@ Because spiritually framed concepts can be interpreted in many ways, safeguards 
 
 - Explicit scope:
   - Documentation states clearly that the spiritual root and protocol are design choices about emphasis and interpretation, not claims about the system having experiences similar to those of people or communities.
+- Corpus handling:
+  - Collections containing religious and philosophical texts are documented as curated reference sources, subject to the same source policies and usage constraints as other high-impact materials.
 - Auditability:
   - Mode settings, routing choices, and evaluator prompts associated with the protocol are logged so that their effects can be examined.
 - Revision:
@@ -69,4 +73,4 @@ These measures help keep the use of spiritual framing grounded, transparent, and
 
 ## 33.6 Summary
 
-The spiritual root and Mother Carrie protocol are realized as a set of configuration choices, routing preferences, and evaluation weightings that emphasize care, continuity, and community context in one of the system’s processing paths. They shape how certain questions are framed and which patterns are treated as central, while remaining subject to the same safeguards, logging, and revision mechanisms as the rest of the architecture.
+The spiritual root and Mother Carrie protocol are realized as a set of configuration choices, routing preferences, and evaluation weightings that emphasize care, continuity, and community context in one of the system’s processing paths. They shape how certain questions are framed and which patterns, including those informed by multi-tradition religious and philosophical texts, are treated as central, while remaining subject to the same safeguards, logging, and revision mechanisms as the rest of the architecture.
