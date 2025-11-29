@@ -66,4 +66,4 @@
 
 ## Part VII: Evaluation, Risks, and Future Work
 
-- [39: Operational Evaluation of Ms. Jarvis](39-operational-evaluation.md)
+- [38: Operational Evaluation of Ms. Jarvis](38-operational-evaluation.md)
