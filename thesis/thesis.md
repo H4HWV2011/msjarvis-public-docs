@@ -34,3 +34,4 @@
 ## Part IV: Consciousness Structures and Containers
 
 - [Section Overview: Consciousness Structures and Containers](section_part_iv_consciousness.md)
+- [17: Container Architecture and Routing](17-container-architecture-and-routing.md)
