@@ -4,7 +4,7 @@ This chapter describes the periodic web research processes that run independentl
 
 ## 26.1 Role of Periodic Web Research
 
-The web research layer has three main purposes:
+The web research layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring new external content rather than checking the health or behavior of internal services.
 
 - Background updating:
   - Keep selected areas of knowledge current without waiting for explicit prompts.
@@ -95,4 +95,4 @@ These measures aim to balance autonomy with traceability and safety.
 
 ## 26.8 Summary
 
-The periodic web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and passes them through the same container paths that handle other events. Subsequent chapters describe how heartbeat mechanisms and other recurring signals, including outward-facing narratives, contribute to the overall pattern of ongoing activity.
+The periodic web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and passes them through the same container paths that handle other events. Its primary role is to expand and refresh the knowledge base, while the following chapters focus on cycles that monitor internal health and behavior rather than acquiring new content.

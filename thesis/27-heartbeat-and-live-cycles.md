@@ -4,7 +4,7 @@ This chapter describes the recurring signals and jobs that indicate the system i
 
 ## 27.1 Purpose of Heartbeat and Live Signals
 
-The recurring signals serve several roles:
+The recurring signals serve several roles. In contrast to periodic web research, these cycles are primarily concerned with the condition and behavior of internal services and workflows, not with bringing in new external material.
 
 - Liveness:
   - Provide evidence that key components are running, reachable, and responsive.
@@ -87,4 +87,4 @@ These controls help keep recurring activity aligned with broader goals and const
 
 ## 27.7 Summary
 
-Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container layers, the system treats its own ongoing operation as part of the context for future decisions. Later chapters build on this foundation to describe additional safeguards and integration points.
+Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container layers, the system treats its own ongoing operation as part of the context for future decisions. Unlike the web research jobs that update factual knowledge, these cycles keep track of how the system itself is performing and how it presents its activity to others, forming an operational history rather than a content feed.
