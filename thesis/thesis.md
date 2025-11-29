@@ -13,6 +13,7 @@
 
 ## Part II: System Architecture and LLM Fabric
 
+- [Section Overview: System Architecture and LLM Fabric](section_part_ii_system_architecture_llm_fabric.md)
 - [06: RAG Pipeline and Routers](06-rag-pipeline-and-routers.md)
 - [07: Quantum-Inspired Entanglement](07-quantum-inspired-entanglement.md)
 - [08: Darwin–Gödel Machines](08-darwin-godel-machines.md)
