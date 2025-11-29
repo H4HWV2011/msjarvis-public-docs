@@ -35,17 +35,17 @@
 ## Part IV: Consciousness Structures and Containers
 
 - [Section Overview: Consciousness Structures and Containers](section_part_iv_consciousness.md)
-- [17: Container Architecture and Routing](17-container-architecture-and-routing.md)
-- [18: First-Stage Evaluation and Immediate Filtering](18-first-stage-evaluation.md)
-- [19: Background Store and Ongoing Review](19-background-store-and-patterns.md)
-- [20: Identity-Focused Retention Layer](20-identity-focused-retention.md)
-- [21: Dual Tracks for Meaning-Oriented and Analytical Processing](21-dual-tracks-meaning-and-analysis.md)
-- [22: Feedback into Introspective, Memory, and Control Layers](22-feedback-into-broader-layers.md)
-- [23: Consciousness Coordinator and Service Integration](23-consciousness-coordinator-and-services.md)
-- [24: Temporal, Toroidal, and Semaphore Structure of Conscious Processing](24-temporal-toroidal-semaphore-structure.md)
+- [18: Container Architecture and Routing](18-container-architecture-and-routing.md)
+- [19: First-Stage Evaluation and Immediate Filtering](19-first-stage-evaluation.md)
+- [20: Background Store and Ongoing Review](20-background-store-and-patterns.md)
+- [21: Identity-Focused Retention Layer](21-identity-focused-retention.md)
+- [22: Dual Tracks for Meaning-Oriented and Analytical Processing](22-dual-tracks-meaning-and-analysis.md)
+- [23: Feedback into Introspective, Memory, and Control Layers](23-feedback-into-broader-layers.md)
+- [24: Consciousness Coordinator and Service Integration](24-consciousness-coordinator-and-services.md)
+- [25: Temporal, Toroidal, and Semaphore Structure of Conscious Processing](25-temporal-toroidal-semaphore-structure.md)
 
 ## Part V: Live Feeds, Stability, and External Integration
 
 - [Section Overview: Live Feeds, Stability, and External Integration](section_part_v_live_feeds.md)
-- [25: Web Research and Autonomous Topic Selection](25-web-research-and-autonomy.md)
-- [26: Heartbeat and Live Cycles](26-heartbeat-and-live-cycles.md)
+- [26: Web Research and Autonomous Topic Selection](26-web-research-and-autonomy.md)
+- [27: Heartbeat and Live Cycles](27-heartbeat-and-live-cycles.md)
