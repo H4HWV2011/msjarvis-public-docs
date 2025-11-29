@@ -26,3 +26,4 @@
 - [Section Overview: Neurobiological Foundations](section_part_iii_neurobiology.md)
 - [11: Neurobiological Architecture of Ms. Jarvis](11-neurobiological-architecture.md)
 - [12: Qualia Engine and Introspective State](12-qualia-engine-and-introspective-state.md)
+- [13: Hippocampus and Memory Consolidation](13-hippocampus-and-memory-consolidation.md)
