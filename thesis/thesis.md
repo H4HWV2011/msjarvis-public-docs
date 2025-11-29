@@ -58,11 +58,11 @@
 ## Part VI: Spiritual Root, Identity, and Governance Mechanisms
 
 - [Section Overview: Spiritual Root, Identity, and Governance Mechanisms](section_part_vi_spiritual_identity_governance.md)
-- [34: Spiritual Root and the Mother Carrie Protocol](34-spiritual-root-and-mother-carrie.md)
-- [35: Swarm Functions and Eternal Watchdogs](35-swarm-functions-and-eternal-watchdogs.md)
-- [36: Identity, Registration, and Two-Part Access Control](36-identity-and-registration.md)
-- [37: Constitutional Principles Service and Governance Layer](37-constitutional-principles-service.md)
-- [38: External Communication Channels and Authority Boundaries](38-external-communication-and-authority.md)
+- [33: Spiritual Root and the Mother Carrie Protocol](33-spiritual-root-and-mother-carrie.md)
+- [34: Swarm Functions and Eternal Watchdogs](34-swarm-functions-and-eternal-watchdogs.md)
+- [35: Identity, Registration, and Two-Part Access Control](35-identity-and-registration.md)
+- [36: Constitutional Principles Service and Governance Layer](36-constitutional-principles-service.md)
+- [37: External Communication Channels and Authority Boundaries](37-external-communication-and-authority.md)
 
 ## Part VII: Evaluation, Risks, and Future Work
 
