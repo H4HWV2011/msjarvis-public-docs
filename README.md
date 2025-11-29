@@ -177,4 +177,4 @@ Ms. Jarvis serves as an aligned AI agent for MountainShares, operating under exp
 - [Researcher Position](thesis/01-researcher-position.md)
 - [API Overview](docs/API-OVERVIEW.md)
 - [Security Overview](security/SECURITY-OVERVIEW.md)
-- [Chapter 10: The LLM Fabric of Ms. Jarvis](thesis/chapter_10_llm_fabric.md)
+- [Ms. Jarvis Thesis](thesis/thesis.md)
