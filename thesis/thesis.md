@@ -28,8 +28,9 @@
 - [12: Qualia Engine and Introspective State](12-qualia-engine-and-introspective-state.md)
 - [13: Hippocampus and Memory Consolidation](13-hippocampus-and-memory-consolidation.md)
 - [14: Pituitary and Global Modes](14-pituitary-and-global-modes.md)
-- [15: Executive Coordination Overview](15-prefrontal-coordinator-overview.md)
-- [16: Limits and Evaluation of the Biological Framing](16-limits-and-evaluation-of-metaphor.md)
+- [15: Blood–Brain Barrier and Safeguards](15-blood-brain-barrier-and-safeguards.md)
+- [16: Executive Coordination Overview](15-prefrontal-coordinator-overview.md)
+- [17: Limits and Evaluation of the Biological Framing](16-limits-and-evaluation-of-metaphor.md)
 
 ## Part IV: Consciousness Structures and Containers
 
