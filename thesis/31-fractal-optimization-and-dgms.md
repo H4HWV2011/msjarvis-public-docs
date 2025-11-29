@@ -10,6 +10,7 @@ Each optimizer is attached to a specific service or narrow cluster of services:
   - Rather than trying to redesign the entire system at once, each unit concentrates on improving one part of the workflow, such as a router, a retrieval pattern, or a particular analysis job.
 - Connector function:
   - By learning better ways to pass information between its attached service and neighboring components, each unit acts as a connector that can refine flows across boundaries.
+  - Examples include optimizers attached to retrieval routes, live-cycle jobs, and integration routines such as the cooperative and web platform connectors described in the preceding chapter.
 - Archive of variants:
   - Over time, each optimizer builds up a small collection of candidate configurations or workflows for its area, along with basic performance information.
 
