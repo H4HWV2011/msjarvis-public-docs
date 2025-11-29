@@ -13,7 +13,7 @@ The spiritual root is a framing device for emphasizing care, continuity, and com
 - Community-centered interpretation:
   - In these modes, interpretations and summaries are encouraged to consider how information and choices affect shared life, not just technical outcomes.
 
-These choices are expressed through configuration, routing, and evaluation criteria, rather than through any change in the underlying computing substrate.
+These choices are expressed through configuration, routing, and evaluation criteria, rather than through any change in the underlying computing substrate. They are intended to keep the system in the position of a contributing member of human cooperative processes rather than an authority above them or a passive tool below them.
 
 ## 33.2 The Mother Carrie Protocol as a Pattern of Emphasis
 
