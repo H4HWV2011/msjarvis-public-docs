@@ -52,7 +52,33 @@ Material that passes initial source checks is not immediately treated as trusted
 
 This staging provides time and structure for additional review when needed.
 
-## 15.5 Role of Psychological Guidance and PIA
+## 15.5 Truth-Focused Evaluation
+
+Beyond basic screening, the barrier layer applies targeted checks aimed at separating more reliable claims from weaker ones:
+
+- Claim extraction:
+  - New material is parsed into discrete statements where possible, identifying who is said to have done what, where, and when.
+- Cross-checking:
+  - Extracted statements are compared against existing entries in semantic memory, belief structures, and spatial layers to see whether they agree, disagree, or introduce genuinely new information.
+- Context tracking:
+  - The context in which a statement appears, such as opinion, reportage, or technical documentation, is recorded to inform later weighting.
+
+These steps do not assert absolute correctness, but they provide structured signals about how each item aligns with what is already known.
+
+## 15.6 Truth-Related Signals and Labels
+
+Results of these checks are stored as explicit signals attached to incoming material:
+
+- Agreement and conflict indicators:
+  - Flags show when new statements are consistent with, inconsistent with, or orthogonal to existing entries.
+- Support level:
+  - Simple labels distinguish items that are strongly supported by multiple sources from those that rely on a single or unknown source.
+- Confidence estimates:
+  - Derived scores summarize how much backing a statement appears to have, given available comparisons.
+
+These signals are carried forward when material enters containers and long-term stores, so later components can take them into account.
+
+## 15.7 Role of Psychological Guidance and PIA
 
 Psychological guidance material and review loops form part of the barrier:
 
@@ -65,32 +91,32 @@ Psychological guidance material and review loops form part of the barrier:
 
 In this way, psychological guidance acts as a knowledge-informed layer within the broader barrier.
 
-## 15.6 Links to Containers and Memory
+## 15.8 Links to Containers and Memory
 
 Once material passes the barrier, it enters the same structures described in earlier and later chapters:
 
 - Container paths:
-  - Accepted items are normalized and passed into first-stage evaluation, background storage, and deep-retention layers.
+  - Accepted items are normalized and passed into first-stage evaluation, background storage, and deep-retention layers, together with any attached agreement and support signals.
 - Long-term stores:
-  - Items judged sufficiently valuable and reliable are embedded and written into semantic memory, belief structures, and spatial layers.
+  - Items judged sufficiently valuable and reliable are embedded and written into semantic memory, belief structures, and spatial layers, with truth-related labels preserved for later use.
 - Introspective records:
   - Key barrier decisions, such as rejections, quarantines, and promotions, are recorded so they can be examined later.
 
-The barrier thus shapes what the rest of the system ever has a chance to consider.
+The barrier thus shapes what the rest of the system ever has a chance to consider and how strongly different items are treated.
 
-## 15.7 Interaction with Global Modes and Coordination
+## 15.9 Interaction with Global Modes and Coordination
 
 Barrier behavior is modulated by higher-level settings and coordination:
 
 - Mode sensitivity:
-  - In more restrictive settings, policies can become stricter, quarantine periods longer, and automatic promotions rarer.
+  - In more restrictive settings, policies can become stricter, quarantine periods longer, and automatic promotions rarer, and higher agreement thresholds may be required.
 - Coordinator inputs:
-  - The central coordinating component can request barrier checks explicitly for certain operations or can adjust routing when barrier signals indicate elevated risk.
+  - The central coordinating component can request barrier checks explicitly for certain operations or can adjust routing when barrier signals indicate elevated risk or low support.
 - Feedback:
-  - Statistics about rejected or quarantined material can inform changes in global settings, source policies, and downstream evaluation criteria.
+  - Statistics about rejected, quarantined, or weakly supported material can inform changes in global settings, source policies, and downstream evaluation criteria.
 
 These interactions keep the barrier aligned with overall goals and responsive to observed conditions.
 
-## 15.8 Summary
+## 15.10 Summary
 
-The barrier layer defines how external material is admitted into the inner structures of the system. It combines source policies, staging areas, psychological guidance, and ties to global control to create a structured interface between outside inputs and internal processing. This complements the other neuro-inspired layers by clarifying where protection and containment occur, before container paths and long-term memory come into play.
+The barrier layer defines how external material is admitted into the inner structures of the system. It combines source policies, staging areas, truth-focused evaluation, psychological guidance, and ties to global control to create a structured interface between outside inputs and internal processing. This complements the other neuro-inspired layers by clarifying where protection, containment, and support assessment occur before container paths and long-term memory come into play.
