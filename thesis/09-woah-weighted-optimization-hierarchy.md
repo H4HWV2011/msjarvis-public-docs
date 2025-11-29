@@ -123,4 +123,4 @@ Several future directions and limitations are important to acknowledge:
     - Used in some flows, partially integrated into the consciousness and chat pipelines.
     - Still dependent on manual configuration, testing, and refinement to reach its intended potential as a fully generalized orchestration hierarchy.
 
-> Status: This chapter is a draft, brutally honest description of WOAH as a WOA-inspired, weighted orchestration layer in Ms. Jarvis. It acknowledges that WOAH is implemented with classical services and heuristics, not as a complete Whale Optimization Algorithm, and identifies future work required to formalize and evaluate its behavior.
+> Status: This chapter is a draft, description of WOAH as a WOA-inspired, weighted orchestration layer in Ms. Jarvis. It acknowledges that WOAH is implemented with classical services and heuristics, not as a complete Whale Optimization Algorithm, and identifies future work required to formalize and evaluate its behavior.
