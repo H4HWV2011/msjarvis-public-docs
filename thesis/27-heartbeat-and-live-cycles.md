@@ -26,7 +26,7 @@ Heartbeat signals are generated in a few primary ways:
 - Aggregated indicators:
   - Simple combined measures, such as counts of successful checks versus failures over a window, support higher-level judgments about health.
 
-In practice, these checks include the components that implement retrieval, such as vector search over internal collections, belief-graph queries, and spatial filters, along with the routing layer that ties them together. When probes detect increased error rates or latency in these components, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve.
+In practice, these checks include calls to the components that implement retrieval and other internal capabilities, but they focus on status and responsiveness rather than on downloading or storing new content. When probes detect increased error rates or latency in these components, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve.
 
 Failures or anomalies in these signals can trigger alerts or mode changes.
 

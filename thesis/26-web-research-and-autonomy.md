@@ -52,7 +52,7 @@ Once topics are chosen, the web research job performs retrieval and initial scre
 - Structuring:
   - Convert retained items into a standard form, including text, metadata, and any available location or entity information.
 
-These steps prepare the material for integration into internal stores.
+These retrieval calls target external content sources configured for browsing and research, rather than internal health or status endpoints. These steps prepare the material for integration into internal stores.
 
 ## 26.5 Integration with Memory and Spatial Layers
 
