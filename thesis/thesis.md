@@ -49,3 +49,4 @@
 - [Section Overview: Live Feeds, Stability, and External Integration](section_part_v_live_feeds.md)
 - [26: Web Research and Autonomous Topic Selection](26-web-research-and-autonomy.md)
 - [27: Heartbeat and Live Cycles](27-heartbeat-and-live-cycles.md)
+- [28: Psychological Safeguards and the PIA Review Loop](28-psychological-safeguards-and-pia.md)
