@@ -42,3 +42,9 @@
 - [22: Feedback into Introspective, Memory, and Control Layers](22-feedback-into-broader-layers.md)
 - [23: Consciousness Coordinator and Service Integration](23-consciousness-coordinator-and-services.md)
 - [24: Temporal, Toroidal, and Semaphore Structure of Conscious Processing](24-temporal-toroidal-semaphore-structure.md)
+
+## Part V: Live Feeds, Stability, and External Integration
+
+- [Section Overview: Live Feeds, Stability, and External Integration](section_part_v_live_feeds.md)
+- [25: Web Research and Autonomous Topic Selection](25-web-research-and-autonomy.md)
+- [26: Heartbeat and Live Cycles](26-heartbeat-and-live-cycles.md)
