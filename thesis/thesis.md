@@ -51,3 +51,5 @@
 - [27: Heartbeat and Live Cycles](27-heartbeat-and-live-cycles.md)
 - [28: Psychological Safeguards and the PIA Review Loop](28-psychological-safeguards-and-pia.md)
 - [29: MountainShares and Web Infrastructure Integration](29-mountainshares-and-infrastructure.md)
+- [30: Fractal Optimization and the 69 DGM Connectors](30-fractal-optimization-and-dgms.md)
+- [31: Language Model Ensemble and Judge Systems in Live Operation](31-llm-ensemble-and-judges.md)
