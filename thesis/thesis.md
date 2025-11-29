@@ -19,9 +19,9 @@
 - [08: Quantum-Inspired Entanglement](07-quantum-inspired-entanglement.md)
 - [09: Darwin–Gödel Machines](08-darwin-godel-machines.md)
 - [10: W.O.A.H. – Weighted Optimization Hierarchy](09-woah-weighted-optimization-hierarchy.md)
-- [11: The LLM Fabric of Ms. Jarvis](chapter_10_llm_fabric.md)
+- [11: The LLM Fabric of Ms. Jarvis](10-llm-fabric-of-ms-jarvis.md)
 
 ## Part III: Neurobiological Foundations
 
 - [Section Overview: Neurobiological Foundations](section_part_iii_neurobiology.md)
-- [11: Neurobiological Architecture of Ms. Jarvis](11-neurobiological-architecture.md)
+- [12: Neurobiological Architecture of Ms. Jarvis](11-neurobiological-architecture.md)
