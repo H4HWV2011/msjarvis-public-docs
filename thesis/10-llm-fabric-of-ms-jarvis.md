@@ -1,8 +1,8 @@
-# 11. The LLM Fabric of Ms. Jarvis
+# 10. The LLM Fabric of Ms. Jarvis
 
 This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes ChromaDB, Neo4j, Redis, and the spatial body described in Chapter 6.
 
-## 11.1 Current Local LLM Inventory
+## 10.1 Current Local LLM Inventory
 
 The current deployment uses a finite set of base models served by Ollama:
 
@@ -13,7 +13,7 @@ The current deployment uses a finite set of base models served by Ollama:
 
 All four are accessed via Ollama’s HTTP interface and are called from FastAPI services in `~/msjarvis-rebuild/services`, with model selection controlled through configuration rather than hard-coded choices. Historically, additional models (such as Gemma, Qwen2, Mixtral, and others) have been downloaded and used for specialized roles, but the active local set is intentionally kept small for operational reasons.
 
-## 11.2 Roles of the Core Models
+## 10.2 Roles of the Core Models
 
 Within Ms. Jarvis, these models play distinct roles:
 
@@ -30,7 +30,7 @@ Within Ms. Jarvis, these models play distinct roles:
 
 These roles can change over time as models are upgraded or replaced, but the pattern of assigning clear responsibilities and avoiding “model sprawl” remains central.
 
-## 11.3 Integration into the GBIM + RAG + GeoDB Stack
+## 10.3 Integration into the GBIM + RAG + GeoDB Stack
 
 The LLMs sit at the top of a multi-layer retrieval and belief architecture:
 
@@ -53,7 +53,7 @@ For each operation, the RAG layer:
 
 The LLMs’ function is thus constrained to narrative, reasoning, and transformation over already-filtered, spatially and semantically grounded context, not free-form hallucination.
 
-## 11.4 LLMs in Consciousness and Autonomy
+## 10.4 LLMs in Consciousness and Autonomy
 
 Key components using the LLMs include:
 
@@ -74,7 +74,7 @@ Key components using the LLMs include:
 
 In these loops, LLMs are components of a retrieval-augmented consciousness pipeline, not standalone agents.
 
-## 11.5 Operational Constraints
+## 10.5 Operational Constraints
 
 Running local LLMs introduces practical constraints:
 
@@ -89,7 +89,7 @@ Running local LLMs introduces practical constraints:
 
 These constraints shape how and when LLMs are invoked, reserving deeper narratives for less frequent conscious ticks and posts, and favoring smaller models or non-LLM logic for routine checks.
 
-## 11.6 Summary
+## 10.6 Summary
 
 This chapter outlined:
 
