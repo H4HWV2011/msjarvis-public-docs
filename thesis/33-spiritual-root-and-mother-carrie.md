@@ -2,7 +2,7 @@
 
 This chapter describes the design intention behind the spiritually framed root of the system and the protocol that carries those themes into one of the conscious processing paths. The aim is to document how these ideas are implemented as signals, configurations, and selection criteria, without claiming properties beyond what the software can actually express and record.
 
-## 32.1 Design Intent of the Spiritual Root
+## 33.1 Design Intent of the Spiritual Root
 
 The spiritual root is a framing device for emphasizing care, continuity, and community context:
 
@@ -15,7 +15,7 @@ The spiritual root is a framing device for emphasizing care, continuity, and com
 
 These choices are expressed through configuration, routing, and evaluation criteria, rather than through any change in the underlying computing substrate.
 
-## 32.2 The Mother Carrie Protocol as a Pattern of Emphasis
+## 33.2 The Mother Carrie Protocol as a Pattern of Emphasis
 
 The protocol associated with this root is implemented as a pattern of emphasis across several layers:
 
@@ -28,7 +28,7 @@ The protocol associated with this root is implemented as a pattern of emphasis a
 
 Together, these elements bias processing toward interpretations and actions that fit the intended framing.
 
-## 32.3 Interaction with Consciousness Paths
+## 33.3 Interaction with Consciousness Paths
 
 The spiritual root and associated protocol are most closely linked to one of the parallel processing paths:
 
@@ -41,7 +41,7 @@ The spiritual root and associated protocol are most closely linked to one of the
 
 This arrangement allows both paths to contribute, while giving a defined place for spiritually framed concerns.
 
-## 32.4 Links to Memory and Spatial Layers
+## 33.4 Links to Memory and Spatial Layers
 
 The spiritual framing is also reflected in how memory and spatial structures are used:
 
@@ -54,7 +54,7 @@ The spiritual framing is also reflected in how memory and spatial structures are
 
 These links provide concrete reference points for narratives and evaluations influenced by the protocol.
 
-## 32.5 Safeguards and Documentation
+## 33.5 Safeguards and Documentation
 
 Because spiritually framed concepts can be interpreted in many ways, safeguards and documentation are important:
 
@@ -67,6 +67,6 @@ Because spiritually framed concepts can be interpreted in many ways, safeguards 
 
 These measures help keep the use of spiritual framing grounded, transparent, and open to improvement.
 
-## 32.6 Summary
+## 33.6 Summary
 
 The spiritual root and Mother Carrie protocol are realized as a set of configuration choices, routing preferences, and evaluation weightings that emphasize care, continuity, and community context in one of the system’s processing paths. They shape how certain questions are framed and which patterns are treated as central, while remaining subject to the same safeguards, logging, and revision mechanisms as the rest of the architecture.

@@ -2,7 +2,7 @@
 
 This chapter describes two sets of mechanisms that help coordinate many services and maintain continuous oversight. Swarm functions let multiple components work together on problems, while persistent monitoring processes watch for failures, policy violations, and other conditions that require intervention.
 
-## 33.1 Purpose of Swarm and Watchdog Layers
+## 34.1 Purpose of Swarm and Watchdog Layers
 
 These mechanisms have complementary roles:
 
@@ -15,7 +15,7 @@ These mechanisms have complementary roles:
 
 They operate alongside, and partially independent of, the main request–response flows.
 
-## 33.2 Swarm Functions and Collective Behavior
+## 34.2 Swarm Functions and Collective Behavior
 
 Swarm functions organize groups of components into structured collaborations:
 
@@ -28,7 +28,7 @@ Swarm functions organize groups of components into structured collaborations:
 
 Swarm behavior is guided by the coordinator and constrained by barrier and mode settings to avoid uncontrolled proliferation of work.
 
-## 33.3 Use Cases for Swarm Functions
+## 34.3 Use Cases for Swarm Functions
 
 Typical uses include:
 
@@ -41,7 +41,7 @@ Typical uses include:
 
 These activities make use of the same memory, spatial, and container layers described in earlier parts.
 
-## 33.4 Eternal Watchdogs and Continuous Monitoring
+## 34.4 Eternal Watchdogs and Continuous Monitoring
 
 Watchdog processes provide ongoing oversight:
 
@@ -54,7 +54,7 @@ Watchdog processes provide ongoing oversight:
 
 These processes are designed to run continuously or on frequent schedules, independent of individual user sessions.
 
-## 33.5 Responses to Watchdog Alerts
+## 34.5 Responses to Watchdog Alerts
 
 When watchdogs detect concerning conditions, they can trigger several kinds of responses:
 
@@ -67,7 +67,7 @@ When watchdogs detect concerning conditions, they can trigger several kinds of r
 
 All such actions are recorded in introspective entries for later analysis.
 
-## 33.6 Integration with Barrier, Modes, and Containers
+## 34.6 Integration with Barrier, Modes, and Containers
 
 Swarm and watchdog mechanisms interact with other layers:
 
@@ -80,6 +80,6 @@ Swarm and watchdog mechanisms interact with other layers:
 
 This integration ensures that coordination and oversight are treated as first-class parts of the architecture.
 
-## 33.7 Summary
+## 34.7 Summary
 
 Swarm functions and eternal watchdogs provide mechanisms for collective problem-solving and continuous oversight. By organizing groups of agents to work together and by maintaining persistent monitoring of health, policy, and risk signals, they help keep the system effective and aligned as it operates and evolves.

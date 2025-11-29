@@ -2,7 +2,7 @@
 
 This chapter describes the layer of self-improving components that sit between services and propose changes to how they operate. These components are based on the Darwin–Gödel Machine concept introduced earlier, but here they are deployed as many small, attached optimizers that together form a fractal pattern across the architecture.
 
-## 30.1 Role of Per-Service Optimizers
+## 31.1 Role of Per-Service Optimizers
 
 Each optimizer is attached to a specific service or narrow cluster of services:
 
@@ -15,7 +15,7 @@ Each optimizer is attached to a specific service or narrow cluster of services:
 
 This distributed arrangement allows many parts of the system to be explored in parallel.
 
-## 30.2 Three-Stage Improvement Cycle
+## 31.2 Three-Stage Improvement Cycle
 
 Each optimizer follows a recurring three-stage cycle:
 
@@ -28,7 +28,7 @@ Each optimizer follows a recurring three-stage cycle:
 
 The cycle repeats over time, aiming to produce small, well-understood improvements rather than large, opaque changes.
 
-## 30.3 Metrics and Constraints
+## 31.3 Metrics and Constraints
 
 Improvement proposals are evaluated against a set of metrics and constraints:
 
@@ -41,7 +41,7 @@ Improvement proposals are evaluated against a set of metrics and constraints:
 
 A proposal is only considered for adoption if it improves relevant performance metrics without degrading stability or safety beyond allowed bounds.
 
-## 30.4 Relationship to Fractal Structure
+## 31.4 Relationship to Fractal Structure
 
 The collection of optimizers has a fractal character:
 
@@ -54,7 +54,7 @@ The collection of optimizers has a fractal character:
 
 This arrangement supports open-ended exploration while keeping each step bounded and interpretable.
 
-## 30.5 Integration with Containers and Memory
+## 31.5 Integration with Containers and Memory
 
 Outputs from the optimizers are integrated through existing structures:
 
@@ -67,7 +67,7 @@ Outputs from the optimizers are integrated through existing structures:
 
 This ensures that self-improvement attempts are treated as part of the system’s history rather than as hidden side effects.
 
-## 30.6 Interaction with Global Control and Barrier
+## 31.6 Interaction with Global Control and Barrier
 
 Higher-level controls shape how and when optimizers can act:
 
@@ -80,6 +80,6 @@ Higher-level controls shape how and when optimizers can act:
 
 These mechanisms keep self-improvement aligned with broader goals and constraints.
 
-## 30.7 Summary
+## 31.7 Summary
 
 The fractal optimization layer consists of many small, service-attached Darwin–Gödel-style components that observe behavior, propose changes, and evaluate their effects. By distributing this process across a network of connectors and tying it into container, memory, and control structures, the system can explore improvements in a structured, traceable way rather than through monolithic updates.

@@ -2,7 +2,7 @@
 
 This chapter describes the component that orchestrates activity across the layers introduced in earlier parts. It explains how a central coordinating process interacts with retrieval, optimization, spatial structures, introspective records, and the container paths described in Part IV, turning many separate services into a coherent whole.
 
-## 23.1 Role of the Coordinator
+## 24.1 Role of the Coordinator
 
 The coordinator has three core responsibilities:
 
@@ -15,7 +15,7 @@ The coordinator has three core responsibilities:
 
 From the outside, this component appears as a single endpoint, but internally it acts as a conductor for many subsystems.
 
-## 23.2 Inputs to the Coordinator
+## 24.2 Inputs to the Coordinator
 
 The coordinator receives requests from several sources:
 
@@ -28,7 +28,7 @@ The coordinator receives requests from several sources:
 
 Each incoming request carries metadata such as role, location tags, and priority, which the coordinator uses to select appropriate workflows.
 
-## 23.3 Connection to Memory and Spatial Structures
+## 24.3 Connection to Memory and Spatial Structures
 
 When preparing to handle a request, the coordinator consults:
 
@@ -41,7 +41,7 @@ When preparing to handle a request, the coordinator consults:
 
 These sources provide the raw material for assembling a context that later components will use.
 
-## 23.4 Interaction with Introspective and Consolidation Layers
+## 24.4 Interaction with Introspective and Consolidation Layers
 
 Before and after main processing, the coordinator reads and writes introspective and consolidated data:
 
@@ -54,7 +54,7 @@ Before and after main processing, the coordinator reads and writes introspective
 
 This interaction ensures that coordination is both informed by and visible in the system’s self-description.
 
-## 23.5 Use of Global Modes and Settings
+## 24.5 Use of Global Modes and Settings
 
 The coordinator applies global settings when planning workflows:
 
@@ -67,7 +67,7 @@ The coordinator applies global settings when planning workflows:
 
 In this way, the same underlying architecture can behave differently depending on the broader environment.
 
-## 23.6 Coordination with Container Paths
+## 24.6 Coordination with Container Paths
 
 The coordinator is closely linked to the container structures described in Part IV:
 
@@ -80,7 +80,7 @@ The coordinator is closely linked to the container structures described in Part 
 
 This connection allows container processes to influence real-time decisions without duplicating their logic elsewhere.
 
-## 23.7 Orchestration of Language Models and Evaluators
+## 24.7 Orchestration of Language Models and Evaluators
 
 When language models or evaluators are needed, the coordinator:
 
@@ -93,7 +93,7 @@ When language models or evaluators are needed, the coordinator:
 
 Results from these calls are combined into structured responses and recorded in introspective entries for later inspection.
 
-## 23.8 Error Handling and Resilience
+## 24.8 Error Handling and Resilience
 
 The coordinator also manages failure modes:
 
@@ -106,6 +106,6 @@ The coordinator also manages failure modes:
 
 These behaviors help keep the system responsive and predictable, even when individual services encounter problems.
 
-## 23.9 Summary
+## 24.9 Summary
 
 The consciousness coordinator ties together memory, spatial structures, introspective records, container paths, global settings, language models, and evaluators. By planning and executing workflows across these components, it turns a collection of services into a single, inspectable process for handling requests and generating self-descriptions. Subsequent implementation-focused work can build on this design to specify concrete APIs, deployment layouts, and monitoring arrangements.

@@ -2,7 +2,7 @@
 
 This chapter describes how identity and registration are handled for higher-impact capabilities. It outlines a two-part access control process, the treatment of sensitive identifiers, and how these mechanisms connect to barrier, container, and governance layers.
 
-## 34.1 Motivation for Strong Identity Controls
+## 35.1 Motivation for Strong Identity Controls
 
 Certain actions have potential effects beyond a single interaction:
 
@@ -15,7 +15,7 @@ Certain actions have potential effects beyond a single interaction:
 
 These concerns motivate stronger registration and identity controls for specific roles and capabilities.
 
-## 34.2 Two-Part Registration Process
+## 35.2 Two-Part Registration Process
 
 For roles that require higher levels of trust, registration involves two main steps:
 
@@ -26,7 +26,7 @@ For roles that require higher levels of trust, registration involves two main st
 
 The combination provides a stronger basis for tying certain actions to specific individuals, while still allowing technical measures for privacy and separation.
 
-## 34.3 Handling of Sensitive Identifiers
+## 35.3 Handling of Sensitive Identifiers
 
 Sensitive registration data is treated differently from general information:
 
@@ -39,7 +39,7 @@ Sensitive registration data is treated differently from general information:
 
 This reduces the chance that sensitive information will leak into contexts where it is not needed.
 
-## 34.4 Links to Roles and Capabilities
+## 35.4 Links to Roles and Capabilities
 
 Registration state is linked to what an individual is allowed to do:
 
@@ -52,7 +52,7 @@ Registration state is linked to what an individual is allowed to do:
 
 These links are enforced at the same points where routing and mode decisions are made.
 
-## 34.5 Interaction with Barrier and Container Layers
+## 35.5 Interaction with Barrier and Container Layers
 
 Identity and registration information interacts with other layers of the architecture:
 
@@ -65,7 +65,7 @@ Identity and registration information interacts with other layers of the archite
 
 This integration allows identity-related structure to influence behavior without exposing raw personal data.
 
-## 34.6 Oversight and Governance
+## 35.6 Oversight and Governance
 
 Identity controls are themselves subject to governance:
 
@@ -78,6 +78,6 @@ Identity controls are themselves subject to governance:
 
 These practices help align identity mechanisms with broader social and legal expectations.
 
-## 34.7 Summary
+## 35.7 Summary
 
 Identity, registration, and two-part access control provide a structured way to connect higher-impact actions to verified individuals, while limiting the spread of sensitive information. By combining document and biometric checks, using indirection for internal references, and linking roles and capabilities to registration state, the system supports accountability and abuse prevention within the same architectural framework used for barrier, container, and governance layers.

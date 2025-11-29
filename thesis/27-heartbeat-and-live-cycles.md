@@ -2,7 +2,7 @@
 
 This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include health checks, periodic narrative generation, and scheduled interactions with external platforms, all of which are recorded and fed back into internal structures.
 
-## 26.1 Purpose of Heartbeat and Live Signals
+## 27.1 Purpose of Heartbeat and Live Signals
 
 The recurring signals serve several roles:
 
@@ -15,7 +15,7 @@ The recurring signals serve several roles:
 
 These functions work together with logging and introspection to make ongoing activity visible.
 
-## 26.2 Core Heartbeat Mechanisms
+## 27.2 Core Heartbeat Mechanisms
 
 Heartbeat signals are generated in a few primary ways:
 
@@ -28,7 +28,7 @@ Heartbeat signals are generated in a few primary ways:
 
 Failures or anomalies in these signals can trigger alerts or mode changes.
 
-## 26.3 Periodic Narrative Jobs
+## 27.3 Periodic Narrative Jobs
 
 Alongside low-level checks, the system runs scheduled jobs that produce narrative outputs:
 
@@ -41,7 +41,7 @@ Alongside low-level checks, the system runs scheduled jobs that produce narrativ
 
 These jobs demonstrate that the system can not only process input but also report on its own state in a structured way.
 
-## 26.4 Social and Platform Cycles
+## 27.4 Social and Platform Cycles
 
 Certain cycles involve specific external platforms:
 
@@ -54,7 +54,7 @@ Certain cycles involve specific external platforms:
 
 These cycles ensure that outward-facing activity remains within controlled bounds.
 
-## 26.5 Integration with Memory and Containers
+## 27.5 Integration with Memory and Containers
 
 Heartbeat and narrative cycles interact with internal layers:
 
@@ -67,7 +67,7 @@ Heartbeat and narrative cycles interact with internal layers:
 
 This integration means that the system’s own ongoing behavior becomes part of what it remembers and reasons about.
 
-## 26.6 Interaction with Safeguards and Control
+## 27.6 Interaction with Safeguards and Control
 
 Live cycles are also constrained by higher-level settings:
 
@@ -80,6 +80,6 @@ Live cycles are also constrained by higher-level settings:
 
 These controls help keep recurring activity aligned with broader goals and constraints.
 
-## 26.7 Summary
+## 27.7 Summary
 
 Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container layers, the system treats its own ongoing operation as part of the context for future decisions. Later chapters build on this foundation to describe additional safeguards and integration points.
