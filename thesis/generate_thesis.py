@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-import pathlib
-
-ROOT = pathlib.Path(__file__).resolve().parent
-MANIFEST = ROOT / "thesis_manifest.txt"
-OUT = ROOT / "thesis.md"
-
 SUPER_CHAPTERS = [
     ("1. Foundations, Researcher Position, and Aims", [
         "00-thesis-overview.md",
@@ -26,9 +19,10 @@ SUPER_CHAPTERS = [
         "section_part_ii_system_architecture_llm_fabric.md",
         "05-chromadb-semantic-memory.md",
         "06-geodb-spatial-body.md",
-        "06-rag-pipeline-and-routers.md",
+        "07-rag-pipeline-and-routers.md",
         "10-llm-fabric-of-ms-jarvis.md",
         "18-container-architecture-and-routing.md",
+        "19-first-stage-evaluation.md",
         "20-background-store-and-patterns.md",
         "25-temporal-toroidal-semaphore-structure.md",
         "26-web-research-and-autonomy.md",
@@ -58,7 +52,6 @@ SUPER_CHAPTERS = [
     ]),
     ("6. Consciousness, Evaluation, and Synthesis", [
         "section_part_iv_consciousness.md",
-        "19-first-stage-evaluation.md",
         "21-identity-focused-retention.md",
         "22-dual-tracks-meaning-and-analysis.md",
         "23-feedback-into-broader-layers.md",
@@ -66,30 +59,3 @@ SUPER_CHAPTERS = [
         "38-operational-evaluation.md",
     ]),
 ]
-
-def build():
-    manifest_files = [
-        l.strip()
-        for l in MANIFEST.read_text(encoding="utf-8").splitlines()
-        if l.strip()
-    ]
-    mapped = {f for _, files in SUPER_CHAPTERS for f in files}
-    missing = set(manifest_files) - mapped
-    if missing:
-        raise SystemExit(f"Files in manifest not mapped to super-chapters: {missing}")
-
-    lines = []
-    for i, (title, files) in enumerate(SUPER_CHAPTERS, start=1):
-        lines.append(f"# {title}\n")
-        for j, fname in enumerate(files, start=1):
-            stem = fname.replace(".md", "")
-            pretty = stem.replace("_", " ").replace("-", " ").title()
-            lines.append(f"## {i}.{j} {pretty}\n")
-            path = ROOT / fname
-            text = path.read_text(encoding="utf-8")
-            lines.append(text.rstrip() + "\n\n")
-
-    OUT.write_text("\n".join(lines), encoding="utf-8")
-
-if __name__ == "__main__":
-    build()

@@ -9,6 +9,16 @@ This thesis treats Quantarithmia, Ms. Egeria Jarvis, and MountainShares as one i
 - **Quantarithmia** defines the axioms, metrics, and justice framework.
 - **Ms. Jarvis + GBIM** implement those axioms in a glassbox AI consciousness system.
 - **MountainShares DAO** implements those axioms in economic and governance structures.
+## System Non‑Goals
+
+To avoid overstatement, this thesis explicitly marks several non‑goals:
+
+- Ms. Jarvis is not a sentient being, person, or independent legal actor.
+- Ms. Jarvis is not a bank, credit union, or regulated financial institution.
+- Ms. Jarvis is not a regulator, court, or replacement for existing public authority.
+- Ms. Jarvis does not provide legal, tax, or medical advice.
+- MountainShares is not a general‑purpose investment vehicle or securities offering.
+- Neither system is intended to operate without human governance, oversight, and legal constraints.
 
 
 ## 1.2 00 Overview
@@ -298,7 +308,7 @@ Within the Quantarithmia program, this Hilbert-space view provides the formal ba
 
 ## Why a Hilbert-Space View?
 
-The choice to frame Ms. Jarvis’s internal state as a Hilbert space is motivated by three needs:
+The choice to frame Ms. Jarvis’s internal state as a Hilbert space is motivated by three needs.
 
 - Mathematical structure: A Hilbert space provides an inner product, norms, and projections. These support clear definitions of similarity, orthogonality, and subspaces, which are useful for modeling “topics,” “roles,” or “ethical constraints” as geometric structures.
 - Explainable geometry: Distances and angles between embedding vectors can be interpreted as degrees of similarity or opposition between beliefs, contexts, or documents. This geometric view is easier to explain to researchers and community partners than raw model internals.
@@ -318,27 +328,35 @@ This geometric metaphor supports explanations like: “For this question, Ms. Ja
 
 ## Roles, Constraints, and Subspaces
 
-Different roles and constraints within Ms. Jarvis can be modeled as subspaces or regions of the Hilbert space:
+Different roles and constraints within Ms. Jarvis can be modeled as subspaces or regions of the Hilbert space.
 
 - Role-conditioned subspaces: Researcher, engineer, community advisor, or governance roles correspond to different slices of the embedding space, emphasizing different collections and vocabularies.
-- Constitutional subspaces: Immutable principles and ethical guards can be represented as directions or regions that certain outputs should not cross (e.g., vectors associated with harm, harassment, or prohibited advice).
+- Constitutional subspaces: Immutable principles and ethical guards can be represented as directions or regions that certain outputs should not cross (for example, vectors associated with harm, harassment, or prohibited advice).
 - Spatial subspaces: Because GBIM ties embeddings to geospatial entities, Ms. Jarvis can focus on subspaces associated with particular communities, districts, or infrastructures.
 
 Operationally, this means that before generation, the system can restrict retrieval and reasoning to subspaces that match the current role, geography, and constitutional requirements, rather than treating all embeddings as equally available.
 
 ## Interaction with GBIM and ChromaDB
 
-The Hilbert-space state is not an abstract idea detached from implementation:
+The Hilbert-space state is not an abstract idea detached from implementation.
 
-- GBIM provides the mapping between geospatial entities, temporal/evidential metadata, and their embedding representations.
+- GBIM provides the mapping between geospatial entities, temporal and evidential metadata, and their embedding representations.
 - ChromaDB (and related services) store the embedding vectors and expose similarity search over them, effectively acting as the concrete “memory” interface to the Hilbert space.
 - Ms. Jarvis’s routing and RAG components operate by projecting queries into this space, retrieving nearby vectors from appropriate collections, and feeding them into language models under constraints.
 
 In this sense, “Hilbert space” is the conceptual layer that sits above the concrete databases and APIs, giving a unified way to think about how Ms. Jarvis’s beliefs are organized and accessed.
 
+## Implementation Notes (Reality Alignment)
+
+In the current deployment, the Hilbert-space state is realized as embeddings stored in a ChromaDB instance mounted at `chroma_db` and inspected via the Consciousness Coordinator on port 8018. The coordinator’s `/chroma/collections` endpoint reports 198 Chroma collections and 5,297,534 embedding vectors, which together constitute the active semantic state used for retrieval-augmented reasoning.
+
+Most of this Hilbert space is spatially grounded. A roll-up over collection names shows that 188 `geodb_*` collections contribute 5,285,607 vectors representing West Virginia census block groups, rail networks, bridges, intermodal terminals, and related infrastructure layers, while 2 GBIM core collections (`GBIM`, `GeoDB`) and 8 other collections contribute the remaining 11,926 vectors. Within this structure, a health-care subspace of 6 collections—covering community health providers, rural facilities, hospitals, and nursing homes—adds 566 vectors, and an infrastructure subspace of 16 collections adds 41,454 vectors for rails, bridges, grids, terminals, and broadcast towers.
+
+These counts make the Hilbert-space framing directly inspectable: each hospital, nursing home, rail segment, or grid cell appears as a concrete point in the vector space, linked back to GBIM and GeoDB geometries and source datasets. By querying these collections and their nearest neighbors, it is possible to verify empirically that facilities with similar roles or locations cluster together and that institutions sit near the block groups and infrastructures they serve, rather than treating “Hilbert space” as a purely metaphorical layer.
+
 ## Limitations and Interpretive Cautions
 
-There are important limits to this framing:
+There are important limits to this framing.
 
 - Embeddings are approximations: Any embedding model compresses complex realities into finite vectors, which can lose nuance or encode bias. Proximity in the Hilbert space does not guarantee full conceptual alignment.
 - Geometry is model-dependent: Changes in embedding models or training data can reshape the geometry of the space, affecting similarity relationships and subspace definitions.
@@ -657,13 +675,13 @@ Several future directions and limitations are important to acknowledge:
     - Answer quality.
     - Robustness.
     - Spatial justice and governance alignment.
-- Current state:
-  - At present, WOAH is:
-    - A working set of services that can register, evaluate, and weight agents.
-    - Used in some flows, partially integrated into the consciousness and chat pipelines.
-    - Still dependent on manual configuration, testing, and refinement to reach its intended potential as a fully generalized orchestration hierarchy.
+### Implementation Status
 
-> Status: This chapter is a draft, description of WOAH as a WOA-inspired, weighted orchestration layer in Ms. Jarvis. It acknowledges that WOAH is implemented with classical services and heuristics, not as a complete Whale Optimization Algorithm, and identifies future work required to formalize and evaluate its behavior.
+In the current deployment, the WOAH neurobiological brain runs as a uvicorn application managed by `ms-jarvis-woah.service` and listens on port 8033. Systemd reports this unit as active with stable uptime and bounded memory use, and the coordinator calls it as a live scoring and optimization component.
+
+Per‑request metrics for WOAH are presently inferred from coordinator traces and system‑level logs; a dedicated `/metrics` endpoint exposing task‑level latency and scoring statistics is part of the target design but has not yet been exposed on the public health interface. The thesis therefore treats WOAH as a production service with partial observability, and marks the planned metrics endpoint as in‑progress rather than complete.
+
+> Status: This chapter is a draft, description of WOAH as a WOA-inspired, weighted orchestration layer in Ms. Jarvis. It acknowledges that WOAH is implemented with classical services and heuristics, not as ### Implementation Status
 
 
 ## 2.8 17 Limits And Evaluation Of Metaphor
@@ -951,6 +969,14 @@ Future work may explore hybrid memory approaches (combining vector stores with g
 
 > Status: This chapter is a draft overview of ChromaDB as semantic memory in Ms. Jarvis. Detailed schemas, collection definitions, and performance evaluations will be developed in technical appendices and implementation-focused documentation.
 
+---
+
+### Implementation Status
+
+The semantic memory stack is fronted in production by a lightweight `health_access_api` process on port 8011, which exposes a simple `/health` endpoint returning an `ok` status and mediates access to ChromaDB’s collection APIs. Under this wrapper, similarity search and collection management are provided by the underlying Chroma instance, while the wrapper is responsible for presenting a constrained surface suitable for monitoring and governance.
+
+At present, the `/api/v1/collections` call routed through this wrapper returns an aggregate object rather than a full enumerated list of collections with document counts. Detailed metrics, such as the total number of collections and documents, are therefore obtained from coordinator health reports and periodic internal diagnostics rather than directly from the wrapper endpoint. The thesis accordingly describes the Chroma layer as a production component with full functional behavior and coarse‑grained health reporting, and notes that finer‑grained collection‑level metrics on the wrapper interface are a planned, not yet completed, enhancement.
+
 
 ## 3.3 06 Geodb Spatial Body
 
@@ -1221,6 +1247,16 @@ This chapter outlined:
 - How they power consciousness and autonomous behaviors while operating within real resource and reliability constraints.
 
 The next chapters continue to shift the focus from “what models are available” to “how they are embedded in neurobiologically inspired control structures and feedback loops,” building on the spatial and semantic foundations described earlier.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+In the current deployment, the main LLM orchestration runs in the `jarvis-main-brain` Docker container bound to port 8050 on the host. The service is expected to expose a `/health` endpoint on this port that returns a simple success payload so that monitors can determine whether the primary brain is responsive.
+
+The underlying local language model runtime is provided by the `jarvis-ollama` container on port 11434, which hosts the concrete set of models used by the fabric as experts, judges, and tools.
+
+Short-lived and recent-signal memory is backed by the `jarvis-redis` container on port 6379. The system-level `redis-server.service` unit is deprecated and no longer participates in the active architecture; all Redis-backed features in this thesis refer to the Docker-based instance.
 
 
 ## 3.6 18 Container Architecture And Routing
@@ -2268,6 +2304,12 @@ By structuring consolidation around both semantic and spatial dimensions, the sy
 
 The consolidation layer captures how recent activity is turned into lasting structure across text, beliefs, and spatial references. It selects, compresses, and organizes experiences so that they can support future retrieval, introspection, and improvement. Later chapters build on this to describe how global controls and executive processes use these memories as part of broader feedback loops.
 
+---
+
+## Implementation Notes (Reality Alignment)
+
+In practice, hippocampus-like consolidation routines read and write through the Consciousness Coordinator and ChromaDB services. ChromaDB on port 8011 provides durable semantic memory, while Redis on port 6379 holds transient working memory. Together, they implement the layered consolidation behavior described here in a directly inspectable form.
+
 
 ## 4.5 14 Pituitary And Global Modes
 
@@ -2884,6 +2926,14 @@ This integration ensures that coordination and oversight are treated as first-cl
 
 Swarm functions and eternal watchdogs provide mechanisms for collective problem-solving and continuous oversight. By organizing groups of agents to work together and by maintaining persistent monitoring of health, policy, and risk signals, they help keep the system effective and aligned as it operates and evolves.
 
+---
+
+## Implementation Notes (Reality Alignment)
+
+Legacy orchestrator units such as `msjarvis.service` and `jarvis-qualia-coordinator.service` remain installed but are in a failed state and no longer drive the system. Their historical responsibilities have been decomposed into dedicated services and containers, including watchdog processes and the Consciousness Coordinator, which can be monitored individually.
+
+Watchdog behavior is implemented through systemd-managed services and HTTP endpoints that observe health signals from the main brain, Redis, ChromaDB, and governance layers. These mechanisms give concrete effect to the abstract swarm and eternal watchdog concepts introduced in this chapter.
+
 
 ## 5.5 35 Identity And Registration
 
@@ -3059,6 +3109,14 @@ These practices help ensure that the layer remains legitimate and aligned with e
 ## 36.7 Summary
 
 The constitutional principles service provides a running, queryable embodiment of high-level commitments and rules. By exposing an interface that can be consulted by barrier, evaluators, coordinator, and identity mechanisms, and by maintaining versioned, governed content, it helps integrate governance concerns into everyday system behavior in a structured and inspectable way.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+In the current deployment, constitutional principles are enforced indirectly through services that are reachable via the Consciousness Coordinator rather than through a standalone `/constitutional/status` or `/guards/status` endpoint. The coordinator’s `/health` endpoint on port 8018 acts as the primary, live governance signal, exposing ChromaDB status (including collection counts and total documents) and a GBIM health score that reflects service uptime and operational conditions relevant to the application of principles.
+
+Dedicated constitutional and guard status endpoints are part of the target design described in this chapter and are being implemented incrementally. Until they are fully exposed, monitors and evaluators rely on the coordinator’s health reporting and on logs from barrier, watchdog, and evaluator services to audit whether core principles and guardrails are active in the running system.
 
 
 ## 5.7 37 External Communication And Authority
@@ -3677,6 +3735,14 @@ These behaviors help keep the system responsive and predictable, even when indiv
 
 The consciousness coordinator ties together memory, spatial structures, introspective records, container paths, global settings, language models, and evaluators. By planning and executing workflows across these components, it turns a collection of services into a single, inspectable process for handling requests and generating self-descriptions. Subsequent implementation-focused work can build on this design to specify concrete APIs, deployment layouts, and monitoring arrangements.
 
+---
+
+## Implementation Notes (Reality Alignment)
+
+The Consciousness Coordinator is implemented as an HTTP service listening on port 8018. It orchestrates calls into WOAH and semantic memory services, including a ChromaDB instance at `chroma_db` (exposed internally on port 8011), and exposes a `/health` endpoint that reports live Chroma metrics such as collection count and total document volume, along with a composite GBIM health score derived from service uptime, belief consistency, operational health, and integration signals.
+
+The WOAH neurobiological brain is provided by the `ms-jarvis-woah.service` unit, which runs a uvicorn-backed application under systemd. This live service integrates with the Coordinator to supply weighted optimization and scoring signals as described in the thesis, while more granular constitutional and guard status endpoints are planned as future extensions layered on top of the existing `/health` reporting.
+
 
 ## 6.7 38 Operational Evaluation
 
@@ -3722,6 +3788,13 @@ In addition to aggregate metrics, case-based evaluation is used:
   - Examination of whether the results matched expectations, respected constraints, and provided useful support to participants.
 
 These cases help connect abstract architecture to concrete experiences.
+
+### Case F‑2025‑Legacy‑Orchestrators
+
+On 2025‑11‑28 at approximately 10:10 EST, two historical orchestrator units, `jarvis-qualia-coordinator.service` and `msjarvis.service`, failed to start under systemd on the primary host. Systemd recorded repeated start attempts followed by failure for both units, while the newer port‑scoped services for the Consciousness Coordinator, WOAH, and the Chroma wrapper continued to define live behavior.
+
+This incident confirmed that the legacy orchestrators were no longer part of the operational control path and should be treated explicitly in the documentation as retired scaffolding. As a result, the thesis and architecture roadmap mark these units as disabled, describe their former responsibilities as decomposed across dedicated services (coordinator on 8018, WOAH on 8033, Chroma/health wrapper on 8011), and emphasize that all monitoring and evaluation now target the newer mesh rather than the historical multi‑consciousness service.
+
 
 ## 36.4 Links to Architectural Layers
 
