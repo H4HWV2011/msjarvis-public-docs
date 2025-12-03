@@ -88,6 +88,6 @@ The constitutional principles service provides a running, queryable embodiment o
 
 ## Implementation Notes (Reality Alignment)
 
-The constitutional layer is realized as HTTP-accessible services that are designed to expose status endpoints such as `/constitutional/status` and `/guards/status` behind the Consciousness Coordinator on port 8018. These endpoints are intended to report whether core principles and guardrails are active, allowing external monitors to audit alignment behavior.
+In the current deployment, constitutional principles are enforced indirectly through services that are reachable via the Consciousness Coordinator rather than through a standalone `/constitutional/status` or `/guards/status` endpoint. The coordinator’s `/health` endpoint on port 8018 acts as the primary, live governance signal, exposing ChromaDB status (including collection counts and total documents) and a GBIM health score that reflects service uptime and operational conditions relevant to the application of principles.
 
-In the current deployment, the underlying services are active, but some of these endpoints either return generic 404 responses or are still being wired into the Coordinator. The architecture in this chapter should therefore be read as describing the target state that the running services are in the process of reaching.
+Dedicated constitutional and guard status endpoints are part of the target design described in this chapter and are being implemented incrementally. Until they are fully exposed, monitors and evaluators rely on the coordinator’s health reporting and on logs from barrier, watchdog, and evaluator services to audit whether core principles and guardrails are active in the running system.
