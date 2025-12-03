@@ -1,20 +1,13 @@
-# Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
+GBIM, as you described in the snippet and thesis draft, is accurately summarized like this:
 
-The Geospatial Belief Information Model (GBIM) is the way Ms. Egeria Jarvis represents and tracks her “beliefs” about the world. Instead of treating knowledge as abstract text only, GBIM anchors beliefs to real geographies (such as specific locations in West Virginia), time, and supporting evidence. The goal is to make every important proposition traceable to where, when, and how it matters on the ground.
+## What GBIM Is
 
-In practice, GBIM combines geospatial data, temporal context, and semantic relationships so that Ms. Jarvis can reason about questions like: “What is happening in Mount Hope’s economy?”, “Which infrastructures shape this region?”, and “How might a particular decision affect specific neighborhoods, nonprofits, or households?”
+GBIM is Ms. Jarvis’s internal model for tying beliefs to where, when, and on what evidence they rest, especially in West Virginia and Appalachia.  Each belief is explicitly attached to concrete places (via a rich PostGIS-backed WV geospatial corpus), temporal metadata (when it was formed/updated and what period it refers to), and evidential links (data sets, documents, observations, or model outputs).
 
-## Core GBIM Ideas
+## How GBIM Is Represented
 
-- Geospatial anchoring: Beliefs are tied to concrete places using GIS data (for example, hundreds of thousands of West Virginia geospatial records across infrastructure, population, political, and environmental layers) so that analysis is grounded in real communities rather than generic, placeless averages.
-- Temporal and evidential traceability: Each belief is associated with time (when it was formed or updated) and references to its evidence sources (data, documents, observations), enabling versioned, auditable reasoning over time.
-- Graph and GIS storage: GBIM uses graph-style relationships and geospatial data stores so that connections between people, infrastructures, events, and places can be explored, visualized, and audited instead of disappearing inside a black-box model.
-- Spatial justice lens: By embedding geography directly into the belief structure, Ms. Jarvis can evaluate not just “what is true,” but “who is affected, where, and in what way,” which is essential for spatial justice and community-first design.
+GBIM combines graph-style relationships between entities (places, infrastructures, events, policies, actors) with geospatial indexing (points, lines, polygons) and temporal/version history.  This allows Ms. Jarvis to answer questions like “what does she believe about this place, at this time, and based on what evidence?” in a way that is auditable by humans, rather than buried in opaque model weights.
 
-## How GBIM Supports MountainShares and Quantarithmia
+## Role in Quantarithmia and MountainShares
 
-- For MountainShares, GBIM helps Ms. Jarvis understand local economic patterns, identify where value is leaking from the community, and evaluate how proposed rules or incentives might impact specific areas or groups.
-- For Quantarithmia, GBIM provides the spatial and evidential backbone needed to analyze maximopolies, megaopolies, and alternative infrastructures in concrete Appalachian contexts rather than in the abstract.
-- For governance, GBIM’s traceability makes it easier to explain why Ms. Jarvis reached a conclusion or recommendation: the system can point back to locations, time frames, and data sets instead of offering unexplainable outputs.
-
-> Status: This document is a draft overview of GBIM. Implementation details, schemas, and research results will be expanded as the system and associated academic work progress.
+Within the Quantarithmia research program, GBIM is the technical realization of spatially grounded, justice-oriented reasoning: it enforces that beliefs include who, where, when, and based on what evidence.  For MountainShares, GBIM supports local economic reasoning, impact analysis of proposed rules across specific geographies, and traceable explanations of Ms. Jarvis’s recommendations as inputs to human governance, not as final decisions.
