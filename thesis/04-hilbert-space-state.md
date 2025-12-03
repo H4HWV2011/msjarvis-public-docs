@@ -55,3 +55,12 @@ There are important limits to this framing:
 Subsequent chapters (on ChromaDB, RAG, and the quantum-inspired entanglement algorithm) build on this foundation by specifying how vectors are stored, retrieved, combined, and constrained in practice.
 
 > Status: This chapter is a draft conceptual overview. More formal mathematical treatment of the state space and its operators may be developed in subsequent thesis work or technical appendices.
+## Implementation Notes (Reality Alignment)
+
+In the current deployment, the Hilbert-space state is realized as embeddings stored in a ChromaDB instance mounted at `chroma_db` and inspected via the Consciousness Coordinator on port 8018. [file:44] As of December 2025, the coordinator’s `/chroma/collections` endpoint reports 198 Chroma collections and 5,297,534 embedding vectors, which together constitute the active semantic state used for retrieval-augmented reasoning. [file:44]
+
+Most of this Hilbert space is spatially grounded. A roll-up over collection names shows that 188 `geodb_*` collections contribute 5,285,607 vectors representing West Virginia census block groups, rail networks, bridges, intermodal terminals, and related infrastructure layers, while 2 GBIM core collections (`GBIM`, `GeoDB`) and 8 other collections contribute the remaining 11,926 vectors. [file:44] Within this structure, a health-care subspace of 6 collections—covering community health providers, rural facilities, hospitals, and nursing homes—adds 566 vectors, and an infrastructure subspace of 16 collections adds 41,454 vectors for rails, bridges, grids, terminals, and broadcast towers. [file:44]
+
+These counts make the Hilbert-space framing directly inspectable: each hospital, nursing home, rail segment, or grid cell appears as a concrete point in the vector space, linked back to GBIM/GeoDB geometries and source datasets. [file:44] By querying these collections and their nearest neighbors, reviewers can empirically verify that facilities with similar roles or locations cluster together and that institutions sit near the block groups and infrastructures they serve, rather than treating “Hilbert space” as a purely metaphorical layer. [file:44]
+
+> Status: This chapter is a draft conceptual overview. More formal mathematical treatment of the state space and its operators may be developed in subsequent thesis work or technical appendices.
