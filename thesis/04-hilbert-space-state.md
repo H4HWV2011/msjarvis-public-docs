@@ -1,7 +1,3 @@
-Here is the same text with all `[1]` markers and the trailing link removed, preserving everything else:
-
-***
-
 # Hilbert-Space State and Embeddings (Draft)
 
 This chapter describes how Ms. Egeria Jarvis uses a Hilbert-space style representation of state: beliefs, memories, and contexts are embedded as vectors in a high-dimensional space where distances and angles correspond to semantic relationships. The goal is not to claim physical quantum computation, but to use a mathematically coherent vector-space model that supports transparent reasoning, retrieval, and constraint application.
