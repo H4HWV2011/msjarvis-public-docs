@@ -1,4 +1,4 @@
-# 20. Identity-Focused Retention Layer
+# 22. Identity-Focused Retention Layer
 
 This chapter describes the most selective stage in each path, where a small subset of material from the background store is treated as central to how the system understands itself and its ongoing commitments. The focus is on criteria and structures for preserving these items, not on any claim of human-like selfhood.
 

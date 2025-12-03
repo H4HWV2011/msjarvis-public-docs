@@ -1,4 +1,4 @@
-# 21. Dual Tracks for Meaning-Oriented and Analytical Processing
+# 23. Dual Tracks for Meaning-Oriented and Analytical Processing
 
 This chapter describes how the three-stage structure outlined in earlier chapters is instantiated twice, forming two parallel paths with different emphases. Both paths share the same intake, filtering, background, and deep-retention pattern, but they differ in what they prioritize, how they label material, and how their outputs are used.
 

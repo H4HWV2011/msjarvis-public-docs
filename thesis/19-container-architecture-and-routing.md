@@ -1,4 +1,4 @@
-# 17. Container Architecture and Routing
+# 19. Container Architecture and Routing
 
 This chapter describes the high-level layout of the structures that receive activity from earlier layers and route it into deeper evaluation paths. The goal is to separate the flow of events into clear stages, so that each stage has a well-defined role in deciding what is ignored, what is kept for background consideration, and what becomes part of a more central store.
 

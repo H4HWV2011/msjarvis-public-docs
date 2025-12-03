@@ -1,4 +1,4 @@
-# 22. Feedback into Introspective, Memory, and Control Layers
+# 24. Feedback into Introspective, Memory, and Control Layers
 
 This chapter explains how material from the container paths flows back into other parts of the system. The goal is to show how decisions made in the intake, filtering, background, and deep-retention stages influence introspective records, long-term memory, and high-level settings, closing the loop between experience and ongoing behavior.
 

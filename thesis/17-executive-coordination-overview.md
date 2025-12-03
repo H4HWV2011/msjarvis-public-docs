@@ -1,4 +1,4 @@
-# 15. Executive Coordination Overview
+# 17. Executive Coordination Overview
 
 This chapter outlines the high-level design of the control layer that decides which subsystems to invoke, in what order, and under which constraints. It serves as a conceptual bridge between the neuro-inspired layers described so far and the more concrete container and service designs that follow in later parts of the work. The focus here is on responsibilities and information flows rather than on specific deployment details.
 

@@ -1,4 +1,4 @@
-# 07. RAG Pipeline and Routers
+# 7. RAG Pipeline and Routers
 
 This chapter explains how Ms. Egeria Jarvis uses a retrieval-augmented generation (RAG) pipeline to answer questions and support governance decisions. In this architecture, language models do not respond from a blank slate; they are constrained and informed by retrieval from ChromaDB, GBIM, the GeoDB/PostGIS layer, and other structured sources, orchestrated through explicit routing and role-aware logic.
 

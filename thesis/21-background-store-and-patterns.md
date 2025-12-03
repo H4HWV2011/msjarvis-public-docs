@@ -1,4 +1,4 @@
-# 19. Background Store and Ongoing Review
+# 21. Background Store and Ongoing Review
 
 This chapter describes the second stage in the container paths, where items that passed the initial filter are held for longer periods and revisited over time. The aim is to move from one-off decisions toward recognition of stable patterns, without yet committing material to the most selective layer.
 

@@ -1,4 +1,4 @@
-# 06. GeoDB and the Spatial Body of Ms. Jarvis
+# 6. GeoDB and the Spatial Body of Ms. Jarvis
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. Instead of treating geography as an afterthought, Ms. Jarvis maintains a live geospatial database and a corresponding vector index that together function as a “spatial body” for the system. This spatial layer is tightly coupled to GBIM and Chroma, so that beliefs and narratives are grounded not only in abstract Hilbert-space embeddings but also in specific buildings, river reaches, floodplains, and infrastructure corridors.
 

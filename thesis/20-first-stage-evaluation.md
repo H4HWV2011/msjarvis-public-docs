@@ -1,4 +1,4 @@
-# 18. First-Stage Evaluation and Immediate Filtering
+# 20. First-Stage Evaluation and Immediate Filtering
 
 This chapter describes the first evaluation stage applied to incoming records after they have been routed into the container paths. The purpose of this stage is to make fast, inexpensive decisions about which items are worth any further attention and which can be safely ignored, while preserving enough information to justify those decisions later.
 

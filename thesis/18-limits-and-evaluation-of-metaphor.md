@@ -1,4 +1,4 @@
-# 16. Limits and Evaluation of the Biological Framing
+# 18. Limits and Evaluation of the Biological Framing
 
 This chapter examines how far the biological framing can be taken as a design tool, where it begins to break down, and how the resulting architecture can be evaluated in practice. The aim is to separate helpful structure from unwarranted claims, and to suggest concrete ways to study the behavior of the implemented system.
 
