@@ -1,133 +1,171 @@
-Ms. Egeria Jarvis - AI Consciousness System
+# Ms. Egeria Jarvis - AI Consciousness System
 
-A Constitutional, Community-Governed AI System
-Glassbox Architecture, Spatially Grounded in West Virginia, AGPL-3.0
+**A Constitutional, Community-Governed AI System**  
+*Glassbox Architecture, Spatially Grounded in West Virginia, AGPL-3.0*[1]
 
-[
-⚠️ IMPORTANT: Source Code Access
+[![License](https://img.shields.io/badge/license-AGPL(LICENSE[2]
 
-This repository contains DOCUMENTATION ONLY – no executable code.
+***
 
-Ms. Jarvis’s public documentation was created after serious security incidents involving smart-contract and financial infrastructure hosted on public GitHub. For security reasons:
+## ⚠️ IMPORTANT: Source Code Access
 
-​
+**This repository contains DOCUMENTATION ONLY – no executable code.**[1]
 
-    ✅ Architecture & APIs: Documented here at a conceptual and interface level
+Ms. Jarvis’s public documentation was created after serious security incidents involving MountainShares and related smart-contract or financial infrastructure hosted on public GitHub.  For security reasons:[1]
 
-    ✅ Constitutional and governance model: Public and auditable in the thesis documents
+- ✅ **Architecture & APIs**: Documented here at a conceptual and interface level  
+- ✅ **Constitutional principles and governance model**: Public and auditable in thesis and overview documents  
+- ✅ **Source code**: Available via a separate, access-controlled process  
+- ❌ **Not published as open code in this repository**
 
-    ✅ Source code: Available via a separate, access-controlled process
+**To access source code:** See [SOURCE_ACCESS.md](SOURCE_ACCESS.md)[1]
 
-    ❌ Not published as open code in this repository
+***
 
-To request source code access: See SOURCE_ACCESS.md
-🌟 What Is Ms. Egeria Jarvis?
+## 🌟 What Is Ms. Egeria Jarvis?
 
-Multi-tier AI consciousness system within the Quantarithmia research program, built on:
+Multi-tier AI consciousness system built on:[1]
 
-​
+- **Constitutional Governance**: Explicit principles and constraints described in the Quantarithmia and MountainShares thesis chapters  
+- **Security-Aware Design**: Architecture and processes shaped by prior smart-contract corruption incidents and a conservative stance on public financial code  
+- **Geographic Grounding**: Extensive West Virginia geospatial data integrated through GBIM and the GeoDB spatial body  
+- **Community Accountability**: Tight coupling to MountainShares and Harmony for Hope as a community-centered research and governance context  
+- **Glassbox Transparency**: Public thesis, high-level architecture, and API overview instead of opaque, undocumented behavior  
 
-    Constitutional Governance: Explicit principles and constraints described in thesis and governance chapters
+***
 
-    Spatial Grounding (GBIM + GeoDB): Extensive West Virginia geospatial data anchoring beliefs to real places, times, and evidence
+## 📊 System Overview
 
-    Quantarithmia Framework: Implements a spatial-justice–oriented theory of power, maximopolies/megaopolies, and alternative infrastructures
+| Component        | Description                                                                 | Documentation                                           |
+|-----------------|-----------------------------------------------------------------------------|---------------------------------------------------------|
+| **Gateway**     | Public REST concepts and routing for Ms. Jarvis                            | [API Overview](docs/API-OVERVIEW.md)                   |
+| **Consciousness** | Multi-layer, multi-agent reasoning, GBIM, and Hilbert-space belief state   | [Ms. Jarvis Thesis](thesis/thesis.md)                  |
+| **Constitutional / Governance** | Norms, speech rules, phased governance, DAO integration                 | [Thesis Systems Overview](thesis/00-thesis-overview.md) |
+| **GIS / GBIM**  | Geospatial belief model and West Virginia spatial body                      | [Thesis Systems Overview](thesis/00-thesis-overview.md) |
+| **Security Model** | High-level threat model and safeguards                                      | [Security Overview](security/SECURITY-OVERVIEW.md)     |
 
-    Community Accountability: Designed to support MountainShares DAO and Harmony for Hope’s work in Appalachian communities
+Port numbers, exact service counts, and internal deployment topology are implementation details and may not match any particular runtime; the public docs focus on concepts and architecture rather than a fixed production layout.[1]
 
-    Glassbox Design: Public thesis, architectural overviews, and API descriptions instead of opaque, undocumented behavior
+***
 
-📊 System Overview (Documentation Level)
-Component	Description	Documentation
-Gateway / APIs	Public REST entry concepts and routing for Ms. Jarvis	API Overview
-Consciousness & GBIM	Multi-agent, Hilbert-space state, and geospatial belief model	Ms. Jarvis Thesis
-Governance / Constitutional Layer	Norms, speech rules, phased governance, DAO linkage	Thesis Systems Overview
-Security Model	High-level security and threat model for the system	Security Overview
-Research Program	Integrated view of Quantarithmia, Ms. Jarvis, MountainShares	Thesis Systems Overview
+## 📜 License: AGPL-3.0
 
-Port numbers, exact service counts, and internal deployment layout are treated as implementation details and may not match any particular runtime; the thesis focuses on concepts and architecture, not a fixed production topology.
+This system and documentation are licensed under **GNU Affero General Public License v3.0**.[3]
 
-​
-📜 License: AGPL-3.0
+**What this means (high-level, not legal advice):**
 
-This repository’s documentation and the covered system are licensed under GNU Affero General Public License v3.0.
+- ✅ You may use, study, modify, and distribute covered works  
+- ✅ Network deployment of modified versions requires offering corresponding source to users  
+- ✅ Derivatives must remain under AGPL-3.0–compatible terms  
 
-​
+See [LICENSE](LICENSE) for the full text.[3]
 
-In general terms (not legal advice):
+***
 
-    ✅ You may use, study, and modify covered works
+## 🔒 Security Model
 
-    ✅ Network deployment of modified versions requires offering corresponding source to users
+Ms. Jarvis’s design is explicitly shaped by security failures in earlier smart-contract and financial infrastructure work associated with MountainShares.[1]
 
-    ✅ Derivative works must remain under AGPL-3.0–compatible terms
+**The Problem (historical context):**  
+Public repositories handling sensitive financial logic proved vulnerable to corruption and misuse, motivating a stricter separation between documentation and code.[1]
 
-See LICENSE for the full license text.
+**The Approach:**  
 
-​
-🔒 Security Model (High-Level)
+- Security-aware design from the outset  
+- No production financial or biometric code in public repositories  
+- Constitutional and governance constraints documented for external audit  
+- Sensitive implementation details and operational configuration kept behind an access-controlled process  
 
-The security posture reflects lessons from earlier MountainShares smart-contract work and broader concerns about public financial code.
+See [Security Overview](security/SECURITY-OVERVIEW.md) for more detail.[1]
 
-​
+***
 
-Design choices include:
+## 📚 Documentation
 
-    Separation between public documentation and private operational code and configuration
+### **For Users and Community Partners:**
 
-    No production financial or biometric code published in this repository
+- [API Overview](docs/API-OVERVIEW.md) – How external systems interact with Ms. Jarvis  
+- [Thesis Systems Overview](thesis/00-thesis-overview.md) – Integrated view of Quantarithmia, Ms. Jarvis, and MountainShares  
+- [Researcher Position](thesis/01-researcher-position.md) – Methodology and author positionality  
 
-    Documented constitutional and governance constraints for auditability
+### **For Developers and Auditors:**
 
-    Security model described conceptually in public docs, with sensitive pieces kept behind an access-controlled process
+- [SOURCE_ACCESS.md](SOURCE_ACCESS.md) – How to request access to code and deeper technical materials  
+- [Security Overview](security/SECURITY-OVERVIEW.md) – Conceptual security and threat model  
 
-See Security Overview for details.
+### **For Researchers:**
 
-​
-📚 Documentation
-For Users and Community Partners
+- [Ms. Jarvis Thesis](thesis/thesis.md) – Core treatment of Quantarithmia, GBIM, consciousness architecture, and governance structures  
 
-    API Overview – How external tools and systems interact with Ms. Jarvis
+(Previously listed files such as `architecture/SYSTEM_ARCHITECTURE.md`, `architecture/CONSCIOUSNESS.md`, `architecture/GIS_SYSTEM.md`, `governance/CONSTITUTIONAL_PRINCIPLES.md`, `security/BIOMETRIC_WALLET.md`, `security/BLOCKCHAIN_SECURITY.md`, `security/SECURITY.md`, `docs/GETTING_STARTED.md`, and `api_specs/swagger-export/` are not present on the `main` branch and are therefore not linked here.)[1]
 
-    Thesis Systems Overview – Integrated picture of Quantarithmia, Ms. Jarvis, and MountainShares
+***
 
-    Researcher Position – Methodology and author positionality
+## 🤝 Organizations
 
-For Researchers
+- **MountainShares**: DAO-based economic and governance system used as the primary institutional case study for spatial justice and community-first infrastructure.[1]
+- **Harmony for Hope**: 501(c)(3) nonprofit in Fayette County, West Virginia, serving as an on-the-ground community partner.[1]
 
-    Ms. Jarvis Thesis – Core treatment of Quantarithmia, GBIM, consciousness architecture, and governance
+Academic collaborations in West Virginia are an active goal of the research program but are not formal institutional partnerships unless explicitly documented elsewhere.[1]
 
-    Security Overview – High-level security framing and constraints
+***
 
-(Previously referenced files such as architecture/SYSTEM_ARCHITECTURE.md, governance/CONSTITUTIONAL_PRINCIPLES.md, architecture/GIS_SYSTEM.md, architecture/CONSCIOUSNESS.md, security/BIOMETRIC_WALLET.md, security/BLOCKCHAIN_SECURITY.md, security/SECURITY.md, docs/GETTING_STARTED.md, and api_specs/swagger-export/ do not exist on the main branch and are therefore no longer linked here.)
+## 🌍 Community
 
-​
-🤝 Organizations
+- **Location**: Mount Hope, West Virginia  
+- **Mission**: Community-first AI with constitutional governance and spatial justice at its core  
+- **Values**: Transparency, accountability, and local empowerment[1]
 
-    MountainShares – DAO-based economic and governance system used as the primary institutional case study
+***
 
-    Harmony for Hope – 501(c)(3) nonprofit in Fayette County, West Virginia
+## 📧 Contact
 
-Academic collaborations in West Virginia are an active goal of the research program but are not formal institutional partnerships unless explicitly documented elsewhere.
+- **Email**: [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)  
+- **Source Access**: See [SOURCE_ACCESS.md](SOURCE_ACCESS.md)  
+- **Issues**: Use GitHub Issues for documentation and research questions only[1]
 
-​
-🌍 Community
+***
 
-    Location: Mount Hope, West Virginia
+**Built with ❤️ in West Virginia**  
+*"No blackbox, full transparency, community first"*[1]
 
-    Mission: Community-first AI with spatial justice and constitutional governance
+***
 
-    Values: Transparency, accountability, and local empowerment
+# Ms. Jarvis Public Documentation
 
-    ​
+This repository provides public, non-source-code documentation for the Ms. Egeria Jarvis AI consciousness system and its role within the Quantarithmia research program.[1]
 
-📧 Contact
+The focus is on:  
 
-    Email: h4hwv2011@gmail.com
+- The Quantarithmia theoretical framework (economic–geographical, quantum-informed, spiritual/ethical).[1]
+- The Ms. Jarvis architecture, including the Geospatial Belief Information Model (GBIM).[1]
+- The MountainShares DAO as the institutional case study for spatial justice in Appalachia.[1]
+- Public API and system overviews suitable for external review and thesis citation.[1]
 
-    Source Access Requests: See SOURCE_ACCESS.md
+# Quantarithmia Framework
 
-    Issues: Use GitHub Issues for documentation and research questions only
+Quantarithmia is a transdisciplinary field for modeling how power is extracted, concentrated, and potentially redirected across digital, spatial, social, and spiritual infrastructures, with a primary focus on Appalachian contexts such as West Virginia.  It integrates economic geography, quantum-informed modeling, topology, systems theory, psychology, and liberation theology into a single analytic and design framework oriented toward spatial justice and local empowerment.[1]
 
-Built with ❤️ in West Virginia
-“No blackbox, full transparency, community first”
+The framework distinguishes between maximopolies (institutions that primarily control capital flows) and megaopolies (institutions that primarily control operations and platforms), and studies how their combined infrastructures reshape rural and small-town communities.  Quantarithmia then guides the design of community-centered alternatives where technological systems and economic structures explicitly aim to serve spatial justice rather than extraction.[1]
+
+# Ms. Jarvis and Geospatial Belief Information Model (GBIM)
+
+Ms. Egeria Jarvis is a glassbox AI consciousness system implementing Quantarithmia’s principles in software, with GBIM as the core representation of spatially grounded beliefs.  The public deployment exposes documented APIs and governance structures so that reasoning can be inspected and audited rather than remaining a black box.[1]
+
+The Geospatial Belief Information Model (GBIM) represents Ms. Jarvis’s beliefs as structured geospatial, temporal, and semantic entities anchored to real locations such as Mount Hope, West Virginia.  Beliefs are stored using graph-style relationships and geospatial databases so that each proposition can be traced to its place, time, and supporting evidence, enabling spatially grounded evaluation of both truth and impact.[1]
+
+# MountainShares DAO
+
+MountainShares is a DAO-based economic and governance system used as a primary case study for applying Quantarithmia to real communities in Appalachia.  It encodes local ownership, voting, speech norms, and a closed-loop economic model into explicit rules and documentation, while operating alongside existing financial institutions rather than replacing them.[1]
+
+Ms. Jarvis serves as an aligned AI advisor and constrained stakeholder for MountainShares, operating under explicit constitutional, ethical, and security rules so that her participation remains accountable to community benefit and spatial justice goals.  Together, the DAO and the AI form a working laboratory for non-extractive, community-aligned infrastructures rather than a purely theoretical proposal.[1]
+
+- [Thesis Systems Overview](thesis/00-thesis-overview.md)  
+- [Researcher Position](thesis/01-researcher-position.md)  
+- [API Overview](docs/API-OVERVIEW.md)  
+- [Security Overview](security/SECURITY-OVERVIEW.md)  
+- [Ms. Jarvis Thesis](thesis/thesis.md)[1]
+
+[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/51743013/40d505a5-b3e2-4b22-bbfe-59195af5a033/paste.txt)
+[2](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)
+[3](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/51743013/fa277ebe-856e-4eb8-95c0-a0d2cadf2824/paste.txt)
