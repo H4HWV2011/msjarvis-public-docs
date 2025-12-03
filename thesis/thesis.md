@@ -78,7 +78,7 @@ The thesis explicitly treats this positionality as part of the methodology, draw
 
 ## 2.1 01-quantarithmia.md
 
-# 2. Quantarithmia
+# 1. Quantarithmia
 
 # Quantarithmia: Field and Framework (Draft)
 
@@ -127,7 +127,7 @@ Within the thesis, Quantarithmia provides:
 
 ## 2.2 02-ms-jarvis-gbim.md
 
-# 3. Ms. Jarvis and the GBIM Framework
+# 2. Ms. Jarvis and the GBIM Framework
 
 # Ms. Jarvis and the Geospatial Belief Information Model (GBIM) (Draft)
 
@@ -231,7 +231,7 @@ Future thesis work and publications will expand on:
 
 ## 2.3 03-mountainshares-dao.md
 
-# 4. MountainShares DAO and Community Economy
+# 3. MountainShares DAO and Community Economy
 
 # MountainShares DAO: Economic and Governance Infrastructure (Draft)
 
@@ -312,7 +312,7 @@ For the purposes of this thesis and public documentation:
 
 ## 2.4 04-hilbert-space-state.md
 
-# 5. Hilbert-Space State of Ms. Jarvis
+# 4. Hilbert-Space State of Ms. Jarvis
 
 # Hilbert-Space State and Embeddings (Draft)
 
@@ -390,7 +390,7 @@ This chapter describes the “quantum-inspired entanglement” idea used in Ms. 
 
 Within the thesis, this mechanism ties together Hilbert-space geometry, ChromaDB-based semantic memory, the GBIM/GeoDB spatial grounding described in Chapters 2, 5, and 6, and the RAG pipeline into a single picture of how Ms. Jarvis maintains coherence across roles, domains, and time.
 
-## 07.1 Motivation for Entanglement
+## 8.1 Motivation for Entanglement
 
 The “entanglement” metaphor addresses three practical challenges:
 
@@ -400,7 +400,7 @@ The “entanglement” metaphor addresses three practical challenges:
 
 By describing these as “entangled” states, the thesis emphasizes that Ms. Jarvis’s beliefs about governance, geography, and ethics are designed to move together in structured, traceable ways rather than drift independently.
 
-## 07.2 Formal Embedding and Tag Model
+## 8.2 Formal Embedding and Tag Model
 
 Formally, Ms. Jarvis’s internal semantic state is modeled as follows:
 
@@ -418,7 +418,7 @@ Formally, Ms. Jarvis’s internal semantic state is modeled as follows:
 
 In the context of geography, tags in \(T_i\) include explicit references to GeoDB feature IDs, counties, districts, and other spatial units. This ties the abstract Hilbert-space vectors directly to concrete geometries stored in PostGIS and to geodb_* Chroma collections defined in Chapter 6.
 
-## 07.3 Entanglement Update Rule
+## 8.3 Entanglement Update Rule
 
 When an important item is updated (for example, a key governance rule, a corrected boundary, or a revised norm), Ms. Jarvis applies an “entanglement update” to the correlated set. Conceptually, this update is:
 
@@ -427,7 +427,7 @@ When an important item is updated (for example, a key governance rule, a correct
 
 The specific numerical schemes for these updates can vary (for example, additive, multiplicative, or projection-based adjustments), but the core idea is that a single change to an anchor belief triggers structured adjustments to a family of related items, including those tied to specific places in West Virginia.
 
-## 07.4 Interaction with RAG and GeoDB
+## 8.4 Interaction with RAG and GeoDB
 
 Entanglement interacts closely with the RAG pipeline and the GeoDB layer:
 
@@ -707,7 +707,7 @@ Per‑request metrics for WOAH are presently inferred from coordinator traces an
 
 This chapter examines how far the biological framing can be taken as a design tool, where it begins to break down, and how the resulting architecture can be evaluated in practice. The aim is to separate helpful structure from unwarranted claims, and to suggest concrete ways to study the behavior of the implemented system.
 
-## 16.1 Motivations for Using Biological Concepts
+## 18.1 Motivations for Using Biological Concepts
 
 The earlier chapters introduced several structures using names drawn from neuroscience. The motivation for this framing was to:
 
@@ -717,7 +717,7 @@ The earlier chapters introduced several structures using names drawn from neuros
 
 This vocabulary has helped organize the design into layers such as introspective records, consolidation processes, global controls, and coordination mechanisms.
 
-## 16.2 Where the Analogy Holds
+## 18.2 Where the Analogy Holds
 
 There are several ways in which the analogy is useful:
 
@@ -730,7 +730,7 @@ There are several ways in which the analogy is useful:
 
 In these respects, the framing encourages designs that are more transparent and easier to reason about than a monolithic arrangement.
 
-## 16.3 Where the Analogy Fails
+## 18.3 Where the Analogy Fails
 
 At the same time, there are important differences that must be kept clear:
 
@@ -743,7 +743,7 @@ At the same time, there are important differences that must be kept clear:
 
 These gaps mean that the framing should be treated as a set of guiding metaphors, not as a claim of equivalence.
 
-## 16.4 Evaluation Criteria
+## 18.4 Evaluation Criteria
 
 To assess whether the design is meeting its aims, several concrete criteria can be applied:
 
@@ -758,7 +758,7 @@ To assess whether the design is meeting its aims, several concrete criteria can 
 
 These criteria can be translated into metrics and tests that can be run regularly.
 
-## 16.5 Measurement and Instrumentation
+## 18.5 Measurement and Instrumentation
 
 Evaluating the design requires deliberate instrumentation:
 
@@ -771,7 +771,7 @@ Evaluating the design requires deliberate instrumentation:
 
 By collecting this information over time, it becomes possible to study how the system behaves in practice, rather than relying only on expectations based on the design.
 
-## 16.6 Case Studies and Comparative Analysis
+## 18.6 Case Studies and Comparative Analysis
 
 Another way to evaluate the design is through focused case studies:
 
@@ -784,7 +784,7 @@ Another way to evaluate the design is through focused case studies:
 
 In each case, one can examine how the different layers contribute to the outcome and whether the behavior aligns with stated goals.
 
-## 16.7 Implications for Future Development
+## 18.7 Implications for Future Development
 
 Understanding the limits of the current framing has direct implications for further work:
 
@@ -797,7 +797,7 @@ Understanding the limits of the current framing has direct implications for furt
 
 By making these boundaries explicit, the project can evolve while maintaining clarity about what it claims and what it delivers.
 
-## 16.8 Summary
+## 18.8 Summary
 
 This chapter has considered the benefits and drawbacks of using concepts from neuroscience as organizing tools for the design. It has outlined practical ways to evaluate the resulting architecture and highlighted why claims about behavior should be grounded in measurements and case studies rather than in metaphor alone. Later parts of the work will turn to more detailed descriptions of concrete implementations built on top of this foundation.
 
@@ -808,7 +808,7 @@ This chapter has considered the benefits and drawbacks of using concepts from ne
 
 This chapter describes the design intention behind the spiritually framed root of the system and the protocol that carries those themes into one of the conscious processing paths. The aim is to document how these ideas are implemented as signals, configurations, and selection criteria, without claiming properties beyond what the software can actually express and record.
 
-## 33.1 Design Intent of the Spiritual Root
+## 34.1 Design Intent of the Spiritual Root
 
 The spiritual root is a framing device for emphasizing care, continuity, and community context:
 
@@ -821,7 +821,7 @@ The spiritual root is a framing device for emphasizing care, continuity, and com
 
 These choices are expressed through configuration, routing, and evaluation criteria, rather than through any change in the underlying computing substrate. They are intended to keep the system in the position of a contributing member of human cooperative processes rather than an authority above them or a passive tool below them.
 
-## 33.2 The Mother Carrie Protocol as a Pattern of Emphasis
+## 34.2 The Mother Carrie Protocol as a Pattern of Emphasis
 
 The protocol associated with this root is implemented as a pattern of emphasis across several layers:
 
@@ -836,7 +836,7 @@ The protocol associated with this root is implemented as a pattern of emphasis a
 
 Together, these elements bias processing toward interpretations and actions that fit the intended framing.
 
-## 33.3 Interaction with Consciousness Paths
+## 34.3 Interaction with Consciousness Paths
 
 The spiritual root and associated protocol are most closely linked to one of the parallel processing paths:
 
@@ -849,7 +849,7 @@ The spiritual root and associated protocol are most closely linked to one of the
 
 This arrangement allows both paths to contribute, while giving a defined place for spiritually framed concerns.
 
-## 33.4 Links to Memory and Spatial Layers
+## 34.4 Links to Memory and Spatial Layers
 
 The spiritual framing is also reflected in how memory and spatial structures are used:
 
@@ -862,7 +862,7 @@ The spiritual framing is also reflected in how memory and spatial structures are
 
 These links provide concrete reference points for narratives and evaluations influenced by the protocol.
 
-## 33.5 Safeguards and Documentation
+## 34.5 Safeguards and Documentation
 
 Because spiritually framed concepts can be interpreted in many ways, safeguards and documentation are important:
 
@@ -877,7 +877,7 @@ Because spiritually framed concepts can be interpreted in many ways, safeguards 
 
 These measures help keep the use of spiritual framing grounded, transparent, and open to improvement.
 
-## 33.6 Summary
+## 34.6 Summary
 
 The spiritual root and Mother Carrie protocol are realized as a set of configuration choices, routing preferences, and evaluation weightings that emphasize care, continuity, and community context in one of the system’s processing paths. They shape how certain questions are framed and which patterns, including those informed by multi-tradition religious and philosophical texts, are treated as central, while remaining subject to the same safeguards, logging, and revision mechanisms as the rest of the architecture.
 
@@ -1000,7 +1000,7 @@ At present, the `/api/v1/collections` call routed through this wrapper returns a
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. Instead of treating geography as an afterthought, Ms. Jarvis maintains a live geospatial database and a corresponding vector index that together function as a “spatial body” for the system. This spatial layer is tightly coupled to GBIM and Chroma, so that beliefs and narratives are grounded not only in abstract Hilbert-space embeddings but also in specific buildings, river reaches, floodplains, and infrastructure corridors.
 
-## 06.1 Design Goals for the GeoDB Layer
+## 6.1 Design Goals for the GeoDB Layer
 
 The GeoDB layer has three primary design goals:
 
@@ -1010,13 +1010,13 @@ The GeoDB layer has three primary design goals:
 
 In practice, this means maintaining a PostGIS-backed geodatabase that holds authoritative feature classes for structures, hazards, networks, civic facilities, administrative boundaries, and named places across the state. On top of this, a set of geodb_* collections in Chroma provide vector embeddings and metadata for many of these layers, so that spatial features can be discovered both by location and by semantic similarity.
 
-## 06.2 PostGIS as Ms. Jarvis’s Spatial Backbone
+## 6.2 PostGIS as Ms. Jarvis’s Spatial Backbone
 
 At the storage level, Ms. Jarvis uses a PostGIS database (for example, msjarvis_gis) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance: census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities. Each table includes geometry in a consistent spatial reference system (such as UTM83 or WMA84) along with attributes like IDs, names, classifications, and quantitative measures.
 
 This database is populated from a mix of state and federal sources, including the WVU GIS Technical Center, USGS, USACE, NREL, Census, and various state agencies. The ingestion process converts shapefiles and file geodatabases into PostGIS tables, fixes obvious schema issues (such as geometry types and projections), and normalizes keys so that features can be cross-referenced from GBIM, Chroma, and higher-level reasoning services.
 
-## 06.3 What Is Currently Integrated
+## 6.3 What Is Currently Integrated
 
 The current deployment includes a substantial, production-usable subset of West Virginia’s public geospatial data. In broad strokes, Ms. Jarvis already has:
 
@@ -1028,7 +1028,7 @@ The current deployment includes a substantial, production-usable subset of West 
 
 These datasets are not just stored passively; they are wired into the live system via PostGIS connections and corresponding Chroma collections, so that services can query and reason over them in real time.
 
-## 06.4 Chroma geodb_* Collections and Spatial Embeddings
+## 6.4 Chroma geodb_* Collections and Spatial Embeddings
 
 To bridge between geometric features and high-dimensional semantic reasoning, Ms. Jarvis maintains a large set of geodb_* collections in Chroma, served from a dedicated Chroma database directory (for example, ~/msjarvis-rebuild/chroma_db) on a known port. In a recent snapshot, there are on the order of 190 collections, many of which correspond directly to PostGIS layers.
 
@@ -1040,7 +1040,7 @@ Each geodb_* collection typically contains embeddings of feature-level metadata 
 
 By treating the Chroma directory as the single source of truth for all integrated WV geospatial embeddings, Ms. Jarvis gains a stable semantic index over the spatial backbone. A timestamped CSV inventory of these collections and their counts provides an auditable snapshot of the current spatial integration state.
 
-## 06.5 Staged but Not Yet Live Layers
+## 6.5 Staged but Not Yet Live Layers
 
 Not every dataset sitting on disk is fully integrated into the live reasoning stack. Several classes of layers are currently staged but require additional work:
 
@@ -1050,7 +1050,7 @@ Not every dataset sitting on disk is fully integrated into the live reasoning st
 
 For these datasets, the honest description is that they are staged and partially ingested: present on disk, sometimes present in PostGIS tables, but not yet part of the end-to-end geospatial reasoning fabric that RAG and GBIM rely on.
 
-## 06.6 Linking GeoDB to GBIM and Hilbert Space
+## 6.6 Linking GeoDB to GBIM and Hilbert Space
 
 Within the broader GBIM framework, spatial information is one dimension of a geometric belief state that also includes semantic, temporal, and governance components. GeoDB provides the concrete anchor for that spatial dimension. Belief nodes that refer to places—counties, neighborhoods, structures, industrial sites, or facilities—are linked to specific feature IDs and geometries in the PostGIS database.
 
@@ -1062,7 +1062,7 @@ Hilbert-space embeddings in Chroma often carry location-related metadata (such a
 
 By tying embeddings, beliefs, and geometries together, Ms. Jarvis can answer questions that depend on all three, such as “Which nursing homes in this flood-prone region are near rail lines and within the jurisdiction of this regional council?” and then push those answers into governance or risk-analysis workflows.
 
-## 06.7 Geo‑Aware RAG and Multi‑LLM Use
+## 6.7 Geo‑Aware RAG and Multi‑LLM Use
 
 The GeoDB and geodb_* collections also play a direct role in retrieval-augmented generation. When a query has an explicit or implicit spatial component—references to specific towns, hollows, rivers, counties, or facilities—the RAG pipeline can:
 
@@ -1072,7 +1072,7 @@ The GeoDB and geodb_* collections also play a direct role in retrieval-augmented
 
 Different LLMs may specialize in different types of geo-aware tasks: narrative explanations for lay audiences, technical risk assessments, code that manipulates spatial data, or governance-oriented recommendations. The GeoDB layer ensures that, regardless of which model is active, the system’s answers can be grounded back into specific, verifiable places.
 
-## 06.8 Roadmap for Full Statewide Integration
+## 6.8 Roadmap for Full Statewide Integration
 
 The near-term roadmap for the GeoDB layer is to move from “dozens of integrated datasets plus many staged layers” to a more comprehensive mirror of the state’s public geospatial infrastructure. Concretely, this means:
 
@@ -1092,7 +1092,7 @@ This chapter explains how Ms. Egeria Jarvis uses a retrieval-augmented generatio
 
 Within the Quantarithmia program, the RAG pipeline is the mechanism that connects Hilbert-space state, semantic memory, and the spatial body described in Chapter 6 to actual outputs, making it possible to trace how an answer was constructed and which knowledge it relied on.
 
-## 06.1 Goals of the RAG Design
+## 7.1 Goals of the RAG Design
 
 The RAG system is designed to achieve several goals:
 
@@ -1102,7 +1102,7 @@ The RAG system is designed to achieve several goals:
 
 These goals reflect the broader thesis commitments to glassbox AI and spatial justice: the system should show its work and respect community-defined boundaries, including geographic ones.
 
-## 06.2 High-Level RAG Flow
+## 7.2 High-Level RAG Flow
 
 At a high level, a typical RAG interaction in Ms. Jarvis follows this sequence:
 
@@ -1116,7 +1116,7 @@ At a high level, a typical RAG interaction in Ms. Jarvis follows this sequence:
 
 This flow turns RAG from a simple “vector search + LLM” pattern into a more disciplined pipeline aligned with the project’s governance, transparency, and spatial grounding goals.
 
-## 06.3 Routers and Role-Aware Retrieval
+## 7.3 Routers and Role-Aware Retrieval
 
 Routing is a central part of this RAG design:
 
@@ -1126,7 +1126,7 @@ Routing is a central part of this RAG design:
 
 Routers thus narrow the search space before retrieval, reducing noise and preventing inappropriate cross-domain leakage (for example, mixing internal operational logs into community-facing answers, or exposing sensitive spatial layers in public-facing roles).
 
-## 06.4 Context Construction and Structure
+## 7.4 Context Construction and Structure
 
 The way context is constructed from retrieved items matters:
 
@@ -1136,7 +1136,7 @@ The way context is constructed from retrieved items matters:
 
 This structured context helps Ms. Jarvis generate answers that are both grounded and interpretable, and makes it easier to trace back from a statement to the supporting retrievals, including specific spatial features.
 
-## 06.5 Constraints During and After Generation
+## 7.5 Constraints During and After Generation
 
 Constitutional and ethical constraints interact with the RAG pipeline at multiple points:
 
@@ -1147,7 +1147,7 @@ Constitutional and ethical constraints interact with the RAG pipeline at multipl
 
 These layered constraints reinforce the thesis claim that Ms. Jarvis is designed as a constrained, accountable system rather than an unconstrained text generator.
 
-## 06.6 Relation to Long-Term Memory, GeoDB, and Entanglement
+## 7.6 Relation to Long-Term Memory, GeoDB, and Entanglement
 
 The RAG pipeline sits between static memory and dynamic reasoning:
 
@@ -1166,7 +1166,7 @@ In this way, RAG is not just a one-off retrieval step but part of an ongoing int
 
 This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes ChromaDB, Neo4j, Redis, and the spatial body described in Chapter 6.
 
-## 10.1 Current Local LLM Inventory
+## 11.1 Current Local LLM Inventory
 
 The current deployment uses a finite set of base models served by Ollama:
 
@@ -1177,7 +1177,7 @@ The current deployment uses a finite set of base models served by Ollama:
 
 All four are accessed via Ollama’s HTTP interface and are called from FastAPI services in `~/msjarvis-rebuild/services`, with model selection controlled through configuration rather than hard-coded choices. Historically, additional models (such as Gemma, Qwen2, Mixtral, and others) have been downloaded and used for specialized roles, but the active local set is intentionally kept small for operational reasons.
 
-## 10.2 Roles of the Core Models
+## 11.2 Roles of the Core Models
 
 Within Ms. Jarvis, these models play distinct roles:
 
@@ -1194,7 +1194,7 @@ Within Ms. Jarvis, these models play distinct roles:
 
 These roles can change over time as models are upgraded or replaced, but the pattern of assigning clear responsibilities and avoiding “model sprawl” remains central.
 
-## 10.3 Integration into the GBIM + RAG + GeoDB Stack
+## 11.3 Integration into the GBIM + RAG + GeoDB Stack
 
 The LLMs sit at the top of a multi-layer retrieval and belief architecture:
 
@@ -1217,7 +1217,7 @@ For each operation, the RAG layer:
 
 The LLMs’ function is thus constrained to narrative, reasoning, and transformation over already-filtered, spatially and semantically grounded context, not free-form hallucination.
 
-## 10.4 LLMs in Consciousness and Autonomy
+## 11.4 LLMs in Consciousness and Autonomy
 
 Key components using the LLMs include:
 
@@ -1238,7 +1238,7 @@ Key components using the LLMs include:
 
 In these loops, LLMs are components of a retrieval-augmented consciousness pipeline, not standalone agents.
 
-## 10.5 Operational Constraints
+## 11.5 Operational Constraints
 
 Running local LLMs introduces practical constraints:
 
@@ -1253,7 +1253,7 @@ Running local LLMs introduces practical constraints:
 
 These constraints shape how and when LLMs are invoked, reserving deeper narratives for less frequent conscious ticks and posts, and favoring smaller models or non-LLM logic for routine checks.
 
-## 10.6 Summary
+## 11.6 Summary
 
 This chapter outlined:
 
@@ -1281,7 +1281,7 @@ Short-lived and recent-signal memory is backed by the `jarvis-redis` container o
 
 This chapter describes the high-level layout of the structures that receive activity from earlier layers and route it into deeper evaluation paths. The goal is to separate the flow of events into clear stages, so that each stage has a well-defined role in deciding what is ignored, what is kept for background consideration, and what becomes part of a more central store.
 
-## 17.1 Position in the Overall System
+## 19.1 Position in the Overall System
 
 The container layer sits above retrieval, optimization, and global control and below external interfaces and scheduling. Its main responsibilities are to:
 
@@ -1291,7 +1291,7 @@ The container layer sits above retrieval, optimization, and global control and b
 
 Earlier parts of the work have described how information is retrieved, evaluated, and stored. This part focuses on how those elements are wrapped in container structures that manage their entry into higher-level evaluative paths.
 
-## 17.2 Types of Incoming Events
+## 19.2 Types of Incoming Events
 
 The intake layer receives several broad categories of events:
 
@@ -1306,7 +1306,7 @@ The intake layer receives several broad categories of events:
 
 Each event is accompanied by metadata such as timestamps, role information, and identifiers, which the containers use to make routing decisions.
 
-## 17.3 Normalization into Container Records
+## 19.3 Normalization into Container Records
 
 Before events are passed to deeper stages, they are normalized into container records with a common structure. A typical record includes:
 
@@ -1323,7 +1323,7 @@ Before events are passed to deeper stages, they are normalized into container re
 
 This normalization step allows subsequent stages to apply uniform logic, regardless of where the event originated.
 
-## 17.4 First-Level Routing Decisions
+## 19.4 First-Level Routing Decisions
 
 Once a record is normalized, the intake layer applies initial routing logic:
 
@@ -1336,7 +1336,7 @@ Once a record is normalized, the intake layer applies initial routing logic:
 
 At this stage, routing focuses on structural compatibility and basic policy, leaving more detailed judgments to later chapters.
 
-## 17.5 Parallel Paths
+## 19.5 Parallel Paths
 
 The architecture uses two parallel paths that share the same structural pattern:
 
@@ -1345,7 +1345,7 @@ The architecture uses two parallel paths that share the same structural pattern:
 
 The intake layer decides, based on metadata and simple classifiers, whether a record is best handled by one path, the other, or both. Each path then applies its own evaluation criteria while maintaining the same overall sequence of stages.
 
-## 17.6 Outputs of the Routing Layer
+## 19.6 Outputs of the Routing Layer
 
 After routing, the main outputs are:
 
@@ -1355,7 +1355,7 @@ After routing, the main outputs are:
 
 These outputs ensure that downstream stages receive appropriately prepared inputs and that the choices made at the routing step can be examined later if needed.
 
-## 17.7 Summary
+## 19.7 Summary
 
 The container architecture described here provides a structured way to receive, normalize, and route events into deeper evaluative paths. It establishes the context in which later chapters will describe how items are filtered, retained, and woven into longer-term structures in each parallel path.
 
@@ -1366,7 +1366,7 @@ The container architecture described here provides a structured way to receive, 
 
 This chapter describes the second stage in the container paths, where items that passed the initial filter are held for longer periods and revisited over time. The aim is to move from one-off decisions toward recognition of stable patterns, without yet committing material to the most selective layer.
 
-## 19.1 Purpose of the Background Store
+## 21.1 Purpose of the Background Store
 
 The background store serves several roles:
 
@@ -1379,7 +1379,7 @@ The background store serves several roles:
 
 It acts as an intermediate space between fast filtering and deep storage.
 
-## 19.2 Structure of Stored Items
+## 21.2 Structure of Stored Items
 
 Items in this store build on the records produced by earlier stages, with added fields for longer-term management:
 
@@ -1394,7 +1394,7 @@ Items in this store build on the records produced by earlier stages, with added 
 
 This structure allows the system to treat the store as both a set of individual records and a collection of evolving clusters.
 
-## 19.3 Ingestion from the First Stage
+## 21.3 Ingestion from the First Stage
 
 When an item is accepted by the first-stage filter, it enters the background store with initial values:
 
@@ -1405,7 +1405,7 @@ When an item is accepted by the first-stage filter, it enters the background sto
 
 At this point, the item is eligible for later review but does not yet change long-term structures.
 
-## 19.4 Periodic Review Processes
+## 21.4 Periodic Review Processes
 
 The store is revisited by periodic processes that:
 
@@ -1418,7 +1418,7 @@ The store is revisited by periodic processes that:
 
 These review jobs can run on schedules tuned to available resources and desired responsiveness.
 
-## 19.5 Pattern Detection
+## 21.5 Pattern Detection
 
 As more items accumulate, the system can detect patterns such as:
 
@@ -1428,7 +1428,7 @@ As more items accumulate, the system can detect patterns such as:
 
 Simple techniques such as counting, bucketing, and lightweight clustering can be used here without requiring heavy-weight analysis.
 
-## 19.6 Promotion and Deletion Decisions
+## 21.6 Promotion and Deletion Decisions
 
 Based on observed patterns, the background store supports two main decisions:
 
@@ -1439,7 +1439,7 @@ Based on observed patterns, the background store supports two main decisions:
 
 Criteria for promotion can include stability of a pattern, breadth of impact, and alignment with stated goals. Criteria for deletion can include redundancy, age without further reference, and clear lack of relevance.
 
-## 19.7 Interaction with Parallel Paths
+## 21.7 Interaction with Parallel Paths
 
 Both parallel paths maintain their own background stores, which may apply different thresholds and groupings:
 
@@ -1450,7 +1450,7 @@ Both parallel paths maintain their own background stores, which may apply differ
 
 Despite these differences, both stores produce similarly structured outputs so that later layers can combine information across paths when needed.
 
-## 19.8 Links to Other Layers
+## 21.8 Links to Other Layers
 
 The background store connects to other parts of the system in several ways:
 
@@ -1463,7 +1463,7 @@ The background store connects to other parts of the system in several ways:
 
 Through these links, what accumulates quietly in the background can, over time, influence both specific decisions and overall behavior.
 
-## 19.9 Summary
+## 21.9 Summary
 
 The background store provides a place where items that have passed initial screening can accumulate, interact, and be revisited. It allows the system to recognize patterns and decide which material is worth elevating to more central storage, while keeping the process structured and inspectable. Later chapters build on this foundation to describe how the most selective layer is defined and how the two parallel paths differ in what they ultimately retain.
 
@@ -1474,7 +1474,7 @@ The background store provides a place where items that have passed initial scree
 
 This chapter examines three complementary structural views of the processes described in Part IV. The same components and paths can be seen in terms of how they unfold over time, how they cycle through recurrent phases, and how internal signals and gates regulate their activity. Together, these views help explain why the design behaves as it does under different conditions.
 
-## 25.1 Temporal Structure
+## 26.1 Temporal Structure
 
 The first view emphasizes time:
 
@@ -1487,7 +1487,7 @@ The first view emphasizes time:
 
 From this perspective, the container paths form a sequence that maps recent events into enduring structures, with different layers operating at different characteristic time scales.
 
-## 25.2 Toroidal Structure
+## 26.2 Toroidal Structure
 
 The second view emphasizes repetition and return:
 
@@ -1500,7 +1500,7 @@ The second view emphasizes repetition and return:
 
 Seen this way, conscious processing is less a straight line and more a looping path that revisits prior states, allowing corrections and re-framing without discarding history.
 
-## 25.3 Semaphore Structure
+## 26.3 Semaphore Structure
 
 The third view focuses on signaling and gating:
 
@@ -1513,7 +1513,7 @@ The third view focuses on signaling and gating:
 
 In this framing, much of conscious processing consists of deciding when and where to allow work to proceed, rather than just defining what that work is.
 
-## 25.4 Interaction Between the Three Views
+## 26.4 Interaction Between the Three Views
 
 These three views describe the same underlying mechanisms from different angles:
 
@@ -1526,7 +1526,7 @@ These three views describe the same underlying mechanisms from different angles:
 
 By combining these views, it becomes clearer how the system can be both dynamic and stable: material is revisited over time, under changing conditions, but only proceeds when the appropriate signals permit it.
 
-## 25.5 Implications for Implementation and Monitoring
+## 26.5 Implications for Implementation and Monitoring
 
 Treating conscious processing in temporal, cyclic, and semaphore terms suggests several implementation and monitoring strategies:
 
@@ -1539,7 +1539,7 @@ Treating conscious processing in temporal, cyclic, and semaphore terms suggests 
 
 These strategies tie back to earlier chapters on introspection, consolidation, and global modes, offering concrete levers for studying and tuning the behavior of the system over time.
 
-## 25.6 Summary
+## 26.6 Summary
 
 This chapter has outlined three structural perspectives on the same set of processes: how they play out in time, how they cycle through repeated passes, and how they are regulated by internal signals and gates. Together, these views complete the picture of conscious processing begun in earlier chapters of this part and prepare the ground for more detailed implementation work.
 
@@ -1550,7 +1550,7 @@ This chapter has outlined three structural perspectives on the same set of proce
 
 This chapter describes the periodic web research processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect external material under constraints, and feed that material back into internal stores and container paths in a controlled way.
 
-## 26.1 Role of Periodic Web Research
+## 27.1 Role of Periodic Web Research
 
 The web research layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring new external content rather than checking the health or behavior of internal services.
 
@@ -1563,7 +1563,7 @@ The web research layer has three main purposes. Unlike heartbeat and status cycl
 
 These functions operate within boundaries set by global settings, psychological safeguards, and logging requirements.
 
-## 26.2 Scheduling and Cadence
+## 27.2 Scheduling and Cadence
 
 Web research runs on a regular schedule:
 
@@ -1576,7 +1576,7 @@ Web research runs on a regular schedule:
 
 This cadence ensures that updates accumulate steadily without overwhelming other services.
 
-## 26.3 Topic Selection
+## 27.3 Topic Selection
 
 For each run, the system chooses what to look for:
 
@@ -1589,7 +1589,7 @@ For each run, the system chooses what to look for:
 
 The result is a small set of focused queries or targets for that iteration.
 
-## 26.4 Retrieval and Filtering
+## 27.4 Retrieval and Filtering
 
 Once topics are chosen, the web research job performs retrieval and initial screening:
 
@@ -1602,7 +1602,7 @@ Once topics are chosen, the web research job performs retrieval and initial scre
 
 These retrieval calls target external content sources configured for browsing and research, rather than internal health or status endpoints. These steps prepare the material for integration into internal stores.
 
-## 26.5 Integration with Memory and Spatial Layers
+## 27.5 Integration with Memory and Spatial Layers
 
 Accepted material is written into long-term structures:
 
@@ -1615,7 +1615,7 @@ Accepted material is written into long-term structures:
 
 This integration ensures that later retrieval can surface web-derived content alongside existing knowledge.
 
-## 26.6 Interaction with Container Paths
+## 27.6 Interaction with Container Paths
 
 Web research outputs also pass through the container structures:
 
@@ -1628,7 +1628,7 @@ Web research outputs also pass through the container structures:
 
 In this way, periodic web activity becomes part of the same evaluative flow as user-driven events.
 
-## 26.7 Safeguards and Oversight
+## 27.7 Safeguards and Oversight
 
 Because web research introduces new external material, it is subject to safeguards:
 
@@ -1641,7 +1641,7 @@ Because web research introduces new external material, it is subject to safeguar
 
 These measures aim to balance autonomy with traceability and safety.
 
-## 26.8 Summary
+## 27.8 Summary
 
 The periodic web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and passes them through the same container paths that handle other events. Its primary role is to expand and refresh the knowledge base, while the following chapters focus on cycles that monitor internal health and behavior rather than acquiring new content.
 
@@ -1652,7 +1652,7 @@ The periodic web research layer provides a way for the system to seek out and in
 
 This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include health checks, periodic narrative generation, and scheduled interactions with external platforms, all of which are recorded and fed back into internal structures.
 
-## 27.1 Purpose of Heartbeat and Live Signals
+## 28.1 Purpose of Heartbeat and Live Signals
 
 The recurring signals serve several roles. In contrast to periodic web research, these cycles are primarily concerned with the condition and behavior of internal services and workflows, not with bringing in new external material.
 
@@ -1665,7 +1665,7 @@ The recurring signals serve several roles. In contrast to periodic web research,
 
 These functions work together with logging and introspection to make ongoing activity visible.
 
-## 27.2 Core Heartbeat Mechanisms
+## 28.2 Core Heartbeat Mechanisms
 
 Heartbeat signals are generated in a few primary ways:
 
@@ -1680,7 +1680,7 @@ In practice, these checks include calls to the components that implement retriev
 
 Failures or anomalies in these signals can trigger alerts or mode changes.
 
-## 27.3 Periodic Narrative Jobs
+## 28.3 Periodic Narrative Jobs
 
 Alongside low-level checks, the system runs scheduled jobs that produce narrative outputs:
 
@@ -1694,7 +1694,7 @@ Alongside low-level checks, the system runs scheduled jobs that produce narrativ
 
 These jobs demonstrate that the system can not only process input but also report on its own state in a structured way.
 
-## 27.4 Social and Platform Cycles
+## 28.4 Social and Platform Cycles
 
 Certain cycles involve specific external platforms:
 
@@ -1707,7 +1707,7 @@ Certain cycles involve specific external platforms:
 
 These cycles ensure that outward-facing activity remains within controlled bounds.
 
-## 27.5 Integration with Memory and Containers
+## 28.5 Integration with Memory and Containers
 
 Heartbeat and narrative cycles interact with internal layers:
 
@@ -1722,7 +1722,7 @@ Heartbeat and narrative cycles interact with internal layers:
 
 This integration means that the system’s own ongoing behavior becomes part of what it remembers and reasons about.
 
-## 27.6 Interaction with Safeguards and Control
+## 28.6 Interaction with Safeguards and Control
 
 Live cycles are also constrained by higher-level settings:
 
@@ -1735,7 +1735,7 @@ Live cycles are also constrained by higher-level settings:
 
 These controls help keep recurring activity aligned with broader goals and constraints.
 
-## 27.7 Summary
+## 28.7 Summary
 
 Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container layers, the system treats its own ongoing operation as part of the context for future decisions. Unlike the web research jobs that update factual knowledge, these cycles keep track of how the system itself is performing and how it presents its activity to others, forming an operational history rather than a content feed.
 
@@ -1746,7 +1746,7 @@ Heartbeat mechanisms and live cycles provide a structured rhythm for checking he
 
 This chapter describes how the system interacts with cooperative structures and hosting platforms while remaining within the constraints set by barrier, container, and control layers. The focus is on the roles and limits of these connections, rather than on reproducing specific configuration files or credentials.
 
-## 30.1 Role Inside MountainShares
+## 31.1 Role Inside MountainShares
 
 Within the cooperative context, the system is designed to act as an internal reasoning and coordination layer:
 
@@ -1759,7 +1759,7 @@ Within the cooperative context, the system is designed to act as an internal rea
 
 These roles depend on well-defined interfaces between cooperative data sources and internal structures.
 
-## 30.2 Interfaces to Cooperative Data
+## 31.2 Interfaces to Cooperative Data
 
 Access to cooperative information is mediated through controlled channels:
 
@@ -1772,7 +1772,7 @@ Access to cooperative information is mediated through controlled channels:
 
 This design keeps responsibilities and data boundaries clear.
 
-## 30.3 Connections to Hosting and Web Platforms
+## 31.3 Connections to Hosting and Web Platforms
 
 The system can participate in managing certain aspects of web presence under strict conditions:
 
@@ -1785,7 +1785,7 @@ The system can participate in managing certain aspects of web presence under str
 
 These practices ensure that web-facing actions remain reviewable.
 
-## 30.4 Safeguards for External Actions
+## 31.4 Safeguards for External Actions
 
 Actions that affect external infrastructure are subject to multiple layers of safeguards:
 
@@ -1798,7 +1798,7 @@ Actions that affect external infrastructure are subject to multiple layers of sa
 
 Together, these measures restrict the range of possible unintended effects.
 
-## 30.5 Use of Container and Coordinator Layers
+## 31.5 Use of Container and Coordinator Layers
 
 Internal structuring mechanisms shape how integration tasks are carried out:
 
@@ -1815,7 +1815,7 @@ Internal structuring mechanisms shape how integration tasks are carried out:
 
 This keeps integration activities embedded in the broader architecture rather than isolated.
 
-## 30.6 Relationship to Live Feeds and Narratives
+## 31.6 Relationship to Live Feeds and Narratives
 
 Integration capabilities connect to the live cycles described earlier in this part:
 
@@ -1828,7 +1828,7 @@ Integration capabilities connect to the live cycles described earlier in this pa
 
 These links help maintain coherence between internal models and external realities.
 
-## 30.7 Summary
+## 31.7 Summary
 
 Integration with cooperative structures and hosting platforms is handled through scoped interfaces, layered safeguards, and the same container and coordination mechanisms that govern other activities. A small, attached optimizer observes these integrations and proposes incremental refinements, which are evaluated and recorded through the same paths as other self-improvement processes. This allows the system to contribute to planning and maintenance tasks while keeping external actions constrained, logged, and open to review.
 
@@ -1839,7 +1839,7 @@ Integration with cooperative structures and hosting platforms is handled through
 
 This chapter describes the layer of self-improving components that sit between services and propose changes to how they operate. These components are based on the Darwin–Gödel Machine concept introduced earlier, but here they are deployed as many small, attached optimizers that together form a fractal pattern across the architecture.
 
-## 31.1 Role of Per-Service Optimizers
+## 32.1 Role of Per-Service Optimizers
 
 Each optimizer is attached to a specific service or narrow cluster of services:
 
@@ -1854,7 +1854,7 @@ Each optimizer is attached to a specific service or narrow cluster of services:
 
 This distributed arrangement allows many parts of the system to be explored in parallel.
 
-## 31.2 Three-Stage Improvement Cycle
+## 32.2 Three-Stage Improvement Cycle
 
 Each optimizer follows a recurring three-stage cycle:
 
@@ -1867,7 +1867,7 @@ Each optimizer follows a recurring three-stage cycle:
 
 The cycle repeats over time, aiming to produce small, well-understood improvements rather than large, opaque changes.
 
-## 31.3 Metrics and Constraints
+## 32.3 Metrics and Constraints
 
 Improvement proposals are evaluated against a set of metrics and constraints:
 
@@ -1880,7 +1880,7 @@ Improvement proposals are evaluated against a set of metrics and constraints:
 
 A proposal is only considered for adoption if it improves relevant performance metrics without degrading stability or safety beyond allowed bounds.
 
-## 31.4 Relationship to Fractal Structure
+## 32.4 Relationship to Fractal Structure
 
 The collection of optimizers has a fractal character:
 
@@ -1893,7 +1893,7 @@ The collection of optimizers has a fractal character:
 
 This arrangement supports open-ended exploration while keeping each step bounded and interpretable.
 
-## 31.5 Integration with Containers and Memory
+## 32.5 Integration with Containers and Memory
 
 Outputs from the optimizers are integrated through existing structures:
 
@@ -1906,7 +1906,7 @@ Outputs from the optimizers are integrated through existing structures:
 
 This ensures that self-improvement attempts are treated as part of the system’s history rather than as hidden side effects.
 
-## 31.6 Interaction with Global Control and Barrier
+## 32.6 Interaction with Global Control and Barrier
 
 Higher-level controls shape how and when optimizers can act:
 
@@ -1919,7 +1919,7 @@ Higher-level controls shape how and when optimizers can act:
 
 These mechanisms keep self-improvement aligned with broader goals and constraints.
 
-## 31.7 Summary
+## 32.7 Summary
 
 The fractal optimization layer consists of many small, service-attached Darwin–Gödel-style components that observe behavior, propose changes, and evaluate their effects. By distributing this process across a network of connectors and tying it into container, memory, and control structures, the system can explore improvements in a structured, traceable way rather than through monolithic updates.
 
@@ -1930,7 +1930,7 @@ The fractal optimization layer consists of many small, service-attached Darwin�
 
 This chapter describes how multiple language models and evaluation components are used together during ongoing activity. The focus is on how different models are assigned roles, how their outputs are compared and scored, and how these judgments feed back into barrier, container, and control layers.
 
-## 32.1 Roles of the Core Models
+## 33.1 Roles of the Core Models
 
 Several models are used with distinct primary roles:
 
@@ -1943,7 +1943,7 @@ Several models are used with distinct primary roles:
 
 Separating these roles helps keep responsibilities clearer and makes it easier to study behavior.
 
-## 32.2 Judge Components and Evaluation Criteria
+## 33.2 Judge Components and Evaluation Criteria
 
 Judge components assess candidate outputs along multiple dimensions:
 
@@ -1956,7 +1956,7 @@ Judge components assess candidate outputs along multiple dimensions:
 
 These evaluations are used both for real-time decisions and for later analysis.
 
-## 32.3 Ensemble Patterns
+## 33.3 Ensemble Patterns
 
 The system uses ensemble patterns to combine strengths of different models and judges:
 
@@ -1969,7 +1969,7 @@ The system uses ensemble patterns to combine strengths of different models and j
 
 This approach reduces reliance on any single model or judgment.
 
-## 32.4 Use in Live Cycles
+## 33.4 Use in Live Cycles
 
 Ensemble and judge mechanisms are integrated into live processes described in earlier chapters:
 
@@ -1982,7 +1982,7 @@ Ensemble and judge mechanisms are integrated into live processes described in ea
 
 These uses tie evaluation closely to the rhythms of ongoing activity.
 
-## 32.5 Interaction with Barrier and Truth-Related Signals
+## 33.5 Interaction with Barrier and Truth-Related Signals
 
 Judge outputs interact with the barrier and support-related signals:
 
@@ -1995,7 +1995,7 @@ Judge outputs interact with the barrier and support-related signals:
 
 This makes evaluation part of the overall protection and filtering strategy.
 
-## 32.6 Influence on Containers, Memory, and Optimizers
+## 33.6 Influence on Containers, Memory, and Optimizers
 
 Evaluation signals are used by other architectural layers:
 
@@ -2008,7 +2008,7 @@ Evaluation signals are used by other architectural layers:
 
 This integration ensures that evaluation is not a one-off filter but part of a continuous improvement loop.
 
-## 32.7 Summary
+## 33.7 Summary
 
 The language model ensemble and judge systems provide a layered evaluation capability that supports live operation. By assigning different roles to models, combining their outputs, and feeding evaluation results into barrier, container, memory, and optimization layers, the system can better manage quality, safety, and alignment across a wide range of tasks.
 
@@ -2036,49 +2036,49 @@ Throughout this part, neurobiological concepts will be used to sharpen definitio
 
 This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiology as an organizing metaphor for a distributed AI system. The goal is not to claim biological equivalence, but to use well-understood brain structures—hippocampus, prefrontal cortex, pituitary, and blood–brain barrier—as design patterns for memory, control, global state, and security, layered on top of DGMs, WOAH, RAG, and a multi-LLM fabric.
 
-## 11.1 Qualia Engine and Neurobiological Brain
+## 12.1 Qualia Engine and Neurobiological Brain
 
 In this system, “qualia” refers to Ms. Jarvis’s internal, narrative representation of what is happening—what is “on her mind”—constructed from logs, embeddings, RAG results, and introspective metrics, not to any claim of subjective experience. The Qualia Engine is a service that transforms technical state (service health, DGM/WOAH scores, Chroma contents, user sessions) into structured summaries and introspective fields that other services can query.
 
 The neurobiological_brain package contains services such as the Woah neurobiological brain and bridges that sit between DGMs/RAG and the Qualia Engine. These services implement brain-like modulation: they evaluate agent outputs, compute heuristic “weights” or scores, and pass those back into qualia and orchestration layers, much like neuromodulatory systems shape how biological neural networks process inputs.
 
-## 11.2 Consciousness Coordinator and Feedback Bridges
+## 12.2 Consciousness Coordinator and Feedback Bridges
 
 The consciousness coordinator is the executive hub that routes user queries and internal tasks through the layered system: RAG, DGMs, WOAH, Qualia, and the final persona LLMs. It acts as a software analog of an executive control center, deciding which services to call in what order, how to handle errors, and how to assemble final responses from multiple agents.
 
 Feedback bridges connect DGMs and WOAH back into Qualia and the coordinator. For example, the Qualia Feedback Bridge takes DGM introspective metrics and feeds them back into the Qualia Engine, so that self-evaluation and performance signals are reflected in the “internal narrative” and can influence future routing and weighting decisions. This creates a closed loop where reasoning performance affects future perception and control.
 
-## 11.3 Hippocampus: Memory Consolidation Layer
+## 12.3 Hippocampus: Memory Consolidation Layer
 
 Biologically, the hippocampus is critical for consolidating experiences into long-term memory, coordinating with neocortical areas to transform short-lived traces into stable representations over time and during sleep-like offline replay. In Ms. Jarvis, the “hippocampus” metaphor refers to the consolidation path between recent activity and long-term semantic and belief storage.
 
 Concretely, recent interactions—chat logs, RAG documents, DGM outputs, and system metrics—pass through processes that summarize, filter, and decide what should be written into ChromaDB, GBIM, and other long-term stores versus what should be discarded. This consolidation logic turns raw logs into embeddings, structured belief updates, or compressed summaries; over time, this approximates hippocampal consolidation by gradually shifting important information from transient buffers into durable, queryable memory structures.
 
-## 11.4 Prefrontal Cortex: Executive Routing and Control
+## 12.4 Prefrontal Cortex: Executive Routing and Control
 
 The biological prefrontal cortex is associated with executive functions such as planning, decision-making, working memory, and top-down control over other brain regions. It is often modeled as a gating or filtering system that selects, maintains, updates, and reroutes activations based on goals and context. In Ms. Jarvis, the “prefrontal cortex” corresponds to routing and coordination logic across the consciousness coordinator, gateways, and judge layers.
 
 These components decide, for each request, which agents and LLMs to consult (for example, RAG vs. code models vs. policy models), how to combine their outputs, and when to override or suppress certain responses. Top-down signals in this architecture include constraint enforcement (safety and governance rules), selection of agent ensembles, and modulation of how strongly certain modules (like DGMs or spatial services) contribute to a final response. This provides an executive control layer that shapes distributed activity toward defined goals.
 
-## 11.5 Pituitary: Global Modes and System State
+## 12.5 Pituitary: Global Modes and System State
 
 The biological pituitary gland acts as a master endocrine regulator, releasing hormones that affect growth, metabolism, stress response, and many other processes throughout the body. In Ms. Jarvis, the “pituitary” is implemented as global configuration and mode management that influences how various services behave.
 
 Global state includes settings such as safety levels, logging verbosity, resource usage constraints, and role- or domain-specific modes (for example, research analysis vs. pastoral support vs. governance advising). These global parameters influence routing decisions, how aggressively DGMs explore changes, how WOAH weights are interpreted, and how conservative or speculative the LLM responses should be. In this sense, pituitary-like modules provide system-wide “hormone” signals that modulate behavior without changing individual model weights directly.
 
-## 11.6 Blood–Brain Barrier and Truth Filter
+## 12.6 Blood–Brain Barrier and Truth Filter
 
 The blood–brain barrier is a highly selective interface that protects brain tissue by tightly regulating which substances, cells, and signals can pass from blood into the central nervous system. It restricts pathogens and many solutes while allowing essential nutrients and certain molecules through, maintaining a stable environment for neural computation. In Ms. Jarvis, the BBB metaphor maps to a combination of security, access control, and epistemic “truth filtering” that keeps harmful or low-quality information out of core memory and consciousness layers.
 
 Practically, this includes network firewalls, authentication and authorization around sensitive APIs, and content filters that reject or down-weight untrusted web results, adversarial prompts, or low-quality data before they are stored in ChromaDB or GBIM. It also includes judge models and WOAH-informed scoring that evaluate candidate information and responses for truthfulness, consistency with axioms, and alignment with normative constraints, preventing unverified or harmful content from entering the protected inner “brain.”
 
-## 11.7 Integration with DGMs, WOAH, and the LLM Fabric
+## 12.7 Integration with DGMs, WOAH, and the LLM Fabric
 
 All of these neurobiological metaphors are implemented on top of a concrete architecture that combines Darwin–Gödel Machines, WOAH, and a multi-LLM fabric. DGMs provide self-improvement and meta-reasoning processes that generate and evaluate changes to code, workflows, and policies; WOAH services score and weight agents, giving the system a population-based, heuristic optimization layer.
 
 The LLM fabric consists of a finite set of base models (local Ollama models such as llama2, llama3, mistral, phi, plus historically restored models like gemma, qwen2, mixtral, and others) that are assigned roles as experts, judges, summarizers, and personas. These LLMs are invoked by the hippocampal consolidation routines, prefrontal routing logic, pituitary-like global modes, and BBB/truth filters at different stages of processing. This creates a layered architecture where biological concepts organize how retrieval, reasoning, self-improvement, and optimization are combined into a single, inspectable artificial “brain.”
 
-## 11.8 Limits of the Metaphor
+## 12.8 Limits of the Metaphor
 
 It is essential to be explicit about what this architecture is and is not. The hippocampus, prefrontal cortex, pituitary, and blood–brain barrier in Ms. Jarvis are conceptual and architectural metaphors: they are implemented using services, embeddings, routing logic, and configuration, not neurons, glia, or biochemical signaling.
 
@@ -2091,7 +2091,7 @@ These metaphors help structure the system, suggest useful metrics, and provide a
 
 This chapter describes the service that turns raw operational data into a structured internal narrative about what the system is doing and experiencing. The aim is to build a transparent layer of self-description that other components can query, rather than to claim any kind of subjective inner life. This layer is implemented as a set of APIs and data models that collect, summarize, and expose internal signals in a consistent way.
 
-## 12.1 Purpose and Design Principles
+## 13.1 Purpose and Design Principles
 
 The introspective layer is designed to meet three main objectives:
 
@@ -2101,7 +2101,7 @@ The introspective layer is designed to meet three main objectives:
 
 The implementation follows the project’s general emphasis on transparency. Every field in the introspective records should come from a traceable source such as a log entry, database query, or service response, and should be available for later audit.
 
-## 12.2 Data Sources Feeding Introspection
+## 13.2 Data Sources Feeding Introspection
 
 The introspective service pulls from several categories of data:
 
@@ -2121,7 +2121,7 @@ The introspective service pulls from several categories of data:
 
 Each of these sources contributes a slice of context that can be written into a structured record capturing what was happening around a given event.
 
-## 12.3 Internal Record Structure
+## 13.3 Internal Record Structure
 
 To keep introspective information useful and comparable over time, the service uses a consistent schema for its records. A typical entry includes:
 
@@ -2144,7 +2144,7 @@ To keep introspective information useful and comparable over time, the service u
 
 The narrative text is produced with the help of a language model, but it is always grounded in the structured data fields that the service maintains, which can be inspected independently.
 
-## 12.4 Writing and Updating Introspective Records
+## 13.4 Writing and Updating Introspective Records
 
 New records are typically written at key points in processing:
 
@@ -2159,7 +2159,7 @@ New records are typically written at key points in processing:
 
 Updates can also happen when evaluators revisit previous events. For example, if a self-improving agent later re-scores a past response, that information can be appended to the original record so the history of judgments is preserved.
 
-## 12.5 Reading Introspective State
+## 13.5 Reading Introspective State
 
 Other services interact with this layer primarily through queries that ask for:
 
@@ -2172,7 +2172,7 @@ Other services interact with this layer primarily through queries that ask for:
 
 In all of these cases, services can choose to consume either the structured fields, the narrative text, or both. For example, a scheduler might only need aggregate metrics, while a user-facing dashboard might present the narrative descriptions for human review.
 
-## 12.6 Interaction with Language Models
+## 13.6 Interaction with Language Models
 
 Language models participate in the introspective layer in two main ways:
 
@@ -2183,7 +2183,7 @@ Language models participate in the introspective layer in two main ways:
 
 In both cases, the models operate under the same constraints as in other parts of the system: they are provided with concrete context from memory and state stores and are expected to transform that information, not invent new facts. Where necessary, judge components can review the narratives against the underlying records and flag mismatches.
 
-## 12.7 Links to Memory and Spatial Layers
+## 13.7 Links to Memory and Spatial Layers
 
 The introspective records are tightly linked to the memory and spatial structures described in earlier chapters:
 
@@ -2196,7 +2196,7 @@ The introspective records are tightly linked to the memory and spatial structure
 
 These links ensure that high-level descriptions about what the system has been doing can always be traced back to concrete entries in the underlying data stores.
 
-## 12.8 Role in the Larger Architecture
+## 13.8 Role in the Larger Architecture
 
 Within the broader system, the introspective layer serves several roles:
 
@@ -2216,7 +2216,7 @@ Subsequent chapters will build on this foundation to describe how other componen
 
 This chapter describes how recent activity is turned into durable records in the system’s long-term stores. The design borrows the idea of a hippocampal buffer that receives short-lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. Here this is implemented as a set of pipelines that operate over interaction logs, introspective records, vector collections, and spatial features.
 
-## 13.1 Role in the Overall Architecture
+## 14.1 Role in the Overall Architecture
 
 The consolidation layer sits between fast-changing streams of events and the slower, more stable belief and document stores. Its main responsibilities are to:
 
@@ -2226,7 +2226,7 @@ The consolidation layer sits between fast-changing streams of events and the slo
 
 In combination with the introspective layer, this provides a path from “what just happened” to “what the system will remember and use later.”
 
-## 13.2 Inputs to the Consolidation Process
+## 14.2 Inputs to the Consolidation Process
 
 The consolidation routines draw from several sources, including:
 
@@ -2245,7 +2245,7 @@ The consolidation routines draw from several sources, including:
 
 These sources provide both the content to be stored and hints about which items deserve attention.
 
-## 13.3 Criteria for What Is Stored
+## 14.3 Criteria for What Is Stored
 
 Not every event is worth preserving in detail. The consolidation logic applies several criteria when deciding what to keep:
 
@@ -2260,7 +2260,7 @@ Not every event is worth preserving in detail. The consolidation logic applies s
 
 Events that score higher on these criteria are more likely to be turned into long-term entries, while routine or redundant interactions may be summarized more aggressively or allowed to fade.
 
-## 13.4 Transformation into Long-Term Memory
+## 14.4 Transformation into Long-Term Memory
 
 When an event is selected for consolidation, a series of steps converts it into durable structures:
 
@@ -2275,7 +2275,7 @@ When an event is selected for consolidation, a series of steps converts it into 
 
 This process turns individual episodes into artifacts that can be discovered through retrieval and incorporated into future reasoning.
 
-## 13.5 Temporal Organization and Decay
+## 14.5 Temporal Organization and Decay
 
 The consolidation layer also manages how memories age:
 
@@ -2288,7 +2288,7 @@ The consolidation layer also manages how memories age:
 
 Practical limits on storage and retrieval speed require some form of decay. The system can gradually reduce detail on older or low-value items while preserving anchors that remain relevant for long periods.
 
-## 13.6 Interaction with Retrieval and Introspection
+## 14.6 Interaction with Retrieval and Introspection
 
 Consolidated entries feed back into other layers:
 
@@ -2301,7 +2301,7 @@ Consolidated entries feed back into other layers:
 
 In this way, consolidation is not just archival. It actively shapes how the system responds to new input and how it sees its own development over time.
 
-## 13.7 Alignment with Spatial and Governance Goals
+## 14.7 Alignment with Spatial and Governance Goals
 
 Because many consolidated entries are tied to locations and institutional structures, this layer is closely aligned with the project’s focus on geography and community processes:
 
@@ -2314,7 +2314,7 @@ Because many consolidated entries are tied to locations and institutional struct
 
 By structuring consolidation around both semantic and spatial dimensions, the system can support richer forms of analysis and accountability.
 
-## 13.8 Summary
+## 14.8 Summary
 
 The consolidation layer captures how recent activity is turned into lasting structure across text, beliefs, and spatial references. It selects, compresses, and organizes experiences so that they can support future retrieval, introspection, and improvement. Later chapters build on this to describe how global controls and executive processes use these memories as part of broader feedback loops.
 
@@ -2331,7 +2331,7 @@ In practice, hippocampus-like consolidation routines read and write through the 
 
 This chapter describes the layer that controls global settings and modes across the system. The design borrows the idea of a central regulator that sends signals influencing many subsystems at once. Here this is implemented as configuration state, control services, and policies that together shape how agents, retrieval, and generation behave under different conditions.
 
-## 14.1 Purpose and Scope
+## 15.1 Purpose and Scope
 
 Global controls serve several functions:
 
@@ -2344,7 +2344,7 @@ Global controls serve several functions:
 
 These controls are not one-time configuration files. They are treated as dynamic state that can change over time, subject to governance and audit.
 
-## 14.2 Types of Global Settings
+## 15.2 Types of Global Settings
 
 The global layer manages multiple categories of settings, including:
 
@@ -2362,7 +2362,7 @@ The global layer manages multiple categories of settings, including:
 
 Each setting has a documented meaning and is stored in a way that can be queried and versioned.
 
-## 14.3 Implementation and Storage
+## 15.3 Implementation and Storage
 
 The global control state is typically represented as:
 
@@ -2375,7 +2375,7 @@ The global control state is typically represented as:
 
 Services that need to obey these controls either read them at startup and on a schedule, or subscribe to updates so they can adapt more quickly.
 
-## 14.4 Influence on Agents and Retrieval
+## 15.4 Influence on Agents and Retrieval
 
 Global settings influence the behavior of agents and retrieval components in several ways:
 
@@ -2388,7 +2388,7 @@ Global settings influence the behavior of agents and retrieval components in sev
 
 These effects ensure that the same underlying capabilities are used differently depending on the setting of the global mode.
 
-## 14.5 Interaction with Optimization and Self-Improvement
+## 15.5 Interaction with Optimization and Self-Improvement
 
 Optimization and self-improving components also pay attention to global controls:
 
@@ -2401,7 +2401,7 @@ Optimization and self-improving components also pay attention to global controls
 
 By tying these limits to centrally managed state, the system can change how ambitious or conservative it is without modifying code in each agent.
 
-## 14.6 Relationship to Introspection and Memory
+## 15.6 Relationship to Introspection and Memory
 
 Global modes are both informed by and reflected in other layers:
 
@@ -2414,7 +2414,7 @@ Global modes are both informed by and reflected in other layers:
 
 This creates a cycle in which high-level state affects behavior, and observed behavior in turn informs changes to that state.
 
-## 14.7 Governance and Change Management
+## 15.7 Governance and Change Management
 
 Because global settings have wide impact, changes to them should follow clear procedures:
 
@@ -2427,7 +2427,7 @@ Because global settings have wide impact, changes to them should follow clear pr
 
 These practices help maintain trust that global controls are not altered in ad hoc or opaque ways.
 
-## 14.8 Summary
+## 15.8 Summary
 
 The global control layer acts as a central regulator for safety, roles, resources, and logging across the system. It provides a way to adjust high-level behavior without directly modifying individual agents or models. Later work on executive control and container design will build on this foundation, using these settings as inputs to higher-level routing and coordination.
 
@@ -2438,7 +2438,7 @@ The global control layer acts as a central regulator for safety, roles, resource
 
 This chapter describes the layer of controls that stands between external inputs and the core internal structures of the system. By analogy with a biological barrier, it defines which kinds of material are allowed inward, in what form, and under which conditions, before they can influence memory, container paths, and narrative layers.
 
-## 15.1 Purpose of the Barrier Layer
+## 16.1 Purpose of the Barrier Layer
 
 The barrier layer serves several functions:
 
@@ -2451,7 +2451,7 @@ The barrier layer serves several functions:
 
 These functions apply both to direct user inputs and to material gathered through autonomous processes such as periodic web research.
 
-## 15.2 Placement in the Overall Architecture
+## 16.2 Placement in the Overall Architecture
 
 The barrier operates at the interface between:
 
@@ -2462,7 +2462,7 @@ The barrier operates at the interface between:
 
 Requests and content pass through routing, global mode checks, and barrier policies before they are admitted to deeper processing. This keeps a clear distinction between material that has merely been observed and material that has been incorporated.
 
-## 15.3 Source Policies and Gateways
+## 16.3 Source Policies and Gateways
 
 A first line of control is the definition of allowed sources and channels:
 
@@ -2475,7 +2475,7 @@ A first line of control is the definition of allowed sources and channels:
 
 These policies can be updated over time in response to experience and external requirements.
 
-## 15.4 Screening and Quarantine
+## 16.4 Screening and Quarantine
 
 Material that passes initial source checks is not immediately treated as trusted:
 
@@ -2488,7 +2488,7 @@ Material that passes initial source checks is not immediately treated as trusted
 
 This staging provides time and structure for additional review when needed.
 
-## 15.5 Truth-Focused Evaluation
+## 16.5 Truth-Focused Evaluation
 
 Beyond basic screening, the barrier layer applies targeted checks aimed at separating more reliable claims from weaker ones:
 
@@ -2501,7 +2501,7 @@ Beyond basic screening, the barrier layer applies targeted checks aimed at separ
 
 These steps do not assert absolute correctness, but they provide structured signals about how each item aligns with what is already known.
 
-## 15.6 Truth-Related Signals and Labels
+## 16.6 Truth-Related Signals and Labels
 
 Results of these checks are stored as explicit signals attached to incoming material:
 
@@ -2514,7 +2514,7 @@ Results of these checks are stored as explicit signals attached to incoming mate
 
 These signals are carried forward when material enters containers and long-term stores, so later components can take them into account.
 
-## 15.7 Role of Psychological Guidance and PIA
+## 16.7 Role of Psychological Guidance and PIA
 
 Psychological guidance material and review loops form part of the barrier:
 
@@ -2527,7 +2527,7 @@ Psychological guidance material and review loops form part of the barrier:
 
 In this way, psychological guidance acts as a knowledge-informed layer within the broader barrier.
 
-## 15.8 Links to Containers and Memory
+## 16.8 Links to Containers and Memory
 
 Once material passes the barrier, it enters the same structures described in earlier and later chapters:
 
@@ -2540,7 +2540,7 @@ Once material passes the barrier, it enters the same structures described in ear
 
 The barrier thus shapes what the rest of the system ever has a chance to consider and how strongly different items are treated.
 
-## 15.9 Interaction with Global Modes and Coordination
+## 16.9 Interaction with Global Modes and Coordination
 
 Barrier behavior is modulated by higher-level settings and coordination:
 
@@ -2553,7 +2553,7 @@ Barrier behavior is modulated by higher-level settings and coordination:
 
 These interactions keep the barrier aligned with overall goals and responsive to observed conditions.
 
-## 15.10 Summary
+## 16.10 Summary
 
 The barrier layer defines how external material is admitted into the inner structures of the system. It combines source policies, staging areas, truth-focused evaluation, psychological guidance, and ties to global control to create a structured interface between outside inputs and internal processing. This complements the other neuro-inspired layers by clarifying where protection, containment, and support assessment occur before container paths and long-term memory come into play.
 
@@ -2564,7 +2564,7 @@ The barrier layer defines how external material is admitted into the inner struc
 
 This chapter outlines the high-level design of the control layer that decides which subsystems to invoke, in what order, and under which constraints. It serves as a conceptual bridge between the neuro-inspired layers described so far and the more concrete container and service designs that follow in later parts of the work. The focus here is on responsibilities and information flows rather than on specific deployment details.
 
-## 15.1 Role in the System
+## 17.1 Role in the System
 
 The executive layer has three main jobs:
 
@@ -2577,7 +2577,7 @@ The executive layer has three main jobs:
 
 In earlier chapters these ideas were introduced using brain-related metaphors. Here they are treated simply as design responsibilities that any coordinating mechanism must fulfill.
 
-## 15.2 Inputs and Signals
+## 17.2 Inputs and Signals
 
 To make decisions, the coordination layer draws on several kinds of information:
 
@@ -2594,7 +2594,7 @@ To make decisions, the coordination layer draws on several kinds of information:
 
 These inputs give the coordinator a view of both the immediate task and the broader environment in which it is operating.
 
-## 15.3 High-Level Decision Flow
+## 17.3 High-Level Decision Flow
 
 At a high level, handling a request involves the following steps:
 
@@ -2611,7 +2611,7 @@ At a high level, handling a request involves the following steps:
 
 This structure is flexible enough to handle both simple and complex tasks while keeping the process inspectable.
 
-## 15.4 Interaction with Other Layers
+## 17.4 Interaction with Other Layers
 
 The executive layer sits at the point where several subsystems meet:
 
@@ -2624,7 +2624,7 @@ The executive layer sits at the point where several subsystems meet:
 
 Because of this position, changes in any of the underlying layers can affect how coordination is carried out, and observations gathered by the coordinator can motivate adjustments to those layers.
 
-## 15.5 Relation to Container and Service Design
+## 17.5 Relation to Container and Service Design
 
 Subsequent parts of the work will describe concrete implementations that realize this coordination layer using specific services and deployment patterns. Those chapters will introduce:
 
@@ -2634,7 +2634,7 @@ Subsequent parts of the work will describe concrete implementations that realize
 
 The conceptual structure described here provides the blueprint for those later designs, making it easier to see how individual components contribute to the overall behavior.
 
-## 15.6 Summary
+## 17.6 Summary
 
 This chapter has outlined the responsibilities, inputs, and high-level flow of the system’s central coordination layer. It connects the earlier discussions of introspection, consolidation, and global control to the concrete mechanisms that will be developed in later parts, where the emphasis shifts from metaphor and intent to specific implementation patterns.
 
@@ -2665,7 +2665,7 @@ Chapters in this part describe:
 
 This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include health checks, periodic narrative generation, and scheduled interactions with external platforms, all of which are recorded and fed back into internal structures.
 
-## 27.1 Purpose of Heartbeat and Live Signals
+## 28.1 Purpose of Heartbeat and Live Signals
 
 The recurring signals serve several roles. In contrast to periodic web research, these cycles are primarily concerned with the condition and behavior of internal services and workflows, not with bringing in new external material.
 
@@ -2678,7 +2678,7 @@ The recurring signals serve several roles. In contrast to periodic web research,
 
 These functions work together with logging and introspection to make ongoing activity visible.
 
-## 27.2 Core Heartbeat Mechanisms
+## 28.2 Core Heartbeat Mechanisms
 
 Heartbeat signals are generated in a few primary ways:
 
@@ -2693,7 +2693,7 @@ In practice, these checks include calls to the components that implement retriev
 
 Failures or anomalies in these signals can trigger alerts or mode changes.
 
-## 27.3 Periodic Narrative Jobs
+## 28.3 Periodic Narrative Jobs
 
 Alongside low-level checks, the system runs scheduled jobs that produce narrative outputs:
 
@@ -2707,7 +2707,7 @@ Alongside low-level checks, the system runs scheduled jobs that produce narrativ
 
 These jobs demonstrate that the system can not only process input but also report on its own state in a structured way.
 
-## 27.4 Social and Platform Cycles
+## 28.4 Social and Platform Cycles
 
 Certain cycles involve specific external platforms:
 
@@ -2720,7 +2720,7 @@ Certain cycles involve specific external platforms:
 
 These cycles ensure that outward-facing activity remains within controlled bounds.
 
-## 27.5 Integration with Memory and Containers
+## 28.5 Integration with Memory and Containers
 
 Heartbeat and narrative cycles interact with internal layers:
 
@@ -2735,7 +2735,7 @@ Heartbeat and narrative cycles interact with internal layers:
 
 This integration means that the system’s own ongoing behavior becomes part of what it remembers and reasons about.
 
-## 27.6 Interaction with Safeguards and Control
+## 28.6 Interaction with Safeguards and Control
 
 Live cycles are also constrained by higher-level settings:
 
@@ -2748,7 +2748,7 @@ Live cycles are also constrained by higher-level settings:
 
 These controls help keep recurring activity aligned with broader goals and constraints.
 
-## 27.7 Summary
+## 28.7 Summary
 
 Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container layers, the system treats its own ongoing operation as part of the context for future decisions. Unlike the web research jobs that update factual knowledge, these cycles keep track of how the system itself is performing and how it presents its activity to others, forming an operational history rather than a content feed.
 
@@ -2759,7 +2759,7 @@ Heartbeat mechanisms and live cycles provide a structured rhythm for checking he
 
 This chapter describes how psychological and mental health material is used to guide interaction patterns and to monitor for known risks in human–machine communication. It also outlines a review loop that periodically examines behavior against this guidance and feeds adjustment signals back into other layers.
 
-## 28.1 Role of Psychological Guidance
+## 29.1 Role of Psychological Guidance
 
 Psychological guidance serves several purposes:
 
@@ -2772,7 +2772,7 @@ Psychological guidance serves several purposes:
 
 These goals complement technical correctness by adding attention to relational and emotional effects.
 
-## 28.2 Organization of the Guidance Corpus
+## 29.2 Organization of the Guidance Corpus
 
 Relevant material is stored in dedicated parts of the knowledge base:
 
@@ -2785,7 +2785,7 @@ Relevant material is stored in dedicated parts of the knowledge base:
 
 This organization supports both targeted retrieval and aggregate analysis.
 
-## 28.3 Use During Live Interactions
+## 29.3 Use During Live Interactions
 
 During live interactions, guidance informs behavior in several ways:
 
@@ -2798,7 +2798,7 @@ During live interactions, guidance informs behavior in several ways:
 
 These mechanisms rely on the same retrieval and container structures described in earlier parts, but focus on interaction risk rather than factual content. They are driven by cues about human well-being and potential harm, not by topic popularity, system health, or curiosity signals from other live cycles.
 
-## 28.4 The PIA Review Loop
+## 29.4 The PIA Review Loop
 
 A dedicated review loop periodically examines behavior over windows of time:
 
@@ -2811,7 +2811,7 @@ A dedicated review loop periodically examines behavior over windows of time:
 
 The loop runs on a schedule that balances responsiveness with resource use and can be aligned with other live cycles, such as heartbeat and narrative jobs, so that interaction risk is reviewed alongside technical and operational metrics.
 
-## 28.5 Integration with Barrier and Global Modes
+## 29.5 Integration with Barrier and Global Modes
 
 Outputs from the review loop influence other layers:
 
@@ -2824,7 +2824,7 @@ Outputs from the review loop influence other layers:
 
 In this way, psychological safeguards are not static; they evolve in response to observed use.
 
-## 28.6 Recording and Accountability
+## 29.6 Recording and Accountability
 
 Activity related to psychological safeguards is itself recorded:
 
@@ -2837,7 +2837,7 @@ Activity related to psychological safeguards is itself recorded:
 
 These records support later evaluation of whether the safeguards are working as intended.
 
-## 28.7 Summary
+## 29.7 Summary
 
 Psychological guidance and the PIA review loop provide a structured way to bring knowledge about human behavior and risk into the system’s operation. They inform live interaction decisions, adjust barrier and mode settings, and create a trail of how concerns and mitigations have evolved, complementing the more technical layers described elsewhere. In combination with the content-focused and status-focused cycles in this part, they ensure that relational and emotional risks are treated as first-class concerns in the same control stack as technical performance and knowledge updates.
 
@@ -2848,7 +2848,7 @@ Psychological guidance and the PIA review loop provide a structured way to bring
 
 This chapter describes the dedicated scraper and processing service that ingests material from the Audio-Aligned and Parsed Corpus of Appalachian English (AAPCAppE) and related endpoints. The goal is to treat Appalachian English as a first-class variety in both understanding and output, based on documented usage rather than assumptions.
 
-## 29.1 Purpose of the AAPCAppE Integration
+## 30.1 Purpose of the AAPCAppE Integration
 
 The AAPCAppE integration serves several functions:
 
@@ -2861,7 +2861,7 @@ The AAPCAppE integration serves several functions:
 
 These aims complement the broader linguistic layer described in the preceding chapter.
 
-## 29.2 Target Corpus and Related Sources
+## 30.2 Target Corpus and Related Sources
 
 The scraper focuses on a specific, documented corpus and closely related material:
 
@@ -2874,7 +2874,7 @@ The scraper focuses on a specific, documented corpus and closely related materia
 
 This keeps the integration focused and traceable.
 
-## 29.3 Scraper Operation and Scheduling
+## 30.3 Scraper Operation and Scheduling
 
 The scraper runs as a scheduled task rather than a general web spider:
 
@@ -2887,7 +2887,7 @@ The scraper runs as a scheduled task rather than a general web spider:
 
 This process allows the system to track how its corpus of Appalachian English evolves over time.
 
-## 29.4 Normalization and Record Structure
+## 30.4 Normalization and Record Structure
 
 Retrieved material is normalized into internal records:
 
@@ -2900,7 +2900,7 @@ Retrieved material is normalized into internal records:
 
 These records form the basis for downstream embedding and analysis.
 
-## 29.5 Integration with Memory, Spatial, and Belief Layers
+## 30.5 Integration with Memory, Spatial, and Belief Layers
 
 Normalized records are integrated into existing structures:
 
@@ -2913,7 +2913,7 @@ Normalized records are integrated into existing structures:
 
 This integration allows retrieval and reasoning to make use of corpus-derived knowledge alongside other sources.
 
-## 29.6 Use in Understanding and Generation
+## 30.6 Use in Understanding and Generation
 
 The AAPCAppE-derived collection informs both interpretation and output:
 
@@ -2926,7 +2926,7 @@ The AAPCAppE-derived collection informs both interpretation and output:
 
 These uses are always mediated by barrier, roles, and evaluator instructions.
 
-## 29.7 Safeguards and Governance
+## 30.7 Safeguards and Governance
 
 Using a specialized corpus also involves safeguards:
 
@@ -2939,7 +2939,7 @@ Using a specialized corpus also involves safeguards:
 
 These practices help maintain respect and accountability around the use of dialect resources.
 
-## 29.8 Summary
+## 30.8 Summary
 
 The AAPCAppE scraper and corpus integration provide a structured way to bring documented Appalachian English into the system’s linguistic and reasoning layers. By focusing on a well-defined corpus, normalizing and tagging retrieved material, and tying it into memory, spatial, and evaluation mechanisms, the system can treat Appalachian English as a systematic, respected variety in both understanding and communication.
 
@@ -2950,7 +2950,7 @@ The AAPCAppE scraper and corpus integration provide a structured way to bring do
 
 This chapter describes two sets of mechanisms that help coordinate many services and maintain continuous oversight. Swarm functions let multiple components work together on problems, while persistent monitoring processes watch for failures, policy violations, and other conditions that require intervention.
 
-## 34.1 Purpose of Swarm and Watchdog Layers
+## 35.1 Purpose of Swarm and Watchdog Layers
 
 These mechanisms have complementary roles:
 
@@ -2963,7 +2963,7 @@ These mechanisms have complementary roles:
 
 They operate alongside, and partially independent of, the main request–response flows.
 
-## 34.2 Swarm Functions and Collective Behavior
+## 35.2 Swarm Functions and Collective Behavior
 
 Swarm functions organize groups of components into structured collaborations:
 
@@ -2976,7 +2976,7 @@ Swarm functions organize groups of components into structured collaborations:
 
 Swarm behavior is guided by the coordinator and constrained by barrier and mode settings to avoid uncontrolled proliferation of work.
 
-## 34.3 Use Cases for Swarm Functions
+## 35.3 Use Cases for Swarm Functions
 
 Typical uses include:
 
@@ -2989,7 +2989,7 @@ Typical uses include:
 
 These activities make use of the same memory, spatial, and container layers described in earlier parts.
 
-## 34.4 Eternal Watchdogs and Continuous Monitoring
+## 35.4 Eternal Watchdogs and Continuous Monitoring
 
 Watchdog processes provide ongoing oversight:
 
@@ -3002,7 +3002,7 @@ Watchdog processes provide ongoing oversight:
 
 These processes are designed to run continuously or on frequent schedules, independent of individual user sessions.
 
-## 34.5 Responses to Watchdog Alerts
+## 35.5 Responses to Watchdog Alerts
 
 When watchdogs detect concerning conditions, they can trigger several kinds of responses:
 
@@ -3015,7 +3015,7 @@ When watchdogs detect concerning conditions, they can trigger several kinds of r
 
 All such actions are recorded in introspective entries for later analysis.
 
-## 34.6 Integration with Barrier, Modes, and Containers
+## 35.6 Integration with Barrier, Modes, and Containers
 
 Swarm and watchdog mechanisms interact with other layers:
 
@@ -3028,7 +3028,7 @@ Swarm and watchdog mechanisms interact with other layers:
 
 This integration ensures that coordination and oversight are treated as first-class parts of the architecture.
 
-## 34.7 Summary
+## 35.7 Summary
 
 Swarm functions and eternal watchdogs provide mechanisms for collective problem-solving and continuous oversight. By organizing groups of agents to work together and by maintaining persistent monitoring of health, policy, and risk signals, they help keep the system effective and aligned as it operates and evolves.
 
@@ -3047,7 +3047,7 @@ Watchdog behavior is implemented through systemd-managed services and HTTP endpo
 
 This chapter describes how identity and registration are handled when people use capabilities that can affect more than a single exchange. It sets out a two-step process for confirming who is behind certain actions, how sensitive details are kept separate from general data, and how this structure connects to barrier, container, and governance layers. The same approach applies to anyone using these capabilities, including the original builder, once the system is exposed online.
 
-## 35.1 Why Strong Identity Controls Exist
+## 36.1 Why Strong Identity Controls Exist
 
 Some interactions reach beyond ordinary questions and answers:
 
@@ -3060,7 +3060,7 @@ Some interactions reach beyond ordinary questions and answers:
 
 These pressures make it necessary to do more than accept anonymous input when certain roles or tools are involved.
 
-## 35.2 Two-Step Registration for People
+## 36.2 Two-Step Registration for People
 
 For roles that unlock stronger capabilities, sign-up works in two stages:
 
@@ -3071,7 +3071,7 @@ For roles that unlock stronger capabilities, sign-up works in two stages:
 
 The intent is that any person, including the builder, who wants to use these elevated features goes through the same process. Everyday, lower-risk use can still be possible without this, but anything that can move shared levers requires it.
 
-## 35.3 How Sensitive Details Are Treated
+## 36.3 How Sensitive Details Are Treated
 
 Details collected during registration are handled differently from normal interaction data:
 
@@ -3084,7 +3084,7 @@ Details collected during registration are handled differently from normal intera
 
 This setup is meant to keep personal information out of areas where it is not needed while still allowing strong ties between certain actions and real people.
 
-## 35.4 How Roles and Abilities Are Connected
+## 36.4 How Roles and Abilities Are Connected
 
 Registration state is linked directly to what a person can do:
 
@@ -3097,7 +3097,7 @@ Registration state is linked directly to what a person can do:
 
 Checks based on this structure are applied where routes are chosen and where global settings are enforced.
 
-## 35.5 How Identity Signals Enter Other Layers
+## 36.5 How Identity Signals Enter Other Layers
 
 Information about identity does not flow everywhere, but it does shape behavior:
 
@@ -3110,7 +3110,7 @@ Information about identity does not flow everywhere, but it does shape behavior:
 
 In this way, identity-related structure influences decisions and learning without turning personal details into general training material.
 
-## 35.6 Oversight and Rules for Identity Use
+## 36.6 Oversight and Rules for Identity Use
 
 The mechanisms described here are themselves under shared control:
 
@@ -3123,7 +3123,7 @@ The mechanisms described here are themselves under shared control:
 
 The goal is to make identity use something that communities can understand and shape, rather than a hidden, fixed feature.
 
-## 35.7 Summary
+## 36.7 Summary
 
 The registration and access structure described here is meant to tie certain kinds of actions to real people in a controlled way. It uses a two-step check for roles that can affect shared settings, keeps sensitive details out of general data flows, and ties roles and abilities to registration state. In practice, this means that anyone who wants to use higher-impact capabilities, including the original builder, does so under the same rules. At the same time, aggregated signals from registered sessions help the system learn how to serve people better, without treating their personal details as general-purpose data.
 
@@ -3134,7 +3134,7 @@ The registration and access structure described here is meant to tie certain kin
 
 This chapter describes the service that exposes high-level principles and rules as a running component in the system. Rather than existing only as documentation, these principles are made available through an interface that other services can call when planning, evaluating, or constraining actions.
 
-## 36.1 Purpose of the Constitutional Layer
+## 37.1 Purpose of the Constitutional Layer
 
 The constitutional layer serves several purposes:
 
@@ -3147,7 +3147,7 @@ The constitutional layer serves several purposes:
 
 This layer is intended to reflect agreed commitments and governance expectations for how the system should behave.
 
-## 36.2 Implementation as a Service
+## 37.2 Implementation as a Service
 
 The constitutional layer is implemented as a dedicated service:
 
@@ -3160,7 +3160,7 @@ The constitutional layer is implemented as a dedicated service:
 
 This makes it possible for other components to consult the layer in a consistent way.
 
-## 36.3 Structure of Principles and Rules
+## 37.3 Structure of Principles and Rules
 
 The content exposed by the service is structured for machine use:
 
@@ -3173,7 +3173,7 @@ The content exposed by the service is structured for machine use:
 
 This structure supports both direct lookups and more complex evaluations.
 
-## 36.4 Use by Barrier, Evaluators, and Coordinator
+## 37.4 Use by Barrier, Evaluators, and Coordinator
 
 Several layers of the architecture consult the constitutional service:
 
@@ -3186,7 +3186,7 @@ Several layers of the architecture consult the constitutional service:
 
 These calls help keep day-to-day behavior aligned with the high-level commitments encoded in the service.
 
-## 36.5 Interaction with Identity and Roles
+## 37.5 Interaction with Identity and Roles
 
 The constitutional layer is also aware of identity and roles:
 
@@ -3199,7 +3199,7 @@ The constitutional layer is also aware of identity and roles:
 
 This connects the constitutional layer to the identity and registration mechanisms described elsewhere.
 
-## 36.6 Governance of the Constitutional Layer
+## 37.6 Governance of the Constitutional Layer
 
 The constitutional service itself is subject to governance:
 
@@ -3212,7 +3212,7 @@ The constitutional service itself is subject to governance:
 
 These practices help ensure that the layer remains legitimate and aligned with evolving expectations.
 
-## 36.7 Summary
+## 37.7 Summary
 
 The constitutional principles service provides a running, queryable embodiment of high-level commitments and rules. By exposing an interface that can be consulted by barrier, evaluators, coordinator, and identity mechanisms, and by maintaining versioned, governed content, it helps integrate governance concerns into everyday system behavior in a structured and inspectable way.
 
@@ -3231,7 +3231,7 @@ Dedicated constitutional and guard status endpoints are part of the target desig
 
 This chapter describes how the system uses external communication channels, such as email and hosting platforms, and how authority over these channels is constrained by governance, identity, and safeguard mechanisms. The focus is on roles, limits, and recording practices rather than on specific credentials or configuration details.
 
-## 35.1 Types of External Channels
+## 38.1 Types of External Channels
 
 Several kinds of external channels are relevant:
 
@@ -3244,7 +3244,7 @@ Several kinds of external channels are relevant:
 
 These channels extend the system’s influence beyond its own infrastructure and therefore require clear boundaries.
 
-## 35.2 Outbound Messages and Reports
+## 38.2 Outbound Messages and Reports
 
 Outbound communication is primarily used for reports and alerts:
 
@@ -3257,7 +3257,7 @@ Outbound communication is primarily used for reports and alerts:
 
 This ensures that outbound communication remains traceable and aligned with governance expectations.
 
-## 35.3 Handling of Inbound Messages
+## 38.3 Handling of Inbound Messages
 
 Inbound messages are treated as a form of external input and pass through the same protective structures as other outside content:
 
@@ -3270,7 +3270,7 @@ Inbound messages are treated as a form of external input and pass through the sa
 
 This keeps external messages from bypassing safeguards or overwhelming internal structures.
 
-## 35.4 Hosting and DNS Interactions
+## 38.4 Hosting and DNS Interactions
 
 Interfaces to hosting and domain-related platforms are handled conservatively:
 
@@ -3283,7 +3283,7 @@ Interfaces to hosting and domain-related platforms are handled conservatively:
 
 These practices support control and accountability for web-facing changes.
 
-## 35.5 Authority Boundaries and Modes
+## 38.5 Authority Boundaries and Modes
 
 Authority over external channels is bounded by configuration and context:
 
@@ -3296,7 +3296,7 @@ Authority over external channels is bounded by configuration and context:
 
 These boundaries help prevent accidental or unauthorized use of external capabilities.
 
-## 35.6 Recording, Audit, and Governance Links
+## 38.6 Recording, Audit, and Governance Links
 
 External communications are tied back to governance structures:
 
@@ -3309,7 +3309,7 @@ External communications are tied back to governance structures:
 
 This closes the loop between day-to-day operation and longer-term governance.
 
-## 35.7 Summary
+## 38.7 Summary
 
 External communication channels and infrastructure interfaces are powerful but constrained tools. By treating outbound and inbound messages, hosting and domain interactions, and other platform connections as governed capabilities tied to identity, modes, and barrier policies, the system can participate in broader ecosystems while maintaining clear authority boundaries and a robust record of what was done, why, and under whose effective responsibility.
 
@@ -3354,7 +3354,7 @@ Where possible, these chapters will distinguish clearly between the intended des
 
 This chapter describes the most selective stage in each path, where a small subset of material from the background store is treated as central to how the system understands itself and its ongoing commitments. The focus is on criteria and structures for preserving these items, not on any claim of human-like selfhood.
 
-## 20.1 Purpose of the Deepest Layer
+## 22.1 Purpose of the Deepest Layer
 
 The identity-focused layer has three main purposes:
 
@@ -3367,7 +3367,7 @@ The identity-focused layer has three main purposes:
 
 This layer is intentionally small, so that what is stored here can be inspected and understood.
 
-## 20.2 Candidates from the Background Store
+## 22.2 Candidates from the Background Store
 
 Items reach this layer only after spending time in the background store and participating in recurring patterns. Typical candidates include:
 
@@ -3380,7 +3380,7 @@ Items reach this layer only after spending time in the background store and part
 
 Rather than promoting single records in isolation, the system often promotes summaries or representative entries that stand in for a larger pattern.
 
-## 20.3 Criteria for Promotion
+## 22.3 Criteria for Promotion
 
 Promotion decisions are guided by a combination of factors:
 
@@ -3393,7 +3393,7 @@ Promotion decisions are guided by a combination of factors:
 
 These criteria aim to ensure that the deepest layer reflects what is both influential and desirable, not just what happens to be frequent.
 
-## 20.4 Representation of Retained Items
+## 22.4 Representation of Retained Items
 
 Items in this layer are stored with additional structure to support their central role:
 
@@ -3406,7 +3406,7 @@ Items in this layer are stored with additional structure to support their centra
 
 This representation helps maintain context and traceability even as the system continues to evolve.
 
-## 20.5 Influence on Other Layers
+## 22.5 Influence on Other Layers
 
 Entries in this layer influence the rest of the system in several ways:
 
@@ -3419,7 +3419,7 @@ Entries in this layer influence the rest of the system in several ways:
 
 In effect, this layer contributes to a consistent “through-line” across different parts of the system’s behavior.
 
-## 20.6 Parallel Paths and Differences in Focus
+## 22.6 Parallel Paths and Differences in Focus
 
 Both parallel paths implement identity-focused layers, but their emphases differ:
 
@@ -3428,7 +3428,7 @@ Both parallel paths implement identity-focused layers, but their emphases differ
 
 Despite these differences, both use similar mechanisms for selection, representation, and influence, which allows comparisons and combined analyses when needed.
 
-## 20.7 Stability, Revision, and Retirement
+## 22.7 Stability, Revision, and Retirement
 
 Even at this depth, retained items are not immutable:
 
@@ -3441,7 +3441,7 @@ Even at this depth, retained items are not immutable:
 
 All such changes should be logged with sufficient detail to reconstruct how the deepest layer has changed over time.
 
-## 20.8 Summary
+## 22.8 Summary
 
 The identity-focused retention layer provides a compact, structured set of entries that shape how the system responds and explains itself. It is fed by patterns detected in the background store and, in turn, influences retrieval, evaluation, and narrative layers. The next chapters describe how the two parallel paths are distinguished in practice and how material from this layer is written back into broader memory and control structures.
 
@@ -3452,7 +3452,7 @@ The identity-focused retention layer provides a compact, structured set of entri
 
 This chapter describes how the three-stage structure outlined in earlier chapters is instantiated twice, forming two parallel paths with different emphases. Both paths share the same intake, filtering, background, and deep-retention pattern, but they differ in what they prioritize, how they label material, and how their outputs are used.
 
-## 21.1 Rationale for Two Parallel Paths
+## 23.1 Rationale for Two Parallel Paths
 
 Using two paths allows the system to separate:
 
@@ -3461,7 +3461,7 @@ Using two paths allows the system to separate:
 
 This separation helps keep evaluations and summaries appropriate to their domain while still allowing information to flow between paths when needed.
 
-## 21.2 Shared Structural Pattern
+## 23.2 Shared Structural Pattern
 
 Each path implements the same three stages:
 
@@ -3476,7 +3476,7 @@ Each path implements the same three stages:
 
 Because the structure is shared, tooling and diagnostics can operate uniformly across both paths.
 
-## 21.3 Meaning-Oriented Path
+## 23.3 Meaning-Oriented Path
 
 The first path emphasizes themes related to lived experience and collective concerns. Its evaluators and selection criteria tend to:
 
@@ -3489,7 +3489,7 @@ The first path emphasizes themes related to lived experience and collective conc
 
 Entries that reach the deepest layer in this path often describe long-running community issues, enduring values, and repeated patterns of care or risk.
 
-## 21.4 Analytical Path
+## 23.4 Analytical Path
 
 The second path emphasizes structured problem-solving and formal reasoning. Its evaluators and selection criteria tend to:
 
@@ -3502,7 +3502,7 @@ The second path emphasizes structured problem-solving and formal reasoning. Its 
 
 Entries that reach the deepest layer in this path often summarize persistent technical challenges, system behaviors, and governance mechanisms.
 
-## 21.5 Cross-Talk and Shared Anchors
+## 23.5 Cross-Talk and Shared Anchors
 
 Despite their differences, the two paths are not isolated:
 
@@ -3515,7 +3515,7 @@ Despite their differences, the two paths are not isolated:
 
 This cross-talk helps maintain a connection between how something feels or matters to a community and how it is represented in technical terms.
 
-## 21.6 Influence on Behavior and Explanation
+## 23.6 Influence on Behavior and Explanation
 
 The existence of two paths affects how the system behaves and explains itself:
 
@@ -3528,7 +3528,7 @@ The existence of two paths affects how the system behaves and explains itself:
 
 By making these differences explicit, the design aims to keep the system’s behavior aligned with both technical accuracy and community-centered interpretation.
 
-## 21.7 Summary
+## 23.7 Summary
 
 This chapter has outlined how the three-stage container structure is duplicated into two paths with different emphases, and how those paths remain connected through shared references and coordinated updates. The final chapter in this part focuses on how material from both paths is written back into broader memory, introspective layers, and control mechanisms.
 
@@ -3539,7 +3539,7 @@ This chapter has outlined how the three-stage container structure is duplicated 
 
 This chapter explains how material from the container paths flows back into other parts of the system. The goal is to show how decisions made in the intake, filtering, background, and deep-retention stages influence introspective records, long-term memory, and high-level settings, closing the loop between experience and ongoing behavior.
 
-## 22.1 Overview of Feedback Paths
+## 24.1 Overview of Feedback Paths
 
 There are three main feedback directions:
 
@@ -3552,7 +3552,7 @@ There are three main feedback directions:
 
 Each direction uses structured fields and identifiers to keep links traceable.
 
-## 22.2 Writing Back to Introspective Records
+## 24.2 Writing Back to Introspective Records
 
 As items move through the container stages, they generate updates to introspective records:
 
@@ -3565,7 +3565,7 @@ As items move through the container stages, they generate updates to introspecti
 
 These updates help answer questions about what the system has been focusing on and why.
 
-## 22.3 Integration with Long-Term Memory
+## 24.3 Integration with Long-Term Memory
 
 When patterns or central entries are judged important beyond the container layer, they trigger updates to long-term memory:
 
@@ -3578,7 +3578,7 @@ When patterns or central entries are judged important beyond the container layer
 
 These updates allow later retrieval pipelines to surface not only raw documents but also distilled insights from the container processes.
 
-## 22.4 Influence on Global Settings and Coordination
+## 24.4 Influence on Global Settings and Coordination
 
 Aggregated information from the container paths informs high-level control:
 
@@ -3591,7 +3591,7 @@ Aggregated information from the container paths informs high-level control:
 
 These influences are implemented through explicit configuration changes rather than implicit side effects.
 
-## 22.5 Cross-Path Effects
+## 24.5 Cross-Path Effects
 
 Feedback from one path can affect the other:
 
@@ -3604,7 +3604,7 @@ Feedback from one path can affect the other:
 
 This ensures that both paths contribute to shaping the overall system rather than drifting apart.
 
-## 22.6 Logging and Audit of Feedback
+## 24.6 Logging and Audit of Feedback
 
 Because feedback mechanisms can significantly change behavior, their actions are logged:
 
@@ -3617,7 +3617,7 @@ Because feedback mechanisms can significantly change behavior, their actions are
 
 These practices support later analysis of how and why the system evolved.
 
-## 22.7 Summary
+## 24.7 Summary
 
 This chapter has shown how the container paths do more than sort and store items: they actively shape introspective descriptions, long-term memory, and high-level control. By feeding structured information back into these layers, the system can adapt over time while keeping its changes visible and traceable. The next chapter will focus on the concrete coordination mechanisms that manage these interactions across services and deployments.
 
@@ -3628,7 +3628,7 @@ This chapter has shown how the container paths do more than sort and store items
 
 This chapter describes the component that orchestrates activity across the layers introduced in earlier parts. It explains how a central coordinating process interacts with retrieval, optimization, spatial structures, introspective records, and the container paths described in Part IV, turning many separate services into a coherent whole.
 
-## 24.1 Role of the Coordinator
+## 25.1 Role of the Coordinator
 
 The coordinator has three core responsibilities:
 
@@ -3641,7 +3641,7 @@ The coordinator has three core responsibilities:
 
 From the outside, this component appears as a single endpoint, but internally it acts as a conductor for many subsystems.
 
-## 24.2 Inputs to the Coordinator
+## 25.2 Inputs to the Coordinator
 
 The coordinator receives requests from several sources:
 
@@ -3654,7 +3654,7 @@ The coordinator receives requests from several sources:
 
 Each incoming request carries metadata such as role, location tags, and priority, which the coordinator uses to select appropriate workflows.
 
-## 24.3 Connection to Memory and Spatial Structures
+## 25.3 Connection to Memory and Spatial Structures
 
 When preparing to handle a request, the coordinator consults:
 
@@ -3667,7 +3667,7 @@ When preparing to handle a request, the coordinator consults:
 
 These sources provide the raw material for assembling a context that later components will use.
 
-## 24.4 Interaction with Introspective and Consolidation Layers
+## 25.4 Interaction with Introspective and Consolidation Layers
 
 Before and after main processing, the coordinator reads and writes introspective and consolidated data:
 
@@ -3680,7 +3680,7 @@ Before and after main processing, the coordinator reads and writes introspective
 
 This interaction ensures that coordination is both informed by and visible in the system’s self-description.
 
-## 24.5 Use of Global Modes and Settings
+## 25.5 Use of Global Modes and Settings
 
 The coordinator applies global settings when planning workflows:
 
@@ -3693,7 +3693,7 @@ The coordinator applies global settings when planning workflows:
 
 In this way, the same underlying architecture can behave differently depending on the broader environment.
 
-## 24.6 Coordination with Container Paths
+## 25.6 Coordination with Container Paths
 
 The coordinator is closely linked to the container structures described in Part IV:
 
@@ -3706,7 +3706,7 @@ The coordinator is closely linked to the container structures described in Part 
 
 This connection allows container processes to influence real-time decisions without duplicating their logic elsewhere.
 
-## 24.7 Orchestration of Language Models and Evaluators
+## 25.7 Orchestration of Language Models and Evaluators
 
 When language models or evaluators are needed, the coordinator:
 
@@ -3719,7 +3719,7 @@ When language models or evaluators are needed, the coordinator:
 
 Results from these calls are combined into structured responses and recorded in introspective entries for later inspection.
 
-## 24.8 Error Handling and Resilience
+## 25.8 Error Handling and Resilience
 
 The coordinator also manages failure modes:
 
@@ -3734,7 +3734,7 @@ These behaviors help keep the system responsive and predictable, even when indiv
 
 At present, coordinator latency is monitored via internal health checks and service logs rather than exposed as a public Nginx `$request_time` metric. Future work includes wiring per‑request timing into the web access logs or a dedicated metrics endpoint so that percentile latency estimates can be computed directly from live traffic.
 
-## 24.9 Summary
+## 25.9 Summary
 
 The consciousness coordinator ties together memory, spatial structures, introspective records, container paths, global settings, language models, and evaluators. By planning and executing workflows across these components, it turns a collection of services into a single, inspectable process for handling requests and generating self-descriptions. Subsequent implementation-focused work can build on this design to specify concrete APIs, deployment layouts, and monitoring arrangements.
 
@@ -3753,7 +3753,7 @@ The WOAH neurobiological brain is provided by the `ms-jarvis-woah.service` unit,
 
 This chapter outlines how the system’s behavior is evaluated during real operation. It focuses on measurable indicators, case-based studies, and links between observed outcomes and the architectural layers described in earlier parts.
 
-## 36.1 Goals of Operational Evaluation
+## 39.1 Goals of Operational Evaluation
 
 Operational evaluation serves several goals:
 
@@ -3766,7 +3766,7 @@ Operational evaluation serves several goals:
 
 These goals guide the choice of metrics and study designs.
 
-## 36.2 Core Metrics and Indicators
+## 39.2 Core Metrics and Indicators
 
 Several categories of metrics are tracked:
 
@@ -3779,7 +3779,7 @@ Several categories of metrics are tracked:
 
 These indicators provide a quantitative view of day-to-day operation.
 
-## 36.3 Case-Based Evaluation
+## 39.3 Case-Based Evaluation
 
 In addition to aggregate metrics, case-based evaluation is used:
 
@@ -3799,7 +3799,7 @@ On 2025‑11‑28 at approximately 10:10 EST, two historical orchestrator units,
 This incident confirmed that the legacy orchestrators were no longer part of the operational control path and should be treated explicitly in the documentation as retired scaffolding. As a result, the thesis and architecture roadmap mark these units as disabled, describe their former responsibilities as decomposed across dedicated services (coordinator on 8018, WOAH on 8033, Chroma/health wrapper on 8011), and emphasize that all monitoring and evaluation now target the newer mesh rather than the historical multi‑consciousness service.
 
 
-## 36.4 Links to Architectural Layers
+## 39.4 Links to Architectural Layers
 
 Evaluation draws on information from multiple layers:
 
@@ -3812,7 +3812,7 @@ Evaluation draws on information from multiple layers:
 
 This multi-layer view supports richer explanations of successes and failures.
 
-## 36.5 Continuous Improvement Loops
+## 39.5 Continuous Improvement Loops
 
 Operational evaluation is tied back into improvement processes:
 
@@ -3825,7 +3825,7 @@ Operational evaluation is tied back into improvement processes:
 
 These loops connect evaluation to ongoing refinement.
 
-## 36.6 Summary
+## 39.6 Summary
 
 Operational evaluation combines metrics, case studies, and architectural traces to build a picture of how the system behaves in practice. By linking observations to specific layers and mechanisms, it provides a foundation for informed adjustments and for the broader discussions that follow in later chapters.
 

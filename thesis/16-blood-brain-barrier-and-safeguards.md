@@ -2,7 +2,7 @@
 
 This chapter describes the layer of controls that stands between external inputs and the core internal structures of the system. By analogy with a biological barrier, it defines which kinds of material are allowed inward, in what form, and under which conditions, before they can influence memory, container paths, and narrative layers.
 
-## 15.1 Purpose of the Barrier Layer
+## 16.1 Purpose of the Barrier Layer
 
 The barrier layer serves several functions:
 
@@ -15,7 +15,7 @@ The barrier layer serves several functions:
 
 These functions apply both to direct user inputs and to material gathered through autonomous processes such as periodic web research.
 
-## 15.2 Placement in the Overall Architecture
+## 16.2 Placement in the Overall Architecture
 
 The barrier operates at the interface between:
 
@@ -26,7 +26,7 @@ The barrier operates at the interface between:
 
 Requests and content pass through routing, global mode checks, and barrier policies before they are admitted to deeper processing. This keeps a clear distinction between material that has merely been observed and material that has been incorporated.
 
-## 15.3 Source Policies and Gateways
+## 16.3 Source Policies and Gateways
 
 A first line of control is the definition of allowed sources and channels:
 
@@ -39,7 +39,7 @@ A first line of control is the definition of allowed sources and channels:
 
 These policies can be updated over time in response to experience and external requirements.
 
-## 15.4 Screening and Quarantine
+## 16.4 Screening and Quarantine
 
 Material that passes initial source checks is not immediately treated as trusted:
 
@@ -52,7 +52,7 @@ Material that passes initial source checks is not immediately treated as trusted
 
 This staging provides time and structure for additional review when needed.
 
-## 15.5 Truth-Focused Evaluation
+## 16.5 Truth-Focused Evaluation
 
 Beyond basic screening, the barrier layer applies targeted checks aimed at separating more reliable claims from weaker ones:
 
@@ -65,7 +65,7 @@ Beyond basic screening, the barrier layer applies targeted checks aimed at separ
 
 These steps do not assert absolute correctness, but they provide structured signals about how each item aligns with what is already known.
 
-## 15.6 Truth-Related Signals and Labels
+## 16.6 Truth-Related Signals and Labels
 
 Results of these checks are stored as explicit signals attached to incoming material:
 
@@ -78,7 +78,7 @@ Results of these checks are stored as explicit signals attached to incoming mate
 
 These signals are carried forward when material enters containers and long-term stores, so later components can take them into account.
 
-## 15.7 Role of Psychological Guidance and PIA
+## 16.7 Role of Psychological Guidance and PIA
 
 Psychological guidance material and review loops form part of the barrier:
 
@@ -91,7 +91,7 @@ Psychological guidance material and review loops form part of the barrier:
 
 In this way, psychological guidance acts as a knowledge-informed layer within the broader barrier.
 
-## 15.8 Links to Containers and Memory
+## 16.8 Links to Containers and Memory
 
 Once material passes the barrier, it enters the same structures described in earlier and later chapters:
 
@@ -104,7 +104,7 @@ Once material passes the barrier, it enters the same structures described in ear
 
 The barrier thus shapes what the rest of the system ever has a chance to consider and how strongly different items are treated.
 
-## 15.9 Interaction with Global Modes and Coordination
+## 16.9 Interaction with Global Modes and Coordination
 
 Barrier behavior is modulated by higher-level settings and coordination:
 
@@ -117,6 +117,6 @@ Barrier behavior is modulated by higher-level settings and coordination:
 
 These interactions keep the barrier aligned with overall goals and responsive to observed conditions.
 
-## 15.10 Summary
+## 16.10 Summary
 
 The barrier layer defines how external material is admitted into the inner structures of the system. It combines source policies, staging areas, truth-focused evaluation, psychological guidance, and ties to global control to create a structured interface between outside inputs and internal processing. This complements the other neuro-inspired layers by clarifying where protection, containment, and support assessment occur before container paths and long-term memory come into play.

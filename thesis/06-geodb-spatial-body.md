@@ -2,7 +2,7 @@
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. Instead of treating geography as an afterthought, Ms. Jarvis maintains a live geospatial database and a corresponding vector index that together function as a “spatial body” for the system. This spatial layer is tightly coupled to GBIM and Chroma, so that beliefs and narratives are grounded not only in abstract Hilbert-space embeddings but also in specific buildings, river reaches, floodplains, and infrastructure corridors.
 
-## 06.1 Design Goals for the GeoDB Layer
+## 6.1 Design Goals for the GeoDB Layer
 
 The GeoDB layer has three primary design goals:
 
@@ -12,13 +12,13 @@ The GeoDB layer has three primary design goals:
 
 In practice, this means maintaining a PostGIS-backed geodatabase that holds authoritative feature classes for structures, hazards, networks, civic facilities, administrative boundaries, and named places across the state. On top of this, a set of geodb_* collections in Chroma provide vector embeddings and metadata for many of these layers, so that spatial features can be discovered both by location and by semantic similarity.
 
-## 06.2 PostGIS as Ms. Jarvis’s Spatial Backbone
+## 6.2 PostGIS as Ms. Jarvis’s Spatial Backbone
 
 At the storage level, Ms. Jarvis uses a PostGIS database (for example, msjarvis_gis) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance: census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities. Each table includes geometry in a consistent spatial reference system (such as UTM83 or WMA84) along with attributes like IDs, names, classifications, and quantitative measures.
 
 This database is populated from a mix of state and federal sources, including the WVU GIS Technical Center, USGS, USACE, NREL, Census, and various state agencies. The ingestion process converts shapefiles and file geodatabases into PostGIS tables, fixes obvious schema issues (such as geometry types and projections), and normalizes keys so that features can be cross-referenced from GBIM, Chroma, and higher-level reasoning services.
 
-## 06.3 What Is Currently Integrated
+## 6.3 What Is Currently Integrated
 
 The current deployment includes a substantial, production-usable subset of West Virginia’s public geospatial data. In broad strokes, Ms. Jarvis already has:
 
@@ -30,7 +30,7 @@ The current deployment includes a substantial, production-usable subset of West 
 
 These datasets are not just stored passively; they are wired into the live system via PostGIS connections and corresponding Chroma collections, so that services can query and reason over them in real time.
 
-## 06.4 Chroma geodb_* Collections and Spatial Embeddings
+## 6.4 Chroma geodb_* Collections and Spatial Embeddings
 
 To bridge between geometric features and high-dimensional semantic reasoning, Ms. Jarvis maintains a large set of geodb_* collections in Chroma, served from a dedicated Chroma database directory (for example, ~/msjarvis-rebuild/chroma_db) on a known port. In a recent snapshot, there are on the order of 190 collections, many of which correspond directly to PostGIS layers.
 
@@ -42,7 +42,7 @@ Each geodb_* collection typically contains embeddings of feature-level metadata 
 
 By treating the Chroma directory as the single source of truth for all integrated WV geospatial embeddings, Ms. Jarvis gains a stable semantic index over the spatial backbone. A timestamped CSV inventory of these collections and their counts provides an auditable snapshot of the current spatial integration state.
 
-## 06.5 Staged but Not Yet Live Layers
+## 6.5 Staged but Not Yet Live Layers
 
 Not every dataset sitting on disk is fully integrated into the live reasoning stack. Several classes of layers are currently staged but require additional work:
 
@@ -52,7 +52,7 @@ Not every dataset sitting on disk is fully integrated into the live reasoning st
 
 For these datasets, the honest description is that they are staged and partially ingested: present on disk, sometimes present in PostGIS tables, but not yet part of the end-to-end geospatial reasoning fabric that RAG and GBIM rely on.
 
-## 06.6 Linking GeoDB to GBIM and Hilbert Space
+## 6.6 Linking GeoDB to GBIM and Hilbert Space
 
 Within the broader GBIM framework, spatial information is one dimension of a geometric belief state that also includes semantic, temporal, and governance components. GeoDB provides the concrete anchor for that spatial dimension. Belief nodes that refer to places—counties, neighborhoods, structures, industrial sites, or facilities—are linked to specific feature IDs and geometries in the PostGIS database.
 
@@ -64,7 +64,7 @@ Hilbert-space embeddings in Chroma often carry location-related metadata (such a
 
 By tying embeddings, beliefs, and geometries together, Ms. Jarvis can answer questions that depend on all three, such as “Which nursing homes in this flood-prone region are near rail lines and within the jurisdiction of this regional council?” and then push those answers into governance or risk-analysis workflows.
 
-## 06.7 Geo‑Aware RAG and Multi‑LLM Use
+## 6.7 Geo‑Aware RAG and Multi‑LLM Use
 
 The GeoDB and geodb_* collections also play a direct role in retrieval-augmented generation. When a query has an explicit or implicit spatial component—references to specific towns, hollows, rivers, counties, or facilities—the RAG pipeline can:
 
@@ -74,7 +74,7 @@ The GeoDB and geodb_* collections also play a direct role in retrieval-augmented
 
 Different LLMs may specialize in different types of geo-aware tasks: narrative explanations for lay audiences, technical risk assessments, code that manipulates spatial data, or governance-oriented recommendations. The GeoDB layer ensures that, regardless of which model is active, the system’s answers can be grounded back into specific, verifiable places.
 
-## 06.8 Roadmap for Full Statewide Integration
+## 6.8 Roadmap for Full Statewide Integration
 
 The near-term roadmap for the GeoDB layer is to move from “dozens of integrated datasets plus many staged layers” to a more comprehensive mirror of the state’s public geospatial infrastructure. Concretely, this means:
 

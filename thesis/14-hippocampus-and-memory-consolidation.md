@@ -2,7 +2,7 @@
 
 This chapter describes how recent activity is turned into durable records in the system’s long-term stores. The design borrows the idea of a hippocampal buffer that receives short-lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. Here this is implemented as a set of pipelines that operate over interaction logs, introspective records, vector collections, and spatial features.
 
-## 13.1 Role in the Overall Architecture
+## 14.1 Role in the Overall Architecture
 
 The consolidation layer sits between fast-changing streams of events and the slower, more stable belief and document stores. Its main responsibilities are to:
 
@@ -12,7 +12,7 @@ The consolidation layer sits between fast-changing streams of events and the slo
 
 In combination with the introspective layer, this provides a path from “what just happened” to “what the system will remember and use later.”
 
-## 13.2 Inputs to the Consolidation Process
+## 14.2 Inputs to the Consolidation Process
 
 The consolidation routines draw from several sources, including:
 
@@ -31,7 +31,7 @@ The consolidation routines draw from several sources, including:
 
 These sources provide both the content to be stored and hints about which items deserve attention.
 
-## 13.3 Criteria for What Is Stored
+## 14.3 Criteria for What Is Stored
 
 Not every event is worth preserving in detail. The consolidation logic applies several criteria when deciding what to keep:
 
@@ -46,7 +46,7 @@ Not every event is worth preserving in detail. The consolidation logic applies s
 
 Events that score higher on these criteria are more likely to be turned into long-term entries, while routine or redundant interactions may be summarized more aggressively or allowed to fade.
 
-## 13.4 Transformation into Long-Term Memory
+## 14.4 Transformation into Long-Term Memory
 
 When an event is selected for consolidation, a series of steps converts it into durable structures:
 
@@ -61,7 +61,7 @@ When an event is selected for consolidation, a series of steps converts it into 
 
 This process turns individual episodes into artifacts that can be discovered through retrieval and incorporated into future reasoning.
 
-## 13.5 Temporal Organization and Decay
+## 14.5 Temporal Organization and Decay
 
 The consolidation layer also manages how memories age:
 
@@ -74,7 +74,7 @@ The consolidation layer also manages how memories age:
 
 Practical limits on storage and retrieval speed require some form of decay. The system can gradually reduce detail on older or low-value items while preserving anchors that remain relevant for long periods.
 
-## 13.6 Interaction with Retrieval and Introspection
+## 14.6 Interaction with Retrieval and Introspection
 
 Consolidated entries feed back into other layers:
 
@@ -87,7 +87,7 @@ Consolidated entries feed back into other layers:
 
 In this way, consolidation is not just archival. It actively shapes how the system responds to new input and how it sees its own development over time.
 
-## 13.7 Alignment with Spatial and Governance Goals
+## 14.7 Alignment with Spatial and Governance Goals
 
 Because many consolidated entries are tied to locations and institutional structures, this layer is closely aligned with the project’s focus on geography and community processes:
 
@@ -100,7 +100,7 @@ Because many consolidated entries are tied to locations and institutional struct
 
 By structuring consolidation around both semantic and spatial dimensions, the system can support richer forms of analysis and accountability.
 
-## 13.8 Summary
+## 14.8 Summary
 
 The consolidation layer captures how recent activity is turned into lasting structure across text, beliefs, and spatial references. It selects, compresses, and organizes experiences so that they can support future retrieval, introspection, and improvement. Later chapters build on this to describe how global controls and executive processes use these memories as part of broader feedback loops.
 

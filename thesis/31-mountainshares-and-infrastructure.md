@@ -2,7 +2,7 @@
 
 This chapter describes how the system interacts with cooperative structures and hosting platforms while remaining within the constraints set by barrier, container, and control layers. The focus is on the roles and limits of these connections, rather than on reproducing specific configuration files or credentials.
 
-## 30.1 Role Inside MountainShares
+## 31.1 Role Inside MountainShares
 
 Within the cooperative context, the system is designed to act as an internal reasoning and coordination layer:
 
@@ -15,7 +15,7 @@ Within the cooperative context, the system is designed to act as an internal rea
 
 These roles depend on well-defined interfaces between cooperative data sources and internal structures.
 
-## 30.2 Interfaces to Cooperative Data
+## 31.2 Interfaces to Cooperative Data
 
 Access to cooperative information is mediated through controlled channels:
 
@@ -28,7 +28,7 @@ Access to cooperative information is mediated through controlled channels:
 
 This design keeps responsibilities and data boundaries clear.
 
-## 30.3 Connections to Hosting and Web Platforms
+## 31.3 Connections to Hosting and Web Platforms
 
 The system can participate in managing certain aspects of web presence under strict conditions:
 
@@ -41,7 +41,7 @@ The system can participate in managing certain aspects of web presence under str
 
 These practices ensure that web-facing actions remain reviewable.
 
-## 30.4 Safeguards for External Actions
+## 31.4 Safeguards for External Actions
 
 Actions that affect external infrastructure are subject to multiple layers of safeguards:
 
@@ -54,7 +54,7 @@ Actions that affect external infrastructure are subject to multiple layers of sa
 
 Together, these measures restrict the range of possible unintended effects.
 
-## 30.5 Use of Container and Coordinator Layers
+## 31.5 Use of Container and Coordinator Layers
 
 Internal structuring mechanisms shape how integration tasks are carried out:
 
@@ -71,7 +71,7 @@ Internal structuring mechanisms shape how integration tasks are carried out:
 
 This keeps integration activities embedded in the broader architecture rather than isolated.
 
-## 30.6 Relationship to Live Feeds and Narratives
+## 31.6 Relationship to Live Feeds and Narratives
 
 Integration capabilities connect to the live cycles described earlier in this part:
 
@@ -84,6 +84,6 @@ Integration capabilities connect to the live cycles described earlier in this pa
 
 These links help maintain coherence between internal models and external realities.
 
-## 30.7 Summary
+## 31.7 Summary
 
 Integration with cooperative structures and hosting platforms is handled through scoped interfaces, layered safeguards, and the same container and coordination mechanisms that govern other activities. A small, attached optimizer observes these integrations and proposes incremental refinements, which are evaluated and recorded through the same paths as other self-improvement processes. This allows the system to contribute to planning and maintenance tasks while keeping external actions constrained, logged, and open to review.

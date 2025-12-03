@@ -2,7 +2,7 @@
 
 This chapter describes how multiple language models and evaluation components are used together during ongoing activity. The focus is on how different models are assigned roles, how their outputs are compared and scored, and how these judgments feed back into barrier, container, and control layers.
 
-## 32.1 Roles of the Core Models
+## 33.1 Roles of the Core Models
 
 Several models are used with distinct primary roles:
 
@@ -15,7 +15,7 @@ Several models are used with distinct primary roles:
 
 Separating these roles helps keep responsibilities clearer and makes it easier to study behavior.
 
-## 32.2 Judge Components and Evaluation Criteria
+## 33.2 Judge Components and Evaluation Criteria
 
 Judge components assess candidate outputs along multiple dimensions:
 
@@ -28,7 +28,7 @@ Judge components assess candidate outputs along multiple dimensions:
 
 These evaluations are used both for real-time decisions and for later analysis.
 
-## 32.3 Ensemble Patterns
+## 33.3 Ensemble Patterns
 
 The system uses ensemble patterns to combine strengths of different models and judges:
 
@@ -41,7 +41,7 @@ The system uses ensemble patterns to combine strengths of different models and j
 
 This approach reduces reliance on any single model or judgment.
 
-## 32.4 Use in Live Cycles
+## 33.4 Use in Live Cycles
 
 Ensemble and judge mechanisms are integrated into live processes described in earlier chapters:
 
@@ -54,7 +54,7 @@ Ensemble and judge mechanisms are integrated into live processes described in ea
 
 These uses tie evaluation closely to the rhythms of ongoing activity.
 
-## 32.5 Interaction with Barrier and Truth-Related Signals
+## 33.5 Interaction with Barrier and Truth-Related Signals
 
 Judge outputs interact with the barrier and support-related signals:
 
@@ -67,7 +67,7 @@ Judge outputs interact with the barrier and support-related signals:
 
 This makes evaluation part of the overall protection and filtering strategy.
 
-## 32.6 Influence on Containers, Memory, and Optimizers
+## 33.6 Influence on Containers, Memory, and Optimizers
 
 Evaluation signals are used by other architectural layers:
 
@@ -80,6 +80,6 @@ Evaluation signals are used by other architectural layers:
 
 This integration ensures that evaluation is not a one-off filter but part of a continuous improvement loop.
 
-## 32.7 Summary
+## 33.7 Summary
 
 The language model ensemble and judge systems provide a layered evaluation capability that supports live operation. By assigning different roles to models, combining their outputs, and feeding evaluation results into barrier, container, memory, and optimization layers, the system can better manage quality, safety, and alignment across a wide range of tasks.

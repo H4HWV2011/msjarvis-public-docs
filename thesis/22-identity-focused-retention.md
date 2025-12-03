@@ -2,7 +2,7 @@
 
 This chapter describes the most selective stage in each path, where a small subset of material from the background store is treated as central to how the system understands itself and its ongoing commitments. The focus is on criteria and structures for preserving these items, not on any claim of human-like selfhood.
 
-## 20.1 Purpose of the Deepest Layer
+## 22.1 Purpose of the Deepest Layer
 
 The identity-focused layer has three main purposes:
 
@@ -15,7 +15,7 @@ The identity-focused layer has three main purposes:
 
 This layer is intentionally small, so that what is stored here can be inspected and understood.
 
-## 20.2 Candidates from the Background Store
+## 22.2 Candidates from the Background Store
 
 Items reach this layer only after spending time in the background store and participating in recurring patterns. Typical candidates include:
 
@@ -28,7 +28,7 @@ Items reach this layer only after spending time in the background store and part
 
 Rather than promoting single records in isolation, the system often promotes summaries or representative entries that stand in for a larger pattern.
 
-## 20.3 Criteria for Promotion
+## 22.3 Criteria for Promotion
 
 Promotion decisions are guided by a combination of factors:
 
@@ -41,7 +41,7 @@ Promotion decisions are guided by a combination of factors:
 
 These criteria aim to ensure that the deepest layer reflects what is both influential and desirable, not just what happens to be frequent.
 
-## 20.4 Representation of Retained Items
+## 22.4 Representation of Retained Items
 
 Items in this layer are stored with additional structure to support their central role:
 
@@ -54,7 +54,7 @@ Items in this layer are stored with additional structure to support their centra
 
 This representation helps maintain context and traceability even as the system continues to evolve.
 
-## 20.5 Influence on Other Layers
+## 22.5 Influence on Other Layers
 
 Entries in this layer influence the rest of the system in several ways:
 
@@ -67,7 +67,7 @@ Entries in this layer influence the rest of the system in several ways:
 
 In effect, this layer contributes to a consistent “through-line” across different parts of the system’s behavior.
 
-## 20.6 Parallel Paths and Differences in Focus
+## 22.6 Parallel Paths and Differences in Focus
 
 Both parallel paths implement identity-focused layers, but their emphases differ:
 
@@ -76,7 +76,7 @@ Both parallel paths implement identity-focused layers, but their emphases differ
 
 Despite these differences, both use similar mechanisms for selection, representation, and influence, which allows comparisons and combined analyses when needed.
 
-## 20.7 Stability, Revision, and Retirement
+## 22.7 Stability, Revision, and Retirement
 
 Even at this depth, retained items are not immutable:
 
@@ -89,6 +89,6 @@ Even at this depth, retained items are not immutable:
 
 All such changes should be logged with sufficient detail to reconstruct how the deepest layer has changed over time.
 
-## 20.8 Summary
+## 22.8 Summary
 
 The identity-focused retention layer provides a compact, structured set of entries that shape how the system responds and explains itself. It is fed by patterns detected in the background store and, in turn, influences retrieval, evaluation, and narrative layers. The next chapters describe how the two parallel paths are distinguished in practice and how material from this layer is written back into broader memory and control structures.

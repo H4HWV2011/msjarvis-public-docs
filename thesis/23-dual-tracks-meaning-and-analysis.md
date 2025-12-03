@@ -2,7 +2,7 @@
 
 This chapter describes how the three-stage structure outlined in earlier chapters is instantiated twice, forming two parallel paths with different emphases. Both paths share the same intake, filtering, background, and deep-retention pattern, but they differ in what they prioritize, how they label material, and how their outputs are used.
 
-## 21.1 Rationale for Two Parallel Paths
+## 23.1 Rationale for Two Parallel Paths
 
 Using two paths allows the system to separate:
 
@@ -11,7 +11,7 @@ Using two paths allows the system to separate:
 
 This separation helps keep evaluations and summaries appropriate to their domain while still allowing information to flow between paths when needed.
 
-## 21.2 Shared Structural Pattern
+## 23.2 Shared Structural Pattern
 
 Each path implements the same three stages:
 
@@ -26,7 +26,7 @@ Each path implements the same three stages:
 
 Because the structure is shared, tooling and diagnostics can operate uniformly across both paths.
 
-## 21.3 Meaning-Oriented Path
+## 23.3 Meaning-Oriented Path
 
 The first path emphasizes themes related to lived experience and collective concerns. Its evaluators and selection criteria tend to:
 
@@ -39,7 +39,7 @@ The first path emphasizes themes related to lived experience and collective conc
 
 Entries that reach the deepest layer in this path often describe long-running community issues, enduring values, and repeated patterns of care or risk.
 
-## 21.4 Analytical Path
+## 23.4 Analytical Path
 
 The second path emphasizes structured problem-solving and formal reasoning. Its evaluators and selection criteria tend to:
 
@@ -52,7 +52,7 @@ The second path emphasizes structured problem-solving and formal reasoning. Its 
 
 Entries that reach the deepest layer in this path often summarize persistent technical challenges, system behaviors, and governance mechanisms.
 
-## 21.5 Cross-Talk and Shared Anchors
+## 23.5 Cross-Talk and Shared Anchors
 
 Despite their differences, the two paths are not isolated:
 
@@ -65,7 +65,7 @@ Despite their differences, the two paths are not isolated:
 
 This cross-talk helps maintain a connection between how something feels or matters to a community and how it is represented in technical terms.
 
-## 21.6 Influence on Behavior and Explanation
+## 23.6 Influence on Behavior and Explanation
 
 The existence of two paths affects how the system behaves and explains itself:
 
@@ -78,6 +78,6 @@ The existence of two paths affects how the system behaves and explains itself:
 
 By making these differences explicit, the design aims to keep the system’s behavior aligned with both technical accuracy and community-centered interpretation.
 
-## 21.7 Summary
+## 23.7 Summary
 
 This chapter has outlined how the three-stage container structure is duplicated into two paths with different emphases, and how those paths remain connected through shared references and coordinated updates. The final chapter in this part focuses on how material from both paths is written back into broader memory, introspective layers, and control mechanisms.

@@ -2,7 +2,7 @@
 
 This chapter describes the dedicated scraper and processing service that ingests material from the Audio-Aligned and Parsed Corpus of Appalachian English (AAPCAppE) and related endpoints. The goal is to treat Appalachian English as a first-class variety in both understanding and output, based on documented usage rather than assumptions.
 
-## 29.1 Purpose of the AAPCAppE Integration
+## 30.1 Purpose of the AAPCAppE Integration
 
 The AAPCAppE integration serves several functions:
 
@@ -15,7 +15,7 @@ The AAPCAppE integration serves several functions:
 
 These aims complement the broader linguistic layer described in the preceding chapter.
 
-## 29.2 Target Corpus and Related Sources
+## 30.2 Target Corpus and Related Sources
 
 The scraper focuses on a specific, documented corpus and closely related material:
 
@@ -28,7 +28,7 @@ The scraper focuses on a specific, documented corpus and closely related materia
 
 This keeps the integration focused and traceable.
 
-## 29.3 Scraper Operation and Scheduling
+## 30.3 Scraper Operation and Scheduling
 
 The scraper runs as a scheduled task rather than a general web spider:
 
@@ -41,7 +41,7 @@ The scraper runs as a scheduled task rather than a general web spider:
 
 This process allows the system to track how its corpus of Appalachian English evolves over time.
 
-## 29.4 Normalization and Record Structure
+## 30.4 Normalization and Record Structure
 
 Retrieved material is normalized into internal records:
 
@@ -54,7 +54,7 @@ Retrieved material is normalized into internal records:
 
 These records form the basis for downstream embedding and analysis.
 
-## 29.5 Integration with Memory, Spatial, and Belief Layers
+## 30.5 Integration with Memory, Spatial, and Belief Layers
 
 Normalized records are integrated into existing structures:
 
@@ -67,7 +67,7 @@ Normalized records are integrated into existing structures:
 
 This integration allows retrieval and reasoning to make use of corpus-derived knowledge alongside other sources.
 
-## 29.6 Use in Understanding and Generation
+## 30.6 Use in Understanding and Generation
 
 The AAPCAppE-derived collection informs both interpretation and output:
 
@@ -80,7 +80,7 @@ The AAPCAppE-derived collection informs both interpretation and output:
 
 These uses are always mediated by barrier, roles, and evaluator instructions.
 
-## 29.7 Safeguards and Governance
+## 30.7 Safeguards and Governance
 
 Using a specialized corpus also involves safeguards:
 
@@ -93,6 +93,6 @@ Using a specialized corpus also involves safeguards:
 
 These practices help maintain respect and accountability around the use of dialect resources.
 
-## 29.8 Summary
+## 30.8 Summary
 
 The AAPCAppE scraper and corpus integration provide a structured way to bring documented Appalachian English into the system’s linguistic and reasoning layers. By focusing on a well-defined corpus, normalizing and tagging retrieved material, and tying it into memory, spatial, and evaluation mechanisms, the system can treat Appalachian English as a systematic, respected variety in both understanding and communication.

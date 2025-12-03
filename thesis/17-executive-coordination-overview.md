@@ -2,7 +2,7 @@
 
 This chapter outlines the high-level design of the control layer that decides which subsystems to invoke, in what order, and under which constraints. It serves as a conceptual bridge between the neuro-inspired layers described so far and the more concrete container and service designs that follow in later parts of the work. The focus here is on responsibilities and information flows rather than on specific deployment details.
 
-## 15.1 Role in the System
+## 17.1 Role in the System
 
 The executive layer has three main jobs:
 
@@ -15,7 +15,7 @@ The executive layer has three main jobs:
 
 In earlier chapters these ideas were introduced using brain-related metaphors. Here they are treated simply as design responsibilities that any coordinating mechanism must fulfill.
 
-## 15.2 Inputs and Signals
+## 17.2 Inputs and Signals
 
 To make decisions, the coordination layer draws on several kinds of information:
 
@@ -32,7 +32,7 @@ To make decisions, the coordination layer draws on several kinds of information:
 
 These inputs give the coordinator a view of both the immediate task and the broader environment in which it is operating.
 
-## 15.3 High-Level Decision Flow
+## 17.3 High-Level Decision Flow
 
 At a high level, handling a request involves the following steps:
 
@@ -49,7 +49,7 @@ At a high level, handling a request involves the following steps:
 
 This structure is flexible enough to handle both simple and complex tasks while keeping the process inspectable.
 
-## 15.4 Interaction with Other Layers
+## 17.4 Interaction with Other Layers
 
 The executive layer sits at the point where several subsystems meet:
 
@@ -62,7 +62,7 @@ The executive layer sits at the point where several subsystems meet:
 
 Because of this position, changes in any of the underlying layers can affect how coordination is carried out, and observations gathered by the coordinator can motivate adjustments to those layers.
 
-## 15.5 Relation to Container and Service Design
+## 17.5 Relation to Container and Service Design
 
 Subsequent parts of the work will describe concrete implementations that realize this coordination layer using specific services and deployment patterns. Those chapters will introduce:
 
@@ -72,6 +72,6 @@ Subsequent parts of the work will describe concrete implementations that realize
 
 The conceptual structure described here provides the blueprint for those later designs, making it easier to see how individual components contribute to the overall behavior.
 
-## 15.6 Summary
+## 17.6 Summary
 
 This chapter has outlined the responsibilities, inputs, and high-level flow of the system’s central coordination layer. It connects the earlier discussions of introspection, consolidation, and global control to the concrete mechanisms that will be developed in later parts, where the emphasis shifts from metaphor and intent to specific implementation patterns.

@@ -2,7 +2,7 @@
 
 This chapter examines how far the biological framing can be taken as a design tool, where it begins to break down, and how the resulting architecture can be evaluated in practice. The aim is to separate helpful structure from unwarranted claims, and to suggest concrete ways to study the behavior of the implemented system.
 
-## 16.1 Motivations for Using Biological Concepts
+## 18.1 Motivations for Using Biological Concepts
 
 The earlier chapters introduced several structures using names drawn from neuroscience. The motivation for this framing was to:
 
@@ -12,7 +12,7 @@ The earlier chapters introduced several structures using names drawn from neuros
 
 This vocabulary has helped organize the design into layers such as introspective records, consolidation processes, global controls, and coordination mechanisms.
 
-## 16.2 Where the Analogy Holds
+## 18.2 Where the Analogy Holds
 
 There are several ways in which the analogy is useful:
 
@@ -25,7 +25,7 @@ There are several ways in which the analogy is useful:
 
 In these respects, the framing encourages designs that are more transparent and easier to reason about than a monolithic arrangement.
 
-## 16.3 Where the Analogy Fails
+## 18.3 Where the Analogy Fails
 
 At the same time, there are important differences that must be kept clear:
 
@@ -38,7 +38,7 @@ At the same time, there are important differences that must be kept clear:
 
 These gaps mean that the framing should be treated as a set of guiding metaphors, not as a claim of equivalence.
 
-## 16.4 Evaluation Criteria
+## 18.4 Evaluation Criteria
 
 To assess whether the design is meeting its aims, several concrete criteria can be applied:
 
@@ -53,7 +53,7 @@ To assess whether the design is meeting its aims, several concrete criteria can 
 
 These criteria can be translated into metrics and tests that can be run regularly.
 
-## 16.5 Measurement and Instrumentation
+## 18.5 Measurement and Instrumentation
 
 Evaluating the design requires deliberate instrumentation:
 
@@ -66,7 +66,7 @@ Evaluating the design requires deliberate instrumentation:
 
 By collecting this information over time, it becomes possible to study how the system behaves in practice, rather than relying only on expectations based on the design.
 
-## 16.6 Case Studies and Comparative Analysis
+## 18.6 Case Studies and Comparative Analysis
 
 Another way to evaluate the design is through focused case studies:
 
@@ -79,7 +79,7 @@ Another way to evaluate the design is through focused case studies:
 
 In each case, one can examine how the different layers contribute to the outcome and whether the behavior aligns with stated goals.
 
-## 16.7 Implications for Future Development
+## 18.7 Implications for Future Development
 
 Understanding the limits of the current framing has direct implications for further work:
 
@@ -92,6 +92,6 @@ Understanding the limits of the current framing has direct implications for furt
 
 By making these boundaries explicit, the project can evolve while maintaining clarity about what it claims and what it delivers.
 
-## 16.8 Summary
+## 18.8 Summary
 
 This chapter has considered the benefits and drawbacks of using concepts from neuroscience as organizing tools for the design. It has outlined practical ways to evaluate the resulting architecture and highlighted why claims about behavior should be grounded in measurements and case studies rather than in metaphor alone. Later parts of the work will turn to more detailed descriptions of concrete implementations built on top of this foundation.

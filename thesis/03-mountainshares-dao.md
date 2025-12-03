@@ -1,4 +1,4 @@
-# 4. MountainShares DAO and Community Economy
+# 3. MountainShares DAO and Community Economy
 
 # MountainShares DAO: Economic and Governance Infrastructure (Draft)
 

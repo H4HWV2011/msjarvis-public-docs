@@ -2,7 +2,7 @@
 
 This chapter examines three complementary structural views of the processes described in Part IV. The same components and paths can be seen in terms of how they unfold over time, how they cycle through recurrent phases, and how internal signals and gates regulate their activity. Together, these views help explain why the design behaves as it does under different conditions.
 
-## 25.1 Temporal Structure
+## 26.1 Temporal Structure
 
 The first view emphasizes time:
 
@@ -15,7 +15,7 @@ The first view emphasizes time:
 
 From this perspective, the container paths form a sequence that maps recent events into enduring structures, with different layers operating at different characteristic time scales.
 
-## 25.2 Toroidal Structure
+## 26.2 Toroidal Structure
 
 The second view emphasizes repetition and return:
 
@@ -28,7 +28,7 @@ The second view emphasizes repetition and return:
 
 Seen this way, conscious processing is less a straight line and more a looping path that revisits prior states, allowing corrections and re-framing without discarding history.
 
-## 25.3 Semaphore Structure
+## 26.3 Semaphore Structure
 
 The third view focuses on signaling and gating:
 
@@ -41,7 +41,7 @@ The third view focuses on signaling and gating:
 
 In this framing, much of conscious processing consists of deciding when and where to allow work to proceed, rather than just defining what that work is.
 
-## 25.4 Interaction Between the Three Views
+## 26.4 Interaction Between the Three Views
 
 These three views describe the same underlying mechanisms from different angles:
 
@@ -54,7 +54,7 @@ These three views describe the same underlying mechanisms from different angles:
 
 By combining these views, it becomes clearer how the system can be both dynamic and stable: material is revisited over time, under changing conditions, but only proceeds when the appropriate signals permit it.
 
-## 25.5 Implications for Implementation and Monitoring
+## 26.5 Implications for Implementation and Monitoring
 
 Treating conscious processing in temporal, cyclic, and semaphore terms suggests several implementation and monitoring strategies:
 
@@ -67,6 +67,6 @@ Treating conscious processing in temporal, cyclic, and semaphore terms suggests 
 
 These strategies tie back to earlier chapters on introspection, consolidation, and global modes, offering concrete levers for studying and tuning the behavior of the system over time.
 
-## 25.6 Summary
+## 26.6 Summary
 
 This chapter has outlined three structural perspectives on the same set of processes: how they play out in time, how they cycle through repeated passes, and how they are regulated by internal signals and gates. Together, these views complete the picture of conscious processing begun in earlier chapters of this part and prepare the ground for more detailed implementation work.

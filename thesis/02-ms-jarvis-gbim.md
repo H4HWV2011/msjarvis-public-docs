@@ -1,4 +1,4 @@
-# 3. Ms. Jarvis and the GBIM Framework
+# 2. Ms. Jarvis and the GBIM Framework
 
 # Ms. Jarvis and the Geospatial Belief Information Model (GBIM) (Draft)
 

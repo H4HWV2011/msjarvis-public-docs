@@ -4,7 +4,7 @@ This chapter describes the “quantum-inspired entanglement” idea used in Ms. 
 
 Within the thesis, this mechanism ties together Hilbert-space geometry, ChromaDB-based semantic memory, the GBIM/GeoDB spatial grounding described in Chapters 2, 5, and 6, and the RAG pipeline into a single picture of how Ms. Jarvis maintains coherence across roles, domains, and time.
 
-## 07.1 Motivation for Entanglement
+## 8.1 Motivation for Entanglement
 
 The “entanglement” metaphor addresses three practical challenges:
 
@@ -14,7 +14,7 @@ The “entanglement” metaphor addresses three practical challenges:
 
 By describing these as “entangled” states, the thesis emphasizes that Ms. Jarvis’s beliefs about governance, geography, and ethics are designed to move together in structured, traceable ways rather than drift independently.
 
-## 07.2 Formal Embedding and Tag Model
+## 8.2 Formal Embedding and Tag Model
 
 Formally, Ms. Jarvis’s internal semantic state is modeled as follows:
 
@@ -32,7 +32,7 @@ Formally, Ms. Jarvis’s internal semantic state is modeled as follows:
 
 In the context of geography, tags in \(T_i\) include explicit references to GeoDB feature IDs, counties, districts, and other spatial units. This ties the abstract Hilbert-space vectors directly to concrete geometries stored in PostGIS and to geodb_* Chroma collections defined in Chapter 6.
 
-## 07.3 Entanglement Update Rule
+## 8.3 Entanglement Update Rule
 
 When an important item is updated (for example, a key governance rule, a corrected boundary, or a revised norm), Ms. Jarvis applies an “entanglement update” to the correlated set. Conceptually, this update is:
 
@@ -41,7 +41,7 @@ When an important item is updated (for example, a key governance rule, a correct
 
 The specific numerical schemes for these updates can vary (for example, additive, multiplicative, or projection-based adjustments), but the core idea is that a single change to an anchor belief triggers structured adjustments to a family of related items, including those tied to specific places in West Virginia.
 
-## 07.4 Interaction with RAG and GeoDB
+## 8.4 Interaction with RAG and GeoDB
 
 Entanglement interacts closely with the RAG pipeline and the GeoDB layer:
 

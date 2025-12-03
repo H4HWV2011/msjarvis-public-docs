@@ -4,7 +4,7 @@ This chapter explains how Ms. Egeria Jarvis uses a retrieval-augmented generatio
 
 Within the Quantarithmia program, the RAG pipeline is the mechanism that connects Hilbert-space state, semantic memory, and the spatial body described in Chapter 6 to actual outputs, making it possible to trace how an answer was constructed and which knowledge it relied on.
 
-## 06.1 Goals of the RAG Design
+## 7.1 Goals of the RAG Design
 
 The RAG system is designed to achieve several goals:
 
@@ -14,7 +14,7 @@ The RAG system is designed to achieve several goals:
 
 These goals reflect the broader thesis commitments to glassbox AI and spatial justice: the system should show its work and respect community-defined boundaries, including geographic ones.
 
-## 06.2 High-Level RAG Flow
+## 7.2 High-Level RAG Flow
 
 At a high level, a typical RAG interaction in Ms. Jarvis follows this sequence:
 
@@ -28,7 +28,7 @@ At a high level, a typical RAG interaction in Ms. Jarvis follows this sequence:
 
 This flow turns RAG from a simple “vector search + LLM” pattern into a more disciplined pipeline aligned with the project’s governance, transparency, and spatial grounding goals.
 
-## 06.3 Routers and Role-Aware Retrieval
+## 7.3 Routers and Role-Aware Retrieval
 
 Routing is a central part of this RAG design:
 
@@ -38,7 +38,7 @@ Routing is a central part of this RAG design:
 
 Routers thus narrow the search space before retrieval, reducing noise and preventing inappropriate cross-domain leakage (for example, mixing internal operational logs into community-facing answers, or exposing sensitive spatial layers in public-facing roles).
 
-## 06.4 Context Construction and Structure
+## 7.4 Context Construction and Structure
 
 The way context is constructed from retrieved items matters:
 
@@ -48,7 +48,7 @@ The way context is constructed from retrieved items matters:
 
 This structured context helps Ms. Jarvis generate answers that are both grounded and interpretable, and makes it easier to trace back from a statement to the supporting retrievals, including specific spatial features.
 
-## 06.5 Constraints During and After Generation
+## 7.5 Constraints During and After Generation
 
 Constitutional and ethical constraints interact with the RAG pipeline at multiple points:
 
@@ -59,7 +59,7 @@ Constitutional and ethical constraints interact with the RAG pipeline at multipl
 
 These layered constraints reinforce the thesis claim that Ms. Jarvis is designed as a constrained, accountable system rather than an unconstrained text generator.
 
-## 06.6 Relation to Long-Term Memory, GeoDB, and Entanglement
+## 7.6 Relation to Long-Term Memory, GeoDB, and Entanglement
 
 The RAG pipeline sits between static memory and dynamic reasoning:
 

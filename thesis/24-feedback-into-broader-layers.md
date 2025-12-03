@@ -2,7 +2,7 @@
 
 This chapter explains how material from the container paths flows back into other parts of the system. The goal is to show how decisions made in the intake, filtering, background, and deep-retention stages influence introspective records, long-term memory, and high-level settings, closing the loop between experience and ongoing behavior.
 
-## 22.1 Overview of Feedback Paths
+## 24.1 Overview of Feedback Paths
 
 There are three main feedback directions:
 
@@ -15,7 +15,7 @@ There are three main feedback directions:
 
 Each direction uses structured fields and identifiers to keep links traceable.
 
-## 22.2 Writing Back to Introspective Records
+## 24.2 Writing Back to Introspective Records
 
 As items move through the container stages, they generate updates to introspective records:
 
@@ -28,7 +28,7 @@ As items move through the container stages, they generate updates to introspecti
 
 These updates help answer questions about what the system has been focusing on and why.
 
-## 22.3 Integration with Long-Term Memory
+## 24.3 Integration with Long-Term Memory
 
 When patterns or central entries are judged important beyond the container layer, they trigger updates to long-term memory:
 
@@ -41,7 +41,7 @@ When patterns or central entries are judged important beyond the container layer
 
 These updates allow later retrieval pipelines to surface not only raw documents but also distilled insights from the container processes.
 
-## 22.4 Influence on Global Settings and Coordination
+## 24.4 Influence on Global Settings and Coordination
 
 Aggregated information from the container paths informs high-level control:
 
@@ -54,7 +54,7 @@ Aggregated information from the container paths informs high-level control:
 
 These influences are implemented through explicit configuration changes rather than implicit side effects.
 
-## 22.5 Cross-Path Effects
+## 24.5 Cross-Path Effects
 
 Feedback from one path can affect the other:
 
@@ -67,7 +67,7 @@ Feedback from one path can affect the other:
 
 This ensures that both paths contribute to shaping the overall system rather than drifting apart.
 
-## 22.6 Logging and Audit of Feedback
+## 24.6 Logging and Audit of Feedback
 
 Because feedback mechanisms can significantly change behavior, their actions are logged:
 
@@ -80,6 +80,6 @@ Because feedback mechanisms can significantly change behavior, their actions are
 
 These practices support later analysis of how and why the system evolved.
 
-## 22.7 Summary
+## 24.7 Summary
 
 This chapter has shown how the container paths do more than sort and store items: they actively shape introspective descriptions, long-term memory, and high-level control. By feeding structured information back into these layers, the system can adapt over time while keeping its changes visible and traceable. The next chapter will focus on the concrete coordination mechanisms that manage these interactions across services and deployments.

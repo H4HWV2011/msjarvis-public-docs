@@ -1,4 +1,4 @@
-# 5. Hilbert-Space State of Ms. Jarvis
+# 4. Hilbert-Space State of Ms. Jarvis
 
 # Hilbert-Space State and Embeddings (Draft)
 

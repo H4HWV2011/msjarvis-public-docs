@@ -2,7 +2,7 @@
 
 This chapter describes the service that exposes high-level principles and rules as a running component in the system. Rather than existing only as documentation, these principles are made available through an interface that other services can call when planning, evaluating, or constraining actions.
 
-## 36.1 Purpose of the Constitutional Layer
+## 37.1 Purpose of the Constitutional Layer
 
 The constitutional layer serves several purposes:
 
@@ -15,7 +15,7 @@ The constitutional layer serves several purposes:
 
 This layer is intended to reflect agreed commitments and governance expectations for how the system should behave.
 
-## 36.2 Implementation as a Service
+## 37.2 Implementation as a Service
 
 The constitutional layer is implemented as a dedicated service:
 
@@ -28,7 +28,7 @@ The constitutional layer is implemented as a dedicated service:
 
 This makes it possible for other components to consult the layer in a consistent way.
 
-## 36.3 Structure of Principles and Rules
+## 37.3 Structure of Principles and Rules
 
 The content exposed by the service is structured for machine use:
 
@@ -41,7 +41,7 @@ The content exposed by the service is structured for machine use:
 
 This structure supports both direct lookups and more complex evaluations.
 
-## 36.4 Use by Barrier, Evaluators, and Coordinator
+## 37.4 Use by Barrier, Evaluators, and Coordinator
 
 Several layers of the architecture consult the constitutional service:
 
@@ -54,7 +54,7 @@ Several layers of the architecture consult the constitutional service:
 
 These calls help keep day-to-day behavior aligned with the high-level commitments encoded in the service.
 
-## 36.5 Interaction with Identity and Roles
+## 37.5 Interaction with Identity and Roles
 
 The constitutional layer is also aware of identity and roles:
 
@@ -67,7 +67,7 @@ The constitutional layer is also aware of identity and roles:
 
 This connects the constitutional layer to the identity and registration mechanisms described elsewhere.
 
-## 36.6 Governance of the Constitutional Layer
+## 37.6 Governance of the Constitutional Layer
 
 The constitutional service itself is subject to governance:
 
@@ -80,7 +80,7 @@ The constitutional service itself is subject to governance:
 
 These practices help ensure that the layer remains legitimate and aligned with evolving expectations.
 
-## 36.7 Summary
+## 37.7 Summary
 
 The constitutional principles service provides a running, queryable embodiment of high-level commitments and rules. By exposing an interface that can be consulted by barrier, evaluators, coordinator, and identity mechanisms, and by maintaining versioned, governed content, it helps integrate governance concerns into everyday system behavior in a structured and inspectable way.
 

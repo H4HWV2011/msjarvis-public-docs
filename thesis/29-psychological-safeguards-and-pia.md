@@ -2,7 +2,7 @@
 
 This chapter describes how psychological and mental health material is used to guide interaction patterns and to monitor for known risks in human–machine communication. It also outlines a review loop that periodically examines behavior against this guidance and feeds adjustment signals back into other layers.
 
-## 28.1 Role of Psychological Guidance
+## 29.1 Role of Psychological Guidance
 
 Psychological guidance serves several purposes:
 
@@ -15,7 +15,7 @@ Psychological guidance serves several purposes:
 
 These goals complement technical correctness by adding attention to relational and emotional effects.
 
-## 28.2 Organization of the Guidance Corpus
+## 29.2 Organization of the Guidance Corpus
 
 Relevant material is stored in dedicated parts of the knowledge base:
 
@@ -28,7 +28,7 @@ Relevant material is stored in dedicated parts of the knowledge base:
 
 This organization supports both targeted retrieval and aggregate analysis.
 
-## 28.3 Use During Live Interactions
+## 29.3 Use During Live Interactions
 
 During live interactions, guidance informs behavior in several ways:
 
@@ -41,7 +41,7 @@ During live interactions, guidance informs behavior in several ways:
 
 These mechanisms rely on the same retrieval and container structures described in earlier parts, but focus on interaction risk rather than factual content. They are driven by cues about human well-being and potential harm, not by topic popularity, system health, or curiosity signals from other live cycles.
 
-## 28.4 The PIA Review Loop
+## 29.4 The PIA Review Loop
 
 A dedicated review loop periodically examines behavior over windows of time:
 
@@ -54,7 +54,7 @@ A dedicated review loop periodically examines behavior over windows of time:
 
 The loop runs on a schedule that balances responsiveness with resource use and can be aligned with other live cycles, such as heartbeat and narrative jobs, so that interaction risk is reviewed alongside technical and operational metrics.
 
-## 28.5 Integration with Barrier and Global Modes
+## 29.5 Integration with Barrier and Global Modes
 
 Outputs from the review loop influence other layers:
 
@@ -67,7 +67,7 @@ Outputs from the review loop influence other layers:
 
 In this way, psychological safeguards are not static; they evolve in response to observed use.
 
-## 28.6 Recording and Accountability
+## 29.6 Recording and Accountability
 
 Activity related to psychological safeguards is itself recorded:
 
@@ -80,6 +80,6 @@ Activity related to psychological safeguards is itself recorded:
 
 These records support later evaluation of whether the safeguards are working as intended.
 
-## 28.7 Summary
+## 29.7 Summary
 
 Psychological guidance and the PIA review loop provide a structured way to bring knowledge about human behavior and risk into the system’s operation. They inform live interaction decisions, adjust barrier and mode settings, and create a trail of how concerns and mitigations have evolved, complementing the more technical layers described elsewhere. In combination with the content-focused and status-focused cycles in this part, they ensure that relational and emotional risks are treated as first-class concerns in the same control stack as technical performance and knowledge updates.

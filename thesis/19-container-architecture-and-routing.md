@@ -2,7 +2,7 @@
 
 This chapter describes the high-level layout of the structures that receive activity from earlier layers and route it into deeper evaluation paths. The goal is to separate the flow of events into clear stages, so that each stage has a well-defined role in deciding what is ignored, what is kept for background consideration, and what becomes part of a more central store.
 
-## 17.1 Position in the Overall System
+## 19.1 Position in the Overall System
 
 The container layer sits above retrieval, optimization, and global control and below external interfaces and scheduling. Its main responsibilities are to:
 
@@ -12,7 +12,7 @@ The container layer sits above retrieval, optimization, and global control and b
 
 Earlier parts of the work have described how information is retrieved, evaluated, and stored. This part focuses on how those elements are wrapped in container structures that manage their entry into higher-level evaluative paths.
 
-## 17.2 Types of Incoming Events
+## 19.2 Types of Incoming Events
 
 The intake layer receives several broad categories of events:
 
@@ -27,7 +27,7 @@ The intake layer receives several broad categories of events:
 
 Each event is accompanied by metadata such as timestamps, role information, and identifiers, which the containers use to make routing decisions.
 
-## 17.3 Normalization into Container Records
+## 19.3 Normalization into Container Records
 
 Before events are passed to deeper stages, they are normalized into container records with a common structure. A typical record includes:
 
@@ -44,7 +44,7 @@ Before events are passed to deeper stages, they are normalized into container re
 
 This normalization step allows subsequent stages to apply uniform logic, regardless of where the event originated.
 
-## 17.4 First-Level Routing Decisions
+## 19.4 First-Level Routing Decisions
 
 Once a record is normalized, the intake layer applies initial routing logic:
 
@@ -57,7 +57,7 @@ Once a record is normalized, the intake layer applies initial routing logic:
 
 At this stage, routing focuses on structural compatibility and basic policy, leaving more detailed judgments to later chapters.
 
-## 17.5 Parallel Paths
+## 19.5 Parallel Paths
 
 The architecture uses two parallel paths that share the same structural pattern:
 
@@ -66,7 +66,7 @@ The architecture uses two parallel paths that share the same structural pattern:
 
 The intake layer decides, based on metadata and simple classifiers, whether a record is best handled by one path, the other, or both. Each path then applies its own evaluation criteria while maintaining the same overall sequence of stages.
 
-## 17.6 Outputs of the Routing Layer
+## 19.6 Outputs of the Routing Layer
 
 After routing, the main outputs are:
 
@@ -76,6 +76,6 @@ After routing, the main outputs are:
 
 These outputs ensure that downstream stages receive appropriately prepared inputs and that the choices made at the routing step can be examined later if needed.
 
-## 17.7 Summary
+## 19.7 Summary
 
 The container architecture described here provides a structured way to receive, normalize, and route events into deeper evaluative paths. It establishes the context in which later chapters will describe how items are filtered, retained, and woven into longer-term structures in each parallel path.

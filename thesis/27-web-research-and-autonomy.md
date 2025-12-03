@@ -2,7 +2,7 @@
 
 This chapter describes the periodic web research processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect external material under constraints, and feed that material back into internal stores and container paths in a controlled way.
 
-## 26.1 Role of Periodic Web Research
+## 27.1 Role of Periodic Web Research
 
 The web research layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring new external content rather than checking the health or behavior of internal services.
 
@@ -15,7 +15,7 @@ The web research layer has three main purposes. Unlike heartbeat and status cycl
 
 These functions operate within boundaries set by global settings, psychological safeguards, and logging requirements.
 
-## 26.2 Scheduling and Cadence
+## 27.2 Scheduling and Cadence
 
 Web research runs on a regular schedule:
 
@@ -28,7 +28,7 @@ Web research runs on a regular schedule:
 
 This cadence ensures that updates accumulate steadily without overwhelming other services.
 
-## 26.3 Topic Selection
+## 27.3 Topic Selection
 
 For each run, the system chooses what to look for:
 
@@ -41,7 +41,7 @@ For each run, the system chooses what to look for:
 
 The result is a small set of focused queries or targets for that iteration.
 
-## 26.4 Retrieval and Filtering
+## 27.4 Retrieval and Filtering
 
 Once topics are chosen, the web research job performs retrieval and initial screening:
 
@@ -54,7 +54,7 @@ Once topics are chosen, the web research job performs retrieval and initial scre
 
 These retrieval calls target external content sources configured for browsing and research, rather than internal health or status endpoints. These steps prepare the material for integration into internal stores.
 
-## 26.5 Integration with Memory and Spatial Layers
+## 27.5 Integration with Memory and Spatial Layers
 
 Accepted material is written into long-term structures:
 
@@ -67,7 +67,7 @@ Accepted material is written into long-term structures:
 
 This integration ensures that later retrieval can surface web-derived content alongside existing knowledge.
 
-## 26.6 Interaction with Container Paths
+## 27.6 Interaction with Container Paths
 
 Web research outputs also pass through the container structures:
 
@@ -80,7 +80,7 @@ Web research outputs also pass through the container structures:
 
 In this way, periodic web activity becomes part of the same evaluative flow as user-driven events.
 
-## 26.7 Safeguards and Oversight
+## 27.7 Safeguards and Oversight
 
 Because web research introduces new external material, it is subject to safeguards:
 
@@ -93,6 +93,6 @@ Because web research introduces new external material, it is subject to safeguar
 
 These measures aim to balance autonomy with traceability and safety.
 
-## 26.8 Summary
+## 27.8 Summary
 
 The periodic web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and passes them through the same container paths that handle other events. Its primary role is to expand and refresh the knowledge base, while the following chapters focus on cycles that monitor internal health and behavior rather than acquiring new content.

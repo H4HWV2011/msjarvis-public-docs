@@ -2,7 +2,7 @@
 
 This chapter outlines how the system’s behavior is evaluated during real operation. It focuses on measurable indicators, case-based studies, and links between observed outcomes and the architectural layers described in earlier parts.
 
-## 36.1 Goals of Operational Evaluation
+## 39.1 Goals of Operational Evaluation
 
 Operational evaluation serves several goals:
 
@@ -15,7 +15,7 @@ Operational evaluation serves several goals:
 
 These goals guide the choice of metrics and study designs.
 
-## 36.2 Core Metrics and Indicators
+## 39.2 Core Metrics and Indicators
 
 Several categories of metrics are tracked:
 
@@ -28,7 +28,7 @@ Several categories of metrics are tracked:
 
 These indicators provide a quantitative view of day-to-day operation.
 
-## 36.3 Case-Based Evaluation
+## 39.3 Case-Based Evaluation
 
 In addition to aggregate metrics, case-based evaluation is used:
 
@@ -48,7 +48,7 @@ On 2025‑11‑28 at approximately 10:10 EST, two historical orchestrator units,
 This incident confirmed that the legacy orchestrators were no longer part of the operational control path and should be treated explicitly in the documentation as retired scaffolding. As a result, the thesis and architecture roadmap mark these units as disabled, describe their former responsibilities as decomposed across dedicated services (coordinator on 8018, WOAH on 8033, Chroma/health wrapper on 8011), and emphasize that all monitoring and evaluation now target the newer mesh rather than the historical multi‑consciousness service.
 
 
-## 36.4 Links to Architectural Layers
+## 39.4 Links to Architectural Layers
 
 Evaluation draws on information from multiple layers:
 
@@ -61,7 +61,7 @@ Evaluation draws on information from multiple layers:
 
 This multi-layer view supports richer explanations of successes and failures.
 
-## 36.5 Continuous Improvement Loops
+## 39.5 Continuous Improvement Loops
 
 Operational evaluation is tied back into improvement processes:
 
@@ -74,6 +74,6 @@ Operational evaluation is tied back into improvement processes:
 
 These loops connect evaluation to ongoing refinement.
 
-## 36.6 Summary
+## 39.6 Summary
 
 Operational evaluation combines metrics, case studies, and architectural traces to build a picture of how the system behaves in practice. By linking observations to specific layers and mechanisms, it provides a foundation for informed adjustments and for the broader discussions that follow in later chapters.

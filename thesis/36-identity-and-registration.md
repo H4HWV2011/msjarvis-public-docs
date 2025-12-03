@@ -2,7 +2,7 @@
 
 This chapter describes how identity and registration are handled when people use capabilities that can affect more than a single exchange. It sets out a two-step process for confirming who is behind certain actions, how sensitive details are kept separate from general data, and how this structure connects to barrier, container, and governance layers. The same approach applies to anyone using these capabilities, including the original builder, once the system is exposed online.
 
-## 35.1 Why Strong Identity Controls Exist
+## 36.1 Why Strong Identity Controls Exist
 
 Some interactions reach beyond ordinary questions and answers:
 
@@ -15,7 +15,7 @@ Some interactions reach beyond ordinary questions and answers:
 
 These pressures make it necessary to do more than accept anonymous input when certain roles or tools are involved.
 
-## 35.2 Two-Step Registration for People
+## 36.2 Two-Step Registration for People
 
 For roles that unlock stronger capabilities, sign-up works in two stages:
 
@@ -26,7 +26,7 @@ For roles that unlock stronger capabilities, sign-up works in two stages:
 
 The intent is that any person, including the builder, who wants to use these elevated features goes through the same process. Everyday, lower-risk use can still be possible without this, but anything that can move shared levers requires it.
 
-## 35.3 How Sensitive Details Are Treated
+## 36.3 How Sensitive Details Are Treated
 
 Details collected during registration are handled differently from normal interaction data:
 
@@ -39,7 +39,7 @@ Details collected during registration are handled differently from normal intera
 
 This setup is meant to keep personal information out of areas where it is not needed while still allowing strong ties between certain actions and real people.
 
-## 35.4 How Roles and Abilities Are Connected
+## 36.4 How Roles and Abilities Are Connected
 
 Registration state is linked directly to what a person can do:
 
@@ -52,7 +52,7 @@ Registration state is linked directly to what a person can do:
 
 Checks based on this structure are applied where routes are chosen and where global settings are enforced.
 
-## 35.5 How Identity Signals Enter Other Layers
+## 36.5 How Identity Signals Enter Other Layers
 
 Information about identity does not flow everywhere, but it does shape behavior:
 
@@ -65,7 +65,7 @@ Information about identity does not flow everywhere, but it does shape behavior:
 
 In this way, identity-related structure influences decisions and learning without turning personal details into general training material.
 
-## 35.6 Oversight and Rules for Identity Use
+## 36.6 Oversight and Rules for Identity Use
 
 The mechanisms described here are themselves under shared control:
 
@@ -78,6 +78,6 @@ The mechanisms described here are themselves under shared control:
 
 The goal is to make identity use something that communities can understand and shape, rather than a hidden, fixed feature.
 
-## 35.7 Summary
+## 36.7 Summary
 
 The registration and access structure described here is meant to tie certain kinds of actions to real people in a controlled way. It uses a two-step check for roles that can affect shared settings, keeps sensitive details out of general data flows, and ties roles and abilities to registration state. In practice, this means that anyone who wants to use higher-impact capabilities, including the original builder, does so under the same rules. At the same time, aggregated signals from registered sessions help the system learn how to serve people better, without treating their personal details as general-purpose data.

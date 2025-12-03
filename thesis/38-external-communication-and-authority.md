@@ -2,7 +2,7 @@
 
 This chapter describes how the system uses external communication channels, such as email and hosting platforms, and how authority over these channels is constrained by governance, identity, and safeguard mechanisms. The focus is on roles, limits, and recording practices rather than on specific credentials or configuration details.
 
-## 35.1 Types of External Channels
+## 38.1 Types of External Channels
 
 Several kinds of external channels are relevant:
 
@@ -15,7 +15,7 @@ Several kinds of external channels are relevant:
 
 These channels extend the system’s influence beyond its own infrastructure and therefore require clear boundaries.
 
-## 35.2 Outbound Messages and Reports
+## 38.2 Outbound Messages and Reports
 
 Outbound communication is primarily used for reports and alerts:
 
@@ -28,7 +28,7 @@ Outbound communication is primarily used for reports and alerts:
 
 This ensures that outbound communication remains traceable and aligned with governance expectations.
 
-## 35.3 Handling of Inbound Messages
+## 38.3 Handling of Inbound Messages
 
 Inbound messages are treated as a form of external input and pass through the same protective structures as other outside content:
 
@@ -41,7 +41,7 @@ Inbound messages are treated as a form of external input and pass through the sa
 
 This keeps external messages from bypassing safeguards or overwhelming internal structures.
 
-## 35.4 Hosting and DNS Interactions
+## 38.4 Hosting and DNS Interactions
 
 Interfaces to hosting and domain-related platforms are handled conservatively:
 
@@ -54,7 +54,7 @@ Interfaces to hosting and domain-related platforms are handled conservatively:
 
 These practices support control and accountability for web-facing changes.
 
-## 35.5 Authority Boundaries and Modes
+## 38.5 Authority Boundaries and Modes
 
 Authority over external channels is bounded by configuration and context:
 
@@ -67,7 +67,7 @@ Authority over external channels is bounded by configuration and context:
 
 These boundaries help prevent accidental or unauthorized use of external capabilities.
 
-## 35.6 Recording, Audit, and Governance Links
+## 38.6 Recording, Audit, and Governance Links
 
 External communications are tied back to governance structures:
 
@@ -80,6 +80,6 @@ External communications are tied back to governance structures:
 
 This closes the loop between day-to-day operation and longer-term governance.
 
-## 35.7 Summary
+## 38.7 Summary
 
 External communication channels and infrastructure interfaces are powerful but constrained tools. By treating outbound and inbound messages, hosting and domain interactions, and other platform connections as governed capabilities tied to identity, modes, and barrier policies, the system can participate in broader ecosystems while maintaining clear authority boundaries and a robust record of what was done, why, and under whose effective responsibility.

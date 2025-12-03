@@ -2,7 +2,7 @@
 
 This chapter describes the second stage in the container paths, where items that passed the initial filter are held for longer periods and revisited over time. The aim is to move from one-off decisions toward recognition of stable patterns, without yet committing material to the most selective layer.
 
-## 19.1 Purpose of the Background Store
+## 21.1 Purpose of the Background Store
 
 The background store serves several roles:
 
@@ -15,7 +15,7 @@ The background store serves several roles:
 
 It acts as an intermediate space between fast filtering and deep storage.
 
-## 19.2 Structure of Stored Items
+## 21.2 Structure of Stored Items
 
 Items in this store build on the records produced by earlier stages, with added fields for longer-term management:
 
@@ -30,7 +30,7 @@ Items in this store build on the records produced by earlier stages, with added 
 
 This structure allows the system to treat the store as both a set of individual records and a collection of evolving clusters.
 
-## 19.3 Ingestion from the First Stage
+## 21.3 Ingestion from the First Stage
 
 When an item is accepted by the first-stage filter, it enters the background store with initial values:
 
@@ -41,7 +41,7 @@ When an item is accepted by the first-stage filter, it enters the background sto
 
 At this point, the item is eligible for later review but does not yet change long-term structures.
 
-## 19.4 Periodic Review Processes
+## 21.4 Periodic Review Processes
 
 The store is revisited by periodic processes that:
 
@@ -54,7 +54,7 @@ The store is revisited by periodic processes that:
 
 These review jobs can run on schedules tuned to available resources and desired responsiveness.
 
-## 19.5 Pattern Detection
+## 21.5 Pattern Detection
 
 As more items accumulate, the system can detect patterns such as:
 
@@ -64,7 +64,7 @@ As more items accumulate, the system can detect patterns such as:
 
 Simple techniques such as counting, bucketing, and lightweight clustering can be used here without requiring heavy-weight analysis.
 
-## 19.6 Promotion and Deletion Decisions
+## 21.6 Promotion and Deletion Decisions
 
 Based on observed patterns, the background store supports two main decisions:
 
@@ -75,7 +75,7 @@ Based on observed patterns, the background store supports two main decisions:
 
 Criteria for promotion can include stability of a pattern, breadth of impact, and alignment with stated goals. Criteria for deletion can include redundancy, age without further reference, and clear lack of relevance.
 
-## 19.7 Interaction with Parallel Paths
+## 21.7 Interaction with Parallel Paths
 
 Both parallel paths maintain their own background stores, which may apply different thresholds and groupings:
 
@@ -86,7 +86,7 @@ Both parallel paths maintain their own background stores, which may apply differ
 
 Despite these differences, both stores produce similarly structured outputs so that later layers can combine information across paths when needed.
 
-## 19.8 Links to Other Layers
+## 21.8 Links to Other Layers
 
 The background store connects to other parts of the system in several ways:
 
@@ -99,6 +99,6 @@ The background store connects to other parts of the system in several ways:
 
 Through these links, what accumulates quietly in the background can, over time, influence both specific decisions and overall behavior.
 
-## 19.9 Summary
+## 21.9 Summary
 
 The background store provides a place where items that have passed initial screening can accumulate, interact, and be revisited. It allows the system to recognize patterns and decide which material is worth elevating to more central storage, while keeping the process structured and inspectable. Later chapters build on this foundation to describe how the most selective layer is defined and how the two parallel paths differ in what they ultimately retain.

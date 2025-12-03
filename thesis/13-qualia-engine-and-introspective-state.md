@@ -2,7 +2,7 @@
 
 This chapter describes the service that turns raw operational data into a structured internal narrative about what the system is doing and experiencing. The aim is to build a transparent layer of self-description that other components can query, rather than to claim any kind of subjective inner life. This layer is implemented as a set of APIs and data models that collect, summarize, and expose internal signals in a consistent way.
 
-## 12.1 Purpose and Design Principles
+## 13.1 Purpose and Design Principles
 
 The introspective layer is designed to meet three main objectives:
 
@@ -12,7 +12,7 @@ The introspective layer is designed to meet three main objectives:
 
 The implementation follows the project’s general emphasis on transparency. Every field in the introspective records should come from a traceable source such as a log entry, database query, or service response, and should be available for later audit.
 
-## 12.2 Data Sources Feeding Introspection
+## 13.2 Data Sources Feeding Introspection
 
 The introspective service pulls from several categories of data:
 
@@ -32,7 +32,7 @@ The introspective service pulls from several categories of data:
 
 Each of these sources contributes a slice of context that can be written into a structured record capturing what was happening around a given event.
 
-## 12.3 Internal Record Structure
+## 13.3 Internal Record Structure
 
 To keep introspective information useful and comparable over time, the service uses a consistent schema for its records. A typical entry includes:
 
@@ -55,7 +55,7 @@ To keep introspective information useful and comparable over time, the service u
 
 The narrative text is produced with the help of a language model, but it is always grounded in the structured data fields that the service maintains, which can be inspected independently.
 
-## 12.4 Writing and Updating Introspective Records
+## 13.4 Writing and Updating Introspective Records
 
 New records are typically written at key points in processing:
 
@@ -70,7 +70,7 @@ New records are typically written at key points in processing:
 
 Updates can also happen when evaluators revisit previous events. For example, if a self-improving agent later re-scores a past response, that information can be appended to the original record so the history of judgments is preserved.
 
-## 12.5 Reading Introspective State
+## 13.5 Reading Introspective State
 
 Other services interact with this layer primarily through queries that ask for:
 
@@ -83,7 +83,7 @@ Other services interact with this layer primarily through queries that ask for:
 
 In all of these cases, services can choose to consume either the structured fields, the narrative text, or both. For example, a scheduler might only need aggregate metrics, while a user-facing dashboard might present the narrative descriptions for human review.
 
-## 12.6 Interaction with Language Models
+## 13.6 Interaction with Language Models
 
 Language models participate in the introspective layer in two main ways:
 
@@ -94,7 +94,7 @@ Language models participate in the introspective layer in two main ways:
 
 In both cases, the models operate under the same constraints as in other parts of the system: they are provided with concrete context from memory and state stores and are expected to transform that information, not invent new facts. Where necessary, judge components can review the narratives against the underlying records and flag mismatches.
 
-## 12.7 Links to Memory and Spatial Layers
+## 13.7 Links to Memory and Spatial Layers
 
 The introspective records are tightly linked to the memory and spatial structures described in earlier chapters:
 
@@ -107,7 +107,7 @@ The introspective records are tightly linked to the memory and spatial structure
 
 These links ensure that high-level descriptions about what the system has been doing can always be traced back to concrete entries in the underlying data stores.
 
-## 12.8 Role in the Larger Architecture
+## 13.8 Role in the Larger Architecture
 
 Within the broader system, the introspective layer serves several roles:
 

@@ -2,7 +2,7 @@
 
 This chapter describes the first evaluation stage applied to incoming records after they have been routed into the container paths. The purpose of this stage is to make fast, inexpensive decisions about which items are worth any further attention and which can be safely ignored, while preserving enough information to justify those decisions later.
 
-## 18.1 Objectives of the First Stage
+## 20.1 Objectives of the First Stage
 
 The first stage is designed to:
 
@@ -15,7 +15,7 @@ The first stage is designed to:
 
 The focus is on simple, explainable decisions rather than on detailed analysis.
 
-## 18.2 Inputs from the Routing Layer
+## 20.2 Inputs from the Routing Layer
 
 The inputs to this stage are normalized records produced by the container intake:
 
@@ -25,7 +25,7 @@ The inputs to this stage are normalized records produced by the container intake
 
 The first-stage evaluator treats these records as structured objects and does not need to revisit raw logs unless a discrepancy is detected later.
 
-## 18.3 Basic Keep-or-Discard Decision
+## 20.3 Basic Keep-or-Discard Decision
 
 For each record, the first-stage logic answers a simple question: should this item be kept for further consideration, or dropped here?
 
@@ -40,7 +40,7 @@ The decision is based on criteria such as:
 
 If the answer is negative, the record is marked as discarded and not passed to deeper storage. Minimal metadata about the discard decision may still be recorded for audit purposes.
 
-## 18.4 Signals Used in Evaluation
+## 20.4 Signals Used in Evaluation
 
 The evaluator can use several fast signals to support its judgment:
 
@@ -53,7 +53,7 @@ The evaluator can use several fast signals to support its judgment:
 
 These signals are chosen to be inexpensive enough to apply to every incoming record.
 
-## 18.5 Outcomes and Annotations
+## 20.5 Outcomes and Annotations
 
 Each processed record is assigned an outcome label and supporting annotations, such as:
 
@@ -68,7 +68,7 @@ Each processed record is assigned an outcome label and supporting annotations, s
 
 These annotations allow later stages and diagnostic tools to understand how the first-stage filter behaved.
 
-## 18.6 Interaction with Parallel Paths
+## 20.6 Interaction with Parallel Paths
 
 Although both parallel paths share the same overall structure, their first-stage evaluators can differ in their criteria:
 
@@ -79,7 +79,7 @@ Although both parallel paths share the same overall structure, their first-stage
 
 The intake layer’s track assignment determines which evaluator runs, but both evaluators record their decisions in a comparably structured way.
 
-## 18.7 Recording First-Stage Decisions
+## 20.7 Recording First-Stage Decisions
 
 Even when records are discarded, the system can record:
 
@@ -92,6 +92,6 @@ Even when records are discarded, the system can record:
 
 These records help tune the criteria over time and guard against systematic bias.
 
-## 18.8 Summary
+## 20.8 Summary
 
 The first-stage evaluation acts as a fast filter that decides which incoming records deserve further attention in each path. It reduces noise, preserves promising material, and applies basic policy checks, while keeping enough information to justify and refine its behavior. Subsequent chapters describe how the remaining items are handled in deeper storage and how patterns over time are identified.

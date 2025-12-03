@@ -2,7 +2,7 @@
 
 This chapter describes the layer that controls global settings and modes across the system. The design borrows the idea of a central regulator that sends signals influencing many subsystems at once. Here this is implemented as configuration state, control services, and policies that together shape how agents, retrieval, and generation behave under different conditions.
 
-## 14.1 Purpose and Scope
+## 15.1 Purpose and Scope
 
 Global controls serve several functions:
 
@@ -15,7 +15,7 @@ Global controls serve several functions:
 
 These controls are not one-time configuration files. They are treated as dynamic state that can change over time, subject to governance and audit.
 
-## 14.2 Types of Global Settings
+## 15.2 Types of Global Settings
 
 The global layer manages multiple categories of settings, including:
 
@@ -33,7 +33,7 @@ The global layer manages multiple categories of settings, including:
 
 Each setting has a documented meaning and is stored in a way that can be queried and versioned.
 
-## 14.3 Implementation and Storage
+## 15.3 Implementation and Storage
 
 The global control state is typically represented as:
 
@@ -46,7 +46,7 @@ The global control state is typically represented as:
 
 Services that need to obey these controls either read them at startup and on a schedule, or subscribe to updates so they can adapt more quickly.
 
-## 14.4 Influence on Agents and Retrieval
+## 15.4 Influence on Agents and Retrieval
 
 Global settings influence the behavior of agents and retrieval components in several ways:
 
@@ -59,7 +59,7 @@ Global settings influence the behavior of agents and retrieval components in sev
 
 These effects ensure that the same underlying capabilities are used differently depending on the setting of the global mode.
 
-## 14.5 Interaction with Optimization and Self-Improvement
+## 15.5 Interaction with Optimization and Self-Improvement
 
 Optimization and self-improving components also pay attention to global controls:
 
@@ -72,7 +72,7 @@ Optimization and self-improving components also pay attention to global controls
 
 By tying these limits to centrally managed state, the system can change how ambitious or conservative it is without modifying code in each agent.
 
-## 14.6 Relationship to Introspection and Memory
+## 15.6 Relationship to Introspection and Memory
 
 Global modes are both informed by and reflected in other layers:
 
@@ -85,7 +85,7 @@ Global modes are both informed by and reflected in other layers:
 
 This creates a cycle in which high-level state affects behavior, and observed behavior in turn informs changes to that state.
 
-## 14.7 Governance and Change Management
+## 15.7 Governance and Change Management
 
 Because global settings have wide impact, changes to them should follow clear procedures:
 
@@ -98,6 +98,6 @@ Because global settings have wide impact, changes to them should follow clear pr
 
 These practices help maintain trust that global controls are not altered in ad hoc or opaque ways.
 
-## 14.8 Summary
+## 15.8 Summary
 
 The global control layer acts as a central regulator for safety, roles, resources, and logging across the system. It provides a way to adjust high-level behavior without directly modifying individual agents or models. Later work on executive control and container design will build on this foundation, using these settings as inputs to higher-level routing and coordination.

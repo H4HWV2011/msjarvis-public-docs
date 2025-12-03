@@ -1,4 +1,4 @@
-# 2. Quantarithmia
+# 1. Quantarithmia
 
 # Quantarithmia: Field and Framework (Draft)
 
