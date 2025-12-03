@@ -83,3 +83,11 @@ These practices help ensure that the layer remains legitimate and aligned with e
 ## 36.7 Summary
 
 The constitutional principles service provides a running, queryable embodiment of high-level commitments and rules. By exposing an interface that can be consulted by barrier, evaluators, coordinator, and identity mechanisms, and by maintaining versioned, governed content, it helps integrate governance concerns into everyday system behavior in a structured and inspectable way.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+The constitutional layer is realized as HTTP-accessible services that are designed to expose status endpoints such as `/constitutional/status` and `/guards/status` behind the Consciousness Coordinator on port 8018. These endpoints are intended to report whether core principles and guardrails are active, allowing external monitors to audit alignment behavior.
+
+In the current deployment, the underlying services are active, but some of these endpoints either return generic 404 responses or are still being wired into the Coordinator. The architecture in this chapter should therefore be read as describing the target state that the running services are in the process of reaching.

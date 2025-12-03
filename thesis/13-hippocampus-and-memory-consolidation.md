@@ -103,3 +103,9 @@ By structuring consolidation around both semantic and spatial dimensions, the sy
 ## 13.8 Summary
 
 The consolidation layer captures how recent activity is turned into lasting structure across text, beliefs, and spatial references. It selects, compresses, and organizes experiences so that they can support future retrieval, introspection, and improvement. Later chapters build on this to describe how global controls and executive processes use these memories as part of broader feedback loops.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+In practice, hippocampus-like consolidation routines read and write through the Consciousness Coordinator and ChromaDB services. ChromaDB on port 8011 provides durable semantic memory, while Redis on port 6379 holds transient working memory. Together, they implement the layered consolidation behavior described here in a directly inspectable form.

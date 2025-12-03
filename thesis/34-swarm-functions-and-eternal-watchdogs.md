@@ -83,3 +83,11 @@ This integration ensures that coordination and oversight are treated as first-cl
 ## 34.7 Summary
 
 Swarm functions and eternal watchdogs provide mechanisms for collective problem-solving and continuous oversight. By organizing groups of agents to work together and by maintaining persistent monitoring of health, policy, and risk signals, they help keep the system effective and aligned as it operates and evolves.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+Legacy orchestrator units such as `msjarvis.service` and `jarvis-qualia-coordinator.service` remain installed but are in a failed state and no longer drive the system. Their historical responsibilities have been decomposed into dedicated services and containers, including watchdog processes and the Consciousness Coordinator, which can be monitored individually.
+
+Watchdog behavior is implemented through systemd-managed services and HTTP endpoints that observe health signals from the main brain, Redis, ChromaDB, and governance layers. These mechanisms give concrete effect to the abstract swarm and eternal watchdog concepts introduced in this chapter.

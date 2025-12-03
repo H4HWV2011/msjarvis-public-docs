@@ -66,3 +66,11 @@ Current use of ChromaDB has limits:
 Future work may explore hybrid memory approaches (combining vector stores with graphs, relational databases, and qualitative annotations), as well as participatory methods for community members to inspect and shape what is stored and how it is used.
 
 > Status: This chapter is a draft overview of ChromaDB as semantic memory in Ms. Jarvis. Detailed schemas, collection definitions, and performance evaluations will be developed in technical appendices and implementation-focused documentation.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+Operationally, ChromaDB runs as a dedicated service on port 8011 and exposes an HTTP API for listing and querying collections. The live system uses this service as the primary semantic memory store for thesis documents, governance texts, and geospatial entities, with collections and metadata mirroring the conceptual structure described in this chapter.
+
+The current deployment maintains millions of embedding vectors across many collections, and these are actively used by retrieval pipelines to construct context for the LLM fabric during question answering and consolidation workflows.
