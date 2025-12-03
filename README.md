@@ -3,8 +3,7 @@
 **A Constitutional, Community-Governed AI System**  
 *Glassbox Architecture, Spatially Grounded in West Virginia, AGPL-3.0*
 
-[![License](https://img.shields.io/badge/license-AGPL(LICENSE)
-
+[LICENSE](LICENSE)
 ***
 
 ## ⚠️ IMPORTANT: Source Code Access
