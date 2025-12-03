@@ -62,5 +62,5 @@ There are important limits to this framing.
 
 Subsequent chapters (on ChromaDB, RAG, and the quantum-inspired entanglement algorithm) build on this foundation by specifying how vectors are stored, retrieved, combined, and constrained in practice.
 
-> Status: This chapter is a draft conceptual overview. More formal mathematical treatment of the state space and its operators may be developed in subsequent thesis work or technical appendices.[
+> Status: This chapter is a draft conceptual overview. More formal mathematical treatment of the state space and its operators may be developed in subsequent thesis work or technical appendices.
 
