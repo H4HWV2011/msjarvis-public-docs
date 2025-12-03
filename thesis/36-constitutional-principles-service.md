@@ -83,3 +83,11 @@ These practices help ensure that the layer remains legitimate and aligned with e
 ## 36.7 Summary
 
 The constitutional principles service provides a running, queryable embodiment of high-level commitments and rules. By exposing an interface that can be consulted by barrier, evaluators, coordinator, and identity mechanisms, and by maintaining versioned, governed content, it helps integrate governance concerns into everyday system behavior in a structured and inspectable way.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+In the current deployment, constitutional principles are enforced indirectly through services that are reachable via the Consciousness Coordinator rather than through a standalone `/constitutional/status` or `/guards/status` endpoint. The coordinator’s `/health` endpoint on port 8018 acts as the primary, live governance signal, exposing ChromaDB status (including collection counts and total documents) and a GBIM health score that reflects service uptime and operational conditions relevant to the application of principles.
+
+Dedicated constitutional and guard status endpoints are part of the target design described in this chapter and are being implemented incrementally. Until they are fully exposed, monitors and evaluators rely on the coordinator’s health reporting and on logs from barrier, watchdog, and evaluator services to audit whether core principles and guardrails are active in the running system.

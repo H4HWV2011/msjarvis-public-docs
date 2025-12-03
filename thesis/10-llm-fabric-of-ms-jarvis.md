@@ -99,3 +99,13 @@ This chapter outlined:
 - How they power consciousness and autonomous behaviors while operating within real resource and reliability constraints.
 
 The next chapters continue to shift the focus from “what models are available” to “how they are embedded in neurobiologically inspired control structures and feedback loops,” building on the spatial and semantic foundations described earlier.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+In the current deployment, the main LLM orchestration runs in the `jarvis-main-brain` Docker container bound to port 8050 on the host. The service is expected to expose a `/health` endpoint on this port that returns a simple success payload so that monitors can determine whether the primary brain is responsive.
+
+The underlying local language model runtime is provided by the `jarvis-ollama` container on port 11434, which hosts the concrete set of models used by the fabric as experts, judges, and tools.
+
+Short-lived and recent-signal memory is backed by the `jarvis-redis` container on port 6379. The system-level `redis-server.service` unit is deprecated and no longer participates in the active architecture; all Redis-backed features in this thesis refer to the Docker-based instance.

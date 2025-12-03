@@ -109,3 +109,11 @@ These behaviors help keep the system responsive and predictable, even when indiv
 ## 24.9 Summary
 
 The consciousness coordinator ties together memory, spatial structures, introspective records, container paths, global settings, language models, and evaluators. By planning and executing workflows across these components, it turns a collection of services into a single, inspectable process for handling requests and generating self-descriptions. Subsequent implementation-focused work can build on this design to specify concrete APIs, deployment layouts, and monitoring arrangements.
+
+---
+
+## Implementation Notes (Reality Alignment)
+
+The Consciousness Coordinator is implemented as an HTTP service listening on port 8018. It orchestrates calls into WOAH and semantic memory services, including a ChromaDB instance at `chroma_db` (exposed internally on port 8011), and exposes a `/health` endpoint that reports live Chroma metrics such as collection count and total document volume, along with a composite GBIM health score derived from service uptime, belief consistency, operational health, and integration signals.
+
+The WOAH neurobiological brain is provided by the `ms-jarvis-woah.service` unit, which runs a uvicorn-backed application under systemd. This live service integrates with the Coordinator to supply weighted optimization and scoring signals as described in the thesis, while more granular constitutional and guard status endpoints are planned as future extensions layered on top of the existing `/health` reporting.
