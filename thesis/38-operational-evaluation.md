@@ -41,6 +41,13 @@ In addition to aggregate metrics, case-based evaluation is used:
 
 These cases help connect abstract architecture to concrete experiences.
 
+### Case F‑2025‑Legacy‑Orchestrators
+
+On 2025‑11‑28, two historical orchestrator units, `jarvis-qualia-coordinator.service` and `msjarvis.service`, failed to start under systemd on the primary host. Systemd recorded both units as failed during boot, while the newer, port-scoped services for the Consciousness Coordinator, WOAH, and the Chroma wrapper continued to define live behavior.
+
+This incident confirmed that the legacy orchestrators were no longer part of the operational control path and should be treated explicitly in the documentation as retired scaffolding. As a result, the thesis and architecture roadmap mark these units as disabled, describe their former responsibilities as decomposed across dedicated services (coordinator on 8018, WOAH on 8033, Chroma/health wrapper on 8011), and emphasize that all monitoring and evaluation now target the newer mesh rather than the historical multi‑consciousness service.
+
+
 ## 36.4 Links to Architectural Layers
 
 Evaluation draws on information from multiple layers:
