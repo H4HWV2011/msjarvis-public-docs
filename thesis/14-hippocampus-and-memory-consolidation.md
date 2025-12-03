@@ -1,4 +1,4 @@
-# 13. Hippocampus and Memory Consolidation
+# 14. Hippocampus and Memory Consolidation
 
 This chapter describes how recent activity is turned into durable records in the system’s long-term stores. The design borrows the idea of a hippocampal buffer that receives short-lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. Here this is implemented as a set of pipelines that operate over interaction logs, introspective records, vector collections, and spatial features.
 

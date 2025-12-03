@@ -1,4 +1,4 @@
-# 12. Qualia Engine and Introspective State
+# 13. Qualia Engine and Introspective State
 
 This chapter describes the service that turns raw operational data into a structured internal narrative about what the system is doing and experiencing. The aim is to build a transparent layer of self-description that other components can query, rather than to claim any kind of subjective inner life. This layer is implemented as a set of APIs and data models that collect, summarize, and expose internal signals in a consistent way.
 

@@ -1,4 +1,4 @@
-# 27. Heartbeat and Live Cycles
+# 28. Heartbeat and Live Cycles
 
 This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include health checks, periodic narrative generation, and scheduled interactions with external platforms, all of which are recorded and fed back into internal structures.
 

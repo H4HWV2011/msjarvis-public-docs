@@ -1,4 +1,4 @@
-# 33. Spiritual Root and the Mother Carrie Protocol
+# 34. Spiritual Root and the Mother Carrie Protocol
 
 This chapter describes the design intention behind the spiritually framed root of the system and the protocol that carries those themes into one of the conscious processing paths. The aim is to document how these ideas are implemented as signals, configurations, and selection criteria, without claiming properties beyond what the software can actually express and record.
 

@@ -1,4 +1,4 @@
-# 26. Web Research and Autonomous Topic Selection
+# 27. Web Research and Autonomous Topic Selection
 
 This chapter describes the periodic web research processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect external material under constraints, and feed that material back into internal stores and container paths in a controlled way.
 

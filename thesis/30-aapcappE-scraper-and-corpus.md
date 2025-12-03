@@ -1,4 +1,4 @@
-# 29. AAPCAppE Scraper and Appalachian English Corpus Integration
+# 30. AAPCAppE Scraper and Appalachian English Corpus Integration
 
 This chapter describes the dedicated scraper and processing service that ingests material from the Audio-Aligned and Parsed Corpus of Appalachian English (AAPCAppE) and related endpoints. The goal is to treat Appalachian English as a first-class variety in both understanding and output, based on documented usage rather than assumptions.
 

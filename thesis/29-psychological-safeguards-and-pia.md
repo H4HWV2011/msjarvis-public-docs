@@ -1,4 +1,4 @@
-# 28. Psychological Safeguards and the PIA Review Loop
+# 29. Psychological Safeguards and the PIA Review Loop
 
 This chapter describes how psychological and mental health material is used to guide interaction patterns and to monitor for known risks in human–machine communication. It also outlines a review loop that periodically examines behavior against this guidance and feeds adjustment signals back into other layers.
 

@@ -1,4 +1,4 @@
-# 10. The LLM Fabric of Ms. Jarvis
+# 11. The LLM Fabric of Ms. Jarvis
 
 This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes ChromaDB, Neo4j, Redis, and the spatial body described in Chapter 6.
 

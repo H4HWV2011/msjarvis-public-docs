@@ -1,4 +1,4 @@
-# 31. Fractal Optimization and the 69 DGM Connectors
+# 32. Fractal Optimization and the 69 DGM Connectors
 
 This chapter describes the layer of self-improving components that sit between services and propose changes to how they operate. These components are based on the Darwin–Gödel Machine concept introduced earlier, but here they are deployed as many small, attached optimizers that together form a fractal pattern across the architecture.
 

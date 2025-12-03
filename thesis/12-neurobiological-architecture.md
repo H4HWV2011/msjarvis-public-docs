@@ -1,4 +1,4 @@
-# 11. Neurobiological Architecture of Ms. Jarvis
+# 12. Neurobiological Architecture of Ms. Jarvis
 
 This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiology as an organizing metaphor for a distributed AI system. The goal is not to claim biological equivalence, but to use well-understood brain structures—hippocampus, prefrontal cortex, pituitary, and blood–brain barrier—as design patterns for memory, control, global state, and security, layered on top of DGMs, WOAH, RAG, and a multi-LLM fabric.
 

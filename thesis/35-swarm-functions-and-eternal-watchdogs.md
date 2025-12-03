@@ -1,4 +1,4 @@
-# 34. Swarm Functions and Eternal Watchdogs
+# 35. Swarm Functions and Eternal Watchdogs
 
 This chapter describes two sets of mechanisms that help coordinate many services and maintain continuous oversight. Swarm functions let multiple components work together on problems, while persistent monitoring processes watch for failures, policy violations, and other conditions that require intervention.
 

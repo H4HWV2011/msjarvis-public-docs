@@ -1,4 +1,4 @@
-# 25. Temporal, Toroidal, and Semaphore Structure of Conscious Processing
+# 26. Temporal, Toroidal, and Semaphore Structure of Conscious Processing
 
 This chapter examines three complementary structural views of the processes described in Part IV. The same components and paths can be seen in terms of how they unfold over time, how they cycle through recurrent phases, and how internal signals and gates regulate their activity. Together, these views help explain why the design behaves as it does under different conditions.
 

@@ -1,4 +1,4 @@
-# 32. Language Model Ensemble and Judge Systems in Live Operation
+# 33. Language Model Ensemble and Judge Systems in Live Operation
 
 This chapter describes how multiple language models and evaluation components are used together during ongoing activity. The focus is on how different models are assigned roles, how their outputs are compared and scored, and how these judgments feed back into barrier, container, and control layers.
 

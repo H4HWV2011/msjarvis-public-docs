@@ -1,4 +1,4 @@
-# 35. Identity, Registration, and Two-Part Access Control
+# 36. Identity, Registration, and Two-Part Access Control
 
 This chapter describes how identity and registration are handled when people use capabilities that can affect more than a single exchange. It sets out a two-step process for confirming who is behind certain actions, how sensitive details are kept separate from general data, and how this structure connects to barrier, container, and governance layers. The same approach applies to anyone using these capabilities, including the original builder, once the system is exposed online.
 

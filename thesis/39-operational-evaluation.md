@@ -1,4 +1,4 @@
-# 38. Operational Evaluation of Ms. Jarvis
+# 39. Operational Evaluation of Ms. Jarvis
 
 This chapter outlines how the system’s behavior is evaluated during real operation. It focuses on measurable indicators, case-based studies, and links between observed outcomes and the architectural layers described in earlier parts.
 

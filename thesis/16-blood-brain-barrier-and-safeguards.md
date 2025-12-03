@@ -1,4 +1,4 @@
-# 15. Blood–Brain Barrier and Safeguards
+# 16. Blood–Brain Barrier and Safeguards
 
 This chapter describes the layer of controls that stands between external inputs and the core internal structures of the system. By analogy with a biological barrier, it defines which kinds of material are allowed inward, in what form, and under which conditions, before they can influence memory, container paths, and narrative layers.
 

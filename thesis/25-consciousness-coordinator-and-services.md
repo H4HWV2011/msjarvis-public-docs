@@ -1,4 +1,4 @@
-# 24. Consciousness Coordinator and Service Integration
+# 25. Consciousness Coordinator and Service Integration
 
 This chapter describes the component that orchestrates activity across the layers introduced in earlier parts. It explains how a central coordinating process interacts with retrieval, optimization, spatial structures, introspective records, and the container paths described in Part IV, turning many separate services into a coherent whole.
 

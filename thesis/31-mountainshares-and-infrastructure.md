@@ -1,4 +1,4 @@
-# 30. MountainShares and Web Infrastructure Integration
+# 31. MountainShares and Web Infrastructure Integration
 
 This chapter describes how the system interacts with cooperative structures and hosting platforms while remaining within the constraints set by barrier, container, and control layers. The focus is on the roles and limits of these connections, rather than on reproducing specific configuration files or credentials.
 

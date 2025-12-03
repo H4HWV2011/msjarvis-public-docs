@@ -1,4 +1,4 @@
-# 07. Quantum-Inspired Entanglement and Coupled State
+# 08. Quantum-Inspired Entanglement and Coupled State
 
 This chapter describes the “quantum-inspired entanglement” idea used in Ms. Egeria Jarvis: a way of modeling coupled state across different parts of the system so that changes in one area appropriately influence beliefs and behavior elsewhere. The term is used metaphorically and mathematically; the system does not run on physical quantum hardware. Instead, it borrows concepts from quantum theory—such as Hilbert spaces, entangled subsystems, and projections—to structure how correlated belief updates and constraints propagate through the embedding state, memory, and the GeoDB spatial body.
 

@@ -1,4 +1,4 @@
-# 14. Pituitary and Global Modes
+# 15. Pituitary and Global Modes
 
 This chapter describes the layer that controls global settings and modes across the system. The design borrows the idea of a central regulator that sends signals influencing many subsystems at once. Here this is implemented as configuration state, control services, and policies that together shape how agents, retrieval, and generation behave under different conditions.
 
