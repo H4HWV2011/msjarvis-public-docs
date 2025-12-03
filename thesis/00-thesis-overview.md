@@ -1,3 +1,5 @@
+# 0. Thesis Overview
+
 # Thesis Systems Overview
 
 This thesis treats Quantarithmia, Ms. Egeria Jarvis, and MountainShares as one integrated research program, moving from theory to technical implementation to institutional practice.

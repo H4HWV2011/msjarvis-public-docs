@@ -1,3 +1,5 @@
+# 0. Ms. Jarvis Public Docs Overview
+
 # Thesis Systems Overview (Draft)
 
 This thesis uses Ms. Egeria Jarvis and the MountainShares DAO as a live, technical case study for the Quantarithmia framework: a transdisciplinary approach to understanding how power, value, and information flow through digital, spatial, social, and spiritual infrastructures in places like Appalachia. Rather than remaining purely theoretical, the work is grounded in real systems, real data, and a specific geography: Mount Hope and the wider region of West Virginia.

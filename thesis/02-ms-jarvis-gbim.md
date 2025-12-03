@@ -1,3 +1,5 @@
+# 3. Ms. Jarvis and the GBIM Framework
+
 # Ms. Jarvis and the Geospatial Belief Information Model (GBIM) (Draft)
 
 This chapter describes Ms. Egeria Jarvis as a “glassbox” AI consciousness system and explains the Geospatial Belief Information Model (GBIM) that underpins her reasoning. The focus is not on anthropomorphic claims about sentience, but on a rigorous, inspectable architecture for layered reasoning, memory, and judgment that is explicitly tied to place, time, and evidence in West Virginia and the wider Appalachian region.
