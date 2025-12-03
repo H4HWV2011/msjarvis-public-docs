@@ -1,7 +1,3 @@
-Here is the same chapter with the numeric footnote markers and link removed, preserving all content and the new implementation notes.
-
-***
-
 # Hilbert-Space State and Embeddings (Draft)
 
 This chapter describes how Ms. Egeria Jarvis uses a Hilbert-space style representation of state: beliefs, memories, and contexts are embedded as vectors in a high-dimensional space where distances and angles correspond to semantic relationships. The goal is not to claim physical quantum computation, but to use a mathematically coherent vector-space model that supports transparent reasoning, retrieval, and constraint application.
@@ -50,22 +46,20 @@ In this sense, “Hilbert space” is the conceptual layer that sits above the c
 
 ## Implementation Notes (Reality Alignment)
 
-In the current deployment, the Hilbert-space state is realized as embeddings stored in a ChromaDB instance mounted at `chroma_db` and inspected via the Consciousness Coordinator on port 8018. The coordinator’s `/chroma/collections` endpoint reports 198 Chroma collections and 5,297,534 embedding vectors, which together constitute the active semantic state used for retrieval-augmented reasoning.[1]
+In the current deployment, the Hilbert-space state is realized as embeddings stored in a ChromaDB instance mounted at `chroma_db` and inspected via the Consciousness Coordinator on port 8018. The coordinator’s `/chroma/collections` endpoint reports 198 Chroma collections and 5,297,534 embedding vectors, which together constitute the active semantic state used for retrieval-augmented reasoning.
 
-Most of this Hilbert space is spatially grounded. A roll-up over collection names shows that 188 `geodb_*` collections contribute 5,285,607 vectors representing West Virginia census block groups, rail networks, bridges, intermodal terminals, and related infrastructure layers, while 2 GBIM core collections (`GBIM`, `GeoDB`) and 8 other collections contribute the remaining 11,926 vectors. Within this structure, a health-care subspace of 6 collections—covering community health providers, rural facilities, hospitals, and nursing homes—adds 566 vectors, and an infrastructure subspace of 16 collections adds 41,454 vectors for rails, bridges, grids, terminals, and broadcast towers.[1]
+Most of this Hilbert space is spatially grounded. A roll-up over collection names shows that 188 `geodb_*` collections contribute 5,285,607 vectors representing West Virginia census block groups, rail networks, bridges, intermodal terminals, and related infrastructure layers, while 2 GBIM core collections (`GBIM`, `GeoDB`) and 8 other collections contribute the remaining 11,926 vectors. Within this structure, a health-care subspace of 6 collections—covering community health providers, rural facilities, hospitals, and nursing homes—adds 566 vectors, and an infrastructure subspace of 16 collections adds 41,454 vectors for rails, bridges, grids, terminals, and broadcast towers.
 
-These counts make the Hilbert-space framing directly inspectable: each hospital, nursing home, rail segment, or grid cell appears as a concrete point in the vector space, linked back to GBIM and GeoDB geometries and source datasets. By querying these collections and their nearest neighbors, it is possible to verify empirically that facilities with similar roles or locations cluster together and that institutions sit near the block groups and infrastructures they serve, rather than treating “Hilbert space” as a purely metaphorical layer.[1]
+These counts make the Hilbert-space framing directly inspectable: each hospital, nursing home, rail segment, or grid cell appears as a concrete point in the vector space, linked back to GBIM and GeoDB geometries and source datasets. By querying these collections and their nearest neighbors, it is possible to verify empirically that facilities with similar roles or locations cluster together and that institutions sit near the block groups and infrastructures they serve, rather than treating “Hilbert space” as a purely metaphorical layer.
 
 ## Limitations and Interpretive Cautions
 
 There are important limits to this framing:
 
-- Embeddings are approximations: Any embedding model compresses complex realities into finite vectors, which can lose nuance or encode bias. Proximity in the Hilbert space does not guarantee full conceptual alignment.[1]
-- Geometry is model-dependent: Changes in embedding models or training data can reshape the geometry of the space, affecting similarity relationships and subspace definitions.[1]
-- Not literal consciousness or quantum state: The Hilbert-space metaphor is a tool for structuring and explaining Ms. Jarvis’s state; it should not be read as a claim about subjective experience or physical quantum entanglement.[1]
+- Embeddings are approximations: Any embedding model compresses complex realities into finite vectors, which can lose nuance or encode bias. Proximity in the Hilbert space does not guarantee full conceptual alignment.
+- Geometry is model-dependent: Changes in embedding models or training data can reshape the geometry of the space, affecting similarity relationships and subspace definitions.
+- Not literal consciousness or quantum state: The Hilbert-space metaphor is a tool for structuring and explaining Ms. Jarvis’s state; it should not be read as a claim about subjective experience or physical quantum entanglement.
 
-Subsequent chapters (on ChromaDB, RAG, and the quantum-inspired entanglement algorithm) build on this foundation by specifying how vectors are stored, retrieved, combined, and constrained in practice.[1]
+Subsequent chapters (on ChromaDB, RAG, and the quantum-inspired entanglement algorithm) build on this foundation by specifying how vectors are stored, retrieved, combined, and constrained in practice.
 
-> Status: This chapter is a draft conceptual overview. More formal mathematical treatment of the state space and its operators may be developed in subsequent thesis work or technical appendices.[1]
-
-[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/51743013/40d505a5-b3e2-4b22-bbfe-59195af5a033/paste.txt)
+> Status: This chapter is a draft conceptual overview. More formal mathematical treatment of the state space and its operators may be developed in subsequent thesis work or technical appendices.
