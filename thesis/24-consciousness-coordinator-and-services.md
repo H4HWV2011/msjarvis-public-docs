@@ -106,6 +106,8 @@ The coordinator also manages failure modes:
 
 These behaviors help keep the system responsive and predictable, even when individual services encounter problems.
 
+At present, coordinator latency is monitored via internal health checks and service logs rather than exposed as a public Nginx `$request_time` metric. Future work includes wiring per‑request timing into the web access logs or a dedicated metrics endpoint so that percentile latency estimates can be computed directly from live traffic.
+
 ## 24.9 Summary
 
 The consciousness coordinator ties together memory, spatial structures, introspective records, container paths, global settings, language models, and evaluators. By planning and executing workflows across these components, it turns a collection of services into a single, inspectable process for handling requests and generating self-descriptions. Subsequent implementation-focused work can build on this design to specify concrete APIs, deployment layouts, and monitoring arrangements.

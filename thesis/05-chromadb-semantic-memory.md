@@ -69,14 +69,9 @@ Future work may explore hybrid memory approaches (combining vector stores with g
 
 ---
 
-## Implementation Notes (Reality Alignment)
-
-Operationally, ChromaDB runs as a dedicated service on port 8011 and exposes an HTTP API for listing and querying collections. The live system uses this service as the primary semantic memory store for thesis documents, governance texts, and geospatial entities, with collections and metadata mirroring the conceptual structure described in this chapter.
-
-The current deployment maintains millions of embedding vectors across many collections, and these are actively used by retrieval pipelines to construct context for the LLM fabric during question answering and consolidation workflows.
-
 ### Implementation Status
 
 The semantic memory stack is fronted in production by a lightweight `health_access_api` process on port 8011, which exposes a simple `/health` endpoint returning an `ok` status and mediates access to ChromaDB’s collection APIs. Under this wrapper, similarity search and collection management are provided by the underlying Chroma instance, while the wrapper is responsible for presenting a constrained surface suitable for monitoring and governance.
 
-At present, the `/api/v1/collections` call routed through this wrapper returns an aggregate object rather than a full enumerated list of collections with document counts. Detailed metrics, such as the total number of collections and documents, are therefore obtained from coordinator health reports and periodic internal diagnostics rather than directly from the wrapper endpoint. The thesis accordingly describes the Chroma layer as a production component with full functional behavior and coarse-grained health reporting, and notes that finer-grained collection-level metrics on the wrapper interface are a planned, not yet completed, enhancement.
+At present, the `/api/v1/collections` call routed through this wrapper returns an aggregate object rather than a full enumerated list of collections with document counts. Detailed metrics, such as the total number of collections and documents, are therefore obtained from coordinator health reports and periodic internal diagnostics rather than directly from the wrapper endpoint. The thesis accordingly describes the Chroma layer as a production component with full functional behavior and coarse‑grained health reporting, and notes that finer‑grained collection‑level metrics on the wrapper interface are a planned, not yet completed, enhancement.
+
