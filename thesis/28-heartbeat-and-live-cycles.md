@@ -15,7 +15,7 @@ The recurring signals serve several roles. In contrast to periodic web research,
 
 These functions work together with logging and introspection to make ongoing activity visible.
 
-## 27.1a Learning status endpoint
+## 28.1a Learning status endpoint
 
 In addition to abstract heartbeat concepts, the current system exposes a concrete status endpoint for the optimized autonomous learner.
 
@@ -34,7 +34,6 @@ In addition to abstract heartbeat concepts, the current system exposes a concret
 
 This endpoint turns the conceptual heartbeat of the autonomous learner into a concrete, queryable signal that monitoring tools, dashboards, and evaluators can consume alongside other live-cycle indicators.
 
-## 27.2 Core Heartbeat Mechanisms
 ## 28.2 Core Heartbeat Mechanisms
 
 Heartbeat signals are generated in a few primary ways:

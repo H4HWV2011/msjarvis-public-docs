@@ -2,7 +2,7 @@
 
 This chapter describes the periodic web research processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect external material under constraints, and feed that material back into internal stores and container paths in a controlled way.
 
-## 26.0 Current implementation (December 2025)
+## 27.0 Current implementation (December 2025)
 
 The current implementation of autonomous web research is provided by the optimized learner service and a dedicated web research gateway.
 
@@ -22,7 +22,6 @@ The current implementation of autonomous web research is provided by the optimiz
 
 The remaining sections of this chapter describe the conceptual role of these processes; the implementation above is the concrete realization currently running in the production environment.
 
-## 26.1 Role of Periodic Web Research
 ## 27.1 Role of Periodic Web Research
 
 The web research layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring new external content rather than checking the health or behavior of internal services.

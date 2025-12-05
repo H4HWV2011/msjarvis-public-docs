@@ -2,7 +2,7 @@
 
 This chapter describes the relationship between MountainShares, Ms. Jarvis, and the web and infrastructure layers that support cooperative governance, transparency, and long-term stewardship. It focuses on how the cooperative’s data, rules, and narratives are represented in Ms. Jarvis, and how web infrastructure can be used to keep those representations aligned with reality.
 
-## 30.1 MountainShares as a Data and Governance Source
+## 31.1 MountainShares as a Data and Governance Source
 ## 31.1 Role Inside MountainShares
 
 MountainShares defines a concrete set of governance rules, roles, and data flows:
@@ -16,7 +16,7 @@ MountainShares defines a concrete set of governance rules, roles, and data flows
 
 These materials are ingested into Ms. Jarvis as part of the governance and norms collections in ChromaDB and as structured entities in GBIM, making them available for retrieval and analysis.
 
-## 30.2 Web Infrastructure for Cooperative Operations
+## 31.2 Web Infrastructure for Cooperative Operations
 ## 31.2 Interfaces to Cooperative Data
 
 MountainShares relies on web infrastructure for:
@@ -30,7 +30,7 @@ MountainShares relies on web infrastructure for:
 
 Ms. Jarvis interacts with these layers primarily through documented APIs, scraper pipelines, and scheduled update jobs, rather than through opaque integrations.
 
-## 30.3 Ms. Jarvis’s Role in MountainShares
+## 31.3 Ms. Jarvis’s Role in MountainShares
 ## 31.3 Connections to Hosting and Web Platforms
 
 Ms. Jarvis supports MountainShares by:
@@ -44,7 +44,7 @@ Ms. Jarvis supports MountainShares by:
 
 These roles are always bounded by cooperative-defined constraints and review.
 
-## 30.4 MountainShares topics in autonomous learning
+## 31.4 MountainShares topics in autonomous learning
 ## 31.4 Safeguards for External Actions
 
 MountainShares is not only a consumer of Ms. Jarvis’s analyses but also a contributor to her ongoing curriculum.
@@ -63,7 +63,7 @@ MountainShares is not only a consumer of Ms. Jarvis’s analyses but also a cont
 
 This integration makes MountainShares both a beneficiary and a shaper of the system’s long-term learning trajectory.
 
-## 30.5 Safeguards in Cooperative Contexts
+## 31.5 Safeguards in Cooperative Contexts
 ## 31.5 Use of Container and Coordinator Layers
 
 Because MountainShares involves real communities and material consequences, safeguards are essential:
