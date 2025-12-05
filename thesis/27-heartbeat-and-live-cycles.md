@@ -15,6 +15,25 @@ The recurring signals serve several roles. In contrast to periodic web research,
 
 These functions work together with logging and introspection to make ongoing activity visible.
 
+## 27.1a Learning status endpoint
+
+In addition to abstract heartbeat concepts, the current system exposes a concrete status endpoint for the optimized autonomous learner.
+
+- Endpoint and purpose:
+  - `GET /learning/status` is served by `ms_jarvis_autonomous_learner_optimized` and returns a JSON object that summarizes the learner’s current activity.
+  - This endpoint provides a machine-readable heartbeat for the autonomous learning loop by reporting counters, uptime, and the currently selected topic.
+- Response fields:
+  - `active`: Boolean flag indicating whether the continuous learning loop is running.
+  - `total_cycles`: Count of completed learning cycles since the service started.
+  - `items_stored`: Total number of unique research items stored in semantic memory.
+  - `items_deduplicated`: Count of items skipped due to semantic deduplication.
+  - `deduplication_rate`: String representing the proportion of skipped items versus total evaluated items.
+  - `uptime_hours`: Uptime of the service in hours, as a floating-point value.
+  - `current_topic`: The topic selected for the most recent or current learning cycle.
+  - `optimizations`: A list describing the active features, such as semantic deduplication, summarization, periodic cleanup, and topic planning.
+
+This endpoint turns the conceptual heartbeat of the autonomous learner into a concrete, queryable signal that monitoring tools, dashboards, and evaluators can consume alongside other live-cycle indicators.
+
 ## 27.2 Core Heartbeat Mechanisms
 
 Heartbeat signals are generated in a few primary ways:
@@ -26,9 +45,7 @@ Heartbeat signals are generated in a few primary ways:
 - Aggregated indicators:
   - Simple combined measures, such as counts of successful checks versus failures over a window, support higher-level judgments about health.
 
-In practice, these checks include calls to the components that implement retrieval and other internal capabilities, but they focus on status and responsiveness rather than on downloading or storing new content. When probes detect increased error rates or latency in these components, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve.
-
-Failures or anomalies in these signals can trigger alerts or mode changes.
+In practice, these checks include calls to the components that implement retrieval and other internal capabilities, but they focus on status and responsiveness rather than on downloading or storing new content. When probes detect increased error rates or latency in these components, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve. Failures or anomalies in these signals can trigger alerts or mode changes.
 
 ## 27.3 Periodic Narrative Jobs
 

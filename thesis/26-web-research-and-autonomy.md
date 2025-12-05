@@ -2,6 +2,26 @@
 
 This chapter describes the periodic web research processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect external material under constraints, and feed that material back into internal stores and container paths in a controlled way.
 
+## 26.0 Current implementation (December 2025)
+
+The current implementation of autonomous web research is provided by the optimized learner service and a dedicated web research gateway.
+
+- Optimized learner service:
+  - `ms_jarvis_autonomous_learner_optimized` runs as a FastAPI application, typically on port 8555, and executes an autonomous learning cycle approximately every five minutes.
+  - Each cycle selects a topic, calls the web research gateway, summarizes results, performs semantic deduplication, and writes unique items into ChromaDB collections.
+- Web research gateway:
+  - A separate HTTP service on port 8009 exposes a `/search` endpoint that accepts JSON requests of the form `{"query": "<string>", "max_results": <int>}`.
+  - The gateway returns results as an object with `count`, the original `query`, and a `results` list containing `title`, `snippet`, `url`, and `source` fields.
+  - The optimized learner uses this gateway rather than direct arbitrary web access, so policies and filters can be centralized.
+- Semantic memory integration:
+  - Summarized research items are stored in the `autonomous_learning` collection, with embeddings and metadata including `topic`, `title`, `url`, `learned_at`, and `cycle_number`.
+  - Per-cycle summaries are stored in the `research_history` collection, capturing the `topic`, number of items stored, and a timestamp for that learning cycle.
+- Topic planning and suggestions:
+  - The learner maintains a default curriculum of topics and augments it with suggestions from the `learning_suggestions` collection.
+  - GBIMs and other components populate `learning_suggestions` via a lightweight `/learning/suggest` API, allowing external signals to influence the autonomous topic planner.
+
+The remaining sections of this chapter describe the conceptual role of these processes; the implementation above is the concrete realization currently running in the production environment.
+
 ## 26.1 Role of Periodic Web Research
 
 The web research layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring new external content rather than checking the health or behavior of internal services.
