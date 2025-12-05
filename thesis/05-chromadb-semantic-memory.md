@@ -103,6 +103,3 @@ Current use of ChromaDB has limits:
   - As GBIM and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will likely need revision.
 
 Future work may explore hybrid memory approaches combining vector stores with graphs, relational databases, and qualitative annotations, as well as participatory methods for community members to inspect and shape what is stored and how it is used.
-
-Status: This chapter is a draft overview of ChromaDB as semantic memory in Ms. Jarvis. Detailed schemas, collection definitions, and performance evaluations will be developed in technical appendices and implementation-focused documentation.
- 
