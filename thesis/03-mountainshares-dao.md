@@ -1,3 +1,5 @@
+# 3. MountainShares DAO and Community Economy
+
 # MountainShares DAO: Economic and Governance Infrastructure (Draft)
 
 MountainShares is a DAO-based economic and governance system designed to keep value, voice, and decision-making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It is intentionally positioned as a community-governed project that operates alongside, not in place of, existing banks, credit unions, or regulated financial institutions.
