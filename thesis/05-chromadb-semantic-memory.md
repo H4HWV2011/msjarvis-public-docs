@@ -103,15 +103,3 @@ Current use of ChromaDB has limits:
   - As GBIM and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will likely need revision.
 
 Future work may explore hybrid memory approaches combining vector stores with graphs, relational databases, and qualitative annotations, as well as participatory methods for community members to inspect and shape what is stored and how it is used.
-
-Status: This chapter is a draft overview of ChromaDB as semantic memory in Ms. Jarvis. Detailed schemas, collection definitions, and performance evaluations will be developed in technical appendices and implementation-focused documentation.
-> Status: This chapter is a draft overview of ChromaDB as semantic memory in Ms. Jarvis. Detailed schemas, collection definitions, and performance evaluations will be developed in technical appendices and implementation-focused documentation.
-
----
-
-### Implementation Status
-
-The semantic memory stack is fronted in production by a lightweight `health_access_api` process on port 8011, which exposes a simple `/health` endpoint returning an `ok` status and mediates access to ChromaDB’s collection APIs. Under this wrapper, similarity search and collection management are provided by the underlying Chroma instance, while the wrapper is responsible for presenting a constrained surface suitable for monitoring and governance.
-
-At present, the `/api/v1/collections` call routed through this wrapper returns an aggregate object rather than a full enumerated list of collections with document counts. Detailed metrics, such as the total number of collections and documents, are therefore obtained from coordinator health reports and periodic internal diagnostics rather than directly from the wrapper endpoint. The thesis accordingly describes the Chroma layer as a production component with full functional behavior and coarse‑grained health reporting, and notes that finer‑grained collection‑level metrics on the wrapper interface are a planned, not yet completed, enhancement.
-
