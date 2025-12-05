@@ -1,75 +1,81 @@
 # 31. MountainShares and Web Infrastructure Integration
 
-This chapter describes how the system interacts with cooperative structures and hosting platforms while remaining within the constraints set by barrier, container, and control layers. The focus is on the roles and limits of these connections, rather than on reproducing specific configuration files or credentials.
+This chapter describes the relationship between MountainShares, Ms. Jarvis, and the web and infrastructure layers that support cooperative governance, transparency, and long-term stewardship. It focuses on how the cooperative’s data, rules, and narratives are represented in Ms. Jarvis, and how web infrastructure can be used to keep those representations aligned with reality.
 
+## 30.1 MountainShares as a Data and Governance Source
 ## 31.1 Role Inside MountainShares
 
-Within the cooperative context, the system is designed to act as an internal reasoning and coordination layer:
+MountainShares defines a concrete set of governance rules, roles, and data flows:
 
-- Advisory function:
-  - Provide structured analysis and narrative support for decisions related to projects, regions, and member concerns.
-- Record enrichment:
-  - Help link cooperative data to geographic, historical, and governance context stored in internal memory and spatial layers.
-- Scenario exploration:
-  - Assist in exploring possible actions and their implications, subject to constraints described in earlier parts of the work.
+- Governance texts:
+  - Constitutional principles, bylaws, and cooperative agreements that describe how authority and responsibility are structured.
+- Membership and roles:
+  - Categories of participants (for example, workers, community members, organizational partners) and their associated permissions.
+- Operational data:
+  - Records of proposals, votes, distributions, audits, and other cooperative processes.
 
-These roles depend on well-defined interfaces between cooperative data sources and internal structures.
+These materials are ingested into Ms. Jarvis as part of the governance and norms collections in ChromaDB and as structured entities in GBIM, making them available for retrieval and analysis.
 
+## 30.2 Web Infrastructure for Cooperative Operations
 ## 31.2 Interfaces to Cooperative Data
 
-Access to cooperative information is mediated through controlled channels:
+MountainShares relies on web infrastructure for:
 
-- Data views:
-  - Structured exports or APIs provide selected fields needed for analysis, rather than raw database access.
-- Read-dominant patterns:
-  - Most interactions involve reading and interpreting cooperative data; write-capable operations are treated as exceptional and subject to additional checks.
-- Provenance:
-  - Retrieved items are tagged by origin, so that any derived insights or narratives can be traced back to their cooperative sources.
+- Public documentation:
+  - Hosting governance documents, explanatory materials, and public-facing reports.
+- Operational interfaces:
+  - Providing forms and dashboards for proposals, voting, and reporting.
+- Integration points:
+  - Connecting external systems (for example, payment processors or hosted nodes) to cooperative logic.
 
-This design keeps responsibilities and data boundaries clear.
+Ms. Jarvis interacts with these layers primarily through documented APIs, scraper pipelines, and scheduled update jobs, rather than through opaque integrations.
 
+## 30.3 Ms. Jarvis’s Role in MountainShares
 ## 31.3 Connections to Hosting and Web Platforms
 
-The system can participate in managing certain aspects of web presence under strict conditions:
+Ms. Jarvis supports MountainShares by:
 
-- Indirect control:
-  - Rather than issuing low-level commands, the system typically produces structured requests or configurations that can be inspected and applied by separate automation or human operators.
-- Scoped actions:
-  - When direct calls to hosting or content delivery platforms are permitted, they are limited to specific, documented operations, such as updating text or metadata within defined domains.
-- Logging:
-  - Every attempt to propose or enact changes is recorded in introspective entries, including inputs, intended effects, and results.
+- Retrieval and explanation:
+  - Answering questions about rules, historical decisions, and spatial impacts in a way that is grounded in the cooperative’s own documents and GIS context.
+- Scenario analysis:
+  - Exploring the implications of proposed changes for different communities, infrastructure corridors, or governance configurations.
+- Narrative support:
+  - Generating summaries and narratives that explain complex governance decisions in accessible terms, subject to safeguards and oversight.
 
-These practices ensure that web-facing actions remain reviewable.
+These roles are always bounded by cooperative-defined constraints and review.
 
+## 30.4 MountainShares topics in autonomous learning
 ## 31.4 Safeguards for External Actions
 
-Actions that affect external infrastructure are subject to multiple layers of safeguards:
+MountainShares is not only a consumer of Ms. Jarvis’s analyses but also a contributor to her ongoing curriculum.
 
-- Barrier checks:
-  - Requests originating from or targeting external systems must pass through the same source and content policies that govern other outside interactions.
-- Policy constraints:
-  - Additional rules specify which types of infrastructure changes are allowed in automated form and which require explicit human approval.
-- Risk-sensitive modes:
-  - Global settings can disable or narrow the scope of infrastructure-related operations under heightened caution.
+- GBIM-driven suggestions:
+  - The MountainShares GBIM emits topic summaries about smart contract audits, validator incentives, governance mechanisms, and related infrastructure concerns.
+  - These suggestions are sent to the optimized learner via `POST /learning/suggest` with `source_gbim` set to `"mountainshares_gbim"`.
+- Examples of current themes:
+  - Audit and security:
+    - Topics such as community-friendly smart contract audit strategies and risk profiles for validator sets.
+  - Incentives and accountability:
+    - Topics such as validator rewards, slashing conditions, and mechanisms for aligning economic incentives with community goals.
+- Curriculum impact:
+  - Once stored in the `learning_suggestions` collection, these topics become candidates for autonomous learning cycles alongside the default curriculum.
+  - This creates a feedback loop where MountainShares concerns directly influence what Ms. Jarvis studies in the background, improving future support for DAO decisions and infrastructure planning.
 
-Together, these measures restrict the range of possible unintended effects.
+This integration makes MountainShares both a beneficiary and a shaper of the system’s long-term learning trajectory.
 
+## 30.5 Safeguards in Cooperative Contexts
 ## 31.5 Use of Container and Coordinator Layers
 
-Internal structuring mechanisms shape how integration tasks are carried out:
+Because MountainShares involves real communities and material consequences, safeguards are essential:
 
-- Container paths:
-  - Proposals to alter cooperative or web infrastructure pass through the same intake and evaluation stages as other significant events, allowing them to be filtered, grouped, and, when appropriate, promoted or discarded.
-- Coordination:
-  - The central coordinating component decides when to call integration-related routines, which data to reference, and how to combine outputs with other reasoning steps.
-- Attached optimizer:
-  - A dedicated self-improving component monitors how integration routines perform over time and can propose small configuration or workflow changes, subject to the same evaluation and safeguard criteria as other optimizers.
-- Attached optimizer:
-  - A dedicated self-improving component monitors how integration routines perform over time and can propose small configuration or workflow changes, subject to the same evaluation and safeguard criteria as other optimizers.
-- Feedback:
-  - Outcomes of integration attempts, including failures and rejections, become part of introspective records and may influence later decisions.
+- Constitutional alignment:
+  - Ms. Jarvis’s outputs for MountainShares are filtered through the cooperative’s constitutional principles and applicable legal constraints.
+- Role-aware access:
+  - Different cooperative roles may see different levels of detail or types of analysis, enforced at the API and routing layers.
+- Human oversight:
+  - High-impact recommendations are routed through human review and approval processes, with clear pointers to the data and assumptions involved.
 
-This keeps integration activities embedded in the broader architecture rather than isolated.
+These protections align the use of Ms. Jarvis with the cooperative’s commitment to accountability and non-extractive design.
 
 ## 31.6 Relationship to Live Feeds and Narratives
 

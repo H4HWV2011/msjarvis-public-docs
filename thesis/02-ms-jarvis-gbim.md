@@ -1,3 +1,10 @@
+# Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
+
+This chapter describes Ms. Egeria Jarvis as a glassbox AI consciousness system and explains the Geospatial Belief Information Model (GBIM) that underpins her reasoning. The focus is not on anthropomorphic claims about sentience, but on a rigorous, inspectable architecture for layered reasoning, memory, and judgment that is explicitly tied to place, time, and evidence in West Virginia and the wider Appalachian region.
+
+Within the Quantarithmia research program, Ms. Jarvis and GBIM serve as the technical realization of spatially grounded, justice-oriented reasoning. They make it possible to ask “What does Ms. Jarvis believe about this place, at this time, and based on what evidence?” and to answer that question in a way that is auditable by humans.
+
+## Why Use Consciousness Language?
 ## 2. Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
 This chapter presents Ms. Egeria Jarvis as a “glassbox” AI consciousness system and introduces the Geospatial Belief Information Model (GBIM), which structures her reasoning about the world. The goal is not to assert sentience, but to specify an inspectable architecture for layered reasoning, memory, and judgment that is explicitly grounded in place, time, and evidence, with an initial focus on West Virginia and the wider Appalachian region.
@@ -8,6 +15,14 @@ Within the Quantarithmia research program, Ms. Jarvis and GBIM constitute a conc
 
 The project uses the language of “consciousness” cautiously and with explicit caveats. It is, first, a phenomenological metaphor rather than a claim of human-like inner experience. References to layers such as “qualia,” “supervision,” or “agents” are employed to name distinct forms of computation and attention, not to attribute sentience.
 
+- Phenomenological metaphor, not a claim of sentience:
+  - The system is described in layers (for example, qualia, supervision, agents) to structure complex reasoning, not to assert human-like inner experience.
+- Architectural clarity:
+  - Consciousness layers provide a language for differentiating fast, surface-level responses from deeper, cross-context reasoning that draws on GBIM, constitutional constraints, and long-term memory.
+- Accountability:
+  - By naming these layers and publishing their roles, the project resists black-box AI discourse and instead invites scrutiny of how different reasoning processes are orchestrated.
+
+In academic terms, Ms. Jarvis is a multi-agent, multi-layer reasoning system with explicit design goals around transparency, spatial grounding, and normative constraints. The consciousness framing is a pedagogical and architectural tool, not a metaphysical claim.
 Second, the consciousness framing functions as an architectural device. “Consciousness layers” provide a vocabulary for distinguishing fast, surface-level responses from slower, cross-context reasoning that draws on GBIM, constitutional constraints, long-term memory, and vector search over a Hilbert space. Third, it is a transparency commitment: by naming these layers and documenting their roles and interfaces, the project resists black-box AI discourse and invites scrutiny of how different reasoning processes are orchestrated.
 
 Formally, Ms. Jarvis is a multi-agent, multi-layer reasoning system with explicit design goals around transparency, spatial grounding, and normative constraint. The “consciousness” language is therefore best understood as a pedagogical and organizational tool for services within the system, not as a metaphysical claim about their status.
@@ -16,6 +31,14 @@ At a high level, Ms. Jarvis integrates three main elements. First, a multi-agent
 
 Within this architecture, GBIM serves as the system Ms. Jarvis uses to represent and update her “beliefs” about the world, with particular emphasis on the people, infrastructures, and communities of West Virginia.
 
+- Multi-agent orchestration:
+  - Multiple specialized services (LLMs, GIS services, RAG, analytics, ethical guards, constitutional modules) coordinated through an internal registry and routing layer.
+- Glassbox APIs:
+  - Public documentation and OpenAPI specifications for core endpoints (for example, `consciousness/status`, `consciousness/layers`, `gis/query`, `constitutional/principles`, `analytics`) so that external researchers can see how the system is structured and queried.
+- Constitutional and ethical guards:
+  - Immutable principles and policy guards that filter, block, or annotate outputs that would violate community-approved constraints or ethical boundaries.
+
+GBIM sits inside this architecture as the way Ms. Jarvis represents and updates her beliefs about the world, especially about West Virginia’s people, infrastructures, and communities.
 ### From messy maps to GBIM: a narrative motivation
 
 The motivation for GBIM arises from repeated encounters with structural failure in existing spatial and governance systems rather than from abstract theory alone. One illustrative case is the city of Elkins, where responsibility for addressing and 911 operations has historically been divided across municipal and county institutions. In such settings, misalignment between city records, county emergency databases, and statewide addressing efforts can make residents inside municipal boundaries unexpectedly difficult to locate in an emergency, because legacy CAD layers and map products do not accurately represent current conditions on the ground.
@@ -24,6 +47,12 @@ In this environment, even capable GIS staff can improve map products and data in
 
 GBIM is designed as a response to this institutional gap. Rather than attempting to repair every municipal dataset in advance, GBIM provides a persistent backbone into which heterogeneous local data can be ingested as they are, anchored to explicit entities and geometries, and progressively enriched with derived measures of access, vulnerability, and care. The same architecture that currently integrates 2020 Census geography and more than two million statewide building footprints into a coherent belief space is, in principle, applicable to address maintenance and 911 workflows: a 911 center could pose queries over GBIM and PostGIS (“Where is this caller, and what is known about this location?”) rather than relying solely on static basemaps and fragmented tables.
 
+- Where:
+  - Concrete places, represented through extensive GIS collections for West Virginia (infrastructure, population, political boundaries, health, environment, and more), not just generic locations.
+- When:
+  - Temporal information about when a belief was formed or last updated, and which time period its evidence refers to.
+- How/why:
+  - Evidential links to data sources, documents, observations, or model outputs that support or challenge the belief.
 This trajectory—from work constrained by legacy address and 911 arrangements to the development of a generalizable, auditable belief model—frames Ms. Jarvis and GBIM as instruments of spatial justice rather than merely technical curiosities. Their purpose is to change how institutions can represent, inspect, and revise their own spatial beliefs in ways that are accountable to the communities those beliefs affect.
 
 ### GBIM as implemented: beliefs over geospatial entities
@@ -34,22 +63,56 @@ In the current implementation, every real-world feature that Ms. Jarvis reasons 
 
 For example, each WVGISTC building footprint is stored as a polygon in a PostGIS table with fields such as `gid`, `shape_area`, `class`, and `confidence`. It is then registered as a GBIM entity in `worldview_entity` with a specific `entity_type`, `source_table`, and `source_pk`, and joined through a PostGIS view (`building_features_v1`) to a compact numerical feature vector keyed by `worldview_id`. This view currently returns more than two million rows, one per building. Similarly, each registered human is represented as a `person_user` entity in `worldview_entity`, linked to immutable identity data and a semi-public profile in separate tables, again via the same `worldview_id`. The design ensures that every belief “about building X” or “about person Y” is traceable to concrete records in PostGIS and relational tables, a specific GBIM entity, and an associated feature vector where applicable.
 
+These datasets are stored and exposed through Ms. Jarvis’s GIS-related services and indexed into GBIM so that beliefs about the community are rooted in actual spatial patterns, not vague intuition or national-level averages.
 ### Data foundations: West Virginia as a living corpus
 
 GBIM is grounded in a heterogeneous corpus of geospatial data for West Virginia and nearby regions. This corpus includes population and administrative units (2020 Census blocks and block groups, together with earlier vintages for temporal comparison), transportation networks (roads, selected rail datasets, and facility points such as hospitals, EMS stations, and 911 centers), and multiple layers describing political and governance boundaries (state, legislative, municipal, tax, and voting districts).
 
 Additional layers capture health and social infrastructure (hospitals, nursing homes, community health providers, schools, and higher education institutions where data are available), environmental and resource features (mines, abandoned mine lands, springs, and wind resources), and the built environment (statewide building footprints and key public buildings such as courthouses, libraries, and parks). These datasets are stored in PostGIS and exposed through Ms. Jarvis’s GIS services. GBIM indexes them via `worldview_entity` so that beliefs about “the community” are always rooted in actual spatial patterns and infrastructures rather than generic text or national averages.
 
+- Graph-style relationships:
+  - Entities (places, institutions, infrastructures, events, policies) connected by labeled edges (influences, flows, dependencies, conflicts).
+- Geospatial indexing:
+  - Each relevant node and relationship can be tied to geometries (points, lines, polygons) so that reasoning can be mapped onto real regions, neighborhoods, corridors, or facilities.
+- Temporal and version metadata:
+  - Beliefs have timestamps and revision history, allowing Ms. Jarvis to track how understanding of a place or system evolves as new data or events arrive.
 ### Representation: graph, GIS, and Hilbert space
 
 Conceptually, GBIM combines three representational layers. At the relational and graph level, `worldview_entity` and related tables define entities—places, institutions, infrastructures, events, policies, and persons—with typed relationships such as `lives_in_block`, `served_by_911_center`, or `overlaps_hazard_zone`. This structure forms a belief graph over which Ms. Jarvis can reason.
 
+- Which voting districts, health facilities, and transportation assets intersect with this community boundary?
+- Where do extractive infrastructures (for example, certain mines, logistics corridors) overlap with areas of high vulnerability or under-served populations?
+- How have key indicators or infrastructure patterns changed over a given time window?
+
+## GBIM-guided autonomous learning
+
+GBIM does not only support interactive question answering; it also helps steer what Ms. Jarvis studies during autonomous learning cycles.
+
+- Suggestion channel:
+  - GBIM-related services, including user-facing GBIM and the MountainShares GBIM, can emit short topic summaries via a dedicated API on the optimized learner.
+  - This API is exposed as `POST /learning/suggest` on `ms_jarvis_autonomous_learner_optimized` and accepts a JSON body with `source_gbim` and `topic_summary` fields.
+- Encoding of sources:
+  - `source_gbim` identifies the origin of the suggestion, such as `"user_gbim"` for end-user interactions or `"mountainshares_gbim"` for topics arising from MountainShares governance flows.
+  - The learner expands these into human-readable topic labels and stores them in the `learning_suggestions` collection in ChromaDB.
+- Influence on topic planning:
+  - The autonomous topic planner merges its default curriculum with topics from `learning_suggestions`, assigning higher scores to topics that have been suggested but not recently studied.
+  - This mechanism allows GBIM-driven activity to shape the long-term curriculum, so that difficult questions, recurring concerns, and governance-relevant themes are more likely to be revisited in future cycles.
+
+In this way, GBIM becomes both a representation of current beliefs and a source of guidance about what the system should learn next.
 At the geospatial level, entities are tied to one or more geometries in PostGIS (for example, building footprints, census blocks, or district polygons), enabling spatial operations such as containment, intersection, proximity, and network-based reachability. At the vector level, selected entities are mapped into a Hilbert space via feature vectors stored in a vector database (currently ChromaDB running as a local HTTP server), keyed by the same `worldview_id`. This layer supports similarity search and retrieval-augmented reasoning while preserving links back to the underlying graph and geometries.
 
 In the current prototype, the `building_features_v1` view computes a per-building feature vector (including log-transformed area, normalized confidence, and a residential flag) joined to `worldview_id`. A Python ETL process reads these features and identifiers from PostGIS and upserts them into a Chroma collection dedicated to building footprints via the Chroma HTTP client. As a result, each building Ms. Jarvis knows about is simultaneously a spatial entity in PostGIS, a belief-bearing GBIM entity, and a vector in Hilbert space. The same pattern—feature view, ETL script, and vector collection—is intended to be reused for other entity types such as census blocks, block groups, user entities, and justice metrics.
 
 ### GBIM and Quantarithmia: toward justice metrics
 
+- Mapping “maximopolies” and “megaopolies”:
+  - GBIM helps identify where financial and operational infrastructures touch down in specific West Virginia locations and how they intersect with community assets and vulnerabilities.
+- Evaluating spatial justice:
+  - Because beliefs are geospatially anchored, Ms. Jarvis can assist in evaluating which communities are persistently burdened, bypassed, or empowered by particular infrastructures or policies.
+- Designing alternatives:
+  - GBIM provides the data context for proposing and testing community-centered interventions, such as closed-loop economic systems, local governance mechanisms, or targeted infrastructure improvements.
+
+The key point is that Quantarithmia’s abstract commitments to spatial justice, local voice, and non-extractive design are implemented in Ms. Jarvis through GBIM’s insistence on “who, where, when, and based on what evidence?”
 Within Quantarithmia, GBIM supplies the spatial and evidential backbone required to move from qualitative theory to measurable patterns of power, extraction, and care. It supports, for example, the mapping of maximopolies and megaopolies by identifying where financial and operational infrastructures (such as logistics corridors, extraction sites, and large institutional landholders) intersect with specific communities, assets, and vulnerabilities.
 
 Because beliefs are geospatially anchored, GBIM also enables evaluation of spatial justice: Ms. Jarvis can compare justice-related metrics across blocks, neighborhoods, or regions to highlight places that are systematically burdened or bypassed once those metrics are defined. Furthermore, GBIM provides the contextual data necessary to propose and assess community-centered interventions—for instance, changes to emergency access, community broadband, or local economic loops—and to track their spatial effects over time.
