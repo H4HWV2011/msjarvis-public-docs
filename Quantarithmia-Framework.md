@@ -19,7 +19,7 @@ The framework distinguishes between “maximopolies” (financial giants that co
 
 ## Further Reading
 
-- Appendix A: Quantarithmia Overview (`thesis/appendix-quantarithmia-overview.md`) – WVU‑oriented overview and empirical validation diagram.  
-- Appendix B: Quantarithmia Journal (`thesis/appendix-quantarithmia-journal.md`) – full theoretical and methodological treatment.
+- [Appendix A: Quantarithmia Overview](thesis/appendix-quantarithmia-overview.md) – with original PDF link.
+- [Appendix B: Quantarithmia Journal](thesis/appendix-quantarithmia-journal.md) – with original PDF link.
 
 > Status: This document is a draft overview for researchers and collaborators. It will evolve as the Quantarithmia framework and associated publications (journal articles, theses, talks) continue to develop.
