@@ -25,6 +25,11 @@ This site provides a glassbox view of the system architecture, governance model,
   The theoretical and methodological framework for analyzing maximopolies, spatial justice, and community-first infrastructure.  
   → [`Quantarithmia-Framework.md`](../Quantarithmia-Framework.md)
 
+- **Quantarithmis Overview**
+A framework for understanding how economic power, technology, and geography interact, treating them as measurable forces that can be modeled together rather than as separate domains. 
+  - [Quantarithmia overview](quantarithmia-overview.md)
+
+
 ---
 
 ## API & Security Docs
