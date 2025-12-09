@@ -96,7 +96,7 @@ Operational evaluation is tied back into improvement processes:
   - Observed weaknesses (for example, topics that consistently produce zero web hits or repeated Chroma failures at startup) lead to revised topic selection heuristics, better error handling, or updated startup ordering.
 
 - **Documentation and communication**  
-  - Findings are summarized in records that feed into governance discussions, provide context for collaborators (e.g., WVU partners), and guide future design choices.
+  - Findings are summarized in records that feed into governance discussions, provide context for collaborators (e.g., university partners), and guide future design choices.
 
 These loops connect evaluation to ongoing refinement rather than treating it as a one-time exercise.
 
