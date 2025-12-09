@@ -1,3 +1,4 @@
+> New here? Start with **[How to Read This Thesis](how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
 # 0. Thesis Overview
 
 # Thesis Systems Overview
