@@ -18,8 +18,8 @@ The framework distinguishes between “maximopolies” (financial giants that co
 - The combined system (Ms. Jarvis + MountainShares) is intended as a working example of Quantarithmia in action: not just describing extractive infrastructures, but prototyping non-extractive, community-aligned alternatives.
 
 ## Further Reading
+[Download original “What is Quantarithmia?” PDF](thesis/originals/What-is-Quantarithmia.pdf)
 
-- [Appendix A: Quantarithmia Overview](thesis/appendix-quantarithmia-overview.md) – with original PDF link.
-- [Appendix B: Quantarithmia Journal](thesis/appendix-quantarithmia-journal.md) – with original PDF link.
+[Download full Quantarithmia journal PDF](thesis/originals/Quantarithmia_Journal.pdf)
 
 > Status: This document is a draft overview for researchers and collaborators. It will evolve as the Quantarithmia framework and associated publications (journal articles, theses, talks) continue to develop.

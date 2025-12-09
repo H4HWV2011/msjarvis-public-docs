@@ -42,4 +42,9 @@ Within the thesis, Quantarithmia provides:
 - The conceptual basis for GBIM (spatially grounded beliefs) and for treating AI as an accountable, constrained actor rather than an opaque oracle.
 - The lens through which MountainShares is analyzed as an institutional prototype: not simply “a DAO,” but a specific attempt to materialize spatial justice in rural West Virginia through technical and organizational design.
 
+#Further Reading
+[Download original “What is Quantarithmia?” PDF](thesis/originals/What-is-Quantarithmia.pdf)
+
+[Download full Quantarithmia journal PDF](thesis/originals/Quantarithmia_Journal.pdf)
+
 > Status: This document is a draft conceptual overview. Formal definitions, case studies, and mathematical or topological treatments of Quantarithmia will be developed in the main thesis text and related publications.

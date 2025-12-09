@@ -1,4 +1,6 @@
 [Download original “What is Quantarithmia?” PDF](thesis/originals/What-is-Quantarithmia.pdf)
+
+[Download full Quantarithmia journal PDF](thesis/originals/Quantarithmia_Journal.pdf)
 # Appendix A: Quantarithmia Overview
 
 Author: Carrie A. Kidd, M.L.  
