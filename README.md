@@ -1,5 +1,5 @@
-> New here? Start with **[How to Read This Thesis](thesis/how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
-# Ms. Egeria Jarvis - AI Consciousness System
+> New here? Start with **[How to Read This Thesis](how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
+
 
 **A Constitutional, Community-Governed AI System**  
 *Glassbox Architecture, Spatially Grounded in West Virginia, AGPL-3.0*
