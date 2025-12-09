@@ -27,7 +27,7 @@ This site provides a glassbox view of the system architecture, governance model,
 
 - **Quantarithmis Overview**
 A framework for understanding how economic power, technology, and geography interact, treating them as measurable forces that can be modeled together rather than as separate domains. 
-  - [Quantarithmia overview](/Quantarithmia Overview.md) 
+  → [Quantarithmia overview](<Quantarithmia Overview.md>)
 )
 
 
