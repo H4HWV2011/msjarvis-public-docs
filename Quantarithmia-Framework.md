@@ -17,4 +17,9 @@ The framework distinguishes between “maximopolies” (financial giants that co
 - MountainShares serves as a live institutional case study, where Quantarithmia’s ideas about spatial justice, local ownership, and distributed governance are encoded into practical rules: closed-loop wallets, local-first economics, and community voting with supermajority thresholds for constitutional change.
 - The combined system (Ms. Jarvis + MountainShares) is intended as a working example of Quantarithmia in action: not just describing extractive infrastructures, but prototyping non-extractive, community-aligned alternatives.
 
+## Further Reading
+
+- Appendix A: Quantarithmia Overview (`thesis/appendix-quantarithmia-overview.md`) – WVU‑oriented overview and empirical validation diagram.  
+- Appendix B: Quantarithmia Journal (`thesis/appendix-quantarithmia-journal.md`) – full theoretical and methodological treatment.
+
 > Status: This document is a draft overview for researchers and collaborators. It will evolve as the Quantarithmia framework and associated publications (journal articles, theses, talks) continue to develop.
