@@ -1,4 +1,4 @@
-[How to Read This Thesis](../how-to-read-this-thesis.md)
+[How to Read This Thesis](how-to-read-this-thesis.md)
 # Ms. Jarvis Public Documentation
 
 Welcome to the public documentation hub for **Ms. Egeria Jarvis** and the **MountainShares DAO**.
