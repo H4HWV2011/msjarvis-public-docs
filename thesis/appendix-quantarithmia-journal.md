@@ -1,5 +1,3 @@
-[Download original “What is Quantarithmia?” PDF](originals/What-is-Quantarithmia.pdf)
-
 [Download full Quantarithmia journal PDF](originals/Quantarithmia_Journal.pdf)
 # Appendix B: Quantarithmia Journal Paper
 
