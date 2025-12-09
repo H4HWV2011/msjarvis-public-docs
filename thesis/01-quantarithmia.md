@@ -1,6 +1,4 @@
-# 1. Quantarithmia
-
-# Quantarithmia: Field and Framework (Draft)
+# 1.Quantarithmia: Field and Framework (Draft)
 
 Quantarithmia is a transdisciplinary field for modeling how power is extracted, concentrated, and potentially redirected across digital, spatial, social, and spiritual infrastructures, with a primary focus on Appalachian contexts such as West Virginia. It treats geography, infrastructure, and community history as first-class variables rather than background scenery, asking how specific networks, platforms, and institutions reshape everyday life in places like Mount Hope.
 
