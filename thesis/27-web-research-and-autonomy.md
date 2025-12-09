@@ -1,118 +1,157 @@
 # 27. Web Research and Autonomous Topic Selection
 
-This chapter describes the periodic web research processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect external material under constraints, and feed that material back into internal stores and container paths in a controlled way.
+This chapter describes the periodic web research and autonomous learning processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect both internal and external material under constraints, and feed that material back into internal stores in a controlled way.
 
-## 27.0 Current implementation (December 2025)
+## 27.0 Current Implementation (December 2025)
 
-The current implementation of autonomous web research is provided by the optimized learner service and a dedicated web research gateway.
+The current implementation of autonomous web research is provided by the optimized learner service and a dedicated web research gateway, working together on a fixed cadence.
 
-- Optimized learner service:
-  - `ms_jarvis_autonomous_learner_optimized` runs as a FastAPI application, typically on port 8555, and executes an autonomous learning cycle approximately every five minutes.
-  - Each cycle selects a topic, calls the web research gateway, summarizes results, performs semantic deduplication, and writes unique items into ChromaDB collections.
-- Web research gateway:
-  - A separate HTTP service on port 8009 exposes a `/search` endpoint that accepts JSON requests of the form `{"query": "<string>", "max_results": <int>}`.
-  - The gateway returns results as an object with `count`, the original `query`, and a `results` list containing `title`, `snippet`, `url`, and `source` fields.
+- **Optimized learner service (8053)**  
+  - `ms_jarvis_autonomous_learner_optimized` runs as a FastAPI application on port `8053` and executes an autonomous learning cycle every five minutes.  
+  - Each cycle selects a topic, calls the RAG gateway and the web research gateway, summarizes results, performs semantic deduplication, and writes unique items into Chroma collections.
+
+- **RAG gateway (8103)**  
+  - A minimal HTTP service on port `8103` exposes a `/search` endpoint over the Chroma-backed semantic store.  
+  - The autonomous learner uses this endpoint to retrieve internal knowledge related to the current topic (documents, prior analyses, and other stored materials).
+
+- **Web research gateway (8009)**  
+  - A separate HTTP service on port `8009` exposes a `/search` endpoint that accepts JSON requests of the form `{"query": "<string>", "max_results": <int>}`.  
+  - The gateway returns results as an object with `count`, the original `query`, and a `results` list containing fields such as `title`, `snippet`, `url`, and `source`.  
   - The optimized learner uses this gateway rather than direct arbitrary web access, so policies and filters can be centralized.
-- Semantic memory integration:
-  - Summarized research items are stored in the `autonomous_learning` collection, with embeddings and metadata including `topic`, `title`, `url`, `learned_at`, and `cycle_number`.
-  - Per-cycle summaries are stored in the `research_history` collection, capturing the `topic`, number of items stored, and a timestamp for that learning cycle.
-- Topic planning and suggestions:
-  - The learner maintains a default curriculum of topics and augments it with suggestions from the `learning_suggestions` collection.
-  - GBIMs and other components populate `learning_suggestions` via a lightweight `/learning/suggest` API, allowing external signals to influence the autonomous topic planner.
 
-The remaining sections of this chapter describe the conceptual role of these processes; the implementation above is the concrete realization currently running in the production environment.
+- **Semantic memory integration**  
+  - Summarized research items are stored in the `autonomous_learning` collection, with embeddings and metadata including `topic`, `title`, `url`, `learned_at`, and `cycle_number`.  
+  - Per-cycle summaries are stored in the `research_history` collection, capturing the `topic`, counts of items stored and deduplicated, and a timestamp for that learning cycle.
 
-## 27.1 Role of Periodic Web Research
+- **Topic planning and suggestions**  
+  - The learner maintains a configured `learning_queue` of topics and can augment this with suggestions from a `learning_suggestions` collection.  
+  - Other components can populate `learning_suggestions` so that external signals or human inputs influence the autonomous topic planner.
 
-The web research layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring new external content rather than checking the health or behavior of internal services.
+- **Gating and control**  
+  - Environment variables (for example, flags for enabling the learner, controlling concurrency, or limiting daily activity) act as the current gating mechanism, determining whether the five-minute loop is active and how aggressively it runs.  
+  - This provides practical control over autonomy without requiring a fully realized “consciousness” or mode controller.
 
-- Background updating:
-  - Keep selected areas of knowledge current without waiting for explicit prompts.
-- Curiosity:
-  - Allow the system to identify themes it finds relevant based on past activity and stored priorities.
-- Support for later tasks:
-  - Populate memory and container layers with material that can be reused when related questions appear.
+The remaining sections of this chapter describe the conceptual role of these processes; the implementation above is the concrete realization currently running in the system.
 
-These functions operate within boundaries set by global settings, psychological safeguards, and logging requirements.
+## 27.1 Role of Periodic Web Research and Autonomous Learning
 
-## 27.2 Scheduling and Cadence
+The web research and autonomous learning layer has three main purposes. Unlike heartbeat and status cycles, its focus is on acquiring and structuring knowledge rather than checking the health of internal services.
 
-Web research runs on a regular schedule:
+- **Background updating**  
+  Keep selected areas of knowledge current without waiting for explicit prompts, by periodically refreshing topics via both RAG and web search.
 
-- Short-interval jobs:
-  - A core job is configured to run roughly every few minutes, checking whether conditions are suitable for a new cycle and, if so, initiating a small batch of queries.
-- Load-aware behavior:
-  - Jobs can be skipped or throttled when resources are constrained or when higher-priority work is in progress.
-- Recording:
-  - Each run is logged with timestamps, chosen topics, and outcomes, so later analysis can see how often and how effectively the process has been used.
+- **Curiosity**  
+  Allow the system to identify themes it finds relevant based on past activity, stored priorities, and topic suggestions, then pursue them on its own.
 
-This cadence ensures that updates accumulate steadily without overwhelming other services.
+- **Support for later tasks**  
+  Populate semantic memory with material that can be reused when related questions appear, giving ULTIMATE and other services richer context.
+
+These functions operate within boundaries set by global settings, environment-based gating, psychological safeguards, and logging requirements.
+
+## 27.2 Scheduling, Cadence, and Logging
+
+Autonomous learning and web research run on a regular, log-visible schedule:
+
+- **Fixed cadence**  
+  - A core loop in `ms_jarvis_autonomous_learner_optimized` runs every 300 seconds (five minutes), controlled by an internal timer.  
+  - If environment variables indicate the learner should be paused or throttled, the loop can skip work for that cycle.
+
+- **Dual RAG + web behavior**  
+  - Each cycle makes at most one RAG call and one web-research call for the selected topic, minimizing resource contention.  
+  - If either service is unavailable, the learner logs the error and still completes the cycle with whatever information is available.
+
+- **Stats logging**  
+  - Each cycle logs timestamps, selected topic, number of RAG results, number of web results, number of items stored, and number of items deduplicated.  
+  - Summary lines (for example, “Cycle complete – Next in 5 minutes”) provide a clear heartbeat in the log, making it easy to see that the loop is healthy over time.
+
+This cadence ensures that updates accumulate steadily without overwhelming other services and that behavior is transparent in the logs.
 
 ## 27.3 Topic Selection
 
-For each run, the system chooses what to look for:
+For each run, the system chooses what to learn about:
 
-- Inputs:
-  - Recent introspective records, background patterns from container stores, and signals from global settings.
-- Heuristics:
-  - Preference for topics that have appeared frequently in recent interactions, that connect to underserved regions or groups, or that fill known gaps in memory.
-- Constraints:
-  - Filters that exclude disallowed domains or sources, and limits on how much new material can be taken in during a single cycle.
+- **Inputs**  
+  - The configured `learning_queue` of topics.  
+  - Optional additional suggestions from `learning_suggestions` and, in the future, the entanglement topic graph.
 
-The result is a small set of focused queries or targets for that iteration.
+- **Current behavior**  
+  - The learner currently steps through `learning_queue` in a simple, deterministic order, with hooks in place to support more advanced planners.  
+  - A placeholder entanglement update is applied at the end of each cycle, maintaining a `topic_graph.json` structure that will eventually influence topic choice.
 
-## 27.4 Retrieval and Filtering
+- **Planned behavior**  
+  - Once neighbor-biased selection is enabled, the learner will use the topic graph to bias toward related topics, effectively creating an entangled random walk through the topic space while still honoring gating and resource constraints.
 
-Once topics are chosen, the web research job performs retrieval and initial screening:
+The result is a small set of focused queries or targets for each cycle, chosen under control of both configuration and emerging entanglement logic.
 
-- Data collection:
-  - Fetch content from permitted online sources using structured queries derived from selected topics.
-- Basic checks:
-  - Apply simple rules to filter out clearly irrelevant, low-quality, or disallowed material.
-- Structuring:
-  - Convert retained items into a standard form, including text, metadata, and any available location or entity information.
+## 27.4 Retrieval, Filtering, and Deduplication
 
-These retrieval calls target external content sources configured for browsing and research, rather than internal health or status endpoints. These steps prepare the material for integration into internal stores.
+Once a topic is chosen, the autonomous learner performs retrieval and screening:
+
+- **RAG retrieval**  
+  - Calls the RAG gateway on `8103 /search` to retrieve internal content (documents, notes, prior learning outputs) relevant to the topic.
+
+- **Web retrieval**  
+  - Calls the web-research service on `8009 /search` to gather external content from permitted sources, using a concise query derived from the topic.
+
+- **Summarization and structuring**  
+  - Combines RAG and web results into an intermediate structure.  
+  - Uses a summarization step to condense multiple hits into unified items with consistent fields and metadata.
+
+- **Semantic deduplication**  
+  - Embeds candidate items and compares them against existing entries in the target collections.  
+  - Drops items that are too similar to existing content, incrementing deduplication counters.  
+  - Stores only genuinely new items in `autonomous_learning`, and records per-cycle stats in `research_history`.
+
+These steps ensure that the learner grows memory in a controlled way, avoiding redundant clutter while keeping a clear audit trail of what was considered and what was kept.
 
 ## 27.5 Integration with Memory and Spatial Layers
 
 Accepted material is written into long-term structures:
 
-- Semantic memory:
-  - New items and summaries are embedded and stored in appropriate collections in the vector database, tagged by source, topic, and time.
-- Belief structures:
-  - When items describe actors, relationships, or norms, they can be translated into nodes and edges in the belief graph.
-- Spatial backbone:
-  - Place references are resolved into geospatial identifiers, linking new material to existing spatial features.
+- **Semantic memory**  
+  - New items and summaries are embedded and stored in appropriate Chroma collections, tagged by source (RAG or web), topic, and time.  
+  - Items with clear spatial references may be linked to specific `geodb_*` collections and GeoDB feature IDs.
 
-This integration ensures that later retrieval can surface web-derived content alongside existing knowledge.
+- **Belief and reasoning layers**  
+  - When items describe actors, relationships, or norms, they become part of the broader semantic context that ULTIMATE and other services can retrieve.  
+  - Over time, repeated patterns in these items can motivate more explicit belief structures or governance rules in higher-level components.
 
-## 27.6 Interaction with Container Paths
+- **Spatial backbone**  
+  - Place references are resolved into geospatial identifiers where possible, linking new material to existing spatial features in the GeoDB layer.
 
-Web research outputs also pass through the container structures:
+This integration ensures that later retrieval can surface autonomous-learning content alongside manually ingested and RAG-stored knowledge.
 
-- Intake and filtering:
-  - Newly added records are normalized and may be subjected to first-stage keep-or-discard decisions, especially when volume is high.
-- Background storage:
-  - Items that pass initial checks can contribute to patterns in the background stores, influencing what is later considered central.
-- Deep retention:
-  - In some cases, repeated findings or particularly important external developments may prompt promotion into the most selective layers.
+## 27.6 Interaction with Container and Governance Paths
 
-In this way, periodic web activity becomes part of the same evaluative flow as user-driven events.
+Autonomous learning outputs also interact with container-like structures and safeguards:
+
+- **Intake and filtering**  
+  - Newly added records are normalized and may be subjected to first-stage keep-or-discard decisions based on topic, source, or size.
+
+- **Background influence**  
+  - Items that survive initial filters contribute to the background of available context, influencing how future answers are framed and what evidence is cited.
+
+- **Governance and ethics**  
+  - Topics and sources can be constrained by environment variables and configuration, ensuring that certain domains are treated with extra caution or excluded entirely.
+
+In this way, periodic autonomous activity becomes part of the same evaluative flow as user-driven events, but with explicit external controls.
 
 ## 27.7 Safeguards and Oversight
 
 Because web research introduces new external material, it is subject to safeguards:
 
-- Source policies:
-  - Only defined classes of sources are allowed, and these policies can be updated as needed.
-- Psychological guidance:
-  - For certain domains, content is cross-checked against psychological guidance material or reviewed more carefully before being widely used.
-- Logging and review:
-  - Summaries of web research activity are written into introspective records, and samples can be audited to tune selection and filtering.
+- **Source policies**  
+  - Only defined classes of sources are allowed by the web-research gateway, and these policies can be tightened without changing the learner.
+
+- **Gating via environment variables**  
+  - Single environment flags can enable or disable the entire autonomous learner, providing an immediate “off switch” if needed.  
+  - Additional variables can cap daily cycles or switch the learner into a “RAG-only” mode if external web access should be paused.
+
+- **Logging and review**  
+  - Summaries of autonomous learning activity are written into logs and semantic memory, allowing later inspection of what was learned, from where, and when.
 
 These measures aim to balance autonomy with traceability and safety.
 
 ## 27.8 Summary
 
-The periodic web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and passes them through the same container paths that handle other events. Its primary role is to expand and refresh the knowledge base, while the following chapters focus on cycles that monitor internal health and behavior rather than acquiring new content.
+The autonomous learning and web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and uses environment-variable gating instead of unconstrained autonomy. Its primary role is to expand and refresh the knowledge base, while the following chapter focuses on cycles that monitor internal health and behavior rather than acquiring new content.
