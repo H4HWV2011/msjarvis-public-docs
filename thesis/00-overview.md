@@ -1,5 +1,4 @@
-> New here? Start with **([How to Read This Thesis](how-to-read-this-thesis.md)
-)** for reading paths and a guide to research vs. engineering claims.
+> New here? Start with **[How to Read This Thesis](docs/how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
 # Ms. Jarvis Public Documentation & Thesis Systems Overview
 
 **Location:** Mount Hope, West Virginia  
