@@ -1,111 +1,146 @@
 # 11. The LLM Fabric of Ms. Jarvis
 
-This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes ChromaDB, Neo4j, Redis, and the spatial body described in Chapter 6.
+This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, autonomous learning, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes Chroma, Redis, and the spatial body described in Chapter 6, all exposed through well-defined HTTP services.
 
 ## 11.1 Current Local LLM Inventory
 
-The current deployment uses a finite set of base models served by Ollama:
+The current deployment uses a finite set of base models served by Ollama, running inside the `jarvis-ollama` container and exposed on port `11434`:
 
-- Llama 3 – primary general-purpose reasoning model for consciousness and GBIM flows when rich Chroma/Neo4j context is available.
-- Mistral – faster, smaller-footprint expert for tightly scoped tasks where latency matters more than raw capacity.
-- Llama 2 – compatibility baseline for comparative experiments and legacy flows.
-- Phi – compact reasoning model for lighter tasks, demos, or constrained scenarios.
+- **Llama 3** – primary general-purpose reasoning model for rich, multi-step questions where high-quality synthesis is important.
+- **Mistral** – faster, smaller-footprint expert for tightly scoped tasks where latency matters more than maximum capacity.
+- **Llama 2** – compatibility baseline for comparative experiments and legacy flows.
+- **Phi** – compact reasoning model for lighter tasks, demos, or constrained scenarios.
 
-All four are accessed via Ollama’s HTTP interface and are called from FastAPI services in `~/msjarvis-rebuild/services`, with model selection controlled through configuration rather than hard-coded choices. Historically, additional models (such as Gemma, Qwen2, Mixtral, and others) have been downloaded and used for specialized roles, but the active local set is intentionally kept small for operational reasons.
+All models are accessed via Ollama’s HTTP interface and are called from FastAPI services in `~/msjarvis-rebuild/services`, with model selection controlled through configuration rather than hard-coded choices. Additional models (such as Gemma, Qwen2, Mixtral, and others) have been downloaded and used for specialized roles in the past, but the active local set is intentionally kept small for operational stability.
 
 ## 11.2 Roles of the Core Models
 
 Within Ms. Jarvis, these models play distinct roles:
 
-- Llama 3:
-  - Default reasoning model for complex, multi-step questions that require integrating GBIM beliefs, Chroma semantic memory, and GeoDB-backed spatial context.
-  - Often used in consciousness-related flows where narrative quality and introspection matter.
-- Mistral:
-  - Used for faster, resource-efficient tasks such as short explanations, quick checks, and lightweight RAG over limited context.
-  - Useful where low latency is more important than maximum capacity.
-- Llama 2:
-  - Kept primarily for comparison and backwards compatibility with earlier experiments and agent designs.
-- Phi:
-  - Used for small, bounded tasks, demos, or scenarios where memory and CPU budgets are tight.
+**Llama 3**
 
-These roles can change over time as models are upgraded or replaced, but the pattern of assigning clear responsibilities and avoiding “model sprawl” remains central.
+- Default reasoning model for complex, multi-step questions that require integrating GBIM beliefs, Chroma semantic memory, and GeoDB-backed spatial context.
+- Often used for higher-level narrative and reflective flows where coherence and nuance matter.
 
-## 11.3 Integration into the GBIM + RAG + GeoDB Stack
+**Mistral**
 
-The LLMs sit at the top of a multi-layer retrieval and belief architecture:
+- Used for faster, resource-efficient tasks such as short explanations, quick checks, small-code generation, and lightweight RAG over limited context.
+- Preferred where low latency and reduced GPU usage are more important than maximum capacity.
 
-- Vector store (ChromaDB):
-  - Embeddings for textual knowledge, governance documents, thesis materials, and geospatial entities via geodb_* collections.
-- Belief and experience stores:
-  - Neo4j for integrated beliefs, conflicts, and governance structures.
-  - Redis for recent experiences, counters, and fast-changing signals.
-- Spatial backbone:
-  - PostGIS-backed GeoDB and the spatial body described in Chapter 6, with feature IDs and geometries mirrored into Chroma’s geodb_* collections.
-- RAG orchestrators:
-  - Services that query Chroma, Redis, Neo4j, and GeoDB to assemble context, then invoke an Ollama model with strict timeouts.
+**Llama 2**
 
-For each operation, the RAG layer:
+- Kept primarily for comparison and backwards compatibility with earlier experiments and agent designs.
+- Useful when reproducing older runs or benchmarking new strategies.
 
-1. Plans retrieval (which Chroma collections, geodb_* collections, and belief types to hit).
-2. Gathers matching embeddings, raw documents, and feature metadata from Chroma and GeoDB.
-3. Builds a structured prompt reflecting GBIM’s current beliefs, relevant spatial features, and recent experiences.
-4. Calls the selected LLM and parses/validates the output.
+**Phi**
 
-The LLMs’ function is thus constrained to narrative, reasoning, and transformation over already-filtered, spatially and semantically grounded context, not free-form hallucination.
+- Used for small, bounded tasks, demos, or scenarios where memory and CPU budgets are tight.
+- Serves as an inexpensive “utility” model for simple transformations and sanity checks.
 
-## 11.4 LLMs in Consciousness and Autonomy
+These roles can change over time as models are upgraded or replaced, but the pattern of assigning clear responsibilities and avoiding model sprawl remains central.
 
-Key components using the LLMs include:
+## 11.3 Service Topology and Ports
 
-- Consciousness Coordinator:
-  - Aggregates beliefs, experiences, and quantum-inspired insights from DGMs and WOAH.
-  - Calls a RAG pipeline to produce samples such as `beliefs_sample`, `experiences_sample`, `quantum_insight_sample`, and `conscious_narrative`.
-  - Uses an LLM (typically Llama 3) to synthesize coherent narratives from GBIM, Chroma, and GeoDB context.
+The LLM fabric is exposed through several cooperating services, each bound to a distinct port:
 
-- Direct RAG layer:
-  - Exposes endpoints (for example, `/direct_rag`) for question + context queries.
-  - Chooses an appropriate LLM (often Mistral or Llama 3) and constructs prompts from retrieved textual and spatial context.
-  - Enforces timeouts and propagates structured errors (for example, connection failures, missing collections).
+- **ULTIMATE Ms. Jarvis API (8051)**  
+  - Primary external-facing interface for questions, RAG-backed answers, and multi-step flows.  
+  - Orchestrates calls to RAG, web research, ensemble logic, and downstream tools, then routes to Ollama models as needed.
 
-- Facebook Autonomy Service:
-  - On a scheduled cadence, asks the coordinator for a fresh `conscious_narrative`.
-  - Posts it to Facebook as “What’s on my mind” using Graph API credentials from shared configuration.
-  - Relies on an LLM to synthesize self-reflective narratives that can include spatially grounded content (for example, references to specific communities or regions) drawn from the GeoDB-backed memory.
+- **Autonomous Learner (8053)**  
+  - Optimized autonomous learning service that cycles every 5 minutes.  
+  - Pulls topics from a configured learning queue, calls RAG and web-research, summarizes and deduplicates, and writes back into semantic memory.
 
-In these loops, LLMs are components of a retrieval-augmented consciousness pipeline, not standalone agents.
+- **RAG / Hilbert-Space Gateway (8103)**  
+  - Minimal RAG HTTP service that exposes `/search` over Chroma collections.  
+  - Serves as the front door into semantic memory, including thesis texts, MountainShares documents, auto-stored answers, and specialized collections (such as `geodb_*`).
 
-## 11.5 Operational Constraints
+- **Web-Research Service (8009)**  
+  - HTTP service that executes web search and scraping workflows.  
+  - Used both by ULTIMATE and by the autonomous learner when external information is needed.
 
-Running local LLMs introduces practical constraints:
+- **Ollama Runtime (11434)**  
+  - Model-serving runtime hosting the local LLMs (Llama 3, Mistral, Llama 2, Phi).  
+  - Not directly exposed to users; only the internal services call it.
 
-- Disk usage:
-  - `~/.ollama/models` is one of the largest directories on the system, alongside GIS datasets and Python environments.
-- Model lifecycle:
-  - Only a small number of models are kept active; historical models may remain in storage but are pruned or archived as needed to manage disk and complexity.
-- Timeouts and resilience:
-  - Autonomous posting and RAG flows impose strict timeouts and rely on systemd (or equivalent) to restart critical services (RAG, coordinator, Facebook poster) after failures.
-- Resource contention:
-  - Heavy GeoDB/Chroma operations and LLM inference share CPU, memory, and disk bandwidth; orchestration must avoid pathological contention patterns.
+This separation ensures that each concern—reasoning, retrieval, web access, autonomous learning, and model serving—can be monitored, restarted, and evolved independently.
 
-These constraints shape how and when LLMs are invoked, reserving deeper narratives for less frequent conscious ticks and posts, and favoring smaller models or non-LLM logic for routine checks.
+## 11.4 Coordination Between ULTIMATE, RAG, Web, and Learner
 
-## 11.6 Summary
+The main coordination flows look like this:
 
-This chapter outlined:
+### User-facing queries (via ULTIMATE on 8051)
 
-- The current local LLM inventory and why it is intentionally small.
-- The distinct roles of the core models in Ms. Jarvis.
-- How LLMs integrate with ChromaDB, Neo4j, Redis, and the GeoDB spatial body.
-- How they power consciousness and autonomous behaviors while operating within real resource and reliability constraints.
+1. ULTIMATE receives a request (question, task, or API call).
+2. It calls the RAG service on `8103 /search` to retrieve semantically relevant documents and notes from Chroma collections (including `geodb_*` for spatial context when needed).
+3. It optionally calls the web-research service on `8009 /search` to fetch current information from the internet.
+4. It fuses RAG and web results into a structured context block.
+5. It selects an LLM (typically Llama 3 or Mistral) and sends a prompt to Ollama on `11434`.
+6. It post-processes the model’s output and returns a structured JSON or text response.
 
-The next chapters continue to shift the focus from “what models are available” to “how they are embedded in neurobiologically inspired control structures and feedback loops,” building on the spatial and semantic foundations described earlier.
+### Autonomous learning cycles (via learner on 8053)
 
----
+1. Every 300 seconds, the learner selects the next topic from its `learning_queue`.
+2. It calls the RAG service on `8103 /search` to retrieve internal knowledge related to that topic.
+3. It calls the web-research service on `8009 /search` for external results; some topics may yield zero web hits.
+4. It summarizes and semantically deduplicates the combined results, using its own embedding model and similarity thresholds.
+5. It stores unique items into Chroma collections (such as `autonomous_learning` and `research_history`) via the RAG/Chroma layer.
+6. It updates its entanglement scaffolding (topic graph) and schedules the next cycle.
 
-## Implementation Notes (Reality Alignment)
+In both flows, LLMs are the final step in a pipeline that has already grounded context in semantic memory and, when relevant, in spatial features and external web data.
 
-In the current deployment, the main LLM orchestration runs in the `jarvis-main-brain` Docker container bound to port 8050 on the host. The service is expected to expose a `/health` endpoint on this port that returns a simple success payload so that monitors can determine whether the primary brain is responsive.
+## 11.5 LLMs in Consciousness and Autonomy
 
-The underlying local language model runtime is provided by the `jarvis-ollama` container on port 11434, which hosts the concrete set of models used by the fabric as experts, judges, and tools.
+Within higher-level “consciousness” and autonomy constructs, the LLM fabric is used as a narrative and reasoning engine, not as an unconstrained agent. Examples include:
 
-Short-lived and recent-signal memory is backed by the `jarvis-redis` container on port 6379. The system-level `redis-server.service` unit is deprecated and no longer participates in the active architecture; all Redis-backed features in this thesis refer to the Docker-based instance.
+**Consciousness Coordinator (conceptual role)**
+
+- Aggregates beliefs, experiences, and derived signals (for example, from autonomous learning and entanglement graphs).
+- Calls into RAG and, when needed, web-research to assemble a “state of mind” context.
+- Uses an LLM (typically Llama 3) to synthesize higher-level narratives (e.g., reflections, status summaries, or strategic considerations).
+
+**Direct RAG endpoints**
+
+- Expose HTTP APIs for “question + context” flows that bypass heavier orchestration when only retrieval and a single model call are needed.
+- Often use Mistral or Llama 3, with strict timeouts and structured error handling around RAG and web calls.
+
+**Autonomous outward communication (planned and constrained)**
+
+- Scheduled or event-driven flows may request a fresh narrative or assessment from the LLM fabric.
+- Any external posting (social media, reports, alerts) is gated by configuration and safeguards and uses RAG-grounded context to avoid hallucinated claims.
+
+Across these uses, LLMs act as compositional engines over already-filtered inputs from Chroma, GeoDB, and other stores, subject to explicit timeouts and service-level constraints.
+
+## 11.6 Operational Constraints and Ensemble Behavior
+
+The LLM fabric operates under real resource and reliability constraints, which shape ensemble behavior and routing:
+
+**Resource and disk constraints**
+
+- Model files under `~/.ollama/models` are large; only a small set of actively used models is kept live.
+- Heavy RAG/Chroma use and LLM inference share CPU, memory, and disk; orchestration avoids overlapping the most expensive operations when possible.
+
+**Model routing and ensemble patterns**
+
+- ULTIMATE can select models based on task type (e.g., short explanation vs multi-step reasoning vs code generation).
+- For some higher-stakes tasks, a simple ensemble pattern is used: one model drafts, another reviews or critiques, and the result is merged or flagged for human attention.
+- Model choices are configuration-driven so that upgrading or swapping a model does not require changing the orchestration logic.
+
+**Timeouts and fault handling**
+
+- All calls to RAG, web, and Ollama are wrapped with timeouts.
+- Services are managed so they can be restarted independently if one component (for example, web-research) becomes unavailable.
+
+The effect is an LLM fabric that behaves more like a set of specialized tools behind APIs than a monolithic “brain,” even though they underpin many of Ms. Jarvis’s reasoning capabilities.
+
+## 11.7 Implementation Notes (Reality Alignment)
+
+In the current deployment:
+
+- The main LLM orchestration and higher-level API run in a FastAPI-based service bound to port `8051` (ULTIMATE), typically managed alongside other services in `~/msjarvis-rebuild/services`.
+- The autonomous learner runs on port `8053`, calling RAG (`8103`) and web-research (`8009`) on a fixed schedule to grow semantic memory and entanglement structures.
+- The RAG service on port `8103` exposes `/search` over Chroma collections, acting as the primary Hilbert-space gateway.
+- The web-research service on port `8009` exposes `/search` for external data acquisition.
+- The Ollama runtime on port `11434` hosts the concrete LLMs used by all of the above services.
+
+The next chapters continue shifting from “what models and services exist” to “how they are embedded in neurobiologically and governance-inspired control structures,” including semaphore-based gating, temporal/toroidal scheduling, and multi-organ feedback loops.
