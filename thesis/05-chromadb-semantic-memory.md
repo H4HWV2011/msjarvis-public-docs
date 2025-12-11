@@ -120,5 +120,32 @@ Three ChromaDB instances are currently running in the system:
 ### RAG Storage Pipeline (Validated)
 
 Every ULTIMATE response triggers RAG storage queuing. Log evidence:
+**OUTSTANDING QUESTION**: Which instance receives RAG writes? Requires code inspection of main_brain RAG handler.
+
+### Implementation Status Badge
+
+🔄 **PARTIAL** - Three instances running, multi-instance topology unclear, RAG retrieval not yet traced, collection schemas unknown
+**OUTSTANDING QUESTION**: Which instance receives RAG writes? Requires code inspection of main_brain RAG handler.
+
+### Implementation Status Badge
+
+🔄 **PARTIAL** - Three instances running, multi-instance topology unclear, RAG retrieval not yet traced, collection schemas unknown
+
+### Future Work
+
+- Add trace showing RAG retrieval enhancing query with prior context
+- Document collection names and embedding dimensions
+- Specify embedding model (sentence-transformers? OpenAI ada-002?)
+- Add ChromaDB collection schema diagram
+
+
+### Future Work
+
+- Add trace showing RAG retrieval enhancing query with prior context
+- Document collection names and embedding dimensions
+- Specify embedding model (sentence-transformers? OpenAI ada-002?)
+- Add ChromaDB collection schema diagram
+
+RAG storage queuing: {"response": "...", "timestamp": "2025-12-11T..."}
 
 
