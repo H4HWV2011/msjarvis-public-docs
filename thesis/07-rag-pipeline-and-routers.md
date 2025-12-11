@@ -113,3 +113,70 @@ The RAG pipeline sits between static memory and dynamic reasoning:
 In this way, RAG is not just a one-off retrieval step but part of an ongoing interaction between Ms. Jarvis’s memory, spatial body, state, and governance constraints.
 
 Status: This chapter is a draft overview of the RAG pipeline and routing logic in Ms. Jarvis. More detailed diagrams, pseudo-code, and evaluations of retrieval quality, spatial coverage, and constraint effectiveness will appear in technical appendices and implementation-focused documentation.
+
+## Operational Architecture (Dece/chat request
+↓
+main_brain receives request
+↓
+Health check sweep (identify 8/23 services)
+↓
+BBB query_service call (filter + context)
+↓
+web_research query_service call (enhance context)
+↓
+### Storage Backend (UNKNOWN - Requires Investigation)
+
+**Which ChromaDB instance receives RAG writes?**
+- jarvis-chroma (8002→8000)?
+- services-chroma-1 (8010→8010)?
+- msjarvis-rebuild-chroma-1 (8000→8000)?
+
+**TODO**: Inspect main_brain code to determine RAG storage target.
+
+### Retrieval Mechanism (NOT YET TRACED)
+
+**Current gap**: No retrieval operations observed in logs during testing.
+
+**Questions**:
+- When is RAG retrieval triggered?
+- What semantic similarity threshold triggers context injection?
+- How many prior contexts are retrieved per query?
+- What embedding model is used?
+
+### Implementation Status Badge
+
+🔄 **PARTIAL** - Storage queuing validated, storage backend unknown, retrieval path not yet traced
+
+### Performance Characteristics
+
+- RAG storage: Asynchronous queue (non-blocking)
+- Estimated retrieval latency: 100-500ms (if triggered)
+- Storage throughput: ~1 write per ULTIMATE response (measured: 195-353s intervals)
+
+### Recommendations for Phase 2
+
+1. Add RAG debug endpoint showing:
+   - Storage operations (writes)
+   - Retrieval operations (queries)
+   - Semantic similarity scores
+   - Retrieved context payloads
+
+2. Document RAG routing logic:
+   - Query classification (factual? reasoning? creative?)
+   - Context selection criteria
+   - Injection point in llm_bridge pipeline
+
+3. Measure retrieval impact on latency
+
+llm_bridge query_service call (22-agent synthesis)
+↓
+Response aggregation
+↓
+RAG storage queuing (every response)
+↓
+Return response to client
+
+mber 11, 2025)
+
+### Validated Request Flow
+
