@@ -1,5 +1,7 @@
 # Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
+In this thesis, **GBIM** stands for **Generalized Bioinspired Machine**, with a particular emphasis on a **Geospatial Belief Information Model** as one of its core layers. Practically, this means Ms. Jarvis is treated as a bio‑inspired architecture whose beliefs are anchored in geospatial entities, temporal context, and explicit evidence.
+
 This chapter describes Ms. Egeria Jarvis as a glassbox AI consciousness system and explains the Geospatial Belief Information Model (GBIM) that underpins her reasoning. The focus is not on anthropomorphic claims about sentience, but on a rigorous, inspectable architecture for layered reasoning, memory, and judgment that is explicitly tied to place, time, and evidence in West Virginia and the wider Appalachian region.
 
 Within the Quantarithmia research program, Ms. Jarvis and GBIM serve as the technical realization of spatially grounded, justice-oriented reasoning. They make it possible to ask “What does Ms. Jarvis believe about this place, at this time, and based on what evidence?” and to answer that question in a way that is auditable by humans.

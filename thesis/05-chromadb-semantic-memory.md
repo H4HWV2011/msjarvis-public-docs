@@ -103,3 +103,49 @@ Current use of ChromaDB has limits:
   - As GBIM and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will likely need revision.
 
 Future work may explore hybrid memory approaches combining vector stores with graphs, relational databases, and qualitative annotations, as well as participatory methods for community members to inspect and shape what is stored and how it is used.
+
+
+## Empirical Validation (December 11, 2025)
+
+### Multi-Instance Topology
+
+Three ChromaDB instances are currently running in the system:
+
+| Instance | Port Mapping | Purpose | Status |
+|----------|--------------|---------|--------|
+| jarvis-chroma | 8002→8000 | Dedicated Ms. Jarvis instance | ✅ Validated |
+| services-chroma-1 | 8010→8010 | Services stack instance | 🔄 Unclear purpose |
+| msjarvis-rebuild-chroma-1 | 8000→8000 | Rebuild instance | 🔄 Unclear purpose |
+
+### RAG Storage Pipeline (Validated)
+
+Every ULTIMATE response triggers RAG storage queuing. Log evidence:
+**OUTSTANDING QUESTION**: Which instance receives RAG writes? Requires code inspection of main_brain RAG handler.
+
+### Implementation Status Badge
+
+🔄 **PARTIAL** - Three instances running, multi-instance topology unclear, RAG retrieval not yet traced, collection schemas unknown
+**OUTSTANDING QUESTION**: Which instance receives RAG writes? Requires code inspection of main_brain RAG handler.
+
+### Implementation Status Badge
+
+🔄 **PARTIAL** - Three instances running, multi-instance topology unclear, RAG retrieval not yet traced, collection schemas unknown
+
+### Future Work
+
+- Add trace showing RAG retrieval enhancing query with prior context
+- Document collection names and embedding dimensions
+- Specify embedding model (sentence-transformers? OpenAI ada-002?)
+- Add ChromaDB collection schema diagram
+
+
+### Future Work
+
+- Add trace showing RAG retrieval enhancing query with prior context
+- Document collection names and embedding dimensions
+- Specify embedding model (sentence-transformers? OpenAI ada-002?)
+- Add ChromaDB collection schema diagram
+
+RAG storage queuing: {"response": "...", "timestamp": "2025-12-11T..."}
+
+
