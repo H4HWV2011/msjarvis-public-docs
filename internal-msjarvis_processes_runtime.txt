@@ -1,0 +1,13 @@
+ms-jarv+    1444  0.0  0.0  23556  9728 ?        S    Dec11   0:00 python3 /home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_ram_watchdog.py
+ms-jarv+    2112  0.1  0.0 1568812 30132 ?       Ssl  Dec11   1:10 /usr/bin/python3 /home/ms-jarvis/msjarvis-rebuild/services/memory_dgm_engine.py
+ms-jarv+    2115  0.2  0.0  37968 12544 ?        Ss   Dec11   3:10 /home/ms-jarvis/msjarvis-rebuild/neurobiological_brain/woah_venv_prod/bin/python3.12 /home/ms-jarvis/msjarvis-rebuild/neurobiological_brain/woah_venv_prod/bin/uvicorn woah_service_prod:app --host 0.0.0.0 --port 7012 --workers 2
+ms-jarv+    2116  0.0  0.7 1651968 220860 ?      Ssl  Dec11   0:07 /usr/bin/python3 /home/ms-jarvis/msjarvis-rebuild/services/chroma_health_monitor.py
+ms-jarv+    2118  0.0  0.0 176492 18536 ?        Ssl  Dec11   1:08 /usr/bin/python3 /home/ms-jarvis/msjarvis-rebuild/services/rag_direct_debug.py
+ms-jarv+    2123  0.0  0.0  69044 16800 ?        Ss   Dec11   0:02 /usr/bin/python3 /home/ms-jarvis/msjarvis-rebuild/services/sanctuary_construction_monitor.py
+ms-jarv+    2172  0.1  0.0 201744 15360 ?        Ssl  Dec11   1:09 /home/ms-jarvis/msjarvis-rebuild/master_venv/bin/python3 -m uvicorn services.gbim_query_router:app --host 0.0.0.0 --port 7205
+ms-jarv+    2204  0.1  0.1 175072 36976 ?        Ssl  Dec11   1:09 /home/ms-jarvis/msjarvis-rebuild/venv/bin/python multi_model_consensus.py
+ms-jarv+    2258  0.0  0.0  22264  8448 ?        S    Dec11   0:10 /home/ms-jarvis/msjarvis-rebuild/neurobiological_brain/woah_venv_prod/bin/python3.12 -c from multiprocessing.resource_tracker import main;main(6)
+ms-jarv+    2318  0.1  0.1 375024 31100 ?        Ssl  Dec11   1:12 /home/ms-jarvis/msjarvis-rebuild/master_venv/bin/python3 /home/ms-jarvis/msjarvis-rebuild/master_venv/bin/uvicorn services.ms_jarvis_facebook_full:app --host 0.0.0.0 --port 8033
+ms-jarv+    4053  0.1  0.0 2951624 22332 ?       Ssl  Dec11   1:14 /home/ms-jarvis/msjarvis-rebuild/venv/bin/python3 /home/ms-jarvis/msjarvis-rebuild/services/ms_jarvis_qualia_engine.py
+root        5777  0.1  0.0 155216 13876 ?        Ssl  Dec11   1:11 python3.10 ms_jarvis_unified_gateway.py
+root        5837  0.1  0.0 171056 16860 ?        Ssl  Dec11   1:12 python3.10 ms_jarvis_consciousness_bridge.py
