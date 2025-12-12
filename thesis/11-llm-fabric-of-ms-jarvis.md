@@ -206,6 +206,11 @@ Based on response quality, system appears to use:
 - **Judge agents**: Arbitration and consensus building
 - **Synthesis agent**: Final response generation
 
+### llm_bridge health and debug instrumentation
+
+As of this iteration. 12-11-2025, the llm_bridge microservice exposes explicit `/health` and `/debug/echo` endpoints, allowing both the main_brain and human operators to verify the bridge’s status and behavior without invoking the full orchestration pipeline. The `/health` route reports a simple JSON payload with service role and readiness, while `/debug/echo` can optionally forward a test prompt through the configured model and return both metadata and the model’s response, providing a lightweight, observable probe of the local LLM stack. In the current deployment, `/debug/echo` is wired to an Ollama-hosted `llama3.1:8b` instance, and end-to-end tests confirm the path `main_brain → llm_bridge → Ollama → llm_bridge → main_brain` is functioning as intended.
+
+
 ### Future Work: Debug Endpoint
 
 **Proposed endpoint**: `GET /llm_bridge/debug/agents?job_id={job_id}`
