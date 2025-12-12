@@ -164,58 +164,61 @@ The effect is an LLM fabric that behaves more like a set of specialized tools be
 
 ## 11.7 Implementation Notes (Reality Alignment)
 
-In the current deployment:## Empirical Validation (December 11, 2025)
+In the current deployment, the main LLM orchestration and higher-level API run in a FastAPI-based service bound to port `8051` (ULTIMATE), typically managed alongside other services in `~/msjarvis-rebuild/services`. The autonomous learner runs on port `8053`, calling RAG (`8103`) and web-research (`8009`) on a fixed five-minute schedule to grow semantic memory and entanglement structures. The RAG service on port `8103` exposes `/search` over Chroma collections, acting as the primary Hilbert-space gateway. The web-research service on port `8009` exposes `/search` for external data acquisition. The Ollama runtime on port `11434` hosts the concrete LLMs used by all of the above services, including both core generalists and specialists.
 
-### ✅ VALIDATED: ULTIMATE Coordination Path
+### Empirical Validation (December 11, 2025)
+
+#### ✅ VALIDATED: ULTIMATE Coordination Path
 
 All 4 AGI exam scenarios successfully routed through llm_bridge with consistent results.
 
-### Service Invocation Patterns
+#### Service Invocation Patterns
 
-| Scenario | Services Used | Processing Time | Consciousness Level |
-|----------|---------------|-----------------|---------------------|
-| agi-arch-1 (Architecture reasoning) | BBB, web_research, llm_bridge | 195s | ultimate_collective |
-| agi-plan-1 (Strategic planning) | BBB, web_research, llm_bridge | 353s | ultimate_collective |
-| agi-research-1 (Research synthesis) | BBB, web_research, llm_bridge | [TBD] | ultimate_collective |
-| agi-meta-1 (Meta-analysis) | BBB, web_research, llm_bridge | [TBD] | ultimate_collective |
+| Scenario                               | Services Used                    | Processing Time | Consciousness Level     |
+|----------------------------------------|----------------------------------|-----------------|-------------------------|
+| agi-arch-1 (Architecture reasoning)    | BBB, web_research, llm_bridge    | 195s            | ultimate_collective     |
+| agi-plan-1 (Strategic planning)        | BBB, web_research, llm_bridge    | 353s            | ultimate_collective     |
+| agi-research-1 (Research synthesis)    | BBB, web_research, llm_bridge    | [TBD]           | ultimate_collective     |
+| agi-meta-1 (Meta-analysis)             | BBB, web_research, llm_bridge    | [TBD]           | ultimate_collective     |
 
-### Output Quality (Qualitative Assessment)
+#### Output Quality (Qualitative Assessment)
 
-✅ Multi-paragraph structured reasoning  
-✅ Coherent technical explanations  
-✅ Evidence of ensemble synthesis  
-✅ Context integration from multiple sources  
+- Multi-paragraph structured reasoning  
+- Coherent technical explanations  
+- Evidence of ensemble synthesis  
+- Context integration from multiple sources  
 
-### Outstanding Questions (Require Code Inspection)
+#### Outstanding Questions (Require Code Inspection)
 
-1. **Agent-Level Breakdown**: Which of 22 agents participated in each request?
-2. **Voting Mechanism**: How are conflicting agent responses arbitrated?
-3. **Weight Distribution**: Are agent weights equal or specialized?
-4. **Judge Role**: Which agent serves as final arbiter?
-5. **Failure Handling**: What happens if an agent times out or returns error?
+1. **Agent-Level Breakdown**: Which of 22 agents participated in each request?  
+2. **Voting Mechanism**: How are conflicting agent responses arbitrated?  
+3. **Weight Distribution**: Are agent weights equal or specialized?  
+4. **Judge Role**: Which agent serves as final arbiter?  
+5. **Failure Handling**: What happens if an agent times out or returns error?  
 
-### Implementation Status Badge
+#### Implementation Status Badge
 
-✅ **OPERATIONAL** - llm_bridge coordination validated, 22-agent synthesis inferred from output quality, agent-level details require debug endpoint
+- **OPERATIONAL** – llm_bridge coordination validated, 22-agent synthesis inferred from output quality, agent-level details require debug endpoint.
 
-### Agent Specializations (Inferred from Output)
+#### Agent Specializations (Inferred from Output)
 
-Based on response quality, system appears to use:
-- **Router agents**: Query classification and service selection
-- **Specialist agents**: Domain-specific reasoning (architecture, planning, research, meta-analysis)
-- **Judge agents**: Arbitration and consensus building
-- **Synthesis agent**: Final response generation
+Based on response quality, the system appears to use:
 
-### llm_bridge health and debug instrumentation
+- Router agents: query classification and service selection.  
+- Specialist agents: domain-specific reasoning (architecture, planning, research, meta-analysis).  
+- Judge agents: arbitration and consensus building.  
+- Synthesis agent: final response generation.  
 
-As of this iteration. 12-11-2025, the llm_bridge microservice exposes explicit `/health` and `/debug/echo` endpoints, allowing both the main_brain and human operators to verify the bridge’s status and behavior without invoking the full orchestration pipeline. The `/health` route reports a simple JSON payload with service role and readiness, while `/debug/echo` can optionally forward a test prompt through the configured model and return both metadata and the model’s response, providing a lightweight, observable probe of the local LLM stack. In the current deployment, `/debug/echo` is wired to an Ollama-hosted `llama3.1:8b` instance, and end-to-end tests confirm the path `main_brain → llm_bridge → Ollama → llm_bridge → main_brain` is functioning as intended.
+### llm_bridge Health and Debug Instrumentation
 
+As of this iteration (2025-12-11), the llm_bridge microservice exposes explicit `/health` and `/debug/echo` endpoints, allowing both the main_brain and human operators to verify the bridge’s status and behavior without invoking the full orchestration pipeline. The `/health` route reports a simple JSON payload with service role and readiness, while `/debug/echo` can optionally forward a test prompt through the configured model and return both metadata and the model’s response, providing a lightweight, observable probe of the local LLM stack. In the current deployment, `/debug/echo` is wired to an Ollama-hosted `llama3.1:8b` instance, and end-to-end tests confirm the path `main_brain → llm_bridge → Ollama → llm_bridge → main_brain` is functioning as intended.
 
 ### Future Work: Debug Endpoint
 
 **Proposed endpoint**: `GET /llm_bridge/debug/agents?job_id={job_id}`
 
 **Response format**:
+
 ```json
 {
   "job_id": "uuid",
@@ -232,12 +235,4 @@ As of this iteration. 12-11-2025, the llm_bridge microservice exposes explicit `
   "total_processing_time_ms": 195000
 }
 
-
-- The main LLM orchestration and higher-level API run in a FastAPI-based service bound to port `8051` (ULTIMATE), typically managed alongside other services in `~/msjarvis-rebuild/services`.  
-- The autonomous learner runs on port `8053`, calling RAG (`8103`) and web-research (`8009`) on a fixed five-minute schedule to grow semantic memory and entanglement structures.  
-- The RAG service on port `8103` exposes `/search` over Chroma collections, acting as the primary Hilbert-space gateway.  
-- The web-research service on port `8009` exposes `/search` for external data acquisition.  
-- The Ollama runtime on port `11434` hosts the concrete LLMs used by all of the above services, including both core generalists and specialists.
-
-The next chapters continue shifting from “what models and services exist” to “how they are embedded in neurobiologically and governance-inspired control structures,” including semaphore-based gating, temporal/toroidal scheduling, and multi-organ feedback loops.
-
+##**The next chapters continue shifting from “what models and services exist” to “how they are embedded in neurobiologically and governance-inspired control structures,” including semaphore-based gating, temporal/toroidal scheduling, and multi-organ feedback loops.**##
