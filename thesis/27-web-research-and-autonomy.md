@@ -155,3 +155,91 @@ These measures aim to balance autonomy with traceability and safety.
 ## 27.8 Summary
 
 The autonomous learning and web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and uses environment-variable gating instead of unconstrained autonomy. Its primary role is to expand and refresh the knowledge base, while the following chapter focuses on cycles that monitor internal health and behavior rather than acquiring new content.
+
+---
+
+### Chapter 27: Web Research and Autonomy - UPDATE
+
+**File**: `thesis/27-web-research-and-autonomy.md`
+
+**Add operational role section**:
+
+```markdown
+## Operational Role (December 11, 2025)
+
+### ✅ VALIDATED: Web Research in ULTIMATE Path
+
+web_research consistently appears in services_used for all heavy reasoning tasks.
+
+### Coordination Position
+BBB (filter) → web_research (enhance) → llm_bridge (synthesize)
+
+### Function (Inferred from Traces)
+
+Based on request-response patterns, web_research appears to:
+1. Receive filtered query + context from BBB
+2. Perform semantic search or knowledge retrieval
+3. Return enhanced context + source citations
+4. Pass results to llm_bridge for synthesis
+
+### Processing Time Budget
+
+**Estimated latency for agi-arch-1** (195s total):
+- Health check: ~4s
+- BBB: ~1s
+- **web_research: ~60s** (30%)
+- llm_bridge: ~120s
+- Aggregation: ~10s
+
+web_research accounts for ~30% of total latency, suggesting moderate complexity search/retrieval operation.
+
+### Outstanding Questions (Require Code Inspection)
+
+❓ Does it perform **live web scraping** or **cached knowledge retrieval**?  
+❓ What **APIs/sources** does it access (Wikipedia? ArXiv? proprietary)?  
+❓ How does it **rank/select** relevant context?  
+❓ What **semantic similarity threshold** triggers context inclusion?  
+❓ How many prior **search results** are included per query?  
+❓ Does it **deduplicate** or **synthesize** multiple sources?  
+
+### Implementation Status Badge
+
+✅ **OPERATIONAL** (consistently invoked) | 🔄 **PARTIAL** (internal mechanics unknown)
+
+### Future Work: Debug Endpoint
+
+**Proposed endpoint**: `GET /web_research/debug/sources?job_id={job_id}`
+
+**Response format**:
+```json
+{
+  "job_id": "uuid",
+  "query": "Explain Ms. Jarvis architecture",
+  "sources_retrieved": [
+    {
+      "rank": 1,
+      "source": "internal_thesis_docs/19-container-architecture-and-routing.md",
+      "similarity_score": 0.94,
+      "snippet": "Container Topology shows 19 Docker containers..."
+    },
+    {
+      "rank": 2,
+      "source": "github_readme_msjarvis",
+      "similarity_score": 0.87,
+      "snippet": "Ms. Jarvis uses 22-agent LLM ensemble..."
+    },
+    {
+      "rank": 3,
+      "source": "web_search_result_url",
+      "similarity_score": 0.76,
+      "snippet": "Multi-agent systems coordinate through..."
+    }
+  ],
+  "total_sources": 3,
+  "context_size_tokens": 1250,
+  "retrieval_time_ms": 58000
+}
+Conclusion
+
+web_research is a critical enabler of ULTIMATE's reasoning capability, providing context that allows llm_bridge to synthesize more informed responses. Full understanding of its operation requires code inspection and debug endpoint implementation.
+
