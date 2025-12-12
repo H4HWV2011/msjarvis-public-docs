@@ -77,149 +77,150 @@ The conceptual structure described here provides the blueprint for those later d
 This chapter has outlined the responsibilities, inputs, and high-level flow of the system’s central coordination layer. It connects the earlier discussions of introspection, consolidation, and global control to the concrete mechanisms that will be developed in later parts, where the emphasis shifts from metaphor and intent to specific implementation patterns.
 
 
----
+### Operational Coordination Pattern (December 11, 2025)
 
-### Chapter 17: Executive Coordination Overview - UPDATE
+#### ✅ VALIDATED: Main-Brain Orchestration
 
-**File**: `thesis/17-executive-coordination-overview.md`
+`main_brain` successfully coordinates 8/23 operational services using a validated pattern.
 
-**Add operational coordination pattern section**:
+#### Detailed Sequence Diagram
 
-```markdown
-## Operational Coordination Pattern (December 11, 2025)
+Client `/chat` request  
+↓ `[0ms]`  
+`main_brain` receives request  
+↓ `[10ms]`  
 
-### ✅ VALIDATED: Main-Brain Orchestration
+Health check sweep START:  
+- PING: `jarvis-main-brain` ✅  
+- PING: `jarvis-blood-brain-barrier` ✅  
+- PING: `jarvis-llm-bridge` ✅  
+- PING: `jarvis-web-research` ✅  
+- PING: `jarvis-qualia-engine` ❌ (timeout)  
+- PING: `jarvis-swarm-intelligence` ❌ (timeout)  
+- … 15 additional failures  
 
-main_brain successfully coordinates 8/23 operational services using validated pattern.
+↓ `[2–5s total for health sweep]`  
 
-### Detailed Sequence Diagram
-Client /chat Request
-↓ [0ms]
-main_brain receives request
-↓ [10ms]
-Health check sweep START
-- PING: jarvis-main-brain ✅
-- PING: jarvis-blood-brain-barrier ✅
-- PING: jarvis-llm-bridge ✅
-- PING: jarvis-web-research ✅
-- PING: jarvis-qualia-engine ❌ (timeout)
-- PING: jarvis-swarm-intelligence ❌ (timeout)
-- ... (15 more failures)
-↓ [2-5s total for health sweep]
-Service selection logic
-- use_all_services flag: true
-- query_complexity: high (AGI reasoning)
-- selected: [BBB, web_research, llm_bridge]
-↓ [5ms]
-Query BBB (query_service call)
-- Input: raw user query
-- Output: filtered_content + approval status
-↓ [~1s]
-Query web_research (query_service call)
-- Input: filtered_content
-- Output: enhanced_context + sources
-↓ [~60s estimated]
-Query llm_bridge (query_service call)
-- Input: filtered_content + enhanced_context
-### Performance Profile
+Service selection logic:  
+- `use_all_services` flag: `true`  
+- `query_complexity`: `high` (AGI reasoning)  
+- Selected: `[BBB, web_research, llm_bridge]`  
 
-| Phase | Latency | Bottleneck |
-|-------|---------|-----------|
-| Health check sweep | 2-5s | Fan-out PING to 23 services |
-| Service selection | <10ms | Logic only |
-| BBB processing | ~1s | Content filtering |
-| web_research processing | ~60s | Context lookup + retrieval |
-| llm_bridge processing | ~120s | 22-agent synthesis |
-| Response aggregation | ~50ms | JSON formatting |
-| RAG storage queue | ~10ms | Async enqueue |
-| **Total ULTIMATE request** | **~195-353s** | **llm_bridge (22-agent synthesis)** |
+↓ `[5ms]`  
 
-### Critical Performance Issue: Health Check Amplification
+Query BBB (`query_service` call):  
+- Input: raw user query  
+- Output: `filtered_content` + approval status  
 
-**Discovered during testing**: Back-to-back heavy requests cause service restart
+↓ `~1s`  
 
-**Root cause**: Health check sweep happens EVERY request
-- 23 PING operations × 195-353s request time = system under constant load
-- Uvicorn memory/resource exhaustion after 2-3 sequential AGI requests
-- Service restarts, losing context
+Query `web_research` (`query_service` call):  
+- Input: `filtered_content`  
+- Output: `enhanced_context` + sources  
 
-**Impact**: Cannot sustain production workload with continuous health checks
+↓ `~60s (estimated)`  
 
-### Proposed Optimization: TTL Cache
+Query `llm_bridge` (`query_service` call):  
+- Input: `filtered_content` + `enhanced_context`  
+- Output: synthesized response  
 
-**Add health check TTL cache** (5-10 seconds):
+↓ `~120s (estimated)`  
 
-```python
-# In main_brain
+Response aggregation:  
+- Combine: BBB approval + web_research sources + llm_bridge response  
+- Format: JSON response object  
+
+↓ `~50ms`  
+
+RAG storage queuing:  
+- Queue: `{"response": "...", "timestamp": "..."}`  
+- Target: ChromaDB (instance TBD)  
+- Async operation (non-blocking)  
+
+↓ `~10ms`  
+
+Return to client → client receives response.
+
+#### Performance Profile
+
+| Phase                   | Latency       | Bottleneck                        |
+|-------------------------|--------------|-----------------------------------|
+| Health check sweep      | 2–5s         | Fan-out PING to 23 services       |
+| Service selection       | < 10ms       | Logic only                        |
+| BBB processing          | ~1s          | Content filtering                 |
+| web_research processing | ~60s         | Context lookup + retrieval        |
+| llm_bridge processing   | ~120s        | 22-agent synthesis                |
+| Response aggregation    | ~50ms        | JSON formatting                   |
+| RAG storage queue       | ~10ms        | Async enqueue                     |
+| **Total request**       | **195–353s** | **llm_bridge (22-agent synthesis)** |
+
+#### Critical Performance Issue: Health-Check Amplification
+
+**Observed behavior**
+
+- Back-to-back heavy requests can trigger service restarts.  
+- Root cause: health check sweep runs on **every** request.  
+- 23 PING operations × 195–353s request time keeps the system under constant load, leading to Uvicorn resource exhaustion after 2–3 sequential AGI-scale requests.
+
+**Impact**
+
+- The system cannot sustain production-like workloads with continuous full health sweeps on each call.
+
+#### Proposed Optimization: TTL Cache for Health Checks
+
+Introduce a short TTL cache (for example, 5–10 seconds) around service health status so that repeated requests reuse recent results instead of re-pinging all services each time.
+In main_brain
+# Fresh health check
+status = ping_service(service_name)
+health_status_cache[service_name] = (status, now)
+return status
+
 HEALTH_CHECK_CACHE_TTL_SECONDS = 5
-health_status_cache = {}  # {service_name: (status, timestamp)}
+health_status_cache = {} # {service_name: (status, timestamp)}
 
 def get_service_health(service_name: str):
-    now = time.time()
-    if service_name in health_status_cache:
-        status, timestamp = health_status_cache[service_name]
-        if now - timestamp < HEALTH_CHECK_CACHE_TTL_SECONDS:
-            return status  # Return cached
-    
-    # Fresh health check
-    status = ping_service(service_name)
-    health_status_cache[service_name] = (status, now)
-    return status
-Expected improvement:
+now = time.time()
+if service_name in health_status_cache:
+**Expected improvement**
 
-    Before: 2-5s health check per request
+- Before: 2–5s health check overhead per request.  
+- After: 2–5s once per TTL window, then cached for 5s.  
+- Net: ~95% reduction in health check overhead under sustained load.
 
-    After: 2-5s once, then cached for 5s
+#### Implementation Status Badge
 
-    Net: 95% reduction in health check overhead for sustained workload
+- ✅ **OPERATIONAL** – Coordination pattern validated end-to-end.  
+- 🔄 **PARTIAL** – Performance issue identified; optimization recommended.
 
-Implementation Status Badge
+#### Critical Recommendations
 
-✅ OPERATIONAL (coordination successful) | 🔄 PARTIAL (performance issue identified)
-Critical Recommendations
+- Implement the health-check TTL cache to prevent restart behavior under AGI-scale workloads.  
+- Add coordination metrics (for example, Prometheus):
 
-    URGENT: Implement health check TTL cache to prevent restart behavior
+  - Health-check latency distribution.  
+  - Service selection frequency.  
+  - `query_service` call count per request.  
+  - RAG storage queue depth.
 
-    Add coordination metrics (Prometheus):
+- Add request-level tracing (for example, OpenTelemetry):
 
-        Health check latency (distribution)
+  - Trace ID propagation through the service chain.  
+  - Latency breakdown by phase.  
+  - Error tracking per service.
 
-        Service selection frequency
+- Monitor service resource usage and resilience:
 
-        Query_service call count per request
+  - Circuit breakers for repeatedly failing services.  
+  - Auto-recovery logic when services restart.  
+  - Graceful degradation strategies when specific services are unavailable.
 
-        RAG storage queue depth
+status, timestamp = health_status_cache[service_name]
+if now - timestamp < HEALTH_CHECK_CACHE_TTL_SECONDS:
+return status # Return cached status
 
-    Add request-level tracing (OpenTelemetry):
-
-        Trace ID propagation through service chain
-
-        Latency breakdown by phase
-
-        Error tracking per service
-
-    Monitor service resource usage:
-
-        Implement circuit breaker for failing services
-
-        Auto-recovery logic when service restarts
-
-        Graceful degradation when services unavailable
-
-- Output: synthesized response
-↓ [~120s estimated]
-Response aggregation
-- Combine: BBB approval + web_research sources + llm_bridge response
-- Format: JSON response object
-↓ [50ms]
-RAG storage queuing
-- Queue: {"response": "...", "timestamp": "..."}
-- Target: ChromaDB (instance unknown)
-- Async operation (non-blocking)
-↓ [10ms]
-Return to client
-↓
-Client receives response
-
+# Fresh health check
+status = ping_service(service_name)
+health_status_cache[service_name] = (status, now)
+return status
 
 
