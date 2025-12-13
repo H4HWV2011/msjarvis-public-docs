@@ -1,13 +1,17 @@
 > New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
+
 # 0. Thesis Overview
 
 # Thesis Systems Overview
 
-This thesis treats Quantarithmia, Ms. Egeria Jarvis, and MountainShares as one integrated research program, moving from theory to technical implementation to institutional practice.
+This thesis sits within **polymathamatical geography**, an emerging field that integrates quantitative geography, systems theory, AI architectures, and community-centered design to study how power, value, and information move through real places like Appalachia.
+
+It treats **Quantarithmia**, **Ms. Egeria Jarvis**, and **MountainShares** as one integrated research program, moving from theory to technical implementation to institutional practice.
 
 - **Quantarithmia** defines the axioms, metrics, and justice framework.
 - **Ms. Jarvis + GBIM** implement those axioms in a glassbox AI consciousness system.
 - **MountainShares DAO** implements those axioms in economic and governance structures.
+
 ## System Non‑Goals
 
 To avoid overstatement, this thesis explicitly marks several non‑goals:
