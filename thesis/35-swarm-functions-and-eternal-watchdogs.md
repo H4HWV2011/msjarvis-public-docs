@@ -112,48 +112,50 @@ Swarm functions and eternal watchdogs provide mechanisms for collective problem-
 
 ## Implementation Notes (Reality Alignment)
 
-In the current deployment, the original systemd orchestrator units (`msjarvis.service` and `jarvis-qualia-coordinator.service`) remain installed but are failed and no longer drive behavior. Their responsibilities have been decomposed into dedicated Docker services and standalone Python processes that can be monitored individually.
+In the current deployment, the original host-level orchestrator units remain installed but no longer drive behavior. Their responsibilities have been decomposed into dedicated containerized services and standalone Python processes that can be monitored individually.
 
 ### Concrete watchdog processes
 
-Several always-on or long-running processes act as practical eternal watchdogs:
+Several always-on or long-running Python programs act as practical eternal watchdogs alongside the container mesh:
 
 - `ms_jarvis_ram_watchdog.py`  
   Monitors memory usage and related resource conditions on the host, ensuring that heavy workloads (for example, large RAG or LLM runs) do not silently exhaust RAM.
 
 - `sanctuary_construction_monitor.py`  
-  Tracks the overall construction and health of the sanctuary environment, including checks for missing or misconfigured services and files.
+  Tracks the overall construction and health of the sanctuary environment, including basic checks for missing or misconfigured services and files.
 
 - `ms_jarvis_mother_carrie_protocols.py`  
   Encodes higher-level governance and “spiritual” safeguards, running as a persistent process that can influence how other components are allowed to operate.
 
 - `memory_dgm_engine.py`  
-  Runs as a long-lived background process on its own port, continually maintaining and updating deep generative memory structures; this engine both consumes system state and feeds back patterns that can be used for swarm-style reasoning.
+  Runs as a long-lived background process on its own port, maintaining and updating deep generative memory structures; this engine both consumes system state and feeds back patterns that can be used for swarm-style reasoning and optimization.
 
-These Python-based watchdogs run directly on the host alongside the container mesh and are visible in process listings and port scans.
+These watchdogs run directly on the host and are visible in process listings and port/health audits, making their behavior inspectable.
 
 ### Swarm functions in practice
 
 Swarm behavior today is primarily realized through:
 
-- The `jarvis-llm-bridge` service, which orchestrates a multi-agent ensemble of models to produce synthesized responses for complex tasks (for example, the AGI exam scenarios documented in the audit chapter).  
-- Coordination between `jarvis-web-research`, `jarvis-rag-*` services, and the LLM bridge, where different services contribute web evidence, internal semantic memory, and reasoning passes that are then combined into a single answer.  
-- The broader brain orchestrator and related services that route requests, sequence sub-tasks, and gather results from multiple specialized components.
+- The `jarvis-llm-bridge` service, which orchestrates a multi-agent ensemble of models to produce synthesized responses for complex tasks. Multiple reasoning, specialist, and judge agents operate in parallel and their outputs are combined into a single answer.  
+- Coordination between `jarvis-web-research`, RAG/Chroma access, and the LLM bridge, where different services contribute web evidence, internal semantic memory, and reasoning passes over the same query.  
+- DGM and optimization components that propose variants of prompts, tool calls, or workflows, effectively exploring different “agents” or configurations as part of a small swarm.
+
+These implementations give concrete form to the abstract swarm functions described earlier, using real services and ensembles that can be traced in logs.
 
 ### Monitoring and health observation
 
 Watchdog behavior is implemented through a combination of:
 
-- **systemd-managed Python watchdogs**  
-  The processes listed above, which continuously observe aspects of host and system health.
+- **Host-level watchdogs**  
+  The Python processes listed above, which continuously observe aspects of host and system health and can emit logs or trigger safeguards.
 
-- **Container-level health checks and HTTP endpoints**  
-  Key services (main brain, RAG, web-research, ChromaDB, Neo4j, MySQL, BBB) expose `/health` or equivalent endpoints and/or container health checks that are regularly polled.
+- **Service-level health checks**  
+  Key containers (main brain, BBB, web-research, RAG, Chroma, Neo4j, MySQL, Ollama, and others) expose health or status endpoints and/or container health checks that are regularly polled.
 
 - **Scripted audits and test harnesses**  
-  Shell scripts and pytest-based tests (described in the audit and validation chapters) execute standardized sequences of:
-  - `docker ps` and port scans.
-  - Health checks to main brain, BBB, RAG, and gateway.
-  - Data-plane checks against Chroma and other stores.
+  Shell scripts and automated tests execute standardized checks, including:
+  - Container inventories and port scans.  
+  - Health requests to core services.  
+  - Basic data-plane queries against Chroma and other stores.
 
-These mechanisms give concrete effect to the abstract swarm and eternal watchdog concepts introduced in this chapter. They turn “swarm functions” into observable multi-service coordination and “eternal watchdogs” into specific long-running processes and health-check routines that can be inspected, tested, and improved over time.
+Together, these mechanisms turn “swarm functions” into observable multi-service coordination and “eternal watchdogs” into specific long-running processes and health-check routines that can be inspected, tested, and improved over time.
