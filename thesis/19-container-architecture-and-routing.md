@@ -82,111 +82,56 @@ The container architecture provides a structured way to receive, normalize, and 
 
 ---
 
-### Container Topology (December 11, 2025)
+## 19.8 Operational Container Topology (December 11, 2025)
 
-#### ✅ VALIDATED: Port Audit Complete
+This section summarizes one observed deployment topology, to ground the abstract container architecture in a concrete set of services. It should be read as an empirical snapshot rather than a permanent design.
 
-Complete inventory of 19 Docker containers and port mappings.
+### Core Orchestration Layer
 
-#### Core Orchestration Layer
+| Container         | Port Mapping | Role                                                                 |
+|-------------------|-------------:|----------------------------------------------------------------------|
+| jarvis-main-brain | 8051→8050    | External API entry point; health-check sweep; service orchestration |
 
-| Container         | Image                          | Port Mapping | Status        | Role                                                                 |
-|-------------------|--------------------------------|--------------|---------------|----------------------------------------------------------------------|
-| jarvis-main-brain | msjarvis-main-brain:latest     | 8051→8050    | ✅ Operational | External API entry point; health check sweep; service orchestration |
+### Coordination Services (ULTIMATE Path)
 
-#### Coordination Services (ULTIMATE Path)
+| Container                  | Port Mapping | Role                                                |
+|---------------------------|-------------:|-----------------------------------------------------|
+| jarvis-blood-brain-barrier| 8016→8016    | Content filter; context cleaning; safety enforcement|
+| jarvis-llm-bridge         | 18006→8006   | Multi-agent ensemble coordination; response synthesis|
+| jarvis-web-research       | 18009→8009   | Context enhancement; external knowledge retrieval   |
 
-| Container                  | Image                          | Port Mapping | Status        | Role                                               |
-|----------------------------|--------------------------------|--------------|---------------|----------------------------------------------------|
-| jarvis-blood-brain-barrier | msjarvis-bbb:latest           | 8016→8016    | ✅ Operational | Content filter; context cleaning; safety enforcement |
-| jarvis-llm-bridge          | msjarvis-llm-bridge:latest    | 18006→8006   | ✅ Operational | 22‑agent ensemble coordination; response synthesis |
-| jarvis-web-research        | msjarvis-web-research:latest  | 18009→8009   | ✅ Operational | Context enhancement; external knowledge retrieval  |
+These services implement the intake and early-routing behavior described above, turning raw requests into normalized, filtered records before deeper evaluation.
 
-#### Consciousness & Coordination Services (Not Invoked)
+### Memory, Learning, and Optimization Services
 
-| Container                  | Image                                  | Port Mapping | Status        | Role                               |
-|----------------------------|----------------------------------------|--------------|---------------|------------------------------------|
-| jarvis-qualia-engine       | msjarvis-qualia-engine:latest         | 18117→8017   | 🔄 Not invoked | Introspective state; qualia layer  |
-| jarvis-swarm-intelligence  | msjarvis-swarm:latest                 | 18221→8021   | 🔄 Not invoked | Swarm coordination; multi-agent    |
-| jarvis-consciousness-bridge| msjarvis-consciousness-bridge:latest  | 18220→8020   | 🔄 Not invoked | Inter-service consciousness sync   |
-| jarvis-unified-gateway     | msjarvis-unified-gateway:latest       | 18001→8001   | 🔄 Not invoked | External communication authority   |
+| Container                    | Port Mapping | Role                              |
+|-----------------------------|-------------:|-----------------------------------|
+| jarvis-autonomous-learner   | 18053→8053   | Autonomous learning; self-improve |
+| jarvis-i-containers         | 18115→8015   | Container orchestration           |
+| jarvis-fifth-dgm            | 14002→4002   | Darwin–Gödel–style optimization   |
+| jarvis-neurobiological-master| 18118→8018  | Neurobiological coordination      |
 
-#### Memory & Learning Services
+These components generate internal tasks and structural changes that enter the container layer as events, and they depend on consistent routing and normalization to feed their outputs back into memory and belief structures.
 
-| Container                  | Image                               | Port Mapping | Status        | Role                              |
-|----------------------------|-------------------------------------|--------------|---------------|-----------------------------------|
-| jarvis-autonomous-learner  | msjarvis-autonomous-learner:latest | 18053→8053   | 🔄 Unknown     | Autonomous learning; self-improve |
-| jarvis-neurobiological-master | msjarvis-neuro-master:latest    | 18118→8018   | 🔄 Unknown     | Neurobiological coordination      |
-| jarvis-i-containers        | msjarvis-i-containers:latest        | 18115→8015   | 🔄 Unknown     | Container orchestration           |
-| jarvis-fifth-dgm           | msjarvis-fifth-dgm:latest           | 14002→4002   | 🔄 Unknown     | Darwin–Gödel machine; optimization |
+### Data Persistence and Semantics
 
-#### Data Persistence & Semantics
+| Container                 | Port Mapping | Role                                |
+|--------------------------|-------------:|-------------------------------------|
+| jarvis-chroma            | 8000→8000    | Primary semantic memory (ChromaDB)  |
+| services-chroma-1        | 8010→8010    | Additional ChromaDB instance        |
+| msjarvis-rebuild-chroma-1| 8002→8000    | Rebuild / development instance      |
+| services-neo4j-1         | 7474, 7687   | GBIM graph database                 |
+| services-mysql-1         | 3307→3306    | Relational data; user/audit records |
 
-| Container                 | Image                   | Port Mapping | Status     | Role                               |
-|---------------------------|-------------------------|--------------|------------|------------------------------------|
-| jarvis-chroma             | msjarvis-chroma:0.4.24 | 8000→8000    | ✅ Running | Primary semantic memory (ChromaDB) |
-| services-chroma-1         | chromadb/chroma:latest | 8010→8010    | ✅ Running | Services stack ChromaDB instance   |
-| msjarvis-rebuild-chroma-1 | chromadb/chroma:latest | 8002→8000    | ✅ Running | Rebuild / development instance     |
+These stores provide the long-term structures that container records link to via IDs and metadata.
 
-#### External Access Points
+### External Access Points and LLM Backend
 
-Only two ports are exposed to the host (localhost):
+Only two ports are exposed to the host:
 
-- **8051**: External API endpoint (`jarvis-main-brain`).  
-- **11434**: Ollama LLM backend (local model access).
+- **8051** – External API endpoint (`jarvis-main-brain`).  
+- **11434** – Ollama LLM backend (local model serving).
 
-All other services communicate internally via Docker’s bridge network and DNS, using container names for service discovery.
+Internally, a `jarvis-ollama` container on port `11434` hosts the local language models used by `llm_bridge`, ULTIMATE, and other services. All other services communicate over the Docker bridge network using container names for discovery.
 
-#### Databases & Infrastructure
-
-| Container        | Image                | Port Mapping | Status     | Role                                              |
-|------------------|----------------------|--------------|------------|---------------------------------------------------|
-| services-neo4j-1 | neo4j:5.13-community | 7474, 7687   | ✅ Running | Graph database; GBIM spatial and identity graphs  |
-| services-mysql-1 | mysql:8.2            | 3307→3306    | ✅ Running | Relational data; user management; audit logs      |
-| services-ipfs-1  | ipfs/kubo:latest     | 5001         | ✅ Running | Distributed storage; content-addressed artifacts  |
-
-#### LLM Backend
-
-| Container     | Image                | Port Mapping  | Status     | Role                         |
-|---------------|----------------------|---------------|------------|------------------------------|
-| jarvis-ollama | ollama/ollama:latest | 11434→11434   | ✅ Running | Local LLM execution backend  |
-
-#### Service Health Status (December 11, 2025)
-
-**Operational**: 8/23 (34.8%)
-
-- ✅ `jarvis-main-brain`  
-- ✅ `jarvis-blood-brain-barrier`  
-- ✅ `jarvis-llm-bridge`  
-- ✅ `jarvis-web-research`  
-- ✅ `jarvis-chroma` (main)  
-- ✅ `services-chroma-1`  
-- ✅ `services-neo4j-1`  
-- ✅ `services-mysql-1`  
-- ✅ `jarvis-ollama`  
-
-**Non‑responsive**: 15/23 (65.2%)
-
-- 🔄 `jarvis-qualia-engine`  
-- 🔄 `jarvis-swarm-intelligence`  
-- 🔄 `jarvis-consciousness-bridge`  
-- 🔄 `jarvis-unified-gateway`  
-- 🔄 `jarvis-autonomous-learner`  
-- 🔄 `jarvis-neurobiological-master`  
-- 🔄 `jarvis-i-containers`  
-- 🔄 `jarvis-fifth-dgm`  
-- 🔄 + 7 others pending detailed profiling  
-
-#### Future Work: Service Repair
-
-Priority for bringing non-responsive services online:
-
-1. `jarvis-qualia-engine` (introspection for better reasoning).  
-2. `jarvis-swarm-intelligence` (distributed consensus).  
-3. `jarvis-consciousness-bridge` (system coherence).  
-4. `jarvis-fifth-dgm` (self-improvement capability).  
-5. Remaining services, after profiling resource requirements.
-
-#### Narrative Summary
-
-The container architecture described in this chapter now has a concrete, validated topology: `jarvis-main-brain` on port 8051 fronts BBB, web_research, and llm_bridge, backed by ChromaDB, Neo4j, MySQL, IPFS, and Ollama. This layout provides the operational substrate for receiving, normalizing, and routing events into deeper evaluative paths, and sets the stage for future work on repairing and activating the higher-order consciousness and swarm services so they can participate in the same routing fabric.
+> Status: The container architecture is operational and matches the conceptual intake–normalization–routing pattern described in this chapter. Some higher-order services (for example, qualia and swarm coordination) exist but are not yet fully integrated into the live routing fabric; their activation and repair are treated as future work.
