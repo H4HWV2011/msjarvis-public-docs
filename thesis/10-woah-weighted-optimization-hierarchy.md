@@ -2,7 +2,7 @@
 
 This chapter describes WOAH (Weighted Optimization Algorithm Hierarchy) as used in Ms. Egeria Jarvis. WOAH is inspired by the Whale Optimization Algorithm (WOA), a metaheuristic that models humpback whale hunting with exploration and exploitation phases, but it is not a textbook WOA implementation. In this system, WOAH is a set of services that evaluate and weight multiple agents (LLMs, DGMs, RAG paths) and feed those weights into the consciousness and orchestration layers, helping coordinate many minds rather than optimizing a single numeric function.
 
-WOAH should therefore be understood as a WO-inspired orchestration pattern implemented in FastAPI and Python, with classical scoring and weighting logic, rather than as a fully formal WOA with provable convergence guarantees.
+WOAH should therefore be understood as a WOA‑inspired orchestration pattern implemented in FastAPI and Python, with classical scoring and weighting logic, rather than as a fully formal WOA with provable convergence guarantees.
 
 ## Classical Whale Optimization Algorithm
 
@@ -37,29 +37,29 @@ This system aims to capture the spirit of WOA (iterative weighting of multiple c
 WOAH is implemented through several concrete services and bridges:
 
 - WOAH algorithms service:
-  - A FastAPI service (woah_algorithms) typically running on port 7012 with endpoints such as /health and /process.
-  - Accepts structured input (content plus metadata) and returns scores or weights, sometimes including aggregate “consciousness” or relevance scores for the input. 
+  - A FastAPI service (often referred to as `woah_algorithms`) typically running on a dedicated port with endpoints such as `/health` and `/process`.
+  - Accepts structured input (content plus metadata) and returns scores or weights, sometimes including aggregate “consciousness” or relevance scores for the input.
 - DGM Supervisor + WOAH:
-  - A supervisor service (for example, on port 9007 in some configurations) that maintains a registry of DGM and RAG-capable agents.
-  - Periodically runs a “WOAH optimization” loop, evaluating registered services and logging status messages (for example, “WOAH optimization complete for 1 services”).
-- WOAH Qualia Bridge:
-  - A bridge service (for example, on port 8052) connecting WOAH to the Qualia Engine so that qualia can receive WOAH-informed evaluations and WOAH can see qualia-related context.
+  - A supervisor service that maintains a registry of DGM and RAG-capable agents.
+  - Periodically runs a “WOAH optimization” loop, evaluating registered services and logging status messages (for example, noting when optimization cycles complete for a set of services).
+- WOAH–Qualia bridge:
+  - A bridge component connecting WOAH to the qualia engine so that qualia can receive WOAH-informed evaluations and WOAH can see qualia-related context.
 
-These services are deployed alongside DGMs, RAG, ChromaDB, and consciousness coordinators, and they are intended to be called from the main chat and consciousness flows rather than operating in isolation. 
+These services are deployed alongside DGMs, RAG, ChromaDB, and consciousness coordinators, and they are intended to be called from the main chat and consciousness flows rather than operating in isolation.
 
 ## Weighted Orchestration Over Agents
 
 WOAH’s practical function is to support weighted orchestration over many agents:
 
 - Agent registration:
-  - DGM Supervisor WOAH maintains a list of active RAG and DGM services that can be evaluated and optimized over time.
+  - The DGM supervisor and related components maintain a list of active RAG and DGM services that can be evaluated and weighted over time.
 - Scoring and weights:
-  - WOAH algorithms service processes messages or summaries and assigns scores based on patterns in the content and metadata (for example, importance of certain keywords, alignment with principles, or other heuristics). 
+  - The WOAH algorithms service processes messages or summaries and assigns scores based on patterns in the content and metadata (for example, presence of key themes, rough alignment with principles, or other heuristics).
 - Influence on orchestration:
   - Consciousness coordinators and gates can use these scores as weights when:
     - Choosing which agents to consult.
     - Deciding how much to trust or emphasize each agent’s output.
-    - Combining multiple outputs into a single response (for example, weighted averaging, winner-take-most, or judge-informed selection).
+    - Combining multiple outputs into a single response (for example, weighted averaging, winner‑take‑most, or judge‑informed selection).
 
 In this way, WOAH does not directly modify model weights, but it shapes the effective routing and combination of agent outputs, giving the system a population-based, adaptive flavor.
 
@@ -93,7 +93,7 @@ Within the broader consciousness architecture, WOAH occupies an intermediate lay
 - Upstream:
   - DGMs generate proposals or analyses.
   - RAG and ChromaDB provide content and context.
-  - Other specialized agents (spatial, governance, neurobiological) produce domain-specific insights. 
+  - Other specialized agents (spatial, governance, neurobiological, and others) produce domain-specific insights.
 - WOAH layer:
   - Evaluates and weights these agents and outputs, using heuristics and limited WOA-inspired ideas to emphasize better or more relevant contributions.
 - Downstream:
@@ -103,7 +103,11 @@ Within the broader consciousness architecture, WOAH occupies an intermediate lay
 
 Subsequent work may further formalize how WOAH weights are computed, how they evolve over time, and how closely they follow or depart from classical WOA behavior.
 
-## Future Directions and Honesty About State
+## Implementation Status and Future Directions
+
+In the current deployment, a WOAH “neurobiological brain” runs as a Python/uvicorn application managed by a long‑running service unit and listens on a dedicated port. System supervision reports this unit as active with stable uptime and bounded memory use, and the coordinator calls it as a live scoring and optimization component.
+
+Per‑request metrics for WOAH are presently inferred from coordinator traces and system‑level logs; a dedicated metrics endpoint exposing task‑level latency and scoring statistics is part of the target design but has not yet been exposed on the public health interface. The thesis therefore treats WOAH as a production service with partial observability, and marks the planned metrics interface as in‑progress rather than complete.
 
 Several future directions and limitations are important to acknowledge:
 
@@ -115,14 +119,7 @@ Several future directions and limitations are important to acknowledge:
 - Evaluation:
   - Empirical studies could measure whether WOAH-style weighting improves:
     - Answer quality.
-    - Robustness.
-    - Spatial justice and governance alignment.
-### Implementation Status
+    - Robustness under adversarial or ambiguous queries.
+    - Spatial justice and governance alignment in real community use.
 
-In the current deployment, the WOAH neurobiological brain runs as a uvicorn application managed by `ms-jarvis-woah.service` and listens on port 8033. Systemd reports this unit as active with stable uptime and bounded memory use, and the coordinator calls it as a live scoring and optimization component.
-
-Per‑request metrics for WOAH are presently inferred from coordinator traces and system‑level logs; a dedicated `/metrics` endpoint exposing task‑level latency and scoring statistics is part of the target design but has not yet been exposed on the public health interface. The thesis therefore treats WOAH as a production service with partial observability, and marks the planned metrics endpoint as in‑progress rather than complete.
-
-> Status: This chapter is a draft, description of WOAH as a WOA-inspired, weighted orchestration layer in Ms. Jarvis. It acknowledges that WOAH is implemented with classical services and heuristics, not as ### Implementation Status
-
-
+> Status: This chapter is a draft description of WOAH as a WOA-inspired, weighted orchestration layer in Ms. Jarvis. It acknowledges that WOAH is implemented with classical services and heuristics, not as a fully formal optimization algorithm, and that observability and evaluation remain active areas of work.
