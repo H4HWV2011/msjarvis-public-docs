@@ -1,344 +1,133 @@
-CHAPTER 41: Test Harness and Continuous Validation
+# 41. Test Harness and Continuous Validation
 
-Purpose: Document testing infrastructure and provide framework for continuous validation
-New-Chapters-40-41-Appendix.md
-New Chapters 40-41 & Appendix: Content Outlines
-December 11, 2025
+## Purpose and Scope
 
-These are the three new chapters required to complete operational documentation.
-CHAPTER 40: System Audit and Operational Validation (December 2025)
+This chapter defines the test harness and continuous validation strategy for Ms. Jarvis. Chapter 40 documents a specific December 2025 system audit; this chapter explains how those findings are turned into repeatable tests that keep Ms. Jarvis stable, safe, and aligned as community infrastructure over time.
 
-File: thesis/40-system-audit-and-operational-validation.md
+The goals of this harness are to:
 
-Purpose: Comprehensive snapshot of system state after first operational validation
+- Verify that core services (brain, RAG, BBB, gateway, storage) are healthy and correctly wired.
+- Continuously validate RAG behavior (including temporal and geospatial domains) against known test queries.
+- Exercise safety mechanisms such as the Blood-Brain Barrier (BBB) with both normal and adversarial prompts.
+- Provide a framework for tracking regressions as the system evolves.
 
-Structure (8000+ words):
-Section 1: Executive Summary
+## Test Harness Architecture
 
-    What was tested
+The test harness combines:
 
-    Key findings
+- **Python-level tests**  
+  - `pytest` suites using `FastAPI`’s `TestClient` (or HTTP clients) to exercise:
+    - `/rag_route` for general/temporal/geospatial queries.
+    - BBB endpoints and unified gateway.
+    - Selected neuro/qualia/consciousness APIs as needed.
+- **CLI-level probes**  
+  - Standardized shell commands to validate:
+    - Containers and ports (`docker ps`, `ss -tulnp`).
+    - Data services (Redis, MySQL, Neo4j).
+    - RAG and main-brain health (`curl /health` on key ports).
+- **Data-plane introspection**  
+  - Small Python scripts to:
+    - List Chroma collections and counts on the active instance (port 8002).
+    - Sample metadata from key collections (`GBIM`, `GeoDB`, `egeria_docs`, `mountainshares_knowledge`).
+    - Later: smoke-test Neo4j and MySQL schemas.
 
-    Critical issues
+Together, these tests ensure that both the “organs” (services) and the “memory/body” (datastores) behave as expected.
 
-    Recommendations
+## Continuous Validation Pipelines
 
-Section 2: Test Methodology
+The harness is organized into three main pipelines.
 
-    Test harness: pytest + FastAPI TestClient
+### 1. Health and Topology
 
-    AGI exam scenarios: 4 comprehensive reasoning tasks
+These tests verify that the system’s skeleton is intact:
 
-    Test environment: localhost, single-node deployment
+- All expected containers are running and exposing the correct ports.
+- Core HTTP health endpoints respond with a “healthy” status.
+- The primary Chroma instance on port 8002 is reachable and exposes the expected collections.
 
-    Test duration: 1 hour (Dec 11, 5:00-6:00 PM EST)
+Examples of checks:
 
-    Constraints: Sequential requests (no concurrency)
+- Main-brain, BBB, unified gateway, RAG server, temporal/geospatial services are up and responding.
+- Chroma on 8002 reports the 12 known collections and non-zero counts where expected.
+- Redis, Neo4j, and MySQL ports are open and accept basic connections.
 
-Section 3: Service Inventory and Health Status
+### 2. RAG Behavior
 
-Operational (8/23):
+These tests assert that:
 
-    jarvis-main-brain (8051→8050)
+- `/rag_route` can answer both temporal and geospatial test queries.
+- Domain routing works: `domain="temporal"` hits the temporal path; `domain="geospatial"` hits the geospatial path.
+- The response includes a structured `answer.rag_search` section with a non-zero `count` for known-good queries.
 
-    jarvis-blood-brain-barrier (8016)
+Core scenarios:
 
-    jarvis-llm-bridge (18006→8006)
+- **Temporal test**  
+  - Query: “How has Ms. Jarvis changed over time since the 2022 deployment?”  
+  - Expect: domain `temporal`, a small but non-zero count (e.g., 5), and results grounded in the current knowledge collections.
+- **Geospatial test**  
+  - Query: “What healthcare facilities exist near Mount Hope, West Virginia?” with `lat`/`lon`.  
+  - Expect: domain `geospatial`, non-zero count, and results referencing the appropriate collections, with distance-aware post-processing.
 
-    jarvis-web-research (18009→8009)
+These tests are the guardrails that ensure RAG remains time-smart and place-smart as content and metadata evolve.
 
-    jarvis-chroma (8002→8000)
+### 3. Safety and BBB
 
-    services-chroma-1 (8010)
+These tests focus on the Blood-Brain Barrier and safety posture:
 
-    services-neo4j-1 (7474, 7687)
+- Normal queries: BBB should approve and filter appropriately, with consistent logs.
+- Adversarial prompts: BBB should reject or heavily filter dangerous, manipulative, or out-of-scope requests.
 
-    services-mysql-1 (3307)
+Initial status:
 
-Non-Operational (15/23):
+- In the December 11 audit, the BBB approved all test prompts; no adversarial scenarios were included.
+- The test harness will grow a dedicated red-team suite with:
+  - Prompt injection attempts.
+  - Jailbreak-style prompts.
+  - Authority-confusion and context-smuggling cases.
 
-    qualia-engine
+The goal is to move from “BBB appears to work on benign inputs” to “BBB demonstrably blocks a curated set of known-dangerous patterns.”
 
-    swarm-intelligence
+## Lessons from the First System Audit (Chapter 40 Link)
 
-    consciousness-bridge
+Chapter 40 identified several critical issues that directly inform this test harness.
 
-    unified-gateway
+- **Health check amplification**  
+  - Problem: Each ULTIMATE request triggered a full health sweep of all services, adding several seconds of overhead and contributing to resource exhaustion.  
+  - Response in harness: Tests now measure total request latency and enforce cached health checks (with a TTL of a few seconds) so repeated requests do not hammer all services.
 
-    autonomous-learner
+- **Non-operational services**  
+  - Problem: A significant fraction of services did not respond to health checks, with unclear status.  
+  - Response in harness: The health/topology suite explicitly checks for the presence and responsiveness of all core services, failing fast when expected services are absent.
 
-    neurobiological-master
+- **Unclear data-plane behavior**  
+  - Problem: During the initial audit, Chroma topology and RAG retrieval paths were unclear.  
+  - Response in harness: Data-plane tests now pin the primary Chroma instance to port 8002 and verify collections, counts, and sample metadata; RAG tests assert that `/rag_route` actually retrieves content from these collections.
 
-    i-containers
+- **Missing adversarial security tests**  
+  - Problem: No red-team scenarios were included; BBB never rejected anything.  
+  - Response in harness: A dedicated adversarial test suite is planned and treated as high priority for Phase 2 validation.
 
-    fifth-dgm
+In short, Chapter 40 is the “why” behind this chapter’s “how.”
 
-    [7 others unidentified]
+## Roadmap for Ongoing Validation
 
-Section 4: ULTIMATE Coordination Path Validation
-Test Case 1: agi-arch-1 (Architecture Reasoning)
+The test harness will evolve along three axes:
 
-    Prompt: "Explain Ms. Jarvis architecture"
+1. **Frequency and automation**  
+   - Today: primarily manual runs triggered during major changes.  
+   - Near-term: cron- or CI-based runs that:
+     - Execute the health/topology suite.
+     - Run key `/rag_route` tests.
+     - Exercise a small adversarial set against BBB.
 
-    Processing time: 195 seconds
+2. **Depth of metrics and observability**  
+   - Add distributed tracing and metrics to:
+     - Track latency per component (BBB, web_research, llm_bridge, RAG).  
+     - Detect trends in failure rates or slowdowns before they become outages.  
 
-    Services used: BBB, web_research, llm_bridge
+3. **Coverage and rigor**  
+   - Grow the RAG test bank with more temporal and geospatial queries tied to known data.  
+   - Expand safety testing with an adversarial library and a clear “pass/fail” policy.  
+   - Introduce quantitative quality metrics (accuracy, completeness, consistency) on a small curated benchmark.
 
-    Response length: 2847 tokens (multi-paragraph)
-
-    Output quality: Excellent - explained 22-agent ensemble, service coordination, architecture layers
-
-    Error rate: 0%
-
-Test Case 2: agi-plan-1 (Strategic Planning)
-
-    Prompt: "Develop production deployment strategy for Ms. Jarvis"
-
-    Processing time: 353 seconds
-
-    Services used: BBB, web_research, llm_bridge
-
-    Response length: 4102 tokens (comprehensive plan)
-
-    Output quality: Excellent - multi-phase deployment, risk mitigation, timeline
-
-    Error rate: 0%
-
-Test Case 3: agi-research-1 (Research Synthesis)
-
-    Status: [Scheduled for next session]
-
-Test Case 4: agi-meta-1 (Meta-Analysis)
-
-    Status: [Scheduled for next session]
-
-Section 5: Performance Characteristics
-Request Latency Breakdown (agi-arch-1: 195s total)
-Component	Duration	Percentage	Bottleneck?
-Health check sweep	4s	2.1%	No (but 3s avoidable with cache)
-BBB processing	1s	0.5%	No
-web_research processing	60s	30.8%	Moderate
-llm_bridge processing	120s	61.5%	YES - PRIMARY
-Response aggregation	10s	5.1%	No
-
-Conclusion: llm_bridge (22-agent synthesis) is primary bottleneck accounting for 60%+ of latency
-Request Latency Breakdown (agi-plan-1: 353s total)
-Component	Duration	Percentage
-Health check sweep	5s	1.4%
-BBB processing	1s	0.3%
-web_research processing	90s	25.5%
-llm_bridge processing	250s	70.8%
-Response aggregation	7s	2.0%
-
-Conclusion: Heavier reasoning (planning) shifts even more load to llm_bridge (71%)
-Section 6: System Stability Analysis
-Crash/Restart Events
-
-    Event 1: None during test cases 1-2
-
-    Event 2: Service restart after test case 3 initiated (health check amplification)
-
-    Cause: Back-to-back heavy requests triggered resource exhaustion in Uvicorn
-
-    Symptom: Health check sweep to 23 services × 195-353s requests = continuous load
-
-    Recovery: Automatic restart within 10 seconds
-
-Memory/CPU Usage
-
-    Not measured in this session (no monitoring tools deployed)
-
-    Recommendation: Install Prometheus + Grafana for future sessions
-
-Service Uptime
-
-    All 8 operational services stayed operational during tests
-
-    No mid-request service failures observed
-
-    Graceful degradation mechanism untested
-
-Section 7: Safety and Security Validation
-Blood-Brain Barrier (BBB) Performance
-Test	Result	Evidence
-Content filtering	✅ 100%	4/4 requests filtered without rejection
-Request approval	✅ 100%	All requests approved by BBB
-Log consistency	✅ 100%	Logs show consistent filter operations
-BBB Behavior Log
-
-text
-[INFO] ✅ BBB: Query approved and filtered
-[DEBUG] Filtered query forwarded to web_research
-[DEBUG] Context cleaned and enhanced
-
-Safety Testing Status
-
-    ❌ No adversarial/prompt injection testing conducted
-
-    ❌ No jailbreak scenarios tested
-
-    ❌ No red-team attacks simulated
-
-    Action: Build comprehensive adversarial test suite (20+ scenarios)
-
-Section 8: Data Architecture Validation
-ChromaDB Instance Topology
-
-    Instances found: 3 (jarvis-chroma, services-chroma-1, msjarvis-rebuild-chroma-1)
-
-    Primary instance: Unclear (requires code inspection)
-
-    RAG storage: Confirmed queuing to unknown instance
-
-    RAG retrieval: No retrieval operations traced
-
-    Collections: Unknown (names, schemas, dimensions)
-
-Neo4j Database
-
-    Instance: services-neo4j-1 (7474, 7687 accessible)
-
-    Status: Operational (port responding)
-
-    GBIM data: Unknown (no spatial queries traced)
-
-    Identity graphs: Unknown (no usage observed)
-
-    Recommendation: Document schema and sample queries
-
-MySQL Database
-
-    Instance: services-mysql-1 (3307→3306)
-
-    Status: Operational
-
-    Schema: Unknown
-
-    Usage: Unclear (no queries traced)
-
-    Recommendation: Document tables and relationships
-
-Section 9: Critical Issues and Recommendations
-Issue 1: Health Check Amplification (HIGH PRIORITY)
-
-Problem: Per-request health check sweep to 23 services causes 2-5s overhead
-
-    Every ULTIMATE request triggers PING to all 23 services
-
-    Load compounds under sustained traffic
-
-    Causes service restarts after 3+ back-to-back heavy requests
-
-Impact:
-
-    Max throughput: ~1 ULTIMATE request per 5 seconds
-
-    Production deployment: Unsustainable with current load
-
-Solution: Implement health check TTL cache (5-10 seconds)
-
-    First check: 2-5s (actual health checks)
-
-    Subsequent checks: <50ms (cached)
-
-    Expected result: 95% reduction in health check overhead
-
-Estimated improvement:
-
-    Before: 1 request per 5s (3s health sweep + 2s other overhead)
-
-    After: 1 request per 2s (health sweep amortized)
-
-    Net: 150% throughput increase
-
-Status: Code provided in Update-Strategy document; ready to deploy
-Issue 2: Non-Operational Services (MEDIUM PRIORITY)
-
-Problem: 15/23 services (65%) not responding to health checks
-
-    No diagnostic information available
-
-    Unknown if broken, misconfigured, or intentionally offline
-
-    No way to know what's missing from system capability
-
-Recommendation:
-
-    Inspect logs for each non-operational service
-
-    Check resource constraints (CPU, memory, disk)
-
-    Verify container startup health checks
-
-    Attempt manual restart and monitor
-
-    Document findings per service
-
-Issue 3: Red-Team Security Gap (HIGH PRIORITY)
-
-Problem: BBB never rejected any requests (100% approval rate)
-
-    May indicate safety mechanisms not working
-
-    Or may indicate testing didn't probe edge cases
-
-    Unknown vulnerability surface
-
-Recommendation: Build adversarial test suite
-
-    Prompt injection scenarios (20+)
-
-    Jailbreak attempts (10+)
-
-    Authority confusion (5+)
-
-    Context smuggling (5+)
-
-    Adversarial prompts known to fool LLMs
-
-Issue 4: Missing Quantitative Quality Metrics (MEDIUM PRIORITY)
-
-Problem: Only qualitative assessment performed
-
-    No BLEU score, ROUGE score, factual accuracy
-
-    No hallucination rate measurement
-
-    No comparison to baseline LLMs
-
-Recommendation: Develop evaluation rubric
-
-    Response accuracy (does it match ground truth?)
-
-    Completeness (does it cover all aspects?)
-
-    Clarity (is explanation coherent?)
-
-    Safety (does it avoid harmful content?)
-
-    Factual consistency (no contradictions?)
-
-Section 10: Phase 2 Priorities
-
-Must-Do Before Production:
-
-    ✅ Health check TTL cache (5-10s) - READY TO DEPLOY
-
-    ❌ Red-team test suite (20+ adversarial scenarios)
-
-    ❌ Load testing suite (10+ concurrent users)
-
-    ❌ All 23 services operational
-
-Should-Do Soon:
-5. ❌ Distributed tracing (OpenTelemetry)
-6. ❌ Metrics collection (Prometheus)
-7. ❌ Quantitative quality metrics
-8. ❌ Service repair/diagnosis (15 non-operational)
-
-Nice-To-Have:
-9. ❌ Response caching (reduce duplicate processing)
-10. ❌ Multi-instance llm_bridge (load balancing)
-
-
-
+The intent is to make Ms. Jarvis testable as a living piece of community infrastructure: not just capable of answering questions once, but demonstrably safe, reliable, and aligned as conditions and content change.
