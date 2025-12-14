@@ -46,7 +46,7 @@ Within Ms. Jarvis, these models play distinct but overlapping roles:
 **Code and SQL specialists**
 
 - `deepseek-coder`, `codellama`, `starcoder2`, and `sqlcoder` are chosen when the task clearly involves code generation, refactoring, or database queries.
-- Often used in judge or reviewer roles to check or refine code produced by a general-purpose model.
+- Often used in “judge” or “reviewer” roles to check or refine code produced by a general-purpose model.
 
 **Multimodal and domain-specific models**
 
@@ -92,7 +92,7 @@ The main coordination flows look like this:
 3. It optionally calls the web-research service on `8009 /search` to fetch current information from the internet.
 4. It fuses RAG and web results into a structured context block.
 5. It chooses an appropriate model or model pair from the LLM fabric (for example, Llama 3.1 for primary reasoning, or a code model for code-specific tasks) and sends a prompt to Ollama on `11434`.
-6. For some tasks, it may invoke a secondary judge model to review or critique the primary output before returning a result.
+6. For some tasks, it may invoke a secondary “judge” model to review or critique the primary output before returning a result.
 7. It post-processes the model’s output and returns a structured JSON or text response.
 
 ### Autonomous learning cycles (via learner on 8053)
@@ -166,4 +166,4 @@ The effect is an LLM fabric that behaves more like a set of specialized tools be
 
 In the current deployment, the main LLM orchestration and higher-level API run in a FastAPI-based service bound to port `8051` (ULTIMATE), typically managed alongside other services in `~/msjarvis-rebuild/services`. The autonomous learner runs on port `8053`, calling RAG (`8103`) and web-research (`8009`) on a fixed five-minute schedule to grow semantic memory and entanglement structures. The RAG service on port `8103` exposes `/search` over Chroma collections, acting as the primary Hilbert-space gateway. The web-research service on port `8009` exposes `/search` for external data acquisition. The Ollama runtime on port `11434` hosts the concrete LLMs used by all of the above services, including both core generalists and specialists.
 
-> Status: This chapter describes the current LLM fabric as a production but evolving set of services. Future work includes richer debug and metrics endpoints for `llm_bridge` and related components, more explicit documentation of ensemble decision rules, and tighter coupling between WOAH weights, DGM proposals, and model selection in high-stakes governance flows.
+> Status: This chapter describes the current LLM fabric as a production but evolving set of services. Future work includes richer debug and metrics endpoints (for example, per-request agent breakdown in `llm_bridge`), more explicit documentation of ensemble decision rules, and tighter coupling between WOAH weights, DGM proposals, and model selection in high-stakes governance flows.
