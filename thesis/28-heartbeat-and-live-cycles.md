@@ -43,13 +43,13 @@ This endpoint turns the conceptual heartbeat of the autonomous learner into a co
 Heartbeat signals are generated in a few primary ways:
 
 - **Service checks**  
-  - Scripts or supervisors periodically call status or health endpoints on critical services (ULTIMATE on `8051`, RAG on `8103`, web-research on `8009`, learner on `8053`), recording response times and outcomes.
+  - Supervisors or scripts periodically call status or health endpoints on critical services (for example, ULTIMATE on `8051`, RAG on `8103`, web-research on `8009`, learner on `8053`), recording response times and outcomes.
 
 - **Scheduled probes**  
   - Regular tasks request short internal summaries or snapshots that indicate what the system has been doing recently.
 
 - **Aggregated indicators**  
-  - Combined measures, such as counts of successful checks versus failures over a window, support higher-level judgments about health.
+  - Combined measures, such as counts of successful checks versus failures over a time window, support higher-level judgments about health.
 
 In practice, these checks focus on status and responsiveness rather than on downloading or storing new content. When probes detect increased error rates or latency, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve.
 
@@ -59,7 +59,7 @@ Alongside low-level checks, the system can run scheduled jobs that produce narra
 
 - **Internal summaries**  
   - On a regular cadence, jobs request concise descriptions of recent activity, drawing on logs, introspective records, and semantic memory.  
-  - A language model synthesizes a short account that can be stored back into an introspective or `research_history`-like layer.
+  - A language model synthesizes a short account that can be stored back into an introspective or history-like layer.
 
 - **External updates**  
   - Some narratives may be prepared for external channels (for example, reports or social posts), subject to additional filters and constraints.
@@ -80,7 +80,7 @@ Certain cycles involve specific external platforms or integrations:
   - Where integrated with hosting or cooperative platforms, periodic tasks may check registration, configuration, or connectivity.
 
 - **Rate and scope limits**  
-  - Each platform-specific job operates under explicit limits on frequency, content types, and permitted actions, often controlled via environment variables.
+  - Each platform-specific job operates under explicit limits on frequency, content types, and permitted actions, often controlled via environment variables or configuration flags.
 
 These cycles ensure that outward-facing activity remains within controlled bounds.
 
@@ -92,7 +92,7 @@ Heartbeat and narrative cycles interact with internal layers:
   - Each cycle writes records describing which services were checked, what narratives were generated, and whether any issues occurred.
 
 - **Semantic memory and topic graph**  
-  - Summaries of performance and activity can be embedded and linked to topics in the entanglement graph, allowing future reasoning about operational history.  
+  - Summaries of performance and activity can be embedded and linked to topics in the entanglement graph, allowing future reasoning about operational history.
 
 - **Long-term memory**  
   - Especially significant cycles, such as major status changes or public communications, may be consolidated into long-term stores.
@@ -117,4 +117,3 @@ These controls help keep recurring activity aligned with broader goals and const
 ## 28.7 Summary
 
 Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container-like layers, the system treats its own ongoing operation as part of the context for future decisions. Unlike the autonomous learning jobs that update factual knowledge, these cycles keep track of how the system itself is performing and how it presents its activity to others, forming an operational history rather than a content feed.
-
