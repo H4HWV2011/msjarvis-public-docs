@@ -45,23 +45,22 @@ Conceptually, ChromaDB is one concrete realization of the Hilbert-space state de
 
 This mapping lets the thesis describe Ms. Jarvis’s memory both geometrically (in terms of Hilbert space) and operationally (in terms of stored vectors and queries).
 
-## ChromaDB implementation and collections
+## ChromaDB Implementation and Collections
 
-In the current deployment, ChromaDB is used via the local persistent client interface rather than a standalone HTTP server.
+In the current deployment, ChromaDB is used via the local persistent client interface rather than a remote service:
 
 - Persistent client:
   - Services instantiate `chromadb.PersistentClient(path="chroma_db")`, using a shared on-disk store as the primary semantic memory layer.
   - This approach keeps the memory layout close to the code that uses it, while still allowing multiple services to share the same collections.
-- Core collections:
+- Core collections for autonomous learning:
   - `autonomous_learning`:
     - Stores summarized web research items produced by the optimized learner, with document embeddings and metadata such as `topic`, `title`, `url`, `learned_at`, and `cycle_number`.
   - `research_history`:
     - Stores per-cycle summaries describing what the learner studied and how many items were stored in that cycle, with fields like `topic`, `stored_count`, `timestamp`, and `cycle`.
   - `learning_suggestions`:
     - Stores short topic suggestions emitted by GBIMs and other components, with fields such as `topic`, `source_gbim`, `priority`, and `timestamp`.
-- Role in the architecture:
-  - These collections implement the long-term memory for autonomous learning, topic statistics, and curriculum guidance, tying the abstract Hilbert-space state to concrete embeddings and metadata.
-  - Other domains (GIS, governance, thesis materials, logs) continue to use additional collections as described elsewhere in this chapter, but the three collections above are central to the current autonomous learner and GBIM-guided topic planning.
+- Other domains:
+  - Additional collections support GIS, governance, thesis materials, and selected logs, following the domain structure sketched above; these continue to evolve as GBIM and Quantarithmia are refined.
 
 This implementation aligns the conceptual description of ChromaDB as semantic memory with the actual collections and client configuration used in the live system.
 
@@ -70,11 +69,11 @@ This implementation aligns the conceptual description of ChromaDB as semantic me
 ChromaDB is tightly integrated with GBIM and the RAG pipeline:
 
 - GBIM linkage:
-  - Geospatial entities in GBIM (such as districts, facilities, infrastructures) have associated embeddings stored in ChromaDB collections, with metadata linking back to their geospatial representations and evidence sources.
+  - Geospatial entities in GBIM (such as districts, facilities, and infrastructures) have associated embeddings stored in ChromaDB collections, with metadata linking back to their geospatial representations and evidence sources.
 - RAG context building:
   - When Ms. Jarvis answers a question, the RAG pipeline uses ChromaDB to pull relevant embeddings and associated texts, which are then assembled into a context window for the language model.
 - Governance-specific retrieval:
-  - For MountainShares-related queries, retrieval is often scoped to collections that contain governance documents, norms, and relevant GIS features, ensuring that Ms. Jarvis’s responses are grounded in the published rules and local spatial context.
+  - For MountainShares-related queries, retrieval is scoped to collections that contain governance documents, norms, and relevant GIS features, ensuring that responses are grounded in published rules and local spatial context.
 
 This integration ensures that retrieval is not generic web search, but a structured walk through a curated, domain-specific memory organized around Quantarithmia and Appalachian spatial justice.
 
@@ -104,48 +103,23 @@ Current use of ChromaDB has limits:
 
 Future work may explore hybrid memory approaches combining vector stores with graphs, relational databases, and qualitative annotations, as well as participatory methods for community members to inspect and shape what is stored and how it is used.
 
-
 ## Empirical Validation (December 11, 2025)
 
 ### Multi-Instance Topology
 
-Three ChromaDB instances are currently running in the system:
+Multiple ChromaDB instances have been observed in the current Docker topology, suggesting a transition from earlier experiments to the consolidated `chromadb.PersistentClient` layout described above. Their precise roles and the flow of RAG writes remain partially characterized and require further tracing in the code and logs.
 
-| Instance | Port Mapping | Purpose | Status |
-|----------|--------------|---------|--------|
-| jarvis-chroma | 8002→8000 | Dedicated Ms. Jarvis instance | ✅ Validated |
-| services-chroma-1 | 8010→8010 | Services stack instance | 🔄 Unclear purpose |
-| msjarvis-rebuild-chroma-1 | 8000→8000 | Rebuild instance | 🔄 Unclear purpose |
+### RAG Storage Pipeline
 
-### RAG Storage Pipeline (Validated)
-
-Every ULTIMATE response triggers RAG storage queuing. Log evidence:
-**OUTSTANDING QUESTION**: Which instance receives RAG writes? Requires code inspection of main_brain RAG handler.
+Every final (ULTIMATE) response in the current RAG pipeline is designed to enqueue storage of the response or supporting context into ChromaDB-backed collections for later retrieval and analysis. The exact target instance and collection for these writes should be confirmed by inspecting the main-brain RAG handler and associated client configuration.
 
 ### Implementation Status Badge
 
-🔄 **PARTIAL** - Three instances running, multi-instance topology unclear, RAG retrieval not yet traced, collection schemas unknown
-**OUTSTANDING QUESTION**: Which instance receives RAG writes? Requires code inspection of main_brain RAG handler.
-
-### Implementation Status Badge
-
-🔄 **PARTIAL** - Three instances running, multi-instance topology unclear, RAG retrieval not yet traced, collection schemas unknown
+🔄 **PARTIAL** — The conceptual role of ChromaDB as semantic memory is implemented via a shared persistent client and several core collections, but the multi-instance topology, full set of collection schemas, and end-to-end RAG traces are still being documented.
 
 ### Future Work
 
-- Add trace showing RAG retrieval enhancing query with prior context
-- Document collection names and embedding dimensions
-- Specify embedding model (sentence-transformers? OpenAI ada-002?)
-- Add ChromaDB collection schema diagram
-
-
-### Future Work
-
-- Add trace showing RAG retrieval enhancing query with prior context
-- Document collection names and embedding dimensions
-- Specify embedding model (sentence-transformers? OpenAI ada-002?)
-- Add ChromaDB collection schema diagram
-
-RAG storage queuing: {"response": "...", "timestamp": "2025-12-11T..."}
-
-
+- Add traced examples showing RAG retrieval enhancing queries with prior context from ChromaDB.
+- Document all collection names, metadata schemas, and embedding dimensions used in the live system.
+- Specify the embedding models currently in use and how model changes will be migrated.
+- Provide a ChromaDB collection schema diagram that links GBIM entities, governance documents, and thesis materials to their collections and metadata fields.
