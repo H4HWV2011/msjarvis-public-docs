@@ -36,7 +36,7 @@ At a high level, a typical RAG interaction in Ms. Jarvis follows this sequence:
 7. Post-hoc checks and explanation:
    - Outputs may be checked again, and Ms. Jarvis can provide explanations of which sources were used and how they shaped the answer.
 
-This flow turns RAG from a simple vector search + LLM pattern into a more disciplined pipeline aligned with the project’s governance, transparency, and spatial grounding goals.
+This flow turns RAG from a simple “vector search plus LLM” pattern into a more disciplined pipeline aligned with the project’s governance, transparency, and spatial grounding goals.
 
 ## 7.3 Routers and Role-Aware Retrieval
 
@@ -79,12 +79,12 @@ Constitutional and ethical constraints interact with the RAG pipeline at multipl
 
 These layered constraints reinforce the thesis claim that Ms. Jarvis is designed as a constrained, accountable system rather than an unconstrained text generator.
 
-## 06.x Web research gateway service
+## 7.6 Web Research Gateway Service
 
 The autonomous learner and certain RAG flows rely on a dedicated web research gateway instead of making ad hoc external calls.
 
 - Service and endpoint:
-  - A FastAPI-based service runs on port 8009 and exposes a `POST /search` endpoint for controlled web queries.
+  - A FastAPI-based service exposes a `POST /search` endpoint for controlled web queries.
   - Requests are JSON objects with the shape `{"query": "<string>", "max_results": <int>}`, where `max_results` bounds the number of returned items.
 - Response shape:
   - The gateway returns an object containing:
@@ -98,8 +98,7 @@ The autonomous learner and certain RAG flows rely on a dedicated web research ga
 
 By routing web queries through this gateway, the system keeps external retrieval within a well-defined channel that can be monitored, constrained, and evolved over time.
 
-## 06.6 Relation to Long-Term Memory, GeoDB, and Entanglement
-## 7.6 Relation to Long-Term Memory, GeoDB, and Entanglement
+## 7.7 Relation to Long-Term Memory, GeoDB, and Entanglement
 
 The RAG pipeline sits between static memory and dynamic reasoning:
 
@@ -108,75 +107,8 @@ The RAG pipeline sits between static memory and dynamic reasoning:
 - Short-term context:
   - The RAG context window represents a temporary, task-specific slice of that memory and spatial state assembled for a particular query.
 - Coupled updates:
-  - When the thesis later discusses the quantum-inspired entanglement algorithm, it describes how certain updates or constraints propagate across related regions of the state space—semantic, spatial, and normative— influencing future retrieval, routing decisions, and which parts of the GeoDB are emphasized.
+  - When the thesis later discusses the quantum-inspired entanglement algorithm, it describes how certain updates or constraints propagate across related regions of the state space—semantic, spatial, and normative—shaping future retrieval decisions and which parts of the GeoDB are emphasized.
 
 In this way, RAG is not just a one-off retrieval step but part of an ongoing interaction between Ms. Jarvis’s memory, spatial body, state, and governance constraints.
 
-Status: This chapter is a draft overview of the RAG pipeline and routing logic in Ms. Jarvis. More detailed diagrams, pseudo-code, and evaluations of retrieval quality, spatial coverage, and constraint effectiveness will appear in technical appendices and implementation-focused documentation.
-
-## Operational Architecture (Dece/chat request
-↓
-main_brain receives request
-↓
-Health check sweep (identify 8/23 services)
-↓
-BBB query_service call (filter + context)
-↓
-web_research query_service call (enhance context)
-↓
-### Storage Backend (UNKNOWN - Requires Investigation)
-
-**Which ChromaDB instance receives RAG writes?**
-- jarvis-chroma (8002→8000)?
-- services-chroma-1 (8010→8010)?
-- msjarvis-rebuild-chroma-1 (8000→8000)?
-
-**TODO**: Inspect main_brain code to determine RAG storage target.
-
-### Retrieval Mechanism (NOT YET TRACED)
-
-**Current gap**: No retrieval operations observed in logs during testing.
-
-**Questions**:
-- When is RAG retrieval triggered?
-- What semantic similarity threshold triggers context injection?
-- How many prior contexts are retrieved per query?
-- What embedding model is used?
-
-### Implementation Status Badge
-
-🔄 **PARTIAL** - Storage queuing validated, storage backend unknown, retrieval path not yet traced
-
-### Performance Characteristics
-
-- RAG storage: Asynchronous queue (non-blocking)
-- Estimated retrieval latency: 100-500ms (if triggered)
-- Storage throughput: ~1 write per ULTIMATE response (measured: 195-353s intervals)
-
-### Recommendations for Phase 2
-
-1. Add RAG debug endpoint showing:
-   - Storage operations (writes)
-   - Retrieval operations (queries)
-   - Semantic similarity scores
-   - Retrieved context payloads
-
-2. Document RAG routing logic:
-   - Query classification (factual? reasoning? creative?)
-   - Context selection criteria
-   - Injection point in llm_bridge pipeline
-
-3. Measure retrieval impact on latency
-
-llm_bridge query_service call (22-agent synthesis)
-↓
-Response aggregation
-↓
-RAG storage queuing (every response)
-↓
-Return response to client
-
-mber 11, 2025)
-
-### Validated Request Flow
-
+> Status: This chapter is a draft overview of the RAG pipeline and routing logic in Ms. Jarvis. More detailed diagrams, pseudo-code, and evaluations of retrieval quality, spatial coverage, and constraint effectiveness will appear in technical appendices and implementation-focused documentation.
