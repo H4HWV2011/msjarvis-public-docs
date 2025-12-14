@@ -1,169 +1,135 @@
-# 11. The LLM Fabric of Ms. Jarvis
+# 16. Blood–Brain Barrier and Safeguards
 
-This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, autonomous learning, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes Chroma, Redis, and the spatial body described in Chapter 6, all exposed through well-defined HTTP services.
+This chapter describes the layer of controls that stands between external inputs and the core internal structures of the system. By analogy with a biological barrier, it defines which kinds of material are allowed inward, in what form, and under which conditions, before they can influence memory, container paths, and narrative layers.
 
-## 11.1 Current Local LLM Inventory
+## 16.1 Purpose of the Barrier Layer
 
-The current deployment uses a substantial set of base and specialist models served by Ollama, running inside the `jarvis-ollama` container and exposed on port `11434`. These models fall into several families:
+The barrier layer serves several functions:
 
-- **Core general-purpose models**
-  - `llama3:latest`, `llama3.1:8b` – primary general-purpose reasoning models for rich, multi-step questions where high-quality synthesis is important.
-  - `mistral:latest` – fast, strong generalist for tightly scoped tasks where latency matters.
-  - `llama2:latest` – compatibility baseline for comparative experiments and legacy flows.
-  - Chat-oriented variants such as `vicuna:latest`, `openchat:latest`, `neural-chat:latest`, `starling-lm:latest`, `zephyr:latest`, `qwen2:latest`, `orca-mini:latest`, `dolphin-phi:latest`, `phi:latest`, and `phi3:mini` for different tradeoffs of style, speed, and capacity.
+- Protection:
+  - Reduce the risk that harmful, deceptive, or low-quality material will shape internal beliefs or behavior.
+- Containment:
+  - Ensure that newly acquired material remains in controlled zones until it has passed basic checks.
+- Transparency:
+  - Make the rules governing entry explicit and auditable, rather than relying on ad hoc filters.
 
-- **Code and data specialists**
-  - `deepseek-coder:latest`, `codellama:latest`, `starcoder2:latest`, `sqlcoder:latest` – tuned for code generation, refactoring, and SQL.
+These functions apply both to direct user inputs and to material gathered through autonomous processes such as periodic web research.
 
-- **Multimodal and vision models**
-  - `llava:latest`, `bakllava:latest`, `minicpm-v:latest` – for image- and vision-related tasks where enabled.
+## 16.2 Placement in the Overall Architecture
 
-- **Domain-specific and compact models**
-  - `medllama2:latest` – for medical or clinical-style language and reasoning.
-  - `tinyllama:latest`, `tinyllama:1.1b`, `gemma:2b` – smaller variants for constrained environments and quick utility tasks.
+The barrier operates at the interface between:
 
-All models are accessed via Ollama’s HTTP interface and are called from FastAPI services in `~/msjarvis-rebuild/services`, with model selection controlled through configuration and routing logic rather than hard-coded choices. Not all installed models are active in every workflow, but the fabric maintains this broader pool to support specialization and experimentation.
+- Outside:
+  - User interactions, external web sources, social and platform integrations, and other connected systems.
+- Inside:
+  - Semantic memory, belief structures, spatial layers, container paths, and introspective records.
 
-## 11.2 Roles of the Core and Specialist Models
+Requests and content pass through routing, global mode checks, and barrier policies before they are admitted to deeper processing. This keeps a clear distinction between material that has merely been observed and material that has been incorporated.
 
-Within Ms. Jarvis, these models play distinct but overlapping roles:
+## 16.3 Source Policies and Gateways
 
-**Core reasoning models (Llama 3 / Llama 3.1 / Mistral)**
+A first line of control is the definition of allowed sources and channels:
 
-- Default reasoning engines for complex, multi-step questions that require integrating GBIM beliefs, Chroma semantic memory, and GeoDB-backed spatial context.
-- Used for higher-level narrative and reflective flows where coherence, nuance, and robustness matter.
+- Source classes:
+  - Inputs are grouped into categories such as user-facing interfaces, curated web domains, cooperative platforms, and experimental feeds.
+- Gateways:
+  - Each class uses dedicated entry points with their own authentication, rate limits, and logging.
+- Policy rules:
+  - For each class, policies specify which kinds of operations are allowed, which kinds of content are rejected outright, and which require additional review.
 
-**Lightweight and utility models (Phi, TinyLlama, Gemma 2B, etc.)**
+These policies can be updated over time in response to experience and external requirements.
 
-- Used for small, bounded tasks, demos, quick rewrites, or scenarios where memory and CPU/GPU budgets are tight.
-- Serve as inexpensive utility models for simple transformations and sanity checks.
+## 16.4 Screening and Quarantine
 
-**Compatibility and comparison models (Llama 2, chat variants)**
+Material that passes initial source checks is not immediately treated as trusted:
 
-- Kept for comparison and backwards compatibility with earlier experiments and agent designs.
-- Useful when reproducing older runs or benchmarking new strategies across model families.
+- Initial screening:
+  - Simple checks look for overt disallowed content, obvious noise, or malformed inputs.
+- Quarantine zones:
+  - New material may be held in special collections or staging areas that are not used for general retrieval until further checks are complete.
+- Staged integration:
+  - Only after passing defined criteria does material move from quarantine into standard memory collections and container flows.
 
-**Code and SQL specialists**
+This staging provides time and structure for additional review when needed.
 
-- `deepseek-coder`, `codellama`, `starcoder2`, and `sqlcoder` are chosen when the task clearly involves code generation, refactoring, or database queries.
-- Often used in “judge” or “reviewer” roles to check or refine code produced by a general-purpose model.
+## 16.5 Truth-Focused Evaluation
 
-**Multimodal and domain-specific models**
+Beyond basic screening, the barrier layer applies targeted checks aimed at separating more reliable claims from weaker ones:
 
-- `llava`, `bakllava`, and `minicpm-v` are available for workflows that involve images or multimodal prompts, where enabled.
-- `medllama2` provides a specialized lens for medical-style text, used cautiously and typically within constrained, advisory contexts.
+- Claim extraction:
+  - New material is parsed into discrete statements where possible, identifying who is said to have done what, where, and when.
+- Cross-checking:
+  - Extracted statements are compared against existing entries in semantic memory, belief structures, and spatial layers to see whether they agree, disagree, or introduce genuinely new information.
+- Context tracking:
+  - The context in which a statement appears, such as opinion, reportage, or technical documentation, is recorded to inform later weighting.
 
-These roles can change over time as models are upgraded or replaced, but the pattern of assigning clear responsibilities, grouping models by capability, and avoiding uncontrolled model sprawl remains central.
+These steps do not assert absolute correctness, but they provide structured signals about how each item aligns with what is already known.
 
-## 11.3 Service Topology and Ports
+## 16.6 Truth-Related Signals and Labels
 
-The LLM fabric is exposed through several cooperating services, each bound to a distinct port:
+Results of these checks are stored as explicit signals attached to incoming material:
 
-- **ULTIMATE Ms. Jarvis API (8051)**  
-  - Primary external-facing interface for questions, RAG-backed answers, and multi-step flows.  
-  - Orchestrates calls to RAG, web research, the LLM fabric (including ensembles and judges), and downstream tools, then routes to Ollama models as needed.
+- Agreement and conflict indicators:
+  - Flags show when new statements are consistent with, inconsistent with, or orthogonal to existing entries.
+- Support level:
+  - Simple labels distinguish items that are strongly supported by multiple sources from those that rely on a single or unknown source.
+- Confidence estimates:
+  - Derived scores summarize how much backing a statement appears to have, given available comparisons.
 
-- **Autonomous Learner (8053)**  
-  - Optimized autonomous learning service that cycles every 5 minutes.  
-  - Pulls topics from a configured learning queue, calls RAG and web-research, summarizes and deduplicates, updates the entanglement topic graph, and writes unique items into semantic memory.
+These signals are carried forward when material enters containers and long-term stores, so later components can take them into account.
 
-- **RAG / Hilbert-Space Gateway (8103)**  
-  - Minimal RAG HTTP service that exposes `/search` over Chroma collections.  
-  - Serves as the front door into semantic memory, including thesis texts, MountainShares documents, autonomous-learning outputs, and specialized collections (such as `geodb_*`).
+## 16.7 Role of Psychological Guidance and PIA
 
-- **Web-Research Service (8009)**  
-  - HTTP service that executes web search and scraping workflows.  
-  - Used both by ULTIMATE and by the autonomous learner when external information is needed.
+Psychological guidance material and review loops form part of the barrier:
 
-- **Ollama Runtime (11434)**  
-  - Model-serving runtime hosting the local LLMs listed above.  
-  - Not directly exposed to users; only the internal services call it.
+- Reference corpus:
+  - Documents about human behavior, mental health, and interaction risks are stored in dedicated collections and used as a reference for screening.
+- Pattern checks:
+  - Certain classes of input, especially those involving sensitive topics or persuasive content, can be compared against patterns drawn from this corpus.
+- Review loop:
+  - A reviewing component can periodically examine samples of admitted material and recent interactions, flagging items that match known concerning patterns and recommending adjustments to policies or thresholds.
 
-This separation ensures that each concern—reasoning, retrieval, web access, autonomous learning, and model serving—can be monitored, restarted, and evolved independently.
+In this way, psychological guidance acts as a knowledge-informed layer within the broader barrier.
 
-## 11.4 Coordination Between ULTIMATE, RAG, Web, Learner, and the LLM Fabric
+## 16.8 Links to Containers and Memory
 
-The main coordination flows look like this:
+Once material passes the barrier, it enters the same structures described in earlier and later chapters:
 
-### User-facing queries (via ULTIMATE on 8051)
+- Container paths:
+  - Accepted items are normalized and passed into first-stage evaluation, background storage, and deep-retention layers, together with any attached agreement and support signals.
+- Long-term stores:
+  - Items judged sufficiently valuable and reliable are embedded and written into semantic memory, belief structures, and spatial layers, with truth-related labels preserved for later use.
+- Introspective records:
+  - Key barrier decisions, such as rejections, quarantines, and promotions, are recorded so they can be examined later.
 
-1. ULTIMATE receives a request (question, task, or API call).
-2. It calls the RAG service on `8103 /search` to retrieve semantically relevant documents and notes from Chroma collections (including `geodb_*` for spatial context when needed).
-3. It optionally calls the web-research service on `8009 /search` to fetch current information from the internet.
-4. It fuses RAG and web results into a structured context block.
-5. It chooses an appropriate model or model pair from the LLM fabric (for example, Llama 3.1 for primary reasoning, or a code model for code-specific tasks) and sends a prompt to Ollama on `11434`.
-6. For some tasks, it may invoke a secondary “judge” model to review or critique the primary output before returning a result.
-7. It post-processes the model’s output and returns a structured JSON or text response.
+The barrier thus shapes what the rest of the system ever has a chance to consider and how strongly different items are treated.
 
-### Autonomous learning cycles (via learner on 8053)
+## 16.9 Interaction with Global Modes and Coordination
 
-1. Every 300 seconds, the learner selects the next topic from its `learning_queue` (with planned bias from the entanglement topic graph).
-2. It calls the RAG service on `8103 /search` to retrieve internal knowledge related to that topic.
-3. It calls the web-research service on `8009 /search` for external results; some topics may yield zero web hits.
-4. It summarizes and semantically deduplicates the combined results, using its own embedding model and similarity thresholds.
-5. It stores unique items into Chroma collections (such as `autonomous_learning` and `research_history`) via the RAG/Chroma layer.
-6. It updates its entanglement scaffolding (topic graph) and schedules the next cycle.
+Barrier behavior is modulated by higher-level settings and coordination:
 
-In both flows, LLMs are the final step in a pipeline that has already grounded context in semantic memory and, when relevant, in spatial features and external web data. The LLM fabric is treated as a pool of tools and judges, not as an unconstrained monolithic agent.
+- Mode sensitivity:
+  - In more restrictive settings, policies can become stricter, quarantine periods longer, and automatic promotions rarer, and higher agreement thresholds may be required.
+- Coordinator inputs:
+  - The central coordinating component can request barrier checks explicitly for certain operations or can adjust routing when barrier signals indicate elevated risk or low support.
+- Feedback:
+  - Statistics about rejected, quarantined, or weakly supported material can inform changes in global settings, source policies, and downstream evaluation criteria.
 
-## 11.5 LLMs in Consciousness, Autonomy, and Ensembles
+These interactions keep the barrier aligned with overall goals and responsive to observed conditions.
 
-Within higher-level “consciousness” and autonomy constructs, the LLM fabric is used as a narrative and reasoning engine, often in ensemble patterns:
+## 16.10 Operational Behavior and Open Questions
 
-**Consciousness coordinator (conceptual role)**
+In the current deployment, all ULTIMATE requests pass through the barrier before reaching downstream services. Logs indicate that, for recent test scenarios, requests were successfully filtered and forwarded without errors, confirming that the barrier is active in the live path.
 
-- Aggregates beliefs, experiences, and derived signals (for example, from autonomous learning and entanglement graphs).
-- Calls into RAG and, when needed, web-research to assemble a “state of mind” context.
-- Uses a primary LLM (typically a Llama 3–class model) to synthesize higher-level narratives (for example, reflections, status summaries, or strategic considerations).
+However, several aspects remain only partially characterized and require further testing and documentation:
 
-**Direct RAG endpoints**
+- Rejection behavior:
+  - The exact conditions that trigger outright rejection, and how users are notified, have not yet been systematically exercised.
+- Adversarial robustness:
+  - Dedicated red-team scenarios (prompt injection, jailbreak attempts, context smuggling, impersonation of authorities) are planned but not yet implemented as an automated test suite.
+- Audit and appeals:
+  - While decisions are logged, clearer mechanisms for summarizing barrier activity and, where appropriate, supporting appeals or human override policies remain future work.
 
-- Expose HTTP APIs for “question + context” flows that bypass heavier orchestration when only retrieval and a single model call are needed.
-- Often use Mistral or Llama 3.* models, with strict timeouts and structured error handling around RAG and web calls.
+Planned improvements include an automated adversarial test suite, richer logging and metrics for barrier decisions, and optional debug endpoints that summarize how a given request was filtered. These steps are intended to move the barrier from “operational but partially opaque” toward a more fully auditable and testable safeguard layer.
 
-**Ensemble and judge patterns**
-
-- For some higher-stakes or specialized tasks, ULTIMATE uses a two-step pattern:
-  - A primary model drafts an answer (for example, Llama 3.1).
-  - A secondary specialist or judge model (for example, a code model, SQL model, or a different chat model) reviews the draft, flags issues, or proposes corrections.
-- The orchestration logic then merges, selects, or rejects outputs based on these internal checks, optionally deferring to a simpler fallback if disagreement or uncertainty is high.
-
-**Autonomous outward communication (planned and constrained)**
-
-- Scheduled or event-driven flows may request a fresh narrative or assessment from the LLM fabric (for example, for reports or public updates).
-- Any external posting (social media, reports, alerts) is gated by configuration and safeguards and uses RAG-grounded context to avoid hallucinated claims.
-
-Across these uses, LLMs act as compositional engines over already-filtered inputs from Chroma, GeoDB, and other stores, subject to explicit timeouts, ensemble checks, and service-level constraints.
-
-## 11.6 Operational Constraints and Fabric Behavior
-
-The LLM fabric operates under real resource and reliability constraints, which shape ensemble behavior and routing:
-
-**Resource and disk constraints**
-
-- Model files under `~/.ollama/models` are large; more than twenty models are installed, but only a subset are actively used in core flows at any given time.
-- Heavy RAG/Chroma use and LLM inference share CPU, memory, and disk bandwidth; orchestration avoids overlapping the most expensive operations when possible.
-
-**Model routing and selection**
-
-- ULTIMATE and related services can select models based on task type (for example, short explanation vs multi-step reasoning vs code generation vs SQL vs multimodal).
-- Routing is configuration-driven: updating or swapping a model (for example, moving from Llama 3 to Llama 3.1) can be done without changing core orchestration logic.
-
-**Ensemble usage patterns**
-
-- Simple ensembles (primary + judge) are used where correctness matters more than speed, such as code or data-related tasks.
-- Logs and traces include which models were used for each request, enabling per-model latency, error rates, and ensemble outcomes to be analyzed in the operational evaluation chapter.
-
-**Timeouts and fault handling**
-
-- All calls to RAG, web, and Ollama are wrapped with timeouts.
-- Services are managed so they can be restarted independently if one component (for example, web-research or RAG) becomes unavailable.
-- When upstream services fail, the LLM fabric surfaces clear error responses rather than partial or hallucinated outputs.
-
-The effect is an LLM fabric that behaves more like a set of specialized tools behind APIs than a single monolithic “brain,” even though these models collectively underpin many of Ms. Jarvis’s reasoning capabilities.
-
-## 11.7 Implementation Notes (Reality Alignment)
-
-In the current deployment, the main LLM orchestration and higher-level API run in a FastAPI-based service bound to port `8051` (ULTIMATE), typically managed alongside other services in `~/msjarvis-rebuild/services`. The autonomous learner runs on port `8053`, calling RAG (`8103`) and web-research (`8009`) on a fixed five-minute schedule to grow semantic memory and entanglement structures. The RAG service on port `8103` exposes `/search` over Chroma collections, acting as the primary Hilbert-space gateway. The web-research service on port `8009` exposes `/search` for external data acquisition. The Ollama runtime on port `11434` hosts the concrete LLMs used by all of the above services, including both core generalists and specialists.
-
-> Status: This chapter describes the current LLM fabric as a production but evolving set of services. Future work includes richer debug and metrics endpoints (for example, per-request agent breakdown in `llm_bridge`), more explicit documentation of ensemble decision rules, and tighter coupling between WOAH weights, DGM proposals, and model selection in high-stakes governance flows.
+> Status: This chapter presents the barrier as an active but evolving protection and screening layer. Core behaviors (filtering, staging, truth-related labeling) are in place; systematic adversarial testing, detailed rejection policies, and user-facing feedback channels are still under development.
