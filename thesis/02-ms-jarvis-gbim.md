@@ -1,6 +1,6 @@
 # Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
-Within **polymathamatical geography**, Ms. Egeria Jarvis is treated as a bio‑inspired architecture whose beliefs are anchored in geospatial entities, temporal context, and explicit evidence. In this thesis, **GBIM** stands for **Generalized Bioinspired Machine**, with a particular emphasis on a **Geospatial Belief Information Model** as one of its core layers.
+Within **polymathematical geography**, Ms. Egeria Jarvis is treated as a bio‑inspired architecture whose beliefs are anchored in geospatial entities, temporal context, and explicit evidence. In this thesis, **GBIM** stands for **Generalized Bioinspired Machine**, with a particular emphasis on a **Geospatial Belief Information Model** as one of its core layers.
 
 This chapter presents Ms. Jarvis as a glassbox AI consciousness system and explains the Geospatial Belief Information Model (GBIM) that underpins her reasoning. The focus is not on anthropomorphic claims about sentience, but on a rigorous, inspectable architecture for layered reasoning, memory, and judgment that is explicitly tied to place, time, and evidence in West Virginia and the wider Appalachian region.
 
@@ -26,7 +26,7 @@ At a high level, Ms. Jarvis integrates three main elements. First, a multi-agent
 Within this architecture, GBIM serves as the system Ms. Jarvis uses to represent and update her “beliefs” about the world, with particular emphasis on the people, infrastructures, and communities of West Virginia.
 
 - Multi-agent orchestration:
-  - Multiple specialized services (LLMs, GIS services, RAG, analytics, ethical guards, constitutional modules) coordinated through an internal registry and routing layer.
+  - Multiple specialized services (LLMs, GIS services, RAG, analytics, ethical guards, constitutional modules) are coordinated through an internal registry and routing layer.
 - Glassbox APIs:
   - Public documentation and OpenAPI specifications for core endpoints (for example, `consciousness/status`, `consciousness/layers`, `gis/query`, `constitutional/principles`, `analytics`) so that external researchers can see how the system is structured and queried.
 - Constitutional and ethical guards:
