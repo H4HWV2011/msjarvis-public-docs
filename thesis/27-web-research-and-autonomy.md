@@ -17,7 +17,7 @@ The current implementation of autonomous web research is provided by the optimiz
 - **Web research gateway (8009)**  
   - A separate HTTP service on port `8009` exposes a `/search` endpoint that accepts JSON requests of the form `{"query": "<string>", "max_results": <int>}`.  
   - The gateway returns results as an object with `count`, the original `query`, and a `results` list containing fields such as `title`, `snippet`, `url`, and `source`.  
-  - The optimized learner uses this gateway rather than direct arbitrary web access, so policies and filters can be centralized.
+  - The optimized learner and the ULTIMATE orchestration path both use this gateway rather than direct arbitrary web access, so policies and filters can be centralized.
 
 - **Semantic memory integration**  
   - Summarized research items are stored in the `autonomous_learning` collection, with embeddings and metadata including `topic`, `title`, `url`, `learned_at`, and `cycle_number`.  
@@ -29,7 +29,7 @@ The current implementation of autonomous web research is provided by the optimiz
 
 - **Gating and control**  
   - Environment variables (for example, flags for enabling the learner, controlling concurrency, or limiting daily activity) act as the current gating mechanism, determining whether the five-minute loop is active and how aggressively it runs.  
-  - This provides practical control over autonomy without requiring a fully realized “consciousness” or mode controller.
+  - This provides practical control over autonomy without requiring a fully realized global mode controller.
 
 The remaining sections of this chapter describe the conceptual role of these processes; the implementation above is the concrete realization currently running in the system.
 
@@ -44,7 +44,7 @@ The web research and autonomous learning layer has three main purposes. Unlike h
   Allow the system to identify themes it finds relevant based on past activity, stored priorities, and topic suggestions, then pursue them on its own.
 
 - **Support for later tasks**  
-  Populate semantic memory with material that can be reused when related questions appear, giving ULTIMATE and other services richer context.
+  Populate semantic memory with material that can be reused when related questions appear, giving ULTIMATE and other services richer context for governance and spatial reasoning.
 
 These functions operate within boundaries set by global settings, environment-based gating, psychological safeguards, and logging requirements.
 
@@ -126,10 +126,10 @@ This integration ensures that later retrieval can surface autonomous-learning co
 Autonomous learning outputs also interact with container-like structures and safeguards:
 
 - **Intake and filtering**  
-  - Newly added records are normalized and may be subjected to first-stage keep-or-discard decisions based on topic, source, or size.
+  - Newly added records are normalized and may be subjected to first-stage keep-or-discard decisions based on topic, source, or size, consistent with the container architecture in Part IV.
 
 - **Background influence**  
-  - Items that survive initial filters contribute to the background of available context, influencing how future answers are framed and what evidence is cited.
+  - Items that survive initial filters contribute to the background of available context, influencing how future answers are framed and what evidence is cited in governance or planning workflows.
 
 - **Governance and ethics**  
   - Topics and sources can be constrained by environment variables and configuration, ensuring that certain domains are treated with extra caution or excluded entirely.
@@ -150,96 +150,24 @@ Because web research introduces new external material, it is subject to safeguar
 - **Logging and review**  
   - Summaries of autonomous learning activity are written into logs and semantic memory, allowing later inspection of what was learned, from where, and when.
 
-These measures aim to balance autonomy with traceability and safety.
+These measures aim to balance autonomy with traceability, safety, and community control.
 
-## 27.8 Summary
+## 27.8 Web Research in the ULTIMATE Path
 
-The autonomous learning and web research layer provides a way for the system to seek out and integrate new material on its own schedule. It operates within defined constraints, writes results into core memory and spatial layers, and uses environment-variable gating instead of unconstrained autonomy. Its primary role is to expand and refresh the knowledge base, while the following chapter focuses on cycles that monitor internal health and behavior rather than acquiring new content.
+The same web-research gateway used by the autonomous learner also participates in the main ULTIMATE reasoning path:
 
----
+- **Coordination position**  
+  - A common flow is: BBB (filter) → web_research (context enhancement) → llm_bridge (multi-agent synthesis).  
+  - In this role, web_research receives a filtered query and context from BBB, retrieves additional internal and external material, and returns enhanced context for llm_bridge to use.
 
-### Chapter 27: Web Research and Autonomy - UPDATE
+- **Latency and behavior**  
+  - For heavy reasoning scenarios, web_research contributes a significant but bounded fraction of total processing time, reflecting its role in fetching and organizing context rather than generating final answers.  
+  - Its behavior—how many sources it returns, how it ranks them, and how it deduplicates—is designed to keep contexts useful and monitorable rather than opaque.
 
-**File**: `thesis/27-web-research-and-autonomy.md`
+- **Future introspection**  
+  - Planned debug endpoints will expose, for a given request, which sources were retrieved (internal thesis docs, GBIM/GeoDB-linked content, external URLs), their similarity scores, and the size and latency of the assembled context.  
+  - This will make web_research’s contribution to ULTIMATE responses more directly inspectable, reinforcing the glassbox design.
 
-**Add operational role section**:
+## 27.9 Summary
 
-```markdown
-## Operational Role (December 11, 2025)
-
-### ✅ VALIDATED: Web Research in ULTIMATE Path
-
-web_research consistently appears in services_used for all heavy reasoning tasks.
-
-### Coordination Position
-BBB (filter) → web_research (enhance) → llm_bridge (synthesize)
-
-### Function (Inferred from Traces)
-
-Based on request-response patterns, web_research appears to:
-1. Receive filtered query + context from BBB
-2. Perform semantic search or knowledge retrieval
-3. Return enhanced context + source citations
-4. Pass results to llm_bridge for synthesis
-
-### Processing Time Budget
-
-**Estimated latency for agi-arch-1** (195s total):
-- Health check: ~4s
-- BBB: ~1s
-- **web_research: ~60s** (30%)
-- llm_bridge: ~120s
-- Aggregation: ~10s
-
-web_research accounts for ~30% of total latency, suggesting moderate complexity search/retrieval operation.
-
-### Outstanding Questions (Require Code Inspection)
-
-❓ Does it perform **live web scraping** or **cached knowledge retrieval**?  
-❓ What **APIs/sources** does it access (Wikipedia? ArXiv? proprietary)?  
-❓ How does it **rank/select** relevant context?  
-❓ What **semantic similarity threshold** triggers context inclusion?  
-❓ How many prior **search results** are included per query?  
-❓ Does it **deduplicate** or **synthesize** multiple sources?  
-
-### Implementation Status Badge
-
-✅ **OPERATIONAL** (consistently invoked) | 🔄 **PARTIAL** (internal mechanics unknown)
-
-### Future Work: Debug Endpoint
-
-**Proposed endpoint**: `GET /web_research/debug/sources?job_id={job_id}`
-
-**Response format**:
-```json
-{
-  "job_id": "uuid",
-  "query": "Explain Ms. Jarvis architecture",
-  "sources_retrieved": [
-    {
-      "rank": 1,
-      "source": "internal_thesis_docs/19-container-architecture-and-routing.md",
-      "similarity_score": 0.94,
-      "snippet": "Container Topology shows 19 Docker containers..."
-    },
-    {
-      "rank": 2,
-      "source": "github_readme_msjarvis",
-      "similarity_score": 0.87,
-      "snippet": "Ms. Jarvis uses 22-agent LLM ensemble..."
-    },
-    {
-      "rank": 3,
-      "source": "web_search_result_url",
-      "similarity_score": 0.76,
-      "snippet": "Multi-agent systems coordinate through..."
-    }
-  ],
-  "total_sources": 3,
-  "context_size_tokens": 1250,
-  "retrieval_time_ms": 58000
-}
-Conclusion
-
-web_research is a critical enabler of ULTIMATE's reasoning capability, providing context that allows llm_bridge to synthesize more informed responses. Full understanding of its operation requires code inspection and debug endpoint implementation.
-
+The autonomous learning and web research layer provides a way for the system to seek out and integrate new material on its own schedule, while the same web-research gateway supports richer context in user-facing ULTIMATE flows. Both operate within defined constraints, write results into core memory and spatial layers, and use environment-variable gating instead of unconstrained autonomy. Their primary role is to expand and refresh the knowledge base so that later governance, spatial, and advisory tasks are grounded in a continuously updated but auditable corpus.
