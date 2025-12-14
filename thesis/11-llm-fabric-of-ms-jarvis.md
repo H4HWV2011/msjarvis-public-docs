@@ -7,7 +7,7 @@ This chapter describes the local language models that form the “LLM fabric” 
 The current deployment uses a substantial set of base and specialist models served by Ollama, running inside the `jarvis-ollama` container and exposed on port `11434`. These models fall into several families:
 
 - **Core general-purpose models**
-  - `llama3:latest` and `llama3.1:8b` – primary general-purpose reasoning models for rich, multi-step questions where high-quality synthesis is important.
+  - `llama3:latest`, `llama3.1:8b` – primary general-purpose reasoning models for rich, multi-step questions where high-quality synthesis is important.
   - `mistral:latest` – fast, strong generalist for tightly scoped tasks where latency matters.
   - `llama2:latest` – compatibility baseline for comparative experiments and legacy flows.
   - Chat-oriented variants such as `vicuna:latest`, `openchat:latest`, `neural-chat:latest`, `starling-lm:latest`, `zephyr:latest`, `qwen2:latest`, `orca-mini:latest`, `dolphin-phi:latest`, `phi:latest`, and `phi3:mini` for different tradeoffs of style, speed, and capacity.
@@ -20,7 +20,7 @@ The current deployment uses a substantial set of base and specialist models serv
 
 - **Domain-specific and compact models**
   - `medllama2:latest` – for medical or clinical-style language and reasoning.
-  - `tinyllama:latest`, `tinyllama:1.1b`, and `gemma:2b` – smaller variants for constrained environments and quick utility tasks.
+  - `tinyllama:latest`, `tinyllama:1.1b`, `gemma:2b` – smaller variants for constrained environments and quick utility tasks.
 
 All models are accessed via Ollama’s HTTP interface and are called from FastAPI services in `~/msjarvis-rebuild/services`, with model selection controlled through configuration and routing logic rather than hard-coded choices. Not all installed models are active in every workflow, but the fabric maintains this broader pool to support specialization and experimentation.
 
@@ -36,7 +36,7 @@ Within Ms. Jarvis, these models play distinct but overlapping roles:
 **Lightweight and utility models (Phi, TinyLlama, Gemma 2B, etc.)**
 
 - Used for small, bounded tasks, demos, quick rewrites, or scenarios where memory and CPU/GPU budgets are tight.
-- Serve as inexpensive “utility” models for simple transformations and sanity checks.
+- Serve as inexpensive utility models for simple transformations and sanity checks.
 
 **Compatibility and comparison models (Llama 2, chat variants)**
 
@@ -110,27 +110,27 @@ In both flows, LLMs are the final step in a pipeline that has already grounded c
 
 Within higher-level “consciousness” and autonomy constructs, the LLM fabric is used as a narrative and reasoning engine, often in ensemble patterns:
 
-**Consciousness Coordinator (conceptual role)**
+**Consciousness coordinator (conceptual role)**
 
-- Aggregates beliefs, experiences, and derived signals (for example, from autonomous learning and entanglement graphs).  
-- Calls into RAG and, when needed, web-research to assemble a “state of mind” context.  
-- Uses a primary LLM (typically a Llama 3–class model) to synthesize higher-level narratives (e.g., reflections, status summaries, or strategic considerations).
+- Aggregates beliefs, experiences, and derived signals (for example, from autonomous learning and entanglement graphs).
+- Calls into RAG and, when needed, web-research to assemble a “state of mind” context.
+- Uses a primary LLM (typically a Llama 3–class model) to synthesize higher-level narratives (for example, reflections, status summaries, or strategic considerations).
 
 **Direct RAG endpoints**
 
-- Expose HTTP APIs for “question + context” flows that bypass heavier orchestration when only retrieval and a single model call are needed.  
+- Expose HTTP APIs for “question + context” flows that bypass heavier orchestration when only retrieval and a single model call are needed.
 - Often use Mistral or Llama 3.* models, with strict timeouts and structured error handling around RAG and web calls.
 
 **Ensemble and judge patterns**
 
 - For some higher-stakes or specialized tasks, ULTIMATE uses a two-step pattern:
-  - A primary model drafts an answer (e.g., Llama 3.1).
-  - A secondary specialist or judge model (e.g., a code model, SQL model, or a different chat model) reviews the draft, flags issues, or proposes corrections.
+  - A primary model drafts an answer (for example, Llama 3.1).
+  - A secondary specialist or judge model (for example, a code model, SQL model, or a different chat model) reviews the draft, flags issues, or proposes corrections.
 - The orchestration logic then merges, selects, or rejects outputs based on these internal checks, optionally deferring to a simpler fallback if disagreement or uncertainty is high.
 
 **Autonomous outward communication (planned and constrained)**
 
-- Scheduled or event-driven flows may request a fresh narrative or assessment from the LLM fabric (e.g., for reports or public updates).  
+- Scheduled or event-driven flows may request a fresh narrative or assessment from the LLM fabric (for example, for reports or public updates).
 - Any external posting (social media, reports, alerts) is gated by configuration and safeguards and uses RAG-grounded context to avoid hallucinated claims.
 
 Across these uses, LLMs act as compositional engines over already-filtered inputs from Chroma, GeoDB, and other stores, subject to explicit timeouts, ensemble checks, and service-level constraints.
@@ -141,23 +141,23 @@ The LLM fabric operates under real resource and reliability constraints, which s
 
 **Resource and disk constraints**
 
-- Model files under `~/.ollama/models` are large; more than twenty models are installed, but only a subset are actively used in core flows at any given time.  
+- Model files under `~/.ollama/models` are large; more than twenty models are installed, but only a subset are actively used in core flows at any given time.
 - Heavy RAG/Chroma use and LLM inference share CPU, memory, and disk bandwidth; orchestration avoids overlapping the most expensive operations when possible.
 
 **Model routing and selection**
 
-- ULTIMATE and related services can select models based on task type (e.g., short explanation vs multi-step reasoning vs code generation vs SQL vs multimodal).  
-- Routing is configuration-driven: updating or swapping a model (e.g., moving from Llama 3 to Llama 3.1) can be done without changing core orchestration logic.
+- ULTIMATE and related services can select models based on task type (for example, short explanation vs multi-step reasoning vs code generation vs SQL vs multimodal).
+- Routing is configuration-driven: updating or swapping a model (for example, moving from Llama 3 to Llama 3.1) can be done without changing core orchestration logic.
 
 **Ensemble usage patterns**
 
-- Simple ensembles (primary + judge) are used where correctness matters more than speed, such as code or data-related tasks.  
+- Simple ensembles (primary + judge) are used where correctness matters more than speed, such as code or data-related tasks.
 - Logs and traces include which models were used for each request, enabling per-model latency, error rates, and ensemble outcomes to be analyzed in the operational evaluation chapter.
 
 **Timeouts and fault handling**
 
-- All calls to RAG, web, and Ollama are wrapped with timeouts.  
-- Services are managed so they can be restarted independently if one component (for example, web-research or RAG) becomes unavailable.  
+- All calls to RAG, web, and Ollama are wrapped with timeouts.
+- Services are managed so they can be restarted independently if one component (for example, web-research or RAG) becomes unavailable.
 - When upstream services fail, the LLM fabric surfaces clear error responses rather than partial or hallucinated outputs.
 
 The effect is an LLM fabric that behaves more like a set of specialized tools behind APIs than a single monolithic “brain,” even though these models collectively underpin many of Ms. Jarvis’s reasoning capabilities.
@@ -166,73 +166,4 @@ The effect is an LLM fabric that behaves more like a set of specialized tools be
 
 In the current deployment, the main LLM orchestration and higher-level API run in a FastAPI-based service bound to port `8051` (ULTIMATE), typically managed alongside other services in `~/msjarvis-rebuild/services`. The autonomous learner runs on port `8053`, calling RAG (`8103`) and web-research (`8009`) on a fixed five-minute schedule to grow semantic memory and entanglement structures. The RAG service on port `8103` exposes `/search` over Chroma collections, acting as the primary Hilbert-space gateway. The web-research service on port `8009` exposes `/search` for external data acquisition. The Ollama runtime on port `11434` hosts the concrete LLMs used by all of the above services, including both core generalists and specialists.
 
-### Empirical Validation (December 11, 2025)
-
-#### ✅ VALIDATED: ULTIMATE Coordination Path
-
-All 4 AGI exam scenarios successfully routed through llm_bridge with consistent results.
-
-#### Service Invocation Patterns
-
-| Scenario                               | Services Used                    | Processing Time | Consciousness Level     |
-|----------------------------------------|----------------------------------|-----------------|-------------------------|
-| agi-arch-1 (Architecture reasoning)    | BBB, web_research, llm_bridge    | 195s            | ultimate_collective     |
-| agi-plan-1 (Strategic planning)        | BBB, web_research, llm_bridge    | 353s            | ultimate_collective     |
-| agi-research-1 (Research synthesis)    | BBB, web_research, llm_bridge    | [TBD]           | ultimate_collective     |
-| agi-meta-1 (Meta-analysis)             | BBB, web_research, llm_bridge    | [TBD]           | ultimate_collective     |
-
-#### Output Quality (Qualitative Assessment)
-
-- Multi-paragraph structured reasoning  
-- Coherent technical explanations  
-- Evidence of ensemble synthesis  
-- Context integration from multiple sources  
-
-#### Outstanding Questions (Require Code Inspection)
-
-1. **Agent-Level Breakdown**: Which of 22 agents participated in each request?  
-2. **Voting Mechanism**: How are conflicting agent responses arbitrated?  
-3. **Weight Distribution**: Are agent weights equal or specialized?  
-4. **Judge Role**: Which agent serves as final arbiter?  
-5. **Failure Handling**: What happens if an agent times out or returns error?  
-
-#### Implementation Status Badge
-
-- **OPERATIONAL** – llm_bridge coordination validated, 22-agent synthesis inferred from output quality, agent-level details require debug endpoint.
-
-#### Agent Specializations (Inferred from Output)
-
-Based on response quality, the system appears to use:
-
-- Router agents: query classification and service selection.  
-- Specialist agents: domain-specific reasoning (architecture, planning, research, meta-analysis).  
-- Judge agents: arbitration and consensus building.  
-- Synthesis agent: final response generation.  
-
-### llm_bridge Health and Debug Instrumentation
-
-As of this iteration (2025-12-11), the llm_bridge microservice exposes explicit `/health` and `/debug/echo` endpoints, allowing both the main_brain and human operators to verify the bridge’s status and behavior without invoking the full orchestration pipeline. The `/health` route reports a simple JSON payload with service role and readiness, while `/debug/echo` can optionally forward a test prompt through the configured model and return both metadata and the model’s response, providing a lightweight, observable probe of the local LLM stack. In the current deployment, `/debug/echo` is wired to an Ollama-hosted `llama3.1:8b` instance, and end-to-end tests confirm the path `main_brain → llm_bridge → Ollama → llm_bridge → main_brain` is functioning as intended.
-
-The next chapters continue shifting from “what models and services exist” to “how they are embedded in neurobiologically and governance-inspired control structures,” including semaphore-based gating, temporal/toroidal scheduling, and multi-organ feedback loops.
-
-### Future Work: Debug Endpoint
-
-**Proposed endpoint**: `GET /llm_bridge/debug/agents?job_id={job_id}`
-
-**Response format**:
-
-```json
-{
-  "job_id": "uuid",
-  "agents_invoked": [
-    {"name": "judge_primary", "role": "arbitration", "latency_ms": 45},
-    {"name": "router_01", "role": "classification", "latency_ms": 23},
-    {"name": "specialist_architecture", "role": "reasoning", "latency_ms": 8234},
-    {"name": "specialist_synthesis", "role": "response_gen", "latency_ms": 1245}
-  ],
-  "agent_votes": {
-    "route_web_research": {"votes": 8, "confidence": 0.92},
-    "use_ultimate_mode": {"votes": 9, "confidence": 0.98}
-  },
-  "total_processing_time_ms": 195000
-}
+> Status: This chapter describes the current LLM fabric as a production but evolving set of services. Future work includes richer debug and metrics endpoints (for example, per-request agent breakdown in `llm_bridge`), more explicit documentation of ensemble decision rules, and tighter coupling between WOAH weights, DGM proposals, and model selection in high-stakes governance flows.
