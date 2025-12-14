@@ -2,7 +2,7 @@
 
 This chapter describes the “quantum-inspired entanglement” idea used in Ms. Egeria Jarvis: a way of modeling coupled state across different parts of the system so that changes in one area appropriately influence beliefs and behavior elsewhere. The term is used metaphorically and mathematically; the system does not run on physical quantum hardware. Instead, it borrows concepts from quantum theory—such as Hilbert spaces, entangled subsystems, and projections—to structure how correlated belief updates and constraints propagate through the embedding state, memory, and the GeoDB spatial body.
 
-Within the thesis, this mechanism ties together Hilbert-space geometry, Chroma-based semantic memory, the GBIM/GeoDB spatial grounding described in Chapters 2, 5, and 6, the RAG pipeline, and the autonomous learner into a single picture of how Ms. Jarvis maintains coherence across roles, domains, and time.
+Within the thesis, this mechanism ties together Hilbert-space geometry, Chroma-based semantic memory, the GBIM/GeoDB spatial grounding described in other chapters, the RAG pipeline, and the autonomous learner into a single picture of how Ms. Jarvis maintains coherence across roles, domains, and time.
 
 ## 8.1 Motivation for Entanglement
 
@@ -29,7 +29,7 @@ Formally, Ms. Jarvis’s internal semantic state is modeled as follows:
 - **Metadata and tags**  
   Each item \(x_i\) has metadata:
   - A tag set \(T_i \subseteq \mathcal{T}\), where \(\mathcal{T}\) is the universe of tags (for example, geography, domain, principle, role).
-  - A scalar retrieval weight \(w_i \in \mathbb{R}_{>0}\) used during ranking.
+  - A scalar retrieval weight \(w_i \in \mathbb{R}_{>0}\) used during ranking or sampling.
 
 - **Correlation / “entanglement” sets**  
   For an “anchor” item \(x_a\), define a correlation tag set \(C_a \subseteq \mathcal{T}\) (for example, tags that should induce coupling: principle + geography + domain).  
@@ -39,7 +39,7 @@ Formally, Ms. Jarvis’s internal semantic state is modeled as follows:
   \]
   Intuitively, \(S_a\) is the set of items that share critical tags with \(x_a\) and are therefore treated as correlated.
 
-In the context of geography, tags in \(T_i\) include explicit references to GeoDB feature IDs, counties, districts, and other spatial units. This ties the abstract Hilbert-space vectors directly to concrete geometries stored in PostGIS and to `geodb_*` Chroma collections defined in Chapter 6.
+In the context of geography, tags in \(T_i\) include explicit references to GeoDB feature IDs, counties, districts, and other spatial units. This ties the abstract Hilbert-space vectors directly to concrete geometries stored in PostGIS and to `geodb_*` Chroma collections.
 
 ## 8.3 Conceptual Entanglement Update Rule
 
@@ -54,7 +54,7 @@ At this stage, this update rule is primarily a conceptual and mathematical frami
 
 ## 8.4 Concrete Entanglement Scaffolding in the Autonomous Learner
 
-The first concrete implementation of this entanglement idea appears in the optimized autonomous learner that runs on port `8053`. The learner now maintains a lightweight **topic graph** that captures how learning topics are related over time:
+The first concrete implementation of this entanglement idea appears in the optimized autonomous learner that runs on port `8053`. The learner maintains a lightweight **topic graph** that captures how learning topics are related over time:
 
 - A module (for example, `topic_entanglement.py`) manages:
   - A JSON-backed adjacency structure (`topic_graph.json`) mapping each topic to a set of neighbors with weights.
@@ -65,7 +65,7 @@ The first concrete implementation of this entanglement idea appears in the optim
   - Enables an `entanglement_enabled` flag to control whether updates are applied.
 
 - At the end of each learning cycle:
-  - After calling RAG (`8103 /search`) and web-research (`8009 /search`) and processing results, the learner calls an **entanglement update hook**.
+  - After calling RAG and web-research services and processing results, the learner calls an **entanglement update hook**.
   - This hook currently uses the current topic and a placeholder list of “related” topics to update and persist the topic graph.
 
 In this initial version, the related-topic list is deliberately simple; the emphasis is on wiring up the graph, file, and per-cycle update hook without changing behavior. This scaffolding is the concrete foothold where the more formal entanglement model can be implemented incrementally.
