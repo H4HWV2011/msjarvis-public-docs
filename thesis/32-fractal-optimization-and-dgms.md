@@ -4,22 +4,21 @@ This chapter describes the layer of self-improving components that sit between s
 
 ## 32.1 Role of Per-Service Optimizers
 
-Each optimizer is attached to a specific service or narrow cluster of services:
+Each optimizer is attached to a specific service or narrow cluster of services, effectively sitting “on the edge” between that component and its neighbors.
 
 - Local focus:
   - Rather than trying to redesign the entire system at once, each unit concentrates on improving one part of the workflow, such as a router, a retrieval pattern, or a particular analysis job.
 - Connector function:
   - By learning better ways to pass information between its attached service and neighboring components, each unit acts as a connector that can refine flows across boundaries.
-  - Examples include optimizers attached to retrieval routes, live-cycle jobs, and integration routines such as the cooperative and web platform connectors described in the preceding chapter.
-  - Examples include optimizers attached to retrieval routes, live-cycle jobs, and integration routines such as the cooperative and web platform connectors described in the preceding chapter.
+  - Examples include optimizers attached to retrieval routes, live-cycle jobs, and integration routines such as cooperative and web platform connectors described in the preceding chapter.
 - Archive of variants:
   - Over time, each optimizer builds up a small collection of candidate configurations or workflows for its area, along with basic performance information.
 
-This distributed arrangement allows many parts of the system to be explored in parallel.
+This distributed arrangement allows many parts of the system to be explored in parallel while keeping each optimizer’s scope narrow and interpretable.
 
 ## 32.2 Three-Stage Improvement Cycle
 
-Each optimizer follows a recurring three-stage cycle:
+Each optimizer follows a recurring three-stage cycle that mirrors a propose–test–select pattern.
 
 - Observation:
   - Collect traces of how its attached service has been performing, including inputs, outputs, timings, and evaluator scores.
@@ -32,7 +31,7 @@ The cycle repeats over time, aiming to produce small, well-understood improvemen
 
 ## 32.3 Metrics and Constraints
 
-Improvement proposals are evaluated against a set of metrics and constraints:
+Improvement proposals are evaluated against a set of metrics and constraints that balance performance with robustness and safety.
 
 - Performance metrics:
   - Task-specific measures such as correctness, coverage, or latency.
@@ -45,7 +44,7 @@ A proposal is only considered for adoption if it improves relevant performance m
 
 ## 32.4 Relationship to Fractal Structure
 
-The collection of optimizers has a fractal character:
+The collection of optimizers has a fractal character.
 
 - Repetition across scales:
   - Similar three-stage cycles operate at many points in the system, from small routing tweaks to higher-level workflow adjustments.
@@ -56,12 +55,12 @@ The collection of optimizers has a fractal character:
 
 This arrangement supports open-ended exploration while keeping each step bounded and interpretable.
 
-## 32.5 Integration with Containers and Memory
+## 32.5 Integration with Memory and Records
 
-Outputs from the optimizers are integrated through existing structures:
+Outputs from the optimizers are integrated into shared memory and record-keeping structures so that improvements become part of the broader system history.
 
-- Container paths:
-  - Proposed changes and their evaluation results are recorded as events that pass through intake and background stages, where they can be grouped, rated, and, when appropriate, promoted.
+- Event paths:
+  - Proposed changes and their evaluation results are recorded as events that can be grouped, rated, and, when appropriate, promoted.
 - Long-term memory:
   - Stable improvements, such as better prompting patterns or more effective routing rules, can be written into semantic memory and belief structures as design knowledge.
 - Introspective records:
@@ -71,7 +70,7 @@ This ensures that self-improvement attempts are treated as part of the system’
 
 ## 32.6 Interaction with Global Control and Barrier
 
-Higher-level controls shape how and when optimizers can act:
+Higher-level controls shape how and when optimizers can act, reflecting the separation between local improvement agents and global governance.
 
 - Mode dependency:
   - In more conservative modes, optimizers may be limited to proposing changes for offline evaluation or to narrow slices of functionality.
@@ -84,4 +83,4 @@ These mechanisms keep self-improvement aligned with broader goals and constraint
 
 ## 32.7 Summary
 
-The fractal optimization layer consists of many small, service-attached Darwin–Gödel-style components that observe behavior, propose changes, and evaluate their effects. By distributing this process across a network of connectors and tying it into container, memory, and control structures, the system can explore improvements in a structured, traceable way rather than through monolithic updates.
+The fractal optimization layer consists of 69 small, service-attached Darwin–Gödel-style components that observe behavior, propose changes, and evaluate their effects along specific edges of the Ms. Jarvis architecture. By distributing this process across a network of connectors and tying it into shared memory and control structures, the system can explore improvements in a structured, traceable way rather than through monolithic updates.
