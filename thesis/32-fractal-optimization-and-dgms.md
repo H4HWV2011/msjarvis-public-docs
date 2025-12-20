@@ -1,86 +1,56 @@
-# 32. Fractal Optimization and the 69 DGM Connectors
+# 32. Fractal Optimization and the 69‑DGM Layer
 
-This chapter describes the layer of self-improving components that sit between services and propose changes to how they operate. These components are based on the Darwin–Gödel Machine concept introduced earlier, but here they are deployed as many small, attached optimizers that together form a fractal pattern across the architecture.
+This chapter specifies the 69‑DGM connector layer that sits between Ms. Jarvis services and refines how they interact over time. It combines the current, verifiable implementation with the intended design for a fully fractal, self‑optimizing edge layer.
 
-## 32.1 Role of Per-Service Optimizers
+## 32.1 Role of the 69‑DGM Connectors
 
-Each optimizer is attached to a specific service or narrow cluster of services, effectively sitting “on the edge” between that component and its neighbors.
+In the current system, the Darwin–Gödel layer is realized as a set of 23 active connectors registered in `dgm_connectors_active.json` and orchestrated via ports 9000 and 9999. Each connector represents a specific edge between the main gateway and a downstream service.
 
-- Local focus:
-  - Rather than trying to redesign the entire system at once, each unit concentrates on improving one part of the workflow, such as a router, a retrieval pattern, or a particular analysis job.
-- Connector function:
-  - By learning better ways to pass information between its attached service and neighboring components, each unit acts as a connector that can refine flows across boundaries.
-  - Examples include optimizers attached to retrieval routes, live-cycle jobs, and integration routines such as cooperative and web platform connectors described in the preceding chapter.
-- Archive of variants:
-  - Over time, each optimizer builds up a small collection of candidate configurations or workflows for its area, along with basic performance information.
+These connectors are treated as small, edge‑attached optimizers focused on improving individual segments of workflow such as routing, retrieval patterns, bulk ingestion, audits, or infrastructure repair. Over time, each connector is intended to maintain an internal archive of alternative configurations and strategies, together with performance and safety metadata, so that its part of the architecture can evolve independently but in a coordinated way.
 
-This distributed arrangement allows many parts of the system to be explored in parallel while keeping each optimizer’s scope narrow and interpretable.
+## 32.2 Current vs Planned Capabilities
 
-## 32.2 Three-Stage Improvement Cycle
+In the current system, the 69‑DGM layer is implemented as a registry of active connectors plus an orchestrator that tracks their status. The planned design extends this into a more explicit lifecycle with richer metadata and evaluation.
 
-Each optimizer follows a recurring three-stage cycle that mirrors a propose–test–select pattern.
+**Current implementation**
 
-- Observation:
-  - Collect traces of how its attached service has been performing, including inputs, outputs, timings, and evaluator scores.
-- Proposal:
-  - Generate candidate changes to configuration, prompting, tool use, or workflow structure, based on observed patterns and a library of known modification strategies.
-- Evaluation:
-  - Test the proposed changes on suitable tasks or replayed examples, measuring effects on accuracy, resource use, and any relevant safety or alignment scores.
+- 23 active connectors loaded from `dgm_connectors_active.json`
+- Shared use of ports 9000 and 9999 for routing and orchestration
+- Heuristic scoring (DGM importance, WOAH alignment) with simple thresholds and a binary status
+- Static configuration plus runtime logs for connector behavior
+- Main‑brain on port 8050 calling the 9000 bridge, which calls 9999; DGM status logged per request
+- Blood‑Brain Barrier filters and heuristic thresholds used for safety and governance
 
-The cycle repeats over time, aiming to produce small, well-understood improvements rather than large, opaque changes.
+**Planned design behavior**
 
-## 32.3 Metrics and Constraints
+- Stable mesh of connectors with explicit lifecycle (add, deprecate, retire) and richer metadata per connector
+- Multi‑metric evaluation per connector, including performance, stability, and safety scores, aggregated centrally
+- Local archives of candidate configurations per connector with test results and adoption decisions
+- Main‑brain using DGM outputs to gate or route traffic and to choose between alternative workflows when appropriate
+- Mode‑dependent controls, stricter barrier checks for risky changes, and scheduled optimization cycles across connectors
 
-Improvement proposals are evaluated against a set of metrics and constraints that balance performance with robustness and safety.
+The first list describes what exists today, and the second list describes how the same layer is intended to evolve as the system’s self‑optimization matures.
 
-- Performance metrics:
-  - Task-specific measures such as correctness, coverage, or latency.
-- Stability metrics:
-  - Indicators of variance or brittleness across similar inputs, helping to avoid improvements that only work in narrow cases.
-- Safety metrics:
-  - Scores from judge components that look for policy violations, risky language, or undesirable side effects.
+## 32.3 Three‑Stage Improvement Cycle
 
-A proposal is only considered for adoption if it improves relevant performance metrics without degrading stability or safety beyond allowed bounds.
+The 69‑DGM layer follows a conceptual three‑stage cycle—observe → propose → evaluate—inspired by the Darwin–Gödel Machine model.
 
-## 32.4 Relationship to Fractal Structure
+In the current implementation, observation happens primarily in the orchestrator, which inspects incoming messages and assigns heuristic scores based on keyword patterns and simple community factors. Its decision (for example, `approved_by_69_validators` or `needs_additional_judging`) is returned to the bridge and to the main‑brain and logged as part of the request trace.
 
-The collection of optimizers has a fractal character.
+In the fuller design, each connector continuously logs inputs, outputs, latencies, and judge or barrier outcomes for its own edge. From these traces, it generates candidate changes to prompts, routing rules, batching strategies, or retry logic. Candidates are then evaluated on replayed workloads or controlled slices of traffic, and their metrics are compared against baselines. The long‑term goal is for each connector to run this cycle locally, while the orchestrator coordinates interactions and enforces global constraints.
 
-- Repetition across scales:
-  - Similar three-stage cycles operate at many points in the system, from small routing tweaks to higher-level workflow adjustments.
-- Nested influence:
-  - Changes in one area can prompt further adjustments in neighboring areas, creating patterns of refinement that recur at different levels of abstraction.
-- Diversity of variants:
-  - Over time, each optimizer maintains an internal archive of candidate configurations, some of which may be less effective locally but useful as stepping stones for later changes.
+## 32.4 Metrics, Constraints, and Safety
 
-This arrangement supports open-ended exploration while keeping each step bounded and interpretable.
+To keep optimization aligned with robustness and safety, proposed changes are evaluated against explicit metrics and constraints.
 
-## 32.5 Integration with Memory and Records
+At present, the orchestrator uses interpretable numerical scores (DGM importance and WOAH alignment) derived from simple heuristics, and thresholds determine whether a request is treated as approved or in need of further judgment. The bridge logs this status and exposes it to the main‑brain as part of the Ultimate request flow.
 
-Outputs from the optimizers are integrated into shared memory and record-keeping structures so that improvements become part of the broader system history.
+In the planned design, each connector and the orchestrator will track a richer set of metrics. Performance metrics will include task‑specific notions of correctness, coverage, throughput, and end‑to‑end latency along that connector path. Stability metrics will measure variance and brittleness across similar inputs to avoid overfitting to narrow scenarios. Safety and alignment metrics will incorporate scores from judge components and barrier checks that detect policy violations, risky patterns, or harmful side effects. A proposal will only be adopted if it improves the relevant performance measures without exceeding defined stability or safety bounds.
 
-- Event paths:
-  - Proposed changes and their evaluation results are recorded as events that can be grouped, rated, and, when appropriate, promoted.
-- Long-term memory:
-  - Stable improvements, such as better prompting patterns or more effective routing rules, can be written into semantic memory and belief structures as design knowledge.
-- Introspective records:
-  - Each cycle writes entries describing what was tried, how it was evaluated, and whether it was adopted, supporting later audit.
+## 32.5 Fractal Structure of the 69 DGMs
 
-This ensures that self-improvement attempts are treated as part of the system’s history rather than as hidden side effects.
+The phrase “69‑DGM” reflects a fractal structure: a finite set of connectors evaluated across multiple conceptual stages, rather than a single monolithic optimizer.
 
-## 32.6 Interaction with Global Control and Barrier
+Today, the active registry holds 23 connectors, every request through port 9000 surfaces all of them as part of the metadata, and the orchestrator considers the full set when computing its decision. The three‑stage idea is expressed in the orchestrator’s own pipeline (scoring, thresholding, decision) and in the bridge’s handling of approved versus validation‑required outcomes.
 
-Higher-level controls shape how and when optimizers can act, reflecting the separation between local improvement agents and global governance.
-
-- Mode dependency:
-  - In more conservative modes, optimizers may be limited to proposing changes for offline evaluation or to narrow slices of functionality.
-- Barrier checks:
-  - Proposals that would alter how external sources are used or how outputs reach outside systems must pass through the same safeguard layer as other infrastructure-related actions.
-- Coordination:
-  - The central coordinating component can schedule optimization cycles, prioritize certain services, or temporarily suspend particular units when needed.
-
-These mechanisms keep self-improvement aligned with broader goals and constraints.
-
-## 32.7 Summary
-
-The fractal optimization layer consists of 69 small, service-attached Darwin–Gödel-style components that observe behavior, propose changes, and evaluate their effects along specific edges of the Ms. Jarvis architecture. By distributing this process across a network of connectors and tying it into shared memory and control structures, the system can explore improvements in a structured, traceable way rather than through monolithic updates.
+In the full design, the same observe–propose–evaluate loop is intended to run at multiple scales: small routing tweaks on individual connectors, coordinated adjustments among neighboring connectors, and higher‑level changes to orchestrator workflows. Improvements at one edge can prompt complementary adjustments nearby, allowing refinement patterns to propagate through the architecture in a controlled way. Each connector’s local archive of candidate configurations provides diversity, including stepping‑stone variants that may enable future improvements even if they are not immediately optimal. This repeated, nested structure across many edges is what gives the 69‑DGM layer its fractal character.
