@@ -88,3 +88,28 @@ tcp	LISTEN	0	4096	[::]:7474	[::]:*	users:(("docker-proxy",pid=5698,fd=7))
 tcp	LISTEN	0	4096	[::]:5001	[::]:*	users:(("docker-proxy",pid=5939,fd=7))	
 tcp	LISTEN	0	4096	[::]:11434	[::]:*	users:(("docker-proxy",pid=1692351,fd=7))	
 tcp	LISTEN	0	4096	[::]:14002	[::]:*	users:(("docker-proxy",pid=2991351,fd=7))	
+tcp        0      0 0.0.0.0:11434           0.0.0.0:*               LISTEN      3042515/docker-prox 
+tcp        0      0 0.0.0.0:18001           0.0.0.0:*               LISTEN      3043491/docker-prox 
+tcp        0      0 0.0.0.0:18018           0.0.0.0:*               LISTEN      3045060/docker-prox 
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      3743/nginx: master  
+tcp        0      0 0.0.0.0:8016            0.0.0.0:*               LISTEN      3044761/docker-prox 
+tcp        0      0 0.0.0.0:8021            0.0.0.0:*               LISTEN      3042762/docker-prox 
+tcp        0      0 0.0.0.0:8008            0.0.0.0:*               LISTEN      3044566/docker-prox 
+tcp        0      0 0.0.0.0:8009            0.0.0.0:*               LISTEN      3044510/docker-prox 
+tcp        0      0 0.0.0.0:8002            0.0.0.0:*               LISTEN      3043084/docker-prox 
+tcp        0      0 0.0.0.0:8003            0.0.0.0:*               LISTEN      3044968/docker-prox 
+tcp        0      0 0.0.0.0:8005            0.0.0.0:*               LISTEN      3042645/docker-prox 
+tcp        0      0 0.0.0.0:8050            0.0.0.0:*               LISTEN      3045398/docker-prox 
+tcp        0      0 0.0.0.0:8033            0.0.0.0:*               LISTEN      2239/python3        
+tcp6       0      0 :::11434                :::*                    LISTEN      3042525/docker-prox 
+tcp6       0      0 :::18001                :::*                    LISTEN      3043498/docker-prox 
+tcp6       0      0 :::18018                :::*                    LISTEN      3045067/docker-prox 
+tcp6       0      0 :::8016                 :::*                    LISTEN      3044768/docker-prox 
+tcp6       0      0 :::8021                 :::*                    LISTEN      3042772/docker-prox 
+tcp6       0      0 :::8008                 :::*                    LISTEN      3044576/docker-prox 
+tcp6       0      0 :::8009                 :::*                    LISTEN      3044517/docker-prox 
+tcp6       0      0 :::8002                 :::*                    LISTEN      3043105/docker-prox 
+tcp6       0      0 :::8003                 :::*                    LISTEN      3044976/docker-prox 
+tcp6       0      0 :::8005                 :::*                    LISTEN      3042656/docker-prox 
+tcp6       0      0 :::8050                 :::*                    LISTEN      3045406/docker-prox 
+udp6       0      0 :::58085                :::*                                89435/cloudflared   
