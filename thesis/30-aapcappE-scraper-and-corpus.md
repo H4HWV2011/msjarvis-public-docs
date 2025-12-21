@@ -1,98 +1,119 @@
-# 30. AAPCAppE Scraper and Appalachian English Corpus Integration
+## 30.2 Target Corpus: Current State vs Roadmap
 
-This chapter describes the dedicated scraper and processing service that ingests material from the Audio-Aligned and Parsed Corpus of Appalachian English (AAPCAppE) and related endpoints. The goal is to treat Appalachian English as a first-class variety in both understanding and output, based on documented usage rather than assumptions.
+The system distinguishes between the **current seed implementation** and the **future AAPCAppE-backed integration**.
 
-## 30.1 Purpose of the AAPCAppE Integration
+- Current seed implementation:
+  - A Chroma collection named `appalachian_english_corpus` contains a small, hand-curated seed set of Appalachian English material.
+  - Its contents include:
+    - A short internal knowledge file (`AaaCPE_Appalachian_Dialect_Knowledge.txt`) tagged as `source: "AAPCAppE_seed"` and `variety: "Appalachian English"`.
+    - A single illustrative conversational chunk labeled `source: "AaaCPE_community_v1"` with features such as `a_prefixing` and `double_modals`.
+    - Additional internal prompt and configuration lines tagged `source: "MsJarvis_internal"` to anchor usage of the label “Appalachian English.”
+  - No records in this collection are currently fetched from live AAPCAppE endpoints.
 
-The AAPCAppE integration serves several functions:
+- Future AAPCAppE integration:
+  - The Audio-Aligned and Parsed Corpus of Appalachian English (AAPCAppE) is the planned primary source, a one-million-word corpus of time-aligned and parsed Appalachian English speech hosted at the AAPCAppE site.
+  - When implemented, AAPCAppE-derived material will be ingested from documented APIs or export mechanisms under the project’s user agreement and citation requirements.
+  - The long-term goal is to treat AAPCAppE and tightly related, licensed subcorpora as the authoritative backbone for Appalachian English usage, with the current seed corpus serving only as a bootstrap layer.
 
-- Authentic language modeling:
-  - Provide examples of Appalachian English as it is actually spoken, supporting recognition and generation that respect its structure.
-- Contextual understanding:
-  - Link dialect forms to places, speakers, and situations in which they appear, improving interpretation of local narratives.
-- Communication quality:
-  - Help avoid treating systematic dialect features as errors, and highlight potential mismatches between institutional language and local speech.
-
-These aims complement the broader linguistic layer described in the preceding chapter.
-
-## 30.2 Target Corpus and Related Sources
-
-The scraper focuses on a specific, documented corpus and closely related material:
-
-- AAPCAppE:
-  - The Audio-Aligned and Parsed Corpus of Appalachian English, a one-million-word resource of transcribed and aligned speech.
-- Adjacent resources:
-  - Where configured, additional endpoints that host materials derived from or closely aligned with AAPCAppE, such as documentation, sample texts, or related research outputs.
-- Configuration:
-  - The precise list of endpoints is maintained in configuration files and can be updated as new, appropriate sources become available.
-
-This keeps the integration focused and traceable.
+---
 
 ## 30.3 Scraper Operation and Scheduling
 
-The scraper runs as a scheduled task rather than a general web spider:
+At present, there is **no dedicated AAPCAppE scraper in production**; instead there is a general AaaCPE scraper service and manual seed loading.
 
-- Cadence:
-  - Polls configured endpoints on a fixed schedule to check for new or updated items, subject to barrier policies and rate limits.
-- Retrieval:
-  - Fetches text and, where available, alignment and annotation data such as speaker identifiers, recording segments, and parsing information.
-- Logging:
-  - Each run writes logs and introspective entries noting which endpoints were contacted, how many items were retrieved, and any errors encountered.
+- Current AaaCPE scraper:
+  - The `aaacpe_scraper_service` is a FastAPI-based service that scrapes configured web sources (such as community blogs and news outlets) and forwards content to a generic RAG server.
+  - Its configuration currently lists sources like a MountainShares blog, regional news, and AI research feeds, not AAPCAppE endpoints.
+  - The service is wired for scheduled scraping (via an internal scheduler) but does not yet target or label dialect corpora specifically.
 
-This process allows the system to track how its corpus of Appalachian English evolves over time.
+- Seed loading:
+  - The current `appalachian_english_corpus` collection is populated via one-time or ad hoc loading scripts that embed:
+    - The `AaaCPE_Appalachian_Dialect_Knowledge.txt` seed file.
+    - A small number of internal prompt lines referring to Appalachian English.
+    - A single test record labeled `AaaCPE_community_v1` for feature-based retrieval tests.
+  - No periodic job is yet responsible for refreshing or expanding this Appalachian corpus.
+
+- Future AAPCAppE scraping and scheduling:
+  - A dedicated AAPCAppE scraper will be introduced as a separate service or configuration profile:
+    - It will poll AAPCAppE-provided endpoints or export files on a fixed schedule compatible with project policies.
+    - It will retrieve transcripts, time alignments, and parsed annotations, and normalize them into the internal record format described below.
+  - Each run will log contacted endpoints, items retrieved, and any errors, so that the growth of the Appalachian English collection can be monitored over time.
+
+---
 
 ## 30.4 Normalization and Record Structure
 
-Retrieved material is normalized into internal records:
+The documentation distinguishes between the **existing seed record format** and the **richer target schema for AAPCAppE data**.
 
-- Core fields:
-  - Appalachian English text segments, corpus identifiers, and timestamps of retrieval.
-- Annotation fields:
-  - Pointers to any available alignment, speaker metadata, and contextual notes from the corpus.
-- Derived tags:
-  - Simple tags indicating region, conversational setting, or document type when such information can be inferred or is provided by the corpus.
+- Current seed record format:
+  - Seed entries in `appalachian_english_corpus` store text chunks with minimal metadata:
+    - `source` (for example, `"AAPCAppE_seed"`, `"AaaCPE_community_v1"`, `"MsJarvis_internal"`).
+    - `file` (for example, `AaaCPE_Appalachian_Dialect_Knowledge.txt`, `test_local_aacpe.txt`).
+    - `variety: "Appalachian English"`.
+    - `chunk_index` (integer chunk ordering within a file).
+  - One illustrative conversational record adds additional fields:
+    - `register` (for example, `"conversation"`).
+    - `features` (for example, `"a_prefixing,double_modals"`).
+    - `speaker_region`, `recording_year`, and `project`, currently placeholders (`TBD_region`, `TBD_year`, `TBD_project_name`).
+  - These fields are sufficient for feature-based tests, but do not yet encode full corpus identifiers, alignment, or speaker demographics.
 
-These records form the basis for downstream embedding and analysis.
+- Target AAPCAppE record schema:
+  - When integrating real AAPCAppE data, each normalized record is expected to include:
+    - Core fields:
+      - An internal record ID and the original AAPCAppE token or sentence identifier.
+      - An Appalachian English text segment (token, sentence, or utterance).
+      - Retrieval and source-update timestamps.
+    - Annotation fields:
+      - Pointers to AAPCAppE alignment data (timecodes, audio file references).
+      - Speaker metadata (pseudonymous ID, subcorpus label, region, age or age group, recording period), consistent with AAPCAppE documentation.
+      - Syntactic and morphological annotations from the parsed corpus.
+    - Derived tags:
+      - Region, conversational setting, and document type, inferred from subcorpus and metadata where permitted by licensing.
+  - The existing seed records are considered a subset of this schema and will be migrated or backfilled as needed once the AAPCAppE pipeline is live.
+
+---
 
 ## 30.5 Integration with Memory, Spatial, and Belief Layers
 
-Normalized records are integrated into existing structures:
+The integration plan again distinguishes between the current seed state and the intended AAPCAppE-backed future.
 
-- Semantic memory:
-  - Text and summaries are embedded into a dedicated “Appalachian English / AAPCAppE” collection in the vector database, with tags for corpus origin and linguistic attributes.
-- Spatial backbone:
-  - When region information is available, entries are linked to geospatial features corresponding to relevant parts of Appalachia.
-- Belief structures:
-  - Concepts, entities, and relationships that appear in the corpus can be connected into belief graphs, especially when they relate to community life, institutions, or recurring themes.
+- Current semantic memory state:
+  - The Chroma collection `appalachian_english_corpus` is already present and used by local tests to retrieve examples with Appalachian features such as “might could” and “holler.”
+  - Most entries are tagged as `source: "MsJarvis_internal"` or `"AAPCAppE_seed"` and act as a small, high-trust seed set for dialect-aware prompts and experiments.
+  - There is currently no separate collection explicitly named for AAPCAppE, and all dialect-related material is consolidated under this single collection.
 
-This integration allows retrieval and reasoning to make use of corpus-derived knowledge alongside other sources.
+- Planned semantic memory integration for AAPCAppE:
+  - A dedicated collection (for example, `appalachian_english_aapcappe`) will store embeddings for AAPCAppE-derived records, with metadata fields including:
+    - `corpus_origin = "AAPCAppE"`.
+    - `subcorpus` (for example, specific recording projects within AAPCAppE).
+    - `region`, `register`, and key linguistic attributes.
+  - Retrieval pipelines will be updated so that:
+    - Dialect-aware understanding and generation can explicitly favor AAPCAppE-backed examples when Appalachian English is relevant.
+    - Tests that currently query `appalachian_english_corpus` can be redirected or extended to cover the richer collection.
+
+- Spatial and belief-layer linkage:
+  - Seed records may carry coarse regional tags (`speaker_region`) but these are currently placeholders and not wired into the spatial backbone.
+  - AAPCAppE integration will:
+    - Map subcorpora and documented locations to geospatial entities (counties, communities, institutions) where consistent with project policies.
+    - Feed recurrent entities and relationships from AAPCAppE into belief graphs, emphasizing community life, institutions, and recurring themes in Appalachian English discourse.
+
+---
 
 ## 30.6 Use in Understanding and Generation
 
-The AAPCAppE-derived collection informs both interpretation and output:
+Both the seed corpus and the future AAPCAppE integration play roles in understanding and generation, but with different levels of authority.
 
-- Recognition:
-  - Retrieval components can surface corpus examples to help disambiguate phrases, constructions, or vocabulary that are characteristic of Appalachian English.
-- Generation:
-  - When appropriate for audience and context, the system can draw on corpus examples as references for tone, rhythm, and structure, while still respecting constraints and roles.
-- Tension with institutional language:
-  - Evaluators can use corpus-derived patterns to identify where institutional phrasing may clash with local speech norms, prompting rephrasing or additional explanation.
+- Current seed usage:
+  - Retrieval tests (for example, `test_aapcappe_retrieval.py` and `test_aacpe_features.py`) query `appalachian_english_corpus` to ensure that phrases like “might could” and “a‑going” can be surfaced and recognized as legitimate features of Appalachian English.
+  - Internal prompts and configuration lines tagged as `Appalachian English` help guard against treating dialectal forms as errors in system personas and evaluators.
+  - The single `AaaCPE_community_v1` example provides a concrete, conversational instance for early tuning and debugging, but is not treated as statistically representative of the dialect.
 
-These uses are always mediated by barrier, roles, and evaluator instructions.
-
-## 30.7 Safeguards and Governance
-
-Using a specialized corpus also involves safeguards:
-
-- Barrier treatment:
-  - AAPCAppE and related endpoints are treated as defined, policy-recognized sources; inputs still pass through source and content checks, even if they are generally high trust.
-- Documentation:
-  - References to the corpus and its role in the system are documented so that collaborators understand how dialect data is being used.
-- Community feedback:
-  - Summaries of how corpus-derived patterns affect outputs can be shared with local partners to ensure that the representation of Appalachian English aligns with community expectations and avoids stereotyping.
-
-These practices help maintain respect and accountability around the use of dialect resources.
-
-## 30.8 Summary
-
-The AAPCAppE scraper and corpus integration provide a structured way to bring documented Appalachian English into the system’s linguistic and reasoning layers. By focusing on a well-defined corpus, normalizing and tagging retrieved material, and tying it into memory, spatial, and evaluation mechanisms, the system can treat Appalachian English as a systematic, respected variety in both understanding and communication.
+- Planned AAPCAppE-backed usage:
+  - Understanding:
+    - Retrieval will leverage AAPCAppE-derived embeddings to disambiguate dialect-specific constructions across a broader range of contexts, grounded in documented usage.
+    - Evaluators will incorporate frequency and distributional patterns from AAPCAppE when deciding whether a form is dialectal, stylistic, or truly anomalous.
+  - Generation:
+    - When context and role permit, generation components will condition on AAPCAppE-informed patterns (for example, rhythm, preferred constructions) to produce Appalachian English that reflects attested usage rather than stereotypes.
+    - Corpus-backed constraints will help avoid mixing features that do not co-occur in real speakers or overusing marked forms in sensitive contexts.
+  - Mediation with institutional language:
+    - As with the seed, AAPCAppE-based statistics will support detection of points where institutional or bureaucratic phrasing diverges markedly from local norms, suggesting parallel paraphrases or additional explanation.
