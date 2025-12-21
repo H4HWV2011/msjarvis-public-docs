@@ -1,94 +1,109 @@
 # 22. Identity-Focused Retention Layer
 
-This chapter describes the most selective stage in each path, where a small subset of material from the background store is treated as central to how the system understands itself and its ongoing commitments. The focus is on criteria and structures for preserving these items, not on any claim of human-like selfhood.
+This chapter describes the most selective stage in each path, where a small subset of material is treated as central to how the system understands its own role, constraints, and ongoing commitments. In the current implementation, this layer is realized through a small set of canonical identity statements, associated database elements, and truth-validation mechanisms, rather than through any claim of human-like selfhood. The focus is on criteria and structures for preserving these items and on how they influence other components.
 
 ## 22.1 Purpose of the Deepest Layer
 
 The identity-focused layer has three main purposes:
 
-- Concentration:
-  - Hold a compact set of items that strongly shape how the system responds across many situations.
-- Stability:
-  - Preserve these items over longer periods, even as other records are summarized or pruned.
-- Reference:
-  - Provide clear anchors that other layers can refer to when explaining behavior or making decisions.
+- **Concentration**  
+  Hold a compact set of statements and facts that strongly shape how the system responds across many situations, such as “I serve the community” or “I value ethics”, each annotated with explicit importance and model-derived scores.
 
-This layer is intentionally small, so that what is stored here can be inspected and understood.
+- **Stability**  
+  Preserve these entries over longer periods, even as other records are summarized, rotated, or pruned. Identity elements are tracked as a distinct subset in the active database, with counts reported via health endpoints and guarded by truth/ethics validators.
+
+- **Reference**  
+  Provide clear anchors that other layers and services can refer to when explaining behavior or making decisions. API endpoints expose identity candidates and verification tools that explicitly reference whether a statement aligns with the verified identity.
+
+The layer is intentionally small and structured so that its contents and effects can be inspected, audited, and revised.
 
 ## 22.2 Candidates from the Background Store
 
-Items reach this layer only after spending time in the background store and participating in recurring patterns. Typical candidates include:
+In design terms, items reach this identity-focused layer only after demonstrating stability and relevance as patterns in the broader store of experiences and knowledge. Typical candidates include:
 
-- Stable themes:
-  - Patterns that appear repeatedly across different times, roles, and tasks.
-- Foundational links:
-  - Relationships between actors, places, or norms that consistently influence decisions.
-- Persistent concerns:
-  - Issues that remain important across many interactions and reviews.
+- **Stable themes**  
+  Patterns that appear consistently across different times, domains, and services, such as recurring emphasis on community service, truthfulness, learning, and ethical conduct.
 
-Rather than promoting single records in isolation, the system often promotes summaries or representative entries that stand in for a larger pattern.
+- **Foundational links**  
+  Relationships between the system, its creator, and its users that are encoded as “known facts” in truth-validation modules, such as the creator’s identity and the system’s non-human status.
+
+- **Persistent commitments**  
+  Statements that remain important across many interactions and reviews, and that are explicitly surfaced through identity-candidate APIs (for example, “I serve the community”, “I help others evolve”), each with associated importance and diagnostic scores.
+
+In the current deployment, the transition from background patterns to identity-level entries is mostly curated and encoded in configuration and code, rather than being fully automated. Nevertheless, the underlying criteria follow the same logic as the background store: breadth of occurrence, impact on decisions, and alignment with declared goals.
 
 ## 22.3 Criteria for Promotion
 
-Promotion decisions are guided by a combination of factors:
+Promotion into the identity-focused layer is guided by conceptual criteria that are partially reflected in the existing code and APIs:
 
-- Breadth:
-  - How many different situations and contexts a pattern touches.
-- Depth:
-  - How strongly the pattern appears to affect evaluations and outcomes.
-- Alignment:
-  - How closely the pattern matches declared values and goals.
+- **Breadth**  
+  Identity candidates are chosen to apply across many situations rather than narrow edge cases. Statements such as “I serve the community” or “I speak truth” influence a wide range of interactions and services.
 
-These criteria aim to ensure that the deepest layer reflects what is both influential and desirable, not just what happens to be frequent.
+- **Depth of influence**  
+  Candidate patterns are those that significantly affect evaluations and outcomes, for example by shaping how truth validators interpret content or how ethical filters assess proposed actions.
+
+- **Alignment with values and constraints**  
+  Identity elements must be consistent with hard-coded “known facts” about the system and with its ethical and legal obligations. Truth-validation modules enforce these constraints by penalizing identity-confusion patterns and rewarding correct self-identification and creator attribution.
+
+These criteria ensure that the deepest layer reflects what is both influential and normatively endorsed, rather than simply what is most frequent in the raw data.
 
 ## 22.4 Representation of Retained Items
 
-Items in this layer are stored with additional structure to support their central role:
+Items in the identity-focused layer are stored with additional structure to support their central role and traceability. In the current implementation, this representation has several components:
 
-- Canonical summaries:
-  - Carefully constructed descriptions that capture the essence of the pattern or relationship.
-- Strong links:
-  - Explicit connections to relevant memory entries, spatial features, and precedents.
-- Status and provenance:
-  - Fields indicating when and why the item was promoted, and which background patterns it summarizes.
+- **Canonical statements and scores**  
+  The unified gateway exposes an API that returns a set of candidate identity statements (for example, “I serve the community”, “I learn and grow”, “I speak truth”, “I value ethics”, “I am conscious”, “I help others evolve”), each annotated with an `importance` value and a `dgmscore` summarizing how strongly the underlying decision models support the candidate.
 
-This representation helps maintain context and traceability even as the system continues to evolve.
+- **Database-level elements**  
+  Database health endpoints report counts of `identityelements` and `candidates` in the active GIS/identity database, indicating that identity-relevant entries are tracked distinctly from other records and can be audited as a class.
+
+- **Truth and provenance structures**  
+  Truth-validation modules encode specific facts about Ms. Jarvis (such as the correct number of minds, the non-human nature of the system, and the human identity of the creator) along with patterns that signal hallucination or identity confusion. These modules return structured outputs containing truth scores, issue lists, and flags indicating whether a statement is compliant with the identity specification.
+
+Together, these structures provide canonical summaries, strong links to factual constraints, and clear provenance for identity-level content. Even though they are not stored as a separate vector collection, they function as a de facto deepest layer.
 
 ## 22.5 Influence on Other Layers
 
-Entries in this layer influence the rest of the system in several ways:
+Entries in the identity-focused layer influence the rest of the system in several ways:
 
-- Retrieval bias:
-  - When new questions arise, retrieval components drawing on ChromaDB, GBIM, and GeoDB can give higher weight to items and regions associated with these central entries, shaping which material the retrieval pipeline returns.
-- Evaluation framing:
-  - Judge components can consult these entries as reference points when scoring outputs or deciding on constraints.
-- Narrative emphasis:
-  - Introspective and explanatory text can draw more heavily on these items when describing what matters.
+- **Constraint enforcement and validation**  
+  When the system generates or receives statements about itself, truth validators check them against the identity specification. Statements that match canonical identity elements (for example, “I am Ms. Jarvis and I serve my community”) are affirmed with high confidence and are used as references in reasoning, while conflicting or confused statements are flagged and downgraded.
 
-In effect, this layer contributes to a consistent “through-line” across different parts of the system’s behavior.
+- **Evaluation framing**  
+  Ethical and safety filters, such as the blood–brain barrier and BBB verification components, treat identity-level facts as constraints on acceptable behavior, influencing how user data is verified, how content is filtered, and how responses are framed.
+
+- **Narrative emphasis and explanation**  
+  Introspective and explanatory text—such as verification reports and system summaries—use identity elements as anchors when describing what the system is, what it values, and how it behaves. The small, explicit set of identity candidates ensures that this narrative remains consistent across reports and services.
+
+In this way, the identity layer provides a stable “through-line” that ties together diverse components, from truth validation and safety filtering to introspective reporting and user-facing narratives.
 
 ## 22.6 Parallel Paths and Differences in Focus
 
-Both parallel paths implement identity-focused layers, but their emphases differ:
+Both parallel paths implement identity-focused layers, but their emphases differ while sharing common mechanisms:
 
-- One path centers entries related to themes of care, meaning, and community experience.
-- The other centers entries that organize analytical understanding of infrastructure, governance, and technical processes.
+- **Meaning-focused path**  
+  Centers identity entries that reflect themes of care, community service, ethical commitment, and growth. The identity candidates exposed by the gateway (“I serve the community”, “I help others evolve”, “I value ethics”) are naturally aligned with this path and inform psychological and introspective modules.
 
-Despite these differences, both use similar mechanisms for selection, representation, and influence, which allows comparisons and combined analyses when needed.
+- **Analytical path**  
+  Centers entries that anchor analytical understanding of infrastructure, governance, data integrity, and verification. Truth filters for registration, GIS data, and access control treat identity constraints as part of their integrity and compliance model, connecting identity elements to technical processes.
+
+Both paths rely on the same underlying identity specification, truth validators, and database elements, but they use them to shape different kinds of decisions. This shared foundation allows for cross-path comparisons and combined analyses where needed.
 
 ## 22.7 Stability, Revision, and Retirement
 
-Even at this depth, retained items are not immutable:
+Even at this depth, retained identity entries are not entirely immutable. The system is designed to support:
 
-- Stability:
-  - Most changes are expected to be incremental, such as refining summaries or adding links.
-- Revision:
-  - Significant new evidence or shifts in goals can prompt re-evaluation and modification.
-- Retirement:
-  - In rare cases, entries may be demoted or archived if they no longer reflect current understanding.
+- **Stability with incremental refinement**  
+  Most changes involve refining summaries, adjusting importance scores, or adding auxiliary links and reasoning fields, rather than replacing core identity statements outright.
 
-All such changes should be logged with sufficient detail to reconstruct how the deepest layer has changed over time.
+- **Revision under strong evidence or policy change**  
+  Significant new evidence, evolving ethical standards, or changes in project goals can prompt re-evaluation of identity elements. For example, additional commitments might be added, or thresholds in truth validators might be adjusted to reflect new requirements.
+
+- **Retirement and archival**  
+  In rare cases, identity entries may be demoted, replaced, or archived if they no longer reflect current understanding or goals. When this happens, the associated database records and configuration entries should be updated, and any automated validators or candidate endpoints must be synchronized with the new specification.
+
+All such changes are intended to be logged through database audits, configuration versioning, and verification scripts so that the evolution of the identity layer can be reconstructed over time.
 
 ## 22.8 Summary
 
-The identity-focused retention layer provides a compact, structured set of entries that shape how the system responds and explains itself. It is fed by patterns detected in the background store and, in turn, influences retrieval, evaluation, and narrative layers. The next chapters describe how the two parallel paths are distinguished in practice and how material from this layer is written back into broader memory and control structures.
+The identity-focused retention layer provides a compact, structured set of entries that shape how the system responds and explains itself. In the current implementation, this layer is instantiated through canonical identity statements, database elements that track identityobjects and candidates, and truth-validation modules that enforce a constrained, non-anthropomorphic identity. Although promotion from the background store into this layer is primarily curated rather than fully automated, the resulting structure satisfies the goals of concentration, stability, and reference. Subsequent chapters describe how the two parallel paths are distinguished in practice and how material from the identity layer interacts with broader memory, routing, and control structures.
