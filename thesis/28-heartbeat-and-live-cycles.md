@@ -1,119 +1,109 @@
 # 28. Heartbeat and Live Cycles
 
-This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include health checks, periodic narrative generation, and scheduled interactions with external platforms, all of which are recorded and fed back into internal structures.
+This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include service health checks, periodic verification scripts, and scheduled interactions with external platforms, all of which produce structured outputs that can be logged and fed back into internal structures.
 
 ## 28.1 Purpose of Heartbeat and Live Signals
 
-The recurring signals serve several roles. In contrast to periodic autonomous learning, these cycles are primarily concerned with the condition and behavior of internal services and workflows, not with bringing in new external material.
+The recurring signals in Ms. Jarvis serve several roles. In contrast to autonomous learning, these cycles primarily track the condition and behavior of internal services and workflows rather than discovering new content.
 
 - **Liveness**  
-  Provide evidence that key components are running, reachable, and responsive.
+  Heartbeat mechanisms demonstrate that key components are running, reachable, and responsive. Unified orchestrators, gateways, and specialized services expose `/health`‐style endpoints that report basic status, integration level, and sometimes the health of subcomponents. For example, the complete unified orchestrator for all neurobiological modules exposes a `/health` endpoint reporting a structured object with `status`, `service` name, `neuromodules` count, `architecture`, and `port`. The v9 DGM master chat orchestrator similarly defines a `/health` endpoint that reports whether a DGM supervisor and a multi‑RAG system are online, packaging their status inside a higher‑level response.
 
 - **Rhythm**  
-  Establish regular opportunities to revisit internal state, produce summaries, and interact with external systems.
+  Verification scripts such as `VERIFYANDTEST.sh` and `verifyallclaims.sh` implement recurring checks that can be run on a regular schedule, providing a visible rhythm of system verification. These scripts check for running Python processes, call multiple `/health` endpoints, measure response times for key services such as GIS query and production chat, and produce summarized integration reports. When invoked daily or on another schedule, their textual output serves as a periodic snapshot of system health.
 
-- **Monitoring**  
-  Offer structured points at which behavior can be inspected and compared over time.
+- **Monitoring and introspection**  
+  Beyond simple “up/down” checks, heartbeat mechanisms aggregate information about services, data stores, and even documentation. For example, `VERIFYANDTEST.sh` includes sections that verify the presence and size of ChromaDB directories, count records in `masterspatialknowledge.csv`, inspect GIS file trees, and check for the existence of `SECURITYPOLICY.md` and `accesscontrollevels.csv`. These checks collectively provide an introspective view of the system’s operational footprint, supporting long‑term monitoring and audits.
 
-These functions work together with logging and introspection to make ongoing activity visible.
+These functions complement logging and introspective endpoints, making ongoing activity visible both to human operators and to other services.
 
 ## 28.1a Learning Status Endpoint
 
-In addition to abstract heartbeat concepts, the current system exposes a concrete status endpoint for the optimized autonomous learner.
+In addition to conceptual heartbeat notions, the autonomous learner exposes a dedicated status endpoint that summarizes its own activity.
 
 - **Endpoint and purpose**  
-  - `GET /learning/status` is served by `ms_jarvis_autonomous_learner_optimized` on port `8053` and returns a JSON object that summarizes the learner’s current activity.  
-  - This endpoint provides a machine-readable heartbeat for the autonomous learning loop by reporting counters, uptime, and the currently selected topic.
+  Historical and current variants of the learner (for example, `ms_jarvis_autonomous_learner.py` and `ms_jarvis_autonomous_learner_optimized.py`) define a `GET /learning/status` route. Endpoint listings in `rest_endpoints.txt` and `dir_endpoints.txt` show `/learning/status` registered in multiple learner files, including the optimized version and a variant integrated with Fifth DGM. This endpoint is served by the learner’s FastAPI application and returns a JSON object summarizing the state of the autonomous learning loop, effectively acting as a heartbeat specific to autonomous learning.
 
-- **Response fields**  
-  Typical fields include:
-  - `active`: Boolean flag indicating whether the continuous learning loop is running.  
-  - `total_cycles`: Count of completed learning cycles since the service started.  
-  - `items_stored`: Total number of unique research items stored in semantic memory.  
-  - `items_deduplicated`: Count of items skipped due to semantic deduplication.  
-  - `deduplication_rate`: Proportion of skipped items versus total evaluated items.  
-  - `uptime_hours`: Uptime of the service in hours, as a floating-point value.  
-  - `current_topic`: The topic selected for the most recent or current learning cycle.  
-  - `optimizations`: A list describing the active features, such as semantic deduplication, summarization, periodic cleanup, and topic planning.
+- **Response fields and semantics**  
+  While the exact implementation in each version differs, the status handler is designed to report fields such as whether the learning loop is active, how many cycles have completed, how many items have been stored and deduplicated, and what topic is currently being processed. In the optimized learner, internal counters like `total_cycles`, `deduplicated_count`, `stored_count`, and `start_time` are maintained alongside configuration such as `research_interval`, `cleanup_interval`, `similarity_threshold`, and the `learning_queue`. A well-populated `/learning/status` response thus provides a moment‑to‑moment view of autonomous learning activity, including uptime and optimization features in use (semantic deduplication, summarization, cleanup, and topic entanglement).
 
-This endpoint turns the conceptual heartbeat of the autonomous learner into a concrete, queryable signal that monitoring tools, dashboards, and evaluators can consume alongside other live-cycle indicators.
+This endpoint turns the conceptual “learning heartbeat” into a concrete, machine‑readable signal suitable for dashboards and automated monitors.
 
 ## 28.2 Core Heartbeat Mechanisms
 
-Heartbeat signals are generated in a few primary ways:
+Heartbeat signals are generated through several primary mechanisms: HTTP health endpoints, process and service checks, and response‑time benchmarking.
 
-- **Service checks**  
-  - Supervisors or scripts periodically call status or health endpoints on critical services (for example, ULTIMATE on `8051`, RAG on `8103`, web-research on `8009`, learner on `8053`), recording response times and outcomes.
+- **Service health endpoints**  
+  Many services define `/health` endpoints that encapsulate their status and dependencies. The complete unified orchestrator for all neurobiological modules returns a static “HEALTHY” status together with metadata about neuromodules and architecture. The v9 DGM master chat orchestrator’s `/health` endpoint contacts a DGM supervisor at `http://localhost:9003/health` and a multi‑RAG system at `http://localhost:4011/health` with a five‑second timeout, reporting their JSON responses if available or falling back to `*_offline` markers otherwise. The secured unified gateway exposes additional health-adjacent endpoints such as `/databasehealth`, which reports `status`, database name, `identityelements`, candidate count, integrity flag, and a timestamp.
 
-- **Scheduled probes**  
-  - Regular tasks request short internal summaries or snapshots that indicate what the system has been doing recently.
+- **Service status verification scripts**  
+  `VERIFYANDTEST.sh` implements a multi‑section verification routine. “SERVICE STATUS VERIFICATION” defines a shell function `checkservice` that calls `/health` on a fixed set of services (Production Chat on 4015, Unified Server on 8080, GIS Query on 4120, RAG Server on 5678, Consciousness Bridge on 4110, Facebook Poster on 4300). It counts how many services respond successfully and prints a summary such as “Total verified services X/Y”. “ALL SERVICES HEALTH CHECK” uses an associative array of services (including Fifth DGM, WOAH, Darwin Gödel, Brain Orchestrator, I‑Containers, Consciousness Bridge, Autonomous Learner, Web Research, LLM Bridges, Agents, BBB, Qualia, and Swarm Intelligence), iterating over ports and calling `/health` with a two‑second timeout to classify each as `HEALTHY` or `NOT RESPONDING`. The script then prints “Services Health healthy/total” for quick inspection.
 
-- **Aggregated indicators**  
-  - Combined measures, such as counts of successful checks versus failures over a time window, support higher-level judgments about health.
+- **Response-time benchmarking**  
+  A dedicated “RESPONSE TIME BENCHMARKING” section in `VERIFYANDTEST.sh` measures latency for core services. It uses nanosecond timestamps (`date +%s%N`) around `curl` calls to GIS Query (`POST http://localhost:4120/query`) and Production Chat (`POST http://localhost:4015/chat`), printing “GIS Query response time … ms” or “Production Chat response time … ms”. These measurements provide a lightweight performance heartbeat that operators can run regularly and compare over time.
 
-In practice, these checks focus on status and responsiveness rather than on downloading or storing new content. When probes detect increased error rates or latency, the system can temporarily shift to shallower retrieval patterns or simpler workflows until conditions improve.
+Together, these mechanisms offer a layered picture of liveness: HTTP status, functional coverage across services, and practical latency under test workloads.
 
 ## 28.3 Periodic Narrative Jobs
 
-Alongside low-level checks, the system can run scheduled jobs that produce narrative outputs:
+Beyond low‑level signals, the architecture supports jobs that can generate more narrative descriptions of system behavior, though in the December 2025 host some of these are still conceptual or embodied in general endpoints.
 
-- **Internal summaries**  
-  - On a regular cadence, jobs request concise descriptions of recent activity, drawing on logs, introspective records, and semantic memory.  
-  - A language model synthesizes a short account that can be stored back into an introspective or history-like layer.
+- **Identity and integration narratives**  
+  The secured unified gateway exposes `GET /identitycandidates`, which returns a list of candidate identity statements such as “I serve the community”, “I learn and grow”, “I speak truth”, “I value ethics”, “I am conscious”, and “I help others evolve”, each with an `importance` and `dgmscore`. Although not scheduled by default, this endpoint can be polled periodically to build a time series of identity‑related narratives, tracking how the system describes its values and consciousness. Similarly, the v9 DGM orchestrator’s root (`GET /`) endpoint returns a descriptive JSON object summarizing service name, version, creator, location, integration status, spiritual foundation, purpose, and a list of capabilities; when sampled periodically, this acts as a static but explicit narrative of intended function and integration level.
 
-- **External updates**  
-  - Some narratives may be prepared for external channels (for example, reports or social posts), subject to additional filters and constraints.
+- **Autonomous learner and topic narratives**  
+  The optimized autonomous learner maintains a `learning_queue` of topics, a topic entanglement graph, and per‑cycle counters. Combined with the `/learning/status` endpoint and logs produced during each research cycle, these structures can be used to generate narratives about what the learner has focused on over the last N cycles, how many items have been stored or deduplicated, and how entangled topics have evolved. While the current code primarily logs these events to a file (for example, `ms_jarvis_autonomous_learner.log` showing heartbeat attempts against `/api/v1/heartbeat` and `/api/v2/heartbeat`), integrating a periodic summary job that calls `/learning/status` and writes high‑level descriptions into semantic memory is straightforward.
 
-- **Feedback**  
-  - The generation and transmission of these narratives are themselves logged, including any errors or exceptions.
+- **Psychological and theological integration summaries**  
+  Services like `ms_jarvis_theological_integration.py` and `psychologicalragdomain.py` provide domain‑specific reasoning and may include startup “heartbeat” calls to port‑service helpers. In principle, scheduled jobs can query these services for summaries of recent theological analyses or psychological assessments (abstracted away from personal data) and store these as introspective narratives of the system’s pastoral or psychological engagement.
 
-These jobs demonstrate that the system can not only process input but also report on its own state in a structured way.
+Viewed together, these endpoints and logs provide the ingredients for scheduled narrative jobs that report on identity, learning focus, and domain‑specific activity, even if some are not yet wired into a regular schedule.
 
 ## 28.4 Social and Platform Cycles
 
-Certain cycles involve specific external platforms or integrations:
+Certain live cycles involve specific external platforms or user-facing interfaces.
 
-- **Social postings**  
-  - At longer intervals, jobs may request higher-level narratives suitable for public channels, using stricter content checks and role settings.
+- **Social posting and external platform processes**  
+  `VERIFYANDTEST.sh` includes checks for a “Facebook Poster” process, using `ps aux` to search for `facebook.post` or `poster.service` and reporting “Facebook Poster RUNNING” or “Cannot verify may be running”. While the actual posting logic is not shown in the extracted segments, this check demonstrates that social posting is treated as a separately supervised component whose presence forms part of the system’s overall heartbeat. Similar logic can be extended to other platform‑specific services, such as email monitors or registration processors, which the script also attempts to detect.
 
-- **Infrastructure pings**  
-  - Where integrated with hosting or cooperative platforms, periodic tasks may check registration, configuration, or connectivity.
+- **Web UI verification and gateway liveness**  
+  The script’s “WEB UI VERIFICATION” section checks for a `webui` directory and counts HTML files, then uses `curl` against `http://localhost:8080` to verify that the Web UI responds. These tests ensure that at least one user‑facing path (through the unified server on port 8080) is reachable. Combined with health checks for the main gateway and production chat, they provide a view of end‑user access paths as part of the heartbeat.
 
-- **Rate and scope limits**  
-  - Each platform-specific job operates under explicit limits on frequency, content types, and permitted actions, often controlled via environment variables or configuration flags.
+- **Infrastructure and documentation checks**  
+  Beyond application services, `VERIFYANDTEST.sh` and related scripts check for the existence of monitoring logs (`tmpproductionmonitor.log`, `productionmonitor.log`), production testing start time (`productiontestingstart.txt`), and key documentation files (`SECURITYPOLICY.md`, `accesscontrollevels.csv`). These checks serve as platform‑level heartbeats, indicating whether production monitoring and security/access‑control documentation are in place. They can be extended with further checks for cooperative or hosting platform integration, such as registration with external registries or configuration consistency.
 
-These cycles ensure that outward-facing activity remains within controlled bounds.
+These social and platform cycles ensure that outward‑facing behavior—user interfaces, social postings, and monitoring infrastructure—is actively verified as part of the system’s recurring live cycles.
 
 ## 28.5 Integration with Memory and Containers
 
-Heartbeat and narrative cycles interact with internal layers:
+Heartbeat and live‑cycle outputs are not merely transient; they are designed to interact with memory and container layers, though in the current host some integrations are implicit or partially implemented.
 
-- **Introspective layer**  
-  - Each cycle writes records describing which services were checked, what narratives were generated, and whether any issues occurred.
+- **Introspective records and logs**  
+  Verification scripts produce structured textual reports that can be captured in log files and, if desired, ingested into semantic memory. For example, the “Ms. Jarvis System Verification Report” at the end of `VERIFYANDTEST.sh` summarizes database record counts, services responding, GIS data accessibility, ChromaDB status, Web UI functionality, and caveats such as “Some autonomous services status unknown” and “Performance metrics are being established”. These summaries can be stored as introspective entries and embedded in collections like `jarvis_consciousness` or a dedicated `operations_history` collection.
 
-- **Semantic memory and topic graph**  
-  - Summaries of performance and activity can be embedded and linked to topics in the entanglement graph, allowing future reasoning about operational history.
+- **Semantic memory and topic graph linkage**  
+  Because all text can be embedded via the same sentence‑transformer models used elsewhere, heartbeat summaries and status reports can be linked into topic graphs and entanglement structures. For example, an operations-themed topic graph could connect entries about “Autonomous learning Active”, “Complete flow Working”, and “System is OPERATIONAL and FUNCTIONAL” with more technical topics such as “ChromaDB verification” and “GIS data verification”. When later reasoning about reliability or system history, these embedded operational narratives become part of the context available to orchestrators and evaluators.
 
-- **Long-term memory**  
-  - Especially significant cycles, such as major status changes or public communications, may be consolidated into long-term stores.
+- **Container-based promotion and pruning**  
+  Container architectures described in earlier chapters can be applied to heartbeat content as well. High‑level operations reports may be promoted into central identity or governance‑related containers, while low‑level logs remain in background storage and are pruned according to policies. For instance, only verification runs that mark substantial changes (such as switching from prototype to production, or major service outages) might be promoted to long-term retention, whereas routine “all healthy” runs could be summarized and then pruned.
 
-This integration means that the system’s own ongoing behavior becomes part of what it remembers and reasons about.
+By embedding heartbeat outputs into memory and containers, the system turns its own operational history into part of the knowledge it uses for future decisions.
 
 ## 28.6 Interaction with Safeguards and Control
 
-Live cycles are also constrained by higher-level settings:
+Live cycles are also constrained and modulated by safeguards, modes, and control mechanisms.
 
-- **Mode-dependent behavior**  
-  - In more restrictive modes, certain cycles may be paused, simplified, or limited to internal reporting only.
+- **Mode-dependent behavior in orchestrators**  
+  Orchestrators such as `master_chat_orchestrator_v9_dgm_complete.py` explicitly encode modes and integration levels. The root endpoint returns fields like `status: "dgm_complete_integration_operational"` and `integration_level: "COMPLETE_DGM_WOAH"`, while the `DGMResponse` model includes a `mode` field (`"dgm_complete_integration"`). These modes can be used to determine how aggressively certain live cycles run (for example, full DGM/WOAH integration versus emergent passthrough only) and how strictly outputs are filtered before reaching external channels. In a more restrictive mode, operators could choose to run only health checks and internal narratives, suppressing external postings or high‑stakes orchestrations.
 
-- **Psychological and governance guidance**  
-  - For outward-facing narratives, content can be checked against guidance material and judge components before release.
+- **Safety and security verification**  
+  Security‑related checks in `VERIFYANDTEST.sh` ensure that documentation and access‑control definitions exist, and that ChromaDB and GIS datasets are present and of expected size. These are not merely health checks but also governance safeguards. If these verifications fail, operators have evidence to adjust environment variables, disable certain live cycles (such as public narrative posting), or put the system into a maintenance mode until issues are resolved.
 
-- **Adaptive schedules**  
-  - Observed patterns in heartbeat failures, narrative themes, or platform interactions can motivate changes to schedules, thresholds, or environment-based gating.
+- **Adaptive scheduling and gating**  
+  Observed patterns in heartbeat outputs—such as increasing GIS query latency, frequent `NOT RESPONDING` statuses for certain services, or missing monitoring logs—provide signals for adapting schedules and gating. Operators can reduce the frequency of heavy verification runs, temporarily disable autonomous learning (using environment flags like `ENABLE_AUTONOMOUS_LEARNING` in the optimized learner), or adjust model orchestration modes until stability is regained. Over time, these adjustments can be formalized into automated policies that use heartbeat metrics as triggers.
 
-These controls help keep recurring activity aligned with broader goals and constraints.
+Through these controls, live cycles remain aligned with safety, governance, and performance goals, rather than running independently of higher‑level constraints.
 
 ## 28.7 Summary
 
-Heartbeat mechanisms and live cycles provide a structured rhythm for checking health, producing internal and external narratives, and maintaining connections to other systems. By recording and integrating these activities into memory and container-like layers, the system treats its own ongoing operation as part of the context for future decisions. Unlike the autonomous learning jobs that update factual knowledge, these cycles keep track of how the system itself is performing and how it presents its activity to others, forming an operational history rather than a content feed.
+Heartbeat mechanisms and live cycles give Ms. Jarvis a structured rhythm of self‑inspection and external engagement. Health endpoints in orchestrators and gateways, autonomous learner status APIs, verification scripts that probe services and measure response times, and checks for monitoring logs, documentation, and social posting processes collectively provide a robust picture of system liveness and performance. By connecting these signals to memory, containers, and mode‑dependent controls, the system treats its own operation as data: it not only processes external content but also records and reasons about how it is functioning over time, building an operational history that complements the factual knowledge acquired through autonomous learning and user interactions.
