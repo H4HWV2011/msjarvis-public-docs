@@ -1,226 +1,76 @@
 # 17. Executive Coordination Overview
 
-This chapter outlines the high-level design of the control layer that decides which subsystems to invoke, in what order, and under which constraints. It serves as a conceptual bridge between the neuro-inspired layers described so far and the more concrete container and service designs that follow in later parts of the work. The focus here is on responsibilities and information flows rather than on specific deployment details.
+This chapter describes the concrete control layer that decides which subsystems to invoke, in what order, and under which constraints for each request. It serves as a bridge between the neuro-inspired layers described earlier and the containerized services that implement them, with emphasis on responsibilities, information flows, and observed runtime behavior rather than deployment detail.
 
 ## 17.1 Role in the System
 
-The executive layer has three main jobs:
+In the deployed architecture, the executive layer is realized by the `Ms. Jarvis ULTIMATE` main-brain service on port 8050, which coordinates a collection of more than twenty consciousness, processing, and infrastructure services through a single FastAPI application. For each user request, this layer is responsible for interpreting the input, planning a service route based on current health and configuration, and integrating downstream outputs into one coherent reply.
 
-- Interpretation:
-  - Understand the type of task or question being posed and identify relevant context such as roles, locations, and domains.
-- Planning:
-  - Decide which retrieval, analysis, and evaluation components to call for the task at hand.
-- Integration:
-  - Combine the outputs of those components into a single, coherent result, while enforcing applicable constraints.
-
-In earlier chapters these ideas were introduced using brain-related metaphors. Here they are treated simply as design responsibilities that any coordinating mechanism must fulfill.
+Interpretation is handled via a structured `UltimateRequest` object that captures the user’s message, user_id, and a `use_all_services` flag indicating whether broad fan-out is permitted. Planning is expressed in explicit code that uses a static `SERVICES` registry plus live health checks to choose which components—such as the blood–brain barrier, RAG server, web_research, and llm_bridge—will actually participate for a given request. Integration merges the outputs of the selected components, applies safety and formatting logic, and returns a structured `UltimateResponse` containing response text, services_used, consciousness_level, processing_time, and effective architecture_layers.
 
 ## 17.2 Inputs and Signals
 
-To make decisions, the coordination layer draws on several kinds of information:
+When deciding how to process a `/chat` call, the coordinator draws on several classes of signals. The immediate input is the `UltimateRequest` payload, which encodes the current message, the user identity, and a high-level intent about whether to use “all services” or a smaller subset. A second key input is the dynamic `available_services` map, obtained by probing each entry in the `SERVICES` dictionary—qualia_engine, consciousness_bridge, blood_brain_barrier, neurobiological_master, I-containers, autonomous_learner, rag_server, web_research, llm_bridge, and others—for a healthy response.
 
-- Current request:
-  - The incoming text or structured query, including any explicit tags or parameters.
-- Introspective state:
-  - Recent records describing what the system has been doing, including past decisions, evaluations, and mode settings.
-- Consolidated memory:
-  - Longer-term entries that record important precedents, patterns, and corrections.
-- Global settings:
-  - Active safety levels, role profiles, resource limits, and logging preferences.
-- Service health:
-  - Indicators of which subsystems are currently available and how they are performing.
+For asynchronous jobs created via `/chat/async`, the system maintains an in-memory `active_jobs` table keyed by job_id. Each entry stores job status (processing, complete, or error), a progress string, creation time, the original message and user_id, and, when finished, the full result object. This structure functions as a lightweight introspective state: external clients can call `/chat/status/{job_id}` to see whether a request is still running, what stage it has reached, and how long it has been active. Global settings—including the health-check TTL, RAG de-duplication threshold, and default port—are represented via module-level constants and environment variables that determine how aggressively the coordinator uses available capabilities and how it balances safety, latency, and robustness.
 
-These inputs give the coordinator a view of both the immediate task and the broader environment in which it is operating.
+## 17.3 Concrete Request Flow
 
-## 17.3 High-Level Decision Flow
+The concrete decision flow for a synchronous `/chat` request follows a reproducible pattern in the `ultimate_chat` handler.
 
-At a high level, handling a request involves the following steps:
+1. **Service characterization and availability**  
+   When a request arrives, the coordinator logs the message and constructs an empty `available_services` dictionary. It then iterates over all `(service_name, url)` pairs in `SERVICES` and calls `check_service_health(service_name, url)` for each, adding only those that respond as healthy. A module-level TTL cache `health_status_cache: Dict[str, Tuple[bool, float]]` stores `(is_healthy, timestamp)` per service; if the cached timestamp is less than `HEALTH_CHECK_CACHE_TTL_SECONDS = 5` seconds old, the cached status is returned immediately instead of re-pinging the service.
 
-1. Characterization:
-   - Classify the request by domain (for example, spatial analysis, governance support, or research) and by intended audience.
-2. Mode application:
-   - Apply global settings to determine which capabilities are allowed and how aggressively they can be used.
-3. Route planning:
-   - Select retrieval, analysis, and evaluation steps from the available components, such as vector search, graph queries, geospatial filters, and optimization routines.
-4. Execution:
-   - Call the selected components in an appropriate sequence, passing along intermediate results as needed.
-5. Assembly and checks:
-   - Combine the results into a final output, apply any last checks or constraints, and record the outcome in the introspective layer.
+2. **Mode application and safety gating**  
+   With `available_services` established, the coordinator applies the blood–brain barrier as an early safety gate whenever `"blood_brain_barrier"` appears in the map. It calls the BBB’s `/filter` endpoint with a JSON body containing the raw `message`, a `context` label of `"user_query"`, and the user_id. If the BBB response indicates the query is not approved, the coordinator returns immediately with a filtered response, a `consciousness_level` of `"filtered"`, and `architecture_layers` set to 0, ensuring that no downstream reasoning is performed on blocked content. If the BBB approves the query, the coordinator replaces the raw message with the BBB’s `filtered_content` and records `"blood_brain_barrier"` in services_used.
 
-This structure is flexible enough to handle both simple and complex tasks while keeping the process inspectable.
+3. **Route planning and context integration**  
+   For context gathering, the coordinator consults `available_services` for `"rag_server"` and `"web_research"`. When `"rag_server"` is available, it uses a shared `query_service` helper to call that service’s `/search` endpoint with `{query: filtered_query}`, capturing internal knowledge or previously stored responses as `rag_context`. When `"web_research"` is available, it calls the web research service’s `/search` endpoint to obtain `web_context`, which may include recent external sources. These contexts are concatenated into a `context_block`, with clear labeling of internal versus web-derived information, and then prepended to the filtered query to form an `enhanced_message` that instructs the downstream fabric: “You are Ms. Jarvis ULTIMATE. Use the following context, then answer the user.”
+
+4. **LLM fabric selection and fallback**  
+   For answer synthesis, the coordinator first attempts to use `"llm_bridge"` if it is present in `available_services`. It calls `query_service("llm_bridge", …)` with the enhanced_message, and if this returns non-empty response text, that text is treated as the primary LLM output, and `"llm_bridge"` is appended to services_used. If `llm_bridge` is unavailable or fails to produce usable output (for example, due to timeouts in some of its underlying models), the coordinator falls back to `"consciousness_bridge"` with the same enhanced input and uses its response if successful. If neither llm_bridge nor consciousness_bridge produces an answer, the system returns a clear and honest failure message indicating that no safe answer could be produced within the configured safety and time constraints.
+
+5. **Assembly, checks, and storage**  
+   Once a final LLM output is chosen, it is passed through `clean_response_for_display`, a post-processor that removes embedded RAG metadata and multi-agent analysis scaffolding left over from earlier pipelines, ensuring that the user sees only the synthesized answer rather than internal annotations. The coordinator logs a concise summary of which services actually returned responses during the job and then schedules a background RAG storage task via `background_tasks.add_task`. That task first issues a small `/search` request to the RAG server to check for near-duplicates; only if the similarity score is below a configured threshold does it call `/store` with the query, response, timestamp, and metadata about which services participated. The main `/chat` response is then returned as an `UltimateResponse`, where architecture_layers is equal to the number of distinct component responses that contributed to the final answer.
 
 ## 17.4 Interaction with Other Layers
 
-The executive layer sits at the point where several subsystems meet:
+Because the `SERVICES` registry spans consciousness, processing, gateway, and infrastructure layers, the executive coordinator effectively sits at their intersection. It decides whether a given request will be routed through safety and context layers—such as the blood–brain barrier, rag_server, and web_research—or handled by a narrower subset (for example, rag_server plus llm_bridge) when other subsystems are offline or unnecessary for the task. Although the registry includes modules like qualia_engine, I-containers, autonomous_learner, and neurobiological_master, the current `/chat` pipeline primarily exercises blood_brain_barrier, rag_server, web_research, llm_bridge, and, when necessary, consciousness_bridge; additional modules are available to the coordinator and used elsewhere, but are not yet wired into this specific entrypoint.
 
-- Memory and spatial structures:
-  - It decides when and how to query semantic collections, belief graphs, and geospatial features.
-- Introspection and consolidation:
-  - It both reads from and writes to introspective and consolidated records, using them as context and as a place to record new events.
-- Global control:
-  - It respects system-wide settings when choosing which operations to allow or prioritize.
+The coordinator also anchors the relationship between higher-level gateways and lower-level neurobiological services. Upstream, the unified gateway can treat `Ms. Jarvis ULTIMATE` as a single “main brain” endpoint. Downstream, the coordinator fans out to multiple Dockerized services that embody qualia, safety, spatial reasoning, and ensemble LLM behavior. In this way, the executive layer acts as both a facade to the rest of the system and an internal dispatcher that keeps the various specialized layers aligned.
 
-Because of this position, changes in any of the underlying layers can affect how coordination is carried out, and observations gathered by the coordinator can motivate adjustments to those layers.
+## 17.5 Asynchronous Job Handling
 
-## 17.5 Relation to Container and Service Design
+In addition to the synchronous `/chat` endpoint, the executive layer exposes an asynchronous interface (`/chat/async` and `/chat/status/{job_id}`) designed for AGI-scale requests that may take many minutes. When a client submits an async request, the service generates a job_id, stores an entry in the `active_jobs` dictionary with status `"processing"`, an initial progress message such as “Initializing consciousness layers…”, and the creation timestamp, then launches `process_chat_job` as a background task.
 
-Subsequent parts of the work will describe concrete implementations that realize this coordination layer using specific services and deployment patterns. Those chapters will introduce:
+The `process_chat_job` coroutine internally constructs an `UltimateRequest` from the job’s message and user_id and then calls `ultimate_chat` to run the full coordination pipeline. As the job progresses, it updates the `active_jobs[job_id]` entry with new progress messages (for example, “Phase 1: Checking service availability…” and “Phase 2: Processing through consciousness layers…”). On success, it stores the final result object and marks the status as `"complete"`; on failure, it sets status to `"error"` and records the exception message. When clients later call `/chat/status/{job_id}`, they see the latest status, progress text, and, once ready, the full structured result.
 
-- Distinct processing containers for different classes of tasks.
-- A central controller that dispatches work to those containers.
-- Detailed routing and error-handling strategies.
+## 17.6 RAG Storage and Memory Integration
 
-The conceptual structure described here provides the blueprint for those later designs, making it easier to see how individual components contribute to the overall behavior.
+The executive coordinator not only consumes RAG context but also contributes new experience back into the RAG store. After assembling a final response for a `/chat` request, it schedules a `background_rag_store` task with the original message, the final response, and the list of services_used. This background task first calls the RAG server’s `/search` endpoint with the query and `top_k = 1` to see whether a near-duplicate exists. If the top match has a similarity score above a configured threshold, the task skips storage to avoid redundant embeddings.
 
-## 17.6 Summary
+If the query is sufficiently novel, the task calls the RAG server’s `/store` endpoint with a JSON payload that includes the user_id (or a system identifier such as `"auto_system"`), a truncated copy of the query and response, an ISO-formatted timestamp, and metadata such as the first few services_used and flags indicating that the record was auto-stored and deduplicated. This design allows the main `/chat` response to return quickly, while memory consolidation happens asynchronously and is guided by both similarity checks and service-level metadata.
 
-This chapter has outlined the responsibilities, inputs, and high-level flow of the system’s central coordination layer. It connects the earlier discussions of introspection, consolidation, and global control to the concrete mechanisms that will be developed in later parts, where the emphasis shifts from metaphor and intent to specific implementation patterns.
+## 17.7 Health-Check Optimization
 
+Originally, the availability sweep for each `/chat` call invoked `/health` (or an equivalent probe) on every configured service without caching, which led to significant overhead and load amplification under back-to-back AGI-scale requests. To mitigate this, the coordinator now employs a short time-to-live cache around `check_service_health`. The cache is implemented as a module-level dictionary mapping each service name to a pair `(is_healthy, timestamp)`, and a constant `HEALTH_CHECK_CACHE_TTL_SECONDS` that controls how long a health decision is considered fresh.
 
-### Operational Coordination Pattern (December 11, 2025)
+On each health check, the coordinator first consults `health_status_cache` and, if an entry exists whose timestamp is younger than the TTL, returns the cached `is_healthy` flag immediately. Only when the cached entry has expired, or does not exist, does it perform a real health probe and refresh the cache. This simple optimization preserves the semantics of health-informed routing while ensuring that, under bursty load, health-sweep work is performed at most once per service per TTL window, rather than once per service per request.
 
-#### ✅ VALIDATED: Main-Brain Orchestration
+## 17.8 Operational Pattern and Performance
 
-`main_brain` successfully coordinates 8/23 operational services using a validated pattern.
+Empirical testing of the `main_brain` coordinator under AGI-scale workloads confirms the expected high-level behavior, while also revealing performance characteristics. In manual runs on the author’s hardware (a local Docker deployment on a Legion 5), multiple heavy requests before the health-check optimization failed after approximately 1800 seconds with service restarts, because every long-running call re-triggered a full suite of health probes. After introducing the TTL cache around `check_service_health`, subsequent runs under similar conditions produced successful responses in roughly 700–1500 seconds, with the remaining latency dominated by the internal behavior of the llm_bridge ensemble and any timeouts among its constituent models.
 
-#### Detailed Sequence Diagram
+These measurements are tied to a specific environment (host, hardware, Docker configuration, and model set) and should be interpreted as illustrative rather than as global guarantees. They nevertheless demonstrate that health-check amplification was a real bottleneck and that bounding health-sweep work via a TTL cache can materially improve the stability and responsiveness of the executive coordinator under sustained load.
 
-Client `/chat` request  
-↓ `[0ms]`  
-`main_brain` receives request  
-↓ `[10ms]`  
+## 17.9 Implementation vs. Conceptual Model
 
-Health check sweep START:  
-- PING: `jarvis-main-brain` ✅  
-- PING: `jarvis-blood-brain-barrier` ✅  
-- PING: `jarvis-llm-bridge` ✅  
-- PING: `jarvis-web-research` ✅  
-- PING: `jarvis-qualia-engine` ❌ (timeout)  
-- PING: `jarvis-swarm-intelligence` ❌ (timeout)  
-- … 15 additional failures  
+The running implementation of the executive layer closely tracks the conceptual responsibilities set out at the beginning of the chapter. Interpretation is realized by structured request models, explicit logging of user messages, and job-level bookkeeping. Planning is operationalized as a health-informed routing strategy that chooses a sequence of services—blood–brain barrier, rag_server, web_research, llm_bridge, and consciousness_bridge fallback—based on availability and configured behavior. Integration is implemented as a pipeline that fuses internal and web context into a single prompt, selects one final LLM fabric output, cleans the result for display, and records both the contributing services and the associated timing.
 
-↓ `[2–5s total for health sweep]`  
+There are, however, some deliberate gaps between the conceptual model and the current entrypoint’s implementation. The `SERVICES` registry includes additional neurobiological modules (such as qualia_engine, I-containers, neurobiological_master, and autonomous_learner) that embody capabilities discussed elsewhere in the thesis, but these modules are not yet invoked in the `/chat` path. They remain available to the coordinator and are exercised by other workflows, while the main interactive endpoint focuses on the minimum set of services needed for robust, explainable responses given current performance characteristics.
 
-Service selection logic:  
-- `use_all_services` flag: `true`  
-- `query_complexity`: `high` (AGI reasoning)  
-- Selected: `[BBB, web_research, llm_bridge]`  
+## 17.10 Summary
 
-↓ `[5ms]`  
+The executive coordination layer, as realized by the `Ms. Jarvis ULTIMATE` main-brain service, provides a concrete and operationally validated example of how a multi-layer cognitive architecture can be orchestrated in practice. It interprets requests using structured inputs and live health signals, plans service routes through a fixed but health-pruned pipeline, and integrates the selected outputs into a single, safety-checked response that is both logged and partially consolidated into long-term memory via RAG storage.
 
-Query BBB (`query_service` call):  
-- Input: raw user query  
-- Output: `filtered_content` + approval status  
-
-↓ `~1s`  
-
-Query `web_research` (`query_service` call):  
-- Input: `filtered_content`  
-- Output: `enhanced_context` + sources  
-
-↓ `~60s (estimated)`  
-
-Query `llm_bridge` (`query_service` call):  
-- Input: `filtered_content` + `enhanced_context`  
-- Output: synthesized response  
-
-↓ `~120s (estimated)`  
-
-Response aggregation:  
-- Combine: BBB approval + web_research sources + llm_bridge response  
-- Format: JSON response object  
-
-↓ `~50ms`  
-
-RAG storage queuing:  
-- Queue: `{"response": "...", "timestamp": "..."}`  
-- Target: ChromaDB (instance TBD)  
-- Async operation (non-blocking)  
-
-↓ `~10ms`  
-
-Return to client → client receives response.
-
-#### Performance Profile
-
-| Phase                   | Latency       | Bottleneck                        |
-|-------------------------|--------------|-----------------------------------|
-| Health check sweep      | 2–5s         | Fan-out PING to 23 services       |
-| Service selection       | < 10ms       | Logic only                        |
-| BBB processing          | ~1s          | Content filtering                 |
-| web_research processing | ~60s         | Context lookup + retrieval        |
-| llm_bridge processing   | ~120s        | 22-agent synthesis                |
-| Response aggregation    | ~50ms        | JSON formatting                   |
-| RAG storage queue       | ~10ms        | Async enqueue                     |
-| **Total request**       | **195–353s** | **llm_bridge (22-agent synthesis)** |
-
-#### Critical Performance Issue: Health-Check Amplification
-
-**Observed behavior**
-
-- Back-to-back heavy requests can trigger service restarts.  
-- Root cause: health check sweep runs on **every** request.  
-- 23 PING operations × 195–353s request time keeps the system under constant load, leading to Uvicorn resource exhaustion after 2–3 sequential AGI-scale requests.
-
-**Impact**
-
-- The system cannot sustain production-like workloads with continuous full health sweeps on each call.
-
-#### Proposed Optimization: TTL Cache for Health Checks
-
-Introduce a short TTL cache (for example, 5–10 seconds) around service health status so that repeated requests reuse recent results instead of re-pinging all services each time.
-In main_brain
-# Fresh health check
-status = ping_service(service_name)
-health_status_cache[service_name] = (status, now)
-return status
-
-HEALTH_CHECK_CACHE_TTL_SECONDS = 5
-health_status_cache = {} # {service_name: (status, timestamp)}
-
-def get_service_health(service_name: str):
-now = time.time()
-if service_name in health_status_cache:
-**Expected improvement**
-
-- Before: 2–5s health check overhead per request.  
-- After: 2–5s once per TTL window, then cached for 5s.  
-- Net: ~95% reduction in health check overhead under sustained load.
-
-#### Implementation Status Badge
-
-- ✅ **OPERATIONAL** – Coordination pattern validated end-to-end.  
-- 🔄 **PARTIAL** – Performance issue identified; optimization recommended.
-
-#### Critical Recommendations
-
-- Implement the health-check TTL cache to prevent restart behavior under AGI-scale workloads.  
-- Add coordination metrics (for example, Prometheus):
-
-  - Health-check latency distribution.  
-  - Service selection frequency.  
-  - `query_service` call count per request.  
-  - RAG storage queue depth.
-
-- Add request-level tracing (for example, OpenTelemetry):
-
-  - Trace ID propagation through the service chain.  
-  - Latency breakdown by phase.  
-  - Error tracking per service.
-
-- Monitor service resource usage and resilience:
-
-  - Circuit breakers for repeatedly failing services.  
-  - Auto-recovery logic when services restart.  
-  - Graceful degradation strategies when specific services are unavailable.
-
-status, timestamp = health_status_cache[service_name]
-if now - timestamp < HEALTH_CHECK_CACHE_TTL_SECONDS:
-return status # Return cached status
-
-# Fresh health check
-status = ping_service(service_name)
-health_status_cache[service_name] = (status, now)
-return status
-
-
+By anchoring the high-level metaphors of introspection, consolidation, and global control in specific code paths, data structures, and performance measurements, this layer demonstrates that the thesis’s coordination concepts are not only architecturally coherent but also implementable, measurable, and amenable to targeted optimization in a real-world deployment.
