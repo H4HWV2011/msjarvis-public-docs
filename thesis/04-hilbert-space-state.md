@@ -10,8 +10,6 @@ Within the Quantarithmia program, this Hilbert‑space view provides the formal 
 
 ## 4.2 State Space as a Hilbert Space
 
-To make the math render cleanly on GitHub, this chapter uses plain-text symbols rather than inline LaTeX.
-
 Let:
 
 - `H_text` denote the real inner‑product space associated with textual embeddings (documents, conversations, rules, code, thesis materials).
