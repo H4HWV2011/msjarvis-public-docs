@@ -2,7 +2,7 @@
 
 ## 4.1 Hilbert-Space State and Embeddings
 
-This chapter formalizes how Ms. Egeria Jarvis represents state—beliefs, memories, and contexts—using a Hilbert‑space–style model. In this model, objects are embedded as vectors in a high‑dimensional space where distances and angles correspond to semantic and structural relationships. The intent is not to claim physical quantum computation, but to adopt a mathematically coherent vector‑space framework that supports transparent reasoning, retrieval, and constraint application.
+This chapter formalizes how Ms. Egeria Jarvis represents state—beliefs, memories, and contexts—using a Hilbert‑space–style model. In this model, objects are embedded as vectors in a high‑dimensional space where distances and angles correspond to semantic and structural relationships. The aim is not to posit physical quantum computation, but to adopt a mathematically coherent Hilbert‑space framework that supports transparent reasoning, retrieval, and constraint application.
 
 Within the Quantarithmia program, this Hilbert‑space view provides the formal backdrop for how Ms. Jarvis “holds” and “moves” between beliefs, how GBIM connects to semantic memory, and how retrieval‑augmented generation (RAG) is grounded in structured state rather than opaque, transient activations.
 
@@ -10,229 +10,191 @@ Within the Quantarithmia program, this Hilbert‑space view provides the formal 
 
 ## 4.2 State Space as a Hilbert Space
 
-Let
+To make the math render cleanly on GitHub, this chapter uses plain-text symbols rather than inline LaTeX.
 
-- \(\mathcal{H}_{\text{text}}\) be the real inner‑product space associated with textual embeddings (documents, conversations, rules, code and thesis materials).  
-- \(\mathcal{H}_{\text{geo}}\) be the space associated with geospatial embeddings (parcels, infrastructure, service areas and other GIS‑derived entities).  
-- \(\mathcal{H}_{\text{inst}}\) be the space associated with institutional and behavioral embeddings (governance rules, DAO state, roles, trust and GBIM records).
+Let:
 
-Define the joint state space of Ms. Jarvis as the (finite‑ or countably infinite‑dimensional) Hilbert space
+- `H_text` denote the real inner‑product space associated with textual embeddings (documents, conversations, rules, code, thesis materials).
+- `H_geo` denote the real inner‑product space associated with geospatial embeddings (parcels, infrastructure, service areas, and other GIS entities).
+- `H_inst` denote the real inner‑product space associated with institutional and behavioral embeddings (governance rules, DAO state, roles, trust, GBIM records).
 
-\[
-\mathcal{H}_{\text{App}} \coloneqq
-\mathcal{H}_{\text{text}} \oplus
-\mathcal{H}_{\text{geo}} \oplus
-\mathcal{H}_{\text{inst}},
-\]
+Define the joint state space of Ms. Jarvis as the (finite‑ or countably infinite‑dimensional) Hilbert space:
 
-equipped with the canonical inner product
+- `H_App := H_text ⊕ H_geo ⊕ H_inst`
 
-\[
-\langle (x_1,y_1,z_1),(x_2,y_2,z_2) \rangle_{\text{App}}
-\coloneqq
-\langle x_1,x_2 \rangle_{\text{text}} +
-\langle y_1,y_2 \rangle_{\text{geo}} +
-\langle z_1,z_2 \rangle_{\text{inst}}.
-\]
+equipped with the canonical inner product:
 
-Elements of \(\mathcal{H}_{\text{App}}\) represent *community states* that combine semantic content, spatial configuration and institutional constraints. Beliefs, memories and contexts in Ms. Jarvis are modeled as vectors, or as probability distributions over vectors, in this space.
+- `<(x1, y1, z1), (x2, y2, z2)>_App`
+  `:= <x1, x2>_text + <y1, y2>_geo + <z1, z2>_inst`.
 
-The thesis uses the language of Hilbert spaces to emphasize structure and operators (lengths, angles, projections, dynamics), not to suggest that Ms. Jarvis runs on quantum hardware.
+Here `<·,·>_text`, `<·,·>_geo`, and `<·,·>_inst` are the inner products on the component spaces, and the induced norm is `||v||_App := sqrt(<v, v>_App)`.
+
+Elements of `H_App` represent community states that combine semantic content, spatial configuration, and institutional constraints. Beliefs, memories, and contexts in Ms. Jarvis are modeled as vectors, or as probability distributions over vectors, in this space.
+
+The goal is to use lengths, angles, projections, and operators as a structured language for reasoning, retrieval, and constraint application, while remaining compatible with conventional embedding pipelines.
 
 ---
 
-## 4.3 Why a Hilbert-Space View?
+## 4.3 Embeddings and Belief States
 
-The choice to frame Ms. Jarvis’s internal state in Hilbert‑space terms is motivated by three needs.
+Let:
 
-### 4.3.1 Mathematical structure
+- `E_text : D_text → H_text`
+- `E_geo  : D_geo  → H_geo`
+- `E_inst : D_inst → H_inst`
+
+denote embedding maps from the raw domains of documents, geospatial entities, and institutional records into their respective Hilbert components.
+
+Given a tuple `(d, g, i)` consisting of a document, a geospatial feature, and an institutional configuration, the corresponding state vector is:
+
+- `v(d, g, i) := (E_text(d), E_geo(g), E_inst(i)) ∈ H_App`.
+
+A *belief state* for a given task (for example, advising on a MountainShares proposal or answering a spatial‑justice query) is modeled as:
+
+- a finite subset `C ⊂ H_App`, and
+- non‑negative weights `{w_v}_v∈C`,
+
+yielding an empirical measure over `H_App`.
+
+The associated *context subspace* is the closed linear span:
+
+- `S(C) := closure(span(C)) ⊆ H_App`.
+
+Intuitively, “being in a certain context” means that Ms. Jarvis restricts attention to the subspace `S(C)` and to operators that act on it. This matches the operational idea that a particular task selects a local neighborhood of relevant embeddings and reasons within that neighborhood rather than over the full state.
+
+---
+
+## 4.4 Why a Hilbert-Space View?
+
+The Hilbert‑space framing is motivated by three requirements.
+
+### 4.4.1 Mathematical structure
 
 A Hilbert space provides:
 
-- An inner product \(\langle \cdot,\cdot \rangle\), inducing norms \(\|x\| = \sqrt{\langle x,x \rangle}\).  
-- Projections onto closed subspaces.  
-- Notions of similarity, orthogonality and decompositions into subspaces.
+- An inner product `<·,·>`, inducing norms and distances.
+- Orthogonal projections onto closed subspaces.
+- Decompositions into orthogonal components.
 
-These properties are directly useful for modeling “topics”, “roles” and “ethical constraints” as geometric structures—e.g., subspaces corresponding to governance content or spatial‑justice reasoning.
+These features support clear definitions of similarity, orthogonality, and subspaces, which are useful for modeling “topics”, “roles”, or “ethical constraints” as geometric structures (for example, a governance subspace, or a “harm‑related” direction).
 
-### 4.3.2 Explainable geometry
+### 4.4.2 Explainable geometry
 
-Distances and angles between embedding vectors can be interpreted as degrees of similarity or opposition between beliefs, contexts or documents. For example:
+Distances and angles between embedding vectors can be interpreted as degrees of similarity or opposition between beliefs, contexts, or documents. Cosine similarity is simply the normalized inner product:
 
-- Small angle (high cosine similarity) ≈ strong semantic alignment.  
-- Orthogonality ≈ independence or strong irrelevance.  
+- `cos(θ) = <u, v> / (||u|| · ||v||)`.
 
-This geometric view is easier to explain to researchers and community partners than raw model internals or opaque weight tensors, and it provides a shared language for “which parts of the state moved” after an intervention.
+This geometric view is easier to communicate to researchers and community partners than raw model internals and aligns with existing practice in embedding‑based information retrieval and kernel methods.
 
-### 4.3.3 Compatibility with existing tools
+### 4.4.3 Compatibility with existing tools
 
-Modern embedding models naturally output high‑dimensional vectors, and tools such as vector databases store and query them efficiently. Treating these vectors explicitly as elements of a Hilbert space aligns the implementation (embedding models + vector store + GBIM metadata) with a coherent conceptual model of state and operators.
-
-In practice, “Hilbert space” here means a real, high‑dimensional inner‑product space, often realized with the standard Euclidean inner product induced by an embedding model.
-
----
-
-## 4.4 Embeddings as Belief State
-
-Let
-
-- \(E_{\text{text}} : \mathcal{D}_{\text{text}} \to \mathcal{H}_{\text{text}}\)  
-- \(E_{\text{geo}} : \mathcal{D}_{\text{geo}} \to \mathcal{H}_{\text{geo}}\)  
-- \(E_{\text{inst}} : \mathcal{D}_{\text{inst}} \to \mathcal{H}_{\text{inst}}\)
-
-denote embedding maps from the raw domains of documents, geospatial entities and institutional records into their respective Hilbert components.
-
-Given a triple \((d,g,i)\) consisting of a document, a geospatial feature and an institutional configuration, the corresponding state vector is
-
-\[
-v(d,g,i) \coloneqq \bigl(E_{\text{text}}(d), E_{\text{geo}}(g), E_{\text{inst}}(i)\bigr)
-\in \mathcal{H}_{\text{App}}.
-\]
-
-At the core of Ms. Jarvis’s state representation:
-
-- **Texts, places and entities are embedded**  
-  Documents, GIS features, governance rules and thesis materials are converted into embedding vectors that live in \(\mathcal{H}_{\text{App}}\), possibly with some components zero when not applicable.  
-
-- **Context windows as subspaces**  
-  A particular task—for example, advising on a MountainShares proposal or answering a spatial‑justice question—selects a finite set
-  \[
-  \mathcal{C} \subset \mathcal{H}_{\text{App}}
-  \]
-  of relevant vectors (retrieved from memory), and defines the associated context subspace
-  \[
-  \mathcal{S}(\mathcal{C}) \coloneqq \overline{\mathrm{span}(\mathcal{C})}.
-  \]
-  Reasoning for that task is understood as occurring inside \(\mathcal{S}(\mathcal{C})\).  
-
-- **Belief updates as movement**  
-  As new information arrives or constraints are applied, Ms. Jarvis’s effective state can be viewed as a trajectory \(\{v_t\}_{t \ge 0}\) in \(\mathcal{H}_{\text{App}}\), shifting weight toward some regions (beliefs) and away from others, or adding/removing basis vectors in \(\mathcal{C}\).
-
-This geometric metaphor supports explanations like: “For this question, Ms. Jarvis projected the query into \(\mathcal{H}_{\text{App}}\), found nearby beliefs in the governance and GIS subspaces, and generated an answer conditioned on that neighborhood.”
+Modern embedding models output high‑dimensional real vectors, and vector databases efficiently store and query them. Treating these vectors explicitly as elements of a Hilbert space aligns the implementation with a coherent conceptual model of state and operators while remaining compatible with standard similarity search and RAG pipelines.
 
 ---
 
 ## 4.5 Query Projection and Retrieval
 
-Let \(q\) be a natural‑language query associated with a task and (optionally) a geography and role. The system computes a textual embedding
+Let `q` be a natural‑language query associated with a task and (optionally) a geography and role. The system computes an embedding:
 
-\[
-\mathbf{q} \coloneqq E_{\text{text}}(q) \in \mathcal{H}_{\text{text}},
-\]
+- `q_vec := E_text(q) ∈ H_text`.
 
-and lifts it into the joint space as
+This is lifted to the joint space via:
 
-\[
-\tilde{\mathbf{q}} \coloneqq (\mathbf{q}, 0, 0) \in \mathcal{H}_{\text{App}},
-\]
+- `q_tilde := (q_vec, 0, 0) ∈ H_App`,
 
-or uses a more structured lifting if explicit geo/institutional hints are available.
+or via a more structured lifting if geo/institutional context is explicitly encoded.
 
-Given a collection \(\mathcal{C} \subset \mathcal{H}_{\text{App}}\), retrieval is implemented by selecting vectors \(v \in \mathcal{C}\) that maximize a similarity functional, typically cosine similarity:
+Given a collection `C ⊂ H_App`, retrieval is implemented as selection of vectors `v ∈ C` that maximize a similarity functional such as cosine similarity:
 
-\[
-\operatorname{sim}(\tilde{\mathbf{q}}, v) \coloneqq
-\frac{\langle \tilde{\mathbf{q}}, v \rangle_{\text{App}}}
-{\|\tilde{\mathbf{q}}\|_{\text{App}} \, \|v\|_{\text{App}}}.
-\]
+- `sim(q_tilde, v) := <q_tilde, v>_App / (||q_tilde||_App · ||v||_App)`.
 
-The \(k\) highest‑similarity vectors define the “local neighborhood” in which RAG is performed, and their span generates the immediate context subspace \(\mathcal{S}(\mathcal{C}_q)\) for answering \(q\).
+This similarity is induced by the Hilbert‑space inner product and defines the “neighborhood” in which RAG operates. The top‑k neighbors form a finite set `C_q`, whose span `S(C_q)` is the immediate context subspace for answering `q`.
+
+This matches the informal description: “project the query into the Hilbert space, find nearby beliefs in the governance and GIS subspaces, and generate an answer conditioned on that neighborhood.”
 
 ---
 
 ## 4.6 Roles, Constraints, and Subspaces
 
-Different roles and constraints in Ms. Jarvis are modeled as subspaces or regions of \(\mathcal{H}_{\text{App}}\).
-
 Let:
 
-- \(\mathcal{R}\) be a set of roles (e.g., researcher, engineer, community‑advisor, governance).  
-- \(\mathcal{K}\) be a set of constitutional constraints (e.g., ethical rules, safety filters).
+- `R` be a set of roles (for example, researcher, engineer, community‑advisor, governance), and
+- `K` be a set of constitutional constraints (for example, ethical rules, safety filters, jurisdictional limits).
 
-For each role \(r \in \mathcal{R}\), define a closed subspace \(\mathcal{H}_r \subseteq \mathcal{H}_{\text{App}}\), generated by vectors whose metadata indicate relevance to that role (e.g., system architecture documents for “engineer”, bylaws for “governance”, outreach narratives for “community‑advisor”).
+For each role `r ∈ R`, define a closed subspace:
 
-For each constraint \(k \in \mathcal{K}\), define a closed subspace \(\mathcal{H}_k \subseteq \mathcal{H}_{\text{App}}\) corresponding to content that must be suppressed, restricted or treated with care (e.g., vectors associated with harm, disallowed advice, prohibited topics). Outputs are then required to satisfy projection‑based conditions such as
+- `H_r ⊆ H_App`,
 
-\[
-\|P_{\mathcal{H}_k}(\mathbf{o})\| \le \varepsilon,
-\]
+generated by vectors whose metadata indicate relevance to that role: governing documents for governance, architecture notes and logs for engineering, outreach narratives for community‑advisor, and so on.
 
-where \(P_{\mathcal{H}_k}\) is the orthogonal projector onto \(\mathcal{H}_k\) and \(\mathbf{o}\) is the representation of a candidate output.
+For each constraint `k ∈ K`, define a closed subspace:
 
-Because GBIM ties embeddings to geospatial entities, one can also define subspaces \(\mathcal{H}_G\) generated by vectors whose geospatial metadata fall inside a specific region \(G\) (e.g., an individual county, a cluster of towns, or a watershed).
+- `H_k ⊆ H_App`,
+
+corresponding to content that must be suppressed, restricted, or treated with particular care (for example, vectors associated with self‑harm, prohibited advice, or disallowed topics).
+
+Let `P_Hk` denote the orthogonal projector onto `H_k`. A candidate output, represented by a vector `o ∈ H_App`, is required to satisfy a constraint such as:
+
+- `||P_Hk(o)|| ≤ ε`,
+
+for some small tolerance `ε ≥ 0`, ensuring that the component of `o` lying in the sensitive subspace is limited.
+
+Because GBIM ties embeddings to geospatial entities, one can also define:
+
+- `H_G ⊆ H_App`,
+
+the subspace generated by vectors whose geospatial metadata fall inside a specific region `G` (for example, a county, cluster of towns, or watershed).
 
 For a task with:
 
-- role \(r\),  
-- geography \(G\),  
-- active constraints \(K \subseteq \mathcal{K}\),
+- role `r`,
+- geography `G`,
+- active constraints `K_active ⊆ K`,
 
-the effective reasoning space is
+the *effective reasoning space* is:
 
-\[
-\mathcal{H}_{\text{eff}} \coloneqq
-\Bigl(\mathcal{H}_r \cap \mathcal{H}_G\Bigr)
-\cap
-\bigcap_{k \in K} \mathcal{H}_k^{\perp},
-\]
+- `H_eff := (H_r ∩ H_G) ∩ (⋂_{k ∈ K_active} H_k^⊥)`,
 
-where \(\mathcal{H}_k^{\perp}\) is the orthogonal complement of \(\mathcal{H}_k\). Operationally, Ms. Jarvis restricts retrieval and reasoning to vectors whose embeddings lie (or are projected) into \(\mathcal{H}_{\text{eff}}\) before generation.
+where `H_k^⊥` denotes the orthogonal complement of `H_k`.
+
+Operationally, Ms. Jarvis restricts retrieval and reasoning to vectors whose embeddings lie in (or are projected into) `H_eff` before generation, rather than treating all embeddings as equally available.
 
 ---
 
 ## 4.7 Operators and Quantarithmic Dynamics
 
-Quantarithmia interprets changes in community state as bounded linear operators on \(\mathcal{H}_{\text{App}}\).
+In the Quantarithmia program, changes in community state are modeled as bounded linear operators on `H_App`.
 
-- A **force** (e.g., corporate extraction, policy intervention, community program, Ms. Jarvis agent) is modeled as an operator
-  \[
-  T : \mathcal{H}_{\text{App}} \to \mathcal{H}_{\text{App}}.
-  \]
-  Applying \(T\) to a state vector \(v\) yields a new state \(v' = T v\).  
+- A “force” (for example, corporate extraction, policy intervention, community program, Ms. Jarvis agent) is an operator  
+  `T : H_App → H_App`,  
+  and applying `T` corresponds to moving a state vector `v` to a new state `T(v)`.
 
-- A **trajectory** of the system is a sequence \(\{v_t\}_{t \ge 0}\) with dynamics
-  \[
-  v_{t+1} = T_t v_t,
-  \]
-  where each \(T_t\) may depend on observed data, DAO votes or internal policies.
+- A *trajectory* of the system is a sequence `{v_t}_t≥0` with dynamics  
+  `v_{t+1} = T_t(v_t)`,  
 
-Spatial justice can then be expressed as a geometric property or functional defined on \(\mathcal{H}_{\text{App}}\): for example, a scalar \(J(v)\) measuring degree of centralization, extraction or inequality in the state \(v\). A central Quantarithmic question becomes whether the operators \(\{T_t\}\) associated with a pipeline (e.g., MountainShares policies combined with Ms. Jarvis interventions) move trajectories toward states with lower \(J(v)\).
+  where `T_t` may itself depend on observed data, DAO votes, Ms. Jarvis’s internal policy, or exogenous shocks.
 
-In this sense, Ms. Jarvis functions as an *operator learner* on \(\mathcal{H}_{\text{App}}\): estimating effective operators from observed data (embeddings over time) and proposing or enacting operators that move the system toward desired regions of the state space.
+A central Quantarithmic question—“Is the system moving toward or away from spatial justice?”—becomes: given a reference “just” subspace or state `v_ref`, do the operators `{T_t}` bring trajectories closer to or farther from `v_ref` in norm or in a suitable spectral metric?
+
+In this sense:
+
+- Spatial justice is expressed as a geometric functional  
+  `J : H_App → ℝ`  
+  (for example, measuring centralization, extraction, or inequality).
+
+- Ms. Jarvis acts as an *operator learner*, estimating effective operators from observed trajectories and proposing or enacting operators that move the system toward regions of `H_App` with improved `J(v)`.
 
 ---
 
-## 4.8 Interaction with GBIM and ChromaDB
+## 4.8 Concrete Realization via GBIM and Vector Storage
 
-The Hilbert‑space state is not an abstract idea detached from implementation; it is concretely realized in Ms. Jarvis’s data layer.
+Concretely, `H_text`, `H_geo`, and `H_inst` are realized by embeddings stored in the running system:
 
-- **GBIM** provides the mapping between geospatial entities, temporal and evidential metadata and their embedding representations, populating \(\mathcal{H}_{\text{geo}}\) and \(\mathcal{H}_{\text{inst}}\).  
-- **Vector storage (e.g., ChromaDB)** stores embedding vectors and exposes similarity search over them, acting as the memory interface to \(\mathcal{H}_{\text{text}}\), \(\mathcal{H}_{\text{geo}}\) and \(\mathcal{H}_{\text{inst}}\).  
-- **Routing and RAG components** operate by projecting queries into \(\mathcal{H}_{\text{App}}\), retrieving nearby vectors from appropriate collections and feeding them into language models under role, spatial and constitutional constraints.
+- Embeddings stored in the vector database instance (for example, collections analogous to `GBIM`, `GeoDB`, `h4h`, `egeria_docs`, `mountainshares_knowledge`) form finite subsets of `H_App`.  
+- GBIM schemas provide explicit mappings from parcels, owners, locations, timestamps, and “quantum_tag” flags to vectors in `H_geo` and `H_inst`.  
+- Ms. Jarvis services implement operators `T` as transformations of these embeddings: insertion, update, re‑weighting, re‑indexing, or re‑labeling, which in aggregate produce trajectories `{v_t}` in `H_App`.
 
-In the current deployment, the active Hilbert‑space state is realized as embeddings stored in a vector database instance exposed on the host and used by the unified RAG server. An audit reports 12 named collections that together constitute the semantic state Ms. Jarvis uses for retrieval‑augmented reasoning:
-
-- `geodb_provider_population_summary`  
-- `mount_hope_gis`  
-- `msjarvis_services`  
-- `GBIM`  
-- `aaacpe_linguistics`  
-- `GeoDB`  
-- `h4h`  
-- `geodb_block_provider_summary`  
-- `gisgeodata`  
-- `conversations`  
-- `egeria_docs`  
-- `mountainshares_knowledge`  
-
-Representative metadata illustrate how concrete entities are represented as points in \(\mathcal{H}_{\text{App}}\):
-
-- **GBIM** entries include parcel and location records with fields such as `area_acres`, `owner`, `parcel_id`, `summary`, `county`, `state`, `location`, `lat`, `lon`, `timestamp` and a `quantum_tag` flag used by Quantarithmia’s correlation and entanglement heuristics.  
-- **GeoDB** entries contain geospatial backbone vectors, some of which are partially populated and intended for enrichment over time.  
-- **egeria_docs** entries link vectors to system documentation files (for example, `WORKING_ENDPOINTS.md`, `MS_JARVIS_COMPLETE_ARCHITECTURE.md`, `FIFTH_DGM_RESTORED.md`), with `filename`, `source` path and `size`, making parts of Egeria’s self‑description directly inspectable in the Hilbert space.  
-- **mountainshares_knowledge** vectors represent chunks from MountainShares governance and design documents, forming a specific semantic subspace tied to DAO rules and community‑economy plans.
-
-By issuing nearest‑neighbor and clustering queries inside and across these collections, it is possible to empirically verify that semantically and spatially related entities (for example, Fayette County parcels and their providers, or related architecture documents) cluster together in \(\mathcal{H}_{\text{App}}\). This makes the Hilbert‑space framing empirically inspectable rather than purely metaphorical.
+Nearest‑neighbor queries and clustering over these collections provide empirical access to the geometry of `H_App`, allowing tests of whether semantically and spatially related entities form coherent subspaces and whether Quantarithmic interventions produce measurable shifts in those regions.
 
 ---
 
@@ -241,23 +203,24 @@ By issuing nearest‑neighbor and clustering queries inside and across these col
 There are important limits to this framing:
 
 - **Embeddings are approximations**  
-  Embedding models compress complex realities into finite vectors, which can lose nuance or encode bias. Proximity in \(\mathcal{H}_{\text{App}}\) does not guarantee full conceptual alignment or normative correctness.
+  Embedding models compress complex realities into finite vectors, which can lose nuance or encode bias. Proximity in `H_App` does not guarantee full conceptual alignment or normative correctness.
 
 - **Geometry is model‑dependent**  
-  Changes in embedding models, training data or preprocessing can reshape the geometry of the space, potentially altering similarity relationships, subspace boundaries and even the behavior of operators defined on \(\mathcal{H}_{\text{App}}\).
+  Changes in embedding models, training data, or preprocessing can reshape the geometry of `H_App`, altering similarity relationships, subspace boundaries, and the behavior of operators defined on this space.
 
 - **Not literal consciousness or quantum state**  
-  The Hilbert‑space metaphor is a tool for structuring and explaining Ms. Jarvis’s state. It should not be read as a claim about subjective experience or physical quantum entanglement; it is a mathematical and engineering abstraction.
+  The Hilbert‑space metaphor is a mathematical and engineering abstraction for structuring and explaining Ms. Jarvis’s state; it is not a claim about subjective experience or physical quantum entanglement.
 
 ---
 
 ## 4.10 Status and Further Work
 
-This chapter provides a formal but implementation‑aligned description of Ms. Jarvis’s state as a Hilbert space \(\mathcal{H}_{\text{App}}\), together with its subspaces and operators, and links them to concrete collections and services in the running system.
+This chapter specifies `H_App`, its subspaces, and operators at a conceptual–formal level, and links them to concrete components (GBIM, vector storage, RAG orchestration) in the running Ms. Jarvis system.
 
-Further thesis work and technical appendices may:
+Future work will:
 
-- Develop explicit spatial‑justice functionals \(J : \mathcal{H}_{\text{App}} \to \mathbb{R}\) and analyze the effect of specific operators on \(J\).  
-- Prove basic properties of selected operators (e.g., contractivity, spectral bounds, stability conditions) in the Quantarithmic setting.  
-- Explore conditions under which certain families of operators yield stable, just “attractors” in \(\mathcal{H}_{\text{App}}\), consistent with the normative aims of Quantarithmia and the governance objectives of Ms. Jarvis.
+- Prove basic properties of selected operators (for example, contractivity and spectral radius bounds for specific intervention classes).  
+- Define explicit spatial‑justice functionals `J : H_App → ℝ` and analyze how particular interventions `T` affect `J(v_t)` along observed trajectories.  
+- Explore conditions under which families of operators yield stable, just attractors in `H_App` consistent with Quantarithmia’s normative goals.
 
+Subsequent chapters (on vector storage, RAG pipelines, and quantum‑inspired entanglement heuristics) build on this foundation by specifying how vectors are stored, retrieved, combined, and constrained in practice.
