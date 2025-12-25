@@ -45,4 +45,3 @@ Our goal with the proceeds is for them to go toward:
 - The Oakvale Area Outreach Team staff, daily activities, programmatic work, and project support, to sustain outreach and services in the Oakvale area.
 - The Mount Hope Regional Band staff, daily activities, programmatic work, and project support, as a community cultural and educational resource.
 - The enhancement of the Mount Hope Historic Walking Trail and the extension into the Coalfield Chronicles Trail throughout southern West Virginia, including staff, daily activities, IT support and maintenance, and GIS support and maintenance, all performed in house.
-
