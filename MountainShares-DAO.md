@@ -34,3 +34,15 @@ MountainShares is a DAO-based economic and governance system intended to keep va
 - This document is an architectural and governance overview for technical and community readers. It is not legal, tax, or investment advice.
 - Participation in MountainShares may have legal or tax implications that depend on individual circumstances and jurisdiction. Participants are responsible for obtaining their own professional advice as needed.
 - Additional binding documents (such as Terms of Use, privacy policies, entity charters, or DAO-specific legal frameworks) may supplement or override portions of this overview where required by law or by future community-approved updates.
+
+##Proceeds from MountainShares allocated to Harmony for Hope, Inc. are intended to be used as follows:
+
+Our goal with the proceeds is for them to go toward:
+
+- Harmony for Hope, Inc. daily operations and staff, providing core organizational capacity to coordinate programs and maintain community partnerships.
+- The Fayette County Community Arts Center Historic Rehabilitation (NPS Contributing Structure), including project staff and daily operations during the rehabilitation phase.
+- Once the rehabilitation project is complete, ongoing support for area art, music, and Appalachian heritage programs, including food preservation, as well as upkeep and continued maintenance of the facility in perpetuity.
+- The Oakvale Area Outreach Team staff, daily activities, programmatic work, and project support, to sustain outreach and services in the Oakvale area.
+- The Mount Hope Regional Band staff, daily activities, programmatic work, and project support, as a community cultural and educational resource.
+- The enhancement of the Mount Hope Historic Walking Trail and the extension into the Coalfield Chronicles Trail throughout southern West Virginia, including staff, daily activities, IT support and maintenance, and GIS support and maintenance, all performed in house.
+
