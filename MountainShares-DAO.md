@@ -35,7 +35,7 @@ MountainShares is a DAO-based economic and governance system intended to keep va
 - Participation in MountainShares may have legal or tax implications that depend on individual circumstances and jurisdiction. Participants are responsible for obtaining their own professional advice as needed.
 - Additional binding documents (such as Terms of Use, privacy policies, entity charters, or DAO-specific legal frameworks) may supplement or override portions of this overview where required by law or by future community-approved updates.
 
-##Proceeds from MountainShares allocated to Harmony for Hope, Inc. are intended to be used as follows:
+## Proceeds from MountainShares allocated to Harmony for Hope, Inc. are intended to be used as follows:
 
 Our goal with the proceeds is for them to go toward:
 
