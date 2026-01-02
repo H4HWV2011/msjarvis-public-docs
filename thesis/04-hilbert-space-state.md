@@ -188,11 +188,10 @@ In this sense:
 
 Concretely, `H_text`, `H_geo`, and `H_inst` are realized by embeddings stored in the running system:
 
-Embeddings stored in the ChromaDB instance (for example, collections such as `gis_geospatial`, `shapefile_features`, `census_points`, `mountainshares_knowledge`, `autonomous_learning`, and `ms_jarvis_memory`) form finite subsets of \(H_\text{App}\), with some collections currently operating in document/metadata-only mode pending full embedding backfill.
+- Embeddings stored in the ChromaDB instance (for example, collections such as `gis_geospatial`, `shapefile_features`, `census_points`, `mountainshares_knowledge`, `autonomous_learning`, and `ms_jarvis_memory`) form finite subsets of \(H_\text{App}\), with some collections currently operating in document/metadata-only mode pending full embedding backfill.
+- In the current implementation, \(H_\text{text}\) is realized concretely by 384‑dimensional embeddings produced by the `all-MiniLM-L6-v2` SentenceTransformer model, with vectors stored in ChromaDB collections described in Chapter 05.
 
-In the current implementation, \(H_\text{text}\) is realized concretely by 384‑dimensional embeddings produced by the `all-MiniLM-L6-v2` SentenceTransformer model, with vectors stored in ChromaDB collections described in Chapter 05.
-
-Nearest‑neighbor queries and clustering over these collections provide empirical access to the geometry of `H_App`, allowing tests of whether semantically and spatially related entities form coherent subspaces and whether Quantarithmic interventions produce measurable shifts in those regions.
+Nearest‑neighbor queries and clustering over these collections provide empirical access to the geometry of \(H_\text{App}\), allowing tests of whether semantically and spatially related entities form coherent subspaces and whether Quantarithmic interventions produce measurable shifts in those regions.
 
 ---
 
