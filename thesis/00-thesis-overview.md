@@ -1,4 +1,4 @@
-> New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
+> New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to how theory, engineering, and live system behavior relate.
 
 # 0. Thesis Overview
 
@@ -6,11 +6,11 @@
 
 This thesis sits within **polymathamatical geography**, an emerging field that integrates quantitative geography, systems theory, AI architectures, and community‑centered design to study how power, value, and information move through real places like Appalachia.
 
-It treats **Quantarithmia**, **Ms. Egeria Jarvis**, and **MountainShares / Commons** as one integrated research program, moving from theory to technical implementation to institutional practice.
+It treats **Quantarithmia**, **Ms. Egeria Jarvis**, and **MountainShares / Commons** as one integrated research program, with a clear separation between theoretical claims, engineering claims, and the behavior of the live production system.
 
-- **Quantarithmia** defines the axioms, reciprocity metrics, and spatial justice framework.
-- **Ms. Jarvis + GBIM** implement those axioms in a transparent, geography‑aware AI system (Conscious GeoAI).
-- **MountainShares / Commons DAO** implement those axioms in economic and governance structures for rural communities.
+- **Quantarithmia** defines the axioms, reciprocity metrics, and spatial justice framework (theoretical layer).
+- **Ms. Jarvis + GBIM** implement those axioms in a transparent, geography‑aware AI system (engineering / Conscious GeoAI layer).
+- **MountainShares / Commons DAO** implement those axioms in economic and governance structures for rural communities (institutional / practice layer).
 
 ## System Non‑Goals
 
@@ -22,4 +22,3 @@ To avoid overstatement, this thesis explicitly marks several non‑goals:
 - Ms. Jarvis does not provide legal, tax, or medical advice.
 - MountainShares is not a general‑purpose investment vehicle or securities offering.
 - Neither system is intended to operate without human governance, oversight, and legal constraints.
-
