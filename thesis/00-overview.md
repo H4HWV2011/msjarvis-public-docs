@@ -1,10 +1,10 @@
-> New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to research vs. engineering claims.
+> New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to how engineering claims, research claims, and live system behavior relate.
 
 # Ms. Jarvis Public Documentation & Thesis Systems Overview
 
 **Location:** Mount Hope, West Virginia  
 **Status:** Live Production / Active Research  
-**Date:** December 4, 2025
+**Last Updated:** January 2, 2026
 
 ## 1. Executive Summary
 
@@ -99,4 +99,4 @@ This repository contains **public documentation** only. Source code and sensitiv
 * **Community Partners:** To verify how Ms. Jarvis supports local empowerment without technical obfuscation.  
 * **Auditors:** To review the architectural safeguards and governance logic.
 
-> **Note:** This overview is a living document updating alongside the system's evolution. All architectural claims regarding DGM, Quantum Entanglement, and Fractal Optimization are backed by the live production code running in Mount Hope, WV.
+> **Note:** This overview is a living document that updates alongside the system's evolution. All architectural claims regarding DGM, quantum-inspired entanglement, and optimization strategies are backed by the live production code running in Mount Hope, WV.
