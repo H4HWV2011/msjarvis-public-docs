@@ -3,8 +3,8 @@
 
 # Ms. Jarvis Public Documentation
 
-**Lane:** Conscious GeoAI for rural governance and spatial justice in Appalachia.  
-**Tagline:** *No black box. Place‑aware, community‑governed AI for real towns.*
+** Conscious GeoAI for rural governance and spatial justice in Appalachia. **  
+ ** No black box. Place‑aware, community‑governed AI for real towns.**
 
 **A Constitutional, Community-Governed AI System**  
 *Glassbox Architecture, Spatially Grounded in West Virginia, AGPL-3.0*
