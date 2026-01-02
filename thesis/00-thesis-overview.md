@@ -2,15 +2,15 @@
 
 # 0. Thesis Overview
 
-# Thesis Systems Overview
+## Thesis Systems Overview
 
-This thesis sits within **polymathamatical geography**, an emerging field that integrates quantitative geography, systems theory, AI architectures, and community-centered design to study how power, value, and information move through real places like Appalachia.
+This thesis sits within **polymathamatical geography**, an emerging field that integrates quantitative geography, systems theory, AI architectures, and community‑centered design to study how power, value, and information move through real places like Appalachia.
 
-It treats **Quantarithmia**, **Ms. Egeria Jarvis**, and **MountainShares** as one integrated research program, moving from theory to technical implementation to institutional practice.
+It treats **Quantarithmia**, **Ms. Egeria Jarvis**, and **MountainShares / Commons** as one integrated research program, moving from theory to technical implementation to institutional practice.
 
-- **Quantarithmia** defines the axioms, metrics, and justice framework.
-- **Ms. Jarvis + GBIM** implement those axioms in a glassbox AI consciousness system.
-- **MountainShares DAO** implements those axioms in economic and governance structures.
+- **Quantarithmia** defines the axioms, reciprocity metrics, and spatial justice framework.
+- **Ms. Jarvis + GBIM** implement those axioms in a transparent, geography‑aware AI system (Conscious GeoAI).
+- **MountainShares / Commons DAO** implement those axioms in economic and governance structures for rural communities.
 
 ## System Non‑Goals
 
@@ -22,3 +22,4 @@ To avoid overstatement, this thesis explicitly marks several non‑goals:
 - Ms. Jarvis does not provide legal, tax, or medical advice.
 - MountainShares is not a general‑purpose investment vehicle or securities offering.
 - Neither system is intended to operate without human governance, oversight, and legal constraints.
+
