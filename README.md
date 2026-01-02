@@ -48,8 +48,8 @@ GitHub. For security reasons:
   - Exposes a `/chat` interface that coordinates GBIM, neurobiological services, and
     the LLM fabric.
 
-- **22‑Model LLM Fabric**  
-  - Ensemble of 22 models accessed through internal proxies (for example,
+- **21‑Model LLM Fabric**  
+  - Ensemble of 21 models accessed through internal proxies (for example,
     `llm1‑proxy` … `llm22‑proxy`).  
   - Invoked as a sequential or semi‑parallel sweep; some model timeouts are tolerated
     and reported in aggregate.
@@ -126,7 +126,8 @@ with the public `/chat` surface.
 
 - Intended for normal application and community use.  
 - Subject to Cloudflare timeouts for long‑running multi‑LLM analyses.
-`
+
+'
 curl -s -X POST 'https://jarvis.mountainshares.us/chat' \
   -H 'Content-Type: application/json' \
   -H 'x-api-key: <your-key>' \
@@ -136,131 +137,129 @@ curl -s -X POST 'https://jarvis.mountainshares.us/chat' \
     "message": "Hello Ms. Jarvis, who are you?",
     "metadata": { "source": "docs-readme-example" }
   }'
-`
+'
+## Internal (diagnostics and deep evaluations)
 
-### Internal (diagnostics and deep evaluations)
+In controlled environments, an internal /chat endpoint on the main brain can be used
+for long‑running full‑fabric evaluations that may exceed Cloudflare’s request timeout.
 
-In controlled environments, an internal `/chat` endpoint on the main brain can be used
-for long‑running 22‑LLM evaluations that may exceed Cloudflare’s request timeout.
-
-`
+'
 curl -s -X POST 'http://127.0.0.1:18018/chat' \
   -H 'Content-Type: application/json' \
   --data '{
     "user_id": "diagnostic-user",
-    "message": "Run a full 22-LLM expert analysis and report which models succeeded or failed."
+    "message": "Run a full fabric expert analysis and report which models succeeded or failed."
   }'
-`
-#### Conceptual Response Shape
+'
 
-Actual fields are defined in `api_specs/openapi.json` and may evolve; conceptually,
+## Conceptual Response Shape
+
+Actual fields are defined in api_specs/openapi.json and may evolve; conceptually,
 responses include:
 
-- `response: string` – synthesized narrative response from the main brain.  
-- `services_used: string[]` – high‑level record of services or fabrics involved.  
-- `consciousness_level: string` – for example, `"ultimate_collective"` for full‑fabric
-  runs.  
-- `processing_time: number` – approximate wall‑clock seconds for the request.
+    response: string – synthesized narrative response from the main brain.
 
-Future versions may optionally expose a per‑model `results[]` structure and a `summary`
-field for 22‑LLM fabric diagnostics.
+    services_used: string[] – high‑level record of services or fabrics involved.
 
----
+    consciousness_level: string – for example, "ultimate_collective" for full‑fabric
+    runs.
 
-## 📜 License: AGPL-3.0
+    processing_time: number – approximate wall‑clock seconds for the request.
+
+Future versions may optionally expose a per‑model results[] structure and a summary
+field for fabric diagnostics.
+📜 License: AGPL-3.0
 
 This system and documentation are licensed under GNU Affero General Public License
 v3.0.
 
-High-level summary (not legal advice):
+## High-level summary (not legal advice):
 
-- ✅ You may use, study, modify, and distribute covered works.  
-- ✅ Network deployment of modified versions requires offering corresponding source to
-  users.  
-- ✅ Derivatives must remain under AGPL-3.0–compatible terms.
+    ✅ You may use, study, modify, and distribute covered works.
 
-See [LICENSE](LICENSE) for the full text.
+    ✅ Network deployment of modified versions requires offering corresponding source to
+    users.
 
----
+    ✅ Derivatives must remain under AGPL-3.0–compatible terms.
 
-## 🔒 Security Model
+See LICENSE for the full text.
+🔒 Security Model
 
 Ms. Jarvis’s design is explicitly shaped by security failures in earlier smart-contract
 and financial infrastructure work associated with MountainShares.
 
-**Problem (historical context)**  
+## Problem (historical context)
 Public repositories handling sensitive financial logic proved vulnerable to corruption
 and misuse, motivating a stricter separation between documentation and code.
 
-**Approach**
+## Approach
 
-- Security-aware design from the outset.  
-- No production financial or biometric code in public repositories.  
-- Constitutional and governance constraints documented for external audit.  
-- Sensitive implementation details and operational configuration kept behind an
-  access-controlled process.
+    Security-aware design from the outset.
 
-See [Security Overview](security/SECURITY-OVERVIEW.md) for more detail.
+    No production financial or biometric code in public repositories.
 
----
+    Constitutional and governance constraints documented for external audit.
 
+    Sensitive implementation details and operational configuration kept behind an
+    access-controlled process.
+
+See Security Overview for more detail.
 ## 📚 Documentation
+For Users and Community Partners
 
-### For Users and Community Partners
+    API Overview – How external systems interact with Ms. Jarvis.
 
-- **API Overview** – How external systems interact with Ms. Jarvis.  
-- **Thesis Systems Overview** – Integrated view of polymathamatical geography,
-  Quantarithmia, Ms. Jarvis, and MountainShares.  
-- **Researcher Position** – Methodology and author positionality.
+    Thesis Systems Overview – Integrated view of polymathamatical geography,
+    Quantarithmia, Ms. Jarvis, and MountainShares.
 
-### For Developers and Auditors
+    Researcher Position – Methodology and author positionality.
 
-- **SOURCE_ACCESS.md** – How to request access to code and deeper
-  technical materials.  
-- **Security Overview** – Conceptual security and threat model.
+## For Developers and Auditors
 
-### For Researchers
+    SOURCE_ACCESS.md – How to request access to code and deeper
+    technical materials.
 
-- **Ms. Jarvis Thesis** – Core treatment of polymathamatical geography,
-  Quantarithmia, GBIM, consciousness architecture, and governance structures.
+    Security Overview – Conceptual security and threat model.
 
-(Previously listed files such as `architecture/SYSTEM_ARCHITECTURE.md`,
-`architecture/CONSCIOUSNESS.md`, `architecture/GIS_SYSTEM.md`,
-`governance/CONSTITUTIONAL_PRINCIPLES.md`, `security/BIOMETRIC_WALLET.md`,
-`security/BLOCKCHAIN_SECURITY.md`, `security/SECURITY.md`, `docs/GETTING_STARTED.md`,
-and `api_specs/swagger-export/` are not present on the main branch and are therefore
+## For Researchers
+
+    Ms. Jarvis Thesis – Core treatment of polymathamatical geography,
+    Quantarithmia, GBIM, consciousness architecture, and governance structures.
+
+(Previously listed files such as architecture/SYSTEM_ARCHITECTURE.md,
+architecture/CONSCIOUSNESS.md, architecture/GIS_SYSTEM.md,
+governance/CONSTITUTIONAL_PRINCIPLES.md, security/BIOMETRIC_WALLET.md,
+security/BLOCKCHAIN_SECURITY.md, security/SECURITY.md, docs/GETTING_STARTED.md,
+and api_specs/swagger-export/ are not present on the main branch and are therefore
 not linked here.)
-
----
 
 ## 🤝 Organizations
 
-- **MountainShares** – DAO-based economic and governance system used as the primary
-  institutional case study for spatial justice and community-first infrastructure.  
-- **Harmony for Hope** – 501(c)(3) nonprofit in Fayette County, West Virginia, serving as
-  an on-the-ground community partner.
+    MountainShares – DAO-based economic and governance system used as the primary
+    institutional case study for spatial justice and community-first infrastructure.
+
+    Harmony for Hope – 501(c)(3) nonprofit in Fayette County, West Virginia, serving as
+    an on-the-ground community partner.
 
 Academic collaborations in West Virginia are an active goal of the research program but
 are not formal institutional partnerships unless explicitly documented elsewhere.
 
----
-
 ## 🌍 Community
 
-- **Location:** Mount Hope, West Virginia.  
-- **Mission:** Community-first AI with constitutional governance, spatial justice, and
-  rural peace at its core.  
-- **Values:** Transparency, accountability, and local empowerment.
+    Location: Mount Hope, West Virginia.
 
----
+    Mission: Community-first AI with constitutional governance, spatial justice, and
+    rural peace at its core.
+
+    Values: Transparency, accountability, and local empowerment.
 
 ## 📧 Contact
 
-- Email: [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)  
-- Source Access: See `SOURCE_ACCESS.md`  
-- Issues: Use GitHub Issues for documentation and research questions only.
+    Email: h4hwv2011@gmail.com
 
----
+    Source Access: See SOURCE_ACCESS.md
 
-Built with ❤️ in West Virginia  
-**“No black box. Full transparency. Community first.”**
+    Issues: Use GitHub Issues for documentation and research questions only.
+
+### Built with ❤️ in West Virginia
+“No black box. Full transparency. Community first.”
