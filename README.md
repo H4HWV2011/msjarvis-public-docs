@@ -168,7 +168,8 @@ responses include:
 
 Future versions may optionally expose a per‑model results[] structure and a summary
 field for fabric diagnostics.
-📜 License: AGPL-3.0
+
+## 📜 License: AGPL-3.0
 
 This system and documentation are licensed under GNU Affero General Public License
 v3.0.
@@ -183,7 +184,8 @@ v3.0.
     ✅ Derivatives must remain under AGPL-3.0–compatible terms.
 
 See LICENSE for the full text.
-🔒 Security Model
+
+## 🔒 Security Model
 
 Ms. Jarvis’s design is explicitly shaped by security failures in earlier smart-contract
 and financial infrastructure work associated with MountainShares.
@@ -204,6 +206,7 @@ and misuse, motivating a stricter separation between documentation and code.
     access-controlled process.
 
 See Security Overview for more detail.
+
 ## 📚 Documentation
 For Users and Community Partners
 
