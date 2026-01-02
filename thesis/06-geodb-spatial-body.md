@@ -10,11 +10,11 @@ The GeoDB layer has three primary design goals:
 - Provide fast, programmatic access to that mesh for reasoning, retrieval, and visualization.  
 - Integrate cleanly with GBIM and Chroma so that spatial, semantic, and governance dimensions can be used together.  
 
-In practice, this means maintaining a PostGIS-backed geodatabase that holds authoritative feature classes for structures, hazards, networks, civic facilities, administrative boundaries, and named places across the state. On top of this, a set of `geodb_*` collections in Chroma provide vector embeddings and metadata for many of these layers, so that spatial features can be discovered both by location and by semantic similarity through the RAG service.
+In practice, this means maintaining a PostGIS-backed geodatabase that holds authoritative feature classes for structures, hazards, networks, civic facilities, administrative boundaries, and named places across the state. On top of this, a set of `geodb_*` collections in Chroma provide vector embeddings and compact metadata for many of these layers, so that spatial features can be discovered both by location and by semantic similarity through the RAG service.
 
 ## 6.2 PostGIS as Ms. Jarvis’s Spatial Backbone
 
-At the storage level, Ms. Jarvis uses a PostGIS database (for example, `msjarvis_gis`) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance: census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities. Each table includes geometry in a consistent spatial reference system (such as UTM83 or WMA84) along with attributes like IDs, names, classifications, and quantitative measures.
+At the storage level, Ms. Jarvis uses a PostGIS database (for example, `msjarvis_gis`) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance: census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities. Each table is organized into UTM83 and WMA84 variants, and most layers are already in the correct projected coordinate systems, with SRID metadata cleanup still in progress for some legacy tables that currently report SRID 0.
 
 This database is populated from a mix of state and federal sources, including the WVU GIS Technical Center, USGS, USACE, NREL, Census, and various state agencies. The ingestion process converts shapefiles and file geodatabases into PostGIS tables, fixes obvious schema issues (such as geometry types and projections), and normalizes keys so that features can be cross‑referenced from GBIM, Chroma, and higher‑level reasoning services.
 
@@ -22,8 +22,8 @@ This database is populated from a mix of state and federal sources, including th
 
 The current deployment includes a substantial, production‑usable subset of West Virginia’s public geospatial data, with additional layers staged for integration. In broad strokes, Ms. Jarvis already has:
 
-- 2020 Census blocks and block groups for West Virginia in appropriate projected coordinate systems.  
-- A dense statewide structure inventory, combining SAMB structure points (north and south) with WV GISTC building footprints, for a total on the order of several million structures.  
+- 2020 Census blocks and block groups for West Virginia in appropriate projected coordinate systems (for example, `blocks_census_2020_utm83` with 72 558 features and `blockgroups_census_2020_utm83` with 1 639 features).  
+- A dense statewide structure inventory, combining SAMB structure points (north and south) with WV GISTC building footprints, for a total on the order of several million structures (e.g., hundreds of thousands of north and south structure points and over two million building footprints).  
 - Hazard and infrastructure layers such as abandoned mine locations, dams, floodplain structures at risk, rail networks, navigable waterways, and multiple tower inventories (including cellular, FM, pager, ASR, microwave, and public broadcasting).  
 - Civic and facility coverage, including hospitals, nursing homes, fire and police stations, higher‑education campuses, VA facilities, solid waste sites, sewer plants, community health providers, libraries, and parks.  
 - Rich geographic index layers drawn largely from USGS and state sources: named summits, springs, weather stations, index grids, state and county boundaries, and regional council boundaries.  
@@ -32,15 +32,15 @@ These datasets are not just stored passively; they are wired into the live syste
 
 ## 6.4 Chroma `geodb_*` Collections and Spatial Embeddings
 
-To bridge between geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains a large set of `geodb_*` collections in Chroma, backed by a local Chroma directory and accessed through the RAG endpoint. In a typical snapshot, there are on the order of hundreds of collections, many of which correspond directly to PostGIS layers.
+To bridge between geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains a large set of `geodb_*` collections in a local Chroma store (`chroma_db`) accessed via embedded `PersistentClient` clients and exposed through the RAG endpoint. In a typical snapshot, there are on the order of hundreds of collections (about 203 in a recent audit), many of which correspond directly to PostGIS layers such as census blocks, dams, hospitals, nursing homes, rail networks, and building footprints.
 
-Each `geodb_*` collection typically contains embeddings of feature‑level metadata and descriptions, keyed by feature IDs that map back to PostGIS. This allows the system to perform hybrid queries such as:
+Each `geodb_*` collection contains embeddings keyed by compact GeoDB metadata (such as a stable `geodb_id` and `source_table`), which Ms. Jarvis uses to rejoin each document back to the full attribute row in PostGIS. This allows the system to perform hybrid queries such as:
 
 - Find structures in a county that are both in a 100‑year floodplain and near a hospital.  
 - Retrieve documents and prior analyses relevant to a specific dam, plus thematically similar facilities.  
 - Surface named places and features (ridges, hollows, communities) near a proposed project site and then reason about risk or access.  
 
-By treating the Chroma directory as the single semantic index for all integrated WV geospatial embeddings, Ms. Jarvis gains a stable bridge between the spatial backbone and the Hilbert-space memory. Periodic CSV inventories of these collections and their counts provide auditable snapshots of the current spatial integration state.
+By treating the `chroma_db` directory as the single semantic index for all integrated WV geospatial embeddings, Ms. Jarvis gains a stable bridge between the spatial backbone and the Hilbert‑space memory. Periodic CSV inventories of these collections and their counts provide auditable snapshots of the current spatial integration state.
 
 ## 6.5 Staged but Not Yet Live Layers
 
@@ -56,7 +56,7 @@ For these datasets, the honest description is that they are staged and partially
 
 Within the broader GBIM framework, spatial information is one dimension of a geometric belief state that also includes semantic, temporal, and governance components. GeoDB provides the concrete anchor for that spatial dimension. Belief nodes that refer to places—counties, neighborhoods, structures, industrial sites, or facilities—are linked to specific feature IDs and geometries in the PostGIS database.
 
-Hilbert‑space embeddings in Chroma often carry location‑related metadata (such as county FIPS codes, feature IDs, or bounding boxes). This allows the system to move fluidly between:
+Hilbert‑space embeddings in Chroma often carry location‑related metadata (for example, county FIPS codes or feature IDs stored in PostGIS, plus GeoDB keys like `geodb_id` and `source_table` in Chroma that link back to those attributes). This allows the system to move fluidly between:
 
 - Semantic proximity: documents or features that are similar in content or meaning.  
 - Spatial proximity: features that are geographically close or share relevant spatial relationships.  
