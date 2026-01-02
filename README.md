@@ -110,8 +110,11 @@ curl -s -X POST 'https://jarvis.mountainshares.us/chat' \
     "message": "Hello Ms. Jarvis, who are you?",
     "metadata": { "source": "docs-readme-example" }
   }'
+```bash
 
 Internal (diagnostics and deep evaluations)
 
 In controlled environments, an internal /chat endpoint on the main brain can be used
 for long‑running 22‑LLM evaluations that may exceed Cloudflare’s request timeout.
+
+
