@@ -6,9 +6,9 @@ Ms. Egeria Jarvis was developed **after experiencing 3 malware attacks** on Moun
 
 ## AGPL-3.0 Compliance
 
-The GNU Affero General Public License v3.0 requires that source code be **available** to users who interact with the software over a network. It does **NOT** require public GitHub hosting.
+The GNU Affero General Public License v3.0 requires that users who interact with the software over a network have an opportunity to obtain the **corresponding source code of the version they are using**. It does **NOT** require public GitHub hosting, but it does require a standard, no-charge way for those users to access the source. [web:2900][web:2917][web:2921]
 
-**Our model:** "Available upon request" - fully AGPL-3.0 compliant.
+**Our model:** Source code is provided on request to users and auditors who interact with Ms. Jarvis, via a secure, access-controlled channel, under AGPL-3.0 terms. [web:2916][web:2918]
 
 ## How to Access Source Code
 
@@ -41,25 +41,26 @@ Source code will be provided via:
 ### **Step 4: Usage Requirements**
 
 Under AGPL-3.0, if you:
-- **Deploy modified Ms. Jarvis** → You must share your changes
-- **Use it internally** → No obligation to share
-- **Distribute modifications** → Must be AGPL-3.0 licensed
+- **Deploy modified Ms. Jarvis** → You must share your changes with the users of that deployment
+- **Use it internally without user-facing network access** → No additional network-copyleft obligation is triggered
+- **Distribute or host modifications for external users over a network** → You must make the corresponding source available to those users under AGPL-3.0 [web:2897][web:2918][web:2920]
 
 ## What You'll Receive
 
-Full source code for:
-- Unified Gateway (FastAPI)
-- Constitutional Guardian
-- Consciousness layers (DGM + WOAH)
-- GIS Research system
-- Biometric wallet implementation
-- All 18 microservices
+Subject to approval and security review, source access may include:
 
-**Not included** (security-sensitive):
+- Unified Gateway and main brain orchestration services
+- Constitutional and policy-guard microservices
+- Consciousness coordination layers and neurobiological microservices (DGM, WOAH, and related orchestration)
+- Conscious GeoAI / GBIM integration layers and GIS research adapters
+- LLM fabric orchestration logic for the multi-model stack (excluding proprietary model weights)
+- RAG pipelines, retrieval adapters, and web research integration
+
+**Not included** (security-sensitive, or governed by separate agreements):
 - Private keys / API credentials
 - Production database schemas with real data
-- Biometric training data
-- Smart contract signing keys
+- Biometric training data and wallet seeds
+- Smart contract signing keys or live financial deployment scripts
 
 ## Why This Model?
 
@@ -67,13 +68,13 @@ Full source code for:
 1. Public GitHub = attack vector for financial systems
 2. Malware infiltrated 3 times through dependencies
 3. Ms. Jarvis integrates with MountainShares blockchain
-4. Quantum security requires controlled distribution
+4. Quantum-resilient security requires controlled distribution of critical components
 
 **Transparency maintained:**
 - Architecture fully documented
 - APIs publicly available (OpenAPI/Swagger)
 - Constitutional principles auditable
-- Community can verify claims
+- Community can verify claims and behavior against the documented design
 
 ## Academic & Research Access
 
@@ -83,7 +84,7 @@ Full source code for:
 - Government audit requests
 - Security researchers (responsible disclosure)
 
-Contact h4hwv2011@gmail.com with institutional affiliation.
+Contact [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com) with institutional affiliation.
 
 ## Community Contributions
 
@@ -97,6 +98,6 @@ Want to contribute?
 
 ## Questions?
 
-**Email:** h4hwv2011@gmail.com  
+**Email:** [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)  
 **Documentation Issues:** Use GitHub Issues in this repo  
-**Security Concerns:** Responsible disclosure to h4hwv2011@gmail.com
+**Security Concerns:** Responsible disclosure to [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)
