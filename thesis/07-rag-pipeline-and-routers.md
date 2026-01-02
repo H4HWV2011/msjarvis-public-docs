@@ -2,7 +2,7 @@
 
 This chapter describes the current retrieval‑augmented generation (RAG) infrastructure used by Ms. Egeria Jarvis and clarifies which elements are implemented in production and which remain design targets. In the present deployment, language models are no longer queried “from scratch”: they are constrained and informed by a dedicated RAG service backed by ChromaDB, a web‑research gateway, and explicit routing logic in the main brain and orchestration layer. The more advanced role‑ and geography‑aware behaviors described in earlier drafts are treated here as planned extensions rather than accomplished facts.
 
-Within the Quantarithmia program, the RAG layer is the primary mechanism that connects the semantic memory substrate described in the previous chapter to live outputs. It provides a concrete place where retrieval calls, context assembly, and downstream generation can be inspected and tested, even though full provenance tracking and spatial coupling are still under active development.
+Within the Ms.Jarvis program, the RAG layer is the primary mechanism that connects the semantic memory substrate described in the previous chapter to live outputs. It provides a concrete place where retrieval calls, context assembly, and downstream generation can be inspected and tested, even though full provenance tracking and spatial coupling are still under active development.
 
 ## 7.1 Goals of the RAG Design
 
