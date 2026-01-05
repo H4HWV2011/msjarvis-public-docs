@@ -34,14 +34,14 @@ This work serves as a live, technical case study for **Quantarithmia**: a transd
 
 #### 1. Geospatial Belief Information Model (GBIM)
 
-* **Status:** **LIVE** (PostgreSQL/PostGIS via PostgreSQL 16 main on port 5432)  
-* **Scale:** Millions of entities across blocks, footprints, structures, and related features  
-* **Function:** Acts as the system’s geospatial and belief spine, anchoring buildings, census units, infrastructures, and registered users to stable identifiers and regions so that all higher-level reasoning is spatially grounded and auditable.
+* **Status:** **LIVE (FOUNDATION)** (PostgreSQL/PostGIS via PostgreSQL 16 main on port 5432)  
+* **Scale:** Millions of spatial and entity records across blocks, footprints, structures, infrastructures, and related features  
+* **Function:** Acts as the system’s geospatial and belief spine, anchoring buildings, census units, infrastructures, and registered users to stable identifiers and regions so that higher-level reasoning is spatially grounded and auditable. GBIM’s full belief/edge semantics are being incrementally surfaced as explicit schemas and services on top of this foundation.
 
 #### 2. Hilbert-Space Semantic Memory
 
-* **Status:** **LIVE** (semantic memory services backed by Chroma and Postgres)  
-* **Function:** Provides a shared vector/semantic space for retrieval. Collections for buildings, blocks, infrastructures, documents, and user/movement memories are indexed with stable IDs, enabling Retrieval-Augmented Generation (RAG) that fuses spatial data with semantic and historical context.
+* **Status:** **LIVE (PRIORITIZED SUBSET)** (semantic memory services backed by Chroma and Postgres)  
+* **Function:** Provides a shared vector/semantic space for retrieval. Today, collections for buildings, blocks, key infrastructures, and several cognitive/memory domains are indexed with stable IDs, enabling Retrieval-Augmented Generation (RAG) that fuses spatial data with semantic and historical context. Additional PostGIS layers are being progressively mirrored into this Hilbert-space as embeddings and enriched metadata.
 
 #### 3. Steward-Oriented Orchestration
 
