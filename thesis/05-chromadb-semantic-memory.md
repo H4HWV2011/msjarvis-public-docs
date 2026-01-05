@@ -113,7 +113,8 @@ The chosen embedding model has the following properties.
 This dimensionality defines the Hilbert‑space dimension for the main text‑embedding channel used in RAG. Any Chroma collection that stores embeddings produced by this model must accept 384‑dimensional vectors.
 
 In the current deployment, the GeoDB‑derived geodb* collections are fully embedded at 384 dimensions and aliased into corresponding gedb* collections. Several general semantic collections, such as parts of mountainshares_knowledge or some thesis and governance collections, still contain documents and metadata for all items, with embedding backfill and recomputation underway. The chapter therefore treats 384‑dimensional embeddings as the standard while noting that backfill and potential future model upgrades remain active work.
-ChromaDB Implementation and Clients
+
+## ChromaDB Implementation and Clients
 
 ChromaDB is accessed both as a shared HTTP service and, historically, as per‑service local stores.
 Shared HTTP Service
