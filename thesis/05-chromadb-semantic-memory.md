@@ -114,12 +114,15 @@ This dimensionality defines the Hilbert‑space dimension for the main text‑em
 
 In the current deployment, the GeoDB‑derived geodb* collections are fully embedded at 384 dimensions and aliased into corresponding gedb* collections. Several general semantic collections, such as parts of mountainshares_knowledge or some thesis and governance collections, still contain documents and metadata for all items, with embedding backfill and recomputation underway. The chapter therefore treats 384‑dimensional embeddings as the standard while noting that backfill and potential future model upgrades remain active work.
 
-## ChromaDB Implementation and Clients
+# ChromaDB Implementation and Clients
 
 ChromaDB is accessed both as a shared HTTP service and, historically, as per‑service local stores.
-Shared HTTP Service
 
-In the active environment, services connect to a shared ChromaDB instance through an HTTP client. A typical pattern is
+# Shared HTTP Service
+
+In the active environment, services connect to a shared ChromaDB instance through an HTTP client. 
+
+A typical pattern is
 
 python
 import chromadb
@@ -133,9 +136,13 @@ client = chromadb.HttpClient(
 print("Collections", [c.name for c in client.list_collections()])
 
 This client is used by ingestion scripts, GeoDB ETL pipelines, RAG gateways, and other services that treat Chroma as a central semantic memory server. The live instance exposes both the general collections and the large family of geodb* and gedb* collections described above.
-Historical and Auxiliary Persistent Clients
 
-Other services, especially those responsible for earlier ingestion experiments and specialized domains, have historically used chromadb.PersistentClient against container‑local paths such as .chromadb or chroma_db.
+# Historical and Auxiliary Persistent Clients
+
+Other services, especially those responsible for earlier ingestion experiments and specialized domains, have historically used chromadb.
+
+# PersistentClient against container 
+  ‑local paths such as .chromadb or chroma_db.
 
 python
 import chromadb
@@ -144,7 +151,8 @@ client = chromadb.PersistentClient(path=".chromadb")
 collection = client.get_collection("ms_jarvis_memory")
 
 These local stores have supported isolated experiments and unit tests, service‑specific memory such as early learner experiments or social‑media‑related data, and transitional states before consolidation into the main shared instance. As of late 2025 and early 2026, the operational intent is to converge on the shared HTTP‑backed store for primary semantic memory, including GeoDB embeddings. The conceptual description in this chapter refers to the unified logical memory; any residual local stores are treated as legacy or experimental.
-Integration with GBIM, GeoDB, and RAG
+
+## Integration with GBIM, GeoDB, and RAG
 
 ChromaDB is tightly integrated with GBIM, the GeoDB layer, and the broader RAG pipeline.
 
