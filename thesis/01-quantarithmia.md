@@ -29,17 +29,17 @@ Quantarithmia takes Appalachia—and especially West Virginia—as a primary sit
 
 In this research program, Quantarithmia is not purely abstract. It directly informs two concrete systems:
 
-- **Ms. Egeria Jarvis**: A “Conscious GeoAI” system implementing Quantarithmia’s principles in software, with a Geospatial Belief Information Model (GBIM) that anchors beliefs and evidence to real places, times, and relationships.
+- **Ms. Egeria Jarvis**: A geospatially grounded AI Steward System implementing Quantarithmia’s principles in software, with a Geospatial Belief Information Model (GBIM) that anchors beliefs and evidence to real places, times, and relationships, and operates as a bounded coordinator rather than an autonomous actor.
 - **MountainShares / Commons DAO**: A community‑oriented economic and governance layer that encodes local ownership, voting, and speech norms into explicit rules, with a closed‑loop model designed to keep more value circulating inside Appalachian communities instead of leaking out through distant intermediaries.
 
-Together, these systems serve as a working laboratory for Quantarithmia: they make it possible to test, revise, and critique the framework using real data, real governance decisions, and real community stakes rather than purely theoretical examples.
+Together, these systems serve as a working laboratory for Quantarithmia: they make it possible to test, revise, and critique the framework using real data, real governance processes, and real community stakes rather than purely theoretical examples.
 
 ## Role in the Thesis
 
 Within the thesis, polymathamatical geography provides the broader disciplinary context, and Quantarithmia provides:
 
 - The axioms and justice criteria used to evaluate infrastructures and interventions.
-- The conceptual basis for GBIM (spatially grounded beliefs) and for treating AI as an accountable, constrained actor rather than an opaque oracle.
+- The conceptual basis for GBIM (spatially grounded beliefs) and for treating AI as an accountable, constrained Steward System rather than an opaque oracle.
 - The lens through which MountainShares is analyzed as an institutional prototype: not simply “a DAO,” but a specific attempt to materialize spatial justice in rural West Virginia through technical and organizational design.
 
 ## Further Reading
