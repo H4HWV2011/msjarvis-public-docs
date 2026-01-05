@@ -95,12 +95,13 @@ This mapping lets the thesis describe Ms. Jarvis’s memory in geometric terms a
 
 In the RAG stack under analysis, Ms. Jarvis uses a SentenceTransformer model to produce text embeddings for semantic search.
 
-python3 - << 'PY'
-from sentence_transformers import SentenceTransformer
-m = SentenceTransformer("all-MiniLM-L6-v2")
-v = m.encode("test")
-print("SentenceTransformer dim:", v.shape)
-PY
+  python3 - << 'PY'
+  from sentence_transformers import SentenceTransformer
+  m = SentenceTransformer("all-MiniLM-L6-v2")
+  v = m.encode("test")
+  print("SentenceTransformer dim:", v.shape)
+  PY
+  
 # Output
 # SentenceTransformer dim: 384
 
@@ -124,16 +125,17 @@ In the active environment, services connect to a shared ChromaDB instance throug
 
 A typical pattern is
 
-python
-import chromadb
-from chromadb.config import Settings
+  python
+  import chromadb
+  from chromadb.config import Settings
 
-client = chromadb.HttpClient(
-    host="localhost",
-    port=8002,
-    settings=Settings(anonymized_telemetry=False),
-)
-print("Collections", [c.name for c in client.list_collections()])
+  client = chromadb.HttpClient(
+      host="localhost",
+      port=8002,
+      settings=Settings(anonymized_telemetry=False),
+  )
+  print("Collections", [c.name for c in client.list_collections()])
+
 
 This client is used by ingestion scripts, GeoDB ETL pipelines, RAG gateways, and other services that treat Chroma as a central semantic memory server. The live instance exposes both the general collections and the large family of geodb* and gedb* collections described above.
 
@@ -144,11 +146,13 @@ Other services, especially those responsible for earlier ingestion experiments a
 # PersistentClient against container 
   ‑local paths such as .chromadb or chroma_db.
 
-python
-import chromadb
 
-client = chromadb.PersistentClient(path=".chromadb")
-collection = client.get_collection("ms_jarvis_memory")
+  python
+  import chromadb
+
+  client = chromadb.PersistentClient(path=".chromadb")
+  collection = client.get_collection("ms_jarvis_memory")
+
 
 These local stores have supported isolated experiments and unit tests, service‑specific memory such as early learner experiments or social‑media‑related data, and transitional states before consolidation into the main shared instance. As of late 2025 and early 2026, the operational intent is to converge on the shared HTTP‑backed store for primary semantic memory, including GeoDB embeddings. The conceptual description in this chapter refers to the unified logical memory; any residual local stores are treated as legacy or experimental.
 
@@ -172,24 +176,26 @@ The pipeline therefore behaves as a structured walk through curated, domain‑sp
 Query Paths and JSON Structures
 
 To connect the conceptual description with concrete operations, this section outlines canonical request and response shapes.
-Gateway‑Level Request Shape
+
+## Gateway‑Level Request Shape
 
 Gateway or bridge services conceptually receive simplified query objects. A typical request schema looks like this.
 
-python
-from pydantic import BaseModel
+  python
+  from pydantic import BaseModel
 
-class QueryRequest(BaseModel):
-    collection: str
-    query: str
-    n_results: int
+  class QueryRequest(BaseModel):
+      collection: str
+      query: str
+      n_results: int
 
-req = QueryRequest(
-    collection="mountainshares_knowledge",
-    query="Fayette County Community Arts Center",
-    n_results=5,
-)
-print(req.model_dump_json(indent=2))
+  req = QueryRequest(
+      collection="mountainshares_knowledge",
+      query="Fayette County Community Arts Center",
+      n_results=5,
+  )
+  print(req.model_dump_json(indent=2))
+
 
 This prints
 `
@@ -200,8 +206,10 @@ json
   "n_results": 5
 }
 `
+
 The gateway translates this object into a lower‑level Chroma query.
-Chroma Query Request Body
+
+# Chroma Query Request Body
 
 Given a live Chroma client and a selected collection, a typical query looks like this.
 
