@@ -9,7 +9,7 @@ This thesis sits within **polymathamatical geography**, an emerging field that i
 It treats **Quantarithmia**, **Ms. Egeria Jarvis**, and **MountainShares / Commons** as one integrated research program, with a clear separation between theoretical claims, engineering claims, and the behavior of the live production system.
 
 - **Quantarithmia** defines the axioms, reciprocity metrics, and spatial justice framework (theoretical layer).
-- **Ms. Jarvis + GBIM** implement those axioms in a transparent, geography‑aware AI system (engineering / Conscious GeoAI layer).
+- **Ms. Jarvis + GBIM** implement those axioms in a transparent, geography‑aware AI Steward System (engineering / Conscious GeoAI layer).
 - **MountainShares / Commons DAO** implement those axioms in economic and governance structures for rural communities (institutional / practice layer).
 
 ## System Non‑Goals
