@@ -1,4 +1,5 @@
 # Further Reading
+See [further reading](thesis/originals/further_reading.md) for curated links to essays, Substack posts, and external references that expand on the ideas in this repository.
 
 ### 1 From Historic QR Codes to Neural Warfare: Appalachia’s Fight to Stop a Pentagon Takeover
 https://open.substack.com/pub/mammakidd/p/from-historic-qr-codes-to-neural?utm_campaign=post-expanded-share&utm_medium=web
