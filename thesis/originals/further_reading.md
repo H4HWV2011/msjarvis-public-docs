@@ -84,8 +84,7 @@ See [further reading](thesis/originals/further_reading.md) for curated links to 
     https://mammakidd.substack.com/p/white-paper-the-quantarithmia-framework?r=54iutn
 
 26. The End of the Chatbot? Inside the New AI That Thinks, Remembers, and “Feels” Like You Do  
-   https://mammakidd.substack.com/p/mountain-maven-mamma-kidd-building?r=54iutn
-
+https://mammakidd.substack.com/p/the-blueprint-for-coherent-ai?r=54iutn
 ## Heritage, narrative, and faith
 
 27. Faith, Determination, & the Holy Spirit; Building AI Consciousness in WV  
