@@ -8,13 +8,13 @@ See [further reading](thesis/originals/further_reading.md) for curated links to 
    https://open.substack.com/pub/mammakidd/p/from-historic-qr-codes-to-neural?utm_campaign=post-expanded-share&utm_medium=web
 
 2. Building Our Food Commons: Strengthening West Virginia’s Economy Through Local Food Networks  
-   https://mammakidd.substack.com/p/building-our-food-commons-strengthening?r=54iutn
+https://mammakidd.substack.com/p/building-a-west-virginia-food-commons?r=54iutn
 
 3. Building a West Virginia Food Commons  
    https://mammakidd.substack.com/p/building-a-west-virginia-food-commons?r=54iutn
 
 4. Building West Virginia Food Commons  
-   https://mammakidd.substack.com/p/building-west-virginia-food-commons?r=54iutn
+https://mammakidd.substack.com/p/building-west-virginia-food-commons?r=54iutn
 
 5. The Commons App: Connecting Communities Through Local Resources  
    https://mammakidd.substack.com/p/the-commons-app-connecting-communities?r=54iutn
