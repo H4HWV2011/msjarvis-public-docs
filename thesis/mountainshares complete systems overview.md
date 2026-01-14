@@ -2,7 +2,7 @@
 
 ### System Architecture
 
-MountainShares is a blockchain-based community currency and rewards system deployed on Arbitrum One (contract address: 0xF36Ebf89DF6C7ACdA6F98932Dc6804E833D1eFA1) with IPFS-based rewards tracking, developed and administered by Harmony for Hope, Inc., a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. The system operates as a time-banking rewards program where community participation generates MountainShares tokens that appreciate in value as the community treasury grows.
+MountainShares is a blockchain-based community currency and rewards system deployed on Arbitrum One with IPFS-based rewards tracking, developed and administered by Harmony for Hope, Inc., a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. The system operates as a time-banking rewards program where community participation generates MountainShares tokens that appreciate in value as the community treasury grows.
 
 **Dual-Token Structure:**
 - **Purchased MountainShares (PMS)**: Acquired with external currency through Stripe integration (2.85% loading fee), immediately spendable, convertible back to USD
