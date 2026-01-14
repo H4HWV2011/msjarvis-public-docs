@@ -110,3 +110,5 @@ MountainShares is intended to operate as a rewards and community trading program
 - All activities must comply with applicable local, state, and federal regulations.
 
 Treasury operations, fee structures, and conversion mechanisms are designed and maintained in consultation with legal and financial compliance advisors to help ensure the system operates within established regulatory frameworks while pursuing its community economic development mission.
+
+> This description is provided for academic and illustrative purposes as part of a thesis case study. It does not constitute investment advice, an offer to sell, or a solicitation of an offer to buy any token, security, or financial product, and should not be relied upon for any financial decision.
