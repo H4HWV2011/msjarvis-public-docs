@@ -2,18 +2,18 @@
 
 ### System Architecture
 
-MountainShares is a blockchain-based community currency and rewards system deployed on Arbitrum One with IPFS-based rewards tracking, developed and administered by Harmony for Hope, Inc., a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. The system operates as a time-banking rewards program where community participation generates MountainShares tokens whose effective buying power can change over time according to predefined program rules and treasury conditions.
+MountainShares is a blockchain-based community currency and rewards system deployed on Arbitrum One with IPFS-based rewards tracking, developed and administered by Harmony for Hope, Inc., a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. The system operates as a time-banking rewards program where community participation generates MountainShares tokens whose effective buying power can change over time according to predefined program rules and treasury conditions, and which are only redeemable within The Commons ecosystem.
 
 **Dual-Token Structure:**
-- **Purchased MountainShares (PMS)**: Acquired with external currency through Stripe integration (2.85% loading fee), immediately spendable within the network, with limited options for conversion back to USD as defined in program terms.
-- **Earned MountainShares (EMS)**: Generated through documented community participation tracked via IPFS, held in a vault during Phase 1, and becoming fully usable in Phase 2 under the same spending rules as PMS.
+- **Purchased MountainShares (PMS)**: Acquired with external currency through Stripe integration (2.85% loading fee), immediately spendable within The Commons network with approved local merchants and programs, with limited, fee-based options for conversion back to USD through designated partners as defined in program terms.
+- **Earned MountainShares (EMS)**: Generated through documented community participation tracked via IPFS, held in a vault during Phase 1, and becoming fully usable in Phase 2 under the same in-network spending rules as PMS. EMS are not designed for general cash redemption and are intended for use within The Commons ecosystem.
 
 **Three-Phase Economic Model:**
 - Phase 1 (Launch): 1 MountainShare = $1 USD equivalent buying power for eligible redemptions in the network.
 - Phase 2 (Treasury threshold): 1 MountainShare = $10 USD equivalent buying power within the network.
 - Phase 3 (Full backing): 1 MountainShare = $34.70 USD equivalent buying power (aligned with national estimates of volunteer time value).
 
-Phase 2 transition occurs when treasury reserves reach 125% of total circulating MountainShares, as measured under the program’s internal accounting policies. Phase 3 transition requires treasury reserves reaching 150% capacity. These transitions are designed to provide treasury-backed increases in defined buying power for MountainShares used in the network, rather than open-ended speculative price movements or trading gains.
+Phase 2 transition occurs when treasury reserves reach 125% of total circulating MountainShares, as measured under the program’s internal accounting policies. Phase 3 transition requires treasury reserves reaching 150% capacity. These transitions are designed to provide treasury-backed increases in defined buying power for MountainShares used in the network, rather than open-ended speculative price movements or trading gains, and do not create any right to profits or distributions outside the program.
 
 ### Geographic and Cultural Grounding
 
@@ -31,7 +31,7 @@ Unlike traditional employment where wages can be extracted as labor value, Mount
 
 #### 2. Education as Economic Activity
 
-Time spent in educational activities—studying, teaching, tutoring, skill-building—earns MountainShares at the same rate as other community participation (1 hour = 1 MountainShare in Phase 1). This treats education as currency-generating community economic activity rather than unpaid preparation for future employment.
+Time spent in educational activities—studying, teaching, tutoring, skill-building—earns MountainShares at the same rate as other community participation (1 hour = 1 MountainShare in Phase 1. This treats education as currency-generating community economic activity rather than unpaid preparation for future employment.
 
 The system rewards educational **process** (time invested) rather than credentials obtained, avoiding hierarchies of knowledge types and incentivizing genuine learning over credential optimization. Knowledge multiplication through teaching does not deplete the teacher's capacity, creating non-zero-sum dynamics inside the program.
 
@@ -45,7 +45,7 @@ This model particularly benefits elders and tradition-bearers whose cultural kno
 
 Early participants may benefit when the program moves between phases and the defined buying power of MountainShares increases. MountainShares earned in Phase 1 can have higher effective buying power in later phases if and when the system reaches Phase 2 and Phase 3 thresholds, providing additional recognition for early community-builders under the program rules.
 
-Example: 520 hours of community participation in Phase 1 earns 520 MountainShares with $520 equivalent buying power in Phase 1. Under current parameters, the same tokens would be usable for $5,200 equivalent buying power in Phase 2 and $18,044 in Phase 3—reflecting a 34.7x increase in defined program value, tied to treasury conditions and published rules rather than to open-market speculation.
+Example: 520 hours of community participation in Phase 1 earns 520 MountainShares with $520 equivalent buying power in Phase 1. Under current parameters, the same tokens would be usable for $5,200 equivalent buying power in Phase 2 and $18,044 in Phase 3—reflecting a 34.7x increase in defined program value, tied to treasury conditions and published rules rather than to open-market speculation. These illustrative values describe internal redemption terms and do not represent investment returns or tradable market prices.
 
 #### 5. Time-Based Rank Advancement
 
@@ -59,7 +59,7 @@ Transaction fee structures are designed to incentivize local spending over exter
 - Loading USD into system: 2.85% fee.
 - Internal transfers between MountainShares participants: 0.25% fee.
 - Purchases at local accepting merchants: 1.80% merchant fee.
-- ATM withdrawals to external currency (where enabled): $1.25 flat fee.
+- ATM withdrawals to external currency (where enabled): $1.25 flat fee, provided through designated partners and subject to program limitations.
 
 Revenue from fees supports treasury growth, system operations, and community programs rather than primarily flowing to distant payment processors or financial institutions. This creates positive feedback loops where system usage is intended to strengthen community capacity.
 
@@ -91,7 +91,7 @@ MountainShares is designed to operate within The Commons Marketplace app (in dev
 - Educational content and skill-sharing.
 - Real-time rewards tracking and rank visualization.
 
-Ms. Jarvis AI orchestrates cross-platform operations, providing real-time analytics, anomaly/fraud detection support, community health monitoring, and governance support.
+All MountainShares spending and redemption occurs within The Commons Marketplace ecosystem and its approved partners. Ms. Jarvis AI orchestrates cross-platform operations, providing real-time analytics, anomaly/fraud detection support, community health monitoring, and governance support.
 
 #### 11. Professional Development Tracking
 
@@ -103,7 +103,7 @@ For regions with limited formal employment opportunities, this creates alternati
 
 MountainShares is intended to operate as a rewards and community trading program administered by a registered 501(c)(3) nonprofit, not as a bank account, deposit product, or investment vehicle. Participants opt into the system voluntarily, understanding that:
 
-- MountainShares function as rewards points with defined redemption mechanics within the network.
+- MountainShares function as rewards points with defined redemption mechanics within The Commons network and its approved partners.
 - Any change in effective buying power depends on treasury performance and community participation levels as defined in program rules and may not occur.
 - The system may modify rules through documented governance processes.
 - Participation may have tax implications requiring individual professional advice.
