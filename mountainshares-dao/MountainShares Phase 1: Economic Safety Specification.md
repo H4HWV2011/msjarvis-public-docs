@@ -207,7 +207,7 @@ Every UEI can see (updated daily):
 
 ## Appendix B: Example Governance Scenario
 
-**Month 3 of Phase 2:**
+**Month 3 of Phase 1:**
 
 - Reserve ratio = 1.2 (healthy, above 1.0 threshold)
 - Monthly processed volume = 150k USD
