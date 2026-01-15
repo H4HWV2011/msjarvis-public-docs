@@ -123,9 +123,9 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 
 ---
 
-## 7. Phase 2 → Phase 3 Graduation Criteria
+## 7. Phase 1 → Phase 2 Graduation Criteria
 
-**Transition to Phase 3 only when ALL of these hold for 60+ days:**
+**Transition to Phase 2 only when ALL of these hold for 60+ days:**
 
 - Reserve ratio stable ≥ 1.0 (no dips below threshold)
 - Monthly processed volume ≥ 200k USD (realistic merchant/load flow)
@@ -133,7 +133,7 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 - Zero systemic fraud or reserve-threatening exploits
 - DAO governance participation ≥ 30% quorum on key votes
 
-**Phase 3 Changes:** Caps can rise further; base rate can approach 1.0; statewide rollout planning begins.
+**Phase 2 Changes:** Caps can rise further; base rate can approach 1.0; statewide rollout planning begins.
 
 ---
 
