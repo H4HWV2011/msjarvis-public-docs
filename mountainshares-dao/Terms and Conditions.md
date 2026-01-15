@@ -66,7 +66,7 @@ For purposes of these Terms:
 
 - **“Treasury”** means the pool of financial assets maintained by Harmony for Hope and designated for supporting the MountainShares Program, including, but not limited to, reserves used to support internal buying‑power schedules and to cover Program operating costs. Users have no ownership interest in, or direct claim against, the Treasury or its assets, except to the limited extent expressly stated for PMS refunds in Section 5.
 
-- **“Phase 1 / Phase 2 / Phase 3”** means the internal Program phases associated with different MountainShare internal buying‑power schedules, as described in Section 4. These phases are internal Program settings only and do not establish any external value or price.
+- **“Phase 1 / Phase 2 / Phase 3”**means internal Program phases associated with different MountainShare internal buying‑power schedules, as described in Section 4. These phases may be delayed, phased in, or limited to certain users or balances depending on treasury reserves and risk controls, and do not establish any external value or price.
 
 - **“Program Rules”** means the current rules and parameters governing issuance, earning, redemption, internal valuation, transaction limits, fees, and other aspects of MountainShares, as adopted by Harmony for Hope or applicable governance bodies and incorporated by reference into these Terms. Program Rules may be updated from time to time in accordance with Section 10.
 
@@ -170,6 +170,8 @@ Phase transitions and internal buying‑power schedules:
 - Do not establish any external tradable price or guarantee that MountainShares can be sold, exchanged, or redeemed outside the Program.
 
 Users acknowledge and agree that any increase in internal buying power associated with a later Phase is a Program design choice that may be modified, suspended, or reversed and does not give rise to any vested right, property interest, or enforceable expectation of gain.
+
+Phase 3 Not Guaranteed. Users expressly acknowledge that Phase 3 (including any internal buying‑power schedule that values one MountainShare at $34.70) is an aspirational design target only and may never be activated or sustained in practice. No User should rely on Phase 3 being reached, remaining in effect, or being made available for all balances or users.
 
 ---
 
@@ -472,6 +474,8 @@ Harmony for Hope does not guarantee:
 - That MountainShares will retain any particular internal buying power;  
 - That any given Phase or internal valuation schedule will occur, be reached, or remain in place; or  
 - That MountainShares can be converted to cash, other currencies, or assets, except as expressly permitted for PMS under these Terms.
+
+This includes the possibility that Phase 2 or Phase 3 internal buying‑power schedules may never be activated or may only apply to limited categories of MountainShares or Users.
 
 Internal buying‑power schedules are Program Rules only and may be modified, delayed, or cancelled in accordance with Section 10.
 
