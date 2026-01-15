@@ -228,13 +228,4 @@ Every UEI can see (updated daily):
 
 ---
 
-## Sign-Off
-
-This spec is a **living document.** Minor corrections (typos, examples) can be made by DAO vote with simple majority. Major changes (thresholds, safety rules, hard triggers) require super-majority + independent audit.
-
-**Drafted in collaboration with:** MountainShares DAO, Ms. Jarvis Governance Team  
-**Next Review:** Post-Phase 2 Launch + 30 Days of Live Data
-
----
-
 *"People earn what they do. The commons holds what we decide together. Ms. Jarvis watches so nobody can wreck it."*
