@@ -72,6 +72,8 @@ For purposes of these Terms:
 
 - **“UEID”** means a unique ecosystem identifier assigned within The Commons infrastructure that may be associated with your User account and MountainShares balance for identity, security, or governance purposes.
 
+- **“Applicable Law”** means all federal, state, and local statutes, regulations, agency guidance, and other legal requirements that may apply to the Program, including but not limited to consumer protection, charitable organization, tax, anti‑money‑laundering, and public benefits laws.
+
 ---
 
 ## 3. Nature of MountainShares
@@ -86,7 +88,7 @@ MountainShares:
 - Do not represent equity, ownership, membership interest, or any profit‑sharing interest in Harmony for Hope, The Commons, or any related entity.  
 - Do not entitle any User to dividends, interest, patronage refunds, or other distributions, and do not create any expectation of profit from the efforts of Harmony for Hope, any Merchant, or any third party.
 
-Except as expressly provided for PMS refunds in Section 5, MountainShares do not give you a right to receive cash, other currency, or any particular quantity or quality of goods or services.
+Except as expressly provided for PMS refunds in Section 5, MountainShares do not give you a right to receive cash, other currency, or any particular quantity or quality of goods or services, and availability of goods and services may vary over time.
 
 ### 3.2 No Deposit, No FDIC Insurance
 
@@ -112,7 +114,7 @@ MountainShares cannot be:
 - Loaded to, or redeemed through, any external payment card or wallet (including, without limitation, cards or accounts bearing the marks of Visa, Mastercard, or other payment networks), except where a specific integration is explicitly described as part of the Program; or  
 - Listed, traded, sold, or exchanged on any public or private market, exchange, or trading platform.
 
-Harmony for Hope may disable, reverse, or block any attempted use of MountainShares that is inconsistent with these closed‑loop limitations or with applicable law or Program Rules.
+Harmony for Hope may disable, reverse, or block any attempted use of MountainShares that is inconsistent with these closed‑loop limitations or with Applicable Law or Program Rules.
 
 ### 3.4 No Investment Advice or Solicitation
 
@@ -154,9 +156,10 @@ Harmony for Hope retains discretion, subject to applicable governance processes,
 
 - Verify, audit, and certify when thresholds are met;  
 - Adjust methods of calculating reserves and circulation, including definitions of “circulating” and “vaulted” balances; and  
-- Delay, phase in, or modify transitions if necessary for legal, safety, prudential, or operational reasons.
+- Delay, phase in, or modify transitions if necessary for legal, safety, prudential, or operational reasons, including to protect Users on means‑tested public benefits.
 
 Users, particularly those receiving means‑tested public benefits, should not rely on any anticipated Phase transition or increase in internal buying power when planning for rent, food, medical expenses, or other essentials, and should assume that such transitions may be delayed, reduced, or may never occur.
+
 ### 4.3 No Rights to Profits or Distributions
 
 Phase transitions and internal buying‑power schedules:
@@ -191,7 +194,7 @@ PMS:
 - May be used to pay approved Merchants or participate in eligible programs and services; and  
 - May, subject to Program Rules, be transferred among Users within The Commons where such transfers are permitted.
 
-PMS cannot be used for any purpose prohibited by these Terms, Program Rules, or applicable law, including but not limited to illegal transactions, money laundering, or sanctions evasion.
+PMS cannot be used for any purpose prohibited by these Terms, Program Rules, or Applicable Law, including but not limited to illegal transactions, money laundering, or sanctions evasion.
 
 ### 5.3 PMS Cash Conversion (Refunds)
 
@@ -200,9 +203,9 @@ Subject to Program Rules and any operational limitations, Users may request conv
 - PMS cash conversion is strictly limited to the amount of original fiat currency that the User loaded (less applicable load and withdrawal fees and any permitted chargebacks, reversals, or adjustments).  
 - No User may receive cash redemption for any internal buying‑power increase associated with Phases 2 or 3, or for any EMS.  
 - Harmony for Hope and its partners may impose per‑transaction, daily, weekly, or monthly limits, and may restrict, delay, or suspend cash‑out features at any time for security, compliance, liquidity, or operational reasons.  
-- PMS cash conversion is not available in Benefits‑Sensitive Accounts (see Section 8), except in extraordinary circumstances with written approval consistent with applicable benefits regulations and internal risk controls.
+- PMS cash conversion is not available in Benefits‑Sensitive Accounts (see Section 8), except in extraordinary circumstances with written approval consistent with Applicable Law, applicable benefits regulations, and internal risk controls.
 
-A request for PMS cash conversion does not guarantee that conversion will be completed, and is subject to the availability of funds, partner policies, network availability, and applicable law.
+A request for PMS cash conversion does not guarantee that conversion will be completed, and is subject to the availability of funds, partner policies, network availability, and Applicable Law.
 
 ### 5.4 No Interest or Yield
 
@@ -267,7 +270,7 @@ Internal transfers between Users:
 - May be disabled or limited for EMS in certain circumstances (for example, to prevent circumvention of Benefits‑Sensitive Accounts, to prevent misuse, or to comply with regulatory requirements); and  
 - Are subject to transaction fees, minimums, maximums, and rate limits as described in current Program Rules.
 
-Harmony for Hope may refuse, reverse, or freeze any transfer that appears to be unauthorized, fraudulent, illegal, or otherwise inconsistent with these Terms or Program Rules.
+Harmony for Hope may refuse, reverse, or freeze any transfer that appears to be unauthorized, fraudulent, illegal, or otherwise inconsistent with these Terms, Program Rules, or Applicable Law.
 
 ### 7.3 Fees
 
@@ -385,7 +388,7 @@ Users are responsible for:
 - Promptly notifying Harmony for Hope if they suspect unauthorized access, loss, theft, or misuse of their account or associated devices.  
 - Ensuring that any device used to access The Commons meets reasonable security standards (for example, updated operating systems, device locks, and anti‑malware protections).
 
-Harmony for Hope is not liable for losses arising from compromised devices, weak passwords, phishing, or failures to follow basic security practices, except to the extent required by applicable law.
+Harmony for Hope is not liable for losses arising from compromised devices, weak passwords, phishing, or failures to follow basic security practices, except to the extent required by Applicable Law.
 
 ---
 
@@ -491,14 +494,14 @@ Users are solely responsible for:
 
 ### 11.4 Limitation of Liability
 
-To the maximum extent permitted by applicable law:
+To the maximum extent permitted by Applicable Law:
 
 - Harmony for Hope, its directors, officers, employees, volunteers, contractors, and agents shall not be liable for any indirect, incidental, consequential, special, punitive, or exemplary damages arising out of or relating to the Program, even if advised of the possibility of such damages.  
 - Harmony for Hope’s total liability to any User for direct damages arising out of or in connection with the Program shall not exceed, in the aggregate, the lesser of:  
   (a) the amount of PMS load fees paid by that User to Harmony for Hope in the twelve (12) months preceding the event giving rise to the claim; or  
   (b) one hundred U.S. dollars (US $100).
 
-Nothing in these Terms shall exclude or limit liability to the extent such exclusion or limitation is prohibited by applicable law.
+Nothing in these Terms shall exclude or limit liability to the extent such exclusion or limitation is prohibited by Applicable Law.
 
 ### 11.5 Indemnification
 
