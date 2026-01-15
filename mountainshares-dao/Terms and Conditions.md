@@ -54,7 +54,7 @@ To the extent there is a conflict between these Terms and any mandatory consumer
 
 For purposes of these Terms:
 
-- **“MountainShares” or “MS”** means non‑transferable (except as expressly permitted under these Terms and applicable Program Rules), closed‑loop digital reward units issued and administered by Harmony for Hope under this Program. MountainShares are not legal tender, not a bank deposit, not stored‑value issued by a bank, not a prepaid card balance, not a security, and not an investment contract or other financial instrument.
+- **“MountainShares” or “M$”** means non‑transferable (except as expressly permitted under these Terms and applicable Program Rules), closed‑loop digital reward units issued and administered by Harmony for Hope under this Program. MountainShares are not legal tender, not a bank deposit, not stored‑value issued by a bank, not a prepaid card balance, not a security, and not an investment contract or other financial instrument.
 
 - **“Purchased MountainShares” or “PMS”** means MountainShares acquired by loading external fiat currency (such as U.S. dollars) into The Commons via approved payment channels. PMS are issued at a nominal rate of one (1) MountainShare per one (1) U.S. dollar loaded, less any applicable fees, solely for use within the Program. This nominal rate does not create or imply any external exchange rate, redemption right, or market price for MountainShares.
 
