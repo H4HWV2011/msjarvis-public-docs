@@ -275,21 +275,217 @@ Users are solely responsible for:
 Harmony for Hope does not and cannot guarantee that participation in the Program will have no impact on any public benefits.
 
 ---
-
 ## 9. Data, Privacy, and Security
 
-*(Placeholder – to be expanded in a subsequent draft)*
+### 9.1 Data Collected
+
+In connection with the MountainShares Program and The Commons ecosystem, Harmony for Hope may collect, store, and process the following categories of information, subject to applicable law and our Privacy Policy:
+
+- **Identity and verification data**  
+  - Full name, date of birth, address, phone number, email.  
+  - Government‑issued identification numbers (such as driver’s license or state ID).  
+  - Biometric or biometric‑adjacent identifiers (such as facial recognition templates), where permitted by law and with required consent.
+
+- **Account and transaction data**  
+  - MountainShares account identifiers, wallet IDs, and linked UEIDs.  
+  - Records of PMS loads, EMS earnings, transfers, purchases, and redemptions.  
+  - Device identifiers, IP addresses, and session metadata.
+
+- **Program participation data**  
+  - Records of time‑banked activities, community participation logs, educational engagements, and other qualifying events used to earn EMS.  
+  - Rank, achievements, and governance eligibility status.
+
+### 9.2 Purpose of Data Use
+
+Harmony for Hope uses collected data for the following purposes:
+
+- To verify identity and eligibility for participation in the Program.  
+- To administer and secure MountainShares accounts and The Commons ecosystem.  
+- To track and validate EMS earnings and PMS transactions.  
+- To comply with legal, regulatory, and audit requirements, including anti‑fraud and anti‑abuse controls.  
+- To improve Program design, governance, and community outcomes.
+
+Data will not be sold as a stand‑alone commercial product. Any data sharing with third parties will be limited to:
+
+- Service providers (such as payment processors, hosting providers, and security vendors) who are bound by appropriate confidentiality and data‑protection obligations; and  
+- Governmental or regulatory authorities, when required by law, court order, or lawful request.
+
+### 9.3 Storage and Technical Controls
+
+Certain Program records, including contribution histories and reward balances, may be stored:
+
+- In conventional databases and storage systems controlled by or on behalf of Harmony for Hope; and  
+- In distributed storage layers such as IPFS, or analogous systems, where data may be content‑addressed and replicated across multiple nodes.
+
+Harmony for Hope implements reasonable technical and organizational measures designed to protect personal and Program data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure, or access. However, no system can be guaranteed to be perfectly secure, and Users participate at their own risk.
+
+### 9.4 User Responsibilities
+
+Users are responsible for:
+
+- Maintaining the confidentiality of their login credentials and any authentication factors.  
+- Promptly notifying Harmony for Hope if they suspect unauthorized access or use of their account.  
+- Ensuring that any device used to access The Commons meets reasonable security standards (for example, updated operating systems, device locks).
+
+Harmony for Hope is not liable for losses arising from compromised devices, weak passwords, or failures to follow basic security practices, except to the extent required by applicable law.
 
 ---
 
 ## 10. Governance, Changes, and Termination
 
-*(Placeholder – to be expanded in a subsequent draft)*
+### 10.1 Governance Structure
+
+The MountainShares Program is overseen by Harmony for Hope and, where applicable, by cooperative or community governance bodies such as the MountainShares DAO. Governance mechanisms may include:
+
+- Policy decisions made by the Board of Directors of Harmony for Hope.  
+- Recommendations or votes by eligible DAO members based on time‑based rank or other criteria.  
+- Advisory input from community councils, technical working groups, or partner organizations.
+
+In the event of a conflict between a DAO‑level decision and Harmony for Hope’s legal or regulatory obligations, Harmony for Hope’s compliance obligations and Board directives will control.
+
+### 10.2 Changes to Program Rules
+
+Harmony for Hope may, from time to time, modify:
+
+- These Terms;  
+- Program Rules governing earning, redemption, phases, and fees; and  
+- Technical or operational features of The Commons ecosystem.
+
+Changes may be made for reasons including but not limited to:
+
+- Compliance with new or updated laws, regulations, or agency guidance.  
+- Security and fraud‑prevention needs.  
+- System performance or sustainability considerations.  
+- Community governance decisions adopted through approved processes.
+
+### 10.3 Notice of Changes
+
+Harmony for Hope will provide notice of material changes to these Terms or Program Rules by one or more of the following methods:
+
+- Posting updated Terms or Rules within The Commons application or on an official Harmony for Hope website.  
+- In‑app notifications or alerts.  
+- Email notices to the primary email address associated with the User’s account.
+
+Unless a different effective date is specified, changes will become effective no earlier than **30 days** after notice, except where immediate changes are required for legal, security, or operational reasons.
+
+Continued use of MountainShares or The Commons after the effective date of changes constitutes acceptance of the revised Terms and Program Rules.
+
+### 10.4 Suspension and Termination by Harmony for Hope
+
+Harmony for Hope may suspend, restrict, or terminate any User account, or the Program in whole or in part, without prior notice where:
+
+- Required by law, regulation, or governmental authority.  
+- Harmony for Hope reasonably suspects fraud, abuse, or illegal activity.  
+- Necessary to protect the integrity or security of the Program or The Commons.  
+- A User materially breaches these Terms or other applicable policies.
+
+Where practicable and permitted by law, Harmony for Hope will provide notice of the reason for suspension or termination and, where appropriate, information on how to seek review or remedy.
+
+### 10.5 Program Wind‑Down
+
+If Harmony for Hope elects to discontinue the MountainShares Program:
+
+- Harmony for Hope will provide reasonable advance notice (targeting at least 60 days, where feasible).  
+- During a defined wind‑down period, Users may be permitted to spend remaining MountainShares within The Commons, subject to operational and legal constraints.  
+- For PMS, Harmony for Hope may offer limited refund options up to the amount of original loads (less fees), to the extent permitted by law, liquidity, and partner agreements.  
+- EMS balances confer no right to cash payments and may expire at the conclusion of the wind‑down period, except as otherwise determined by Harmony for Hope or required by law.
 
 ---
 
 ## 11. Disclaimers and Limitation of Liability
 
-*(Placeholder – to be expanded in a subsequent draft)*
+### 11.1 No Warranty
+
+The MountainShares Program and The Commons ecosystem are provided on an “**as is**” and “**as available**” basis, without any express or implied warranties of any kind, including but not limited to:
+
+- Warranties of merchantability, fitness for a particular purpose, or non‑infringement;  
+- Warranties that the Program will be uninterrupted, error‑free, secure, or free of defects; or  
+- Warranties regarding the availability or performance of particular Merchants, services, or governance features.
+
+Users use the Program at their own risk.
+
+### 11.2 No Guarantee of Value or Buying Power
+
+Harmony for Hope does not guarantee:
+
+- That MountainShares will retain any particular internal buying power;  
+- That any given phase or internal valuation schedule will occur or remain in place; or  
+- That MountainShares can be converted to cash, other currencies, or assets, except as expressly permitted for PMS under these Terms.
+
+Internal buying‑power schedules are Program Rules only and may be modified, delayed, or cancelled in accordance with Section 10.
+
+### 11.3 Public Assistance and Benefits Disclaimer
+
+Harmony for Hope makes **no representation or warranty** that participation in the Program will have no impact on any public assistance, housing, or benefits, including but not limited to:
+
+- SSI, Social Security Disability Insurance (SSDI), or retirement benefits;  
+- WV WORKS/TANF;  
+- SNAP;  
+- Medicaid, WV CHIP, or other medical assistance;  
+- HUD or other housing assistance; or  
+- State child care subsidy programs.
+
+Users are solely responsible for:
+
+- Determining how participation in the Program may affect their benefits;  
+- Reporting MountainShares participation, balances, and usage to agencies as required; and  
+- Seeking advice from caseworkers, benefits planners, or legal counsel before relying on MountainShares in ways that could affect eligibility or benefit amounts.
+
+### 11.4 Limitation of Liability
+
+To the maximum extent permitted by applicable law:
+
+- Harmony for Hope, its directors, officers, employees, volunteers, contractors, and agents shall not be liable for any indirect, incidental, consequential, special, punitive, or exemplary damages arising out of or relating to the Program, even if advised of the possibility of such damages.
+- Harmony for Hope’s total liability to any User for direct damages arising out of or in connection with the Program shall not exceed, in the aggregate, the lesser of:
+  - (a) the amount of PMS load fees paid by that User to Harmony for Hope in the twelve (12) months preceding the event giving rise to the claim; or  
+  - (b) one hundred U.S. dollars (US $100).
+
+Nothing in these Terms shall exclude or limit liability to the extent such exclusion or limitation is prohibited by applicable law.
+
+### 11.5 Indemnification
+
+To the extent permitted by law, you agree to indemnify, defend, and hold harmless Harmony for Hope and its directors, officers, employees, volunteers, contractors, and agents from and against any claims, losses, liabilities, damages, costs, and expenses (including reasonable attorneys’ fees) arising out of or related to:
+
+- Your violation of these Terms or Program Rules;  
+- Your misuse of MountainShares or The Commons ecosystem; or  
+- Your violation of any rights of a third party in connection with the Program.
 
 ---
+
+## 12. Governing Law and Dispute Resolution
+
+### 12.1 Governing Law
+
+These Terms and any dispute arising out of or relating to the MountainShares Program shall be governed by and construed in accordance with the laws of the **State of West Virginia**, without regard to its conflict‑of‑law principles, except where preempted by federal law.
+
+### 12.2 Informal Resolution
+
+Before initiating any formal legal proceeding, you agree to first contact Harmony for Hope and attempt to resolve the dispute informally in good faith.
+
+### 12.3 Venue
+
+Subject to any applicable administrative or regulatory processes, any legal action arising out of or relating to these Terms or the Program shall be brought exclusively in the state or federal courts located within the State of West Virginia, and you consent to the personal jurisdiction of such courts.
+
+---
+
+## 13. Miscellaneous
+
+### 13.1 Severability
+
+If any provision of these Terms is held to be invalid, illegal, or unenforceable, the remaining provisions shall remain in full force and effect.
+
+### 13.2 No Waiver
+
+Failure by Harmony for Hope to enforce any provision of these Terms shall not constitute a waiver of that provision or of the right to enforce it later.
+
+### 13.3 Assignment
+
+You may not assign or transfer your rights or obligations under these Terms without the prior written consent of Harmony for Hope. Harmony for Hope may assign or transfer its rights and obligations under these Terms in connection with a merger, consolidation, reorganization, or transfer of the Program.
+
+### 13.4 Entire Agreement
+
+These Terms, together with any Program Rules incorporated by reference and any applicable agreements or policies referenced herein, constitute the entire agreement between you and Harmony for Hope with respect to the MountainShares Program and supersede all prior or contemporaneous communications and understandings, whether written or oral, relating to the Program.
+
+---
+
+_Last updated: [DRAFT DATE – TO BE COMPLETED UPON LEGAL REVIEW]_
