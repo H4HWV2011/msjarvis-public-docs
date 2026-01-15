@@ -3,7 +3,7 @@
 **Version:** 1.0  
 **Date:** January 15, 2026  
 **Status:** DAO Governance Document  
-**Scope:** West Virginia Pilot (Phase 2)
+**Scope:** West Virginia Pilot (Phase 1)
 
 ---
 
@@ -15,7 +15,7 @@
 
 ---
 
-## 2. Starting Conversion Rate & Per-User Caps (Phase 2 Bootstrap)
+## 2. Starting Conversion Rate & Per-User Caps (Phase 1 Bootstrap)
 
 ### 2.1 Global Base Rate
 - **Starting:** 0.2 M$ per EMS hour
