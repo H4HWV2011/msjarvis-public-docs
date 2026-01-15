@@ -156,8 +156,7 @@ Harmony for Hope retains discretion, subject to applicable governance processes,
 - Adjust methods of calculating reserves and circulation, including definitions of “circulating” and “vaulted” balances; and  
 - Delay, phase in, or modify transitions if necessary for legal, safety, prudential, or operational reasons.
 
-No phase transition may be relied upon as guaranteed to occur by any particular date, or at all.
-
+Users, particularly those receiving means‑tested public benefits, should not rely on any anticipated Phase transition or increase in internal buying power when planning for rent, food, medical expenses, or other essentials, and should assume that such transitions may be delayed, reduced, or may never occur.
 ### 4.3 No Rights to Profits or Distributions
 
 Phase transitions and internal buying‑power schedules:
