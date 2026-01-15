@@ -5,7 +5,7 @@
 MountainShares is a blockchain-based community currency and rewards system deployed on Arbitrum One with IPFS-based rewards tracking, developed and administered by Harmony for Hope, Inc., a 501(c)(3) nonprofit organization based in Mount Hope, West Virginia. The system operates as a time-banking rewards program where community participation generates MountainShares tokens whose effective buying power can change over time according to predefined program rules and treasury conditions, and which are only redeemable within The Commons ecosystem.
 
 **Dual-Token Structure:**
-- **Purchased MountainShares (PMS)**: Acquired with external currency through Stripe integration (2.85% loading fee), immediately spendable within The Commons network with approved local merchants and programs, with limited, fee-based options for conversion back to USD through designated partners as defined in program terms.
+- **Purchased MountainShares (PMS)**: Acquired with external currency through Stripe integration (2.85% loading fee), immediately spendable within The Commons network with approved local merchants and programs, with limited, fee-based options for conversion back to USD through designated partners as defined in program terms. PMS cash conversion is limited to the amount originally loaded (less fees) and does not include any phase-based changes in internal buying power.
 - **Earned MountainShares (EMS)**: Generated through documented community participation tracked via IPFS, held in a vault during Phase 1, and becoming fully usable in Phase 2 under the same in-network spending rules as PMS. EMS are not designed for general cash redemption and are intended for use within The Commons ecosystem.
 
 **Three-Phase Economic Model:**
@@ -31,7 +31,7 @@ Unlike traditional employment where wages can be extracted as labor value, Mount
 
 #### 2. Education as Economic Activity
 
-Time spent in educational activities—studying, teaching, tutoring, skill-building—earns MountainShares at the same rate as other community participation (1 hour = 1 MountainShare in Phase 1. This treats education as currency-generating community economic activity rather than unpaid preparation for future employment.
+Time spent in educational activities—studying, teaching, tutoring, skill-building—earns MountainShares at the same rate as other community participation (1 hour = 1 MountainShare in Phase 1). This treats education as currency-generating community economic activity rather than unpaid preparation for future employment.
 
 The system rewards educational **process** (time invested) rather than credentials obtained, avoiding hierarchies of knowledge types and incentivizing genuine learning over credential optimization. Knowledge multiplication through teaching does not deplete the teacher's capacity, creating non-zero-sum dynamics inside the program.
 
@@ -59,7 +59,7 @@ Transaction fee structures are designed to incentivize local spending over exter
 - Loading USD into system: 2.85% fee.
 - Internal transfers between MountainShares participants: 0.25% fee.
 - Purchases at local accepting merchants: 1.80% merchant fee.
-- ATM withdrawals to external currency (where enabled): $1.25 flat fee, provided through designated partners and subject to program limitations.
+- ATM withdrawals to external currency (where enabled): $1.25 flat fee, provided through designated partners and subject to program limitations, and limited to the amount originally loaded (less fees).
 
 Revenue from fees supports treasury growth, system operations, and community programs rather than primarily flowing to distant payment processors or financial institutions. This creates positive feedback loops where system usage is intended to strengthen community capacity.
 
@@ -106,7 +106,7 @@ MountainShares is intended to operate as a rewards and community trading program
 - MountainShares function as rewards points with defined redemption mechanics within The Commons network and its approved partners.
 - Any change in effective buying power depends on treasury performance and community participation levels as defined in program rules and may not occur.
 - The system may modify rules through documented governance processes.
-- Participation may have tax implications requiring individual professional advice.
+- Participation may have tax implications requiring individual professional advice, and for individuals or households receiving means-tested benefits (such as SSI, WV WORKS/TANF, SNAP, Medicaid, or child care subsidies), MountainShares may be treated as income, in-kind support, or resources under program rules and could affect eligibility or benefit amounts.
 - All activities must comply with applicable local, state, and federal regulations.
 
 Treasury operations, fee structures, and conversion mechanisms are designed and maintained in consultation with legal and financial compliance advisors to help ensure the system operates within established regulatory frameworks while pursuing its community economic development mission.
