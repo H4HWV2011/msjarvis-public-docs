@@ -75,7 +75,27 @@ This document is a working draft intended solely for internal review, academic u
 
 5.3 **Historic and Cultural Content.** Specific projects (for example, historic trail narratives, oral histories, or CLIO‑linked content) may be governed by additional agreements regarding ownership, attribution, and revenue sharing. Those agreements control for such content.
 
-5.4 **IPFS and Permanence.** Some Program data, including contribution records, may be stored or referenced via IPFS or other distributed storage systems. Once published, such content may be difficult or impossible to fully remove. Users should not upload sensitive personal content unless specifically requested and protected under defined procedures.
+### 5.4 IPFS, Blockchain, and Permanence
+
+Some Program data, including contribution records, governance events, and certain audit logs, may be stored or referenced using distributed systems such as IPFS and blockchain‑based ledgers.
+
+These systems are designed for **immutability and durability**, which means that:
+
+- Once specific records are written to an immutable ledger or referenced by a content identifier (CID), they may be difficult or impossible to fully delete or alter.  
+- Even where Harmony for Hope limits access at the application layer, underlying records may continue to exist in encrypted or hashed form in system‑level storage.
+
+To reduce privacy and safety risks:
+
+- The Commons does **not** publish raw contribution logs or personally identifying details to public IPFS or public, fully readable smart‑contract storage.  
+- Instead, sensitive participation data is written, where needed, to a **restricted, system‑controlled immutable layer** (for example, encrypted payloads or hashed references), which is intended to be readable only by authorized system components such as Ms. Jarvis and designated backend services, not by general users or the public blockchain.  
+- Where IPFS or similar content‑addressable storage is used, data that could identify individuals is either avoided, minimized, or encrypted before being added, so that the content cannot be understood without decryption keys held by the system.
+
+Even with these design measures, no distributed system can guarantee perfect privacy. You should:
+
+- Avoid uploading or sharing highly sensitive personal information through The Commons unless specifically requested and protected under defined procedures.  
+- Understand that certain high‑level facts about network activity (for example, that some content identifier exists, or that a transaction occurred) may be visible at a protocol level even when the underlying content is encrypted.
+
+Additional technical details about how IPFS, encryption, and immutable logs are used in the MountainShares architecture are provided in separate protocol and security documentation.
 
 ---
 
