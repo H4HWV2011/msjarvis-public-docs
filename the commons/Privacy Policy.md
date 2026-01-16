@@ -51,7 +51,7 @@ In connection with MountainShares and The Commons, we may collect and maintain:
 
 - MountainShares account identifiers and linked UEIs.  
 - Records of PMS loads, EMS earnings, transfers, purchases, and redemptions.  
-- Records of participation in events, quests, value interactions, and governance activities.
+- Records of participation in events, quests, value interactions (including posts, shares, likes, and other engagement defined in Program Rules), and governance activities.
 
 ### 2.4 Sensitive and Special Categories of Data
 
@@ -71,9 +71,9 @@ We use the information we collect to:
 
 - Operate, maintain, and improve The Commons and the MountainShares Program.  
 - Create and manage user accounts and profiles.  
-- Track and validate EMS earning and PMS transactions.  
+- Track and validate EMS earning and PMS transactions, including rewards for activities such as listings, posts, shares, and other value interactions defined in Program Rules.  
 - Determine eligibility for features such as Benefits‑Sensitive account protections or governance participation.  
-- Communicate with you about Program updates, events, support matters, and opportunities to participate.  
+- Provide personalized dashboards so Users and Merchants can see their own activity, balances, and related analytics.  
 - Monitor system health, detect and prevent fraud, abuse, or security incidents.  
 - Comply with legal, regulatory, audit, and reporting obligations.  
 - Analyze aggregated, de‑identified patterns to improve Program design and community outcomes.
@@ -84,14 +84,37 @@ We do not sell personal information as a stand‑alone commercial product.
 
 ## 4. How We Share Information
 
-We may share information:
+### 4.1 Dashboards and In‑App Visibility
 
-- **With service providers and partners** who assist with functions such as hosting, payments, identity verification, analytics, mapping, and security, under appropriate confidentiality and data‑protection obligations.  
-- **With community partners** (for example, local nonprofits or institutions) when necessary to coordinate program participation, subject to agreements and your choices.  
-- **With governmental or regulatory authorities** when required by law, subpoena, court order, or lawful request, or to protect the rights, safety, or property of participants, Harmony for Hope, or others.  
-- **In aggregated or de‑identified form**, so that individual identities are not reasonably identifiable, for research, reporting, or educational purposes.
+The Commons is designed to make most system‑level information visible by default.
 
-We do not grant third parties the right to use personal data we share with them for their own unrelated marketing purposes without your consent.
+- **Individual dashboards.** Users and Merchants can see their own participation and transaction data in personalized dashboards (for example, balances, hours logged, rewards earned, recent transactions, listings, and engagement metrics).  
+- **Public and community dashboards.** We may publish aggregated and de‑identified statistics (for example, total hours logged, number of active users, volume of local transactions, reserve ratios, or KPI trends) on public dashboards so that the broader community can see how the Program is performing.
+
+Public dashboards are intended to show only aggregated or de‑identified information, not personal profiles or individual transaction histories.
+
+### 4.2 No Sale of Personal Data
+
+We do **not** sell personal information.  
+We do **not** license personal information to data brokers or ad networks.  
+We do **not** permit third parties to use personal data from this Program for unrelated advertising or commercial profiling.
+
+The only “data” that may be shared more broadly is the same **aggregated, de‑identified information** that is already made available to the public (for example, open data about total hours of commons work funded, regional adoption statistics, or KPI series that cannot reasonably be tied back to specific individuals).
+
+### 4.3 Limited Sharing with Third Parties
+
+We share identifiable information with third parties only in narrowly defined situations:
+
+- **Legal and safety requirements**  
+  When required by law, subpoena, court order, or other lawful request, or when necessary to protect the rights, safety, or property of participants, Harmony for Hope, or others.
+
+- **Essential technical services**  
+  With third‑party providers that are technically necessary to operate the Platform (for example, payment processors that move money you choose to load, or infrastructure providers that host our systems). In these cases:
+  - Providers only receive the minimum information needed to perform their function.  
+  - They are bound by confidentiality and data‑protection obligations.  
+  - They are not permitted to reuse the information for independent marketing or profiling.
+
+Outside of these situations, personal‑level data stays inside the system; what the broader world sees is the same aggregated, open information that the public dashboards expose.
 
 ---
 
