@@ -356,5 +356,3 @@ Program Rules must remain consistent with:
 Any change that would conflict with those documents is not effective until the higher‑level documents are amended through their own defined processes.
 
 ---
-
-*End of Draft Program Rules (`Program Rules.md`)*
