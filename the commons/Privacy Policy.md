@@ -126,6 +126,16 @@ Some Program data, including contribution records and governance events, may be 
 
 Participants should avoid uploading sensitive personal content except where explicitly requested and handled under specific procedures.
 
+### 5.4 GBIM Layer and Ms. Jarvis
+
+In addition to standard account and log records, the system maintains a separate, append‑only “GBIM” layer that stores certain Program data for analytical and safety purposes.
+
+- GBIM records are written as structured, encrypted payloads to an immutable store and are keyed primarily by internal identifiers or UEIs, rather than by names or direct contact details.  
+- These records are designed to be readable only by authorized system components such as Ms. Jarvis and backend services; they are not intended to be directly accessible to general users or the public.  
+- In normal operation, Ms. Jarvis processes GBIM data in a pseudonymous way and only links it back to specific user accounts where this is necessary and permitted (for example, to protect safety, enforce Program rules, or meet legal obligations).
+
+This layered design is intended to preserve a durable history of participation and system state while limiting routine exposure of identifiable information.
+
 ---
 
 ## 6. Your Choices and Rights
@@ -177,8 +187,8 @@ We may update this Privacy Policy from time to time.
 Questions or concerns about this Privacy Policy or our data practices may be directed to:
 
 Harmony for Hope, Inc.  
-706 Main Street
-Mount Hope, WV 25880
-(304)877-7688
+706 Main Street  
+Mount Hope, WV 25880  
+(304) 877‑7688
 
 ---
