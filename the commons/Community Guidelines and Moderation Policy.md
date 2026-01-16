@@ -139,5 +139,3 @@ These Community Guidelines may be updated from time to time.
 - Continued use of The Commons after changes take effect constitutes acceptance of the updated Guidelines, subject to Applicable Law and the Commons Terms of Use.
 
 ---
-
-*End of `Community Guidelines and Moderation Policy.md`*
