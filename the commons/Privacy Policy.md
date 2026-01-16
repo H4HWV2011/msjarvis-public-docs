@@ -190,9 +190,9 @@ Some Program and governance data written to immutable or distributed systems may
 
 ## 8. Children’s Privacy
 
-The Commons and MountainShares are not intended for children under the age that requires parental consent under Applicable Law in the relevant jurisdiction. We do not knowingly collect personal information from such children.
+The Commons and MountainShares are intended **only for adults**. You must be at least 18 years old to create an account or participate in the Program. We do not knowingly collect personal information from anyone under 18.
 
-If we become aware that we have collected information from a child in violation of this policy or Applicable Law, we will take reasonable steps to delete that information and, where appropriate, close related accounts.
+If we become aware that we have collected information from a person under 18, we will take reasonable steps to delete that information and, where appropriate, close related accounts.
 
 ---
 
