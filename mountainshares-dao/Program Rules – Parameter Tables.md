@@ -33,7 +33,8 @@
 
 ## 2. Reserve Ratio Bands and Automatic Adjustments
 
-### 2.1 Reserve Ratio### 2.2 Band Table (Illustrative Phase 1 Values)
+### 2.1 Reserve Ratio
+#### 2.2 Band Table (Illustrative Phase 1 Values)
 
 | Band ID | Reserve Ratio Range | Base Rate Range (M$/EMS hr) | Typical Tier 2 Cap (M$/mo) | Promo State | Governance Permissions                 |
 |---------|---------------------|------------------------------|----------------------------|------------|----------------------------------------|
