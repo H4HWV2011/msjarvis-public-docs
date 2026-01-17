@@ -1,4 +1,4 @@
-# Quantarithmia Framework (Draft Overview)
+# Quantarithmia Framework
 
 Quantarithmia is a framework within **polymathmatic geography**, an emerging field that combines geography, mathematics, AI systems, and community practice to analyze and redesign how power moves through space. It focuses on the extraction, concentration, and potential re‑routing of power across digital, spatial, social, and spiritual infrastructures, with a primary empirical emphasis on Appalachian contexts such as West Virginia. It draws together economic geography, quantum‑informed modeling, topology, systems theory, psychology, and liberation theology into a single analytic and design approach for community‑first infrastructures.  
 Key public overview:  
