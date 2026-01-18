@@ -1,4 +1,3 @@
-cat > discipline/Polymathmatic-Geography-and-Human-Geography.md << 'EOF'
 # Polymathmatic Geography and Human Geography
 
 Polymathmatic Geography grows out of human geography but pushes it in three directions at once: toward formal, quantifiable models of entanglement; toward explicit engagement with computation and AI as spatial actors; and toward the inclusion of spiritual, genealogical, and designed infrastructures as first‑class geographic objects. This document sketches how the discipline extends, complements, and sometimes argues with three major strands: human geography, spatial statistics, and critical geography.
