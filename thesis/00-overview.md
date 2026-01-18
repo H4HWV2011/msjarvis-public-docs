@@ -1,3 +1,4 @@
+cat > thesis/00-overview.md << 'EOF'
 > New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to how engineering claims, research claims, and live system behavior relate.
 
 # Ms. Jarvis Public Documentation & Thesis Systems Overview
@@ -8,11 +9,19 @@
 
 ## 1. Executive Summary
 
-This work sits within **polymathamatical geography**, an emerging field that integrates quantitative geography, systems theory, AI architectures, and community-centered design to study how power, value, and information move through real places. Within that field, **Quantarithmia** is the specific framework used here to analyze maximopolies and megaopolies and to design community-first alternatives in Appalachia.
+This work is a thesis in **Polymathmatic Geography**, an emerging discipline that studies entangled spaces—places where land, law, computation, economy, story, and spirit are already braided together—and develops methods to understand and reshape how power, value, and information move through them.
 
-This repository documents the architecture, governance, and theoretical framework of **Ms. Egeria Jarvis**, a bounded AI Steward System, and the **MountainShares DAO**.
+Within that discipline, **Quantarithmia** is the specific theoretical framework used here as a *case study*: it provides one concrete geometry for analyzing maximopolies and megaopolies and for designing community‑first alternatives in a particular region, Appalachia.
 
-This work serves as a live, technical case study for **Quantarithmia**: a transdisciplinary framework for analyzing how power, value, and information flow through digital, spatial, and social infrastructures. Rather than remaining purely theoretical, this research is grounded in a running system, real geospatial data, and the specific economic geography of Appalachia.
+**Ms. Egeria Jarvis** and the **MountainShares DAO** are experimental apparatus built to test and demonstrate this framework in a single geography. Ms. Jarvis instantiates Quantarithmia’s ideas in an auditable AI Steward System; MountainShares implements closed‑loop, commons‑oriented economic rules. Both are instruments for investigating one Appalachian entangled space, not the primary objects of the field itself.
+
+This repository therefore documents:
+
+- the **disciplinary context** (Polymathmatic Geography),  
+- the **framework under test** (Quantarithmia), and  
+- the **apparatus and implementation** (Ms. Jarvis Steward System and MountainShares governance stack)  
+
+used to evaluate how a polymathmatic approach performs when it is forced to operate in a real place, against live data, under real constraints.
 
 ---
 
@@ -101,3 +110,4 @@ This repository contains **public documentation** only. Source code and sensitiv
 * **Auditors:** To review the architectural safeguards, governance logic, and data flows.
 
 > **Note:** This overview is a living document that updates alongside the system’s evolution. All architectural claims regarding GBIM, quantum-inspired state entanglement, routing/orchestration, and optimization strategies are anchored in the live production stack running in Mount Hope, WV.
+EOF
