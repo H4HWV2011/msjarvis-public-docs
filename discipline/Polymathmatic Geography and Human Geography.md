@@ -105,5 +105,3 @@ Polymathmatic Geography is not proposed as a replacement for human geography, sp
 - designers, technologists, theologians, and community members bring their own languages and obligations.
 
 The hope is that under this name, such collaborations can be structured more explicitly, with shared principles and methods for working in entangled spaces—whether those spaces are mountain hollers, financial districts, or digital commons.
-
-EOF
