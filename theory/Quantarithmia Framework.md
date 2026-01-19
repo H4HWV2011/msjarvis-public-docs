@@ -1,4 +1,3 @@
-cat > theory/Quantarithmia\ Framework.md << 'EOF'
 > **Disciplinary Context (Polymathmatic Geography)**  
 > - **Framework:** Quantarithmia – a spatio‑temporal logic and design framework for entangled geographies  
 > - **Discipline:** Polymathmatic Geography (see `discipline/Polymathmatic Geography.md` and `discipline/Principles of Polymathmatic Geography.md`)  
@@ -157,4 +156,3 @@ For readers seeking more technical and conceptual detail on Quantarithmia and it
   [https://mammakidd.substack.com/p/the-commons-platform-a-revolutionary](https://mammakidd.substack.com/p/the-commons-platform-a-revolutionary)  
 
 > **Status:** This overview is a draft intended for an academic and professional audience. It will be revised as the Quantarithmia framework, the broader field of polymathmatic geography, and associated empirical implementations (Ms. Jarvis, MountainShares, The Commons) are further developed and evaluated.
-EOF
