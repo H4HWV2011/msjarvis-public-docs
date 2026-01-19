@@ -1,3 +1,12 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter turns Polymathmatic Geography’s claim that **every where is entangled** into a concrete mathematical engine for Ms. Jarvis. It supports:  
+> - **P1 – Every where is entangled** by representing semantic, spatial, and institutional layers as components of a single Hilbert‑space state, rather than as separate silos.  
+> - **P3 – Power has a geometry** by treating flows of leverage, extraction, and obligation as operators on that state, so that “who is exposed to what” becomes a geometric question.  
+> - **P5 – Design is a geographic act** by making basis choices, projections, and operators explicit design decisions that change how a territory is seen and acted upon.  
+> - **P12 – Intelligence with a ZIP code** by grounding Ms. Jarvis’s state in geospatial embeddings tied to GBIM and West Virginia data, not in abstract, placeless vectors.  
+> - **P16 – Power accountable to place** by enabling explicit projections onto geographic, governance, and constraint subspaces, so that reasoning can be scoped and audited by region, role, and ethical rule.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the Hilbert‑space structure that Ms. Jarvis uses to “hold” entangled Appalachian states and to implement Quantarithmia’s spatial‑justice dynamics in a form that can be inspected and tested.
+
 ## 4. Hilbert-Space State of Ms. Jarvis
 
 ### 4.1 Purpose and Scope
@@ -186,7 +195,7 @@ which quantifies aspects such as centralization, extraction, or inequality. Ms. 
 
 The abstract spaces `H_text`, `H_geo`, and `H_inst` are realized by embeddings in the running system.
 
-- Textual embeddings in the current implementation are produced by a 384‑dimensional sentence‑embedding model (e.g., a SentenceTransformer such as `all-MiniLM-L6-v2`), and stored in a persistent ChromaDB instance. Collections include task‑specific knowledge bases (for example, MountainShares knowledge, autonomous research notes, and Ms. Jarvis memory) and system‑level metadata; these collections correspond to finite subsets of `H_text`.
+- Textual embeddings in the current implementation are produced by a 384‑dimensional sentence‑embedding model (for example, a SentenceTransformer such as `all-MiniLM-L6-v2`), and stored in a persistent ChromaDB instance. Collections include task‑specific knowledge bases (for example, MountainShares knowledge, autonomous research notes, and Ms. Jarvis memory) and system‑level metadata; these collections correspond to finite subsets of `H_text`.
 
 - Geospatial embeddings are derived from GBIM entities backed by real West Virginia datasets in PostGIS. Spatial features (such as parcels, service areas, and infrastructure segments) are mapped into a geospatial embedding space and stored in vector collections associated with GBIM layers. These collections realize finite subsets of `H_geo`.
 
