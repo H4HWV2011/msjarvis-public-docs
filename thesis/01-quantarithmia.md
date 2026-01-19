@@ -1,4 +1,3 @@
-cat > thesis/01-quantarithmia.md << 'EOF'
 > **Why this matters for Polymathmatic Geography**  
 > This chapter anchors Quantarithmia explicitly inside **Polymathmatic Geography** as a worked example of how the discipline’s axioms become a concrete framework for spatial justice. It most directly supports:  
 > - **P1 – Every where is entangled** by insisting that digital, spatial, social, economic, and spiritual infrastructures in Appalachia are modeled as one intertwined system rather than separate domains.  
