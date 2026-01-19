@@ -1,3 +1,12 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter makes Polymathmatic Geography operational by specifying how a Steward System can hold beliefs that are explicitly tied to **where**, **when**, and **on what evidence** they rest. It directly supports:  
+> - **P1 – Every where is entangled** by representing legal, economic, infrastructural, social, and spiritual facts about Appalachia as a single, structured belief space instead of disconnected layers.  
+> - **P3 – Power has a geometry** by encoding dependencies, exposures, and flows as graph and spatial relationships between entities and regions.  
+> - **P5 – Design is a geographic act** by treating schemas, APIs, and guards as design choices that reshape how institutions “see” their territory and act within it.  
+> - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s cognition to specific West Virginia and Appalachian geographies through GBIM, rather than allowing placeless abstractions.  
+> - **P16 – Power accountable to place** by requiring that the Steward’s beliefs be inspectable, contestable, and traceable back to concrete evidence about particular communities.  
+> As such, this chapter sits squarely in the **Computational Instrument** tier: it defines the core representational machinery that allows Quantarithmia’s spatial‑justice commitments to be enforced and audited in a live system.
+
 ## Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
 Within **polymathmatic geography**, Ms. Egeria Jarvis is treated as a bounded, bio‑inspired Steward System whose beliefs are explicitly anchored in place, time, and evidence. In this context, **GBIM** refers to a **Geospatial Belief Information Model** implemented within a broader **Generalized Bio‑inspired Machine** design. GBIM is the core layer that ties Ms. Jarvis’s reasoning to concrete geographies in West Virginia and the wider Appalachian region.
