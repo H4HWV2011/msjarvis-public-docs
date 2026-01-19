@@ -1,3 +1,13 @@
+cat > thesis/01-quantarithmia.md << 'EOF'
+> **Why this matters for Polymathmatic Geography**  
+> This chapter anchors Quantarithmia explicitly inside **Polymathmatic Geography** as a worked example of how the discipline’s axioms become a concrete framework for spatial justice. It most directly supports:  
+> - **P1 – Every where is entangled** by insisting that digital, spatial, social, economic, and spiritual infrastructures in Appalachia are modeled as one intertwined system rather than separate domains.  
+> - **P3 – Power has a geometry** by introducing maximopolies and megaopolies as distinct but interacting geometries of power that can be mapped, measured, and redesigned.  
+> - **P5 – Design is a geographic act** by treating Quantarithmia as a design language for new infrastructures (AI stewards, commons currencies, governance rules) rather than as a purely descriptive theory.  
+> - **P7 – Commons before enclosure** and **P9 – Leakage and enclosure** by centering reciprocity, local wealth retention, and anti‑extractive circuits as stability conditions for Appalachian spaces.  
+> - **P12 – Intelligence with a ZIP code** and **P16 – Power accountable to place** by defining Ms. Jarvis and MountainShares as territorially situated instruments accountable to specific communities, not abstract global users.  
+> As such, this chapter belongs to the **Computational Instrument** tier at the conceptual level: it defines the justice criteria, geometric distinctions, and reciprocity thresholds that the rest of the Ms. Jarvis and MountainShares machinery is built to calculate, monitor, and experimentally test in Appalachia.
+
 # 1. Quantarithmia: Field and Framework (Draft)
 
 Quantarithmia is a framework within **polymathamatical geography**, a transdisciplinary field for modeling how power is extracted, concentrated, and potentially redirected across digital, spatial, social, and spiritual infrastructures, with a primary focus on Appalachian contexts such as West Virginia. Polymathamatical geography treats geography, infrastructure, and community history as first‑class variables rather than background scenery, asking how specific networks, platforms, and institutions reshape everyday life in places like Mount Hope.
@@ -48,3 +58,4 @@ Within the thesis, polymathamatical geography provides the broader disciplinary 
 - [Download full Quantarithmia Journal PDF](originals/Quantarithmia_Journal.pdf)
 
 > **Status:** This document is a draft conceptual overview. Formal definitions, case studies, and mathematical or topological treatments of Quantarithmia will be developed in the main thesis text and related publications.
+EOF
