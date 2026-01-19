@@ -1,4 +1,3 @@
-cat > thesis/00-thesis-overview.md << 'EOF'
 > New here? Start with **[How to Read This Thesis](../docs/how-to-read-this-thesis.md)** for reading paths and a guide to how theory, engineering, and live system behavior relate.
 
 # 0. Thesis Overview
@@ -55,5 +54,3 @@ To avoid overstatement, this thesis explicitly marks several non‑goals:
 - Neither system is intended to operate without human governance, oversight, and legal constraints.
 
 These limits are part of the discipline’s ethics: instruments must remain accountable to the communities and geographies they serve, and their authority is always bounded by existing legal and spiritual frameworks.
-
-EOF
