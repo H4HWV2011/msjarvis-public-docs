@@ -1,5 +1,13 @@
 # MountainShares Program Rules
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2–7 and 10 treat eligibility, EMS/PMS design, phase mechanics, and regional parameters as one coupled system that shapes how value and obligations move through specific Appalachian places. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** Sections 1, 3–6, 9, and 11 define explicit currency types, caps, phase rules, benefits‑sensitive protections, and versioning, so that changes to earning, spending, and risk can be traced across time and regions.  
+> - **P16 – Power accountable to place:** Sections 1.2, 2, 5, 8, 10, and 11 link Harmony for Hope, DAO governance, and regional overrides to documented scopes and conditions, keeping operational power answerable to West Virginia and later regional deployments.  
+> - **Anti‑leakage and closed‑loop spending:** Sections 3–6 and 7 define PMS/EMS distinctions, in‑network usage, phase‑based internal buying power, and cash‑conversion rules that aim to keep value circulating locally rather than leaking immediately to external rails.  
+> - **Bounty and corrective programs:** Sections 4, 6, and 9 frame EMS earning categories, quests, and value interactions as structured, parameterized “bounty” channels that can be tuned via governance while remaining within the economic safety bands.
+
 > **DRAFT – NOT FINAL PROGRAM RULES**
 >
 > This document describes draft operational rules for the MountainShares Program.  
@@ -354,5 +362,3 @@ Program Rules must remain consistent with:
 - MountainShares DAO governance framework and Harmony for Hope’s legal and fiduciary obligations.
 
 Any change that would conflict with those documents is not effective until the higher‑level documents are amended through their own defined processes.
-
----
