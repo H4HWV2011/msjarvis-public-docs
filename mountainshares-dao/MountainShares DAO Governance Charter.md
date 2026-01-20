@@ -1,5 +1,13 @@
 # MountainShares DAO Governance Charter
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1, 2, and 5 frame governance, legal power, and economic parameters as jointly shaping how value and decision‑making move through specific Appalachian communities. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** Sections 4 and 6 define proposal lifecycles, public records, and reporting, making rules, votes, and parameter changes traceable over time.  
+> - **P16 – Power accountable to place:** Sections 2.1, 2.3–2.4, 5, and 7 couple H4H’s fiduciary authority, early‑phase monitors, and AI advisory roles to documented scopes, vetoes, and sunset paths, keeping institutional power answerable to the communities served.  
+> - **Anti‑leakage and closed‑loop spending:** Sections 3 and 5.1–5.2 delineate what the DAO can and cannot decide about EMS→M$ rates, caps, and promo budgets, creating a governance envelope around anti‑leakage mechanisms and closed‑loop economic design.  
+> - **Bounty and corrective programs (implicit):** The proposal classes and decision scope in Sections 3–5 provide hooks for future bounty or corrective programs to be proposed, debated, and ratified under shared rules.
+
 > **DRAFT – GOVERNANCE CHARTER**
 >
 > This Charter describes the intended governance structure and processes for the MountainShares DAO.
@@ -181,5 +189,3 @@ In any such case, H4H may decline to implement and must provide a public explana
   - Review and non‑objection by H4H’s Board.
 
 ---
-
-*End of `Governance Charter.md`*
