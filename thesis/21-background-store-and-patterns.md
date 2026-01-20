@@ -1,6 +1,17 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter explains how Ms. Jarvis keeps a “background notebook” of interactions and patterns before anything becomes core doctrine. It supports:  
+> - **P1 – Every where is entangled** by letting recurring Appalachian questions and signals accumulate into recognizable, testable patterns.  
+> - **P3 – Power has a geometry** by making clear which stores quietly shape future decisions and which remain transient.  
+> - **P5 – Design is a geographic act** by treating background memory as a site where spatial, institutional, and commons-related traces are sorted and weighed.  
+> - **P12 – Intelligence with a ZIP code** by using tags and embeddings that foreground place, role, and community context in what is retained.  
+> - **P16 – Power accountable to place** by designing background memory to be auditable, compressible, and subject to deletion and promotion rules.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it describes the background stores and review loops that turn raw events into patterns, without yet elevating them to the highest, identity-level layer.
+
 # 21. Background Store and Ongoing Review
 
-This chapter describes the second stage in the container paths, where items that passed the initial filter are held for longer periods and revisited over time. In the current implementation, this stage is realized primarily through a ChromaDB-based semantic store and, at the design level, through an I-Container mechanism intended to capture curated internal knowledge. The aim is to move from one-off decisions toward the recognition of stable patterns, without yet committing material to the most selective layer.
+This chapter describes the second stage in the container paths, where items that passed the initial filter are held for longer periods and revisited over time. In the current implementation, this stage is realized primarily through a ChromaDB-based semantic store and, at the design level, through an I-Container mechanism intended to capture curated internal knowledge. The aim is to move from one-off decisions toward the recognition of stable patterns, without yet committing material to the most selective layer. Vector- and retrieval-based background memory architectures of this sort are now standard in the literature, for example in Lewis et al.’s Retrieval-Augmented Generation work (https://arxiv.org/abs/2005.11401) and Khandelwal et al.’s nearest-neighbor language models (https://arxiv.org/abs/1911.00172).
+
+---
 
 ## 21.1 Purpose of the Background Store
 
@@ -15,7 +26,9 @@ The background store serves three conceptual roles:
 - **Preparation**  
   Provide a pool of candidates from which identity-level entries, belief updates, and long-term memory insertions can be drawn during later consolidation and optimization passes.
 
-In the deployed system, the ChromaDB collection `msjarvismemories` (currently empty on the reference host) is the main operational embodiment of this background store, with the I-Container pathways defined in code and scripts as a complementary, more curated layer that requires further activation.
+In the deployed system, the ChromaDB collection `msjarvismemories` (currently empty on the reference host) is the main operational embodiment of this background store, with the I-Container pathways defined in code and scripts as a complementary, more curated layer that requires further activation. This pattern aligns with the broader move toward external semantic stores for long-horizon reasoning, as seen in Meng et al. (https://arxiv.org/abs/2206.07646) and related memory-editing work.
+
+---
 
 ## 21.2 Structure of Stored Items
 
@@ -35,17 +48,21 @@ Items in the background store build on the normalized records produced by earlie
 
 In the I-Container design, items are represented as Python objects stored in an unbounded list, with accompanying analysis functions that compute size, keywords, and suggested topics. Although the HTTP interface to this container is not currently operational on the reference host, the code and verification scripts define a structure that parallels the Chroma store in terms of identifiers, content summaries, and growth-related metadata.
 
+---
+
 ## 21.3 Ingestion from the First Stage
 
 When an item is accepted by the first-stage filter, it becomes eligible for entry into the background store. For user-facing interactions, the main-brain service can enqueue a background RAG storage task that:
 
 - Copies or references core fields from the `UltimateResponse` (message, response, user_id, services_used, timestamps).
 - Computes or receives an embedding for the textual content and inserts it into the Chroma collection with appropriate metadata.
-- Initializes status fields (for example, `reviewed=False`, `promoted=False`) and records any safety or truth-validation annotations that were attached during early filtering.
+- Initializes status fields (for example, `reviewed=false`, `promoted=false`) and records any safety or truth-validation annotations that were attached during early filtering.
 
 In the I-Container design, internal learning outputs that pass through the autonomous learner and Fifth DGM filters are intended to be added via an HTTP API (for example, `/filterconsciousness`), which appends structured items into the container’s internal list. Verification scripts show that, when active, this flow would measure container size before and after the insertion of “high-value” test items, confirming that accepted content remains available for subsequent review.
 
-At this stage, items are admitted to the background store but do not yet directly modify long-term, identity-level, or policy structures.
+At this stage, items are admitted to the background store but do not yet directly modify long-term, identity-level, or policy structures. The ingest pattern is consistent with retrieval-augmented and tool-using architectures that decouple immediate answers from longer-term memory writes (for example, Ram et al., https://arxiv.org/abs/2302.00083; Schick et al., https://arxiv.org/abs/2302.04761).
+
+---
 
 ## 21.4 Periodic Review Processes
 
@@ -62,6 +79,8 @@ The background store is meant to be revisited by periodic or on-demand processes
 
 On the reference host, these review processes are partially implemented: Chroma scanning can be performed programmatically, and the I-Container analysis functions are defined in code but depend on an HTTP service that is not fully configured in the observed deployment. The chapter therefore treats them as designed capabilities, with the understanding that their activation is an engineering task.
 
+---
+
 ## 21.5 Pattern Detection
 
 As more items accumulate in the background store, the system can begin to detect patterns that are not obvious from single interactions. Conceptually, these patterns include:
@@ -75,7 +94,9 @@ As more items accumulate in the background store, the system can begin to detect
 - **Constraint-triggering clusters**  
   Sets of events that repeatedly invoke specific constraints or filters (such as BBB blocks, truth-validator issues, or ethics-related warnings), indicating areas where policy or guidance may need refinement.
 
-From an implementation standpoint, these patterns can be approximated using relatively simple techniques: counting items per tag, bucketing items by time and domain, and using nearest-neighbor queries in ChromaDB to identify clusters around representative examples. Heavyweight clustering or topic modeling is not required for the patterns to be useful; the emphasis is on transparent, explainable metrics.
+From an implementation standpoint, these patterns can be approximated using relatively simple techniques: counting items per tag, bucketing items by time and domain, and using nearest-neighbor queries in ChromaDB to identify clusters around representative examples. Heavyweight clustering or topic modeling is not required for the patterns to be useful; the emphasis is on transparent, explainable metrics, aligned with interpretability goals emphasized by Doshi-Velez & Kim (https://arxiv.org/abs/1702.08608) and Lipton (https://arxiv.org/abs/1606.03490).
+
+---
 
 ## 21.6 Promotion and Deletion Decisions
 
@@ -97,7 +118,9 @@ Based on observed patterns and evolving metadata, the background store supports 
 
   Compression may take the form of aggregating multiple similar items into a single summary record, with counts and example references, rather than simply deleting them.
 
-In the current deployment, explicit promotion and deletion policies are partly encoded in scripts and manual procedures rather than in automated background jobs. Chapter 21 therefore presents the promotion/deletion logic as a design pattern supported by existing data structures and APIs, with room for further automation.
+In the current deployment, explicit promotion and deletion policies are partly encoded in scripts and manual procedures rather than in automated background jobs. Chapter 21 therefore presents the promotion/deletion logic as a design pattern supported by existing data structures and APIs, with room for further automation. Questions of deletion and long-term logging intersect with regulatory and ethical guidance on memory and identity, such as GDPR right-to-erasure discussions (https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-erasure/) and privacy taxonomies (Solove, https://papers.ssrn.com/sol3/papers.cfm?abstract_id=667622).
+
+---
 
 ## 21.7 Interaction with Parallel Paths
 
@@ -107,9 +130,11 @@ Both parallel evaluation paths—the meaning-oriented and analytical tracks intr
   Emphasizes items that reflect community experience, emotional tone, or recurring narratives. Its background view may prioritize entries tagged with psychological, spiritual, or community-related domains, and may feed specialized RAG domains or analysis services (for example, psychological support or maternal-guidance modules).
 
 - **Analytical path**  
-  Emphasizes technically structured content: spatial queries, infrastructure data, governance rules, and optimization results. Its background view may center on entries with clear numeric or structural components, and may be more tightly linked to GBIM graphs, geospatial databases, and performance metrics.
+  Emphasizes technically structured content: spatial queries, infrastructure data, governance rules, and optimization results. Its background view may center on entries with clear numeric or structural components, and may be more tightly linked to GBIM graphs, geospatial databases, and performance metrics, reflecting spatial decision support practices such as those described by Anand et al. (https://www.spatial.redlands.edu/sds/SDSSChapter.pdf).
 
 Even when both paths share the same underlying Chroma collection, they can use different tag filters, embedding queries, and thresholds for what constitutes a “candidate” for promotion. Both paths, however, produce similarly structured outputs—records with IDs, metadata, and links—so that later layers (such as consolidation and global control) can combine or contrast their perspectives when needed.
+
+---
 
 ## 21.8 Links to Other Layers
 
@@ -130,7 +155,9 @@ The background store connects to other parts of the system along several dimensi
   - Tightening or relaxing of specific safety filters when certain types of problematic content appear frequently.
   - Reallocation of resources toward heavily used domains or under-served communities identified through aggregate statistics.
 
-Through these links, what accumulates quietly in the background—whether in Chroma, the I-Container, or auxiliary databases—can progressively shape both localized decisions and overall system behavior.
+Through these links, what accumulates quietly in the background—whether in Chroma, the I-Container, or auxiliary databases—can progressively shape both localized decisions and overall system behavior. This feedback loop reflects broader concerns about how technical systems feed back into social, economic, and legal layers, as discussed by Winner (https://www.cc.gatech.edu/~beki/cs4001/Winner.pdf) and Elish (https://doi.org/10.17351/ests2019.260).
+
+---
 
 ## 21.9 Summary
 
