@@ -1,3 +1,16 @@
+# Polymathmatic Commons Context — The Commons as the Primary Entangled Subject Space
+
+The Commons is the primary entangled subject space for these Community Guidelines: a **social–economic–digital** commons where behavior, speech, and creative work become data, and that data returns as geometry—feeds, flags, sanctions, EMS rewards, and governance surfaces that residents can see, contest, and reshape.
+
+These Guidelines sit alongside:
+
+- `discipline/Non-Digital Commons in a Polymathmatic Lens.md`, which reads historical land, water, and sacred commons as entangled spaces of rights, ritual, and conflict.  
+- Commons Theory docs in `discipline/`, which describe how modern platforms can either reproduce enclosure dynamics or help sustain shared, accountable commons.
+
+By analogy with non‑digital commons—English commons under enclosure, Spanish huertas, sacred groves—moderation here is treated as **boundary work**: maintaining a livable shared field without turning The Commons into a privatized or arbitrary space.
+
+---
+
 # Community Guidelines and Moderation Policy
 **(DRAFT – FOR REVIEW, NOT LEGAL ADVICE)**
 
@@ -126,7 +139,7 @@ For significant sanctions (for example, long‑term suspensions or loss of key f
 
 ## 6. Creative Content, Attribution, and Rewards
 
-6.1 Original Contributions
+### 6.1 Original Contributions
 
 When you post original creative work in The Commons (for example, artwork, photographs, writing, video, music, blog entries, journal reflections, or historic narratives, including item descriptions that add meaningful story or context), you:
 
@@ -135,17 +148,17 @@ When you post original creative work in The Commons (for example, artwork, photo
 
 Under the MountainShares Program Rules, certain categories of original contributions may qualify for EMS rewards (for example, creating an item listing with historic information, posting a verified story about a place, or publishing creative work in designated spaces), subject to verification, Program Rules, and applicable caps.
 
-6.2 Shares, Reactions, and Curation
+### 6.2 Shares, Reactions, and Curation
 
 Sharing and reacting to others’ contributions can also create value when it helps surface, organize, or apply that content in useful ways.
 
 - Simple copying or reposting without meaningful added value generally does not qualify for EMS by itself.  
 - Shares, reactions (such as “likes” or similar feedback), and curation activities may qualify as EMS‑earning “value interactions” when they are part of defined quests or Program activities (for example, helping moderate a discussion, curating a local collection, or using content in a documented class or event), as described in the Program Rules.  
-- Where EMS is awarded, the rules are designed so that both:
+- Where EMS is awarded, the rules are designed so that both:  
   - Original creators can be recognized for their work; and  
   - Participants who add clear, documented value by teaching, curating, contextualizing, or otherwise extending that work can also be recognized.
 
-6.3 Attribution Expectations
+### 6.3 Attribution Expectations
 
 Participants should:
 
@@ -155,7 +168,7 @@ Participants should:
 
 Program quests and value‑interaction designs may reward good attribution practices (for example, properly linking to an original post, trail entry, or CLIO record) as part of EMS‑earning activities.
 
-6.4 Relationship to Program Rules
+### 6.4 Relationship to Program Rules
 
 These Guidelines describe expectations for behavior and attribution. The specific EMS amounts, caps, and eligibility conditions for posts, shares, reactions, and other value interactions are defined in the MountainShares Program Rules, the Program Rules – Parameter Tables, and related quest documentation.
 
