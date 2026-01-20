@@ -1,6 +1,17 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter explains how Ms. Jarvis’s “containers” receive, sort, and route the flows of experience that later become memory and decision support. It supports:  
+> - **P1 – Every where is entangled** by treating events from people, places, and institutions as a shared stream that must be carefully routed into memory.  
+> - **P3 – Power has a geometry** by making explicit which services, ports, and stores stand between communities’ data and long-term inference.  
+> - **P5 – Design is a geographic act** by encoding how Appalachian events move through Ms. Jarvis and into spatial, semantic, and commons-oriented stores.  
+> - **P12 – Intelligence with a ZIP code** by prioritizing spatial, governance, and commons contexts in the way container records are tagged and stored.  
+> - **P16 – Power accountable to place** by using auditable container flows and verification scripts so communities can see where their data goes.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it describes the container and routing structures that turn raw events into traceable, place-aware memory.
+
 # 19. Container Architecture and Routing
 
-This chapter describes the high-level layout of the container-based structures that receive activity from earlier layers and route it into deeper evaluation paths. The goal is to separate the flow of events into clear stages, so that each stage has a well-defined role in deciding what is ignored, what is kept for background consideration, and what becomes part of a more central store. In the implemented system, these responsibilities are realized by a set of Dockerized services that cooperate via HTTP and shared data stores.
+This chapter describes the high-level layout of the container-based structures that receive activity from earlier layers and route it into deeper evaluation paths. The goal is to separate the flow of events into clear stages, so that each stage has a well-defined role in deciding what is ignored, what is kept for background consideration, and what becomes part of a more central store. In the implemented system, these responsibilities are realized by a set of Dockerized services that cooperate via HTTP and shared data stores. Conceptually, this reflects microservice and modular-control patterns as described by Lewis & Fowler (https://martinfowler.com/articles/microservices.html) and modular coordination work such as Goyal et al. (https://arxiv.org/abs/2103.01197).
+
+---
 
 ## 19.1 Position in the Overall System
 
@@ -11,6 +22,8 @@ The container layer sits between external interfaces and the lower-level retriev
 - Dispatch normalized items into successive evaluation stages, while obeying system-wide constraints such as safety filters, resource limits, and service health.
 
 Earlier parts of the work have described how information is retrieved, evaluated, and stored. This chapter focuses on how those elements are wrapped in container structures—both conceptual and literal Docker containers—that manage their entry into higher-level evaluative paths and long-term memory.
+
+---
 
 ## 19.2 Types of Incoming Events
 
@@ -29,6 +42,8 @@ In practice, the intake layer receives several broad categories of events that m
   Updates to memory, belief graphs, or spatial layers that may require special attention. For instance, a new GBIM graph edge, a significant Chroma embedding insertion, or an update to access-control metadata can trigger container-level processing and validation.
 
 Each event is accompanied by metadata such as timestamps, role identifiers, user or agent IDs, and source information. Container logic uses this metadata to make routing decisions, enforce policy, and maintain traceability.
+
+---
 
 ## 19.3 Normalization into Container Records
 
@@ -54,7 +69,9 @@ A typical normalized record includes:
 - **Control information**  
   Flags indicating initial assessments such as urgency, sensitivity, safety status (for example, BBB-approved or denied), expected resource cost, and whether the item is considered high-value for long-term retention.
 
-This normalization step allows subsequent stages—such as I-Container growth, truth filtering, or consolidation—to apply uniform logic regardless of where the event originated.
+This normalization step allows subsequent stages—such as I-Container growth, truth filtering, or consolidation—to apply uniform logic regardless of where the event originated. The overall pattern parallels retrieval and routing architectures in tool-using and agentic LLM systems, as surveyed in Ram et al. (https://arxiv.org/abs/2302.00083), Schick et al. (https://arxiv.org/abs/2302.04761), and Trivedi et al. (https://arxiv.org/abs/2401.15884).
+
+---
 
 ## 19.4 First-Level Routing Decisions
 
@@ -76,6 +93,8 @@ The first-level routing includes:
 
 At this stage, routing focuses on structural compatibility, basic policy, and safety, leaving deeper judgments (such as long-term importance or thematic clustering) to later stages.
 
+---
+
 ## 19.5 Parallel Paths
 
 The architecture supports multiple parallel paths that share a common structural pattern: intake → normalization → gating → storage or discard. Conceptually, two broad tracks can be distinguished:
@@ -86,9 +105,11 @@ The architecture supports multiple parallel paths that share a common structural
 - **Analytical and technical paths**  
   Used for more conventional problem-solving tasks, such as infrastructure planning, spatial reasoning, and optimization over data. These paths emphasize quantitative reasoning, model-based analysis, and technical verification.
 
-The intake layer uses metadata, simple classifiers, and explicit flags to decide whether a record is best handled by one path, the other, or both. Each path then applies its own evaluation criteria and modules but retains the same overarching sequence of stages: initial safety, context integration, analysis, and optional storage into long-term structures.
+The intake layer uses metadata, simple classifiers, and explicit flags to decide whether a record is best handled by one path, the other, or both. Each path then applies its own evaluation criteria and modules but retains the same overarching sequence of stages: initial safety, context integration, analysis, and optional storage into long-term structures. Similar dual-track designs—separating meaning-focused and analysis-focused flows—appear in broader discussions of interpretability and explanation, such as Doshi-Velez & Kim (https://arxiv.org/abs/1702.08608) and Lipton (https://arxiv.org/abs/1606.03490).
 
 In concrete terms, these paths are supported by distinct services and RAG domains (for example, psychological RAG vs. general knowledge RAG), as well as by specialized orchestration scripts that test different flows (such as the full autonomous learning + Fifth DGM + I-Container route).
+
+---
 
 ## 19.6 Outputs of the Routing Layer
 
@@ -101,9 +122,11 @@ After routing, the container layer produces several types of outputs that feed l
   Events may be held back (queued, delayed, or rate-limited) or dropped entirely based on policy. Reasons include safety denials, low priority under heavy load, redundancy detected by RAG similarity checks, or failure of essential services.
 
 - **Introspective logs and verification entries**  
-  The system records which paths were chosen, which services were invoked, and what the outcomes were. Scripts such as `VERIFYANDTEST.sh` and `verifyallclaims.sh` generate structured summaries of service health, I-Container growth, autonomous learning cycles, and ChromaDB status. These introspective outputs make the behavior of the routing layer auditable and support both debugging and research.
+  The system records which paths were chosen, which services were invoked, and what the outcomes were. Scripts such as `VERIFYANDTEST.sh` and `verifyallclaims.sh` generate structured summaries of service health, I-Container growth, autonomous learning cycles, and ChromaDB status. These introspective outputs make the behavior of the routing layer auditable and support both debugging and research, consistent with AI auditing approaches described by Raji et al. (https://arxiv.org/abs/2001.00973) and ISO/IEC 42001 guidance (https://www.iso.org/news/ref3077.html).
 
 Together, these outputs ensure that downstream stages receive appropriately prepared inputs and that routing choices can be reconstructed and analyzed when necessary.
+
+---
 
 ## 19.7 Conceptual Summary
 
@@ -119,30 +142,30 @@ This section summarizes one observed deployment topology, to ground the abstract
 
 ### Core Orchestration Layer
 
-| Container         | Port Mapping | Role                                                                      |
-|------------------|-------------:|---------------------------------------------------------------------------|
-| jarvis-main-brain| 8051→8050    | External API entry point; health-check sweep; service orchestration; RAG queueing |
+| Container          | Port Mapping | Role                                                                      |
+|-------------------|-------------:|---------------------------------------------------------------------------|
+| jarvis-main-brain | 8051→8050    | External API entry point; health-check sweep; service orchestration; RAG queueing |
 
 The `jarvis-main-brain` container hosts the `Ms. Jarvis ULTIMATE` main-brain FastAPI application. It exposes `/health`, `/chat`, and asynchronous job endpoints, performs health-based service discovery, and coordinates downstream services according to the executive coordination pattern described in Chapter 17.
 
 ### Coordination Services (ULTIMATE Path)
 
-| Container                   | Port Mapping | Role                                                          |
-|-----------------------------|-------------:|---------------------------------------------------------------|
-| jarvis-blood-brain-barrier | 8016→8016    | Content filter; context cleaning; ethical and safety enforcement |
-| jarvis-llm-bridge          | 18006→8006   | Multi-model ensemble coordination; response synthesis         |
-| jarvis-web-research        | 18009→8009   | External knowledge retrieval; web-based context enhancement   |
+| Container                    | Port Mapping | Role                                                                |
+|-----------------------------|-------------:|---------------------------------------------------------------------|
+| jarvis-blood-brain-barrier  | 8016→8016    | Content filter; context cleaning; ethical and safety enforcement    |
+| jarvis-llm-bridge           | 18006→8006   | Multi-model ensemble coordination; response synthesis               |
+| jarvis-web-research         | 18009→8009   | External knowledge retrieval; web-based context enhancement         |
 
 These services implement the intake and early-routing behavior described earlier: the main-brain calls the blood–brain barrier for gating, invokes web_research and RAG for context, and uses llm_bridge as the primary LLM fabric for synthesis. Their outputs are normalized and incorporated into container records that can be stored, audited, or further processed.
 
 ### Memory, Learning, and Optimization Services
 
-| Container                     | Port Mapping | Role                                              |
-|------------------------------|-------------:|---------------------------------------------------|
-| jarvis-autonomous-learner    | 18053→8053   | Autonomous learning; self-generated tasks and content |
-| jarvis-i-containers          | 18115→8015   | Container orchestration; storage of curated knowledge items |
-| jarvis-fifth-dgm             | 14002→4002   | Darwin–Gödel–style optimization and filtering     |
-| jarvis-neurobiological-master| 18118→8018   | Higher-level coordination among neurobiological modules |
+| Container                      | Port Mapping | Role                                                    |
+|-------------------------------|-------------:|---------------------------------------------------------|
+| jarvis-autonomous-learner     | 18053→8053   | Autonomous learning; self-generated tasks and content   |
+| jarvis-i-containers           | 18115→8015   | Container orchestration; storage of curated knowledge items |
+| jarvis-fifth-dgm              | 14002→4002   | Darwin–Gödel–style optimization and filtering           |
+| jarvis-neurobiological-master | 18118→8018   | Higher-level coordination among neurobiological modules |
 
 These components participate in internal flows where the autonomous learner proposes new content, Fifth DGM evaluates and filters it, and successful items are integrated into the I-Container. Verification scripts demonstrate a complete flow:
 
@@ -152,19 +175,19 @@ These components participate in internal flows where the autonomous learner prop
 4. Measuring I-Container size again to confirm growth.
 5. Running analysis tools that inspect I-Container contents, keywords, and topics to assess growth stage and recommendations.
 
-This flow illustrates how internal tasks and structural changes enter the container layer and how normalization and routing support long-term storage.
+This flow illustrates how internal tasks and structural changes enter the container layer and how normalization and routing support long-term storage. Related ideas about background world models and pattern libraries are explored in Battaglia et al.’s work on relational inductive biases and graph networks (https://arxiv.org/abs/1806.01261).
 
 ### Data Persistence and Semantics
 
-| Container                  | Port Mapping | Role                                        |
-|---------------------------|-------------:|---------------------------------------------|
-| jarvis-chroma             | 8000→8000    | Primary semantic memory (ChromaDB instance) |
-| services-chroma-1         | 8010→8010    | Additional or legacy ChromaDB instance      |
-| msjarvis-rebuild-chroma-1 | 8002→8000    | Rebuild / development ChromaDB instance     |
-| services-neo4j-1          | 7474, 7687   | GBIM graph database                         |
-| services-mysql-1          | 3307→3306    | Relational data store; user and audit records |
+| Container                   | Port Mapping | Role                                        |
+|----------------------------|-------------:|---------------------------------------------|
+| jarvis-chroma              | 8000→8000    | Primary semantic memory (ChromaDB instance) |
+| services-chroma-1          | 8010→8010    | Additional or legacy ChromaDB instance      |
+| msjarvis-rebuild-chroma-1  | 8002→8000    | Rebuild / development ChromaDB instance     |
+| services-neo4j-1           | 7474, 7687   | GBIM graph database                         |
+| services-mysql-1           | 3307→3306    | Relational data store; user and audit records |
 
-Verification scripts confirm that ChromaDB directories exist, that collections (such as `msjarvismemories`) can be opened and counted, and that Neo4j and MySQL instances are reachable on the expected ports. Container records link into these stores via IDs, foreign keys, and Chroma document IDs, enabling cross-layer navigation from events to semantic and structural representations.
+Verification scripts confirm that ChromaDB directories exist, that collections (such as `msjarvismemories`) can be opened and counted, and that Neo4j and MySQL instances are reachable on the expected ports. Container records link into these stores via IDs, foreign keys, and Chroma document IDs, enabling cross-layer navigation from events to semantic and structural representations. The use of graph and memory structures echoes broader patterns in relational inductive biases and pattern abstraction (for example, Battaglia et al., https://arxiv.org/abs/1806.01261; Lake et al.’s Omniglot work, https://arxiv.org/abs/1506.07327).
 
 ### Service Registry, Dynamic Ports, and Discovery
 
@@ -174,7 +197,7 @@ In addition to static ports defined in `docker-compose.yml`, the system uses a s
 - Redis keys of the form `service:<name>` that map to dynamically assigned ports.
 - Health of registered services by iterating over the registry and issuing `GET /health` checks.
 
-This registry layer supports the container architecture by allowing certain services (for example, multiple AIs or RAG domains) to join and leave dynamically while remaining discoverable by orchestrators and container logic.
+This registry layer supports the container architecture by allowing certain services (for example, multiple AIs or RAG domains) to join and leave dynamically while remaining discoverable by orchestrators and container logic. Similar concerns about monitoring, liveness, and controllers appear in cloud-native design discussions by Brewer (https://queue.acm.org/detail.cfm?id=3291063) and in controller patterns documented by Burns et al. (https://azure.microsoft.com/en-us/resources/designing-distributed-systems).
 
 ### External Access Points and LLM Backend
 
@@ -183,7 +206,7 @@ Only a small subset of ports are exposed to the host:
 - **8051** – External API endpoint (mapped to `jarvis-main-brain` on 8050).
 - **11434** – Ollama LLM backend (local model serving, typically in `jarvis-ollama`).
 
-All other services communicate over the Docker bridge network using container names and internal ports for discovery. The llm_bridge service connects to the Ollama backend to run ensembles of local models, while the main-brain and other orchestration components treat llm_bridge as a black box for LLM inference.
+All other services communicate over the Docker bridge network using container names and internal ports for discovery. The llm_bridge service connects to the Ollama backend to run ensembles of local models, while the main-brain and other orchestration components treat llm_bridge as a black box for LLM inference. This design fits into broader trends toward mixture-of-experts and agentic ensembles, such as Du et al.’s GLaM (https://arxiv.org/abs/2112.06905), Liu et al.’s AgentBench (https://arxiv.org/abs/2308.03688), and Shen et al.’s Mixture-of-Agents framework (https://arxiv.org/abs/2402.11026).
 
 ---
 
@@ -204,7 +227,9 @@ Several shell scripts provide concrete evidence of how the container architectur
 - **VERIFY CHROMADB sections**  
   Confirm that ChromaDB directories exist, that collections can be queried, and that embedding counts match expectations, tying container records back to semantic memory.
 
-These scripts demonstrate that the container architecture is not merely conceptual: it is instrumented and testable, with observable behaviors that align with the intake–normalization–routing pattern described in this chapter.
+These scripts demonstrate that the container architecture is not merely conceptual: it is instrumented and testable, with observable behaviors that align with the intake–normalization–routing pattern described in this chapter. They also mirror best practices for health checks and monitoring in distributed systems as discussed by Brewer (https://queue.acm.org/detail.cfm?id=3291063) and Burns et al. (https://azure.microsoft.com/en-us/resources/designing-distributed-systems).
+
+---
 
 ## 19.10 Summary
 
