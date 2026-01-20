@@ -1,5 +1,12 @@
 # MountainShares DAO
 
+> **Disciplinary Context**  
+> - **Instrument:** Economic Commons – a deliberately designed, closed‑loop payment and governance system treated as shared institutional infrastructure rather than a speculative asset.  
+> - **Discipline:** Polymathmatic Geography – studying how economic, legal, digital, and cultural flows shape and are shaped by specific places, beginning with Mount Hope and surrounding West Virginia communities. See: https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **Framework:** Quantarithmia – a multi‑layered architecture for consciousness, governance, and spatial reasoning that treats systems like MountainShares as glass‑box instruments embedded in community life. See:  
+>   - https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia%20Overview.md  
+>   - https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia-Framework.md  
+
 MountainShares is a DAO‑based economic and governance system intended to keep value, voice, and decision‑making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It operates as a community‑governed project and does not replace or act as a bank, credit union, or regulated financial institution, and is not offered or intended as a security, investment contract, or investment product.
 
 ## Purpose
