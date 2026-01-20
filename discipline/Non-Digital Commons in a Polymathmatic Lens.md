@@ -11,9 +11,9 @@ In each case, the commons is treated as an *entangled space* where material flow
 
 ---
 
-## 0. Mesopotamian Ledgers and Appalachian Design
+## 1. Mesopotamian Ledgers and Appalachian Design
 
-### 0.1 Why these commons matter for Appalachia
+### 1.1 Why these commons matter for Appalachia
 
 This non‑digital survey is not antiquarian; it is a **design toolkit** for contemporary Appalachia. Each case is a lens on questions The Commons, MountainShares, and Ms. Jarvis must answer:
 
@@ -25,7 +25,7 @@ English enclosure shows how quickly shared subsistence geographies can be rewrit
 
 Polymathmatic Geography treats today’s digital and financial infrastructures in Appalachia as continuations of these struggles. MountainShares’ parameter tables, The Commons’ moderation rules, and Ms. Jarvis’s geospatial belief model are modern instruments that can either re‑enact enclosure or sustain new, accountable commons.
 
-### 0.2 Temple Ledgers and Barley Credit in Ancient Mesopotamia
+### 1.2 Temple Ledgers and Barley Credit in Ancient Mesopotamia
 
 Long before English enclosure or Quaker meeting commons, Mesopotamian cities such as Ur, Babylon, and Nineveh ran complex exchange systems that combined **barter, commodity money, and credit**.
 
@@ -47,11 +47,26 @@ From a polymathmatic perspective, temple–palace economies form an early **ledg
 
 This Mesopotamian ledgered commons is a distant ancestor of modern accounting and banking, but it also rhymes with today’s blockchain and DAO experiments: an attempt to bind economic behavior to a visible, rule‑governed record. For Polymathmatic Geography, it is a reminder that **commons and ledgers have been intertwined for millennia**, and that the question is not whether we keep ledgers, but **who they serve and who can read and contest them**.
 
+### 1.3 Edward I and the Dark Geometry of Power
+
+For this project, there is a direct genealogical thread into English statecraft: Edward I (“Longshanks”) is a distant ancestor of the author. His reign offers a stark example of how a single sovereign can re‑wire land, law, and lineage as one entangled system.
+
+Two clusters are especially important:
+
+- **Royal forests and the shrinking of common use**  
+  Norman and Plantagenet kings declared vast areas as “royal forests,” a legal category that often included villages, fields, and heaths, not just woodland. Under forest law, traditional uses like hunting, wood‑gathering, and grazing could become criminal acts. By the late 13th century, Edward I was forced to “deforest” large tracts and confirm forest charters, but even these reforms took for granted a world where a royal word could convert lived commons into restricted zones.  
+  In Polymathmatic terms, this is a **state enclosure geometry**: a line on a map that simultaneously changes material flows (who can eat), legal exposure (who can be punished), genealogical continuity (which families keep or lose customary rights), and symbolic order (the king’s “green world” as a visible stamp of power).  
+
+- **Castles, planted towns, and the conquest of Wales**  
+  Edward’s conquest of Wales was followed by a ring of stone castles—Caernarfon, Conwy, Harlech, Beaumaris—often paired with new English boroughs. These were not just military outposts; they were **planned spatial instruments** that redirected trade, administration, and settlement into English‑controlled nodes. Welsh legal traditions were displaced or subordinated to English borough charters; Welsh lineages were pushed off prime river and coastal sites; the skyline itself was re‑inscribed with royal walls and towers.  
+
+Polymathmatic Geography sees this as a **top‑down reprogramming of a regional commons**: material circuits (tax, grain, labor), legal frameworks, genealogies, and symbols all bent toward imperial consolidation. Being descended from Edward I means this work does not approach enclosure, colonization, or forest law as abstractions; it treats them as part of a **family archive of geometry and power** that must be named, studied, and, where possible, counter‑engineered—so that new commons in Appalachia are built with full awareness of the old maps they are trying to heal.
+
 ---
 
-## 1. English Common Land and Enclosure
+## 2. English Common Land and Enclosure
 
-### 1.1 The commons before enclosure
+### 2.1 The commons before enclosure
 
 In England, medieval and early modern villages often relied on open fields and common land where tenants had customary rights to graze animals, collect wood, or mow hay. These rights were embedded in the manorial system and local practice, not simply in written statute. Before large‑scale enclosure, common land occupied a substantial share of the rural landscape and underpinned subsistence for many households.  
 https://en.wikipedia.org/wiki/Enclosure  
@@ -67,7 +82,7 @@ From a polymathmatic perspective, these commons were already entangled spaces:
 For enclosure awards, maps, and records, see:  
 https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/
 
-### 1.2 Enclosure as spatial re-writing
+### 2.2 Enclosure as spatial re-writing
 
 Between 1604 and 1914, more than 5,200 enclosure acts converted millions of acres of common and open-field land into privately controlled parcels, often fenced or hedged. This process did not merely change ownership; it re‑wrote the geometry of obligation and access.  
 https://en.wikipedia.org/wiki/Enclosure  
@@ -83,9 +98,9 @@ Polymathmatic Geography reads enclosure as a reconfiguration of an entangled spa
 
 ---
 
-## 1.3 Quaker Meeting Commons in Early Pennsylvania (Biles, Janney)
+## 3. Quaker Meeting Commons in Early Pennsylvania (Biles, Janney)
 
-### 1.3.1 Meetings, land, and discipline as commons
+### 3.1 Meetings, land, and discipline as commons
 
 When Quakers carried their practices from England to Pennsylvania, they created new commons centered on meetinghouses, burial grounds, and shared lands, governed by both civil grants and religious discipline.
 
@@ -103,7 +118,7 @@ Seen polymathmatically, these early Quaker spaces in Pennsylvania were commons i
 - **Genealogical** – Families like the Biles and Janney lines embedded in particular meetings and tracts over generations.  
 - **Symbolic/narrative** – Stories of persecution, ministry, and admonition (for example, elders confronting Biles over selling rum to Indigenous people) that encode boundaries of acceptable conduct in the commons.
 
-### 1.3.2 Accountability and power inside a settler commons
+### 3.2 Accountability and power inside a settler commons
 
 This Quaker commons is not a simple egalitarian space; it is a site where power, conscience, and colonial expansion are negotiated.
 
@@ -120,9 +135,9 @@ This makes early Quaker Pennsylvania a bridge between European enclosure histori
 
 ---
 
-## 2. Irrigation Huertas as Water Commons
+## 4. Irrigation Huertas as Water Commons
 
-### 2.1 La Huerta de Valencia and Huerta de Murcia
+### 4.1 La Huerta de Valencia and Huerta de Murcia
 
 Mediterranean irrigation systems such as the huerta of Valencia and Murcia in Spain are classic water commons: intricate networks of canals (acequias) that distribute river water to thousands of small plots under shared rules.  
 https://www.bbc.com/travel/article/20220220-valencias-la-huerta-spains-ingenious-water-maze  
@@ -138,7 +153,7 @@ For broader historical and hydrological context, see:
 https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
 https://onlinelibrary.wiley.com/doi/10.1111/joac.12042  
 
-### 2.2 Entangled irrigation geographies
+### 4.2 Entangled irrigation geographies
 
 Through a polymathmatic lens, these water commons are more than hydraulic engineering:
 
@@ -155,9 +170,9 @@ Key questions include:
 
 ---
 
-## 3. Sacred Forests and Church-Associated Commons
+## 5. Sacred Forests and Church-Associated Commons
 
-### 3.1 Sacred groves and church forests
+### 5.1 Sacred groves and church forests
 
 Across Europe and parts of Asia, forests and groves associated with religious sites have functioned as commons governed by spiritual as well as legal rules. Examples include:
 
@@ -170,7 +185,7 @@ https://www.ecologyandsociety.org/vol27/iss4/art20/
 https://www.zygonjournal.org/article/id/11615/  
 https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
 
-### 3.2 Spiritual orders as governance
+### 5.2 Spiritual orders as governance
 
 Polymathmatic Geography treats these as commons whose governance is inseparable from spiritual orders:
 
@@ -187,7 +202,7 @@ Questions in this frame include:
 
 ---
 
-## 4. Enclosure and Transformation of Non-Digital Commons
+## 6. Enclosure and Transformation of Non-Digital Commons
 
 Historical and contemporary processes—such as Parliamentary enclosure, state water concessions, urbanization, and secularization—have transformed many of these commons.
 
@@ -212,9 +227,9 @@ The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governanc
 
 ---
 
-## 5. Further Reading
+## 7. Further Reading
 
-### 5.1 English enclosure and loss of commons
+### 7.1 English enclosure and loss of commons
 
 - Enclosure overview (historical context and consequences):  
   https://en.wikipedia.org/wiki/Enclosure  
@@ -228,7 +243,7 @@ The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governanc
 - Enclosure awards and maps:  
   https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/  
 
-### 5.2 Mediterranean irrigation commons
+### 7.2 Mediterranean irrigation commons
 
 - Valencia’s huerta:  
   https://www.bbc.com/travel/article/20220220-valencias-la-huerta-spains-ingenious-water-maze  
@@ -242,7 +257,7 @@ The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governanc
 - Spanish irrigation communities in broader context:  
   https://onlinelibrary.wiley.com/doi/10.1111/joac.12042  
 
-### 5.3 Sacred forests and church-associated commons
+### 7.3 Sacred forests and church-associated commons
 
 - Spiritual values of forests:  
   https://www.ecologyandsociety.org/vol27/iss4/art20/  
@@ -253,7 +268,7 @@ The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governanc
 - Sacred sites and biocultural diversity:  
   https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
 
-### 5.4 Quaker and early Pennsylvania commons (Biles, Janney)
+### 7.4 Quaker and early Pennsylvania commons (Biles, Janney)
 
 - William Biles (biographical overview):  
   https://en.wikipedia.org/wiki/William_Biles  
