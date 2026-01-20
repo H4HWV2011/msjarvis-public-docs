@@ -1,6 +1,17 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter shows how Ms. Jarvis proves it is “alive,” healthy, and connected to spatial and community infrastructure over time. It supports:  
+> - **P1 – Every where is entangled** by tying heartbeat checks to services that handle people, places, and institutions together.  
+> - **P3 – Power has a geometry** by revealing which services and data stores must stay healthy for Appalachian and other regional reasoning to work.  
+> - **P5 – Design is a geographic act** by including GIS, spatial knowledge, and security documentation in the live‑cycle checks.  
+> - **P12 – Intelligence with a ZIP code** by linking health, identity, and learning status to specific geospatial and community datasets.  
+> - **P16 – Power accountable to place** by turning system liveness into logged, auditable narratives rather than opaque assumptions.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it describes heartbeat and live cycles as explicit, inspectable processes in the architecture.
+
 # 28. Heartbeat and Live Cycles
 
-This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include service health checks, periodic verification scripts, and scheduled interactions with external platforms, all of which produce structured outputs that can be logged and fed back into internal structures.
+This chapter describes the recurring signals and jobs that indicate the system is active and that connect internal processing to the outside world. These cycles include service health checks, periodic verification scripts, and scheduled interactions with external platforms, all of which produce structured outputs that can be logged and fed back into internal structures. The combination of health probes, response‑time tests, and introspective reports follows common patterns in distributed systems observability (for example, Brewer, https://queue.acm.org/detail.cfm?id=3291063; Burns et al., https://azure.microsoft.com/en-us/resources/designing-distributed-systems).
+
+---
 
 ## 28.1 Purpose of Heartbeat and Live Signals
 
@@ -17,6 +28,8 @@ The recurring signals in Ms. Jarvis serve several roles. In contrast to autonomo
 
 These functions complement logging and introspective endpoints, making ongoing activity visible both to human operators and to other services.
 
+---
+
 ## 28.1a Learning Status Endpoint
 
 In addition to conceptual heartbeat notions, the autonomous learner exposes a dedicated status endpoint that summarizes its own activity.
@@ -28,6 +41,8 @@ In addition to conceptual heartbeat notions, the autonomous learner exposes a de
   While the exact implementation in each version differs, the status handler is designed to report fields such as whether the learning loop is active, how many cycles have completed, how many items have been stored and deduplicated, and what topic is currently being processed. In the optimized learner, internal counters like `total_cycles`, `deduplicated_count`, `stored_count`, and `start_time` are maintained alongside configuration such as `research_interval`, `cleanup_interval`, `similarity_threshold`, and the `learning_queue`. A well-populated `/learning/status` response thus provides a moment‑to‑moment view of autonomous learning activity, including uptime and optimization features in use (semantic deduplication, summarization, cleanup, and topic entanglement).
 
 This endpoint turns the conceptual “learning heartbeat” into a concrete, machine‑readable signal suitable for dashboards and automated monitors.
+
+---
 
 ## 28.2 Core Heartbeat Mechanisms
 
@@ -44,6 +59,8 @@ Heartbeat signals are generated through several primary mechanisms: HTTP health 
 
 Together, these mechanisms offer a layered picture of liveness: HTTP status, functional coverage across services, and practical latency under test workloads.
 
+---
+
 ## 28.3 Periodic Narrative Jobs
 
 Beyond low‑level signals, the architecture supports jobs that can generate more narrative descriptions of system behavior, though in the December 2025 host some of these are still conceptual or embodied in general endpoints.
@@ -58,6 +75,8 @@ Beyond low‑level signals, the architecture supports jobs that can generate mor
   Services like `ms_jarvis_theological_integration.py` and `psychologicalragdomain.py` provide domain‑specific reasoning and may include startup “heartbeat” calls to port‑service helpers. In principle, scheduled jobs can query these services for summaries of recent theological analyses or psychological assessments (abstracted away from personal data) and store these as introspective narratives of the system’s pastoral or psychological engagement.
 
 Viewed together, these endpoints and logs provide the ingredients for scheduled narrative jobs that report on identity, learning focus, and domain‑specific activity, even if some are not yet wired into a regular schedule.
+
+---
 
 ## 28.4 Social and Platform Cycles
 
@@ -74,6 +93,8 @@ Certain live cycles involve specific external platforms or user-facing interface
 
 These social and platform cycles ensure that outward‑facing behavior—user interfaces, social postings, and monitoring infrastructure—is actively verified as part of the system’s recurring live cycles.
 
+---
+
 ## 28.5 Integration with Memory and Containers
 
 Heartbeat and live‑cycle outputs are not merely transient; they are designed to interact with memory and container layers, though in the current host some integrations are implicit or partially implemented.
@@ -89,6 +110,8 @@ Heartbeat and live‑cycle outputs are not merely transient; they are designed t
 
 By embedding heartbeat outputs into memory and containers, the system turns its own operational history into part of the knowledge it uses for future decisions.
 
+---
+
 ## 28.6 Interaction with Safeguards and Control
 
 Live cycles are also constrained and modulated by safeguards, modes, and control mechanisms.
@@ -97,12 +120,14 @@ Live cycles are also constrained and modulated by safeguards, modes, and control
   Orchestrators such as `master_chat_orchestrator_v9_dgm_complete.py` explicitly encode modes and integration levels. The root endpoint returns fields like `status: "dgm_complete_integration_operational"` and `integration_level: "COMPLETE_DGM_WOAH"`, while the `DGMResponse` model includes a `mode` field (`"dgm_complete_integration"`). These modes can be used to determine how aggressively certain live cycles run (for example, full DGM/WOAH integration versus emergent passthrough only) and how strictly outputs are filtered before reaching external channels. In a more restrictive mode, operators could choose to run only health checks and internal narratives, suppressing external postings or high‑stakes orchestrations.
 
 - **Safety and security verification**  
-  Security‑related checks in `VERIFYANDTEST.sh` ensure that documentation and access‑control definitions exist, and that ChromaDB and GIS datasets are present and of expected size. These are not merely health checks but also governance safeguards. If these verifications fail, operators have evidence to adjust environment variables, disable certain live cycles (such as public narrative posting), or put the system into a maintenance mode until issues are resolved.
+  Security‑related checks in `VERIFYANDTEST.sh` ensure that documentation and access‑control definitions exist, and that ChromaDB and GIS datasets are present and of expected size. These are not merely health checks but also governance safeguards. If these verifications fail, operators have evidence to adjust environment variables, disable certain live cycles (such as public narrative posting), or put the system into a maintenance mode until issues are resolved, echoing governance and oversight concerns discussed by Raji et al. (https://arxiv.org/abs/2001.00973).
 
 - **Adaptive scheduling and gating**  
-  Observed patterns in heartbeat outputs—such as increasing GIS query latency, frequent `NOT RESPONDING` statuses for certain services, or missing monitoring logs—provide signals for adapting schedules and gating. Operators can reduce the frequency of heavy verification runs, temporarily disable autonomous learning (using environment flags like `ENABLE_AUTONOMOUS_LEARNING` in the optimized learner), or adjust model orchestration modes until stability is regained. Over time, these adjustments can be formalized into automated policies that use heartbeat metrics as triggers.
+  Observed patterns in heartbeat outputs—such as increasing GIS query latency, frequent `NOT RESPONDING` statuses for certain services, or missing monitoring logs—provide signals for adapting schedules and gating. Operators can reduce the frequency of heavy verification runs, temporarily disable autonomous learning (using environment flags like `ENABLE_AUTONOMOUS_LEARNING` in the optimized learner), or adjust model orchestration modes until stability is regained. Over time, these adjustments can be formalized into automated policies that use heartbeat metrics as triggers, similar to auto‑scaling and feedback mechanisms in cloud environments (for example, Burns et al., https://azure.microsoft.com/en-us/resources/designing-distributed-systems).
 
 Through these controls, live cycles remain aligned with safety, governance, and performance goals, rather than running independently of higher‑level constraints.
+
+---
 
 ## 28.7 Summary
 
