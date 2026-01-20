@@ -1,3 +1,16 @@
+# Polymathmatic Commons Context — Privacy in a Social–Economic–Digital Commons
+
+The Commons is the primary entangled subject space for this Privacy Policy: a **social–economic–digital** commons where inhabitants’ behavior becomes data, and that data returns as geometry—dashboards, ledgers, maps, and governance surfaces that people can see, contest, and reshape.
+
+This Policy is part of a broader disciplinary frame:
+
+- `discipline/Non-Digital Commons in a Polymathmatic Lens.md` reads historical land and water commons (for example, English commons and Spanish huertas) as entangled spaces where record‑keeping and boundary‑setting distribute power and risk.  
+- Commons Theory docs in `discipline/` describe how digital infrastructures can either reproduce enclosure or support accountable commons.
+
+In that context, the Privacy Policy is not only a legal document; it is a **design commitment** about how observation, memory, and power will be handled in The Commons and MountainShares.
+
+---
+
 # Privacy Policy
 **(DRAFT – FOR REVIEW, NOT LEGAL ADVICE)**
 
@@ -109,7 +122,7 @@ We share identifiable information with third parties only in narrowly defined si
   When required by law, subpoena, court order, or other lawful request, or when necessary to protect the rights, safety, or property of participants, Harmony for Hope, or others.
 
 - **Essential technical services**  
-  With third‑party providers that are technically necessary to operate the Platform (for example, payment processors that move money you choose to load, or infrastructure providers that host our systems). In these cases:
+  With third‑party providers that are technically necessary to operate the Platform (for example, payment processors that move money you choose to load, or infrastructure providers that host our systems). In these cases:  
   - Providers only receive the minimum information needed to perform their function.  
   - They are bound by confidentiality and data‑protection obligations.  
   - They are not permitted to reuse the information for independent marketing or profiling.
