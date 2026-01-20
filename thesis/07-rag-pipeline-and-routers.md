@@ -1,4 +1,3 @@
-cat > thesis/07-rag-pipeline-and-routers.md << 'EOF'
 > **Why this matters for Polymathmatic Geography**  
 > This chapter specifies how Ms. Jarvis’s language models are bound to **place‑aware, collection‑aware memory** instead of free‑floating text generation. It supports:  
 > - **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, and research notes rather than an abstract model prior.  
@@ -149,4 +148,3 @@ The RAG layer sits between relatively static long‑term memory and dynamic, per
   The thesis’ broader entanglement concept envisions updates to semantic memory, spatial layers, and normative constraints as mutually influencing. The current RAG implementation does not yet realize this fully; instead, it provides a stable, inspectable interface that can later be extended with entanglement‑aware routing, access policies, and metadata propagation across collections.
 
 In this way, the present RAG deployment should be understood as a working but intentionally conservative layer: it already anchors Ms. Jarvis’s outputs in named collections and explicit retrieval calls, but it still relies on forthcoming work in metadata design, spatial integration, and explanation tooling to fully satisfy the program’s glassbox and spatial‑justice commitments.
-EOF
