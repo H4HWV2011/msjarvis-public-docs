@@ -6,9 +6,9 @@ Ms. Egeria Jarvis was developed **after experiencing 3 malware attacks** on Moun
 
 ## AGPL-3.0 Compliance
 
-The GNU Affero General Public License v3.0 requires that users who interact with the software over a network have an opportunity to obtain the **corresponding source code of the version they are using**. It does **NOT** require public GitHub hosting, but it does require a standard, no-charge way for those users to access the source. [web:2900][web:2917][web:2921]
+The GNU Affero General Public License v3.0 requires that users who interact with the software over a network have an opportunity to obtain the **corresponding source code of the version they are using**. It does **NOT** require public GitHub hosting, but it does require a standard, no-charge way for those users to access the source.
 
-**Our model:** Source code is provided on request to users and auditors who interact with Ms. Jarvis, via a secure, access-controlled channel, under AGPL-3.0 terms. [web:2916][web:2918]
+**Our model:** Source code is provided on request to users and auditors who interact with Ms. Jarvis, via a secure, access-controlled channel, under AGPL-3.0 terms.
 
 ## How to Access Source Code
 
@@ -43,7 +43,7 @@ Source code will be provided via:
 Under AGPL-3.0, if you:
 - **Deploy modified Ms. Jarvis** → You must share your changes with the users of that deployment
 - **Use it internally without user-facing network access** → No additional network-copyleft obligation is triggered
-- **Distribute or host modifications for external users over a network** → You must make the corresponding source available to those users under AGPL-3.0 [web:2897][web:2918][web:2920]
+- **Distribute or host modifications for external users over a network** → You must make the corresponding source available to those users under AGPL-3.0
 
 ## What You'll Receive
 
@@ -69,6 +69,8 @@ Subject to approval and security review, source access may include:
 2. Malware infiltrated 3 times through dependencies
 3. Ms. Jarvis integrates with MountainShares blockchain
 4. Quantum-resilient security requires controlled distribution of critical components
+
+Security is part of the polymathmatic axiom that power must be accountable to place and that systems must remain transparent and traceable; the bounty approach to hardening and improvement is therefore a polymathmatic design choice, not just an engineering one.
 
 **Transparency maintained:**
 - Architecture fully documented
@@ -101,4 +103,3 @@ Want to contribute?
 **Email:** [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)  
 **Documentation Issues:** Use GitHub Issues in this repo  
 **Security Concerns:** Responsible disclosure to [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)
-
