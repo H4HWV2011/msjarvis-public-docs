@@ -1,5 +1,13 @@
 # Program Rules – Parameter Tables (Phase 1 – WV Pilot)
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–7 treat EMS→M$ rates, caps, fees, reserve bands, and governance thresholds as one integrated instrument that shapes how value circulates and where leakage or enclosure pressures arise. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** The tabular parameters for conversion, reserve bands, internal buying power, fees, and limits make the “knobs” of the system inspectable, so communities can see exactly how rules translate into numeric constraints.  
+> - **P16 – Power accountable to place:** Governance thresholds, band‑based permissions, and benefits‑sensitive limits tie parameter changes and risk controls to explicit conditions in the West Virginia pilot, ensuring that institutional power responds to local reserves, usage, and sensitivity to benefits.  
+> - **Anti‑leakage and closed‑loop spending:** Conversion caps, reserve‑ratio bands, internal phase schedules, and promo‑pool limits collectively aim to keep value recirculating in the closed loop rather than spilling out via over‑minting or unbounded cash‑outs.  
+> - **Bounty and corrective programs:** Promo‑pool parameters and governance thresholds encode how targeted bonuses or “bounty‑like” incentives can be safely activated or throttled in response to reserve bands and community decisions.
+
 > **DRAFT – LIVE PARAMETERS SUBJECT TO CHANGE**
 >
 > This document presents the **current operational parameters** for Phase 1 of the MountainShares Program
@@ -34,7 +42,10 @@
 ## 2. Reserve Ratio Bands and Automatic Adjustments
 
 ### 2.1 Reserve Ratio
-#### 2.2 Band Table (Illustrative Phase 1 Values)
+
+Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
+
+### 2.2 Band Table (Illustrative Phase 1 Values)
 
 | Band ID | Reserve Ratio Range | Base Rate Range (M$/EMS hr) | Typical Tier 2 Cap (M$/mo) | Promo State | Governance Permissions                 |
 |---------|---------------------|------------------------------|----------------------------|------------|----------------------------------------|
@@ -110,14 +121,10 @@ Benefits‑Sensitive Accounts have PMS cash‑out disabled by default regardless
 
 ## 7. Governance Thresholds (Phase 1 / Early Phase 2)
 
-| Parameter              | Value (Placeholder)  | Description                                           |
-|------------------------|----------------------|-------------------------------------------------------|
-| Governance eligibility | 10 EMS hours + 30 days | To obtain 1 UEI vote (per DAO spec)                |
-| Quorum for key proposals| 30% of eligible UEIs | For rate/cap changes, phase transitions              |
-| Super‑majority threshold| 66%                 | For “constitutional” or high‑impact changes          |
+| Parameter               | Value (Placeholder)     | Description                                           |
+|-------------------------|-------------------------|-------------------------------------------------------|
+| Governance eligibility  | 10 EMS hours + 30 days  | To obtain 1 UEI vote (per DAO spec)                  |
+| Quorum for key proposals| 30% of eligible UEIs    | For rate/cap changes, phase transitions               |
+| Super‑majority threshold| 66%                     | For “constitutional” or high‑impact changes           |
 
 All numeric values above are subject to revision via governance, within the bounds of the Terms and Economic Safety Specification.
- Definition
-
-Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
-
