@@ -1,5 +1,13 @@
 ## MountainShares KPI Specification (Phase 1 – First Region, Years 1–5)
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–4 treat monetary health, participation, usefulness, and impact as coupled dimensions of the same regional system, rather than isolated metrics. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** Section 5’s instrumentation and dashboard guidelines translate abstract KPIs into concrete, inspectable time‑series tied to real users, organizations, and regions.  
+> - **P16 – Power accountable to place:** Targets and trends in Sections 1–4 are meant to guide governance decisions and parameter changes, making institutional power responsive to how the system behaves in specific Appalachian communities.  
+> - **Anti‑leakage and closed‑loop spending:** Monetary‑health and local‑loop KPIs (1.1–1.3, 4.1) explicitly measure circulation, concentration, and local hops to detect leakage out of the commons and to track the strength of the closed loop.  
+> - **Bounty and corrective programs:** Value‑interaction and commons‑work KPIs (3.2–3.3) provide quantitative anchors for designing future bounties, quests, or corrective programs when participation or impact falls short of desired ranges.
+
 This document defines Version 1 Key Performance Indicators (KPIs) for the MountainShares rollout in the first live region (MountainShares → early AppalachianShares). The metrics are designed to:
 
 - Monitor the **economic health** of the currency.  
