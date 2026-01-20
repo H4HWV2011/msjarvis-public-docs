@@ -306,4 +306,38 @@ Harmony for Hope, Inc. *Repository Discussion #4.* https://github.com/H4HWV2011/
 
 ## E. External References (Third-Party Works)
 
-*(To be populated directly from `docs/further_reading.md` and citations within thesis and discipline documents, formatted in your chosen citation style.)*
+## F. Remaining Internal Discipline and Branding Files
+
+Kidd, C. *Polymathmatic Geography.* `discipline/Polymathmatical-Geography.md`, 2025.  
+
+Kidd, C. *Comparative Frameworks in Geography and Commons.* `discipline/Comparative Frameworks in Geography and Commons.md`, 2025.  
+
+Kidd, C. *Polymathmatic Geography and Commons Theory.* `discipline/Polymathmatic Geography and Commons Theory.md`, 2025.  
+
+Kidd, C. *Polymathmatic Geography and Human Geography.* `discipline/Polymathmatic Geography and Human Geography.md`, 2025.  
+
+Harmony for Hope, Inc. *MountainShares Branding & Flyers.* `flyers/MountainShares Branding & Flyers.md`, 2025.  
+
+Harmony for Hope, Inc. *MountainShares Branding & Flyers (Branding Directory Copy).* `branding/MountainShares Branding & Flyers.md`, 2025.  
+
+---
+
+## G. External System Links (Project Infrastructure)
+
+Harmony for Hope, Inc. *Ms. Jarvis Public Repository.* GitHub, https://github.com/H4HWV2011/msjarvis-public-docs, accessed 2026.  
+
+Harmony for Hope, Inc. *Releases.* GitHub, https://github.com/H4HWV2011/msjarvis-public-docs/releases, accessed 2026.  
+
+Harmony for Hope, Inc. *Project Wiki.* GitHub, https://github.com/H4HWV2011/msjarvis-public-docs/wiki, accessed 2026.  
+
+Harmony for Hope, Inc. *Discussion #4 (Project Discussion Thread).* GitHub, https://github.com/H4HWV2011/msjarvis-public-docs/discussions/4, accessed 2026.  
+
+Harmony for Hope, Inc. *OpenAPI Specification.* GitHub raw file, `api_specs/openapi.json`, accessed 2026.  
+
+---
+
+## H. “Further Reading” Index
+
+Kidd, C. *Further Reading.* Internal index of external sources, `docs/further_reading.md`, 2025.  
+
+*(Individual third‑party works listed there should be cited separately in Section E using full bibliographic details.)*
