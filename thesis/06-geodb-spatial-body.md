@@ -1,3 +1,12 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter defines the spatial “body” of Ms. Jarvis and shows how West Virginia’s physical infrastructures, hazards, and civic facilities become part of a living, computable geography. It supports:  
+> - **P1 – Every where is entangled** by treating structures, rivers, floodplains, and institutions as one connected mesh rather than isolated map layers.  
+> - **P3 – Power has a geometry** by making it possible to trace how risk, access, and infrastructure are distributed across counties, hollows, and corridors.  
+> - **P5 – Design is a geographic act** by framing schema choices, key conventions, and layer prioritization as design decisions that reshape how the state “shows up” in analysis and governance.  
+> - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase and its Chroma‑mirrored embeddings.  
+> - **P16 – Power accountable to place** by ensuring that advisory and governance behaviors can be traced back to specific, queryable features and boundaries in West Virginia.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the GeoDB substrate that allows Quantarithmia’s justice‑oriented reasoning to act on real communities, infrastructures, and landscapes in Appalachia.
+
 ## 6. GeoDB and the Spatial Body of Ms. Jarvis
 
 ### 6.1 Purpose and Scope
