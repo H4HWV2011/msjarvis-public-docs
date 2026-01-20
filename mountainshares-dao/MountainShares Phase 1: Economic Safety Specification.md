@@ -1,5 +1,13 @@
 # MountainShares Phase 1: Economic Safety Specification
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat recognition, spendable M$, reserve ratios, and phase transitions as a single coupled system, explicitly tying minting and circulation to backing assets and regional program realities. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve‑ratio calculations, dashboards, audits, and governance cadences so that money creation, caps, and emergency actions are observable and reconstructable over time.  
+> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Jarvis, and H4H authority inside hard economic and legal constraints, ensuring that decisions about rates, caps, and shutdowns answer to local solvency and community safety rather than abstract speculation.  
+> - **Anti‑leakage and closed‑loop spending:** The separation of the recognition ledger from capped, reserve‑backed M$ (Section 1) and the reserve‑ratio‑driven adjustment table (Section 3) operationalize anti‑leakage design and keep the closed loop anchored in real backing assets.  
+> - **Bounty and corrective programs:** Promo‑pool rules (Section 4) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded “bounties” aligned with safety math rather than unconstrained giveaways.
+
 **Version:** 1.0  
 **Date:** January 15, 2026  
 **Status:** DAO Governance Document  
@@ -46,9 +54,9 @@
 
 ### 3.1 Reserve Ratio Definition
 
-```
+
+
 Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
-```
 
 **Backing Assets Include:**
 - USD load fees (users converting USD → M$)
