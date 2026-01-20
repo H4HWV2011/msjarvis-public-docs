@@ -3,6 +3,14 @@
 ## Terms and Conditions  
 **(DRAFT FOR REVIEW – NOT LEGAL ADVICE)**
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2–8 and 10 structure PMS/EMS, phases, treasury, and benefits‑sensitive rules as one coupled legal‑economic field that governs how value, rights, and risks move through West Virginia communities. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** Definitions, risk disclaimers, benefits language, and governance/change clauses make the legal treatment of MountainShares, internal buying power, and program wind‑down legible and auditable to users, regulators, and local institutions.  
+> - **P16 – Power accountable to place:** Sections 1, 3, 4, 5, 8, 10, and 12 bind Harmony for Hope, DAO actors, and partners to West Virginia law, nonprofit duties, treasury constraints, and public‑benefit sensitivities, prioritizing local safety over abstract speculation.  
+> - **Anti‑leakage and closed‑loop spending:** Sections 2–3, 4, 5, 6, and 7 define MountainShares as closed‑loop rewards, restrict external conversion, and limit PMS refunds to original loads, operationalizing legal containment of leakage while keeping in‑network value flows flexible.  
+> - **Bounty and corrective programs:** Sections 4, 6, 7, 8, and 10 frame EMS, phases, and governance as tunable “bounty‑like” mechanisms—rewards for care, mutual aid, and stewardship that can be tightened or wound down under documented emergency, risk, or compliance triggers.
+
 **IMPORTANT NOTICE – READ CAREFULLY.** These MountainShares Rewards Program Terms and Conditions (“Terms”) describe the conditions under which you may participate in the MountainShares community rewards program (the “MountainShares Program” or “Program”) and use associated digital reward units (“MountainShares”). Participation in the Program is voluntary and is offered on an “as is” basis, without any promise of profit, guaranteed value, or guaranteed treatment under any public benefits program.
 
 **DRAFT STATUS.** This document is a working draft intended solely for internal review, academic use, and consultation with legal counsel, regulators, and community stakeholders. It does not create enforceable rights, and it must not be used in production or relied upon as legal advice without formal review and approval by qualified counsel admitted to practice in the relevant jurisdictions.
@@ -66,7 +74,7 @@ For purposes of these Terms:
 
 - **“Treasury”** means the pool of financial assets maintained by Harmony for Hope and designated for supporting the MountainShares Program, including, but not limited to, reserves used to support internal buying‑power schedules and to cover Program operating costs. Users have no ownership interest in, or direct claim against, the Treasury or its assets, except to the limited extent expressly stated for PMS refunds in Section 5.
 
-- **“Phase 1 / Phase 2 / Phase 3”**means internal Program phases associated with different MountainShare internal buying‑power schedules, as described in Section 4. These phases may be delayed, phased in, or limited to certain users or balances depending on treasury reserves and risk controls, and do not establish any external value or price.
+- **“Phase 1 / Phase 2 / Phase 3”** means internal Program phases associated with different MountainShare internal buying‑power schedules, as described in Section 4. These phases may be delayed, phased in, or limited to certain users or balances depending on treasury reserves and risk controls, and do not establish any external value or price.
 
 - **“Program Rules”** means the current rules and parameters governing issuance, earning, redemption, internal valuation, transaction limits, fees, and other aspects of MountainShares, as adopted by Harmony for Hope or applicable governance bodies and incorporated by reference into these Terms. Program Rules may be updated from time to time in accordance with Section 10.
 
@@ -552,7 +560,3 @@ You may not assign or transfer your rights or obligations under these Terms, by 
 ### 13.4 Entire Agreement
 
 These Terms, together with any Program Rules incorporated by reference and any applicable agreements or policies referenced herein, constitute the entire agreement between you and Harmony for Hope with respect to the MountainShares Program and supersede all prior or contemporaneous communications and understandings, whether written or oral, relating to the Program.
-
----
-
-_Last updated: [DRAFT DATE – TO BE COMPLETED UPON LEGAL REVIEW]_
