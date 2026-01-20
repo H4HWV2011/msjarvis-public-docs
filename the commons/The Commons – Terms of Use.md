@@ -1,3 +1,16 @@
+# Polymathmatic Commons Context — The Commons as the Primary Entangled Subject Space
+
+The Commons is the primary entangled subject space for these Terms: a **social–economic–digital** commons where inhabitants’ behavior becomes data, and that data returns as geometry—interfaces, feeds, dashboards, and governance surfaces that people can see, contest, and reshape.
+
+These Terms are part of a broader disciplinary frame:
+
+- `discipline/Non-Digital Commons in a Polymathmatic Lens.md` reads historical land, water, and sacred commons (for example, English commons and Spanish huertas) as spaces where rules, rituals, and record‑keeping co‑determine who belongs and who is excluded.  
+- Commons Theory docs in `discipline/` describe how modern platforms can either reproduce enclosure dynamics or help sustain accountable commons under conditions of AI and extraction.
+
+In that context, the Commons Terms are not just a legal wrapper. They are a **boundary‑setting contract** for how this particular digital commons may be used, how it may not be used, and how it stays answerable to the people and region it serves.
+
+---
+
 # The Commons – Terms of Use
 **(DRAFT FOR REVIEW – NOT LEGAL ADVICE)**
 
@@ -160,9 +173,9 @@ Additional technical details about how IPFS, encryption, and immutable logs are 
 Questions about these Commons Terms or The Commons may be directed to:
 
 Harmony for Hope, Inc.  
-706 Main St.
-Mount Hope, WV 25880
-EIN-81-1907024
-(304)877-7688
+706 Main St.  
+Mount Hope, WV 25880  
+EIN‑81‑1907024  
+(304) 877‑7688
 
 ---
