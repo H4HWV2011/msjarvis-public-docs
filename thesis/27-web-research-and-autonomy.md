@@ -1,6 +1,17 @@
+> **Why this matters for Polymathmatic Geography**  
+> This chapter shows how Ms. Jarvis “looks things up” on its own, under constraints, and folds that knowledge back into place-based memory. It supports:  
+> - **P1 – Every where is entangled** by letting external and internal sources about specific communities and regions accumulate together over time.  
+> - **P3 – Power has a geometry** by centralizing web access behind gateways and filters so that external knowledge flows are accountable.  
+> - **P5 – Design is a geographic act** by embedding web research outputs directly into Chroma+GeoDB backbones used for Appalachian and other spatial reasoning.  
+> - **P12 – Intelligence with a ZIP code** by steering curiosity through topics that matter for local governance, resilience, and community life.  
+> - **P16 – Power accountable to place** by making autonomous learning schedulable, loggable, and subject to the same filters as user-facing flows.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it describes how periodic web research and topic selection are implemented as controlled, observable processes.
+
 # 27. Web Research and Autonomous Topic Selection
 
-This chapter describes the periodic web‑research and autonomous learning processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect both internal and external material under constraints, and feed that material back into internal stores in a controlled way.
+This chapter describes the periodic web‑research and autonomous learning processes that run independently of direct user requests. These jobs allow the system to identify topics of interest, collect both internal and external material under constraints, and feed that material back into internal stores in a controlled way. The basic pattern—scheduled retrieval via gateways, semantic storage, and filtered reuse—parallels retrieval-augmented and tool-using designs in the broader literature (for example, Lewis et al., https://arxiv.org/abs/2005.11401; Ram et al., https://arxiv.org/abs/2302.00083).
+
+---
 
 ## 27.0 Current Implementation (December 2025)
 
@@ -26,6 +37,8 @@ In the current deployment, autonomous web research is implemented by an optimize
 
 The remaining sections of this chapter describe the conceptual role of these processes and how they support the broader architecture.
 
+---
+
 ## 27.1 Role of Periodic Web Research and Autonomous Learning
 
 Periodic web research and autonomous learning serve three primary functions, distinct from heartbeat or status checks.
@@ -34,12 +47,14 @@ Periodic web research and autonomous learning serve three primary functions, dis
   By running independently of direct user queries, the learner keeps selected areas of knowledge current. It periodically retrieves internal embeddings from collections such as `autonomous_learning`, `jarvis_consciousness`, and `ms_jarvis_memory`, and augments them with freshly retrieved web content. This allows the system’s knowledge base to evolve in response to changes in the outside world, rather than only when prompted by users.
 
 - **Curiosity and topic exploration**  
-  The learner’s `learning_queue` and embedding‑based summarization infrastructure allow the system to pursue topics of intrinsic interest, such as “large language model coordination systems” or other domain‑relevant themes encoded in the learner’s configuration. Over time, this queue can be extended by suggestions derived from container analyses, governance priorities, or explicit human input. The eventual use of topic graphs and entangled embeddings is intended to drive a structured “random walk” through related topics, embodying a controlled form of curiosity.
+  The learner’s `learning_queue` and embedding‑based summarization infrastructure allow the system to pursue topics of intrinsic interest, such as “large language model coordination systems” or other domain‑relevant themes encoded in the learner’s configuration. Over time, this queue can be extended by suggestions derived from container analyses, governance priorities, or explicit human input. The eventual use of topic graphs and entangled embeddings is intended to drive a structured “random walk” through related topics, embodying a controlled form of curiosity that echoes curiosity-driven exploration in reinforcement learning (for example, Pathak et al., https://arxiv.org/abs/1705.05363).
 
 - **Support for later tasks**  
   Items stored by the learner become part of the corpus available to RAG pipelines and orchestrated reasoning paths. When later questions arise in governance, spatial planning, or community advice, ULTIMATE and related services can retrieve both user‑driven and autonomously learned material. This increases the diversity and depth of the contexts used for planning and decision‑making, while maintaining a clear boundary between automatically discovered knowledge and explicitly curated inputs.
 
 These functions operate within bounds set by truth filters, Blood–Brain Barrier modules, environment‑based gating, and logging requirements, ensuring that autonomous knowledge acquisition remains subordinate to safety and governance constraints.
+
+---
 
 ## 27.2 Scheduling, Cadence, and Logging
 
@@ -56,12 +71,14 @@ Autonomous learning and web research run on a regular, observable schedule, alth
 
 This combination of steady cadence, controlled use of retrieval services, and explicit logging makes it possible to monitor and adjust autonomous learning without needing to instrument every internal step.
 
+---
+
 ## 27.3 Topic Selection
 
 Each autonomous learning cycle begins by selecting one or more topics to investigate, guided by configuration and, in future, by entangled topic structures.
 
 - **Configured topic lists and embeddings**  
-  The optimized learner maintains an internal list of topics to study, such as “large language model coordination systems”, and uses an embedding model (`SentenceTransformer('all‑MiniLM‑L6‑v2')`) to encode both raw texts and higher‑level session summaries. These embeddings are used both to structure internal memory and to estimate similarity between candidate research items and the existing corpus.
+  The optimized learner maintains an internal list of topics to study, such as “large language model coordination systems”, and uses an embedding model (`SentenceTransformer('all‑MiniLM‑L6‑v2')`) to encode both raw texts and higher‑level session summaries. These embeddings are used both to structure internal memory and to estimate similarity between candidate research items and the existing corpus, following sentence-embedding practices described by Reimers & Gurevych (https://arxiv.org/abs/1908.10084).
 
 - **Simple queues with hooks for entanglement**  
   In the current implementation, topics are often processed according to a simple queue or deterministic rule coded directly in the learner. Historical variants of the code suggest the use of a `topic_graph.json` and session embeddings to construct a graph of related topics, with the long‑term plan of biasing future topic selection toward neighbors of recently studied topics. Even before this graph is fully exploited, the presence of topic embeddings and session summaries provides a foundation for more sophisticated planners.
@@ -70,6 +87,8 @@ Each autonomous learning cycle begins by selecting one or more topics to investi
   The architecture allows for additional topic suggestions to be injected into the learner from other components. For example, container analyses of I‑Container contents and autonomous learning logs can produce lists of under‑explored themes, while governance processes or human operators can append topics tied to current community concerns or policy issues. Over time, this combination of internal entanglement and external suggestions is intended to produce a guided but open‑ended exploration of the relevant knowledge space.
 
 Topic selection thus balances fixed configuration, potential entangled dynamics, and external input, ensuring that autonomous learning activity reflects both prior structure and current priorities.
+
+---
 
 ## 27.4 Retrieval, Filtering, and Deduplication
 
@@ -82,12 +101,14 @@ Once topics are selected, each cycle performs retrieval and screening to convert
   Web search is conducted through dedicated gateways that return structured results containing titles, snippets, URLs, and sources. The learner uses topic‑derived queries to call these gateways and retrieve a bounded number of external results, ensuring that external access is both policy‑controlled and rate‑limited. This indirection allows policies (such as allowed domains, rate limits, or geographic filters) to be updated centrally without changing the learner code.
 
 - **Summarization and structuring**  
-  Retrieved internal and external items are combined into intermediate structures, where multiple hits can be summarized into synthetic documents or notes. The learner’s use of embeddings for summaries and session‑level descriptions ensures that the granularity of stored items can vary: some entries may represent single documents, while others may represent aggregated knowledge about a theme.
+  Retrieved internal and external items are combined into intermediate structures, where multiple hits can be summarized into synthetic documents or notes. The learner’s use of embeddings for summaries and session‑level descriptions ensures that the granularity of stored items can vary: some entries may represent single documents, while others may represent aggregated knowledge about a theme. This multi-level summarization is consistent with hierarchical summarization strategies in the literature (for example, Liu & Lapata’s work on document summarization, https://arxiv.org/abs/1903.10318).
 
 - **Semantic deduplication and selective storage**  
   Before writing new entries into collections such as `autonomous_learning`, the learner embeds candidate items and compares them with existing embeddings to detect near‑duplicates. Items whose embeddings fall within a small distance of existing items are considered redundant and are dropped from storage, while counters record how many candidates were rejected due to similarity. Only items that appear genuinely new or substantially different are stored, together with metadata such as `topic`, `title`, `url`, `learned_at`, and possibly `cycle_number`.
 
 Through these steps, the learner converts raw search results into a curated, vectorized knowledge base that is compact enough to be tractable and rich enough to support later reasoning.
+
+---
 
 ## 27.5 Integration with Memory and Spatial Layers
 
@@ -104,6 +125,8 @@ Accepted items from autonomous learning cycles are integrated into the same memo
 
 By integrating autonomous learning into both semantic and spatial backbones, the system ensures that “background” research is not siloed but directly usable by the rest of the architecture.
 
+---
+
 ## 27.6 Interaction with Container and Governance Paths
 
 Autonomous outputs are not consumed in isolation; they are subject to the same container and governance processes as user‑driven inputs.
@@ -112,12 +135,14 @@ Autonomous outputs are not consumed in isolation; they are subject to the same c
   Newly learned items can be treated as container‑like entries, passing through keep‑or‑discard decisions based on topic, source, and quality. For example, autonomous learning about a local watershed might produce entries that are reviewed by Fifth DGM and WOAH, scored for relevance and quality, and then either promoted into I‑Containers or left in background collections. Container growth analysis scripts, which compute I‑Container size and suggest pruning or further growth, implicitly incorporate these autonomous items into their recommendations.
 
 - **Governance filters and role constraints**  
-  Governance and ethics components can restrict topics or sources deemed sensitive, enforcing additional checks on autonomous learning in areas such as health, law, or vulnerable populations. Truth filters and Blood–Brain Barrier modules can be deployed in front of both web research and ingestion of learning outputs, rejecting items that violate accuracy or ethical criteria. This means that autonomous learning is not free‑running: it is constrained by the same filters that protect user‑driven workflows.
+  Governance and ethics components can restrict topics or sources deemed sensitive, enforcing additional checks on autonomous learning in areas such as health, law, or vulnerable populations. Truth filters and Blood–Brain Barrier modules can be deployed in front of both web research and ingestion of learning outputs, rejecting items that violate accuracy or ethical criteria. This means that autonomous learning is not free‑running: it is constrained by the same filters that protect user‑driven workflows, consistent with responsible-AI frameworks (for example, Raji et al., https://arxiv.org/abs/2001.00973; Whittlestone et al., https://arxiv.org/abs/1903.03425).
 
 - **Background influence on future decisions**  
   Once admitted, autonomous items contribute to the context retrieved by ULTIMATE and related orchestrators, affecting how future decisions are framed. For example, if autonomous learning repeatedly discovers new flood‑risk assessments for a region, subsequent spatial or governance queries about that region will retrieve richer context, potentially altering the system’s recommendations or risk assessments.
 
 In this way, autonomous learning becomes a managed source of background knowledge that is integrated into the broader evaluative and decision‑making apparatus.
+
+---
 
 ## 27.7 Safeguards and Oversight
 
@@ -134,12 +159,14 @@ Given that web research introduces new external material, the autonomous learnin
 
 These safeguards align autonomous learning with the broader design goal of glassbox introspection: autonomy is permitted, but it is bounded, observable, and subject to human oversight.
 
+---
+
 ## 27.8 Web Research in the ULTIMATE Path
 
 Beyond its role in autonomous learning, web research also contributes directly to user‑driven, high‑stakes reasoning paths.
 
 - **Position in the orchestration pipeline**  
-  In ULTIMATE‑style flows, web research is typically invoked after safety filtering and before deep model reasoning. A representative pattern is: Blood–Brain Barrier and related filters apply constraints to the query and context; a web‑research gateway is called to enrich the filtered context with external and internal sources; and multi‑model reasoning engines, such as AI ensemble servers and DGM orchestrators, then operate on this enriched context. This ensures that external content is both vetted and integrated into a deliberative pipeline.
+  In ULTIMATE‑style flows, web research is typically invoked after safety filtering and before deep model reasoning. A representative pattern is: Blood–Brain Barrier and related filters apply constraints to the query and context; a web‑research gateway is called to enrich the filtered context with external and internal sources; and multi‑model reasoning engines, such as AI ensemble servers and DGM orchestrators, then operate on this enriched context. This ensures that external content is both vetted and integrated into a deliberative pipeline, consistent with retrieval-augmented architectures (for example, Lewis et al., https://arxiv.org/abs/2005.11401).
 
 - **Latency and resource considerations**  
   Web research adds latency to ULTIMATE flows, especially when external requests must be made to remote sources. To manage this, gateway calls often include explicit timeouts and limits on result counts, and orchestrators are designed to remain responsive even if web research is partially unavailable. The same verification scripts that measure GIS and chat response times can be extended to benchmark web‑research latency, ensuring that the contribution of this layer is known and manageable.
@@ -148,6 +175,8 @@ Beyond its role in autonomous learning, web research also contributes directly t
   To maintain transparency, future versions of the web‑research gateway are intended to expose debug endpoints that show, for a given request, which internal and external sources were consulted, how they were ranked, what similarity scores were computed, and how the final context was assembled. Combining these introspective reports with logs from autonomous learning and container processes will make it possible to reconstruct the provenance of complex ULTIMATE answers that rely on multiple layers of web research and internal retrieval.
 
 In this context, web research acts as a shared service that supports both autonomous and user‑driven reasoning, with common safeguards and introspective tools.
+
+---
 
 ## 27.9 Summary
 
