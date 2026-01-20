@@ -1,8 +1,9 @@
 # Non-Digital Commons in a Polymathmatic Lens
 
-This document applies Polymathmatic Geography to non‑digital commons: physical systems where communities have historically shared land, water, and sacred spaces without blockchains or artificial intelligence. It focuses on three families of examples:
+This document applies Polymathmatic Geography to non‑digital commons: physical systems where communities have historically shared land, water, and sacred spaces without blockchains or artificial intelligence. It focuses on four families of examples:
 
 - English common land and enclosure  
+- Quaker meeting commons in early Pennsylvania (Biles, Janney, Strong)  
 - Traditional irrigation systems (Spanish huertas)  
 - Sacred forests and church-associated commons  
 
@@ -24,6 +25,8 @@ From a polymathmatic perspective, these commons were already entangled spaces:
 - **Legal/customary** – Manorial courts, customary rights of common, and informal agreements among tenants.  
 - **Genealogical** – Family claims to particular strips, homesteads, and use rights passed down across generations.  
 - **Symbolic/ritual** – Practices such as “beating the bounds,” in which parishioners walked and marked boundaries, embedding them in memory and story.  
+
+For enclosure awards, maps, and records, see:  
 https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/
 
 ### 1.2 Enclosure as spatial re-writing
@@ -39,6 +42,46 @@ Key polymathmatic observations:
 - **Erosion of ritual and memory** – Traditional routes and boundaries disappeared, altering how people moved through and remembered the land.
 
 Polymathmatic Geography reads enclosure as a reconfiguration of an entangled space: a change in legal and material structure that also breaks genealogical continuity and erases shared stories. This helps explain why enclosure is experienced as more than an economic loss; it is a loss of a world.
+
+---
+
+## 1.3 Quaker Meeting Commons in Early Pennsylvania (Biles, Janney, Strong)
+
+### 1.3.1 Meetings, land, and discipline as commons
+
+When Quakers carried their practices from England to Pennsylvania, they created new commons centered on meetinghouses, burial grounds, and shared lands, governed by both civil grants and religious discipline.
+
+Bucks County histories describe **William Biles** as an early settler, lawyer, large landholder, and Quaker leader who served on Pennsylvania’s Provincial Council and Assembly. His lands and legal work shaped the geometry of early townships and riverfront settlement.  
+https://en.wikipedia.org/wiki/William_Biles
+
+**Thomas Janney**, a Quaker minister from Cheshire, emigrated under William Penn’s encouragement and helped select sites for meetings and settlements in Bucks County. Genealogical and county sources list him among the Friends tasked with locating “a convenient place” for meetings and community development.  
+http://freepages.rootsweb.com/~mcstayfamily/genealogy/janney.htm  
+https://pagenweb.org/~bucks/BIOS_DAVIS/thomasjanney.html  
+
+In Dorset Quaker records, **William Biles (Byles)** and **Thomas Strong** appear together as nonconformists presented at Assizes for their worship, showing them as co‑participants in persecuted religious commons before migration.  
+https://www.opcdorset.org/fordingtondorset/Files2/DorchesterQuakers.html  
+
+Seen polymathmatically, these early Quaker spaces in Pennsylvania were commons in at least four entangled layers:
+
+- **Material/economic** – Shared meetinghouses, burial grounds, and sometimes common grazing or woodlots tied to the meeting.  
+- **Legal/spiritual** – Quaker discipline (meetings for business, admonitions, disownments) acting as an internal court over members’ conduct.  
+- **Genealogical** – Families like the Biles and Janney lines embedded in particular meetings and tracts over generations.  
+- **Symbolic/narrative** – Stories of persecution, ministry, and admonition (for example, elders confronting Biles over selling rum to Indigenous people) that encode boundaries of acceptable conduct in the commons.
+
+### 1.3.2 Accountability and power inside a settler commons
+
+This Quaker commons is not a simple egalitarian space; it is a site where power, conscience, and colonial expansion are negotiated.
+
+Bucks County Quaker histories and meeting narratives recount how Friends, including ministers like Janney, admonished Biles about selling rum to Indigenous people, treating it as a serious breach of discipline rather than a private business choice. The same man who was a judge, legislator, and major landholder could be called to account by his meeting, illustrating a form of **internal accountability to a spiritual-legal order** within an emerging settler commons.  
+https://www.fallsingtonmeeting.org/quaker-history/our-history  
+
+Polymathmatic Geography reads this as:
+
+- A **commons of conscience**, where spiritual authority constrains economic acts that would otherwise exploit vulnerable groups.  
+- A **settler-colonial commons**, where land acquisition and town planning proceed inside a framework that partially regulates, but does not erase, colonial asymmetries with Indigenous nations.  
+- A **genealogical and spiritual pipeline** that ties present‑day descendants back to specific decisions, admonitions, and spatial choices in the 17th and 18th centuries.
+
+This makes early Quaker Pennsylvania a bridge between European enclosure histories and contemporary attempts (like MountainShares and The Commons) to construct accountable, place‑bound institutions in Appalachia.
 
 ---
 
@@ -88,7 +131,7 @@ Across Europe and parts of Asia, forests and groves associated with religious si
 - Church-centered forests where grazing or fodder collection is allowed only after specific feast days.
 
 For empirical studies and case collections, see:  
-https://ecologyandsociety.org/vol27/iss4/art20/  
+https://www.ecologyandsociety.org/vol27/iss4/art20/  
 https://www.zygonjournal.org/article/id/11615/  
 https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf
 
@@ -111,7 +154,7 @@ Questions in this frame include:
 
 ## 4. Enclosure and Transformation of Non-Digital Commons
 
-Historical and contemporary processes—such as Parliamentary enclosure, state water concessions, urbanization, and secularization—have transformed many of these commons.  
+Historical and contemporary processes—such as Parliamentary enclosure, state water concessions, urbanization, and secularization—have transformed many of these commons.
 
 For English commons:  
 https://en.wikipedia.org/wiki/Enclosure  
@@ -121,32 +164,71 @@ For irrigation commons under pressure:
 https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
 
 For sacred sites and modern pressures:  
-https://ecologyandsociety.org/vol27/iss4/art20/  
+https://www.ecologyandsociety.org/vol27/iss4/art20/  
 https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
 
 In each case, Polymathmatic Geography tracks:
 
 - **Which layers change first** – legal rights, infrastructure, or narratives.  
 - **How entanglement is reconfigured** – for example, when forest spirituality is displaced or absorbed into new religious or economic structures.  
-- **What forms of resistance or adaptation emerge** – from direct action against enclosure in Britain to local defense of sacred sites and irrigation customs.  
+- **What forms of resistance or adaptation emerge** – from direct action against enclosure in Britain to local defense of sacred sites and irrigation customs.
+
+The Quaker/Pennsylvania cases (Biles, Janney, Strong) illustrate how spiritual governance, landholding, and community discipline can function as a commons even inside an expanding settler-colonial world, and how those patterns echo forward into contemporary attempts to design accountable, place‑bound digital and economic systems.
 
 ---
 
 ## 5. Further Reading
 
-- On English enclosure and loss of commons:  
-  - Enclosure overview: https://en.wikipedia.org/wiki/Enclosure  
-  - Historical summary: https://courses.lumenlearning.com/suny-hccc-worldhistory2/chapter/the-enclosure-act/  
-  - Short history essay: https://www.thelandmagazine.org.uk/articles/short-history-enclosure-britain  
-  - Enclosure awards and maps: https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/  
+### 5.1 English enclosure and loss of commons
 
-- On Mediterranean irrigation commons:  
-  - Valencia’s huerta: https://www.bbc.com/travel/article/20220220-valencias-la-huerta-spains-ingenious-water-maze  
-  - Murcia water governance: https://theurbanactivist.com/governance/the-council-of-good-men-huerta-murcia/  
-  - Segura river basin irrigation history: https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
-  - Spanish irrigation communities in colonial settings: https://onlinelibrary.wiley.com/doi/10.1111/joac.12042  
+- Enclosure overview (historical context and consequences):  
+  https://en.wikipedia.org/wiki/Enclosure  
 
-- On sacred forests and church-associated commons:  
-  - Spiritual values of forests: https://ecologyandsociety.org/vol27/iss4/art20/  
-  - Church trees and sacred forests: https://www.zygonjournal.org/article/id/11615/  
-  - Sacred sites and biocultural diversity: https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf
+- Short historical summary:  
+  https://courses.lumenlearning.com/suny-hccc-worldhistory2/chapter/the-enclosure-act/  
+
+- Short history essay:  
+  https://www.thelandmagazine.org.uk/articles/short-history-enclosure-britain  
+
+- Enclosure awards and maps:  
+  https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/  
+
+### 5.2 Mediterranean irrigation commons
+
+- Valencia’s huerta:  
+  https://www.bbc.com/travel/article/20220220-valencias-la-huerta-spains-ingenious-water-maze  
+
+- Murcia water governance and the “Council of Good Men”:  
+  https://theurbanactivist.com/governance/the-council-of-good-men-huerta-murcia/  
+
+- Segura river basin irrigation history:  
+  https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
+
+- Spanish irrigation communities in broader context:  
+  https://onlinelibrary.wiley.com/doi/10.1111/joac.12042  
+
+### 5.3 Sacred forests and church-associated commons
+
+- Spiritual values of forests:  
+  https://www.ecologyandsociety.org/vol27/iss4/art20/  
+
+- Church trees and sacred forests:  
+  https://www.zygonjournal.org/article/id/11615/  
+
+- Sacred sites and biocultural diversity:  
+  https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
+
+### 5.4 Quaker and early Pennsylvania commons (Biles, Janney, Strong)
+
+- William Biles (biographical overview):  
+  https://en.wikipedia.org/wiki/William_Biles  
+
+- Thomas Janney (genealogical and county histories):  
+  http://freepages.rootsweb.com/~mcstayfamily/genealogy/janney.htm  
+  https://pagenweb.org/~bucks/BIOS_DAVIS/thomasjanney.html  
+
+- Early Quakers in Dorchester (including William Biles/Byles and Thomas Strong):  
+  https://www.opcdorset.org/fordingtondorset/Files2/DorchesterQuakers.html  
+
+- Fallsington Meeting history (Quaker meeting and community context in Bucks County):  
+  https://www.fallsingtonmeeting.org/quaker-history/our-history
