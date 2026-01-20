@@ -136,4 +136,7 @@ When creating new branding, flyers, or in‑app illustrations, designers can use
   - Depict The Commons not only as an app icon but as a **town square**—people, music, trading, storytelling, and worship spaces, all implied in one scene.  
   - Make sure the branding shows multiple forms of value (care, culture, learning), not just shopping carts.
 
+These assets together form the symbolic infrastructure of the commons, ensuring that anyone who meets MountainShares first in image or slogan can follow real links into the Manifesto, Principles, and Quantarithmia case study that explain what the symbols are promising, and how communities can hold them to account.
+
+---
 ---
