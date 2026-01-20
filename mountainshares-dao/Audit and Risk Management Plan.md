@@ -1,5 +1,13 @@
 # Audit and Risk Management Plan
 
+> **Disciplinary Context: Appalachian Economic Commons**  
+> This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2.1, 3.1, and 4 treat treasury health, reserve ratios, and risk registers as coupled with community well‑being, making financial flows and misconfiguration risks explicit. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P9 – Transparency and traceability:** Sections 2, 3, 5, and 6 define regular audits, automated monitoring, incident reports, and recordkeeping so that money, decisions, and failures can be traced over time.  
+> - **P16 – Power accountable to place:** Sections 2.4, 4, 5.3, and 7 link H4H, DAO governance, and incident response to documented cadences and public summaries, making operational power reviewable by community and board.  
+> - **Anti‑leakage and closed‑loop spending:** The emphasis on reserve‑backed operation, fee‑flow auditing (2.1), and reserve‑ratio monitoring (3.1) supports anti‑leakage design by checking that the closed‑loop instrument behaves as documented.  
+> - **Bounties and corrective action (implicit):** Post‑incident reviews and risk‑register updates (5.2–5.3, 4) create structured hooks where future bounty or corrective programs can be anchored to specific failure modes and mitigations.
+
 > **DRAFT – AUDIT AND RISK PLAN**
 >
 > This Plan outlines the intended audit cadence, monitoring, and incident response framework for the
@@ -198,5 +206,3 @@ This Audit and Risk Management Plan:
 Any material changes are documented with version numbers, dates, and a brief changelog.
 
 ---
-
-*End of `Audit and Risk Management Plan.md`*
