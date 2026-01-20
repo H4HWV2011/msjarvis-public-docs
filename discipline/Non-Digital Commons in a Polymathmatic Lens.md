@@ -3,7 +3,7 @@
 This document applies Polymathmatic Geography to non‑digital commons: physical systems where communities have historically shared land, water, and sacred spaces without blockchains or artificial intelligence. It focuses on four families of examples:
 
 - English common land and enclosure  
-- Quaker meeting commons in early Pennsylvania (Biles, Janney, Strong)  
+- Quaker meeting commons in early Pennsylvania (Biles, Janney)  
 - Traditional irrigation systems (Spanish huertas)  
 - Sacred forests and church-associated commons  
 
@@ -83,7 +83,7 @@ Polymathmatic Geography reads enclosure as a reconfiguration of an entangled spa
 
 ---
 
-## 1.3 Quaker Meeting Commons in Early Pennsylvania (Biles, Janney, Strong)
+## 1.3 Quaker Meeting Commons in Early Pennsylvania (Biles, Janney)
 
 ### 1.3.1 Meetings, land, and discipline as commons
 
@@ -95,9 +95,6 @@ https://en.wikipedia.org/wiki/William_Biles
 **Thomas Janney**, a Quaker minister from Cheshire, emigrated under William Penn’s encouragement and helped select sites for meetings and settlements in Bucks County. Genealogical and county sources list him among the Friends tasked with locating “a convenient place” for meetings and community development.  
 http://freepages.rootsweb.com/~mcstayfamily/genealogy/janney.htm  
 https://pagenweb.org/~bucks/BIOS_DAVIS/thomasjanney.html  
-
-In Dorset Quaker records, **William Biles (Byles)** and **Thomas Strong** appear together as nonconformists presented at Assizes for their worship, showing them as co‑participants in persecuted religious commons before migration.  
-https://www.opcdorset.org/fordingtondorset/Files2/DorchesterQuakers.html  
 
 Seen polymathmatically, these early Quaker spaces in Pennsylvania were commons in at least four entangled layers:
 
@@ -211,7 +208,7 @@ In each case, Polymathmatic Geography tracks:
 - **How entanglement is reconfigured** – for example, when forest spirituality is displaced or absorbed into new religious or economic structures.  
 - **What forms of resistance or adaptation emerge** – from direct action against enclosure in Britain to local defense of sacred sites and irrigation customs.
 
-The Quaker/Pennsylvania cases (Biles, Janney, Strong) illustrate how spiritual governance, landholding, and community discipline can function as a commons even inside an expanding settler-colonial world, and how those patterns echo forward into contemporary attempts to design accountable, place‑bound digital and economic systems.
+The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governance, landholding, and community discipline can function as a commons even inside an expanding settler-colonial world, and how those patterns echo forward into contemporary attempts to design accountable, place‑bound digital and economic systems.
 
 ---
 
@@ -256,7 +253,7 @@ The Quaker/Pennsylvania cases (Biles, Janney, Strong) illustrate how spiritual g
 - Sacred sites and biocultural diversity:  
   https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
 
-### 5.4 Quaker and early Pennsylvania commons (Biles, Janney, Strong)
+### 5.4 Quaker and early Pennsylvania commons (Biles, Janney)
 
 - William Biles (biographical overview):  
   https://en.wikipedia.org/wiki/William_Biles  
@@ -264,9 +261,6 @@ The Quaker/Pennsylvania cases (Biles, Janney, Strong) illustrate how spiritual g
 - Thomas Janney (genealogical and county histories):  
   http://freepages.rootsweb.com/~mcstayfamily/genealogy/janney.htm  
   https://pagenweb.org/~bucks/BIOS_DAVIS/thomasjanney.html  
-
-- Early Quakers in Dorchester (including William Biles/Byles and Thomas Strong):  
-  https://www.opcdorset.org/fordingtondorset/Files2/DorchesterQuakers.html  
 
 - Fallsington Meeting history (Quaker meeting and community context in Bucks County):  
   https://www.fallsingtonmeeting.org/quaker-history/our-history
