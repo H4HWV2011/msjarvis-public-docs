@@ -87,8 +87,8 @@ Entities are connected via typed edges that encode flows of power, risk, and ser
 This graph aligns with graph‑based approaches in spatial analysis and infrastructure vulnerability mapping (e.g., network analysis and interdependency modeling):
 
 - Rinaldi et al., “Identifying, Understanding, and Analyzing Critical Infrastructure Interdependencies,” *IEEE Control Systems Magazine*, 2001:  
-  https://ieeexplore.ieee.org/document/948122  
-
+  https://ieeexplore.ieee.org/document/969131
+  
 **Disciplinary rule**
 
 Any serious polymathmatic analysis should:
