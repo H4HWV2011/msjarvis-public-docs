@@ -142,7 +142,7 @@ GBIM is instantiated over a heterogeneous West Virginia corpus, making all belie
 - Key sources:
 
   - FEMA National Flood Hazard Layer:  
-    https://msc.fema.gov/portal/resources/nfhl  
+    https://msc.fema.gov/portal/home
   - USGS National Map:  
     https://apps.nationalmap.gov/viewer/
 
