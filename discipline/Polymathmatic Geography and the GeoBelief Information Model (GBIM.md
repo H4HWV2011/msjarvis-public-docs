@@ -191,8 +191,7 @@ References for NG911 and GIS consistency:
 - NENA NG911 GIS data standards:  
   https://www.nena.org/page/SmartphoneApps
 - 911.gov issue page on GIS:  
-  https://www.911.gov/issue_gis.html  
-
+  https://www.911.gov/docs-and-tools/?category=standards-and-best-practices#sort=date
 ---
 
 ### 6. GBIM as Epistemic Backbone of Polymathmatic Geography
