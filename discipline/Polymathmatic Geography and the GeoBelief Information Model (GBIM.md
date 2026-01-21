@@ -135,8 +135,6 @@ GBIM is instantiated over a heterogeneous West Virginia corpus, making all belie
 
   - WV GIS Technical Center:  
     https://wvgis.wvu.edu/  
-  - MapWV GIS portal:  
-    https://www.mapwv.gov/gis/
 
 #### 4.3 Environmental and Hazard Features
 
