@@ -141,7 +141,7 @@ These datasets are stored in PostGIS and exposed through Ms. Jarvis’s GIS serv
 
 ---
 
-## GBIM‑Guided Autonomous Learning (Planned)
+## GBIM‑Guided Autonomous Learning 
 
 GBIM is also intended to guide what Ms. Jarvis studies during autonomous learning cycles, though this capability is still in development.
 
