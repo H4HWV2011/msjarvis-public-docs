@@ -189,7 +189,7 @@ By forcing systems to agree on a shared, spatially coherent worldview, GBIM:
 References for NG911 and GIS consistency:
 
 - NENA NG911 GIS data standards:  
-  https://nena.org/page/NG911GISData  
+  https://www.nena.org/page/SmartphoneApps
 - 911.gov issue page on GIS:  
   https://www.911.gov/issue_gis.html  
 
