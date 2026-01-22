@@ -281,3 +281,100 @@ The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governanc
 
 - Fallsington Meeting history (Quaker meeting and community context in Bucks County):  
   [https://www.fallsingtonmeeting.org/quaker-history/our-history](https://www.fallsingtonmeeting.org/quaker-history/our-history)
+
+  ## 8. Contemporary Appalachian Commons as Design Labs
+
+The historical commons above are not just analogies; they have living relatives in today’s Appalachia. Several initiatives in the region already function as non‑digital commons—shared infrastructures of work, culture, land, and care—whose design choices can directly inform MountainShares, The Commons, and Ms. Jarvis.
+
+### 8.1 The Industrial Commons: Cooperative Learning Journey as Commons School
+
+The Industrial Commons in Morganton, North Carolina, is explicitly rebuilding “a diverse working class…based on locally-rooted wealth” through community-owned enterprises, land initiatives, and cooperative finance. Its Cooperative Learning Journey brings practitioners, funders, and local leaders into a multi‑day immersion where they walk the Innovation Campus, meet worker‑owners, and study TIC’s Rural Wealth Blueprint and Build–Buy–Leverage approach.
+
+- TIC overview and mission: https://www.theindustrialcommons.org  
+- Cooperative Learning Journey: https://www.theindustrialcommons.org/cooperative-model-journey  
+
+Polymathmatic Geography can treat this Learning Journey as a commons school:
+
+- **Material** – A redeveloped factory brownfield, emerging cooperative housing, and worker‑owned businesses sharing equipment, space, and credit.  
+- **Legal/institutional** – Capital for the Commons and Land for the Commons operating like a ledgered commons: loans circulate within a defined ecosystem instead of exiting to distant investors.  
+- **Genealogical/social** – Former frontline workers and local families anchoring governance, much like huerta irrigators or Quaker elders.  
+- **Symbolic/ritual** – The journey itself as a ritualized “pilgrimage” into a new rural wealth geometry, echoing visits to historic fields, tribunals, and sacred forests.
+
+For Ms. Jarvis and MountainShares, TIC’s Learning Journey becomes a field protocol: how do we invite people into a working commons as learners, not just users?
+
+---
+
+### 8.2 Sync Space and Heath Guinn: Regional Ecosystem Commons
+
+Sync Space, based in the Appalachian Highlands, functions as an entrepreneurial commons for a four‑state region—connecting founders, mentors, capital, and institutions across northeast Tennessee, southwest Virginia, western North Carolina, and eastern Kentucky. Under President Heath Guinn’s leadership (Leadership Tennessee Class VII), Sync Space has helped knit together 22 counties, universities, healthcare systems, and investors into a shared platform for rural innovation.
+
+- Sync Space overview: https://syncspace.org  
+- Leadership Tennessee announcement:  
+  https://syncspace.org/heath-guinn-president-of-sync-space-selected-for-leadership-tennessee-class-vii  
+
+Through a polymathmatic lens, Sync Space is:
+
+- **Material/economic** – Shared access to programs, capital, and markets that would be unreachable by isolated founders.  
+- **Legal/institutional** – MOUs, accelerator programs, and partnerships that turn separate jurisdictions into a coordinated ecosystem.  
+- **Genealogical/regional** – A new “kinship map” of towns and counties linked by entrepreneurial pathways over the mountains.  
+- **Symbolic** – Stories of Appalachian tech and social enterprise that contest inherited narratives of extraction and decline.
+
+For MountainShares, Sync Space models how to stitch counties into one ledgered commons without erasing local identity.
+
+---
+
+### 8.3 Coalfield Development and Brandon Dennison: 33‑6‑3 as Time Commons
+
+Coalfield Development, operating in southern West Virginia, has pioneered the 33‑6‑3 model: 33 hours of paid work, 6 hours of higher education, and 3 hours of personal development each week for crew members. This structure ties green social enterprises (solar, construction, agriculture, reuse) to a holistic re‑commonsing of time, skills, and dignity for people exiting coal, incarceration, or addiction.
+
+- Coalfield Development overview: https://coalfield-development.org  
+- Brandon Dennison bio: https://coalfield-development.org/bio-brandon-dennison  
+
+Polymathmatic Geography reads 33‑6‑3 as a time‑based commons, akin to huerta water rotations:
+
+- **Material** – Wages, tools, and production embedded in social enterprises rather than extractive employers.  
+- **Temporal/legal** – A fixed weekly rhythm that guarantees learning and healing time, not just labor extraction.  
+- **Genealogical** – Multi‑year cohorts whose trajectories shift family histories of precarious work and exclusion.  
+- **Symbolic** – A new narrative of “a good job” in coalfield counties: one that includes education, recovery, and agency as non‑negotiable.
+
+For The Commons and Ms. Jarvis, Coalfield poses a key design question: how might digital systems protect and encode time for learning and care, not just optimize throughput?
+
+---
+
+### 8.4 Appalshop / Appalachian Media Institute: Narrative Commons
+
+Appalshop’s Appalachian Media Institute (AMI) in Whitesburg, Kentucky, has, since 1988, trained hundreds of young people to document their communities through film, audio, and digital media. Youth producers share equipment, editing infrastructure, and mentorship as they tell stories about coal, floods, music, environment, and everyday life, building a regional media commons that counters extractive outside portrayals.
+
+- Appalshop overview: https://appalshop.org  
+- Appalachian Media Institute: https://www.amiappalshop.org  
+
+Seen polymathmatically, AMI is:
+
+- **Material** – Cameras, studios, and broadcast infrastructure held in common for local youth and communities.  
+- **Legal/institutional** – Community-rooted editorial practices, consent norms, and archiving agreements that govern who tells what, and how.  
+- **Genealogical** – Mentorship chains where former AMI participants return as trainers and staff, carrying forward place‑based knowledge.  
+- **Symbolic** – A counter‑archive that lets Appalachians see themselves as authors and experts, not just subjects of outside documentaries.
+
+This is the narrative twin of The Commons: one works on content‑creator rights and ethical distribution in a digital realm; the other has decades of practice in youth‑governed storytelling infrastructure on the ground.
+
+---
+
+### 8.5 Appalachian Rekindling Project: Rematriated Land Commons
+
+The Appalachian Rekindling Project (ARP) seeks to establish an intertribal Indigenous center and land‑based hub in central Appalachia, where Native people can return, gather, and care for land collectively. The project explicitly frames its work as rematriation—restoring Indigenous women‑led relationships between people and ancestral land—alongside plans for bison reintroduction and land stewardship rooted in Indigenous law and ceremony.
+
+- Appalachian Rekindling Project: https://www.appalachianrekindlingproject.org  
+
+Polymathmatic Geography sees ARP as:
+
+- **Material/ecological** – Land held in collective Indigenous care, with bison and other species returning to landscapes shaped by extraction and dispossession.  
+- **Legal/sovereign** – Governance grounded in Indigenous law, treaty awareness, and intertribal protocols, not just state property codes.  
+- **Genealogical** – Reconnecting displaced families and nations to specific hollows, ridges, and watersheds in central Appalachia.  
+- **Symbolic/ritual** – Ceremonies, language use, and story that explicitly heal histories of removal and enclosure.
+
+For MountainShares and The Commons, ARP is a necessary constraint and teacher: any Appalachian commons architecture must avoid replaying settler‑colonial erasure by centering Indigenous sovereignty and leadership in land‑based projects, or risk becoming another layer of enclosure with better branding.
+
+---
+
+In this way, The Industrial Commons, Sync Space, Coalfield Development, Appalshop/AMI, and the Appalachian Rekindling Project become **live production labs** for non‑digital commons in Appalachia. Their practice offers concrete patterns—governance rhythms, institutional forms, narrative protocols, and spatial arrangements—that Polymathmatic Geography can formalize, and that MountainShares, The Commons, and Ms. Jarvis can encode into new but historically aware infrastructures.
+
