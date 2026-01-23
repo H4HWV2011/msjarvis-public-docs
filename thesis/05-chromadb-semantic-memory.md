@@ -22,10 +22,10 @@ Within the Quantarithmia program, ChromaDB is treated as the bridge between abst
 In the Ms. Jarvis architecture, ChromaDB plays several interlocking roles.
 
 - **Semantic memory store (non‑spatial).**  
-  Embeddings of texts and artifacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, and curated user memory. These collections support general semantic retrieval independent of geography.
+  Embeddings of texts and artifacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, and curated user‑memory–like traces. These collections support general semantic retrieval independent of geography.
 
 - **Geospatial Hilbert layer (spatial).**  
-  A large family of `geodb*` and `gedb*` collections holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the Hilbert‑space representation of the spatial body described in the GBIM chapter. These collections connect directly to GeoDB entities and geometries.
+  A large family of GIS‑derived collections holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the Hilbert‑space representation of the spatial body described in the GBIM chapter. These collections connect directly to GeoDB entities and geometries.
 
 - **Retrieval engine for RAG.**  
   At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. This behavior instantiates the query projection and neighborhood selection mechanisms described in the Hilbert‑space model.
@@ -39,61 +39,117 @@ This design makes the semantic memory system inspectable and debuggable: researc
 
 ### 5.3 Collections and Data Domains
 
-In the deployment examined in late 2025 and early 2026, the primary Chroma instance exposes a concrete set of collections that fall into two broad families: general semantic memory and GeoDB‑derived spatial memory. This section describes typical collections and their intended semantics. Collection names and schemas are documented in the system’s registry and may evolve in a controlled, versioned manner.
+In the deployment examined in late 2025 and early 2026, the primary Chroma instance exposes a concrete set of collections that fall into two broad families: general semantic memory and GeoDB‑derived spatial memory. This section describes the collections actually present in this deployment and their intended semantics. Collection names and schemas are documented in the system’s registry and may evolve in a controlled, versioned manner.
 
 #### 5.3.1 General Semantic Collections
 
-Representative general collections include:
+In the current deployment, the principal general‑semantic collections are:
 
-- `conversations`  
-- `ms_jarvis_memory`  
-- `user_memory_vectors`  
 - `autonomous_learning`  
 - `research_history`  
-- `mountainshares_knowledge`  
-- `spiritual_wisdom`  
-- `thesis_materials` (or a closely related thesis collection)  
-- `default`  
-- smaller auxiliary collections used for development and diagnostics.
+- `gbim_msjarvis_corpus`  
+- `gbim_cakidd_personal_docs`  
+- `msjarvis_hilbertspace`  
+- `msjarvis_learner_corpus`  
 
 These collections correspond to distinct data domains:
 
-- **Conversations and user memory.**  
-  Collections such as `conversations`, `ms_jarvis_memory`, and `user_memory_vectors` store selected interaction snippets, higher‑level conversational summaries, and explicit user‑memory embeddings used by certain agents and bridges. They provide continuity and context across sessions, subject to privacy and curation policies.
-
-- **Governance and norms.**  
-  `mountainshares_knowledge` stores MountainShares rules, constitutional principles, governance deliberation texts, and related commentary, providing a focused corpus for economic and governance questions. Its contents are curated to reflect official project documents and carefully selected supporting materials.
-
 - **Learner and research history.**  
-  `autonomous_learning` and `research_history` store web‑research outputs, per‑cycle summaries, and RAG traces emitted by the autonomous learner. These collections capture what was studied, when it was studied, and how it was summarized, enabling both introspection and incremental learning.
+  `autonomous_learning` and `research_history` are intended to store web‑research outputs, per‑cycle summaries, and RAG traces emitted by the autonomous learner. In this snapshot, `autonomous_learning` contains a minimal number of embeddings, while `research_history` is present with zero embeddings and functions as an empty but reserved namespace.
 
-- **Spiritual and contextual materials.**  
-  `spiritual_wisdom` stores spiritual, reflective, and contextual texts that inform qualitative and ethical framings of responses. This collection is curated and explicitly documented so that its role remains transparent.
+- **GBIM‑oriented corpora.**  
+  `gbim_msjarvis_corpus` and `gbim_cakidd_personal_docs` are intended to hold GBIM‑relevant documents and personal corpus materials used for Ms. Jarvis’s place‑based reasoning. Both collections currently exist with zero embeddings, indicating that their population is planned work rather than completed ingestion.
 
-- **Thesis and internal materials.**  
-  Collections such as `thesis_materials` hold drafts, notes, and supporting texts referenced within the Quantarithmia research program. They provide a local, versioned corpus for internal reasoning and documentation.
+- **Hilbert‑space and learner corpora.**  
+  `msjarvis_hilbertspace` and `msjarvis_learner_corpus` are likewise present but empty in this deployment. They are reserved for future embeddings that will bind specific Hilbert‑space state and learner traces into dedicated, queryable collections.
 
-In some of these collections, embeddings are fully populated and used for similarity search. In others, especially certain governance or thesis collections, documents and metadata may be fully present while embeddings are still being backfilled or recomputed. The system registry records which collections have complete embedding coverage at any given time.
+Earlier design documents referred to additional collections such as `conversations`, `ms_jarvis_memory`, `user_memory_vectors`, `mountainshares_knowledge`, `spiritual_wisdom`, and `thesis_materials`; those names represent design intents across the broader program, but they are not present as populated collections in the specific Chroma instance examined here and should not be described as active in this deployment without further ingestion.
 
-#### 5.3.2 GeoDB‑Derived `geodb*` and `gedb*` Collections
+Overall, general semantic memory is structurally defined but only partially realized in this Chroma store: several key collections exist but have not yet been populated with embeddings or documents.
 
-A second, much larger family of collections is generated automatically from the PostGIS GeoDB. These collections provide the embedding‑space representation of GBIM’s spatial body. Typical examples include:
+#### 5.3.2 GeoDB‑Derived Spatial Collections
+
+A second, much larger family of collections is generated automatically from the PostGIS GeoDB and represents the embedding‑space realization of GBIM’s spatial body. In the current deployment, these appear as `*_attrs` collections tied to specific West Virginia GIS datasets rather than the earlier `geodb*` / `gedb*` naming convention. Representative examples include:
 
 - **Census and boundary layers.**  
-  Collections such as `geodbblockscensus2020utm83`, `geodbblockgroupscensus2020utm83`, and corresponding `wma84` variants represent blocks and block groups; other collections capture ZIP code tabulation areas, county and municipal boundaries, regional planning councils, and related governance outlines.
+  - `statewide_counties` (55 embeddings)  
+  - `wv_county_boundaries_24k_topo_updated_2022_utm83_attrs` (55 embeddings, referenced by `statewide_counties` metadata)  
+  - multiple state legislative district layers such as:  
+    - `wvstatehousedistricts_manysources_1992_ll83_attrs`  
+    - `wvstatehousedistricts_manysources_1992_utm83_attrs`  
+    - `wvstatehousedistricts_manysources_2002_ll83_attrs`  
+    - `wvstatehousedistricts_manysources_2002_utm83_attrs`  
+    - `wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs`  
+    - `stateofwvhousedistricts_wvlegislativeservices_2010_attrs`  
+    - `wvstatesenatedistricts_manysources_1992_ll83_attrs`  
+    - `wvstatesenatedistricts_manysources_1992_utm83_attrs`  
+    - `wvstatesenatedistricts_manysources_2002_ll83_attrs`  
+    - `wvstatesenatedistricts_manysources_2002_utm83_attrs`  
+    - `wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs`  
+    - `stateofwvsenatedistricts_wvlegislativeservices_2010_attrs`  
+  - statewide boundary layers such as:  
+    - `wvstateboundary100k_usgs_200203_ll83_attrs`  
+    - `wvstatebounadary100k_usgs_200203_utm83_attrs`  
+    - `wvstateboundary24k_usgs_200203_ll83_attrs`  
+    - `wvstateboundary24k_usgs_200203_utm83_attrs`  
 
 - **Infrastructure and hazard layers.**  
-  Collections such as `geodbbridges`, `geodbdamsusarmycorpsofengineers200010utm83`, `geodbdamsnoncoalusgs2002utm83`, and multiple abandoned‑mine, floodplain, fault, and geology layers represent critical infrastructure and environmental risk features.
+  - `minesabandonedlandspolygon_wvdep_1996_noprojection_attrs`  
+  - `minesabandonedlandspoint_wvdep_1996_noprojection_attrs`  
+  - `minesabandonedlandsline_wvdep_1996_noprojectoin_attrs`  
+  - `railnetworkwv_usdot_200203_ll83_attrs` and `railnetworkwv_usdot_200203_utm83_attrs`  
+  - `sewertreatmentplants_wvdep_200203_utm83_attrs`  
+  - `boundaryappalachianbasin_wvges_1996_utm83_attrs`  
 
 - **Facilities and civic entities.**  
-  Collections such as `geodbhospitalswvdem040519utm83`, `gedbnursinghomeswvdem041219utm83`, `geodbfiredeptwvdem092017utm83`, `geodbpolicedeptwvdem012319utm83`, `geodbcountycityparkboundaries20201104utm83`, as well as collections for libraries, schools, and public health departments, represent facilities and services with direct implications for community well‑being.
+  - `hospitals_wvdem_040519_utm83_attrs` and `hospitals_wvdem_040519_gcs84_attrs`  
+  - `hospitalswvdem040519utm83_attrs` (present but with zero embeddings in this snapshot)  
+  - `nursinghomes_wvdem_041219_utm83_attrs` and `nursinghomes_wvdem_041219_gcs84_attrs`  
+  - `fire_dept_wvdem_092017_utm83_attrs`  
+  - `policedept_wvdem_012319_utm83_attrs` and `policedept_wvdem_012319_gcs84_attrs`  
+  - `communityhealthproviders_wvhealthcareauthority_200802_utm83_attrs`  
+  - `countycityparkboundaries_20201104_utm83_attrs`  
+  - `officebuildings_wvdo_200807_utm83_attrs`  
+  - `industrialbuildings_wvdo_200807_utm83_attrs`  
+  - `industrialsites_wvdo_200807_utm83_attrs`  
+  - `highered_wvemd_072420_utm83_attrs` and `highered_wvemd_072420_wgc84_attrs`  
+  - `911centers_wvdem_032819_utm83_attrs` and `911centers_wvdem_032819_gcs84_attrs`  
+
+- **Built‑environment and imagery layers.**  
+  - `wvgistcbuildingfootprints_attrs`  
+  - `wvgistc_building_footprints_attrs`  
+  - `wv_microsoft_20180207_utm17n83_attrs`  
+  - `historicalaerialphotographycountycoverage_wvgistc_utm83_attrs`  
 
 - **Historic and governance‑relevant features.**  
-  Collections capturing National Register of Historic Places points and polygons, courthouses, county seats, empowerment zones, and community‑defined boundaries provide context for spatial justice and heritage‑related analysis.
+  - National Register of Historic Places–related collections such as:  
+    - `natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs`  
+    - `nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_attrs`  
+    - `nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_attrs`  
+    - `nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs`  
+    - `nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs`  
+  - `regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs` and `regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs`  
+  - `communityboundary_min_att_20250121_wma84_attrs` and `communityboundary_min_att_20250121_utm83_attrs`  
 
-For nearly every `geodb*` collection, there is a corresponding `gedb*` collection, such as `geodbblockscensus2020utm83` and `gedbblockscensus2020utm83`. The `geodb*` collections hold embeddings and base metadata keyed to PostGIS feature identifiers. The `gedb*` collections serve as stable alias layers, often with simple placeholder documents and copied metadata, so that higher‑level services can depend on consistent collection names and schemas even as ingestion pipelines evolve.
+- **Gridded index and tax layers.**  
+  - `indexgrid15minutewithcounties_wvgistc_utm27_attrs`  
+  - `indexgrid15minutequads_wvgistc_ll83_attrs` and `indexgrid15minutequads_wvgistc_utm83_attrs`  
+  - `indexgrid1minutequads_wvgistc_ll83_attrs` and `inedexgrid1minutequads_wvgistc_utm83_attrs`  
+  - `wv_tax_districts_ll83_attrs`, `wv_tax_districts_utm83_attrs`, and `wv_tax_districts_wma84_attrs`  
 
-Together, the `geodb*` and `gedb*` families form the Hilbert‑space representation of Ms. Jarvis’s spatial body and align directly with the PostGIS tables described in the GBIM and GeoDB chapters.
+Each of these `*_attrs` collections stores feature‑level embeddings and metadata keyed to the underlying GIS layer. For example, sampling `statewide_counties` returns metadata entries with fields like:
+
+- `sourcetable: "wv_county_boundaries_24k_topo_updated_2022_utm83"`  
+- `country: "USA"`  
+- `geodb_id: "1"` (and other feature IDs)  
+- `label: "feat_1"` (and similar feature labels)  
+- `bbox: "POLYGON((...))"`  
+
+alongside documents such as:
+
+- `"County feature 1: feat_1 with bbox POLYGON((...))"`  
+
+The document text is a human‑readable summary of the feature and its geometry, while the metadata carries structured identifiers and geometry tags. Together, these spatial collections form the Hilbert‑space representation of Ms. Jarvis’s spatial body and align directly with the PostGIS tables described in the GBIM and GeoDB chapters, using the `*_attrs` naming pattern actually present in this deployment rather than the older `geodb*` / `gedb*` terminology.
 
 ---
 
@@ -116,14 +172,14 @@ This mapping allows Ms. Jarvis’s memory to be described both geometrically, in
 
 ### 5.5 Embedding Model and Dimensionality
 
-In the RAG stack under analysis, Ms. Jarvis uses a sentence‑embedding model with 384‑dimensional outputs (for example, a SentenceTransformer such as `all-MiniLM-L6-v2`) as the primary text embedding channel. A simple inspection script confirms the dimensionality of the embedding vectors; this dimension defines the ambient dimension of the main `H_text` component for text‑based collections.
+In the RAG stack under analysis, Ms. Jarvis uses a sentence‑embedding model with 384‑dimensional outputs as the primary text embedding channel. The deployed Chroma catalog shows collections such as `conversation_history` and `learner` configured with dimension 384 in the internal `collections` table, confirming the ambient dimension of the main `H_text` component for text‑based collections.  
 
-Any Chroma collection that stores embeddings produced by this model must be configured to accept 384‑dimensional vectors. This requirement applies both to general semantic collections and to GeoDB‑derived collections, which use consistent text embeddings for feature descriptions, attribute summaries, and linked narrative content.
+Any Chroma collection that stores embeddings produced by this model must be configured to accept 384‑dimensional vectors. This requirement applies both to general semantic collections and to GeoDB‑derived collections, which use consistent text embeddings for feature descriptions, attribute summaries, and linked narrative content.  
 
 In the examined deployment:
 
-- GeoDB‑derived `geodb*` collections are embedded at the standard dimensionality and aliased into corresponding `gedb*` collections.
-- Several general semantic collections, including portions of `mountainshares_knowledge`, `thesis_materials`, and older memory collections, hold complete document and metadata records, with embedding backfill either completed or in progress as documented in the system registry.
+- GIS‑derived `*_attrs` collections that hold feature descriptions and attribute summaries are embedded at this standard dimensionality.  
+- The Ms. Jarvis–specific general corpora (`gbim_msjarvis_corpus`, `msjarvis_hilbertspace`, `msjarvis_learner_corpus`, `research_history`) exist but have zero embeddings, making 384‑dimensionality a declared standard for these domains rather than an empirically populated fact in this snapshot.
 
 The chapter therefore treats 384‑dimensional embeddings as the standard for the main semantic channel, while recognizing that additional channels or model upgrades may be introduced in future, along with corresponding schema and migration procedures.
 
@@ -131,25 +187,25 @@ The chapter therefore treats 384‑dimensional embeddings as the standard for th
 
 ### 5.6 ChromaDB Clients and Deployment Topology
 
-ChromaDB is accessed both as a shared HTTP service and, historically, as per‑service local stores. The architecture is transitioning toward a unified, HTTP‑backed deployment as the canonical semantic memory.
+ChromaDB is accessed as a shared HTTP service in this deployment; historical patterns using per‑service local stores are now considered legacy.
 
 #### 5.6.1 Shared HTTP Service
 
-In the active environment, services connect to a shared ChromaDB instance through an HTTP client configured with explicit host, port, and telemetry settings. In pseudocode:
+In the active environment, services connect to a shared ChromaDB instance through an HTTP client configured with explicit host and port:
 
-- a client is created against the shared host,
-- collections are listed and retrieved by name, and
-- ingestion scripts, GeoDB ETL pipelines, RAG gateways, and other services use this client to upsert and query vectors.
+- A Python client is created as `chromadb.HttpClient(host="127.0.0.1", port=8002)` from within the `.venv-chroma` environment.  
+- `client.list_collections()` enumerates all collections, including the many GIS `*_attrs` collections and the Ms. Jarvis–specific general collections.  
+- Ingestion scripts, GeoDB ETL pipelines, RAG gateways, and QA tools use this client to inspect collection counts and, where applicable, upsert and query vectors.
 
-This shared instance exposes both the general semantic collections and the `geodb*` / `gedb*` spatial collections. It is bound to a persistent on‑disk directory, and its configuration is recorded in the system configuration registry to support reproducibility and backup.
+The shared instance exposes both general semantic collections (even when empty) and the spatial `*_attrs` collections. It is bound to a persistent on‑disk directory `persistent/chroma` on the host, mounted into the `jarvis-chroma` container at `/data`, and includes a `chroma.sqlite3` catalog plus a large number of HNSW index directories in that path. The instance is treated as the canonical semantic memory store for this deployment.
 
 #### 5.6.2 Historical and Auxiliary Persistent Clients
 
-Historically, some services used `PersistentClient` instances pointing to per‑service local paths such as `.chromadb` or `chroma_db`. These local stores were used for:
+Historically, some services used `PersistentClient` instances pointing to per‑service local paths such as `.chromadb` or `chroma_db`. Those local stores were used for:
 
-- isolated experiments and unit tests,
-- service‑specific memory (such as early autonomous learner experiments or social‑media‑related data), and
-- transitional states prior to consolidation into the shared instance.
+- isolated experiments and unit tests,  
+- early autonomous‑learner experiments or service‑specific memory, and  
+- transitional states before consolidation into the shared instance.
 
 As of late 2025 and early 2026, the operational intent is to converge on the shared HTTP‑backed store for primary semantic memory, including GeoDB embeddings. Residual local stores are treated as legacy or experimental; their contents are either migrated or preserved as snapshots with clear documentation of their status.
 
@@ -160,18 +216,18 @@ As of late 2025 and early 2026, the operational intent is to converge on the sha
 ChromaDB is tightly integrated with GBIM, the GeoDB layer, and the broader RAG pipeline.
 
 - **GBIM linkage.**  
-  GBIM entities—including places, infrastructures, institutions, persons, and policies—reference Chroma collections through stable identifiers and metadata fields. For spatial entities, `geodb*` collections store feature‑level embeddings and metadata keyed to PostGIS tables; for non‑spatial entities, general collections such as `mountainshares_knowledge` or `ms_jarvis_memory` store associated documents and summaries. This linkage allows GBIM entities to be mapped into `H_App` and retrieved by semantic or spatial criteria.
+  GBIM entities—including places, infrastructures, institutions, and policies—are designed to reference Chroma collections through stable identifiers and metadata fields. For spatial entities, the `*_attrs` collections store feature‑level embeddings and metadata keyed to PostGIS tables via fields such as `sourcetable`, `geodb_id`, and `bbox`; for non‑spatial entities, Ms. Jarvis–specific general collections are intended to store associated documents and summaries once populated. This linkage allows GBIM entities to be mapped into `H_App` and retrieved by semantic or spatial criteria.
 
 - **GeoDB integration.**  
-  The GeoDB ETL pipeline reads per‑feature attributes from PostGIS, constructs embeddings, and upserts them into `geodb*` collections before creating aliases in `gedb*`. Keys and metadata—including source table, primary key, geometry tags, and classification fields—allow retrieval results to be rejoined to GBIM entities and geometries. This process ensures that ChromaDB remains synchronized with the spatial database for the prioritized layers.
+  The GeoDB ETL pipeline reads per‑feature attributes from PostGIS, constructs embeddings and documents (for example, “County feature N: feat_N with bbox POLYGON((…))”), and upserts them into Chroma collections such as `statewide_counties` and other `*_attrs` layers. Keys and metadata—including source table, feature identifier, and geometry tags—allow retrieval results to be rejoined to GBIM entities and geometries and to be displayed or analyzed in geospatial tools.
 
 - **RAG context building.**  
-  When Ms. Jarvis answers a question, the RAG pipeline uses ChromaDB to retrieve relevant documents and feature‑level embeddings. Retrieved texts, metadata, and spatial identifiers are combined into context windows for the language models, with filtering by collection, geography, topic, and source. This behavior implements the context subspace selection and `H_eff` restriction described in the Hilbert‑space chapter.
+  When Ms. Jarvis answers a question, the RAG pipeline uses ChromaDB to retrieve relevant documents and feature‑level embeddings. Retrieved texts, metadata, and spatial identifiers are combined into context windows for the language models, with filtering by collection, geography, topic, and source. This implements the context subspace selection and `H_eff` restriction described in the Hilbert‑space chapter.
 
 - **Governance‑specific retrieval.**  
-  For MountainShares‑related queries, retrieval is scoped to `mountainshares_knowledge` and closely related collections, optionally intersected with relevant GeoDB layers. This keeps responses grounded in published rules, local economic context, and spatial justice considerations, rather than generic web material or unrelated training data.
+  Governance‑specific retrieval (for example, MountainShares rules) is conceptually scoped to dedicated governance collections; in this particular Chroma deployment, such collections exist only as empty or planned corpora, so their practical role depends on future ingestion and backfill.
 
-The end‑to‑end pipeline thus behaves as a structured walk through curated, domain‑specific memory organized around GBIM, the GeoDB spatial body, and Quantarithmia’s research concepts.
+The end‑to‑end pipeline thus behaves as a structured walk through curated, domain‑specific memory organized around GBIM, the GeoDB spatial body, and Quantarithmia’s research concepts, with the caveat that non‑GIS semantic memory is still emerging.
 
 ---
 
@@ -183,8 +239,8 @@ To connect the conceptual description with concrete operations, this section out
 
 Gateway or bridge services conceptually receive simplified query objects containing at least:
 
-- a target collection or collection family (for example, `mountainshares_knowledge`),
-- a natural‑language query string, and
+- a target collection or collection family (for example, a named `*_attrs` layer or a Ms. Jarvis corpus),  
+- a natural‑language query string, and  
 - a desired number of results.
 
 Additional fields may specify roles, geographic filters, or constraint flags. The gateway translates these objects into lower‑level Chroma queries, adding appropriate `where` and `include` parameters and routing to the correct collection.
@@ -193,58 +249,71 @@ Additional fields may specify roles, geographic filters, or constraint flags. Th
 
 At the Chroma level, a typical query against a collection includes:
 
-- `query_texts`: a list of query strings to embed and search,
-- `n_results`: the number of nearest neighbors to return per query,
-- `where`: an optional metadata filter (for example, `{"entity_type": "organization"}` or spatial tags), and
+- `query_texts`: a list of query strings to embed and search,  
+- `n_results`: the number of nearest neighbors to return per query,  
+- `where`: an optional metadata filter (for example, restricting to a particular `sourcetable` or entity type), and  
 - `include`: a list specifying which fields to return (for example, `["metadatas", "documents", "distances"]`).
 
-The JSON request body follows Chroma’s documented schema. The response contains parallel lists for identifiers, documents, metadata, distances, and, when configured, embeddings. In collections where embeddings are not present for every item, the embeddings field may be null or sparsely populated while documents and metadata remain fully populated. Downstream components are written to handle these cases explicitly.
+Using the Python client, a query has the form:
+
+``python
+results = col.query(
+    query_texts=[query],
+    n_results=5,
+    include=["distances", "metadatas", "documents"],
+)
+
+The response contains parallel lists for documents, metadata, and distances (and possibly embeddings, when configured). In collections where embeddings are not present for every item, the embeddings field may be absent or sparsely populated while documents and metadata remain fully populated; downstream components are written to handle these cases explicitly.
+
+For simple inspection without a semantic query, the client uses:
+
+python
+sample = col.get(
+    limit=5,
+    include=["metadatas", "documents"],
+)
+
+to retrieve a small set of stored items and verify that metadata and documents match expectations.
 
 These request and response structures provide concrete anchors for documentation, testing, and debugging, and they make it possible to trace RAG behavior end‑to‑end.
-
----
-
-### 5.9 Operational Considerations
+5.9 Operational Considerations
 
 Using ChromaDB as a production memory layer introduces several practical considerations that must be documented and maintained.
 
-- **Reliability and persistence.**  
-  The main Chroma instance is bound to a persistent on‑disk directory. Regular backups are required, and backup scripts may also snapshot residual local `.chromadb` directories from earlier stores to preserve historical data during consolidation. Restoration procedures are documented alongside the registry of collections and embeddings.
+  # Reliability and persistence.
+  The main Chroma instance is bound to the persistent/chroma directory on the host, which is mounted into the jarvis-chroma container as /data. Regular backups of this directory are required, and any residual local .chromadb directories from earlier stores should be either archived or formally decommissioned to avoid ambiguity.
 
-- **Performance and scaling.**  
-  As collections grow—including large GIS corpora, extensive learner outputs, and thesis materials—index configuration and hardware resources directly affect query latency. Chroma’s approximate nearest‑neighbor indices (such as HNSW) are configured explicitly, and query defaults are tuned so that requests remain predictable even when approaching the current number of stored items. Monitoring tracks query volumes and latencies per collection.
+#  Performance and scaling.
+   As collections grow—including large GIS corpora such as wv_microsoft_20180207_utm17n83_attrs and building‑footprint layers—index configuration and hardware resources directly affect query latency. Chroma’s approximate nearest‑neighbor indices (such as HNSW) must be configured and monitored so that query latency remains acceptable even as the number of stored items increases.
 
-- **Security and privacy.**  
-  The documented Chroma deployment is treated as documentation‑ and research‑oriented, with an explicit exclusion of sensitive user data, private keys, and non‑consensual logs. Collections such as `conversations` and `ms_jarvis_memory` are curated, and sensitive content may be redacted, summarized, or omitted entirely before any public export or external analysis.
+#  Security and privacy.
+   The documented Chroma deployment focuses on public or research‑grade data: West Virginia GIS layers and internal research corpora. Any collections that would contain sensitive user data, private keys, or non‑consensual logs must be excluded, redacted, or restricted, and conversational or personal‑memory collections must be curated before being used outside a controlled environment.
 
-- **Schema and configuration management.**  
-  Collection names, metadata schemas, and embedding configurations are versioned and recorded in a central registry. Any changes to models, dimensions, or index parameters are treated as schema migrations, with forward‑ and backward‑compatibility considerations documented.
+#   Schema and configuration management.
+   Collection names, metadata schemas, and embedding configurations (model and dimension) are versioned and recorded in a central registry. Any changes to models, dimensions, index parameters, or collection naming schemes are treated as schema migrations, with forward‑ and backward‑compatibility considerations documented.
 
 These operational details connect the conceptual role of ChromaDB to the realities of running a live, research‑grade governance and advisory system.
-
----
-
-### 5.10 Limitations and Future Work
+5.10 Limitations and Future Work
 
 Current use of ChromaDB has several limitations and active areas of work:
 
-- **Partial embedding coverage in some domains.**  
-  GeoDB‑derived `geodb*` collections are fully embedded and aliased into `gedb*` collections for the prioritized layers. Some general semantic collections, including portions of `mountainshares_knowledge`, `thesis_materials`, and older memory collections, contain complete document and metadata records but only partial embedding coverage. Backfill and recomputation plans are documented and tracked.
+ #   Partial embedding coverage in general‑semantic domains.
+  GIS‑derived *_attrs collections are heavily populated and behave as expected under similarity search, but key Ms. Jarvis semantic corpora (gbim_msjarvis_corpus, msjarvis_hilbertspace, msjarvis_learner_corpus, research_history) are present with zero embeddings. Completing ingestion and embedding backfill for these collections is a priority for achieving a fully realized semantic memory.
 
-- **Model and index dependence.**  
-  Retrieval quality depends on the chosen embedding model (currently a 384‑dimensional sentence‑embedding model), index parameters, and collection design. Changes to any of these elements can alter the Steward System’s apparent memory. Model upgrades and reindexing are therefore treated as explicit migrations with before/after evaluation.
+#    Model and index dependence.
+   Retrieval quality depends on the chosen embedding model (currently 384‑dimensional), index parameters, and collection design. Changes to any of these elements can alter the Steward System’s apparent memory; model upgrades and reindexing are therefore treated as explicit migrations with before/after evaluation.
 
-- **Semantic gaps and representational limits.**  
-  Certain forms of knowledge—such as embodied experience, collective trauma narratives, and spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies, including graph structures, qualitative annotations, GBIM‑linked justice metrics, and community‑led tagging, are needed to supplement the vector store.
+#    Semantic gaps and representational limits.
+   Certain forms of knowledge—such as embodied experience, collective trauma narratives, and spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies, including graph structures, qualitative annotations, GBIM‑linked justice metrics, and community‑led tagging, are needed to supplement the vector store.
 
-- **Evolving schema and topology.**  
-  As GBIM, GeoDB, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Migration tools and versioned schemas are necessary to maintain continuity across thesis revisions and deployments, including clear documentation of the point at which historical local stores were consolidated into the shared HTTP‑backed instance.
+   # Evolving schema and topology.
+  As GBIM, GeoDB, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Migration tools and versioned schemas are necessary to maintain continuity across thesis revisions and deployments, including clear documentation of when historical local stores were consolidated into the shared HTTP‑backed instance and how legacy names (such as geodb* / gedb*) map to the current *_attrs collections.
 
 Future work includes:
 
-- completing embedding backfill for all key general collections with clearly documented embedding functions and dimensions,
-- documenting all collection names, metadata schemas, and embedding configurations in a single, queryable registry,
-- adding traced end‑to‑end examples of RAG flows that show precisely how Chroma retrieval augments queries in different roles and geographies, and
-- exploring hybrid memory architectures that combine vector stores with graphs, relational databases, and participatory annotation workflows, so that communities can inspect and shape what is stored and how it is used.
+  completing embedding backfill for all key general collections with clearly documented embedding functions and dimensions,
+    documenting all collection names, metadata schemas, and embedding configurations in a single, queryable registry for each deployment,
+    adding traced end‑to‑end examples of RAG flows that show precisely how Chroma retrieval augments queries in different roles and geographies, and
+    exploring hybrid memory architectures that combine vector stores with graphs, relational databases, and participatory annotation workflows, so that communities can inspect and shape what is stored and how it is used.
 
-An implementation‑status badge for this chapter is therefore: **PARTIAL / CONSOLIDATING**. The conceptual role of ChromaDB as semantic memory is implemented through a shared HTTP‑backed Chroma service with extensive `geodb*` and `gedb*` spatial collections and several core general collections. Historical per‑service stores, full embedding coverage in governance and thesis domains, and complete end‑to‑end RAG traces are in the process of consolidation and documentation.
+An implementation‑status badge for this chapter is therefore: PARTIAL / CONSOLIDATING. The conceptual role of ChromaDB as semantic memory is implemented through a shared HTTP‑backed Chroma service with extensive GIS *_attrs spatial collections and several core general collections created; historical per‑service stores, full embedding coverage in governance and thesis domains, and complete end‑to‑end RAG traces are in the process of consolidation and documentation.
