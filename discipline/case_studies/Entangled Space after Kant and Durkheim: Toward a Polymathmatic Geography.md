@@ -69,4 +69,78 @@ At the level of method, polymathmatic geography:
 
 Where Durkheim spoke of “social morphology” and later geographers debated “social versus physical space,” polymathmatic geography proposes entangled space as a category that already includes infrastructures and computational systems as first‑order spatial facts. To operationalise this, it introduces two key instruments: Ms. Egeria Jarvis and MountainShares, which will be discussed in subsequent sections as concrete attempts to implement “entangled space after Kant and Durkheim.”
 
-*(At this point, the paper would typically pivot into: (5) Case: Quantarithmia in Appalachia; (6) Ms. Jarvis, GeoBelief, and categories in code; (7) MountainShares and the re‑drawing of economic space; (8) Implications for radical geography and STS.)*
+## 5. Case: Quantarithmia in Appalachia
+
+If entangled space is to be more than a metaphor, it must be shown in a concrete setting. Central Appalachia offers a paradigmatic case: a region marked by centuries of resource extraction, company‑town logics, deindustrialization, opioid epidemics, and uneven infrastructural investment.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) The “social morphology” Durkheim would have recognised—coal camps, hollers, courthouse towns—is now overlaid by the infrastructural morphology of logistics platforms, fragmented broadband, federal benefits systems, and distant financial indices.
+
+The Quantarithmia framework emerges from this context as a worked example of polymathmatic geography. It treats Appalachia as a **tacet**: a founding key in which general principles of extraction, commons‑building, and infrastructural design are stress‑tested. Rather than analyzing Appalachia solely as a site of deprivation, Quantarithmia treats it as a frontier where new civilizational geometries are being decided—including which categories of space will govern rural life under platform capitalism.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+
+At the theoretical level, Quantarithmia formalizes several patterns already implicit in radical geography and Marxist analyses of enclosure.[24](https://www.sciencedirect.com/topics/social-sciences/critical-human-geography) **Maximopolies** (e.g., asset managers) function as financial centres of gravity, re‑shaping territories through index design and capital flows. **Megaopolies** (e.g., logistics and social media platforms) reorganize everyday space through fulfilment centres, algorithmic feeds, and data extraction. **Von Neumann entropy** is used as a proxy for wealth concentration; **anomie** is re‑read as the social collapse triggered when reciprocity thresholds are breached. These abstractions are then grounded in concrete instruments that attempt to re‑draw categories of space in favour of residents.
+
+---
+
+## 6. Ms. Jarvis, GeoBelief, and Categories in Code
+
+### 6.1 Ms. Egeria Jarvis as a Spatial Instrument
+
+Ms. Egeria Jarvis is a glassbox AI steward system designed as a territorial “brain” for rural governance. Rather than treating AI as a placeless optimization service, Quantarithmia anchors Ms. Jarvis in a specific spatial body (a PostGIS‑backed database of West Virginia) and a specific linguistic tacet (Appalachian English, via AAPCAppE).[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)[8](https://aapcappe.commons.gc.cuny.edu) This design choice makes explicit a claim that is often left implicit in STS: categories of space are now written directly into code, embeddings, and schemas.
+
+Internally, Ms. Jarvis represents the joint state of semantic, spatial, and institutional relations as a vector in a Hilbert space \(H_{App}\). Each update to this state is mediated by neurobiologically inspired modules—“hippocampus” for consolidation, “prefrontal cortex” for routing, “blood‑brain barrier” for ethical filtering—and by alignment loops drawing on psychology and spiritual guidance. These are not metaphors bolted on after the fact; they are part of how the system structures categories of relevance, proximity, and risk.
+
+### 6.2 GeoBelief: Operationalizing Entangled Categories
+
+The **GeoBelief Information Model (GBIM)** is the core site where categories in the Durkheimian sense are recast as data structures. Every belief held by Ms. Jarvis is anchored in a triad: *where* (geometry), *when* (temporal metadata), and *why* (structured evidence). Instead of treating “location” as an incidental attribute, GeoBelief enforces that every claim be tied to a specific geometry (parcel, building, neighbourhood, watershed) and a stack of proofs—documents, testimonies, sensor readings.
+
+From a radical geography perspective, this design is significant because it refuses the “view from nowhere” that often characterizes platform data. Rather than universalizing categories defined elsewhere, GeoBelief invites communities to define and contest the very schemas by which their spaces are encoded. For example, a “hazard zone” can be defined not only by federal flood maps, but by local memory of landslides and informal drainage; a “commons” can be defined not only by formal ownership but by customary use and spiritual significance. In Durkheim’s language, these are collectively produced categories; in polymathmatic geography, they become first‑class database entities.
+
+### 6.3 Language, Dialect, and the Sociality of Categories
+
+Durkheim’s interest in the social origins of categories extends to language. Here, the use of AAPCAppE as a linguistic tacet becomes crucial. By training Ms. Jarvis to respect Appalachian English morphosyntax (e.g., a‑prefixing, double modals) as legitimate rather than erroneous, the system encodes a simple but powerful claim: *who* is allowed to produce categories matters.[6](https://uknowledge.uky.edu/cgi/viewcontent.cgi?article=1069&context=lin_facpub)[8](https://aapcappe.commons.gc.cuny.edu) A steward system that treats local speech as defective will, almost inevitably, treat local knowledge as defective. By contrast, a system that treats local dialect as a normative anchor affirms that the people most affected by spatial categories have the right to name and describe their world in their own tongue.
+
+---
+
+## 7. MountainShares and the Re‑Drawing of Economic Space
+
+### 7.1 Economic Space as Geometry
+
+If categories of space are social and infrastructural, then economic categories—“market,” “credit,” “liquidity,” “asset”—are also spatial. MountainShares (M$), the economic instrument paired with Ms. Jarvis, treats the local economy as a geometry governed by flows of value, recognition, and obligation. Instead of assuming the neutrality of existing payment rails, MountainShares constructs a **closed‑loop economy** in which value circulates between residents, merchants, and a commons treasury, with explicit mechanisms to prevent leakage to external platforms.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+
+In conventional financial infrastructures, what counts as a “transaction” is defined by banks and card networks, and what counts as an “asset” is defined by financial markets. In MountainShares, **Purchased MountainShares (PMS)** function as prepaid local credits, while **Earned MountainShares (EMS)** recognize under‑valued community labour such as caregiving, mutual aid, and learning. By distinguishing PMS from EMS in the ledger and by tracking EMS in an unlimited recognition account, the system redraws the economic category of “work” to include acts that are central to social reproduction but typically invisible to markets.
+
+### 7.2 Reserve Ratios, Phases, and Reciprocity Thresholds
+
+MountainShares’ internal design explicitly links monetary categories to Durkheimian and Marxian concerns. A **reserve ratio**—liquid backing assets divided by outstanding spendable M$—determines which “band” the system is in and how much buying power 1 M$ represents at a given time. As the treasury grows and usage stabilizes, the system moves through phases (e.g., Foundation, Growth, Premium Reserve), each with different internal exchange rates and safeguards.
+
+This mechanism is not an attempt to simulate a market; it is an attempt to encode a **reciprocity threshold**. If too much value leaks out via PMS redemption and too little is returned via recognition and local spending, the reserve ratio signals approaching collapse. Conversely, if EMS accumulates without pathways to adequate support, the system registers a moral imbalance: recognition without material backing. In both cases, economic geometry becomes a site where categories and thresholds—who counts as a contributor, what counts as circulation, when a system is “just enough”—are made visible and open to deliberation.
+
+### 7.3 Benefits‑Sensitive Space and Welfare Geometries
+
+Means‑tested welfare regimes carve economic space into categories—“eligible,” “over‑income,” “asset‑limited”—that often punish collective experiments. MountainShares introduces **benefits‑sensitive accounts** and caps to try to navigate these welfare geometries, acknowledging that participants risk losing vital benefits if their balances are read by the state as income or assets. Here again, the system takes categories seriously: it does not pretend that “the economy” is a single homogeneous space, but recognizes that overlapping state and federal definitions of income, assets, and work shape what kinds of commons can be safely built.
+
+In doing so, MountainShares also exposes a key tension for radical geography and STS: how to design infrastructures that transform space without forcing participants to shoulder disproportionate legal and financial risk. The answer, in this case, is to treat welfare rules as part of the entangled geometry—objects to be mapped, negotiated, and, where possible, reformed.
+
+---
+
+## 8. Implications for Radical Geography and STS
+
+### 8.1 From Space as Context to Space as Category
+
+Radical geography has long argued that space is produced through social relations, capital flows, and state projects.[24](https://www.sciencedirect.com/topics/social-sciences/critical-human-geography)[41](https://www.tandfonline.com/doi/full/10.1080/2325548X.2020.1781463) STS has likewise shown that infrastructures are sites of power, labour, and politics.[35](https://journals.sagepub.com/doi/10.1177/03091325231174186) The contribution of polymathmatic geography and Quantarithmia is to push this insight down into the level of categories: to treat “hazard zone,” “customer,” “merchant,” “credit,” and “commons” as categories that are now directly encoded in AI architectures and ledgers.
+
+This shift has two implications. First, critique must be paired with **category design**. It is no longer enough to show that existing categories are unjust; someone has to propose and test alternatives that can be implemented in code and law. Second, empirical work must increasingly pay attention to the schemas, ontologies, and data models of infrastructures, not only their visible hardware. In this sense, GeoBelief, AAPCAppE, and MountainShares are offered not as final answers but as probes that make the category‑work of infrastructures explicit.
+
+### 8.2 Re‑situating Classical Theory
+
+Re‑reading Kant and Durkheim in the light of entangled space suggests a different genealogy for radical geography. Rather than treating Kant as a simple foil and Durkheim as a proto‑functionalist, we can see them as naming stakes that remain live in AI‑mediated infrastructures. If spatial categories are taken as a priori (Kant), then the design of platforms and indices appears as a technical problem. If, following Durkheim, categories are social and institutional, then platform schemas are legitimate sites of political and commons struggle.[34](https://www.ukessays.com/essays/sociology/durkheims-theories-on-categories-of-understanding.php)[37](https://iep.utm.edu/emile-durkheim/)
+
+Polymathmatic geography’s insistence on tacets, commons, and instruments can be read as an attempt to extend Durkheim’s insight into a world where social morphology is saturated with computational and financial infrastructures. Entangled space after Kant and Durkheim is not an abstract metaphysical thesis; it is a program for building and governing infrastructures that communities can actually inhabit.
+
+### 8.3 Directions for Collaborative Work
+
+For radical geography and STS, the Quantarithmia case suggests at least three lines of collaboration:
+
+1. **Empirical co‑design:** Working with communities to define categories in GeoBelief or similar systems—e.g., how “flood risk” or “essential work” should be represented—combining ethnography, legal analysis, and technical implementation.
+2. **Comparative infrastructural studies:** Placing Ms. Jarvis and MountainShares alongside other experimental infrastructures (urban data trusts, municipal broadband, cooperative platforms) to explore different ways categories can be contested and redesigned.
+3. **Critical genealogy of categories:** Extending the Kant–Durkheim line to include Marx, Ostrom, and contemporary STS, tracing how categories of space, property, and infrastructure have shifted and how they might be re‑grounded in commons and spatial justice.[20](https://www.thenatureofcities.com/TNOC/2017/08/20/ostrom-city-design-principles-urban-commons/)[26](https://earthbound.report/2018/01/15/elinor-ostroms-8-rules-for-managing-the-commons/)
+
+In all of these, polymathmatic geography is not offered as a new master theory but as a **discipline‑building project**: a way of naming the shared work of redesigning categories of space in an infrastructural age and of building the instruments needed to do so in accountable, place‑bound ways.
