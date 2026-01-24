@@ -1,4 +1,5 @@
-Abstract
+# Entangled Space after Kant and Durkheim: Toward a Polymathmatic Geography
+#### Abstract
 
 This paper revisits classical debates on the nature of spatial categories through a contemporary experiment in rural infrastructural design in Central Appalachia. Where Kant treated space as an a priori form of intuition, Durkheim re‑grounded categories like space and time in social life, arguing that they arise from “social morphology” and collective rhythms (Durkheim, 1912/1995; Jones, 2020). Building on Durkheim’s insight while taking seriously radical and infrastructural geographies’ insistence on materiality, labour, and power (Harvey, 1973; Massey, 2005; Graham and McFarlane, 2014; Ernste, 2018), the paper proposes entangled space as the core object of a polymathmatic geography—a discipline that integrates quantitative geography, systems theory, AI architectures, theology, and indigenous knowledge around shared spatial problems. Entangled space names those situations where land, law, computation, economy, story, and spirit are braided into a single geometry that can be made visible, contested, and instrumented.
 
