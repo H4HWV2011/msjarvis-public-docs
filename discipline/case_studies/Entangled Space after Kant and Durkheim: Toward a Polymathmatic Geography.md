@@ -169,6 +169,8 @@ Ash, James, and Paul Simpson. 2016. “Geography and Post-Phenomenology.” Prog
 
 Bowker, Geoffrey C., and Susan Leigh Star. 1999. Sorting Things Out: Classification and Its Consequences. Cambridge, MA: MIT Press.
 
+Castree, Noel. 2005. “The Epistemology of Particulars: Human Geography, Case Studies and ‘Context’.” Geoforum 36 (5): 541–544. https://doi.org/10.1016/j.geoforum.2005.08.001
+
 Childs, Becky. 2003. “Needed Research on the Englishes of Appalachia.” American Speech 78 (2): 150–157. Available at: https://uknowledge.uky.edu/cgi/viewcontent.cgi?article=1069&context=lin_facpub
 
 Childs, Becky, et al. 2024. “The Audio-Aligned and Parsed Corpus of Appalachian English (AAPCAppE).” Available at: https://aapcappe.commons.gc.cuny.edu
@@ -180,8 +182,6 @@ Durkheim, Émile. 1995. The Elementary Forms of Religious Life. Translated by Ka
 Elden, Stuart. 2007. “There Is a Politics of Space Because Space Is Political.” Radical Philosophy 116.
 
 Ernste, Huib. 2018. “Critical Geography in Post-Modern Times.” In Critical Geography in Post-Modern Times. Available at: https://hernste.nl/wp-content/uploads/2018/10/ErnsteV2.pdf
-
-Evans, James, and Phil Jones. 2011. “The Walking Interview: Methodology, Mobility and Place.” Applied Geography 31 (2): 849–858. Available at: https://pure.manchester.ac.uk/ws/files/32468396/FULL_TEXT.PDF
 
 Flores, Felipe. 2023. “Social Cognition and the Origin of Concepts in Durkheim’s Sociology.” Journal for the Theory of Social Behaviour 53 (4). Available at: https://onlinelibrary.wiley.com/doi/10.1111/jtsb.12406
 
