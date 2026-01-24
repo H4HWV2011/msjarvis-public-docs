@@ -283,16 +283,16 @@ These request and response structures provide concrete anchors for documentation
 
 Using ChromaDB as a production memory layer introduces several practical considerations that must be documented and maintained.
 
-  #  Reliability and persistence.
+  ###  Reliability and persistence.
    The main Chroma instance is bound to the persistent/chroma directory on the host, which is mounted into the jarvis-chroma container as /data. Regular backups of this directory are required, and any residual local .chromadb directories from earlier stores should be either archived or formally decommissioned to avoid ambiguity.
 
-  #  Performance and scaling.
+  ###  Performance and scaling.
    As collections grow—including large GIS corpora such as wv_microsoft_20180207_utm17n83_attrs, building‑footprint layers, and the consolidated GBIM_ATTRS_CSV—index configuration and hardware resources directly affect query latency. Chroma’s approximate nearest‑neighbor indices (such as HNSW) must be configured and monitored so that query latency remains acceptable even as the number of stored items increases.
 
-  #  Security and privacy.
+  ###  Security and privacy.
    The documented Chroma deployment focuses on public or research‑grade data: West Virginia GIS layers and internal research corpora. Any collections that would contain sensitive user data, private keys, or non‑consensual logs must be excluded, redacted, or restricted, and conversational or personal‑memory collections must be curated before being used outside a controlled environment.
 
-  #  Schema and configuration management.
+  ###  Schema and configuration management.
    Collection names, metadata schemas, and embedding configurations (model and dimension) are versioned and recorded in a central registry. Any changes to models, dimensions, index parameters, or collection naming schemes are treated as schema migrations, with forward‑ and backward‑compatibility considerations documented.
 
 These operational details connect the conceptual role of ChromaDB to the realities of running a live, research‑grade governance and advisory system.
