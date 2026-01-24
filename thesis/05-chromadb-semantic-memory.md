@@ -301,19 +301,19 @@ These operational details connect the conceptual role of ChromaDB to the realiti
 
 Current use of ChromaDB has several limitations and active areas of work:
 
-  #  Partial embedding coverage in general‑semantic domains.
+  ###  Partial embedding coverage in general‑semantic domains.
    GIS‑derived *_attrs collections are heavily populated and behave as expected under similarity search, but key Ms. Jarvis semantic corpora (gbim_msjarvis_corpus, msjarvis_hilbertspace, msjarvis_learner_corpus, research_history) are present with zero embeddings. Completing ingestion and embedding backfill for these collections is a priority for achieving a fully realized semantic memory.
 
-  #  Model and index dependence.
+  ###  Model and index dependence.
    Retrieval quality depends on the chosen embedding model (currently 384‑dimensional), index parameters, and collection design. Changes to any of these elements can alter the Steward System’s apparent memory; model upgrades and reindexing are therefore treated as explicit migrations with before/after evaluation.
 
-   # Semantic gaps and representational limits.
+   ### Semantic gaps and representational limits.
   Certain forms of knowledge—such as embodied experience, collective trauma narratives, and spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies, including graph structures, qualitative annotations, GBIM‑linked justice metrics, and community‑led tagging, are needed to supplement the vector store.
 
-  #  Evolving schema and topology.
+  ###  Evolving schema and topology.
    As GBIM, GeoDB, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Migration tools and versioned schemas are necessary to maintain continuity across thesis revisions and deployments, including clear documentation of when historical local stores were consolidated into the shared HTTP‑backed instance and how legacy names (such as geodb* / gedb*) map to the current *_attrs and GBIM_ATTRS_CSV collections.
 
-Future work includes:
+### Future work includes:
 
   completing embedding backfill for all key general collections with clearly documented embedding functions and dimensions,
     documenting all collection names, metadata schemas, and embedding configurations in a single, queryable registry for each deployment,
