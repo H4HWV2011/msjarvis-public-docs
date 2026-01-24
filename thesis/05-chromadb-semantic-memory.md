@@ -278,7 +278,8 @@ sample = col.get(
 to retrieve a small set of stored items and verify that metadata and documents match expectations.
 
 These request and response structures provide concrete anchors for documentation, testing, and debugging, and they make it possible to trace RAG behavior end‑to‑end.
-5.9 Operational Considerations
+
+## 5.9 Operational Considerations
 
 Using ChromaDB as a production memory layer introduces several practical considerations that must be documented and maintained.
 
@@ -295,7 +296,8 @@ Using ChromaDB as a production memory layer introduces several practical conside
    Collection names, metadata schemas, and embedding configurations (model and dimension) are versioned and recorded in a central registry. Any changes to models, dimensions, index parameters, or collection naming schemes are treated as schema migrations, with forward‑ and backward‑compatibility considerations documented.
 
 These operational details connect the conceptual role of ChromaDB to the realities of running a live, research‑grade governance and advisory system.
-5.10 Limitations and Future Work
+
+## 5.10 Limitations and Future Work
 
 Current use of ChromaDB has several limitations and active areas of work:
 
