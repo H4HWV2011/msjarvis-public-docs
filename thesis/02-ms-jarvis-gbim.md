@@ -25,23 +25,23 @@ GBIM is Ms. Jarvis's internal model for tying beliefs to **who**, **what**, **wh
 
 3. **Production belief graph schema** – `gbim_worldview_entity`, `gbim_beliefs`, and `gbim_graph_edges` tables binding PostGIS and Chroma layers into a unified, inspectable worldview with explicit provenance.
 
-Each belief is designed to attach to:
+Each belief attaches to all nine epistemic axes:
 
-- **Who** – persons, institutions, communities (actors, subjects, beneficiaries, decision‑makers), keyed to GBIM entity records where available and reflected in source attributes and Chroma metadata (owner names, agencies, program sponsors).
+- **Who** – persons, institutions, communities (actors, subjects, beneficiaries, decision‑makers), keyed to GBIM entity records and reflected in source attributes and Chroma metadata (owner names, agencies, program sponsors).
 
-- **What** – the kind of thing or state (asset, event, obligation, harm/benefit), represented by feature classes and layer names (`sourcetable` in `gbim.gbim_attrs` and Chroma collections) and GBIM entity types in production.
+- **What** – the kind of thing or state (asset, event, obligation, harm/benefit), represented by feature classes (`entity_type`) and layer names (`sourcetable` in `gbim.gbim_attrs`).
 
-- **Where** – concrete places as PostGIS geometries (points, lines, polygons for buildings, census units, roads, districts, facilities, environmental features, community boundaries), mirrored by `bbox` and spatial tags in Chroma metadata. **Production deployment: 204 standardized datasets in SRID 26917 (UTM Zone 17N NAD83), 5,491,566 worldview entities with full spatial provenance.**
+- **Where** – concrete places as PostGIS geometries (points, lines, polygons for buildings, census units, roads, districts, facilities, environmental features, community boundaries). **Production deployment: 204 standardized datasets in SRID 26917 (UTM Zone 17N NAD83), 5,491,566 worldview entities with full spatial provenance.**
 
-- **When** – temporal metadata indicating belief formation/update time and evidential period, drawn from source vintages, event dates, ingest timestamps, with explicit versioning via `created_at` timestamps on all entities.
+- **When** – temporal metadata indicating belief formation/update time and evidential period. **Production deployment: all 5.5M entities timestamped via `created_at`; dataset vintages, event dates, and ingest metadata captured in source attributes.**
 
-- **How** – mechanisms, processes, flows (service delivery, value/risk movement, rule application), currently in governance documents and narrative texts, to be formalized as typed relationships in GBIM graph edges.
+- **How** – mechanisms, processes, flows (service delivery, value/risk movement, rule application). **Production deployment: 5,491,566 `how` edges linking each entity to its source dataset, documenting data collection method and provenance trail.**
 
-- **Why** – motives, justifications, purposes (policy rationales, program goals, safety standards), presently in text corpora and summary fields, with graph edge infrastructure prepared for structured belief relationships.
+- **Why** – motives, justifications, purposes (policy rationales, program goals, safety standards). **Production deployment: 2,121,230 `why` edges linking beliefs to their feature references.**
 
-- **For whom** – distributional effects across people and places (burden/benefit allocation), approximated through spatial analyses over census blocks and block groups, planned as explicit justice metrics on GBIM entities.
+- **For whom** – distributional effects across people and places (burden/benefit allocation). **Production deployment: 5,491,566 `for_whom` edges linking entities to beneficiary geographies—census blocks linked to themselves (residents as beneficiaries), infrastructure and buildings linked to "west_virginia_public" (general community benefit).**
 
-- **Under whose authority** – laws, policies, institutional bodies authorizing/constraining conditions or actions, linked through jurisdictional attributes (county, municipality, district, agency) and, over time, to specific legal/policy documents.
+- **Under whose authority** – laws, policies, institutional bodies authorizing/constraining conditions or actions. **Production deployment: 2,121,230 `authority` edges linking beliefs to authorizing worldviews.**
 
 - **On what evidence** – structured links to data sources, documents, observations, model outputs in `belief_state` JSONB fields. **Production deployment: 100% provenance coverage across all 5.5M entities, with queryable `dataset`, `geodb_id`, and `bbox` fields plus spatial metadata (centroid coordinates, SRID).**
 
@@ -51,7 +51,7 @@ GBIM enforces that beliefs are never free‑floating—always anchored to specif
 
 ## How GBIM Is Represented
 
-GBIM's target representation combines graph‑style relationships with geospatial indexing, temporal/version history, and Hilbert‑space embeddings. **The current production deployment fully implements spatial and embedding layers with operational belief entity catalog**, with graph relationships in active development.
+GBIM's representation combines graph‑style relationships with geospatial indexing, temporal/version history, and Hilbert‑space embeddings. **The current production deployment fully implements all four core layers.**
 
 ### Schema Layer
 
@@ -71,50 +71,30 @@ GBIM defines **entities**—places, infrastructures, events, policies, instituti
 ### Integrated Layers
 
 **Graph relationships**  
-Entities link via typed edges (`lives_in_block`, `served_by_911_center`, `overlaps_hazard_zone`, `regulated_by_policy`), forming a belief graph for dependency/flow/exposure analysis. **Current deployment: `gbim_graph_edges` table operational with `why` and `authority` edge types implemented; `how` and `for_whom` relationships in development.**
+Entities link via typed edges forming a belief graph for dependency/flow/exposure analysis. **Production deployment: `cakidd.gbim_graph_edges` table operational with all four edge types:**
 
-**Geospatial indexing**  
-Each entity ties to PostGIS geometries enabling spatial operations (containment, intersection, proximity, network reachability). **Production implementation: 204 layers indexed with ST_SRID standardization (26917), bbox envelopes, and spatial indexes.** Mirrored in Chroma as `*_attrs` collections and `GBIM_ATTRS_CSV` index with `sourcetable`, `geodbid`, `label`, `bbox` fields bridging Hilbert-space queries to concrete geometries.
+- **`how` edges (5,491,566)**: Link each entity to its source dataset, documenting the data collection method and provenance trail
+- **`why` edges (2,121,230)**: Link beliefs to their feature references  
+- **`for_whom` edges (5,491,566)**: Link entities to beneficiary geographies—census blocks linked to themselves (residents as beneficiaries), infrastructure and buildings linked to "west_virginia_public" (general community benefit)
+- **`authority` edges (2,121,230)**: Link beliefs to authorizing worldviews
 
-**Temporal and version metadata**  
-Beliefs and relationships carry timestamps tracking understanding evolution. **Production deployment: all 5.5M entities timestamped via `created_at`; dataset vintages, event dates, and ingest metadata captured in source attributes.**
-
-**Hilbert‑space embeddings**  
-Entities mapped to high‑dimensional vectors in ChromaDB. **Production implementation: GIS attributes from 227 `*_attrs` tables embedded in consolidated `GBIM_ATTRS_CSV` collection**, plus selected per-layer collections. Each vector carries metadata (`sourcetable`, feature identifiers, spatial tags) providing semantic/geometric neighborhood structure for similarity-based retrieval and clustering.
-
-### Current State
-
-Any entity the Steward System reasons about is:
-
-1. **A spatial object in PostGIS** – One of 5.5M features in `gbim.gbim_attrs`, identified by `sourcetable` and `geodbid`.
-
-2. **A worldview entity with provenance** – One of 5,491,566 records in `gbim_worldview_entity` with structured `belief_state` containing confidence, dataset provenance, and spatial metadata.
-
-3. **A vector in Hilbert space (Chroma)** – Carrying `sourcetable`, `geodbid`, and metadata linking back to GIS layers and evidence.
-
-**Production provenance example:**
+**Example query:**
 
 ``sql
--- Query the evidence for any entity
+-- Find all edges for a specific building
 SELECT 
-    source_table,
-    label,
-    belief_state->'provenance' AS evidence
-FROM gbim_worldview_entity
-WHERE source_table = 'wvgistcbuildingfootprints'
-LIMIT 3;
+    e.source_table,
+    e.label,
+    g.role,
+    g.target_ref,
+    g.target_kind
+FROM public.gbim_worldview_entity e
+JOIN cakidd.gbim_graph_edges g ON g.belief_ref = e.id::text
+WHERE e.source_table = 'wvgistcbuildingfootprints'
+  AND e.label = 'feat_1703912'
+ORDER BY g.role;
 
--- Returns structured provenance:
--- {"bbox": {"crs": {"type": "name", "properties": {"name": "EPSG:26917"}}, 
---   "type": "Point", "coordinates": [518670.34845000063, 4307829.860150001]}, 
---   "dataset": "wvgistcbuildingfootprints", "geodb_id": 1703912}
-
-As the GBIM schema has matured, these layers have converged: worldview_id provides stable identifiers across PostGIS (gbim_worldview_entity), Chroma metadata, and belief tables; graph relationships are partially materialized with why and authority edges implemented; and provenance fields make "on what evidence" first‑class and queryable for every belief.
-
-#### Production deployment statistics (January 2026):
-
-   5,491,566 worldview entities
-   204 source datasets
-   100% provenance coverage
-   100% spatial metadata coverage
-   SRID 26917 (UTM Zone 17N NAD83) standardization
+-- Returns:
+-- authority | 002c2c84-2f18-40b7-8a98-b8d813dd6cc7 | worldview
+-- for_whom  | west_virginia_public | community
+-- how       | wvgistcbuildingfootprints | dataset
