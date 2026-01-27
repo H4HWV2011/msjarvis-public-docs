@@ -98,3 +98,20 @@ ORDER BY g.role;
 -- authority | 002c2c84-2f18-40b7-8a98-b8d813dd6cc7 | worldview
 -- for_whom  | west_virginia_public | community
 -- how       | wvgistcbuildingfootprints | dataset
+
+The GBIM schema has matured to production readiness: worldview_id provides stable identifiers across PostGIS (gbim_worldview_entity), Chroma metadata, and belief tables; graph relationships materialize how, why, for whom, and under whose authority as queryable edges; and provenance fields make on what evidence first‑class and inspectable for every belief.
+
+Production deployment statistics (January 2026):
+
+    5,491,566 worldview entities
+
+    204 source datasets
+
+    100% provenance coverage (all entities have belief_state with dataset, geodb_id, bbox, spatial_metadata)
+
+    100% spatial metadata coverage (centroid coordinates, SRID 26917)
+
+    100% graph edge coverage (all entities have how and for_whom edges)
+
+    SRID 26917 (UTM Zone 17N NAD83) standardization across all geometries
+
