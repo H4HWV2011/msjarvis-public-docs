@@ -295,6 +295,7 @@ These structures provide concrete anchors for documentation, testing, and debugg
 5.9 Operational Considerations
 
 Using ChromaDB as a production memory layer introduces several practical considerations.
+
 Reliability and Persistence
 
 The main Chroma instance is bound to the persistent/chroma directory on the host, mounted into the jarvis-chroma container as /data. Regular backups of this directory are required, particularly during the ongoing 6.1M entity ingestion. Residual local .chromadb directories from earlier stores should be either archived or formally decommissioned to avoid ambiguity.
