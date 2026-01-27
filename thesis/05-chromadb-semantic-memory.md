@@ -236,9 +236,11 @@ for entity_id in entity_ids:
     print(f"Edges: {row}")
 
 The end‑to‑end pipeline thus behaves as a structured walk through curated, domain‑specific memory organized around GBIM, the GeoDB spatial body, and Quantarithmia's research concepts.
+
 5.8 Query Paths and JSON Structures
 
 To connect the conceptual description with concrete operations, this section outlines canonical request and response shapes.
+
 5.8.1 ChromaDB Query Request
 
 A typical query against gbim_worldview_entities includes:
@@ -260,6 +262,7 @@ results = collection.query(
     where={"source_table": {"$in": ["wvgistcbuildingfootprints"]}},
     include=["distances", "metadatas", "documents"]
 )
+
 
 5.8.2 ChromaDB Response Structure
 
@@ -288,12 +291,14 @@ python
 }
 
 These structures provide concrete anchors for documentation, testing, and debugging, making it possible to trace RAG behavior end‑to‑end.
+
 5.9 Operational Considerations
 
 Using ChromaDB as a production memory layer introduces several practical considerations.
 Reliability and Persistence
 
 The main Chroma instance is bound to the persistent/chroma directory on the host, mounted into the jarvis-chroma container as /data. Regular backups of this directory are required, particularly during the ongoing 6.1M entity ingestion. Residual local .chromadb directories from earlier stores should be either archived or formally decommissioned to avoid ambiguity.
+
 Performance and Scaling
 
 As gbim_worldview_entities grows to 6.1M entities, index configuration and hardware resources directly affect query latency. Current ingestion performance:
@@ -307,12 +312,15 @@ As gbim_worldview_entities grows to 6.1M entities, index configuration and hardw
   Query latency (projected): <100ms for top-10 semantic search once indexing completes
 
 Chroma's HNSW indices must be configured and monitored so that query latency remains acceptable even as the stored item count increases.
+
 Security and Privacy
 
 The documented Chroma deployment focuses on public or research‑grade data: West Virginia GIS layers and internal research corpora. Any collections that would contain sensitive user data, private keys, or non‑consensual logs must be excluded, redacted, or restricted. Conversational or personal‑memory collections must be curated before being used outside a controlled environment.
+
 Schema and Configuration Management
 
 Collection names, metadata schemas, and embedding configurations (model and dimension) are versioned and recorded in a central registry. The January 2026 consolidation to gbim_worldview_entities represents a major schema migration from fragmented *_attrs collections to a unified spatial index. Forward‑ and backward‑compatibility considerations are documented, with legacy collections maintained for historical queries.
+
 5.10 Production Deployment Statistics (January 2026)
 
 Spatial memory (gbim_worldview_entities):
@@ -365,12 +373,15 @@ Current use of ChromaDB has several limitations and active areas of work:
 Partial Embedding Coverage in General‑Semantic Domains
 
 Spatial collections are heavily populated with the ongoing ingestion of 6.1M entities into gbim_worldview_entities, but key Ms. Jarvis semantic corpora (gbim_msjarvis_corpus, msjarvis_hilbertspace, msjarvis_learner_corpus, research_history) are present with zero embeddings. Completing ingestion and embedding backfill for these collections is a priority for achieving a fully realized semantic memory.
+
 Model and Index Dependence
 
 Retrieval quality depends on the chosen embedding model (currently 384‑dimensional), index parameters, and collection design. Changes to any of these elements can alter the Steward System's apparent memory; model upgrades and reindexing are therefore treated as explicit migrations with before/after evaluation.
+
 Semantic Gaps and Representational Limits
 
 Certain forms of knowledge—such as embodied experience, collective trauma narratives, and spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies, including graph structures, qualitative annotations, GBIM‑linked justice metrics, and community‑led tagging, are needed to supplement the vector store.
+
 Evolving Schema and Topology
 
 As GBIM, GeoDB, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. The January 2026 consolidation from *_attrs to gbim_worldview_entities demonstrates this evolution. Migration tools and versioned schemas are necessary to maintain continuity across thesis revisions and deployments.
@@ -382,8 +393,11 @@ Future Work
   Document all collection schemas in a single, queryable registry
 
   Add traced end‑to‑end RAG examples showing Chroma retrieval → GBIM provenance → belief graph traversal
+  
   Explore hybrid memory architectures combining vector stores with graphs, relational databases, and participatory annotation workflows
+  
   Incremental sync infrastructure for daily delta updates instead of full rebuilds
+  
   Custom embedding model fine-tuned on Appalachian place names and infrastructure terminology
 
 Implementation Status
@@ -391,14 +405,22 @@ Implementation Status
 Badge: PRODUCTION / CONSOLIDATING
 
 The conceptual role of ChromaDB as semantic memory is fully implemented for spatial entities through:
-    Production gbim_worldview_entities collection with 6.1M entities (ingestion in progress)
-    Shared HTTP‑backed Chroma service (jarvis-chroma container on port 8002)
-    100% spatial metadata and provenance coverage
-    Full belief graph integration (how, why, for_whom, authority edges)
-    Round-trip query capability from semantic search → PostGIS geometries → belief provenance
+
+  Production gbim_worldview_entities collection with 6.1M entities (ingestion in progress)
+    
+  Shared HTTP‑backed Chroma service (jarvis-chroma container on port 8002)
+
+  100% spatial metadata and provenance coverage
+   
+  Full belief graph integration (how, why, for_whom, authority edges)
+  
+  Round-trip query capability from semantic search → PostGIS geometries → belief provenance
 
 In consolidation:
-    General semantic collections (governance, thesis, autonomous learner) schema declared but unpopulated
-    Legacy *_attrs collections maintained for backward compatibility
-    Full end‑to‑end RAG trace documentation in progress
+  
+  General semantic collections (governance, thesis, autonomous learner) schema declared but unpopulated
+
+  Legacy *_attrs collections maintained for backward compatibility
+
+  Full end‑to‑end RAG trace documentation in progress
 
