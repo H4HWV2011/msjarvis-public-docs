@@ -183,11 +183,14 @@ ChromaDB is tightly integrated with GBIM, the GeoDB layer, and the broader RAG p
 
   GBIM linkage.
   All 5.5M GBIM worldview entities are indexed in gbim_worldview_entities with metadata fields linking back to PostGIS tables via source_table and source_pk. The entity_id field provides stable UUID references to gbim_worldview_entity.id, enabling round-trip queries from semantic search results to full belief provenance including how, why, for_whom, and authority edges.
-    GeoDB integration.
+  
+  GeoDB integration.
     The gbim_worldview_entities collection mirrors the complete PostGIS gbim.gbim_attrs corpus. Spatial coordinates (centroid_x, centroid_y) and bounding boxes enable hybrid queries that combine semantic similarity with spatial filtering. Keys and metadata allow retrieval results to be rejoined to GBIM entities and geometries for display in geospatial tools.
-    RAG context building.
+    
+   RAG context building.
     When Ms. Jarvis answers a question, the RAG pipeline queries gbim_worldview_entities to retrieve relevant spatial entities and feature-level embeddings. Retrieved texts, metadata, and spatial identifiers are combined into context windows for language models, with filtering by collection, geography, topic, and source. This implements the context subspace selection and HeffHeff restriction described in the Hilbert‑space chapter.
-    Belief graph traversal.
+    
+  Belief graph traversal.
     Once Chroma returns entity IDs, the system performs SQL queries against cakidd.gbim_graph_edges to retrieve the full epistemic context: data sources (how edges), policy justifications (why edges), beneficiary communities (for_whom edges), and authorizing frameworks (authority edges).
 
 Example end-to-end query:
