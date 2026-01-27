@@ -103,15 +103,15 @@ The GBIM schema has matured to production readiness: worldview_id provides stabl
 
 Production deployment statistics (January 2026):
 
-    5,491,566 worldview entities
+   - 5,491,566 worldview entities
 
-    204 source datasets
+   - 204 source datasets
 
-    100% provenance coverage (all entities have belief_state with dataset, geodb_id, bbox, spatial_metadata)
+   - 100% provenance coverage (all entities have belief_state with dataset, geodb_id, bbox, spatial_metadata)
 
-    100% spatial metadata coverage (centroid coordinates, SRID 26917)
+   - 100% spatial metadata coverage (centroid coordinates, SRID 26917)
 
-    100% graph edge coverage (all entities have how and for_whom edges)
+   - 100% graph edge coverage (all entities have how and for_whom edges)
 
-    SRID 26917 (UTM Zone 17N NAD83) standardization across all geometries
+   - SRID 26917 (UTM Zone 17N NAD83) standardization across all geometries
 
