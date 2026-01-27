@@ -176,6 +176,7 @@ The shared instance exposes both the production gbim_worldview_entities collecti
 Historically, some services used PersistentClient instances pointing to per‑service local paths such as .chromadb or chroma_db. Those local stores were used for isolated experiments, early autonomous‑learner work, and transitional states before consolidation into the shared instance.
 
 As of January 2026, the operational intent is to converge on the shared HTTP‑backed store for primary semantic memory. Residual local stores are treated as legacy or experimental; their contents are either migrated or preserved as snapshots with clear documentation of their status.
+
 5.7 Integration with GBIM, GeoDB, and RAG
 
 ChromaDB is tightly integrated with GBIM, the GeoDB layer, and the broader RAG pipeline.
