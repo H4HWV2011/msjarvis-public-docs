@@ -170,6 +170,7 @@ collection = client.get_collection("gbim_worldview_entities")
 print(f"Total entities: {collection.count():,}")
 
 The shared instance exposes both the production gbim_worldview_entities collection and legacy spatial collections. It is bound to persistent on-disk storage and includes a chroma.sqlite3 catalog plus HNSW index directories. The instance is treated as the canonical semantic memory store for this deployment.
+
 5.6.2 Historical and Auxiliary Persistent Clients
 
 Historically, some services used PersistentClient instances pointing to per‑service local paths such as .chromadb or chroma_db. Those local stores were used for isolated experiments, early autonomous‑learner work, and transitional states before consolidation into the shared instance.
