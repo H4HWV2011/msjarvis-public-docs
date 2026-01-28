@@ -103,19 +103,19 @@ Coverage is monitored via automated scripts that iterate over the collection in 
 
   - structurepointssouth_samb_2003_utm83 – southern structure points
 
-    - structurepointsnorth_samb_2003_utm83 – northern structure points
+   - structurepointsnorth_samb_2003_utm83 – northern structure points
 
-    - blocks_census_2020_utm83_full – census blocks (full attribution)
+  - blocks_census_2020_utm83_full – census blocks (full attribution)
 
-    - windenergyresource_nationalrenewableenergylab_200901_utm83 – wind resource assessments
+  - windenergyresource_nationalrenewableenergylab_200901_utm83 – wind resource assessments
 
-    - floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83 – flood‑risk structures
+- floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83 – flood‑risk structures
 
-    - blocks_census_2020_utm83 – census blocks (standard)
+  - blocks_census_2020_utm83 – census blocks (standard)
 
-    - hospitals_wvdem_040519_utm83 – healthcare facilities
+  - hospitals_wvdem_040519_utm83 – healthcare facilities
 
-    - railnetworkwv_usdot_200203_utm83 – rail infrastructure
+   - railnetworkwv_usdot_200203_utm83 – rail infrastructure
 
 **Ingestion status (January 2026)**
 
