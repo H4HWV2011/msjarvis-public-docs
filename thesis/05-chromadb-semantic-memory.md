@@ -111,11 +111,11 @@ Coverage is monitored via automated scripts that iterate over the collection in 
 
 - floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83 – flood‑risk structures
 
-  - blocks_census_2020_utm83 – census blocks (standard)
+- blocks_census_2020_utm83 – census blocks (standard)
 
-  - hospitals_wvdem_040519_utm83 – healthcare facilities
+- hospitals_wvdem_040519_utm83 – healthcare facilities
 
-   - railnetworkwv_usdot_200203_utm83 – rail infrastructure
+- railnetworkwv_usdot_200203_utm83 – rail infrastructure
 
 **Ingestion status (January 2026)**
 
