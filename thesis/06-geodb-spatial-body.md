@@ -3,7 +3,7 @@
 > - **P1 – Every where is entangled** by treating structures, rivers, floodplains, and institutions as one connected mesh rather than isolated map layers.  
 > - **P3 – Power has a geometry** by making it possible to trace how risk, access, and infrastructure are distributed across counties, hollows, and corridors.  
 > - **P5 – Design is a geographic act** by framing schema choices, key conventions, and layer prioritization as design decisions that reshape how the state “shows up” in analysis and governance.  
-> - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase and its Chroma‑mirrored embeddings.  
+> - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase and its Chroma‑mirrored embeddings, especially the consolidated `gbim_worldview_entities` collection.  
 > - **P16 – Power accountable to place** by ensuring that advisory and governance behaviors can be traced back to specific, queryable features and boundaries in West Virginia.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies the GeoDB substrate that allows Quantarithmia’s justice‑oriented reasoning to act on real communities, infrastructures, and landscapes in Appalachia.
 
@@ -13,7 +13,7 @@
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. The GeoDB layer is tightly coupled to GBIM and to the Chroma‑based Hilbert space accessed via RAG services, so that beliefs and narratives are grounded not only in abstract embeddings but also in specific buildings, river reaches, floodplains, mines, and infrastructure corridors. The focus here is on the structure and status of the PostGIS‑based geodatabase and its relationship to ChromaDB collections, not on exhaustive cataloging of every possible dataset.
 
-Within the Quantarithmia program, GeoDB provides the spatial backbone of Ms. Jarvis’s “body”: a coherent, queryable mesh of features and boundaries for reasoning about risk, access, infrastructure, and spatial justice. The chapter documents what is currently integrated, what is staged, and how these layers are linked into the broader Hilbert‑space and GBIM framework.
+Within the Quantarithmia program, GeoDB provides the spatial backbone of Ms. Jarvis’s “body”: a coherent, queryable mesh of features and boundaries for reasoning about risk, access, infrastructure, and spatial justice. The chapter documents what is currently integrated, what is staged, and how these layers are linked into the broader Hilbert‑space and GBIM framework, including their consolidated representation in the `gbim_worldview_entities` Chroma collection.
 
 ---
 
@@ -30,17 +30,23 @@ The GeoDB layer is designed to satisfy three primary goals:
 - **Integration with GBIM and Chroma.**  
   Integrate cleanly with GBIM and Chroma so that spatial, semantic, and governance dimensions can be used together in a single reasoning pipeline.
 
-In practice, this means maintaining a PostGIS‑backed geodatabase that holds authoritative feature classes for core themes and, for a prioritized subset, maintaining corresponding `geodb*` and `gedb*` collections in ChromaDB. These collections store embeddings and compact metadata for selected layers so that spatial features can be discovered both by location and by semantic similarity.
+In practice, this means maintaining a PostGIS‑backed geodatabase that holds authoritative feature classes for core themes and, for prioritized subsets, mirroring those features into vector collections. Historically, this mirroring used many `geodb*` and `gedb*` collections in ChromaDB; as of January 2026, the primary spatial memory index is the unified `gbim_worldview_entities` collection, with `geodb*` collections serving as thematic and historical subsets.
 
 ---
 
 ### 6.3 PostGIS as Ms. Jarvis’s Spatial Backbone
 
-At the storage level, Ms. Jarvis uses a PostGIS database (for example, a database analogous to `msjarvis_gis`) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance—census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities—with consistent naming and key conventions.
+At the storage level, Ms. Jarvis uses a PostGIS database (for example, `msjarvis_gis`) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance—census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities—with consistent naming and key conventions.
 
-Where appropriate, tables exist in projected coordinate systems such as UTM83, and in some cases also in WMA84 or related systems to support different analysis and mapping workflows. For the majority of production layers, SRIDs and geometry types are normalized; a smaller set of legacy tables retain provisional SRID or geometry metadata and are explicitly flagged in the schema registry for cleanup.
+The core production schema includes:
 
-The database is populated from state and federal sources, including the WVU GIS Technical Center, USGS, the U.S. Census Bureau, USACE, NREL, and various state agencies. Ingestion converts shapefiles and file geodatabases into PostGIS tables, resolves geometry and projection issues, and normalizes keys so that features can be cross‑referenced from GBIM, Chroma, and higher‑level reasoning services. The ingestion process is scripted and versioned so that table structures and provenance can be audited.
+- Raw and normalized source tables for individual datasets (for example, county boundaries, blocks, dams, hospitals).  
+- A consolidated attribute table (`gbim.gbim_attrs`) that flattens attributes from 204 statewide datasets into a single, indexed catalog keyed by `sourcetable` and `geodbid`.  
+- GBIM worldview entities (`public.gbim_worldview_entity`) that bind spatial features to belief state, provenance, and worldview context.
+
+The majority of production layers share a common projected coordinate system, SRID 26917 (UTM Zone 17N NAD83). Legacy tables that retain provisional SRIDs, mixed geometry types, or inconsistent precision are explicitly flagged in a schema registry for cleanup.
+
+The database is populated from state and federal sources including the WV GIS Technical Center, USGS, the U.S. Census Bureau, USACE, NREL, and various state agencies. Ingestion converts shapefiles and file geodatabases into PostGIS tables, resolves geometry and projection issues, and normalizes keys so that features can be cross‑referenced from GBIM, Chroma, and higher‑level reasoning services. Ingestion and transformation steps are scripted and versioned so that table structures and provenance can be audited.
 
 ---
 
@@ -50,63 +56,72 @@ The current deployment includes a substantial, production‑usable subset of Wes
 
 - **Census units.**  
   Statewide 2020 Census blocks and block groups in projected coordinate systems suitable for analysis and mapping. Representative tables include:
-  - blocks tables with tens of thousands of features (on the order of statewide block counts),
-  - block group tables with on the order of a few thousand polygons.
+  - blocks tables with statewide 2020 block coverage,  
+  - block group tables with polygons at neighborhood and community scales.
 
 - **Structures and buildings.**  
   A dense statewide structure inventory combining:
-  - SAMB structure points (north and south) for large numbers of structures across northern and southern counties,
-  - WV GIS Technical Center building footprints numbering in the millions, and
+  - SAMB structure points (north and south) for large numbers of structures across northern and southern counties,  
+  - WV GIS Technical Center building footprints numbering in the millions, and  
   - Microsoft building point datasets contributing additional building‑like points.
 
 - **Hazard and infrastructure layers.**  
   Datasets such as:
-  - abandoned mine lands (lines and polygons),
-  - dams (coal‑ and non‑coal‑related) from Army Corps and USGS,
-  - floodplain structure inventories,
-  - rail networks and associated facilities,
-  - navigable waterways and river mile indexing.
+  - abandoned mine lands (lines and polygons),  
+  - dams (coal‑ and non‑coal‑related) from Army Corps and USGS,  
+  - floodplain structure inventories,  
+  - rail networks and associated facilities,  
+  - navigable waterways and river mile indexing,  
+  - energy and communication infrastructure where available.
 
 - **Civic and facility coverage.**  
   Layers representing:
-  - hospitals, nursing homes, and other healthcare facilities,
-  - fire and police stations,
-  - higher‑education campuses,
-  - libraries and community centers,
-  - parks and recreational areas,
-  - solid waste sites and sewer plants, among others.
+  - hospitals, nursing homes, and other healthcare facilities,  
+  - fire and police stations and 911 centers,  
+  - higher‑education campuses,  
+  - libraries and community centers,  
+  - parks and recreational areas,  
+  - solid waste sites, sewer plants, and related utilities.
 
 - **Governance and index layers.**  
   Tables capturing:
-  - county and state boundaries,
-  - ZIP Code Tabulation Areas and related postal geography,
-  - regional planning council boundaries and similar governance regions,
-  - named places, summits, and other geographic names,
+  - county and state boundaries,  
+  - ZIP Code Tabulation Areas and related postal geography,  
+  - regional planning council boundaries and similar governance regions,  
+  - named places, summits, and other geographic names,  
   - National Register points and polygons and other historic resources.
 
-Exact feature counts and table names are recorded in database inventories maintained alongside this thesis, so that claims about coverage can be verified and updated as ingestion continues. These datasets are wired into the live system via PostGIS connections and, for a prioritized subset of layers, mirrored into `geodb*` and `gedb*` collections in Chroma for semantic retrieval.
+Across these themes, the production GBIM/GeoDB deployment integrates on the order of 5.5 million features from 204 standardized datasets into `gbim.gbim_attrs` and `gbim_worldview_entity`. Exact feature counts and table names are recorded in database inventories maintained alongside this thesis, so that claims about coverage can be verified and updated as ingestion continues.
 
 ---
 
-### 6.5 Chroma `geodb*` / `gedb*` Collections and Spatial Embeddings
+### 6.5 Chroma Spatial Collections and GeoDB Mirrors
 
-To bridge geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains a large set of `geodb*` collections in ChromaDB. Many of these collections correspond directly to PostGIS layers such as census blocks, dams, hospitals, nursing homes, 911 centers, cities, ZIPs, building footprints, and various civic, environmental, and hazard layers.
+To bridge geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains spatially derived collections in ChromaDB.
 
-Each `geodb*` collection contains:
+As of January 2026, there are two main patterns:
 
-- embeddings derived from feature‑level descriptions and attributes,
-- compact metadata including a stable feature identifier, source table reference, and selected classification fields,
-- optional document fields summarizing the feature’s role or risk context.
+- **Unified worldview collection.**  
+  The `gbim_worldview_entities` collection is the primary spatial memory index. It contains 6,119,134 records representing 5,491,856 worldview entities from 204 datasets, with approximately 90% of records enriched with `worldview_id`, `bbox`, and `dataset` metadata. Each record includes:
+  - a textual document of the form `{source_table} {label}`,  
+  - an `entity_id` UUID linking to `gbim_worldview_entity.id`,  
+  - `source_table` and `source_pk` fields that join back to `gbim.gbim_attrs`,  
+  - centroid coordinates and spatial metadata in SRID 26917.
 
-The system uses these identifiers to rejoin each document back to the full attribute row and geometry in PostGIS. This supports hybrid queries such as:
+- **Legacy and thematic `geodb*` / `gedb*` collections.**  
+  Earlier in the project, many PostGIS layers were mirrored into `geodb*` collections, with corresponding `gedb*` aliases for compatibility. These collections:
+  - store embeddings derived from feature‑level descriptions and attributes,  
+  - carry compact metadata including stable feature identifiers and source table references,  
+  - support thematic or experimental RAG over specific layers (for example, dams, hospitals, ZIPs, or energy infrastructure).
 
-- identifying structures in a county that lie within a modeled floodplain and within a specified distance of a hospital,
-- retrieving documents and prior analyses relevant to a specific dam or mine site, plus similar facilities for comparative risk assessment,
-- surfacing named places and features near a proposed project site and reasoning about access, exposure, or service coverage.
+In the current architecture, new spatial RAG and stewardship behaviors are expected to use `gbim_worldview_entities` as the canonical spatial collection. The `geodb*` and `gedb*` collections remain available as historical snapshots, thematic subsets, or specialized indexes where a narrower semantic context is beneficial.
 
-For nearly every `geodb*` collection, there is a corresponding `gedb*` collection. The `geodb*` collections hold embeddings and base metadata; the `gedb*` collections serve as stable aliases, often with simplified or placeholder documents and mirrored metadata. Higher‑level services can depend on `gedb*` names as a compatibility layer, even if ingestion pipelines or underlying table structures evolve.
+Regardless of collection, identifiers are designed so that Chroma results can be deterministically rejoined to PostGIS:
 
-Periodic inventories of `geodb*` and `gedb*` collections, including collection names and document counts, provide auditable snapshots of the current spatial integration state. These inventories are used both in operations and as empirical support for claims in this chapter.
+- `entity_id` ↔ `gbim_worldview_entity.id` for worldview entities;  
+- `source_table` / `source_pk` ↔ `gbim.gbim_attrs.sourcetable` / `geodbid` for underlying features.
+
+This join pattern allows Ms. Jarvis to retrieve full geometries and attributes for any spatial item surfaced through vector search.
 
 ---
 
@@ -115,63 +130,84 @@ Periodic inventories of `geodb*` and `gedb*` collections, including collection n
 Not every dataset present on disk or in PostGIS is fully integrated into the live geospatial reasoning stack. Several classes of layers are staged or partially integrated:
 
 - **Legacy and irregular schemas.**  
-  Some older datasets required schema adjustments and numeric precision fixes before they could be reliably imported. Many have now been cleaned and loaded; a smaller tail of legacy layers remains flagged for further work.
+  Some older datasets required schema adjustments and numeric precision fixes before they could be reliably imported. Many have now been cleaned and loaded; a smaller tail of legacy layers remains flagged for further work and is excluded from GBIM and `gbim_worldview_entities` until normalized.
 
 - **Specialized and high‑volume layers.**  
-  Certain HSIP‑derived or specialized layers have encountered type mismatches or throughput constraints during bulk operations. These layers may exist in PostGIS with provisional keys or geometry columns but are not yet mirrored into Chroma with full embeddings and standardized metadata.
+  Certain HSIP‑derived or specialized layers have encountered type mismatches or throughput constraints during bulk operations. These layers may exist in PostGIS with provisional keys or geometry columns but are not yet mirrored into `gbim_worldview_entities` or dedicated `geodb*` collections with full embeddings and standardized metadata.
 
 - **Additional WVU and federal/state layers.**  
-  Additional datasets reside on SSD‑backed working storage and in PostGIS but have not yet been embedded into `geodb*` collections with consistent identifier schemes and metadata. They are tracked in ingestion plans and marked as “staged” rather than fully live.
+  Additional datasets reside on SSD‑backed working storage and in PostGIS but have not yet been embedded into Chroma with consistent identifier schemes and metadata. They are tracked in ingestion plans and marked as “staged” rather than fully live.
 
-For these datasets, the accurate description is that they are present and often queryable in PostGIS but are not yet part of the default geospatial reasoning path that the Hilbert‑space RAG and GBIM pipelines use. Their eventual integration will follow the same key‑normalization, embedding, and aliasing patterns described above.
+For these datasets, the accurate description is that they are present and often queryable in PostGIS, but are not yet part of the default geospatial reasoning path that the Hilbert‑space RAG and GBIM pipelines use. Their eventual integration will follow the same key‑normalization, embedding, and worldview‑binding patterns used for `gbim_worldview_entities`.
 
 ---
 
 ### 6.7 Linking GeoDB to GBIM and Hilbert Space
 
-Within the broader GBIM framework, spatial information is one dimension of a geometric belief state that also includes semantic, temporal, and governance components. GeoDB provides the concrete anchor for this spatial dimension. Belief nodes that refer to places—counties, neighborhoods, structures, industrial sites, or facilities—are linked to specific feature identifiers and geometries in PostGIS.
+Within the broader GBIM framework, spatial information is one dimension of a geometric belief state that also includes semantic, temporal, and governance components. GeoDB provides the concrete anchor for this spatial dimension.
 
-Embeddings stored in `geodb*` collections often carry location‑related metadata such as county FIPS codes, municipality names, and feature IDs, as well as keys that link back to source tables. This linkage allows Ms. Jarvis to move fluidly among:
+- **From GeoDB to GBIM.**  
+  Each row in `gbim.gbim_attrs` corresponds to a concrete feature in a source dataset, with `sourcetable`, `geodbid`, `label`, `geom`, and bounding‐box metadata. GBIM’s `gbim_worldview_entity` table wraps these features in worldview context and belief state, adding `worldview_id`, `entity_type`, timestamps, and structured provenance.
+
+- **From GBIM to Hilbert space via Chroma.**  
+  The `gbim_worldview_entities` collection embeds each worldview entity into a 384‑dimensional text space and attaches spatial metadata and identifiers. Together with other semantic and institutional collections, this collection realizes a large finite subset of the geospatial component \(H_{\text{geo}}\) and its linkage into \(H_{\text{App}}\), the overall Hilbert‑space state.
+
+Belief nodes that refer to places—counties, neighborhoods, structures, industrial sites, or facilities—are thus linked end‑to‑end:
+
+1. From embeddings and metadata in Chroma (`gbim_worldview_entities`),  
+2. To worldview entities and belief graphs in GBIM (`gbim_worldview_entity`, `gbim_beliefs`, `gbim_graph_edges`),  
+3. Down to concrete geometries and attributes in GeoDB (`gbim.gbim_attrs` and source tables).
+
+This linkage allows Ms. Jarvis to move fluidly among:
 
 - **Semantic proximity.**  
-  Retrieval of documents or features that are similar in content or role (for example, dams with similar design and hazard classifications).
+  Retrieval of entities and texts that are similar in content or role (for example, dams with similar attributes and risk profiles).
 
 - **Spatial proximity.**  
-  Selection of features that are geographically close or share relevant spatial relationships (for example, homes within a buffer of a floodplain boundary).
+  Selection of features that are geographically close or share relevant spatial relationships (for example, homes within a buffer of a floodplain boundary, or facilities within a given corridor).
 
 - **Belief‑space relationships.**  
   GBIM edges that encode causal, normative, or governance‑relevant links between spatial entities (for example, relationships between facilities and service regions, or between hazard sites and vulnerable populations).
-
-By tying embeddings, beliefs, and geometries together, Ms. Jarvis can answer questions that depend on all three—for example, which nursing homes in a flood‑prone region are near rail lines and lie within the jurisdiction of a particular regional council—and feed those answers into governance and risk‑analysis workflows.
 
 ---
 
 ### 6.8 Geo‑Aware RAG and Multi‑Model Use
 
-The GeoDB and `geodb*` / `gedb*` collections play a direct role in retrieval‑augmented generation, especially for spatially explicit queries. When a query has an explicit or implicit spatial component—references to towns, hollows, rivers, counties, or facilities—the RAG pipeline can:
+The GeoDB layer and its Chroma mirrors play a direct role in retrieval‑augmented generation, especially for spatially explicit queries. When a query has an explicit or implicit spatial component—references to towns, hollows, rivers, counties, or facilities—the RAG pipeline can:
 
-- apply spatial filters in PostGIS to constrain candidate features or regions,
-- query `geodb*` collections in ChromaDB to retrieve semantically relevant documents, notes, or prior analyses associated with those features, and
-- provide spatially filtered context to different models and tools in the ensemble.
+- Use PostGIS filters to constrain candidate features or regions (for example, `ST_Intersects` with floodplain polygons or buffers around facilities).  
+- Query `gbim_worldview_entities` to retrieve semantically and spatially relevant entities, using metadata filters such as `worldview_id`, `dataset`, or `source_table`.  
+- Where appropriate, fall back to specialized `geodb*` collections for narrow thematic retrieval (for example, for highly specialized infrastructure layers).  
+- Combine retrieved documents, metadata, and geometries into context windows for language models, including GBIM belief‑graph context where available.
 
-Different models may specialize in different types of geo‑aware tasks: narrative explanations for public audiences, technical risk assessments, code that manipulates spatial data, or governance‑oriented recommendations. The GeoDB layer ensures that, regardless of which model is active, the Steward System’s answers remain grounded in specific, verifiable places with clear links back to underlying data.
+Different models in the Ms. Jarvis ensemble may specialize in different types of geo‑aware tasks:
+
+- Narrative explanations for public audiences that must reference specific places and facilities.  
+- Technical risk assessments that combine hazard layers, infrastructure networks, and demographics.  
+- Code‑generation models that construct spatial queries, buffers, intersections, or joins in SQL or GIS scripting languages.  
+- Governance‑oriented advisors that reason about service coverage, jurisdictional responsibilities, and distributional impacts.
+
+The GeoDB layer ensures that, regardless of which model is active, the Steward System’s answers remain grounded in specific, verifiable places with clear links back to underlying data and belief structures.
 
 ---
 
 ### 6.9 Roadmap for Full Statewide Integration
 
-The near‑term roadmap for the GeoDB layer is to move from “a substantial integrated subset plus staged layers” toward a more comprehensive mirror of the state’s public geospatial infrastructure. Concretely, this entails:
+The near‑term roadmap for the GeoDB layer is to move from “a substantial integrated subset plus staged layers” toward a more comprehensive mirror of the state’s public geospatial infrastructure and its entanglement with GBIM and Chroma. Concretely, this entails:
 
 - **Completing schema normalization.**  
-  Cleaning up remaining geometry, SRID, and numeric precision issues in the residual set of WVU GIS Technical Center and federal/state layers.
+  Cleaning up remaining geometry, SRID, and numeric precision issues in the residual set of WV GIS Technical Center and federal/state layers, and bringing them into the same SRID 26917 convention where feasible.
 
 - **Ensuring stable keys.**  
-  Verifying that all relevant vector datasets are loaded into PostGIS with stable, documented primary keys and supporting indexes, enabling consistent linkage from GBIM and Chroma.
+  Verifying that all relevant vector datasets are loaded into PostGIS with stable, documented primary keys and supporting indexes, enabling consistent linkage from GBIM (`gbim_worldview_entity`, `gbim_beliefs`, `gbim_graph_edges`) and Chroma (`gbim_worldview_entities` and any remaining `geodb*` collections).
+
+- **Maintaining worldview and metadata coverage.**  
+  Continuing metadata backfills so that remaining spatial entities in `gbim_worldview_entities` receive `worldview_id`, `bbox`, `dataset`, and related fields, and ensuring that new datasets added to GeoDB are incorporated into GBIM and Chroma with consistent coverage.
 
 - **Mirroring into Chroma.**  
-  Creating or updating matching `geodb*` collections in ChromaDB with consistent metadata, and where appropriate, `gedb*` aliases, so that each prioritized spatial feature has both a geometric representation and a semantic footprint accessible via RAG.
+  Creating or updating matching Chroma collections where necessary, and keeping `gbim_worldview_entities` as the canonical spatial vector index backed by clear documentation of provenance, coverage, and schema.
 
 - **Maintaining inventories and audit trails.**  
-  Periodically regenerating and archiving CSV inventories of PostGIS tables and Chroma collections, including feature counts and embedding coverage, so that claims about coverage and integration remain auditable over time.
+  Periodically regenerating and archiving CSV inventories of PostGIS tables, GBIM worldview entities, and Chroma collections, including feature counts and metadata coverage, so that claims about coverage and integration remain auditable over time.
 
-As these steps are completed, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers—structures, hazards, networks, demographics, land use, and more—at the scale of tens of millions of features. At that point, the spatial body of the Steward System will be mature enough to support detailed, location‑specific reasoning about risk, infrastructure, governance, and community well‑being across West Virginia.
+As these steps are completed, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers—structures, hazards, networks, demographics, land use, and more—at the scale of millions of features and entities. At that point, the spatial body of the Steward System will be mature enough to support detailed, location‑specific reasoning about risk, infrastructure, governance, and community well‑being across West Virginia, with every advisory behavior traceable back to specific, inspectable geographies.
