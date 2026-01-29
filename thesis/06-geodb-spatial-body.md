@@ -13,7 +13,7 @@
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. The GeoDB layer is tightly coupled to GBIM and to the Chroma‑based Hilbert space accessed via RAG services, so that beliefs and narratives are grounded not only in abstract embeddings but also in specific buildings, river reaches, floodplains, mines, and infrastructure corridors. The focus here is on the structure and status of the PostGIS‑based geodatabase and its relationship to ChromaDB collections, not on exhaustive cataloging of every possible dataset.
 
-Within the Quantarithmia program, GeoDB provides the spatial backbone of Ms. Jarvis’s “body”: a coherent, queryable mesh of features and boundaries for reasoning about risk, access, infrastructure, and spatial justice. The chapter documents what is currently integrated, what is staged, and how these layers are linked into the broader Hilbert‑space and GBIM framework, including their consolidated representation in the `gbim_worldview_entities` Chroma collection.
+Within the Quantarithmia program, GeoDB provides the spatial backbone of Ms. Jarvis’s “body”: a coherent, queryable mesh of features and boundaries for reasoning about risk, access, infrastructure, and spatial justice. In the current deployment, this spatial backbone runs as part of a containerized microservice stack orchestrated with Docker Compose, alongside other core services such as ChromaDB, Redis, Neo4j, and the LLM ensemble. The chapter documents what is currently integrated, what is staged, and how these layers are linked into the broader Hilbert‑space and GBIM framework, including their consolidated representation in the `gbim_worldview_entities` Chroma collection.
 
 ---
 
@@ -36,7 +36,9 @@ In practice, this means maintaining a PostGIS‑backed geodatabase that holds au
 
 ### 6.3 PostGIS as Ms. Jarvis’s Spatial Backbone
 
-At the storage level, Ms. Jarvis uses a PostGIS database (for example, `msjarvis_gis`) as the main container for West Virginia vector datasets. Feature classes are organized by theme and provenance—census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities—with consistent naming and key conventions.
+At the storage level, Ms. Jarvis uses a PostGIS database (for example, `msjarvis_gis`) as the main container for West Virginia vector datasets. This PostGIS instance runs as one of the shared backing stores in the live Docker Compose stack, alongside ChromaDB, Redis, MySQL, and Neo4j, and is accessed by multiple services for spatial reasoning and data access.
+
+Feature classes are organized by theme and provenance—census units, structure points, building footprints, hydrology, transportation networks, hazards, and facilities—with consistent naming and key conventions.
 
 The core production schema includes:
 
@@ -147,7 +149,7 @@ For these datasets, the accurate description is that they are present and often 
 Within the broader GBIM framework, spatial information is one dimension of a geometric belief state that also includes semantic, temporal, and governance components. GeoDB provides the concrete anchor for this spatial dimension.
 
 - **From GeoDB to GBIM.**  
-  Each row in `gbim.gbim_attrs` corresponds to a concrete feature in a source dataset, with `sourcetable`, `geodbid`, `label`, `geom`, and bounding‐box metadata. GBIM’s `gbim_worldview_entity` table wraps these features in worldview context and belief state, adding `worldview_id`, `entity_type`, timestamps, and structured provenance.
+  Each row in `gbim.gbim_attrs` corresponds to a concrete feature in a source dataset, with `sourcetable`, `geodbid`, `label`, `geom`, and bounding‑box metadata. GBIM’s `gbim_worldview_entity` table wraps these features in worldview context and belief state, adding `worldview_id`, `entity_type`, timestamps, and structured provenance.
 
 - **From GBIM to Hilbert space via Chroma.**  
   The `gbim_worldview_entities` collection embeds each worldview entity into a 384‑dimensional text space and attaches spatial metadata and identifiers. Together with other semantic and institutional collections, this collection realizes a large finite subset of the geospatial component \(H_{\text{geo}}\) and its linkage into \(H_{\text{App}}\), the overall Hilbert‑space state.
