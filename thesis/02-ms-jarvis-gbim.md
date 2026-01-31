@@ -84,8 +84,11 @@ Entities link via typed edges forming a belief graph for dependency/flow/exposur
 - **`for_whom` edges (5,491,566)**: Link entities to beneficiary geographies—census blocks linked to themselves (residents as beneficiaries), infrastructure and buildings linked to "west_virginia_public" (general community benefit)
 - **`authority` edges (2,121,230)**: Link beliefs to authorizing worldviews
 
-**Example query:**
+**Concrete example: A single building's belief neighborhood**
+![Aebd1db22e13b4ccba43470b5935efa00O](https://github.com/user-attachments/assets/7577b4a2-f7f8-44b6-8c1c-c587d0da50e4)
+Figure 3. Belief neighborhood for a single building footprint (feat_1703912), showing how GBIM links the entity to its dataset (how), beneficiary community (for_whom), and authorizing worldview (authority). All nodes and edges carry provenance and spatial metadata.
 
+This neighborhood is queryable via SQL:
 ``sql
 -- Find all edges for a specific building
 SELECT 
