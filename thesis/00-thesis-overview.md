@@ -41,6 +41,32 @@ If you are primarily interested in:
 - **Disciplinary theory** – start with `/discipline/Polymathmatic Geography.md`, `/discipline/Principles of Polymathmatic Geography.md`, the comparative frameworks, and then `thesis/00-overview.md` and `thesis/01-quantarithmia.md`.
 - **AI / systems architecture** – start with `thesis/02-ms-jarvis-gbim.md`, `section_part_ii_system_architecture_llm_fabric.md`, `section_part_iii_neurobiology.md`, `section_part_iv_consciousness.md`, and the API specs.
 - **Commons, food, and local economy** – start with `thesis/03-mountainshares-dao.md`, `thesis/mountainshares complete systems overview.md`, `/discipline/Non-Digital Commons in a Polymathmatic Lens.md`, and the MountainShares DAO documents.
+### 2.6 High‑Level Steward System Architecture
+
+At a high level, Ms. Jarvis can be read as a territorial brain: community inputs flow through a guarded gateway into orchestrators that consult geospatial and semantic memory, coordinate an LLM ensemble, and return stewarded outputs under explicit governance rules.
+
+**Figure 1. Simplified data flow diagram**
+
+
+2.7 Minimal path: input → GBIM → memory → LLM fabric → output
+
+   **Community question or signal.**
+    A resident, organizer, or operator sends a question or task (for example, "Show me where food access is most fragile in our county") through a web interface or API connected to the public gateway.
+
+  **Gateway and orchestration.**
+    The gateway authenticates the request, logs it for auditability, and passes it to a steward‑oriented orchestrator that consults constitutional and governance rules to decide which tools and data are in scope.
+
+   **Geospatial grounding via GBIM.**
+    The orchestrator translates the question into concrete spatial queries against GBIM (parcels, infrastructures, census units, registered users), retrieving the relevant geometries, attributes, and relationships needed to anchor the problem in actual places.
+
+  **Semantic enrichment via Hilbert‑space memory.**
+   Using stable IDs from GBIM and topic cues from the request, the orchestrator calls Hilbert‑space semantic memory to retrieve prior documents, histories, governance texts, and autonomous learning related to the same entities and themes.
+
+   **LLM ensemble reasoning under constraints.**
+    The orchestrator assembles a context window from GBIM results, semantic memory, and constitutional snippets, then routes it through the LLM ensemble and judge/router fabric, which proposes candidate narratives, maps, or recommendations.
+
+  **Governance checks and stewarded output.**
+Candidate outputs are checked against non‑goals, red lines, and logging requirements; if necessary, they are revised, rejected, or flagged for human review before a final stewarded response is returned as text, annotated maps, or dashboards.
 
 ## System Non‑Goals
 
