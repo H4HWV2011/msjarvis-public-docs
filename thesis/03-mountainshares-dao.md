@@ -86,6 +86,7 @@ MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately as
 <div align="center">
   <img width="550" alt="Gemini_Generated_Image_arxx4xarxx4xarxx" src="https://github.com/user-attachments/assets/3127934b-f78e-459f-b202-96b037e79859" />
 </div>
+
 >> Figure 4. Ms. Jarvis and MountainShares: Asymmetrical partnership. Jarvis provides analysis and decision support but possesses no unilateral authority. All behavior is constrained by published principles and community-approved policies. Financial participation is capped, audited, and subject to clawback.<br>
 
 In thesis terms, MountainShares treats Ms. Jarvis as both a tool and a stakeholder whose participation is strictly bounded by design and documentation.
