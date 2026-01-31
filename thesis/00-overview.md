@@ -92,22 +92,8 @@ At a high level, Ms. Jarvis can be read as a territorial brain: community inputs
 
 **Figure 1. Simplified data flow diagram**
 
-``mermaid
-flowchart LR
-  User[Community member / operator]
-  Gateway[Gateway & API layer<br/>Cloudflare tunnel, auth, logging]
-  Orchestrator[Steward orchestration<br/>& policy engine]
-  GBIM[(GBIM / GeoDB<br/>PostgreSQL + PostGIS)]
-  Memory[(Hilbert-space<br/>semantic memory<br/>ChromaDB)]
-  LLM[LLM ensemble & tools<br/>router + judge fabric]
-  Output[Stewarded narrative,<br/>map, or report]
+<img width="2752" height="1536" alt="unnamed" src="https://github.com/user-attachments/assets/4cef4935-d9b1-48a0-831f-c91a2fadf753" />
 
-  User --> Gateway --> Orchestrator
-  Orchestrator --> GBIM
-  Orchestrator --> Memory
-  GBIM --> Orchestrator
-  Memory --> Orchestrator
-  Orchestrator --> LLM --> Orchestrator --> Output
 
 2.7 Minimal path: input → GBIM → memory → LLM fabric → output
 
