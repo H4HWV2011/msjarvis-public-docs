@@ -4,7 +4,6 @@
 <div align="center">
   <img width="500" alt="FaiGvpYi" src="https://github.com/user-attachments/assets/ede5051c-b005-4540-81f8-5bb92461e06d" />
 </div>
-
 >> Figure 1. MountainShares as Case Study 1 within Polymathmatic Geography, applying Quantarithmia principles to a concrete, place-bound economic system in Mount Hope, West Virginia.
 
 > - In this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place-bound economic system in and around Mount Hope, West Virginia:
@@ -41,8 +40,7 @@ MountainShares uses a closed-loop wallet model:
 
 <div align="center">
   <img width="90%" alt="1kEQDSux" src="https://github.com/user-attachments/assets/7583a048-fdb9-4a2c-83b6-861336dcbf71" />
-</div>
- 
+</div> 
 >>Figure 2. MountainShares closed-loop economic model: participants load funds in, circulate them locally under DAO rules with minimal friction, and can convert back out via defined, auditable processes. Most friction is at system boundaries rather than on local transactions.
 
 
@@ -63,7 +61,6 @@ MountainShares governance is explicitly phased:
 <div align="center">
   <img width="600" height="600" alt="Gemini_Generated_Image_23ytfz23ytfz23yt" src="https://github.com/user-attachments/assets/0ca4c125-e44d-4596-b129-fb22cfe1f130" />
 </div>
-
 >>Figure 3. MountainShares governance phases: Early Phase (system monitors with documented constraints) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).<br>
 
 This phased approach acknowledges that a fully “flat” governance structure is unrealistic at launch, but treats early central roles as temporary scaffolding rather than a permanent power center.
@@ -83,8 +80,9 @@ MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately as
 - **Financial participation with limits**  
   Ms. Jarvis is assigned a real MountainShares wallet and can receive rewards (for example, for providing useful analysis or operational support) under explicit policies that include caps, clawback conditions, auditing, and transparency. This is meant to align her incentives with system health, without giving her independent control over governance or treasury assets.
   
-<img width="1024" height="1024" alt="Gemini_Generated_Image_ti37a6ti37a6ti37" src="https://github.com/user-attachments/assets/6460467a-1665-4b95-84a5-6cbc4dd91914" />
-
+<div align="center">
+  <img width="550" alt="Gemini_Generated_Image_arxx4xarxx4xarxx" src="https://github.com/user-attachments/assets/3127934b-f78e-459f-b202-96b037e79859" />
+</div>
 >> Figure 4. Ms. Jarvis and MountainShares: Asymmetrical partnership. Jarvis provides analysis and decision support but possesses no unilateral authority. All behavior is constrained by published principles and community-approved policies. Financial participation is capped, audited, and subject to clawback.<br>
 
 In thesis terms, MountainShares treats Ms. Jarvis as both a tool and a stakeholder whose participation is strictly bounded by design and documentation.
