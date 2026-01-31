@@ -17,8 +17,11 @@ testable answers.
 ---
 
 ## What GBIM Is
-![geospatial beleif information model](https://github.com/user-attachments/assets/331685c5-977e-4b60-9a96-3150b71787a2)
-Figure 1. High‑level structure of the Geospatial Belief Information Model (GBIM), showing the PostGIS geospatial corpus, Chroma semantic collections, and the production belief graph schema, all tied together by nine epistemic axes (who, what, where, when, how, why, for whom, under whose authority, on what evidence).
+<div align="center">
+  <img width="60%" alt="geospatial belief information model" src="https://github.com/user-attachments/assets/331685c5-977e-4b60-9a96-3150b71787a2" />
+</div>
+
+>> Figure 1. High‑level structure of the Geospatial Belief Information Model (GBIM), showing the PostGIS geospatial corpus, Chroma semantic collections, and the production belief graph schema, all tied together by nine epistemic axes (who, what, where, when, how, why, for whom, under whose authority, on what evidence).
 
 GBIM is Ms. Jarvis's internal model for tying beliefs to **who**, **what**, **where**, **when**, **how**, **why**, **for whom**, **under whose authority**, and **on what evidence**, focused on West Virginia and Appalachia. The current production deployment integrates three cooperating layers:
 
@@ -30,8 +33,11 @@ GBIM is Ms. Jarvis's internal model for tying beliefs to **who**, **what**, **wh
 
 Each belief attaches to all nine epistemic axes:
 
-![A3eae0ad7ea1e408cb8a3322dab3f45b3L](https://github.com/user-attachments/assets/9855f916-dadd-46af-8276-60e797549932)
-Figure 2. The nine epistemic axes in GBIM, showing how every belief is anchored simultaneously in actors, kinds, places, time, mechanisms, purposes, constituencies, authorities, and evidence.
+<div align="center">
+  <img width="60%" alt="Belief Neighborhood for One Building" src="https://github.com/user-attachments/assets/9855f916-dadd-46af-8276-60e797549932" />
+</div>
+
+>> Figure 2. The nine epistemic axes in GBIM, showing how every belief is anchored simultaneously in actors, kinds, places, time, mechanisms, purposes, constituencies, authorities, and evidence.
 
 - **Who** – persons, institutions, communities (actors, subjects, beneficiaries, decision‑makers), keyed to GBIM entity records and reflected in source attributes and Chroma metadata (owner names, agencies, program sponsors).
 
@@ -85,8 +91,11 @@ Entities link via typed edges forming a belief graph for dependency/flow/exposur
 - **`authority` edges (2,121,230)**: Link beliefs to authorizing worldviews
 
 **Concrete example: A single building's belief neighborhood**
-![Aebd1db22e13b4ccba43470b5935efa00O](https://github.com/user-attachments/assets/7577b4a2-f7f8-44b6-8c1c-c587d0da50e4)
-Figure 3. Belief neighborhood for a single building footprint (feat_1703912), showing how GBIM links the entity to its dataset (how), beneficiary community (for_whom), and authorizing worldview (authority). All nodes and edges carry provenance and spatial metadata.
+<div align="center">
+  <img width="55%" alt="Building Belief Neighborhood Graph" src="https://github.com/user-attachments/assets/7577b4a2-f7f8-44b6-8c1c-c587d0da50e4" />
+</div>
+
+>> Figure 3. Belief neighborhood for a single building footprint (feat_1703912), showing how GBIM links the entity to its dataset (how), beneficiary community (for_whom), and authorizing worldview (authority). All nodes and edges carry provenance and spatial metadata.
 
 This neighborhood is queryable via SQL:
 ``sql
