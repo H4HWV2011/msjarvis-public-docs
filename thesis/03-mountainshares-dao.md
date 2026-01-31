@@ -37,7 +37,8 @@ MountainShares uses a closed-loop wallet model:
 - **Funding out** – Conversion back to external money systems follows defined, auditable processes that respect both legal requirements and community priorities.
 
  <img width="2752" height="1536" alt="1kEQDSux" src="https://github.com/user-attachments/assets/7583a048-fdb9-4a2c-83b6-861336dcbf71" /> 
->> Figure 2. MountainShares closed-loop economic model: participants load funds in, circulate them locally under DAO rules with minimal friction, and can convert back out via defined, auditable processes. Most friction is at system boundaries rather than on local transactions.
+ 
+>>Figure 2. MountainShares closed-loop economic model: participants load funds in, circulate them locally under DAO rules with minimal friction, and can convert back out via defined, auditable processes. Most friction is at system boundaries rather than on local transactions.
 
 
 Fees are structured so that most friction is at the boundaries (loading in, merchant side) rather than on every small local transaction. This is meant to make everyday community use feel low-friction, while still supporting system sustainability and compliance. All fee structures are subject to change only through appropriate governance and must remain consistent with applicable laws and payment-provider terms.
@@ -55,7 +56,8 @@ MountainShares governance is explicitly phased:
   Once the system reaches sufficient adoption, certain categories of change (for example, constitutional rules or irreversible structural changes) require a supermajority threshold (e.g., 67%) to pass, to prevent small factions from rewriting core commitments.
   
 <img width="1024" height="1024" alt="Gemini_Generated_Image_23ytfz23ytfz23yt" src="https://github.com/user-attachments/assets/0ca4c125-e44d-4596-b129-fb22cfe1f130" />
->> Figure 3. MountainShares governance phases: Early Phase (system monitors with documented constraints) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).<br>
+
+>>Figure 3. MountainShares governance phases: Early Phase (system monitors with documented constraints) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).<br>
 
 This phased approach acknowledges that a fully “flat” governance structure is unrealistic at launch, but treats early central roles as temporary scaffolding rather than a permanent power center.
 
