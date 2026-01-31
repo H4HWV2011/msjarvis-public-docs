@@ -1,4 +1,4 @@
-# 3. MountainShares DAO and Community Economy
+<img width="2752" height="1536" alt="1kEQDSux" src="https://github.com/user-attachments/assets/996bd71e-0169-4113-8ba6-f38b5b34a147" /># 3. MountainShares DAO and Community Economy
 
 > **Case Study: Appalachian Economic Commons** 
 ![FaiGvpYi](https://github.com/user-attachments/assets/5936b7db-d6ff-489b-a66e-b9487b3c7fb9)
@@ -35,6 +35,9 @@ MountainShares uses a closed-loop wallet model:
 - **Funding in** – Participants load funds from external rails (for example, Stripe-processed card payments) into a MountainShares-denominated balance.
 - **Circulation** – Within the closed loop, balances move between participants and merchants under DAO-defined rules, with an emphasis on local spending and community-aligned transactions.
 - **Funding out** – Conversion back to external money systems follows defined, auditable processes that respect both legal requirements and community priorities.
+
+ <img width="2752" height="1536" alt="1kEQDSux" src="https://github.com/user-attachments/assets/7583a048-fdb9-4a2c-83b6-861336dcbf71" />
+<Figure 2. MountainShares closed-loop economic model: participants load funds in, circulate them locally under DAO rules with minimal friction, and can convert back out via defined, auditable processes. Most friction is at system boundaries rather than on local transactions.>
 
 Fees are structured so that most friction is at the boundaries (loading in, merchant side) rather than on every small local transaction. This is meant to make everyday community use feel low-friction, while still supporting system sustainability and compliance. All fee structures are subject to change only through appropriate governance and must remain consistent with applicable laws and payment-provider terms.
 
