@@ -23,6 +23,22 @@ This repository therefore documents:
 
 used to evaluate how a polymathmatic approach performs when it is forced to operate in a real place, against live data, under real constraints.
 
+### 1.1 Research Questions and Hypotheses
+
+This thesis uses Quantarithmia, Ms. Jarvis, and MountainShares to test whether a polymathmatic approach to entangled spaces can be made operational, accountable, and exportable beyond one Appalachian region.
+
+1. **RQ1 – Steward transparency and trust.**  
+   When Ms. Jarvis is deployed as a glass‑box Steward System in Mount Hope and neighboring communities, do residents, partners, and auditors report higher perceived transparency, legibility, and trust than with conventional black‑box AI tools or opaque administrative processes?  
+   *Hypothesis:* A geospatially grounded, auditable Steward System will make evidence paths and decision scaffolding more legible, increasing trust without requiring blind faith in algorithms.
+
+2. **RQ2 – Making extraction and alternatives visible.**  
+   Can the combination of GBIM, Hilbert‑space semantic memory, and the Quantarithmia framework surface concrete, spatially anchored patterns of extraction and leakage (maximopolies and megaopolies) in Appalachia in ways that non‑technical stakeholders can understand and act on? [file:1]  
+   *Hypothesis:* Representing the region as an entangled Hilbert‑space state tied to physical parcels, infrastructures, and narratives will reveal actionable “leak paths” and “commons corridors” that were previously invisible or only anecdotally known.
+
+3. **RQ3 – Commons‑oriented economic resilience.**  
+   Does the MountainShares governance stack, operating as a commons‑oriented, non‑bank economic layer, measurably increase local recirculation of value, mutual aid capacity, and perceived economic safety without becoming a de facto unregulated financial institution? [file:1]  
+   *Hypothesis:* A closed‑loop, charter‑bound system that encodes local norms can strengthen community resilience while staying within clearly articulated legal, ethical, and spiritual limits.
+
 ---
 
 ## 2. System Implementation Status
