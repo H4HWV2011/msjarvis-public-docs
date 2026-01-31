@@ -53,7 +53,7 @@ MountainShares governance is explicitly phased:
 
 - **Constitutional phase**  
   Once the system reaches sufficient adoption, certain categories of change (for example, constitutional rules or irreversible structural changes) require a supermajority threshold (e.g., 67%) to pass, to prevent small factions from rewriting core commitments.
-<img width="1024" height="1024" alt="Gemini_Generated_Image_8005f68005f68005" src="https://github.com/user-attachments/assets/04464191-2433-48c5-9151-e36a791cbbfd" />
+<img width="1024" height="1024" alt="Gemini_Generated_Image_b8n5g3b8n5g3b8n5" src="https://github.com/user-attachments/assets/b1ccc920-f2fc-4f4b-a7fc-d03661a02e59" />
 <Figure 3. MountainShares governance phases: Early Phase (system monitors with documented constraints) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).>
 
 
