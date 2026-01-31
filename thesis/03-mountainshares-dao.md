@@ -1,4 +1,4 @@
-<img width="1024" height="1024" alt="Gemini_Generated_Image_ti37a6ti37a6ti37" src="https://github.com/user-attachments/assets/4967b118-9dc0-4d2e-842b-c142242f4b55" />#3. MountainShares DAO and Community Economy
+# 3. MountainShares DAO and Community Economy
 
 > **Case Study: Appalachian Economic Commons** 
 ![FaiGvpYi](https://github.com/user-attachments/assets/5936b7db-d6ff-489b-a66e-b9487b3c7fb9)
