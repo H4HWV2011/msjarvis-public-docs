@@ -47,7 +47,190 @@ Fees are structured so that most friction is at the boundaries (loading in, merc
 ## Governance Structure and Phases
 
 MountainShares governance is explicitly phased:
+import React from 'react';
+import { Users, Vote, ShieldCheck, ArrowRight, ArrowDown, Construction, FileText, Lock } from 'lucide-react';
 
+const GovernanceTimeline = () => {
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 md:p-8 flex flex-col items-center font-sans text-slate-800">
+      
+      {/* Header */}
+      <header className="mb-10 text-center max-w-3xl">
+        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          MountainShares Governance Phases
+        </h1>
+        <p className="text-slate-600 text-lg">
+          A progression of decentralized authority as network capacity grows.
+        </p>
+      </header>
+
+      {/* Timeline Container */}
+      <div className="w-full max-w-7xl flex flex-col lg:flex-row items-stretch justify-center gap-4 lg:gap-0 relative">
+
+        {/* --- STAGE 1: Early Phase --- */}
+        <div className="flex-1 flex flex-col relative group">
+          <div className="bg-white border-t-8 border-amber-500 rounded-xl shadow-lg p-6 h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col">
+            <div className="flex items-center justify-between mb-4">
+              <div className="bg-amber-100 p-3 rounded-full">
+                <Construction className="w-8 h-8 text-amber-600" />
+              </div>
+              <span className="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                Stage 1
+              </span>
+            </div>
+            
+            <h2 className="text-xl font-bold text-slate-900 mb-1">System Monitors</h2>
+            <p className="text-sm text-slate-500 italic mb-4">(Launch + initial stabilization)</p>
+            
+            <div className="space-y-3 flex-grow">
+              <ul className="space-y-2 text-sm text-slate-700">
+                <li className="flex items-start">
+                  <span className="mr-2 text-amber-500">•</span>
+                  <span>Small set of scoped roles</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-amber-500">•</span>
+                  <span>Safety fixes & abuse response</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-amber-500">•</span>
+                  <span>Limited operational adjustments</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-amber-500">•</span>
+                  <span>Authority: documented & constrained</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <p className="text-xs text-amber-700 font-semibold flex items-center">
+                <span className="mr-2">Metaphor:</span> 
+                "Temporary scaffolding"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Connector 1 */}
+        <div className="flex items-center justify-center lg:w-16 py-2 lg:py-0 text-slate-400">
+          <div className="hidden lg:block">
+            <ArrowRight className="w-8 h-8 animate-pulse" />
+          </div>
+          <div className="lg:hidden">
+            <ArrowDown className="w-8 h-8 animate-pulse" />
+          </div>
+        </div>
+
+        {/* --- STAGE 2: Growth Phase --- */}
+        <div className="flex-1 flex flex-col relative group">
+          <div className="bg-white border-t-8 border-teal-500 rounded-xl shadow-lg p-6 h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col">
+            <div className="flex items-center justify-between mb-4">
+              <div className="bg-teal-100 p-3 rounded-full">
+                <Vote className="w-8 h-8 text-teal-600" />
+              </div>
+              <span className="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                Stage 2
+              </span>
+            </div>
+            
+            <h2 className="text-xl font-bold text-slate-900 mb-1">Community Proposals</h2>
+            <p className="text-sm text-slate-500 italic mb-4">(Increased participation & capacity)</p>
+            
+            <div className="space-y-3 flex-grow">
+              <ul className="space-y-2 text-sm text-slate-700">
+                <li className="flex items-start">
+                  <span className="mr-2 text-teal-500">•</span>
+                  <span>More decisions in community hands</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-teal-500">•</span>
+                  <span>Proposals, voting, review processes</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="bg-teal-50 border border-teal-200 p-2 rounded-md w-full">
+                    <span className="font-semibold text-teal-700 block text-xs mb-1">AI Assistance</span>
+                    <span>Ms. Jarvis provides analysis & explanation</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-teal-500">•</span>
+                  <span>Expanding stakeholder base</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Connector 2 */}
+        <div className="flex items-center justify-center lg:w-16 py-2 lg:py-0 text-slate-400">
+           <div className="hidden lg:block">
+            <ArrowRight className="w-8 h-8 animate-pulse" />
+          </div>
+          <div className="lg:hidden">
+            <ArrowDown className="w-8 h-8 animate-pulse" />
+          </div>
+        </div>
+
+        {/* --- STAGE 3: Constitutional Phase --- */}
+        <div className="flex-1 flex flex-col relative group">
+          <div className="bg-slate-900 border-t-8 border-blue-600 rounded-xl shadow-xl p-6 h-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col text-white">
+            <div className="flex items-center justify-between mb-4">
+              <div className="bg-blue-900 p-3 rounded-full border border-blue-700">
+                <ShieldCheck className="w-8 h-8 text-blue-300" />
+              </div>
+              <span className="bg-blue-900 text-blue-200 border border-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                Stage 3
+              </span>
+            </div>
+            
+            <h2 className="text-xl font-bold text-white mb-1">Supermajority Thresholds</h2>
+            <p className="text-sm text-blue-300 italic mb-4">(Sufficient adoption reached)</p>
+            
+            <div className="space-y-3 flex-grow">
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li className="flex items-start">
+                  <Lock className="w-4 h-4 mr-2 text-blue-400 mt-1" />
+                  <span>Core commitments protected</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-blue-400">•</span>
+                  <span className="font-semibold text-white">Constitutional rules require 67%+ approval</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-blue-400">•</span>
+                  <span>Irreversible changes need high bar</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2 text-blue-400">•</span>
+                  <span>Prevents faction takeover</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-blue-800">
+               <p className="text-xs text-blue-300 font-semibold flex items-center justify-center">
+                 Stable & Protected State
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom Annotation */}
+      <div className="mt-12 max-w-4xl text-center bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+        <p className="text-slate-600 font-medium">
+          <span className="text-slate-400 text-sm block mb-1 uppercase tracking-widest">Philosophy</span>
+          "Phased approach acknowledges early central roles are <span className="text-amber-600 font-bold">temporary scaffolding</span>, not a permanent power center."
+        </p>
+      </div>
+
+    </div>
+  );
+};
+
+export default GovernanceTimeline;
 - **Early phase (“system monitors”)**  
   A small set of clearly scoped roles handle safety fixes, abuse response, and limited operational adjustments. Their authority is documented and constrained, and their actions are logged.
 
