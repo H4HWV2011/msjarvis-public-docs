@@ -122,8 +122,41 @@ This repository contains **public documentation** only. Source code and sensitiv
 **Intended Readers:**
 
 * **Researchers:** To understand how Quantarithmia and stewardship concepts are instantiated in a real, geospatially grounded AI system.  
+
 * **Community Partners:** To verify how Ms. Jarvis supports local empowerment without technical obfuscation or unchecked autonomy.  
+
 * **Auditors:** To review the architectural safeguards, governance logic, and data flows.
+
+## 5. Evaluation and Failure Modes (Overview)
+
+This thesis does not only describe architectures; it evaluates how well a specific polymathmatic stack behaves in a live Appalachian entangled space under real constraints.
+
+### 5.1 What is being evaluated
+
+- The **discipline‑level claim** that Polymathmatic Geography can produce exportable methods for reading and redesigning entangled spaces, not only Appalachia. 
+- The **framework‑level claim** that Quantarithmia’s geometry of maximopolies, megaopolies, and community‑first alternatives can be instantiated in code and practice. 
+- The **apparatus‑level claim** that Ms. Jarvis and MountainShares can operate as accountable instruments rather than autonomous authorities, remaining legible to communities, auditors, and researchers. 
+
+### 5.2 Primary failure modes of concern
+
+- **Overreach and misrecognition.** The Steward System or MountainShares could be misperceived as a sentient actor, a bank, a regulator, or a replacement for human governance, despite explicit non‑goals. 
+- **Opaque or biased guidance.** Even with glass‑box intents, the ensemble of models, metrics, and data could drift toward recommendations that are hard to audit, reinforce existing inequities, or privilege technically fluent actors. 
+- **Commons capture and erosion.** Governance mechanisms meant to keep value and speech rooted in community could be captured by a narrow group, become performative, or quietly recreate extractive dynamics in new technical form.  
+- **Spiritual and genealogical harm.** Treating sacred sites, cemeteries, or heritage geographies as mere data layers could break covenants with ancestors, descendants, or living communities if not handled with reverence.
+
+### 5.3 Current guardrails and open questions
+
+Guardrails already in place include:
+
+- Explicit non‑goals (not a sentient being, bank, regulator, or general‑purpose investment vehicle) and constitutional constraints that bound what the system may claim or do. 
+- Glass‑box design: API‑level and data‑level transparency, auditable evidence paths, and the separation of orchestration, GBIM, memory, and LLM fabric into inspectable services. 
+- Governance documents for MountainShares and The Commons that define roles, voting procedures, audits, and risk management as human‑interpretable rules rather than hidden model weights. 
+
+Open evaluation questions include:
+
+- How to measure “trustworthy stewardship” across technical, legal, spiritual, and experiential dimensions.  
+- How to detect and respond when model ensembles or data pipelines begin to encode harmful biases or illegible forms of extraction.  
+- How to decide, with communities, which geographies and covenants are simply out of bounds for computation, even under a polymathmatic lens.
 
 > **Note:** This overview is a living document that updates alongside the system’s evolution. All architectural claims regarding GBIM, quantum-inspired state entanglement, routing/orchestration, and optimization strategies are anchored in the live production stack running in Mount Hope, WV.
 EOF
