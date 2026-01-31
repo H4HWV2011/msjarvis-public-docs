@@ -7,6 +7,10 @@
 > - **P12 – Intelligence with a ZIP code** and **P16 – Power accountable to place** by defining Ms. Jarvis and MountainShares as territorially situated instruments accountable to specific communities, not abstract global users.  
 > As such, this chapter belongs to the **Computational Instrument** tier at the conceptual level: it defines the justice criteria, geometric distinctions, and reciprocity thresholds that the rest of the Ms. Jarvis and MountainShares machinery is built to calculate, monitor, and experimentally test in Appalachia.
 
+<img width="2752" height="1536" alt="unnamed(1)" src="https://github.com/user-attachments/assets/5ec2fcd8-2e93-425a-bf02-d920fc80cc9e" />
+Figure 1. The architecture of Quantarithmia within Polymathmatic Geography.
+This diagram situates Quantarithmia as a framework inside the broader discipline of Polymathmatic Geography and shows how its geometry of power and reciprocity is instantiated in two instruments: the Ms. Jarvis Steward System and the MountainShares / Commons DAO.​
+
 # 1. Quantarithmia: Field and Framework (Draft)
 
 Quantarithmia is a framework within **polymathamatical geography**, a transdisciplinary field for modeling how power is extracted, concentrated, and potentially redirected across digital, spatial, social, and spiritual infrastructures, with a primary focus on Appalachian contexts such as West Virginia. Polymathamatical geography treats geography, infrastructure, and community history as first‑class variables rather than background scenery, asking how specific networks, platforms, and institutions reshape everyday life in places like Mount Hope.
