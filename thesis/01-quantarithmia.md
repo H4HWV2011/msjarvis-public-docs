@@ -7,8 +7,11 @@
 > - **P12 – Intelligence with a ZIP code** and **P16 – Power accountable to place** by defining Ms. Jarvis and MountainShares as territorially situated instruments accountable to specific communities, not abstract global users.  
 > As such, this chapter belongs to the **Computational Instrument** tier at the conceptual level: it defines the justice criteria, geometric distinctions, and reciprocity thresholds that the rest of the Ms. Jarvis and MountainShares machinery is built to calculate, monitor, and experimentally test in Appalachia.
 
-<img width="2752" height="1536" alt="unnamed(1)" src="https://github.com/user-attachments/assets/5ec2fcd8-2e93-425a-bf02-d920fc80cc9e" />
-Figure 1. The architecture of Quantarithmia within Polymathmatic Geography.
+<div align="center">
+  <img width="85%" alt="unnamed(1)" src="https://github.com/user-attachments/assets/5ec2fcd8-2e93-425a-bf02-d920fc80cc9e" />
+</div>
+
+>> Figure 1. The architecture of Quantarithmia within Polymathmatic Geography.
 This diagram situates Quantarithmia as a framework inside the broader discipline of Polymathmatic Geography and shows how its geometry of power and reciprocity is instantiated in two instruments: the Ms. Jarvis Steward System and the MountainShares / Commons DAO.​
 
 # 1. Quantarithmia: Field and Framework (Draft)
@@ -26,8 +29,11 @@ A central distinction in Quantarithmia is between:
 - **Maximopolies**: Institutions and infrastructures that primarily control capital flows (for example, large financial entities, payment networks, and investment vehicles).
 - **Megaopolies**: Institutions and infrastructures that primarily control operations and platforms (for example, logistics networks, cloud platforms, and large‑scale data/attention brokers).
 
-<img width="2752" height="1536" alt="unnamed(2)" src="https://github.com/user-attachments/assets/ebc3a307-48a9-4c71-bb14-4140d90a4fe8" />
-Figure 2. The geometry of power in Quantarithmia.
+<div align="center">
+  <img width="85%" alt="unnamed(2)" src="https://github.com/user-attachments/assets/ebc3a307-48a9-4c71-bb14-4140d90a4fe8" />
+</div>
+
+>> Figure 2. The geometry of power in Quantarithmia.
 The diagram maps entities along two axes—capital control and operational/platform control—distinguishing maximopolies (high capital control) from megaopolies (high operational control), with illustrative cases such as private equity funds, local landlord LLCs, and cloud/logistics platforms in an Appalachian context.<br>​
 
 Quantarithmia studies how maximopolies and megaopolies intersect in rural and small‑town contexts, mapping how their combined infrastructures channel value and decision‑making authority away from local communities. This mapping is both empirical (data‑driven) and ethical (evaluated against spatial justice criteria).
