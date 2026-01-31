@@ -83,9 +83,7 @@ MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately as
 - **Financial participation with limits**  
   Ms. Jarvis is assigned a real MountainShares wallet and can receive rewards (for example, for providing useful analysis or operational support) under explicit policies that include caps, clawback conditions, auditing, and transparency. This is meant to align her incentives with system health, without giving her independent control over governance or treasury assets.
   
-<div align="center">
-  <img width="550" alt="Gemini_Generated_Image_arxx4xarxx4xarxx" src="https://github.com/user-attachments/assets/3127934b-f78e-459f-b202-96b037e79859" />
-</div>
+<img width="1024" height="1024" alt="Gemini_Generated_Image_y0icp0y0icp0y0ic" src="https://github.com/user-attachments/assets/1313391f-b076-4647-b711-4643e508d424" />
 
 >> Figure 4. Ms. Jarvis and MountainShares: Asymmetrical partnership. Jarvis provides analysis and decision support but possesses no unilateral authority. All behavior is constrained by published principles and community-approved policies. Financial participation is capped, audited, and subject to clawback.<br>
 
