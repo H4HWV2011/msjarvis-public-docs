@@ -1,4 +1,4 @@
-# 3. MountainShares DAO and Community Economy
+<img width="1024" height="1024" alt="Gemini_Generated_Image_23ytfz23ytfz23yt" src="https://github.com/user-attachments/assets/c6958031-1480-40d1-8473-fcce87f7084a" /># 3. MountainShares DAO and Community Economy
 
 > **Case Study: Appalachian Economic Commons** 
 ![FaiGvpYi](https://github.com/user-attachments/assets/5936b7db-d6ff-489b-a66e-b9487b3c7fb9)
@@ -53,7 +53,8 @@ MountainShares governance is explicitly phased:
 
 - **Constitutional phase**  
   Once the system reaches sufficient adoption, certain categories of change (for example, constitutional rules or irreversible structural changes) require a supermajority threshold (e.g., 67%) to pass, to prevent small factions from rewriting core commitments.
-<img width="1024" height="1024" alt="Gemini_Generated_Image_8005f68005f68005" src="https://github.com/user-attachments/assets/377c7f89-bdb2-41af-9421-367f709b2ca5" />
+  
+<img width="1024" height="1024" alt="Gemini_Generated_Image_23ytfz23ytfz23yt" src="https://github.com/user-attachments/assets/0ca4c125-e44d-4596-b129-fb22cfe1f130" />
 <Figure 3. MountainShares governance phases: Early Phase (system monitors with documented constraints) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).>
 
 
