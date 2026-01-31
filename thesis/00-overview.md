@@ -85,7 +85,9 @@ This thesis uses Quantarithmia, Ms. Jarvis, and MountainShares to test whether a
 * **Function:** Routing logic selects and coordinates the best models or tools for a given task—creative, analytical, or spatial—then aggregates their outputs into a single, stewarded response, subject to governance and transparency requirements.
 
 
----# Polymathmatic Geography – Field Card
+---
+
+# Polymathmatic Geography – Field Card
 
 Polymathmatic Geography is a discipline for reading and reshaping **entangled spaces**—places where land, law, computation, economy, story, and spirit are already braided together.
 
