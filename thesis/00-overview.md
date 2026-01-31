@@ -84,7 +84,74 @@ This thesis uses Quantarithmia, Ms. Jarvis, and MountainShares to test whether a
 * **Fabric:** Multi-model ensemble (local and remote models) coordinated by routing and evaluation components.  
 * **Function:** Routing logic selects and coordinates the best models or tools for a given task—creative, analytical, or spatial—then aggregates their outputs into a single, stewarded response, subject to governance and transparency requirements.
 
+
+---# Polymathmatic Geography – Field Card
+
+Polymathmatic Geography is a discipline for reading and reshaping **entangled spaces**—places where land, law, computation, economy, story, and spirit are already braided together.
+
 ---
+
+## Object of study
+
+- Entangled spaces in which physical, legal, economic, digital, genealogical, and spiritual layers form a single, overlapping geography.  
+- Examples range from coalfields, ports, and logistics corridors to social platforms, credit systems, pilgrimage routes, and neighborhood commons.
+
+The basic question is always "where": where power, value, and meaning move, pool, leak, and get blocked in a given world.
+
+---
+
+## Core commitments and stance
+
+- **Entanglement first.** No single layer (economy, law, code, or spirit) is treated as the "real" one; all are mapped together.  
+- **Braided methods.** Quantitative models, GIS, and AI sit alongside oral histories, ethnography, theology, and genealogical mapping.  
+- **Normative orientation.** The field is openly concerned with care, justice, and accountable design for specific communities and places, not neutral description alone.  
+- **Design and evaluation.** Proposed changes to metrics, platforms, and institutions are treated as geographic acts that can and must be evaluated in the worlds they reshape.
+
+---
+
+## Typical methods
+
+- Field‑anchored inquiry: walking, listening, and dwelling in specific places as primary texts.  
+- Spatial statistics, network analysis, and mapping of flows (people, credit, data, attention, story).  
+- Institutional and legal analysis of charters, contracts, zoning, and governance documents.  
+- Spiritual and heritage cartography: cemeteries, sacred sites, covenants, and genealogies as real geographies.  
+- Experimental design using infrastructures, AI stewards, and commons platforms as laboratory worlds.
+
+---
+
+## Typical instruments
+
+- **Theoretical frameworks** like Quantarithmia, which formalize how maximopolies, megaopolies, and community‑first geometries can be represented and compared.  
+- **Software apparatus** such as Ms. Jarvis, a glass‑box AI Steward System bound to a specific geography via GBIM and semantic memory.  
+- **Institutional stacks** like MountainShares and The Commons, which encode alternative economic and governance rules for a rural region.
+
+These instruments are not the discipline itself; they are concrete testbeds for its claims.
+
+---
+
+## Example research questions
+
+- How do capital, credit, and narrative about risk move through a given region, and where do they leak away from the communities that generate them?  
+- Which combinations of digital platforms, local charters, and mutual‑aid practices actually keep wealth, attention, and decision‑making rooted in place over time?  
+- How do sacred geographies and genealogies constrain or enable proposed infrastructural changes, from data centers to new credit systems?  
+- When an AI Steward System is introduced into a community, does it make existing power structures more visible and negotiable, or does it quietly harden them?
+
+---
+
+## Where this thesis fits
+
+This thesis treats Quantarithmia (framework), Ms. Jarvis (instrument), and MountainShares / The Commons (case study) as one integrated polymathmatic research program in Appalachia.  
+The hope is that methods refined here will travel—to other rural regions, to ports and financial centers, to digital platforms and spiritual landscapes—where entangled spaces also demand careful, accountable redesign.
+
+---
+
+**For the full disciplinary statement, see:**  
+- `discipline/Polymathmatic Geography.md`  
+- `discipline/Principles of Polymathmatic Geography.md`
+
+**To understand how this thesis instantiates the discipline, start with:**  
+- `thesis/00-overview.md`  
+- `docs/how-to-read-this-thesis.md`
 
 ## 3. Theoretical Pillars
 
