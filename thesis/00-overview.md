@@ -102,7 +102,9 @@ At a high level, Ms. Jarvis can be read as a territorial brain: community inputs
 
 **Figure 1. The Ms. Jarvis Steward System: An AI Architecture for Community Stewardship**
 
-<img width="2752" height="1536" alt="The Ms. Jarvis Steward System: An AI Architecture for Community Stewardship" src="https://github.com/user-attachments/assets/4cef4935-d9b1-48a0-831f-c91a2fadf753" />
+<div align="center">
+  <img width="85%" alt="The Ms. Jarvis Steward System: An AI Architecture for Community Stewardship" src="https://github.com/user-attachments/assets/4cef4935-d9b1-48a0-831f-c91a2fadf753" />
+</div>
 
 *This diagram illustrates the complete end-to-end flow from community input through secure gateway, steward orchestration, geospatial grounding (GBIM), semantic enrichment (Hilbert-space memory), LLM ensemble reasoning, governance checks, and stewarded output.*
 
