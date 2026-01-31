@@ -3,6 +3,7 @@
 > **Case Study: Appalachian Economic Commons** 
 ![FaiGvpYi](https://github.com/user-attachments/assets/5936b7db-d6ff-489b-a66e-b9487b3c7fb9)
 >> Figure 1. MountainShares as Case Study 1 within Polymathmatic Geography, applying Quantarithmia principles to a concrete, place-bound economic system in Mount Hope, West Virginia.
+
 > In this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place-bound economic system in and around Mount Hope, West Virginia:
 > - **Leakage and extraction** – tracking how value “leaks” from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.  
 > - **Commons and shared infrastructure** – treating payment rails, data backbones, and governance tools as shared institutional infrastructure rather than proprietary black boxes.  
