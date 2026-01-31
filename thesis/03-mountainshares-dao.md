@@ -1,9 +1,13 @@
 # 3. MountainShares DAO and Community Economy
 
 > **Case Study: Appalachian Economic Commons** 
+<div align="center">
+  <img width="500" alt="FaiGvpYi" src="https://github.com/user-attachments/assets/ede5051c-b005-4540-81f8-5bb92461e06d" />
+</div>
+
 >> Figure 1. MountainShares as Case Study 1 within Polymathmatic Geography, applying Quantarithmia principles to a concrete, place-bound economic system in Mount Hope, West Virginia.
 
-> In this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place-bound economic system in and around Mount Hope, West Virginia:
+> - In this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place-bound economic system in and around Mount Hope, West Virginia:
 > - **Leakage and extraction** – tracking how value “leaks” from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.  
 > - **Commons and shared infrastructure** – treating payment rails, data backbones, and governance tools as shared institutional infrastructure rather than proprietary black boxes.  
 > - **Accountability to place** – tying rules, flows, and decision rights to specific communities and geographies, so that institutional power is answerable to the places it affects.  
