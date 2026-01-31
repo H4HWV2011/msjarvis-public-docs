@@ -95,7 +95,7 @@ At a high level, Ms. Jarvis can be read as a territorial brain: community inputs
 <img width="2752" height="1536" alt="unnamed" src="https://github.com/user-attachments/assets/4cef4935-d9b1-48a0-831f-c91a2fadf753" />
 
 
-2.7 Minimal path: input → GBIM → memory → LLM fabric → output
+### 2.7 Minimal path: input → GBIM → memory → LLM fabric → output
 
    **Community question or signal.**
     A resident, organizer, or operator sends a question or task (for example, "Show me where food access is most fragile in our county") through a web interface or API connected to the public gateway.
@@ -115,14 +115,15 @@ At a high level, Ms. Jarvis can be read as a territorial brain: community inputs
    **Governance checks and stewarded output.**
     Candidate outputs are checked against non‑goals, red lines, and logging requirements; if necessary, they are revised, rejected, or flagged for human review before a final stewarded response is returned as text, annotated maps, or dashboards.
 
-###3. Theoretical Pillars
+### 3. Theoretical Pillars
 
 The system is built upon three interlocking concepts.
 
-A. The Quantarithmia Framework
+#### A. The Quantarithmia Framework
 
 A methodological framework for analyzing maximopolies (financial giants) and megaopolies (operational/platform giants). It seeks to make invisible flows of extraction visible and proposes community-centered alternatives with spatial justice and stewardship as central concerns.
-B. Ms. Egeria Jarvis (The Steward System)
+
+#### B. Ms. Egeria Jarvis (The Steward System)
 
 A "glassbox" AI Steward System implementing Quantarithmia principles in software. Unlike black-box LLM deployments, Ms. Jarvis relies on:
 
@@ -134,14 +135,15 @@ A "glassbox" AI Steward System implementing Quantarithmia principles in software
 
 - API-level and data-level transparency so that inputs, evidence paths, and outputs can be inspected and audited.
 
-##C. MountainShares DAO
+#### C. MountainShares DAO
 
 A governance system designed to keep value and decision-making rooted in Appalachian communities. It encodes local ownership, voting, and speech norms into rules and documentation, explicitly operating as a community governance layer rather than as a regulated financial institution or autonomous economic actor.
-4. Repository Purpose & Audience
+
+## 4. Repository Purpose & Audience
 
 This repository contains public documentation only. Source code and sensitive deployment details are managed through a separate, access-controlled process to ensure security and operational integrity.
 
-This repository serves as:
+### This repository serves as:
 
    - A technical reference for the Ms. Jarvis Steward System architecture and APIs.
 
@@ -149,7 +151,7 @@ This repository serves as:
 
    - A citable artifact for academic work on Quantarithmia, Steward Systems, and Spatial Justice.
 
-Intended Readers:
+### Intended Readers:
 
    - Researchers: To understand how Quantarithmia and stewardship concepts are instantiated in a real, geospatially grounded AI system.
 
@@ -157,10 +159,11 @@ Intended Readers:
 
    - Auditors: To review the architectural safeguards, governance logic, and data flows.
 
-5. Evaluation and Failure Modes (Overview)
+## 5. Evaluation and Failure Modes (Overview)
 
 This thesis does not only describe architectures; it evaluates how well a specific polymathmatic stack behaves in a live Appalachian entangled space under real constraints.
-5.1 What is being evaluated
+
+### 5.1 What is being evaluated
 
    - The discipline‑level claim that Polymathmatic Geography can produce exportable methods for reading and redesigning entangled spaces, not only Appalachia.
 
@@ -168,7 +171,7 @@ This thesis does not only describe architectures; it evaluates how well a specif
 
    - The apparatus‑level claim that Ms. Jarvis and MountainShares can operate as accountable instruments rather than autonomous authorities, remaining legible to communities, auditors, and researchers.
 
-5.2 Primary failure modes of concern
+### 5.2 Primary failure modes of concern
 
    - Overreach and misrecognition. The Steward System or MountainShares could be misperceived as a sentient actor, a bank, a regulator, or a replacement for human governance, despite explicit non‑goals.
 
@@ -178,9 +181,9 @@ This thesis does not only describe architectures; it evaluates how well a specif
 
    - Spiritual and genealogical harm. Treating sacred sites, cemeteries, or heritage geographies as mere data layers could break covenants with ancestors, descendants, or living communities if not handled with reverence.
 
-5.3 Current guardrails and open questions
+### 5.3 Current guardrails and open questions
 
-Guardrails already in place:
+#### Guardrails already in place:
 
    - Explicit non‑goals (not a sentient being, bank, regulator, or general‑purpose investment vehicle) and constitutional constraints that bound what the system may claim or do.
 
@@ -188,7 +191,7 @@ Guardrails already in place:
 
    - Governance documents for MountainShares and The Commons that define roles, voting procedures, audits, and risk management as human‑interpretable rules rather than hidden model weights.
 
-Open evaluation questions:
+#### Open evaluation questions:
 
    - How to measure "trustworthy stewardship" across technical, legal, spiritual, and experiential dimensions.
 
