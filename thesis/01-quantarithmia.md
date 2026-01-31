@@ -28,7 +28,8 @@ A central distinction in Quantarithmia is between:
 
 <img width="2752" height="1536" alt="unnamed(2)" src="https://github.com/user-attachments/assets/ebc3a307-48a9-4c71-bb14-4140d90a4fe8" />
 Figure 2. The geometry of power in Quantarithmia.
-The diagram maps entities along two axes—capital control and operational/platform control—distinguishing maximopolies (high capital control) from megaopolies (high operational control), with illustrative cases such as private equity funds, local landlord LLCs, and cloud/logistics platforms in an Appalachian context.​
+The diagram maps entities along two axes—capital control and operational/platform control—distinguishing maximopolies (high capital control) from megaopolies (high operational control), with illustrative cases such as private equity funds, local landlord LLCs, and cloud/logistics platforms in an Appalachian context.
+​
 
 Quantarithmia studies how maximopolies and megaopolies intersect in rural and small‑town contexts, mapping how their combined infrastructures channel value and decision‑making authority away from local communities. This mapping is both empirical (data‑driven) and ethical (evaluated against spatial justice criteria).
 
