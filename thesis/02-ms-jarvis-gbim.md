@@ -11,11 +11,14 @@
 
 Within **polymathmatic geography**, Ms. Egeria Jarvis is a bounded, bio‑inspired Steward System whose beliefs are explicitly anchored in place, time, and evidence. **GBIM** (Geospatial Belief Information Model) is the core layer tying Ms. Jarvis's reasoning to concrete geographies in West Virginia and Appalachia, implemented as a **Generalized Bio‑inspired Machine** design.
 
-This chapter presents Ms. Jarvis as a glassbox AI Steward System and explains the Geospatial Belief Information Model underpinning its reasoning. The focus is on a rigorous, inspectable architecture for layered reasoning, memory, and judgment explicitly tied to geospatial entities, temporal context, and evidential provenance. Within Quantarithmia, Ms. Jarvis and GBIM serve as the technical realization of spatially grounded, justice‑oriented reasoning: they enable asking "What does the Steward System hold about this place, for whom, under whose authority, and based on what evidence?" with auditable, contestable answers.
+This chapter presents Ms. Jarvis as a glassbox AI Steward System and explains the Geospatial Belief Information Model underpinning its reasoning. The focus is on a rigorous, inspectable architecture for layered reasoning, memory, and judgment explicitly tied to geospatial entities, temporal context, and evidential provenance. Within Quantarithmia, Ms. Jarvis and GBIM serve as the technical realization of spatially grounded, justice‑oriented reasoning: they enable asking "What does the Steward System hold about this place, for whom, under whose authority, and based on what evidence?" with auditable, con!
+testable answers.
 
 ---
 
 ## What GBIM Is
+![geospatial beleif information model](https://github.com/user-attachments/assets/331685c5-977e-4b60-9a96-3150b71787a2)
+Figure 1. High‑level structure of the Geospatial Belief Information Model (GBIM), showing the PostGIS geospatial corpus, Chroma semantic collections, and the production belief graph schema, all tied together by nine epistemic axes (who, what, where, when, how, why, for whom, under whose authority, on what evidence).
 
 GBIM is Ms. Jarvis's internal model for tying beliefs to **who**, **what**, **where**, **when**, **how**, **why**, **for whom**, **under whose authority**, and **on what evidence**, focused on West Virginia and Appalachia. The current production deployment integrates three cooperating layers:
 
