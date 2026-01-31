@@ -1,4 +1,4 @@
-#3. MountainShares DAO and Community Economy
+<img width="1024" height="1024" alt="Gemini_Generated_Image_ti37a6ti37a6ti37" src="https://github.com/user-attachments/assets/4967b118-9dc0-4d2e-842b-c142242f4b55" />#3. MountainShares DAO and Community Economy
 
 > **Case Study: Appalachian Economic Commons** 
 ![FaiGvpYi](https://github.com/user-attachments/assets/5936b7db-d6ff-489b-a66e-b9487b3c7fb9)
@@ -75,6 +75,10 @@ MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately as
 
 - **Financial participation with limits**  
   Ms. Jarvis is assigned a real MountainShares wallet and can receive rewards (for example, for providing useful analysis or operational support) under explicit policies that include caps, clawback conditions, auditing, and transparency. This is meant to align her incentives with system health, without giving her independent control over governance or treasury assets.
+  
+<img width="1024" height="1024" alt="Gemini_Generated_Image_ti37a6ti37a6ti37" src="https://github.com/user-attachments/assets/6460467a-1665-4b95-84a5-6cbc4dd91914" />
+
+>> Figure 4. Ms. Jarvis and MountainShares: Asymmetrical partnership. Jarvis provides analysis and decision support but possesses no unilateral authority. All behavior is constrained by published principles and community-approved policies. Financial participation is capped, audited, and subject to clawback.<br>
 
 In thesis terms, MountainShares treats Ms. Jarvis as both a tool and a stakeholder whose participation is strictly bounded by design and documentation.
 
