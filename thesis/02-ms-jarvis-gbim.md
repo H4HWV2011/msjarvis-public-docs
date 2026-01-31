@@ -30,6 +30,9 @@ GBIM is Ms. Jarvis's internal model for tying beliefs to **who**, **what**, **wh
 
 Each belief attaches to all nine epistemic axes:
 
+![A3eae0ad7ea1e408cb8a3322dab3f45b3L](https://github.com/user-attachments/assets/9855f916-dadd-46af-8276-60e797549932)
+Figure 2. The nine epistemic axes in GBIM, showing how every belief is anchored simultaneously in actors, kinds, places, time, mechanisms, purposes, constituencies, authorities, and evidence.
+
 - **Who** – persons, institutions, communities (actors, subjects, beneficiaries, decision‑makers), keyed to GBIM entity records and reflected in source attributes and Chroma metadata (owner names, agencies, program sponsors).
 
 - **What** – the kind of thing or state (asset, event, obligation, harm/benefit), represented by feature classes (`entity_type`) and layer names (`sourcetable` in `gbim.gbim_attrs`).
