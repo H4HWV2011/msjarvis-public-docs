@@ -158,6 +158,14 @@ Informally, this procedure “projects the query into the Hilbert space, finds n
 
 ### 4.6 Roles, Constraints, and Subspaces
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a43048e5-1aea-4ef9-a12f-2b8792056816"
+       alt="Hilbert-Space State of Ms. Jarvis"
+       width="900">
+</p>
+
+>>Figure 2 – Roles, constraints, and justice dynamics in \(H_{\text{App}}\). The effective reasoning space \(H_{\text{eff}}\) is the intersection of role, geography, and constraint subspaces; operators \(T\) move the community state \(v_t\) relative to a just region \(H_{\text{just}}\), evaluated by the spatial‑justice functional \(J(v)\).*
+
 Let
 
 - \(R\) be a set of roles (for example, `researcher`, `engineer`, `community_advisor`, `governance`), and  
