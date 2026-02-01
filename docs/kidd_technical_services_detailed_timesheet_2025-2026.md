@@ -148,13 +148,6 @@ Under Generally Accepted Accounting Principles (GAAP), this contribution qualifi
   - **Debit:** In-kind Revenue (Statement of Activities)
   - **Credit:** In-kind Expense (Program Services)
 
-### Board Resolution Requirement
-Harmony for Hope board must pass resolution documenting:
-- Recognition of Kidd's Technical Services, LLC as technical founder
-- Acknowledgment of 4,704 hours contributed at fair market value
-- Establishment of founder's equity account in MountainShares
-- Authorization for use in grant applications and governance documents
-
 ### Tax Treatment (U.S. Federal)
 - Kidd's Technical Services, LLC: **No income reported** (work-for-equity, not compensation)
 - Kidd's Technical Services, LLC: **No charitable deduction** (IRS does not allow deduction for value of services, only out-of-pocket expenses)
