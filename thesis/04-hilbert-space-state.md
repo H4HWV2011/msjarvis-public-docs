@@ -1,7 +1,8 @@
 > **Why this matters for Polymathmatic Geography**  
 <img width="2752" height="1536" alt="unnamed(4)" src="https://github.com/user-attachments/assets/8acf4890-aa57-446c-9220-f766305edb37" />
 
->>Figure 1 – Hilbert‑space state of Ms. Jarvis: HtextHtext, HgeoHgeo, and HinstHinst embeddings form a single state space HAppHApp, supporting entangled layers, power‑as‑geometry, design‑as‑projections, WV‑grounded embeddings, and accountable subspaces.​
+>>Figure 1 – Hilbert‑space state of Ms. Jarvis: HtextHtext, HgeoHgeo, and HinstHinst embeddings form a single state space HAppHApp, supporting entangled layers, power‑as‑geometry, design‑as‑projections, WV‑grounded embeddings, and accountable subspaces.
+​
 > This chapter turns Polymathmatic Geography’s claim that **every where is entangled** into a concrete, production‑anchored mathematical engine for Ms. Jarvis. It supports:  
 > - **P1 – Every where is entangled** by representing semantic, spatial, and institutional layers as components of a single Hilbert‑space state, rather than as separate silos.  
 > - **P3 – Power has a geometry** by treating flows of leverage, extraction, and obligation as operators on that state, so that “who is exposed to what” becomes a geometric question.  
