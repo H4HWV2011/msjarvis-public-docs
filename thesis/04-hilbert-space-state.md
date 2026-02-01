@@ -1,5 +1,9 @@
 > # **Why this matters for Polymathmatic Geography**  
-<img src="..." alt="Roles, Constraints, and Justice Dynamics" width="900">
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8acf4890-aa57-446c-9220-f766305edb37"
+       alt="Roles, Constraints, and Justice Dynamics"
+       width="900">
+</p>
 
 >>Figure 1 – Hilbert‑space state of Ms. Jarvis: HtextHtext, HgeoHgeo, and HinstHinst embeddings form a single state space HAppHApp, supporting entangled layers, power‑as‑geometry, design‑as‑projections, WV‑grounded embeddings, and accountable subspaces.
 ​
