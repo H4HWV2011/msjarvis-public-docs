@@ -289,7 +289,11 @@ for entity_id in entity_ids:
     row = cursor.fetchone()
     print("Hospital:", row)
 
-  <img width="2752" height="1536" alt="unnamed(8)" src="https://github.com/user-attachments/assets/09675a62-3573-45cf-b750-139432612442" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/09675a62-3573-45cf-b750-139432612442"
+       alt="gbim_worldview_entities as Consolidated Spatial Memory"
+       width="900">
+</p>
 
 >>*Figure 3 – End‑to‑End Spatial RAG Query through ChromaDB and GBIM. Depicts the path from a user’s spatial question, through Chroma similarity search and metadata filters, into GBIM belief and geometry retrieval, and out to advisory output.*
 
