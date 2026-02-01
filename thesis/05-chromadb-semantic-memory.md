@@ -13,6 +13,14 @@
 
 This chapter explains how Ms. Egeria Jarvis uses ChromaDB as the primary semantic memory layer backing the Hilbert‑space representation, GBIM, and the broader semantic fabric. ChromaDB is a vector database that stores high‑dimensional embedding vectors with associated metadata and exposes efficient similarity search and filtering operations. In this system, ChromaDB is not merely a convenience library; it is the concrete implementation of long‑term, queryable memory for documents, GIS features, governance texts, autonomous‑learning traces, and thesis materials.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5f6bf0d9-91ca-4692-8b1c-95fbceec81b7"
+       alt="ChromaDB as Semantic Memory in Ms. Jarvis"
+       width="900">
+</p>
+
+>>*Figure 1 – ChromaDB as Semantic Memory in Ms. Jarvis. Shows how services embed texts and GIS features into ChromaDB collections, making abstract Hilbert‑space state a concrete, queryable memory layer for RAG.*
+
 Within the Quantarithmia program, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑product space described in the previous chapter, but are realized through a specific embedding model and index implementation. It is the place where beliefs, contexts, and references become durable and retrievable for reasoning and retrieval‑augmented generation (RAG). Conceptually, each collection corresponds to an empirically instantiated subset of the Hilbert space \(H_{\text{App}}\), and stored vectors approximate elements of the spaces described in the previous chapter.
 
 ---
@@ -53,6 +61,14 @@ The primary spatial memory collection in production as of January 2026 is:
 - **Worldview context:** UUID `002c2c84-2f18-40b7-8a98-b8d813dd6cc7`  
 
 This collection is built by exporting GBIM worldview entities and their attributes from PostGIS, enriching them with spatial and provenance metadata, and indexing them as text embeddings in ChromaDB.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1469b3c1-f9e8-4b9d-a021-a79baa89ee58"
+       alt="End-to-End Spatial RAG Query through ChromaDB and GBIM"
+       width="900">
+</p>
+
+>>*Figure 2 – gbim_worldview_entities as Consolidated Spatial Memory. Illustrates the unified spatial collection of 6,119,134 records with core and extended metadata linking ChromaDB vectors back to GBIM worldview entities and PostGIS geometries.*
 
 **Document structure**
 
@@ -272,6 +288,10 @@ for entity_id in entity_ids:
     
     row = cursor.fetchone()
     print("Hospital:", row)
+
+  <img width="2752" height="1536" alt="unnamed(8)" src="https://github.com/user-attachments/assets/09675a62-3573-45cf-b750-139432612442" />
+
+>>*Figure 3 – End‑to‑End Spatial RAG Query through ChromaDB and GBIM. Depicts the path from a user’s spatial question, through Chroma similarity search and metadata filters, into GBIM belief and geometry retrieval, and out to advisory output.*
 
 The end‑to‑end pipeline thus behaves as a structured walk through curated, domain‑specific memory organized around GBIM, the GeoDB spatial body, and Quantarithmia's research concepts.
 
