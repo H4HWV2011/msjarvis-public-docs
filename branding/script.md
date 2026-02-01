@@ -1,6 +1,4 @@
 # Idea 1 (Draft) 02/01/2026 
-The bit you found is a great core monologue. Here’s a tightened version that keeps your folklore cadence and “Mamma Kidd” voice:
-
 ***
 
 I saw where a friend of mine on Facebook spent that whole storm just sittin’ there goin’ down their friends list, checkin’ in on folks.  
