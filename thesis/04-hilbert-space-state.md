@@ -1,4 +1,4 @@
-> **Why this matters for Polymathmatic Geography**  
+> # **Why this matters for Polymathmatic Geography**  
 <img width="2752" height="1536" alt="unnamed(4)" src="https://github.com/user-attachments/assets/8acf4890-aa57-446c-9220-f766305edb37" />
 
 >>Figure 1 – Hilbert‑space state of Ms. Jarvis: HtextHtext, HgeoHgeo, and HinstHinst embeddings form a single state space HAppHApp, supporting entangled layers, power‑as‑geometry, design‑as‑projections, WV‑grounded embeddings, and accountable subspaces.
