@@ -123,7 +123,7 @@ Unlike venture capital, this investment:
 - **Demonstrated Capacity:** Proof of ability to execute complex technical infrastructure projects
 - **Grant Readiness:** Pre-investment evidence for federal and foundation funding applications (ARC, ESDA, USDA RD)
 - **Institutional Capital:** $705,600 in documented in-kind matching funds for grant proposals
-- **Risk Reduction:** Funders recognize H4H has already invested 2.3 years of expert-level time, reducing perceived execution risk
+- **Risk Reduction:** H4H has already invested 2.3 years of expert-level time
 
 ### For MountainShares
 - **Economic Infrastructure:** Foundation for mutual credit system serving West Virginia Appalachian communities
