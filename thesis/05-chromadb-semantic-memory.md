@@ -1,11 +1,11 @@
-**Why this matters for Polymathmatic Geography**  
-This chapter specifies how Ms. Jarvis's semantic memory is implemented in practice, turning abstract Hilbert‑space representation, GBIM entities, and a verified local resource registry into a concrete, inspectable memory system. It supports:  
-- **P1 – Every where is entangled** by storing texts, GIS features, governance rules, local program records, and spatial materials in shared collections and tables that can be jointly retrieved and analyzed.  
-- **P3 – Power has a geometry** by representing institutional, spatial, and access‑to‑help relationships as vectors, metadata, and registries that can be queried and clustered to reveal patterns of extraction, access, and obligation.  
-- **P5 – Design is a geographic act** by treating collection design, metadata schemas, index parameters, and verification logic as deliberate interventions into how a region's knowledge and memory are structured.  
-- **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific spatial layers, governance documents, community narratives, and ZIP‑keyed resource records.  
-- **P16 – Power accountable to place** by making Ms. Jarvis's long‑term memory explicit, queryable, auditable, and, in the case of local resources, explicitly versioned and re‑verifiable over time, rather than hidden inside opaque model parameters.  
-As such, this chapter belongs to the **Computational Instrument** tier: it defines the semantic memory substrate on which Quantarithmia's reasoning, GBIM's belief structures, the verified local‑resources band, and MountainShares‑oriented governance analysis actually run.
+>**Why this matters for Polymathmatic Geography**  
+>This chapter specifies how Ms. Jarvis's semantic memory is implemented in practice, turning abstract Hilbert‑space >representation, GBIM entities, and a verified local resource registry into a concrete, inspectable memory system. It ?>supports:  
+>- **P1 – Every where is entangled** by storing texts, GIS features, governance rules, local program records, and spatial >materials in shared collections and tables that can be jointly retrieved and analyzed.  
+>- **P3 – Power has a geometry** by representing institutional, spatial, and access‑to‑help relationships as vectors, >metadata, and registries that can be queried and clustered to reveal patterns of extraction, access, and obligation.  
+>- **P5 – Design is a geographic act** by treating collection design, metadata schemas, index parameters, and >verification logic as deliberate interventions into how a region's knowledge and memory are structured.  
+>- **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific spatial >layers, governance documents, community narratives, and ZIP‑keyed resource records.  
+>- **P16 – Power accountable to place** by making Ms. Jarvis's long‑term memory explicit, queryable, auditable, and, in >the case of local resources, explicitly versioned and re‑verifiable over time, rather than hidden inside opaque model >parameters.  
+>As such, this chapter belongs to the **Computational Instrument** tier: it defines the semantic memory substrate on >which Quantarithmia's reasoning, GBIM's belief structures, the verified local‑resources band, and >MountainShares‑oriented governance analysis actually run.
 
 ## 5. ChromaDB as Semantic Memory
 
