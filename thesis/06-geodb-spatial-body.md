@@ -13,7 +13,9 @@
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. The GeoDB layer is tightly coupled to GBIM, to the Chroma‑based Hilbert space accessed via text and GIS RAG services, and to the local‑resources registry, so that beliefs and narratives are grounded not only in abstract embeddings but also in specific buildings, river reaches, floodplains, mines, benefits hubs, and infrastructure corridors. The focus here is on the structure and status of the PostGIS‑based geodatabase and its relationship to ChromaDB collections and RAG flows, not on exhaustive cataloging of every possible dataset. Figure 6.1 summarizes the main containers and data stores involved in this spatial body.
 
-<img width="2752" height="1536" alt="Ms  Jarvis Geospatial System Architecture" src="https://github.com/user-attachments/assets/10927cf5-f1df-455e-b4d9-7eb560d62375" />
+<img src="https://github.com/user-attachments/assets/10927cf5-f1df-455e-b4d9-7eb560d62375"
+     alt="Ms. Jarvis Geospatial System Architecture"
+     width="1376" />
 
 >>- Figure 6.1. High‑level container‑style view of the Ms. Jarvis Steward System, showing user clients, the 21‑LLM >>ensemble, and the containerized backing stores (PostGIS GeoDB, GBIM, ChromaDB, local_resources, Redis, Neo4j). The >>diagram emphasizes PostGIS as the spatial backbone, GBIM as the worldview and belief layer, and Chroma collections >>(gbim_worldview_entities, gis_wv_benefits, geodb*) as the primary spatial memory in Hilbert space.
 
