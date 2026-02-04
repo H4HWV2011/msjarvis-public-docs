@@ -1,219 +1,266 @@
 # Polymathmatic Geography and Junction Conditions
 
-## 1. Many Worlds in the Same Place
+> This chapter is deliberately split in two layers.  
+> Sections 1–4: **Concrete implementation** – how real systems in this thesis actually connect.  
+> Sections 5–8: **Interpretive framing** – how those same interfaces can be read as “junction conditions” between overlapping worlds.
 
-Polymathmatic geography begins from the claim that many kinds of spaces are real: river valleys and coal seams, undersea cables and data centers, neural networks and sensor grids, liturgies and dreamscapes, galaxies and multiverses. Each of these can be understood as a **world** with its own coordinates, laws, and conservation rules. A single town may simultaneously inhabit:
+---
 
-- A **maximopolie‑world** where capital allocation, credit scores, and index funds decide which projects live or die.
-- A **megaopolie‑world** where logistics centers, platforms, and clouds determine where people work, shop, and communicate.
-- A **BRICS‑world** where new corridors, currencies, and treaties shift energy, trade, and diplomatic attention.
-- A **Quantarithmia‑world** where Ms. Jarvis, MountainShares, and The Commons define alternative rules for value, visibility, and governance.
-- A **spiritual‑world** where liturgies, covenants, and ancestors map obligations and prohibitions that do not appear in any ledger or API.
+## 1. Concrete Interfaces in the Ms. Jarvis / MountainShares / Commons Stack
 
-Each of these is a **compositional universe**: a coherent stack of infrastructures, metrics, narratives, and institutions that hang together and define what counts as real, possible, and impossible. They overlap in the same physical space but do not share a single set of laws. The question for polymathmatic geography is: how are these worlds stitched together in practice, and what happens at the seams?
+Polymathmatic geography in this thesis is not an abstract proposal. It is a set of running systems stitched together over one geography:
 
-This is where the physics analogy of **junction conditions** becomes useful.
+- **Ms. Egeria Jarvis** – a glassbox AI steward with a public OpenAPI specification, Postgres/PostGIS geospatial spine, Chroma semantic memory, and a multi‑service LLM fabric.  
+- **MountainShares DAO** – a governed, closed‑loop rewards and mutual‑credit system with published program rules, parameter tables, safety specs, and governance charter.  
+- **The Commons** – a social and marketplace app with Terms of Use, Community Guidelines, and Privacy Policy, deployed for West Virginia communities.  
 
-## 2. Junction Conditions: A Physics Analogy
+Each of these systems has its own internal rules. Junctions appear wherever they need to exchange data, value, or authority.
 
-In physics, junction conditions appear when two different media or theories meet:
+At a concrete level, “junction conditions” are implemented as:
 
-- At the boundary between two materials, electrical and mechanical fields must satisfy continuity conditions (e.g., matching of certain field components, conservation of flux).
-- At a domain wall in cosmology, different vacuum states or phases of a field meet, and specific conditions determine how fields and metrics behave across the wall.
-- In effective field theory, different effective descriptions apply in different regimes, and matching conditions ensure that physical quantities align where the regimes overlap.
+- **API contracts** – JSON schemas in `openapi.json` and REST endpoints in `API-OVERVIEW.md` that define what Ms. Jarvis can send and receive.  
+- **Database schemas** – GBIM tables in PostGIS, semantic collections in Chroma, and ledger/treasury tables for MountainShares.  
+- **DAO rules** – parameterized fees, caps, reserve‑ratio triggers, and voting procedures in the MountainShares Program Rules and Governance Charter.  
+- **Platform policies** – Commons Terms of Use, Privacy Policy, and Moderation Policy that govern user‑facing behavior and content.
 
-The key idea is simple: when two **effective theories** meet, you cannot just let them ignore each other. Certain quantities must match or transform in consistent ways across the interface, or else the combined description breaks down.
+Those four families of documents are where junctions live in practice.
 
-Polymathmatic geography faces an analogous problem. Each compositional universe—maximopolie‑world, BRICS‑world, Quantarithmia‑world, platform‑world, spiritual‑world—embeds its own:
+---
 
-- Coordinates (what counts as “near” or “far”).
-- Laws (how flows move, who has authority).
-- Conserved quantities (what must be preserved or cannot be violated).
-- Symmetries (what transformations leave things “the same”).
+## 2. How Data Crosses: GBIM, APIs, and The Commons
 
-At the points where these worlds meet—contracts, borders, logins, rituals, ports, junction boxes—certain things must be matched, translated, or negotiated. Those are the **junctions**.
+### 2.1 GBIM as the shared spatial spine
 
-## 3. Worlds as Local Universes
+The **Geospatial Belief Information Model (GBIM)** is the core spatial database for Ms. Jarvis:
 
-To make this precise, consider each world as a local universe with:
+- Implemented as Postgres 16 + PostGIS with millions of records for buildings, blocks, infrastructures, and entities.  
+- Provides stable identifiers and geometries for places and actors.  
+- Acts as the “where” coordinate system for both Ms. Jarvis reasoning and Commons / MountainShares operations.
 
-1. **State space \(\mathcal{S}_\alpha\).**  
-   For a world \(\alpha\) (e.g., maximopolie, BRICS, Quantarithmia, platform, spiritual), there is a set of states described in its own coordinates:
-   - Positions: which entities and locations exist and how they are indexed.
-   - Fields: capital allocations, contracts, tokens, rituals, narratives, rights.
-   - Metrics: how distance, risk, closeness, or cost are measured.
+Key junction properties:
 
-2. **Dynamics \(D_\alpha\).**  
-   Update rules for that world:
-   - How capital moves and is rebalanced.
-   - How goods and data are routed.
-   - How tokens are issued and redeemed.
-   - How covenants are made and enforced.
+- Every entity that matters to The Commons or MountainShares (e.g., a merchant, a trail site, a nonprofit) is anchored to a GBIM ID and geometry.  
+- Ms. Jarvis APIs that accept or return entities include GBIM identifiers, ensuring responses and decisions can be traced to specific places.  
 
-3. **Conservation rules \(C_\alpha\).**  
-   What each world tries to preserve:
-   - Maximopolie‑world preserves portfolio value, liquidity, and risk profiles.
-   - Megaopolie‑world preserves throughput, engagement, uptime.
-   - BRICS‑world preserves energy security, sovereign leverage, multipolar balance.
-   - Quantarithmia‑world preserves local circulation, commons health, and justice constraints.
-   - Spiritual‑world preserves covenants, ritual integrity, and ancestral obligations.
+**Condition:** If data crosses from the Commons or DAO into Ms. Jarvis, it must be attachable to a GBIM entity or geometry, or explicitly marked as unanchored. This prevents “floating” claims with no place.
 
-4. **Symmetries \(G_\alpha\).**  
-   Transformations that leave the world “the same”:
-   - Maximopolie‑world: relabeling equivalent assets; rotating portfolios within risk tolerances.
-   - Megaopolie‑world: swapping equivalent warehouses or servers.
-   - Quantarithmia‑world: local isomorphisms that preserve where‑anchoring and commons rules.
-   - Spiritual‑world: transformations that preserve core narratives, liturgical cycles, and sacred sites.
+### 2.2 Ms. Jarvis APIs as controlled gateways
 
-Each world can be modeled with its own effective theory. The challenge is not to force a single theory to dominate, but to understand and design the **junction conditions** where they must talk.
+The `openapi.json` specification and `docs/API-OVERVIEW.md` define a limited set of public endpoints:
 
-## 4. Domain Walls, Wormholes, and Stitching
+- Query endpoints (ask, map, analyze) accept structured input plus optional GBIM IDs, coordinates, time windows, and tags.  
+- Retrieval endpoints fetch facts or context about entities anchored in GBIM.  
+- Governance/diagnostic endpoints expose logs, health, and configuration status without revealing sensitive internal state.
 
-In this multiverse of worlds, certain entities and artifacts act as **junctions**:
+Concrete junction rules:
 
-- **People** who carry identities, memories, debts, and rights across worlds:
-  - A resident is simultaneously a worker in a megaopolie supply chain, a beneficiary of a state program, a participant in a DAO, a member of a church, and a subject of maximopolie investment decisions.
-- **Contracts and ledgers** that operate in multiple worlds:
-  - A loan contract is written in state law, priced by global risk models, collateralized by local land, constrained by spiritual taboos, and maybe complemented by a mutual‑credit promise in MountainShares.
-- **Data flows** that cross boundaries:
-  - A sensor reading on a mountain feeds into a platform’s data center, into a state hazard model, into Ms. Jarvis’s belief graph, and into a spiritual narrative about omen or warning.
-- **Infrastructures** that carry multiple meanings:
-  - A pipeline is an energy corridor in BRICS‑world, an investment vector in maximopolie‑world, a hazard and scar in local physical‑world, and a symbol of betrayal or necessity in spiritual‑world.
+- **Type and schema matching:** All requests and responses must conform to the OpenAPI schemas. If the Commons app wants an answer, it must send data in those formats.  
+- **Anchoring:** Where possible, inputs must include where/when anchors. Ms. Jarvis will not silently invent locations; it either infers from GBIM or returns uncertainty.  
+- **Logging:** Calls across this boundary are logged for audit, with enough metadata to reconstruct what was asked and what evidence was used.
 
-These junctions function like **domain walls and wormholes**:
+These are engineering‑level junction conditions between The Commons and Ms. Jarvis.
 
-- Domain walls: where two worlds meet along an extended interface (e.g., when a region is simultaneously governed by state law and a platform’s terms of service, or when BRICS corridors and U.S. corridors overlap).
-- Wormholes: where a single act or artifact connects distant parts of different worlds (e.g., a DAO vote that affects a treasury held in a bank in a different legal regime, or an API call that jumps from a local commons platform to a global cloud).
+### 2.3 The Commons as user‑facing layer
 
-Polymathmatic geography’s job is to identify these junctions and describe the conditions they must satisfy.
+The **Commons app** is the main interface for residents:
 
-## 5. Junction Conditions Between Worlds
+- Provides social features, marketplace listings, event coordination, historic trail navigation (via Clio), and educational content.  
+- Integrates MountainShares balances and rewards, and selectively calls Ms. Jarvis APIs for recommendations, maps, or explanations.  
+- Enforces Community Guidelines, Terms of Use, and Privacy Policy.
 
-A junction condition, in this sense, is a rule that specifies how quantities in one world are matched or transformed when they cross into another. A few illustrative types:
+Junction rules here include:
 
-### 5.1 Value Matching
+- **Consent and scope:** What user data (location, posts, offers, attendance) can be shared with Ms. Jarvis or DAO components, under what purposes.  
+- **Moderation hooks:** When Ms. Jarvis is used to assist moderation, its outputs are advisory; final decisions respect published moderation policy.  
+- **Visibility:** Actions that cross systems (e.g., using MountainShares at a merchant inside the Commons app) must be visible in user histories and, where appropriate, in DAO dashboards.
 
-When a transaction crosses from one world to another, it should satisfy:
+---
 
-- **Conservation up to agreed leakage.**  
-  The amount of value lost to fees, spreads, and extraction is bounded by design.
-- **Transparent mapping.**  
-  One unit in world A corresponds to a specified claim in world B (e.g., a MountainShare to a dollar, a local credit to a platform voucher), with clear rules for when and how this can change.
+## 3. How Value Crosses: MountainShares Rules and External Money
 
-Example: A MountainShares purchase that pays a local merchant while also triggering a small fiat settlement to a bank. Junction conditions specify:
+MountainShares is explicitly designed as a **closed‑loop, community rewards and trading program**, not a bank or security. Its junctions are specified in:
 
-- How many MountainShares are burned.
-- How many dollars move through maximopolie‑world.
-- How much leakage is allowed out of the local commons.
+- `MountainShares DAO Governance Charter.md`  
+- `MountainShares Program Rules(Draft).md`  
+- `Program Rules – Parameter Tables.md`  
+- `MountainShares Phase 1: Economic Safety Specification.md`  
+- `Terms and Conditions.md`
 
-### 5.2 Rights and Obligations Matching
+### 3.1 Internal value flow
 
-When legal or spiritual obligations interact:
+Within the MountainShares universe:
 
-- **Non‑violation of hard constraints.**  
-  A contract enforceable in state law should not force someone to violate a core covenant or taboo recognized in spiritual‑world, or vice versa, without explicit, contested acknowledgement.
-- **Priority rules.**  
-  Clear ordering when worlds disagree (e.g., spiritual obligations may override certain profit motives; constitutional rights may override platform policies).
+- Participants earn MountainShares (M) through documented contributions, purchases at local merchants, or program activities.  
+- Transfers between participants, rewards, and redemptions follow parameterized fee rules:
+  - Loading fiat into the system – fixed percentage fee.  
+  - Internal transfers – small flat fee.  
+  - Local merchant purchases – merchant fee that funds treasury and operations.  
+  - ATM / cash‑out (where enabled) – fixed, bounded fee with hard limits.
 
-Example: A BRICS‑funded infrastructure project in a Quantarithmia‑instrumented region. Junction conditions define:
+These are **internal conservation rules**: how much value can move, where it can leak, and where it must stay.
 
-- The minimum obligations to local commons (employment, environmental care, sacred site protection).
-- The bounds on extraction and land use.
-- How conflicts between treaty obligations and local spiritual orders are surfaced and negotiated.
+### 3.2 Junction with external currency and institutions
 
-### 5.3 Information and Representation Matching
+At the edges:
 
-When information about a place moves between worlds:
+- Fiat on‑ramps and off‑ramps (where permitted) are constrained by:
+  - Reserve ratio triggers (never exceeding safe backing thresholds).  
+  - Maximum load and cash‑out limits per user and per period.  
+  - Compliance expectations for taxation and benefits interactions.
 
-- **Anchoring and attribution.**  
-  Data leaving a Quantarithmia‑world must carry where/when/what/who/why anchors; systems ingesting it must respect or explicitly transform those anchors.
-- **Privacy and consent constraints.**  
-  Data collected under one set of expectations should not be silently repurposed in another world.
+- Treasury and program budgets must:
+  - Obey DAO‑approved parameters.  
+  - Satisfy an audit and risk management plan.  
+  - Maintain transparency to participants via published dashboards and IPFS‑backed records.
 
-Example: Ms. Jarvis generates a report that is consumed by a megaopolie platform or a BRICS‑aligned development bank. Junction conditions specify:
+Engineering‑level junction conditions:
 
-- Which level of detail can leave the local corpus.
-- How uncertainty and risk are represented.
-- What rights the community retains over downstream use.
+- **Value mapping:** A clear, parameterized mapping between M and USD for internal accounting, without promising any fixed exchange rate or investment return.  
+- **Leakage caps:** Hard coded and governed caps on how much value can be removed from the closed loop via fees or off‑ramps in any period.  
+- **Regulatory boundaries:** Explicit statements that MountainShares is not legal tender, a bank product, or a security, and constraints on how it can be used.
 
-### 5.4 Temporal Matching
+These conditions define how value can cross between the MountainShares universe and the wider dollar economy.
 
-Different worlds operate on different time structures:
+---
 
-- Quarterly earnings and election cycles.
-- Project finance timelines and treaty horizons.
-- Liturgical years and ancestral time.
-- DAO epochs and token vesting schedules.
+## 4. How Governance Crosses: DAO, Policies, and Ms. Jarvis
 
-Junction conditions require:
+Governance itself has junctions:
 
-- **Explicit temporal translation.**  
-  How many platform cycles fit in a liturgical season; how many BOT payouts fit in a generational promise.
-- **Protection against temporal arbitrage.**  
-  Preventing actors from exploiting differences in clocks (e.g., short‑term profit vs long‑term ecological or spiritual commitments) without transparent acknowledgement.
+- **MountainShares DAO** defines:
+  - Who can propose changes (rank‑based participation and anti‑sybil criteria).  
+  - What parameters can be changed by vote (within safety envelopes).  
+  - Which rules are hard‑coded and cannot be overridden by DAO decisions (reserve‑ratio protections, legal compliance constraints).
 
-Example: An agreement where maximopolies finance a transition in exchange for long‑term resource rights, in a region where spiritual‑world claims land for multiple generations. Junction conditions define:
+- **The Commons** defines content and community governance:
+  - What is allowed or disallowed in the social and marketplace space.  
+  - Procedures for reporting, review, and appeals.  
 
-- Minimum horizons for evaluation of impacts.
-- How to align, or at least compare, different time frames.
+- **Ms. Jarvis** operates under a set of constitutional and safety constraints:
+  - Explicit non‑goals: not a person, not a regulator, not a bank, not an autonomous decision‑maker.  
+  - Governance hooks: configuration and code changes must flow through documented processes, often involving DGM proposals and human review.
 
-## 6. Junction Failures and Friction
+Junction conditions for governance include:
 
-Just as in physics, junction conditions can fail—or be violated. When they do, the result is not just “model error” but lived harm:
+- **Scope separation:** DAO cannot vote to override legal constraints or economic safety triggers; Commons moderators cannot force Ms. Jarvis to violate its constitutional limits; Ms. Jarvis cannot unilaterally change DAO or Commons rules.  
+- **Auditability:** Any governance decision that affects flows (fees, caps, policies) must be traceable to:
+  - A proposal.  
+  - A vote or approval event.  
+  - A documented change in code or parameters.  
 
-- **Value mismatch:** extractive contracts that drain much more than communities can bear, leaving behind debt and damage.
-- **Rights mismatch:** legal agreements that force violations of covenants, ancestral claims, or constitutional protections.
-- **Information mismatch:** data used out of context, leading to misclassification, over‑policing, or misallocation.
-- **Temporal mismatch:** development rushed to meet an election or quarterly target that destroys slow‑growing ecologies or cultural practices.
+- **Feedback loops:** Ms. Jarvis can surface analytics and risk flags to the DAO and Commons leadership, but they remain advisory; human bodies make final decisions within published charters.
 
-In the multiverse picture, these failures look like **tears and shear stresses** at the seams: the universes are stitched together badly. People who sit at these junctions absorb the tension as stress, burnout, dispossession, or moral injury.
+This is governance as structured, cross‑system interface design.
 
-Polymathmatic geography, by making the junctions explicit, can:
+---
 
-- Diagnose where conditions are inconsistent or absent.
-- Propose new stitching rules (legal reforms, protocol changes, design patterns).
-- Evaluate, over time, whether those junctions are carrying load without catastrophic failure.
+## 5. Interpreting These Interfaces as Junction Conditions Between Worlds
 
-## 7. Designing Better Junctions
+The previous sections described concrete interfaces. This section offers an interpretive frame: those same interfaces can be seen as **junction conditions between overlapping “worlds”**.
 
-If each world has its own laws, and people and artifacts are the stitching, then part of the discipline’s design work is to craft **better junctions**:
+Each major actor defines a different effective world:
 
-- **Protocols** for value exchange that cap leakage and honor local commons rules.
-- **Hybrid contracts** that are valid both in state law and in community covenants, with explicit escalation paths when they diverge.
-- **Data interfaces** that preserve anchoring and respect consent, with clear “no‑go” zones for reuse.
-- **Temporal agreements** that align project timelines with cycles of land, labor, and liturgy.
+- **Maximopolie‑world:** global capital allocation, index funds, and risk models.  
+- **Megaopolie‑world:** global logistics, app stores, cloud platforms, and content feeds.  
+- **BRICS‑world:** emergent multipolar corridors of energy, trade, and finance.  
+- **Quantarithmia‑world:** Ms. Jarvis + MountainShares + The Commons as a local justice‑oriented stack.  
+- **Spiritual‑world:** covenants, liturgies, genealogies, and sacred obligations.
 
-DAOs and platforms like MountainShares and The Commons can serve as **junction institutions**:
+Each world has its own coordinates, laws, conservation rules, and symmetries. The interfaces described above (APIs, schemas, rules, policies) are where those worlds must talk.
 
-- They sit at the boundary between global and local worlds.
-- They implement codified junction conditions in smart contracts and governance rules.
-- They provide visibility into where stitching is under strain.
+In physics language: they are **junction conditions between effective theories**.
 
-Ms. Jarvis, as a place‑bound AI steward, can act as a **junction analyst**:
+---
 
-- Tracking how flows cross between worlds.
-- Flagging violations of agreed conditions.
-- Simulating proposed junction designs before they are rolled out.
+## 6. Examples of Junction Conditions in Practice
 
-## 8. Junction Conditions as a Research Program
+### 6.1 Value junction: from local purchase to global finance
 
-Treating compositional universes and their junctions as a research program opens several directions:
+Consider a MountainShares purchase at a local merchant, initiated through The Commons:
 
-- **Classification:** catalog types of worlds (financial, logistical, legal, digital, spiritual) and typical junction patterns between them.
-- **Metrics:** define measures of junction quality (leakage, stress, opacity, resilience).
-- **Dynamics:** study how junctions evolve under pressure, and how new worlds (e.g., BRICS corridors, new platforms) create new seams.
-- **Design patterns:** develop reusable templates for junctions that have proven robust and just in specific contexts.
+1. A user in The Commons selects a local merchant listing and chooses to pay in MountainShares.  
+2. The Commons calls a DAO/ledger API:
+   - Checks balances and caps.  
+   - Executes an internal M transfer with fees per Program Rules.  
+3. Depending on merchant configuration, a small fiat settlement might occur in the background (e.g., to cover taxes or upstream obligations), governed by reserve‑ratio and safety specs.  
+4. GBIM entities and Commons records are updated so the transaction is spatially and socially visible.
 
-In physics language, this is like studying the **effective field theory of interfaces** in a multiverse of socio‑technical and spiritual worlds. It is not about declaring one world “fundamental,” but about understanding how partial theories can coexist without tearing their shared fabric.
+Read as junction conditions:
 
-## 9. A Multiverse of Worlds, Stitched by Place
+- A unit of **local reward credit** is mapped to a set of claims in the **dollar world**, subject to strict leakage caps.  
+- The DAO’s conservation rules and safety triggers enforce how much value can cross into external finance.  
+- The Commons renders this interface legible to the user (history, balances) and to community governance (aggregate dashboards).
 
-Polymathmatic geography does not need to decide whether the universe, in some ultimate sense, is a computer or a field or a wavefunction. It works at a different level: the level where multiple, overlapping worlds—financial, logistical, digital, spiritual, legal, commons—are already real for the people who inhabit them.
+Maximopolie‑world still exists, but this junction defines how much its field can pull value away in any given cycle.
 
-By treating each as a compositional universe with its own effective theory, and by focusing on the junction conditions that stitch them together, the discipline gains:
+### 6.2 Data junction: from neighborhood story to AI to platform
 
-- A way to read and model conflicts not as noise but as evidence of mismatched or unjust junctions.
-- A framework for designing better stitches, especially where new instruments (DAOs, AI stewards, commons platforms) connect local and global worlds.
-- A language for talking about multiverses that is grounded in lived geography, not only in speculative cosmology.
+Consider a resident posting about a local hazard or opportunity:
 
-In that sense, “polymathmatic geography and junction conditions” is a way of saying: we already live in many worlds at once, and the work of justice is to make the seams honest, survivable, and, where possible, healing.
+1. They create a post in The Commons, optionally tagging a place and event.  
+2. The Commons, if configured, passes a structured summary to Ms. Jarvis:
+   - Including GBIM IDs for the location.  
+   - Including only the fields allowed by privacy settings and policy.  
+3. Ms. Jarvis retrieves spatial, historical, and policy context and returns:
+   - A risk or opportunity assessment.  
+   - Suggested next steps (who to call, what to document).  
+4. The Commons may also use this summary to generate notifications, map overlays, or prompts for local officials.
+
+Read as junction conditions:
+
+- A narrative in **spiritual‑world / lived‑world** is mapped into structured data in **Quantarithmia‑world**, anchored in GBIM.  
+- Ms. Jarvis acts as a translator, converting between local story and formal risk language, without erasing the where/when/what/who anchors.  
+- The Commons enforces which of these outputs can then cross into **platform‑world** (e.g., being forwarded to an external agency, or a government system).
+
+Different worlds—lived, steward, institutional—are stitched along explicit conditions instead of implicit extraction.
+
+### 6.3 Governance junction: from DAO vote to system behavior
+
+Consider a MountainShares DAO vote to adjust an internal fee:
+
+1. A proposal is created under the Rules:
+   - Scope: e.g., adjust internal transfer fee within allowed bounds.  
+   - Rationale: documented in DAO records.  
+2. Eligible members vote; results are recorded on IPFS / chain as specified.  
+3. Once approved, a change is pushed into the live system:
+   - Parameter tables updated.  
+   - Tests run per the audit and safety plan.  
+   - Ms. Jarvis configuration includes new parameters where relevant (e.g., in economic models or recommendations).
+
+Read as junction conditions:
+
+- A decision in **DAO‑world** changes the effective “geometry” of value flows in **Quantarithmia‑world**, but only within predefined safe corridors.  
+- External worlds (banking, regulatory) are protected by legal and economic constraints the DAO cannot override.  
+- The interface is auditable end‑to‑end: proposal → vote → parameter change → observed behavior.
+
+This is a stitched surface between self‑governance and external constraints.
+
+---
+
+## 7. Why These Junctions Matter for Polymathmatic Geography
+
+Polymathmatic geography defines its subject as **entangled spaces**: places where land, law, computation, economy, story, and spirit are already braided together. The Ms. Jarvis / MountainShares / Commons stack is one experimental apparatus for working in such a space.
+
+The junctions above matter because they:
+
+- Make **flows explicit** – who can send what, where, when, and under which rules.  
+- Make **conflicts visible** – when obligations from different worlds (legal, economic, spiritual) collide at an interface.  
+- Make **design choices inspectable** – how changing a fee, schema, or policy at a junction affects power and value across the stack.
+
+In short: junction conditions are where you can see, measure, and redesign how worlds meet.
+
+---
+
+## 8. A Disciplined Use of Metaphor
+
+Finally, this chapter uses physics language—“worlds,” “junction conditions,” “domain walls”—on purpose, but under discipline:
+
+- The **hard claims** are about concrete systems: APIs, databases, DAOs, apps, and policies in West Virginia.  
+- The **metaphors** exist to help reason about interfaces between multiple legitimate orders (financial, digital, legal, spiritual, commons), not to claim that these systems are literally new universes or that physics itself has been rewritten.
+
+Polymathmatic geography keeps the separation explicit:
+
+- Implementation: what actually runs, in code and institutions, with published rules and audits.  
+- Interpretation: how those implementations can be read through lenses from geography, economics, physics, and spirituality to guide better design.
+
+“Junction conditions” is one such lens—a way of talking about the seams where different orders of reality must talk, and about how to make those seams survivable, just, and accountable to place.
