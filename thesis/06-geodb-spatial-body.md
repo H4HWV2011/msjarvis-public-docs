@@ -103,7 +103,9 @@ The current deployment includes a substantial, production‑usable subset of Wes
 
 Across these themes, the production GBIM/GeoDB deployment integrates on the order of 5.5 million features from 204 standardized datasets into `gbim.gbim_attrs` and `gbim_worldview_entity`. Exact feature counts and table names are recorded in database inventories maintained alongside this thesis, so that claims about coverage can be verified and updated as ingestion continues. Figure 6.4 summarizes these themes at a glance.
 
-<img width="2752" height="1536" alt="GeoDB and the Spatial Body of Ms  Jarvis" src="https://github.com/user-attachments/assets/cff5cc65-84e2-402d-aa53-07ada47b57d9" />
+<img src="https://github.com/user-attachments/assets/cff5cc65-84e2-402d-aa53-07ada47b57d9"
+     alt="GeoDB and the Spatial Body of Ms. Jarvis"
+     width="1376" />
 
 >>- Figure 6.4. Conceptual overview of the statewide geospatial mesh maintained in GeoDB and GBIM, summarizing integrated >>census units, structures, hazards, civic facilities, governance layers, and benefits‑relevant sites. The current >>deployment integrates on the order of 5.5 million features from 204 standardized datasets into gbim.gbim_attrs and >>gbim_worldview_entity.
 
