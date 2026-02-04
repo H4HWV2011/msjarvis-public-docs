@@ -101,25 +101,25 @@ The current deployment includes a substantial, production‑usable subset of Wes
   - named places, summits, and other geographic names,  
   - National Register points and polygons and other historic resources.
 
-Across these themes, the production GBIM/GeoDB deployment integrates on the order of 5.5 million features from 204 standardized datasets into `gbim.gbim_attrs` and `gbim_worldview_entity`. Exact feature counts and table names are recorded in database inventories maintained alongside this thesis, so that claims about coverage can be verified and updated as ingestion continues. Figure 6.4 summarizes these themes at a glance.
+Across these themes, the production GBIM/GeoDB deployment integrates on the order of 5.5 million features from 204 standardized datasets into `gbim.gbim_attrs` and `gbim_worldview_entity`. Exact feature counts and table names are recorded in database inventories maintained alongside this thesis, so that claims about coverage can be verified and updated as ingestion continues. Figure 6.2 summarizes these themes at a glance.
 
 <img src="https://github.com/user-attachments/assets/cff5cc65-84e2-402d-aa53-07ada47b57d9"
      alt="GeoDB and the Spatial Body of Ms. Jarvis"
      width="1376" />
 
->>- Figure 6.4. Conceptual overview of the statewide geospatial mesh maintained in GeoDB and GBIM, summarizing integrated >>census units, structures, hazards, civic facilities, governance layers, and benefits‑relevant sites. The current >>deployment integrates on the order of 5.5 million features from 204 standardized datasets into gbim.gbim_attrs and >>gbim_worldview_entity.
+>>- Figure 6.2. Conceptual overview of the statewide geospatial mesh maintained in GeoDB and GBIM, summarizing integrated >>census units, structures, hazards, civic facilities, governance layers, and benefits‑relevant sites. The current >>deployment integrates on the order of 5.5 million features from 204 standardized datasets into gbim.gbim_attrs and >>gbim_worldview_entity.
 
 ---
 
 ### 6.5 Chroma Spatial Collections and GeoDB Mirrors
 
-To bridge geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains spatially derived collections in ChromaDB. Figure 6.2 illustrates how these identifiers link GeoDB, GBIM, and Chroma.
+To bridge geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains spatially derived collections in ChromaDB. Figure 6.3 illustrates how these identifiers link GeoDB, GBIM, and Chroma.
 
 <img src="https://github.com/user-attachments/assets/323dd7de-aef9-4019-b703-22ea667e6175"
      alt="West Virginia Data Architecture Flow"
      width="1376" />
 
->>- Figure 6.2. Key relationships between GeoDB source tables, GBIM attribute and worldview entities (gbim.gbim_attrs, >>gbim_worldview_entity), and the gbim_worldview_entities and gis_wv_benefits Chroma collections. Deterministic joins are >>maintained via sourcetable/geodbid from GeoDB into GBIM and via entity_id and source_table/source_pk from Chroma back >>to GBIM and GeoDB.
+>>- Figure 6.3. Key relationships between GeoDB source tables, GBIM attribute and worldview entities (gbim.gbim_attrs, >>gbim_worldview_entity), and the gbim_worldview_entities and gis_wv_benefits Chroma collections. Deterministic joins are >>maintained via sourcetable/geodbid from GeoDB into GBIM and via entity_id and source_table/source_pk from Chroma back >>to GBIM and GeoDB.
 
 
 As of early 2026, there are two main patterns:
@@ -203,13 +203,13 @@ This linkage allows Ms. Jarvis to move fluidly among:
 
 ### 6.8 Geo‑Aware RAG, Benefits Flows, and Multi‑Model Use
 
-The GeoDB layer and its Chroma mirrors play a direct role in retrieval‑augmented generation, especially for spatially explicit and benefits‑oriented queries. When a query has an explicit or implicit spatial component—references to towns, hollows, rivers, counties, facilities, or ZIPs—the RAG pipeline can: Figure 6.3 sketches the main stages of the geo‑aware RAG pipeline that underpins benefits‑oriented queries.
+The GeoDB layer and its Chroma mirrors play a direct role in retrieval‑augmented generation, especially for spatially explicit and benefits‑oriented queries. When a query has an explicit or implicit spatial component—references to towns, hollows, rivers, counties, facilities, or ZIPs—the RAG pipeline can: Figure 6.4 sketches the main stages of the geo‑aware RAG pipeline that underpins benefits‑oriented queries.
 
 <img src="https://github.com/user-attachments/assets/a7e894db-fd24-4dc6-aba1-51ed4676bc79"
      alt="West Virginia Geo-Aware RAG Pipeline"
      width="1376" />
 
->>- 6.3. Geo‑aware retrieval‑augmented generation pipeline for benefits queries. User prompts with spatial references are >>routed through spatial filters in PostGIS, vector search over gbim_worldview_entities, gis_wv_benefits, and selected >>geodb* collections, joins to GBIM and local_resources, and finally synthesized by the multi‑model ensemble.
+>>- 6.4. Geo‑aware retrieval‑augmented generation pipeline for benefits queries. User prompts with spatial references are >>routed through spatial filters in PostGIS, vector search over gbim_worldview_entities, gis_wv_benefits, and selected >>geodb* collections, joins to GBIM and local_resources, and finally synthesized by the multi‑model ensemble.
 
 - Use PostGIS filters to constrain candidate features or regions (for example, `ST_Intersects` with floodplain polygons or buffers around facilities).  
 - Query `gbim_worldview_entities` to retrieve semantically and spatially relevant entities, using metadata filters such as `worldview_id`, `dataset`, or `source_table`.  
