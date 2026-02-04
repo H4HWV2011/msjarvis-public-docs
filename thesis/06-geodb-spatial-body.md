@@ -115,7 +115,9 @@ Across these themes, the production GBIM/GeoDB deployment integrates on the orde
 
 To bridge geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains spatially derived collections in ChromaDB. Figure 6.2 illustrates how these identifiers link GeoDB, GBIM, and Chroma.
 
-<img width="2752" height="1536" alt="West Virginia Data Architecture Flow" src="https://github.com/user-attachments/assets/323dd7de-aef9-4019-b703-22ea667e6175" />
+<img src="https://github.com/user-attachments/assets/323dd7de-aef9-4019-b703-22ea667e6175"
+     alt="West Virginia Data Architecture Flow"
+     width="1376" />
 
 >>- Figure 6.2. Key relationships between GeoDB source tables, GBIM attribute and worldview entities (gbim.gbim_attrs, >>gbim_worldview_entity), and the gbim_worldview_entities and gis_wv_benefits Chroma collections. Deterministic joins are >>maintained via sourcetable/geodbid from GeoDB into GBIM and via entity_id and source_table/source_pk from Chroma back >>to GBIM and GeoDB.
 
