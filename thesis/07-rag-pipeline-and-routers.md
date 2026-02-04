@@ -1,7 +1,5 @@
 # 7. RAG Pipeline and Routers (PRODUCTION Feb 2026)
 
-**LIVE DEMO:** http://173.80.237.218:8050/dashboard
-
 > **Why this matters for Polymathmatic Geography**  
 > This chapter specifies how Ms. Jarvis’s language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space, GBIM structures, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a 21‑model consciousness bridge anchored in ChromaDB and GIS‑aware collections. It supports:  
 > - **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, research notes, and local resource registries, rather than from an abstract model prior.  
