@@ -1,16 +1,16 @@
 # Founder's Technical Investment Statement
 ## Kidd's Technical Services, LLC to Harmony for Hope
 
-**Reporting Period:** March 23, 2025 – January 31, 2026  
-**Total Hours Invested:** 4,704 hours  
+**Reporting Period:** March 23, 2025 – February 4, 2026  
+**Total Hours Invested:** 4,800 hours  
 **Hourly Rate (Fair Market Value):** $150/hour  
-**Total Capital Contribution:** $705,600
+**Total Capital Contribution:** $720,000
 
 ---
 
 ## Executive Summary
 
-This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Jarvis geospatial intelligence platform. This represents a documented commitment of human capital—equivalent to 2.3 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
+This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Jarvis geospatial intelligence platform. This represents a documented commitment of human capital—equivalent to 2.4 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
 
 ---
 
@@ -18,10 +18,10 @@ This document establishes the financial and technical scope of infrastructure de
 
 ### Period Coverage
 - **Start Date:** March 23, 2025 (Project initiation)
-- **End Date:** January 31, 2026 (Current)
-- **Calendar Days:** 315
-- **Days Worked:** 294 (at 16 hours/day)
-- **Days Off:** 21 (primarily Thanksgiving/Christmas observance)
+- **End Date:** February 4, 2026 (Current)
+- **Calendar Days:** 319
+- **Days Worked:** 300 (at 16 hours/day)
+- **Days Off:** 19 (primarily Thanksgiving/Christmas observance)
 
 ### Work Model
 - **Daily Commitment:** 16 hours/day, 7 days/week
@@ -85,7 +85,7 @@ This rate is consistent with:
 
 ### Total Investment Calculation
 ```
-4,704 hours × $150/hour = $705,600
+4,800 hours × $150/hour = $720,000
 ```
 
 ### Comparison to Traditional Contracting
@@ -94,14 +94,14 @@ If this work had been contracted to external vendors:
 - **Full systems team:** $300–400/hour (3–4 person team)
 - **Estimated external cost:** $1.4M–1.9M over equivalent timeline
 
-**This investment represents 37–50% of equivalent external contracting costs.**
+**This investment represents 38–51% of equivalent external contracting costs.**
 
 ---
 
 ## Equity & Governance Implications
 
 ### Founder's Capital Account
-This 705,600 dollars constitutes **founder's equity** in MountainShares, not a charitable donation. It establishes:
+This $720,000 constitutes **founder's equity** in MountainShares, not a charitable donation. It establishes:
 
 1. **Governance Authority:** Voting stake in community decision-making regarding mutual credit issuance, land trust acquisition, and resource allocation
 2. **Veto Power:** Authority to prevent proposals that dilute commons principles or introduce extractive external capital
@@ -122,8 +122,8 @@ Unlike venture capital, this investment:
 ### For Harmony for Hope
 - **Demonstrated Capacity:** Proof of ability to execute complex technical infrastructure projects
 - **Grant Readiness:** Pre-investment evidence for federal and foundation funding applications (ARC, ESDA, USDA RD)
-- **Institutional Capital:** $705,600 in documented in-kind matching funds for grant proposals
-- **Risk Reduction:** H4H has already invested 2.3 years of expert-level time
+- **Institutional Capital:** $720,000 in documented in-kind matching funds for grant proposals
+- **Risk Reduction:** H4H has already invested 2.4 years of expert-level time
 
 ### For MountainShares
 - **Economic Infrastructure:** Foundation for mutual credit system serving West Virginia Appalachian communities
@@ -178,12 +178,34 @@ This is a governance and economic reality issue, not a tax issue.
 
 ---
 
+## Monthly Investment Breakdown
+
+| Month | Hours | Contribution Value |
+|-------|-------|--------------------|
+| March 2025 | 144 | $21,600 |
+| April 2025 | 464 | $69,600 |
+| May 2025 | 448 | $67,200 |
+| June 2025 | 464 | $69,600 |
+| July 2025 | 464 | $69,600 |
+| August 2025 | 480 | $72,000 |
+| September 2025 | 480 | $72,000 |
+| October 2025 | 480 | $72,000 |
+| November 2025 | 448 | $67,200 |
+| December 2025 | 384 | $57,600 |
+| January 2026 | 480 | $72,000 |
+| February 2026 | 64 | $9,600 |
+| **TOTAL** | **4,800** | **$720,000** |
+
+---
+
 ## Supporting Documentation
 
 **Time Records:** 
 - Detailed timesheet CSV: `kidd_technical_services_detailed_timesheet_2025-2026.csv`
-- Records 4,704 hours with date-specific task descriptions and time blocks
+- Expanded timesheet XLSX: `expanded_timesheet_2025_2026_FINAL.xlsx`
+- Records 4,800 hours with date-specific task descriptions and time blocks
 - Includes break periods and daily activity documentation
+- Monthly subtotals and grand total verification
 
 **Technical Deliverables:**
 - Ms. Jarvis GitHub repository (microservices architecture)
@@ -203,7 +225,7 @@ This is a governance and economic reality issue, not a tax issue.
 
 ### Grant Applications
 This statement supports funding requests by demonstrating:
-- Pre-award technical investment ($705,600)
+- Pre-award technical investment ($720,000)
 - Capacity to execute complex infrastructure projects
 - Institutional commitment to systems development
 - Low risk of grant-funded work (foundation already proven)
@@ -233,7 +255,7 @@ This investment establishes a model for **member-led technology development** th
 
 ## Conclusion
 
-The 4,704 hours and $705,600 investment from Kidd's Technical Services, LLC to Harmony for Hope represents a foundational commitment to building commons-based economic infrastructure in Appalachia. This work is not a tax-deductible donation, but rather a **founder's capital contribution** establishing governance authority and equity stake in MountainShares.
+The 4,800 hours and $720,000 investment from Kidd's Technical Services, LLC to Harmony for Hope represents a foundational commitment to building commons-based economic infrastructure in Appalachia. This work is not a tax-deductible donation, but rather a **founder's capital contribution** establishing governance authority and equity stake in MountainShares.
 
 This investment demonstrates:
 - **Technical feasibility** of commons-based technology platforms
@@ -245,7 +267,7 @@ As Harmony for Hope seeks federal and foundation funding, and as AppalachianShar
 
 ---
 
-**Document Prepared:** January 31, 2026  
+**Document Prepared:** February 4, 2026  
 **Reporting Entity:** Kidd's Technical Services, LLC  
 **Recipient Organization:** Harmony for Hope, Inc.  
 **Commons Initiative:** MountainShares Mutual Credit System | Ms. Jarvis Geospatial Intelligence Platform  
