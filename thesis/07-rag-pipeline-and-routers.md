@@ -32,6 +32,13 @@ triggers retrieval from ChromaDB (including the `msjarvisgis` and `gis_wv_benefi
 
 Within the overall architecture, the RAG layer is the primary bridge between relatively slow‑changing long‑term memory (Chroma collections, PostGIS/GeoDB, and structured registries) and fast, per‑query reasoning in the language models. It is also the place where the Hilbert‑space state metaphor from Chapter 4 becomes operational: each RAG call carves out a small, query‑conditioned subspace of the much larger semantic, spatial, and institutional state space, and hands that subspace to the models as their working context. Finally, the RAG services provide concrete, inspectable interfaces where retrieval calls, filters, and source collections can be logged, audited, and tuned in service of the program’s glassbox and spatial‑justice commitments.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bfc8d3b1-90aa-478a-bb8d-85e9b98640d0"
+       alt="Ms. Jarvis RAG Pipeline Architecture" width="80%">
+</p>
+
+>>- Figure 7‑1. Retrieval‑augmented generation (RAG) pipeline overview linking the unified gateway, main‑brain orchestration, and ensemble‑guarded outputs. Author’s diagram, 2026.
+
 ---
 
 ## 7.1 Alignment with GBIM, Hilbert Space, Semantic Memory, GeoDB, and Registries
@@ -53,6 +60,13 @@ In the February 2026 deployment, this alignment is not purely theoretical. The s
 ## 7.2 Core RAG Components
 
 At the implementation level, the RAG layer consists of three main retrieval services, a registry resolver, and orchestration:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b32e580e-1673-4db1-94ec-abde0bc441d5"
+       alt="The Ms. Jarvis RAG Pipeline" width="80%">
+</p>
+
+>>- Figure 7‑2. Core retrieval components composing the Ms. Jarvis RAG layer. Author’s diagram, 2026.
 
 - A text RAG service backed by ChromaDB.
 - A GIS RAG path that treats geospatial features as semantic objects with coordinates.
@@ -180,6 +194,13 @@ One or more language models generate an answer conditioned on this assembled con
 
 ### 7.3.2 Spatial RAG Flow
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e65c5ec6-3c72-430e-85cc-de94fd341aa8" 
+       alt="Ms. Jarvis Production RAG Architecture" width="80%">
+</p>
+
+>>-Figure 7‑3. Comparison of semantic (embedding‑based) and spatial (geographic‑filter) retrieval operations. Author’s figure, 2026.
+
 Spatially explicit questions (for example, “roads in Fayette County,” “hospitals near Oak Hill,” or “which buildings lie in this floodplain?”) introduce the GIS RAG path:
 
 **Spatial query intake.**  
@@ -236,6 +257,13 @@ Queries with explicit or implicit place references should steer retrieval toward
 
 ### 7.4.2 Current Implementation
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6bb444a3-49e2-4770-b099-435678693603" alt="Intelligence with a ZIP Code" width="80%">
+</p>
+
+<<- Figure 7‑4. Geography‑aware routing and data prioritization in the Ms. Jarvis RAG layer for Fayette and Raleigh Counties, West Virginia. Author’s map, 2026.
+
+
 On the implementation side as of early 2026:
 
 - The text RAG API already exposes optional `role` and `geography` fields and uses them to choose which Chroma collections to query and to construct metadata filters. However, many collections are only partially annotated with role and geography metadata, so the behavior defaults to broader retrieval when metadata is missing.  
@@ -260,6 +288,12 @@ Chroma returns distances, which the services convert into scores; flat results a
 **Role‑ and geography‑aware scaffolding.**  
 Where role and geography are known, upstream prompt builders can add headers or structure that make those constraints explicit (for example, “You are advising a community organization in Fayette County, WV; prioritize GBIM, GeoDB, and `local_resources` evidence for this region.”). This scaffolding helps the language models respect the same locality and accountability principles that the retrieval layer is designed to enforce.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/aa80b5d0-e6d8-4f45-a65c-5c9362f141c9" alt="RAG Pipeline Overview Diagram" width="80%">
+</p>
+
+>>-Figure 7‑5. Structure of contextual input assembled for language‑model reasoning by the RAG orchestration layer. Author’s diagram, 2026.
+
 The combination of collection‑aware grouping, explicit scores, registry‑based fields, and bounded retrieval gives the language model a context that is closer to an evidence set than an undifferentiated text blob. As metadata schemas mature, this same structure will support richer tracing from answers back to the specific documents, beliefs, spatial features, and registry entries that informed them.
 
 ---
@@ -273,6 +307,12 @@ The RAG services’ collection selection and filter mechanisms already support l
 
 **Decoding‑time guards.**  
 After retrieval and generation, the main brain routes candidate responses through a dedicated guardrail (blood–brain barrier) service that can refuse, rewrite, or annotate outputs that violate constitutional or safety principles. This decoding‑time guard operates over the final answer, regardless of which retrieval path produced it, and complements earlier filters.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/73553e5a-e192-4878-86b3-5be580d6cc4a" alt="Provenance and Logging RAG Pipeline" width="80%">
+</p>
+
+>>- Figure 7‑6. Provenance and guardrail flow ensuring accountable generation in the Ms. Jarvis RAG pipeline. Author’s figure, 2026.
 
 **Post‑hoc review and logging.**  
 The RAG server supports a `/store` or equivalent endpoint for background storage of queries and responses into a conversation‑history collection. Logs capture which services were called, which collections were queried, which registries were accessed, and sometimes which documents or features were returned. A fully structured, user‑facing explanation interface—where Ms. Jarvis can explicitly list the documents, spatial features, and registry entries relied upon—is marked as future work.
