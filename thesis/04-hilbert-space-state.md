@@ -1,4 +1,4 @@
-# **Why this matters for Polymathmatic Geography**  
+> **Why this matters for Polymathmatic Geography**  
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8acf4890-aa57-446c-9220-f766305edb37"
        alt="Roles, Constraints, and Justice Dynamics"
