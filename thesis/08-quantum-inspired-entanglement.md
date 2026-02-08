@@ -13,7 +13,7 @@ This chapter presents the “quantum‑inspired entanglement” mechanism used i
 
 Within the thesis, this mechanism ties together Hilbert‑space geometry, Chroma‑based semantic memory, the GBIM/GeoDB spatial grounding described in other chapters, the RAG pipeline, and the autonomous learner. In the live system, the current implementation distinguishes between two layers:
 
-- A **conceptual layer**, which specifies how entangled sets should be defined in terms of tags, entities, and geospatial features and how updates should, in principle, propagate.
+- A **conceptual layer**, which specifies how entangled sets should be defined in terms of tags, entities, and geospatial features and how updates should, in principle, propagate.  
 - A **concrete layer**, which now includes a deployed RAG server with an explicit `wv_entangled_context` envelope, a WV‑biased retrieval function that operates across multiple Chroma collections, and an autonomous learner topic graph that tracks and will increasingly shape entangled learning trajectories.
 
 The present code realizes a first full loop from entanglement envelope to observable retrieval behavior and logs, while full cross‑domain weight and embedding updates remain future work.
@@ -42,11 +42,11 @@ By describing these relationships as “entangled,” the thesis emphasizes that
 Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are modeled in a way that mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted for vector embeddings, tags, and entanglement envelopes.
 
 - **State space**  
-  Let \(V\) be the embedding space, treated as a real Hilbert space where each item \(x_i\) is represented by a vector \(v_i \in V\). Inner products and norms encode similarity and magnitude, and neighborhoods in this space reflect semantic relatedness as captured by the underlying embedding model and stored by Chroma across multiple collections.
+  Let \(\mathcal{V}\) be the embedding space, treated as a real Hilbert space where each item \(x_i\) is represented by a vector \(v_i \in \mathcal{V}\). Inner products and norms encode similarity and magnitude, and neighborhoods in this space reflect semantic relatedness as captured by the underlying embedding model and stored by Chroma across multiple collections.
 
 - **Metadata and tags**  
   Each item \(x_i\) is associated with metadata:
-  - A tag set \(T_i \subseteq \mathcal{T}\), where \(\mathcal{T}\) is the universe of tags (for example, domains such as health or transportation; ethical principles; GBIM entities such as counties or agencies; GeoDB features such as parcels or providers; datasets; and service categories).
+  - A tag set \(T_i \subseteq \mathcal{T}\), where \(\mathcal{T}\) is the universe of tags (for example, domains such as health or transportation; ethical principles; GBIM entities such as counties or agencies; GeoDB features such as parcels or providers; datasets; and service categories).  
   - Optional scalar weights \(w_i \in \mathbb{R}_{>0}\) used during ranking or scheduling, which can be adjusted as beliefs change or as certain items become more or less trusted or relevant.
 
 - **Correlation / “entanglement” sets**  
@@ -58,10 +58,10 @@ Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are mode
 
 - **WV entangled context envelope**  
   In the running system, this conceptual structure is instantiated as a JSON object called `wv_entangled_context` that appears explicitly in the RAG server’s `/search` API. The canonical schema for this envelope includes:
-  - `domains`: a list of thematic domains active in the current query (e.g., `["health", "mental_health", "access"]`).
-  - `principles`: a list of normative or design principles entangled with the query (e.g., `["equity", "geographic_access"]`).
-  - `gbim_entity_ids` and `gbim_entities`: identifiers and descriptors for GBIM entities (such as `gbim:county:Fayette` or population groups).
-  - `geodb_features`: a list of objects each containing `feature_id`, `layer`, `county`, `state`, `geometry_ref`, and optional `attributes`, anchoring the envelope to specific geospatial features in the GeoDB.
+  - `domains`: a list of thematic domains active in the current query (e.g., `["health", "mental_health", "access"]`).  
+  - `principles`: a list of normative or design principles entangled with the query (e.g., `["equity", "geographic_access"]`).  
+  - `gbim_entity_ids` and `gbim_entities`: identifiers and descriptors for GBIM entities (such as `gbim:county:Fayette` or population groups).  
+  - `geodb_features`: a list of objects each containing `feature_id`, `layer`, `county`, `state`, `geometry_ref`, and optional `attributes`, anchoring the envelope to specific geospatial features in the GeoDB.  
   - `metadata`: a free‑form object annotating the envelope with `source_agent`, `run_id`, and `timestamp`.
 
 This envelope plays the role of a finite, structured description of the entangled subspace relevant to a particular question: it is the concrete thing that is “measured” against during WV‑biased retrieval.
@@ -83,8 +83,8 @@ At the conceptual and mathematical level, the update rule proceeds as follows.
 
 2. **Adjust weights and, when appropriate, embeddings.**  
    For each \(x_j \in S_a\), adjust weights \(w_j\), retrieval priorities, or even the stored embeddings \(v_j\) according to a chosen update function. Examples include:
-   - Reweighting items that lie within a corrected boundary or updated service area so they are more or less likely to be retrieved in future RAG calls.
-   - Increasing the influence of documents that share governance or benefit‑program tags with the updated rule, so that related queries preferentially see up‑to‑date interpretations.
+   - Reweighting items that lie within a corrected boundary or updated service area so they are more or less likely to be retrieved in future RAG calls.  
+   - Increasing the influence of documents that share governance or benefit‑program tags with the updated rule, so that related queries preferentially see up‑to‑date interpretations.  
    - Applying projection‑like operations to shift vectors \(v_j\) toward or away from updated anchor directions in embedding space, effectively “rotating” the entangled subspace.
 
 The precise numerical schemes (additive vs. multiplicative, decay schedules, or projections) are intentionally left open in this chapter. The important point is that a single change to an anchor belief is meant to trigger structured adjustments across a family of related items, including those tied to specific WV places and programs, rather than leaving surrounding beliefs untouched.
@@ -101,32 +101,32 @@ The most immediate, user‑visible realization of the entanglement idea is the W
 
 The `/search` endpoint accepts a JSON body with fields:
 
-- `query` (string): the user’s natural language question.
-- `topk` (integer): the desired number of results.
-- `filters` (optional): a simple filter object for basic metadata constraints.
+- `query` (string): the user’s natural language question.  
+- `topk` (integer): the desired number of results.  
+- `filters` (optional): a simple filter object for basic metadata constraints.  
 - `wv_entangled_context` (optional): the entanglement envelope described above.
 
 When `wv_entangled_context` is absent, the server performs a conventional per‑collection RAG fan‑out, querying a fixed list of collections and merging results. When it is present, the server instead calls
 
-> python
-> retrieve_with_bias(question, max_results, wv_entangled_context, get_unified_collection) `
+> python  
+> retrieve_with_bias(question, max_results, wv_entangled_context, get_unified_collection)
 
 ### 8.4.2 Multi‑collection entangled retrieval and bias function
 
 In the current code, `ENTANGLED_COLLECTIONS` is defined as:
 
->>python
->>ENTANGLED_COLLECTIONS = [
->>    "GBIM",
->>    "gisgeodata",
->>    "benefit_programs",
->>    "msjarvis",
->>    "compliance_tasks",
->>    "GeoDB",
->>    "utility_enrollments",
->>    "rag_training_data",
->>    "spiritual_texts",
->>
+> python  
+> ENTANGLED_COLLECTIONS = \[  
+>   "GBIM",  
+>   "gisgeodata",  
+>   "benefit_programs",  
+>   "msjarvis",  
+>   "compliance_tasks",  
+>   "GeoDB",  
+>   "utility_enrollments",  
+>   "rag_training_data",  
+>   "spiritual_texts",  
+> \]
 
 For each collection name in this list, `retrieve_with_bias`:
 
@@ -144,7 +144,7 @@ For each retrieved document across all collections, the function:
 
 - Converts the distance \(d\) into a base similarity score \(1/(1+d)\).  
 - Reads the document’s metadata tags, GBIM entities, and GeoDB features.  
-- Applies multiplicative coupling strengths when matches occur:
+- Applies multiplicative coupling strengths when matches occur:  
   - A tag overlap with `domains` or `principles` increases the score (for example, by a factor of 1.4).  
   - An entity overlap with `gbim_entity_ids` increases the score (for example, by a factor of 1.6).  
   - A feature overlap with the envelope’s `feature_id`s increases the score (for example, by a factor of 1.6).  
@@ -236,4 +236,3 @@ To maintain academic rigor and avoid over‑claiming, it is important to disting
 - An explicit roadmap to using the topic graph to bias future topic selection toward entangled neighbors, thereby turning the conceptual model into observable changes in Ms. Jarvis’s learning trajectories.
 
 In its current state, the entanglement model therefore serves both as a conceptual and mathematical description of how coupled state should work across Ms. Jarvis’s belief and spatial structures, and as a description of concrete, running mechanisms—most notably the `wv_entangled_context`‑driven retrieval path—that already embody aspects of that design. Subsequent chapters and appendices will document the evolution of these mechanisms as they are extended from retrieval‑time biasing and topic scheduling into fully integrated, cross‑service weight and embedding updates.
-]
