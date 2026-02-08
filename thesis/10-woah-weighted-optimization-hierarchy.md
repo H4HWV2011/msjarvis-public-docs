@@ -5,6 +5,7 @@
 > - **P5 – Design is a geographic act** by making orchestration weights and routing strategies first‑class design choices that affect how West Virginia is seen and served.  
 > - **P12 – Intelligence with a ZIP code** by privileging agents and retrieval paths that are explicitly grounded in Appalachian data and institutions.  
 > - **P16 – Power accountable to place** by keeping WOAH as a glass‑box service that can, in principle, expose how different agents were weighted in producing an answer.  
+
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies a WOA‑inspired orchestration layer that coordinates Ms. Jarvis’s multi‑agent “mind” in service of Quantarithmia’s justice‑oriented instruments.
 
 # WOAH: Weighted Optimization Algorithm Hierarchy
