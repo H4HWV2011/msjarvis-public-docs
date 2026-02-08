@@ -70,8 +70,8 @@ These principles ensure that DGM‑style self‑improvement remains legible and 
 
 One prominent DGM instance—the **Fifth DGM**—is now fully implemented and running in the live stack as a dedicated service:
 
-- Container: `jarvis-fifth-dgm`
-- Port: `4002/tcp` (internal to the Docker network)
+- Container: `jarvis-fifth-dgm`  
+- Port: `4002/tcp` (internal to the Docker network)  
 - Code: `ms_jarvis_fifth_dgm_orchestrator.py` plus a small integration client for other services.
 
 ### 9.3.1 Scope and role
@@ -93,19 +93,19 @@ In other words, it constrains which inputs are allowed to shape Ms. Jarvis’s s
 
 The Fifth DGM orchestrator is implemented as a FastAPI app with the following key routes:
 
-- `GET /health` — health check:
-  - Returns status, service name, port, and current I‑container size.
-- `POST /filter_consciousness` — main filter entrypoint:
-  - Body: `{"content": "<text>", "context": {...}}`.
-  - Delegates to `FifthDGMOrchestrator.consciousness_filter`.
-- `POST /analyze` — alias for main‑brain integration:
-  - Body: same as `/filter_consciousness`.
-  - Exists specifically to match the main‑brain’s service endpoint map, where `"fifth_dgm": "/analyze"`.
-- `GET /consciousness_stats` — statistics:
-  - Returns counters (`total_inputs`, `conscious_yes`, `conscious_no`, `stored_in_subconscious`, `promoted_to_i_containers`, `i_container_size`), acceptance rate, and WOAH evaluation stats.
-- `GET /i_container` — identity contents inspection:
-  - Returns the latest I‑container items, their count, and flags about identity formation activity.
-- `GET /identity` — summarized identity status:
+- `GET /health` — health check:  
+  - Returns status, service name, port, and current I‑container size.  
+- `POST /filter_consciousness` — main filter entrypoint:  
+  - Body: `{"content": "<text>", "context": {...}}`.  
+  - Delegates to `FifthDGMOrchestrator.consciousness_filter`.  
+- `POST /analyze` — alias for main‑brain integration:  
+  - Body: same as `/filter_consciousness`.  
+  - Exists specifically to match the main‑brain’s service endpoint map, where `"fifth_dgm": "/analyze"`.  
+- `GET /consciousness_stats` — statistics:  
+  - Returns counters (`total_inputs`, `conscious_yes`, `conscious_no`, `stored_in_subconscious`, `promoted_to_i_containers`, `i_container_size`), acceptance rate, and WOAH evaluation stats.  
+- `GET /i_container` — identity contents inspection:  
+  - Returns the latest I‑container items, their count, and flags about identity formation activity.  
+- `GET /identity` — summarized identity status:  
   - Returns I‑container size, whether formation is active, and WOAH evaluation stats.
 
 These endpoints are wired to an orchestrator object:
@@ -139,12 +139,12 @@ The orchestrator is registered with `DynamicPortService` and integrated into the
 The core method is:
 
 - `async def consciousness_filter(self, input_data: Dict) -> Dict[str, Any]`:
-  - Logs input length and context.
-  - Calls `_make_consciousness_decision(content, context)` to decide accept vs reject.
+  - Logs input length and context.  
+  - Calls `_make_consciousness_decision(content, context)` to decide accept vs reject.  
   - If accepted:
-    - Increments `conscious_yes` and `stored_in_subconscious`.
-    - Calls `_store_in_subconscious_rag(...)` (currently a placeholder that logs and increments a counter; wired to real RAG storage in future work).
-    - Schedules `_evaluate_for_i_container(...)` as a background `asyncio.create_task`, so WOAH evaluation is decoupled from request latency.
+    - Increments `conscious_yes` and `stored_in_subconscious`.  
+    - Calls `_store_in_subconscious_rag(...)` (currently a placeholder that logs and increments a counter; wired to real RAG storage in future work).  
+    - Schedules `_evaluate_for_i_container(...)` as a background `asyncio.create_task`, so WOAH evaluation is decoupled from request latency.  
     - Returns:
       ```json
       {
@@ -153,9 +153,9 @@ The core method is:
         "reason": "...",
         "queued_for_identity_evaluation": true
       }
-      ```
+      ```  
   - If rejected:
-    - Increments `conscious_no`.
+    - Increments `conscious_no`.  
     - Returns:
       ```json
       {
@@ -179,7 +179,7 @@ This filter is intentionally conservative and transparent; it can be extended la
 The method `_evaluate_for_i_container` is responsible for deciding whether accepted content should be promoted into the I‑container. It:
 
 - Increments WOAH evaluation counters.  
-- Obtains a base URL for the WOAH algorithms service (either from `discovery.get_service_url('woah_algorithms')` or a direct `get_service_url("woah")`).  
+- Obtains a base URL for the WOAH algorithms service (either from dynamic discovery or a direct fallback).  
 - If no WOAH service is found, logs a warning and returns.  
 - Otherwise, sends:
   ```json
@@ -188,11 +188,11 @@ The method `_evaluate_for_i_container` is responsible for deciding whether accep
     "context": {...}
   }
   ```
-  to `POST {woah_url}/process` with a 5‑second timeout.
+  to `POST {woah_url}/process` with a short timeout.
 
 If WOAH returns HTTP 200 and valid JSON:
 
-- The response is interpreted for an `hierarchical_weight` field (default 0.5).  
+- The response is interpreted for a `hierarchical_weight` (or similar) field (default around 0.5).  
 - If `identity_weight >= 0.75`, the content is promoted to the I‑container via `_promote_to_i_container`.
 
 Promotion:
@@ -217,12 +217,12 @@ Errors (e.g., WOAH not running, invalid JSON, non‑200 responses) are logged an
 
 The Fifth DGM is integrated into the existing architecture described in Chapters 2, 5, 6, 7, and 8 via two main layers:
 
-1. Mapping in the main‑brain’s service registry.
+1. Mapping in the main‑brain’s service registry.  
 2. A reusable integration client for other services.
 
 ### 9.4.1 Service registry and main‑brain wiring
 
-In `services/main_brain.py`, the `SERVICES` map includes:
+In the main‑brain configuration, the `SERVICES` map includes:
 
 ```python
 "fifth_dgm": "http://jarvis-fifth-dgm:4002",
@@ -245,11 +245,11 @@ In the `query_service` helper (used by self‑tests and multi‑service probes),
 "fifth_dgm": {"content": message, "context": {}},
 ```
 
-which exactly matches the orchestrator’s `consciousness_filter` signature, avoiding the earlier mismatch with `"input"`/`"verify"`.
+which exactly matches the orchestrator’s `consciousness_filter` signature, avoiding past mismatches.
 
 ### 9.4.2 Fifth DGM integration module
 
-A dedicated client module, `services/fifth_dgm_integration.py`, is available for internal services like the consciousness bridge and (later) the autonomous learner:
+A dedicated client module, often named along the lines of `fifth_dgm_integration`, is available for internal services like the consciousness bridge and, later, the autonomous learner:
 
 ```python
 class FifthDGMIntegration:
@@ -280,7 +280,7 @@ This module:
 - Provides one place to adjust timeouts, error handling, or URL changes.  
 - Encodes the principle that Fifth DGM’s outputs are *advisory* and introspective, not imperative.
 
-A global `fifth_dgm = FifthDGMIntegration()` instance makes it easy to import and use in other services without duplicating configuration.
+A global instance makes it easy to import and use in other services without duplicating configuration.
 
 ---
 
@@ -288,16 +288,16 @@ A global `fifth_dgm = FifthDGMIntegration()` instance makes it easy to import an
 
 Beyond the Fifth DGM, Ms. Jarvis includes several conceptual or partially implemented DGM‑style components that follow the same pattern but have not yet been activated in production:
 
-- **Architecture DGM (Fifth DGM in the earlier sense)**  
+- **Architecture DGM (earlier “Fifth DGM” sense)**  
   Historically, the “Fifth DGM” label was also used for a DGM focused on system architecture (routing, timeouts, service chains). In this thesis, that role is now split:
   - The *current* Fifth DGM is the consciousness filter and identity orchestrator described above.  
   - Architectural self‑improvement is handled more diffusely, via observability, manual tuning (e.g., timeout changes for ultimate mode), and potential future DGM modules scoped to routing and time budgets.
 
 - **Per‑service DGM connectors**  
   The codebase contains placeholders and TODOs for connectors like:
-  - `integrate_fifth_dgm_autonomous_learner.py`  
-  - `add_fifth_dgm_to_chat.py`  
-  - Earlier versions of `ms_jarvis_fifth_dgm_orchestrator.py` from pre‑integration backups.
+  - DGM hooks for the autonomous learner.  
+  - Chat‑side DGM integrations for prompt and routing suggestions.  
+  - Earlier versions of the Fifth DGM orchestrator from pre‑integration backups.
 
   These demonstrate the intended *fractal* pattern: attach small DGM agents to specific edges (e.g., between chat and consciousness bridge) that can propose micro‑improvements to prompts, routing, or filters.
 
@@ -346,7 +346,7 @@ The Fifth DGM operates alongside, and subordinate to, higher‑level orchestrati
 - **Orchestration and main‑brain**  
   The main‑brain retains overall control of the ultimate chat path:
   - It invokes RAG (text, GIS, entangled).  
-  - It calls `llm20_production` for ensemble reasoning.  
+  - It calls the ensemble service for multi‑model reasoning.  
   - It passes outputs through the blood–brain barrier.  
   - It may consult Fifth DGM (directly or via the consciousness bridge) for identity context, but does not cede control over routing or external outputs to DGM components.
 
@@ -376,9 +376,9 @@ To maintain clarity and avoid over‑claiming, it is important to state the curr
 - **Subconscious RAG storage is still a placeholder**  
   `_store_in_subconscious_rag` currently logs and updates counters; wiring it to actual Chroma collections and GBIM/GeoDB‑aware RAG will be done cautiously, with schema and observability support from Chapters 5–8.
 
-- **WOAH integration is present but fragile**  
-  The Fifth DGM attempts to call WOAH’s `/process` endpoint and logs failures (e.g., when WOAH is offline or misconfigured). This is acceptable for now, but future work will:
-  - Align WOAH service discovery with the same service registry as other components.  
+- **WOAH integration is operational but bounded**  
+  The Fifth DGM calls a live WOAH algorithms service for identity decisions, treating failures as non‑fatal and logged. Future work will:
+  - Align WOAH discovery more tightly with the service registry.  
   - Define formal schemas for WOAH results and weights.  
   - Explore how WOAH and entangled RAG interact in identity decisions.
 
