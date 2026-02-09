@@ -70,7 +70,7 @@ To keep introspective information useful and comparable over time, the design ca
   Fields record scores, labels, or flags from judge and validation components, including whether safety checks passed, whether DGM validation ran, which lenses or constitutional rules were applied, and which layers were active or inactive in a given pipeline. Boolean or categorical flags can represent whether a response was blocked, altered, or routed through a fallback path. Work on constitutional AI and judge models, such as Bai et al. (https://arxiv.org/abs/2212.08073) and Zheng et al. (https://arxiv.org/abs/2306.05685), provides templates for such evaluation fields.
 
 - **Narrative and qualia text**  
-  A short textual description ties together the event: what the user asked for, which subsystems were involved, what information was retrieved, how the system responded, and whether any notable evaluations or constraints fired. The Qualia Engine and Experience Generator are natural providers for this narrative layer, as they already produce emotional, semantic, and community‑oriented summaries of content that can be incorporated into human‑readable descriptions.
+  A short textual description ties together the event: what the user asked for, which subsystems were involved, what information was retrieved, how the system responded, and whether any notable evaluations or constraints fired. The Qualia Engine and qualitative experience generators are natural providers for this narrative layer, as they already produce emotional, semantic, and community‑oriented summaries of content that can be incorporated into human‑readable descriptions.
 
 While a single central `IntrospectiveRecord` model is not yet implemented as a unified class, the pieces of this schema are already produced by existing services. The chapter’s schema describes how these pieces can be composed into an explicit, inspectable record type going forward.
 
@@ -118,7 +118,7 @@ Consumers of this information—schedulers, dashboards, research tools, or furth
 Language models participate in the introspective layer in two main ways, extending their roles beyond direct question answering:
 
 - **Narrative synthesis**  
-  Given structured fields describing a single event or a short sequence—such as user query, retrieved items, activated services, lens settings, and evaluation outcomes—a model can generate a compact, human‑readable description that connects the pieces into a coherent story. The Qualia Engine’s emotional resonance, sensory richness, and meaning‑making outputs already provide ingredients for such narratives, and additional prompts can be designed to ensure that narratives remain grounded in the structured data.
+  Given structured fields describing a single event or a short sequence—such as user query, retrieved items, activated services, lens settings, and evaluation outcomes—a model can generate a compact, human‑readable description that connects the pieces into a coherent story. The Qualia Engine’s emotional resonance and meaning‑making outputs already provide ingredients for such narratives, and additional prompts can be designed to ensure that narratives remain grounded in the structured data.
 
 - **Reflective analysis**  
   For certain higher‑level tasks, a model can be asked to examine a sample or slice of introspective records and identify patterns, anomalies, or points of concern. This might include detecting repeated failure modes, unusual combinations of active layers, surprising spatial patterns, or shifts in which memory sources dominate. These analyses should always be accompanied by links back to the underlying records so that human reviewers or automated checkers can verify any claims. Work on judge models and ensemble evaluation, such as AgentBench (https://arxiv.org/abs/2308.03688) and “Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena” (https://arxiv.org/abs/2306.05685), informs these reflective uses.
@@ -127,9 +127,9 @@ In both roles, language models operate over concrete data from logs, memory, and
 
 ---
 
-## 13.7 Links to Memory and Spatial Layers
+## 13.7 Links to Memory, Spatial, and Qualia Layers
 
-Introspective records are tightly linked to the memory and spatial structures described elsewhere in the system:
+Introspective records are tightly linked to the memory, spatial, and qualia structures described elsewhere in the system:
 
 - **Semantic and conversational memory**  
   Each record can refer to specific collections and document identifiers in the vector store—such as conversation memory or domain‑specific knowledge bases—allowing a clear mapping between explanatory narratives and the raw content that informed them.
@@ -140,7 +140,10 @@ Introspective records are tightly linked to the memory and spatial structures de
 - **Spatial backbone**  
   When requests involve specific locations, communities, or facilities, introspective entries can carry spatial identifiers sourced from geospatial backends or spatial knowledge tables. This ensures that analyses of system behavior can be localized in space as well as time and semantics, supporting geographically aware audit, planning, and stewardship.
 
-These links make introspective state traceable in both directions: from raw data up to narrative descriptions, and from high‑level descriptions back down to concrete memory, belief, and spatial elements.
+- **Qualia Engine outputs**  
+  For each event, the Qualia Engine can be invoked to transform content and associated metadata into a structured qualia envelope, including an enhanced text string that appends an emotional‑depth annotation, an `emotional_resonance` object describing primary emotion and intensity, a `meaning` object capturing keyphrases or keywords, and a `subjective_experience` object representing how the system is treating the underlying content. In the current implementation, the emotional and meaning components are fully active, while the subjective experience component uses a direct‑experience fallback.
+
+These links make introspective state traceable in both directions: from raw data up to narrative descriptions, and from high‑level descriptions back down to concrete memory, belief, spatial, and qualia elements.
 
 ---
 
