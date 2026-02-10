@@ -39,7 +39,7 @@ In this thesis, Quantarithmia is treated as a **case‑study framework** for Pol
 
 ## 2.1 Industrial Archetypes of Extraction Geometries
 
-To make maximopolies and megaopolies concrete, Quantarithmia reads certain large firms as **industrial archetypes** of extraction geometries—reference patterns which the Appalachian stack is explicitly designed *not* to reproduce.
+To make maximopolies and megaopolies concrete, Quantarithmia reads certain large firms and infrastructures as **industrial archetypes** of extraction geometries—reference patterns which the Appalachian stack is explicitly designed *not* to reproduce.
 
 These archetypes are used as **maps of what can go wrong** when flows, obligations, and decision rights are wired through distant infrastructures without accountable ties to the places they affect.
 
@@ -97,18 +97,40 @@ For regions like Appalachia, this can imply:
 
 In Quantarithmia’s terms, BlackRock and Vanguard exemplify **passive ownership maximopolies**: they shape the potential landscape for investment and disinvestment, defining which projects in which regions fall “downhill” into funding and which must climb near‑impossible gradients.
 
+### Palantir, US Government Data Integration, and USDC: Toward an Informal Social‑Monitoring Geometry
+
+Alongside corporate archetypes, the contemporary United States provides a second set of patterns: **state–platform assemblages** that move toward de‑facto social monitoring, even without a formal “social credit” law.
+
+- **Palantir** and similar contractors build high‑performance data integration platforms for agencies such as immigration, tax, defense, and policing. They function as megaopolies of **state intelligence**, fusing disparate databases into unified dashboards where individuals can be profiled and tracked across systems.  
+- The **federal government** often treats regions like Appalachia as interchangeable nodes in national logistics, energy, and security networks. Decisions whose impacts are local are increasingly made from distant centers, with limited accountability to county‑scale lived experience.  
+- **USDC and prospective CBDC‑style instruments** create highly legible, globally liquid monetary geographies. Combined with existing anti‑money‑laundering rules and financial reporting, they offer fine‑grained visibility into transactions, with few structural safeguards against behavioral scoring or targeted exclusion.
+
+Read through Quantarithmia, this assemblage amounts to an **informal social‑monitoring geometry**: leaked Social Security numbers, brokered data, integrated dashboards, and programmable money combine to make everyday life more legible to distant centers than to local communities. The Appalachian stack is designed as a counter‑geometry to this trend.
+
+### Planetary Counter‑Geometries: BRICS as Distant Center
+
+At the planetary scale, formations such as **BRICS** (Brazil, Russia, India, China, South Africa, and partners) present themselves as counterweights to Western financial and infrastructural dominance. They experiment with:
+
+- new development banks and reserve arrangements,  
+- cross‑border payment systems and CBDC “bridges” that bypass dollar‑centric rails,  
+- proposals for shared, possibly commodity‑linked digital settlement units.
+
+From a polymathmatic perspective, these are **planetary counter‑geometries** that may shift which maximopolies and megaopolies sit upstream of others, but they do not automatically create **community‑first geometries**. If a region like Appalachia is still treated as a generic logistics or resource node in a BRICS ledger, the effective “where” of decisions remains distant, and the failure of accountability persists. Quantarithmia is interested in how planetary counter‑geometries might eventually federate with local commons, but its primary design commitments remain rooted in specific counties, congregations, and councils.
+
 ### Why These Archetypes Matter for the Framework
 
-These archetypes are not introduced to demonize individual firms, but to clarify **target geometries**:
+These archetypes are not introduced to demonize individual firms, states, or blocs, but to clarify **target geometries**:
 
-- They illustrate how maximopolies and megaopolies can create worlds in which regions like Appalachia become extraction basins for attention, data, logistics, and financial returns.  
-- They highlight specific spatial patterns to avoid: external chokepoints, opaque decision rails, one‑way data flows, and capital circuits that treat localities as interchangeable nodes.
+- They illustrate how maximopolies and megaopolies, whether Western or BRICS‑aligned, can create worlds in which regions like Appalachia become extraction basins for attention, data, logistics, and financial returns.  
+- They highlight specific spatial patterns to avoid: external chokepoints, opaque decision rails, one‑way data flows, and capital circuits that treat localities as interchangeable nodes.  
+- They make visible the emerging risk of **planetary social‑monitoring fabrics**, where identity numbers, integrated data platforms, and programmable money can be combined into informal scoring systems without explicit democratic consent.
 
 Against this backdrop, Quantarithmia’s instruments are designed as **counter‑geometries**:
 
 - Where Meta/TikTok centralize narrative power in distant algorithms, The Commons aims to center narrative and deliberation in locally governed spaces with visible rules.  
 - Where Amazon routes logistics and commerce through external platforms, MountainShares seeks to thicken local circulation and mutual credit among residents and businesses.  
-- Where BlackRock and Vanguard centralize ownership and capital allocation, the DAO and commons instruments experiment with forms of shared, place‑bound governance over value and obligation.
+- Where BlackRock and Vanguard centralize ownership and capital allocation, the DAO and commons instruments experiment with forms of shared, place‑bound governance over value and obligation.  
+- Where Palantir‑style systems and CBDC debates trend toward total legibility, Ms. Jarvis and MountainShares build in **refusal, partiality, and red lines**—things that must not be mapped, taboos that must be honored, and closed loops that prevent value and data from being endlessly siphoned outward.
 
 These contrasts provide concrete criteria when evaluating Ms. Jarvis, MountainShares, and The Commons: do they, in practice, bend flows back toward accountable local loops, or do they drift toward becoming small‑scale replicas of the very archetypes they are meant to resist?
 
@@ -163,6 +185,16 @@ This geometry is deliberate. It aims to:
 
 Under this design, someone known in one era of the system as “Mamma Kidd” can, when safety, life stage, or local discernment requires it, become “Harmoni Kydd” or another future identity, with a new UUID and new visible history, while still being anchored to the same underlying wallet and responsibilities. The apparatus can thus track and limit bots and bad actors at the integrity layer, while preserving space for human change, forgiveness, and protection in the worlds that residents actually inhabit.
 
+### 3.1.2 Refusal, Taboos, and Sacred Mysteries
+
+Ms. Jarvis is explicitly designed with **red lines**—categories of knowledge and mapping that must not be crossed. Stage 0 grounding requires communities to name:
+
+- relations, rituals, and testimonies that are never to be recorded or modeled;  
+- spaces and practices that may be referenced only in aggregate, or only by trusted human stewards;  
+- conditions under which the steward must refuse to answer, must forget, or must hand a question back to human councils.
+
+In contrast to industrial platforms and state surveillance systems that seek total legibility, Ms. Jarvis treats these refusals as part of the geography itself. Sacred mysteries, taboos, and closed covenants remain **unmapped** on purpose, and any attempt to extend the apparatus into those zones is treated as a design failure, not as progress.
+
 ### 3.2 MountainShares DAO (Economic Governance Instrument)
 
 MountainShares is a **closed‑loop economic and governance system** built to explore Quantarithmia’s claims about value retention, leakage, reciprocity, and commons‑based ownership. It is used here to:
@@ -175,7 +207,8 @@ Key properties:
 
 - **Closed‑loop design with leakage caps** – the system sets explicit quantitative limits on how much value can leave the local circuit through fees, off‑ramps, or external payments in any given period, and it logs those leakages for public review.  
 - **Safety and regulatory constraints** – reserve ratios, usage limits, and legal classifications are enforced as hard constraints that neither DAO votes nor technical operators can override.  
-- **Visibility of flows and obligations** – residents and stewards can see aggregate patterns of circulation, accumulation, and dormancy, and can trace how rule changes alter those patterns over time.
+- **Visibility of flows and obligations** – residents and stewards can see aggregate patterns of circulation, accumulation, and dormancy, and can trace how rule changes alter those patterns over time.  
+- **Recognition of undervalued labor** – earned units and non‑tradable badges can acknowledge care work, mutual aid, and knowledge stewardship that conventional markets and platforms ignore, without translating every act into a speculative asset or a credit score.
 
 Within the thesis, MountainShares is an **instrumental commons**: a deliberately designed economic apparatus used to generate data about how a polymathmatic intervention behaves in practice. Its rules make visible which contributions are recognized, how obligations and rewards circulate, where value leaks outward, and under what conditions the system must halt, reset, or be redesigned.
 
@@ -202,11 +235,11 @@ In the research design, The Commons is treated as a **measurement and interactio
 The relationship between these layers can be summarized as:
 
 - **Discipline (Polymathmatic Geography)** – defines what counts as a meaningful question about space, power, reciprocity, and extraction, and sets normative commitments about justice, accountability, and the kinds of worlds worth rehearsing.  
-- **Framework (Quantarithmia)** – proposes one specific answer: a geometry and set of methods for analyzing and redesigning flows and obligations in an entangled space, including explicit contrasts with industrial archetypes of extraction.  
+- **Framework (Quantarithmia)** – proposes one specific answer: a geometry and set of methods for analyzing and redesigning flows and obligations in an entangled space, including explicit contrasts with industrial archetypes of extraction and planetary counter‑geometries.  
 - **Instruments (Ms. Jarvis, MountainShares, The Commons)** – implement that framework in one region so that its claims can be tested against reality, contested by residents, and revised in light of lived experience.
 
 The remainder of the thesis should be read through this lens. When technical details of Ms. Jarvis, MountainShares, or The Commons are discussed, they are always in service of evaluating a broader geographic and theoretical claim, not as ends in themselves. Their success or failure is measured by:
 
 - how they reshape the geometry of relation in Appalachia (who is more or less exposed, connected, empowered, or silenced);  
 - how communities experience those changes (as safety, dignity, agency, and meaning—or as new harms and exclusions);  
-- whether they avoid drifting into the very extraction patterns modeled by Meta/TikTok, Amazon, BlackRock, and Vanguard, or instead help compose counter‑geometries of commons, covenant, and accountable power.
+- whether they avoid drifting into the very extraction and monitoring patterns modeled by Meta/TikTok, Amazon, BlackRock, Palantir, BRICS‑scale payment fabrics, and USDC‑style rails, or instead help compose counter‑geometries of commons, covenant, and accountable power.
