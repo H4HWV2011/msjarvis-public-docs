@@ -139,6 +139,7 @@ Across all methods, outcomes are interpreted through three questions:
 Polymathmatic geography is thus not only a toolkit of methods but a stance about how methods must answer to worlds, not the other way around. It measures its own success by whether its instruments can be held to account by the places and peoples they touch, and by its willingness to stop, change course, or relinquish a design when that accounting fails.
 
 ---
+
 ## 9. Appalachian Field Protocol: Staged Practice
 
 To make these methods actionable in Appalachia, the discipline adopts a staged field protocol. The aim is to move from listening to live instrumentation without outpacing consent, safety, or local capacity. Each stage can be paused, repeated, or rolled back; progression is conditional, not automatic.
@@ -239,7 +240,8 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
 - Decide, with communities, what MountainShares‑related information appears in The Commons:  
   - Only aggregate flows?  
   - Named recognitions for certain contributions (with consent)?  
-  - Visibility of systemic issues (for example, consistently under‑served areas or over‑burdened caregivers)?
+  - Visibility of systemic issues (for example, consistently under‑served areas or over‑burdened caregivers)?  
+- For a small subset of sites and stories deemed historically significant by elders, pastors, organizers, and local historians, adapt mature Commons entries into Clio‑style public history entries, so that long‑term preservation and wider visibility live in a dedicated public‑history infrastructure rather than in bespoke code.
 
 **Roles**
 
