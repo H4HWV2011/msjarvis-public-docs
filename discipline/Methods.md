@@ -137,3 +137,110 @@ Across all methods, outcomes are interpreted through three questions:
    Does this configuration move toward the kinds of worlds the discipline is committed to exploring—worlds where entangled spaces are more just, life‑giving, and truthful—or away from them? Does it reproduce geometries of extraction and enclosure, or help compose counter‑geometries of commons, covenant, and accountability?
 
 Polymathmatic geography is thus not only a toolkit of methods but a stance about how methods must answer to worlds, not the other way around. It measures its own success by whether its instruments can be held to account by the places and peoples they touch, and by its willingness to stop, change course, or relinquish a design when that accounting fails.
+
+---
+
+## 9. Appalachian Field Protocol: Staged Practice
+
+To make these methods actionable in Appalachia, the discipline adopts a staged field protocol. The aim is to move from listening to live instrumentation without outpacing consent, safety, or local capacity. Each stage can be paused, repeated, or rolled back; progression is conditional, not automatic.
+
+### Stage 0 – Grounding Without Instruments
+
+**Aim:** Build a shared, place‑anchored understanding of entangled space *before* introducing new digital or financial tools.
+
+**Practices**
+
+- Deep field‑anchored inquiry and spiritual, heritage, and narrative mapping: walks, kitchen‑table conversations, church basements, funerals, festivals.  
+- Hand‑drawn and story‑based maps of danger, care, extraction, and hope: where debt collectors come from, where mutual aid flows, where spiritual anchors and taboos sit.  
+- Genealogical and institutional mapping of who has historically held power over land, labor, and story in the area.  
+- Explicit conversations about **refusal**: what must not be digitized, ledgered, or made machine‑readable at all.
+
+**Roles**
+
+- **Elders and pastors/faith leaders** – primary interpreters of lineage, covenant, trauma, and blessing; set red lines for what cannot be modeled.  
+- **Organizers and mutual‑aid leaders** – surface current networks of care and conflict.  
+- **Youth and technologists** – listen first; document only with consent.
+
+**Must not be delegated**
+
+- Decisions about what is sacred, taboo, or closed to instruments.  
+- Naming of harms, fears, and hopes; these belong to residents, not to Ms. Jarvis or a DAO.
+
+### Stage 1 – Low‑Risk Digital Commons (No Money, No Credit)
+
+**Aim:** Introduce a minimal digital commons focused on visibility and memory, not on transactions or credit.
+
+**Practices**
+
+- Launch a basic version of **The Commons** as a local story and mapping space: memorials, offers and needs, hazard reports, event listings.  
+- Implement strict privacy and consent defaults; allow pseudonymity and “offline‑only” markers for sensitive content.  
+- Use the platform to support existing practices (e.g., prayer chains, meal trains, benefit concerts) rather than to replace them.
+
+**Roles**
+
+- **Community moderators and trusted stewards** – oversee content norms, conflict resolution, and privacy enforcement.  
+- **County officials and service providers** – invited in carefully, with clear boundaries, to listen and respond, not to surveil.  
+- **Technologists and youth** – maintain the platform, provide training, translate between interface and elders’ needs.
+
+**Must not be delegated**
+
+- Final say on platform norms and sanctions (remains with community bodies, not Ms. Jarvis).  
+- Decisions about forwarding data to outside agencies or firms.
+
+### Stage 2 – Limited‑Scope MountainShares Pilots
+
+**Aim:** Carefully test mutual‑credit and reward instruments in narrow, well‑bounded domains.
+
+**Practices**
+
+- Define one or two small pilot use cases (e.g., a single neighborhood, a food‑sharing circle, or a group of local merchants) with clear spatial and social boundaries.  
+- Introduce MountainShares as a closed‑loop reward or mutual‑credit system tied to specific contributions (e.g., volunteer hours, local purchases, care work), *with* hard caps on balance, volume, and eligible transactions.  
+- Log flows transparently and regularly review them with participants: who is earning, who is spending, where balances accumulate or go dormant.
+
+**Evaluation criteria**
+
+- Distribution: Are rewards reaching those doing care and commons work, or only the already‑connected?  
+- Leakage: Are there unexpected ways value is leaving the loop?  
+- Trust: Do participants feel more secure and recognized, or confused and exploited?
+
+**Roles**
+
+- **Pilot participants (residents, small businesses, churches, clinics)** – co‑design rules and define what counts as valuable contribution.  
+- **Organizers and county officials** – observe, support, and document effects, but without commandeering the system.  
+- **Technologists/Ms. Jarvis team** – implement caps, audits, and monitoring; explain behaviour in plain language; adjust only through agreed governance processes.
+
+**Must not be delegated**
+
+- Authority to redefine what counts as legitimate contribution or who is eligible to participate.  
+- Decisions to expand pilot scope; these must be made by affected communities, not solely by technical or academic staff.
+
+### Stage 3 – Conditional Integration with Policy and Infrastructure
+
+**Aim:** Only after earlier stages meet justice and safety thresholds, selectively integrate the stack with broader institutions.
+
+**Practices**
+
+- Consider linking MountainShares and The Commons to local or regional infrastructures (e.g., transit passes, utility assistance, clinic scheduling, disaster response) *only* where pilots have shown clear benefits and no major harms.  
+- Establish formal agreements with county or state agencies that codify data governance, limits on surveillance, and non‑retaliation for participation.  
+- Use Ms. Jarvis in advisory roles (e.g., highlighting under‑served blocks, resilience corridors, or heat‑risk clusters), with human decision‑makers retaining final authority.
+
+**Thresholds for integration**
+
+- Demonstrated improvements in local safety, dignity, or material security, as reported by those most affected.  
+- No major unresolved conflicts over privacy, bias, or exclusion.  
+- Clear, community‑ratified procedures for halting or rolling back integrations that go wrong.
+
+**Roles**
+
+- **County and state officials** – act as partners in implementing community‑defined integrations, not as owners of the stack.  
+- **Commons councils / DAO governance bodies** – hold veto power over expansions that threaten local control or violate prior red lines.  
+- **Technologists and Ms. Jarvis** – provide analysis, simulation, and monitoring; surface risks; never act as autonomous decision‑makers.
+
+**Must not be delegated**
+
+- Ultimate decisions about land use, policing, benefits eligibility, or disciplinary actions. Ms. Jarvis may *inform* such decisions but may not make or enforce them.  
+- The authority to override previously established spiritual, cultural, or genealogical constraints in the name of efficiency or growth.
+
+---
+
+This staged protocol is not a rigid ladder but a **safety scaffold**: it encodes the discipline’s commitment that methods and instruments must grow out of, and remain answerable to, Appalachian worlds. Progression is earned through demonstrated care, not assumed by technical capability.
