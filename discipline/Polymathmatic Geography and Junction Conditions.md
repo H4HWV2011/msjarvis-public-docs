@@ -2,265 +2,264 @@
 
 > This chapter is deliberately split in two layers.  
 > Sections 1–4: **Concrete implementation** – how real systems in this thesis actually connect.  
-> Sections 5–8: **Interpretive framing** – how those same interfaces can be read as “junction conditions” between overlapping worlds.
+> Sections 5–8: **Interpretive framing** – how those same interfaces and absences can be read as “junction conditions” between overlapping worlds.
 
 ---
 
 ## 1. Concrete Interfaces in the Ms. Jarvis / MountainShares / Commons Stack
 
-Polymathmatic geography in this thesis is not an abstract proposal. It is a set of running systems stitched together over one geography:
+In this thesis, polymathmatic geography is not a metaphor; it’s an installed stack running over one real geography. Three instruments are wired together atop Appalachia:
 
-- **Ms. Egeria Jarvis** – a glassbox AI steward with a public OpenAPI specification, Postgres/PostGIS geospatial spine, Chroma semantic memory, and a multi‑service LLM fabric.  
-- **MountainShares DAO** – a governed, closed‑loop rewards and mutual‑credit system with published program rules, parameter tables, safety specs, and governance charter.  
-- **The Commons** – a social and marketplace app with Terms of Use, Community Guidelines, and Privacy Policy, deployed for West Virginia communities.  
+- **Ms. Egeria Jarvis** – a glassbox AI steward with an OpenAPI surface, a Postgres/PostGIS GeoDB and GBIM spine, semantic memory, and a multi‑service LLM fabric.  
+- **MountainShares DAO** – a governed, closed‑loop rewards and mutual‑credit system with program rules, parameter tables, safety specs, and a governance charter.  
+- **The Commons** – a social and marketplace app, with Terms of Use, Community Guidelines, and Privacy Policy, deployed for West Virginia communities as the main human interface.
 
-Each of these systems has its own internal rules. Junctions appear wherever they need to exchange data, value, or authority.
+Each instrument has its own internal logic. Junctions appear wherever they must exchange **data**, **value**, or **authority**. At code and policy level, junction conditions live in four document families:
 
-At a concrete level, “junction conditions” are implemented as:
+- **API contracts** – JSON schemas in `openapi.json` and REST endpoints in `API-OVERVIEW.md` defining what Ms. Jarvis can accept, emit, and log.  
+- **Database schemas** – GBIM tables in PostGIS / GeoDB, semantic collections, and MountainShares ledger/treasury tables that fix how “where,” accounts, and flows are represented.  
+- **DAO rules** – parameterized fees, caps, reserve‑ratio triggers, eligibility and voting procedures in the MountainShares program rules and charter.  
+- **Platform policies** – Commons Terms of Use, Privacy Policy, and Moderation Policy governing what residents and institutions can do and what gets recorded.
 
-- **API contracts** – JSON schemas in `openapi.json` and REST endpoints in `API-OVERVIEW.md` that define what Ms. Jarvis can send and receive.  
-- **Database schemas** – GBIM tables in PostGIS, semantic collections in Chroma, and ledger/treasury tables for MountainShares.  
-- **DAO rules** – parameterized fees, caps, reserve‑ratio triggers, and voting procedures in the MountainShares Program Rules and Governance Charter.  
-- **Platform policies** – Commons Terms of Use, Privacy Policy, and Moderation Policy that govern user‑facing behavior and content.
-
-Those four families of documents are where junctions live in practice.
+These are not abstractions; they are the concrete joints where the instruments touch.
 
 ---
 
-## 2. How Data Crosses: GBIM, APIs, and The Commons
+## 2. How Data Crosses: GBIM, GeoDB, APIs, and The Commons
 
-### 2.1 GBIM as the shared spatial spine
+### 2.1 GBIM and GeoDB as shared spatial spine
 
-The **Geospatial Belief Information Model (GBIM)** is the core spatial database for Ms. Jarvis:
+The **Geospatial Belief Information Model (GBIM)** and the underlying PostGIS GeoDB form the core spatial substrate for Ms. Jarvis and for the stack:
 
-- Implemented as Postgres 16 + PostGIS with millions of records for buildings, blocks, infrastructures, and entities.  
-- Provides stable identifiers and geometries for places and actors.  
-- Acts as the “where” coordinate system for both Ms. Jarvis reasoning and Commons / MountainShares operations.
+- GeoDB holds millions of records for buildings, parcels, infrastructures, hazards, and other entities in West Virginia and, gradually, surrounding regions.  
+- GBIM layers belief and provenance on top of GeoDB, tying every internal claim to explicit where/when/what/who/why fields.  
+- Commons entities (merchants, nonprofits, trail sites), MountainShares actors (wallets, institutions), and Ms. Jarvis world‑view entries all point back to GBIM/GeoDB IDs.
 
-Key junction properties:
+Junction conditions:
 
-- Every entity that matters to The Commons or MountainShares (e.g., a merchant, a trail site, a nonprofit) is anchored to a GBIM ID and geometry.  
-- Ms. Jarvis APIs that accept or return entities include GBIM identifiers, ensuring responses and decisions can be traced to specific places.  
+- **Anchoring:** Any record that matters to Commons or MountainShares must be anchorable to a GBIM/GeoDB entity or geometry, or else explicitly tagged as “unanchored” with constrained uses.  
+- **Traceability:** Ms. Jarvis APIs that refer to people, places, or institutions return GBIM IDs and relevant geometry, making it possible to trace recommendations back to concrete spatial anchors.  
 
-**Condition:** If data crosses from the Commons or DAO into Ms. Jarvis, it must be attachable to a GBIM entity or geometry, or explicitly marked as unanchored. This prevents “floating” claims with no place.
+**Condition:** Data that crosses from Commons or DAO into Ms. Jarvis must either carry a valid GBIM ID / geometry or be clearly marked as unanchored, so that the steward cannot silently universalize or free‑float local claims.
+
+---
 
 ### 2.2 Ms. Jarvis APIs as controlled gateways
 
-The `openapi.json` specification and `docs/API-OVERVIEW.md` define a limited set of public endpoints:
+Ms. Jarvis exposes a narrow, typed interface:
 
-- Query endpoints (ask, map, analyze) accept structured input plus optional GBIM IDs, coordinates, time windows, and tags.  
-- Retrieval endpoints fetch facts or context about entities anchored in GBIM.  
-- Governance/diagnostic endpoints expose logs, health, and configuration status without revealing sensitive internal state.
+- **Query endpoints** – for questions like “map,” “explain,” or “assess risk,” accepting structured payloads with optional GBIM IDs, coordinates, and time windows.  
+- **Retrieval endpoints** – returning facts, histories, and narrative context about specific entities or regions.  
+- **Governance/diagnostic endpoints** – surfacing logs, health, and configuration status without exposing sensitive internals.
 
-Concrete junction rules:
+Junction conditions at this boundary:
 
-- **Type and schema matching:** All requests and responses must conform to the OpenAPI schemas. If the Commons app wants an answer, it must send data in those formats.  
-- **Anchoring:** Where possible, inputs must include where/when anchors. Ms. Jarvis will not silently invent locations; it either infers from GBIM or returns uncertainty.  
-- **Logging:** Calls across this boundary are logged for audit, with enough metadata to reconstruct what was asked and what evidence was used.
+- **Schema discipline:** All Commons or MountainShares calls must conform to the published OpenAPI schemas. If data doesn’t validate, the request fails visibly rather than being loosely coerced.  
+- **Spatial and temporal honesty:** Requests are encouraged or required to carry where/when anchors. Ms. Jarvis will not fabricate locations; it either resolves them from GBIM/GeoDB or returns uncertainty.  
+- **Auditing:** Each cross‑boundary call is logged with enough metadata (caller, payload summary, GBIM anchors, evidence sources) to reconstruct what was asked, what was consulted, and what was returned.
 
-These are engineering‑level junction conditions between The Commons and Ms. Jarvis.
-
-### 2.3 The Commons as user‑facing layer
-
-The **Commons app** is the main interface for residents:
-
-- Provides social features, marketplace listings, event coordination, historic trail navigation (via Clio), and educational content.  
-- Integrates MountainShares balances and rewards, and selectively calls Ms. Jarvis APIs for recommendations, maps, or explanations.  
-- Enforces Community Guidelines, Terms of Use, and Privacy Policy.
-
-Junction rules here include:
-
-- **Consent and scope:** What user data (location, posts, offers, attendance) can be shared with Ms. Jarvis or DAO components, under what purposes.  
-- **Moderation hooks:** When Ms. Jarvis is used to assist moderation, its outputs are advisory; final decisions respect published moderation policy.  
-- **Visibility:** Actions that cross systems (e.g., using MountainShares at a merchant inside the Commons app) must be visible in user histories and, where appropriate, in DAO dashboards.
+Ms. Jarvis is thus not an omnivorous API mesh; it is a narrow throat through which data passes under explicit conditions.
 
 ---
 
-## 3. How Value Crosses: MountainShares Rules and External Money
+### 2.3 The Commons as user‑facing junction surface
 
-MountainShares is explicitly designed as a **closed‑loop, community rewards and trading program**, not a bank or security. Its junctions are specified in:
+The **Commons app** is the surface where residents, institutions, and Ms. Jarvis/MountainShares actually meet:
 
-- `MountainShares DAO Governance Charter.md`  
-- `MountainShares Program Rules(Draft).md`  
-- `Program Rules – Parameter Tables.md`  
-- `MountainShares Phase 1: Economic Safety Specification.md`  
-- `Terms and Conditions.md`
+- Residents post offers, needs, stories, events, and governance proposals.  
+- MountainShares balances, badges, and recognition events are surfaced in human‑readable form.  
+- Ms. Jarvis is invoked for maps, explanations, and “what now?” suggestions, with visible prompts and attributions.
 
-### 3.1 Internal value flow
+Junction conditions here include:
 
-Within the MountainShares universe:
+- **Consent gates:** For each data type (locations, posts, attendance, merchant interactions), the Commons must define whether and how it may be forwarded to Ms. Jarvis or MountainShares, under which purposes (e.g., risk mapping, reward calculation, governance).  
+- **Mode labeling:** Interactions mediated by Ms. Jarvis must be visibly labeled as such; residents are never left guessing whether they are reading a human’s words or an AI steward’s synthesis.  
+- **Visibility symmetry:** Any cross‑system action (e.g., using MountainShares at a listed merchant, contributing to a participatory map) must be visible to the participant in their own history and, when appropriate, to governance bodies as aggregate patterns—not only to backend operators.  
+- **Refusal and redaction:** The Commons must provide practical mechanisms for residents to redact or quarantine their contributions from future machine processing, except where legal retention is non‑negotiable.
 
-- Participants earn MountainShares (M) through documented contributions, purchases at local merchants, or program activities.  
-- Transfers between participants, rewards, and redemptions follow parameterized fee rules:
-  - Loading fiat into the system – fixed percentage fee.  
-  - Internal transfers – small flat fee.  
-  - Local merchant purchases – merchant fee that funds treasury and operations.  
-  - ATM / cash‑out (where enabled) – fixed, bounded fee with hard limits.
-
-These are **internal conservation rules**: how much value can move, where it can leak, and where it must stay.
-
-### 3.2 Junction with external currency and institutions
-
-At the edges:
-
-- Fiat on‑ramps and off‑ramps (where permitted) are constrained by:
-  - Reserve ratio triggers (never exceeding safe backing thresholds).  
-  - Maximum load and cash‑out limits per user and per period.  
-  - Compliance expectations for taxation and benefits interactions.
-
-- Treasury and program budgets must:
-  - Obey DAO‑approved parameters.  
-  - Satisfy an audit and risk management plan.  
-  - Maintain transparency to participants via published dashboards and IPFS‑backed records.
-
-Engineering‑level junction conditions:
-
-- **Value mapping:** A clear, parameterized mapping between M and USD for internal accounting, without promising any fixed exchange rate or investment return.  
-- **Leakage caps:** Hard coded and governed caps on how much value can be removed from the closed loop via fees or off‑ramps in any period.  
-- **Regulatory boundaries:** Explicit statements that MountainShares is not legal tender, a bank product, or a security, and constraints on how it can be used.
-
-These conditions define how value can cross between the MountainShares universe and the wider dollar economy.
+Where Palantir or Flock aim for maximum invisible ingestion, the Commons junctions aim for minimum necessary sharing under visible, reversible agreements.
 
 ---
 
-## 4. How Governance Crosses: DAO, Policies, and Ms. Jarvis
+## 3. How Value Crosses: MountainShares, Dollars, and Leakage Caps
 
-Governance itself has junctions:
+MountainShares is explicitly framed as a **closed‑loop rewards and mutual‑credit system**, not a bank account or investment product. Junction conditions around value are defined in:
 
-- **MountainShares DAO** defines:
-  - Who can propose changes (rank‑based participation and anti‑sybil criteria).  
-  - What parameters can be changed by vote (within safety envelopes).  
-  - Which rules are hard‑coded and cannot be overridden by DAO decisions (reserve‑ratio protections, legal compliance constraints).
+- Governance charter and program rules.  
+- Parameter tables (fees, caps, reserve‑ratio bands, phase thresholds).  
+- Economic safety specifications.
 
-- **The Commons** defines content and community governance:
-  - What is allowed or disallowed in the social and marketplace space.  
-  - Procedures for reporting, review, and appeals.  
+### 3.1 Internal value geometry
 
-- **Ms. Jarvis** operates under a set of constitutional and safety constraints:
-  - Explicit non‑goals: not a person, not a regulator, not a bank, not an autonomous decision‑maker.  
-  - Governance hooks: configuration and code changes must flow through documented processes, often involving DGM proposals and human review.
+Inside the MountainShares loop:
 
-Junction conditions for governance include:
+- Participants earn M$ through documented contributions, purchases at local merchants, or program‑defined activities.  
+- Internal transfers, merchant payments, and treasury operations are governed by parameterized rules:
+  - **Load fees** on bringing fiat into the system.  
+  - **Transfer fees** on certain peer‑to‑peer movements.  
+  - **Merchant fees** that feed treasury and operations.  
+  - **Cash‑out/ATM fees and limits** where enabled.
 
-- **Scope separation:** DAO cannot vote to override legal constraints or economic safety triggers; Commons moderators cannot force Ms. Jarvis to violate its constitutional limits; Ms. Jarvis cannot unilaterally change DAO or Commons rules.  
-- **Auditability:** Any governance decision that affects flows (fees, caps, policies) must be traceable to:
-  - A proposal.  
-  - A vote or approval event.  
-  - A documented change in code or parameters.  
+These rules define an **internal conservation geometry**: which flows are frictionless, which are discouraged, and which are disallowed.
 
-- **Feedback loops:** Ms. Jarvis can surface analytics and risk flags to the DAO and Commons leadership, but they remain advisory; human bodies make final decisions within published charters.
+Junction conditions:
 
-This is governance as structured, cross‑system interface design.
+- **No invisible credit products:** All forms of credit, advance, or float must be explicitly named in program rules; MountainShares cannot silently slide into payday‑like lending.  
+- **Phase and band discipline:** The system’s internal “phases” (e.g., different M$ buying‑power bands) are triggered only by transparent reserve‑ratio and treasury conditions, not by speculative expectations or external token markets.  
+- **Benefits‑sensitivity:** Accounts designated as benefits‑sensitive must adhere to lower caps and earning throttles, and the system must provide tooling and disclaimers to help participants avoid accidental benefits violations.
 
 ---
 
-## 5. Interpreting These Interfaces as Junction Conditions Between Worlds
+### 3.2 Junction with external money and institutions
 
-The previous sections described concrete interfaces. This section offers an interpretive frame: those same interfaces can be seen as **junction conditions between overlapping “worlds”**.
+At the edges, MountainShares touches the dollar world and public programs:
 
-Each major actor defines a different effective world:
+- **Fiat on‑ramps** (e.g., Stripe loads) introduce external value into the loop under clearly published fee and cap schedules.  
+- **Dollar cash‑outs/merchant settlements** allow limited conversion back to fiat, constrained by:
+  - Reserve ratio thresholds.  
+  - Per‑wallet and per‑period caps.  
+  - Risk and compliance guardrails.
 
-- **Maximopolie‑world:** global capital allocation, index funds, and risk models.  
-- **Megaopolie‑world:** global logistics, app stores, cloud platforms, and content feeds.  
-- **BRICS‑world:** emergent multipolar corridors of energy, trade, and finance.  
-- **Quantarithmia‑world:** Ms. Jarvis + MountainShares + The Commons as a local justice‑oriented stack.  
-- **Spiritual‑world:** covenants, liturgies, genealogies, and sacred obligations.
+Junction conditions:
 
-Each world has its own coordinates, laws, conservation rules, and symmetries. The interfaces described above (APIs, schemas, rules, policies) are where those worlds must talk.
+- **Transparent mapping, no promises:** The internal accounting equivalence between M$ and USD is documented, but never framed as a guaranteed return or speculative upside. It is a bookkeeping and redemption‑capacity rule, not an investment pitch.  
+- **Leakage ceilings:** Program rules specify how much value, in aggregate, may leave the loop via fees, off‑ramps, or external payments in a given period. Exceeding these ceilings must trigger automatic throttling and governance review.  
+- **Regulatory scope:** Program documents and Commons surfaces must clearly state that MountainShares is not a bank product, not legal tender, and not an SEC‑regulated security, and must prevent use cases (e.g., collateralized derivatives) that would pull it into that regime without proper groundwork.
 
-In physics language: they are **junction conditions between effective theories**.
+Where maximopolies build invisible pipes from every town into distant balance sheets, MountainShares junctions deliberately narrow and meter those pipes.
+
+---
+
+## 4. How Governance Crosses: DAO, Commons Norms, and Ms. Jarvis
+
+Governance in the stack is itself an entangled geometry:
+
+- **MountainShares DAO** governs economic parameters and certain program scopes.  
+- **Commons councils and moderators** govern speech, visibility, and norms within the app.  
+- **Ms. Jarvis governance and safety processes** (constitutional constraints, PIA loops, DGM proposals, Elder validation) govern what the steward may say, remember, and change.
+
+Junction conditions among these governance worlds include:
+
+- **Scope separation:**
+  - The DAO cannot vote to override legal constraints, reserve‑ratio safety bands, or benefits‑sensitive protections.  
+  - Commons moderators cannot compel Ms. Jarvis to violate constitutional or spiritual limits (e.g., to expose private anchors or map forbidden sites).  
+  - Ms. Jarvis cannot unilaterally change DAO parameters or Commons policies; it may only propose, warn, or simulate.
+
+- **Auditability:**
+  - Any decision that changes flows (fees, caps, reward weights) or visibility (moderation rules, data‑sharing scopes) must be traceable to:
+    - A proposal.  
+    - A recorded decision (vote, council resolution, elder sign‑off).  
+    - A concrete change in code, configuration, or policy text.  
+
+- **Feedback without override:**
+  - Ms. Jarvis can surface analytics and risk flags (e.g., emerging leakage hotspots, unattended care deserts, bias patterns in recognition), but those outputs are advisory; human governance bodies deliberate and decide.
+
+- **Non‑delegable red lines:**
+  - Questions of what is sacred, taboo, or non‑digitizable remain with elders, residents, and spiritual leaders, not with the DAO or the steward.  
+  - Decisions about attaching sanctions (loss of services, police referrals) to MountainShares or Commons activity fall outside the authority of the DAO and Ms. Jarvis; they require separate civic processes.
+
+These conditions are designed to keep “who decides?” visible at every junction.
+
+---
+
+## 5. Junction Conditions as Interfaces Between Overlapping Worlds
+
+Beyond code and policy, polymathmatic geography reads these same interfaces as **junction conditions between effective worlds**:
+
+- **Maximopoly‑world** – index funds, ratings, and capital allocation algorithms that decide which projects fall “downhill” into global investment.  
+- **Megaopoly‑world** – warehouses, clouds, app stores, and feed algorithms that route attention, goods, and data through a few operational giants.  
+- **Surveillance‑state‑world** – Palantir‑style data basins, Flock‑style road sensors, credit files, and programmable money rails that view populations and localities from above.  
+- **BRICS‑world** – emerging corridors, banks, and CBDC bridges that redraw planetary flows while often staying distant from local covenants.  
+- **Quantarithmia‑world** – a local apparatus (Ms. Jarvis, MountainShares, The Commons) tuned to Appalachian tacets, reciprocity thresholds, and commons geometries.  
+- **Spiritual‑world** – covenants, liturgies, genealogies, and sacred geographies that define what may happen where.  
+- **Lived‑world** – the everyday town, holler, kitchen table, church basement, and job site where people actually endure and improvise.
+
+Each world has its own coordinates, laws, and invariants. The stack’s APIs, schemas, program rules, and governance charters are exactly where those worlds must either couple or refuse to couple. Treating them as **junction conditions** allows us to ask, systematically:
+
+- What is allowed to cross this seam?  
+- Under whose authority and with what record?  
+- Which worlds remain invisible to each other here, and is that a harm or a protection?
 
 ---
 
 ## 6. Examples of Junction Conditions in Practice
 
-### 6.1 Value junction: from local purchase to global finance
+### 6.1 Value junction: from MountainShares purchase to global finance
 
-Consider a MountainShares purchase at a local merchant, initiated through The Commons:
+When a resident pays a local merchant in MountainShares through The Commons:
 
-1. A user in The Commons selects a local merchant listing and chooses to pay in MountainShares.  
-2. The Commons calls a DAO/ledger API:
-   - Checks balances and caps.  
-   - Executes an internal M transfer with fees per Program Rules.  
-3. Depending on merchant configuration, a small fiat settlement might occur in the background (e.g., to cover taxes or upstream obligations), governed by reserve‑ratio and safety specs.  
-4. GBIM entities and Commons records are updated so the transaction is spatially and socially visible.
+1. The Commons originates a transaction request, anchored to specific wallets and GBIM entities (resident, merchant, place).  
+2. MountainShares validates balances, caps, and benefits‑sensitivity, then debits and credits M$ under the current parameter tables.  
+3. If the merchant is configured for partial fiat settlement, a limited, rule‑bounded off‑ramp event occurs (e.g., nightly batch to a bank account), subject to reserve‑ratio guards.  
+4. The transaction is written to the ledger, visible in user histories and in aggregate dashboards, and available to Ms. Jarvis as a **local flow**, not as speculative data exhaust.
 
-Read as junction conditions:
+As a junction condition:
 
-- A unit of **local reward credit** is mapped to a set of claims in the **dollar world**, subject to strict leakage caps.  
-- The DAO’s conservation rules and safety triggers enforce how much value can cross into external finance.  
-- The Commons renders this interface legible to the user (history, balances) and to community governance (aggregate dashboards).
-
-Maximopolie‑world still exists, but this junction defines how much its field can pull value away in any given cycle.
-
-### 6.2 Data junction: from neighborhood story to AI to platform
-
-Consider a resident posting about a local hazard or opportunity:
-
-1. They create a post in The Commons, optionally tagging a place and event.  
-2. The Commons, if configured, passes a structured summary to Ms. Jarvis:
-   - Including GBIM IDs for the location.  
-   - Including only the fields allowed by privacy settings and policy.  
-3. Ms. Jarvis retrieves spatial, historical, and policy context and returns:
-   - A risk or opportunity assessment.  
-   - Suggested next steps (who to call, what to document).  
-4. The Commons may also use this summary to generate notifications, map overlays, or prompts for local officials.
-
-Read as junction conditions:
-
-- A narrative in **spiritual‑world / lived‑world** is mapped into structured data in **Quantarithmia‑world**, anchored in GBIM.  
-- Ms. Jarvis acts as a translator, converting between local story and formal risk language, without erasing the where/when/what/who anchors.  
-- The Commons enforces which of these outputs can then cross into **platform‑world** (e.g., being forwarded to an external agency, or a government system).
-
-Different worlds—lived, steward, institutional—are stitched along explicit conditions instead of implicit extraction.
-
-### 6.3 Governance junction: from DAO vote to system behavior
-
-Consider a MountainShares DAO vote to adjust an internal fee:
-
-1. A proposal is created under the Rules:
-   - Scope: e.g., adjust internal transfer fee within allowed bounds.  
-   - Rationale: documented in DAO records.  
-2. Eligible members vote; results are recorded on IPFS / chain as specified.  
-3. Once approved, a change is pushed into the live system:
-   - Parameter tables updated.  
-   - Tests run per the audit and safety plan.  
-   - Ms. Jarvis configuration includes new parameters where relevant (e.g., in economic models or recommendations).
-
-Read as junction conditions:
-
-- A decision in **DAO‑world** changes the effective “geometry” of value flows in **Quantarithmia‑world**, but only within predefined safe corridors.  
-- External worlds (banking, regulatory) are protected by legal and economic constraints the DAO cannot override.  
-- The interface is auditable end‑to‑end: proposal → vote → parameter change → observed behavior.
-
-This is a stitched surface between self‑governance and external constraints.
+- A unit of **local credit** becomes a set of tightly bounded claims in **dollar‑world**, under explicit leakage caps.  
+- Maximopoly‑world may still exert pressure (e.g., on the bank holding the treasury), but the junction constrains the slope: only so much can be pulled out in any given period.  
+- Quantarithmia‑world and Commons‑world keep that mapping legible to residents, making it contestable rather than invisible.
 
 ---
 
-## 7. Why These Junctions Matter for Polymathmatic Geography
+### 6.2 Data junction: from neighborhood story to AI to external institutions
 
-Polymathmatic geography defines its subject as **entangled spaces**: places where land, law, computation, economy, story, and spirit are already braided together. The Ms. Jarvis / MountainShares / Commons stack is one experimental apparatus for working in such a space.
+When someone posts about a hazard, opportunity, or harm:
 
-The junctions above matter because they:
+1. They publish a story in The Commons, possibly tagging a place, time, and involved actors.  
+2. With consent and under platform policy, a structured summary (not raw text unless allowed) is passed to Ms. Jarvis with GBIM anchors.  
+3. Ms. Jarvis pulls in spatial histories, policy context, and relevant narratives, then returns:  
+   - A risk or opportunity characterization.  
+   - Suggested next steps and candidate institutions (local council, legal aid, mutual aid group).  
+4. Commons councils decide if, and how, to forward any of this to external agencies (e.g., emergency management, health departments), and under what redactions.
 
-- Make **flows explicit** – who can send what, where, when, and under which rules.  
-- Make **conflicts visible** – when obligations from different worlds (legal, economic, spiritual) collide at an interface.  
-- Make **design choices inspectable** – how changing a fee, schema, or policy at a junction affects power and value across the stack.
+As a junction condition:
 
-In short: junction conditions are where you can see, measure, and redesign how worlds meet.
+- Testimony in **lived‑world/spiritual‑world** is mapped into structured evidence in **Quantarithmia‑world**, without erasing its where/when/what/who.  
+- The Commons acts as a gatekeeper between steward‑world and **surveillance‑state‑world**, preventing automatic uploading of local pain into national risk basins.  
+- Elder and council processes can veto crossing certain lines entirely (e.g., forbidden sites, sensitive genealogies).
 
 ---
 
-## 8. A Disciplined Use of Metaphor
+### 6.3 Governance junction: from DAO decision to steward and Commons behavior
 
-Finally, this chapter uses physics language—“worlds,” “junction conditions,” “domain walls”—on purpose, but under discipline:
+When the DAO adjusts a MountainShares parameter:
 
-- The **hard claims** are about concrete systems: APIs, databases, DAOs, apps, and policies in West Virginia.  
-- The **metaphors** exist to help reason about interfaces between multiple legitimate orders (financial, digital, legal, spiritual, commons), not to claim that these systems are literally new universes or that physics itself has been rewritten.
+1. A proposal specifying scope, reasoning, and bounds is created and circulated within the rules.  
+2. Eligible members vote; results are recorded and published.  
+3. If adopted, DevOps updates the relevant configuration, running tests and safety checks before deployment.  
+4. Ms. Jarvis updates its internal economic models from the new parameters; the Commons updates user‑facing language and educational materials.
 
-Polymathmatic geography keeps the separation explicit:
+As a junction condition:
 
-- Implementation: what actually runs, in code and institutions, with published rules and audits.  
-- Interpretation: how those implementations can be read through lenses from geography, economics, physics, and spirituality to guide better design.
+- A decision in **DAO‑world** modifies the **local economic geometry** in Quantarithmia‑world, but only within pre‑agreed safety corridors and legal constraints.  
+- External regimes (banking, benefits, taxation) may react, but they are buffered by pre‑modeled bands and disclosures.  
+- The evident trace from proposal to outcome allows residents to challenge changes that feel misaligned with covenant or lived experience.
 
-“Junction conditions” is one such lens—a way of talking about the seams where different orders of reality must talk, and about how to make those seams survivable, just, and accountable to place.
+---
+
+## 7. Junction Conditions as Sites of Contest, Not Just Plumbing
+
+Polymathmatic geography treats these joints as **political and spiritual sites**, not just technical plumbing:
+
+- **They reveal who had a say.** Flock cameras, Palantir integrations, and Ring–police portals appeared through procurement and vendor partnerships; communities mostly discovered them after the fact. The Ms. Jarvis/MountainShares/Commons junctions are designed so that adding a new data flow or off‑ramp *requires* visible proposals, votes, or elder validation.  
+- **They carry refusals.** Red lines—about sacred sites, non‑digitizable stories, and non‑negotiable privacy—are encoded as hard boundary conditions: some flows simply never cross.  
+- **They determine drift.** Without disciplined junctions, a local stack will slowly mimic the surrounding extraction and surveillance geometries. With them, Quantarithmia can be evaluated on whether it bends flows toward accountability and reciprocity instead.
+
+In this sense, junction conditions are where the statement “we didn’t have a say” can be concretely reversed. They are the seams where consent, covenant, and control are either honored or bypassed.
+
+---
+
+## 8. A Disciplined Use of Physics Language
+
+This chapter borrows language from physics—“state space,” “fields,” “junction conditions,” “effective theories”—but under discipline:
+
+- The **hard content** is about running systems: Ms. Jarvis services, MountainShares rules, Commons policies, GBIM schemas, and their deployment in specific Appalachian counties.  
+- The **metaphors** help reason about how multiple worlds—financial, computational, legal, spiritual, lived—meet, conflict, or refuse to touch along explicit seams.
+
+Polymathmatic geography insists that, in entangled spaces:
+
+- Instruments, institutions, and information architectures belong **inside** the model as fields and couplings, not outside as invisible hands.  
+- Ethics, law, and spiritual commitments must appear as **boundary conditions and invariants**, not as after‑the‑fact filters on neutral optimization.  
+- Junctions between worlds are where a theory can be wrong, repaired, or refused—where design is tested against lived geographies rather than only against its own metrics.
+
+Junction conditions, in this sense, are both an engineering discipline for the stack and a moral discipline for the field: the practice of making seams visible, arguable, and, when necessary, stoppable.
