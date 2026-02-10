@@ -1,32 +1,32 @@
 > **Why this matters for Polymathmatic Geography**  
-> This chapter explains how Ms. Jarvis’s “global hormones” are implemented as constitutional rules, weights, and modes that shape every interaction. It supports:  
+> This chapter explains how Ms. Jarvis’s “global hormones” are implemented as constitutional rules, weights, modes, and always‑on services that shape every interaction. It supports:  
 > - **P1 – Every where is entangled** by tying global safety, ethics, and optimization signals to all agents, memories, and spatial backbones at once.  
 > - **P3 – Power has a geometry** by making global influence flow through explicit services and routing patterns instead of hidden parameters.  
 > - **P5 – Design is a geographic act** by encoding norms for Appalachian communities directly into system‑wide constraints and emphasis profiles.  
 > - **P12 – Intelligence with a ZIP code** by allowing global weights and principles to prioritize local context, commons, and community veto.  
 > - **P16 – Power accountable to place** by logging, hashing, and exposing global decisions and violations so they can be audited and contested.  
-> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the “pituitary” layer of global modes and constraints that govern how Ms. Jarvis’s cognitive services behave.
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the “pituitary” layer of global modes and constraints that govern how Ms. Jarvis’s cognitive services behave in the running system.
 
 # 15. Pituitary and Global Modes
 
-This chapter describes the layer that controls global settings and modes across the system. The design borrows the idea of a central regulator that sends signals influencing many subsystems at once, implemented here as configuration state, constitutional and supervisory services, and routing policies that shape how agents, retrieval, and generation behave under different conditions. Work on neuromodulation and global mode switching in neuroscience, such as Marder (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4082670/) and Aston‑Jones & Cohen (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1387522/), provides the conceptual analogy.
+This chapter describes the layer that controls global settings and modes across the system. The design borrows the idea of a central regulator that sends signals influencing many subsystems at once, implemented here as a running layer of configuration state, constitutional and supervisory services, and routing policies that now control how agents, retrieval, and generation behave under different conditions. Work on neuromodulation and global mode switching in neuroscience, such as Marder (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4082670/) and Aston‑Jones & Cohen (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1387522/), provides the conceptual analogy.
 
 ---
 
 ## 15.1 Purpose and Scope
 
-Global controls in Ms. Jarvis are realized as a set of always‑on governance and modulation services rather than static configuration files. The core components are:
+Global controls in Ms. Jarvis are realized as a set of always‑on governance and modulation services rather than static configuration files. The core components in the live stack are:
 
-- **Constitutional Guardian**  
-  A dedicated constraint engine and API that enforces high‑level prohibitions (for example, no PII collection without consent, no integration with surveillance infrastructure), logs violations, and exposes audit and status endpoints under `/constitutional/*`.
+- **Blood–Brain Barrier and constitutional guardrails**  
+  A dedicated safety layer that routes ultimate answers through a proxy and upstream barrier service, enforcing high‑level prohibitions (for example, no PII dumps, no clearly unsafe outputs), logging violations, and acting as the concrete realization of global constitutional constraints on generation.
 
-- **Pituitary emotional‑depth service**  
-  A microservice that wraps a `pituitary_gland` module and exposes `/process` to add emotional depth to payloads and `/health` for monitoring, intended to modulate global affective tone.
+- **Fifth DGM orchestration (“hippocampal gate”)**  
+  A running FastAPI service (`jarvis-fifth-dgm`) that filters which experiences enter “subconscious” memory and, via WOAH‑style evaluation, which are promoted into identity‑carrying I‑containers, functioning as a global gate on what is allowed to shape Ms. Jarvis’s evolving self‑model.
 
 - **WOAH / DGM supervisory services**  
-  Services that estimate multi‑scale complexity (`fractal_dgm_woah`), maintain and increment global WOAH weights, and expose optimization endpoints for self‑improving behavior.
+  Services that estimate multi‑scale complexity (`fractal_dgm_woah`), maintain and increment global WOAH weights, and expose optimization endpoints for self‑improving behavior, currently used as supervisory signals for identity and routing rather than full self‑rewrite engines.
 
-These controls are treated as dynamic state that can evolve over time, and their status and effects are surfaced through unified gateway endpoints with explicit `system_transparency_mode` descriptions.
+These controls are treated as dynamic state that can evolve over time, and their status and effects are surfaced through unified gateway and main‑brain status endpoints with explicit `system_transparency_mode` descriptions and per‑service health reports.
 
 ---
 
@@ -62,7 +62,7 @@ The global control state is implemented through a combination of configuration f
   - `config/woah_weights.json`, `constitutional_principles.yml`, and `constitutional_principles.md` encode numeric weights and textual principles that guide behavior, and are updated or read by services like `woah_optimizer.py` and the Constitutional API.
 
 - **Derived flags and in‑memory state**  
-  - Services such as the unified status and orchestrators derive simple flags like `woah_processed`, `darwin_processed`, `blood_brain_barrier` active, and current DGM mode, and include them in JSON responses to higher‑level gateways.  
+  - Services such as the unified status and orchestrators derive simple flags like `woah_processed`, `darwin_processed`, `blood_brain_barrier` active, `fifth_dgm` active, and current DGM mode, and include them in JSON responses to higher‑level gateways.  
   - Redis is used by some status components to track orchestrator state under keys like `jarvis:state`, contributing to short natural‑language or JSON summaries of the system’s current focus that can be consumed by higher‑level agents.
 
 - **Change logs and audits**  
@@ -89,7 +89,7 @@ Global settings materially influence how agents are selected, how retrieval oper
   - DGM orchestrators such as `master_chat_orchestrator_v9_dgm_complete.py` explicitly annotate responses with `dgm_orchestration` information (for example, `{"mode": "emergent_passthrough"}`) and a final `mode` field set to `"dgm_complete_integration"`, which can be consumed by downstream introspective and control layers.  
   - Unified gateways control which services are invoked and how their outputs are merged, and their endpoints report `system_transparency_mode` texts describing whether, for example, full audit, high‑depth analysis, or minimal direct DB access modes are active for RAG and GIS subsystems.
 
-These mechanisms ensure that identical underlying capabilities are deployed differently depending on global modes, governance constraints, and orchestration choices.
+In the live system, the main brain’s status layer treats the global stack—Ollama fabric, RAG server, Chroma, Redis, Fifth DGM, web research, and brain orchestrator—as a core fabric that must be healthy before ultimate modes are considered fully operational, and executive flows treat the blood–brain barrier, Fifth DGM, and WOAH stack as always‑on global modulators rather than optional add‑ons.
 
 ---
 
@@ -120,7 +120,7 @@ Global modes are both informed by and reflected in the system’s introspective 
   Consciousness coordination logs already include fields describing which GBIM services and consciousness layers are active, and reference scores and discrepancies between mesh status and integrated beliefs, providing evidence that introspective summaries can incorporate mode‑like metadata about system configuration.
 
 - **Consolidated memory annotated with configuration**  
-  Consolidation pipelines that route through coordinated and final unified apps can include fields such as `woah_active`, `darwin_godel_active`, and the specific pipeline layers traversed, so that long‑term memory entries implicitly record which global mechanisms were engaged when a particular episode occurred.
+  Consolidation pipelines that route through coordinated and final unified apps can include fields such as `woah_active`, `darwin_godel_active`, `fifth_dgm_active`, and the specific pipeline layers traversed, so that long‑term memory entries implicitly record which global mechanisms were engaged when a particular episode occurred.
 
 - **Feedback loops into global settings**  
   Because the Constitutional Guardian maintains a detailed audit trail and WOAH/DGM analyzers report complexity and integration measures, higher‑level optimization or governance processes can examine these records to motivate adjustments—tightening constraints, altering role emphasis, or changing orchestrator modes when certain patterns of violations or instabilities are observed.
@@ -149,4 +149,4 @@ These practices support a governance model in which global controls are not alte
 
 ## 15.8 Summary
 
-The pituitary and global modes layer in Ms. Jarvis is instantiated as a set of concrete services and configurations: a Constitutional Guardian with PII and surveillance constraints and an audit trail; a pituitary emotional‑depth wrapper service; WOAH/DGM analyzers and supervisors that compute and adjust complexity‑related weights; and orchestrators that explicitly encode modes in their responses. Unified gateways and status endpoints surface these elements via descriptive `system_transparency_mode` strings and admin/audit routes, tying low‑level configuration and constraints to high‑level, human‑interpretable modes. Later work on executive control and container design can build directly on this foundation by treating guardian decisions, WOAH weights, DGM modes, and orchestrator health as first‑class inputs to higher‑level routing, scheduling, and policy adaptation.
+The pituitary and global modes layer in Ms. Jarvis is instantiated as a set of concrete services and configurations: a Constitutional Guardian with PII and surveillance constraints and an audit trail; a blood–brain barrier safety filter on ultimate outputs; a Fifth DGM “hippocampal gate” that decides what enters subconscious memory and identity; WOAH/DGM analyzers and supervisors that compute and adjust complexity‑related weights; and orchestrators that explicitly encode modes in their responses. Unified gateways, the main brain’s status endpoint, and admin/audit routes surface these elements via descriptive `system_transparency_mode` strings and per‑service health reports, tying low‑level configuration and constraints to high‑level, human‑interpretable modes. Later work on executive control and container design can build directly on this foundation by treating guardian decisions, WOAH weights, DGM modes, Fifth DGM state, and orchestrator health as first‑class inputs to higher‑level routing, scheduling, and policy adaptation.
