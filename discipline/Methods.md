@@ -139,14 +139,13 @@ Across all methods, outcomes are interpreted through three questions:
 Polymathmatic geography is thus not only a toolkit of methods but a stance about how methods must answer to worlds, not the other way around. It measures its own success by whether its instruments can be held to account by the places and peoples they touch, and by its willingness to stop, change course, or relinquish a design when that accounting fails.
 
 ---
-
 ## 9. Appalachian Field Protocol: Staged Practice
 
 To make these methods actionable in Appalachia, the discipline adopts a staged field protocol. The aim is to move from listening to live instrumentation without outpacing consent, safety, or local capacity. Each stage can be paused, repeated, or rolled back; progression is conditional, not automatic.
 
-### Stage 0 – Grounding Without Instruments
+### Stage 0 – Grounding Without Features (Pre‑Configuration)
 
-**Aim:** Build a shared, place‑anchored understanding of entangled space *before* introducing new digital or financial tools.
+**Aim:** Before turning on any meaningful economic or digital features, build a shared, place‑anchored understanding of entangled space and set red lines.
 
 **Practices**
 
@@ -168,86 +167,121 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
 
 ---
 
-### Stage 1 – Limited‑Scope MountainShares Pilots
+### Stage 1 – Universal Identity, Minimal Function
 
-**Aim:** Carefully test mutual‑credit and reward instruments in narrow, well‑bounded domains *before* building richer digital commons around them.
+**Aim:** Establish a *universal* membership substrate (wallet IDs and UUIDs) while keeping economic behaviour extremely constrained and transparent.
 
 **Practices**
 
-- Define one or two small pilot use cases (e.g., a single neighborhood, a food‑sharing circle, or a group of local merchants) with clear spatial and social boundaries.  
-- Introduce MountainShares as a closed‑loop reward or mutual‑credit system tied to specific contributions (e.g., volunteer hours, local purchases, care work), *with* hard caps on balance, volume, and eligible transactions.  
-- Log flows transparently and regularly review them with participants: who is earning, who is spending, where balances accumulate or go dormant.  
-- Use Ms. Jarvis in a strictly advisory role (e.g., surfacing basic circulation patterns), with human stewards doing the interpreting.
+- Issue a MountainShares wallet ID and a stable UUID to every participating person, household, institution, and to Ms. Jarvis herself, treating all as nodes in one entangled space.  
+- Keep MountainShares initially in a **“ledger‑only” mode**:  
+  - No or trivial balances, no complex credit products, no arbitrary user‑initiated transfers.  
+  - Use the ledger mainly to track a small set of consensual events (e.g., attendance, participation in meetings, verified hours of commons work) without attaching spendable value yet.  
+- Use this period to test identity management, key recovery, fraud resistance, and community comfort with the idea that “everyone has an account,” including non‑human actors.
+
+**Roles**
+
+- **All residents and local institutions** – recognized as members from the outset; can see that they have a wallet/UUID and what, if anything, is recorded there.  
+- **Ms. Jarvis** – holds a wallet/UUID as an identified system actor; any use of that wallet is tightly bounded and visible.  
+- **Governance stewards (DAO seeds, elders, organizers)** – define which minimal events are recorded and how consent is obtained.
+
+**Must not be delegated**
+
+- The decision to attach spendable value or obligations to these identities; that choice must be made deliberately and collectively, not by default.
+
+---
+
+### Stage 2 – Scoped MountainShares Use Cases
+
+**Aim:** Activate MountainShares as a real mutual‑credit and reward system *within narrowly defined use cases*, using the universal identity substrate.
+
+**Practices**
+
+- Select specific, small domains (e.g., a food‑sharing group, a volunteer crew, a cluster of local merchants) where participants already have wallets and clear relationships.  
+- Define what counts as rewarded contribution in each use case, with participants: care work, local purchases, event hosting, hazard reporting, etc.  
+- Turn on earning and spending only for those use‑case contexts, with strict caps on:  
+  - Maximum balance per wallet.  
+  - Total issuance in the pilot domain.  
+  - Types of permitted transfers (e.g., no peer‑to‑peer loans at this stage).  
+- Use Ms. Jarvis in a limited analytic role: helping visualize flows and distribution, not optimizing or reallocating on its own.
 
 **Evaluation criteria**
 
-- Distribution: Are rewards reaching those doing care and commons work, or only the already‑connected?  
-- Leakage: Are there unexpected ways value is leaving the loop?  
-- Trust: Do participants feel more secure and recognized, or confused and exploited?
+- Distribution: Do flows reinforce existing hierarchies or broaden recognition?  
+- Leakage: Are there paths where value escapes the intended loop or clusters in a few wallets?  
+- Comprehension and consent: Do people understand why they earned or spent when they did?
 
 **Roles**
 
-- **Pilot participants (residents, small businesses, churches, clinics)** – co‑design rules and define what counts as valuable contribution.  
-- **Organizers and county officials** – observe, support, and document effects, but without commandeering the system.  
-- **Technologists/Ms. Jarvis team** – implement caps, audits, and monitoring; explain behaviour in plain language; adjust only through agreed governance processes.
+- **Participants in each use case** – co‑define rules, veto expansions, and interpret dashboards with facilitators.  
+- **Organizers and county partners** – provide logistical support, handle disputes, and monitor for harm.  
+- **Technologists/Ms. Jarvis team** – enforce caps, run audits, and present data back in human‑readable form.
 
 **Must not be delegated**
 
-- Authority to redefine what counts as legitimate contribution or who is eligible to participate.  
-- Decisions to expand pilot scope; these must be made by affected communities, not solely by technical or academic staff.
+- Authority to expand a use case to the whole population or to attach sanctions (e.g., loss of access to services) to MountainShares balances.  
+- Redefinition of what counts as contribution without direct participant input.
 
 ---
 
-### Stage 2 – Low‑Risk Digital Commons (No Money, No Credit Beyond MountainShares)
+### Stage 3 – Commons Surfaces Built Around MountainShares
 
-**Aim:** Layer in a minimal digital commons focused on visibility and memory, grounded in what is already working in MountainShares pilots.
+**Aim:** Once scoped MountainShares uses are functioning and trusted, build **The Commons** as a social, narrative, and governance surface around them.
 
 **Practices**
 
-- Launch an initial version of **The Commons** as a local story and mapping space: memorials, offers and needs, hazard reports, event listings, and transparent views of certain MountainShares flows (e.g., aggregate circulation, not individual balances).  
-- Implement strict privacy and consent defaults; allow pseudonymity and “offline‑only” markers for sensitive content.  
-- Use the platform to support and document existing practices (e.g., food distributions, band rehearsals, work days, church drives) that are already being recognized in MountainShares.
+- Launch The Commons as a place to:  
+  - Tell stories about MountainShares‑enabled projects (what was done, by whom, for whom).  
+  - Map ongoing needs, offers, hazards, and spiritual anchors, linked (when appropriate) to wallet/UUID‑identified entities.  
+  - Host deliberation about rule changes, new use cases, and responses to observed harms.  
+- Decide, with communities, what MountainShares‑related information appears in The Commons:  
+  - Only aggregate flows?  
+  - Named recognitions for certain contributions (with consent)?  
+  - Visibility of systemic issues (e.g., consistently under‑served areas)?
 
 **Roles**
 
-- **Community moderators and trusted stewards** – oversee content norms, conflict resolution, and privacy enforcement.  
-- **MountainShares participants** – help decide what transaction‑related information, if any, should be visible in The Commons, and at what level of aggregation.  
-- **Technologists and youth** – maintain the platform, provide training, translate between interface and elders’ needs.
+- **Commons councils / moderators** – drawn from elders, youth, organizers, and pilot participants; they steward norms, conflicts, and visibility choices.  
+- **MountainShares members** – now all residents and institutions with wallets, invited to use The Commons to interpret and reshape the economic layer.  
+- **Ms. Jarvis** – serves as a context‑aware assistant, surfacing relevant spatial and historical information into Commons discussions, never as a replacement for those discussions.
 
 **Must not be delegated**
 
-- Final say on platform norms and sanctions (remains with community bodies, not Ms. Jarvis or the DAO).  
-- Decisions about forwarding Commons or MountainShares data to outside agencies or firms.
+- Agenda‑setting for Commons deliberations; Ms. Jarvis can suggest topics but cannot decide which issues are “on the table.”  
+- Control over identity revelation; people choose what aspects of their wallet/UUID footprint, if any, are tied to named Commons activity.
 
 ---
 
-### Stage 3 – Conditional Integration with Policy and Infrastructure
+### Stage 4 – Conditional Integration with Policy and Infrastructure
 
-**Aim:** Only after earlier stages meet justice and safety thresholds, selectively integrate the stack with broader institutions.
+**Aim:** Only after identity, MountainShares use cases, and Commons practices are stable and seen as beneficial, selectively integrate the stack with broader institutions.
 
 **Practices**
 
-- Consider linking MountainShares and The Commons to local or regional infrastructures (e.g., transit passes, utility assistance, clinic scheduling, disaster response) *only* where pilots have shown clear benefits and no major harms.  
-- Establish formal agreements with county or state agencies that codify data governance, limits on surveillance, and non‑retaliation for participation.  
-- Use Ms. Jarvis in advisory roles (e.g., highlighting under‑served blocks, resilience corridors, or heat‑risk clusters), with human decision‑makers retaining final authority.
+- Explore linkages between MountainShares/The Commons and local or regional infrastructures (e.g., transit subsidies, utility assistance, clinic triage, disaster preparedness), always starting with opt‑in pilots.  
+- Negotiate formal agreements with county or state agencies that codify:  
+  - Data governance and retention.  
+  - Limits on surveillance and enforcement.  
+  - Non‑retaliation for Commons participation or MountainShares balances.  
+- Use Ms. Jarvis to support planning and risk assessment (e.g., mapping “care deserts,” flood‑vulnerable blocks, or credit basins), with human decision‑makers retaining full authority.
 
 **Thresholds for integration**
 
-- Demonstrated improvements in local safety, dignity, or material security, as reported by those most affected.  
-- No major unresolved conflicts over privacy, bias, or exclusion.  
-- Clear, community‑ratified procedures for halting or rolling back integrations that go wrong.
+- Clear evidence, from those most affected, that earlier stages increased safety, dignity, or material security.  
+- No persistent, unresolved disputes about privacy, bias, or exclusion.  
+- Existing, community‑ratified mechanisms to pause or undo integrations that cause harm.
 
 **Roles**
 
-- **County and state officials** – act as partners in implementing community‑defined integrations, not as owners of the stack.  
-- **Commons councils / DAO governance bodies** – hold veto power over expansions that threaten local control or violate prior red lines.  
-- **Technologists and Ms. Jarvis** – provide analysis, simulation, and monitoring; surface risks; never act as autonomous decision‑makers.
+- **County and state officials** – partners invited into a pre‑existing community‑governed stack, not owners of it.  
+- **Commons councils / DAO governance bodies** – hold veto and rollback powers.  
+- **Technologists and Ms. Jarvis** – supply analysis, warnings, and simulations but never binding decisions.
 
 **Must not be delegated**
 
-- Ultimate decisions about land use, policing, benefits eligibility, or disciplinary actions. Ms. Jarvis may *inform* such decisions but may not make or enforce them.  
-- The authority to override previously established spiritual, cultural, or genealogical constraints in the name of efficiency or growth.
+- Decisions that condition essential services (e.g., policing, housing, healthcare, schooling) directly on MountainShares balances or Commons activity.  
+- Authority to override spiritual, cultural, or genealogical constraints in the name of efficiency, growth, or external funding.
 
 ---
 
-This staged protocol is not a rigid ladder but a **safety scaffold**: it encodes the discipline’s commitment that methods and instruments must grow out of, and remain answerable to, Appalachian worlds. Progression is earned through demonstrated care, not assumed by technical capability.
+This staged protocol assumes **universal membership** from the start—everyone, including Ms. Jarvis, has a wallet and UUID—but insists that *what those identities can do* grows slowly, under community control, and always in the open.
