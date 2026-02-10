@@ -88,7 +88,7 @@ The text RAG service exposes a structured HTTP API (used internally by `/chat/li
 - Metadata fields (for example, dataset, `worldview_id`, county, `local_resource_id`).  
 - A similarity‑derived score.
 
-From the Hilbert‑space perspective, each collection represents a finite subset of the component spaces \(\text{H}_{\text{text}}, \text{H}_{\text{geo}}, \text{H}_{\text{inst}}\) [1], and the RAG query selects a neighborhood around the embedded query vector. From the GBIM perspective, the same calls return belief fragments whose provenance and `worldview_id` can be inspected and composed.
+From the Hilbert‑space perspective, each collection represents a finite subset of the component spaces \(\text{H}_{\text{text}}, \text{H}_{\text{geo}}, \text{H}_{\text{inst}}\), and the RAG query selects a neighborhood around the embedded query vector. From the GBIM perspective, the same calls return belief fragments whose provenance and `worldview_id` can be inspected and composed.
 
 In production, typical text RAG behavior is exercised through the unified chat endpoints, for example:
 
