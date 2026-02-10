@@ -33,7 +33,7 @@ In the Ms. Jarvis architecture, ChromaDB plays several interlocking roles.
   Embeddings of texts and artifacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, local resource guides, and curated user‑memory–like traces. These collections support general semantic retrieval independent of geography.
 
 - **Geospatial Hilbert layer (spatial).**  
-  A unified GIS‑derived collection holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the Hilbert‑space representation of the spatial body described in the GBIM chapter. The current production deployment centers on a consolidated worldview collection with millions of records and spatial provenance linking back to PostGIS geometries and belief graph edges, complemented by task‑specific collections such as `gis_wv_benefits` that focus on benefits‑relevant facilities.
+  A unified GIS‑derived collection holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the Hilbert‑space representation of the spatial body described in the GBIM chapter. The current production deployment centers on a consolidated worldview collection with millions of records and spatial provenance linking back to PostGIS geometries and belief graph edges, complemented by task‑specific collections such as `gis_wv_benefits` that focus on benefits‑relevant facilities. In the active WV deployment, the hippocampal spatial index is exposed as the `geospatialfeatures` collection, mirroring centroid‑bearing GBIM worldview entities one‑for‑one together with worldview IDs and provenance.
 
 - **Retrieval engine for RAG.**  
   At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval; a GIS RAG service uses geospatial collections for spatial questions. This behavior instantiates the query projection and neighborhood selection mechanisms described in the Hilbert‑space model and forms the unstructured side of Ms. Jarvis’s memory, which is then joined against structured stores like GBIM and `local_resources` before being handed to the 21‑LLM ensemble.
@@ -53,9 +53,9 @@ In the deployment examined in late 2025 and early 2026, the primary Chroma insta
 
 The primary spatial memory collection in production as of early 2026 is a consolidated GBIM export:
 
-- Collection name: `gbim_worldview_entities` (or equivalent consolidated spatial index).  
-- Record count: on the order of 6.1M records.  
-- Records with worldview context and spatial provenance: on the order of 5.5M.  
+- Collection name: `gbim_worldview_entities` (or equivalent consolidated spatial index; in the current hippocampal pipeline this role is realized by the `geospatialfeatures` collection).  
+- Record count: on the order of 5.4–6.1M records in recent snapshots.  
+- Records with worldview context and spatial provenance: on the order of 5.4–5.5M.  
 - Records currently lacking full worldview, bbox, and dataset metadata: a residual backlog tracked for enrichment.  
 - Source datasets: 200+ standardized West Virginia GIS layers.  
 - Worldview context: a stable UUID tying spatial entities to a particular worldview.
@@ -74,8 +74,10 @@ This collection is built by exporting GBIM worldview entities and their attribut
 
 Text documents follow a simple pattern such as:
 
-``text
+```text
 wvgistcbuildingfootprints feat_1703912
+```
+
 Core metadata fields (present for all records):
 
 - `entity_id`: UUID linking to `gbim_worldview_entity.id`.  
@@ -132,10 +134,10 @@ ChromaDB provides the concrete realization of the Hilbert‑space representation
 The embedding model maps texts and entities into high‑dimensional real vectors. ChromaDB stores these vectors alongside metadata (identifiers, timestamps, entity types, geographies, resource keys) and exposes operations such as nearest‑neighbor search, filtered retrieval, and upsert.
 
 **Collections as working subspaces.**  
-Each ChromaDB collection corresponds to an empirically instantiated subset of the Hilbert space \(H_{\text{App}}\), grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of “who helps whom, where, and how.”
+Each ChromaDB collection corresponds to an empirically instantiated subset of the Hilbert space \\(H_{\\text{App}}\\), grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of “who helps whom, where, and how.”
 
 **Queries as projections plus joins.**  
-Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of \(H_{\text{App}}\), retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, `worldview_id`, and `gbim_entity`) to join that unstructured context against `local_resources` and GBIM, enforcing that any recommended program or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
+Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of \\(H_{\\text{App}}\\), retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, `worldview_id`, and `gbim_entity`) to join that unstructured context against `local_resources` and GBIM, enforcing that any recommended program or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
 
 This mapping allows Ms. Jarvis’s memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, RAG calls, and joins to structured registries.
 
@@ -143,7 +145,7 @@ This mapping allows Ms. Jarvis’s memory to be described both geometrically, in
 
 ### 5.5 Embedding Model and Dimensionality
 
-In the RAG stack under analysis, Ms. Jarvis uses a sentence‑embedding model with 384‑dimensional outputs as the primary text embedding channel. Chroma collections are configured with dimension 384, confirming the ambient dimension of the main \(H_{\text{text}}\) component for text‑based collections.
+In the RAG stack under analysis, Ms. Jarvis uses a sentence‑embedding model with 384‑dimensional outputs as the primary text embedding channel. Chroma collections are configured with dimension 384, confirming the ambient dimension of the main \\(H_{\\text{text}}\\) component for text‑based collections.
 
 Any Chroma collection that stores embeddings produced by this model is configured to accept 384‑dimensional vectors. This requirement applies both to general semantic collections and to spatial and benefits collections, which use consistent text embeddings for feature descriptions and attribute summaries, as well as to resource‑document collections.
 
@@ -165,12 +167,13 @@ In the active environment, services connect to a shared ChromaDB instance throug
 
 Connection patterns follow a simple template:
 
-``python
+```python
 import chromadb
 
 client = chromadb.HttpClient(host="localhost", port=8002)
 collection = client.get_collection("gbim_worldview_entities")
 print("Total entities:", collection.count())
+```
 
 The shared instance is treated as the canonical semantic memory store for this deployment and is used by the text RAG, GIS RAG, and other memory‑aware services behind `/chat/light` and `/chat/sync`.
 
@@ -249,8 +252,8 @@ Collection names, metadata schemas, embedding configurations, and RAG routing ru
 
 **Spatial memory**
 
-- A consolidated spatial collection with roughly 6.1M records.  
-- Around 5.5M records with extended provenance metadata, with a residual backlog explicitly tracked for enrichment.  
+- A consolidated spatial collection with roughly 5.4–6.1M records depending on snapshot.  
+- Around 5.4–5.5M records with extended provenance metadata, with a residual backlog explicitly tracked for enrichment.  
 - 200+ source GIS datasets.  
 - Core spatial metadata coverage for all records (IDs, source tables, primary keys, centroids).  
 - Extended provenance fields attached via a dedicated backfill pipeline, monitored by automated scripts.  
