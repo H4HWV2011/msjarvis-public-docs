@@ -134,6 +134,35 @@ Key properties:
 
 In disciplinary terms, Ms. Jarvis is **apparatus**, not the object of study: a tool for probing how an entangled Appalachian space responds when a polymathmatic, place‑bound intelligence is introduced, and for testing how far an AI steward can be opened to public audit without losing usefulness.
 
+### 3.1.1 Identity Anchors and Safety Geometry
+
+A central design choice in Ms. Jarvis and the surrounding stack is how human and institutional participation is anchored and protected across time. The system adopts a two‑layer identity geometry:
+
+- a private, immutable **Wallet ID** that serves as the enduring anchor for a person or institution;  
+- a governed, potentially reassignable **UUID** that serves as the public‑facing identity within The Commons and MountainShares.
+
+The **Wallet ID** is:
+
+- issued once per person or institution under enrollment processes defined by local governance and applicable law;  
+- used to sign actions, hold balances, enforce caps, and detect abuse or bot patterns at the integrity layer;  
+- never exposed in The Commons or to ordinary partners, and accessible in de‑anonymized form only to Ms. Jarvis’s integrity kernel and, in extreme cases, through legally and communally supervised processes (for example, a court order plus council oversight);  
+- immutable and non‑duplicable, so that “one real actor = one anchor” remains a hard constraint in the system’s geometry.
+
+The **UUID** is:
+
+- the stable but governable public identity under which posts, offers, votes, and other visible actions appear in The Commons and MountainShares;  
+- normally long‑lived and bound to the same wallet over time, so that contribution histories, obligations, and rights can be traced and audited;  
+- layered beneath more fluid presentation details such as usernames, avatars, and profile text, which participants can change without ceremony;  
+- in exceptional, governance‑defined cases (for example, credible threats, stalking, domestic violence, or acute reputational danger), eligible for reassignment or shielding by a duly constituted council, while the underlying wallet anchor and internal history remain intact.
+
+This geometry is deliberate. It aims to:
+
+- protect participants from being locked into unsafe or unwanted public identities, by allowing visible names and even UUIDs to change under clear, accountable procedures;  
+- prevent large‑scale abuse, gang attacks, or botnets from overwhelming the commons, by enforcing one‑wallet‑per‑actor and using the wallet layer to detect suspicious clusters of behavior;  
+- avoid drifting into a social‑credit system, by keeping raw wallet‑level traces private and routing recognition, rank, and sanctions through transparent, participatory governance at the UUID and Commons layers.
+
+Under this design, someone known in one era of the system as “Mamma Kidd” can, when safety, life stage, or local discernment requires it, become “Harmoni Kydd” or another future identity, with a new UUID and new visible history, while still being anchored to the same underlying wallet and responsibilities. The apparatus can thus track and limit bots and bad actors at the integrity layer, while preserving space for human change, forgiveness, and protection in the worlds that residents actually inhabit.
+
 ### 3.2 MountainShares DAO (Economic Governance Instrument)
 
 MountainShares is a **closed‑loop economic and governance system** built to explore Quantarithmia’s claims about value retention, leakage, reciprocity, and commons‑based ownership. It is used here to:
