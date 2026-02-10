@@ -144,27 +144,43 @@ Polymathmatic geography is thus not only a toolkit of methods but a stance about
 
 To make these methods actionable in Appalachia, the discipline adopts a staged field protocol. The aim is to move from listening to live instrumentation without outpacing consent, safety, or local capacity. Each stage can be paused, repeated, or rolled back; progression is conditional, not automatic.
 
-### Stage 0 – Grounding Without Features (Pre‑Configuration)
+### Stage 0 – Build‑First Grounding (Pre‑Configuration)
 
-**Aim:** Before turning on any meaningful economic or digital features, build a shared, place‑anchored understanding of entangled space and set red lines.
+**Aim:** Before turning on any meaningful economic or digital features, build the core stack itself—Ms. Jarvis, MountainShares, and early Commons surfaces—in a way that is already place‑literate, constraint‑aware, and spiritually and legally grounded, even if “higher‑level players” are not yet at the table.
+
+In this phase, there is no pre‑fieldwork theorizing and then implementation later. The work *is* to build the apparatus in conversation with local knowledge and hard external texts so that, when communities and institutions are ready, they are stepping into an already accountable, inspectable system rather than a generic vendor shell.
 
 **Practices**
 
-- Deep field‑anchored inquiry and spiritual, heritage, and narrative mapping: walks, kitchen‑table conversations, church basements, funerals, festivals.  
-- Hand‑drawn and story‑based maps of danger, care, extraction, and hope: where debt collectors come from, where mutual aid flows, where spiritual anchors and taboos sit.  
-- Genealogical and institutional mapping of who has historically held power over land, labor, and story in the area.  
-- Explicit conversations about **refusal**: what must not be digitized, ledgered, or made machine‑readable at all.
+- **Corpus configuration for Ms. Jarvis.**  
+  - Load a curated, non‑RAG Chroma corpus that becomes part of Ms. Jarvis’s enduring semantic space, including:
+    - Major world religious and philosophical texts as a comparative reference for care, obligation, and limits.  
+    - The U.S. Constitution and key civil‑rights and due‑process materials.  
+    - State‑ and county‑level legal and policy documents such as the West Virginia Income Maintenance Manual and related benefits guidance.  
+    - High‑resolution geospatial layers (e.g., from the WVU GIS Tech Center) into GeoDB/GBIM so that “where” is concrete from day one.  
+    - DSM‑adjacent psychological materials (clinical guidelines, crisis‑intervention manuals, empirically grounded summaries of diagnostic categories) that inform how Ms. Jarvis understands distress, risk, and boundaries without turning her into a diagnostic engine.  
+  - Exercise PIA, BBB, and constitutional constraints against this inner corpus so the steward learns *how not to cross* certain lines before it is widely exposed.
+
+- **Quiet prototyping of MountainShares and early Commons surfaces.**  
+  - Implement the identity geometry (Wallet IDs + UUIDs) and ledger logic, but keep balances trivial or purely test‑mode—no live credit products or binding obligations.  
+  - Develop early Commons views and flows showing how offers, needs, stories, and governance proposals might appear, without enrolling residents into live decision or economic structures yet.  
+  - Use internal dog‑fooding and a small trusted circle to shake out UX, explanation, and failure modes.
+
+- **Educational and buy‑in work.**  
+  - Use Ms. Jarvis’s configured corpus to generate examples and explainers about benefits rules, constitutional protections, spiritual constraints, and local hazards in Appalachian language.  
+  - Share these as **education, not enrollment**: talks, walkthroughs, and prototypes that let residents, organizers, and potential partners see what a place‑bound steward and closed‑loop rewards system *could* feel like, without asking them to stake their livelihoods on it yet.
 
 **Roles**
 
-- **Elders and pastors/faith leaders** – primary interpreters of lineage, covenant, trauma, and blessing; set red lines for what cannot be modeled.  
-- **Organizers and mutual‑aid leaders** – surface current networks of care and conflict.  
-- **Youth and technologists** – listen first; document only with consent.
+- **Core steward/dev team** – builds the stack, curates corpora, and is explicitly responsible for early harms and mis‑steps; they move faster than formal institutions but treat Stage 0 as on‑the‑record work, not as a sandbox outside ethics.  
+- **Local readers and advisers** – a small trusted circle (elders, organizers, faith leaders, people with lived experience of WV benefits systems) who try early versions of Ms. Jarvis and Commons flows and can say “this feels wrong” or “this is helpful” before anything scales.  
+- **Prospective institutional partners** – appear, if at all, as observers and sounding boards: they see demos, give feedback, and begin to imagine their role, but do not yet control rules or data.
 
 **Must not be delegated**
 
-- Decisions about what is sacred, taboo, or closed to instruments.  
-- Naming of harms, fears, and hopes; these belong to residents, not to Ms. Jarvis or a DAO.
+- **Corpus boundaries.** Decisions about which sacred texts, legal documents, psychological materials, and spatial layers are included, summarized, or kept out altogether are made in light of local counsel and covenant—not by vendors, funders, or external agencies.  
+- **Safety invariants.** No early‑stage pressure (funding, institutional excitement, “innovation” hype) may weaken BBB, PIA, constitutional constraints, or identity‑safety geometry.  
+- **Narrative framing.** All Stage‑0 demos and educational materials must frame Ms. Jarvis, MountainShares, and The Commons as *tools under community and covenant*, not as neutral infrastructure, not as state authority, and not as investment products.
 
 ---
 
@@ -174,7 +190,7 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
 
 **Practices**
 
-- Issue a MountainShares wallet ID and a stable UUID to every participating person, household, institution, and to Ms. Jarvis herself, treating all as nodes in one entangled space.  
+- Issue a MountainShares Wallet ID and a stable UUID to every participating person, household, institution, and to Ms. Jarvis herself, treating all as nodes in one entangled space.  
 - Keep MountainShares initially in a **“ledger‑only” mode**:  
   - No or trivial balances, no complex credit products, no arbitrary user‑initiated transfers.  
   - Use the ledger mainly to track a small set of consensual events (e.g., attendance, participation in meetings, verified hours of commons work) without attaching spendable value yet.  
@@ -235,7 +251,7 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
   - Tell stories about MountainShares‑enabled projects (what was done, by whom, for whom).  
   - Map ongoing needs, offers, hazards, and spiritual anchors, linked (when appropriate) to wallet/UUID‑identified entities.  
   - Host deliberation about rule changes, new use cases, and responses to observed harms.  
-- Introduce badges, levels, or NFT‑like attestations tied to wallets/UUIDs as **non‑tradable proofs of participation** in commons work (for example, contributing oral history, escorting elders, hosting meetings, completing walking tours). These recognitions remain inside the local system and are never marketed or treated as investment assets.  
+- Introduce badges, levels, or attestations tied to wallets/UUIDs as **non‑tradable proofs of participation** in commons work (for example, contributing oral history, escorting elders, hosting meetings, completing walking tours). These recognitions remain inside the local system and are never marketed or treated as investment assets.  
 - Use The Commons as the “scoreboard” for this game: projects and circles can “level up” as they meet participation and care thresholds, unlocking forms of recognition (public thanks, Clio‑style entries, new co‑design capacities), not random payouts or loot‑box rewards.  
 - Decide, with communities, what MountainShares‑related information appears in The Commons:  
   - Only aggregate flows?  
