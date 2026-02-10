@@ -6,6 +6,8 @@ Mathematics, AI, and systems theory are important languages in polymathmatic geo
 
 Polymathmatic geography understands that many kinds of spaces are real: river valleys and coal seams; undersea cables and data centers; neural networks and sensor grids; liturgies and dreamscapes; cemeteries and family lands; galaxies and multiverses. Any structured “where” in which relations have shape, distance, boundary, enclosure, flow, or topology can be a proper object of study, as long as the questions remain spatial.
 
+At its core, the field is a geography of **flows, obligations, and rules of reciprocity and extraction** in space. It asks who owes what to whom, through which paths, under which covenants or contracts, and how those rules are encoded in land, ledgers, code, custom, and ritual. Digital algorithms, legal frameworks, financial instruments, and inherited practices are all treated as ways of routing reciprocity and extraction across a landscape.
+
 ### Relationship to existing geography
 
 Polymathmatic geography grows out of, but is not confined to, mathematical and quantitative geography, critical and economic geography, commons theory, and spatial‑justice traditions. It extends these by:
@@ -44,7 +46,7 @@ Polymathmatic geography works by *braiding* multiple ways of knowing into a sing
 
 - **Field‑anchored attention**: starting from concrete worlds—lands, watersheds, platforms, congregations, ecosystems, networks—and treating them as primary texts that must be walked, listened to, archived, and dwelt in.
 - **Braided representation**: holding qualitative, historical, spiritual, artistic, legal, and mathematical representations together, refusing to let any one of them claim a complete map of a place or to erase contradictions that reveal buried power.
-- **Formalization and experiment**: translating hypotheses about power, extraction, care, identity, lineage, and intelligence into formal structures that can be simulated, perturbed, and tested, while remaining accountable to the worlds and communities they claim to describe.
+- **Formalization and experiment**: translating hypotheses about power, extraction, care, identity, lineage, reciprocity, and intelligence into formal structures that can be simulated, perturbed, and tested, while remaining accountable to the worlds and communities they claim to describe.
 - **World‑craft and design**: participating in the making of alternative geographies—economic, legal, digital, architectural, institutional, and liturgical—that rearrange relations in space, and then observing how those designs behave, fail, or heal over time.
 
 In this sense, polymathmatic geography is not only about seeing the world; it is about *co‑creating* worlds. It reads existing geographies of domination and care, and joins in the work of composing new geographies of relation, using every trustworthy way of knowing—including, but never only, mathematics.
