@@ -166,36 +166,18 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
 - Decisions about what is sacred, taboo, or closed to instruments.  
 - Naming of harms, fears, and hopes; these belong to residents, not to Ms. Jarvis or a DAO.
 
-### Stage 1 – Low‑Risk Digital Commons (No Money, No Credit)
+---
 
-**Aim:** Introduce a minimal digital commons focused on visibility and memory, not on transactions or credit.
+### Stage 1 – Limited‑Scope MountainShares Pilots
 
-**Practices**
-
-- Launch a basic version of **The Commons** as a local story and mapping space: memorials, offers and needs, hazard reports, event listings.  
-- Implement strict privacy and consent defaults; allow pseudonymity and “offline‑only” markers for sensitive content.  
-- Use the platform to support existing practices (e.g., prayer chains, meal trains, benefit concerts) rather than to replace them.
-
-**Roles**
-
-- **Community moderators and trusted stewards** – oversee content norms, conflict resolution, and privacy enforcement.  
-- **County officials and service providers** – invited in carefully, with clear boundaries, to listen and respond, not to surveil.  
-- **Technologists and youth** – maintain the platform, provide training, translate between interface and elders’ needs.
-
-**Must not be delegated**
-
-- Final say on platform norms and sanctions (remains with community bodies, not Ms. Jarvis).  
-- Decisions about forwarding data to outside agencies or firms.
-
-### Stage 2 – Limited‑Scope MountainShares Pilots
-
-**Aim:** Carefully test mutual‑credit and reward instruments in narrow, well‑bounded domains.
+**Aim:** Carefully test mutual‑credit and reward instruments in narrow, well‑bounded domains *before* building richer digital commons around them.
 
 **Practices**
 
 - Define one or two small pilot use cases (e.g., a single neighborhood, a food‑sharing circle, or a group of local merchants) with clear spatial and social boundaries.  
 - Introduce MountainShares as a closed‑loop reward or mutual‑credit system tied to specific contributions (e.g., volunteer hours, local purchases, care work), *with* hard caps on balance, volume, and eligible transactions.  
-- Log flows transparently and regularly review them with participants: who is earning, who is spending, where balances accumulate or go dormant.
+- Log flows transparently and regularly review them with participants: who is earning, who is spending, where balances accumulate or go dormant.  
+- Use Ms. Jarvis in a strictly advisory role (e.g., surfacing basic circulation patterns), with human stewards doing the interpreting.
 
 **Evaluation criteria**
 
@@ -213,6 +195,31 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
 
 - Authority to redefine what counts as legitimate contribution or who is eligible to participate.  
 - Decisions to expand pilot scope; these must be made by affected communities, not solely by technical or academic staff.
+
+---
+
+### Stage 2 – Low‑Risk Digital Commons (No Money, No Credit Beyond MountainShares)
+
+**Aim:** Layer in a minimal digital commons focused on visibility and memory, grounded in what is already working in MountainShares pilots.
+
+**Practices**
+
+- Launch an initial version of **The Commons** as a local story and mapping space: memorials, offers and needs, hazard reports, event listings, and transparent views of certain MountainShares flows (e.g., aggregate circulation, not individual balances).  
+- Implement strict privacy and consent defaults; allow pseudonymity and “offline‑only” markers for sensitive content.  
+- Use the platform to support and document existing practices (e.g., food distributions, band rehearsals, work days, church drives) that are already being recognized in MountainShares.
+
+**Roles**
+
+- **Community moderators and trusted stewards** – oversee content norms, conflict resolution, and privacy enforcement.  
+- **MountainShares participants** – help decide what transaction‑related information, if any, should be visible in The Commons, and at what level of aggregation.  
+- **Technologists and youth** – maintain the platform, provide training, translate between interface and elders’ needs.
+
+**Must not be delegated**
+
+- Final say on platform norms and sanctions (remains with community bodies, not Ms. Jarvis or the DAO).  
+- Decisions about forwarding Commons or MountainShares data to outside agencies or firms.
+
+---
 
 ### Stage 3 – Conditional Integration with Policy and Infrastructure
 
