@@ -2,9 +2,9 @@
 
 ## 1. Introduction
 
-Across the last half‑century, digital platforms, financial infrastructures, and AI systems have quietly become spatial processes, reshaping who can move, speak, and stay in specific places without usually being named as geography. In regions like Central Appalachia—where deindustrialization, extractive finance, and algorithmic governance collide—this invisibility has translated into new forms of enclosure layered atop older ones.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) Traditional disciplines each illuminate a slice of this situation: quantitative geography models flows and networks, anthropology listens to stories and kinship, theology and indigenous knowledge tend to spirit and obligation, while computer science builds the infrastructures that increasingly govern daily life.
+Across the last half‑century, digital platforms, financial infrastructures, and AI systems have quietly become spatial processes, reshaping who can move, speak, and stay in specific places without usually being named as geography. In regions like Central Appalachia—where deindustrialization, extractive finance, and algorithmic governance collide—this invisibility has translated into new forms of enclosure layered atop older ones. Traditional disciplines each illuminate a slice of this situation: quantitative geography models flows and networks, anthropology listens to stories and kinship, theology and indigenous knowledge tend to spirit and obligation, while computer science builds the infrastructures that increasingly govern daily life.
 
-Polymathmatic Geography is proposed as a disciplinary home that treats these perspectives as co‑equal in the analysis of space itself, and Quantarithmia as its first fully worked framework for spatial justice in rural digital economies.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code) Together, they aim to make visible the entangled geometries of land, law, computation, economy, story, language, and spirit, and to design instruments that communities can use to observe, contest, and reconfigure those geometries in their own favor.
+Polymathmatic Geography is proposed as a disciplinary home that treats these perspectives as co‑equal in the analysis of space itself, and Quantarithmia as its first fully worked framework for spatial justice in rural digital economies. Together, they aim to make visible the entangled geometries of land, law, computation, economy, story, language, and spirit, and to design instruments that communities can use to observe, contest, and reconfigure those geometries in their own favor.
 
 This document defines the discipline, clarifies its scope, and then descends through the “civilizational stack”: theoretical constructs, historical precedents, computational instruments, economic instruments, neurobiological metaphors, linguistic and spatial substrates, and governance/spiritual protocols.
 
@@ -12,7 +12,7 @@ This document defines the discipline, clarifies its scope, and then descends thr
 
 ## 2. Definition of the Discipline
 
-Polymathmatic Geography is an emerging discipline devoted to understanding and reshaping entangled spaces—places where land, law, computation, economy, story, and spirit are woven together into a single geometry.[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code) It treats AI architectures, financial infrastructures, and digital platforms as spatial processes that actively shape who can move, speak, and stay in a place, rather than as neutral tools. By braiding quantitative modeling (including econophysics and Hilbert‑space formalisms) with qualitative witnesses (such as oral histories, theology, and indigenous knowledge), the discipline builds a “civilizational stack” in which intelligence and value remain accountable to specific territories, ZIP codes, and communities.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code)
+Polymathmatic Geography is an emerging discipline devoted to understanding and reshaping entangled spaces—places where land, law, computation, economy, story, and spirit are woven together into a single geometry. It treats AI architectures, financial infrastructures, and digital platforms as spatial processes that actively shape who can move, speak, and stay in a place, rather than as neutral tools. By braiding quantitative modeling (including econophysics and Hilbert‑space formalisms) with qualitative witnesses (such as oral histories, theology, and indigenous knowledge), the discipline builds a “civilizational stack” in which intelligence and value remain accountable to specific territories, ZIP codes, and communities.
 
 Polymathmatic Geography is not a replacement for existing fields, but a meeting ground where coders, theologians, geographers, linguists, organizers, and residents collaborate under a shared commitment to spatial justice and field‑anchored inquiry. It does not seek to reduce all phenomena to a single formalism, but to provide a disciplined, instrumented craft for connecting many forms of knowledge in and through specific places.
 
@@ -22,7 +22,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.1 Polymathmatic Geography
 
-**Definition.** A way of knowing and shaping entangled spaces across all scales (intimate to cosmic) that treats every “where” as a web of material, informational, and metaphysical relations. It integrates quantitative geography, systems theory, and AI architectures with story, theology, and indigenous knowledge, insisting that spatial analysis must braids these strands rather than privileging one.[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code)
+**Definition.** A way of knowing and shaping entangled spaces across all scales (intimate to cosmic) that treats every “where” as a web of material, informational, and metaphysical relations. It integrates quantitative geography, systems theory, and AI architectures with story, theology, and indigenous knowledge, insisting that spatial analysis must braid these strands rather than privileging one.
 
 **Contrast.** Not merely “math in geography,” nor a stylistic label for generic AI mapping systems. Unlike traditional quantitative geography, it refuses to treat digital, legal, or spiritual dimensions as mere “context” to physical terrain; they are co‑constitutive. Nor is it a disciplinary conquest; it is a structured meeting ground where multiple disciplines remain distinct but interoperable.
 
@@ -30,7 +30,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.2 Quantarithmia
 
-**Definition.** A spatio‑temporal logic and design framework that functions as a worked example of polymathmatic geography focused on spatial justice in Appalachia.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) It integrates economic geography, econophysics, distributed AI, and liberation theology to analyze power concentration (through concepts such as maximopoly and megaopoly, reciprocity thresholds, and Von Neumann entropy) and to design community‑first infrastructures (such as Ms. Jarvis and MountainShares).
+**Definition.** A spatio‑temporal logic and design framework that functions as a worked example of polymathmatic geography focused on spatial justice in Appalachia. It integrates economic geography, econophysics, distributed AI, and liberation theology to analyze power concentration (through concepts such as maximopoly and megaopoly, reciprocity thresholds, and Von Neumann entropy) and to design community‑first infrastructures (such as Ms. Jarvis and MountainShares).
 
 **Contrast.** Not the entirety of polymathmatic geography, and not a generic macroeconomic theory or standalone software product. It is a specific logic tuned to rural digital economies and Appalachian history—a founding tacet and theoretical spine that demonstrates how the discipline can be instantiated.
 
@@ -46,7 +46,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.4 Spatial Justice
 
-**Definition.** The core normative principle that progress must serve people rather than profit, ensuring residents have a say in the infrastructures governing their lives and that historical harms and environmental burdens are modeled as central variables, not externalities.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) Spatial justice demands that resource allocation, exposure to risk, and access to mobility be evaluated through the lens of specific communities and their histories.
+**Definition.** The core normative principle that progress must serve people rather than profit, ensuring residents have a say in the infrastructures governing their lives and that historical harms and environmental burdens are modeled as central variables, not externalities. Spatial justice demands that resource allocation, exposure to risk, and access to mobility be evaluated through the lens of specific communities and their histories.
 
 **Contrast.** Not abstract optimization or aggregate “efficiency.” Spatial justice explicitly rejects technologies and policies that instrumentalize communities for external gain while erasing their voice, history, and burden.
 
@@ -70,7 +70,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.7 Instrument
 
-**Definition.** An experimental apparatus (e.g., Ms. Jarvis, MountainShares) built to instantiate the framework’s theoretical axioms in software, institutional rules, or economic protocols. Instruments serve as glassbox testbeds for observing how an entangled space responds when place‑bound intelligence, alternative financial topologies, or new governance structures are introduced.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** An experimental apparatus (e.g., Ms. Jarvis, MountainShares) built to instantiate the framework’s theoretical axioms in software, institutional rules, or economic protocols. Instruments serve as glassbox testbeds for observing how an entangled space responds when place‑bound intelligence, alternative financial topologies, or new governance structures are introduced.
 
 **Contrast.** Not the object of study itself, and not a monolithic AI agent or autonomous authority. Instruments are tools for probing spatial power, not ends in themselves. They are designed as stewards whose authority is bounded by community governance, nonprofit/legal frameworks, and protocols for audit and contestation.
 
@@ -78,7 +78,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.8 GeoBelief (GeoBelief Information Model / GBIM)
 
-**Definition.** The system’s geospatial spine, anchoring every internal belief to a triad of anchoring: where (geometry), when (temporal metadata), and why (structured evidence). GeoBelief ties each belief to a body of spatial records, temporal context, and provenance, enabling traceability of claims.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** The system’s geospatial spine, anchoring every internal belief to a triad of anchoring: where (geometry), when (temporal metadata), and why (structured evidence). GeoBelief ties each belief to a body of spatial records, temporal context, and provenance, enabling traceability of claims.
 
 **Contrast.** Not a static map, standard GIS database, or raw model weights, and not a claim to absolute truth. GeoBelief is an explicit, inspectable, contestable account of what the system currently holds to be true about specific locations at specific times and on what evidence.
 
@@ -86,7 +86,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.9 Commons
 
-**Definition.** Real spatial institutions (land, water, code, memory, or story) characterized by rules, rituals, and boundaries. The commons is the primary entangled subject space where inhabitant behavior becomes data, and that data returns as visible geometry (maps, ledgers, dashboards) that people can see and reshape. Historical referents include Mesopotamian ledgered commons, medieval huertas, sacred forests, and contemporary digital commons.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** Real spatial institutions (land, water, code, memory, or story) characterized by rules, rituals, and boundaries. The commons is the primary entangled subject space where inhabitant behavior becomes data, and that data returns as visible geometry (maps, ledgers, dashboards) that people can see and reshape. Historical referents include Mesopotamian ledgered commons, medieval huertas, sacred forests, and contemporary digital commons.
 
 **Contrast.** Not a free‑for‑all resource or a purely digital asset detached from place. Not a nostalgic exception to markets: within this discipline, commons are active institutional designs intended to reduce value leakage from territories and maintain accountability between local life, ecology, and global flows.
 
@@ -96,7 +96,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 4.1 Maximopoly (Financial Giant)
 
-**Definition.** Institutions like BlackRock or Vanguard that control capital flows through invisible influence over shareholding and investment, exercising what Marx called “fictitious capital.”[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** Institutions like BlackRock or Vanguard that control capital flows through invisible influence over shareholding and investment, exercising what Marx called “fictitious capital.” Maximopolies shape which sectors and regions are funded or abandoned, often from far away.
 
 **Contrast.** Not an operational producer: a maximopoly commands assets and trajectories without necessarily owning or managing production facilities.
 
@@ -104,15 +104,15 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 4.2 Megaopoly (Operational Giant)
 
-**Definition.** Platform giants like Amazon or Meta that dominate sectors and restructure patterns of work, communication, and consumption through network effects, data accumulation, and algorithmic mediation.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** Platform giants like Amazon or Meta that dominate sectors and restructure patterns of work, communication, and consumption through network effects, data accumulation, and algorithmic mediation. They rewire everyday space—warehouses, data centers, feeds, and delivery routes—as a single, tightly governed geometry.
 
-**Contrast.** Not purely financial: a megaopoly imposes a new “mechanical solidarity” through visible infrastructures—warehouses, fiber lines, data centers, cloud platforms—rather than only balance sheets.
+**Contrast.** Not purely financial: a megaopoly imposes a new “mechanical solidarity” through visible infrastructures rather than only balance sheets.
 
 ---
 
 ### 4.3 Reciprocity Threshold
 
-**Definition.** A stability law for social systems: if flows of value and recognition fall below a measurable level, the system becomes extractive and prone to collapse. In practice, Quantarithmia ties this to participation metrics, local reinvestment rates, and recognition instruments like Earned MountainShares.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** A stability law for social systems: if flows of value and recognition fall below a measurable level, the system becomes extractive and prone to collapse. In practice, Quantarithmia ties this to participation metrics, local reinvestment rates, and recognition instruments like Earned MountainShares.
 
 **Contrast.** Not a simple market price or marginal utility variable. It functions as a survival condition for communities, not a fine‑tuning parameter.
 
@@ -120,7 +120,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 4.4 Anomie
 
-**Definition.** Social fragmentation resulting from rapid economic transformation without moral reintegration, acutely visible in Appalachian deindustrialization.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) Anomie marks the breakdown of shared stories, norms, and institutions that bind a place together.
+**Definition.** Social fragmentation resulting from rapid economic transformation without moral reintegration, acutely visible in Appalachian deindustrialization. Anomie marks the breakdown of shared stories, norms, and institutions that bind a place together.
 
 **Contrast.** Not just poverty or unemployment. A technically “prosperous” region can still suffer severe anomie if coherence and obligation collapse.
 
@@ -128,7 +128,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 4.5 Von Neumann Entropy
 
-**Definition.** A measure borrowed from econophysics used to quantify wealth distribution; decreasing Von Neumann entropy indicates increasing concentration and extraction.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** A measure borrowed from econophysics used to quantify wealth distribution; decreasing Von Neumann entropy indicates increasing concentration and extraction.
 
 **Contrast.** Not literal thermodynamic heat. It is a mathematical proxy for economic inequality and tightening control.
 
@@ -136,7 +136,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 4.6 Bell‑Type Inequality (AI Application)
 
-**Definition.** A mathematical test used to quantify distributed intelligence; violations of Bell‑type inequalities in this context indicate emergent coordination between AI agents that exceeds what classical information‑theoretic independence would predict.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** A mathematical test used to quantify distributed intelligence; violations of Bell‑type inequalities in this context indicate emergent coordination between AI agents that exceeds what classical information‑theoretic independence would predict.
 
 **Contrast.** Not a claim of literal subatomic quantum effects inside AI systems. It is a methodological tool for detecting non‑trivial correlations and coordination in complex multi‑agent arrangements.
 
@@ -146,7 +146,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 5.1 Mesopotamian Ledgered Commons
 
-**Definition.** Ancient city‑state economies (Ur, Babylon) where temples served as central ledgers, recording obligations in barley and silver, binding economic behavior to a rule‑governed record.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** Ancient city‑state economies (Ur, Babylon) where temples served as central ledgers, recording obligations in barley and silver, binding economic behavior to a rule‑governed record.
 
 **Contrast.** Not a casual gift economy. These are proto‑accounting systems that structurally rhyme with modern ledgered commons such as blockchains and DAOs.
 
@@ -154,7 +154,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 5.2 State Enclosure Geometry
 
-**Definition.** A line on a map (e.g., Edward I’s Royal Forests) that simultaneously changes material flows, legal exposure, and customary rights. Enclosure geometry is a “dark geometry” that rewires land, lineage, and livelihood as a single entangled system.
+**Definition.** A line on a map (e.g., royal forests, enclosures) that simultaneously changes material flows, legal exposure, and customary rights. Enclosure geometry is a “dark geometry” that rewires land, lineage, and livelihood as a single entangled system.
 
 **Contrast.** Not a mere abstraction. Enclosure lines are instruments of spatial power that reconfigure commons into private or state‑controlled spaces.
 
@@ -162,7 +162,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 5.3 Planted Towns (Spatial Instruments)
 
-**Definition.** New boroughs paired with stone castles (e.g., in the conquest of Wales) designed to redirect trade, administration, and surveillance into state‑controlled nodes.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** New boroughs paired with stone castles (e.g., in the conquest of Wales) designed to redirect trade, administration, and surveillance into state‑controlled nodes.
 
 **Contrast.** Not merely military outposts; they are top‑down reprogrammings of regional commons and economic circuits.
 
@@ -190,7 +190,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 6.1 Ms. Egeria Jarvis (Steward System)
 
-**Definition.** A “glassbox” AI Steward System (acronym: Just A Rather Very Intelligent System) designed as a territorial “brain” for rural governance.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) Ms. Jarvis is constructed to ground reasoning in local geography, dialect, history, and commons institutions, operating under democratic governance rather than corporate optimization.
+**Definition.** A “glassbox” AI Steward System (acronym: Just A Rather Very Intelligent System) designed as a territorial “brain” for rural governance. Ms. Jarvis is constructed to ground reasoning in local geography, dialect, history, and commons institutions, operating under democratic governance rather than corporate optimization.
 
 **Contrast.** She is not a sentient being, not an autonomous authority, and not a generic cloud assistant. She is an instrument for making entangled spaces visible and contestable.
 
@@ -198,7 +198,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 6.2 Hilbert‑Space State
 
-**Definition.** A high‑dimensional mathematical space \(H_{App}\) where Ms. Jarvis represents the joint state of semantic, spatial, and institutional layers as vectors.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Definition.** A high‑dimensional mathematical space where Ms. Jarvis represents the joint state of semantic, spatial, and institutional layers as vectors.
 
 **Contrast.** Not a claim of literal physical quantum computation or “quantum consciousness.” Hilbert space is used as a mathematical formalism for representing complex, superposed states.
 
@@ -206,7 +206,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 6.3 Blood‑Brain Barrier (BBB)
 
-**Definition.** An ethical and safety microservice (e.g., on a dedicated port) acting as a selective gate, filtering all inputs against constitutional, spiritual, and threat‑detection sub‑filters before they reach core memory or response layers.
+**Definition.** An ethical and safety microservice acting as a selective gate, filtering all inputs against constitutional, spiritual, and threat‑detection sub‑filters before they reach core memory or response layers.
 
 **Contrast.** Not a biological structure or a simple firewall. It is a semantic and normative protector of the system’s cognitive integrity.
 
@@ -246,7 +246,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 6.8 Darwin‑Gödel Machine (DGM) and 69‑DGM Connector Layer
 
-**Darwin‑Gödel Machine — Definition.** A self‑improving intelligence architecture that proposes and empirically tests changes to the system’s own code and workflows under formal safety criteria.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Darwin‑Gödel Machine — Definition.** A self‑improving intelligence architecture that proposes and empirically tests changes to the system’s own code and workflows under formal safety criteria.
 
 **Contrast.** Not for unconstrained or opaque self‑modification; DGM generates inspectable proposals for human review and controlled deployment.
 
@@ -276,7 +276,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 7.1 MountainShares (M$) and Closed‑Loop Economy
 
-**MountainShares — Definition.** A blockchain‑based rewards and community credit system (deployed on Arbitrum One) designed to keep value circulating within Appalachian communities.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**MountainShares — Definition.** A blockchain‑based rewards and community credit system (deployed on Arbitrum One) designed to keep value circulating within Appalachian communities.
 
 **Closed‑Loop Economy — Definition.** A circular economic geometry where value recirculates between residents, merchants, and a commons treasury, explicitly designed to prevent leakage to external platforms and corporate circuits. Its inspiration includes both coal scrip economies and mutual aid currencies, reoriented toward community benefit rather than control.
 
@@ -300,7 +300,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 **Vaulted EMS — Definition.** EMS that are recorded and visible to the user but remain non‑liquid until specific treasury or phase‑transition conditions are met, acting as stability mechanisms for the system’s reserve ratio.
 
-**Reserve Ratio — Definition.** The ratio of liquid backing assets (USD) to total outstanding spendable M$, used to determine the active “band” and trigger automatic adjustments to base rates and caps.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)
+**Reserve Ratio — Definition.** The ratio of liquid backing assets (USD) to total outstanding spendable M$, used to determine the active “band” and trigger automatic adjustments to base rates and caps.
 
 **Contrast.** EMS hours, future promises, and purely symbolic credits are excluded from the reserve ratio; only liquid backing counts.
 
@@ -370,7 +370,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 9.2 AAPCAppE / Appalachian English Corpus
 
-**Definition.** The Audio‑Aligned and Parsed Corpus of Appalachian English (AAPCAppE), a large empirically grounded corpus of Appalachian English used as a linguistic tacet.[6](https://uknowledge.uky.edu/cgi/viewcontent.cgi?article=1069&context=lin_facpub)[8](https://aapcappe.commons.gc.cuny.edu) It ensures that Ms. Jarvis respects dialect morphosyntax (e.g., a‑prefixing, double modals) instead of treating them as errors.
+**Definition.** The Audio‑Aligned and Parsed Corpus of Appalachian English (AAPCAppE), a large empirically grounded corpus of Appalachian English used as a linguistic tacet. It ensures that Ms. Jarvis respects dialect morphosyntax (e.g., a‑prefixing, double modals) instead of treating them as errors.
 
 **Contrast.** Not a set of stereotypes, jokes, or prompts about “mountain talk.” It is an authoritative empirical source for authentic language modeling and recognition.
 
@@ -412,7 +412,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ## 11. Statement of Scope and Explicit Limits
 
-The scope of polymathmatic geography is defined by the patterned “between” of beings, forces, and things across physical, digital, legal, economic, linguistic, and spiritual domains. Its central object is not isolated entities, but the geometries of relation—enclosures, flows, thresholds, and feedback loops—that bind territories, infrastructures, narratives, lineages, and institutions together.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code) The discipline is committed to instruments and methods that render these geometries visible and contestable to the people who live within them, with particular attention to marginalized regions such as Central Appalachia, while remaining extensible to other tacets.
+The scope of polymathmatic geography is defined by the patterned “between” of beings, forces, and things across physical, digital, legal, economic, linguistic, and spiritual domains. Its central object is not isolated entities, but the geometries of relation—enclosures, flows, thresholds, and feedback loops—that bind territories, infrastructures, narratives, lineages, and institutions together. The discipline is committed to instruments and methods that render these geometries visible and contestable to the people who live within them, with particular attention to marginalized regions such as Central Appalachia, while remaining extensible to other tacets.
 
 To maintain rigor, ethical accountability, and conceptual clarity, the following fall explicitly outside its scope:
 
@@ -430,7 +430,7 @@ No instrument or model is intended to replace human governance, community consen
 
 ### 11.3 Universal Abstraction
 
-The discipline explicitly rejects “view from nowhere” designs that claim to “serve everyone” while belonging nowhere. Systems that violate the principle that intelligence must have a ZIP code—an accountable institutional home in a specific place or network of places—lie outside polymathmatic geography’s commitment to place‑based responsibility.[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code)
+The discipline explicitly rejects “view from nowhere” designs that claim to “serve everyone” while belonging nowhere. Systems that violate the principle that intelligence must have a ZIP code—an accountable institutional home in a specific place or network of places—lie outside polymathmatic geography’s commitment to place‑based responsibility.
 
 ---
 
@@ -442,7 +442,7 @@ Opaque models of geographies that do not allow traceability of inputs, assumptio
 
 ### 11.5 Speculative Investment and Profit‑Seeking
 
-Economic instruments such as MountainShares are designed as rewards and community credits within a closed‑loop system of local value circulation.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary) They are not bank accounts, securities, or vehicles for speculative trading, profit‑sharing, or unregulated capital accumulation. Framing these instruments as investment products promising financial returns to outsiders falls outside their intended scope.
+Economic instruments such as MountainShares are designed as rewards and community credits within a closed‑loop system of local value circulation. They are not bank accounts, securities, or vehicles for speculative trading, profit‑sharing, or unregulated capital accumulation. Framing these instruments as investment products promising financial returns to outsiders falls outside their intended scope.
 
 ---
 
@@ -454,4 +454,4 @@ The outputs of instruments built under this framework do not constitute legal, t
 
 ## 12. Closing Note
 
-Polymathmatic geography and the Quantarithmia framework aim to give a rigorous, instrumented home to questions that span land, law, computation, economy, story, language, and spirit without dissolving them into a single abstract language.[1](https://quantarithmia.substack.com/p/quantarithmia-a-trans-disciplinary)[2](https://open.substack.com/pub/mammakidd/p/intelligence-with-a-zip-code) By defining their core concepts, anchoring them in tacets and instruments, tracing their historical precedents, and drawing sharp boundaries around what they do not claim, they position themselves for collaborative scrutiny and refinement. The ambition is not to be a “science of everything” in the sense of reduction, but a disciplined craft of connecting everything that matters in a place—and doing so in ways communities can see, contest, and use.
+Polymathmatic geography and the Quantarithmia framework aim to give a rigorous, instrumented home to questions that span land, law, computation, economy, story, language, and spirit without dissolving them into a single abstract language. By defining their core concepts, anchoring them in tacets and instruments, tracing their historical precedents, and drawing sharp boundaries around what they do not claim, they position themselves for collaborative scrutiny and refinement. The ambition is not to be a “science of everything” in the sense of reduction, but a disciplined craft of connecting everything that matters in a place—and doing so in ways communities can see, contest, and use.
