@@ -226,7 +226,7 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
 
 ### Stage 3 – Commons Surfaces Built Around MountainShares
 
-**Aim:** Once scoped MountainShares uses are functioning and trusted, build **The Commons** as a social, narrative, and governance surface around them.
+**Aim:** Once scoped MountainShares uses are functioning and trusted, build **The Commons** as a social, narrative, and governance surface around them, adding *gamified recognition* for real commons work without introducing speculation or gambling mechanics.
 
 **Practices**
 
@@ -234,21 +234,24 @@ To make these methods actionable in Appalachia, the discipline adopts a staged f
   - Tell stories about MountainShares‑enabled projects (what was done, by whom, for whom).  
   - Map ongoing needs, offers, hazards, and spiritual anchors, linked (when appropriate) to wallet/UUID‑identified entities.  
   - Host deliberation about rule changes, new use cases, and responses to observed harms.  
+- Introduce badges, levels, or NFT‑like attestations tied to wallets/UUIDs as **non‑tradable proofs of participation** in commons work (for example, contributing oral history, escorting elders, hosting meetings, completing walking tours). These recognitions remain inside the local system and are never marketed or treated as investment assets.  
+- Use The Commons as the “scoreboard” for this game: projects and circles can “level up” as they meet participation and care thresholds, unlocking forms of recognition (public thanks, Clio‑style entries, new co‑design capacities), not random payouts or loot‑box rewards.  
 - Decide, with communities, what MountainShares‑related information appears in The Commons:  
   - Only aggregate flows?  
   - Named recognitions for certain contributions (with consent)?  
-  - Visibility of systemic issues (e.g., consistently under‑served areas)?
+  - Visibility of systemic issues (for example, consistently under‑served areas or over‑burdened caregivers)?
 
 **Roles**
 
-- **Commons councils / moderators** – drawn from elders, youth, organizers, and pilot participants; they steward norms, conflicts, and visibility choices.  
-- **MountainShares members** – now all residents and institutions with wallets, invited to use The Commons to interpret and reshape the economic layer.  
-- **Ms. Jarvis** – serves as a context‑aware assistant, surfacing relevant spatial and historical information into Commons discussions, never as a replacement for those discussions.
+- **Commons councils / moderators** – drawn from elders, youth, organizers, and pilot participants; they steward norms, conflicts, visibility choices, and the design of badges and levels so that the “game” rewards care, not popularity or risk‑taking.  
+- **MountainShares members** – all residents and institutions with wallets, invited to use The Commons to interpret and reshape the economic layer and to propose new forms of recognition.  
+- **Ms. Jarvis** – serves as a context‑aware assistant, surfacing relevant spatial and historical information and basic game metrics into Commons discussions, never as a replacement for those discussions.
 
 **Must not be delegated**
 
 - Agenda‑setting for Commons deliberations; Ms. Jarvis can suggest topics but cannot decide which issues are “on the table.”  
-- Control over identity revelation; people choose what aspects of their wallet/UUID footprint, if any, are tied to named Commons activity.
+- Control over identity revelation; people choose what aspects of their wallet/UUID footprint, if any, are tied to named Commons activity or public badges.  
+- Design or activation of any mechanic that would turn badges or attestations into speculative assets or gambling devices; such proposals, if ever considered, must originate with and be judged by human governance bodies, not by Ms. Jarvis or external partners.
 
 ---
 
