@@ -1,15 +1,15 @@
 > **Why this matters for Polymathmatic Geography**  
 > This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:  
-> - **P1 – Every where is entangled** by tying conversational experiences to semantic, institutional, and spatial backbones.  
-> - **P3 – Power has a geometry** by making long‑term memory a structured, queryable space rather than an opaque log.  
-> - **P5 – Design is a geographic act** by deciding which experiences about which communities get preserved, summarized, or forgotten.  
-> - **P12 – Intelligence with a ZIP code** by anchoring consolidated memories in geospatial layers and local knowledge bases.  
-> - **P16 – Power accountable to place** by storing rich traces of how advice was formed, so that communities can audit and contest it.  
-> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity into a long‑term, place‑aware memory substrate.
+> - **P1 – Every where is entangled** by tying conversational experiences to shared semantic, institutional, and spatial backbones grounded in GBIM entities and beliefs.  
+> - **P3 – Power has a geometry** by making long‑term memory a structured, queryable space over world‑tied features, not an opaque chat log.  
+> - **P5 – Design is a geographic act** by deciding which entities, programs, and communities are promoted into GBIM, given beliefs, and mirrored into hippocampal indexes.  
+> - **P12 – Intelligence with a ZIP code** by anchoring consolidated memories in WV geospatial layers, normalized nine‑axis beliefs, and local knowledge bases.  
+> - **P16 – Power accountable to place** by storing rich, provenance‑aware traces (worldview, dataset, feature IDs, centroids) so communities can audit how advice is grounded in their places.  
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity and world models into a long‑term, place‑aware memory substrate.
 
 # 14. Hippocampus and Memory Consolidation
 
-This chapter describes how recent activity is turned into durable records in the system’s long‑term stores. The design borrows the idea of a hippocampal buffer that receives short‑lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is primarily played by a dedicated consolidation service built around a Chroma collection called `conversation_memory`, complemented by persistent Chroma clients and rich geospatial datasets. Neurobiological work on hippocampal replay and complementary learning systems (for example, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814533/ and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937280/) provides the conceptual backdrop for this design.
+This chapter describes how recent activity is turned into durable records in the system’s long‑term stores. The design borrows the idea of a hippocampal buffer that receives short‑lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is primarily played by the **GBIM + beliefs + Chroma hippocampus**: GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine‑axis belief rows in `gbim_belief_normalized`, and a Chroma collection called `geospatialfeatures` that mirrors centroid‑bearing entities and their provenance. Neurobiological work on hippocampal replay and complementary learning systems (for example, [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814533/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814533/) and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937280/) provides the conceptual backdrop for this design.
 
 ---
 
@@ -17,14 +17,14 @@ This chapter describes how recent activity is turned into durable records in the
 
 The consolidation layer sits between fast‑changing streams of requests and the slower, more stable memory and knowledge stores.
 
-- A dedicated FastAPI service exposes a `/chat` endpoint that:  
-  - Reads a user message.  
-  - Retrieves similar past documents from the `conversation_memory` collection using a Chroma client.  
-  - Dispatches the message and retrieved context to several downstream services in parallel before aggregating their responses.  
+- A GBIM promotion and normalization pipeline:
+  - Promotes WV GIS features and other raw inputs into `gbim_worldview_entity`, keyed by `worldview_id`, `entity_type`, `source_table`, and `source_pk`.
+  - Maintains a 1:1 normalized belief row for every GBIM entity in `gbim_belief_normalized`, with JSONB axes (`identity`, `who`, `for_whom`, `what`, `when`, `where`, `why`, `how`, `authority`, `evidence`).
+  - Extracts centroids and provenance (`evidence.provenance.dataset`, `evidence.provenance.geodbid`) and mirrors them into a Chroma `geospatialfeatures` collection as documents and metadata.
 
-- This service therefore acts as a hippocampal buffer: it observes recent activity, enriches it with context and multi‑service analysis, then writes the results back into a persistent vector store for future use.
+- This GBIM + beliefs + Chroma stack therefore acts as a hippocampal buffer: it observes world‑tied entities and program semantics, enriches them with structured beliefs and spatial context, then writes them into a persistent vector store keyed by worldview, dataset, and feature identity for future use.
 
-In combination with the introspective and qualia layers described earlier, this provides a path from “what just happened” to “what the system will remember and use later,” in a form that can be inspected and audited.
+In combination with the introspective, qualia, and orchestration layers described earlier, this provides a path from “what exists and what just happened” to “what the system will remember and reuse later,” in a form that can be inspected and audited against concrete places and datasets.
 
 ---
 
@@ -32,95 +32,94 @@ In combination with the introspective and qualia layers described earlier, this 
 
 The consolidation routines draw on several concrete sources of information that already exist in the system:
 
-- **Interaction content and metadata**  
-  The consolidation service receives raw user messages at its `/chat` endpoint. These messages, together with any associated context passed by callers, form the textual and structural core of what will be stored in long‑term memory.
+- **GBIM entities and normalized beliefs**  
+  The core inputs are rows in `gbim_worldview_entity` and their 1:1 normalized belief snapshots in `gbim_belief_normalized`. Each belief row encodes `identity` (label, GBIM ID, `source_table`, `source_pk`, `worldview_id`), `where` (SRID, centroids, bbox, optional county/zip), and `evidence.provenance` (dataset, original feature IDs). These form the semantic and spatial backbone of hippocampal memory.
 
-- **Conversation‑level memory recall**  
-  Before calling downstream services, the consolidator queries the `conversation_memory` collection via Chroma’s `query` API, requesting the top few documents similar to the incoming message. These retrieved documents are used as contextual evidence and are implicitly linked to the new event when the combined result is written back as metadata.
+- **Geospatial provenance and centroids**  
+  For features with geometry, the belief `where` axis records centroids and SRIDs derived from underlying WV GIS layers. These values are streamed into Chroma metadata (`centroidx`, `centroidy`, `srid`) so that retrieval can respect spatial context and coordinate systems.
 
-- **Downstream analytical services**  
-  The consolidator calls multiple services in parallel—such as a RAG‑style query endpoint, feedback or scoring services, and routing helpers—by POSTing the current message and retrieved context. The JSON responses from these services are merged into a single `combined` structure that captures how different subsystems interpreted the event.
+- **Program and institutional entities**  
+  Benefit programs, governance entities, and institutional structures can also be represented as GBIM entities with beliefs over `what`, `for_whom`, `why`, `when`, and `authority`. As those entities are promoted, they join the same hippocampal fabric as geospatial features, allowing queries to traverse both physical and institutional space.
 
-- **Persistent Chroma clients and external stores**  
-  A separate utility provides a persistent Chroma client configured with a filesystem path for long‑term storage, and geo‑referenced knowledge bases are maintained as GeoJSON files that describe where Chroma instances and knowledge entries live in geographic space. These assets support future extensions where consolidation will also incorporate external document updates and spatial features directly into the long‑term backbone.
+- **Orchestration‑level interactions**  
+  Higher‑level services (unified gateway, brain orchestrator, GIS‑RAG, WV entangled gateway) consume GBIM + beliefs + Chroma when answering questions and may create or update GBIM entities and beliefs based on user interactions. In this way, interactions feed into the GBIM belief space and, through ingestion, into the hippocampal Chroma collections.
 
-Taken together, these inputs supply both the raw material to be stored (messages, contexts, multi‑service responses) and the signals about how the system processed each interaction.
+Taken together, these inputs supply both the raw material to be stored (entities, beliefs, spatial footprints) and the signals about how the system has interpreted and used them.
 
 ---
 
 ## 14.3 Criteria for What Is Stored
 
-In the current implementation, the consolidation service writes every processed message and its aggregated result back into the `conversation_memory` collection. This provides a strong foundation for long‑term recall but does not yet include explicit filtering or ranking criteria beyond what is implicit in the parallel services and hub aggregation.
+In the current implementation, the consolidation pipeline is **inclusive** at the world‑model level: every GBIM entity with a centroid has a normalized belief row and is eligible to be mirrored into the `geospatialfeatures` collection. There is not yet a fine‑grained selection mechanism that stores only some entities or beliefs in hippocampal indexes.
 
 - **Implicit significance and structure**  
-  Because the consolidator always queries the vector store before writing, and always writes a structured `combined` response as metadata, the store naturally favors interactions that have rich contextual relationships and multi‑service interpretations. The parallel calls and hub aggregation introduce an implicit notion of significance by encoding which services responded successfully and what they returned.
+  Because the pipeline always writes a structured belief snapshot, and always includes provenance (`dataset`, `geodbid`) and spatial context for centroided entities, the hippocampal surface naturally emphasizes entities that are well‑grounded in both data and space. Indexing by worldview and dataset also encodes which layers and institutional perspectives are considered part of the canonical memory.
 
 - **Planned selection criteria**  
-  The design described for this layer goes further, envisioning explicit logic that prioritizes:  
-  - High‑impact or sensitive topics, including governance or safety‑related questions.  
-  - Novel combinations of concepts, locations, or actors that are not yet well represented in memory.  
-  - Episodes where previous beliefs or responses were corrected, or where constraints were triggered and enforced.  
-  - Repeated patterns, such as frequent questions or recurring spatial regions, which merit summarized long‑term entries.  
+  The design for this layer goes further, envisioning explicit logic that prioritizes:
+  - High‑impact or sensitive programs and features, including governance or safety‑related infrastructure.
+  - Novel or under‑represented combinations of locations, populations, and benefit rules.
+  - Episodes where beliefs were corrected or forked across worldviews.
+  - Repeatedly accessed regions or entities that merit summarized, higher‑level hippocampal entries.
 
-  These criteria can be implemented on top of the existing consolidation pipeline by inspecting service metadata and evaluation flags before deciding whether to store full detail, a summary, or nothing at all.
-
-At present, consolidation is intentionally inclusive, ensuring that a rich history is available; the more selective behavior is a planned refinement that will build on this inclusive base.
+These criteria can be implemented on top of the existing GBIM + beliefs + Chroma pipeline by inspecting belief metadata and usage patterns before deciding whether to store full detail, a summary, or nothing beyond base GBIM presence. At present, consolidation is intentionally broad, ensuring that a rich, place‑tied backbone is available.
 
 ---
 
 ## 14.4 Transformation into Long‑Term Memory
 
-When an event passes through the consolidation service, it is transformed into durable structures in the vector database and, potentially, linked to other knowledge backbones:
+When an entity passes through the GBIM + belief + Chroma pipeline, it is transformed into durable structures that can be joined and queried from multiple angles:
 
-- **Vectorized text and metadata**  
-  The consolidator adds the original user message to the `conversation_memory` collection’s `documents` field, and attaches the aggregated `combined` output as the corresponding metadata entry. The record is identified by either a generated identifier or by using the message itself, enabling later retrieval and inspection through Chroma’s query and inspection APIs.
+- **Structured beliefs and metadata in Postgres**  
+  GBIM entities receive normalized belief rows capturing identity, spatial footprint, program semantics, and provenance. This relational/JSONB structure serves as the canonical long‑term representation.
 
-- **Implicit belief and routing traces**  
-  The metadata captured from downstream services can encode which retrievals, feedback signals, and routing decisions were involved in handling the event. As the system’s belief graph and governance models mature, this metadata can be extended to include explicit references to belief nodes, relationships, and normative labels, turning each consolidated entry into a trace of how the system’s internal model was updated.
+- **Documents and metadata in Chroma**  
+  Centroid‑bearing entities are added to the `geospatialfeatures` collection as simple documents (e.g., “label (type) from dataset:source_pk at centroid (x, y)”) with rich metadata (`gbim_id`, `worldviewid`, `dataset`, `source_table`, `source_pk`, `centroidx`, `centroidy`, `srid`, `geodbid`). This provides a fast hippocampal index for metadata‑filtered recall.
 
-- **Spatial anchoring via external geo‑knowledge**  
-  The project maintains extensive geospatial datasets and GeoJSON summaries of knowledge bases and Chroma instances. As consolidation logic grows, events that involve particular counties, cities, facilities, or infrastructure features can be linked to these spatial layers by embedding identifiers or coordinates in metadata. This provides a way to anchor abstract interactions in concrete geographic context.
+- **Implicit belief and routing traces (planned)**  
+  As Ms. Jarvis’ belief graph and routing logic mature, Chroma metadata can be extended to include explicit references to belief nodes, routing decisions, and normative labels, turning each hippocampal entry into a trace of how the system’s internal model and policies interacted with that entity.
 
-- **Links back to introspection and qualia**  
-  Although not yet formalized as a single schema, there is a clear path for future records to store pointers to qualia outputs and introspective summaries associated with a given event. This would allow later analysis to see both the raw data and the system’s own internal narrative at the time of consolidation.
+- **Spatial anchoring via geospatial layers**  
+  Because beliefs carry centroids, SRIDs, and optional administrative labels, hippocampal entries can be linked back to counties, cities, watersheds, and other layers maintained elsewhere in the geospatial stack. This anchors abstract programs and features in specific West Virginia places.
 
-This pipeline converts individual episodes into richly annotated memory entries that can be retrieved by semantic similarity, inspected for their internal reasoning traces, and, eventually, joined to spatial and belief structures.
+This pipeline converts world‑tied entities into richly annotated memory entries that can be retrieved by metadata filters and, where embeddings are enabled, by semantic similarity, and can always be joined back to structured beliefs and GIS layers.
 
 ---
 
 ## 14.5 Temporal Organization and Decay
 
-In many neuro‑inspired designs, hippocampal systems maintain a temporal hierarchy of memories and implement some form of decay. In the current codebase, there is no explicit pruning, expiration, or summarization logic applied to the `conversation_memory` collection beyond basic backup and data‑management scripts.
+In many neuro‑inspired designs, hippocampal systems maintain a temporal hierarchy of memories and implement decay. In the current codebase, there is no explicit pruning, expiration, or summarization logic applied to `gbim_belief_normalized` or the `geospatialfeatures` collection beyond routine data‑management scripts.
 
 - **Current behavior**  
-  Every event processed by the consolidation service results in a new memory entry: the message as a document and the combined, multi‑service result as metadata. No in‑repo code yet deletes, compresses, or merges older entries based on age or usage, so the effective behavior is an ever‑growing record of consolidated interactions.
+  Every GBIM entity in the relevant worldview receives a normalized belief row and, if centroided, an entry in `geospatialfeatures`. No in‑repo code yet deletes, aggregates, or down‑samples entities based on age, usage, or importance, so the effective behavior is an ever‑growing world‑model and hippocampal index.
 
 - **Planned temporal hierarchy**  
-  The design described for this layer anticipates:  
-  - A recent window of high‑granularity records suitable for detailed forensic analysis.  
-  - Intermediate summaries that merge multiple similar events into trend‑level entries.  
-  - A long‑term backbone of especially important precedents, patterns, and governance‑relevant insights that are protected from pruning.  
+  The design described for this layer anticipates:
+  - A recent window of high‑granularity belief and hippocampal entries suitable for detailed forensic analysis.
+  - Intermediate summarizations that merge multiple similar entities or interactions into trend‑level records.
+  - A long‑term backbone of especially important precedents, patterns, and governance‑relevant insights that are protected from aggressive pruning.
 
-  These behaviors can be implemented as periodic jobs or DGM‑driven optimization steps that operate over the existing memory collection and geospatial knowledge files, but they are not yet present in the current implementation.
-
-As such, chapter‑level descriptions of temporal organization and decay should be understood as forward‑looking design notes grounded in the current, simpler always‑append behavior.
+These behaviors can be implemented as periodic jobs or DGM‑driven optimization steps over the GBIM and Chroma layers. For now, descriptions of temporal organization and decay should be understood as forward‑looking design notes grounded in the current always‑append behavior.
 
 ---
 
 ## 14.6 Interaction with Retrieval and Introspection
 
-Consolidated entries play a direct role in how Ms. Jarvis retrieves context and can be tightly integrated with introspective narratives:
+Consolidated GBIM and hippocampal entries play a direct role in how Ms. Jarvis retrieves context and can be tightly integrated with introspective narratives:
 
 - **Retrieval feedback loop**  
-  On each `/chat` call to the consolidation service, Chroma’s `query` API uses the new message to retrieve up to a few of the most similar existing documents from `conversation_memory`. These retrieved documents encapsulate past user inputs and their associated metadata, effectively replaying prior consolidated experiences as context for new ones and allowing the RAG‑style service to see what has been done before.
+  When higher‑level services (e.g., GIS‑RAG, WV entangled gateway) need context, they:
+  - Use worldview, dataset, and spatial constraints (bbox, centroids, counties) to select candidate GBIM entities and beliefs.
+  - Use those provenance keys (`worldviewid`, `dataset`, `geodbid`) as filters in Chroma’s `geospatialfeatures` collection, retrieving relevant entities quickly.
+  - Join Chroma hits back to `gbim_worldview_entity` and `gbim_belief_normalized` to assemble answers and map overlays that are grounded in both beliefs and physical space.
 
 - **Introspective descriptions of memory use**  
-  As the introspective layer evolves, it can refer explicitly to which conversation memory entries were retrieved and written during a given episode, and can incorporate summary fields from the `combined` metadata into qualia narratives. This allows Ms. Jarvis not only to use past experiences but also to describe how those experiences influenced the current response.
+  As the introspective layer evolves, it can report which GBIM entities, datasets, and spatial regions were consulted for a given response, and how their beliefs influenced the result. Instead of referring only to “conversation documents,” introspection can speak about buildings, roads, programs, and jurisdictions as concrete memory units.
 
-- **Optimization over consolidated histories**  
-  Self‑improving agents in the DGM layer can treat the `conversation_memory` collection and associated geospatial and metadata files as a dataset for discovering weaknesses, biases, or gaps in coverage. For example, they can analyze which topics or regions are under‑represented in consolidated memory, or where repeated corrections have occurred, and feed those insights back into routing, prompting, or knowledge‑base updates. Work on quality‑diversity and open‑ended search, such as Stanley et al. (https://arxiv.org/abs/1702.00705), provides a general framework for such exploratory analyses.
+- **Optimization over hippocampal histories**  
+  Self‑improving agents in the DGM layer can treat GBIM + beliefs + Chroma as a dataset for discovering weaknesses, biases, or gaps in coverage—for example, which counties are under‑represented, which datasets are heavily relied on, or where repeated corrections to beliefs occur. Quality‑diversity and open‑ended search frameworks (such as Stanley et al., https://arxiv.org/abs/1702.00705) are natural tools for this analysis.
 
-In this way, consolidation is not just archival; it actively shapes future retrieval contexts, introspective narratives, and self‑improvement strategies.
+In this way, consolidation is not just archival; it actively shapes future retrieval contexts, introspective narratives, and self‑improvement strategies over a geospatially grounded world model.
 
 ---
 
@@ -129,18 +128,18 @@ In this way, consolidation is not just archival; it actively shapes future retri
 Because much of Ms. Jarvis’s mission is tied to specific regions, communities, and institutions, the consolidation layer is designed to align closely with spatial and governance‑oriented goals.
 
 - **Place‑aware memory**  
-  The repository includes extensive geospatial layers—counties, block groups, census tracts, cities, facilities, infrastructure, and more—alongside GeoJSON summaries of where knowledge and Chroma instances sit geographically. Consolidation routines can attach references to these spatial features in metadata, enabling later analyses to ask how particular counties, towns, or facilities have been represented and served in the system’s history. Foundational work on volunteered geographic information and data‑driven geography, such as Goodchild’s “Citizens as sensors” (https://link.springer.com/article/10.1007/s10708-007-9111-y) and Kitchin’s “The Data Revolution” chapter (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2281418), supports this emphasis on spatial data as a body for AI.
+  Extensive WV geospatial layers—counties, block groups, census tracts, cities, facilities, infrastructure, and more—coexist with GBIM entities and their beliefs. By mirroring centroid‑bearing entities into Chroma with `worldviewid`, `dataset`, and spatial metadata, consolidation enables later analyses to ask how particular counties, towns, or facilities have been represented and served in the system’s history. Work on volunteered geographic information and data‑driven geography, such as Goodchild’s “Citizens as sensors” (https://link.springer.com/article/10.1007/s10708-007-9111-y) and Kitchin’s “The Data Revolution” (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2281418), supports this emphasis on spatial data as a body for AI.
 
 - **Institutional continuity and norms**  
-  As governance‑relevant beliefs and norms are encoded in structured backbones, consolidated entries can link specific episodes—such as advisory interactions or policy‑related Q&A—to the councils, districts, or organizations they involve. This helps preserve a thread of institutional memory that connects decisions and recommendations through time.
+  As governance‑relevant beliefs and norms are encoded in GBIM worldviews, hippocampal entries can link entities and episodes—such as advisory interactions or policy‑related questions—to the councils, districts, or organizations they involve. This preserves institutional memory that connects decisions and recommendations through time and across worldviews.
 
 - **Equity and oversight**  
-  By combining spatial identifiers with consolidated interaction histories, analysts and automated agents can examine whether certain communities receive less assistance, face different patterns of risk, or encounter more frequent misunderstandings. These insights can inform adjustments to routing, content, or outreach strategies so that the system’s behavior better supports equitable outcomes. Ostrom’s work on design principles for local and global commons (https://dlc.dlib.indiana.edu/dlc/bitstream/handle/10535/7566/Ostrom_Design%20Principles%20ISSJ%202010.pdf) offers one lens for interpreting such patterns.
+  By combining spatial identifiers, belief metadata, and hippocampal retrieval histories, analysts and agents can examine whether certain communities receive less assistance, face different patterns of risk, or encounter more frequent misunderstandings. These insights can inform adjustments to routing, content, or outreach so that the system’s behavior better supports equitable outcomes. Ostrom’s work on design principles for local and global commons (https://dlc.dlib.indiana.edu/dlc/bitstream/handle/10535/7566/Ostrom_Design%20Principles%20ISSJ%202010.pdf) offers one lens for interpreting such patterns.
 
-The heavy geospatial footprint in the repository thus becomes an integral part of the hippocampal layer, allowing consolidation to encode not just what happened, but where and with whom it happened.
+The heavy geospatial footprint thus becomes an integral part of the hippocampal layer, allowing consolidation to encode not just what happened, but where and with whom it happened.
 
 ---
 
 ## 14.8 Summary
 
-The consolidation layer captures how recent activity is turned into lasting structure across text, multi‑service metadata, and (increasingly) spatial references. A dedicated consolidation service functions as a hippocampal buffer: it recalls relevant past interactions, orchestrates parallel analysis, aggregates the results, and writes both the new experience and its interpretation into a persistent `conversation_memory` collection. Temporal hierarchies, selective storage criteria, and tighter integration with belief and governance models are active design directions that build on this foundation. Subsequent chapters describe how global controls and executive processes use these consolidated memories as part of broader feedback loops that shape Ms. Jarvis’s ongoing evolution.
+The consolidation layer captures how recent activity and world‑modeling are turned into lasting structure across GBIM entities, normalized beliefs, and spatially indexed hippocampal collections. A GBIM + belief + Chroma pipeline functions as a hippocampal buffer: it maintains a 1:1 normalized belief snapshot for every GBIM entity, mirrors centroid‑bearing entities into a `geospatialfeatures` collection keyed by worldview, dataset, and spatial footprint, and exposes this fabric to higher‑level services for retrieval and reasoning. Temporal hierarchies, selective storage criteria, and tighter integration with interaction‑level memory and governance models are active design directions that build on this foundation. Subsequent chapters describe how global controls and executive processes use these consolidated, place‑aware memories as part of broader feedback loops that shape Ms. Jarvis’s ongoing evolution.
