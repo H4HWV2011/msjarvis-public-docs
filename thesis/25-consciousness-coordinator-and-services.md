@@ -1,30 +1,30 @@
 > **Why this matters for Polymathmatic Geography**  
-> This chapter shows how Ms. Jarvis weaves many specialized services into a single, place‑aware “consciousness” workflow whose behavior has now been measured in a running deployment. It supports:  
-> - **P1 – Every where is entangled** by coordinating spatial, psychological, and community modules around each request through a shared executive loop that consistently invokes core services.  
-> - **P3 – Power has a geometry** by making explicit which services, ports, and memory stores speak into an answer, and by exposing prefrontal and NBB stages as first‑class layers in the response schema.  
-> - **P5 – Design is a geographic act** by routing Appalachian content through both meaning and infrastructure reasoning before responding, with end‑to‑end latencies of roughly 9 minutes for AGI‑scale requests on the reference host.  
-> - **P12 – Intelligence with a ZIP code** by ensuring that the coordinator actively consults geospatial and local‑knowledge memory whenever the RAG and web‑research services are healthy.  
-> - **P16 – Power accountable to place** by exposing coordination steps, truth‑filter verdicts, and consciousness layers (including skipped NBB stages) via structured JSON, health endpoints, and architecture introspection instead of hidden state.  
+> This chapter shows how Ms. Jarvis now weaves many specialized services into a single, place‑aware “consciousness” workflow whose behavior has been measured in a running deployment. It supports:  
+> - **P1 – Every where is entangled** by coordinating spatial, psychological, neurobiological, and community modules around each request through a shared executive loop that consistently invokes core services.  
+> - **P3 – Power has a geometry** by making explicit which services, ports, and memory stores speak into an answer, and by exposing prefrontal NBB, planner, and fabric stages as first‑class layers in the response schema.  
+> - **P5 – Design is a geographic act** by routing Appalachian content through both meaning and infrastructure reasoning—RAG, web research, GIS‑backed stores, and prefrontal control—before responding, with end‑to‑end latencies on the order of 9–10 minutes for AGI‑scale requests on the reference host.  
+> - **P12 – Intelligence with a ZIP code** by ensuring that the coordinator actively consults geospatial and local‑knowledge memory whenever the RAG and web‑research services are healthy, and by threading place‑aware context into the fabric prompt.  
+> - **P16 – Power accountable to place** by exposing coordination steps, truth‑filter verdicts, and consciousness layers (including NBB prefrontal status) via structured JSON, health endpoints, and architecture introspection instead of hidden state.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it describes the orchestrator layer that turns many services into a single, inspectable consciousness‑like process whose runtime properties can be tested and verified.
 
 # 25. Consciousness Coordinator and Service Integration
 
-This chapter explains how a central coordinating layer turns many separate services into a coherent “consciousness” workflow. In the current implementation, this coordination is realized by unified orchestrator services, gateway adapters, and helper endpoints (such as `/understand_link`) that route requests through neurobiological modules, RAG pipelines, and Chroma/GeoDB‑backed memory, while enforcing safety and error‑handling policies. The pattern of a central planner orchestrating many tools and models parallels multi‑agent and tool‑using designs such as Liu et al.’s AgentBench (https://arxiv.org/abs/2308.03688) and Shen et al.’s Mixture‑of‑Agents framework (https://arxiv.org/abs/2402.11026).
+This chapter explains how a central coordinating layer turns many separate services into a coherent “consciousness” workflow. In the current implementation, this coordination is realized primarily by the `Ms. Jarvis ULTIMATE` main‑brain service on port 8050, together with unified orchestrator services, gateway adapters, and helper endpoints that route requests through neurobiological modules, RAG pipelines, web research, and Chroma/GeoDB‑backed memory while enforcing safety and error‑handling policies. The pattern of a central planner orchestrating many tools and models parallels multi‑agent and tool‑using designs such as Liu et al.’s AgentBench (https://arxiv.org/abs/2308.03688) and Shen et al.’s Mixture‑of‑Agents framework (https://arxiv.org/abs/2402.11026).
 
 ---
 
 ## 25.1 Role of the Coordinator
 
-The coordinating layer appears externally as a small number of HTTP endpoints (for example, unified orchestrator `/msjarvis`, the main‑brain `/chat` route on port 8050, and gateway‑exposed consciousness/chat routes), but internally it acts as a conductor across multiple subsystems.
+The coordinating layer appears externally as a small number of HTTP endpoints (for example, the main‑brain `/chat`, `/chat/sync`, and `/chat/async` routes on port 8050, and gateway‑exposed consciousness/chat routes), but internally it acts as a conductor across multiple subsystems.
 
 - **Collecting context**  
-  When a request arrives at the orchestrator or a gateway adapter (such as the main consciousness integration in `add_to_main_consciousness.py` or the `/understand_link` endpoint hooked into the main consciousness engine), the coordinator constructs a structured request object containing the user’s message, metadata (for example, user id, optional psychological‑support flags, and link‑derived content), and an initially empty `pipelinedata` / `consciousnesslayers` structure. It then forwards this object through services that contribute retrieval, optimization, spiritual or psychological insight, and spatial context.
+  When a request arrives at the main‑brain, the coordinator constructs an `UltimateRequest` object containing the user’s message, user_id, role (for example `"community"`), and a `use_all_services` flag, and initializes a `consciousness_layers` list and `services_used` list. It calls `discover_services()` to build a live `available_services` map, records the planner state as a `"prefrontal_planner"` layer, and then invokes a prefrontal NBB microservice with the message and context, capturing its own `consciousness_layers` summary as a `"nbb_prefrontal_cortex"` layer.
 
 - **Planning and executing workflows**  
-  Unified apps under `mainbrain/src/dgms` define an ordered sequence of service calls (for example, AI ensemble, Darwin Gödel, WOAH, Blood‑Brain Barrier, Qualia Engine, I‑Containers, Neurobiological Master, Mamma Kidd Brain, and final orchestrator routing). The coordinator invokes each service in turn using helper functions like `callservice`, records which layers were processed in `pipelinedatametadatalayersprocessed`, and marks which consciousness modules are active in `pipelinedatametadataconsciousnessactive`. Higher‑level gateway wrappers, such as the `/understand_link` endpoint, also act as mini‑coordinators by first calling a link reader on port 8070, then passing a composed message through the full consciousness pipeline.
+  With `available_services` in hand, the coordinator plans a route through context and fabric services. If the RAG server is healthy, it calls a `/search` endpoint to build a `From Knowledge Base:` context block; if web research is available, it calls a separate `/search` endpoint to build a `From Web Research:` block. These are combined and fed into `build_egeria_prompt`, which wraps the user’s message and the context into a single persona‑aware prompt for Ms. Egeria Jarvis. The coordinator then invokes the `llm20_production` fabric (when healthy) to synthesize an answer, logging status codes and response previews along the way.
 
 - **Producing and recording narratives**  
-  The orchestrator assembles outputs that combine AI analysis, spiritual analysis, and consciousness‑layer metadata into a single JSON structure (for example, fields like `message`, `ragcontext`, `aianalysis`, `spiritualanalysis`, `personality`, `consciousnesslayers`, `pipelinelayers`, and `services`). Additional endpoints in the secured gateway (such as `truthvalidate` and `getidentitycandidates`) and helper APIs like `/understand_link` expose natural‑language explanations and introspective summaries derived from coordinated processing.
+  The orchestrator assembles outputs into an `UltimateResponse` that includes the final response text, `services_used`, `consciousness_level` (currently `"ultimate_collective"`), total `processing_time`, `architecture_layers` (the length of `consciousness_layers`), the layer list itself, and a `truth_verdict` summarizing BBB evaluation of the input. A background task stores novel question–answer pairs into the RAG store, so future requests can retrieve them as internal “experience.”
 
 From a client’s perspective, these components behave as a unified “consciousness” service that can be called via a small number of endpoints, even though the work is distributed across many cooperating modules.
 
@@ -35,27 +35,27 @@ From a client’s perspective, these components behave as a unified “conscious
 The coordinator receives requests from several sources and normalizes them into a shared internal format.
 
 - **External interfaces and gateways**  
-  User‑facing services such as academic gateways, the chat UI gateway, and the unified gateway forward messages and metadata into the orchestrator or main AI/consciousness endpoints. For example, the `/understand_link` endpoint defined for the main consciousness engine accepts a URL, calls a link‑reader service on port 8070 to extract `title` and `content`, and then constructs a prompt asking for “wisdom” and insights for Appalachian communities. This prompt becomes the `message` passed into the `full_consciousness` pipeline, effectively turning external HTTP calls into coordinated consciousness workflows.
+  User‑facing services such as chat UIs, academic gateways, and unified gateways forward messages and metadata into the main‑brain `/chat` or `/chat/async` endpoints. Gateways set API keys and role labels, translate UI‑level payloads into `UltimateRequest` structures, and then treat the resulting `UltimateResponse` as their canonical answer format, sometimes adding their own presentation‑layer fields.
 
 - **Internal agents and scheduled processes**  
-  Scripts and helper services (such as `add_to_main_consciousness.py`, Chroma–GeoDB synchronization utilities, and autonomous‑learning components) also act as internal clients of the coordinator. They request structured analyses, introspective updates, or memory‑sync operations by calling orchestrator endpoints or the AI server with specific messages and context flags, sometimes on a scheduled basis.
+  Scripts, autonomous learners, and helper services also act as internal clients of the coordinator. They request structured analyses, introspective updates, or memory‑sync operations by calling main‑brain endpoints with system‑level user_ids and roles, sometimes on a scheduled basis. As with human‑facing calls, these internal requests are wrapped into `UltimateRequest` objects so that NBB prefrontal, RAG, and BBB behavior remains consistent across all callers.
 
-Each incoming request, whether from a human user, a dashboard, or an internal script, is wrapped in a consistent data model (including message content, user identifiers, optional role or support flags, and sometimes location or link‑derived fields) before being routed through the coordination pipeline.
+Each incoming request, whether from a human user, a dashboard, or an internal script, is normalized into a consistent data model before being routed through the coordination pipeline.
 
 ---
 
 ## 25.3 Connection to Memory and Spatial Structures
 
-The coordinator’s workflows draw heavily on both semantic and spatial memory, as described in earlier chapters.
+The coordinator’s workflows draw heavily on both semantic and spatial memory.
 
 - **Vector collections and semantic memory**  
-  RAG helpers and Chroma clients (including local `PersistentClient` uses against `chroma_db` and HTTP‑based clients defined in `chromadb_client.py`) provide access to collections like `jarvis_consciousness`, `spiritual_wisdom`, `autonomous_learning`, `ms_jarvis_memory`, `mountainshares_knowledge`, and a wide range of `geodb_*` datasets. The coordinator or its gateway helpers call these RAG services to retrieve relevant passages, prior analyses, and domain‑specific knowledge, which are then incorporated into prompts or `ragcontext` fields used by language models and evaluators. These retrieval patterns follow retrieval‑augmented generation approaches such as Lewis et al. (https://arxiv.org/abs/2005.11401) and Khandelwal et al. (https://arxiv.org/abs/1911.00172).
+  RAG helpers provide access to collections representing `jarvis_consciousness`, `ms_jarvis_memory`, spiritual wisdom, MountainShares knowledge, and a wide range of `geodb_*` datasets. The main‑brain consults a dedicated RAG server via `/search`, which in turn retrieves relevant snippets from these collections and labels them with source identifiers before returning them as a knowledge block. These snippets are then interpolated into the enhanced prompt passed to the LLM fabric, following retrieval‑augmented generation patterns described by Lewis et al. (https://arxiv.org/abs/2005.11401) and Khandelwal et al. (https://arxiv.org/abs/1911.00172).
 
 - **Belief graph and service knowledge**  
-  Collections such as `GBIM`, `GeoDB`, `msjarvis_services`, and various provider and block summaries in Chroma, along with structured GeoDB tables, form a graph‑like view of entities, relationships, and infrastructure. Synchronization scripts (for example, `sync_geodb_to_chromadb.py` and `extract_all_chromadb_to_gis.py`) ensure that embeddings and spatial records remain aligned. The coordinator indirectly consults this graph when invoking GIS query services, GBIM/GeoDB‑backed endpoints, or RAG helpers that operate over these collections, reflecting graph‑based reasoning patterns described by Battaglia et al. (https://arxiv.org/abs/1806.01261).
+  Collections such as GBIM, GeoDB, service registries, and provider/block summaries form a graph‑like view of entities, relationships, and infrastructure. Synchronization scripts keep embeddings and spatial records aligned, allowing GIS‑oriented RAG to answer questions about buildings, flood risks, hospitals, and transportation networks. The coordinator indirectly consults this belief graph whenever it calls GIS query services or RAG helpers over these collections.
 
 - **Geospatial backend**  
-  The presence of numerous `geodb_*` collections (for example, building footprints, floodplain structures at risk, block groups, hospitals, and transportation networks) and associated GIS services means that coordinator workflows can incorporate precise spatial information when interpreting user queries. For instance, a resilience‑related request routed through the orchestrator can trigger both meaning‑oriented analyses (spiritual and community context) and data‑heavy GIS queries that draw on Chroma‑encoded spatial features and GeoDB tables, similar in spirit to spatial decision‑support approaches like Anand et al. (https://www.spatial.redlands.edu/sds/SDSSChapter.pdf).
+  The presence of numerous `geodb_*` collections and associated GIS services means that coordinator workflows can incorporate precise spatial information when interpreting user queries—for instance, combining community‑level narrative with floodplain or infrastructure data when answering resilience questions.
 
 Through these connections, the coordinator turns raw memory structures into actionable context for both language models and specialized evaluators.
 
@@ -63,15 +63,18 @@ Through these connections, the coordinator turns raw memory structures into acti
 
 ## 25.4 Interaction with Introspective and Consolidation Layers
 
-The coordinator’s activities are reflected in introspective and consolidation mechanisms described previously.
+The coordinator’s activities are reflected in introspective and consolidation mechanisms.
 
-- **Status, health, and identity endpoints**  
-  Unified apps expose endpoints such as `status` and `fullstatus`, which report `pipeline complete`, the list of `pipelinelayers` that ran (including AI ensemble, Darwin Gödel, WOAH, BBB, Qualia, I‑Containers, Neurobiological Master, Mamma Kidd Brain, and orchestrator), and counts of `services`. The secured gateway’s `getdatabasehealth` and `getidentitycandidates` endpoints report database status, identity element counts, identity candidates (for example, “I serve the community”, “I speak truth”, “I value ethics”, “I am conscious”), and timestamps. These endpoints together form a structured introspective view of what the coordinator is doing and which identity anchors it relies on.
+- **Status, health, and architecture endpoints**  
+  The main‑brain exposes `/health`, `/status`, and `/architecture` endpoints. `/status` reports whether core services (RAG, web research, `llm20_production`, Chroma, Redis, orchestrators) are reachable and returns an `overall_ok` flag plus per‑service status codes. `/architecture` returns the full `SERVICES` registry and the `available` map discovered by `discover_services()`, making explicit which services are currently considered healthy and thus candidates for coordination.
+
+- **Consciousness layers and truth verdicts**  
+  Each `/chat` call returns a `consciousness_layers` array recording the planner state, NBB prefrontal status and details, and any future layers that the coordinator chooses to expose. At the same time, a compact `truth_verdict` produced by a BBB‑aware helper reports whether the input was considered valid, its confidence, and principal reasons; this verdict is carried alongside the prefrontal and fabric layers, allowing external tools to reason about both cognitive stages and safety judgments.
 
 - **Narrative endpoints and promotion triggers**  
-  The `/understand_link` endpoint offers a concrete example of how the coordinator participates in narrative generation: it produces outputs with fields such as `summary`, `wisdom`, and `consciousness_layers` for a given URL. By feeding article content through the full consciousness pipeline and returning a structured “wisdom” field, this endpoint turns mid‑level coordination into higher‑level narratives that could be stored in semantic collections like `jarvis_consciousness`, `ms_jarvis_memory`, or `research_history`. In principle, particularly important or novel responses can be promoted into deep‑retention entries or used to update identity candidates and long‑running patterns.
+  Higher‑level gateways and helper APIs (such as link‑understanding endpoints) integrate with the main‑brain by turning external data—like article content—into messages that are then processed through the full coordination pipeline. Their outputs can be promoted into deep‑retention memory or used to update container‑level patterns and identity candidates when certain novelty or importance thresholds are met.
 
-Although not all introspective reports and verification scripts are currently active on the December 20, 2025 host, their code and historical outputs show that coordinator behavior is intended to be visible and auditable through such introspective channels.
+In this way, the coordinator’s decisions are visible not just in responses but also in explicit introspective artifacts.
 
 ---
 
@@ -80,58 +83,58 @@ Although not all introspective reports and verification scripts are currently ac
 Coordinator workflows are constrained and shaped by global safety, policy, and resource settings encoded in several services.
 
 - **Safety and ethical constraints**  
-  Truth filters and BBB verification modules define thresholds for acceptable accuracy and ethical compliance, including minimum accuracy scores, expiration buffers, and age checks. Unified apps call BBB/ethics services and record whether the Blood‑Brain Barrier is active (`consciousnessactivebloodbrainbarrier`) in `pipelinedatametadataconsciousnessactive`. Coordinator decisions about which services to trust, which data to ingest, and how to frame responses are thus influenced by these global safety constraints, consistent with AI safety and policy guidelines discussed by Whittlestone et al. (https://arxiv.org/abs/1903.03425).
+  BBB and truth‑filter helpers define thresholds and interpretations for acceptable content, including pass rates and compliance flags. The main‑brain wraps the input in a truth‑filter call that yields a slim verdict, and wraps the output in a decoding‑time guard that passes responses through the BBB’s `/filter` endpoint. These layers together constrain what the coordinator will accept and what it will return, aligned with AI safety and policy guidance discussed by Whittlestone et al. (https://arxiv.org/abs/1903.03425).
 
-- **Service discovery and resource limits**  
-  The orchestrator and associated verification scripts refer to a list of key services (for example, Fifth DGM, WOAH, Darwin Gödel, I‑Containers, Consciousness Bridge, Autonomous Learner, RAG Server, GIS Query, and production chat). Service discovery logic and health checks determine which services are currently available and healthy. Timeouts and error handlers in gateway adapters and orchestrator code (for example, HTTP client timeouts and `except Exception as e` blocks in `add_to_main_consciousness.py`, `chromadb_client.py`, and link‑understanding code) enforce limits on how long the coordinator will wait for responses, and how it degrades behavior when dependencies fail.
+- **Service discovery and concurrency limits**  
+  `discover_services()` performs health checks over the `SERVICES` registry to build `available_services`, skipping or short‑circuiting certain services (for example, Chroma, Redis, and some fabric helpers) where appropriate. A semaphore `MAX_CONCURRENT_CHATS` limits the number of concurrent `/chat` and `/chat/async` requests, preventing overload. When `llm20_production` or RAG are unavailable, the coordinator raises clear errors rather than silently misrouting traffic.
 
 - **Logging and observability settings**  
-  Logging is enabled across orchestrator and helper services, recording errors (such as “ChromaDB connection failed” or “Link understanding error”) and informational events (“ChromaDB v2 client connected”, “Collection ready”). While fine‑grained logging levels and tracing are not yet exposed as dynamic public settings, the infrastructure is in place for operators to tune observability and for future work to attach per‑request timing or trace identifiers to coordinator workflows, aligning with distributed‑systems observability practices outlined by Brewer (https://queue.acm.org/detail.cfm?id=3291063).
+  Structured logging captures key events such as `ultimate_request_start`, service call failures, BBB guard errors, prefrontal stage status, and `ultimate_request_complete`, often with durations and body previews. This logging, combined with the status endpoints, supports operational observability and makes it possible to reconstruct how a particular request was processed and which stages were involved.
 
-By using these global settings, the coordinator can adapt its behavior to different roles, environments, and risk tolerances, while maintaining explicit boundaries on what it is allowed to do.
+By using these global settings, the coordinator can adapt its behavior to different roles, environments, and risk tolerances while maintaining explicit boundaries on what it is allowed to do.
 
 ---
 
-## 25.6 Coordination with Container Paths
+## 25.6 Coordination with Container Paths and NBB Layers
 
-The coordinator is tightly coupled to the container paths described in Part IV, especially through the unified apps and consciousness‑layer metadata.
+The coordinator is tightly coupled to the neurobiological and container paths described elsewhere, especially through NBB microservices and consciousness metadata.
 
-- **Routing into meaning and analytical paths**  
-  Unified orchestrators build `pipelinedata` objects that are successively enriched by meaning‑oriented modules (Qualia Engine, I‑Containers, Neurobiological Master, Mamma Kidd Brain, psychological and community integrations like MountainShares) and analytical modules (AI ensemble, Darwin Gödel, WOAH, BBB, GIS and GeoDB services). Each module that processes the request appends its identifier to `pipelinedatametadatalayersprocessed` and sets flags in `pipelinedatametadataconsciousnessactive` indicating which consciousness modules are active. This effectively routes the request through both container paths and records which stages were used.
+- **Routing into prefrontal and container‑like paths**  
+  At the start of each `ultimate_chat` call, the coordinator records a `"prefrontal_planner"` layer that captures the set of currently available services, then invokes the NBB prefrontal cortex microservice and records its status and internal `consciousness_layers` under a `"nbb_prefrontal_cortex"` layer. This prefrontal stage is treated as a fast, bounded executive check that can add its own analysis without blocking the rest of the pipeline.
 
-- **Retrieving and using container outcomes**  
-  The coordinator’s final responses include both `aianalysis` (from analytical/RAG track) and `spiritualanalysis` or equivalent fields (from meaning‑oriented track), along with `consciousnesslayers` summarizing the state of the dual‑path processing. Supplemental services, such as the `/understand_link` endpoint, expose these outcomes directly, returning `consciousness_layers` alongside natural‑language “wisdom”. Higher‑level clients or logging routines can thus see how container‑level filtering, background patterns, and deep‑retention entries influenced real‑time decisions.
+- **Retrieving and using prefrontal outcomes**  
+  The NBB prefrontal microservice returns a `prefrontal_response` string and a dictionary of its own `consciousness_layers`, indicating which internal stages (such as input reception, context analysis, memory access, and synthesis) were exercised. The coordinator stores these as part of the final `consciousness_layers` array, making prefrontal contributions explicit and inspectable for every request.
 
-Because container paths and coordinator workflows share the same metadata and status structures, container‑level processes can influence coordinator behavior without embedding their logic directly in the orchestrator, preserving modularity while ensuring strong coupling where needed.
+Because prefrontal and container‑like processes share the same `ConsciousnessLayer` schema as the planner and future modules, they can influence coordinator behavior while remaining modular and separately deployable.
 
 ---
 
 ## 25.7 Orchestration of Language Models and Evaluators
 
-Language models and evaluators participate in coordinator workflows through specialized AI servers and optimization services.
+Language models and evaluators participate in coordinator workflows through specialized fabric services.
 
 - **Model selection and prompt construction**  
-  The unified apps call AI ensemble and RAG services (for example, via a `query` endpoint at port 8002 or through `ai_server_11llm` variants) to obtain `aianalysis` or comparable structured outputs. These services, in turn, use Chroma‑backed RAG helpers tied to collections like `knowledge_docs`, `egeria_docs`, `mountainshares_knowledge`, `jarvis_consciousness`, and various `geodb_*` datasets to build prompts that incorporate retrieved documents, spatial context, and introspective summaries. This follows the general retrieval‑augmented template described by Lewis et al. (https://arxiv.org/abs/2005.11401) and Ram et al. (https://arxiv.org/abs/2302.00083).
+  For answer synthesis, the main‑brain currently targets the `llm20_production` fabric. It builds a persona‑aware enhanced message that includes RAG and web‑research context when available, then sends this prompt along with the user_id to the fabric’s `/chat` endpoint. The response is parsed for common output fields (`response`, `result`, `output`, `answer`), and `llm20_production` is recorded in `services_used`.
 
-- **Evaluators and optimization layers**  
-  Additional modules such as Darwin Gödel and WOAH act as evaluators and optimizers, checking and refining AI outputs against formal criteria, self‑improvement objectives, or hierarchical optimization schemes. Their results are integrated into `pipelinedata`, and the orchestrator records whether their layers were processed. Truth filters and identity validators (including `truthvalidate` endpoints and hallucination/identity‑confusion checks) provide further evaluation of content, especially for identity‑related claims.
+- **Evaluators, guards, and identity normalization**  
+  After obtaining a raw response, the coordinator runs `clean_response_for_display` to strip legacy multi‑agent scaffolding, passes the result through a BBB‑based output guard, and finally applies identity normalization to ensure the answer consistently speaks as Ms. Egeria Jarvis. Truth‑filter verdicts, hallucination/identity checks, and NBB prefrontal signals together act as evaluators around the fabric, enforcing both safety and identity coherence.
 
-The coordinator thus blends retrieval, generation, formal evaluation, and identity‑aware truth checking into a single workflow, while keeping each component encapsulated in its own service.
+The coordinator thus blends retrieval, generation, evaluation, and identity‑aware guarding into a single workflow, while keeping each component encapsulated in its own service.
 
 ---
 
-## 25.8 Error Handling and Resilience
+## 25.8 Error Handling, Resilience, and Observed Performance
 
 Error handling and resilience are explicit design concerns in coordinated workflows.
 
-- **Endpoint‑level error handling**  
-  The `/understand_link` endpoint demonstrates a robust pattern: it wraps the link‑reading and consciousness calls in a `try`/`except` block, logs any exceptions (“Link understanding error”), and returns structured error messages when the link reader fails or the downstream call raises an exception. Similarly, the `JarvisChromaClient` class logs errors when Chroma connections or collection operations fail and re‑raises exceptions, allowing calling code to respond appropriately.
-
-- **Timeouts and degraded modes**  
-  Gateway adapters, RAG helpers, and AI servers use explicit HTTP timeouts (for example, 2–45 seconds for various services, with longer timeouts for heavy AI calls) to prevent individual failures from hanging the entire pipeline. When a downstream service returns non‑200 status codes or times out, coordinator wrappers typically return partial results or error indicators instead of crashing, sometimes with fallback messages indicating missing data or unavailable services. Verification scripts also include response‑time benchmarking for GIS and chat services, highlighting slow or non‑responsive components.
+- **Endpoint‑level error handling and timeouts**  
+  The main‑brain wraps external service calls in try/except blocks, logs errors with structured metadata, and uses explicit timeouts for RAG, web research, and LLM fabric calls. When a downstream service returns a non‑200 status or times out, the coordinator either returns a clear error (for critical dependencies like `llm20_production`) or degrades gracefully (for non‑critical context sources like RAG or web research).
 
 - **Service health monitoring**  
-  Health and status endpoints, along with scripts that iterate over known ports and services, allow operators and automated monitors to detect when key components of the coordinator pipeline are down or misconfigured. While a fully dynamic degraded‑mode orchestration is still under development, the presence of health checks, timeouts, and explicit exception logging provides a foundation for resilient coordination across heterogeneous services, consistent with distributed‑systems practices described by Brewer (https://queue.acm.org/detail.cfm?id=3291063) and Burns et al. (https://azure.microsoft.com/en-us/resources/designing-distributed-systems).
+  `/status` and `/architecture` endpoints, along with internal logging, allow operators and automated monitors to detect when key components of the coordination pipeline are down or misconfigured. The `discover_services()` routine centralizes health probing so that prefrontal, context, and fabric stages all work from a consistent view of system health.
+
+- **Empirical performance behavior**  
+  Manual AGI‑scale test runs on the reference host (local Docker on a Legion‑class machine) show that heavy `/chat` requests complete in roughly 9–10 minutes when all major services are available, with most of the time spent inside the `llm20_production` fabric. Prefrontal, RAG, and web‑research stages each have their own timeouts and remain small contributors to overall latency.
 
 These mechanisms help ensure that the coordinator remains responsive and informative even when individual subsystems fail or behave unexpectedly.
 
@@ -139,4 +142,6 @@ These mechanisms help ensure that the coordinator remains responsive and informa
 
 ## 25.9 Summary
 
-The consciousness coordinator in this architecture is implemented as a set of unified orchestrator services and gateway adapters that collectively manage context collection, workflow planning, and narrative production across many subsystems. It ties together Chroma‑ and GeoDB‑backed memory, dual‑track container paths, safety and verification modules, language models, and evaluators, exposing a small number of HTTP endpoints that behave like a unified consciousness layer. By recording detailed metadata about which modules participate in each request, surfacing prefrontal and NBB stages as explicit `consciousness_layers`, attaching BBB‑derived truth verdicts, and incorporating explicit error handling and timeouts, the coordinator turns a complex, distributed system into a single, inspectable process for handling requests and generating self‑descriptions whose latency and behavior can be empirically verified in production.
+The consciousness coordinator in this architecture is implemented as the `Ms. Jarvis ULTIMATE` main‑brain service together with unified orchestrator services and gateway adapters that collectively manage context collection, workflow planning, and narrative production across many subsystems. It ties together Chroma‑ and GeoDB‑backed memory, dual‑track neurobiological and container paths, safety and verification modules, language‑model fabrics, and evaluators, exposing a small number of HTTP endpoints that behave like a unified consciousness layer.
+
+By recording detailed metadata about which modules participate in each request, surfacing planner and NBB stages as explicit `consciousness_layers`, attaching BBB‑derived truth verdicts, and incorporating explicit error handling, timeouts, and status endpoints, the coordinator turns a complex distributed system into a single, inspectable process for handling place‑based questions. Its latency and behavior can be empirically verified in production, grounding the broader architectural claims of Polymathmatic Geography in concrete, measurable runtime patterns.
