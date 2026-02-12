@@ -85,4 +85,3 @@ Work in Polymathmatic Geography should be legible both “upward” to ancestors
 ---
 
 These principles are intended as a living foundation. They may be refined, expanded, or re‑weighted as the discipline is tested in new regions and in collaboration with other fields. They are offered here as a starting point for coherent, accountable work in entangled spaces, wherever they may be found.
-
