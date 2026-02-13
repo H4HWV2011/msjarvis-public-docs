@@ -1,6 +1,6 @@
 ## What is Polymathmatic Geography?
 
-Polymathmatic geography is a way of knowing and shaping *entangled spaces* across all scales—intimate, regional, planetary, digital, ecological, and spiritual. It treats every “where” as a web of material, legal, informational, genealogical, and metaphysical relations, and asks how those relations are patterned, how they change, and how they might be remade.
+Polymathmatic geography is a way of knowing and shaping *entangled spaces* across all scales—intimate, regional, planetary, cosmic, digital, ecological, and spiritual. It treats every “where” as a web of material, legal, informational, genealogical, and spiritual relations, and asks how those relations are patterned, how they change, and how they might be remade.
 
 Mathematics, AI, and systems theory are important languages in polymathmatic geography, but they are not its identity or limit. They stand alongside story, history, theology, art, indigenous knowledge, experimental science, and everyday practice, each offering a partial account of how worlds are actually organized. The irreducible object of the field is always *space/place/where*—the patterned “between” of beings, forces, and things—rather than mathematics for its own sake.
 
