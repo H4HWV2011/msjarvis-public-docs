@@ -128,4 +128,4 @@ Making anchoring explicit strengthens polymathmatic geography in several ways:
 - It gives a principled way to handle partial, refused, or sacred information: keep the anchor, respect the nulls, and encode the refusal as part of the geography.  
 - It makes it possible to trace how power, value, and information move not only between big nodes (states, platforms, blocs) but also through tiny, everyday objects and events.
 
-Anchoring is the bridge between the physics of molecules, the politics of supply chains, and the stories people tell about a place. A chapter like this makes that bridge visible and gives the discipline a common way to talk about world‑like models—from safety pins to planets.
+Anchoring is the bridge between the physics of molecules, the politics of supply chains, and the stories people tell about a place. It makes that bridge visible and gives the discipline a shared way to talk about world‑like models, from the tiniest pin‑mark to whole planets.
