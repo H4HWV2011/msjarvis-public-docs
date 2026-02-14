@@ -335,20 +335,19 @@ Collection names, metadata schemas, embedding configurations, entanglement envel
 - Governance, thesis, autonomous learner, and personal‑research collections have schema declared and are in various stages of population and backfill.
 
 ---
-
 ### 5.11 Limitations and Future Work
 
 **Partial embedding coverage in general‑semantic domains.**  
-Spatial collections are heavily populated, but key Ms. Jarvis semantic corpora remain under‑embedded. Completing ingestion and embedding backfill is necessary for a fully realized semantic memory.
+Spatial collections are heavily populated, but key Ms. Jarvis semantic corpora remain under‑embedded. Completing ingestion and embedding backfill is necessary for a fully realized semantic memory that behaves consistently under both standard and entangled retrieval.
 
 **Model, index, entanglement, and RAG dependence.**  
-Retrieval quality depends on the embedding model, index parameters, collection design, entanglement envelope configuration, and RAG routing. Upgrades are treated as migrations with explicit evaluation, including checks that benefits and resource flows for places like Oak Hill and Beckley still behave as intended and that WV‑biased boosts align with stewardship goals.
+Retrieval quality depends on the embedding model, index parameters, collection design, entanglement envelope configuration, and RAG routing. Upgrades are treated as migrations with explicit evaluation, including checks that benefits and resource flows for places like Oak Hill and Beckley still behave as intended and that WV‑biased boosts align with stewardship goals, rather than introducing untracked shifts in how WV entities are represented.
 
 **Semantic gaps and representational limits.**  
-Certain forms of knowledge—embodied experience, oral history, spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies (graphs, qualitative annotations, GBIM‑linked justice metrics, community‑led tagging, and registries like `local_resources`) are needed to supplement the vector store.
+Certain forms of knowledge—embodied experience, oral history, spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies (graphs, qualitative annotations, GBIM‑linked justice metrics, community‑led tagging, and registries like `local_resources`) are needed to supplement the vector store and to keep tacit, place‑bound knowledge from being flattened into generic similarity space.
 
 **Evolving schema and topology.**  
-As GBIM, GeoDB, RAG services, entanglement logic, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Consolidations like the GBIM spatial merge, the introduction of `gis_wv_benefits`, the link from resource collections into `local_resources`, and the activation of entangled `/search` demonstrate this evolution.
+As GBIM, GeoDB, RAG services, entanglement logic, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Consolidations like the GBIM spatial merge, the introduction of `gis_wv_benefits`, the link from resource collections into `local_resources`, and the activation of entangled `/search` demonstrate this evolution; fuller cross‑service entanglement updates over embeddings and weights remain specifically scoped as future work.
 
 Future work will:
 
@@ -358,7 +357,8 @@ Future work will:
 - Add traced end‑to‑end examples showing Chroma retrieval → GBIM provenance → belief‑graph traversal → local resource resolution → entangled `/search` scoring → ensemble answer.  
 - Explore hybrid memory architectures combining vector stores with graphs, relational databases, participatory annotation workflows, and entangled topic graphs in the autonomous learner.  
 - Implement incremental sync infrastructure for daily delta updates instead of full rebuilds.  
-- Develop or adopt embedding models and metadata conventions fine‑tuned on Appalachian place names, infrastructure terminology, and local program language, and integrate them with the verified local resource registry, entanglement envelopes, and verification loop.
+- Develop or adopt embedding models and metadata conventions fine‑tuned on Appalachian place names, infrastructure terminology, and local program language, and integrate them with the verified local resource registry, entanglement envelopes, and the entanglement‑aware verification loop.
+
 
 **Implementation Status**  
 
