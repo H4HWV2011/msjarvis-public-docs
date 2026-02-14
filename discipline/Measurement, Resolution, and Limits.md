@@ -4,7 +4,7 @@
 
 Polymathmatic geography treats scale and resolution not as afterthoughts, but as deliberate design choices. A “where” can be modeled at many levels:
 
-- **Molecular and material**: crystal structure in a safety pin, grain patterns in steel, contaminant concentrations in a creek.  
+- **Molecular and material**: crystal structure in a safety pin, grain patterns in steel, contaminant concentrations in a creek, and ubiquitous low‑level material signals (including the weak radioactive and electromagnetic signatures that bodies and environments constantly emit).  
 - **Household and body**: room layouts, patterns of care, routes through kitchens, clinics, and churches.  
 - **Neighborhood and county**: parcel mosaics, school catchments, benefit zones, service deserts, mutual‑aid networks.  
 - **Regional and planetary**: coal basins, logistics corridors, climate regimes, satellite grids, undersea cables.  
@@ -45,7 +45,9 @@ Over‑resolution can also mislead:
 - Showing centimeter‑grade building outlines in a map that ignores eviction, benefits cliffs, or access to care can give an illusion of completeness while hiding the most important geographies.  
 - High‑frequency tracking of devices and vehicles can create stories of “risk” or “suspicion” that outrun any grounded understanding of context.
 
-Polymathmatic geography therefore treats **coarsening**, **masking**, and **abstaining from measurement** as legitimate operations, not failures. Sometimes the right move is to snap data to coarser grids, generalize boundaries, or leave fields intentionally null.
+At the same time, advances in sensing and inference make it technically possible to track ever more of the weak, ubiquitous signals that bodies and environments emit—from background radiation and thermal traces to movement, biometrics, and speech. In a world where almost everything has a trackable signal, the temptation is to resolve as finely as possible “because we can.”
+
+Polymathmatic geography therefore treats **coarsening**, **masking**, and **abstaining from measurement** as legitimate operations, not failures. Sometimes the right move is to snap data to coarser grids, generalize boundaries, or leave fields intentionally null. It also treats a **Right to be Unmodeled** as a scientific necessity: if every body and household is rendered as a fully resolved signal‑source, measurement collapses into surveillance, and models become tools of stigma rather than understanding.
 
 ## 4. Matching Resolution to Questions
 
@@ -64,7 +66,8 @@ This matching applies across layers:
 The discipline is to ask, for each project:
 
 - What is the coarsest resolution that answers the question responsibly?  
-- Where would finer resolution add clarity, and where would it add risk or illusion?
+- Where would finer resolution add clarity, and where would it add risk or illusion?  
+- When does modeling a person, household, or community at all cross a line into unwanted exposure, given that their material and informational signatures are already everywhere?
 
 ## 5. Resolution, Nulls, and Refusal
 
@@ -79,9 +82,10 @@ Polymathmatic geography recognizes several distinct reasons for nulls and coarse
 - **Ignorance**: data were never collected or are not yet known.  
 - **Cost**: collecting at higher resolution would exceed available resources.  
 - **Ethics and law**: collecting or publishing at higher resolution would violate privacy, consent, or covenant.  
-- **Politics**: certain details are strategically withheld to preserve bargaining power or safety.
+- **Politics**: certain details are strategically withheld to preserve bargaining power or safety.  
+- **Right to be unmodeled**: people or communities explicitly decline to have their ever‑present signals turned into persistent, individualized models.
 
-The discipline encourages explicit tagging of these reasons, so that a future reader can distinguish “we don’t know” from “we chose not to say.”
+The discipline encourages explicit tagging of these reasons, so that a future reader can distinguish “we don’t know” from “we chose not to say,” and “we could measure this, but refuse to model it” from “we lack instruments.”
 
 ## 6. Not the Study of Everything, but It Touches Everything
 
@@ -97,7 +101,7 @@ Measurement, in this context, is the art of deciding:
 
 - Which strands need to be pulled into focus for this where, at this time.  
 - How finely to resolve them, and where to stop.  
-- How to leave room for other ways of knowing that resist quantification.
+- How to leave room for other ways of knowing that resist quantification, even when their material signatures are technically legible.
 
 In that sense, polymathmatic geography is “not the study of everything, but it touches everything.” It does so by making careful, explicit choices about scale, resolution, and limits—enough to see and reshape the worlded space at hand, without claiming to exhaust or own it.
 
@@ -108,7 +112,8 @@ A chapter on measurement, resolution, and limits can leave the discipline with c
 - **Fit resolution to purpose**: Choose the coarsest resolution that can responsibly answer the question and support the community’s aims.  
 - **Respect red lines**: Do not collect or expose more detail than communities, covenants, or laws permit, even if technically easy.  
 - **Make uncertainty visible**: Report positional and temporal accuracy, aggregation levels, and reasons for nulls, so users can interpret maps and models honestly.  
-- **Coarsen to protect**: Use aggregation, masking, and fuzzing where fine detail would enable harm.  
-- **Keep anchors, not everything**: Preserve key spatial‑temporal anchors even when many attributes are unknown or withheld, so that worlds remain stitchable without being stripped bare.
+- **Coarsen to protect**: Use aggregation, masking, and fuzzing where fine detail would enable harm or stigmatizing inferences from ubiquitous signals.  
+- **Keep anchors, not everything**: Preserve key spatial‑temporal anchors even when many attributes are unknown or withheld, so that worlds remain stitchable without being stripped bare.  
+- **Honor the Right to be Unmodeled**: Treat refusal and non‑representation as legitimate, scientifically grounded choices in any world where “everything is measurable” would otherwise slide into “everyone is monitored.”
 
 Together, these principles turn measurement from a neutral technical step into a central part of polymathmatic geography’s ethics and method: a deliberate practice of deciding how, and how far, to let the discipline touch everything without pretending to study everything.
