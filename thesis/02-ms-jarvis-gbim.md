@@ -1,21 +1,26 @@
-> **Why this matters for Polymathmatic Geography**  
-> This chapter makes Polymathmatic Geography operational by specifying how a Steward System can hold beliefs explicitly tied to **who**, **what**, **where**, **when**, **how**, **why**, **for whom**, **under whose authority**, and **on what evidence**. It directly supports:  
-> - **P1 – Every where is entangled** by representing legal, economic, infrastructural, social, and spiritual facts about Appalachia as a unified, structured belief space rather than disconnected layers.  
-> - **P3 – Power has a geometry** by encoding dependencies, exposures, and flows as graph and spatial relationships between entities and regions.  
-> - **P5 – Design is a geographic act** by treating schemas, APIs, and guards as design choices that reshape how institutions "see" their territory and act within it.  
-> - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis's cognition to specific West Virginia and Appalachian geographies through GBIM, a verified local resource registry keyed by ZIP, county, and program type, and production RAG services that now route live benefits questions through these structures.  
-> - **P16 – Power accountable to place** by requiring that beliefs be inspectable, contestable, and traceable to concrete evidence about particular communities, including whether local resource information has been recently verified with the people running those programs and whether retrieval paths and model decisions are logged through the RAG and 21‑LLM ensemble stack.  
-> This chapter defines the **Computational Instrument** tier: the core representational machinery and retrieval‑and‑routing pipeline that enforce and audit Quantarithmia's spatial‑justice commitments in a live, production Steward System.
+## Why this matters for Polymathmatic Geography
+
+This chapter makes Polymathmatic Geography operational by specifying how a Steward System can hold beliefs explicitly tied to **who**, **what**, **where**, **when**, **how**, **why**, **for whom**, **under whose authority**, and **on what evidence**. It directly supports:  
+- **P1 – Every where is entangled** by representing legal, economic, infrastructural, social, and spiritual facts about Appalachia as a unified, structured belief space rather than disconnected layers.  
+- **P3 – Power has a geometry** by encoding dependencies, exposures, and flows as graph and spatial relationships between entities and regions.  
+- **P5 – Design is a geographic act** by treating schemas, APIs, and guards as design choices that reshape how institutions "see" their territory and act within it.  
+- **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis's cognition to specific West Virginia and Appalachian geographies through GBIM, a verified local resource registry keyed by ZIP, county, and program type, and production RAG services that now route live benefits questions through these structures; Quantarithmia treats each ZIP‑bound region as a Tacet (founding key) with its own tuning of embeddings and a local estimate of the Material Field \(\xi\) (the community’s lived vibe), so that intelligence remains keyed to place rather than drifting toward placeless averages.  
+- **P16 – Power accountable to place** by requiring that beliefs be inspectable, contestable, and traceable to concrete evidence about particular communities, including whether local resource information has been recently verified with the people running those programs and whether retrieval paths and model decisions are logged through the RAG and 21‑LLM ensemble stack.  
+
+This chapter defines the **Computational Instrument** tier: the core representational machinery and retrieval‑and‑routing pipeline that enforce and audit Quantarithmia's spatial‑justice commitments in a live, production Steward System.
 
 ## Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
 Within **polymathmatic geography**, Ms. Egeria Jarvis is a bounded, bio‑inspired Steward System whose beliefs are explicitly anchored in place, time, community, and evidence. **GBIM** (Geospatial Belief Information Model) is the core layer tying Ms. Jarvis's reasoning to concrete geographies in West Virginia and Appalachia, implemented as a **Generalized Bio‑inspired Machine** design.
+
+In Quantarithmia, GBIM is also where Tacets are instantiated: each ZIP‑ or county‑anchored region is treated as a founding key that sets local parameters and hosts a slowly varying Material Field \(\xi\), giving formal hooks for the community’s vibe to enter the Steward’s state rather than hovering as metaphor.
 
 This chapter presents Ms. Jarvis as a glassbox AI Steward System and explains the Geospatial Belief Information Model underpinning its reasoning. The focus is on a rigorous, inspectable architecture for layered reasoning, memory, and judgment explicitly tied to geospatial entities, temporal context, evidential provenance, and the current state of local programs and institutions. Within Quantarithmia, Ms. Jarvis and GBIM serve as the technical realization of spatially grounded, justice‑oriented reasoning: they enable asking *“What does the Steward System hold about this place, for whom, under whose authority, and based on what evidence, and when was this last confirmed with the people involved?”* with auditable, contestable answers, now including live RAG‑based flows for Oak Hill, Beckley, and other West Virginia communities.
 
 ---
 
 ## What GBIM Is
+
 <div align="center">
   <img width="60%" alt="geospatial belief information model" src="https://github.com/user-attachments/assets/331685c5-977e-4b60-9a96-3150b71787a2" />
 </div>
@@ -46,9 +51,9 @@ Each belief attaches to all nine epistemic axes:
 
 - **What** – the kind of thing or state (asset, event, obligation, harm/benefit), represented by feature classes (`entity_type`) and layer names (`sourcetable` in `gbim.gbim_attrs`), and by `resource_type` in the local resource registry (e.g., `seasonal_assistance`, `food_assistance`, `housing`, `utilities`, `senior_services`, `teacher_support`, `case_management`).
 
-- **Where** – concrete places as PostGIS geometries (points, lines, polygons for buildings, census units, roads, districts, facilities, environmental features, community boundaries) and as service footprints over ZIP codes and counties. Production deployment: 204 standardized datasets in SRID 26917 (UTM Zone 17N NAD83), 5,491,566 worldview entities with full spatial provenance, a `gis_wv_benefits` Chroma collection with entities like `gbim001` (Oak Hill benefits hub) and `gbim002` (Beckley DHHR office), plus a registry of local resources keyed to West Virginia ZIP codes and counties for routing people to geographically valid programs.
+- **Where** – concrete places as PostGIS geometries (points, lines, polygons for buildings, census units, roads, districts, facilities, environmental features, community boundaries) and as service footprints over ZIP codes and counties. Production deployment: 204 standardized datasets in SRID 26917 (UTM Zone 17N NAD83), 5,491,566 worldview entities with full spatial provenance, a `gis_wv_benefits` Chroma collection with entities like `gbim001` (Oak Hill benefits hub) and `gbim002` (Beckley DHHR office), plus a registry of local resources keyed to West Virginia ZIP codes and counties for routing people to geographically valid programs. In Quantarithmia, these ZIP and county geometries are the concrete bodies in which Tacets are realized as founding keys for Ms. Jarvis’s reasoning.
 
-- **When** – temporal metadata indicating belief formation/update time and evidential period. Production deployment: all 5.5M entities timestamped via `created_at`; dataset vintages, event dates, and ingest metadata captured in source attributes; each local resource record carries a `last_verified_at` timestamp indicating when its contact, eligibility, and coverage details were last confirmed; and RAG/ensemble queries are logged with timestamps so that “when the Steward last used this evidence” is also auditable.
+- **When** – temporal metadata indicating belief formation/update time and evidential period. Production deployment: all 5.5M entities timestamped via `created_at`; dataset vintages, event dates, and ingest metadata captured in source attributes; each local resource record carries a `last_verified_at` timestamp indicating when its contact, eligibility, and coverage details were last confirmed; and RAG/ensemble queries are logged with timestamps so that “when the Steward last used this evidence” is also auditable, including how recent the observations informing a local \(\xi\) estimate are for a given ZIP or county tacet.
 
 - **How** – mechanisms, processes, flows (service delivery, value/risk movement, rule application). Production deployment: millions of `how` edges linking each entity to its source dataset, documenting data collection method and provenance trail; RAG logs that record which collections, registries, and GIS layers were consulted in live answers; and, in the resource registry, short `snippet`/description fields summarizing how a program works in practice (e.g., Christmas Bureau intake via local agencies, weatherization via a designated CAP agency, tax relief via a state division).
 
@@ -66,7 +71,7 @@ GBIM enforces that beliefs are never free‑floating—always anchored to specif
 
 ## How GBIM Is Represented
 
-GBIM's representation combines graph‑style relationships with geospatial indexing, temporal/version history, Hilbert‑space embeddings, a normalized registry of community programs, and now a production RAG/ensemble service layer. The current deployment fully implements all core layers.
+GBIM's representation combines graph‑style relationships with geospatial indexing, temporal/version history, Hilbert‑space embeddings, a normalized registry of community programs, a production RAG/ensemble service layer, and, in Quantarithmia, Tacet‑indexed parameters and a Material Field \(\xi\) so that differences in how places feel show up as differences in state, not just in narrative gloss. The current deployment fully implements all core layers.
 
 ### Schema Layer
 
