@@ -21,7 +21,7 @@ This chapter explains how Ms. Egeria Jarvis uses ChromaDB as the primary semanti
 
 > *Figure 1 – ChromaDB as Semantic Memory in Ms. Jarvis. Shows how services embed texts and GIS features into ChromaDB collections, making abstract Hilbert‑space state a concrete, queryable memory layer for RAG. Local resource documents sit alongside GBIM exports and are linked to structured entries in a `local_resources` table keyed by ZIP and program type. Dedicated collections such as `gis_wv_benefits` support benefits‑focused GIS RAG. An entangled `/search` endpoint spans multiple collections, applying WV‑specific envelopes to bias retrieval.*
 
-Within the Quantarithmia program, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑product space described in the previous chapter, but are realized through a specific embedding model and index implementation. It is the place where beliefs, contexts, resource descriptions, and references become durable and retrievable for reasoning and retrieval‑augmented generation (RAG). Conceptually, each collection corresponds to an empirically instantiated subset of the Hilbert space \(H_{\text{App}}\), and stored vectors approximate elements of the spaces described in the previous chapter while linking out to structured registers such as GBIM and `local_resources`. When used through the entangled `/search` API, these collections also participate in WV‑biased, envelope‑driven “measurements” on the multi‑collection belief state.
+Within the Quantarithmia program, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑product space described in the previous chapter, but are realized through a specific embedding model and index implementation. It is the place where beliefs, contexts, resource descriptions, and references become durable and retrievable for reasoning and retrieval‑augmented generation (RAG). Conceptually, each collection corresponds to an empirically instantiated subset of the Hilbert space \(H_{\text{App}}\), and stored vectors approximate elements of the spaces described in the previous chapter while linking out to structured registers such as GBIM and `local_resources`. Each place‑vector in \(H_{\text{App}}\) carries not only legal, economic, and infrastructural features, but also an evolving estimate of the Material Field \( \xi \), so that shifts in how a community feels become part of the system’s state rather than an external gloss. When used through the entangled `/search` API, these collections also participate in WV‑biased, envelope‑driven “measurements” on the multi‑collection belief state, and a change of Tacet (for example, moving from one founding key to another) is realized as a structured transform on which collections, metadata fields, and envelopes are considered consonant or dissonant in that Hilbert‑space representation.
 
 ---
 
@@ -74,8 +74,10 @@ This collection is built by exporting GBIM worldview entities and their attribut
 
 Text documents follow a simple pattern such as:
 
-``text
+```text
 wvgistcbuildingfootprints feat_1703912
+```
+
 Core metadata fields (present for all records):
 
 - `entity_id`: UUID linking to `gbim_worldview_entity.id`.  
@@ -145,7 +147,7 @@ Each ChromaDB collection corresponds to an empirically instantiated subset of th
 **Queries as projections plus joins.**  
 Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of \(H_{\text{App}}\), retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, `worldview_id`, and `gbim_entity`) to join that unstructured context against `local_resources` and GBIM, enforcing that any recommended program or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
 
-In the entangled `/search` path, the same projections and joins occur, but similarity scores from multiple collections are further modulated by a `wv_entangled_context` envelope that encodes domains, principles, GBIM entities, and GeoDB features. This creates an explicitly WV‑biased projection of the query neighborhood before it is used to assemble context for the ensemble.
+In the entangled `/search` path, the same projections and joins occur, but similarity scores from multiple collections are further modulated by a `wv_entangled_context` envelope that encodes domains, principles, GBIM entities, and GeoDB features. This creates an explicitly WV‑biased projection of the query neighborhood before it is used to assemble context for the ensemble. Under a change of Tacet, the subset of collections and the strength of these entanglement envelopes would be retuned, effectively applying a different “key” to the same underlying Hilbert‑space structure.
 
 This mapping allows Ms. Jarvis’s memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, entanglement envelopes, RAG calls, and joins to structured registries.
 
@@ -175,16 +177,17 @@ In the active environment, services connect to a shared ChromaDB instance throug
 
 Connection patterns follow a simple template:
 
-``python
+```python
 import chromadb
 
 client = chromadb.HttpClient(host="localhost", port=8002)
 collection = client.get_collection("gbim_worldview_entities")
 print("Total entities:", collection.count())
+```
 
 The shared instance is treated as the canonical semantic memory store for this deployment and is used by the text RAG, GIS RAG, entangled `/search`, and other memory‑aware services behind `/chat/light` and `/chat/sync`.
 
-### 5.6.2 Historical and Auxiliary Persistent Clients
+#### 5.6.2 Historical and Auxiliary Persistent Clients
 
 Historically, some services used local persistent stores for isolated experiments and early autonomous‑learner work. As of early 2026, the operational intent is to converge on the shared HTTP‑backed store for primary semantic memory. Residual local stores are treated as legacy or experimental; their contents are either migrated or preserved as snapshots with clear documentation of their status.
 
@@ -245,7 +248,7 @@ Resource and benefits collections follow the same pattern, with additional filte
 
 An entangled query against the RAG server wraps the Chroma calls and WV bias in a single JSON body, for example:
 
-``json
+```json
 {
   "query": "Where are mental health providers most scarce in Fayette County, WV?",
   "topk": 5,
@@ -263,10 +266,11 @@ An entangled query against the RAG server wraps the Chroma calls and WV bias in 
     ]
   }
 }
+```
 
 The server then performs multi‑collection Chroma queries under the hood, applies entangled boosts, and returns a globally ranked result set.
 
-### 5.8.3 ChromaDB Response Structure
+#### 5.8.3 ChromaDB Response Structure
 
 Chroma responses contain parallel lists of IDs, distances, metadatas, and documents, where metadata entries include the identifiers needed to rejoin to GBIM entities or to registry rows in `local_resources`. The `/search` endpoint wraps these with entangled scores and boost flags. This structure underpins traceable, explainable RAG behavior and supports reconstruction of which memory elements and entanglement conditions contributed to a given ensemble answer.
 
