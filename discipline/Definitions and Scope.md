@@ -30,9 +30,9 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.2 Quantarithmia
 
-**Definition.** A spatio‑temporal logic and design framework that functions as a worked example of polymathmatic geography focused on spatial justice in Appalachia. It integrates economic geography, econophysics, distributed AI, and liberation theology to analyze power concentration (through concepts such as maximopoly and megaopoly, reciprocity thresholds, and Von Neumann entropy) and to design community‑first infrastructures (such as Ms. Jarvis and MountainShares).
+**Definition.** A spatio‑temporal logic and design framework that functions as a worked example of polymathmatic geography focused on spatial justice in Appalachia. It integrates economic geography, econophysics, distributed AI, and liberation theology to analyze power concentration (through concepts such as maximopoly and megaopoly, reciprocity thresholds, and Von Neumann entropy) and to design community‑first infrastructures (such as Ms. Jarvis and MountainShares). Quantarithmia is the reference implementation of polymathmatic geography in one founding key: it treats Appalachia as a Tacet—a founding key in which categories of extraction, repair, and commons‑building are written out in code and institutions—so that the discipline has a concrete, auditably place‑bound theoretical spine rather than a placeless abstraction.
 
-**Contrast.** Not the entirety of polymathmatic geography, and not a generic macroeconomic theory or standalone software product. It is a specific logic tuned to rural digital economies and Appalachian history—a founding tacet and theoretical spine that demonstrates how the discipline can be instantiated.
+**Contrast.** Not the entirety of polymathmatic geography, and not a generic macroeconomic theory or standalone software product. It is a specific logic tuned to rural digital economies and Appalachian history—a founding Tacet and theoretical spine that demonstrates how the discipline can be instantiated.
 
 ---
 
@@ -62,9 +62,9 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 3.6 Tacet
 
-**Definition.** A specific territorial grounding or “founding key” (e.g., the Appalachian tacet) where general principles of extraction, repair, and commons‑building are played out and stress‑tested. A tacet embodies the non‑negotiable evidence of lived experience—histories of enclosure, latent commons, dialect, and spiritual lineages—that keeps the discipline from drifting into placeless abstraction.
+**Definition.** A specific territorial grounding or “founding key” (e.g., the Appalachian Tacet) where general principles of extraction, repair, and commons‑building are played out and stress‑tested. A Tacet embodies the non‑negotiable evidence of lived experience—histories of enclosure, latent commons, dialect, and spiritual lineages—that keeps the discipline from drifting into placeless abstraction. Tacit knowledge—the partially unarticulated, lived “vibe” of a community—is the subject; the Tacet is the instrument that bodyguards that vibe from being dissolved into generic averages. Formally, a Tacet is a tunable frame that fixes which geometries, measures, and priors are legitimate in a given region (for this work, at the granularity of ZIP codes and associated blocks), so that the Material Field \(\xi\) we might colloquially call “vibe” is always anchored in a specific postal and institutional body, not treated as generic sentiment.
 
-**Contrast.** Not the regional limit of the field. A tacet is a diagnostic signal used to calibrate methods for other marginal or frontier spaces. Nor is it background scenery; tacets are active participants in modeling, shaping what counts as a relevant variable, what counts as harm, and which remedies are legitimate.
+**Contrast.** Not the regional limit of the field. A Tacet is a diagnostic signal used to calibrate methods for other marginal or frontier spaces. Nor is it background scenery; Tacets are active participants in modeling, shaping what counts as a relevant variable, what counts as harm, and which remedies are legitimate. The spelling is deliberate: Tacet is borrowed from music to mark the founding key in which the score is played, rather than the tacit as such, which remains the community’s own, partly inarticulate ground state.
 
 ---
 
@@ -370,9 +370,9 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ### 9.2 AAPCAppE / Appalachian English Corpus
 
-**Definition.** The Audio‑Aligned and Parsed Corpus of Appalachian English (AAPCAppE), a large empirically grounded corpus of Appalachian English used as a linguistic tacet. It ensures that Ms. Jarvis respects dialect morphosyntax (e.g., a‑prefixing, double modals) instead of treating them as errors.
+**Definition.** The Audio‑Aligned and Parsed Corpus of Appalachian English (AAPCAppE), a large empirically grounded corpus of Appalachian English used as a linguistic Tacet. It ensures that Ms. Jarvis respects dialect morphosyntax (e.g., a‑prefixing, double modals) instead of treating them as errors. AAPCAppE functions as the primary linguistic Tacet for Quantarithmia: it fixes the founding key in which utterances are parsed, embedded, and remembered. By tuning Ms. Jarvis to the specific morphosyntax and prosody of Appalachian English—the correct frequency rather than an error to be normalized away—the system protects the community’s natural vibe field \(\xi\) from being “corrected” toward external standards.
 
-**Contrast.** Not a set of stereotypes, jokes, or prompts about “mountain talk.” It is an authoritative empirical source for authentic language modeling and recognition.
+**Contrast.** Not a set of stereotypes, jokes, or prompts about “mountain talk.” It is an authoritative empirical source for authentic language modeling and recognition, and a guardrail against tacit knowledge being erased by generic models.
 
 ---
 
@@ -412,7 +412,7 @@ Polymathmatic Geography is not a replacement for existing fields, but a meeting 
 
 ## 11. Statement of Scope and Explicit Limits
 
-The scope of polymathmatic geography is defined by the patterned “between” of beings, forces, and things across physical, digital, legal, economic, linguistic, and spiritual domains. Its central object is not isolated entities, but the geometries of relation—enclosures, flows, thresholds, and feedback loops—that bind territories, infrastructures, narratives, lineages, and institutions together. The discipline is committed to instruments and methods that render these geometries visible and contestable to the people who live within them, with particular attention to marginalized regions such as Central Appalachia, while remaining extensible to other tacets.
+The scope of polymathmatic geography is defined by the patterned “between” of beings, forces, and things across physical, digital, legal, economic, linguistic, and spiritual domains. Its central object is not isolated entities, but the geometries of relation—enclosures, flows, thresholds, and feedback loops—that bind territories, infrastructures, narratives, lineages, and institutions together. The discipline is committed to instruments and methods that render these geometries visible and contestable to the people who live within them, with particular attention to marginalized regions such as Central Appalachia, while remaining extensible to other Tacets.
 
 To maintain rigor, ethical accountability, and conceptual clarity, the following fall explicitly outside its scope:
 
@@ -454,4 +454,4 @@ The outputs of instruments built under this framework do not constitute legal, t
 
 ## 12. Closing Note
 
-Polymathmatic geography and the Quantarithmia framework aim to give a rigorous, instrumented home to questions that span land, law, computation, economy, story, language, and spirit without dissolving them into a single abstract language. By defining their core concepts, anchoring them in tacets and instruments, tracing their historical precedents, and drawing sharp boundaries around what they do not claim, they position themselves for collaborative scrutiny and refinement. The ambition is not to be a “science of everything” in the sense of reduction, but a disciplined craft of connecting everything that matters in a place—and doing so in ways communities can see, contest, and use.
+Polymathmatic geography and the Quantarithmia framework aim to give a rigorous, instrumented home to questions that span land, law, computation, economy, story, language, and spirit without dissolving them into a single abstract language. By defining their core concepts, anchoring them in Tacets and instruments, tracing their historical precedents, and drawing sharp boundaries around what they do not claim, they position themselves for collaborative scrutiny and refinement. The ambition is not to be a “science of everything” in the sense of reduction, but a disciplined craft of connecting everything that matters in a place—and doing so in ways communities can see, contest, and use.
