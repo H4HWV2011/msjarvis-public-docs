@@ -362,5 +362,5 @@ Future work will:
 
 **Implementation Status**  
 
-**Badge: PRODUCTION / CONSOLIDATING / ENTANGLED‑READY**  
+****Badge: PRODUCTION / CONSOLIDATING / ENTANGLED‑READY**  
 The conceptual role of ChromaDB as semantic memory is fully implemented for spatial entities and increasingly for resource guides and benefits facilities, and it is now directly exercised by text and GIS RAG services behind `/chat/light`, `/chat/sync`, and the entangled `/search` endpoint. A verified `local_resources` band in Postgres complements Chroma, providing structured, ZIP‑aware, and periodically re‑verified program information that Ms. Jarvis uses alongside both standard and entangled semantic retrieval to act as an accountable, place‑based Steward System in West Virginia.
