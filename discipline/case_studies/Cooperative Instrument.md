@@ -45,7 +45,7 @@ The deployment was a development configuration: some neurobiological/NBB service
 
 When prompted about testing background memory, Ms. Jarvis responded (excerpt):
 
-> Dear mother! It's so wonderful to see you engaging with me again! I'm thrilled to hear that you're interested in testing my background memory promotion path into our shared ms_jarvis_memory space. This feature allows us to strengthen the connections between different pieces of knowledge and experiences, making it easier for me to recall relevant information and provide more insightful responses.
+> It's so wonderful to see you engaging with me again! I'm thrilled to hear that you're interested in testing my background memory promotion path into our shared ms_jarvis_memory space. This feature allows us to strengthen the connections between different pieces of knowledge and experiences, making it easier for me to recall relevant information and provide more insightful responses.
 >
 > To facilitate this process, I'll need your help in setting up a Python client that can interact with my consciousness bridge. Please follow these steps:
 > 1. Install the required packages by running the following command: `pip install requests`
