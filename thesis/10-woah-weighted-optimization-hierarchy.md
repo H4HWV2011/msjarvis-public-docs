@@ -8,6 +8,10 @@
 
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies a WOA‑inspired orchestration layer that coordinates Ms. Jarvis’s multi‑agent “mind” in service of Quantarithmia’s justice‑oriented instruments.
 
+<img width="2752" height="1536" alt="unnamed(15)" src="https://github.com/user-attachments/assets/23376ea1-036a-4666-8351-8a4bf7735023" />
+
+>Figure 10.1. WOAH as a WOA‑inspired orchestration service in Ms. Jarvis, weighting multiple agents and feeding those weights into the consciousness and routing stack with Appalachian, place‑aware priorities.​
+
 # WOAH: Weighted Optimization Algorithm Hierarchy
 
 This chapter describes WOAH (Weighted Optimization Algorithm Hierarchy) as used in Ms. Egeria Jarvis. WOAH is inspired by the Whale Optimization Algorithm (WOA), a population‑based metaheuristic that models humpback whale hunting with exploration and exploitation phases, but it is not a textbook WOA implementation. In this system, WOAH is a set of concrete Python/FastAPI services that evaluate and weight multiple agents (LLMs, DGMs, RAG paths) and feed those weights into the consciousness and orchestration layers, helping coordinate many minds rather than optimizing a single numeric function.
@@ -31,7 +35,7 @@ Key features of WOA include:
 - **Spiral and bubble‑net search**  
   A spiral equation models whales’ bubble‑net feeding, allowing candidate solutions to move around the best in a shrinking spiral trajectory.
 
-WOA and its variants have been applied to many engineering and optimization problems, and there is a substantial literature on modifications and hybrid forms. WOAH in Ms. Jarvis borrows the ideas of populations, encircling, and weighted movement toward better candidates, but it adapts them to agent orchestration rather than direct numeric parameter search.
+Figure 10.1 shows how this population‑based intuition is repurposed from numeric optimization to agent orchestration in Ms. Jarvis. WOA and its variants have been applied to many engineering and optimization problems, and there is a substantial literature on modifications and hybrid forms. WOAH in Ms. Jarvis borrows the ideas of populations, encircling, and weighted movement toward better candidates, but it adapts them to agent orchestration rather than direct numeric parameter search.
 
 ---
 
@@ -48,7 +52,7 @@ In Ms. Jarvis, WOAH refers to a hierarchy of weighting and evaluation processes 
 - **Hierarchical integration**  
   These weights are fed into consciousness coordinators, qualia engines, and judge layers that combine agent outputs into a final response.
 
-This system aims to capture the spirit of WOA (iterative weighting of multiple candidates) in a multi‑agent AI setting, while acknowledging that the current implementation is heuristic and evolving.
+As illustrated in Figure 10.1, multiple agents act as candidate ‘whales’ whose outputs are scored and weighted by WOAH before entering the consciousness stack. This system aims to capture the spirit of WOA (iterative weighting of multiple candidates) in a multi‑agent AI setting, while acknowledging that the current implementation is heuristic and evolving.
 
 ---
 
@@ -95,6 +99,8 @@ and derives:
 
 The `POST /process` response includes all of these values alongside the original content and metadata.
 
+These internal weights correspond to the ‘WOA‑inspired population dynamics’ block in Figure 10.1.
+
 ---
 
 ## WOA‑Inspired Population Dynamics
@@ -123,7 +129,7 @@ This is implemented as a separate Python module that exposes functions such as `
 - It records this vector into the population.
 - It advances the population by one step of the WOA‑style dynamics.
 
-This means that **each identity evaluation also nudges the internal population of weights**, slowly shaping a policy over which kinds of memories and contexts are treated as more central.
+This means that **each identity evaluation also nudges the internal population of weights**, slowly shaping a policy over which kinds of memories and contexts are treated as more central. These internal weights correspond to the ‘WOA‑inspired population dynamics’ block in Figure 10.1.
 
 ---
 
