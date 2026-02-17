@@ -43,7 +43,7 @@ By describing these relationships as “entangled,” the thesis emphasizes that
 
 ## 8.2 Formal Embedding, Tag, and Envelope Model
 
-Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are modeled in a way that mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted for vector embeddings, tags, and entanglement envelopes.  (See Figure 8.1 for a system‑level view of how these components relate.)
+Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are modeled in a way that mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted for vector embeddings, tags, and entanglement envelopes.  
 
 - **State space**  
   Let \(\mathcal{V}\) be the embedding space, treated as a real Hilbert space where each item \(x_i\) is represented by a vector \(v_i \in \mathcal{V}\). Inner products and norms encode similarity and magnitude, and neighborhoods in this space reflect semantic relatedness as captured by the underlying embedding model and stored by Chroma across multiple collections.
@@ -68,7 +68,7 @@ Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are mode
   - `geodb_features`: a list of objects each containing `feature_id`, `layer`, `county`, `state`, `geometry_ref`, and optional `attributes`, anchoring the envelope to specific geospatial features in the GeoDB.  
   - `metadata`: a free‑form object annotating the envelope with `source_agent`, `run_id`, and `timestamp`.
 
-This envelope plays the role of a finite, structured description of the entangled subspace relevant to a particular question: it is the concrete thing that is “measured” against during WV‑biased retrieval.
+This envelope plays the role of a finite, structured description of the entangled subspace relevant to a particular question: it is the concrete thing that is “measured” against during WV‑biased retrieval. (See Figure 8.1 for a system‑level view of how these components relate.)
 
 ---
 
