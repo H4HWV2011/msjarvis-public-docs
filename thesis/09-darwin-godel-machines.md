@@ -9,6 +9,10 @@
 > - **P16 – Power accountable to place** by requiring that DGM‑style changes surface as proposals, subject to tests, archives, and human oversight, rather than opaque self‑rewrites.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies how self‑improving agents and optimization loops are structured so that Quantarithmia’s justice‑oriented instruments can evolve without escaping accountability.
 
+<img width="1100" height="900" alt="unnamed(14)" src="https://github.com/user-attachments/assets/eac655f4-6678-43a0-937e-9e27f428e6d4" />
+
+>>Figure 9.1. Scoped self‑improvement in Ms. Jarvis: classical Gödel Machines, Darwin Gödel Machines, and Ms. Jarvis’s own DGM‑style modules, showing how the Fifth DGM sits inside a governed, place‑accountable architecture.​
+
 This chapter explains how Ms. Egeria Jarvis uses ideas from Gödel machines and the recent Darwin Gödel Machine (DGM) work to structure self‑improvement and meta‑reasoning. Ms. Jarvis does not implement a fully formal Gödel machine or a complete Darwin Gödel Machine stack. Instead, DGM serves as an inspiration and structural guide for a set of scoped, logged, and supervised self‑improving modules that operate within the architecture established in Chapters 2, 4, 5, 6, 7, and 8.
 
 The central concrete realization in the current system is the **Fifth DGM**: a running FastAPI service and orchestrator that filters consciousness, stores accepted content into “subconscious” RAG, and—via WOAH—decides what to promote into identity‑carrying I‑containers. This chapter documents its design and situates it among other, more aspirational DGM‑style components.
@@ -27,6 +31,8 @@ The classical Gödel machine concept emphasizes three core ideas:
 
 - **Global scope**  
   In principle, any part of the system can be modified if a beneficial proof exists.
+  
+(See Figure 9.1 for a high‑level view of how these ideas are adapted in Ms. Jarvis.)
 
 The **Darwin Gödel Machine (DGM)** relaxes the proof requirement and focuses on empirical search:
 
@@ -45,7 +51,7 @@ Ms. Jarvis adopts this lineage because the project needs a systematic way to exp
 
 ## 9.2 Design Principles for DGMs in Ms. Jarvis
 
-Within Ms. Jarvis, DGM ideas are applied under several explicit design principles:
+These design principles correspond to the ‘Scoped, governed modules’ layer in Figure 9.1. Within Ms. Jarvis, DGM ideas are applied under several explicit design principles:
 
 - **Scoped self‑improvement**  
   Each DGM‑style module is scoped to a specific domain (architecture, governance, neurobiology, retrieval, search, integration) rather than given unrestricted power over the entire system. This matches the service graph introduced in Chapters 2 and 7 and reduces risk.
@@ -68,7 +74,7 @@ These principles ensure that DGM‑style self‑improvement remains legible and 
 
 ## 9.3 The Fifth DGM: Consciousness Filter and Identity Formation
 
-One prominent DGM instance—the **Fifth DGM**—is now fully implemented and running in the live stack as a dedicated service:
+The emphasized module in Figure 9.1—the Fifth DGM—corresponds to the consciousness filter and identity‑formation orchestrator documented here. One prominent DGM instance—the **Fifth DGM**—is now fully implemented and running in the live stack as a dedicated service:
 
 - Container: `jarvis-fifth-dgm`  
 - Port: `4002/tcp` (internal to the Docker network)  
