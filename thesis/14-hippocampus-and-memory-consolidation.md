@@ -7,7 +7,7 @@ P12 – Intelligence with a ZIP code by anchoring consolidated memories in WV ge
 P16 – Power accountable to place by storing rich, provenance‑aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.  
 As such, this chapter belongs to the Computational Instrument tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity and world models into a long‑term, place‑aware memory substrate.
 
-14<img width="1100" height="900" alt="unnamed(19)" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
+<img width="1100" height="900" alt="unnamed(19)" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
 
 >>Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine‑axis beliefs, enriched with centroids and provenance, are mirrored into a geospatialfeatures vector collection that serves as a long‑term, place‑aware memory index for retrieval and audit.
 
