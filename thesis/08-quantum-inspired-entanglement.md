@@ -7,7 +7,11 @@
 > - **P16 – Power accountable to place** by implementing coupled updates as explicit, logged mechanisms—entanglement envelopes, bias functions, and multi‑collection traces—rather than implicit, hard‑to‑audit side effects of opaque model training.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies the mathematical and architectural scaffolding, now realized in a running RAG service and entangled retrieval path, for coupled, place‑aware belief updates that Quantarithmia requires for coherent, spatial‑justice–oriented stewardship.
 
-# 8.<img width="2752" height="1536" alt="unnamed(13)" src="https://github.com/user-attachments/assets/3430c8b8-9ebc-4e46-936e-7493da1f78a6" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3430c8b8-9ebc-4e46-936e-7493da1f78a6"
+       alt="Entangled, place‑aware belief updates in Ms. Jarvis"
+       width="900">
+</p>
 
 >>Figure 8.1. Entangled, place‑aware belief updates in Ms. Jarvis, showing how Polymathmatic Geography principles (P1, P3, P5, P12, P16) are realized via coupled governance, semantic, and spatial subsystems, a WV‑biased RAG endpoint, and the autonomous learner’s topic graph.
 
@@ -170,7 +174,7 @@ with an envelope that includes `domains = ["health", "mental_health", "access"]`
 - Raw top‑k distances in each Chroma collection before any bias is applied.  
 - The globally sorted top‑k after bias, including whether each item was boosted and from which collection it came.
 
-This trace is a concrete, inspectable artifact: it shows how the abstract entanglement envelope and coupling strengths become real effects on retrieval. In the current run, some example logs show non‑empty raw distances but zero boosted items, indicating that the retrieved items did not yet carry the necessary WV tags; future work will enrich metadata so that WV‑aligned items become visibly boosted in these traces.
+This trace is a concrete, inspectable artifact: it shows how the abstract entanglement envelope and coupling strengths become real effects on retrieval. The architecture diagram (Figure 8.1), this corresponds to the WV‑Entangled RAG Endpoint and the multi‑collection memory strip along the bottom. In the current run, some example logs show non‑empty raw distances but zero boosted items, indicating that the retrieved items did not yet carry the necessary WV tags; future work will enrich metadata so that WV‑aligned items become visibly boosted in these traces.
 
 ---
 
@@ -215,12 +219,12 @@ Entanglement is intended to interact closely with both the RAG pipeline and the 
 Documents in Chroma collections such as `GBIM`, `gisgeodata`, `benefit_programs`, `GeoDB`, and `utility_enrollments` are increasingly annotated with tags and metadata fields that reference GBIM entities, GeoDB features, counties, and states. These fields form the backbone of entangled sets and are what the WV‑biased retrieval function inspects when applying coupling strengths.
 
 **Multi‑collection entangled retrieval**  
-By querying multiple collections and then globally ranking results under the influence of the entanglement envelope, the RAG server effectively treats GBIM, GeoDB, and application‑specific collections as a single, coupled state. This makes it possible for a change in one collection—such as updated benefit rules or revised geospatial features—to influence which documents surface for queries tied to specific counties, populations, or principles.
+By querying multiple collections and then globally ranking results under the influence of the entanglement envelope, the RAG server effectively treats GBIM, GeoDB, and application‑specific collections as a single, coupled state. In the architecture diagram (Figure 8.1), this corresponds to the WV‑Entangled RAG Endpoint and the multi‑collection memory strip along the bottom. This makes it possible for a change in one collection—such as updated benefit rules or revised geospatial features—to influence which documents surface for queries tied to specific counties, populations, or principles. 
 
 **Bridging to the autonomous learner**  
 As the autonomous learner builds and maintains its topic graph, it does so partly on the basis of RAG behavior and spatial tags. Topics that repeatedly co‑occur in entangled retrieval traces, especially those connected to particular WV places and programs, will develop strong edges in the graph and thus be more likely to be revisited under future neighbor‑biased scheduling.
 
-Over time, this combination—tagged, spatially aware metadata; multi‑collection entangled retrieval; and a topic graph that tracks and amplifies entangled neighborhoods—should allow Ms. Jarvis to form and maintain strands of knowledge that are both semantically and geographically coherent.
+Over time, this combination—tagged, spatially aware metadata; multi‑collection entangled retrieval; and a topic graph that tracks and amplifies entangled neighborhoods—should allow Ms. Jarvis to form and maintain strands of knowledge that are both semantically and geographically coherent. 
 
 ---
 
