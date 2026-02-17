@@ -9,7 +9,12 @@
 > - **P16 – Power accountable to place** by requiring that DGM‑style changes surface as proposals, subject to tests, archives, and human oversight, rather than opaque self‑rewrites.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies how self‑improving agents and optimization loops are structured so that Quantarithmia’s justice‑oriented instruments can evolve without escaping accountability.
 
-<img width="1100" height="900" alt="unnamed(14)" src="https://github.com/user-attachments/assets/eac655f4-6678-43a0-937e-9e27f428e6d4" />
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/eac655f4-6678-43a0-937e-9e27f428e6d4"
+    alt="Scoped self‑improvement in Ms. Jarvis (Fifth DGM)"
+    width="900">
+</p>
 
 >>Figure 9.1. Scoped self‑improvement in Ms. Jarvis: classical Gödel Machines, Darwin Gödel Machines, and Ms. Jarvis’s own DGM‑style modules, showing how the Fifth DGM sits inside a governed, place‑accountable architecture.​
 
