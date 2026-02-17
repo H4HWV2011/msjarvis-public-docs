@@ -1,4 +1,4 @@
->####Why this matters for Polymathmatic Geography  
+>#### Why this matters for Polymathmatic Geography  
 >This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:  
 >P1 – Every where is entangled by tying conversational experiences and world‑model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.  
 >P3 – Power has a geometry by making long‑term memory a structured, queryable space over worldview‑tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.  
