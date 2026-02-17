@@ -7,6 +7,10 @@
 > - **P16 – Power accountable to place** by building a glass‑box layer of self‑description that other agents and human stewards can query, critique, and improve.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies how operational traces, memory, and evaluation signals are woven into an introspective fabric that can be inspected and used for governance.
 
+<img width="1100" height="900" alt="unnamed(18)" src="https://github.com/user-attachments/assets/b36a1e47-4557-4782-ab1b-2fd67892764b" />
+
+>>Figure 13.1. Qualia and introspective state in Ms. Jarvis: operational signals from chats, retrieval, evaluators, and health endpoints are aggregated, structured, and modulated—using the Qualia Engine—into place‑aware introspective records that other components can query for audit, coordination, and research.
+
 ## 13. Qualia Engine and Introspective State
 
 This chapter describes how Ms. Egeria Jarvis turns raw operational data into a structured internal narrative about what the system is doing and experiencing. The aim is to build a transparent layer of self‑description that other components can query, not to claim any kind of subjective inner life. In the current implementation, this layer is realized by a combination of the Qualia Engine, consolidated conversation memory, health and status endpoints, structured logs, and qualitative experience generators that together provide a consistent view of recent activity and internal state.
@@ -24,7 +28,7 @@ The introspective layer is designed to meet three main objectives:
   Organize these signals into well‑typed records that can be indexed, filtered, and inspected by both humans and other services. Each record ties together identifiers, timestamps, roles, retrieved evidence, evaluation scores, and a narrative description into a single coherent unit, with qualitative fields explicitly separated from operational metrics.
 
 - **Modulation**  
-  Provide a place where feedback from evaluators, optimization processes, and constitutional principles can influence how the system describes its own situation. Over time, this allows Ms. Jarvis to maintain an evolving, self‑consistent narrative about what it has done, what it is doing, and how well it is performing, while keeping every field traceable to logs, service responses, spatial identifiers, or database entries.
+  Provide a place where feedback from evaluators, optimization processes, and constitutional principles can influence how the system describes its own situation. Over time, this allows Ms. Jarvis to maintain an evolving, self‑consistent narrative about what it has done, what it is doing, and how well it is performing, while keeping every field traceable to logs, service responses, spatial identifiers, or database entries. These three objectives correspond to the central processing blocks in Figure 13.1.
 
 The implementation follows the project’s emphasis on transparency: all fields in introspective records are intended to be grounded in observable events and state, rather than free‑floating annotations, and qualitative layers are always backed by concrete context. For related work on separating narrative explanation from underlying computation, see Doshi‑Velez & Kim, “Towards A Rigorous Science of Interpretable Machine Learning” (https://arxiv.org/abs/1702.08608) and Lipton, “The Mythos of Model Interpretability” (https://arxiv.org/abs/1606.03490).
 
@@ -32,7 +36,7 @@ The implementation follows the project’s emphasis on transparency: all fields 
 
 ## 13.2 Data Sources Feeding Introspection
 
-The introspective layer pulls from several categories of data that already exist in the system:
+The left‑hand column of Figure 13.1 summarizes these data sources as operational signals feeding the introspective layer. The introspective layer pulls from several categories of data that already exist in the system:
 
 - **Interaction traces**  
   Conversational entrypoints record incoming messages together with user identifiers or session context, and consolidated memory services store those messages as documents in long‑term collections with associated metadata. Conversation logs and health endpoints provide additional signals about which agents were invoked for specific requests, which personas were active, and which qualia or lens configurations were applied.
@@ -52,7 +56,7 @@ Each class of data provides a slice of context that can be associated with parti
 
 ## 13.3 Internal Record Structure
 
-To keep introspective information useful and comparable over time, the design calls for a consistent schema for introspective records, building on existing structured data already produced by services:
+The fields outlined here make up the ‘Introspective Records Store’ depicted on the right side of Figure 13.1. To keep introspective information useful and comparable over time, the design calls for a consistent schema for introspective records, building on existing structured data already produced by services:
 
 - **Identifiers**  
   Each record is associated with one or more IDs, such as a request identifier, a user or session handle, and a stable key that can be used to join the record with stored conversation memory, spatial tables, or logs. These IDs allow later systems to retrieve all relevant context for a particular interaction or task.
@@ -109,7 +113,7 @@ Other services interact with introspective state through queries that ask for st
 - **Status and performance summaries**  
   Health endpoints and summary documents already provide higher‑level status, such as which services are up, which ports are active, and which subsystems have recently passed or failed checks. An explicit introspective service can overlay additional aggregate metrics, such as error rates, distribution of evaluation scores, the most frequently used memory sources, or shifts in lens usage over time.
 
-Consumers of this information—schedulers, dashboards, research tools, or further optimization layers—can choose whether to work directly with structured fields, narrative descriptions, or both, depending on their needs.
+Consumers of this information—schedulers, dashboards, research tools, or further optimization layers—can choose whether to work directly with structured fields, narrative descriptions, or both, depending on their needs. Figure 13.1 shows how audit, coordination, and research layers consume these records.
 
 ---
 
@@ -160,4 +164,4 @@ Within the broader architecture, the introspective layer serves three overlappin
 - **Research and improvement support**  
   It yields a rich dataset for studying how the system behaves over time: how often safety filters are triggered, how retrieval and spatial patterns evolve, how different LLM roles and lenses are used, and how DGM validation outcomes correlate with observed performance. This, in turn, informs changes to prompts, routing policies, model selection, and future extensions of the qualia and introspection subsystems themselves.
 
-As with the neurobiological metaphors in the previous chapter, the introspective layer is a design pattern that is already partially realized in Ms. Jarvis’s existing services. The goal of this chapter is to make that pattern explicit and to provide a blueprint for consolidating current behavior into a coherent, inspectable introspective state that can support both day‑to‑day operation and long‑term evolution.
+As with the neurobiological metaphors in the previous chapter, the introspective layer is a design pattern that is already partially realized in Ms. Jarvis’s existing services. Figure 13.1 shows how audit, coordination, and research layers consume these records. The goal of this chapter is to make that pattern explicit and to provide a blueprint for consolidating current behavior into a coherent, inspectable introspective state that can support both day‑to‑day operation and long‑term evolution.
