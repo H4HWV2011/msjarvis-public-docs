@@ -7,7 +7,11 @@
 > - **P16 – Power accountable to place** by implementing coupled updates as explicit, logged mechanisms—entanglement envelopes, bias functions, and multi‑collection traces—rather than implicit, hard‑to‑audit side effects of opaque model training.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies the mathematical and architectural scaffolding, now realized in a running RAG service and entangled retrieval path, for coupled, place‑aware belief updates that Quantarithmia requires for coherent, spatial‑justice–oriented stewardship.
 
-# 8. Quantum‑Inspired Entanglement and Coupled State
+# 8.<img width="2752" height="1536" alt="unnamed(13)" src="https://github.com/user-attachments/assets/3430c8b8-9ebc-4e46-936e-7493da1f78a6" />
+
+>>Figure 8.1. Entangled, place‑aware belief updates in Ms. Jarvis, showing how Polymathmatic Geography principles (P1, P3, P5, P12, P16) are realized via coupled governance, semantic, and spatial subsystems, a WV‑biased RAG endpoint, and the autonomous learner’s topic graph.
+
+# Quantum‑Inspired Entanglement and Coupled State
 
 This chapter presents the “quantum‑inspired entanglement” mechanism used in Ms. Egeria Jarvis: a way of modeling coupled state across different parts of the system so that changes in one area can, in principle, influence beliefs and behavior elsewhere in a structured way. The term “entanglement” is used metaphorically and mathematically; the system does not run on physical quantum hardware. Instead, it borrows concepts from quantum theory—such as Hilbert spaces, entangled subsystems, and measurement—to organize how correlated belief updates and constraints propagate through embedding spaces, semantic memory, and the GeoDB‑backed spatial body, and now, concretely, through a WV‑biased, multi‑collection RAG endpoint.
 
@@ -39,7 +43,7 @@ By describing these relationships as “entangled,” the thesis emphasizes that
 
 ## 8.2 Formal Embedding, Tag, and Envelope Model
 
-Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are modeled in a way that mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted for vector embeddings, tags, and entanglement envelopes.
+Formally, Ms. Jarvis’s internal semantic state and retrieval metadata are modeled in a way that mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted for vector embeddings, tags, and entanglement envelopes.  (See Figure 8.1 for a system‑level view of how these components relate.)
 
 - **State space**  
   Let \(\mathcal{V}\) be the embedding space, treated as a real Hilbert space where each item \(x_i\) is represented by a vector \(v_i \in \mathcal{V}\). Inner products and norms encode similarity and magnitude, and neighborhoods in this space reflect semantic relatedness as captured by the underlying embedding model and stored by Chroma across multiple collections.
