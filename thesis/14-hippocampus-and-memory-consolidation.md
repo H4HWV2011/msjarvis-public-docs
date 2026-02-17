@@ -1,4 +1,4 @@
-Why this matters for Polymathmatic Geography  
+** Why this matters for Polymathmatic Geography  
 This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:  
 P1 – Every where is entangled by tying conversational experiences and world‑model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.  
 P3 – Power has a geometry by making long‑term memory a structured, queryable space over worldview‑tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.  
@@ -7,13 +7,17 @@ P12 – Intelligence with a ZIP code by anchoring consolidated memories in WV ge
 P16 – Power accountable to place by storing rich, provenance‑aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.  
 As such, this chapter belongs to the Computational Instrument tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity and world models into a long‑term, place‑aware memory substrate.
 
-14. Hippocampus and Memory Consolidation  
+14<img width="1100" height="900" alt="unnamed(19)" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
+
+>>Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine‑axis beliefs, enriched with centroids and provenance, are mirrored into a geospatialfeatures vector collection that serves as a long‑term, place‑aware memory index for retrieval and audit.
+
+** Hippocampus and Memory Consolidation  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#14-hippocampus-and-memory-consolidation)  
 This chapter describes how recent activity is turned into durable records in the system’s long‑term stores. The design borrows the idea of a hippocampal buffer that receives short‑lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is primarily played by the GBIM + beliefs + Chroma hippocampus: GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine‑axis belief rows in `gbim_belief_normalized`, and a Chroma collection called `geospatialfeatures` that mirrors centroid‑bearing entities together with worldview, dataset, GeoDB IDs, and other provenance. Neurobiological work on hippocampal replay and complementary learning systems (for example, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814533/ and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937280/) provides the conceptual backdrop for this design.
 
 14.1 Role in the Overall Architecture  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#141-role-in-the-overall-architecture)  
-The consolidation layer sits between fast‑changing streams of requests and the slower, more stable memory and knowledge stores.
+The consolidation layer sits between fast‑changing streams of requests and the slower, more stable memory and knowledge stores. As shown in Figure 14.1, the GBIM promotion and normalization pipeline feeds a hippocampal vector store that higher‑level services query by worldview, dataset, and spatial footprint.
 
 A GBIM promotion and normalization pipeline:
 
@@ -25,7 +29,7 @@ This GBIM + beliefs + Chroma stack therefore acts as a hippocampal buffer: it ob
 
 14.2 Inputs to the Consolidation Process  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#142-inputs-to-the-consolidation-process)  
-The consolidation routines draw on several concrete sources of information that already exist in the system:
+The inputs listed here correspond to the world‑model backbone on the left side of Figure 14.1. The consolidation routines draw on several concrete sources of information that already exist in the system:
 
 **GBIM entities and normalized beliefs**  
 The core inputs are rows in `gbim_worldview_entity` and their 1:1 normalized belief snapshots in `gbim_belief_normalized`. Each belief row encodes identity (label, GBIM ID, source_table, source_pk, worldview_id), where (SRID, centroids, bbox, optional county/zip), and `evidence.provenance` (dataset, original feature IDs). These form the semantic and spatial backbone of hippocampal memory.
@@ -74,7 +78,7 @@ As Ms. Jarvis’s belief graph and routing logic mature, Chroma metadata can be 
 **Spatial anchoring via geospatial layers**  
 Because beliefs carry centroids, SRIDs, and optional administrative labels, hippocampal entries can be linked back to counties, cities, watersheds, and other layers maintained elsewhere in the geospatial stack. This anchors abstract programs and features in specific West Virginia places.
 
-This pipeline converts world‑tied entities into richly annotated memory entries that can be retrieved by metadata filters and, where embeddings are enabled, by semantic similarity, and can always be joined back to structured beliefs and GIS layers.
+These transformations map directly to the central pipeline and hippocampal store blocks in Figure 14.1. This pipeline converts world‑tied entities into richly annotated memory entries that can be retrieved by metadata filters and, where embeddings are enabled, by semantic similarity, and can always be joined back to structured beliefs and GIS layers.
 
 14.5 Temporal Organization and Decay  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#145-temporal-organization-and-decay)  
@@ -109,7 +113,7 @@ As the introspective layer evolves, it can report which GBIM entities, datasets,
 **Optimization over hippocampal histories**  
 Self‑improving agents in the DGM layer can treat GBIM + beliefs + Chroma as a dataset for discovering weaknesses, biases, or gaps in coverage—for example, which counties are under‑represented, which datasets are heavily relied on, or where repeated corrections to beliefs occur. Quality‑diversity and open‑ended search frameworks (such as Stanley et al., https://arxiv.org/abs/1702.00705) are natural tools for this analysis.
 
-In this way, consolidation is not just archival; it actively shapes future retrieval contexts, introspective narratives, and self‑improvement strategies over a geospatially grounded world model.
+Retrieval feedback loops and audit/equity analyses are shown as downstream consumers of the hippocampal index in Figure 14.1. In this way, consolidation is not just archival; it actively shapes future retrieval contexts, introspective narratives, and self‑improvement strategies over a geospatially grounded world model.
 
 14.7 Alignment with Spatial and Governance Goals  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#147-alignment-with-spatial-and-governance-goals)  
@@ -124,7 +128,7 @@ As governance‑relevant beliefs and norms are encoded in GBIM worldviews, hippo
 **Equity and oversight**  
 By combining spatial identifiers, belief metadata, and hippocampal retrieval histories, analysts and agents can examine whether certain communities receive less assistance, face different patterns of risk, or encounter more frequent misunderstandings. These insights can inform adjustments to routing, content, or outreach so that the system’s behavior better supports equitable outcomes. Ostrom’s work on design principles for local and global commons (https://dlc.dlib.indiana.edu/dlc/bitstream/handle/10535/7566/Ostrom_Design%20Principles%20ISSJ%202010.pdf) offers one lens for interpreting such patterns.
 
-The heavy geospatial footprint thus becomes an integral part of the hippocampal layer, allowing consolidation to encode not just what happened, but where and with whom it happened.
+Retrieval feedback loops and audit/equity analyses are shown as downstream consumers of the hippocampal index in Figure 14.1. The heavy geospatial footprint thus becomes an integral part of the hippocampal layer, allowing consolidation to encode not just what happened, but where and with whom it happened.
 
 14.8 Summary  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#148-summary)  
