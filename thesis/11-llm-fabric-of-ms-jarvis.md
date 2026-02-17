@@ -7,6 +7,11 @@
 > - **P16 – Power accountable to place** by exposing LLMs only through glass‑box HTTP services that can be logged, audited, and constrained, not as hidden backends with direct user access.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies the model pool and service fabric that turn Quantarithmia’s spatial‑justice instruments into live, language-facing behavior.
 
+<img width="1100" height="900" alt="unnamed(16)" src="https://github.com/user-attachments/assets/ae0d8496-798d-4048-adbd-90d4fcc30b67" />
+
+>Figure 11.1. The LLM fabric of Ms. Jarvis: user queries flow through RAG, WV‑entangled and GIS gateways, and WOAH identity services before reaching a pool of local models; all LLMs are exposed only via glass‑box HTTP services, grounded in West Virginia–specific memory.​
+
+
 # 11. The LLM Fabric of Ms. Jarvis
 
 This chapter describes the local language models that form the “LLM fabric” of Ms. Egeria Jarvis and how they are woven into the broader GBIM, RAG, autonomous learning, and GeoDB architecture. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack that includes Chroma, Redis, and the spatial body described in Chapter 6, all exposed through well-defined HTTP services.
@@ -15,7 +20,7 @@ This chapter describes the local language models that form the “LLM fabric” 
 
 ## 11.1 Current Local LLM Inventory
 
-The current deployment uses a substantial set of base and specialist models served by Ollama, running inside the `jarvis-ollama` container and exposed on port `11434`. These models fall into several families:
+The current deployment uses a substantial set of base and specialist models served by Ollama, running inside the `jarvis-ollama` container and exposed on port `11434`. Figure 11.1 shows how these models are grouped and exposed collectively as the LLM fabric behind the Ollama runtime. These models fall into several families:
 
 - **Core general-purpose models**  
   - `llama3:latest`, `llama3.1:latest` – primary general-purpose reasoning models for rich, multi-step questions where high-quality synthesis is important.  
@@ -98,13 +103,13 @@ The LLM fabric is exposed through several cooperating services, each bound to a 
   - Model-serving runtime hosting the local LLMs listed above.  
   - Bound to `127.0.0.1:11434` and not directly exposed to users; only internal services call it.
 
-Additional services such as the unified gateway, blood–brain barrier, qualia engine, and consciousness bridge participate in the broader orchestration but are described in more detail in other chapters. The focus here is on how the main brain and retrieval gateways coordinate with the LLM fabric.
+Additional services such as the unified gateway, blood–brain barrier, qualia engine, and consciousness bridge participate in the broader orchestration but are described in more detail in other chapters. As illustrated in Figure 11.1, user queries hit the main brain on port 8050, which then coordinates RAG gateways, WOAH, and the Ollama-backed LLM fabric on 11434. The focus here is on how the main brain and retrieval gateways coordinate with the LLM fabric.
 
 ---
 
 ## 11.4 Coordination Between Main Brain, RAG, Entangled Search, WOAH, and the LLM Fabric
 
-The main coordination flows look like this:
+The steps below correspond to the vertical flow from user queries to the LLM Fabric and back in Figure 11.1. The main coordination flows look like this:
 
 ### User-facing queries (via main brain on 8050)
 
