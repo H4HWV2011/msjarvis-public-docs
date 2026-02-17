@@ -12,7 +12,7 @@
 
 >>Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine‑axis beliefs, enriched with centroids and provenance, are mirrored into a geospatialfeatures vector collection that serves as a long‑term, place‑aware memory index for retrieval and audit.
 
-** Hippocampus and Memory Consolidation  
+### Hippocampus and Memory Consolidation  
 [](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#14-hippocampus-and-memory-consolidation)  
 This chapter describes how recent activity is turned into durable records in the system’s long‑term stores. The design borrows the idea of a hippocampal buffer that receives short‑lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is primarily played by the GBIM + beliefs + Chroma hippocampus: GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine‑axis belief rows in `gbim_belief_normalized`, and a Chroma collection called `geospatialfeatures` that mirrors centroid‑bearing entities together with worldview, dataset, GeoDB IDs, and other provenance. Neurobiological work on hippocampal replay and complementary learning systems (for example, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814533/ and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937280/) provides the conceptual backdrop for this design.
 
