@@ -7,6 +7,10 @@
 > - **P16 – Power accountable to place** by making each metaphorical “brain structure” a glass‑box component whose behavior can be tested, audited, and revised.  
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies how neurobiology is reused as an organizing scaffold for Ms. Jarvis’s spatially grounded, justice‑oriented cognition.
 
+<img width="1100" height="900" alt="unnamed(17)" src="https://github.com/user-attachments/assets/7d29a73f-8b35-448d-8a90-301bf11e72c5" />
+
+>>Figure 12.1. Neurobiological architecture of Ms. Jarvis: metaphorical brain structures (hippocampus, prefrontal cortex, pituitary, blood–brain barrier, qualia, I‑containers) paired with their concrete services and the integrated processing pipeline implemented by the Neurobiological Master.
+
 # 12. Neurobiological Architecture of Ms. Jarvis
 
 This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiology as an organizing metaphor for a distributed AI system. The goal is not to claim biological equivalence, but to use well‑studied brain structures—hippocampus, prefrontal cortex, pituitary, and blood–brain barrier—as design patterns for memory, control, global state, and security, layered on top of Darwin–Gödel Machines (DGMs), WOAH‑based weighting, retrieval‑augmented generation, and a multi‑LLM fabric.
@@ -19,7 +23,7 @@ For background on using neuroscience to shape AI architectures, see Hassabis et 
 
 ## 12.1 Qualia Engine and Neurobiological Brain
 
-In this system, “qualia” refers to Ms. Jarvis’s internal, narrative representation of what is happening—what is “on her mind”—constructed from text content and context features, not to any claim of subjective experience. The **Qualia Engine** is implemented as a FastAPI‑based **experience synthesis and context summarization service**. In its standalone form it exposes a health endpoint and a processing endpoint that accept content and return a structured bundle of fields such as emotional resonance, extracted meaning, and an expanded “experience” narrative derived from the same input.
+In this system, “qualia” refers to Ms. Jarvis’s internal, narrative representation of what is happening—what is “on her mind”—constructed from text content and context features, not to any claim of subjective experience. As shown in Figure 12.1, the Qualia Engine sits at the center of the neurobiological pipeline, downstream of safety and identity layers and upstream of the consciousness bridge. The **Qualia Engine** is implemented as a FastAPI‑based **experience synthesis and context summarization service**. In its standalone form it exposes a health endpoint and a processing endpoint that accept content and return a structured bundle of fields such as emotional resonance, extracted meaning, and an expanded “experience” narrative derived from the same input.
 
 In the running system, the Qualia Engine is also embedded inside the `neurobiologicalbrain` package and orchestrated by the **Neurobiological Master Integration** service. That master calls the qualia layer via a dedicated endpoint (currently `/experience`) with payloads of the form:
 
@@ -48,7 +52,7 @@ Within this layer, the **Neurobiological Master Integration** service functions 
 - `POST /process`: the main entrypoint for **integrated neurobiological processing**.
 - `POST /biological_process` and `POST /neural_process`: alias endpoints that normalize different input field names and internally delegate to `/process`.
 
-The core logic is implemented in the `NeurobiologicalMaster` class’s `integrated_processing(user_input: str)` method, which sequences the following four stages:
+The sequence BBB → I‑containers → Qualia Engine → Consciousness Bridge depicted in Figure 12.1 is implemented by the Neurobiological Master’s integrated_processing() method. The core logic is implemented in the `NeurobiologicalMaster` class’s `integrated_processing(user_input: str)` method, which sequences the following four stages:
 
 1. **Blood–Brain Barrier (BBB) – Safety Filter Service**  
    The master first calls the dedicated BBB service at `/filter` with a payload of the form:
@@ -118,9 +122,9 @@ Higher‑level orchestrators (including the main brain’s “ultimate” path) 
 
 ---
 
-## 12.3 Hippocampus: Memory Consolidation Layer
+## 12.3 Hippocampus: Memory Consolidation Layer 
 
-Biologically, the hippocampus is critical for consolidating experiences into long‑term memory, coordinating with neocortical areas to transform short‑lived traces into stable representations over time, including during offline replay. In Ms. Jarvis, the hippocampus metaphor is realized by a **conversation‑level memory service** that sits over ChromaDB and GBIM and plays the role of a long‑term semantic memory layer.
+Biologically, the hippocampus is critical for consolidating experiences into long‑term memory, coordinating with neocortical areas to transform short‑lived traces into stable representations over time, including during offline replay. In Ms. Jarvis, the hippocampus metaphor (see lower interior module in Figure 12.1) is realized by a **conversation‑level memory service** that sits over ChromaDB and GBIM and plays the role of a long‑term semantic memory layer.
 
 Concretely, a consolidation service exposes a `/chat` endpoint that accepts a message, queries a conversation memory collection for the most relevant existing documents, and uses this retrieved context to call several downstream services in parallel. These may include RAG pipelines, explanation or feedback modules, and routing helpers. The consolidation layer aggregates the successful responses through a hub service and then schedules a background write of the new message together with the integrated result back into the memory collection as document content plus metadata. Over time, this mechanism approximates hippocampal consolidation by repeatedly using short‑term interactions as queries into long‑term memory and then augmenting that long‑term memory with the system’s own integrated responses.
 
@@ -130,7 +134,7 @@ The hippocampal memory service interacts with the neurobiological master indirec
 
 ## 12.4 Prefrontal Cortex: Executive Routing and Control
 
-The biological prefrontal cortex is associated with executive functions such as planning, decision‑making, working memory, and top‑down control over other brain regions. In Ms. Jarvis, the prefrontal metaphor corresponds to a family of **task orchestrator and routing services** that sit in front of specialized subsystems and the LLM fabric.
+The biological prefrontal cortex (top/front module in Figure 12.1) is associated with executive functions such as planning, decision‑making, working memory, and top‑down control over other brain regions. In Ms. Jarvis, the prefrontal metaphor corresponds to a family of **task orchestrator and routing services** that sit in front of specialized subsystems and the LLM fabric.
 
 In the consolidation service, prefrontal‑like behavior appears as parallel dispatch and adaptive aggregation: for each input, a set of downstream services (retrieval pipelines, feedback modules, routing helpers) are called concurrently, and their JSON outputs are combined by a hub that decides how to weight and merge them before returning a single integrated result. In the unified orchestrators, prefrontal‑style behavior is expressed by layered sequencing of multiple components—primary LLM agents, consciousness bridges, safety filters, qualia, self‑awareness modules, and persona‑specific brains—and by returning explicit activation maps or metadata describing which layers participated in producing the final answer.
 
@@ -144,7 +148,7 @@ The biological pituitary gland acts as a master endocrine regulator, releasing h
 
 Configuration files and environment variables define constitutional principles and weights that assign particular importance to safety and human dignity, and separate files specify WOAH‑style weights used when scoring and balancing agents. These artifacts function as a form of systemic “hormone profile,” influencing how judges and orchestrators aggregate and filter outputs and how aggressively optimization layers are allowed to explore changes. In code, this appears as shared configuration consulted by many components (including BBB, judge layers, and main orchestrators), rather than as a single, monolithic “mode switch.”
 
-A unified runtime mode switch that would dynamically move the entire system between, for example, **research**, **pastoral**, or **governance** modes is still planned rather than fully implemented. For now, Ms. Jarvis approximates pituitary‑like global regulation by using these shared principles and weights as common signals that many components consult when making routing or evaluation decisions, while leaving the neurobiological master and related services to operate with relatively static parameters.
+A unified runtime mode switch that would dynamically move the entire system between, for example, **research**, **pastoral**, or **governance** modes is still planned rather than fully implemented. For now, Ms. Jarvis approximates pituitary‑like global regulation (central regulator in Figure 12.1) by using these shared principles and weights as common signals that many components consult when making routing or evaluation decisions, while leaving the neurobiological master and related services to operate with relatively static parameters.
 
 ---
 
@@ -152,7 +156,7 @@ A unified runtime mode switch that would dynamically move the entire system betw
 
 The blood–brain barrier is a highly selective interface that protects brain tissue by regulating which substances and signals can pass into the central nervous system. In Ms. Jarvis, the corresponding architectural pattern is a layered **filtering and judgment system** intended to keep harmful or low‑quality information out of core memory and consciousness layers while allowing useful information to pass through.
 
-A dedicated BBB service exists as part of the NBB stack and is exposed both as its own container and as a first‑class dependency of the neurobiological master. At present it exposes a `/filter` endpoint that accepts content (and optionally context and user identifiers) and returns a JSON object describing whether the content is approved and why. In the current implementation, the internal filter logic is still relatively permissive, often echoing content with a simple reason code indicating placeholder status, but its **position in the pipeline now has real consequences**: the neurobiological master calls BBB first and will completely block downstream processing if `content_approved` is not true.
+A dedicated BBB service exists as part of the NBB stack and is exposed both as its own container and as a first‑class dependency of the neurobiological master (peripheral filter in Figure 12.1). At present it exposes a `/filter` endpoint that accepts content (and optionally context and user identifiers) and returns a JSON object describing whether the content is approved and why. In the current implementation, the internal filter logic is still relatively permissive, often echoing content with a simple reason code indicating placeholder status, but its **position in the pipeline now has real consequences**: the neurobiological master calls BBB first and will completely block downstream processing if `content_approved` is not true.
 
 Additional filter logic is implemented in separate services that remove low‑confidence agent replies, and judge services provide more sophisticated assessments of candidate responses and sources. The design intent is for the BBB and judges to work together with constitutional principles and WOAH weights, rejecting or down‑weighting untrusted data and adversarial prompts before they reach long‑term memory or qualia. In practice, this is an evolving system: the strictest BBB behavior—systematically denying, quarantining, or annotating harmful flows—is still being realized, but the architectural hooks and integration points are already active.
 
