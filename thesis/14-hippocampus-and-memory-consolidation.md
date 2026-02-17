@@ -1,13 +1,14 @@
-*Why this matters for Polymathmatic Geography*  
-This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:  
-P1 – Every where is entangled by tying conversational experiences and world‑model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.  
-P3 – Power has a geometry by making long‑term memory a structured, queryable space over worldview‑tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.  
-P5 – Design is a geographic act by deciding which entities, programs, and communities are promoted into GBIM, given nine‑axis beliefs, and mirrored into hippocampal collections keyed by worldview, dataset, and feature identity.  
-P12 – Intelligence with a ZIP code by anchoring consolidated memories in WV geospatial layers, normalized nine‑axis beliefs, and local knowledge bases so that questions about “who is helped where” are answered in terms of concrete places and entities.  
-P16 – Power accountable to place by storing rich, provenance‑aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.  
-As such, this chapter belongs to the Computational Instrument tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity and world models into a long‑term, place‑aware memory substrate.
+>####Why this matters for Polymathmatic Geography  
+>This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:  
+>P1 – Every where is entangled by tying conversational experiences and world‑model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.  
+>P3 – Power has a geometry by making long‑term memory a structured, queryable space over worldview‑tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.  
+>P5 – Design is a geographic act by deciding which entities, programs, and communities are promoted into GBIM, given nine‑axis beliefs, and mirrored into hippocampal collections keyed by worldview, dataset, and feature identity.  
+>P12 – Intelligence with a ZIP code by anchoring consolidated memories in WV geospatial layers, normalized nine‑axis beliefs, and local knowledge bases so that questions about “who is helped where” are answered in terms of concrete places and entities.  
+>P16 – Power accountable to place by storing rich, provenance‑aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.  
 
-<img width="1100" height="900" alt="unnamed(19)" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
+>As such, this chapter belongs to the Computational Instrument tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity and world models into a long‑term, place‑aware memory substrate.
+
+><img width="1100" height="900" alt="unnamed(19)" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
 
 >>Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine‑axis beliefs, enriched with centroids and provenance, are mirrored into a geospatialfeatures vector collection that serves as a long‑term, place‑aware memory index for retrieval and audit.
 
