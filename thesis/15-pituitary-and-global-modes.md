@@ -1,22 +1,25 @@
-# 15. Pituitary and Global Modes
+># 15. Pituitary and Global Modes
+>
+>## Why this matters for Polymathmatic Geography
+>
+>This chapter explains how Ms. Jarvis’s “global hormones” are implemented as constitutional rules, weights, modes, and always‑on services that shape every interaction. It supports:
+>
+>- **P1 – Every where is entangled** by tying global safety, ethics, and optimization signals to all agents, memories, and spatial backbones at once.
+>- **P3 – Power has a geometry** by making global influence flow through explicit services and routing patterns instead of hidden parameters.
+>- **P5 – Design is a geographic act** by encoding norms for Appalachian communities directly into system‑wide constraints and emphasis profiles.
+>- **P12 – Intelligence with a ZIP code** by allowing global weights and principles to prioritize local context, commons, and community veto.
+>- **P16 – Power accountable to place** by logging, hashing, and exposing global decisions and violations so they can be audited and contested.
+>
+>As such, this chapter belongs to the *Computational Instrument* tier: it specifies the “pituitary” layer of global modes and constraints that govern how Ms. Jarvis’s cognitive services behave in the running system.
+>
+><img width="2752" height="1536" alt="unnamed(20)" src="https://github.com/user-attachments/assets/dd4946b7-818f-4d20-860e-eb397c277dd0" />
 
-## Why this matters for Polymathmatic Geography
-
-This chapter explains how Ms. Jarvis’s “global hormones” are implemented as constitutional rules, weights, modes, and always‑on services that shape every interaction. It supports:
-
-- **P1 – Every where is entangled** by tying global safety, ethics, and optimization signals to all agents, memories, and spatial backbones at once.
-- **P3 – Power has a geometry** by making global influence flow through explicit services and routing patterns instead of hidden parameters.
-- **P5 – Design is a geographic act** by encoding norms for Appalachian communities directly into system‑wide constraints and emphasis profiles.
-- **P12 – Intelligence with a ZIP code** by allowing global weights and principles to prioritize local context, commons, and community veto.
-- **P16 – Power accountable to place** by logging, hashing, and exposing global decisions and violations so they can be audited and contested.
-
-As such, this chapter belongs to the *Computational Instrument* tier: it specifies the “pituitary” layer of global modes and constraints that govern how Ms. Jarvis’s cognitive services behave in the running system.
-
+>>Figure 15.1. Pituitary and global modes in Ms. Jarvis: constitutional guardrails, the blood–brain barrier, Fifth DGM, WOAH/DGM supervisors, and orchestration modes act as a global “hormone” layer shaping all agents, retrieval paths, and memory updates, with their decisions exposed via audit and transparency services.
 ---
 
 ## 15.1 Purpose and Scope
 
-Global controls in Ms. Jarvis are realized as a set of always‑on governance and modulation services rather than static configuration files. The core components in the live stack are:
+Global controls in Ms. Jarvis are realized as a set of always‑on governance and modulation services rather than static configuration files. The components listed here correspond to the ‘Pituitary & Global Controls’ layer in Figure 15.1. The core components in the live stack are:
 
 ### Blood–Brain Barrier and constitutional guardrails
 
@@ -57,13 +60,13 @@ The global layer manages several categories of settings and constraints, grounde
 
 - Unified gateway endpoints advertise per‑subsystem `system_transparency_mode` strings describing the configuration of storage, RAG, qualia, WOAH, and GIS services (for example, indicating direct DB access, depth of analysis, or “no hidden loops”), which function as human‑readable global mode descriptors.
 
-Each of these settings has a defined meaning and is either stored in structured config (for example, JSON/YAML) or exposed via documented HTTP endpoints whose outputs can be queried and versioned.
+“Figure 15.1’s ‘Global Settings’ column summarizes these safety, WOAH, role, and transparency parameters. Each of these settings has a defined meaning and is either stored in structured config (for example, JSON/YAML) or exposed via documented HTTP endpoints whose outputs can be queried and versioned.
 
 ---
 
 ## 15.3 Implementation and Storage
 
-The global control state is implemented through a combination of configuration files, long‑running services, and code‑level flags:
+The layered pipelines described here map to the ‘Cognitive Services & Agents’ layer under global controls in Figure 15.1. The global control state is implemented through a combination of configuration files, long‑running services, and code‑level flags:
 
 ### Structured configuration and persistence
 
@@ -109,7 +112,7 @@ In the live system, the main brain’s status layer treats the global stack—Ol
 
 ## 15.5 Interaction with Optimization and Self‑Improvement
 
-Optimization and self‑improving components treat global controls both as constraints and as parameters to tune:
+As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer. Optimization and self‑improving components treat global controls both as constraints and as parameters to tune:
 
 ### WOAH optimization and versioning
 
@@ -143,7 +146,7 @@ Consolidation pipelines that route through coordinated and final unified apps ca
 
 ### Feedback loops into global settings
 
-Because the Constitutional Guardian maintains a detailed audit trail and WOAH/DGM analyzers report complexity and integration measures, higher‑level optimization or governance processes can examine these records to motivate adjustments—tightening constraints, altering role emphasis, or changing orchestrator modes when certain patterns of violations or instabilities are observed.
+Because the Constitutional Guardian maintains a detailed audit trail and WOAH/DGM analyzers report complexity and integration measures, higher‑level optimization or governance processes can examine these records to motivate adjustments—tightening constraints, altering role emphasis, or changing orchestrator modes when certain patterns of violations or instabilities are observed. As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer.
 
 This creates a cycle in which high‑level state affects behavior, and observed behavior, recorded in introspective and consolidated structures, informs subsequent changes to that state.
 
@@ -166,7 +169,7 @@ Because global settings have wide impact, the repository includes both formal me
 
 - Top‑level scripts such as `VERIFY_AND_TEST.sh`, `verify_full_integration.sh`, and `verify_all_claims.sh` formalize the process of checking microservice health, integration status, and documentation alignment, and can be treated as deployment gates that must pass before changes to modes or global weights are accepted.
 
-These practices support a governance model in which global controls are not altered ad hoc but are mediated by explicit APIs, logs with integrity checks, and repeatable verification procedures.
+As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer. These practices support a governance model in which global controls are not altered ad hoc but are mediated by explicit APIs, logs with integrity checks, and repeatable verification procedures.
 
 ---
 
