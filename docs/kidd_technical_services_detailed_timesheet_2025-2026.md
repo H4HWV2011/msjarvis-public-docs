@@ -20,8 +20,6 @@ This document establishes the financial and technical scope of infrastructure de
 - **Start Date:** March 23, 2025 (Project initiation)  
 - **End Date:** February 19, 2026 (Current)  
 - **Calendar Days:** 334 (March 23, 2025 – February 19, 2026)  
-- **Days Worked:** 314 (at 16 hours/day, including February 5–6 and 8–19)  
-- **Days Off:** 20 (including February 7 as a documented day off)
 
 ### Work Model
 - **Daily Commitment:** 16 hours/day, often extending past midnight  
