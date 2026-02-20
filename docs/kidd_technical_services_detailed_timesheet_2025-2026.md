@@ -28,7 +28,7 @@ This document establishes the financial and technical scope of infrastructure de
 
 ---
 
-###Intellectual Property Allocation
+### Intellectual Property Allocation
 The MountainShares mutual credit system and associated commons governance configurations are being developed for use by Harmony for Hope as part of its charitable mission. The Ms. Jarvis Geospatial Intelligence Platform is proprietary software owned by Kidd's Technical Services, LLC and is made available to Harmony for Hope under a non‑exclusive, royalty‑free license for use in support of MountainShares and related community benefit projects.
 
 
