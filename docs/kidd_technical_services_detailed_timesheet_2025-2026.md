@@ -281,10 +281,9 @@ As Harmony for Hope seeks federal and foundation funding, and as AppalachianShar
 **Document Prepared:** February 19, 2026  
 **Reporting Entity:** Kidd's Technical Services, LLC  
 **Recipient Organization:** Harmony for Hope, Inc.  
-**Commons Initiative:** MountainShares Mutual Credit System | Ms. Jarvis Geospatial Intelligence Platform  
+**Commons Initiative:** MountainShares Mutual Credit System  
 **Engagement Model:** Founder's Equity Contribution (Non-Extractive)  
 
 ---
 
 *This statement is prepared for governance, grant application, and community transparency purposes. It does not constitute tax advice and does not establish any deductible contribution for federal tax purposes. All figures are based on documented timesheets and fair market value estimates for senior geospatial systems architecture services.*
-
