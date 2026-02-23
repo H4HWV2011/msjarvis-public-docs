@@ -34,8 +34,8 @@
 
 | Category | Details |
 |---|---|
-| **Implemented now** | `jarvis-fifth-dgm` running at **port 4002** (internal Docker network). FastAPI routes live: `GET /health`, `POST /filter_consciousness`, `POST /analyze`, `GET /consciousness_stats`, `GET /i_container`, `GET /identity`. `FifthDGMOrchestrator` class operational with consciousness stats tracking, I‑container list, and WOAH evaluation loop. Main‑brain service registry maps `"fifth_dgm"` → `http://jarvis-fifth-dgm:4002/analyze`. `FifthDGMIntegration` client module available for internal consumers (consciousness bridge). WOAH algorithms service at **port 8104** called live for identity‑promotion decisions; failures logged as non‑fatal. |
-| **Partially implemented / scaffolded** | `_store_in_subconscious_rag` logs and increments counters but is not yet wired to actual Chroma collections; real RAG write is a near‑term task. WOAH result schema is informal (reads `hierarchical_weight` from response JSON with a default fallback); a formal Pydantic schema for WOAH results is planned. Service‑discovery via Redis is attempted but failures are non‑fatal; direct URL fallback is always active. |
+| **Implemented now** | `jarvis-fifth-dgm` confirmed running at **port 4002** (`docker compose ps`, February 2026). FastAPI routes live: `GET /health`, `POST /filter_consciousness`, `POST /analyze`, `GET /consciousness_stats`, `GET /i_container`, `GET /identity`. `FifthDGMOrchestrator` operational with consciousness stats tracking, I‑container list, and WOAH evaluation loop. Main‑brain service registry maps `"fifth_dgm"` → `http://jarvis-fifth-dgm:4002/analyze`. `FifthDGMIntegration` client module available for internal consumers. `jarvis-i-containers` confirmed running at **port 8015** (`docker compose ps`); `icontainers-identity` layer confirmed `status: "active"` in live `UltimateResponse` on 2026‑02‑15, producing a real timestamped `root-self` ego entry (see §9.3.5). `nbb_woah_algorithms` running at **port 8104** (host) → internal 8010. `jarvis-woah` running at **port 7012**. Both WOAH-related services confirmed up. |
+| **Partially implemented / scaffolded** | `_store_in_subconscious_rag` logs and increments counters but is not yet wired to actual Chroma collections; real RAG write is near‑term work. WOAH result schema is informal (reads `hierarchical_weight` from response JSON with a default fallback); a formal Pydantic schema is planned. Service‑discovery via Redis is attempted but failures are non‑fatal; direct URL fallback is always active. |
 | **Future work / design intent only** | MountainShares DGM, Neurobiology / I‑container DGM, per‑edge fractal DGM connectors (chat ↔ consciousness bridge, autonomous learner hooks). Architecture DGM for routing and timeout self‑tuning. Formal mutation operators, population management, and archival traces following full Darwin Gödel Machine patterns. Code‑level self‑modification proposals evaluated in staging and promoted by judge agents. Neighbor‑biased identity scheduling driven by entangled RAG traces. |
 
 > **Note on earlier drafts:** Earlier drafts used the label "Fifth DGM" to refer to an
@@ -59,8 +59,10 @@ self‑improving modules that operate within the architecture established in Cha
 The central concrete realization in the current deployment is the **Fifth DGM**: a running FastAPI
 service (`jarvis-fifth-dgm` on **port 4002**) that filters consciousness, stores accepted content
 into "subconscious" RAG, and—via the WOAH algorithms service on **port 8104**—decides what to
-promote into identity‑carrying I‑containers. This chapter documents its design and situates it
-among other, more aspirational DGM‑style components.
+promote into identity‑carrying I‑containers. The I‑container layer itself runs as a confirmed live
+service (`jarvis-i-containers`, port 8015) and was observed producing real output in a documented
+interaction on 2026‑02‑15 (§9.3.5). This chapter documents the Fifth DGM's design and situates
+it among other, more aspirational DGM‑style components.
 
 ---
 
@@ -75,7 +77,8 @@ reason about them, including the impact of proposed self‑modifications.
 expected utility and only applies changes when such proofs are found, yielding strong guarantees
 but being extremely demanding in practice.
 
-**Global scope.** In principle, any part of the system can be modified if a beneficial proof exists.
+**Global scope.** In principle, any part of the system can be modified if a beneficial proof
+exists.
 
 (See Figure 9.1 for a high‑level view of how these ideas are adapted in Ms. Jarvis.)
 
@@ -111,8 +114,8 @@ variants and evaluation traces. Even when the "archive" is only log lines and ve
 commits, the intent is to have a record of what was tried, what changed, and how it performed.
 
 **Alignment with constitutional constraints.** DGM proposals must respect constitutional, safety,
-and governance constraints (including WV‑first and place‑based justice commitments). Proposals that
-violate core principles are rejected or escalated for review.
+and governance constraints (including WV‑first and place‑based justice commitments). Proposals
+that violate core principles are rejected or escalated for review.
 
 **Compatibility with Quantarithmia's tiers.** DGMs interpret and operate on the Computational
 Instrument tier, informed by conceptual and ethical tiers, and they are bounded by the
@@ -131,7 +134,8 @@ identity‑formation orchestrator. In the current deployment, this is a fully im
 dedicated service:
 
 - **Container:** `jarvis-fifth-dgm`
-- **Port:** `4002/tcp` (internal to the Docker network)
+- **Port:** `4002/tcp` (internal to the Docker network; confirmed in `docker compose ps`,
+  February 2026)
 - **Code:** `ms_jarvis_fifth_dgm_orchestrator.py` plus a small integration client for other
   services.
 
@@ -144,10 +148,10 @@ content—performs a background evaluation via the WOAH algorithms service on **
 whether to promote items into a small in‑memory I‑container that acts as a seed for Ms. Jarvis's
 identity context.
 
-Importantly, this is *not* a global self‑modifier; it operates strictly at the level of: "Should
-this content enter Ms. Jarvis's long‑term memory?" and "Should this content become part of her
-evolving identity narrative?" It constrains which inputs are allowed to shape Ms. Jarvis's
-subjective experience while respecting the GBIM/GeoDB/Chroma backbone from previous chapters.
+This is *not* a global self‑modifier; it operates strictly at the level of: "Should this content
+enter Ms. Jarvis's long‑term memory?" and "Should this content become part of her evolving
+identity narrative?" It constrains which inputs are allowed to shape Ms. Jarvis's subjective
+experience while respecting the GBIM/GeoDB/Chroma backbone from previous chapters.
 
 ### 9.3.2 Service and API structure
 
@@ -155,12 +159,13 @@ In the current deployment, the Fifth DGM orchestrator is implemented as a FastAP
 following key routes:
 
 - `GET /health` — returns status, service name, port, and current I‑container size.
-- `POST /filter_consciousness` — main filter entrypoint; body: `{"content": "<text>", "context": {}}`.
+- `POST /filter_consciousness` — main filter entrypoint; body:
+  `{"content": "<text>", "context": {}}`.
 - `POST /analyze` — alias for main‑brain integration; matches the main‑brain's service endpoint
   map entry `"fifth_dgm": "/analyze"`.
-- `GET /consciousness_stats` — returns counters (`total_inputs`, `conscious_yes`, `conscious_no`,
-  `stored_in_subconscious`, `promoted_to_i_containers`, `i_container_size`), acceptance rate, and
-  WOAH evaluation stats.
+- `GET /consciousness_stats` — returns counters (`total_inputs`, `conscious_yes`,
+  `conscious_no`, `stored_in_subconscious`, `promoted_to_i_containers`, `i_container_size`),
+  acceptance rate, and WOAH evaluation stats.
 - `GET /i_container` — returns the latest I‑container items, their count, and identity formation
   activity flags.
 - `GET /identity` — returns I‑container size, formation‑active flag, and WOAH evaluation stats.
@@ -193,12 +198,14 @@ discovery, but functions even if Redis‑based mapping fails (errors are logged,
 
 ### 9.3.3 Consciousness filter and subconscious RAG
 
-In the current deployment, the core method `async def consciousness_filter(self, input_data: Dict) -> Dict[str, Any]` operates as follows. It logs input length and context, then calls
-`_make_consciousness_decision(content, context)` to decide accept vs. reject. If accepted, it
-increments `conscious_yes` and `stored_in_subconscious`, calls `_store_in_subconscious_rag(...)`
-(currently a placeholder that logs and increments a counter—real Chroma write is near‑term work),
-schedules `_evaluate_for_i_container(...)` as a background `asyncio.create_task` so WOAH
-evaluation is decoupled from request latency, and returns:
+In the current deployment, the core method
+`async def consciousness_filter(self, input_data: Dict) -> Dict[str, Any]` operates as follows.
+It logs input length and context, then calls `_make_consciousness_decision(content, context)` to
+decide accept vs. reject. If accepted, it increments `conscious_yes` and `stored_in_subconscious`,
+calls `_store_in_subconscious_rag(...)` (currently a placeholder that logs and increments a
+counter—real Chroma write is near‑term work), schedules `_evaluate_for_i_container(...)` as a
+background `asyncio.create_task` so WOAH evaluation is decoupled from request latency, and
+returns:
 ```json
 {
   "consciousness_decision": "YES",
@@ -217,17 +224,17 @@ If rejected, it increments `conscious_no` and returns:
 }
 ```
 
-The decision function `_make_consciousness_decision` applies simple heuristics: it rejects trivially
-short content, obvious test strings (`"test"`, `"test test test"`), and spam patterns (e.g.,
-"spam spam", "click here now", "buy now"), accepting everything else as "Worth considering." This
-filter is intentionally conservative and transparent. The design intends that it will be extended
-to include RAG‑based checks and entangled context in a future iteration.
+The decision function `_make_consciousness_decision` applies simple heuristics: it rejects
+trivially short content, obvious test strings (`"test"`, `"test test test"`), and spam patterns
+(e.g., "spam spam", "click here now", "buy now"), accepting everything else as "Worth
+considering." This filter is intentionally conservative and transparent. The design intends that
+it will be extended to include RAG‑based checks and entangled context in a future iteration.
 
 ### 9.3.4 WOAH evaluation and I‑containers
 
-In the current deployment, `_evaluate_for_i_container` increments WOAH evaluation counters, obtains
-a base URL for the WOAH algorithms service at **port 8104** (either from dynamic discovery or a
-direct fallback), and sends:
+In the current deployment, `_evaluate_for_i_container` increments WOAH evaluation counters,
+obtains a base URL for the WOAH algorithms service at **port 8104** (either from dynamic discovery
+or a direct fallback), and sends:
 ```json
 {
   "content": "<same content>",
@@ -249,10 +256,41 @@ response is inspected for a `hierarchical_weight` field (default ≈ 0.5). If
 
 to `self.i_container_contents`, updates `i_container_size` and promotion counters, and logs a
 "PROMOTED TO I‑CONTAINER" message with the new size. Errors (WOAH not running, invalid JSON,
-non‑200 responses) are logged and swallowed; they do not block the main consciousness filter path.
-This matches the design goal of safe, bounded integration with WOAH rather than hard coupling.
+non‑200 responses) are logged and swallowed; they do not block the main consciousness filter
+path. This matches the design goal of safe, bounded integration with WOAH rather than hard
+coupling. A formal Pydantic schema for WOAH results and weights is identified as near‑term work.
 
-A formal Pydantic schema for WOAH results and weights is identified as near‑term work.
+### 9.3.5 Confirmed live operation: February 15, 2026
+
+The I‑container layer's live status is not inferred from code alone. On 2026‑02‑15, a documented
+test interaction with `jarvis-main-brain` on port 8050 produced an `UltimateResponse` whose
+`consciousnesslayers` array included an `icontainers-identity` entry with `status: "active"`. That
+entry yielded a real, session-specific `identitylayers` object:
+```json
+{
+  "id": "root-self",
+  "kind": "ego",
+  "source": "icontainers",
+  "timestamp": "2026-02-15T22:40:35.289967+00:00",
+  "sessionid": "<UUID>",
+  "userid": "cakidd",
+  "summary": "Initial ego boundary layer for session",
+  "state": {
+    "egoboundaries": {},
+    "experientialprocessing": {},
+    "observerprocessing": "observer",
+    "metalevel": "ego-boundaries-v1"
+  }
+}
+```
+
+The same response also contained an `nbb-prefrontal-cortex` layer with `status: "skipped"` and
+`reason: "nbbprefrontalcortex not configured"`. That contrast is analytically significant: it
+shows exactly what a non-firing service looks like in the same data structure, making the
+`icontainers-identity` `"active"` status a clean positive result rather than a default. The
+`docker compose ps` output from the same period confirms `jarvis-i-containers` running on
+**port 8015**, consistent with the response. This episode is documented in full in the case study
+*Ms. Jarvis as a Cooperative Instrument* (February 15, 2026).
 
 ---
 
@@ -273,10 +311,10 @@ and the operation path map includes:
 "fifth_dgm": "/analyze",
 ```
 
-This means that when the main‑brain (or auxiliary orchestrators using the same mapping) calls
-`"fifth_dgm"`, it sends an HTTP POST to `http://jarvis-fifth-dgm:4002/analyze` and expects a JSON
-response with `consciousness_decision`, `action`, and related fields. In the `query_service`
-helper, the request format is:
+This means that when the main‑brain calls `"fifth_dgm"`, it sends an HTTP POST to
+`http://jarvis-fifth-dgm:4002/analyze` and expects a JSON response with
+`consciousness_decision`, `action`, and related fields. In the `query_service` helper, the
+request format is:
 ```python
 "fifth_dgm": {"content": message, "context": {}},
 ```
@@ -332,11 +370,11 @@ deployment.
 observability and manual tuning. The design intends that a dedicated Architecture DGM module will
 be added once the primary service graph is fully stable.
 
-**Per‑service DGM connectors.** The codebase contains placeholders and TODOs for DGM hooks for the
-autonomous learner, chat‑side DGM integrations for prompt and routing suggestions, and earlier
+**Per‑service DGM connectors.** The codebase contains placeholders and TODOs for DGM hooks for
+the autonomous learner, chat‑side DGM integrations for prompt and routing suggestions, and earlier
 backup versions of the Fifth DGM orchestrator. These demonstrate the intended *fractal* pattern:
-small DGM agents attached to specific service edges that can propose micro‑improvements to prompts,
-routing, or filters. All remain experimental scaffolding in the current deployment.
+small DGM agents attached to specific service edges that can propose micro‑improvements to
+prompts, routing, or filters. All remain experimental scaffolding in the current deployment.
 
 **Domain‑specific DGMs.** The design intends that future iterations will add a MountainShares DGM
 (governance, economic flows, dispute resolution), a Neurobiology / I‑container DGM
@@ -370,9 +408,9 @@ is," influencing future retrieval and context assembly. In the current deploymen
 is a placeholder (§9.3.3); this integration is near‑term work.
 
 **Evaluation and promotion of changes.** In the current deployment, the Fifth DGM does not rewrite
-code; its "changes" are decisions about which content enters memory and identity. The design intends
-that future DGM‑style agents will propose code or configuration changes that are tested in a
-staging environment, evaluated via judge agents and metrics, and promoted only when clearly
+code; its "changes" are decisions about which content enters memory and identity. The design
+intends that future DGM‑style agents will propose code or configuration changes that are tested in
+a staging environment, evaluated via judge agents and metrics, and promoted only when clearly
 beneficial and aligned with constitutional constraints.
 
 ---
@@ -382,9 +420,10 @@ beneficial and aligned with constitutional constraints.
 In the current deployment, the Fifth DGM operates alongside, and subordinate to, higher‑level
 orchestration layers.
 
-**WOAH (port 8104).** WOAH remains the primary algorithmic service for evaluating hierarchical
-importance and relevance. The Fifth DGM calls WOAH for identity decisions, not the other way
-around. WOAH's judgments are logged and used to gate I‑container promotion.
+**WOAH services.** Two WOAH-related services are confirmed running in the current deployment:
+`nbb_woah_algorithms` on **port 8104** (host) → internal 8010, and `jarvis-woah` on **port
+7012**. The Fifth DGM calls port 8104 for identity-promotion decisions. WOAH's judgments are
+logged and used to gate I‑container promotion.
 
 **Orchestration and main‑brain (port 8050).** The main‑brain retains overall control of the
 `ultimatechat` path (see Chapter 17). It invokes RAG (text via port 8103, GIS via port 8004,
@@ -396,14 +435,14 @@ outputs to DGM components.
 **Consistency with Chapters 2, 4, 5, 6, 7, and 8.** The Fifth DGM fits into the previously
 established architecture: it respects GBIM's worldview layer (Chapter 2) by not introducing a
 parallel belief system; it operates as a state‑space operator within the Hilbert‑space framing
-(Chapter 4); it reads/writes only to the canonical Chroma/GeoDB/GBIM memory stack (Chapters 5 and
-6) via RAG; it is invoked as one service among many in the RAG/routing pipeline (Chapter 7); and
-it participates in entangled, logged updates—WOAH‑weighted promotions—that can be inspected
+(Chapter 4); it reads/writes only to the canonical Chroma/GeoDB/GBIM memory stack (Chapters 5
+and 6) via RAG; it is invoked as one service among many in the RAG/routing pipeline (Chapter 7);
+and it participates in entangled, logged updates—WOAH‑weighted promotions—that can be inspected
 alongside RAG traces (Chapter 8).
 
 ---
 
-## 9.8 Limits, Honesty, and Future Work
+## 9.8 Limits and Future Work
 
 **No fully formal Gödel machine.** Ms. Jarvis does not implement a proof‑based Gödel machine with
 guaranteed utility improvements. That remains a theoretical ideal, not an engineering target.
@@ -438,15 +477,18 @@ itself.
 ## 9.9 Summary
 
 This chapter has moved from a purely conceptual description of Darwin Gödel Machines to a
-documented, operational account of Ms. Jarvis's first fully wired DGM: the Fifth DGM consciousness
-filter and identity orchestrator (`jarvis-fifth-dgm`, port 4002). It shows how DGM ideas—self‑
-reference, empirical evaluation, archival traces—are made concrete in a way that respects and
-extends the GBIM/GeoDB/Chroma/RAG architecture of Chapters 2, 4, 5, 6, 7, and 8; keeps
-self‑improvement scoped, logged, and governed; and grounds "intelligence with a ZIP code" in the
-actual flows of content into memory and identity, rather than only in external outputs.
+documented, operational account of Ms. Jarvis's first fully wired DGM: the Fifth DGM
+consciousness filter and identity orchestrator (`jarvis-fifth-dgm`, port 4002). It shows how DGM
+ideas—self‑reference, empirical evaluation, archival traces—are made concrete in a way that
+respects and extends the GBIM/GeoDB/Chroma/RAG architecture of Chapters 2, 4, 5, 6, 7, and 8;
+keeps self‑improvement scoped, logged, and governed; and grounds "intelligence with a ZIP code"
+in the actual flows of content into memory and identity, rather than only in external outputs.
+
+The I‑container identity layer is not theoretical: it was confirmed running on 2026‑02‑15,
+producing a real, session-specific ego boundary entry inside a live `UltimateResponse`, with a
+simultaneously skipped `nbb-prefrontal-cortex` layer in the same response providing a clean
+contrast that rules out a default or fallback artifact (§9.3.5).
 
 The design intends that future work will extend these patterns to additional DGMs and deeper forms
-of entangled, cross‑service adaptation. The Fifth DGM as currently implemented already demonstrates
-that Ms. Jarvis can experiment on itself without escaping the accountability structures that define
-her role as a steward of Appalachian commons. For the canonical description of how this service
+of entangled, cross‑service adaptation. For the canonical description of how this service
 participates in a live user interaction, see **Chapter 17**.
