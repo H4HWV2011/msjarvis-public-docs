@@ -1,13 +1,13 @@
 ## Why this matters for Polymathmatic Geography
 
-This chapter defines the spatial “body” of Ms. Jarvis and specifies how West Virginia’s physical infrastructures, hazards, civic facilities, and benefits‑related sites are represented as a computable geography. It supports:  
-- **P1 – Every where is entangled** by treating structures, rivers, floodplains, institutions, and program sites as a connected mesh rather than isolated map layers, and by linking them to GBIM belief records and spatial embeddings derived from the current `gbimbeliefnormalized` and `gbim_worldview_entity` tables.  
-- **P3 – Power has a geometry** by enabling analysis of how risk, access, infrastructure, and access‑to‑help are distributed across counties, hollows, ZIP codes, and corridors, and by exposing these distributions both through PostGIS queries and through Chroma‑backed RAG neighborhoods over collections such as `gbim_beliefs_v2` and `gis_wv_benefits`.  
-- **P5 – Design is a geographic act** by framing schema choices, key conventions, CSV pipelines, RAG and `/search` routing, Chroma collection design, and layer prioritization as design decisions that reshape how the state “appears” in analysis, governance, entangled retrieval, and WV‑biased search.  
+This chapter defines the spatial “body” of Ms. Jarvis and specifies how West Virginia’s physical infrastructures, hazards, civic facilities, and benefits‑related sites are represented as a mature, computable geography. It supports:  
+- **P1 – Every where is entangled** by representing structures, rivers, floodplains, institutions, and program sites as a connected mesh rather than isolated map layers, and by linking them to GBIM belief records and spatial embeddings derived from the current `gbimbeliefnormalized` and related worldview tables.  
+- **P3 – Power has a geometry** by enabling operational analysis of how risk, access, infrastructure, and access‑to‑help are distributed across counties, hollows, ZIP codes, and corridors, and by exposing these distributions both through PostGIS queries and through Chroma‑backed RAG neighborhoods over collections such as `gbim_beliefs_v2` and `gis_wv_benefits`.  
+- **P5 – Design is a geographic act** by demonstrating how concrete schema choices, key conventions, CSV pipelines, RAG and `/search` routing, Chroma collection design, and layer prioritization have already reshaped how the state “appears” in analysis, governance, entangled retrieval, and WV‑biased search.  
 - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase, to a verified `local_resources` registry keyed by ZIP and county, and to their Chroma‑mirrored embeddings—especially the unified GBIM belief collections (for example, `gbim_beliefs_v2`) and the `gis_wv_benefits` collection used in GIS RAG flows and the entangled `/search` endpoint.  
-- **P16 – Power accountable to place** by ensuring that advisory and governance behaviors can be traced back to specific, queryable features, facilities, and programme footprints in West Virginia, with logged retrieval paths from GeoDB, GBIM, Chroma, `local_resources`, and the WV‑biased, entangled RAG path into `/search` and the ensemble stack.  
+- **P16 – Power accountable to place** by ensuring that advisory and governance behaviors are traceable to specific, queryable features, facilities, and programme footprints in West Virginia, with logged retrieval paths from GeoDB, GBIM, Chroma, `local_resources`, and the WV‑biased, entangled RAG path into `/search` and the ensemble stack.  
 
-Accordingly, this chapter belongs to the **Computational Instrument** tier: it specifies the geospatial substrate that allows Quantarithmia’s justice‑oriented reasoning to operate on real communities, infrastructures, and landscapes in Appalachia and to route actual households to concrete, locally valid forms of assistance.
+Accordingly, this chapter belongs to the **Computational Instrument** tier: it specifies the geospatial substrate that currently allows Quantarithmia’s justice‑oriented reasoning to operate on real communities, infrastructures, and landscapes in Appalachia and to route actual households to concrete, locally valid forms of assistance.
 
 ## 6. GeoDB and the Spatial Body of Ms. Jarvis
 
@@ -15,7 +15,7 @@ Accordingly, this chapter belongs to the **Computational Instrument** tier: it s
 
 This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis in the physical world of West Virginia. The GeoDB layer is tightly coupled to GBIM, to the Chroma‑based Hilbert space accessed via text and GIS RAG services, to the verified `local_resources` registry, and to the entangled `/search` path, so that beliefs and narratives are grounded not only in abstract embeddings but also in specific buildings, river reaches, floodplains, mines, benefits hubs, and infrastructure corridors.
 
-The focus is on the structure and status of the PostGIS‑based geodatabase and its relationship to Chroma collections and RAG flows, rather than on exhaustive cataloguing of every dataset. Figure 6.1 summarizes the main containers and data stores involved in this spatial body.
+The focus is on the current structure and status of the PostGIS‑based geodatabase and its relationship to Chroma collections and RAG flows, rather than on exhaustive cataloguing of every dataset. Figure 6.1 summarizes the main containers and data stores involved in this spatial body.
 
 ![Ms. Jarvis Geospatial System Architecture](https://github.com/user-attachments/assets/10927cf5-f1df-455e-b4d9-7eb560d62375)
 
@@ -27,20 +27,20 @@ The chapter documents what is currently integrated, which layers are staged, and
 
 ---
 
-### 6.2 Design Goals for the GeoDB Layer
+### 6.2 Operational Objectives and Current Capabilities
 
-The GeoDB layer is designed to satisfy three primary goals:
+The GeoDB layer now satisfies three primary objectives:
 
 - **Coherent statewide mesh.**  
-  Represent West Virginia as a coherent, queryable geospatial mesh of structures, hazards, networks, civic facilities, benefits sites, administrative boundaries, and named places.
+  It represents West Virginia as a coherent, queryable geospatial mesh of structures, hazards, networks, civic facilities, benefits sites, administrative boundaries, and named places, with millions of features integrated into a common, GBIM‑aware schema.
 
 - **Programmatic access.**  
-  Provide fast, programmatic access to this mesh for reasoning, retrieval, visualization, and analytics through well‑defined schemas, indexes, and APIs.
+  It provides fast, programmatic access to this mesh for reasoning, retrieval, visualization, and analytics through well‑defined schemas, spatial indexes, and HTTP‑accessible services that expose GBIM and GeoDB content to RAG and `/search`.
 
 - **Integration with GBIM, Chroma, `local_resources`, and RAG.**  
-  Integrate cleanly with GBIM, Chroma, and the `local_resources` registry so that spatial, semantic, institutional, and programme dimensions can be used together in a single reasoning pipeline, including the WV‑biased, entangled `/search` workflow.
+  It integrates cleanly with GBIM, Chroma, and the `local_resources` registry so that spatial, semantic, institutional, and programme dimensions are used together in a single reasoning pipeline, including the WV‑biased, entangled `/search` workflow already in production use.
 
-Operationally, this entails maintaining a PostGIS‑backed geodatabase that holds authoritative feature classes for core themes and, for prioritized subsets, mirroring those features into vector collections and belief embeddings. Earlier deployments used many `geodb*` and `gedb*` collections in Chroma; in the 2026 deployment the primary spatial memory indices are the unified GBIM embedding collections (e.g., `gbim_beliefs_v2`) and the `gis_wv_benefits` collection, with legacy `geodb*` collections serving as thematic and historical subsets.
+Operationally, this entails a PostGIS‑backed geodatabase that holds authoritative feature classes for core themes and, for prioritized subsets, mirrors those features into GBIM belief embeddings and Chroma collections. Earlier deployments relied on numerous `geodb*` and `gedb*` collections; in the 2026 deployment the primary spatial memory indices are the unified GBIM embedding collections (for example, `gbim_beliefs_v2`) and the `gis_wv_benefits` collection, with legacy `geodb*` collections serving as thematic and historical subsets.
 
 ---
 
@@ -53,18 +53,18 @@ Feature classes are organized by theme and provenance—census units, structure 
 The core production schema includes:
 
 - Raw and normalized source tables for individual datasets, such as county boundaries, census blocks, dams, hospitals, and other facilities.  
-- A set of CSV‑derived tables (for example, `gbim_source_csv.*`) created from `*_attrs.csv` exports, which store key attributes (including `geodb_id`, `lat`, `lon`, `bbox`, `label`, `sourcetable`, `country` and, in some cases, additional fields) converted directly from shapefiles and other GIS formats.  
-- GBIM‑related tables, including `gbimbeliefnormalized` (the main belief table with the nine JSONB axes) and any `gbim_worldview_entity` tables, which tie features to worldviews, belief state, and provenance.
+- A set of CSV‑derived tables (for example, `gbim_source_csv.*`) created from `*_attrs.csv` exports, which store key attributes (including `geodb_id`, `lat`, `lon`, `bbox`, `label`, `sourcetable`, `country` and, where present, additional fields) converted directly from shapefiles and other GIS formats.  
+- GBIM‑related tables, including `gbimbeliefnormalized` (the main belief table with the nine JSONB axes) and any worldview tables, which tie features to worldviews, belief state, and provenance.
 
 The majority of production layers share a common projected coordinate system, SRID 26917 (UTM Zone 17N NAD83). Legacy tables that retain provisional SRIDs, mixed geometry types, or inconsistent precision are explicitly flagged in schema registries for cleanup and are not included in the primary GBIM worldview until normalized.
 
-The database is populated from state and federal sources including the WV GIS Technical Center, USGS, the U.S. Census Bureau, USACE, NREL, and various state agencies. Ingestion converts shapefiles and file geodatabases into PostGIS tables, resolves geometry and projection issues, and normalizes keys so that features can be cross‑referenced from GBIM, Chroma, `local_resources`, and the higher‑level reasoning services. Ingestion and transformation processes are scripted and versioned to support auditability.
+The database is populated from state and federal sources including the WV GIS Technical Center, USGS, the U.S. Census Bureau, USACE, NREL, and various state agencies. Ingestion converts shapefiles and file geodatabases into PostGIS tables, resolves geometry and projection issues, and normalizes keys so that features can be cross‑referenced from GBIM, Chroma, `local_resources`, and higher‑level reasoning services. Ingestion and transformation processes are scripted and versioned to support auditability over time.
 
 ---
 
 ### 6.4 Currently Integrated Statewide Layers
 
-The current deployment includes a substantial, production‑usable subset of West Virginia’s public geospatial data, with additional layers actively being integrated. At a high level, the Steward System already maintains:
+The current deployment includes a substantial, production‑grade subset of West Virginia’s public geospatial data, with additional layers actively being integrated. At a high level, the Steward System maintains:
 
 - **Census units.**  
   Statewide 2020 Census blocks and block groups in projected coordinate systems appropriate for analysis and mapping, providing population and administrative meshes at fine spatial scales.
@@ -102,7 +102,7 @@ The current deployment includes a substantial, production‑usable subset of Wes
   - named places, summits, and other geographic names,  
   - National Register points and polygons and related historic resources.
 
-Across these themes, the GBIM/GeoDB deployment integrates millions of features from approximately two hundred statewide datasets. Feature counts and table names are catalogued in database inventories maintained alongside the system and can be updated as additional layers are ingested or normalized.
+Across these themes, the GBIM/GeoDB deployment integrates millions of features from approximately two hundred statewide datasets. Feature counts and table names are catalogued in database inventories maintained alongside the system so that claims about coverage can be verified and updated as ingestion continues.
 
 ![GeoDB and the Spatial Body of Ms. Jarvis](https://github.com/user-attachments/assets/cff5cc65-84e2-402d-aa53-07ada47b57d9)
 
@@ -112,7 +112,7 @@ Across these themes, the GBIM/GeoDB deployment integrates millions of features f
 
 ### 6.5 Chroma Spatial Collections and Geo‑Referenced Beliefs
 
-To bridge geometric features and high‑dimensional semantic reasoning, Ms. Jarvis maintains Chroma collections derived from GBIM beliefs and spatial entities. These collections are hosted in a shared HTTP‑backed Chroma instance, configured with 384‑dimensional embeddings, and serve as the canonical spatial memory layer for RAG and `/search`.
+To connect geometric features with high‑dimensional semantic reasoning, Ms. Jarvis maintains Chroma collections derived from GBIM beliefs and spatial entities. These collections are hosted in a shared HTTP‑backed Chroma instance, configured with 384‑dimensional embeddings, and serve as the canonical spatial memory layer for RAG and `/search`.
 
 ![West Virginia Data Architecture Flow](https://github.com/user-attachments/assets/323dd7de-aef9-4019-b703-22ea667e6175)
 
@@ -133,7 +133,7 @@ The current pattern is as follows:
   The `gis_wv_benefits` collection stores embeddings and metadata for benefits‑relevant facilities, built from GBIM beliefs and resource descriptions. Documents in this collection encode facility names, locations, roles, and linkages to `local_resources` identifiers, enabling semantically and spatially aware retrieval of benefits sites.
 
 - **Legacy and thematic `geodb*` collections.**  
-  Earlier deployments mirrored selected PostGIS layers into `geodb*` collections, with each record representing a feature‑level description and minimal metadata to enable thematic or experimental RAG over specific layers (for example, dams or hospitals). These collections remain available as historical or specialized indexes but are no longer treated as the primary spatial memory layer; new work prefers the GBIM belief collections and `gis_wv_benefits`.
+  Earlier deployments mirrored selected PostGIS layers into `geodb*` collections, with each record representing a feature‑level description and minimal metadata to enable thematic or experimental RAG over specific layers (for example, dams or hospitals). These collections remain available as historical or specialized indexes but are no longer treated as the primary spatial memory layer; current work prefers the GBIM belief collections and `gis_wv_benefits`.
 
 Identifiers and metadata are defined so that Chroma results can be rejoined deterministically to GBIM and GeoDB:
 
@@ -155,7 +155,7 @@ Not every dataset present on disk or in PostGIS is fully integrated into the liv
   Selected layers with particularly high feature counts or specialized schemas may reside in PostGIS with provisional structures but await full integration into GBIM embeddings and Chroma collections. These layers may still be available for targeted spatial analysis but do not participate in the standard GBIM → text → Chroma pipeline.
 
 - **New and externally sourced datasets.**  
-  Additional state and federal datasets, including recent updates and thematic additions, are stored on local media and in PostGIS schemas pending normalization and key alignment. Their integration is planned following the established patterns of identity, epoch mapping, and embedding.
+  Additional state and federal datasets, including recent updates and thematic additions, are stored on local media and in PostGIS schemas pending normalization and key alignment. Their integration is scheduled following the established patterns of identity mapping, epoch assignment, and embedding.
 
 For these datasets, the accurate characterization is that they are present and, in many cases, spatially queryable in PostGIS, but are not yet part of the default GBIM‑driven Hilbert‑space reasoning path used by the RAG and `/search` services.
 
@@ -241,4 +241,4 @@ A key near‑term objective for the GeoDB layer is to extend the current “subs
 - **Maintaining inventories and audit trails.**  
   Periodically regenerating and archiving inventories of PostGIS tables, GBIM beliefs, Chroma collections, and `local_resources` entries, including counts and metadata coverage, to ensure that the spatial body of Ms. Jarvis remains transparent and auditable.
 
-As these milestones are met, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers—structures, hazards, networks, demographics, benefits facilities, and more—at the scale of millions of entities. The spatial body of the Steward System will thereby support detailed, location‑specific reasoning about risk, infrastructure, governance, benefits access, and community well‑being across West Virginia, with each advisory behaviour traceable to specific, inspectable geographies, GBIM beliefs, entangled retrieval contexts, and programme records in `local_resources`.
+As these milestones are met, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers—structures, hazards, networks, demographics, benefits facilities, and more—at the scale of millions of entities. The spatial body of the Steward System will thereby continue to support detailed, location‑specific reasoning about risk, infrastructure, governance, benefits access, and community well‑being across West Virginia, with each advisory behaviour traceable to specific, inspectable geographies, GBIM beliefs, entangled retrieval contexts, and programme records in `local_resources`.
