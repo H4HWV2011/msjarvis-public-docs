@@ -124,12 +124,14 @@ These collections have schemas declared and are intended to hold embeddings for 
 
 Resource‑related documents (for example, county quick guides, seasonal assistance flyers, teacher resource lists, utility assistance PDFs, and agency fact sheets) are ingested into one or more semantic collections, with metadata fields such as:
 
-- `county`, `state`, `zip_codes` or `zip_hint`,  
-- `resource_type` (for example, seasonal assistance, housing, utilities, senior services, education support),  
-- `source_url` or `file_id`,  
+- `county`, `state`, `zip_codes` or `zip_hint`.  
+- `resource_type` (for example, `seasonal_assistance`, `housing`, `utilities`, `senior_services`, `education_support`).  
+- `source_url` or `file_id`.  
 - `local_resource_id` linking to a structured row in the `local_resources` table when available.
 
-In addition, a dedicated collection such as `gis_wv_benefits` stores semantic descriptions and metadata for benefits‑related facilities, keyed by spatial identifiers, county, and GBIM entities. These collections provide the unstructured side of local resources and benefits. At retrieval time, Ms. Jarvis uses metadata and `local_resource_id` (or facility IDs) to resolve from an embedded snippet in ChromaDB to a normalized registry entry or GBIM entity that contains ZIP coverage, phones, emails, contacts, and verification metadata.
+In addition, a dedicated `gis_wv_benefits` collection stores semantic descriptions and metadata for benefits‑related facilities (for example, Oak Hill hubs and Beckley DHHR offices), keyed by county, ZIP, and GBIM entities. These collections provide the unstructured side of local resources and benefits. At retrieval time, Ms. Jarvis uses metadata and `local_resource_id` (or facility IDs) to resolve from an embedded snippet in ChromaDB to a normalized registry entry or GBIM entity that contains ZIP coverage, phones, emails, contacts, and verification metadata.
+
+A key aspect of this band is that the underlying data are not purely desk‑compiled. Harmony for Hope has convened a **Community Champions** group to ground‑truth resource information, with Boone County resident **Crystal Colyer** serving as a lead “boots‑on‑the‑ground” validator. Working especially across Boone, Kanawha, and nearby counties, she verifies the existence, hours, and accessibility of food pantries and other supports, and her findings drive updates to both the `local_resources` registry and the associated resource‑document collections. In Kanawha County in particular, many of the food and resource locations currently represented in Ms. Jarvis’s semantic memory come directly from her fieldwork, ensuring that the system’s answers about help in Charleston and surrounding communities rest on community‑validated data rather than unverified lists.
 
 ---
 
