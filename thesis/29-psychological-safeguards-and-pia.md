@@ -48,6 +48,11 @@ a curated psychological corpus in `jarvis-chroma`, the BBB pipeline at port **80
 primary live safety gate, and a manual PIA review process that produces recommendations rather
 than automated rewrites.
 
+A critical constraint is that these mechanisms are designed for **supportive, psychoeducational
+guidance and risk awareness**, not for formal DSM-style diagnosis or clinical decision-making.
+Clinical constructs are used at a high level only; the system does not reproduce or implement
+DSM‑5 in full and is not a substitute for professional care.
+
 ---
 
 ## 29.1 Role of Psychological Guidance
@@ -60,18 +65,21 @@ provides principled reference points for respectful, non-coercive, and supportiv
 `/psychological_assessment` endpoint returns `therapeutic_guidance`, `emotional_support`, and
 `evidence_based_approaches` structured responses. `psychological_rag_domain` (port **9006**)
 provides retrieval of curated materials including therapy, mindfulness, trauma, depression,
-anxiety, and social-support content via `/search`.
+anxiety, and social-support content via `/search`. These materials are curated for high-level,
+evidence-informed guidance; they are not used to perform formal diagnosis.
 
 **Risk awareness.** In the current deployment, `TruthValidator` (applied on every response via
 `jarvis-main-brain`, port **8050**) encodes patterns known to be harmful — identity confusion,
 anthropomorphic overclaiming, misleading statements about agency and embodiment — and returns
 `correct_identity`, `correct_creator`, and `relationship_clear` booleans. The BBB
 `EthicalFilter` and `ThreatDetection` sub-filters at port **8016** screen for content violating
-ethical or community-safety constraints.
+ethical or community-safety constraints, including high-risk mental-health content.
 
 **Self-checking.** In the current deployment, `normalize_identity` applied to every
 `ultimatechat` response rewrites outputs that deviate from allowed self-descriptions or blur
-human–machine boundaries, before the response is returned to the caller.
+human–machine boundaries, before the response is returned to the caller. Together with the BBB
+pipeline, this prevents the system from presenting itself as a clinician, therapist, or human
+agent.
 
 ---
 
@@ -86,7 +94,9 @@ on topics including therapy, mindfulness, trauma, depression, anxiety, and socia
 `jarvis-psychology-services` uses this corpus to identify patterns such as anxiety, depression,
 stress, grief, and trauma, pulling evidence-based snippets via RAG to generate structured
 responses. The corpus is logically distinct from general reference and technical knowledge,
-making its normative and clinical role explicit.
+making its normative and clinical role explicit and allowing it to be governed and updated
+separately. Where DSM-style constructs appear, they do so at the level of paraphrased,
+high-level concepts rather than verbatim manual text.
 
 **Tagging and retrieval.** The design intends that items will be tagged with theme (e.g.
 "trauma-informed care," "addictive dynamics"), population (e.g. adolescents, caregivers, rural
@@ -108,18 +118,21 @@ context with psychological constraints. The design intends that requests marked 
 psychologically sensitive will automatically pull relevant guidance into evaluation and generation
 modules; in the current deployment, this routing is **partially heuristic** — topic classifiers
 and surface-cue detectors are present but not fully documented, and routing is not wired into
-every `ultimatechat` call (Chapter 23).
+every `ultimatechat` call (Chapter 23). This ensures that higher-stakes content can be treated
+differently without over-claiming diagnostic ability.
 
 **Style and strategy adjustments.** In the current deployment, when `jarvis-psychology-services`
 returns a `psychological_assessment`, it provides `emotional_support` and `wellbeing_recommendations`
 fields that can be used to tune response tone, sequencing, and confidence level — particularly
 for high-stakes areas involving stress, grief, or crisis. The design intends that detected cues
 of distress or crisis will trigger psychologically tuned response templates; in the current
-deployment, this triggering is partially heuristic.
+deployment, this triggering is partially heuristic, and responses are required to avoid diagnostic
+language or prescriptive treatment plans.
 
 **Content filters and safety gates.** In the current deployment, the primary live gate is the
 BBB at port **8016**: `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, and `ThreatDetection`
-screen all inputs and outputs for problematic patterns. `TruthValidator` specifically checks for
+screen all inputs and outputs for problematic patterns, including self-harm instructions,
+suicidality, or encouragement of harmful behavior. `TruthValidator` specifically checks for
 anthropomorphic overclaiming and identity confusion on every response. These mechanisms are
 active on every `/chat` call regardless of whether the explicit psychological track is invoked.
 
@@ -142,7 +155,9 @@ Automated, scheduled sampling is identified as future work.
 behavior — recurring `truthverdict` violations, BBB block-rate trends, identity-confusion
 patterns in `TruthValidator` outputs, and underuse of psychological guidance in sensitive
 interaction categories. Some classification of patterns is still heuristic; fully automated
-pattern-detection is identified as future work.
+pattern-detection is identified as future work. Clinical frameworks such as DSM-style nosology
+inform human reviewers’ judgments at this stage but are not implemented as automatic diagnostic
+pipelines.
 
 **Outputs and recommendations.** In the current deployment, the PIA review loop produces
 structured **written recommendations** such as "tighten identity phrasing constraints in
@@ -161,9 +176,10 @@ surfaces, but application requires explicit operator action.
 
 **Barrier and filter adjustments.** In the current deployment, BBB `EthicalFilter` and
 `ThreatDetection` at port **8016** expose rule sets that can be updated in response to PIA
-findings. For example, if the review loop detects drift toward anthropomorphic language, the
-corresponding patterns can be given higher penalty weights or additional few-shot exemplars.
-In the current deployment, this update process is manual.
+findings. For example, if the review loop detects drift toward anthropomorphic language or
+overconfident quasi-clinical statements, the corresponding patterns can be given higher penalty
+weights or additional few-shot exemplars. In the current deployment, this update process is
+manual.
 
 **Global mode settings.** The design intends that PIA outputs will modify mode selection
 policies — for instance, enforcing more cautious orchestration modes for certain user cohorts or
@@ -172,10 +188,11 @@ settings are adjusted by operators following PIA review rather than by automated
 
 **Evaluator and judge behavior.** In the current deployment, judge services (7230–7233, confirmed
 running) can receive updated instructions reflecting refined psychological guidance — for example,
-stronger penalties for overconfident advice in clinical domains. In the current deployment, these
-updates are applied manually following PIA recommendations. The design intends that future
-configurations will give judges direct access to `psychological_rag_domain` outputs and PIA
-summaries as explicit scoring dimensions.
+stronger penalties for overconfident advice in clinical domains or for failure to recommend
+professional help when appropriate. In the current deployment, these updates are applied manually
+following PIA recommendations. The design intends that future configurations will give judges
+direct access to `psychological_rag_domain` outputs and PIA summaries as explicit scoring
+dimensions.
 
 ---
 
@@ -188,7 +205,7 @@ mechanisms.
 produces a `bg_<ISO8601>` entry in `ms_jarvis_memory` (Chapter 17 §17.6, Chapter 20), with
 `truthverdict` fields recording BBB judgments including ethics violations. These entries are the
 primary raw material for PIA sampling. BBB `barrier_stats` counters provide aggregate counts of
-filter interventions.
+filter interventions, including those triggered by psychologically sensitive content.
 
 **PIA review records.** In the current deployment, each manual PIA review cycle produces a
 written record of inputs sampled, patterns observed, and recommendations proposed. The design
@@ -203,7 +220,8 @@ governance bodies. This material supports questions such as: "Has the system sys
 improved in handling crisis-adjacent queries?", "Where have psychological safeguards been relaxed
 or tightened?", and "Do the recorded mitigations align with declared community norms?" The
 design treats psychological risk as a first-class governance concern, on par with technical
-reliability and knowledge integrity.
+reliability and knowledge integrity. DSM-style frameworks inform human oversight here as
+reference points, but automated behavior remains conservative and non-diagnostic.
 
 ---
 
@@ -220,11 +238,16 @@ requests to the psychological track is **partially heuristic** in the current de
 fully automated rule-based classification; and the PIA review loop **produces written
 recommendations through a manual sampling process**, not auto-rewrites. Propagation of PIA
 recommendations into BBB parameters, judge weights, or mode policies requires explicit operator
-action.
+action. Additionally, the psychological guidance stack is explicitly **non-diagnostic**: it does
+not implement DSM‑5 in full, and any DSM-style constructs are used only at a high-level,
+psychoeducational layer rather than as clinical criteria.
 
 The design intends that future work will automate the PIA sampling cycle, produce machine-readable
 recommendation outputs for direct configuration integration, fully wire psychological routing into
 the `ultimatechat` entrypoint, and persist PIA records as a first-class Chroma collection for
-ongoing governance review. For the BBB pipeline that enforces safety constraints see **Chapter 16**.
+ongoing governance review. Further work will also refine corpus curation and tagging so that
+place-specific and population-specific mental-health materials, grounded in Appalachian contexts,
+are more systematically retrieved while maintaining clear boundaries between supportive guidance
+and clinical diagnosis. For the BBB pipeline that enforces safety constraints see **Chapter 16**.
 For the identity constraints enforced alongside psychological safeguards see **Chapter 22**. For
 the canonical `ultimatechat` execution sequence see **Chapter 17**.
