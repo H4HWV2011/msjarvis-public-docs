@@ -12,8 +12,8 @@
 >   and topic‑graph transitions as explicit design choices that shape which regions of West
 >   Virginia's knowledge space receive attention, reinforcement, or suppression.
 > - **P12 – Intelligence with a ZIP code** by anchoring entanglement tags and retrieval bias to
->   GBIM entities, GeoDB feature identifiers, and county/state attributes so that updates propagate
->   along spatial as well as conceptual lines.
+>   GBIM entities, GeoDB feature identifiers, GBIM‑derived collections such as `gbim_beliefs_v2`,
+>   and county/state attributes so that updates propagate along spatial as well as conceptual lines.
 > - **P16 – Power accountable to place** by implementing coupled updates as explicit, logged
 >   mechanisms—entanglement envelopes, bias functions, and multi‑collection traces—rather than
 >   implicit, hard‑to‑audit side effects of opaque model training.
@@ -31,7 +31,8 @@
 
 > **Figure 8.1.** Entangled, place‑aware belief updates in Ms. Jarvis, showing how Polymathmatic
 > Geography principles (P1, P3, P5, P12, P16) are realized via coupled governance, semantic, and
-> spatial subsystems, a WV‑biased RAG endpoint, and the autonomous learner's topic graph.
+> spatial subsystems, a WV‑biased RAG endpoint, GBIM‑derived spatial memory, and the autonomous
+> learner's topic graph.
 
 ---
 
@@ -39,9 +40,9 @@
 
 | Category | Details |
 |---|---|
-| **Implemented now** | RAG server (`jarvis-rag-server`) running at **port 8010** (WV‑Entangled Gateway). `/search` endpoint accepts `wv_entangled_context` envelope and routes to `retrieve_with_bias`. Multi‑collection fan‑out across `GBIM`, `gisgeodata`, `benefit_programs`, `msjarvis`, `compliance_tasks`, `GeoDB`, `utility_enrollments`, `rag_training_data`, `spiritual_texts`. `WVEntangledContext` Pydantic schema enforced. Autonomous learner service (`jarvis-autonomous-learner`) updates `topic_graph.json` at the end of each learning cycle. Bias multipliers (tag ×1.4, entity ×1.6, feature ×1.6) operational. Pre‑bias and post‑bias log traces written per query. |
-| **Partially implemented / scaffolded** | Topic graph is built and persisted but neighbor‑biased topic *selection* is not yet wired—next‑topic choice still follows the static queue. Some Chroma documents lack the WV metadata tags required to trigger boosting (logs show zero boosted items on those queries). |
-| **Future work / design intent only** | Full cross‑service weight and embedding updates (the "entanglement update rule" of §8.3). Projection‑like vector rotations across entangled subsets. Fully automated neighbor‑biased scheduling in the autonomous learner. Enriched metadata tagging of existing Chroma collections so WV‑aligned items are reliably boosted. |
+| **Implemented now** | RAG server (`jarvis-rag-server`) running at **port 8010** (WV‑Entangled Gateway). `/search` endpoint accepts `wv_entangled_context` envelope and routes to `retrieve_with_bias`. Multi‑collection fan‑out across `GBIM`, `gisgeodata`, `benefit_programs`, `msjarvis`, `compliance_tasks`, `GeoDB`, `utility_enrollments`, `rag_training_data`, `spiritual_texts`, and unified GBIM belief collections realized in practice as `gbim_beliefs_v2`. `WVEntangledContext` Pydantic schema enforced. Autonomous learner service (`jarvis-autonomous-learner`) updates `topic_graph.json` at the end of each learning cycle. Bias multipliers (tag ×1.4, entity ×1.6, feature ×1.6) operational. Pre‑bias and post‑bias log traces written per query. |
+| **Partially implemented / scaffolded** | Topic graph is built and persisted but neighbor‑biased topic *selection* is not yet wired—next‑topic choice still follows the static queue. Some Chroma documents, including subsets of `gbim_beliefs_v2` and other WV‑relevant collections, lack the WV metadata tags required to trigger boosting (logs show zero boosted items on those queries). |
+| **Future work / design intent only** | Full cross‑service weight and embedding updates (the "entanglement update rule" of §8.3). Projection‑like vector rotations across entangled subsets. Fully automated neighbor‑biased scheduling in the autonomous learner. Enriched metadata tagging of existing Chroma collections, including `gbim_beliefs_v2`, so WV‑aligned items are reliably boosted. |
 
 > **Note on earlier drafts:** Previous drafts referred to the WV‑Entangled Gateway on port 8004
 > (GISRAG) or used no port at all. The running system routes entangled queries through **port 8010**
@@ -69,8 +70,8 @@ autonomous learner. In the live system, the current implementation distinguishes
   entities, and geospatial features and how updates should, in principle, propagate.
 - A **concrete layer**, which includes a deployed RAG server with an explicit `wv_entangled_context`
   envelope at **port 8010**, a WV‑biased retrieval function that operates across multiple Chroma
-  collections, and an autonomous learner topic graph that tracks and will increasingly shape
-  entangled learning trajectories.
+  collections (including GBIM‑derived spatial memory such as `gbim_beliefs_v2`), and an autonomous
+  learner topic graph that tracks and will increasingly shape entangled learning trajectories.
 
 The present code realizes a first full loop from entanglement envelope to observable retrieval
 behavior and logs. Full cross‑domain weight and embedding updates remain future work.
@@ -88,10 +89,10 @@ Governance rules, geospatial realities, benefit eligibility criteria, and ethica
 independent; a change in one domain should influence reasoning in others. For example, in the
 current deployment, a change to floodplain policy or mental‑health benefit rules is intended to
 affect beliefs about specific structures, parcels, providers, and communities represented in the
-GeoDB/PostGIS and GBIM layers, and to influence how the RAG service on port 8010 ranks and filters
-documents across multiple collections, rather than remaining an abstract rule disconnected from
-place and practice. The design intends that this coupling will deepen as metadata tagging of Chroma
-collections is enriched.
+GeoDB/PostGIS and GBIM layers, including beliefs embedded into `gbim_beliefs_v2`, and to influence
+how the RAG service on port 8010 ranks and filters documents across multiple collections, rather
+than remaining an abstract rule disconnected from place and practice. The design intends that this
+coupling will deepen as metadata tagging of Chroma collections is enriched.
 
 **Consistency over time.**
 The design intends that when Ms. Jarvis learns or corrects something important—such as a new
@@ -118,29 +119,30 @@ mirrors the Hilbert‑space formalism familiar from quantum mechanics, adapted f
 tags, and entanglement envelopes.
 
 **State space.**
-Let $\mathcal{V}$ be the embedding space, treated as a real Hilbert space where each item $x_i$ is
-represented by a vector $v_i \in \mathcal{V}$. Inner products and norms encode similarity and
+Let $\\mathcal{V}$ be the embedding space, treated as a real Hilbert space where each item $x_i$ is
+represented by a vector $v_i \\in \\mathcal{V}$. Inner products and norms encode similarity and
 magnitude, and neighborhoods in this space reflect semantic relatedness as captured by the
 underlying embedding model and stored by Chroma across multiple collections.
 
 **Metadata and tags.**
-Each item $x_i$ is associated with metadata: a tag set $T_i \subseteq \mathcal{T}$, where
-$\mathcal{T}$ is the universe of tags (for example, domains such as health or transportation;
+Each item $x_i$ is associated with metadata: a tag set $T_i \\subseteq \\mathcal{T}$, where
+$\\mathcal{T}$ is the universe of tags (for example, domains such as health or transportation;
 ethical principles; GBIM entities such as counties or agencies; GeoDB features such as parcels or
-providers; datasets; and service categories). Optional scalar weights $w_i \in \mathbb{R}_{>0}$
+providers; datasets; and service categories). Optional scalar weights $w_i \\in \\mathbb{R}_{>0}$
 used during ranking or scheduling can be adjusted as beliefs change or as certain items become more
 or less trusted or relevant.
 
 **Correlation / "entanglement" sets.**
-For an "anchor" item $x_a$, define a correlation tag set $C_a \subseteq \mathcal{T}$ encoding the
+For an "anchor" item $x_a$, define a correlation tag set $C_a \\subseteq \\mathcal{T}$ encoding the
 tags that should induce coupling (for example, a principle like equity, a watershed, a county, and a
 governance domain). The entangled set for $x_a$ is then
 
-$$S_a = \{ x_j \mid T_j \cap C_a \neq \emptyset \}.$$
+$$S_a = \\{ x_j \\mid T_j \\cap C_a \\neq \\emptyset \\}.$$
 
 Intuitively, $S_a$ is the set of items that share critical tags with $x_a$ and are therefore treated
 as correlated or entangled in the sense of the model; these are the items whose retrieval behavior
-or weights should co‑evolve when the anchor is updated.
+or weights should co‑evolve when the anchor is updated, including documents describing specific
+counties, providers, or infrastructure segments in West Virginia.
 
 **WV entangled context envelope.**
 In the current deployment, this conceptual structure is instantiated as a JSON object called
@@ -170,13 +172,13 @@ At the conceptual and mathematical level, the update rule proceeds as follows.
 
 **Step 1 – Identify the entangled set.**
 For an anchor item $x_a$ and its correlation tags $C_a$, compute the entangled set
-$S_a = \{ x_j \mid T_j \cap C_a \neq \emptyset \}$, where $C_a$ includes relevant principles,
+$S_a = \\{ x_j \\mid T_j \\cap C_a \\neq \\emptyset \\}$, where $C_a$ includes relevant principles,
 domains, roles, GBIM entity identifiers, and GeoDB features. This isolates the subset of items that
 should move together when the anchor changes, including documents describing specific counties,
 providers, or infrastructure segments in West Virginia.
 
 **Step 2 – Adjust weights and, when appropriate, embeddings.**
-The design intends that for each $x_j \in S_a$, weights $w_j$, retrieval priorities, or even stored
+The design intends that for each $x_j \\in S_a$, weights $w_j$, retrieval priorities, or even stored
 embeddings $v_j$ will be adjusted according to a chosen update function. Examples include
 reweighting items that lie within a corrected boundary or updated service area, increasing the
 influence of documents that share governance or benefit‑program tags with the updated rule, and
@@ -243,14 +245,16 @@ A typical log trace for an entangled query such as "Where are mental health prov
 in Fayette County, WV?" with an envelope that includes `domains = ["health", "mental_health",
 "access"]`, `gbim_entity_ids` for Fayette County and low‑income populations, and a specific
 `geodb_features` entry for `hospital_1234`, shows: the entanglement envelope as received by the
-server; raw top‑k distances in each Chroma collection before any bias is applied; and the globally
-sorted top‑k after bias, including whether each item was boosted and from which collection it came.
+server; raw top‑k distances in each Chroma collection (including GBIM‑derived spatial memory such
+as `gbim_beliefs_v2`) before any bias is applied; and the globally sorted top‑k after bias,
+including whether each item was boosted and from which collection it came.
 
 This trace is a concrete, inspectable artifact. In Figure 8.1 it corresponds to the WV‑Entangled
 RAG Endpoint and the multi‑collection memory strip along the bottom. As of the current deployment,
 some example logs show non‑empty raw distances but zero boosted items, indicating that the retrieved
-items did not yet carry the necessary WV tags. Enriching metadata so that WV‑aligned items become
-visibly boosted in these traces is identified as near‑term work.
+items did not yet carry the necessary WV tags. Enriching metadata so that WV‑aligned items, in
+particular those in `gbim_beliefs_v2` and `gis_wv_benefits`, become visibly boosted in these traces
+is identified as near‑term work.
 
 ---
 
@@ -307,9 +311,10 @@ and the GeoDB/GBIM layers through the following mechanisms.
 **Tags and spatial identifiers in metadata.**
 Documents in Chroma collections such as `GBIM`, `gisgeodata`, `benefit_programs`, `GeoDB`, and
 `utility_enrollments` are increasingly annotated with tags and metadata fields that reference GBIM
-entities, GeoDB features, counties, and states. These fields form the backbone of entangled sets and
-are what the WV‑biased retrieval function inspects when applying coupling strengths. As noted in
-§8.4.3, the current deployment has incomplete metadata coverage; enrichment is ongoing.
+entities, GBIM‑derived spatial collections such as `gbim_beliefs_v2`, GeoDB features, counties, and
+states. These fields form the backbone of entangled sets and are what the WV‑biased retrieval
+function inspects when applying coupling strengths. As noted in §8.4.3, the current deployment has
+incomplete metadata coverage; enrichment is ongoing.
 
 **Multi‑collection entangled retrieval.**
 By querying multiple collections and globally ranking results under the influence of the
@@ -343,16 +348,18 @@ and are intended to be updated together through weight and embedding adjustments
 **Concrete implementation in the current deployment (concrete layer).**
 A formal JSON schema and Pydantic model for `WVEntangledContext`, enforced in the running RAG
 server at **port 8010** as part of the `/search` API contract. A WV‑biased, multi‑collection
-retrieval path that uses the entanglement envelope to modulate scores across Chroma collections and
-that logs both pre‑bias and post‑bias rankings for inspection. A JSON‑backed topic graph maintained
-by the autonomous learner (`jarvis-autonomous-learner`), updated at the end of each learning cycle,
-providing a persistent record of inferred topic entanglements.
+retrieval path that uses the entanglement envelope to modulate scores across Chroma collections
+(including GBIM‑derived spatial memory such as `gbim_beliefs_v2`) and that logs both pre‑bias and
+post‑bias rankings for inspection. A JSON‑backed topic graph maintained by the autonomous learner
+(`jarvis-autonomous-learner`), updated at the end of each learning cycle, providing a persistent
+record of inferred topic entanglements.
 
 **Future work / design intent only.**
 Neighbor‑biased topic selection using the topic graph. Full cross‑service weight and embedding
 updates implementing the entanglement update rule of §8.3. Enriched Chroma metadata coverage so
-that WV‑aligned documents are reliably boosted in entangled retrieval traces. Projection‑like
-vector operations across entangled subsets.
+that WV‑aligned documents—especially those tied to GBIM entities represented in `gbim_beliefs_v2`
+and `gis_wv_benefits`—are reliably boosted in entangled retrieval traces. Projection‑like vector
+operations across entangled subsets.
 
 In its current state, the entanglement model therefore serves both as a conceptual and mathematical
 description of how coupled state should work across Ms. Jarvis's belief and spatial structures, and
