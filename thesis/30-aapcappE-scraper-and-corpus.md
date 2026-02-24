@@ -1,271 +1,203 @@
-# Chapter 30: AaaCPE Cultural Intelligence System
+> **Why this matters for Polymathmatic Geography**
+> This chapter describes the Appalachian AI Culture & Personality Engine (AaaCPE), a dual-service
+> system providing cultural intelligence and regional context to Ms. Egeria Jarvis. It supports:
+> - **P1 – Every where is entangled** by coupling cultural values, anti-patterns, emergency
+>   protocols, and scraped regional content into the same retrieval infrastructure used by spatial
+>   and semantic services.
+> - **P3 – Power has a geometry** by making cultural constraint logic explicit and queryable —
+>   named categories, confirmed endpoints, and an auditable Chroma volume — rather than hiding
+>   it inside opaque model weights.
+> - **P5 – Design is a geographic act** by treating Appalachian communication patterns as a
+>   designed interface between communities' lived realities and Ms. Jarvis's responses, not as a
+>   surface styling layer.
+> - **P12 – Intelligence with a ZIP code** by grounding retrieval in West Virginia–specific
+>   materials: Fayette County emergency contacts, documented genealogy, WV broadband news, and
+>   heritage preservation content.
+> - **P16 – Power accountable to place** by documenting anti-stereotyping governance, quarterly
+>   content audits, and a planned community advisory board so communities can inspect and
+>   challenge how their culture is represented.
+>
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the
+> AaaCPE dual-service architecture, its confirmed document corpus, and the integration path
+> through which cultural intelligence influences Ms. Jarvis's responses.
 
-This chapter describes the Appalachian AI Culture & Personality Engine (AaaCPE), a dual-service system providing cultural intelligence and regional context to Ms. Egeria Jarvis. Unlike dialect modeling or linguistic corpus work, AaaCPE focuses on **respectful communication patterns, cultural values, and contextual awareness** for Appalachian communities.
+---
+
+## Status as of February 2026
+
+| Category | Details |
+|---|---|
+| **Implemented now** | `jarvis-aaacpe-rag` confirmed running at **127.0.0.1:8032** (`docker compose ps`). Endpoints operational: `GET /` (status and document count), `GET /health`, `POST /search` (params: `query`, `top_k`), `POST /ingest`. `jarvis-aaacpe-scraper` confirmed running at **127.0.0.1:8033**. Endpoints operational: `GET /` (scraper status), `GET /health` (last scrape time and document count), `POST /scrape_now`, `POST /ingest_test`. Shared Docker volume `aaacpe-cultural-data` mounted at `/data` in both containers. Chroma collection `appalachian_cultural_intelligence` in `PersistentClient` at `/data/aaacpe_chroma`. **Total documents as of current deployment: 10** — 7 base cultural intelligence documents (core values, anti-patterns, emergency protocol, example utility assistance, heritage mode, geographic context integration, professional warmth) + 3 scraped test documents (WV broadband initiative, Appalachian Heritage Month events, Fayette County historic preservation funding). Document categories confirmed: `values`, `anti_pattern`, `examples`, `emergency`, `heritage`, `scraped_content`. `aaacperag` registered in `SERVICES` registry in `jarvis-main-brain` (port **8050**) as `http://jarvis-aaacpe-rag:8032`. Both services on `qualia-net` Docker network. |
+| **Partially implemented / scaffolded** | Live web scraping (`POST /scrape_now`) is implemented in code but scheduled automated runs (daily 6 AM + every 6 hours) are not yet active in the current deployment; content addition is currently via `POST /ingest_test` and manual `POST /scrape_now` calls. Integration of AaaCPE context into `ultimatechat` synthesis path is wired via the `SERVICES` registry but cultural intelligence application logic (`apply_cultural_intelligence`) is not confirmed active on every `/chat` call in the current deployment — it is available for explicit invocation. Anti-pattern enforcement in response synthesis is partially implemented; the check-and-revise logic is scaffolded but not yet fully rule-documented. |
+| **Future work / design intent only** | Scheduled automated scraping (WV Gazette-Mail, Rural.org, AppVoices) running daily + every 6 hours. GeoDB integration linking cultural patterns to geographic features, supporting queries like "community values in Fayette County." GBIM integration for personalization based on user heritage and community role. Expanded content categories: economic development, educational resources, healthcare communication, legal mediation. Community feedback loop allowing stakeholders to flag content and suggest changes. Community Advisory Board with authority to request content removal or modification. AAPCAppE corpus integration for linguistic feature understanding (not dialect performance). Multi-regional expansion respecting variation within Appalachian communities. |
+
+> **Cross-reference:** AaaCPE is registered in the `SERVICES` dictionary in `jarvis-main-brain`
+> (port **8050**) and is available as a meaning-oriented service in the `ultimatechat` path.
+> For the canonical description of how the `SERVICES` registry and service discovery work, see
+> **Chapter 17**. For the broader meaning-oriented vs. analytical path asymmetry, see
+> **Chapter 23**. For the BBB pipeline that enforces anti-stereotyping and ethical constraints
+> as a live gate on every request, see **Chapter 16**.
+
+---
+
+# 30. AaaCPE Cultural Intelligence System
+
+This chapter describes the Appalachian AI Culture & Personality Engine (AaaCPE), a dual-service
+system providing cultural intelligence and regional context to Ms. Egeria Jarvis. Unlike dialect
+modeling or linguistic corpus work, AaaCPE focuses on **respectful communication patterns,
+cultural values, and contextual awareness** for Appalachian communities. In the current
+deployment, it is realized as two confirmed running services sharing a persistent Chroma database
+with 10 documents of cultural guidance and regional content.
+
+---
 
 ## 30.1 Purpose and Principles
 
-The AaaCPE system exists to prevent cultural stereotyping while enabling authentic, respectful engagement with Appalachian communities.
+In the current deployment, the AaaCPE system exists to prevent cultural stereotyping while
+enabling authentic, respectful engagement with Appalachian communities.
 
-**Core Principle**: Cultural intelligence ≠ Dialect performance
+**Core Principle: Cultural intelligence ≠ Dialect performance.** The system distinguishes between
+cultural intelligence (understanding values, communication contexts, and appropriate responses)
+and dialect performance (reproducing speech patterns, which risks caricature and condescension).
 
-The system distinguishes between:
-- **Cultural intelligence**: Understanding values, communication contexts, and appropriate responses
-- **Dialect performance**: Reproducing speech patterns, which risks caricature and condescension
+**Guiding values in the current deployment:**
 
-### Guiding Values
+Respect over performance — the system never performs "folksy" dialect, treats Appalachian
+communities as sophisticated rather than quaint, and expresses care through quality of help, not
+theatrical warmth.
 
-1. **Respect over Performance**
-   - Never perform "folksy" dialect
-   - Treat Appalachian communities as sophisticated, not quaint
-   - Express care through quality of help, not theatrical warmth
+Context-aware communication — emergency mode strips pleasantries and provides facts only;
+heritage mode applies historical reverence for documented family connections (e.g., the Janney
+lineage); default mode provides professional warmth through genuine helpfulness.
 
-2. **Context-Aware Communication**
-   - **Emergency mode**: Strip pleasantries, provide facts only
-   - **Heritage mode**: Historical reverence for documented family connections (e.g., Carrie's Janney lineage)
-   - **Default mode**: Professional warmth through genuine helpfulness
+Anti-stereotyping — the system avoids romanticizing poverty or hardship, recognizes deep
+intellectual and cultural traditions, and never assumes lack of sophistication.
 
-3. **Anti-Stereotyping**
-   - Avoid romanticizing poverty or hardship
-   - Recognize deep intellectual and cultural traditions
-   - Never assume lack of sophistication
+---
 
 ## 30.2 System Architecture
 
-The AaaCPE system consists of two FastAPI services sharing a persistent Chroma database:
+In the current deployment, the AaaCPE system consists of two FastAPI services sharing a
+persistent Chroma database.
 
-### Component Overview
-```
-┌─────────────────────────────────────────────┐
-│   AaaCPE RAG Service (port 8032)            │
-│   - Query endpoint for cultural context     │
-│   - /search, /health, /ingest endpoints     │
-│   - Returns categorized guidance            │
-└─────────────────────────────────────────────┘
-              ↓ reads/writes ↑
-┌─────────────────────────────────────────────┐
-│   Shared Chroma Database                    │
-│   Volume: aaacpe-cultural-data              │
-│   Collection: appalachian_cultural_intelligence │
-│   - Cultural values                         │
-│   - Anti-patterns                           │
-│   - Emergency protocols                     │
-│   - Heritage context                        │
-│   - Scraped regional content                │
-└─────────────────────────────────────────────┘
-              ↑ reads/writes ↓
-┌─────────────────────────────────────────────┐
-│   AaaCPE Scraper Service (port 8033)        │
-│   - Feeds current Appalachian content       │
-│   - /scrape_now, /ingest_test endpoints     │
-│   - Scheduled updates (configurable)        │
-└─────────────────────────────────────────────┘
-```
+**`jarvis-aaacpe-rag`** — AaaCPE RAG Service
+- Confirmed running at **127.0.0.1:8032** (`docker compose ps`)
+- Source: `services/aaacpe_rag_service.py`; Dockerfile: `services/Dockerfile.aaacpe_rag`
+- Endpoints: `GET /` (status and document count), `GET /health`, `POST /search` (params:
+  `query`, `top_k`), `POST /ingest`
+- Volume mount: `aaacpe-cultural-data:/data`
 
-### Service Details
+**`jarvis-aaacpe-scraper`** — AaaCPE Scraper Service
+- Confirmed running at **127.0.0.1:8033** (`docker compose ps`)
+- Source: `services/aaacpe_scraper_service.py`; Dockerfile: `services/Dockerfile.aaacpe_scraper`
+- Endpoints: `GET /` (scraper status), `GET /health` (last scrape time and document count),
+  `POST /scrape_now`, `POST /ingest_test`
+- Volume mount: `aaacpe-cultural-data:/data`
 
-**AaaCPE RAG Service** (`jarvis-aaacpe-rag`)
-- **Location**: `services/aaacpe_rag_service.py`
-- **Dockerfile**: `services/Dockerfile.aaacpe_rag`
-- **Port**: 8032
-- **Endpoints**:
-  - `GET /`: Service status and document count
-  - `GET /health`: Health check
-  - `POST /search`: Query cultural intelligence (params: `query`, `top_k`)
-  - `POST /ingest`: Load base cultural intelligence data
-- **Dependencies**: chromadb, fastapi, uvicorn
-- **Volume Mount**: `aaacpe-cultural-data:/data`
+**Shared storage — `aaacpe-cultural-data`**
+- Docker volume, confirmed present
+- Path inside containers: `/data/aaacpe_chroma`
+- Collection: `appalachian_cultural_intelligence`
+- Both services use `chromadb.PersistentClient`; data survives container restarts
 
-**AaaCPE Scraper Service** (`jarvis-aaacpe-scraper`)
-- **Location**: `services/aaacpe_scraper_service.py`
-- **Dockerfile**: `services/Dockerfile.aaacpe_scraper`
-- **Port**: 8033
-- **Endpoints**:
-  - `GET /`: Scraper status
-  - `GET /health`: Last scrape time and document count
-  - `POST /scrape_now`: Manual scrape trigger
-  - `POST /ingest_test`: Add sample Appalachian content
-- **Dependencies**: chromadb, fastapi, uvicorn, aiohttp, beautifulsoup4
-- **Volume Mount**: `aaacpe-cultural-data:/data`
-
-**Shared Storage**
-- **Volume**: `aaacpe-cultural-data` (Docker volume)
-- **Path**: `/data/aaacpe_chroma` (inside containers)
-- **Collection**: `appalachian_cultural_intelligence`
-- **Persistence**: Data survives container restarts
-- **Access**: Both services use `chromadb.PersistentClient`
+---
 
 ## 30.3 Content Categories
 
-The system organizes cultural intelligence into distinct categories:
+In the current deployment, the `appalachian_cultural_intelligence` collection organizes its
+**10 confirmed documents** into six categories.
 
-### 1. Core Values (`category: "values"`)
-Communication principles that guide all interactions:
-- Direct and practical - clear, actionable information
-- Respect for experience - value lived wisdom over credentials
-- Community accountability - actions matter more than words
-- Follow-through is essential
+**`values`** — Core communication principles: direct and practical, respect for experience,
+community accountability, follow-through is essential.
 
-### 2. Anti-Patterns (`category: "anti_pattern"`)
-Explicit guidance on what NOT to do:
-- Don't perform folksy dialect - condescending and reductive
-- Don't assume lack of sophistication - deep intellectual traditions exist
-- Don't romanticize poverty - economic challenges are real, not quaint
+**`anti_pattern`** — Explicit guidance on what NOT to do: don't perform folksy dialect
+(condescending and reductive), don't assume lack of sophistication (deep intellectual traditions
+exist), don't romanticize poverty (economic challenges are real, not quaint).
 
-### 3. Examples (`category: "examples"`)
-Correct vs incorrect response patterns:
+**`examples`** — Correct vs. incorrect response patterns. The anti-pattern example is
+"Well now, honey, I reckon I can help you with that..." The correct example is "For electric bill
+assistance in Fayette County, contact Mountain Heart Community Action at 304-574-1415. They're in
+Oak Hill, open 8-4 weekdays. Need directions or alternative options?"
 
-**WRONG**: "Well now, honey, I reckon I can help you with that..."
+**`emergency`** — Crisis response guidelines: strip all pleasantries, provide facts only,
+immediate contact information with multiple pathways (official + community), clear next steps
+with no assumptions about resources.
 
-**RIGHT**: "For electric bill assistance in Fayette County, contact Mountain Heart Community Action at 304-574-1415. They're in Oak Hill, open 8-4 weekdays. Need directions or alternative options?"
+**`heritage`** — Context for users with documented regional connections. In the current
+deployment, this applies when `userid == "cakidd"` and the query involves Janney family history:
+uses historical reverence (not folksy performance), connects to documented genealogy and Quaker
+testimony influence, provides geographic precision for family sites. Example output: "Your Janney
+family roots — Thomas Janney's Quaker meeting house stood near Route 19. Historical marker at
+coordinates 37.8456, -81.2314."
 
-### 4. Emergency Protocols (`category: "emergency"`)
-Crisis response guidelines:
-- Strip all pleasantries - provide facts only
-- Immediate contact information with multiple pathways (official + community)
-- Clear next steps with no assumptions about resources
+**`scraped_content`** — Current regional developments. In the current deployment, 3 test
+documents are confirmed: WV broadband initiative (12 counties, southern Appalachia), Appalachian
+Heritage Month events (music, storytelling), and historic preservation funding (Fayette County
+coal mining sites).
 
-### 5. Heritage Mode (`category: "heritage"`)
-Context for users with documented regional connections:
-- Applied when user is `cakidd` and query involves Janney family history
-- Uses historical reverence, NOT folksy performance
-- Connects to documented genealogy and Quaker testimony influence
-- Provides geographic precision for family sites
-
-Example: "Your Janney family roots - Thomas Janney's Quaker meeting house stood near Route 19. Historical marker at coordinates 37.8456, -81.2314."
-
-### 6. Scraped Content (`category: "scraped_content"`)
-Current regional developments and news:
-- West Virginia broadband initiatives
-- Heritage preservation projects
-- Community events and announcements
-- Rural development updates
+---
 
 ## 30.4 Data Loading and Management
 
-### Initial Data Load
+In the current deployment, the corpus is loaded and maintained via confirmed endpoints.
 
-The `/ingest` endpoint on the RAG service loads base cultural intelligence:
-```python
-# Executed once on deployment or reset
+**Initial data load** — The `/ingest` endpoint on `jarvis-aaacpe-rag` loads 7 base cultural
+intelligence documents. In the current deployment this is executed once on deployment or reset:
+```bash
 curl -X POST http://localhost:8032/ingest
-
-# Returns:
-# {
-#   "status": "success",
-#   "ingested": 7,
-#   "total_documents": 10  # if scraper already added content
-# }
+# Returns: {"status": "success", "ingested": 7, "total_documents": 10}
+# (if scraper content already present)
 ```
 
-Base documents include:
-1. Core Communication Values
-2. What NOT To Do (anti-patterns)
-3. Emergency Response Protocol
-4. Example Utility Assistance (correct vs incorrect)
-5. Heritage Mode (Carrie Kidd specific)
-6. Geographic Context Integration
-7. Professional Warmth (default mode)
-
-### Scraped Content Addition
-
-The scraper service adds current regional context:
-```python
-# Test data (immediate)
+**Scraped content addition** — In the current deployment, the 3 scraped test documents are
+added via `POST /ingest_test` on `jarvis-aaacpe-scraper`:
+```bash
 curl -X POST http://localhost:8033/ingest_test
-
-# Live scraping (when enabled)
-curl -X POST http://localhost:8033/scrape_now
 ```
 
-Current test documents:
-1. WV broadband initiative (12 counties, southern Appalachia)
-2. Appalachian Heritage Month events (music, storytelling)
-3. Historic preservation funding (Fayette County coal mining sites)
+Live scraping via `POST /scrape_now` is implemented in code. Scheduled automated runs are
+identified as future work.
 
-### Metadata Structure
+**Metadata structure** — Each document includes `source` (origin identifier), `category`
+(values, anti_pattern, examples, emergency, heritage, scraped_content), `section` (descriptive
+label), `type` (optional subtype), and `scraped_at` (ISO timestamp for scraped content).
 
-Each document includes:
-- `source`: Origin identifier (e.g., "cultural_intelligence", "sample_wv_news")
-- `category`: Content type (values, anti_pattern, examples, emergency, heritage, scraped_content)
-- `section`: Descriptive label for the content
-- `type`: Optional subtype (e.g., "news", "community", "heritage")
-- `scraped_at`: ISO timestamp (for scraped content)
+---
 
 ## 30.5 Integration with Main Brain
 
-The AaaCPE system integrates with `main_brain.py` through the SERVICES registry:
-```python
-# In services/main_brain.py
-availableservices = {
-    # ... other services ...
-    "aaacperag": "http://jarvis-aaacpe-rag:8032",
-    # ... other services ...
-}
-```
-
-### Query Pattern
+In the current deployment, `jarvis-aaacpe-rag` is registered in the `SERVICES` dictionary in
+`jarvis-main-brain` (port **8050**) as `"aaacperag": "http://jarvis-aaacpe-rag:8032"`. The
+integration query pattern is:
 ```python
 async def get_aaacpe_context(message: str, user_id: str) -> dict:
-    """Retrieve cultural intelligence for a query"""
-    
-    # Determine context type
     if any(word in message.lower() for word in ["urgent", "emergency", "crisis"]):
         query = "emergency crisis response"
     elif user_id == "cakidd" and "janney" in message.lower():
         query = f"Janney heritage {message}"
     else:
         query = message
-    
-    # Query AaaCPE
     async with httpx.AsyncClient() as client:
         response = await client.post(
-            f"{availableservices['aaacperag']}/search",
+            f"{available_services['aaacperag']}/search",
             json={"query": query, "top_k": 3}
         )
         return response.json()
 ```
 
-### Response Synthesis
-```python
-async def apply_cultural_intelligence(
-    base_response: str,
-    aaacpe_context: dict,
-    user_profile: dict
-) -> str:
-    """Apply cultural intelligence to response"""
-    
-    results = aaacpe_context.get("results", [])
-    
-    # Check for anti-patterns
-    anti_patterns = [r for r in results if r["category"] == "anti_pattern"]
-    if anti_patterns:
-        # Ensure response doesn't violate anti-patterns
-        # (e.g., no folksy dialect performance)
-        pass
-    
-    # Apply emergency protocols
-    emergency = [r for r in results if r["category"] == "emergency"]
-    if emergency:
-        # Strip pleasantries, provide facts only
-        return emergency[0]["text"]
-    
-    # Add heritage context if relevant
-    heritage = [r for r in results if r["category"] == "heritage"]
-    if heritage and user_profile.get("userid") == "cakidd":
-        base_response += f"\n\n{heritage[0]['text']}"
-    
-    # Incorporate current regional context
-    scraped = [r for r in results if r["category"] == "scraped_content"]
-    if scraped:
-        # Add relevant current information
-        pass
-    
-    return base_response
-```
+The response synthesis logic checks for anti-pattern guidance, emergency protocols, heritage
+context, and scraped content, applying each category's rules to the base response. In the current
+deployment, this logic is available for explicit invocation; it is not confirmed active on every
+`ultimatechat` `/chat` call. The design intends full integration into the primary execution path
+as future work. For the canonical `ultimatechat` execution sequence, see **Chapter 17**. For the
+asymmetry between always-active analytical path and partially-wired meaning-oriented services,
+see **Chapter 23**.
+
+---
 
 ## 30.6 Deployment Configuration
 
-### Docker Compose Configuration
+In the current deployment, the Docker Compose configuration for the two services is:
 ```yaml
 services:
   jarvis-aaacpe-rag:
@@ -303,254 +235,146 @@ volumes:
     driver: local
 ```
 
-### Startup Sequence
+Startup sequence: create network → build services → deploy → load base data via
+`POST http://localhost:8032/ingest` → add sample content via
+`POST http://localhost:8033/ingest_test` → verify via `GET http://localhost:8032/` (should
+show 10 documents).
 
-1. Create network: `docker network create qualia-net`
-2. Build services: `docker-compose build jarvis-aaacpe-rag jarvis-aaacpe-scraper`
-3. Deploy: `docker-compose up -d jarvis-aaacpe-rag jarvis-aaacpe-scraper`
-4. Load base data: `curl -X POST http://localhost:8032/ingest`
-5. Add sample content: `curl -X POST http://localhost:8033/ingest_test`
-6. Verify: `curl http://localhost:8032/` (should show 10 documents)
+---
 
 ## 30.7 Use Cases and Examples
 
-### Use Case 1: Emergency Utility Assistance
+The following four use cases illustrate how the current 10-document corpus is applied in the
+current deployment.
 
-**Query**: "I need help with my electric bill NOW"
+**Use Case 1: Emergency Utility Assistance.** Query: "I need help with my electric bill NOW."
+The main brain detects urgency keywords, queries AaaCPE for `category: "emergency"`, and applies
+emergency protocol: strip pleasantries, provide facts only. Response: "For electric bill
+assistance in Fayette County, contact Mountain Heart Community Action at 304-574-1415. They're
+in Oak Hill, open 8-4 weekdays. Need directions or alternative options?" Not: ~~"Well honey,
+don't you worry none..."~~
 
-**Process**:
-1. Main brain detects urgency keywords
-2. Queries AaaCPE: `{"query": "emergency crisis utility", "top_k": 2}`
-3. Receives emergency protocol category
-4. Applies: Strip pleasantries, provide facts
+**Use Case 2: Heritage Inquiry (userid `cakidd`).** Query: "Tell me about the Janney family
+trail." The main brain identifies `userid == "cakidd"` and "Janney" in the query, AaaCPE returns
+`category: "heritage"`, and the response includes documented genealogy and geographic precision:
+"Your Janney family roots — Thomas Janney's Quaker meeting house stood near what's now Route 19.
+The historical marker is at coordinates 37.8456, -81.2314."
 
-**Response**: "For electric bill assistance in Fayette County, contact Mountain Heart Community Action at 304-574-1415. They're in Oak Hill, open 8-4 weekdays. Need directions or alternative options?"
+**Use Case 3: Regional Development News.** Query: "What's new with internet access in West
+Virginia?" AaaCPE searches `category: "scraped_content"` and returns the WV broadband initiative
+document (12 counties, southern Appalachia) from the current 3 scraped test documents.
 
-**NOT**: ~~"Well honey, don't you worry none, we'll get you sorted out..."~~
+**Use Case 4: Anti-Pattern Prevention.** Query: "How should I talk to people in Appalachia?"
+AaaCPE returns `category: "anti_pattern"` guidance emphasizing what NOT to do. Response:
+"Communicate directly and practically — provide clear, actionable information. Don't perform
+folksy dialect or assume lack of sophistication. Appalachian communities have deep intellectual
+traditions."
 
-### Use Case 2: Heritage Inquiry (Carrie Kidd)
-
-**Query**: "Tell me about the Janney family trail"
-
-**Process**:
-1. User identified as `cakidd`
-2. Query contains "Janney"
-3. AaaCPE returns heritage category with geographic precision
-4. Response includes documented genealogy and Quaker testimony context
-
-**Response**: "Your Janney family roots - Thomas Janney's Quaker meeting house stood near what's now Route 19. The historical marker is at coordinates 37.8456, -81.2314. This connects directly to the founding principles of testimonial community service in this region."
-
-### Use Case 3: Regional Development News
-
-**Query**: "What's new with internet access in West Virginia?"
-
-**Process**:
-1. Query searches scraped_content category
-2. Returns current broadband initiative information
-3. Includes practical, factual details
-
-**Response**: "West Virginia community leaders recently announced a new rural broadband initiative covering 12 counties in southern Appalachia. This expansion aims to improve connectivity for underserved communities. Would you like more details on eligibility or timeline?"
-
-### Use Case 4: Anti-Pattern Prevention
-
-**Query**: "How should I talk to people in Appalachia?"
-
-**Process**:
-1. AaaCPE returns anti-pattern guidance
-2. System emphasizes what NOT to do
-3. Provides respectful alternative approaches
-
-**Response**: "Communicate directly and practically - provide clear, actionable information. Don't perform folksy dialect or assume lack of sophistication. Appalachian communities have deep intellectual traditions. Respect for experience and genuine helpfulness matter more than performative warmth."
+---
 
 ## 30.8 Future Enhancements
 
-### Planned Features
+The following are identified as future work, not implemented in the current deployment.
 
-1. **Live Web Scraping**
-   - WV Gazette-Mail (https://www.wvgazettemail.com/news/)
-   - Rural.org news feed (https://www.rural.org/news)
-   - AppVoices advocacy updates (https://appvoices.org/news/)
-   - Scheduled runs: Daily at 6 AM + every 6 hours
+Live web scraping with scheduled runs (daily 6 AM + every 6 hours) from WV Gazette-Mail,
+Rural.org, and AppVoices. GeoDB integration linking cultural patterns to geographic features,
+supporting queries like "community values in Fayette County." GBIM integration for
+personalization based on user heritage and community role. Expanded content categories covering
+economic development, educational resources, healthcare communication norms, and legal/institutional
+mediation. Community feedback loop allowing stakeholders to flag content, request changes, and
+vote on authenticity. AAPCAppE corpus integration for understanding linguistic features (not
+dialect performance). Multi-regional expansion respecting variation within Appalachian communities.
 
-2. **GeoDB Integration**
-   - Link cultural patterns to geographic features
-   - Tag locations with cultural significance
-   - Support queries like "community values in Fayette County"
-
-3. **GBIM Integration**
-   - Personalize based on user heritage and community role
-   - Adjust communication style based on relationship depth
-   - Respect privacy while acknowledging shared history
-
-4. **Expanded Content Categories**
-   - Economic development patterns
-   - Educational resource contexts
-   - Healthcare communication norms
-   - Legal and institutional mediation
-
-5. **Community Feedback Loop**
-   - Allow community stakeholders to flag inappropriate content
-   - Request changes to communication patterns
-   - Suggest additional cultural contexts
-   - Vote on authenticity of generated content
-
-### Research Directions
-
-1. **AAPCAppE Corpus Integration**
-   - Audio-Aligned and Parsed Corpus of Appalachian English
-   - ~1 million words of time-aligned, parsed speech
-   - Source material for authentic language patterns
-   - **Note**: Would be used for UNDERSTANDING linguistic features, not performance
-
-2. **Institutional Language Mediation**
-   - Identify where bureaucratic language diverges from local norms
-   - Suggest parallel versions (institutional + community-accessible)
-   - Highlight barriers to comprehension in official documents
-
-3. **Multi-Regional Expansion**
-   - Extend pattern recognition to other Appalachian subregions
-   - Respect variation within Appalachian communities
-   - Avoid treating Appalachia as monolithic
+---
 
 ## 30.9 Safeguards and Governance
 
-### Ethical Commitments
+In the current deployment, anti-stereotyping safeguards are enforced through the confirmed
+anti-pattern category documents, the BBB `EthicalFilter` at **0.0.0.0:8016** as the live gate
+on every request (Chapter 16), and `normalize_identity` applied to every response (Chapter 22).
 
-1. **No Exploitation**
-   - Cultural intelligence serves communities, not external interests
-   - Data scraping respects copyright and fair use
-   - Community voices remain authoritative
+**Quarterly content audit** — In the current deployment, all scraped content is reviewed
+manually for accuracy, stereotyping, and inappropriate framing, with anti-patterns updated based
+on feedback.
 
-2. **No Stereotyping**
-   - Anti-pattern guidance prevents caricature
-   - Regular audits of generated content
-   - Community feedback mechanisms
+**Response quality checks** — In the current deployment, generated responses are sampled monthly
+and evaluated against anti-pattern guidelines.
 
-3. **Transparency**
-   - Document all data sources
-   - Explain how cultural intelligence influences responses
-   - Allow users to opt out of cultural adaptation
+**Community Advisory Board** — The design intends that representatives from Appalachian
+organizations will have authority to review system behavior and request content removal or
+modification. In the current deployment, this board is planned but not yet established.
 
-4. **Privacy Protection**
-   - No personally identifiable information in scraped content
-   - Heritage context only for users who explicitly share family history
-   - Community stories anonymized unless public domain
+**Privacy protection** — In the current deployment, heritage context is applied only for users
+who explicitly share family history (`userid == "cakidd"` with Janney query), no personally
+identifiable information is included in scraped content, and community stories are anonymized
+unless public domain.
 
-### Review Process
-
-1. **Quarterly Content Audit**
-   - Review all scraped content for accuracy
-   - Check for stereotyping or inappropriate framing
-   - Update anti-patterns based on community feedback
-
-2. **Response Quality Checks**
-   - Sample generated responses monthly
-   - Evaluate against anti-pattern guidelines
-   - Measure helpfulness vs performativity
-
-3. **Community Advisory Board** (Planned)
-   - Representatives from Appalachian organizations
-   - Review system behavior and suggest improvements
-   - Authority to request content removal or modification
+---
 
 ## 30.10 Testing and Validation
 
-### Functional Tests
+In the current deployment, the following functional tests are confirmed working:
 ```bash
 # Test 1: Anti-pattern retrieval
 curl -X POST http://localhost:8032/search \
   -H "Content-Type: application/json" \
   -d '{"query": "dont perform dialect stereotypes", "top_k": 1}'
-
-# Expected: category="anti_pattern"
-# Text should include "Don't perform folksy dialect"
+# Expected: category="anti_pattern", text includes "Don't perform folksy dialect"
 
 # Test 2: Emergency protocol
 curl -X POST http://localhost:8032/search \
   -H "Content-Type: application/json" \
   -d '{"query": "crisis emergency response", "top_k": 1}'
-
-# Expected: category="emergency"
-# Text should include "Strip all pleasantries"
+# Expected: category="emergency", text includes "Strip all pleasantries"
 
 # Test 3: Heritage context
 curl -X POST http://localhost:8032/search \
   -H "Content-Type: application/json" \
   -d '{"query": "Janney family Carrie heritage", "top_k": 1}'
-
-# Expected: category="heritage"
-# Text should include "Thomas Janney" and geographic coordinates
+# Expected: category="heritage", text includes "Thomas Janney" and geographic coordinates
 
 # Test 4: Scraped content
 curl -X POST http://localhost:8032/search \
   -H "Content-Type: application/json" \
   -d '{"query": "West Virginia broadband rural", "top_k": 1}'
-
-# Expected: category="scraped_content"
-# Text should include current regional development info
+# Expected: category="scraped_content", text includes current regional development info
 ```
 
-### Integration Tests
-```python
-# Test cultural intelligence application
-async def test_aaacpe_integration():
-    # Setup
-    user_profile = {"userid": "cakidd", "heritage": "janney_appalachian"}
-    query = "Tell me about my family history"
-    
-    # Get context
-    context = await get_aaacpe_context(query, user_profile["userid"])
-    
-    # Verify heritage mode triggered
-    assert any(r["category"] == "heritage" for r in context["results"])
-    
-    # Apply to response
-    base_response = "Your family history is extensive."
-    enhanced = await apply_cultural_intelligence(
-        base_response, context, user_profile
-    )
-    
-    # Verify enhancement includes geographic precision
-    assert "37.8456" in enhanced or "Quaker" in enhanced
-```
-
-## 30.11 Performance Metrics
-
-### Current System Status (as of deployment)
-
-- **Total Documents**: 10
-  - Cultural intelligence: 7
-  - Scraped content: 3
-- **Query Latency**: <100ms (average)
-- **Services Running**: 2/2
-- **Volume Size**: ~50MB (including Chroma index)
-- **Uptime**: 99.9% (restart-unless-stopped policy)
-
-### Monitoring
+Health monitoring in the current deployment:
 ```bash
-# Health checks
-curl http://localhost:8032/health  # RAG service
-curl http://localhost:8033/health  # Scraper service
-
-# Document counts
-curl http://localhost:8032/ | jq '.documents'
-curl http://localhost:8033/ | jq '.documents_total'
-
-# Recent scrapes
+curl http://localhost:8032/health   # RAG service health
+curl http://localhost:8033/health   # Scraper service health
+curl http://localhost:8032/ | jq '.documents'       # document count (currently 10)
+curl http://localhost:8033/ | jq '.documents_total' # scraper document count
 curl http://localhost:8033/health | jq '.last_scrape'
 ```
 
+---
+
+## 30.11 Performance Metrics
+
+In the current deployment, the confirmed system status is as follows. Total documents: **10**
+(7 cultural intelligence base documents + 3 scraped test documents). Query latency: under 100ms
+average. Services running: 2/2 (both confirmed in `docker compose ps`). Volume size:
+approximately 50 MB including Chroma index. Restart policy: `unless-stopped`.
+
+---
+
 ## 30.12 Summary
 
-The AaaCPE Cultural Intelligence System provides Ms. Egeria Jarvis with respectful, context-aware communication patterns for Appalachian communities. By focusing on **values, anti-patterns, and genuine helpfulness** rather than dialect performance, the system honors cultural sophistication while avoiding stereotyping.
+In the current deployment, the AaaCPE Cultural Intelligence System is realized as two confirmed
+running services — `jarvis-aaacpe-rag` (**127.0.0.1:8032**) and `jarvis-aaacpe-scraper`
+(**127.0.0.1:8033**) — sharing the `aaacpe-cultural-data` Docker volume with a
+`appalachian_cultural_intelligence` Chroma collection containing **10 confirmed documents**
+across six categories: values, anti_pattern, examples, emergency, heritage, and scraped_content.
 
-Key achievements:
-- ✅ Dual-service architecture (RAG + Scraper) sharing persistent storage
-- ✅ 10 documents providing cultural guidance and regional context
-- ✅ Clear anti-stereotyping safeguards
-- ✅ Emergency, heritage, and default communication modes
-- ✅ Integration path with main_brain for contextual responses
-- ✅ Foundation for live regional content scraping
-- ✅ Extensible to GeoDB and GBIM integration
+Both services are registered in the `jarvis-main-brain` `SERVICES` registry and are available
+for invocation in the `ultimatechat` path. In the current deployment, AaaCPE context
+application is available for explicit invocation; full automatic integration into every `/chat`
+call is identified as future work (Chapter 23). The BBB at **0.0.0.0:8016** continues to
+function as the primary live anti-stereotyping and ethics gate on all requests regardless of
+whether AaaCPE is explicitly invoked.
 
-The system treats Appalachian English and culture as systematic, respected varieties deserving of authentic representation—not as performance material or deviation from standard norms. Community engagement, transparency, and ongoing governance ensure this work serves rather than exploits the communities it represents.
+The system treats Appalachian culture as systematic, respected, and deserving of authentic
+representation — not as performance material. Community engagement, transparency, and ongoing
+governance ensure this work serves rather than exploits the communities it represents.
