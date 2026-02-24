@@ -105,6 +105,7 @@ Optimization in the 69‑DGM layer is constrained by explicit metrics and safety
 - **Human‑in‑the‑loop outcomes**: Instances where human oversight intervenes, overrides decisions, or rolls back changes.
 
 Constraints are expressed as thresholds or invariants over these metrics. For example:
+
 - A connector modification may be required to improve latency by at least a fixed percentage while keeping policy violation rates below a specified ceiling.
 - High‑risk connectors (e.g., those that can affect external systems or sensitive data) may only be updated after passing a more stringent evaluation protocol.
 
@@ -119,6 +120,7 @@ At the **local scale**, each connector runs its own observe–propose–evaluate
 At the **meso scale**, groups of connectors that form a functional subgraph—such as an ingestion pipeline or a tool‑augmented reasoning chain—can be optimized jointly. The orchestrator may coordinate changes across these connector clusters, ensuring that improvements at one node do not degrade performance elsewhere.
 
 At the **global scale**, the orchestrator and main‑brain treat the whole set of connectors and routes as a single, evolving policy. System‑level changes may:
+
 - Adjust the relative traffic share going through different connector configurations.
 - Promote or demote whole branches of the connector graph.
 - Introduce new connectors that encapsulate novel capabilities, while deprecating obsolete ones.
