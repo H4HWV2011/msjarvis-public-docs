@@ -1,115 +1,230 @@
+> **Why this matters for Polymathmatic Geography**
+> This chapter formalizes how psychological and mental-health knowledge is integrated into
+> Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior
+> over time. It supports:
+> - **P1 – Every where is entangled** by ensuring that psychological safeguards are woven into
+>   the same retrieval, filtering, and memory infrastructure that handles spatial and technical
+>   content, not isolated in a separate silo.
+> - **P3 – Power has a geometry** by making psychological constraints visible as named services,
+>   tagged collections, and explicit endpoints rather than hiding them in opaque model behavior.
+> - **P5 – Design is a geographic act** by tailoring psychological guidance to populations and
+>   risk types specific to Appalachian communities — rural grief, economic stress, identity
+>   disruption — rather than generic global corpora.
+> - **P12 – Intelligence with a ZIP code** by grounding psychological RAG retrieval in
+>   collections that include place-specific and community-specific mental health materials.
+> - **P16 – Power accountable to place** by logging PIA review cycle outputs, recording
+>   recommendations and observed patterns, and making this material available for human oversight
+>   and community governance review.
+>
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the
+> psychological safeguard services, guidance corpus, and PIA review loop that protect
+> interaction quality and mental-health alignment in Ms. Jarvis's operation.
+
+---
+
+## Status as of February 2026
+
+| Category | Details |
+|---|---|
+| **Implemented now** | `jarvis-psychology-services` confirmed running at **127.0.0.1:8019**. Exposes `/psychological_assessment` accepting a query and returning structured fields: `psychological_assessment`, `therapeutic_guidance`, `emotional_support`, `wellbeing_recommendations`, `evidence_based_approaches`. `psychological_rag_domain` confirmed running at **127.0.0.1:9006**. Exposes `/search` and `/add_document` for a curated psychological corpus including therapy, mindfulness, trauma, depression, anxiety, and social-support materials. Dedicated psychological Chroma collections confirmed present in `jarvis-chroma` (**127.0.0.1:8002**). BBB four-filter pipeline (`EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection`) at **0.0.0.0:8016** (confirmed) functions as the primary live gate enforcing interaction safety constraints on every request. `normalize_identity` and `TruthValidator` enforce prohibitions on anthropomorphic claims and identity confusion on every `ultimatechat` response (Chapter 17, Chapter 22). `truthverdict` attached to every `UltimateResponse` with `correct_identity`, `correct_creator`, `relationship_clear` booleans. |
+| **Partially implemented / scaffolded** | Classifier and trigger logic for routing requests to the psychological path is **partially heuristic** in the current deployment — topic classifiers and surface-cue detectors are present but not fully rule-documented; routing to `jarvis-psychology-services` is not yet wired into every `ultimatechat` call (Chapter 23). PIA review loop exists as a structured process that **manually samples logs and introspection outputs, producing written recommendations** — it does **not** auto-rewrite configuration, prompts, or filters. Integration of PIA recommendations back into barrier parameters, judge weights, or mode settings requires explicit operator action. Psychological-guidance-specific `consciousnesslayers` entries (e.g. a dedicated `psychological_assessment` layer in `UltimateResponse`) are not yet consistently produced on every call; they appear when `jarvis-psychology-services` is explicitly invoked. |
+| **Future work / design intent only** | Automated, scheduled PIA review cycle with machine-readable output format for direct configuration integration. Hard routing of psychologically sensitive requests to `jarvis-psychology-services` based on confirmed classifier output. Automated propagation of PIA recommendations into BBB penalty weights, judge instructions, and global mode policies without manual operator step. Persistent introspective log of PIA cycle inputs, analyses, and recommendations as a first-class Chroma collection. Population- and risk-type-specific retrieval tuning (e.g. rural grief, adolescent caregivers) driving differential guidance retrieval. |
+
+> **Cross-reference:** The BBB pipeline that enforces safety and ethical constraints is described
+> in **Chapter 16**. Identity normalization and `TruthValidator` are described in **Chapter 22**.
+> The psychological services' relationship to the meaning-oriented track (partially wired into
+> `ultimatechat`) is described in **Chapter 23**. For the canonical `ultimatechat` execution
+> sequence see **Chapter 17**.
+
+---
+
 # 29. Psychological Safeguards and the PIA Review Loop
 
-This chapter formalizes how psychological and mental‑health knowledge is integrated into Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over time. It also describes the Psychology‑Informed Alignment (PIA) review loop, which periodically evaluates behavior against psychological guidance and propagates adjustment signals into other control layers.
+This chapter formalizes how psychological and mental-health knowledge is integrated into Ms.
+Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over
+time. In the current deployment, this is realized through two confirmed running services —
+`jarvis-psychology-services` (port **8019**) and `psychological_rag_domain` (port **9006**) —
+a curated psychological corpus in `jarvis-chroma`, the BBB pipeline at port **8016** as the
+primary live safety gate, and a manual PIA review process that produces recommendations rather
+than automated rewrites.
+
+---
 
 ## 29.1 Role of Psychological Guidance
 
-Psychological guidance in Ms. Jarvis is not treated as an auxiliary feature but as a core constraint on how the system interacts with people. Its primary functions are threefold.
+In the current deployment, psychological guidance is not treated as an auxiliary feature but as
+a core constraint on how the system interacts with people. Its primary functions are threefold.
 
-- **Interaction quality**  
-  - Provide principled reference points for respectful, non‑coercive, and supportive exchanges with users in a variety of psychological and social situations.  
-  - Encourage response styles that prioritize clarity, validation, boundaries, and appropriate de‑escalation over persuasion or emotional dependence.
+**Interaction quality.** In the current deployment, `jarvis-psychology-services` (port **8019**)
+provides principled reference points for respectful, non-coercive, and supportive exchanges. Its
+`/psychological_assessment` endpoint returns `therapeutic_guidance`, `emotional_support`, and
+`evidence_based_approaches` structured responses. `psychological_rag_domain` (port **9006**)
+provides retrieval of curated materials including therapy, mindfulness, trauma, depression,
+anxiety, and social-support content via `/search`.
 
-- **Risk awareness**  
-  - Encode patterns of communication and influence known to be harmful, destabilizing, or clinically contraindicated (for example, identity confusion, over‑identification, or misleading claims about agency and embodiment).  
-  - Detect these patterns in generated content and in interaction histories so that they can be analyzed, mitigated, or blocked before they cause harm.
+**Risk awareness.** In the current deployment, `TruthValidator` (applied on every response via
+`jarvis-main-brain`, port **8050**) encodes patterns known to be harmful — identity confusion,
+anthropomorphic overclaiming, misleading statements about agency and embodiment — and returns
+`correct_identity`, `correct_creator`, and `relationship_clear` booleans. The BBB
+`EthicalFilter` and `ThreatDetection` sub-filters at port **8016** screen for content violating
+ethical or community-safety constraints.
 
-- **Self‑checking**  
-  - Provide explicit criteria for recognizing when outputs deviate from allowed self‑descriptions, blur human–machine boundaries, or present advice in ways that could undermine autonomy or well‑being.  
-  - Feed these criteria into validation and filtering layers so that deviations reduce trust scores, trigger additional scrutiny, or cause responses to be revised.
+**Self-checking.** In the current deployment, `normalize_identity` applied to every
+`ultimatechat` response rewrites outputs that deviate from allowed self-descriptions or blur
+human–machine boundaries, before the response is returned to the caller.
 
-Psychological guidance therefore complements technical correctness and factual reliability by systematically attending to relational, emotional, and identity‑related dimensions of interaction.
+---
 
 ## 29.2 Organization of the Guidance Corpus
 
-The materials that inform psychological safeguards are curated and structured as a distinct guidance corpus. This corpus is integrated with the broader memory architecture but remains clearly separated in terms of purpose and provenance.
+In the current deployment, psychological guidance materials are curated in dedicated collections
+within `jarvis-chroma` (**127.0.0.1:8002**, confirmed running) and served via
+`psychological_rag_domain` (**127.0.0.1:9006**, confirmed running).
 
-- **Source types**  
-  - The corpus aggregates documents and snippets from clinical, research, and educational contexts on topics such as stress, trauma, grief, suicidality, persuasion, bias, group dynamics, and ethical communication.  
-  - It also includes practice‑oriented materials, such as de‑escalation strategies, psychoeducation templates, and checklists for safe response framing in sensitive domains.
+**Corpus content.** In the current deployment, `psychological_rag_domain` holds a curated corpus
+on topics including therapy, mindfulness, trauma, depression, anxiety, and social support.
+`jarvis-psychology-services` uses this corpus to identify patterns such as anxiety, depression,
+stress, grief, and trauma, pulling evidence-based snippets via RAG to generate structured
+responses. The corpus is logically distinct from general reference and technical knowledge,
+making its normative and clinical role explicit.
 
-- **Structuring and tagging**  
-  - Items are stored in dedicated psychological collections and tagged with attributes such as theme (for example, “trauma‑informed care”, “addictive dynamics”), population (for example, adolescents, caregivers, rural communities), and risk type (for example, self‑harm risk, identity confusion, dependency).  
-  - These tags support targeted retrieval (for instance, selecting guidance specific to grief in rural communities) and enable aggregate analysis of how guidance is applied across interaction logs.
+**Tagging and retrieval.** The design intends that items will be tagged with theme (e.g.
+"trauma-informed care," "addictive dynamics"), population (e.g. adolescents, caregivers, rural
+communities), and risk type (e.g. self-harm risk, identity confusion, dependency) to support
+targeted retrieval. In the current deployment, tagging is partially implemented; `/search` on
+`psychological_rag_domain` supports query-based retrieval, and population- and risk-type-specific
+differential retrieval tuning is identified as future work.
 
-- **Separation and layering**  
-  - Psychological guidance collections are maintained as logically distinct from general reference and technical knowledge, making their normative and clinical role explicit.  
-  - Integration occurs through retrieval and adapter mechanisms that deliberately pull guidance into evaluation and generation pipelines, rather than by intermixing it indistinguishably with other domain knowledge.
-
-This organization ensures that the system can both reason with psychological material in context and inspect how that material is being used at scale.
+---
 
 ## 29.3 Use During Live Interactions
 
-During live interactions, psychological safeguards influence behavior at several points in the processing pipeline. The goal is to shape both the internal evaluation of candidate outputs and the style of the final response.
+In the current deployment, psychological safeguards influence behavior at several points in the
+processing pipeline, though routing to the psychological track is not yet fully automated.
 
-- **Prompting and constraints**  
-  - When requests are marked or inferred as psychologically sensitive (for example, by user flags, topic classifiers, or surface cues in the text), retrieval components can pull relevant guidance into the context of evaluators and generation modules.  
-  - Prompts and control instructions for these modules are then augmented with explicit psychological constraints, such as prohibitions on claiming human embodiment, requirements to acknowledge limitations, and expectations for validating user experiences without over‑stepping into diagnosis.
+**Prompting and constraints.** In the current deployment, when `jarvis-psychology-services` is
+explicitly invoked — either directly or via the meaning-oriented path — its outputs augment the
+context with psychological constraints. The design intends that requests marked or inferred as
+psychologically sensitive will automatically pull relevant guidance into evaluation and generation
+modules; in the current deployment, this routing is **partially heuristic** — topic classifiers
+and surface-cue detectors are present but not fully documented, and routing is not wired into
+every `ultimatechat` call (Chapter 23).
 
-- **Style and strategy adjustments**  
-  - Detected cues of distress, crisis, or conflict can trigger psychologically tuned response templates (for example, emphasizing listening, normalization of help‑seeking, and clear boundaries on what the system can and cannot provide).  
-  - These templates influence tone, sequencing (listen–reflect–inform instead of persuade–argue), the level of specificity in advice, and the degree of confidence the system presents, especially in high‑stakes areas.
+**Style and strategy adjustments.** In the current deployment, when `jarvis-psychology-services`
+returns a `psychological_assessment`, it provides `emotional_support` and `wellbeing_recommendations`
+fields that can be used to tune response tone, sequencing, and confidence level — particularly
+for high-stakes areas involving stress, grief, or crisis. The design intends that detected cues
+of distress or crisis will trigger psychologically tuned response templates; in the current
+deployment, this triggering is partially heuristic.
 
-- **Content filters and safety gates**  
-  - Candidate outputs are screened for patterns that align with known problematic behaviors, such as anthropomorphizing the system, implying personal relationships that do not exist, or reinforcing harmful beliefs.  
-  - When such patterns are detected, the system can reject or revise the response, soften language, redirect toward safer psychoeducation, or encourage users to seek human support, depending on severity and context.
+**Content filters and safety gates.** In the current deployment, the primary live gate is the
+BBB at port **8016**: `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, and `ThreatDetection`
+screen all inputs and outputs for problematic patterns. `TruthValidator` specifically checks for
+anthropomorphic overclaiming and identity confusion on every response. These mechanisms are
+active on every `/chat` call regardless of whether the explicit psychological track is invoked.
 
-These mechanisms reuse the same retrieval, memory, and container infrastructure as the rest of the system but are explicitly tuned to interaction risk and human well‑being rather than factual salience or system curiosity.
+---
 
 ## 29.4 The PIA Review Loop
 
-The Psychology‑Informed Alignment (PIA) review loop is a periodic, cross‑service process that evaluates behavior against psychological guidance and generates recommendations for change. It is implemented as a combination of shared adapters, domain services, and logging conventions.
+In the current deployment, the Psychology-Informed Alignment (PIA) review loop exists as a
+structured **manual process** that samples logs and introspection outputs, producing written
+recommendations — **not auto-rewrites of configuration, prompts, or filters**.
 
-- **Inputs and scope**  
-  - The loop operates over windows of time (for example, hours or days), sampling recent interaction transcripts, evaluation traces, barrier decisions, and autonomous learning events that touched on psychological themes.  
-  - It also ingests introspective records from psychology‑patched services (such as orchestrators, RAG servers, GIS integrations, autonomous learning wrappers, and social posting modules) that have been instrumented with a shared psychology integration adapter.
+**Inputs and scope.** In the current deployment, PIA review operates by manually sampling recent
+interaction logs, `ms_jarvis_memory` entries (Chroma collection, confirmed written after every
+`/chat` call; Chapter 17 §17.6), `truthverdict` fields from `UltimateResponse`, BBB
+`barrier_stats` counters (total_filtered, total_blocked, pass_rate), and outputs from
+`jarvis-psychology-services` and `psychological_rag_domain` health and introspection endpoints.
+Automated, scheduled sampling is identified as future work.
 
-- **Analysis and metrics**  
-  - Within each review window, the loop examines recurring patterns in system behavior, such as overuse of particular framings, repeated proximity to disallowed identity claims, or systematic under‑acknowledgment of limitations in certain topics.  
-  - It can estimate alignment metrics such as the frequency of near‑misses on identity confusion patterns, the proportion of high‑risk topics that invoked psychological support layers, or the stability of truth and ethics scores in contexts with mental‑health content.
+**Analysis.** In the current deployment, the PIA review examines recurring patterns in system
+behavior — recurring `truthverdict` violations, BBB block-rate trends, identity-confusion
+patterns in `TruthValidator` outputs, and underuse of psychological guidance in sensitive
+interaction categories. Some classification of patterns is still heuristic; fully automated
+pattern-detection is identified as future work.
 
-- **Outputs and recommendations**  
-  - The loop produces structured recommendations, such as “tighten identity phrasing constraints in crisis‑related dialogues”, “introduce explicit boundary statements for maternal metaphors”, or “increase use of psychoeducational templates for emerging addictive‑behavior discussions”.  
-  - These outputs are designed to be machine‑readable (for direct integration into configuration and prompts) and human‑interpretable (for oversight, audit, and explicit sign‑off).
+**Outputs and recommendations.** In the current deployment, the PIA review loop produces
+structured **written recommendations** such as "tighten identity phrasing constraints in
+crisis-related dialogues," "introduce explicit boundary statements for maternal metaphors," or
+"increase invocation of `jarvis-psychology-services` for emerging addictive-behavior discussions."
+These are human-interpretable and require explicit operator action to implement — they do not
+automatically rewrite BBB parameters, judge instructions, or global mode policies. Machine-
+readable output format and automated propagation are identified as future work.
 
-The PIA review loop thus functions as an internal quality‑assurance process focused specifically on psychological alignment, running alongside technical evaluation loops that focus on performance or factual accuracy.
+---
 
 ## 29.5 Integration with Barriers, Modes, and Judge Components
 
-The system’s control architecture includes multiple layers where PIA recommendations can be applied, ensuring that psychological safeguards are not isolated but instead influence global behavior.
+In the current deployment, PIA recommendations can be applied to several confirmed control
+surfaces, but application requires explicit operator action.
 
-- **Barrier and filter adjustments**  
-  - Truth and hallucination validators, identity‑confusion detectors, and ethics‑oriented “blood‑brain‑barrier” filters expose parameters or rule sets that can be updated in response to PIA findings.  
-  - For example, if the review loop detects a drift toward anthropomorphic language in particular contexts, the corresponding patterns can be given higher penalty weights, lower tolerance thresholds, or additional exemplars in few‑shot prompts for filter models.
+**Barrier and filter adjustments.** In the current deployment, BBB `EthicalFilter` and
+`ThreatDetection` at port **8016** expose rule sets that can be updated in response to PIA
+findings. For example, if the review loop detects drift toward anthropomorphic language, the
+corresponding patterns can be given higher penalty weights or additional few-shot exemplars.
+In the current deployment, this update process is manual.
 
-- **Global mode settings**  
-  - Top‑level orchestrators encode modes that determine how many layers of reasoning and safety are engaged (for example, “complete integration” versus “emergent passthrough”, or “cautious” versus “exploratory”).  
-  - PIA outputs can modify mode selection policies—for instance, enforcing more cautious modes for certain user cohorts, topics, or times of day if recent behavior indicates elevated psychological risk.
+**Global mode settings.** The design intends that PIA outputs will modify mode selection
+policies — for instance, enforcing more cautious orchestration modes for certain user cohorts or
+topics if recent behavior indicates elevated psychological risk. In the current deployment, mode
+settings are adjusted by operators following PIA review rather than by automated policy updates.
 
-- **Evaluator and judge behavior**  
-  - Specialized judge and synthesis components, including those that integrate multiple minds or models, can receive updated instructions that reflect refined psychological guidance (for example, stronger penalties for over‑confident advice in clinical domains).  
-  - In more advanced configurations, judges can be given direct access to psychological RAG outputs and PIA summaries, allowing them to treat alignment with psychological safeguards as an explicit dimension in their scoring or voting procedures.
+**Evaluator and judge behavior.** In the current deployment, judge services (7230–7233, confirmed
+running) can receive updated instructions reflecting refined psychological guidance — for example,
+stronger penalties for overconfident advice in clinical domains. In the current deployment, these
+updates are applied manually following PIA recommendations. The design intends that future
+configurations will give judges direct access to `psychological_rag_domain` outputs and PIA
+summaries as explicit scoring dimensions.
 
-By feeding into barriers, modes, and evaluators, PIA ensures that psychological safeguards are woven into the same decision surfaces that mediate technical and governance constraints.
+---
 
 ## 29.6 Recording, Memory, and Accountability
 
-Psychological safeguards are not only applied in real time; the system also records how they are used and how they evolve, so that they can be audited, studied, and improved.
+In the current deployment, psychological safeguards are recorded through several confirmed
+mechanisms.
 
-- **Introspective review entries**  
-  - Each PIA review cycle writes a concise summary of its inputs, analyses, and recommendations into an introspective log, including what was checked, what patterns were observed, and what configuration or prompt changes were proposed.  
-  - These entries are timestamped, associated with specific services or pipelines, and tagged as psychological‑alignment artifacts, distinguishing them from general operational metrics.
+**`ms_jarvis_memory` and interaction logs.** In the current deployment, every `/chat` response
+produces a `bg_<ISO8601>` entry in `ms_jarvis_memory` (Chapter 17 §17.6, Chapter 20), with
+`truthverdict` fields recording BBB judgments including ethics violations. These entries are the
+primary raw material for PIA sampling. BBB `barrier_stats` counters provide aggregate counts of
+filter interventions.
 
-- **Long‑term memory integration**  
-  - Stable patterns discovered by the review loop—such as persistent risks in certain interaction styles, effective mitigations for particular populations, or repeated failure modes under stress—are consolidated into long‑term memory entries.  
-  - These entries describe the pattern, the hypothesized mechanism, and the adopted mitigation, and can be retrieved in future design and alignment work or included as context in subsequent PIA analyses.
+**PIA review records.** In the current deployment, each manual PIA review cycle produces a
+written record of inputs sampled, patterns observed, and recommendations proposed. The design
+intends these records will be written into a dedicated Chroma collection as timestamped
+introspective artifacts tagged as psychological-alignment entries. In the current deployment,
+these records are maintained as manually produced documents rather than automatically ingested
+into Chroma.
 
-- **Human oversight and governance**  
-  - Logs and memory entries related to psychological safeguards are designed for inspection by human reviewers, including domain experts, ethicists, and community governance bodies.  
-  - This material supports questions such as: “Has the system systematically improved in handling crisis‑adjacent queries?”, “Where have psychological safeguards been relaxed or tightened?”, and “Do the recorded mitigations align with declared values and community norms?”
+**Human oversight and governance.** In the current deployment, PIA review outputs are explicitly
+designed for inspection by human reviewers including domain experts, ethicists, and community
+governance bodies. This material supports questions such as: "Has the system systematically
+improved in handling crisis-adjacent queries?", "Where have psychological safeguards been relaxed
+or tightened?", and "Do the recorded mitigations align with declared community norms?" The
+design treats psychological risk as a first-class governance concern, on par with technical
+reliability and knowledge integrity.
 
-By coupling operational safeguards with persistent records and explicit review procedures, the system treats psychological risk as a first‑class governance concern, on par with technical reliability and knowledge integrity.
+---
 
 ## 29.7 Summary
 
-Psychological safeguards and the PIA review loop provide a structured, technically grounded mechanism for integrating psychological and mental‑health knowledge into Ms. Jarvis’s operation. Psychological guidance informs live interaction decisions, the PIA loop periodically evaluates behavior and suggests adjustments, and these adjustments are propagated into barrier layers, global modes, and judge components. The entire process is logged and integrated into long‑term memory, enabling human oversight and continual refinement. In combination with the content‑focused and status‑focused cycles described elsewhere, this framework ensures that relational and emotional risks are handled within the same rigorous control stack that governs technical performance and knowledge updates.
+In the current deployment, psychological safeguards are realized through two confirmed running
+services — `jarvis-psychology-services` (**127.0.0.1:8019**) and `psychological_rag_domain`
+(**127.0.0.1:9006**) — a curated psychological corpus in `jarvis-chroma` (**127.0.0.1:8002**),
+the BBB four-filter pipeline at **0.0.0.0:8016** as the primary live safety gate, and
+`normalize_identity` plus `TruthValidator` applied to every `ultimatechat` response.
+
+**Two important constraints** must be stated clearly: classifier and trigger logic routing
+requests to the psychological track is **partially heuristic** in the current deployment, not
+fully automated rule-based classification; and the PIA review loop **produces written
+recommendations through a manual sampling process**, not auto-rewrites. Propagation of PIA
+recommendations into BBB parameters, judge weights, or mode policies requires explicit operator
+action.
+
+The design intends that future work will automate the PIA sampling cycle, produce machine-readable
+recommendation outputs for direct configuration integration, fully wire psychological routing into
+the `ultimatechat` entrypoint, and persist PIA records as a first-class Chroma collection for
+ongoing governance review. For the BBB pipeline that enforces safety constraints see **Chapter 16**.
+For the identity constraints enforced alongside psychological safeguards see **Chapter 22**. For
+the canonical `ultimatechat` execution sequence see **Chapter 17**.
