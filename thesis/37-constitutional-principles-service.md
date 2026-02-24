@@ -205,7 +205,7 @@ All services use the same check endpoint:
 
 ### 37.5.1 Health and Status
 
-**GET /health**
+**GET /health**  
 Returns service health status:
 ```json
 {
@@ -216,7 +216,7 @@ Returns service health status:
 }
 ```
 
-**GET /constitutional/status**
+**GET /constitutional/status**  
 Returns detailed constitutional framework status:
 ```json
 {
@@ -233,17 +233,17 @@ Returns detailed constitutional framework status:
 
 ### 37.5.2 Principles and Structure
 
-**GET /constitutional/principles**
+**GET /constitutional/principles**  
 Returns the complete constitutional principles structure from `constitutional_principles.json`.
 
 ### 37.5.3 Compliance Checking
 
-**POST /constitutional/check**
+**POST /constitutional/check**  
 Primary endpoint for checking constitutional compliance. See section 37.4.3 for details.
 
 ### 37.5.4 Versioning and Governance
 
-**GET /constitutional/versions**
+**GET /constitutional/versions**  
 Returns version history with change log:
 ```json
 {
@@ -279,7 +279,7 @@ Returns version history with change log:
 }
 ```
 
-**GET /constitutional/changes/{version}**
+**GET /constitutional/changes/{version}**  
 Returns detailed change information for a specific version, including:
 - Principles added
 - Principles removed
@@ -287,7 +287,7 @@ Returns detailed change information for a specific version, including:
 
 ### 37.5.5 Audit and Transparency
 
-**GET /constitutional/audit**
+**GET /constitutional/audit**  
 Returns audit trail from persistent log:
 ```json
 {
@@ -320,7 +320,7 @@ Returns audit trail from persistent log:
 - `limit`: Number of entries to return (default: 100)
 - `decision`: Filter by "blocked" or "allowed"
 
-**GET /constitutional/audit/stats**
+**GET /constitutional/audit/stats**  
 Returns statistical analysis:
 ```json
 {
@@ -336,14 +336,14 @@ Returns statistical analysis:
 }
 ```
 
-**GET /constitutional/transparency**
+**GET /constitutional/transparency**  
 Returns transparency report with statistics.
 
 ## 37.6 Persistent Audit Log
 
 All constitutional decisions are written to a persistent JSON Lines file:
 
-**File Location:** `data/constitutional_audit/constitutional_audit.jsonl`
+**File Location:** `data/constitutional_audit/constitutional_audit.jsonl`  
 
 **Volume Mount:** The Guardian container mounts this directory so audit data survives container restarts.
 
