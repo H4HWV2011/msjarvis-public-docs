@@ -1,10 +1,10 @@
 ## Why this matters for Polymathmatic Geography
 
 This chapter defines the spatial “body” of Ms. Jarvis and specifies how West Virginia’s physical infrastructures, hazards, civic facilities, and benefits‑related sites are represented as a mature, computable geography. It supports:  
-- **P1 – Every where is entangled** by representing structures, rivers, floodplains, institutions, and program sites as a connected mesh rather than isolated map layers, and by linking them to GBIM belief records and spatial embeddings derived from the current `gbimbeliefnormalized` and related worldview tables.  
+- **P1 – Every where is entangled** by representing structures, rivers, floodplains, institutions, and program sites as a connected mesh rather than isolated map layers, and by linking them to GBIM belief records and spatial embeddings derived from the current `gbimbeliefnormalized` and related worldview tables, including the unified GBIM belief collection `gbim_beliefs_v2`.  
 - **P3 – Power has a geometry** by enabling operational analysis of how risk, access, infrastructure, and access‑to‑help are distributed across counties, hollows, ZIP codes, and corridors, and by exposing these distributions through PostGIS queries and through vector‑backed RAG neighborhoods over GBIM‑derived spatial collections and benefits‑focused collections such as `gis_wv_benefits`.  
 - **P5 – Design is a geographic act** by showing how concrete schema choices, key conventions, CSV pipelines, RAG routing, collection design, and layer prioritization have already reshaped how the state “appears” in analysis, governance, and search.  
-- **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase, to a verified `local_resources` registry keyed by ZIP and county, and to their embeddings—especially the unified GBIM belief collections and the `gis_wv_benefits` collection used in GIS RAG flows.  
+- **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase, to a verified `local_resources` registry keyed by ZIP and county, and to their embeddings—especially the unified GBIM belief collections (currently realized as `gbim_beliefs_v2`) and the `gis_wv_benefits` collection used in GIS RAG flows.  
 - **P16 – Power accountable to place** by ensuring that advisory and governance behaviors are traceable to specific, queryable features, facilities, and programme footprints in West Virginia, with logged retrieval paths from GeoDB, GBIM, vector collections, and `local_resources` into the ensemble stack.
 
 Accordingly, this chapter belongs to the **Computational Instrument** tier: it specifies the geospatial substrate that currently allows Quantarithmia’s justice‑oriented reasoning to operate on real communities, infrastructures, and landscapes in Appalachia and to route actual households to concrete, locally valid forms of assistance.
@@ -17,13 +17,15 @@ This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis i
 
 The focus is on the current structure and status of the PostGIS‑based geodatabase and its relationship to vector collections and RAG flows, rather than on exhaustive cataloguing of every dataset. Figure 6.1 summarizes the main containers and data stores involved in this spatial body.
 
-![Ms. Jarvis Geospatial System Architecture](https://github.com/user-attachments/assets/10927cf5-f1df-455e-b4d9-7eb560d62375)
+```markdown
+
+```
 
 > Figure 6.1. High‑level container‑style view of the Ms. Jarvis Steward System, showing user clients, the 21‑LLM ensemble, and the containerized backing stores (PostGIS GeoDB, GBIM, vector store, `local_resources`, Redis, Neo4j). The diagram emphasizes PostGIS as the spatial backbone, GBIM as the worldview and belief layer, and spatial/benefits collections as the primary spatial memory in Hilbert space.
 
 Within the Quantarithmia program, GeoDB constitutes the spatial backbone of Ms. Jarvis’s “body”: a coherent, queryable mesh of features and boundaries for reasoning about risk, access, infrastructure, and spatial justice. In the current deployment, this spatial backbone runs as part of a containerized microservice stack orchestrated with Docker Compose, alongside core services such as the vector store (exposed over HTTP and used as the canonical embedding store), Redis, Neo4j, the `local_resources` Postgres instance, and the multi‑model ensemble.
 
-The chapter documents what is currently integrated, which layers are staged, and how these components are linked into the broader Hilbert‑space and GBIM framework, including their representation in GBIM belief embeddings and in the `gis_wv_benefits` collection, and their use in `/chat/light`, `/chat/sync`, and benefits‑focused RAG flows.
+The chapter documents what is currently integrated, which layers are staged, and how these components are linked into the broader Hilbert‑space and GBIM framework, including their representation in GBIM belief embeddings (currently dominated by `gbim_beliefs_v2`) and in the `gis_wv_benefits` collection, and their use in `/chat/light`, `/chat/sync`, and benefits‑focused RAG flows.
 
 ---
 
@@ -40,7 +42,7 @@ The GeoDB layer now satisfies three primary objectives:
 - **Integration with GBIM, semantic memory, `local_resources`, and RAG.**  
   It integrates cleanly with GBIM, the shared vector store, and the `local_resources` registry so that spatial, semantic, institutional, and programme dimensions are used together in a single reasoning pipeline.
 
-Operationally, this entails a PostGIS‑backed geodatabase that holds authoritative feature classes for core themes and, for prioritized subsets, mirrors those features into GBIM belief embeddings and vector collections. Earlier deployments relied on numerous `geodb*` collections; in the 2026 deployment the primary spatial memory indices are the unified GBIM embedding collections and the `gis_wv_benefits` collection, with legacy `geodb*` collections serving as thematic and historical subsets.
+Operationally, this entails a PostGIS‑backed geodatabase that holds authoritative feature classes for core themes and, for prioritized subsets, mirrors those features into GBIM belief embeddings and vector collections. Earlier deployments relied on numerous `geodb*` collections; in the 2026 deployment the primary spatial memory indices are the unified GBIM embedding collections (realized in practice as `gbim_beliefs_v2`) and the `gis_wv_benefits` collection, with legacy `geodb*` collections serving as thematic and historical subsets.
 
 ---
 
@@ -104,7 +106,9 @@ The current deployment includes a substantial, production‑grade subset of West
 
 Across these themes, the GBIM/GeoDB deployment integrates millions of features from on the order of two hundred statewide datasets. Feature counts and table names are catalogued in database inventories so that claims about coverage can be verified and updated as ingestion continues.
 
-![GeoDB and the Spatial Body of Ms. Jarvis](https://github.com/user-attachments/assets/cff5cc65-84e2-402d-aa53-07ada47b57d9)
+```markdown
+
+```
 
 > Figure 6.2. Conceptual overview of the statewide geospatial mesh maintained in GeoDB and GBIM, summarizing integrated census units, structures, hazards, civic facilities, governance layers, and benefits‑relevant sites.
 
@@ -114,26 +118,28 @@ Across these themes, the GBIM/GeoDB deployment integrates millions of features f
 
 To connect geometric features with high‑dimensional semantic reasoning, Ms. Jarvis maintains collections derived from GBIM beliefs and spatial entities in the shared vector store. These collections are hosted in a shared HTTP‑backed instance, configured with 384‑dimensional embeddings, and serve as the canonical spatial memory layer for RAG.
 
-![West Virginia Data Architecture Flow](https://github.com/user-attachments/assets/323dd7de-aef9-4019-b703-22ea667e6175)
+```markdown
+
+```
 
 > Figure 6.3. Key relationships between GeoDB source tables, GBIM beliefs (`gbimbeliefnormalized`), worldview entities (where present), and spatial/benefits collections in the vector store. Deterministic joins are maintained via identity fields (for example, `source_table` and `source_pk`) from embeddings back into GBIM and GeoDB.
 
 The current pattern is as follows:
 
 - **Unified GBIM belief collections.**  
-  GBIM beliefs from `gbimbeliefnormalized` are embedded into one or more collections. For each belief, a text representation is constructed from the JSONB axes (`identity`, `what`, `where`, `who`, `forwhom`, `why`, `how`, `authority`, `when`), and embeddings are stored with metadata including:
+  GBIM beliefs from `gbimbeliefnormalized` are embedded into one or more collections. In the current deployment, the primary collection is `gbim_beliefs_v2`, which holds embeddings for millions of beliefs derived from the nine JSONB axes. For each belief, a text representation is constructed from the axes (`identity`, `what`, `where`, `who`, `forwhom`, `why`, `how`, `authority`, `when`), and embeddings are stored with metadata including:
   - the belief identifier (for example, `gbimbeliefnormalized.id`),  
   - `source_table` and `source_pk` values drawn from the `identity` axis,  
   - epoch information derived from the `when` axis,  
   - optional spatial metadata inherited from `where`.
 
-  This provides a unified embedding space over the entire GBIM corpus, reflecting both institutional and feature‑level information derived from the CSVs.
+  This provides a unified embedding space over the entire GBIM corpus, reflecting both institutional and feature‑level information derived from the CSVs, and serves as the main GBIM‑derived spatial memory in the live system.
 
 - **Benefits‑focused spatial collection.**  
   The `gis_wv_benefits` collection stores embeddings and metadata for benefits‑relevant facilities, built from GBIM beliefs and resource descriptions. Documents in this collection encode facility names, locations, roles, and linkages to `local_resources` identifiers, enabling semantically and spatially aware retrieval of benefits sites.
 
 - **Legacy and thematic `geodb*` collections.**  
-  Earlier deployments mirrored selected PostGIS layers into `geodb*` collections, with each record representing a feature‑level description and minimal metadata to enable thematic or experimental RAG over specific layers. These collections remain available as historical or specialized indexes but are no longer treated as the primary spatial memory layer; current work prefers the GBIM belief collections and `gis_wv_benefits`.
+  Earlier deployments mirrored selected PostGIS layers into `geodb*` collections, with each record representing a feature‑level description and minimal metadata to enable thematic or experimental RAG over specific layers. These collections remain available as historical or specialized indexes but are no longer treated as the primary spatial memory layer; current work prefers the GBIM belief collection `gbim_beliefs_v2` and `gis_wv_benefits`.
 
 Identifiers and metadata are defined so that vector search results can be rejoined deterministically to GBIM and GeoDB:
 
@@ -176,7 +182,7 @@ Within the GBIM framework, spatial information constitutes one dimension of a mu
 
 As a result, a belief that refers to a place—whether a county, neighborhood, structure, industrial site, facility, or service area—is linked via a coherent chain:
 
-1. From embeddings and metadata in the vector store (for example, in GBIM‑derived and `gis_wv_benefits` collections),  
+1. From embeddings and metadata in the vector store (for example, in GBIM‑derived collections such as `gbim_beliefs_v2` and in `gis_wv_benefits`),  
 2. To JSONB axes and identity keys in `gbimbeliefnormalized`,  
 3. To source attributes and geometries in PostGIS and CSV‑derived tables,  
 4. To `local_resources` rows describing programmes and services tied to that place.
@@ -194,7 +200,9 @@ This linkage allows the Steward System to traverse:
 
 The GeoDB layer and its GBIM/vector mirrors play a direct role in retrieval‑augmented generation, particularly for spatially explicit and benefits‑oriented queries. When a query includes spatial references—such as towns, hollows, counties, rivers, ZIP codes, or named facilities—the RAG pipeline can invoke geo‑aware paths.
 
-![West Virginia Geo-Aware RAG Pipeline](https://github.com/user-attachments/assets/a7e894db-fd24-4dc6-aba1-51ed4676bc79)
+```markdown
+
+```
 
 > Figure 6.4. Geo‑aware retrieval‑augmented generation pipeline for benefits queries. Prompts with spatial references are routed through spatial filters in PostGIS, vector search over GBIM and benefits collections, joins to GBIM and `local_resources`, and finally into the multi‑model ensemble.
 
@@ -228,7 +236,7 @@ A key near‑term objective for the GeoDB layer is to extend the current “subs
   Confirming that all relevant vector datasets are loaded into PostGIS with stable, documented primary keys and that identity mappings in `gbimbeliefnormalized` correctly reference these sources via `source_table` and `source_pk`, including both historical and current naming conventions.
 
 - **Maintaining coverage in GBIM and embeddings.**  
-  Ensuring that beliefs associated with newly normalized datasets receive complete axis values, text representations, and embeddings in the spatial/GBIM collections, and that their spatial and institutional metadata are exposed for RAG.
+  Ensuring that beliefs associated with newly normalized datasets receive complete axis values, text representations, and embeddings in the spatial/GBIM collections (including `gbim_beliefs_v2`), and that their spatial and institutional metadata are exposed for RAG.
 
 - **Consolidating and documenting collections.**  
   Treating GBIM‑derived belief collections and `gis_wv_benefits` as the primary spatial and benefits vector indexes, with legacy `geodb*` collections documented as historical or specialized. New or updated collections follow clearly documented schemas and provenance practices.
