@@ -1,6 +1,6 @@
 ## Why this matters for Polymathmatic Geography
 
-This chapter specifies how Ms. Jarvis’s language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space, GBIM structures, Chroma‑backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a 21‑model consciousness bridge anchored in ChromaDB, GBIM‑derived entities, GIS‑aware collections, and a WV‑first routing policy. It supports:  
+This chapter specifies how Ms. Jarvis’s language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space representation, GBIM structures, Chroma‑backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a 21‑model consciousness bridge anchored in ChromaDB, GBIM‑derived entities, GIS‑aware collections, and a WV‑first routing policy. It supports:  
 - **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, research notes, belief structures, and local resource registries, rather than from an abstract model prior.  
 - **P3 – Power has a geometry** by letting retrieval paths expose which collections—and thus which institutional, spatial, and programmatic perspectives—shape a given answer, including WV‑specific benefits facilities in `gis_wv_benefits`, spatial entities derived from GBIM and GeoDB, and benefits‑focused resource collections.  
 - **P5 – Design is a geographic act** by treating routing rules, collection choices, registry lookups, and gateway boundaries as design decisions that change how the system “sees” and acts within a region.  
@@ -22,7 +22,7 @@ This chapter describes the retrieval‑augmented generation (RAG) infrastructure
 
 all orchestrated by the main brain and blood–brain‑barrier services.
 
-At runtime, queries enter through a unified HTTP gateway (for example, `POST /chat/sync` on a front‑door port) and are routed by the main brain into a RAG layer that spans Chroma collections, GIS features, and verified local‑resource rows. In production as of February 2026, the full pipeline
+At runtime, queries enter through a unified HTTP gateway (for example, `POST /chat` or `POST /chat/sync` on the main‑brain port) and are routed by the executive coordinator into a RAG layer that spans Chroma collections, GIS features, and verified local‑resource rows. In production as of February 2026, the full pipeline
 
 ```text
 Unified Gateway → Main Brain → RAG (text + GIS + registry, WV‑first) → 21‑LLM ensemble → Blood–Brain Barrier
@@ -39,7 +39,7 @@ curl -X POST http://127.0.0.1:8050/chat/sync \
   -d '{"message":"Oak Hill WV county benefits","county":"Fayette","role":"community","profile":"auto"}'
 ```
 
-triggers retrieval from ChromaDB (including WV‑relevant collections such as governance, thesis, and `gis_wv_benefits`), optional GIS RAG over GBIM‑derived spatial entities, synthesis by the 21‑model `llm20_production` ensemble, and post‑filtering by the guardrail service, with WV RAG, GIS context, and `local_resources` treated as authoritative when they conflict with external web information.
+triggers retrieval from ChromaDB (including WV‑relevant collections such as governance, thesis, and `gis_wv_benefits`), optional GIS RAG over GBIM‑derived spatial entities, synthesis by the 21‑model llm20production ensemble, and post‑filtering by the guardrail service, with WV RAG, GIS context, and `local_resources` treated as authoritative when they conflict with external web information.
 
 Within the overall architecture, the RAG layer is the primary bridge between relatively slow‑changing long‑term memory (Chroma collections, PostGIS/GeoDB, and structured registries like `local_resources`) and fast, per‑query reasoning in the language models. It is also the place where the Hilbert‑space state metaphor becomes operational: each RAG call carves out a small, query‑conditioned subspace of the much larger semantic, spatial, institutional, and program state space, and hands that subspace to the models as their working context. Finally, the retrieval services provide concrete, inspectable interfaces where retrieval calls, filters, and source collections can be logged, audited, and tuned in service of the program’s glassbox and spatial‑justice commitments.
 
@@ -59,15 +59,15 @@ Chroma‑backed semantic memory (Chapter 5) is the substrate for governance text
 
 In the February 2026 deployment, this alignment is implemented concretely:
 
-- Chroma collections like GBIM‑derived spatial indexes, general semantic collections (governance, thesis, research), and `gis_wv_benefits` for West Virginia‑specific benefits facilities are configured at embedding dimension 384 and accessed over a shared HTTP Chroma service.  
+- Chroma collections like consolidated GBIM‑derived spatial indexes, general semantic collections (governance, thesis, research), and `gis_wv_benefits` for West Virginia‑specific benefits facilities are configured at embedding dimension 384 and accessed over a shared HTTP Chroma service.  
 - GIS RAG queries can reference metadata such as `worldview_id`, `county`, `dataset`, and `gbim_entity` to tie vector results back to GBIM and GeoDB.  
-- Resource‑related collections tag documents with `local_resource_id`, allowing RAG hits to be resolved to `local_resources` rows for facilities in Oak Hill, Beckley, and surrounding ZIP codes.
+- Resource‑related collections tag documents with `local_resource_id`, allowing RAG hits to be resolved to `local_resources` rows for facilities in Oak Hill, Beckley, and surrounding ZIP codes, as those registries are populated and verified.
 
 ---
 
 ## 7.2 Core RAG and Search Components
 
-At the implementation level, the retrieval layer now consists of four main retrieval services, a registry resolver, and orchestration:
+At the implementation level, the retrieval layer consists of four main retrieval services, a registry resolver, and orchestration:
 
 ![The Ms. Jarvis RAG Pipeline](https://github.com/user-attachments/assets/b32e580e-1673-4db1-94ec-abde0bc441d5)
 
@@ -77,11 +77,11 @@ Figure 7‑2. Core retrieval components composing the Ms. Jarvis RAG layer. 
 - A GIS RAG path that treats geospatial features and GBIM‑linked entities as semantic objects with coordinates.  
 - A web‑research gateway for external information.  
 - A local resource registry resolver wired to `local_resources`.  
-- A main brain + orchestrator that routes requests and assembles context for the 21‑model `llm20_production` ensemble, with WV‑first rules for state‑scoped queries.
+- A main brain + orchestration layer that routes requests and assembles context for the 21‑model llm20production ensemble, with WV‑first rules for state‑scoped queries.
 
 ### 7.2.1 Text RAG Service (ChromaDB‑Backed)
 
-The text RAG service exposes a structured HTTP API (used internally by `/chat/light` and `/chat/sync`) that takes a query string, a `top_k` parameter, optional metadata filters (such as collection, source, county, dataset, or worldview), and optional role and geography hints. It issues similarity searches against one or more Chroma collections using a 384‑dimensional sentence‑embedding model, and returns both a flat list of top results and a `results_by_source` mapping keyed by collection name. Each result item carries:
+The text RAG service exposes a structured HTTP API used by main‑brain chat paths that takes a query string, a `top_k` parameter, optional metadata filters (such as collection, source, county, dataset, or worldview), and optional role and geography hints. It issues similarity searches against one or more Chroma collections using a 384‑dimensional sentence‑embedding model, and returns both a flat list of top results and a `results_by_source` mapping keyed by collection name. Each result item carries:
 
 - The retrieved text snippet or document identifier.  
 - Collection and source names.  
@@ -90,27 +90,18 @@ The text RAG service exposes a structured HTTP API (used internally by `/chat/li
 
 From the Hilbert‑space perspective, each collection represents a finite subset of the component spaces \(H_{\text{text}}, H_{\text{geo}}, H_{\text{inst}}\), and the RAG query selects a neighborhood around the embedded query vector. From the GBIM perspective, the same calls return belief fragments whose provenance and `worldview_id` can be inspected and composed.
 
-In production, typical text RAG behavior is exercised through the unified chat endpoints, for example:
-
-```bash
-curl -X POST http://127.0.0.1:8050/chat/light \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: super-secret-key" \
-  -d '{"message":"Raleigh County WV benefits summary","role":"community"}'
-```
-
-which yields fast, Chroma‑conditioned responses about SNAP, Medicaid, and related programs, with WV collections and benefits‑specific facilities preferred when the query or caller indicates a West Virginia context.
+In production, text RAG behavior is exercised through unified chat endpoints that request RAG‑conditioned responses about topics such as Raleigh County benefits, Ms. Jarvis’s architecture, or MountainShares rules. WV‑specific collections and benefits‑focused facilities are preferred when the query or caller indicates a West Virginia context.
 
 ### 7.2.2 GIS RAG Service (GeoDB/GBIM‑Backed)
 
-The GIS RAG service is a dedicated geospatial retrieval path that serves West Virginia‑focused spatial questions. Logically, it exposes an endpoint (for example, `/gis_rag`) that accepts a natural‑language query and an `n_results` parameter and returns a list of spatial hits. Internally, it queries:
+The GIS RAG service is a dedicated geospatial retrieval path that serves West Virginia‑focused spatial questions. Logically, it exposes an endpoint that accepts a natural‑language query and an `n_results` parameter and returns a list of spatial hits. Internally, it queries:
 
 - a consolidated GBIM‑derived spatial collection that embeds worldview entities and their spatial metadata, and  
 - the `gis_wv_benefits` collection, which stores semantic descriptions and metadata for benefits‑related facilities such as Oak Hill hubs and Beckley DHHR offices.
 
 Each indexed entity stores a short text description and metadata fields such as `worldview_id`, `dataset`, `county`, `gbim_entity`, `centroid_x`, and `centroid_y`. The centroids in SRID 26917 are also transformed to EPSG:4326 for map display and simple geographic filtering.
 
-For example, benefits facilities are added and queried via code analogous to:
+For example, benefits facilities can be added and queried via code analogous to:
 
 ```python
 import chromadb
@@ -135,7 +126,7 @@ col.add(
 
 GIS RAG outputs are designed to be composable with text RAG outputs: each hit is both a semantic object (a facility, boundary, or infrastructure feature) and a spatial object (with coordinates, SRID, and GBIM identifiers) that the main brain can reason about in the same Hilbert‑space frame.
 
-### 7.2.3 Web Research Gateway
+### 7.2.3 Web‑Research Gateway
 
 External web retrieval is handled by a dedicated gateway rather than allowing arbitrary outbound calls from each agent or service. This gateway exposes an HTTP endpoint that accepts a JSON body with a query string and a limit on the number of results. It:
 
@@ -165,21 +156,13 @@ The main brain does not typically call language models directly. Instead, it rou
 
 The same orchestration layer composes the final context window for the models and sends candidate responses through downstream guardrail services such as the blood–brain barrier.
 
-In production, orchestration calls into a 21‑model ensemble service (`llm20_production`), which sequentially queries a set of model proxies and aggregates their outputs:
+In the February 2026 deployment, orchestration calls into the 21‑model llm20production ensemble service, which queries a set of model proxies and aggregates their outputs. For WV‑scoped queries, the main brain:
 
-```text
-llm20_production:
-  🌟 Processing 21 models sequentially via proxies...
-  ✅ Complete: 21/21 responded
-```
-
-For WV‑scoped queries, the main brain:
-
-- Treats WV RAG (text + GIS + registry) as mandatory input.  
+- Treats West Virginia RAG (text + GIS + registry) as mandatory input.  
 - Builds a WV‑first context window from RAG, GIS, and registry material, excluding `web_context`.  
 - Prepends a strong grounding instruction that explicitly tells the ensemble to treat WV RAG, GIS context, and `local_resources` as authoritative for West Virginia and to ignore conflicting out‑of‑state information unless the user clearly asks about another state.
 
-Ensemble outputs are then filtered by the blood–brain‑barrier and returned via `/chat/sync` or `/chat/light`.
+Ensemble outputs are then filtered by the blood–brain‑barrier and returned via unified chat endpoints.
 
 ---
 
@@ -189,10 +172,10 @@ This section sketches the typical flows for non‑spatial, spatial, and resource
 
 ### 7.3.1 Non‑Spatial RAG Flow
 
-A typical governance or thesis question (for example, about MountainShares rules or Ms. Jarvis architecture) progresses as follows:
+A typical governance or thesis question (for example, about MountainShares rules or Ms. Jarvis’s architecture) progresses as follows:
 
 **Query intake.**  
-A user or upstream component sends a request to the unified gateway or main brain. The main brain wraps it into an internal job structure containing the raw text, any structured fields (project, county, worldview), and role hints.
+A user or upstream component sends a request to the unified gateway or main brain. The coordinator wraps it into an internal job structure containing the raw text, any structured fields (project, county, worldview), and role hints.
 
 **Routing to text RAG and/or web.**  
 The orchestration logic decides whether to call the local text RAG service, the web gateway, or both. For most governance‑ and thesis‑style questions, it prefers Chroma‑backed collections (for example, governance, thesis, GBIM, or MountainShares collections) and only consults the web when the question clearly depends on external or time‑varying facts.
@@ -227,7 +210,7 @@ The service returns a list of hits, each including a compact textual description
 - Used to fetch richer GBIM records or PostGIS geometries.  
 - Combined with text RAG results and registry entries to provide mixed semantic and spatial evidence to the language models.
 
-In more fully integrated configurations, this flow is implemented entirely over a GBIM‑anchored spatial collection, so that spatial RAG can see both features and their GBIM belief states and edges.
+In more fully integrated configurations, this flow is implemented entirely over GBIM‑anchored spatial collections, so that spatial RAG can see both features and their GBIM belief states and edges.
 
 ### 7.3.3 Resource‑Oriented RAG Flow
 
@@ -282,7 +265,7 @@ As of early 2026:
 - The GIS RAG service is focused on West Virginia, indexing GBIM‑ and GeoDB‑derived layers and benefits facilities (`gis_wv_benefits`), with centroids standardized to SRID 26917 and transformed to WGS84 when needed.  
 - The local resource resolver is wired to the `local_resources` table and can be called explicitly when a flow is tagged as resource‑oriented; integration with role‑ and geography‑aware routing is being expanded as registries and policies are hardened.  
 - Routing decisions are implemented as explicit function calls and configuration in the orchestration layer rather than as learned classifiers, keeping behavior legible and debuggable.  
-- In the main brain’s ultimate path, context assembly computes a WV‑scoped flag based on county and role, builds `context_block` from `[rag_context, gis_context, registry_context]` for WV queries (dropping `web_context`), and injects a strong WV grounding instruction that tells the ensemble to treat WV RAG, GIS context, and `local_resources` as authoritative and to treat conflicting web or generic information as out‑of‑state and ignorable.
+- In the main brain’s ultimate path, context assembly computes a WV‑scoped flag based on county and role, builds a `context_block` from `[rag_context, gis_context, registry_context]` for WV queries (dropping `web_context`), and injects a strong WV grounding instruction that tells the ensemble to treat WV RAG, GIS context, and `local_resources` as authoritative and to treat conflicting web or generic information as out‑of‑state and ignorable.
 
 In practice, the retrieval layer already has the shape of a role‑, geography‑, and registry‑sensitive interface, with WV‑first behavior in place for benefits flows.
 
@@ -324,7 +307,7 @@ After retrieval and generation, the main brain routes candidate responses throug
 Figure 7‑6. Provenance and guardrail flow ensuring accountable generation in the Ms. Jarvis retrieval pipeline. Author’s figure, 2026.
 
 **Post‑hoc review and logging.**  
-The retrieval server supports background storage of queries and responses into a conversation‑history collection. Logs capture which services were called, which collections were queried, which filters and scores were applied, which registries were accessed, and which documents or features were returned. A fully structured, user‑facing explanation interface—where Ms. Jarvis can explicitly list the documents, spatial features, and registry entries relied upon—is marked as future work.
+The retrieval server and main brain support background storage of queries and responses into a conversation‑history collection. Logs capture which services were called, which collections were queried, which filters and scores were applied, which registries were accessed, and which documents or features were returned. A fully structured, user‑facing explanation interface—where Ms. Jarvis can explicitly list the documents, spatial features, and registry entries relied upon—is marked as future work.
 
 Together, these mechanisms move the system away from unconstrained text generation toward a constrained, accountable pipeline, while leaving room to tighten role‑, geography‑, registry‑, and WV‑specific policies as the underlying memory schemas stabilize.
 
