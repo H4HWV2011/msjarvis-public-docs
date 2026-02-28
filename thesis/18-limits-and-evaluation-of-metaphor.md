@@ -1,11 +1,12 @@
-> **Why this matters for Polymathmatic Geography**  
-> This chapter evaluates the neurobiological framing not as a claim that Ms. Jarvis is a brain, but as a design language for distributed, place‑aware computation. It supports:  
-> - **P1 – Every where is entangled** by asking how metaphors shape which spaces, communities, and infrastructures are foregrounded in system design.  
-> - **P3 – Power has a geometry** by examining how “brain” metaphors allocate control, memory, and gates across the service graph.  
-> - **P5 – Design is a geographic act** by treating metaphors themselves as interventions in how Appalachian intelligence is modeled and governed.  
-> - **P12 – Intelligence with a ZIP code** by insisting that biological language be grounded in concrete, spatially anchored behavior, not abstract hype.  
-> - **P16 – Power accountable to place** by proposing evaluation methods that let communities test what the system actually does, beyond metaphor.  
-> As such, this chapter belongs to the **Computational Instrument** tier: it tests whether the biological framing clarifies or obscures how Ms. Jarvis operates as an instrument of Polymathmatic Geography.
+## Why this matters for Polymathmatic Geography  
+This chapter evaluates the neurobiological framing not as a claim that Ms. Jarvis is a brain, but as a design language for distributed, place‑aware computation. It supports:  
+- **P1 – Every where is entangled** by asking how metaphors shape which spaces, communities, and infrastructures are foregrounded in system design.  
+- **P3 – Power has a geometry** by examining how “brain” metaphors allocate control, memory, and gates across the service graph.  
+- **P5 – Design is a geographic act** by treating metaphors themselves as interventions in how Appalachian intelligence is modeled and governed.  
+- **P12 – Intelligence with a ZIP code** by insisting that biological language be grounded in concrete, spatially anchored behavior, not abstract hype.  
+- **P16 – Power accountable to place** by proposing evaluation methods that let communities test what the system actually does, beyond metaphor.  
+
+As such, this chapter belongs to the **Computational Instrument** tier: it tests whether the biological framing clarifies or obscures how Ms. Jarvis operates as an instrument of Polymathmatic Geography.
 
 # 18. Limits and Evaluation of the Biological Framing
 
