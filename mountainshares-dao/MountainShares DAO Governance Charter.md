@@ -57,7 +57,7 @@ The DAO is **not** a bank, investment club, or vehicle for distributing profits.
 - Monitors reserve ratios and other safety indicators, flags anomalies, enforces hard triggers, and surfaces analytics to the DAO.  
 - Cannot unilaterally change rules, mint tokens, or override legal constraints, but **can** automatically apply safety rules defined in the Economic Safety Specification (for example, tightening caps when reserve ratios fall).
 
-### 2.5 Community Roles: Stewards, Captains, Elders
+### 2.5 Community Roles: Stewards, Captains, Elders, Community Champions
 
 These roles are earned through participation, not purchased. They **do not** give extra votes; they give additional responsibilities and soft powers.
 
@@ -104,6 +104,24 @@ These roles are earned through participation, not purchased. They **do not** giv
   - Their advisory notes are attached to constitutional‑level proposals before voting, so participants can see elder perspectives.  
   - May sit on a small Safety and Ethics working group that Ms. Jarvis can flag when patterns raise ethical or legal concerns.
 
+#### 2.5.4 Phase 0 Community Champions (Red Team Founders)
+
+- **Eligibility (illustrative):**
+  - Invited security or red‑team participants during Phase 0 (Invite‑Only Beta).  
+  - Account age of at least 30 days since UEI creation.  
+  - Minimum 10 verified EMS hours of red‑teaming, testing, or feedback work logged in the recognition ledger.  
+  - Good standing: no unresolved sanctions for abuse, fraud, or major policy violations.  
+- **Responsibilities:**
+  - Conduct structured red‑team and security testing of treasury logic, protocol surfaces, and Ms. Jarvis enforcement behaviour, consistent with the Audit and Risk Management Plan and Economic Safety Specification.  
+  - Attempt to identify ways to misreport or miscompute reserve ratios, bypass caps or promo rules, abuse EMS logging, or compromise privacy and access controls, and then disclose findings through designated channels.  
+  - Participate in post‑incident reviews when incidents involve their testing domains and contribute to improvements in controls and playbooks.  
+- **Relationship to Other Roles:**
+  - Community Champions who continue contributing over time may also qualify as Stewards, Captains, or Elders under Sections 2.5.1–2.5.3.  
+  - These roles add responsibilities and soft influence only; Community Champions, like all participants, still have exactly one vote under the one‑UEI‑one‑vote rule.  
+- **Scope and Limits:**
+  - Red‑team work is treated as commons work and earns EMS hours but does not grant extra voting weight or any right to override hard safety constraints.  
+  - Community Champions cannot disable or weaken hard safety triggers, reserve‑ratio protections, or legal and benefits‑safety rules; they operate inside the same safety envelope as the rest of the DAO.
+
 ---
 
 ## 3. Membership, Hours, and Voting
@@ -118,7 +136,7 @@ These roles are earned through participation, not purchased. They **do not** giv
 - Governance rights are grounded in **hours contributed**, not in money or token holdings.  
 - EMS totals and patterns are used to determine:
   - Eligibility to vote (baseline participation thresholds).  
-  - Eligibility for roles such as Steward, Captain, and Elder.  
+  - Eligibility for roles such as Steward, Captain, Elder, or Community Champion.  
   - Reputation and trust signals in proposal review and incident response.
 
 **Principle:** *You earn your say in this economy by contributing time and work to the commons.*
@@ -135,7 +153,7 @@ Initial eligibility (subject to refinement):
 
 - Each eligible UEI has exactly one vote in general DAO proposals.  
 - Identity aggregation or splitting is discouraged and may be mitigated through sybil‑resistance measures (for example, tiered verification for higher‑impact roles).  
-- Roles (Steward, Captain, Elder) do not change individual vote weight; they affect responsibilities and soft influence only.
+- Roles (Steward, Captain, Elder, Community Champion) do not change individual vote weight; they affect responsibilities and soft influence only.
 
 ### 3.5 Distinguishing Voice from Spendable Value
 
@@ -169,7 +187,7 @@ Initial eligibility (subject to refinement):
 
 ### 4.3 Review and Screening
 
-- System monitors, Stewards, Captains, or a governance working group may perform initial screening to:
+- System monitors, Stewards, Captains, Community Champions, or a governance working group may perform initial screening to:
   - Check for conflicts with law, Terms, or hard triggers.  
   - Consolidate duplicative proposals.  
   - Provide non‑binding impact assessments (for example, reserve ratio implications, KPI effects).  
@@ -206,7 +224,7 @@ Initial eligibility (subject to refinement):
 - Recognizing new categories of qualifying work and Tier 2 roles.  
 - Setting or updating game‑layer parameters (quests, ranks, value interactions).  
 - Recommending regional expansion and branch parameterization.  
-- Refining role criteria for Stewards, Captains, and Elders.
+- Refining role criteria for Stewards, Captains, Elders, and Community Champions.
 
 ### 5.2 Out‑of‑Scope (Cannot Decide)
 
@@ -239,7 +257,7 @@ If a proposal falls outside scope, it may be declined for implementation, with a
 
 ### 6.3 Conflict of Interest
 
-- DAO participants, Stewards, Captains, Elders, and monitors are encouraged to declare material conflicts (for example, business ties to proposals).  
+- DAO participants, Stewards, Captains, Elders, Community Champions, and monitors are encouraged to declare material conflicts (for example, business ties to proposals).  
 - The legal umbrella’s board and staff are subject to formal conflict‑of‑interest policies maintained separately in `legal/`.
 
 ---
@@ -258,7 +276,8 @@ If a proposal falls outside scope, it may be declined for implementation, with a
 
 - Before public availability, participation in the MountainShares DAO is limited to invited users (“Phase 0 Participants”).  
 - Phase 0 Participants are issued a wallet, a UEI, and access to the Ms. Jarvis chatbot UI via authenticated links.  
-- Interactions that qualify as testing, feedback, or commons work may be logged as EMS in the recognition ledger and count toward voting and role eligibility.
+- Interactions that qualify as testing, feedback, or commons work may be logged as EMS in the recognition ledger and count toward voting and role eligibility.  
+- Phase 0 security and red‑team participants may be designated as Community Champions under Section 2.5.4 and can earn founding voting eligibility through logged EMS hours during this period.
 
 ### 7.3 Charter Amendments
 
@@ -266,5 +285,3 @@ If a proposal falls outside scope, it may be declined for implementation, with a
   - Higher quorum (for example, 40% of eligible voters).  
   - Higher approval threshold (for example, 66% super‑majority).  
   - Advisory review by Elders and non‑objection from the legal umbrella where required by law or safety constraints.
-
----
