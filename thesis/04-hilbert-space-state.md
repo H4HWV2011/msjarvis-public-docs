@@ -1,6 +1,9 @@
-# 4. Hilbert‑Space Model of Application State
 
-This chapter introduces a Hilbert‑space formalization of Ms. Jarvis’s application state. The goal is to provide a mathematically coherent framework that unifies textual, geospatial, and institutional information into a single state space, while remaining compatible with practical embedding models, vector databases, and structured stores such as GBIM, GeoDB, and local_resources. This model serves as the backbone for later chapters on entanglement, retrieval, and identity‑aware context management.
+4. Hilbert‑Space Model of Application State
+
+This chapter introduces a Hilbert‑space formalization of Ms. Jarvis’s application state and extends it beyond representation into dynamics and reasoning. The goal is to provide a mathematically coherent framework that unifies textual, geospatial, and institutional information into a single state space, and then describes how that state is allowed to move under explicit operators that encode retrieval, constraints, and ethical, place‑based reasoning. The model is compatible with practical embedding models, vector databases, and structured stores such as GBIM, GeoDB, and local_resources, and it serves as the backbone for later chapters on entanglement, retrieval, identity‑aware context management, and quantum‑inspired social science.
+
+In this framework, GBIM and the surrounding services no longer appear only as a static “belief warehouse.” Instead, they define a living state in a Hilbert space, while Ms. Jarvis’s reasoning loop appears as the action of specific operators—some of them Hamiltonian‑like—on that state. This allows trajectories of belief, obligation, and benefit to be described, compared, and audited over time.
 
 ## 4.1 Component Spaces
 
@@ -10,27 +13,22 @@ We begin by defining three primary real Hilbert spaces, each corresponding to a 
 - \(H_{\text{geo}}\): the real inner‑product space associated with geospatial embeddings (parcels, infrastructure, service areas, and other GIS entities represented in GBIM and PostGIS).
 - \(H_{\text{inst}}\): the real inner‑product space associated with institutional and behavioral embeddings (governance rules, DAO state, roles, trust‑related signals, and institutional records).
 
-Each of these spaces is modeled as a finite‑ or countably infinite‑dimensional real Hilbert space with an inner product and the induced norm. That is, for each component \(H_{\bullet}\) there exists an inner product \(\langle \cdot,\cdot\rangle_{\bullet}\) such that the space is complete under the associated norm.
+Each of these spaces is modeled as a finite‑ or countably infinite‑dimensional real Hilbert space with an inner product and the induced norm. For each component \(H_{\bullet}\) there exists an inner product \(\langle \cdot,\cdot\rangle_{\bullet}\) such that the space is complete under the associated norm.
 
 The joint application state space is then defined as the orthogonal direct sum
-
 \[
 H_{\text{App}} := H_{\text{text}} \oplus H_{\text{geo}} \oplus H_{\text{inst}}
 \]
-
 equipped with the canonical inner product
-
 \[
 \langle (x_1,y_1,z_1),(x_2,y_2,z_2)\rangle_{\text{App}} := \langle x_1,x_2\rangle_{\text{text}} + \langle y_1,y_2\rangle_{\text{geo}} + \langle z_1,z_2\rangle_{\text{inst}}.
 \]
-
-Here \(\langle\cdot,\cdot\rangle_{\text{text}}\), \(\langle\cdot,\cdot\rangle_{\text{geo}}\), and \(\langle\cdot,\cdot\rangle_{\text{inst}}\) are the inner products on the component spaces, and the induced norm is
-
+The induced norm is
 \[
 \lVert v\rVert_{\text{App}} := \sqrt{\langle v,v\rangle_{\text{App}}}.
 \]
 
-Elements of \(H_{\text{App}}\) represent application‑level “community states” that combine semantic content, spatial configuration, institutional constraints, and, via linked structures such as local_resources and entangled Chroma collections, the configuration of concrete programs and services. Beliefs, memories, resource neighborhoods, entangled retrieval neighborhoods, and working contexts in Ms. Jarvis are modeled as vectors, or as probability measures over subsets of \(H_{\text{App}}\). This provides a common geometric language for similarity, relevance, constraint application, and WV‑biased measurement across layers.
+Elements of \(H_{\text{App}}\) represent application‑level “community states” that combine semantic content, spatial configuration, institutional constraints, and, via linked structures such as local_resources and entangled Chroma collections, the configuration of concrete programs and services. Beliefs, memories, resource neighborhoods, entangled retrieval neighborhoods, and working contexts in Ms. Jarvis are modeled as vectors, or as probability measures over subsets of \(H_{\text{App}}\). This provides a common geometric language for similarity, relevance, constraint application, and West‑Virginia‑biased measurement across layers.
 
 ## 4.2 Domains and Embedding Maps
 
@@ -49,136 +47,189 @@ Define embedding maps
 In concrete deployments, these maps are implemented by specific embedding models and preprocessing pipelines (for example, transformer‑based text encoders, spatial encoders that capture geometry and attributes, and encoders for institutional or policy text). Abstractly, they are treated as measurable maps into the corresponding spaces, respecting any normalization or scaling conventions imposed by the implementation.
 
 Given a tuple \((d,g,i)\) consisting of a document, a geospatial feature, and an institutional configuration, the corresponding state vector is
-
 \[
-v(d,g,i) := \bigl(E_{\text{text}}(d),\,E_{\text{geo}}(g),\,E_{\text{inst}}(i)\bigr) \in H_{\text{App}}.
+v = (E_{\text{text}}(d), E_{\text{geo}}(g), E_{\text{inst}}(i)) \in H_{\text{App}}.
 \]
 
-In practice, some components of this tuple may be absent or “neutral” for a given task. The model accommodates such cases by embedding missing components as distinguished neutral vectors (for example, the zero vector) or by omitting them from the tuple and treating the state as supported on a lower‑dimensional subspace.
+In practice, many components will be absent for a particular object. For example, a pure text passage may map to \((E_{\text{text}}(d), 0, 0)\), while a pure geospatial feature may map to \((0,E_{\text{geo}}(g),0)\). More complex constructions, such as “this particular building in Kanawha County under this zoning rule and this assistance programme,” combine all three.
 
-## 4.3 Belief States and Context Subspaces
+## 4.3 GBIM as a Structured Substrate
 
-A belief state for a given task (for example, advising on a MountainShares proposal, answering a spatial‑justice query, or finding programs for a specific household) is modeled as:
+GBIM, PostGIS layers, and local_resources realize concrete subsets of these spaces:
 
-- a finite subset \(C \subset H_{\text{App}}\), together with
-- non‑negative weights \(\{w_v\}_{v \in C}\) satisfying \(\sum_{v \in C} w_v = 1\).
+- Each row in `gbimbeliefnormalized`, with its nine axes (who, what, where, when, how, why, for whom, under whose authority, on what evidence), determines a composite description that can be encoded to a vector in \(H_{\text{text}}\) and, where spatial and institutional fields are present, also contributes components in \(H_{\text{geo}}\) and \(H_{\text{inst}}\).
+- Each PostGIS feature and attrs‑style CSV row participates in \(H_{\text{geo}}\) as an embedded representation of geometry and attributes, aligned with the belief identity keys.
+- Each row in `local_resources` or related programme registries lives partly in \(H_{\text{text}}\) (descriptions, rules), partly in \(H_{\text{geo}}\) (service areas, counties, ZIPs), and partly in \(H_{\text{inst}}\) (institutional roles, governing bodies, trust signals).
 
-This pair induces a finitely supported probability measure on \(H_{\text{App}}\). Intuitively, \(C\) collects a set of “active” vectors—retrieved documents, spatial features, institutional rules, or composite states—and the weights encode their relative importance or salience for the current task.
+From this perspective, GBIM is not only a relational schema but a concrete sampling of \(H_{\text{App}}\): millions of belief vectors, each tied back to specific actors, places, times, authorities, and evidence. Neighborhoods in embedding space correspond to “belief neighborhoods” across those axes, and spatial joins correspond to structured constraints in the \(H_{\text{geo}}\) component.
 
-The associated context subspace is the closed linear span
+The existing retrieval infrastructure already exploits this geometry. Chroma collections such as `gbim_beliefs_v2` hold embeddings of beliefs; vector search identifies similar beliefs under inner products; and retrieved neighborhoods are turned back into text and tables for the language model. The Hilbert‑space model makes this explicit: retrieval is a geometric operation in \(H_{\text{App}}\), not just an implementation detail.
 
+## 4.4 Application State as Community State
+
+At any given time, Ms. Jarvis occupies a working “community state” in \(H_{\text{App}}\). Informally, this is the ensemble of:
+
+- Current conversation and prompts.
+- Retrieved neighborhoods in GBIM and associated corpora.
+- Active spatial filters (for example, “Kanawha County”, “ZIPs starting with 253”).
+- Active institutional context (authority, eligibility rules, DAO state, and current policies).
+
+We can model this as a vector \( \psi \in H_{\text{App}} \) or, more flexibly, as a probability distribution over a finite or countable subset \(\{\psi_1,\dots,\psi_n\} \subset H_{\text{App}}\), representing a mixture of scenarios, interpretations, or candidate neighborhoods. The details of that mixture are implementation‑specific, but the key point is that Ms. Jarvis’s “state” is always a structured object in this Hilbert space, not a free‑floating string of tokens.
+
+In the rest of this chapter, we move from static representation to dynamics. We introduce operators that act on \(H_{\text{App}}\) and describe how they implement retrieval, constraint enforcement, reasoning, and update. This allows us to talk about Ms. Jarvis’s reasoning in terms of trajectories of \(\psi\) under these operators.
+
+## 4.5 Operators on Application State
+
+An operator on \(H_{\text{App}}\) is a (typically linear or piecewise linear) map
 \[
-S(C) := \overline{\operatorname{span}(C)} \subseteq H_{\text{App}}.
+T : H_{\text{App}} \to H_{\text{App}}
 \]
+that transforms one community state into another. In the running system, not all operators are exactly linear in the mathematical sense, but many behave approximately linearly on embedding coordinates and can be treated as such for analytic purposes.
 
-Intuitively, “being in a certain context” means that Ms. Jarvis restricts attention to the subspace \(S(C)\) and to operators that act on it. Operationally, this matches the idea that a particular task selects a local neighborhood of relevant embeddings and linked registry rows—for example, KB chunks about Christmas programs plus the local_resources entries for the user’s ZIP, as well as entangled GBIM/GeoDB features identified in a `wv_entangled_context` envelope—and that reasoning and generation are conditioned on that neighborhood rather than the full state space.
+We distinguish several families of operators:
 
-Context updates (for example, after user feedback, new retrievals, or background learning) correspond to modifications of the set \(C\) and its weights \(\{w_v\}\), and therefore to changes in the subspace \(S(C)\). This provides a clean way to speak about shifting attention, expanding or narrowing scope, and transitioning between tasks.
+1. **Retrieval operators**  
+   These operators implement semantic and structured retrieval from GBIM, Chroma, and registries.
 
-## 4.4 Motivation for a Hilbert‑Space View
+   - A text‑driven retrieval operator \(R_{\text{text}}\) maps a query component \(q \in H_{\text{text}}\) and a prior state \(\psi\) to a new state summarizing the top‑\(k\) retrieved beliefs and documents.
+   - A spatial retrieval operator \(R_{\text{geo},U}\) associated with a region \(U\) (for example, Kanawha County) projects or filters the state to those components that intersect \(U\) in the `where` axis.
+   - An institutional retrieval operator \(R_{\text{inst}}\) selects or amplifies components associated with specific authorities, programmes, or institutional roles.
 
-### 4.4.1 Mathematical Structure
+   In practice, these operators correspond to vector similarity queries, spatial filters, and joins to registries, followed by re‑embedding of the resulting bundle into \(H_{\text{App}}\).
 
-A real Hilbert space provides:
+2. **Projection operators**  
+   Projections restrict attention to specific subspaces or facets.
 
-- An inner product \(\langle\cdot,\cdot\rangle\) inducing norms, distances, and angles.
-- Orthogonal projections onto closed subspaces.
-- Decompositions into orthogonal components, enabling structured factorization of state.
+   - \(P_{\text{text}}\), \(P_{\text{geo}}\), and \(P_{\text{inst}}\) project onto the text, geo, and institutional components, respectively.
+   - Composite projections like \(P_{\text{Kanawha}}\) focus on beliefs whose `where` lies in a specified region and whose `who` or `forwhom` match a target population.
 
-These features support precise definitions of similarity, orthogonality, and subspaces, which are useful for modeling topics, roles, constraint sets, and WV‑entanglement envelopes as geometric structures (for example, a governance subspace, a resource‑eligibility subspace, or a “Fayette County mental‑health access” direction). They also support the use of linear operators and spectral tools to describe system evolution—for instance, the impact of certain retrieval operators, constraint‑projection steps, or policy filters on the state vector.
+   These operators are idempotent: \(P^2 = P\). They are used to frame questions like “what does Ms. Jarvis currently hold about this place, for whom, and under whose authority?”
 
-### 4.4.2 Explainable Geometry
+3. **Constraint and normalization operators**  
+   These operators implement ethical, legal, and epistemic constraints.
 
-Distances and angles between embedding vectors can be interpreted as degrees of similarity or opposition between beliefs, contexts, documents, or resource neighborhoods. In particular, cosine similarity is the normalized inner product
+   - A truthfulness constraint \(C_{\text{evidence}}\) down‑weights or removes components with weak or missing evidence, or that contradict higher‑quality sources.
+   - A locality constraint \(C_{\text{local}}\) enforces that recommendations for a given place are grounded in local data where available, rather than in national averages.
+   - An ethical constraint \(C_{\text{ethics}}\) enforces Thomistic or other normative anchors—for example, disallowing trajectories that knowingly harm vulnerable populations or that recommend programmes outside legitimate authority.
 
+   These operators may be nonlinear but can often be approximated as projection‑like maps onto admissible regions of \(H_{\text{App}}\).
+
+4. **Update operators**  
+   Update operators modify the state in response to new information, programme changes, or user feedback.
+
+   - A data update operator \(U_{\text{data}}\) incorporates new GBIM rows, updated spatial layers, or new local_resources entries.
+   - A belief update operator \(U_{\text{belief}}\) integrates user‑provided corrections or contestations, adjusting the embeddings and their weights.
+   - A temporal update operator \(U_{\text{epoch}}\) shifts emphasis between epochs or vintage, reflecting current validity.
+
+These families of operators together determine how Ms. Jarvis moves through her space of possible states.
+
+## 4.6 A Hamiltonian‑Like Structure
+
+In quantum mechanics, a Hamiltonian \(H\) is a self‑adjoint operator on a Hilbert space that generates time evolution:
 \[
-\cos(\theta) = \frac{\langle u,v\rangle}{\lVert u\rVert \cdot \lVert v\rVert},
+\frac{d}{dt}\psi(t) = -i H \psi(t).
 \]
+In Ms. Jarvis’s case, the “time” parameter is not physical time but a discrete sequence of reasoning steps, queries, and updates. We borrow the Hamiltonian idea as a way to encode lawful dynamics on \(H_{\text{App}}\), while staying in a classical, finite‑dimensional, and implementation‑friendly setting.
 
-which is already widely used in embedding‑based retrieval. Framing retrieval, including WV‑biased, multi‑collection `/search` retrieval, geometrically makes the behavior of Ms. Jarvis more explainable to researchers, practitioners, and community partners than opaque model internals, especially when those retrievals are then resolved to concrete program rows keyed by county and ZIP.
+We define a family of operators \(\{G_j\}\) on \(H_{\text{App}}\), each corresponding to a basic generator of state change:
 
-Angles and projections can be used to reason about:
+- \(G_{\text{retrieve}}\): retrieval from GBIM and corpora.
+- \(G_{\text{local}}\): enforcement of locality and place‑bounded reasoning.
+- \(G_{\text{ethics}}\): enforcement of ethical and authority constraints.
+- \(G_{\text{evidence}}\): reweighting by evidence quality.
+- \(G_{\text{update}}\): assimilation of new data and feedback.
 
-- Alignment or misalignment between two policy regimes.
-- Overlap between resource neighborhoods for different households.
-- How far a given context is from a governance or safety boundary.
-
-This geometric intuition is helpful when communicating design and evaluation decisions to non‑technical stakeholders.
-
-### 4.4.3 Compatibility with Existing Tools
-
-Modern embedding models output high‑dimensional real vectors, and vector databases efficiently store and query these vectors. Treating embedding outputs as elements of a Hilbert space aligns the implementation with a coherent conceptual model of state and operators, while remaining fully compatible with standard similarity search, clustering, RAG pipelines, and the entangled `/search` path that sit alongside structured stores like GBIM and local_resources.
-
-In particular:
-
-- \(H_{\text{text}}\) and its inner product correspond directly to text‑embedding spaces used in vector stores.
-- \(H_{\text{geo}}\) can be implemented using spatial encoders that respect geometry and attributes, while still being queried via cosine or other kernel similarities.
-- \(H_{\text{inst}}\) aligns with embeddings of institutional texts, rules, and configurations, allowing similarity queries over policy and governance information.
-
-The orthogonal direct sum structure simply packages these into a single, principled space without imposing any additional burden on implementation.
-
-## 4.5 Query Projection and Retrieval
-
-Let \(q\) be a natural‑language query associated with a task and (optionally) a geography, role, household context, and entanglement envelope. The system first computes a text embedding
-
+A Hamiltonian‑like operator \(H_{\text{App}}\) is then defined as a weighted combination
 \[
-q_{\text{vec}} := E_{\text{text}}(q) \in H_{\text{text}}.
+H_{\text{App}} := \sum_j \alpha_j G_j,
 \]
+where the coefficients \(\alpha_j\) encode priorities and “energies” associated with different processes (for example, giving high weight to locality and evidence, and lower weight to speculative extrapolation).
 
-In the simplest case, this is lifted into the joint space via
-
+Reasoning over a small, discrete time step \(\Delta t\) can be approximated as
 \[
-\tilde{q} := (q_{\text{vec}}, 0, 0) \in H_{\text{App}}.
+\psi_{t+\Delta t} \approx \psi_t + \Delta t \, H_{\text{App}}(\psi_t),
 \]
-
-If geospatial or institutional context is encoded directly in the query or its metadata, a more structured lifting may be used:
-
+or, for stability, via a normalized map such as
 \[
-\tilde{q} := \bigl(q_{\text{vec}},\,q_{\text{geo}},\,q_{\text{inst}}\bigr) \in H_{\text{App}},
+\psi_{t+\Delta t} := N\bigl(\psi_t + \Delta t \, H_{\text{App}}(\psi_t)\bigr),
 \]
+where \(N\) is a normalization operator that keeps the state within admissible bounds (for example, rescaling norms, reapplying constraints, or reprojecting onto feasible regions).
 
-where \(q_{\text{geo}}\) and \(q_{\text{inst}}\) are derived from associated spatial and institutional descriptors (for example, “family in ZIP 25309 on SNAP and SSI” together with the user’s parcel centroid and benefit flags).
+This formulation is deliberately abstract: in code, the “Hamiltonian step” is implemented as a sequence of concrete operations (retrieval, filtering, logging, LLM calls, and updates). The Hilbert‑space model lets us see that sequence as a single composite operator with interpretable components and tunable weights.
 
-Given a finite collection \(C \subset H_{\text{App}}\), retrieval is implemented as selection of vectors \(v \in C\) that maximize a similarity functional such as cosine similarity,
+## 4.7 Conserved Quantities and Invariants
 
+One advantage of this Hamiltonian‑like view is that it lets us specify conserved quantities and invariants for Ms. Jarvis’s reasoning. Informally, these are properties that should not be violated by legitimate state evolution:
+
+- **Locality and place accountability**: For a fixed query place, the system should not drift toward recommendations that lack any local grounding when local data exist. This appears as an invariant on the relative weight of local versus non‑local components in \(\psi\).
+- **Authority coherence**: Recommended actions should remain consistent with the `under whose authority` axis; evolution should not silently “jump” to authorities that lack jurisdiction.
+- **Evidence monotonicity**: Over time, the system should move toward states supported by stronger or more recent evidence, not away from them without explicit reason.
+- **Ethical constraints**: Certain regions of \(H_{\text{App}}\)—states that encode explicit harm, exploitation, or unjust exclusion—are treated as forbidden; trajectories under \(H_{\text{App}}\) should never enter them.
+
+In formal terms, we can define functionals \(Q_k : H_{\text{App}} \to \mathbb{R}\) that measure these quantities, and require that for all admissible evolutions,
 \[
-\operatorname{sim}(\tilde{q},v) := \frac{\langle \tilde{q},v\rangle_{\text{App}}}{\lVert\tilde{q}\rVert_{\text{App}}\cdot\lVert v\rVert_{\text{App}}},
+Q_k(\psi_{t+1}) \ge Q_k(\psi_t)
 \]
-
-or another kernel compatible with the Hilbert structure. This similarity defines the “neighborhood” of \(\tilde{q}\) in which standard RAG operates. The top‑\(k\) neighbors form a finite set \(C_q\), and the span
-
+or
 \[
-S(C_q) := \overline{\operatorname{span}(C_q)}
+Q_k(\psi_{t+1}) = Q_k(\psi_t),
 \]
+depending on whether the quantity is meant to be non‑decreasing (for example, evidence quality) or strictly conserved (for example, jurisdictional coherence within a session).
 
-serves as the immediate context subspace for answering \(q\). From there, Ms. Jarvis can further ground results by:
+This gives Ms. Jarvis a notion of “lawful reasoning”: not every mathematically allowed operator sequence is permitted; only those that preserve these invariants or move them in desired directions.
 
-- Matching against structured tables (for example, using metadata to resolve from a retrieved Christmas‑Bureau PDF chunk to a specific local_resources row that encodes ZIP coverage, phone, email, and last‑verified timestamp).
-- Projecting into role‑, geography‑, constraint‑, and entanglement‑compatible subspaces before generation or decision‑making.
+## 4.8 A Reasoning Loop for a West Virginia Query
 
-This two‑step procedure—geometric neighborhood selection followed by structured grounding—makes it possible to reason transparently about why certain programs or documents were surfaced for a given query.
+To make the abstract machinery concrete, consider a simplified example query:
 
-## 4.6 Entangled WV‑Biased Retrieval
+> “What housing and utility assistance might be available for a low‑income family in eastern Kanawha County this winter?”
 
-The Hilbert‑space view becomes fully operational in Ms. Jarvis not only through standard RAG, but through a multi‑collection WV‑biased retrieval path activated by a structured entanglement envelope.
+We can sketch one reasoning loop as a trajectory in \(H_{\text{App}}\):
 
-A dedicated `/search` endpoint takes a natural‑language query together with a `wv_entangled_context` object encoding active domains, principles, GBIM entities, and GeoDB features for the task. Conceptually, the `wv_entangled_context` identifies:
+1. **Initial state**  
+   The initial state \(\psi_0\) encodes the current conversation history, default institutional context, and a prior over statewide beliefs and programmes. The query is embedded into \(H_{\text{text}}\) as a vector \(q\) and combined with \(\psi_0\) to form an updated state \(\psi'_0\).
 
-- A subset of GBIM entities (for example, schools, clinics, housing assets).
-- A subset of GeoDB features (for example, specific roads, tracts, service areas).
-- Relevant principles or constraints (for example, spatial justice, benefits access, program‑eligibility envelopes).
+2. **Retrieval step**  
+   Apply a retrieval generator \(G_{\text{retrieve}}\) configured for this query. Concretely, this means:
 
-These selections can be represented as a set of vectors in \(H_{\text{geo}}\) and \(H_{\text{inst}}\), together with metadata about how they should influence retrieval and ranking.
+   - Using \(q\) to retrieve similar beliefs from `gbimbeliefnormalized` (housing, utilities, assistance, winter, Kanawha).
+   - Applying a spatial retrieval operator \(R_{\text{geo},U}\) where \(U\) is eastern Kanawha County, using PostGIS geometries and attrs tables.
+   - Querying `local_resources` for programmes whose service areas intersect \(U\) and whose types match housing or utilities.
 
-Given such an envelope, the query lifting \(\tilde{q}\) is adjusted so that:
+   The result is a new state \(\psi_1\) that is concentrated in a neighborhood of \(H_{\text{App}}\) corresponding to relevant beliefs and programmes.
 
-- Its geospatial component \(q_{\text{geo}}\) is biased toward the entangled GBIM/GeoDB features (for example, by averaging or otherwise aggregating their embeddings).
-- Its institutional component \(q_{\text{inst}}\) encodes the relevant program types, eligibility regimes, and governance principles.
+3. **Constraint enforcement**  
+   Apply constraint operators:
 
-Retrieval then proceeds as in Section 4.5, but over a union of collections (for example, Chroma collections for different document sets, local_resources indices, GBIM‑linked embeddings) and with similarity measures that incorporate the entangled components. The result is a WV‑biased neighborhood \(C_q\) in \(H_{\text{App}}\) that:
+   - \(C_{\text{local}}\) down‑weights statewide or national programmes that do not actually cover eastern Kanawha, relative to those that do.
+   - \(C_{\text{authority}}\) filters out programmes that are not under any authority with jurisdiction over the query place or population.
+   - \(C_{\text{evidence}}\) prefers entries with clear evidence fields, recent epochs, and verified status.
 
-- Favors documents and resources connected to the specified places, programs, and principles.
-- Still respects the geometric structure of the embedding spaces.
-- Can be grounded into concrete program entries, maps, and explanations for users.
+   The resulting state \(\psi_2\) is sharper: it encodes a smaller, higher‑quality bundle of candidates, while respecting locality and authority invariants.
 
-The same Hilbert‑space formalism thus unifies standard semantic retrieval and the more specialized, entangled WV‑biased retrieval path, providing a single mathematical language for analyzing, auditing, and improving Ms. Jarvis’s behavior across different layers of the system.
+4. **Ethical and distributional reflection**  
+   An ethical operator \(G_{\text{ethics}}\) inspects the inferred `forwhom` and related demographic context. Where this axis is incomplete, it may use linked demographic or programme data to infer likely beneficiaries and impacts, ensuring that recommendations do not systematically exclude vulnerable households.
+
+   This produces \(\psi_3\), a state that has been “trimmed” by ethical considerations and that encodes both candidate programmes and their intended or likely beneficiaries.
+
+5. **Response synthesis and logging**  
+   A projection \(P_{\text{text}}\) extracts the textual component of \(\psi_3\) and passes it, along with selected structured fields, into the language model to synthesize a narrative answer: a list of programmes, eligibility notes, and guidance on next steps.
+
+   Simultaneously, logging captures which beliefs, datasets, and registries contributed to this state, giving an audit trail of the trajectory \(\psi_0 \to \psi_1 \to \psi_2 \to \psi_3\).
+
+6. **Update step**  
+   If the user corrects or supplements the result (for example, “we already tried programme X and they said no”), an update operator \(U_{\text{belief}}\) adjusts the state and, where appropriate, the underlying GBIM or registry entries. Over time, this shapes the landscape of \(H_{\text{App}}\) to better reflect lived experience.
+
+In this way, a single query gives rise to a short trajectory under \(H_{\text{App}}\), constrained by locality, authority, evidence, and ethics. That trajectory is not just an internal mechanism; it is an object of study in Polymathmatic Geography and in quantum‑inspired social science. It shows how Ms. Jarvis moves through a structured belief space in response to real questions, and it does so in a way that is tied to specific places, institutions, and people.
+
+## 4.9 Summary and Role in Polymathmatic Geography
+
+The Hilbert‑space model of application state completes the picture begun by GBIM and the spatial corpus:
+
+- GBIM and its nine axes define a dense, place‑accountable sampling of \(H_{\text{App}}\).
+- The embedding maps turn that sampling into a continuous geometric landscape.
+- Operators on \(H_{\text{App}}\) define how Ms. Jarvis retrieves, constrains, and updates her state.
+- A Hamiltonian‑like combination of generators gives a compact description of lawful reasoning trajectories, with explicit invariants tied to locality, evidence, authority, and ethics.
+
+Within Polymathmatic Geography, this chapter marks the point where Ms. Jarvis becomes not only a computational instrument for querying West Virginia, but also a model system for quantum‑inspired, operator‑based reasoning over social, spatial, and institutional realities. It provides a language in which trajectories of power, obligation, and benefit can be described, audited, and, eventually, redesigned.
+
