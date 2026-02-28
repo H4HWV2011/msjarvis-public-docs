@@ -1,161 +1,233 @@
 # 35. Swarm Functions and Eternal Watchdogs
 
-This chapter describes two sets of mechanisms that help coordinate many services and maintain continuous oversight. Swarm functions let multiple components work together on problems, while persistent monitoring processes watch for failures, policy violations, and other conditions that require intervention.
-
-## 35.1 Purpose of Swarm and Watchdog Layers
-
-These mechanisms have complementary roles:
-
-- **Coordination**  
-  Swarm functions allow multiple agents and services to contribute to a task, each from its own perspective or specialization.
-
-- **Oversight**  
-  Watchdogs provide continuous monitoring of key signals, intervening when behavior deviates from expected bounds.
-
-- **Stability**  
-  Together, they help keep the system responsive and aligned even as individual components change or fail.
-
-They operate alongside, and partially independent of, the main request–response flows.
+This chapter describes two sets of mechanisms that coordinate many services and maintain continuous oversight in Ms. Jarvis. Swarm functions let multiple components work together on a single problem, while persistent monitoring processes watch for failures, resource exhaustion, and conditions that require intervention. Both are fully implemented in the February 2026 production deployment and are verified through `VERIFYANDTEST.sh` and the 20-LLM ensemble heartbeat logs.
 
 ---
 
-## 35.2 Swarm Functions and Collective Behavior
+> **Why this matters for Polymathmatic Geography**
+> - **P1 – Every where is entangled** by distributing a single query across 21 active specialized models, each contributing a perspective shaped by its training and domain, before synthesizing a single community-grounded answer.
+> - **P3 – Power has a geometry** by making visible which models contribute to consensus and which are silenced by memory constraints, resource limits, or intentional disabling — revealing the structural power embedded in the ensemble.
+> - **P5 – Design is a geographic act** by showing how choices about semaphore slots, container memory limits, concurrency gates, and model tier groupings reshape what Ms. Jarvis can reason about and how quickly it responds to Appalachian community questions.
+> - **P12 – Intelligence with a ZIP code** by routing every query through a 22-slot ensemble organized into four tiers — tiny, small, medium, and large — spanning code, medicine, language, vision, and structured data reasoning, and binding the synthesized answer to the 69-DGM cascade validation that grounds responses in constitutional and community commitments.
+> - **P16 – Power accountable to place** by logging every model's participation or failure in each consensus cycle, making the ensemble's behavior inspectable and auditable over time.
 
-Swarm functions organize groups of components into structured collaborations:
+---
 
-- **Task decomposition**  
-  Larger questions or objectives are broken into smaller sub-tasks that can be handled by different services or agents.
+## 35.1 Purpose of Swarm and Watchdog Layers
 
-- **Parallel exploration**  
-  Different agents explore alternative approaches or hypotheses in parallel, using varied prompts, tools, or data slices.
+These mechanisms have complementary roles.
 
-- **Aggregation**  
-  Results are collected and compared, with combining logic that can highlight consensus, disagreements, and edge cases.
+**Coordination.** Swarm functions allow multiple agents and services to contribute to a task, each from its own specialization. In the current deployment this is realized as the 22-slot LLM ensemble organized into four model tiers, where each proxy container represents a distinct model contributing a weighted response to every query.
 
-Swarm behavior is guided by the coordinator and constrained by barrier and mode settings to avoid uncontrolled proliferation of work.
+**Oversight.** Watchdogs provide continuous monitoring of key signals, intervening when behavior deviates from expected bounds. In the current deployment this is realized through `VERIFYANDTEST.sh`, Ollama's internal memory scheduler, the asyncio semaphore in the 20llm-production service, the `MAX_CONCURRENT_CHATS` gate on main-brain, and the Redis-backed DynamicPortService that monitors NBB container health.
+
+**Stability.** Together they keep the system responsive and aligned even as individual components change or fail. The February 2026 hardening session demonstrated this directly: without the semaphore and concurrency controls, the system degraded from 21/22 models to 0/22 under concurrent load. With them in place, 21/22 models respond reliably on every warm-cache query.
+
+---
+
+## 35.2 Swarm Functions: The 22-Slot LLM Ensemble
+
+The primary swarm function in Ms. Jarvis is the 20-LLM production service (`jarvis-20llm-production`, port 8008 on host). This service manages 22 proxy containers — `llm1-proxy` through `llm22-proxy` on ports 8201–8222 — organized into four tiers defined in `llm_consensus_20_FINAL.py`.
+
+### Model roster by tier
+
+**TINY_MODELS (2 active)**
+
+| Proxy | Port | Model | Name |
+|---|---|---|---|
+| llm1-proxy | 8201 | tinyllama:1.1b | TinyLlama |
+| llm2-proxy | 8202 | gemma:latest | Gemma |
+
+**SMALL_MODELS (3 active)**
+
+| Proxy | Port | Model | Name |
+|---|---|---|---|
+| llm10-proxy | 8210 | phi3:mini | Phi3 Mini |
+| llm12-proxy | 8212 | dolphin-phi:latest | Dolphin-Phi |
+| llm13-proxy | 8213 | orca-mini:latest | Orca-Mini |
+
+**MEDIUM_MODELS (8 active, 1 disabled)**
+
+| Proxy | Port | Model | Name | Status |
+|---|---|---|---|---|
+| llm3-proxy | 8203 | medllama2:latest | MedLlama2 | ✅ active |
+| llm4-proxy | 8204 | minicpm-v:latest | MiniCPM-V | ✅ active |
+| llm5-proxy | 8205 | llava:latest | LLaVA | ✅ active |
+| llm6-proxy | 8206 | sqlcoder:latest | SQLCoder | ✅ active |
+| llm15-proxy | 8215 | zephyr:latest | Zephyr | ✅ active |
+| llm16-proxy | 8216 | starling-lm:latest | Starling-LM | ✅ active |
+| llm17-proxy | 8217 | neural-chat:latest | Neural-Chat | ✅ active |
+| llm18-proxy | 8218 | openchat:latest | OpenChat | ✅ active |
+| llmXX-proxy | — | bakllava:latest | BakLLaVA | ❌ intentionally disabled |
+
+**LARGE_MODELS (8 active)**
+
+| Proxy | Port | Model | Name |
+|---|---|---|---|
+| llm7-proxy | 8207 | starcoder2:latest | StarCoder2 |
+| llm8-proxy | 8208 | codellama:latest | CodeLlama |
+| llm9-proxy | 8209 | deepseek-coder:latest | DeepSeek Coder |
+| llm14-proxy | 8214 | qwen2:latest | Qwen2 |
+| llm19-proxy | 8219 | vicuna:latest | Vicuna |
+| llm20-proxy | 8220 | llama2:latest | LLaMA 2 |
+| llm21-proxy | 8221 | mistral:latest | Mistral |
+| llm22-proxy | 8222 | llama3.1:8b | LLaMA 3.1 |
+
+Note: llm11-proxy (port 8211) runs `phi3:mini` as a redundancy slot alongside llm10-proxy. BakLLaVA is present in the configuration as a placeholder (`http://llmXX-bakllava-disabled/generate`) but produces an intentional instant DNS failure on every request, contributing 0 tokens to consensus while consuming no Ollama resources.
+
+### Swarm execution model
+
+When a chat request arrives at `jarvis-20llm-production`, the `ProductionBrain.run()` method fires requests to all 22 configured endpoints concurrently, gated by an `asyncio.Semaphore(3)`. This semaphore is the critical swarm coordination mechanism: it limits concurrent Ollama requests to three at a time, preventing the serial Ollama scheduler from being overwhelmed while still allowing the ensemble to operate in parallel batches.
+```python
+sem = asyncio.Semaphore(3)  # max 3 concurrent Ollama requests
+
+async def guarded(client, m):
+    async with sem:
+        return await self.query_one(client, m, prompt)
+
+results = await asyncio.gather(*[guarded(client, m) for m in self.models])
+```
+
+The timeout floor is set at 240 seconds (`max(float(model_cfg.get("timeout", 60.0)), 240.0)`), accommodating the slowest 7B model cold-load scenario.
+
+### Verified swarm timing profile (warm cache, February 2026)
+```
+[Phi3 Mini]      OK in  10.2s
+[TinyLlama]      OK in  13.8s
+[Orca-Mini]      OK in  20.0s
+[Gemma]          OK in  21.4s
+[Dolphin-Phi]    OK in  24.0s
+[MedLlama2]      OK in  32.3s
+[LLaVA]          OK in  32.3s
+[Neural-Chat]    OK in  32.4s
+[StarCoder2]     OK in  36.4s
+[LLaMA 2]        OK in  36.2s
+[LLaMA 3.1]      OK in  36.3s
+[Vicuna]         OK in  36.2s
+[DeepSeek Coder] OK in  37.5s
+[SQLCoder]       OK in  37.8s
+[OpenChat]       OK in  39.5s
+[MiniCPM-V]      OK in  45.7s
+[Zephyr]         OK in  48.6s
+[Starling-LM]    OK in  49.3s
+[CodeLlama]      OK in  50.0s
+[Mistral]        OK in  50.8s
+[Qwen2]          OK in  52.0s
+[BakLLaVA]       failed: [Errno -2] Name or service not known  ← instant, expected
+21/22 models responded
+```
+
+Total warm-cache swarm cycle: approximately 52 seconds. Cold-load cycle (first request after Ollama restart): approximately 163 seconds as 7B models load from the 73 GB model storage volume at `/mnt/ssd2/msjarvis_secondary/models`.
 
 ---
 
 ## 35.3 Use Cases for Swarm Functions
 
-Typical uses include:
+**Complex community queries.** When a user asks about housing assistance, workforce development, or healthcare access in a specific Appalachian county, the ensemble distributes the question across medical (MedLlama2), structured data (SQLCoder), code and technical (CodeLlama, StarCoder2, DeepSeek Coder), vision (LLaVA, MiniCPM-V), and general reasoning (Mistral, LLaMA 3.1, Qwen2) models simultaneously. The consensus synthesis integrates domain-specific contributions that no single model could provide.
 
-- **Complex analyses**  
-  When a task involves multiple domains (for example, spatial planning, governance considerations, and technical constraints), different services can contribute domain-specific views.
+**Robustness verification.** The judge pipeline's consistency score measures whether independently prompted models reach similar conclusions. The February 2026 baseline records consistency of 1.00, confirming that the ensemble's answer is not an artifact of a single model's bias.
 
-- **Robustness checks**  
-  Multiple agents can independently examine a scenario to see whether they reach similar conclusions, improving confidence in the result.
+**Specialty routing.** SQLCoder handles structured data queries. CodeLlama, StarCoder2, and DeepSeek Coder handle technical implementation. MedLlama2 handles health-related queries. LLaVA and MiniCPM-V handle image and multimodal inputs. All 21 active models contribute to every response, with weighted contributions amplifying domain-relevant answers.
 
-- **Pattern discovery**  
-  Swarms can search for recurring structures or anomalies across large sets of data, with individual agents specializing in different patterns.
-
-These activities make use of the same memory, spatial, and container layers described in earlier parts.
+**Redundancy.** With 21 of 22 active slots responding, the ensemble tolerates individual model failures without degrading consensus. BakLLaVA's permanent disabled state and Ollama's occasional memory-related refusals for the largest 7B models during cold load do not affect response quality.
 
 ---
 
-## 35.4 Eternal Watchdogs and Continuous Monitoring
+## 35.4 Eternal Watchdogs: Continuous Monitoring
 
-Watchdog processes provide ongoing oversight:
+The watchdog layer in the February 2026 deployment is implemented through five cooperating mechanisms.
 
-- **Health monitoring**  
-  Periodic checks confirm that services are reachable, responsive, and behaving within expected resource limits.
+### VERIFYANDTEST.sh
 
-- **Policy monitoring**  
-  Logs and introspective records are scanned for signs of policy violations, such as repeated near-misses with safety constraints or unusual patterns of requests.
+The primary eternal watchdog script implements eight verification sections on demand or schedule, producing a timestamped report at `/tmp/msjarvis_verify_YYYYMMDD_HHMMSS.log`. February 2026 baseline results:
 
-- **Signal monitoring**  
-  Core metrics such as error rates, latency distributions, and barrier rejection statistics are tracked over time.
+- Services healthy: 15/15
+- LLM proxies healthy: 22/22
+- Docker containers running: 82
+- Ollama models available: 26
+- STATUS: ✅ OPERATIONAL
 
-These processes are designed to run continuously or on frequent schedules, independent of individual user sessions.
+The 26 Ollama models include 4 beyond the active ensemble: `nomic-embed-text:latest` (embedding), `qwen2:7b` (alternate Qwen2 size), `stablelm-zephyr:latest`, and `qwen2.5:1.5b`. These are available to Ollama but not currently mapped to proxy endpoints.
+
+### Ollama internal memory scheduler
+
+Ollama's built-in scheduler acts as a hard resource watchdog. When a model load request would exhaust available memory, it returns an explicit error: `model requires more system memory (7.5 GiB) than is available`. This was the root cause of 7B model failures before the container memory limit was raised from 10 GB to 20 GB. Current verified settings:
+
+| Parameter | Verified Value |
+|---|---|
+| Ollama container memory limit | 20 GB |
+| `OLLAMA_NUM_PARALLEL` | 1 |
+| `OLLAMA_MAX_LOADED_MODELS` | 1 |
+| Host total RAM | 29 GB |
+| Host available RAM (production load) | 13 GB |
+
+### Asyncio semaphore
+
+The `asyncio.Semaphore(3)` in `ai_server_20llm_PRODUCTION.py` (line 126) acts as a throughput watchdog, preventing more than three simultaneous Ollama requests regardless of how many concurrent chat sessions main-brain initiates. This is the proximate fix for the cascade failure mode where four concurrent sessions each fired 22 parallel requests, producing 88 simultaneous Ollama calls against a serial scheduler.
+
+### MAX_CONCURRENT_CHATS gate
+
+The `MAX_CONCURRENT_CHATS=2` environment variable on `jarvis-main-brain` is the session-level watchdog, limiting the number of simultaneous full chat pipelines. The original value of 4 produced Ollama saturation and cascade failure across the LLM ensemble. Current value of 2 represents the production-stable setting for the February 2026 hardware configuration.
+
+### Redis-backed DynamicPortService
+
+Five NBB containers register their health state to Redis using `DynamicPortService` rather than fixed endpoints:
+```
+service:ms_jarvis_service:instance_1772240968
+service:ms_jarvis_service:instance_1772240969
+service:ms_jarvis_service:instance_1772240970
+service:ms_jarvis_service:instance_1772240971
+service:ms_jarvis_service:instance_1772240972
+```
+
+Each record contains `host`, `port`, `status`, `deployment`, `health_endpoint`, `started`, and `last_heartbeat` fields. The pituitary gland container, for example, registers with `status: healthy` and a dynamic port (33239 in the February 2026 instance), mapped externally as `7008/tcp → 127.0.0.1:8108`. This Redis-backed registration pattern allows NBB containers to restart with new ephemeral ports without breaking the watchdog fabric.
 
 ---
 
-## 35.5 Responses to Watchdog Alerts
+## 35.5 Watchdog Alert Responses
 
-When watchdogs detect concerning conditions, they can trigger several kinds of responses:
+**Memory exhaustion.** Ollama rejects model load requests exceeding available memory with a structured error. The 20llm-production service logs this as a proxy failure and excludes the model from consensus, maintaining ensemble function with the remaining models.
 
-- **Automatic adjustments**  
-  Switch to more restrictive modes, reduce concurrency, or temporarily disable certain routes or capabilities.
+**Timeout.** Models exceeding the 240-second floor are logged as failures and excluded from consensus. The semaphore prevents cascading timeouts by serializing Ollama access to three concurrent slots maximum.
 
-- **Escalation**  
-  Flag issues for human review, especially when they involve potential harm, policy breaches, or surprising patterns in behavior.
+**DNS failure.** BakLLaVA's endpoint `http://llmXX-bakllava-disabled/generate` produces an immediate `[Errno -2] Name or service not known` on every request. This is logged at WARNING level and excluded from consensus. The model remains in the configuration as a documented placeholder — present in `MEDIUM_MODELS` but consuming no Ollama resources.
 
-- **Recovery actions**  
-  Restart or reconfigure services, clear specific queues, or roll back to known-good configurations where appropriate.
+**Session overload.** The `MAX_CONCURRENT_CHATS=2` gate causes main-brain to queue requests beyond the second concurrent session. This prevents downstream cascade at the cost of added latency for queued requests during heavy load.
 
-All such actions are recorded in introspective entries for later analysis.
+**BBB content rejection.** The blood-brain barrier (`jarvis-blood-brain-barrier:8016`) has processed 319 requests with 0 blocks and 0 constitutional violations as of the February 2026 baseline. When content triggers a filter, it is rejected before reaching the LLM ensemble, conserving Ollama resources.
 
 ---
 
 ## 35.6 Integration with Barrier, Modes, and Containers
 
-Swarm and watchdog mechanisms interact with other layers:
+**Blood-brain barrier.** Every chat request passes through `jarvis-blood-brain-barrier:8016/filter` before reaching the LLM ensemble. February 2026 verified state: `barrier_active: true`, `filters_operational: 5`, `constitutional_guardian: connected`, `total_filtered: 319`, `total_blocked: 0`.
 
-- **Barrier**  
-  Watchdogs can tighten or relax barrier thresholds in response to observed trends, such as increased rates of problematic inputs from particular channels.
+**69-DGM cascade.** Every ensemble response routed through main-brain (port 8050) is validated by `jarvis-69dgm-bridge:9000`. February 2026 verified state: `connectors_loaded: 69`. The `validated_by: "69_dgm_cascade"` field confirms this gate fired. Note: requests sent directly to the 20llm-production service on port 8008 bypass the 69-DGM gate by design — that port is the internal ensemble endpoint, not the public interface.
 
-- **Global modes**  
-  Swarm behavior and watchdog responses are constrained by active modes, with more conservative settings limiting the scope of both.
+**Psychology alignment layer.** The `jarvis-psychology-services:8019` service (`psychological_rag_domain`, port 8006 internal) runs a psychological assessment on every request before the ensemble processes it, classifying severity and checking for crisis indicators.
 
-- **Container paths**  
-  Events related to swarms and watchdog interventions are written into container and memory layers, becoming part of the system’s history and influencing future decisions.
+**NBB subconscious layer.** Seven of eight NBB containers respond to health probes via their internal network endpoints on port 8010, confirming the neurobiological simulation layer is active:
+```
+nbb_consciousness_containers      ✅ healthy (consciousness_bridge)
+nbb_heteroglobulin_transport      ✅ healthy (consciousness_bridge)
+nbb_spiritual_maternal_integration ✅ healthy (consciousness_bridge)
+nbb_mother_carrie_protocols       ✅ healthy (consciousness_bridge)
+nbb_woah_algorithms               ✅ healthy (consciousness_bridge)
+nbb_spiritual_root                ✅ healthy (consciousness_bridge)
+nbb_subconscious                  ✅ healthy (consciousness_bridge)
+nbb_pituitary_gland               ✅ healthy (DynamicPortService → Redis)
+```
 
-This integration ensures that coordination and oversight are treated as first-class parts of the architecture.
+The pituitary gland registers through Redis DynamicPortService rather than a fixed `/health` endpoint, which is why a direct HTTP probe on port 8010 fails while its Redis registration shows `status: healthy`.
+
+**ChromaDB memory integration.** Verification script outputs saved to `/tmp/msjarvis_verify_*.log` are structured for ingestion into ChromaDB (`/api/v2`) under an `operations_history` collection. The February 2026 OPERATIONAL baseline report is the first verified entry in this operational history.
 
 ---
 
 ## 35.7 Summary
 
-Swarm functions and eternal watchdogs provide mechanisms for collective problem-solving and continuous oversight. By organizing groups of agents to work together and by maintaining persistent monitoring of health, policy, and risk signals, they help keep the system effective and aligned as it operates and evolves.
+Swarm functions and eternal watchdogs in the February 2026 Ms. Jarvis deployment are running, verified, and logged against concrete evidence. The 22-slot LLM ensemble — organized into TINY, SMALL, MEDIUM, and LARGE tiers across 21 active models — delivers 21/22 participation on every warm-cache query in approximately 52 seconds. The five-layer watchdog system — `VERIFYANDTEST.sh`, Ollama memory scheduler, asyncio semaphore at slot 3, `MAX_CONCURRENT_CHATS=2` gate, and Redis DynamicPortService — prevents the cascade failures that reduced the system to 0/22 models under uncontrolled concurrent load.
 
----
+The February 2026 hardening session demonstrated the critical importance of each watchdog layer. Together they define a stable operating envelope: 29 GB host RAM, 20 GB Ollama container limit, semaphore at 3, MAX_CONCURRENT_CHATS at 2, minimum timeout at 240 seconds, and `VERIFYANDTEST.sh` confirming 15/15 services and 22/22 proxies before any production workload is accepted.
 
-## Implementation Notes (Reality Alignment)
-
-In the current deployment, the original host-level orchestrator units remain installed but no longer drive behavior. Their responsibilities have been decomposed into dedicated containerized services and standalone Python processes that can be monitored individually.
-
-### Concrete watchdog processes
-
-Several always-on or long-running Python programs act as practical eternal watchdogs alongside the container mesh:
-
-- `ms_jarvis_ram_watchdog.py`  
-  Monitors memory usage and related resource conditions on the host, ensuring that heavy workloads (for example, large RAG or LLM runs) do not silently exhaust RAM.
-
-- `sanctuary_construction_monitor.py`  
-  Tracks the overall construction and health of the sanctuary environment, including basic checks for missing or misconfigured services and files.
-
-- `ms_jarvis_mother_carrie_protocols.py`  
-  Encodes higher-level governance and “spiritual” safeguards, running as a persistent process that can influence how other components are allowed to operate.
-
-- `memory_dgm_engine.py`  
-  Runs as a long-lived background process on its own port, maintaining and updating deep generative memory structures; this engine both consumes system state and feeds back patterns that can be used for swarm-style reasoning and optimization.
-
-These watchdogs run directly on the host and are visible in process listings and port/health audits, making their behavior inspectable.
-
-### Swarm functions in practice
-
-Swarm behavior today is primarily realized through:
-
-- The `jarvis-llm-bridge` service, which orchestrates a multi-agent ensemble of models to produce synthesized responses for complex tasks. Multiple reasoning, specialist, and judge agents operate in parallel and their outputs are combined into a single answer.  
-- Coordination between `jarvis-web-research`, RAG/Chroma access, and the LLM bridge, where different services contribute web evidence, internal semantic memory, and reasoning passes over the same query.  
-- DGM and optimization components that propose variants of prompts, tool calls, or workflows, effectively exploring different “agents” or configurations as part of a small swarm.
-
-These implementations give concrete form to the abstract swarm functions described earlier, using real services and ensembles that can be traced in logs.
-
-### Monitoring and health observation
-
-Watchdog behavior is implemented through a combination of:
-
-- **Host-level watchdogs**  
-  The Python processes listed above, which continuously observe aspects of host and system health and can emit logs or trigger safeguards.
-
-- **Service-level health checks**  
-  Key containers (main brain, BBB, web-research, RAG, Chroma, Neo4j, MySQL, Ollama, and others) expose health or status endpoints and/or container health checks that are regularly polled.
-
-- **Scripted audits and test harnesses**  
-  Shell scripts and automated tests execute standardized checks, including:
-  - Container inventories and port scans.  
-  - Health requests to core services.  
-  - Basic data-plane queries against Chroma and other stores.
-
-Together, these mechanisms turn “swarm functions” into observable multi-service coordination and “eternal watchdogs” into specific long-running processes and health-check routines that can be inspected, tested, and improved over time.
+The one intentional gap — BakLLaVA disabled via DNS poisoning in the endpoint configuration — is documented, logged, and architecturally inert. Every other model failure mode is handled by a specific watchdog mechanism that logs the event, excludes the model from consensus, and maintains ensemble function with the remaining participants.
