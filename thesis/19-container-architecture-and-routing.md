@@ -1,11 +1,12 @@
-> **Why this matters for Polymathmatic Geography**  
-> This chapter explains how Ms. Jarvis’s “containers” receive, sort, and route the flows of experience that later become memory and decision support. It supports:  
-> - **P1 – Every where is entangled** by treating events from people, places, and institutions as a shared stream that must be carefully routed into memory.  
-> - **P3 – Power has a geometry** by making explicit which services, ports, and stores stand between communities’ data and long-term inference.  
-> - **P5 – Design is a geographic act** by encoding how Appalachian events move through Ms. Jarvis and into spatial, semantic, and commons-oriented stores.  
-> - **P12 – Intelligence with a ZIP code** by prioritizing spatial, governance, and commons contexts in the way container records are tagged and stored.  
-> - **P16 – Power accountable to place** by using auditable container flows and verification scripts so communities can see where their data goes.  
-> As such, this chapter belongs to the **Computational Instrument** tier: it describes the container and routing structures that turn raw events into traceable, place-aware memory.
+## Why this matters for Polymathmatic Geography  
+This chapter explains how Ms. Jarvis’s “containers” receive, sort, and route the flows of experience that later become memory and decision support. It supports:  
+- **P1 – Every where is entangled** by treating events from people, places, and institutions as a shared stream that must be carefully routed into memory.  
+- **P3 – Power has a geometry** by making explicit which services, ports, and stores stand between communities’ data and long-term inference.  
+- **P5 – Design is a geographic act** by encoding how Appalachian events move through Ms. Jarvis and into spatial, semantic, and commons-oriented stores.  
+- **P12 – Intelligence with a ZIP code** by prioritizing spatial, governance, and commons contexts in the way container records are tagged and stored.  
+- **P16 – Power accountable to place** by using auditable container flows and verification scripts so communities can see where their data goes.  
+
+As such, this chapter belongs to the **Computational Instrument** tier: it describes the container and routing structures that turn raw events into traceable, place-aware memory.
 
 # 19. Container Architecture and Routing
 
