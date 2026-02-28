@@ -1,6 +1,6 @@
 # Safety Champion Participation Agreement
 
-> Draft for community review and legal vetting. This agreement is intended for individuals invited to serve as **Safety Champions** (red‑team participants) during Phase 0 (Invite‑Only Beta) of the MountainShares Program. In any conflict with the MountainShares Terms and Conditions or applicable law, those higher‑level instruments control.
+> Draft for community review and legal vetting. This agreement is intended for individuals who are authorized to act on behalf of a business, nonprofit, or government entity and who are invited to serve as **Safety Champions** (red‑team participants) during Phase 0 (Invite‑Only Beta) of the MountainShares Program. By accepting this Agreement, the individual confirms they are acting on behalf of the organization named in the registration form (the “Safety Champion Organization”). In any conflict with the MountainShares Terms and Conditions or applicable law, those higher‑level instruments control.
 
 ---
 
@@ -9,30 +9,34 @@
 By accepting this Agreement, you agree to participate as a **Safety Champion** in the MountainShares ecosystem during Phase 0 (Invite‑Only Beta).
 
 - Your primary purpose is to help identify vulnerabilities, design weaknesses, and safety risks in MountainShares, The Commons, and related systems.  
-- Your contributions are treated as **commons work** and recognized in the form of Earned MountainShares (EMS) hours, not as wages, investment returns, or employment.
+- Your contributions are treated as **commons work** and recognized in the form of Earned MountainShares (EMS) hours, not as wages, investment returns, or employment.  
+- You act both:
+  - in your personal capacity as a Community Champion with your own UEI; and  
+  - as an authorized representative of the Safety Champion Organization identified during registration.
 
 ---
 
 ## 2. Relationship to MountainShares and Harmony for Hope
 
-- You are **not** an employee, agent, or representative of Harmony for Hope, Inc. or the MountainShares DAO.  
-- This Agreement does **not** create an employment relationship, partnership, joint venture, or investment contract.  
+- This Agreement establishes a limited **Safety Champion partnership** between Harmony for Hope, Inc. (“H4H”) and the Safety Champion Organization for the purposes described here.  
+- It does **not** create an employment relationship, joint venture, or investment contract between you (personally) or the Safety Champion Organization and H4H or the MountainShares DAO.  
 - You participate voluntarily and may stop participating at any time, subject to any obligations that reasonably survive (for example, confidentiality around unpatched vulnerabilities).
 
 ---
 
 ## 3. Onboarding, Identity, and EMS Recognition
 
-To participate as a Safety Champion:
+To participate as a Safety Champion, you must:
 
-- You will be issued:
-  - a MountainShares wallet; and  
-  - a Unique Ecosystem Identifier (UEI) associated with you as a real human.  
+- Have or create a personal Community Champion UEI (your individual identity in the system).  
+- Provide that UEI during Safety Champion registration.  
+- Identify the Safety Champion Organization you are authorized to represent.
 
-- You agree that:
-  - All qualifying safety‑testing work is logged as EMS hours in the recognition ledger.  
-  - EMS represent documented **hours of commons work**, not a right to cash or financial returns.  
-  - EMS‑based governance rights and any EMS → M$ conversions (if and when available) are governed by separate published rules and safety specifications, which may change over time.
+You agree that:
+
+- All qualifying safety‑testing work performed by you under this Agreement is logged as EMS hours in the recognition ledger, associated with your personal UEI and, where program rules allow, credited in aggregate to the Safety Champion Organization’s UEI.  
+- EMS represent documented **hours of commons work**, not a right to cash or financial returns.  
+- EMS‑based governance rights and any EMS → M$ conversions (if and when available) are governed by separate published rules and safety specifications, which may change over time.
 
 ---
 
@@ -81,12 +85,12 @@ You may discuss your participation in general terms (for example, “I served as
 - Serving as a Safety Champion:
   - does **not** grant extra voting weight;  
   - does **not** grant veto power over proposals; and  
-  - does **not** entitle you to any share of treasury assets or program revenues.  
+  - does **not** entitle you or the Safety Champion Organization to any share of treasury assets or program revenues.  
 
 You agree **not** to:
 
 - Attempt to disable, bypass, or weaken hard economic safety triggers, reserve‑ratio protections, or benefits‑safety rules, except as part of clearly scoped and responsibly reported testing.  
-- Use any vulnerability you discover to enrich yourself or others at the expense of users, merchants, or the treasury.  
+- Use any vulnerability you discover to enrich yourself, the Safety Champion Organization, or others at the expense of users, merchants, or the treasury.  
 
 When you test safety mechanisms (for example, reserve bands, caps, or benefits protections), your obligation is to **report and document**, not to exploit.
 
@@ -95,7 +99,7 @@ When you test safety mechanisms (for example, reserve bands, caps, or benefits p
 ## 7. EMS, Rewards, and No Guarantees
 
 - EMS hours are recognition of your time and contribution, not guaranteed compensation.  
-- Conversion of EMS into spendable MountainShares (M$), if available to you, is:
+- Conversion of EMS into spendable MountainShares (M$), if available to you or the Safety Champion Organization, is:
   - subject to published program rules, caps, and reserve‑ratio safety bands;  
   - subject to change through documented governance processes; and  
   - not guaranteed to occur at any particular rate or for any particular duration.  
@@ -106,7 +110,7 @@ This Agreement does not promise:
 - any particular internal “buying power” or phase change; or  
 - any financial outcome of any kind.
 
-You are responsible for your own tax and benefits considerations and should consult your own advisors if needed.
+You are responsible for your own tax and benefits considerations and should consult your own advisors if needed. The Safety Champion Organization is responsible for any tax, accounting, or regulatory treatment that applies to its participation.
 
 ---
 
@@ -118,13 +122,18 @@ You agree to:
 - Respect the MountainShares Terms and Conditions, Program Rules, and all other published policies that apply to users and participants.  
 - Immediately cease any activity if notified that it is prohibited, unsafe, or out of scope, even if it has not yet caused observable harm.
 
-Harmony for Hope and the MountainShares DAO may suspend or revoke your Safety Champion status, Phase 0 access, or UEI participation if you violate this Agreement or other applicable rules.
+The Safety Champion Organization agrees to:
+
+- Maintain internal policies and oversight so that its staff and contractors acting as Safety Champions comply with this Agreement.  
+- Cooperate in good faith with H4H in investigating and mitigating any issues discovered through Safety Champion activity.
+
+Harmony for Hope and the MountainShares DAO may suspend or revoke your Safety Champion status, Phase 0 access, or associated UEIs if you or the Safety Champion Organization violate this Agreement or other applicable rules.
 
 ---
 
 ## 9. Intellectual Property and Attribution
 
-- You grant Harmony for Hope and the MountainShares DAO a non‑exclusive, royalty‑free right to use:
+- You and the Safety Champion Organization grant Harmony for Hope and the MountainShares DAO a non‑exclusive, royalty‑free right to use:
   - your reports, ideas, and recommendations; and  
   - any vulnerability descriptions or proof‑of‑concepts you provide,  
   for the purpose of improving, securing, documenting, and operating the MountainShares ecosystem.  
@@ -137,10 +146,10 @@ Harmony for Hope and the MountainShares DAO may suspend or revoke your Safety Ch
 ## 10. Term, Changes, and Termination
 
 - This Agreement becomes effective when you accept it during onboarding and remains in effect while you act as a Safety Champion and for any period during which your past testing work may still reasonably create confidentiality or safety obligations.  
-- Harmony for Hope may update this Agreement from time to time. Material changes will be communicated through official channels, and continued participation after notice of changes may be treated as acceptance of the updated terms.  
-- Either you or Harmony for Hope may end your Safety Champion role at any time. Ending the role:
+- Harmony for Hope may update this Agreement from time to time. Material changes will be communicated through official channels, and continued participation after notice of changes may be treated as acceptance of the updated terms by you and the Safety Champion Organization.  
+- Either you, the Safety Champion Organization, or Harmony for Hope may end the Safety Champion role at any time. Ending the role:
   - does not erase EMS hours already logged; and  
-  - does not relieve you of confidentiality obligations regarding unpatched or sensitive issues disclosed to you.
+  - does not relieve you or the Safety Champion Organization of confidentiality obligations regarding unpatched or sensitive issues disclosed to you.
 
 ---
 
@@ -149,11 +158,17 @@ Harmony for Hope and the MountainShares DAO may suspend or revoke your Safety Ch
 By checking the box and submitting your registration, you confirm that:
 
 - You have read and understood this Safety Champion Participation Agreement.  
+- You are providing your correct Community Champion UEI and the correct legal name of the Safety Champion Organization.  
+- You are authorized to accept this Agreement on behalf of the Safety Champion Organization and to bind it to these terms.  
 - You understand that this is **not** an employment contract or investment agreement.  
-- You agree to abide by the scope, responsibilities, and limits described above.
+- You agree to abide, and to ensure that your Safety Champion work for the Organization abides, by the scope, responsibilities, and limits described above.
 
-**Name:** ____________________________  
+**Name (individual):** ____________________________  
+
+**Community Champion UEI:** ______________________  
+
+**Safety Champion Organization (legal name):** __________________  
+
+**Title/Role at Organization:** ____________________  
 
 **Date:** ____________________________  
-
-**UEI (if assigned):** __________________
