@@ -19,22 +19,32 @@
 
 ---
 
-## Status as of February 2026
+## Status as of March 2026
 
 | Category | Details |
 |---|---|
-| **Implemented now** | `jarvis-main-brain` confirmed running at **127.0.0.1:8050**. `UltimateRequest` model (message, userid, role, useallservices) and `UltimateResponse` (response, servicesused, consciousnesslevel, processingtime, architecturelayers, consciousnesslayers, truthverdict) both live. `SERVICES` registry and `discover_services()` health-check loop operational. `prefrontal_planner` `ConsciousnessLayer` appended on every `/chat` call. `call_nbb_prefrontal` called unconditionally at the start of every `ultimate_chat` execution; NBB prefrontal cortex is `nbb-i-containers` at **127.0.0.1:8101** (internal 7005), confirmed running. `call_truth_filter` invoking BBB on **0.0.0.0:8016** (`jarvis-blood-brain-barrier`, confirmed) for input truth verdict, attached as `truthverdict` on `UltimateResponse`. `jarvis-20llm-production` at **127.0.0.1:8008** (confirmed) as primary LLM fabric; no fallback fabric currently wired into this entrypoint. `apply_output_guards_async` calling BBB `/filter` as decoding-time output guard. `normalize_identity` applied to every response. `background_rag_store` scheduling near-duplicate check and RAG write after every `/chat` response. `/chat/async` + `/chat/status/{job_id}` async interface live with in-memory `active_jobs` table. `ms_jarvis_memory` confirmed written via `background_rag_store` (verified in 2026-02-15 case study; see Chapter 9 §9.3.5). `jarvis-spiritual-rag` at **127.0.0.1:8005** used as RAG server (earlier plan documents listed 8103; confirmed port is **8005**). `jarvis-web-research` reachable on internal Docker network only (port 8008/tcp, no host binding); distinct from `jarvis-20llm-production` which binds host port 8008. |
-| **Partially implemented / scaffolded** | `truth_verdict` is attached to every response and is advisory in the current deployment — it does not hard-gate the input pipeline. Modules in `SERVICES` registry including `qualia_engine`, `i_containers`, `neurobiological_master`, and `autonomous_learner` are exercised in other workflows but not yet wired into the `/chat` path. `ms_jarvis_memory` is currently append-only; deduplication via near-duplicate similarity check is advisory (affects reuse and skip logic, not write). |
-| **Future work / design intent only** | Hard-gate behavior on `truth_verdict` for certain role or threat levels. Full wiring of `qualia_engine`, `i_containers`, `neurobiological_master`, and `autonomous_learner` into the `/chat` execution path. Persistent job store replacing in-memory `active_jobs`. Richer per-phase timing and per-model latency exposure via a dedicated metrics endpoint. |
+| **Implemented and verified** | `jarvis-main-brain` confirmed running at **127.0.0.1:8050**. `UltimateRequest` model (message, userid, role, useallservices) and `UltimateResponse` (response, servicesused, consciousnesslevel, processingtime, architecturelayers, consciousnesslayers, truthverdict) both live. `SERVICES` registry and `discover_services()` health-check loop operational. `prefrontal_planner` `ConsciousnessLayer` appended on every `/chat` call. `call_nbb_prefrontal` called unconditionally at the start of every `ultimate_chat` execution; NBB prefrontal cortex is `nbb-i-containers` at **127.0.0.1:8101** (internal 7005), confirmed running. `call_truth_filter` invoking BBB on **0.0.0.0:8016** (`jarvis-blood-brain-barrier`, confirmed) for input truth verdict, attached as `truthverdict` on `UltimateResponse`. `jarvis-20llm-production` at **127.0.0.1:8008** (confirmed) as primary LLM fabric; 21/22 models responding consistently (BakLLaVA intentionally disabled); wall-clock consensus ~120–145s. Semaphore proxy (`jarvis-semaphore`, **port 8030**, `max_concurrent: 4`) confirmed as mandatory intermediary between main brain and 20-LLM ensemble; requires float `timeout` in proxy payload. `apply_output_guards_async` calling BBB `/filter` as decoding-time output guard; timeout corrected to **8.0s** (was `None`, caused indefinite hang after LLM completion — fixed 2026‑03‑02). `normalize_identity` applied to every response; confirmed firing on async path producing identity-aware Ms. Jarvis voice (2026‑03‑02). `background_rag_store` scheduling near-duplicate check and RAG write after every `/chat` response. `/chatlight/async` + `/chatlight/status/{job_id}` async interface live (added 2026‑03‑02); returns `job_id` instantly, polls for result, `mode: "light-async"` in response. `/chat/async` + `/chat/status/{job_id}` full-pipeline async interface also live with in-memory `active_jobs` table. `ms_jarvis_memory` confirmed written via `background_rag_store` (verified in 2026‑02‑15 case study; see Chapter 9 §9.3.5). `jarvis-spiritual-rag` at **127.0.0.1:8005** used as RAG server (earlier plan documents listed 8103; confirmed port is **8005**). `jarvis-web-research` reachable on internal Docker network only (port 8008/tcp, no host binding); distinct from `jarvis-20llm-production` which binds host port 8008. |
+| **Partially implemented / scaffolded** | `truth_verdict` is attached to every response and is advisory in the current deployment — it does not hard-gate the input pipeline. Modules in `SERVICES` registry including `qualia_engine`, `i_containers`, `neurobiological_master`, and `autonomous_learner` are exercised in other workflows but not yet wired into the `/chat` path. `ms_jarvis_memory` is currently append-only; deduplication via near-duplicate similarity check is advisory (affects reuse and skip logic, not write). `active_jobs` for both async interfaces is in-memory only; does not survive container restarts. |
+| **Future work / design intent only** | Hard-gate behavior on `truth_verdict` for certain role or threat levels. Full wiring of `qualia_engine`, `i_containers`, `neurobiological_master`, and `autonomous_learner` into the `/chat` execution path. Persistent job store replacing in-memory `active_jobs`. Richer per-phase timing and per-model latency exposure via a dedicated metrics endpoint. UI layer consuming `/chatlight/async` poll pattern for non-blocking chat interface. |
 
-> **This chapter is the canonical description of the `ultimatechat` execution path.** All other
-> chapters that reference "what happens on a user chat," "main brain coordination," or the
-> `UltimateResponse` structure should cross-reference here. The authoritative sequence is:
+> **This chapter is the canonical description of the `ultimatechat` and `chatlight` execution
+> paths.** All other chapters that reference "what happens on a user chat," "main brain
+> coordination," or the `UltimateResponse` structure should cross-reference here.
+>
+> **`ultimatechat` authoritative sequence:**
 > `UltimateRequest` received → `prefrontal_planner` layer appended → `call_nbb_prefrontal`
 > executed → `call_truth_filter` via BBB (port 8016) → RAG context via `jarvis-spiritual-rag`
 > (port 8005) + `jarvis-web-research` (internal) → `llm20production` synthesis via
-> `jarvis-20llm-production` (port 8008) → `apply_output_guards_async` via BBB → `normalize_identity`
-> → `background_rag_store` into `ms_jarvis_memory` → `UltimateResponse` returned.
+> `jarvis-20llm-production` (port 8008) → `apply_output_guards_async` via BBB (8.0s timeout) →
+> `normalize_identity` → `background_rag_store` into `ms_jarvis_memory` → `UltimateResponse`
+> returned.
+>
+> **`chatlight/async` authoritative sequence:**
+> `POST /chatlight/async` received → `job_id` returned instantly → background task: semaphore
+> proxy (port 8030) → `jarvis-20llm-production` (port 8008, ~120–145s) →
+> `apply_output_guards_async` via BBB (8.0s timeout) → `normalize_identity` → job marked
+> `done`; client polls `GET /chatlight/status/{job_id}` → result with `mode: "light-async"`,
+> `models_responded`, `latency`.
 
 ---
 
@@ -84,12 +94,12 @@ each entry in the `SERVICES` dictionary — `qualia_engine`, `consciousness_brid
 `rag_server`, `web_research`, `llm20_production`, and NBB microservices — for a healthy response
 via `check_service_health`.
 
-For asynchronous jobs created via `/chat/async`, in the current deployment the system maintains
-an in-memory `active_jobs` table keyed by `job_id`, with each entry storing job status
-(processing, complete, or error), a progress string, creation time, the original message and
-`userid`, and on completion the full result object. External clients can call
-`/chat/status/{job_id}` to see whether a request is still running, what stage it has reached,
-and how long it has been active. Global settings — including the API key, the
+For asynchronous jobs created via `/chat/async` or `/chatlight/async`, in the current deployment
+the system maintains in-memory job tables keyed by `job_id`, with each entry storing job status
+(queued, running, done, or error), a progress string, creation time, the original message and
+`userid`, and on completion the full result object. External clients can call the corresponding
+`/status/{job_id}` endpoint to see whether a request is still running, what stage it has
+reached, and how long it has been active. Global settings — including the API key, the
 `MAX_CONCURRENT_CHATS` semaphore limit, and service URLs — are represented via environment
 variables and module-level constants.
 
@@ -125,43 +135,43 @@ deployment the coordinator checks whether `"rag_server"` and `"web_research"` ap
 RAG helper queries `jarvis-spiritual-rag` at **port 8005** (confirmed running; earlier plan
 documents listed 8103 — the correct port is **8005**) via its `/search` endpoint with the user's
 message and an optional metadata filter based on role, then constructs a labeled
-`From Knowledge Base:` block. The web helper calls `jarvis-web-research` (internal Docker network,
-port 8008/tcp, no host binding — distinct from `jarvis-20llm-production` which binds host port
-8008) via its `/search` endpoint and wraps any returned summary in a `From Web Research:` block.
-These blocks are combined into a `context_block` and used by `build_egeria_prompt` to construct
-the enhanced prompt.
+`From Knowledge Base:` block. The web helper calls `jarvis-web-research` (internal Docker
+network, port 8008/tcp, no host binding — distinct from `jarvis-20llm-production` which binds
+host port 8008) via its `/search` endpoint and wraps any returned summary in a
+`From Web Research:` block. These blocks are combined into a `context_block` and used by
+`build_egeria_prompt` to construct the enhanced prompt.
 
 **Step 4 — LLM fabric selection and execution.** For answer synthesis, in the current deployment
-the coordinator targets `llm20_production` as its primary LLM fabric. If `"llm20_production"`
-is present in `available_services`, it constructs a full URL by appending the service's operation
-path (`/chat`) and sends a JSON payload containing the enhanced message and `userid` to
-`jarvis-20llm-production` at **127.0.0.1:8008** (confirmed running). If the call succeeds and
-returns a JSON body, it extracts the response text from fields such as `response`, `result`,
-`output`, or `answer`, appends `"llm20production"` to `servicesused`, and logs both the status
-code and a preview of the response. If `llm20_production` is unavailable or returns a non-200
-status, in the current deployment the coordinator raises an HTTP error indicating the production
-fabric is not available; no further fallback fabric is currently wired into this entrypoint. For
-full details on the 20-LLM ensemble and judge pipeline that `llm20production` uses internally,
-see **Chapter 33**.
+the coordinator targets `llm20_production` as its primary LLM fabric. The 20-LLM ensemble
+(`jarvis-20llm-production`, port **8008**) is accessed via the semaphore proxy
+(`jarvis-semaphore`, port **8030**, `max_concurrent: 4`), which is a mandatory intermediary that
+serializes concurrent Ollama requests. The semaphore proxy requires a float `timeout` value (not
+`None`) in its payload; the main brain passes `600.0` as the timeout and uses
+`httpx.Timeout(None, connect=5.0, read=None)` on its own client so the semaphore manages the
+deadline rather than the main brain's httpx layer. The ensemble dispatches to 22 model proxy
+containers (llm1-proxy:8201 through llm22-proxy:8222), of which 21 respond consistently
+(BakLLaVA is intentionally disabled via DNS). Wall-clock consensus time is approximately
+120–145 seconds depending on system load. If `llm20_production` is unavailable or returns a
+non-200 status, the coordinator raises an HTTP error; no further fallback fabric is currently
+wired into this entrypoint. For full details on the 20-LLM ensemble and judge pipeline, see
+**Chapter 33**.
 
 **Step 5 — Post-processing, safety guard, and background storage.** Once a raw LLM output is
 obtained, in the current deployment the coordinator feeds it through `clean_response_for_display`
 to strip legacy RAG metadata and multi-agent analysis scaffolding. It then passes the cleaned
 text through `apply_output_guards_async`, which calls the BBB's `/filter` endpoint on port 8016
-as a decoding-time output guard and chooses a safe text field from the BBB response when
-available. After this, it applies `normalize_identity` to ensure the answer speaks as
-Ms. Egeria Jarvis rather than as a generic LLM. In parallel, the coordinator schedules a
-`background_rag_store` task that checks for near-duplicate entries in the RAG server via
-`/search` with `top_k=1` and, if no near-duplicate is found, stores a truncated version of the
-query and response plus metadata about `servicesused` into `ms_jarvis_memory`. In the current
-deployment, `ms_jarvis_memory` is append-only; deduplication is advisory and affects the skip
-logic only, not the write path. This behavior was confirmed in the 2026-02-15 case study where
-Chroma queries showed matching entries with `ids` of the form `bg_<ISO8601_TIMESTAMP>` and
-`metadatas` including `type: "background"` and `services: ["llm20production"]` (see Chapter 9
-§9.3.5). The final `UltimateResponse` aggregates the safe, normalized answer, `servicesused`,
-`consciousnesslevel` (currently `"ultimate_collective"`), total `processingtime`,
-`architecturelayers` (the length of `consciousnesslayers`), the prefrontal and other
-consciousness layers themselves, and the earlier BBB `truthverdict`.
+as a decoding-time output guard using `httpx.AsyncClient(timeout=8.0)`. The 8-second timeout is
+a permanent architectural fix (2026‑03‑02): the original `timeout=None` caused the entire chat
+response to hang indefinitely after the 20-LLM ensemble completed, because the BBB filter call
+blocked without bound. After the output guard, `normalize_identity` is applied to ensure the
+answer speaks as Ms. Egeria Jarvis rather than as a generic LLM — confirmed producing
+identity-aware responses on the async path (2026‑03‑02). In parallel, the coordinator schedules
+a `background_rag_store` task that checks for near-duplicate entries via `/search` with `top_k=1`
+and, if no near-duplicate is found, stores a truncated version of the query and response plus
+metadata into `ms_jarvis_memory`. The final `UltimateResponse` aggregates the safe, normalized
+answer, `servicesused`, `consciousnesslevel` (currently `"ultimate_collective"`), total
+`processingtime`, `architecturelayers`, the consciousness layers themselves, and the earlier BBB
+`truthverdict`.
 
 ---
 
@@ -180,28 +190,35 @@ primarily wires in `blood_brain_barrier`, `rag_server`, `web_research`, `llm20_p
 the NBB prefrontal cortex. Additional modules remain available for other workflows and are
 identified as future expansion points for this entrypoint. Upstream, unified gateways and
 academic front-ends treat `Ms. Jarvis ULTIMATE` as a single main-brain endpoint, calling
-`/chat`, `/chat/light`, or `/chat/async` with standard payloads. Downstream, the executive layer
-fans out to the confirmed running Dockerized services described in this chapter and in Chapters
-11, 12, 16, 33, and 9.
+`/chat`, `/chatlight`, `/chatlight/async`, or `/chat/async` with standard payloads. Downstream,
+the executive layer fans out to the confirmed running Dockerized services described in this
+chapter and in Chapters 11, 12, 16, 33, and 9.
 
 ---
 
 ## 17.5 Asynchronous Job Handling
 
-In addition to the synchronous `/chat` and `/chat/sync` endpoints, in the current deployment the
-executive layer exposes an asynchronous interface (`/chat/async` and `/chat/status/{job_id}`)
-for long-running requests. When a client submits an async request, the service generates a
-`job_id`, inserts an entry into the `active_jobs` dictionary with `status: "processing"`, an
-initial progress message, and the creation timestamp, then launches `process_chat_job` as an
-independent task.
+The executive layer exposes two asynchronous interfaces for long-running requests.
 
-The `process_chat_job` coroutine constructs an `UltimateRequest` from the job's message and
-`userid` and calls `ultimate_chat` to run the full coordination pipeline — service discovery,
-NBB prefrontal execution, context building, `llm20production` synthesis, BBB guarding, and
-background RAG storage. As the job progresses it updates `active_jobs[job_id]` with new progress
-messages and, on success, stores the final result object and marks status as `"complete"`; on
-error it sets status to `"error"` and records the exception message. Completed jobs expire after
-a short retention window. In the current deployment, `active_jobs` is an in-memory table; a
+**Full-pipeline async (`/chat/async` + `/chat/status/{job_id}`).** When a client submits an async
+request, the service generates a `job_id`, inserts an entry into the `active_jobs` dictionary
+with `status: "processing"`, and launches `process_chat_job` as an independent task. That
+coroutine runs the full `ultimate_chat` coordination pipeline — service discovery, NBB prefrontal
+execution, context building, `llm20production` synthesis, BBB guarding, identity normalization,
+and background RAG storage — updating job status as it proceeds and marking the entry `"complete"`
+or `"error"` on termination.
+
+**Lightweight consensus async (`/chatlight/async` + `/chatlight/status/{job_id}`).** Added
+2026‑03‑02 (git tag `v2026.03.02-chatlight-async-working`). This interface bypasses the full
+prefrontal, RAG, and web-research pipeline and routes directly to the 20-LLM ensemble via the
+semaphore proxy. It is designed for UI development and scenarios where a non-blocking connection
+and a 2–3 minute consensus result are preferable to a 9–10 minute full-pipeline response. The
+submit endpoint returns a `job_id` and `poll_url` instantly. The client polls
+`/chatlight/status/{job_id}` at any interval; the response includes `status` (queued / running /
+done / error), `elapsed` seconds, and on completion a `result` object containing `answer`,
+`response`, `latency`, `mode: "light-async"`, `models_responded`, and `userid`. The
+`normalize_identity` step is applied, confirming that Ms. Jarvis's identity voice is present even
+on the lightweight path. In both async interfaces, `active_jobs` is an in-memory table; a
 persistent job store is identified as future work.
 
 ---
@@ -252,18 +269,21 @@ for inspection.
 ## 17.8 Operational Pattern and Performance
 
 In the current deployment on the reference host (Legion 5, local Docker), empirical runs show
-that for heavy AGI-scale requests with all major services enabled, end-to-end latency for `/chat`
-calls is on the order of 9–10 minutes, with most of the time spent inside the `llm20_production`
-fabric and its own internal ensemble behavior (see Chapter 33 for how that ensemble works
-internally). The NBB prefrontal cortex, RAG context building, and web research phases each have
-explicit timeouts and do not dominate latency under these workloads. The concurrency semaphore
-(`MAX_CONCURRENT_CHATS`) and explicit logging of per-phase timing provide operators with levers
-for tuning throughput and responsiveness without sacrificing safety or introspection.
+the following latency profile:
 
-These measurements are specific to one environment; they demonstrate that the executive
-coordinator's design — prefrontal phase, health-aware routing, centralized LLM fabric, and
-background RAG consolidation — remains stable and empirically tractable under demanding
-conditions.
+- **`/chatlight/async` (lightweight consensus):** 20-LLM ensemble completes in ~120–145s; full
+  job wall clock ~130–160s including semaphore queuing, BBB guard (8s timeout), and identity
+  normalization. HTTP connection returns instantly; client polls for result.
+- **`/chat` (full pipeline, synchronous):** End-to-end latency on the order of 9–10 minutes,
+  with most time inside `llm20_production`. NBB prefrontal cortex, RAG context building, and web
+  research each have explicit timeouts and do not dominate under these workloads.
+- **Semaphore queuing effect:** Multiple concurrent requests to the 20-LLM service queue in the
+  semaphore proxy (max 4 concurrent). Each Ollama model run is sequential within the ensemble,
+  so back-to-back test calls accumulate wait time. The semaphore should be restarted between
+  test sessions to drain queued work before benchmarking.
+
+The `MAX_CONCURRENT_CHATS` semaphore and explicit logging of per-phase timing provide operators
+with levers for tuning throughput and responsiveness without sacrificing safety or introspection.
 
 ---
 
@@ -292,7 +312,9 @@ community-governance coupling.
 In the current deployment, the executive coordination layer — realized by `jarvis-main-brain` at
 **127.0.0.1:8050** — provides a concrete and instrumented account of how a multi-layer cognitive
 architecture is orchestrated in practice, including a dedicated prefrontal NBB phase. The
-confirmed execution sequence is:
+confirmed execution sequences are:
+
+**`/chat` (synchronous, full pipeline):**
 
 1. `UltimateRequest` (message, userid, role, useallservices) received at `/chat`
 2. `prefrontal_planner` `ConsciousnessLayer` appended; `available_services` populated
@@ -300,12 +322,22 @@ confirmed execution sequence is:
 4. `call_truth_filter` → BBB at **0.0.0.0:8016** → `truthverdict` attached (advisory)
 5. `build_rag_context` → `jarvis-spiritual-rag` at **127.0.0.1:8005**
 6. `build_web_context` → `jarvis-web-research` (internal Docker network, port 8008/tcp)
-7. `llm20_production` synthesis → `jarvis-20llm-production` at **127.0.0.1:8008**
-8. `apply_output_guards_async` → BBB at **0.0.0.0:8016** (output guard)
+7. `llm20_production` synthesis → semaphore proxy (port 8030) → `jarvis-20llm-production` at **127.0.0.1:8008** (~120–145s, 21/22 models)
+8. `apply_output_guards_async` → BBB at **0.0.0.0:8016** (output guard, 8.0s timeout)
 9. `normalize_identity` applied
 10. `background_rag_store` scheduled → `ms_jarvis_memory` (append-only, dedup advisory)
-11. `UltimateResponse` returned with `response`, `servicesused`, `consciousnesslevel`,
-    `processingtime`, `architecturelayers`, `consciousnesslayers`, `truthverdict`
+11. `UltimateResponse` returned with `response`, `servicesused`, `consciousnesslevel`, `processingtime`, `architecturelayers`, `consciousnesslayers`, `truthverdict`
+
+**`/chatlight/async` + `/chatlight/status/{job_id}` (async, lightweight consensus):**
+
+1. `POST /chatlight/async` received → `job_id` + `poll_url` returned instantly
+2. Background task acquires `chat_semaphore`; calls `discover_services()`
+3. `build_egeria_prompt` constructs enhanced message
+4. `httpx.Timeout(None, connect=5.0, read=None)` client → semaphore proxy (port 8030) → `jarvis-20llm-production` (port 8008, timeout 600.0 passed to semaphore)
+5. 20-LLM ensemble completes (~120–145s); response extracted from `body["response"]`
+6. `clean_response_for_display` → `apply_output_guards_async` (BBB, 8.0s timeout) → `normalize_identity`
+7. Job marked `done`; `result` includes `answer`, `latency`, `mode: "light-async"`, `models_responded`
+8. Client polls `GET /chatlight/status/{job_id}` → returns `status`, `elapsed`, `result`
 
 By anchoring the high-level metaphors of prefrontal control, introspection, and consolidation in
 specific code paths, data structures, and performance measurements, this layer demonstrates that
