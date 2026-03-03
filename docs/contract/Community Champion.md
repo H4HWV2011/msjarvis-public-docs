@@ -1,6 +1,6 @@
 # Community Champion / Red Team Participation Agreement
 
-> Draft for community review and legal vetting. This agreement is intended for individuals invited to serve as Community Champions (red team participants) during Phase 0 (Invite‑Only Beta) of the MountainShares Program. In any conflict with the MountainShares Terms and Conditions or applicable law, those higher‑level instruments control.
+> This agreement is intended for individuals invited to serve as Community Champions (red team participants) during Phase 0 (Invite‑Only Beta) of the MountainShares Program. In any conflict with the MountainShares Terms and Conditions or applicable law, those higher‑level instruments control.
 
 ---
 
