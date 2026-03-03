@@ -7,7 +7,7 @@ This document applies Polymathmatic Geography to non‑digital commons: physical
 - Traditional irrigation systems (Spanish huertas)  
 - Sacred forests and church-associated commons  
 
-In each case, the commons is treated as an *entangled space* where material flows, legal rules, genealogies, and spiritual or symbolic orders are woven together.
+In each case, the commons is treated as an *entangled space* where material flows, legal rules, genealogies, and spiritual or symbolic orders are woven together. Across these cases, patterns of **sacred geometry**—circles, axes, rings, and grids—quietly shape how people move, gather, and remember, becoming part of how a commons is recognized and defended.
 
 ---
 
@@ -47,20 +47,20 @@ From a polymathmatic perspective, temple–palace economies form an early **ledg
 
 This Mesopotamian ledgered commons is a distant ancestor of modern accounting and banking, but it also rhymes with today’s blockchain and DAO experiments: an attempt to bind economic behavior to a visible, rule‑governed record. For Polymathmatic Geography, it is a reminder that **commons and ledgers have been intertwined for millennia**, and that the question is not whether we keep ledgers, but **who they serve and who can read and contest them**.
 
-### 1.3 Edward I and the Dark Geometry of Power
+### 1.3 Yeoman Lines and the Dark Geometry of Power
 
-For this project, there is a direct genealogical thread into English statecraft: Edward I (“Longshanks”) is a distant ancestor of the author. His reign offers a stark example of how a single sovereign can re‑wire land, law, and lineage as one entangled system.
+For this project, the family thread into English statecraft does not run through kings’ bloodlines but through **yeoman‑class ancestors who lived under royal forests, manorial courts, and enclosure**. Their lives unfolded inside a geometry set by rulers like Edward I (“Longshanks”), but from the vantage point of those who had to navigate and survive it rather than decree it.
 
 Two clusters are especially important:
 
 - **Royal forests and the shrinking of common use**  
   Norman and Plantagenet kings declared vast areas as “royal forests,” a legal category that often included villages, fields, and heaths, not just woodland. Under forest law, traditional uses like hunting, wood‑gathering, and grazing could become criminal acts. By the late 13th century, Edward I was forced to “deforest” large tracts and confirm forest charters, but even these reforms took for granted a world where a royal word could convert lived commons into restricted zones.  
-  In Polymathmatic terms, this is a **state enclosure geometry**: a line on a map that simultaneously changes material flows (who can eat), legal exposure (who can be punished), genealogical continuity (which families keep or lose customary rights), and symbolic order (the king’s “green world” as a visible stamp of power).  
+  In Polymathmatic terms, this is a **state enclosure geometry**: a line on a map that simultaneously changes material flows (who can eat), legal exposure (who can be punished), genealogical continuity (which families keep or lose customary rights), and symbolic order (the king’s “green world” as a visible stamp of power). For yeoman families, this geometry shows up as fines, lost grazing, and quiet decisions about whether to bend, resist, or migrate.
 
 - **Castles, planted towns, and the conquest of Wales**  
   Edward’s conquest of Wales was followed by a ring of stone castles—Caernarfon, Conwy, Harlech, Beaumaris—often paired with new English boroughs. These were not just military outposts; they were **planned spatial instruments** that redirected trade, administration, and settlement into English‑controlled nodes. Welsh legal traditions were displaced or subordinated to English borough charters; Welsh lineages were pushed off prime river and coastal sites; the skyline itself was re‑inscribed with royal walls and towers.  
 
-Polymathmatic Geography sees this as a **top‑down reprogramming of a regional commons**: material circuits (tax, grain, labor), legal frameworks, genealogies, and symbols all bent toward imperial consolidation. Being descended from Edward I means this work does not approach enclosure, colonization, or forest law as abstractions; it treats them as part of a **family archive of geometry and power** that must be named, studied, and, where possible, counter‑engineered—so that new commons in Appalachia are built with full awareness of the old maps they are trying to heal.
+Polymathmatic Geography sees this as a **top‑down reprogramming of a regional commons**: material circuits (tax, grain, labor), legal frameworks, genealogies, and symbols all bent toward imperial consolidation. Descending from yeoman lines who lived under that regime means this work does not approach enclosure, colonization, or forest law as abstractions; it treats them as part of a **family archive of geometry and power** that must be named, studied, and, where possible, counter‑engineered—so that new commons in Appalachia are built with full awareness of the old maps they are trying to heal.
 
 ---
 
@@ -69,8 +69,6 @@ Polymathmatic Geography sees this as a **top‑down reprogramming of a regional 
 ### 2.1 The commons before enclosure
 
 In England, medieval and early modern villages often relied on open fields and common land where tenants had customary rights to graze animals, collect wood, or mow hay. These rights were embedded in the manorial system and local practice, not simply in written statute. Before large‑scale enclosure, common land occupied a substantial share of the rural landscape and underpinned subsistence for many households.  
-https://en.wikipedia.org/wiki/Enclosure  
-https://courses.lumenlearning.com/suny-hccc-worldhistory2/chapter/the-enclosure-act/
 
 From a polymathmatic perspective, these commons were already entangled spaces:
 
@@ -79,14 +77,9 @@ From a polymathmatic perspective, these commons were already entangled spaces:
 - **Genealogical** – Family claims to particular strips, homesteads, and use rights passed down across generations.  
 - **Symbolic/ritual** – Practices such as “beating the bounds,” in which parishioners walked and marked boundaries, embedding them in memory and story.  
 
-For enclosure awards, maps, and records, see:  
-https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/
-
 ### 2.2 Enclosure as spatial re-writing
 
 Between 1604 and 1914, more than 5,200 enclosure acts converted millions of acres of common and open-field land into privately controlled parcels, often fenced or hedged. This process did not merely change ownership; it re‑wrote the geometry of obligation and access.  
-https://en.wikipedia.org/wiki/Enclosure  
-https://www.thelandmagazine.org.uk/articles/short-history-enclosure-britain
 
 Key polymathmatic observations:
 
@@ -105,11 +98,8 @@ Polymathmatic Geography reads enclosure as a reconfiguration of an entangled spa
 When Quakers carried their practices from England to Pennsylvania, they created new commons centered on meetinghouses, burial grounds, and shared lands, governed by both civil grants and religious discipline.
 
 Bucks County histories describe **William Biles** as an early settler, lawyer, large landholder, and Quaker leader who served on Pennsylvania’s Provincial Council and Assembly. His lands and legal work shaped the geometry of early townships and riverfront settlement.  
-https://en.wikipedia.org/wiki/William_Biles  
 
 **Thomas Janney**, a Quaker minister from Cheshire, emigrated under William Penn’s encouragement and helped select sites for meetings and settlements in Bucks County. Genealogical and county sources list him among the Friends tasked with locating “a convenient place” for meetings and community development.  
-http://freepages.rootsweb.com/~mcstayfamily/genealogy/janney.htm  
-https://pagenweb.org/~bucks/BIOS_DAVIS/thomasjanney.html  
 
 The author is the 8th great‑granddaughter of both Biles and Janney, so the spaces they surveyed, argued over, and prayed in are not just historical case studies but part of a living **family commons** that still shapes how Appalachian design problems are approached.
 
@@ -120,12 +110,13 @@ Seen polymathmatically, these early Quaker spaces in Pennsylvania were commons i
 - **Genealogical** – Families like the Biles and Janney lines embedded in particular meetings and tracts over generations.  
 - **Symbolic/narrative** – Stories of persecution, ministry, and admonition (for example, elders confronting Biles over selling rum to Indigenous people) that encode boundaries of acceptable conduct in the commons.
 
+Sacred geometry is present here in the quiet arrangement of these spaces: rectangular meeting rooms with benches facing a central stillness, burial grounds laid out in simple grids, and processional paths from lane to door to grave that inscribe equality and accountability into the very way bodies move and sit together.
+
 ### 3.2 Accountability and power inside a settler commons
 
 This Quaker commons is not a simple egalitarian space; it is a site where power, conscience, and colonial expansion are negotiated.
 
 Bucks County Quaker histories and meeting narratives recount how Friends, including ministers like Janney, admonished Biles about selling rum to Indigenous people, treating it as a serious breach of discipline rather than a private business choice. The same man who was a judge, legislator, and major landholder could be called to account by his meeting, illustrating a form of **internal accountability to a spiritual-legal order** within an emerging settler commons.  
-https://www.fallsingtonmeeting.org/quaker-history/our-history  
 
 Polymathmatic Geography reads this as:
 
@@ -142,8 +133,6 @@ This makes early Quaker Pennsylvania a bridge between European enclosure histori
 ### 4.1 La Huerta de Valencia and Huerta de Murcia
 
 Mediterranean irrigation systems such as the huerta of Valencia and Murcia in Spain are classic water commons: intricate networks of canals (acequias) that distribute river water to thousands of small plots under shared rules.  
-https://www.bbc.com/travel/article/20220220-valencias-la-huerta-spains-ingenious-water-maze  
-https://theurbanactivist.com/governance/the-council-of-good-men-huerta-murcia/
 
 Key features include:
 
@@ -151,9 +140,7 @@ Key features include:
 - **Time-based rights** – Water rights are often defined by time slots, giving each irrigator a proportion of flow during a cycle rather than a fixed volume.  
 - **Self-governing institutions** – Bodies like the Tribunal de las Aguas de Valencia and the Consejo de Hombres Buenos in Murcia adjudicate disputes and enforce rules with deep historical legitimacy.
 
-For broader historical and hydrological context, see:  
-https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
-https://onlinelibrary.wiley.com/doi/10.1111/joac.12042  
+In the author’s own formation, huertas entered not as abstractions but through a 10th‑grade Spanish classroom, where teacher Janey Webb taught irrigation vocabulary alongside the cultural importance of shared canals, rotating turns, and open‑air tribunals. That early blend of language learning and commons governance becomes a seedbed for later polymathmatic work.
 
 ### 4.2 Entangled irrigation geographies
 
@@ -182,11 +169,6 @@ Across Europe and parts of Asia, forests and groves associated with religious si
 - Monastic and church-managed forests where harvesting and grazing are regulated by religious norms and internal rules.  
 - Church-centered forests where grazing or fodder collection is allowed only after specific feast days.
 
-For empirical studies and case collections, see:  
-https://www.ecologyandsociety.org/vol27/iss4/art20/  
-https://www.zygonjournal.org/article/id/11615/  
-https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
-
 ### 5.2 Spiritual orders as governance
 
 Polymathmatic Geography treats these as commons whose governance is inseparable from spiritual orders:
@@ -195,6 +177,8 @@ Polymathmatic Geography treats these as commons whose governance is inseparable 
 - **Legal/spiritual** – Written laws and unwritten taboos that encode transgressions as both legal and religious offenses, with sanctions that may include ritual obligations.  
 - **Genealogical/community** – Longstanding relationships between local families, religious communities, and particular trees, paths, and clearings.  
 - **Symbolic** – Icons, shrines, and processional routes that anchor collective memory to specific forest features.
+
+In many of these places, sacred geometry is part of how governance is felt. A ring of trees around a shrine, a processional axis from church door to altar, or a cross‑shaped clearing in a forest is not just aesthetic; it inscribes boundaries, centers, and lines of approach into the land itself. People learn, in their bodies, that some paths are for everyday use and others for feast days; some spaces are for work and others for vows. Polymathmatic Geography reads these geometries as one more layer of the entangled commons: patterned forms that quietly align ecological care, legal rules, genealogies, and ritual into a shared sense of where one is and how one should move there.
 
 Questions in this frame include:
 
@@ -207,17 +191,6 @@ Questions in this frame include:
 ## 6. Enclosure and Transformation of Non-Digital Commons
 
 Historical and contemporary processes—such as Parliamentary enclosure, state water concessions, urbanization, and secularization—have transformed many of these commons.
-
-For English commons:  
-https://en.wikipedia.org/wiki/Enclosure  
-https://www.thelandmagazine.org.uk/articles/short-history-enclosure-britain  
-
-For irrigation commons under pressure:  
-https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
-
-For sacred sites and modern pressures:  
-https://www.ecologyandsociety.org/vol27/iss4/art20/  
-https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
 
 In each case, Polymathmatic Geography tracks:
 
@@ -233,54 +206,29 @@ The Quaker/Pennsylvania cases (Biles, Janney) illustrate how spiritual governanc
 
 ### 7.1 English enclosure and loss of commons
 
-- Enclosure overview (historical context and consequences):  
-  https://en.wikipedia.org/wiki/Enclosure  
-
-- Short historical summary:  
-  https://courses.lumenlearning.com/suny-hccc-worldhistory2/chapter/the-enclosure-act/  
-
-- Short history essay:  
-  https://www.thelandmagazine.org.uk/articles/short-history-enclosure-britain  
-
-- Enclosure awards and maps:  
-  https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/enclosure-awards/  
+- Enclosure overview (historical context and consequences).  
+- Short historical summaries of the Enclosure Acts.  
+- Short histories and essays on the loss of commons in Britain.  
+- Guides to enclosure awards, maps, and records.  
 
 ### 7.2 Mediterranean irrigation commons
 
-- Valencia’s huerta:  
-  https://www.bbc.com/travel/article/20220220-valencias-la-huerta-spains-ingenious-water-maze  
-
-- Murcia water governance and the “Council of Good Men”:  
-  https://theurbanactivist.com/governance/the-council-of-good-men-huerta-murcia/  
-
-- Segura river basin irrigation history:  
-  https://www.water-alternatives.org/index.php/alldoc/articles/vol4/v4issue3/142-a4-3-1/file  
-
-- Spanish irrigation communities in broader context:  
-  https://onlinelibrary.wiley.com/doi/10.1111/joac.12042  
+- Valencia’s huerta and its historic canal networks.  
+- Murcia water governance and the “Council of Good Men.”  
+- Segura river basin irrigation history.  
+- Spanish irrigation communities in broader context.  
 
 ### 7.3 Sacred forests and church-associated commons
 
-- Spiritual values of forests:  
-  https://www.ecologyandsociety.org/vol27/iss4/art20/  
-
-- Church trees and sacred forests:  
-  https://www.zygonjournal.org/article/id/11615/  
-
-- Sacred sites and biocultural diversity:  
-  https://www.silene.ong/wp-content/uploads/2019/08/Linking_Biocultural_Diversity_and_Sacred_Sites_Europe.pdf  
+- Spiritual values of forests in different traditions.  
+- Church trees and sacred forests as biocultural refuges.  
+- Sacred sites and biocultural diversity in Europe.  
 
 ### 7.4 Quaker and early Pennsylvania commons (Biles, Janney)
 
-- William Biles (biographical overview):  
-  https://en.wikipedia.org/wiki/William_Biles  
-
-- Thomas Janney (genealogical and county histories):  
-  http://freepages.rootsweb.com/~mcstayfamily/genealogy/janney.htm  
-  https://pagenweb.org/~bucks/BIOS_DAVIS/thomasjanney.html  
-
-- Fallsington Meeting history (Quaker meeting and community context in Bucks County):  
-  https://www.fallsingtonmeeting.org/quaker-history/our-history  
+- William Biles (biographical overviews).  
+- Thomas Janney (genealogical and county histories).  
+- Fallsington Meeting histories (Quaker meeting and community context in Bucks County).  
 
 ---
 
@@ -291,12 +239,6 @@ The historical commons above are not just analogies; they have living relatives 
 ### 8.1 The Industrial Commons: Cooperative Learning Journey as Commons School
 
 The Industrial Commons in Morganton, North Carolina, is explicitly rebuilding “a diverse working class…based on locally rooted wealth” through community-owned enterprises, land initiatives, and cooperative finance. Its Cooperative Learning Journey brings practitioners, funders, and local leaders into a multi‑day immersion where they walk the Innovation Campus, meet worker‑owners, and study TIC’s Rural Wealth Blueprint and Build–Buy–Leverage approach.
-
-- TIC overview and mission:  
-  https://www.theindustrialcommons.org  
-
-- Cooperative Learning Journey:  
-  https://www.theindustrialcommons.org/cooperative-model-journey  
 
 Polymathmatic Geography can treat this Learning Journey as a commons school:
 
@@ -309,57 +251,26 @@ For Ms. Jarvis and MountainShares, TIC’s Learning Journey becomes a field prot
 
 ---
 
-### 8.2 Sync Space and Heath Guinn: Regional Ecosystem Commons
+### 8.2 New Roots Community Farm: Land and Food Commons in Fayette County
 
-Sync Space, based in the Appalachian Highlands, functions as an entrepreneurial commons for a multi‑state region—connecting founders, mentors, capital, and institutions across northeast Tennessee, southwest Virginia, western North Carolina, and eastern Kentucky. Under President Heath Guinn’s leadership (Leadership Tennessee Class VII), Sync Space has helped knit together counties, universities, healthcare systems, and investors into a shared platform for rural innovation.
+New Roots Community Farm, just outside Fayetteville in Fayette County, West Virginia, is a working example of a land and food commons in the author’s home geography. On the 82‑acre former Whitlock Farm along Wolf Creek Road, New Roots is being rebuilt as a shared hub for local food production, education, and community events rather than a single private operation.
 
-- Sync Space overview:  
-  https://syncspace.org  
+Seen polymathmatically, New Roots functions as:
 
-- Leadership Tennessee announcement:  
-  https://syncspace.org/heath-guinn-president-of-sync-space-selected-for-leadership-tennessee-class-vii  
+- **Material/economic** – Fields, high tunnels, and infrastructure producing vegetables, fruit, and flowers that circulate through on‑site markets, local groceries, senior boxes, schools, and food pantry partners. The land itself is conserved as farmland rather than being parceled for speculative development.  
+- **Legal/institutional** – A layered governance arrangement involving the Fayette County Farmland Protection Board, Urban Renewal Authority, county commission, and a local operating nonprofit, creating a hybrid public–community stewardship model instead of simple fee‑simple ownership. Program design, leases, and partnerships effectively act as “bylaws” of the commons.  
+- **Genealogical/social** – Emerging “food kinship” lines among young farmers, apprentices, volunteers, and elders who teach canning, gardening, and land memory. Families who have long lived with extractive land uses encounter a different script for what a good hillside or bottomland is for.  
+- **Symbolic/ritual** – Farm dinners, volunteer days, school visits, and seasonal events that make New Roots a place where “feed the people, food is a human right” becomes not just a slogan but a recurring ritual. The visible transformation of a former production farm into a community space rewrites local stories about what counts as valuable land use in Fayette County.  
 
-Through a polymathmatic lens, Sync Space is:
+Sacred geometry shows up here in the layout of beds, paths, and gathering spots: circles of chairs under trees, rows that frame views of the barn and ridgeline, and central clearings where markets and meetings happen. These patterns quietly teach where to walk, where to linger, and how to be with one another on the land.
 
-- **Material/economic** – Shared access to programs, capital, and markets that would be unreachable by isolated founders.  
-- **Legal/institutional** – MOUs, accelerator cohorts, and partnerships that turn separate jurisdictions into a coordinated ecosystem.  
-- **Genealogical/regional** – A new “kinship map” of towns and counties linked by entrepreneurial pathways over the mountains.  
-- **Symbolic** – Stories of Appalachian tech and social enterprise that contest inherited narratives of extraction and decline.
-
-For MountainShares, Sync Space models how to stitch counties into one ledgered commons without erasing local identity.
+For MountainShares and The Commons, New Roots is a local design teacher: it shows how county instruments, conservation tools, and everyday hospitality can hold a non‑digital commons together, and raises practical questions about how Ms. Jarvis should see, weigh, and protect places that feed people before they feed distant markets.
 
 ---
 
-### 8.3 Coalfield Development and Brandon Dennison: 33‑6‑3 as Time Commons
-
-Coalfield Development, operating in southern West Virginia, has pioneered the 33‑6‑3 model: 33 hours of paid work, 6 hours of higher education, and 3 hours of personal development each week for crew members. This structure ties green social enterprises (solar, construction, agriculture, reuse) to a holistic re‑commonsing of time, skills, and dignity for people exiting coal, incarceration, or addiction.
-
-- Coalfield Development overview:  
-  https://coalfield-development.org  
-
-- Brandon Dennison bio:  
-  https://coalfield-development.org/bio-brandon-dennison  
-
-Polymathmatic Geography reads 33‑6‑3 as a time‑based commons, akin to huerta water rotations:
-
-- **Material** – Wages, tools, and production embedded in social enterprises rather than extractive employers.  
-- **Temporal/legal** – A fixed weekly rhythm that guarantees learning and healing time, not just labor extraction.  
-- **Genealogical** – Multi‑year cohorts whose trajectories shift family histories of precarious work and exclusion.  
-- **Symbolic** – A new narrative of “a good job” in coalfield counties: one that includes education, recovery, and agency as non‑negotiable.
-
-For The Commons and Ms. Jarvis, Coalfield poses a key design question: how might digital systems protect and encode time for learning and care, not just optimize throughput?
-
----
-
-### 8.4 Appalshop / Appalachian Media Institute: Narrative Commons
+### 8.3 Appalshop / Appalachian Media Institute: Narrative Commons
 
 Appalshop’s Appalachian Media Institute (AMI) in Whitesburg, Kentucky, has, since 1988, trained hundreds of young people to document their communities through film, audio, and digital media. Youth producers share equipment, editing infrastructure, and mentorship as they tell stories about coal, floods, music, environment, and everyday life, building a regional media commons that counters extractive outside portrayals.
-
-- Appalshop overview:  
-  https://appalshop.org  
-
-- Appalachian Media Institute:  
-  https://www.amiappalshop.org  
 
 Seen polymathmatically, AMI is:
 
@@ -372,22 +283,4 @@ This is the narrative twin of The Commons: one works on content‑creator rights
 
 ---
 
-### 8.5 Appalachian Rekindling Project: Rematriated Land Commons
-
-The Appalachian Rekindling Project (ARP) seeks to establish an intertribal Indigenous center and land‑based hub in central Appalachia, where Native people can return, gather, and care for land collectively. The project explicitly frames its work as rematriation—restoring Indigenous women‑led relationships between people and ancestral land—alongside plans for bison reintroduction and land stewardship rooted in Indigenous law and ceremony.
-
-- Appalachian Rekindling Project:  
-  https://www.appalachianrekindlingproject.org  
-
-Polymathmatic Geography sees ARP as:
-
-- **Material/ecological** – Land held in collective Indigenous care, with bison and other species returning to landscapes shaped by extraction and dispossession.  
-- **Legal/sovereign** – Governance grounded in Indigenous law, treaty awareness, and intertribal protocols, not just state property codes.  
-- **Genealogical** – Reconnecting displaced families and nations to specific hollows, ridges, and watersheds in central Appalachia.  
-- **Symbolic/ritual** – Ceremonies, language use, and story that explicitly heal histories of removal and enclosure.
-
-For MountainShares and The Commons, ARP is a necessary constraint and teacher: any Appalachian commons architecture must avoid replaying settler‑colonial erasure by centering Indigenous sovereignty and leadership in land‑based projects, or risk becoming another layer of enclosure with better branding.
-
----
-
-In this way, The Industrial Commons, Sync Space, Coalfield Development, Appalshop/AMI, and the Appalachian Rekindling Project become **live production labs** for non‑digital commons in Appalachia. Their practice offers concrete patterns—governance rhythms, institutional forms, narrative protocols, and spatial arrangements—that Polymathmatic Geography can formalize, and that MountainShares, The Commons, and Ms. Jarvis can encode into new but historically aware infrastructures.
+In this way, English commons, Quaker meetings, Mediterranean huertas, sacred forests, and contemporary efforts like The Industrial Commons, New Roots Community Farm, and Appalshop/AMI become **live production labs** for non‑digital commons. Their practice offers concrete patterns—governance rhythms, institutional forms, narrative protocols, sacred geometries, and spatial arrangements—that Polymathmatic Geography can formalize, and that MountainShares, The Commons, and Ms. Jarvis can encode into new but historically aware infrastructures.
