@@ -7,13 +7,14 @@
 
 >> Figure 1. MountainShares as Case Study 1 within Polymathmatic Geography, applying Quantarithmia principles to a concrete, place-bound economic system in Mount Hope, West Virginia.
 
-> - In this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place-bound economic system in and around Mount Hope, West Virginia:
-> - **Leakage and extraction** – tracking how value “leaks” from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.  
-> - **Commons and shared infrastructure** – treating payment rails, data backbones, and governance tools as shared institutional infrastructure rather than proprietary black boxes.  
-> - **Accountability to place** – tying rules, flows, and decision rights to specific communities and geographies, so that institutional power is answerable to the places it affects.  
-> - **Glass-box instrumentation** – using Ms. Jarvis and GBIM as inspectable instruments whose behaviors, biases, and limits can be studied, calibrated, and contested.
+In this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place-bound economic system in and around Mount Hope, West Virginia:
 
-Within **polymathamatical geography** and the **Quantarithmia** framework, MountainShares is a DAO-based economic and governance system designed to keep value, voice, and decision-making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It is intentionally positioned as a community-governed project that operates alongside, not in place of, existing banks, credit unions, or regulated financial institutions.
+- **Leakage and extraction** – tracking how value “leaks” from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.  
+- **Commons and shared infrastructure** – treating payment rails, data backbones, and governance tools as shared institutional infrastructure rather than proprietary black boxes.  
+- **Accountability to place** – tying rules, flows, and decision rights to specific communities and geographies, so that institutional power is answerable to the places it affects.  
+- **Glass-box instrumentation** – using Ms. Jarvis and GBIM as inspectable instruments whose behaviors, biases, and limits can be studied, calibrated, and contested.
+
+Within **polymathmatic geography** and the **Quantarithmia** framework, MountainShares is a DAO-based economic and governance system designed to keep value, voice, and decision-making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It is intentionally positioned as a community-governed project that operates alongside, not in place of, existing banks, credit unions, or regulated financial institutions. In the current deployment, MountainShares operates on the same production GBIM, GeoDB, Chroma, and `local_resources` stack described in the instrumentation chapters, using those structures for live benefits and governance queries.
 
 Within the thesis, MountainShares serves as the institutional case study where Quantarithmia’s spatial justice commitments and Ms. Jarvis’s GBIM-powered analysis are translated into concrete rules, roles, and processes.
 
@@ -27,7 +28,7 @@ MountainShares is built to:
 - Give residents, nonprofits, and local businesses a documented, auditable role in shaping rules, resource allocation, and priorities.
 - Provide a constitutional and transparent governance layer for the system’s rules and technologies, while remaining subject to applicable law and regulation.
 
-Design decisions are evaluated against questions such as: “Does this change keep value and decision-making closer to the community?” and “Can community members see, understand, and challenge how the system operates?”
+In the production system, MountainShares draws on Ms. Jarvis and GBIM in production, including GBIM beliefs and GeoDB features, to analyze risk, access, and local circulation. Design decisions are evaluated against questions such as: “Does this change keep value and decision-making closer to the community?” and “Can community members see, understand, and challenge how the system operates?”
 
 ---
 
@@ -44,7 +45,6 @@ MountainShares uses a closed-loop wallet model:
 </div> 
 
 >> Figure 2. MountainShares closed-loop economic model: participants load funds in, circulate them locally under DAO rules with minimal friction, and can convert back out via defined, auditable processes. Most friction is at system boundaries rather than on local transactions.
-
 
 Fees are structured so that most friction is at the boundaries (loading in, merchant side) rather than on every small local transaction. This is meant to make everyday community use feel low-friction, while still supporting system sustainability and compliance. All fee structures are subject to change only through appropriate governance and must remain consistent with applicable laws and payment-provider terms.
 
@@ -75,7 +75,7 @@ This phased approach acknowledges that a fully “flat” governance structure i
 MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately asymmetrical way:
 
 - **Ms. Jarvis as advisor, not ruler**  
-  She provides analysis, simulations, and explanatory reports (often grounded in GBIM data) to support human decision-making, but does not possess direct, unilateral authority over governance outcomes.
+  She provides analysis, simulations, and explanatory reports (often grounded in GBIM and GeoDB data) to support human decision-making, but does not possess direct, unilateral authority over governance outcomes.
 
 - **Constitutional and policy constraints**  
   All of Ms. Jarvis’s behavior relevant to MountainShares is constrained by published constitutional principles, ethical guards, and community-approved policies. These constraints are documented and auditable (see, for example, the constitutional and guardrail descriptions in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia%20Overview.md).
@@ -135,4 +135,6 @@ For the purposes of this thesis and public documentation:
 - Participation in MountainShares may have legal or tax implications that depend on individual circumstances and jurisdiction; participants are responsible for seeking their own professional advice.
 - Formal legal instruments (such as Terms of Use, privacy policies, and entity charters) will ultimately govern real-world deployment and may supplement or override parts of this description where required by law or by future community-approved updates.
 
-> Status: This chapter is a draft conceptual and governance overview. Further thesis chapters and appendices will deepen the analysis of MountainShares as a case study in spatial justice, institutional design, and AI-supported community governance, and will cross-reference its role as Case Study 1 in the polymathmatic case-study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
+Auditability and traceability for MountainShares rely on the same production apparatus that supports Ms. Jarvis more broadly: logged GBIM beliefs, GeoDB features, vector collections, and governance and application logs together provide an evidence trail for how analyses and decisions were produced.
+
+> Status: As of March 2026, this chapter describes an operational governance overview built on the current Ms. Jarvis/GBIM stack, with additional analytic work and extensions documented in later chapters. Further thesis chapters and appendices deepen the analysis of MountainShares as a case study in spatial justice, institutional design, and AI-supported community governance, and cross-reference its role as Case Study 1 in the polymathmatic case-study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
