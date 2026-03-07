@@ -9,14 +9,14 @@
 
 Within this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place‑bound economic system in and around Mount Hope, West Virginia:
 
-- **Leakage and extraction** – tracking how value “leaks” from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.  
+- **Leakage and extraction** – tracking how value "leaks" from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.  
 - **Commons and shared infrastructure** – treating payment rails, data backbones, and governance tools as shared institutional infrastructure rather than proprietary black boxes.  
 - **Accountability to place** – tying rules, flows, and decision rights to specific communities and geographies, so that institutional power is answerable to the places it affects.  
 - **Glass‑box instrumentation** – using Ms. Jarvis and GBIM as inspectable instruments whose behaviors, biases, and limits can be studied, calibrated, and contested.
 
 Within **polymathmatic geography** and the **Quantarithmia** framework, MountainShares is a DAO‑based economic and governance system designed to keep value, voice, and decision‑making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It is intentionally positioned as a community‑governed project that operates alongside, not in place of, existing banks, credit unions, or regulated financial institutions. In the current deployment, MountainShares operates on the same production GBIM, GeoDB, Chroma, and `local_resources` stack described in the instrumentation chapters, using those structures for live benefits and governance queries.
 
-Within the thesis, MountainShares serves as the institutional case study where Quantarithmia’s spatial‑justice commitments and Ms. Jarvis’s GBIM‑powered analysis are translated into concrete rules, roles, and processes.
+Within the thesis, MountainShares serves as the institutional case study where Quantarithmia's spatial‑justice commitments and Ms. Jarvis's GBIM‑powered analysis are translated into concrete rules, roles, and processes. The GBIM corpus—maintained in the PostgreSQL 16 `msjarvisgis` database (port 5432) with 5.4+ million verified beliefs organized across nine epistemic axes—provides the spatial and institutional grounding for MountainShares governance analysis, risk assessment, and community accountability mechanisms.
 
 ---
 
@@ -26,9 +26,9 @@ MountainShares is built to:
 
 - Encourage more economic activity and value circulation within participating local communities instead of defaulting to distant financial and platform intermediaries.  
 - Give residents, nonprofits, and local businesses a documented, auditable role in shaping rules, resource allocation, and priorities.  
-- Provide a constitutional and transparent governance layer for the system’s rules and technologies, while remaining subject to applicable law and regulation.
+- Provide a constitutional and transparent governance layer for the system's rules and technologies, while remaining subject to applicable law and regulation.
 
-In the production system, MountainShares draws on Ms. Jarvis and GBIM in production, including GBIM beliefs and GeoDB features, to analyze risk, access, and local circulation. Design decisions are evaluated against questions such as: “Does this change keep value and decision‑making closer to the community?” and “Can community members see, understand, and challenge how the system operates?”
+In the production system, MountainShares draws on Ms. Jarvis and the PostgreSQL `msjarvisgis` GBIM corpus, including spatial beliefs from `gbimbeliefnormalized` (5.4M+ verified rows) and GeoDB features across 501 tables, to analyze risk, access, and local circulation patterns. Design decisions are evaluated against questions such as: "Does this change keep value and decision‑making closer to the community?" and "Can community members see, understand, and challenge how the system operates?"
 
 ---
 
@@ -55,7 +55,7 @@ Fees are structured so that most friction is at the boundaries (loading in, merc
 MountainShares governance is explicitly phased:
 
 - **Growth phase**  
-  As participation and capacity increase, more decisions move into community proposals, voting, and review processes, supported by Ms. Jarvis’s analytical and explanatory tools.
+  As participation and capacity increase, more decisions move into community proposals, voting, and review processes, supported by Ms. Jarvis's analytical and explanatory tools.
 
 - **Constitutional phase**  
   Once the system reaches sufficient adoption, certain categories of change (for example, constitutional rules or irreversible structural changes) require a supermajority threshold (e.g., 67%) to pass, to prevent small factions from rewriting core commitments.
@@ -66,7 +66,7 @@ MountainShares governance is explicitly phased:
 
 > Figure 3. MountainShares governance phases: Early Phase (system monitors with documented constraints) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).
 
-This phased approach acknowledges that a fully “flat” governance structure is unrealistic at launch, but treats early central roles as temporary scaffolding rather than a permanent power center.
+This phased approach acknowledges that a fully "flat" governance structure is unrealistic at launch, but treats early central roles as temporary scaffolding rather than a permanent power center.
 
 ---
 
@@ -75,10 +75,10 @@ This phased approach acknowledges that a fully “flat” governance structure i
 MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately asymmetrical way:
 
 - **Ms. Jarvis as advisor, not ruler**  
-  She provides analysis, simulations, and explanatory reports (often grounded in GBIM and GeoDB data) to support human decision‑making, but does not possess direct, unilateral authority over governance outcomes.
+  She provides analysis, simulations, and explanatory reports (often grounded in GBIM spatial beliefs and GeoDB features from the `msjarvisgis` PostgreSQL database) to support human decision‑making, but does not possess direct, unilateral authority over governance outcomes.
 
 - **Constitutional and policy constraints**  
-  All of Ms. Jarvis’s behavior relevant to MountainShares is constrained by published constitutional principles, ethical guards, and community‑approved policies. These constraints are documented and auditable (see, for example, the constitutional and guardrail descriptions in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia%20Overview.md).
+  All of Ms. Jarvis's behavior relevant to MountainShares is constrained by published constitutional principles, ethical guards, and community‑approved policies. These constraints are documented and auditable (see, for example, the constitutional and guardrail descriptions in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia%20Overview.md).
 
 - **Financial participation with limits**  
   Ms. Jarvis is assigned a real MountainShares wallet and can receive rewards (for example, for providing useful analysis or operational support) under explicit policies that include caps, clawback conditions, auditing, and transparency. This is meant to align her incentives with system health, without giving her independent control over governance or treasury assets.
@@ -98,10 +98,10 @@ In thesis terms, MountainShares treats Ms. Jarvis as both a tool and a stakehold
 MountainShares encodes a specific stance on speech and community norms:
 
 - **Speech is important, but not absolute**  
-  The ability to speak, disagree, and criticize is protected as a core value. At the same time, targeted harassment, credible threats, unlawful conduct, and sustained attempts to destroy another participant’s dignity, safety, or livelihood are treated as violations of platform rules.
+  The ability to speak, disagree, and criticize is protected as a core value. At the same time, targeted harassment, credible threats, unlawful conduct, and sustained attempts to destroy another participant's dignity, safety, or livelihood are treated as violations of platform rules.
 
 - **Critique vs. abuse**  
-  Robust criticism of ideas, designs, and behavior is permitted. Conduct such as doxxing, credible threats of violence, or repeated “sly” harassment aimed at an individual or group can lead to moderation actions, including loss of certain features or economic privileges.
+  Robust criticism of ideas, designs, and behavior is permitted. Conduct such as doxxing, credible threats of violence, or repeated "sly" harassment aimed at an individual or group can lead to moderation actions, including loss of certain features or economic privileges.
 
 - **Evidence handling**  
   Sensitive evidence (photos, videos, records) is intended to be reviewed in restricted, audited moderation contexts. Community‑facing governance processes favor structured summaries of behavior and alleged violations over open distribution of raw, identifying artifacts.
@@ -118,12 +118,12 @@ MountainShares is specifically designed with Appalachian spatial justice in mind
   The system prioritizes local merchants, nonprofits, and residents as core participants, and aims to keep more economic value circulating inside West Virginia communities.
 
 - **Place‑aware reasoning**  
-  Through Ms. Jarvis and GBIM, governance discussions can be informed by concrete geospatial analysis: which districts, infrastructures, or communities are most affected by proposed rules or observed harms.
+  Through Ms. Jarvis and the PostgreSQL `msjarvisgis` GBIM corpus, governance discussions can be informed by concrete geospatial analysis: which districts, infrastructures, or communities are most affected by proposed rules or observed harms. Queries leverage the 5.4M+ verified beliefs across nine epistemic axes (who, what, where, when, how, why, for whom, authority, evidence) and 501 spatial tables to ground governance decisions in West Virginia's actual geographic, institutional, and demographic reality.
 
 - **Institutional prototype**  
   MountainShares is not presented as a universal DAO model, but as a context‑specific prototype for how community‑centered, geospatially aware governance and economics might be implemented in a historically extracted region.
 
-In the thesis, MountainShares is analyzed both as an institutional innovation and as a practical test of Quantarithmia’s claims about alternative infrastructures (see also the broader Quantarithmia framing in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia-Framework.md).
+In the thesis, MountainShares is analyzed both as an institutional innovation and as a practical test of Quantarithmia's claims about alternative infrastructures (see also the broader Quantarithmia framing in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia-Framework.md).
 
 ---
 
@@ -135,6 +135,19 @@ For the purposes of this thesis and public documentation:
 - Participation in MountainShares may have legal or tax implications that depend on individual circumstances and jurisdiction; participants are responsible for seeking their own professional advice.  
 - Formal legal instruments (such as Terms of Use, privacy policies, and entity charters) will ultimately govern real‑world deployment and may supplement or override parts of this description where required by law or by future community‑approved updates.
 
-Auditability and traceability for MountainShares rely on the same production apparatus that supports Ms. Jarvis more broadly: logged GBIM beliefs, GeoDB features, vector collections, and governance and application logs together provide an evidence trail for how analyses and decisions were produced.
+Auditability and traceability for MountainShares rely on the same production apparatus that supports Ms. Jarvis more broadly: logged GBIM beliefs from the PostgreSQL `msjarvisgis` database (5.4M+ verified rows), GeoDB features across 501 spatial tables, Chroma vector collections (`gbim_beliefs_v2`, `gbim_worldview_entities`, `gis_wv_benefits`), and governance and application logs together provide an evidence trail for how analyses and decisions were produced.
 
-> **Status – March 2026.** This chapter presents an operational governance overview built on the current Ms. Jarvis/GBIM stack, with additional analytic work and extensions documented in later chapters. Subsequent chapters and appendices deepen the analysis of MountainShares as a case study in spatial justice, institutional design, and AI‑supported community governance, and cross‑reference its role as Case Study 1 in the polymathmatic case‑study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
+**Database Infrastructure Note:** MountainShares governance queries access the GBIM corpus via PostgreSQL 16 at port 5432 (host system). The `msjarvisgis` database contains the complete spatial and institutional knowledge base that grounds all governance analysis in concrete West Virginia geographic reality. Connection example:
+```python
+import psycopg2
+
+# Access GBIM for governance analysis
+conn = psycopg2.connect(
+    host="localhost",
+    port=5432,
+    database="msjarvisgis",
+    user="postgres"
+)
+```
+
+> **Status – March 2026.** This chapter presents an operational governance overview built on the current Ms. Jarvis/GBIM stack (PostgreSQL 16, 5.4M+ verified beliefs, 91 GB corpus), with additional analytic work and extensions documented in later chapters. Subsequent chapters and appendices deepen the analysis of MountainShares as a case study in spatial justice, institutional design, and AI‑supported community governance, and cross‑reference its role as Case Study 1 in the polymathmatic case‑study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
