@@ -1,8 +1,9 @@
+
 ## Why this matters for Polymathmatic Geography
 
 This chapter defines the spatial “body” of Ms. Jarvis and specifies how West Virginia’s physical infrastructures, hazards, civic facilities, and benefits‑related sites are represented as a mature, computable geography. It supports:  
-- **P1 – Every where is entangled** by representing structures, rivers, floodplains, institutions, and program sites as a connected mesh rather than isolated map layers, and by linking them to GBIM belief records and spatial embeddings derived from the current `gbimbeliefnormalized` and related worldview tables, including the unified GBIM belief collection `gbim_beliefs_v2`.  
-- **P3 – Power has a geometry** by enabling operational analysis of how risk, access, infrastructure, and access‑to‑help are distributed across counties, hollows, ZIP codes, and corridors, and by exposing these distributions through PostGIS queries and through vector‑backed RAG neighborhoods over GBIM‑derived spatial collections and benefits‑focused collections such as `gis_wv_benefits`.  
+- **P1 – Every where is entangled** by representing structures, rivers, floodplains, institutions, and programme sites as a connected mesh rather than isolated map layers, and by linking them to GBIM belief records and spatial embeddings derived from the current `gbimbeliefnormalized` and related worldview tables, including the unified GBIM belief collection `gbim_beliefs_v2`.  
+- **P3 – Power has a geometry** by enabling operational analysis of how risk, access, infrastructure, and access‑to‑help are distributed across counties, hollows, ZIP codes, and corridors, and by exposing these distributions through PostGIS queries and through vector‑backed RAG neighbourhoods over GBIM‑derived spatial collections and benefits‑focused collections such as `gis_wv_benefits`.  
 - **P5 – Design is a geographic act** by showing how concrete schema choices, key conventions, CSV pipelines, RAG routing, collection design, and layer prioritization have already reshaped how the state “appears” in analysis, governance, and search.  
 - **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to a concrete, statewide PostGIS geodatabase, to a verified `local_resources` registry keyed by ZIP and county, and to their embeddings—especially the unified GBIM belief collections (currently realized as `gbim_beliefs_v2`) and the `gis_wv_benefits` collection used in GIS RAG flows.  
 - **P16 – Power accountable to place** by ensuring that advisory and governance behaviors are traceable to specific, queryable features, facilities, and programme footprints in West Virginia, with logged retrieval paths from GeoDB, GBIM, vector collections, and `local_resources` into the ensemble stack.
@@ -17,7 +18,7 @@ This chapter describes the geospatial substrate that anchors Ms. Egeria Jarvis i
 
 The focus is on the current structure and status of the PostGIS‑based geodatabase and its relationship to vector collections and RAG flows, rather than on exhaustive cataloguing of every dataset. Figure 6.1 summarizes the main containers and data stores involved in this spatial body.
 
-```markdown
+```
 
 ```
 
@@ -106,7 +107,7 @@ The current deployment includes a substantial, production‑grade subset of West
 
 Across these themes, the GBIM/GeoDB deployment integrates millions of features from on the order of two hundred statewide datasets. Feature counts and table names are catalogued in database inventories so that claims about coverage can be verified and updated as ingestion continues.
 
-```markdown
+```
 
 ```
 
@@ -118,7 +119,7 @@ Across these themes, the GBIM/GeoDB deployment integrates millions of features f
 
 To connect geometric features with high‑dimensional semantic reasoning, Ms. Jarvis maintains collections derived from GBIM beliefs and spatial entities in the shared vector store. These collections are hosted in a shared HTTP‑backed instance, configured with 384‑dimensional embeddings, and serve as the canonical spatial memory layer for RAG.
 
-```markdown
+```
 
 ```
 
@@ -200,7 +201,7 @@ This linkage allows the Steward System to traverse:
 
 The GeoDB layer and its GBIM/vector mirrors play a direct role in retrieval‑augmented generation, particularly for spatially explicit and benefits‑oriented queries. When a query includes spatial references—such as towns, hollows, counties, rivers, ZIP codes, or named facilities—the RAG pipeline can invoke geo‑aware paths.
 
-```markdown
+```
 
 ```
 
@@ -248,3 +249,4 @@ A key near‑term objective for the GeoDB layer is to extend the current “subs
   Periodically regenerating and archiving inventories of PostGIS tables, GBIM beliefs, collections, and `local_resources` entries, including counts and metadata coverage, to ensure that the spatial body of Ms. Jarvis remains transparent and auditable.
 
 As these milestones are met, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers—structures, hazards, networks, demographics, benefits facilities, and more—at the scale of millions of entities. The spatial body of the Steward System will thereby continue to support detailed, location‑specific reasoning about risk, infrastructure, governance, benefits access, and community well‑being across West Virginia, with each advisory behaviour traceable to specific, inspectable geographies, GBIM beliefs, and programme records in `local_resources`.
+
