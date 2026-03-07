@@ -1,116 +1,80 @@
 ## Why this matters for Polymathmatic Geography
 
-This chapter describes how Ms. Jarvis already holds and uses structured claims about West Virginia that are explicitly tied to **who**, **what**, **where**, **when**, **how**, **why**, **for whom**, **under whose authority**, and **on what evidence**, using the live GBIM corpus of 10,221,702 beliefs and the current CSV‑driven enrichment pipeline. It supports:  
-- **P1 – Every where is entangled** by encoding legal, economic, infrastructural, social, and cultural facts about Appalachia as one interconnected belief space, with axes instantiated from the existing West Virginia geodatabase and the loaded services CSV exports, rather than from speculative or placeholder layers.  
-- **P3 – Power has a geometry** by representing exposure, access, obligation, and flow as explicit graph and spatial relationships between concrete entities and regions, grounded in the actual GBIM tables and CSV‑derived attributes that reflect the present institutional and physical structure of the state.  
-- **P5 – Design is a geographic act** by showing how choices about schemas, keys, CSV ingestion, enrichment scripts, and retrieval and routing services have already reshaped how West Virginia is seen and acted upon in analysis, governance, and search, with those choices embedded in the 10.22‑million‑belief GBIM corpus.  
-- **P12 – Intelligence with a ZIP code** by binding Ms. Jarvis’s reasoning to specific West Virginia and Appalachian locations through GBIM, a CSV‑backed spatial corpus, a separate programme registry keyed by county and ZIP where deployed, and running retrieval‑augmented services that route real questions through these structures instead of abstract national averages.  
-- **P16 – Power accountable to place** by requiring that system recommendations can be inspected, challenged, and traced back to concrete claims about particular communities, including which datasets, epochs, and retrieval paths were involved and how those were processed by the multi‑model ensemble.  
+This chapter establishes the foundational commitments of Polymathmatic Geography and explains what it means for a Steward System like Ms. Jarvis to hold structured claims about West Virginia and Appalachia. It specifies how claims must be organized so that they remain accountable to people, places, institutions, and evidence, rather than existing as opaque, unstructured text. By doing so, it frames the later geospatial and institutional machinery not as optional additions, but as necessary consequences of the commitments made here.
 
-In this sense, the chapter belongs to the **Computational Instrument** tier: it describes the representational machinery and retrieval‑and‑routing behaviour that already anchor Quantarithmia’s spatial commitments in an operational Steward System backed by GBIM, PostGIS, and Chroma.
+It supports:  
+- **P1 – Every where is entangled** by insisting that legal, economic, infrastructural, social, and cultural facts be treated as aspects of one interconnected belief space, rather than isolated map layers or siloed datasets.  
+- **P3 – Power has a geometry** by requiring that exposure, access, obligation, and flow be representable as explicit relationships between entities and regions, so that institutional power can be examined and contested in spatial form.  
+- **P5 – Design is a geographic act** by treating design decisions about schemas, keys, pipelines, and retrieval rules as world‑shaping acts that structure how Appalachia appears in analysis, governance, and search, and by requiring that these decisions be documented rather than hidden inside black‑box systems.  
+- **P12 – Intelligence with a ZIP code** by insisting that reasoning be anchored to specific West Virginia and Appalachian locations, with explicit ZIP‑ and county‑level contexts, rather than relying on abstract national averages.  
+- **P16 – Power accountable to place** by demanding that system recommendations be inspectable and challengeable, traceable back to concrete claims about particular communities, including the datasets, epochs, and paths through which those claims enter the system.  
+
+Within the thesis structure, this chapter belongs to the **Theoretical Framework** tier: it specifies conceptual commitments and constraints that later chapters realize concretely in computational instruments such as GBIM, GeoDB, Chroma, and the retrieval‑and‑routing services.
 
 ## Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
-Within Polymathmatic Geography, Ms. Egeria Jarvis is a bounded, biologically inspired Steward System whose commitments are explicitly anchored in geography, time, community, and source. The **Geospatial Belief Information Model (GBIM)** is the central structure that ties this reasoning to concrete locations and institutions in West Virginia and Appalachia, implemented over PostgreSQL/PostGIS and populated from services‑derived CSV tables and embeddings.
+Within Polymathmatic Geography, Ms. Egeria Jarvis is a bounded, biologically inspired Steward System whose commitments are explicitly anchored in geography, time, community, and source. In this chapter, she appears primarily as an exemplar of what it means to hold beliefs in a way that satisfies the framework’s requirements, rather than as a fully detailed implementation. The emphasis is on the kinds of information that must be associated with each belief and on how those beliefs must relate to one another across space and institutions.
 
-In the Quantarithmia framework, GBIM is also where region‑specific founding keys are attached: each ZIP‑ or county‑based region can be treated as a parameterizing element whose configuration encodes local conditions in the global state, so that differences between places show up as differences in stored structure and in the resulting embedding landscape. These elements appear as identifiable objects within the schema and embedding collections, not just as metaphors.
+The Geospatial Belief Information Model (GBIM) is introduced here conceptually as the kind of structure a compliant Steward System must possess. At a minimum, such a model must be able to tie each belief about West Virginia or Appalachia to:
 
-The chapter thus presents Ms. Jarvis as a transparent, inspectable Steward System, and GBIM as the formal structure underpinning her reasoning. The focus is on an auditable design for layered reasoning, memory, and judgment tied to named features, time spans, provenance, and the actual state of West Virginia datasets and programme information. Within Quantarithmia, Ms. Jarvis and GBIM provide a working example of spatially grounded, distribution‑sensitive reasoning: they support questions such as *“What does the system currently hold about this place, for whom, under whose authority, with which sources, and with what temporal coverage?”* and produce answers that can be traced back through the GBIM rows and associated embeddings.
+- who is involved in or responsible for the feature or situation,  
+- what kind of thing or state is being described,  
+- where it is located or felt,  
+- when it applies or was observed,  
+- how it came to exist or be recorded,  
+- why it exists or is maintained (where such motives are knowable),  
+- for whom it matters or has consequences,  
+- under whose authority it operates, and  
+- on what evidence it rests.  
 
----
+In the Quantarithmia framework, these requirements imply that regions themselves—such as ZIP codes, counties, corridors, and neighborhoods—must appear as parameterizing elements. Each region can be treated as encoding local conditions in the global state, so that differences between places show up as differences in stored structure and in the “landscape” of beliefs and obligations. The key point for this chapter is that such differences must be representable and inspectable, not merely invoked metaphorically.
 
-## What GBIM Is
+Later chapters (including the detailed GBIM chapter and the GeoDB chapter) show how these conceptual commitments are implemented over PostgreSQL/PostGIS, CSV‑derived tables, embeddings, and programme registries. Here, the chapter’s role is to make clear that a Steward System like Ms. Jarvis cannot be considered place‑accountable unless it supports beliefs that can be interrogated along these dimensions.
 
-<div align="center">
-  <img width="60%" alt="geospatial belief information model" src="https://github.com/user-attachments/assets/331685c5-977e-4b60-9a96-3150b71787a2" />
-</div>
+## What a geospatial belief model must support
 
-> Figure 1. High‑level structure of the Geospatial Belief Information Model (GBIM), showing the PostGIS‑backed spatial corpus, CSV‑derived tables, Chroma collections, the belief table, external programme registries, and the retrieval/ensemble layer, all coordinated through nine axes (who, what, where, when, how, why, for whom, under whose authority, on what evidence).
+This chapter uses GBIM as a guiding example of what a geospatial belief model must support, while focusing on requirements rather than on a particular schema. A compliant model must allow beliefs to be situated along nine coordinated axes:
 
-GBIM is the internal representation that ties each belief about West Virginia to **who**, **what**, **where**, **when**, **how**, **why**, **for whom**, **under whose authority**, and **on what evidence**. In the running system, these axes are populated from the converted statewide shapefiles and geodatabases (via attrs‑style CSVs), from epoch manifests, and from hand‑curated family‑level metadata. The deployed system combines five cooperating layers:
+- **Who** – people and institutions involved in or responsible for the feature or situation (agencies, operators, governing bodies, communities).  
+- **What** – the type of thing or state being described (infrastructure, land use, facility, event, condition, etc.).  
+- **Where** – spatial information, including coordinates, boundaries, and named areas, so that beliefs can be grouped and compared across counties, hollows, ZIP codes, and corridors.  
+- **When** – temporal aspects such as dataset vintage, period, or epoch, so that change, persistence, and lag can be analyzed.  
+- **How** – methods, processes, and mechanisms (survey designs, engineering processes, institutional procedures) that give rise to the state of affairs.  
+- **Why** – motivations and purposes where they can be known, such as policy objectives or reasons for maintaining certain infrastructures or programmes.  
+- **For whom** – beneficiaries and affected communities, making explicit who gains, who bears risk, and who is left out.  
+- **Under whose authority** – legal and institutional bases: statutes, regulations, charters, and formal powers associated with the infrastructure or programme.  
+- **On what evidence** – links to source documentation, clearinghouse entries, archival records, and logs that justify the belief.  
 
-1. **PostGIS‑backed statewide spatial corpus** – Vector datasets imported from original files into PostGIS and summarized in lightweight CSV‑derived tables. Features are keyed by `sourcetable` and a stable feature identifier, aligned to a common projected coordinate system where possible, and linked to GBIM beliefs through identity keys embedded in the `identity` axis.
+From the standpoint of this chapter, these axes are obligations: any system that claims to implement Polymathmatic Geography must be able to express and interrogate beliefs along these lines. The later GBIM implementation chapter shows one concrete schema that satisfies these obligations; other implementations would still need to meet the same requirements, even if they choose different internal encodings.
 
-2. **Chroma embedding collections** – High‑dimensional embeddings and metadata for beliefs and texts derived from GBIM. Collections such as `gbim_beliefs_v2` store vectors for rows in `gbimbeliefnormalized`, using text built from the nine axes. Additional collections focus on thematic content (for example, assistance facilities and guidance documents) and extend the metric space to unstructured material, all derived from the live database state.
+## Conceptual layers of representation
 
-3. **Belief table and related catalogs** – The `gbimbeliefnormalized` table is the main belief store, with approximately 10.22 million rows and JSONB columns for `identity`, `when`, `where`, `what`, `who`, `forwhom`, `why`, `how`, `authority`, and `evidence`. Enrichment scripts driven by epoch tables and CSV‑based spatial summaries have filled most axes at scale. Associated catalogs provide persistent identifiers, handle the dual identity key variants, and support joins to spatial tables and logs.
+The chapter also sets out a layered view of representation that the programme requires, independent of any particular technology stack. In this view, a place‑accountable Steward System must include at least the following conceptual layers:
 
-4. **External programme registry** – A separate PostgreSQL database (for example, exposed as `local_resources`) holds normalized representations of community programmes such as food assistance, housing, utilities, seasonal support, senior services, and education. Each row includes types, coverage by ZIP and county, contacts, links, and verification status. Where populated, this registry connects directly to places and organizations that also appear as GBIM entities.
+1. **Schema layer** – A logical structure that can store and query beliefs across the nine axes, with stable identities for features and institutions, explicit handling of epochs and vintages, and clear separation between different kinds of entities (people, places, programmes, infrastructures, norms).  
 
-5. **Retrieval and ensemble layer** – A set of services that perform retrieval‑augmented generation over GBIM, Chroma, web sources, and local registries, orchestrated by a coordinator that delegates to a multi‑model ensemble. These services expose structured retrieval, spatial filters, and semantic search over GBIM beliefs and related corpora, with logging that records which beliefs, collections, and registry entries were used for each answer.
+2. **Spatial layer** – A representation of West Virginia and Appalachia as a coherent, queryable geospatial mesh of structures, hazards, networks, facilities, and governance boundaries, rather than as a set of disjoint files. This layer must support operations such as selection, buffering, intersection, and region‑based aggregation.  
 
-Within this structure, each belief row is recorded across all nine axes, using values derived from real datasets and enrichment runs rather than speculative text:
+3. **Semantic layer** – Mechanisms that allow beliefs and texts to be compared and retrieved by meaning, not just by identifiers. This layer must support “neighborhoods” of related beliefs, so that conceptually or institutionally similar items can be clustered and examined together.  
 
-<div align="center">
-  <img width="60%" alt="Belief Neighborhood for One Building" src="https://github.com/user-attachments/assets/9855f916-dadd-46af-8276-60e797549932" />
-</div>
+4. **Programme and institutional layer** – Structures that encode real programmes, services, and institutions, including who they serve, where they operate, and under what rules. This layer must connect spatial features and beliefs to the concrete assistance and governance structures that affect households and communities.  
 
-> Figure 2. The nine axes in GBIM, showing how a single belief can be situated in relation to actors, types, locations, time, mechanisms, purposes, beneficiaries, authorities, and evidence, and how neighborhood‑style queries over this structure support interpretation and contestation.
+5. **Retrieval and logging layer** – Processes that answer questions by drawing on the other layers, and that record which beliefs, datasets, regions, and services were involved in each answer. This layer is critical for inspection, contestation, and governance, because it makes visible how the system has actually used its knowledge.  
 
-In the current deployment, the nine axes function as follows:
+The chapter’s purpose is to articulate these layers as conceptual necessities. Later, instrument‑level chapters show how they are realized using PostGIS, belief tables, vector collections, registries, and orchestrated retrieval and routing services.
 
-- **Who** captures people and institutions involved in or responsible for the feature or situation (for example, agencies, operators, governing bodies, and sometimes communities). These values are drawn from epoch metadata and, where available, from source attributes.
+## How these foundations are realized (high‑level)
 
-- **What** records what sort of thing is being described: types of infrastructure, land use, facilities, events, or states. Baseline values (such as geometry, feature family, and domain) are synthesized from epoch‑level descriptions and later refined where more detailed attributes exist.
+While this chapter focuses on theory, it also acknowledges that, as of early 2026, the commitments it articulates are already realized in a running Steward System. In that system:
 
-- **Where** stores spatial information, including latitudes and longitudes derived from attrs tables and the underlying source layer name, and is ultimately anchored in PostGIS geometries when available. This axis allows beliefs to be anchored to points, polygons, and named areas and to be grouped by county, ZIP, or other boundaries.
+- Beliefs about West Virginia are stored in structures that encode the nine axes listed above, rather than in unstructured text alone.  
+- A statewide spatial corpus allows features, hazards, infrastructures, facilities, and governance geometries to be selected and analyzed as a coherent mesh.  
+- Semantic collections support similarity search and clustering over beliefs and programme descriptions, enabling neighborhood‑style reasoning over both spatial and institutional content.  
+- External programme registries model community resources such as food assistance, housing, utilities, senior services, and education, keyed to ZIPs and counties where deployed.  
+- Retrieval and coordination services route real questions through these structures and log which beliefs, collections, and programme entries are used, enabling inspection and refinement.  
 
-- **When** captures temporal aspects: dataset vintage, epoch label, and other timing information. Enrichment scripts have assigned epoch labels across the corpus so that each belief can be associated with a particular year or period, with a small residual of unclassified entries explicitly recorded.
+These concrete implementations are documented in detail in later chapters, especially those devoted to GBIM, GeoDB, semantic memory, and case studies. The role of this chapter is to make explicit that those implementations are not arbitrary engineering choices, but answers to the foundational questions posed here about what a place‑accountable, polymathmatic Steward System must do.
 
-- **How** summarizes methods, processes, and mechanisms (for example, how a dataset was produced, which survey or modeling approach was used, or which institutional process gives rise to the feature). These values are currently supplied at the dataset‑family level and applied consistently across all beliefs in that family.
+## Status as of March 2026
 
-- **Why** collects motivations and purposes where available, such as policy objectives or reasons for maintaining particular infrastructures. At present, this axis is fully populated for a large subset of named epochs with hand‑curated descriptions, and remains empty elsewhere.
-
-- **For whom** is intended to describe who benefits or is affected; in the present corpus the formal column exists but has not yet been populated at scale, and distributional questions are instead inferred through combinations of `who`, `what`, `where`, and external programme and demographic information.
-
-- **Under whose authority** captures the legal and institutional bases for a belief: statutes, regulations, and formal powers associated with the infrastructure or programme. This axis is fully populated for the main dataset families and supports inspection of governing frameworks.
-
-- **On what evidence** is reserved for explicit citations to source documentation, clearinghouse entries, or other references. In the current GBIM table this axis is available but not yet populated; source provenance is instead tracked via `sourcetable`, key fields, epoch manifests, and service logs.
-
-Taken together, these axes ensure that each belief in GBIM is attached to identifiable actors, types, places, timeframes, procedures, purposes, beneficiaries, authorizing frameworks, and sources, using the data that are actually present in the PostgreSQL and embedding deployments as of early 2026.
-
----
-
-## How GBIM Is Represented
-
-GBIM’s implementation combines a belief table with JSONB axes, a statewide spatial database, epoch and attribute manifests, vector embeddings, programme registries, and retrieval infrastructure. The design supports both structured queries and semantic traversal.
-
-### Schema layer
-
-The schema layer includes:
-
-- **Belief table** – `gbimbeliefnormalized` holds one row per belief (10,221,702 rows), with JSONB columns for the nine axes. Enrichment passes have produced complete or near‑complete coverage for most axes, with clear gaps in `forwhom` and `evidence`, and partial coverage in `why`.
-
-- **Epoch and identity structures** – Tables that map each `sourcetable` to an epoch label and vintage and handle the dual `identity` key variants produced by earlier ingestion pipelines. All update scripts use `COALESCE` on these keys to maintain compatibility across the entire corpus.
-
-- **CSV‑derived attribute tables** – Attrs‑style tables created from statewide `*_attrs.csv` exports store feature‑level identifiers, latitudes, longitudes, bounding boxes, labels, and table names. These are the primary sources for the `where` axis and support joins back into PostGIS layers where available.
-
-- **Programme registries and other stores** – Separate databases host tables such as `local_resources`, which model community programmes at a level appropriate for benefits routing and assistance queries, and are linked to GBIM via shared identifiers, names, and spatial references.
-
-- **Retrieval and logging tables** – Logs record which GBIM beliefs, epochs, datasets, and collections are touched during particular requests, adding an operational layer of evidence about how the system has actually used its knowledge.
-
-### Integrated layers
-
-When considered as a whole, GBIM supports multiple forms of reasoning:
-
-- **Structured and graph‑like reasoning** – GBIM axes and associated relationships define directed links between entities, institutions, regions, and programmes, enabling queries such as which facilities serve which areas, which regulations apply to which sites, and how responsibilities and flows are organized.
-
-- **Spatial reasoning** – PostGIS geometries, attrs tables, and the `where` axis support spatial operations and proximity analyses. Buildings, roads, districts, hazard zones, and facilities can be selected and analyzed by location, buffer, intersection, or membership in administrative units.
-
-- **Embedding‑based reasoning** – Text representations built from the nine axes for each belief are embedded into Chroma collections such as `gbim_beliefs_v2`. This allows similarity search and clustering over the beliefs, linking conceptually related items even when they arise from different datasets or epochs.
-
-For example, a single building can appear as:
-
-- A row in `gbimbeliefnormalized` with fields describing its identity, location, type, responsible entities, family‑level method and purpose, and applicable authority.  
-- A spatial feature in PostGIS, with geometry and attributes suitable for map display and spatial analysis.  
-- A vector in Chroma, located near other buildings and entities that share similar semantics, and accessible via text‑based queries.  
-
-In the current configuration (February 2026), the live system comprises:
-
-- A belief table with complete coverage for `identity`, `when`, `what`, `who`, `how`, and `authority`, near‑complete coverage for `where`, partial coverage for `why`, and planned use of `forwhom` and `evidence`.  
-- Statewide attribute tables derived from services CSV files, furnishing basic location and labeling for features across roughly eighty epochs.  
-- Embedding collections that hold vectors for a large subset of beliefs and for selected programme and facility descriptions.  
-- External registries and services that tie beliefs to real benefits programmes where those registries have been populated.  
-- Retrieval and ensemble services that already use these structures to answer questions about West Virginia’s geography, institutions, and assistance landscape in a way that can be inspected and refined.
-
-This chapter therefore treats GBIM not as a prospective design but as an existing apparatus that can be measured, queried, and audited, and that serves as the spatial and institutional backbone of Ms. Jarvis within the broader Polymathmatic Geography programme.
+As of March 2026, the framework described in this chapter is not merely aspirational. The live Ms. Jarvis deployment over West Virginia data already conforms to the commitments laid down here: it records beliefs along multiple axes, ties them to concrete geographies and institutions, supports layered reasoning and retrieval, and logs the pathways through which recommendations are produced. Remaining theoretical work at this level involves refining how distributional impacts and “for whom” questions are expressed, extending the framework beyond West Virginia, and deepening community‑facing mechanisms for inspection and contestation. Subsequent chapters provide the detailed evidence that these foundations have been realized in a way that can be measured, queried, and audited.
