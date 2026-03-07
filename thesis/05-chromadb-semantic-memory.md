@@ -1,13 +1,13 @@
 ## Why this matters for Polymathmatic Geography
 
-This chapter describes how Ms. Jarvis already uses a concrete semantic memory system to support place‑based reasoning about West Virginia, connecting GBIM beliefs, a statewide spatial corpus, and an emerging local resource registry into an inspectable retrieval pipeline. It supports:  
-- **P1 – Every where is entangled** by storing texts, GIS‑derived entities, and program records in shared relational tables and vector collections that can be jointly retrieved and joined, so that legal, economic, infrastructural, and social facts about Appalachia are handled as a single interconnected memory rather than as disconnected files or ad‑hoc lookups.  
-- **P3 – Power has a geometry** by representing relationships among institutions, places, and access to help as explicit database records, embeddings, and retrieval paths whose behavior can be inspected, clustered, and audited, making it possible to see how different parts of the system are actually traversed when answering questions about extraction, obligation, and care.  
-- **P5 – Design is a geographic act** by treating collection schemas, metadata choices, enrichment scripts, retrieval rules, and join logic as deliberate interventions into how West Virginia is represented and searched, so that design decisions about Ms. Jarvis’s memory layer are understood as decisions about how the region itself can be perceived and acted upon.  
-- **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific layers and records, including GBIM‑derived geographies and a program registry keyed by county and ZIP where populated, so that queries about help, risk, or opportunity are resolved through structures that explicitly encode where people live and which institutions serve them.  
-- **P16 – Power accountable to place** by making long‑term memory, retrieval behavior, and query‑to‑evidence links explicit and queryable, with logs and database joins that show which beliefs, features, and program rows were used in answers about particular communities, instead of hiding those choices inside opaque model weights.
+This chapter describes how Ms. Jarvis already uses a concrete semantic memory system to support place‑based reasoning about West Virginia, connecting GBIM beliefs, a statewide spatial corpus, and a verified local resource registry into an inspectable retrieval pipeline. It supports:  
+- **P1 – Every where is entangled** by storing texts, GIS‑derived entities, and programme records in shared relational tables and production vector collections such as `gbim_beliefs_v2` and `gis_wv_benefits` that can be jointly retrieved and joined, so that legal, economic, infrastructural, and social facts about Appalachia are handled as a single interconnected memory rather than as disconnected files or ad‑hoc lookups.  
+- **P3 – Power has a geometry** by representing relationships among institutions, places, and access to help as explicit GBIM records, GeoDB features, Chroma collections, and retrieval paths whose behaviour can be inspected, clustered, and audited, making it possible to see how different parts of the system are actually traversed when answering questions about extraction, obligation, and care.  
+- **P5 – Design is a geographic act** by treating collection schemas, metadata choices, enrichment scripts, retrieval rules, and join logic as deliberate interventions into how West Virginia is represented and searched, so that design decisions about Ms. Jarvis’s semantic memory layer are understood as decisions about how the region itself can be perceived and acted upon.  
+- **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific layers and records, including GBIM‑derived geographies and a programme registry keyed by county and ZIP where populated, so that queries about help, risk, or opportunity are resolved through structures that explicitly encode where people live and which institutions serve them.  
+- **P16 – Power accountable to place** by making long‑term memory, retrieval behaviour, and query‑to‑evidence links explicit and queryable, with logs and database joins that show which beliefs, features, and programme rows were used in answers about particular communities, instead of hiding those choices inside opaque model weights.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it defines the semantic memory substrate and retrieval layer on which Quantarithmia’s reasoning, GBIM’s belief structures, the verified local‑resources band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis currently run.
+As such, this chapter belongs to the **Computational Instrument** tier: it defines the production semantic memory substrate and retrieval layer—centred on collections such as `gbim_beliefs_v2`, the consolidated spatial index, and benefits‑focused collections—that Quantarithmia’s reasoning, GBIM’s belief structures, the verified `local_resources` band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis already run on in the live system.
 
 ## 5. ChromaDB as Semantic Memory
 
@@ -21,9 +21,9 @@ This chapter explains how Ms. Egeria Jarvis uses ChromaDB as the primary semanti
        width="900">
 </p>
 
-> *Figure 1 – ChromaDB as Semantic Memory in Ms. Jarvis. Services embed texts and GIS features into ChromaDB collections so that abstract Hilbert‑space state becomes a concrete, queryable memory layer for RAG. Local resource documents sit alongside GBIM exports and are linked to structured entries in a `local_resources` table keyed by ZIP and program type. Dedicated collections such as `gis_wv_benefits` support benefits‑focused GIS RAG.*
+> *Figure 1 – ChromaDB as Semantic Memory in Ms. Jarvis. Services embed texts and GIS features into ChromaDB collections so that abstract Hilbert‑space state becomes a concrete, queryable memory layer for RAG. Local resource documents sit alongside GBIM exports and are linked to structured entries in a `local_resources` table keyed by ZIP and programme type. Dedicated collections such as `gis_wv_benefits` support benefits‑focused GIS RAG.*
 
-Within the Quantarithmia program, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑product space described in the previous chapter, but are realized through a specific embedding model and index implementation. It is the place where beliefs, contexts, resource descriptions, and references become durable and retrievable for reasoning and retrieval‑augmented generation (RAG). Conceptually, each collection corresponds to an empirically instantiated subset of the Hilbert space \(H_{\text{App}}\), and stored vectors approximate elements of the spaces described in the previous chapter while linking out to structured registers such as GBIM and `local_resources`.
+Within the Quantarithmia programme, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑product space described in the previous chapter, but are realized through a specific embedding model and index implementation. It is the place where beliefs, contexts, resource descriptions, and references become durable and retrievable for reasoning and retrieval‑augmented generation (RAG). Conceptually, collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` correspond to empirically instantiated subsets of the Hilbert space \\(H_{\\text{App}}\\), and stored vectors approximate elements of the spaces described in the previous chapter while linking out to structured registers such as GBIM and `local_resources`.
 
 ---
 
@@ -32,18 +32,18 @@ Within the Quantarithmia program, ChromaDB is treated as the bridge between abst
 In the Ms. Jarvis architecture, ChromaDB plays several interlocking roles.
 
 - **Semantic memory store (non‑spatial).**  
-  Embeddings of texts and artifacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, local resource guides, and curated research traces. These collections support general semantic retrieval independent of geography.
+  Embeddings of texts and artefacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, local resource guides, and curated research traces. These collections support general semantic retrieval independent of geography and include the unified GBIM text collection `gbim_beliefs_v2`, which stores embeddings for rows in `gbimbeliefnormalized` and serves as the production semantic memory layer for GBIM beliefs.
 
 - **Geospatial semantic layer (spatial).**  
-  A unified GIS‑derived collection holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the semantic representation of the spatial body described in the GBIM chapter. The current production deployment centers on a consolidated worldview collection with millions of records and spatial provenance linking back to PostGIS geometries and belief rows, complemented by task‑specific collections such as `gis_wv_benefits` that focus on benefits‑relevant facilities.
+  A unified GIS‑derived collection such as `gbim_worldview_entities` holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the semantic representation of the spatial body described in the GBIM chapter. The current production deployment centres on this consolidated worldview collection with millions of records and spatial provenance linking back to PostGIS geometries and belief rows, complemented by task‑specific collections such as `gis_wv_benefits` that focus on benefits‑relevant facilities.
 
 - **Retrieval engine for RAG.**  
-  At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval; a GIS RAG service uses geospatial collections for spatial questions. This behavior instantiates the query projection and neighborhood selection mechanisms described in the Hilbert‑space model and forms the unstructured side of Ms. Jarvis’s memory, which is then joined against structured stores like GBIM and `local_resources` before being handed to the 21‑LLM ensemble.
+  At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval over collections like `gbim_beliefs_v2`; a GIS RAG service uses `gbim_worldview_entities` and `gis_wv_benefits` for spatial questions. This behaviour instantiates the query projection and neighbourhood selection mechanisms described in the Hilbert‑space model and forms the unstructured side of Ms. Jarvis’s memory, which is then deterministically joined against structured stores like GBIM and `local_resources` before being handed to the ensemble.
 
 - **Structural backbone for inspectable memory.**  
-  Because collections and metadata are explicitly defined, ChromaDB’s structure mirrors core parts of GBIM, the GeoDB layer, the thesis organization, and the local‑resources band. This makes it possible to enumerate collections, inspect document counts, audit metadata, and correlate logs of RAG calls with the underlying memory, rather than relying on hidden internal state.
+  Because collections and metadata are explicitly defined, ChromaDB’s structure mirrors core parts of GBIM, the GeoDB layer, the thesis organisation, and the local‑resources band. This makes it possible to enumerate collections, inspect document counts, audit metadata, and correlate logs of RAG calls with the underlying memory, rather than relying on hidden internal state.
 
-Taken together, this design makes the semantic memory system inspectable and debuggable: researchers and community partners can see what is stored, how it is grouped, which collections underpin particular advisory behaviors, how unstructured resource documents tie back to specific, verified program rows in the relational registry, and how RAG and the ensemble use these elements to answer live questions.
+Taken together, this design makes the semantic memory system inspectable and debuggable: researchers and community partners can see what is stored, how it is grouped, which collections underpin particular advisory behaviours, how unstructured resource documents tie back to specific, verified programme rows in the relational registry, and how RAG and the ensemble use these elements to answer live questions.
 
 ---
 
@@ -59,7 +59,7 @@ The primary spatial memory collection in production as of early 2026 is a consol
 - Record count: on the order of millions of records.  
 - Records with worldview context and spatial provenance: a large majority of the collection.  
 - Records currently lacking full worldview, bounding box, and dataset metadata: a residual backlog tracked for enrichment.  
-- Source datasets: more than 200 standardized West Virginia GIS layers.  
+- Source datasets: more than 200 standardised West Virginia GIS layers.  
 - Worldview context: a stable UUID tying spatial entities to a particular worldview.
 
 This collection is built by exporting GBIM worldview entities and their attributes from PostGIS, enriching them with spatial and provenance metadata, and indexing them as text embeddings in ChromaDB.
@@ -113,10 +113,10 @@ In the current deployment, principal general‑semantic collections are defined 
 - autonomous learning traces,  
 - research history and notebook‑like notes,  
 - thesis and GBIM‑related documentation,  
-- personal and organizational documents for the steward/author,  
+- personal and organisational documents for the steward/author,  
 - Hilbert‑space and learner‑corpus materials.
 
-These collections have schemas declared and are intended to hold embeddings for governance documents, thesis materials, autonomous learner outputs, and personal research corpora. Their presence establishes the intended semantic architecture, even when embeddings are still being backfilled.
+The flagship GBIM belief collection `gbim_beliefs_v2` sits in this family. It is populated directly from `gbimbeliefnormalized`, with each row embedded as a document whose text is constructed from the nine GBIM axes and whose metadata carries belief identifiers, epochs, and dataset provenance. This collection is already in production and is the primary semantic memory surface for structured beliefs in the RAG services.
 
 ---
 
@@ -143,10 +143,10 @@ ChromaDB provides the concrete realization of the Hilbert‑space representation
 The embedding model maps texts and entities into high‑dimensional real vectors. ChromaDB stores these vectors alongside metadata (identifiers, timestamps, entity types, geographies, resource keys) and exposes operations such as nearest‑neighbor search, filtered retrieval, and upsert.
 
 **Collections as working subspaces.**  
-Each ChromaDB collection corresponds to an empirically instantiated subset of \(H_{\text{App}}\), grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of “who helps whom, where, and how.”
+Each ChromaDB collection corresponds to an empirically instantiated subset of \\(H_{\\text{App}}\\), grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of “who helps whom, where, and how.”
 
 **Queries as projections plus joins.**  
-Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of \(H_{\text{App}}\), retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, and `gbim_entity`) to join that unstructured context against `local_resources` and GBIM, enforcing that any recommended program or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
+Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of \\(H_{\\text{App}}\\), retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, and `gbim_entity`) to join that unstructured context against `local_resources` and GBIM, enforcing that any recommended programme or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
 
 This mapping allows Ms. Jarvis’s memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, RAG calls, and joins to structured registries.
 
@@ -154,7 +154,7 @@ This mapping allows Ms. Jarvis’s memory to be described both geometrically, in
 
 ### 5.5 Embedding Model and Dimensionality
 
-In the RAG stack under analysis, Ms. Jarvis uses a sentence‑embedding model with 384‑dimensional outputs as the primary text embedding channel. Chroma collections are configured with dimension 384, confirming the ambient dimension of the main \(H_{\text{text}}\) component for text‑based collections.
+In the RAG stack under analysis, Ms. Jarvis uses a sentence‑embedding model with 384‑dimensional outputs as the primary text embedding channel. Chroma collections are configured with dimension 384, confirming the ambient dimension of the main \\(H_{\\text{text}}\\) component for text‑based collections.
 
 Any Chroma collection that stores embeddings produced by this model is configured to accept 384‑dimensional vectors. This requirement applies both to general semantic collections and to spatial and benefits collections, which use consistent text embeddings for feature descriptions and attribute summaries, as well as to resource‑document collections.
 
@@ -197,18 +197,18 @@ GBIM worldview entities are indexed in the consolidated spatial collection with 
 The spatial collection mirrors the GBIM attributes corpus. Spatial coordinates and bounding boxes enable hybrid queries that combine semantic similarity with spatial filtering. Keys and metadata allow retrieval results to be rejoined to GBIM entities and geometries for display in geospatial tools and for inclusion in GIS RAG responses.
 
 **Local resource registry integration.**  
-Resource‑related collections index unstructured PDFs and guides while tagging entries with `local_resource_id` or other keys. Once a snippet is retrieved, Ms. Jarvis resolves it to a row in the `local_resources` table, which encodes `resource_type`, county, ZIP coverage, contact details, and verification fields. This ensures that recommendations are backed by explicit, up‑to‑date program records rather than free‑floating text alone.
+Resource‑related collections index unstructured PDFs and guides while tagging entries with `local_resource_id` or other keys. Once a snippet is retrieved, Ms. Jarvis resolves it to a row in the `local_resources` table, which encodes `resource_type`, county, ZIP coverage, contact details, and verification fields. This ensures that recommendations are backed by explicit, up‑to‑date programme records rather than free‑floating text alone.
 
 **Benefits and GIS RAG integration.**  
 The `gis_wv_benefits` collection indexes semantic descriptions of benefits facilities and is queried by GIS RAG services for prompts like “benefits near Oak Hill” or “Raleigh County assistance offices.” Metadata such as county and GBIM entity identifiers enable joins back to GBIM and relationships to other worldview entities. Combined with text RAG over other collections, this yields blended semantic and spatial context for the ensemble.
 
 **RAG context building.**  
-For spatial or resource questions, the RAG pipeline queries both spatial and resource collections to retrieve relevant entities, PDFs, and program descriptions. Retrieved texts, metadata, spatial identifiers, and registry keys are combined into context windows for language models, with filtering by collection, geography, topic, resource type, and verification status. Logs record which collections and IDs were used per query.
+For spatial or resource questions, the RAG pipeline queries both spatial and resource collections to retrieve relevant entities, PDFs, and programme descriptions. Retrieved texts, metadata, spatial identifiers, and registry keys are combined into context windows for language models, with filtering by collection, geography, topic, resource type, and verification status. Logs record which collections and IDs were used per query.
 
 **Belief graph and registry traversal.**  
-Once ChromaDB returns entity IDs and resource keys, the system performs SQL queries against GBIM belief and edge tables and against `local_resources` to retrieve the full epistemic and practical context: data sources (how), policy justifications (why), beneficiary communities (for whom), authorizing frameworks (authority), and concrete program details and verification history.
+Once ChromaDB returns entity IDs and resource keys, the system performs SQL queries against GBIM belief and edge tables and against `local_resources` to retrieve the full epistemic and practical context: data sources (how), policy justifications (why), beneficiary communities (for whom), authorising frameworks (authority), and concrete programme details and verification history.
 
-End‑to‑end, the pipeline behaves as a structured walk through curated, domain‑specific memory organized around GBIM, the GeoDB spatial body, resource registries, and Quantarithmia’s research concepts, mediated by ChromaDB and observed through RAG and ensemble logs.
+End‑to‑end, the pipeline behaves as a structured walk through curated, domain‑specific memory organised around GBIM, the GeoDB spatial body, resource registries, and Quantarithmia’s research concepts, mediated by ChromaDB and observed through RAG and ensemble logs.
 
 ---
 
@@ -221,7 +221,7 @@ To connect the conceptual description with concrete operations, this section out
 A typical query against a collection includes:
 
 - `query_texts`: list of query strings to embed and search,  
-- `n_results`: number of nearest neighbors to return per query,  
+- `n_results`: number of nearest neighbours to return per query,  
 - `where`: optional metadata filter (for example, restricting to certain `source_table` values or to entities in a given county),  
 - `include`: fields to return (for example, `["metadatas", "documents", "distances"]`).
 
@@ -229,7 +229,7 @@ Resource and benefits collections follow the same pattern, with additional filte
 
 #### 5.8.2 ChromaDB Response Structure
 
-ChromaDB responses contain parallel lists of IDs, distances, metadatas, and documents, where metadata entries include the identifiers needed to rejoin to GBIM entities or to registry rows in `local_resources`. This structure underpins traceable, explainable RAG behavior and supports reconstruction of which memory elements contributed to a given ensemble answer.
+ChromaDB responses contain parallel lists of IDs, distances, metadatas, and documents, where metadata entries include the identifiers needed to rejoin to GBIM entities or to registry rows in `local_resources`. This structure underpins traceable, explainable RAG behaviour and supports reconstruction of which memory elements contributed to a given ensemble answer.
 
 ---
 
@@ -255,40 +255,51 @@ Collection names, metadata schemas, embedding configurations, and RAG routing ru
 
 In early 2026, the live system exhibits the following characteristics:
 
-- A consolidated spatial collection with millions of records and widespread coverage of spatial provenance fields.  
-- Standardized SRID 26917 (UTM Zone 17N NAD83) for spatial coordinates in metadata.  
+- A consolidated spatial collection such as `gbim_worldview_entities` with millions of records and widespread coverage of spatial provenance fields.  
+- A unified GBIM embedding collection `gbim_beliefs_v2` in production, loaded from `gbimbeliefnormalized` and used by the text RAG services described in later chapters.  
+- Standardised SRID 26917 (UTM Zone 17N NAD83) for spatial coordinates in metadata.  
 - GBIM belief and edge tables encoding how, why, for whom, authority, and evidence relationships for millions of worldview entities, with partial coverage where enrichment is ongoing.  
 - Resource and benefits collections that tie unstructured guides and facility descriptions to `local_resources` rows and GBIM entities.  
 - Text and GIS RAG services that query these collections, apply metadata filters, and pass retrieved content to a multi‑model ensemble via chat endpoints.  
-- Logging that captures which collections, IDs, registry rows, and spatial entities were touched per query, enabling post‑hoc inspection of memory usage and behavior.
+- Logging that captures which collections, IDs, registry rows, and spatial entities were touched per query, enabling post‑hoc inspection of memory usage and behaviour.
+
+Auditability and traceability for this semantic memory layer rely on the same production apparatus used elsewhere in the system: logged GBIM beliefs, GeoDB features, vector collection identifiers (for example, `gbim_beliefs_v2` and `gbim_worldview_entities`), and governance and application logs together provide an evidence trail for how embeddings, retrievals, and joins contributed to particular answers and recommendations.
 
 ---
 
 ### 5.11 Limitations and Future Work
 
-**Partial embedding coverage in general‑semantic domains.**  
-Spatial collections are heavily populated, but some planned semantic corpora remain under‑embedded. Completing ingestion and backfill is necessary for a fully realized semantic memory that behaves consistently across domains.
+Several originally “future‑work” items have now been completed and should be treated as foundations rather than as open tasks:
 
-**Dependence on models, indices, and routing.**  
-Retrieval quality depends on the embedding model, index parameters, collection design, and RAG routing configuration. Upgrades are treated as migrations with evaluation, including checks that benefits and resource flows for places like Oak Hill and Beckley still behave as intended.
+- A unified GBIM embedding collection (`gbim_beliefs_v2`) populated from `gbimbeliefnormalized` and used by RAG.  
+- A West‑Virginia‑biased spatial semantic memory built around a consolidated spatial collection such as `gbim_worldview_entities`, with coordinates and provenance that mirror the GeoDB corpus.  
+- Deterministic joins from ChromaDB results back to GBIM and GeoDB via stable identifiers (`entity_id`, `source_table`, `source_pk`) and to `local_resources` via `local_resource_id` and facility IDs.
 
-**Semantic gaps and representational limits.**  
-Certain forms of knowledge—embodied experience, oral history, spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies (graphs, qualitative annotations, GBIM‑linked justice metrics, community‑led tagging, and registries like `local_resources`) are needed to supplement the vector store.
+Remaining limitations and genuine future work include:
 
-**Evolving schema and topology.**  
-As GBIM, GeoDB, RAG services, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Consolidations like the GBIM spatial merge, the introduction of `gis_wv_benefits`, and the link from resource collections into `local_resources` demonstrate this evolution.
+- **Partial embedding coverage in general‑semantic domains.**  
+  Spatial and GBIM belief collections are heavily populated, but some planned semantic corpora (governance, thesis, autonomous learner outputs) remain under‑embedded. Completing ingestion and backfill is necessary for a fully realised semantic memory that behaves consistently across domains.
+
+- **Dependence on models, indices, and routing.**  
+  Retrieval quality depends on the embedding model, index parameters, collection design, and RAG routing configuration. Upgrades are treated as migrations with evaluation, including checks that benefits and resource flows for places like Oak Hill and Beckley still behave as intended.
+
+- **Semantic gaps and representational limits.**  
+  Certain forms of knowledge—embodied experience, oral history, spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies (graphs, qualitative annotations, GBIM‑linked justice metrics, community‑led tagging, and registries like `local_resources`) are needed to supplement the vector store.
+
+- **Evolving schema and topology.**  
+  As GBIM, GeoDB, RAG services, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change. Consolidations like the GBIM spatial merge, the introduction of `gis_wv_benefits`, and the link from resource collections into `local_resources` demonstrate this evolution.
 
 Future work will:
 
-- Maintain the consolidated spatial collection via incremental updates and periodic metadata backfills.  
+- Maintain the consolidated spatial and GBIM belief collections via incremental updates and periodic metadata backfills.  
 - Backfill general semantic collections with governance documents, thesis materials, autonomous learner outputs, and resource guides.  
 - Document all collection schemas and RAG routing rules in a single, queryable registry.  
 - Add traced end‑to‑end examples showing ChromaDB retrieval → GBIM provenance → belief‑graph traversal → local resource resolution → ensemble answer.  
 - Explore hybrid memory architectures combining vector stores with graphs, relational databases, and participatory annotation workflows.  
 - Implement incremental sync infrastructure for daily delta updates instead of full rebuilds.  
-- Develop or adopt embedding models and metadata conventions fine‑tuned on Appalachian place names, infrastructure terminology, and local program language, and integrate them with the verified local resource registry and verification loop.
+- Develop or adopt embedding models and metadata conventions fine‑tuned on Appalachian place names, infrastructure terminology, and local programme language, and integrate them with the verified local resource registry and verification loop.
 
 **Implementation Status**
 
 **Badge: PRODUCTION / CONSOLIDATING**  
-The conceptual role of ChromaDB as semantic memory is fully implemented for spatial entities and increasingly for resource guides and benefits facilities, and it is now directly exercised by text and GIS RAG services behind the main chat endpoints. A verified `local_resources` band in Postgres complements ChromaDB, providing structured, ZIP‑aware, and periodically re‑verified program information that Ms. Jarvis uses alongside semantic retrieval to act as an accountable, place‑based Steward System in West Virginia.
+The conceptual role of ChromaDB as semantic memory is fully implemented for spatial entities and GBIM beliefs, and increasingly for resource guides and benefits facilities, and it is now directly exercised by text and GIS RAG services behind the main chat endpoints. A verified `local_resources` band in Postgres complements ChromaDB, providing structured, ZIP‑aware, and periodically re‑verified programme information that Ms. Jarvis uses alongside semantic retrieval to act as an accountable, place‑based Steward System in West Virginia.
