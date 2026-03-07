@@ -9,7 +9,7 @@ It supports:
 - **P12 – Intelligence with a ZIP code** by insisting that reasoning be anchored to specific West Virginia and Appalachian locations, with explicit ZIP‑ and county‑level contexts, rather than relying on abstract national averages.  
 - **P16 – Power accountable to place** by demanding that system recommendations be inspectable and challengeable, traceable back to concrete claims about particular communities, including the datasets, epochs, and paths through which those claims enter the system.  
 
-Within the thesis structure, this chapter belongs to the **Theoretical Framework** tier: it specifies conceptual commitments and constraints that later chapters realize concretely in computational instruments such as GBIM, GeoDB, Chroma, and the retrieval‑and‑routing services.
+Within the thesis structure, this chapter belongs to the **Theoretical Framework** tier: it specifies conceptual commitments and constraints that later chapters show realized concretely in computational instruments such as GBIM, GeoDB, Chroma, and the retrieval‑and‑routing services that now operate in the production Ms. Jarvis deployment.
 
 ## Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
@@ -29,7 +29,7 @@ The Geospatial Belief Information Model (GBIM) is introduced here conceptually a
 
 In the Quantarithmia framework, these requirements imply that regions themselves—such as ZIP codes, counties, corridors, and neighborhoods—must appear as parameterizing elements. Each region can be treated as encoding local conditions in the global state, so that differences between places show up as differences in stored structure and in the “landscape” of beliefs and obligations. The key point for this chapter is that such differences must be representable and inspectable, not merely invoked metaphorically.
 
-Later chapters (including the detailed GBIM chapter and the GeoDB chapter) show how these conceptual commitments are implemented over PostgreSQL/PostGIS, CSV‑derived tables, embeddings, and programme registries. Here, the chapter’s role is to make clear that a Steward System like Ms. Jarvis cannot be considered place‑accountable unless it supports beliefs that can be interrogated along these dimensions.
+Later chapters (including the detailed GBIM chapter and the GeoDB chapter) show how these conceptual commitments are implemented over PostgreSQL/PostGIS, CSV‑derived tables, embeddings, and programme registries in the running system. Here, the chapter’s role is to make clear that a Steward System like Ms. Jarvis cannot be considered place‑accountable unless it supports beliefs that can be interrogated along these dimensions.
 
 ## What a geospatial belief model must support
 
@@ -61,7 +61,7 @@ The chapter also sets out a layered view of representation that the programme re
 
 5. **Retrieval and logging layer** – Processes that answer questions by drawing on the other layers, and that record which beliefs, datasets, regions, and services were involved in each answer. This layer is critical for inspection, contestation, and governance, because it makes visible how the system has actually used its knowledge.  
 
-The chapter’s purpose is to articulate these layers as conceptual necessities. Later, instrument‑level chapters show how they are realized using PostGIS, belief tables, vector collections, registries, and orchestrated retrieval and routing services.
+The chapter’s purpose is to articulate these layers as conceptual necessities. Later, instrument‑level chapters show how they are realized using PostGIS, belief tables, vector collections, registries, and orchestrated retrieval and routing services in the live Ms. Jarvis deployment.
 
 ## How these foundations are realized (high‑level)
 
