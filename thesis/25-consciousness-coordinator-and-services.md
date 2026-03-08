@@ -1,22 +1,88 @@
 > **Why this matters for Polymathmatic Geography**
-> This chapter explains how a central coordinating layer turns many separate services into a
-> coherent "consciousness" workflow. It supports:
-> - **P1 – Every where is entangled** by routing context from spatial, semantic, neurobiological,
->   and safety services through a single coordinator that produces one coherent reply.
-> - **P3 – Power has a geometry** by making coordination visible — service discovery, planner
->   state, NBB prefrontal status, and I-container identity are all recorded as explicit
->   `consciousnesslayers` on every `UltimateResponse`.
-> - **P5 – Design is a geographic act** by encoding how Appalachian questions are steered through
->   local RAG, GIS-backed spatial memory, and place-aware prompts before reaching the LLM fabric.
-> - **P12 – Intelligence with a ZIP code** by prioritizing `geodb_*` collections and local RAG
->   whenever they are healthy, grounding synthesis in West Virginia spatial data.
-> - **P16 – Power accountable to place** by exposing routing decisions, health state, truth
->   verdicts, and memory writes through explicit APIs, logs, and `consciousnesslayers` metadata.
+> This chapter describes how the container paths, dual tracks, and feedback mechanisms operate together as a coherent processing and storage system. It supports:
+> - **P1 – Every where is entangled** by showing how normalized inputs flow through parallel analytical and meaning-oriented tracks, write into shared ChromaDB and PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs) memory, and emerge as composite responses that reflect both technical and experiential perspectives.
+> - **P3 – Power has a geometry** by documenting exactly which services are active, which are running but not wired into the primary `/chat` path, and which data flows are currently append-only versus validated before PostgreSQL writes.
+> - **P5 – Design is a geographic act** by coupling every stage of processing to PostgreSQL GeoDB spatial features and West Virginia institutional knowledge, ensuring that even abstract reasoning remains grounded in real places.
+> - **P12 – Intelligence with a ZIP code** by anchoring all memory structures, truth validators, and identity constraints to PostgreSQL `msjarvisgis` GBIM beliefs about West Virginia communities rather than generic, placeless data.
+> - **P16 – Power accountable to place** by maintaining transparent, auditable records of every stage—from intake through first-stage filtering to background storage and identity-layer feedback—so communities can reconstruct how their data was processed.
 >
-> As such, this chapter belongs to the **Computational Instrument** tier: it specifies how the
-> consciousness coordinator turns a distributed set of independent services into a single,
-> inspectable cognitive system — and is explicit about which modules are actually wired into the
-> live `ultimatechat` path versus which are present as services but not yet plugged in.
+> As such, this chapter belongs to the **Computational Instrument** tier: it synthesizes the preceding container and pathway descriptions into a single unified picture of how Ms. Jarvis processes requests end-to-end.
+```
+┌─────────────────────────────────────────────────────────────┐
+│   End-to-End Processing Flow (As of February 2026)         │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  User Request → jarvis-main-brain (port 8050)               │
+│      ↓                                                       │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Stage 1: Intake & Normalization (Ch 19)      │         │
+│  │  • UltimateRequest (message, userid, role)     │         │
+│  │  • discover_services() health check            │         │
+│  │  • Container routing (qualia-net Docker)       │         │
+│  └────────────────────────────────────────────────┘         │
+│      ↓                                                       │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Stage 2: First-Stage Filtering (Ch 20)       │         │
+│  │  • BBB safety filters (port 8016)              │         │
+│  │  • TruthValidator (vs PostgreSQL GBIM)         │         │
+│  │  • Near-duplicate check (advisory only)        │         │
+│  │  • Structural heuristics                       │         │
+│  └────────────────────────────────────────────────┘         │
+│      ↓                                                       │
+│  ┌──────────────────────┬─────────────────────────┐         │
+│  │  ANALYTICAL PATH     │  MEANING-ORIENTED PATH  │         │
+│  │  (Always Active)     │  (Partially Wired)      │         │
+│  │  ──────────────      │  ──────────────────     │         │
+│  │  Ch 23               │  Ch 23                  │         │
+│  │                      │                         │         │
+│  │  ✓ PostgreSQL RAG    │  ✓ I-Containers (8015)  │         │
+│  │    (8003-8005)       │    - identity: ACTIVE   │         │
+│  │  ✓ Web research      │  ✓ Qualia Engine (8017) │         │
+│  │  ✓ 20-LLM ensemble   │  ✓ NBB Master (8018)    │         │
+│  │    (8008)            │  ✓ Mother Proto (4000)  │         │
+│  │  ✓ Judge pipeline    │  ✓ Psychology (8019)    │         │
+│  │    (7230-7233)       │  ✓ Psych RAG (9006)     │         │
+│  │  ✓ normalize_identity│    - Not all wired to   │         │
+│  │  ✓ truthverdict      │      /chat yet          │         │
+│  └──────────────────────┴─────────────────────────┘         │
+│      ↓                           ↓                           │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Stage 3: Background Storage (Ch 20, 24)      │         │
+│  │  • background_rag_store → ms_jarvis_memory     │         │
+│  │    - ChromaDB (8002, append-only)              │         │
+│  │    - bg_<ISO8601> entries                      │         │
+│  │  • Validated content → PostgreSQL msjarvisgis  │         │
+│  │    - Port 5432, 5.4M+ GBIM beliefs             │         │
+│  │    - 91 GB GeoDB spatial data                  │         │
+│  └────────────────────────────────────────────────┘         │
+│      ↓                                                       │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Stage 4: Identity-Focused Retention (Ch 22)  │         │
+│  │  • Manual curation of patterns                 │         │
+│  │  • getidentitycandidates endpoint              │         │
+│  │  • Identity statements (vs PostgreSQL GBIM)    │         │
+│  │  • root-self ego entries (when active)         │         │
+│  └────────────────────────────────────────────────┘         │
+│      ↓                                                       │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Feedback Loop (Ch 24)                         │         │
+│  │  • Introspective records (health endpoints)    │         │
+│  │  • GeoDB sync scripts & logs                   │         │
+│  │  • ueididentity/ueidaccessaudit tables         │         │
+│  │  • System Verification Reports                 │         │
+│  └────────────────────────────────────────────────┘         │
+│      ↓                                                       │
+│  UltimateResponse (composite output)                        │
+│  • response (from analytical path)                          │
+│  • truthverdict (from BBB + PostgreSQL validation)          │
+│  • consciousnesslayers (prefrontal, icontainers if active)  │
+│  • identitylayers (root-self ego when active)               │
+│  • servicesused: ["llm20production"]                        │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+> **Figure 25.1.** End-to-end processing flow showing complete request lifecycle: intake → first-stage filtering → dual-track processing (analytical always active, meaning-oriented partially wired) → background storage in ChromaDB and validated writes to PostgreSQL `msjarvisgis` → identity-focused retention → feedback loops, all producing composite `UltimateResponse` with full audit trail.
 
 ---
 
@@ -24,263 +90,124 @@
 
 | Category | Details |
 |---|---|
-| **Implemented now** | `jarvis-main-brain` confirmed running at **127.0.0.1:8050**. `UltimateRequest` / `UltimateResponse` models live. `discover_services()` health-check loop operational. `prefrontal_planner` `ConsciousnessLayer` appended unconditionally on every `/chat` call. `call_nbb_prefrontal` calling `nbb-i-containers` (**127.0.0.1:8101**, confirmed) unconditionally; result recorded as `nbb_prefrontal_cortex` layer. `call_truth_filter` invoking `jarvis-blood-brain-barrier` (**0.0.0.0:8016**, confirmed); `truthverdict` attached to every `UltimateResponse`. `jarvis-spiritual-rag` at **127.0.0.1:8005** (confirmed; earlier documents listed 8103 — correct port is **8005**). `jarvis-gis-rag` at **127.0.0.1:8004** (confirmed). `jarvis-20llm-production` at **127.0.0.1:8008** (confirmed) as primary synthesis fabric. Judge services 7230–7233 (confirmed). `jarvis-semaphore` proxy at **127.0.0.1:8030** (confirmed); `llm1-proxy` through `llm22-proxy` at **127.0.0.1:8201–8222** (confirmed). `apply_output_guards_async` invoking BBB output guard. `normalize_identity` applied to every response. `background_rag_store` into `ms_jarvis_memory` after every `/chat` call (confirmed 2026-02-15; Chapter 9 §9.3.5, Chapter 17 §17.6). `/health`, `/status`, `/architecture` endpoints on `jarvis-main-brain` operational. `icontainers-identity` layer confirmed `status: "active"` in 2026-02-15 `UltimateResponse` with real `root-self` ego entry (Chapter 9 §9.3.5). |
-| **Partially implemented / scaffolded** | **The main `ultimatechat` path does NOT currently always route through the full Neurobiological Master** (`jarvis-neurobiological-master`, port **8018**). The master's own pipeline (BBB → I-containers → Qualia → consciousness bridge) is a separate flow invoked in specific integration tests and workflows — not in every `/chat` call. See **Chapter 12** for that pipeline's detail. Meaning-oriented modules (`jarvis-qualia-engine` port **8017**, `jarvis-mother-protocols` port **4000**, `jarvis-temporal-consciousness` port **7007**) are confirmed running but not all wired into the primary `/chat` path (see Chapter 23). I-container promotion from background patterns to identity-level entries is mostly curated, not automated (Chapter 22). |
-| **Future work / design intent only** | Full wiring of Neurobiological Master into every `ultimatechat` call. Full wiring of all meaning-oriented modules into the `/chat` path. Automated identity-candidate promotion pipeline. Persistent job store replacing in-memory `active_jobs`. Real-time dashboard exposing per-stage latency and module participation rates. |
+| **Implemented now** | Full analytical path operational in every `/chat` call: intake via `jarvis-main-brain` (port **8050**) → BBB filtering (port **8016**) → PostgreSQL-sourced RAG context (ports **8003-8005**) → 20-LLM ensemble synthesis (port **8008**) → judge pipeline (ports **7230-7233**) → `normalize_identity` + `TruthValidator` → `background_rag_store` into `ms_jarvis_memory` ChromaDB (port **8002**, append-only) → `truthverdict` on `UltimateResponse`. PostgreSQL `msjarvisgis` at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) as authoritative source for all RAG collections and truth validation. Meaning-oriented services confirmed running: I-Containers (port **8015**, `icontainers-identity` ACTIVE in 2026-02-15 response), Qualia Engine (port **8017**), NBB Master (port **8018**), Mother Protocols (port **4000**), Psychology services (port **8019**), Psychological RAG (port **9006**), Temporal Consciousness (port **7007**). GeoDB sync scripts and logs confirmed present. Health endpoints (`getdatabasehealth`, `getidentitycandidates`, `/curator/background`) operational. For canonical execution sequence see **Chapter 17**. |
+| **Partially implemented / scaffolded** | Meaning-oriented modules running as services but **not all wired into primary `/chat` path**. Only `icontainers-identity` confirmed active in `ultimatechat`; `nbb-prefrontal-cortex` skipped in 2026-02-15 test (Chapter 9 §9.3.5). Full Neurobiological Master pipeline (BBB → I-containers → Qualia → consciousness bridge) not invoked in standard `/chat` calls. `ms_jarvis_memory` ChromaDB is append-only; near-duplicate checks advisory only, not preventing writes. PostgreSQL `msjarvisgis` writes require higher validation thresholds. Identity candidate promotion is manual curation, not automated. Cross-path analytics not exposed via dedicated endpoint. |
+| **Future work / design intent only** | Full wiring of all meaning-oriented modules into `ultimatechat` path. Automated identity candidate promotion from `ms_jarvis_memory` patterns validated against PostgreSQL GBIM. Full deduplication at ChromaDB write path. Configurable per-track thresholds and routing rules. Real-time dashboard for cross-path analytics. Automated System Verification Report generation. |
 
-> **Critical note — Neurobiological Master:** In the current deployment, the main `ultimatechat`
-> path (`jarvis-main-brain`, port **8050**) does **not** currently always route through the full
-> Neurobiological Master (`jarvis-neurobiological-master`, port **8018**). The master has its own
-> confirmed pipeline (BBB → I-containers → Qualia Engine → consciousness bridge, described in
-> **Chapter 12**) that is invoked in specific flows and integration tests. This chapter describes
-> the `ultimatechat` coordinator; for the Neurobiological Master's own pipeline, see **Chapter 12**.
-> For the canonical `ultimatechat` execution sequence, see **Chapter 17**.
+> **Critical synthesis note:** This chapter synthesizes the container paths (Chapter 19), first-stage filtering (Chapter 20), identity retention (Chapter 22), dual tracks (Chapter 23), and feedback mechanisms (Chapter 24) into a single coherent picture. As of February 2026, the analytical path is fully operational with complete PostgreSQL integration, while the meaning-oriented path is partially operational with services running but not all integrated into the primary `/chat` entrypoint.
 
 ---
 
-# 25. Consciousness Coordinator and Service Integration
+# 25. Synthesis: Container Paths and Memory Integration
 
-This chapter explains how a central coordinating layer turns many separate services into a
-coherent "consciousness" workflow. In the current deployment, this coordination is realized
-primarily by `jarvis-main-brain` (port **8050**), together with gateway adapters and helper
-endpoints that route requests through confirmed running services while enforcing safety and
-error-handling policies.
+This chapter describes how the container paths, dual tracks, and feedback mechanisms operate together as a coherent processing and storage system anchored to PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs). It synthesizes the structures described in Chapters 19–24, showing how normalized inputs flow through parallel analytical and meaning-oriented tracks, write into shared ChromaDB and PostgreSQL memory, and emerge as composite responses that reflect both technical and experiential perspectives while maintaining accountability to West Virginia communities via PostgreSQL ground truth.
 
 ---
 
-## 25.1 Role of the Coordinator
+## 25.1 Four-Stage Processing Model
 
-In the current deployment, the coordinating layer appears externally as a small number of HTTP
-endpoints — `/chat`, `/chat/sync`, and `/chat/async` on port **8050**, and gateway-exposed
-consciousness/chat routes — but internally acts as a conductor across multiple subsystems.
+In the current deployment, the overall processing flow can be understood as four connected stages, all grounded in PostgreSQL `msjarvisgis`.
 
-**Collecting context.** In the current deployment, when a request arrives at `jarvis-main-brain`,
-the coordinator constructs an `UltimateRequest` (message, `userid`, role, `useallservices`) and
-initializes `consciousnesslayers` and `servicesused` lists. It calls `discover_services()` to
-build a live `available_services` map, records the planner state as a `"prefrontal_planner"`
-layer, then invokes `nbb-i-containers` (**127.0.0.1:8101**, confirmed running) as the NBB
-prefrontal microservice, capturing its result as a `"nbb_prefrontal_cortex"` layer. This
-prefrontal stage runs unconditionally on every `/chat` call.
+**Stage 1: Intake and normalization (Chapter 19).** Requests enter through `jarvis-main-brain` (port **8050**) and are converted into `UltimateRequest` objects containing message, `userid`, role, and `useallservices` flag. `discover_services()` performs health checks on registered services including PostgreSQL at port 5432, confirming which modules are available. Container routing via Docker `qualia-net` network ensures requests reach the appropriate services. For the canonical description see **Chapter 17 §17.2**.
 
-**Planning and executing workflows.** In the current deployment, with `available_services` in
-hand, the coordinator plans a route through context and fabric services. If `rag_server` is
-healthy (currently `jarvis-spiritual-rag` at **127.0.0.1:8005**; earlier documents listed
-**8103** — the correct port is **8005**), it calls `/search` to build a knowledge-base context
-block. If `web_research` is available, it calls a separate `/search` endpoint to build a web
-context block. These are combined and fed into `build_egeria_prompt`, which wraps the message and
-context into a persona-aware prompt for Ms. Egeria Jarvis. The coordinator then invokes
-`jarvis-20llm-production` (**127.0.0.1:8008**, confirmed) to synthesize an answer. **The main
-`ultimatechat` path does not currently route through the full Neurobiological Master**; that
-service has its own separate pipeline described in **Chapter 12**.
+**Stage 2: First-stage filtering (Chapter 20).** Fast, inexpensive filters apply safety, truth, and structural checks before any deep processing occurs. BBB (`jarvis-blood-brain-barrier`, port **8016**) provides ethical and safety filtering. `TruthValidator` checks identity and factual claims against PostgreSQL GBIM ground truth. Near-duplicate checks via RAG `/search` endpoint influence ChromaDB legacy storage but are advisory only; `ms_jarvis_memory` remains append-only. Structural heuristics confirm required fields and format constraints. PostgreSQL writes require passing higher validation thresholds.
 
-**Producing and recording narratives.** In the current deployment, the orchestrator assembles an
-`UltimateResponse` containing the final response text, `servicesused`, `consciousnesslevel`
-(`"ultimate_collective"`), `processingtime`, `architecturelayers`, the full `consciousnesslayers`
-array, and a `truthverdict` from BBB at **0.0.0.0:8016**. A background task writes the
-interaction into `ms_jarvis_memory` via `background_rag_store`, confirmed 2026-02-15 (Chapter 9
-§9.3.5, Chapter 17 §17.6).
+**Stage 3: Dual-track processing (Chapter 23).** The analytical path always runs in `ultimatechat`: PostgreSQL-sourced RAG context (spiritual-rag port **8005**, gis-rag port **8004**, both querying PostgreSQL `msjarvisgis`), web research, 20-LLM ensemble synthesis (port **8008**), judge pipeline (ports **7230-7233**), `normalize_identity`, and `background_rag_store` into `ms_jarvis_memory` ChromaDB. The meaning-oriented path is partially wired: I-Containers (port **8015**) with `icontainers-identity` confirmed active, but other modules (Qualia Engine port **8017**, NBB Master port **8018**, Mother Protocols port **4000**, Psychology services port **8019**) not yet integrated into every `/chat` call.
+
+**Stage 4: Background storage and feedback (Chapters 20, 22, 24).** Every successful `/chat` call produces a `bg_<ISO8601>` entry in `ms_jarvis_memory` ChromaDB via `background_rag_store`, with concatenated `USER:`/`EGERIA:` text and metadata. Validated high-confidence content may be promoted to PostgreSQL `msjarvisgis` after additional verification. Patterns observed in ChromaDB inform manually curated updates to identity specifications anchored in PostgreSQL GBIM. Introspective records (`getdatabasehealth`, `getidentitycandidates`, `/curator/background`), GeoDB sync scripts and logs, and System Verification Reports document system state. This feedback influences future routing, truth validation, and identity constraints.
 
 ---
 
-## 25.2 Inputs to the Coordinator
+## 25.2 Data Flow Across Stages
 
-In the current deployment, the coordinator receives requests from several sources and normalizes
-them into a shared internal format.
+In the current deployment, data flows through these stages with specific transformations and decision points, all maintaining traceability to PostgreSQL `msjarvisgis`.
 
-**External interfaces and gateways.** User-facing services such as chat UIs, academic gateways,
-and unified gateways forward messages into `jarvis-main-brain` `/chat` or `/chat/async`. Gateways
-set API keys and role labels, translate UI-level payloads into `UltimateRequest` structures, and
-treat the resulting `UltimateResponse` as their canonical answer format.
+**From user message to `UltimateRequest`.** The raw user message is parsed into a structured request object with `userid`, role, and flags. This normalized representation is shared across both analytical and meaning-oriented tracks.
 
-**Internal agents and scheduled processes.** In the current deployment, scripts, autonomous
-learners, and helper services also act as internal clients of the coordinator, calling main-brain
-endpoints with system-level `userid` values and roles. These internal requests are wrapped into
-`UltimateRequest` objects so that NBB prefrontal, RAG, and BBB behavior remains consistent across
-all callers.
+**From `UltimateRequest` to first-stage annotations.** BBB filters attach safety verdicts. `TruthValidator` produces `truthverdict` with `valid`, `confidence`, and `principalreasons` validated against PostgreSQL GBIM. Near-duplicate check provides similarity scores. Structural checks confirm completeness. These annotations travel with the request through subsequent stages.
 
----
+**From annotations to track-specific processing.** The analytical path gathers PostgreSQL-sourced RAG context (querying `msjarvisgis` GBIM collections), invokes the 20-LLM ensemble, runs judge validation, applies `normalize_identity`, and generates the final `response` text. The meaning-oriented path (when wired) produces `consciousnesslayers` and `identitylayers` entries. Both paths share the same `truthverdict` and identity infrastructure grounded in PostgreSQL.
 
-## 25.3 Connection to Memory and Spatial Structures
+**From track outputs to composite response.** `UltimateResponse` combines `response` (from analytical path), `truthverdict` (from BBB validated against PostgreSQL GBIM), `consciousnesslayers` (prefrontal-planner always; icontainers-identity when active), `identitylayers` (root-self ego entry when active), and `servicesused`. This composite structure provides transparent per-request evidence of which layers fired.
 
-In the current deployment, coordinator workflows draw on both semantic and spatial memory via
-confirmed running services.
+**From response to background storage.** After the response is returned to the user, `background_rag_store` writes the interaction into `ms_jarvis_memory` ChromaDB with a `bg_<ISO8601>` id and associated metadata. This append-only write preserves the interaction for future retrieval. Validated content passing higher thresholds may also be written to PostgreSQL `msjarvisgis`.
 
-**Vector collections and semantic memory.** In the current deployment, `jarvis-spiritual-rag` at
-**127.0.0.1:8005** provides access to `ms_jarvis_memory`, `spiritual_wisdom`,
-`mountainshares_knowledge`, and a range of `geodb_*` datasets (all in `jarvis-chroma`,
-**127.0.0.1:8002**, confirmed running). The coordinator calls this RAG server's `/search`
-endpoint to retrieve relevant snippets, which are labeled with source identifiers and
-interpolated into the enhanced prompt passed to `jarvis-20llm-production`.
-
-**GIS and spatial knowledge.** In the current deployment, `jarvis-gis-rag` at
-**127.0.0.1:8004** (confirmed running) provides GIS-backed retrieval. The numerous `geodb_*`
-collections in `jarvis-chroma` (e.g. `geodb_wvgistcbuildingfootprints`,
-`geodb_floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83`) allow coordinator
-workflows to incorporate precise spatial information when interpreting user queries. GeoDB sync
-scripts (`sync_geodb_to_chromadb.py`, `vectorize_gis_to_chromadb.py`) keep embeddings and
-spatial records aligned.
-
-**`jarvis-wv-entangled-gateway`.** In the current deployment, the WV-entangled gateway is
-confirmed running at **127.0.0.1:8010** and provides an integration point between the
-coordinator and WV-specific spatial and community data services.
+**From background storage to identity updates.** Over time, operators observe patterns in `ms_jarvis_memory` and PostgreSQL query logs, then manually update identity specifications, canonical statements, and `TruthValidator` constraints to reflect recurring themes and commitments grounded in PostgreSQL GBIM West Virginia data. The design intends that this will become automated; manual curation is the current state.
 
 ---
 
-## 25.4 Interaction with Introspective and Consolidation Layers
+## 25.3 Memory Integration
 
-In the current deployment, coordinator activities are reflected in introspective and
-consolidation mechanisms.
+In the current deployment, the system maintains several interconnected memory structures that preserve the results of container-level processing, all ultimately anchored to PostgreSQL `msjarvisgis`.
 
-**`/health`, `/status`, and `/architecture` endpoints.** In the current deployment,
-`jarvis-main-brain` exposes these three confirmed endpoints. `/health` reports basic service
-status. `/status` reports whether core services (`rag_server`, `web_research`, `llm20production`,
-Chroma, Redis, orchestrators) are reachable and returns an overall flag plus per-service status
-codes. `/architecture` returns the full `SERVICES` registry and the `available` map discovered by
-`discover_services()`, making explicit which services are currently considered healthy.
+**`ms_jarvis_memory` ChromaDB — ephemeral-to-persistent transition.** In the current deployment, this collection serves as the primary sink for background storage. Every `/chat` call produces a new `bg_<ISO8601>` entry. The collection is append-only; near-duplicate checks influence skip logic but do not prevent writes. This provides a comprehensive audit trail of all interactions and allows future RAG queries to retrieve similar past conversations.
 
-**`consciousnesslayers` and `truthverdict`.** In the current deployment, each `/chat` call
-returns a `consciousnesslayers` array recording the planner state, NBB prefrontal status and
-internal layers, and an `icontainers-identity` layer exposing the current `icontainers_state`
-(including `egoboundaries`, `experientialprocessing`, and `observerprocessing`). The
-`icontainers-identity` layer was confirmed `status: "active"` in the 2026-02-15 `UltimateResponse`
-producing a real `root-self` ego entry (Chapter 9 §9.3.5). The `truthverdict` from BBB is
-attached alongside, reporting `valid`, `confidence`, and `principalreasons`.
+**PostgreSQL `msjarvisgis` — authoritative ground truth.** In the current deployment, PostgreSQL 16 at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs in `gbimbeliefnormalized`) serves as the source of truth for all spatial, institutional, and community data. All RAG collections are sourced from or validated against PostgreSQL tables. GeoDB sync scripts ensure ChromaDB embeddings stay synchronized with PostgreSQL spatial features. Writes to PostgreSQL require passing higher validation thresholds than ChromaDB writes.
 
-**Narrative endpoints and promotion triggers.** The design intends that higher-level gateways and
-helper APIs will integrate with the main brain by turning external data into messages processed
-through the full coordination pipeline, with outputs promotable into deeper memory layers. In the
-current deployment, this promotion is manual curation (Chapter 22) rather than an automated
-pipeline.
+**Service-specific knowledge collections.** In the current deployment, collections such as `mountainshares_knowledge`, `spiritual_wisdom`, `jarvis_consciousness`, `autonomous_learning`, `appalachian_english_corpus`, and `geodb_*` datasets preserve domain-specific content sourced from or validated against PostgreSQL. These collections are populated by dedicated ingestion pipelines and sync scripts, not just by background storage from user chats.
+
+**GeoDB spatial features.** In the current deployment, PostgreSQL GeoDB tables contain West Virginia spatial data layers that are synchronized with ChromaDB via confirmed sync scripts. ChromaDB embeddings are created for spatial features, and PostgreSQL queries provide authoritative answers for location-based questions. Sync logs document when embeddings were refreshed and which PostgreSQL features they correspond to.
+
+**Identity and health metadata.** In the current deployment, `getidentitycandidates` and `getdatabasehealth` endpoints expose curated identity statements and PostgreSQL database integrity status. `ueididentity` and `ueidaccessaudit` tables record identity verification decisions. These structures preserve the results of truth-validation and ethical filtering anchored in PostgreSQL GBIM.
+
+Together, these structures form an integrated memory substrate where different layers preserve different aspects of processing results, from raw append-only interaction logs in ChromaDB to validated spatial and institutional knowledge in PostgreSQL, from domain-specific semantic embeddings to curated identity constraints.
 
 ---
 
-## 25.5 Use of Global Modes and Settings
+## 25.4 Asymmetry and Staged Integration
 
-In the current deployment, coordinator workflows are constrained by global safety, policy, and
-resource settings.
+In the current deployment, the system exhibits deliberate asymmetry reflecting staged integration priorities.
 
-**Safety and ethical constraints.** In the current deployment, BBB at **0.0.0.0:8016** provides
-input truth filtering via `call_truth_filter` and output guarding via `apply_output_guards_async`.
-The `truthverdict` attached to `UltimateResponse` is advisory in the current deployment; hard-gate
-behavior for specific threat levels is future work (Chapter 16).
+**Analytical path is production-ready.** The analytical path runs on every `/chat` call with full PostgreSQL integration and has been exercised extensively in testing and live operation. Its components (RAG from PostgreSQL, ensemble synthesis, judge pipeline, BBB filtering, truth validation, background storage) are well-integrated and produce consistent `UltimateResponse` structures.
 
-**Service discovery and concurrency limits.** In the current deployment, `discover_services()`
-performs health checks over the `SERVICES` registry to build `available_services`. A semaphore
-(`MAX_CONCURRENT_CHATS`) bounds concurrent `/chat` and `/chat/async` requests. When
-`llm20production` or `rag_server` are unavailable, the coordinator raises clear errors rather
-than silently misrouting traffic; no fallback fabric is currently wired into this entrypoint.
+**Meaning-oriented path is partially integrated.** Meaning-oriented services are confirmed running and respond to health checks, but not all are wired into the primary `/chat` entrypoint. `icontainers-identity` is confirmed active (2026-02-15 `UltimateResponse`, Chapter 9 §9.3.5); `nbb-prefrontal-cortex` was skipped in the same test. The full Neurobiological Master pipeline (BBB → I-containers → Qualia → consciousness bridge) is present as services but not invoked by `ultimatechat` in the current deployment.
 
-**Logging and observability.** In the current deployment, structured logging captures request
-start, service call failures, BBB guard errors, prefrontal stage status, and request completion
-with durations and body previews. Combined with `/status` and `/architecture` endpoints, this
-supports operational observability and allows reconstruction of how a particular request was
-processed.
+**ChromaDB is append-only; PostgreSQL requires validation.** `ms_jarvis_memory` accepts all interactions that pass basic structural checks. Near-duplicate detection is advisory and affects skip logic but does not prevent writes. In contrast, PostgreSQL `msjarvisgis` writes require passing higher validation thresholds enforced by `TruthValidator` and BBB filters. This two-tier approach balances comprehensive logging with data quality protection.
+
+**Identity promotion is manual, not automated.** Operators observe patterns in `ms_jarvis_memory` ChromaDB and PostgreSQL query logs, then update identity specifications and `TruthValidator` constraints manually. The design intends that this will become an automated promotion pipeline driven by configurable thresholds; manual curation is the current state as of February 2026.
+
+These asymmetries are documented explicitly in the `consciousnesslayers` field of `UltimateResponse`, in service health endpoints, and in verification reports. They represent staged integration priorities, not design gaps.
 
 ---
 
-## 25.6 Coordination with Container Paths and NBB Layers
+## 25.5 Traceability and Auditability
 
-In the current deployment, the coordinator is coupled to the neurobiological and container paths
-through NBB microservices and consciousness metadata.
+In the current deployment, the integrated processing and memory system provides several mechanisms for reconstructing how requests were handled and how memory was updated, all with traceability to PostgreSQL `msjarvisgis`.
 
-**Prefrontal and I-container layers.** In the current deployment, at the start of each
-`ultimatechat` call the coordinator records a `"prefrontal_planner"` layer capturing available
-services, then invokes `nbb-i-containers` (**127.0.0.1:8101**, confirmed) and records its status
-and internal `consciousnesslayers` under `"nbb_prefrontal_cortex"` — or marks it skipped if not
-responding. It also queries the I-container-style service (`jarvis-i-containers`, port **8015**,
-confirmed), whose response is reflected in an `"icontainers-identity"` layer with `icontainers_state`.
+**Per-request audit trail.** Every `UltimateResponse` includes `servicesused`, `truthverdict`, `consciousnesslayers`, and `identitylayers`, documenting which services were invoked, what safety and truth assessments were made against PostgreSQL GBIM, and which consciousness layers were active. The `bg_<ISO8601>` entry in `ms_jarvis_memory` preserves the full interaction with metadata.
 
-**What the NBB prefrontal service returns.** In the current deployment, when `nbb-i-containers`
-responds successfully, it returns a short analysis and a dictionary of its own
-`consciousnesslayers` indicating which internal stages (input reception, context analysis, memory
-access, synthesis) were exercised. The coordinator stores this under `prefrontal_response` and
-nests those internal layers in `consciousnesslayers`. In the 2026-02-15 case study, the
-`nbb_prefrontal_cortex` layer was `status: "skipped"` with reason `"nbbprefrontalcortex not
-configured"`, while `icontainers-identity` was `status: "active"` — a contrast that documents
-exactly which NBB layers fired for that request (Chapter 9 §9.3.5).
+**Service health and availability.** In the current deployment, `jarvis-main-brain` status endpoints, `getdatabasehealth`, and verification scripts document which services are responding, which are degraded, and what the overall system health is including PostgreSQL connection status. This allows auditors to determine whether a given request had access to the full suite of modules or operated in a degraded mode.
 
-**What is NOT in the `ultimatechat` path.** In the current deployment, the full Neurobiological
-Master pipeline (BBB → I-containers → Qualia Engine → consciousness bridge, `jarvis-neurobiological-master`
-port **8018**) is **not** invoked on every `/chat` call. It has its own `POST /process` endpoint
-and is invoked in specific integration flows and tests. For that pipeline's detail see
-**Chapter 12**. The `jarvis-qualia-engine` (port **8017**), `jarvis-mother-protocols` (port
-**4000**), and `jarvis-temporal-consciousness` (port **7007**) are confirmed running but not
-currently wired into the primary `/chat` path (Chapter 23).
+**Memory sync and update logs.** GeoDB/ChromaDB sync logs document when PostgreSQL spatial features were embedded, when collections were updated, and how inconsistencies were resolved. These logs provide timestamps and record counts, allowing auditors to correlate system behavior with memory updates.
+
+**Identity and configuration changes.** `getidentitycandidates` responses are timestamped. Configuration files and prompts can be versioned. Verification scripts produce dated reports. Together, these allow auditors to reconstruct when identity constraints validated against PostgreSQL GBIM were updated and how they evolved over time.
+
+**Background storage audit.** The `/curator/background` endpoint on `jarvis-main-brain` provides direct inspection of `ms_jarvis_memory` ChromaDB contents. Operators can query for specific `bg_<ISO8601>` entries, examine their metadata, and verify that background writes occurred as expected.
+
+These mechanisms do not provide exhaustive provenance for every byte, but they offer concrete, queryable records of key decision points, service invocations, memory updates, and configuration changes, supporting both technical debugging and community accountability to PostgreSQL ground truth.
 
 ---
 
-## 25.7 Orchestration of Language Models and Evaluators
+## 25.6 Operational Validation
 
-In the current deployment, language models and evaluators participate in coordinator workflows
-through `jarvis-20llm-production` and the judge pipeline.
+In the current deployment, operational validation of the integrated system focuses on end-to-end behavior anchored to PostgreSQL `msjarvisgis`.
 
-**Model selection and prompt construction.** In the current deployment, for answer synthesis the
-main brain targets `jarvis-20llm-production` (**127.0.0.1:8008**, confirmed) as the primary
-fabric. It builds a persona-aware enhanced message including RAG and web-research context when
-available, then sends this prompt with the `userid` to the fabric's `/chat` endpoint. The
-response is parsed for common output fields (`response`, `result`, `output`, `answer`), and
-`"llm20production"` is recorded in `servicesused`. Logs from the 2026-02-15 deployment show 21
-distinct model proxies responding sequentially behind this fabric (**127.0.0.1:8201–8222**,
-confirmed; proxy at **127.0.0.1:8030**, confirmed). For full detail on the ensemble and judge
-pipeline see **Chapter 33**.
+**Integration tests.** Tests using `jarvis-main-brain` `/chat` endpoint confirm that requests are accepted, processed through BBB and routing logic, queried against PostgreSQL-sourced RAG collections, synthesized via the 20-LLM ensemble, judged, normalized, and scheduled for background handling without errors. Empirical tests on 2026-02-15 show that each `/chat` call produces a full `UltimateResponse` (including `truthverdict` validated against PostgreSQL GBIM and `servicesused`), queues a background task, and results in a new `background` entry in `ms_jarvis_memory` ChromaDB with a `bg_<ISO8601>` identifier and appropriate metadata (Chapter 9 §9.3.5, Chapter 17 §17.6).
 
-**Judge pipeline.** In the current deployment, judge services at **7230** (truth), **7231**
-(consistency), **7232** (alignment), **7233** (ethics) evaluate ensemble output. If the judge
-pipeline is down, `jarvis-main-brain` falls back to the 20-LLM answer and marks consensus
-metrics as degraded (Chapter 33).
+**Cross-path consistency.** Manual verification runs demonstrate that `truthverdict` and `servicesused` are consistent across requests, that `consciousnesslayers` accurately reflects which meaning-oriented layers were active (prefrontal-planner always; icontainers-identity when wired), and that analytical path components are invoked reliably with PostgreSQL integration.
 
-**Output evaluation, guards, and identity normalization.** In the current deployment, after
-obtaining a raw response, the coordinator runs `clean_response_for_display` to strip legacy
-multi-agent scaffolding, passes the result through `apply_output_guards_async` (BBB
-`/filter` at **0.0.0.0:8016**), and applies `normalize_identity` to ensure the answer speaks
-as Ms. Egeria Jarvis. `TruthValidator` identity and hallucination checks are applied as part
-of the `truthverdict` computation.
+**Memory persistence.** Operators confirm that `bg_<ISO8601>` entries persist in `ms_jarvis_memory` ChromaDB and are retrievable via `/curator/background` queries. GeoDB sync scripts produce logs documenting successful PostgreSQL feature embedding. PostgreSQL `msjarvisgis` table sizes and row counts are verified by database health checks.
+
+**Feedback loop verification.** System Verification Reports document per-service health including PostgreSQL, ChromaDB operational status, and identity candidate counts. These reports confirm that feedback mechanisms are producing observable outputs grounded in PostgreSQL.
+
+These operational checks do not exhaustively prove correctness but provide concrete evidence of how the integrated system behaves in the live deployment as of mid-February 2026, including where its behavior diverges from the earlier, more aggressively de-duplicating design and where meaning-oriented integration is incomplete.
 
 ---
 
-## 25.8 Error Handling, Resilience, and Observed Performance
+## 25.7 Summary
 
-In the current deployment, error handling and resilience are explicit design concerns.
+In the current deployment, the container paths, dual tracks, and feedback mechanisms operate as a coherent four-stage system anchored to PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs): intake and normalization → first-stage filtering → dual-track processing → background storage and feedback. The analytical path is fully operational with complete PostgreSQL integration and runs on every `/chat` call. The meaning-oriented path is partially operational, with services confirmed running but not all wired into the primary entrypoint. `ms_jarvis_memory` ChromaDB provides append-only interaction logging; PostgreSQL `msjarvisgis` serves as the authoritative ground truth requiring higher validation thresholds. Identity promotion is manual curation informed by observed patterns in ChromaDB and PostgreSQL logs.
 
-**Endpoint-level error handling and timeouts.** In the current deployment, `jarvis-main-brain`
-wraps all external service calls in try/except blocks, logs errors with structured metadata, and
-uses explicit timeouts for RAG, web research, NBB prefrontal, and LLM fabric calls. The NBB
-prefrontal call uses a 3-second timeout; if `nbb-i-containers` times out or raises an exception,
-`call_nbb_prefrontal` returns a `"timeout"` or `"exception"` status and the coordinator
-continues (Chapter 17 §17.7). When `llm20production` is unavailable, the coordinator raises an
-HTTP error; no fallback fabric is currently wired.
+The system provides traceability through per-request `UltimateResponse` structures, service health endpoints including PostgreSQL status, GeoDB/ChromaDB sync logs, identity and configuration versioning, and background storage audit via `/curator/background`. Operational validation confirms end-to-end behavior including PostgreSQL integration, cross-path consistency, memory persistence, and feedback loop operation.
 
-**Service health monitoring.** In the current deployment, `/status` and `/architecture`
-endpoints allow operators and automated monitors to detect when key pipeline components are down
-or misconfigured. `discover_services()` centralizes health probing so all stages work from a
-consistent view of system health.
-
-**Empirical performance.** In the current deployment on the reference host (Legion 5, local
-Docker), heavy `/chat` requests with all major services enabled take on the order of 9–10
-minutes end-to-end, with most time inside `jarvis-20llm-production`. The NBB prefrontal, RAG,
-and web-research stages each have explicit timeouts and remain small contributors to overall
-latency (Chapter 17 §17.8).
-
----
-
-## 25.9 Summary
-
-In the current deployment, the consciousness coordinator is implemented as `jarvis-main-brain`
-(port **8050**) together with gateway adapters and helper services, managing context collection,
-workflow planning, and narrative production across confirmed running services. It ties together
-`jarvis-chroma`-backed semantic memory, dual-track neurobiological and container paths, BBB
-safety and verification modules, the `llm20production` ensemble fabric and judge pipeline, and
-`background_rag_store` memory writes.
-
-**Key asymmetries in the current deployment:** The main `ultimatechat` path always runs the
-analytical path (ensemble + judges + BBB); meaning-oriented modules are partly present as
-confirmed running services but not all wired into `/chat`. The full Neurobiological Master
-pipeline is a separate flow, not invoked on every user chat. These asymmetries are deliberate
-staged integration choices.
-
-By recording detailed `consciousnesslayers` metadata, attaching BBB `truthverdict` to every
-response, surfacing `/health`, `/status`, and `/architecture` endpoints, and incorporating
-explicit error handling and timeouts, the coordinator turns a complex distributed system into a
-single, inspectable process whose latency and behavior can be empirically verified. For the
-canonical execution sequence see **Chapter 17**. For the Neurobiological Master's own pipeline
-see **Chapter 12**. For the ensemble and judge stack see **Chapter 33**.
+This synthesis chapter ties together the preceding descriptions of routing (Chapter 19), filtering (Chapter 20), identity retention (Chapter 22), dual tracks (Chapter 23), and feedback (Chapter 24) into a single picture of how Ms. Jarvis processes requests end-to-end, all grounded in PostgreSQL `msjarvisgis` as the spatial and institutional source of truth for West Virginia community accountability. For the canonical execution sequence, see **Chapter 17**.
