@@ -46,7 +46,7 @@ When reciprocity falls below threshold, systems exhibit:
 A central distinction in Quantarithmia is between two distinct but interacting geometries of power:
 
 - **Maximopolies**: Institutions and infrastructures that primarily control **capital flows** (for example, large financial entities, payment networks, investment vehicles, private equity funds, real estate investment trusts)
-- **Megaopolies**: Institutions and infrastructures that primarily control **operations and platforms** (for example, logistics networks, cloud platforms, large‑scale data and attention brokers, e-commerce platforms)
+- **Megaopolies**: Institutions and infrastructures that primarily control **operations and platforms** (for example, logistics networks, cloud platforms, large‑scale data and attention brokers, e‑commerce platforms)
 
 <div align="center">
   <img width="85%" alt="unnamed(2)" src="https://github.com/user-attachments/assets/ebc3a307-48a9-4c71-bb14-4140d90a4fe8" />
