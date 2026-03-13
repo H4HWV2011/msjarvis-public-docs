@@ -10,7 +10,7 @@
 **Date:** March 12, 2026
 **Status:** Governance Design Document
 **Scope:** MountainShares — West Virginia Pilot (Phase 0 through Phase 3)
-**Related documents:** [The Commons Gamification](The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [Phase 0 Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md), [Phase 1 Economic Safety Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [KPI Specification](MountainShares%20KPI%20Specification.md)
+**Related documents:** [The Commons Gamification](../the%20commons/The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [Phase 0 Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md), [Phase 1 Economic Safety Specification](MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [KPI Specification](MountainShares%20KPI%20Specification.md)
 
 ---
 
@@ -137,7 +137,7 @@ The MountainShares contribution game and The Commons daily life game are **two g
 - **The Commons game** is the on-ramp: daily quests, streaks, merchant visits, trail discoveries, seasonal campaigns. It is light, social, and immediately rewarding.
 - **The MountainShares game** is what those daily hours **become** over time: rank, governance standing, role eligibility, and permanent record in the commons.
 
-Participants can play The Commons game every day without ever thinking about governance — and still build rank and voice in MountainShares through the hours they accumulate. See [The Commons Gamification: The Daily Life Game](The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md) for the full design of that layer.
+Participants can play The Commons game every day without ever thinking about governance — and still build rank and voice in MountainShares through the hours they accumulate. See [The Commons Gamification: The Daily Life Game](../the%20commons/The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md) for the full design of that layer.
 
 ---
 
