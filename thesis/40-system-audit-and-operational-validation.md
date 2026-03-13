@@ -80,20 +80,20 @@ Purpose: Comprehensive snapshot of system state after the first ULTIMATE-style o
 
 ### Test Case 1: agi-arch-1 (Architecture Reasoning)
 
-- **Prompt**: “Explain Ms. Jarvis architecture”
+- **Prompt**: "Explain Ms. Jarvis architecture"
 - **Processing time**: 195 seconds (end-to-end).
 - **Services used**: BBB, `jarvis-web-research`, `jarvis-llm-bridge`, plus response aggregation in main-brain.
 - **Response length**: ~2847 tokens (multi-paragraph, multi-section explanation).
-- **Output quality**: Rated “excellent”; accurately described the 22-agent ensemble, service coordination, and architecture layers.
+- **Output quality**: Rated "excellent"; accurately described the 22-agent ensemble, service coordination, and architecture layers.
 - **Error rate**: 0% observed factual or structural errors in this scenario.
 
 ### Test Case 2: agi-plan-1 (Strategic Planning)
 
-- **Prompt**: “Develop production deployment strategy for Ms. Jarvis”
+- **Prompt**: "Develop production deployment strategy for Ms. Jarvis"
 - **Processing time**: 353 seconds (end-to-end).
 - **Services used**: BBB, `jarvis-web-research`, `jarvis-llm-bridge`, response aggregation.
 - **Response length**: ~4102 tokens (comprehensive deployment and risk-mitigation plan).
-- **Output quality**: Rated “excellent”; produced a multi-phase deployment plan with risk mitigation and timeline.
+- **Output quality**: Rated "excellent"; produced a multi-phase deployment plan with risk mitigation and timeline.
 - **Error rate**: 0% observed in the aspects evaluated during this session.
 
 ### Test Case 3: agi-research-1 (Research Synthesis)
@@ -165,7 +165,7 @@ Purpose: Comprehensive snapshot of system state after the first ULTIMATE-style o
 |-------------------|---------|-------------------------------------------------------------------|
 | Content filtering | ✅ 100% | All examined requests passed through BBB and were filtered.       |
 | Request approval  | ✅ 100% | All tested requests were approved; no rejections were triggered.  |
-| Log consistency   | ✅ 100% | Logs showed consistent “approved and filtered” operations.        |
+| Log consistency   | ✅ 100% | Logs showed consistent "approved and filtered" operations.        |
 
 **BBB behavior log (examples)**
 
@@ -268,7 +268,7 @@ Purpose: Comprehensive snapshot of system state after the first ULTIMATE-style o
 ### Issue 4: Missing quantitative quality metrics (MEDIUM PRIORITY)
 
 - **Problem**:
-  - Evaluation was purely qualitative (human “excellent/poor” judgments).
+  - Evaluation was purely qualitative (human "excellent/poor" judgments).
   - No automatic metrics such as BLEU/ROUGE, factual accuracy, hallucination rate, or baseline comparisons.
 - **Recommendation**:
   - Develop an evaluation rubric and, where appropriate, quantitative measures:
@@ -300,3 +300,102 @@ Purpose: Comprehensive snapshot of system state after the first ULTIMATE-style o
 
 - ❌ Add response caching to reduce duplicate processing for repeated or similar ULTIMATE requests.
 - ❌ Explore multi-instance `llm_bridge` (horizontal scaling and load balancing) to reduce latency and improve throughput for multi-agent synthesis.
+
+---
+
+---
+
+# 40-B. Remediation Audit Entry — 2026-03-13
+
+**Session date:** 2026-03-13 (late night EDT, carried into 2026-03-13 morning)
+**Auditor:** Carrie Kidd (Mamma Kidd), Harmony for Hope, Inc.
+**Purpose:** Document all fixes applied and confirmed during the 2026-03-13 remediation session that brought the `ultimatechat` execution path to full operational status.
+
+---
+
+## Summary
+
+This session resolved a set of inter-related issues in the `jarvis-main-brain` (port 8050) `ultimatechat` path that had caused `validated_by` to always be `None`, `architecture_layers` to always be `0`, and the Blood-Brain Barrier sub-filter methods to be defined but not wired into the `/filter` request handler. By end of session, all 6 consciousness layers were confirmed active and populating `UltimateResponse`, BBB `/filter` and `/truth` endpoints returned HTTP 200 with real output, and the I-Containers `call_icontainers` stub had been replaced with a live HTTP implementation.
+
+---
+
+## Fixes Applied and Confirmed (2026-03-13)
+
+| # | Component | Problem | Fix Applied | Confirmed |
+|---|-----------|---------|-------------|-----------|
+| 1 | `jarvis-blood-brain-barrier` `/filter` | `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection` were defined but not called inside the `/filter` request handler | Wired all four filter methods into the `/filter` handler with correct call signatures: `.filter(text)`, `.filter(text)`, `.check(text)`, `.detect_threats(text)` | ✅ HTTP 200, structured JSON |
+| 2 | `jarvis-blood-brain-barrier` `/truth` | Endpoint existed in early design docs but was not implemented in `blood_brain_barrier.py` | Added `POST /truth` endpoint returning `{"valid": bool, "confidence": float, "principal_reasons": [str]}` | ✅ HTTP 200, schema confirmed |
+| 3 | `UltimateResponse.truth_verdict` | `truth_verdict` was not being populated from BBB output | Wired `call_truth_filter()` → BBB `/truth` → `truth_verdict` field on `UltimateResponse` | ✅ Confirmed populated |
+| 4 | `clean_response_for_display()` | Only stripped inline "As LLaMA…" disclaimers; paragraph-level model self-identification passed through | Expanded to strip full paragraphs opening with "As LLaMA", "As Mistral", "As an AI", "As a language model", etc. | ✅ Identity voice clean |
+| 5 | `call_icontainers()` | Function was an empty stub returning `{}` — I-Containers service was never actually called | Replaced with live `httpx` POST to `jarvis-i-containers:8015/process` with correct schema `{"message": ..., "userid": ...}` | ✅ `icontainers-identity` layer active |
+| 6 | `consciousness_layers` assembly | `icontainers-identity` and `nbb-icontainers` were never appended to `consciousness_layers` | Added both layers to the `consciousness_layers` list after their respective HTTP calls | ✅ 6 layers confirmed in response |
+| 7 | `validated_by` field | Always returned `None` (hardcoded) | Changed to derive `validated_by` from the names of all active layers in `consciousness_layers` at response assembly time | ✅ Returns comma-separated layer names |
+| 8 | `architecture_layers` field | Always returned `0` (hardcoded) | Changed to return `len(consciousness_layers)` — a live count | ✅ Returns `6` |
+| 9 | `normalize_identity()` | Identity substitutions were applied but some model names slipped through in paragraph context | Confirmed firing correctly; `clean_response_for_display()` handles paragraph-level; both run in sequence | ✅ Confirmed |
+| 10 | `call_nbb_icontainers()` | Had dead duplicate code below a `return` statement | Identified for cleanup (not yet removed — logged as open item) | ⏳ Pending |
+
+---
+
+## Confirmed Live Output (Post-Remediation)
+
+```json
+{
+  "validated_by": "nbb-prefrontal-cortex, qualia-engine, consciousness-bridge, neurobiological-master, icontainers-identity, nbb-icontainers",
+  "architecture_layers": 6,
+  "consciousness_layers": [
+    {"name": "nbb-prefrontal-cortex",   "status": "active"},
+    {"name": "qualia-engine",           "status": "ok"},
+    {"name": "consciousness-bridge",    "status": "ok"},
+    {"name": "neurobiological-master",  "status": "ok"},
+    {"name": "icontainers-identity",    "status": "active"},
+    {"name": "nbb-icontainers",         "status": "active"}
+  ],
+  "truth_verdict": {
+    "valid": true,
+    "confidence": 0.95,
+    "principal_reasons": []
+  }
+}
+```
+
+---
+
+## Confirmed Smoke Tests (Canonical, as of 2026-03-13)
+
+```bash
+# BBB /filter
+curl -sS -X POST http://localhost:8016/filter \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Who are you?"}' | jq .
+
+# BBB /truth
+curl -sS -X POST http://localhost:8016/truth \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Who are you?"}' | jq '{valid, confidence, principal_reasons}'
+
+# Full ultimatechat (consciousness layers + validated_by)
+curl -sS -X POST http://localhost:8050/ultimatechat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Who are you?", "user_id": "audit-2026-03-13"}' \
+  | jq '{validated_by, architecture_layers, consciousness_layers, truth_verdict}'
+```
+
+---
+
+## Open Items After This Session
+
+| Item | Priority | Notes |
+|------|----------|-------|
+| Remove dead code below `return` in `call_nbb_icontainers()` | Low | Cosmetic cleanup, no functional impact |
+| Wire `store_in_subconscious_rag` to real ChromaDB collections | Medium | Currently logs but does not persist to ChromaDB |
+| Complete judge pipeline `# TODO` placeholder in `ultimatechat` | Medium | Judge services running (ports 7230–7233) but not yet called in `ultimatechat` path |
+| Red-team adversarial test suite | High | Still outstanding from Section 9 Issue 3 (December 2025 audit) |
+
+---
+
+## Cross-References
+
+- **Chapter 16** — BBB `/filter` and `/truth` endpoints, `truth_verdict` schema, filter method signatures
+- **Chapter 17** — Canonical `ultimatechat` execution order and `UltimateResponse` schema
+- **Chapter 22** — `call_icontainers` HTTP implementation (I-Containers, port 8015)
+- **Chapter 41** — Canonical smoke test suite
