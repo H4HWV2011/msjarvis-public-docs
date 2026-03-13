@@ -3,10 +3,10 @@
 > **Disciplinary Context: Appalachian Economic Commons**  
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
 > - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–7 treat EMS→M$ rates, caps, fees, reserve bands, and governance thresholds as one integrated instrument that shapes how value circulates and where leakage or enclosure pressures arise. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
-> - **P9 – Transparency and traceability:** The tabular parameters for conversion, reserve bands, internal buying power, fees, and limits make the “knobs” of the system inspectable, so communities can see exactly how rules translate into numeric constraints.  
+> - **P9 – Transparency and traceability:** The tabular parameters for conversion, reserve bands, internal buying power, fees, and limits make the "knobs" of the system inspectable, so communities can see exactly how rules translate into numeric constraints.  
 > - **P16 – Power accountable to place:** Governance thresholds, band‑based permissions, and benefits‑sensitive limits tie parameter changes and risk controls to explicit conditions in the West Virginia pilot, ensuring that institutional power responds to local reserves, usage, and sensitivity to benefits.  
 > - **Anti‑leakage and closed‑loop spending:** Conversion caps, reserve‑ratio bands, internal phase schedules, and promo‑pool limits collectively aim to keep value recirculating in the closed loop rather than spilling out via over‑minting or unbounded cash‑outs.  
-> - **Bounty and corrective programs:** Promo‑pool parameters and governance thresholds encode how targeted bonuses or “bounty‑like” incentives can be safely activated or throttled in response to reserve bands and community decisions.
+> - **Bounty and corrective programs:** Promo‑pool parameters and governance thresholds encode how targeted bonuses or "bounty‑like" incentives can be safely activated or throttled in response to reserve bands and community decisions.
 
 > **DRAFT – LIVE PARAMETERS SUBJECT TO CHANGE**
 >
@@ -91,6 +91,55 @@ Ms. Jarvis recalculates the reserve ratio daily and applies the appropriate band
 | Monthly promo cap (M$)      | X (to be set per region)                  | Hard cap to prevent overspend             |
 | Promo state per reserve band| Enabled / Reduced / Paused / Frozen       | As per reserve ratio band table           |
 
+### 4.3 Fee Revenue Allocation
+
+All collected fee revenue (load fees, internal transfer fees, merchant fees, and ATM/refund fees) is
+allocated across five designated purposes according to the following fixed split. This structure ensures
+that every dollar of fee income serves a defined function within the MountainShares ecosystem and the
+broader Appalachian economic commons.
+
+#### 4.3.1 Allocation Table
+
+| Bucket | Allocation | Recipient / Purpose                     | Description                                                                                      |
+|--------|------------|-----------------------------------------|--------------------------------------------------------------------------------------------------|
+| 1      | 30%        | Harmony for Hope, Inc. (H4H Operations) | Covers nonprofit administration, staffing, compliance, legal, and program delivery costs         |
+| 2      | 30%        | Treasury Reserve                        | Grows the MountainShares backing reserve; supports phase transition thresholds and liquidity     |
+| 3      | 15%        | Platform Development                    | Funds ongoing development of The Commons app, Ms. Jarvis infrastructure, and technical systems  |
+| 4      | 15%        | Community Programs                      | Supports structured programs: education, mutual aid, time-banking, cultural preservation, etc.  |
+| 5      | 10%        | Community Projects                      | Funds member-initiated or DAO-approved local projects within the West Virginia commons           |
+| —      | +0.55%     | Treasury Reserve (Supplemental)         | An additional 0.55% of gross transaction volume accrues directly to the Treasury Reserve        |
+
+> **Total standard split: 100% of collected fee revenue.**  
+> The +0.55% supplemental treasury reserve is assessed separately on gross transaction volume (not fee
+> revenue) and is in addition to the 30% Treasury Reserve bucket above.
+
+#### 4.3.2 Treasury Reserve Funding Sources
+
+The Treasury Reserve (Bucket 2) is funded by the following streams:
+
+- **30% of all collected fee revenue** (load fees, transfer fees, merchant fees, ATM fees)
+- **+0.55% supplemental reserve assessment** on gross transaction volume
+- **Merchant fees (1.80%)** — the merchant fee is a primary treasury-building mechanism; the 30% treasury
+  share of this fee is routed to the reserve automatically at settlement
+- **ATM / refund fee ($1.25 flat)** — the full $1.25 per cash-out transaction contributes to the treasury
+  reserve pool via the standard 30% allocation, reinforcing reserve stability every time a PMS cash-out
+  occurs
+
+> **Design intent:** The combination of the 30% fee-revenue split and the +0.55% supplemental assessment
+> creates a compounding reserve-growth mechanism. As transaction volume grows, the treasury grows
+> proportionally, supporting the Phase 2 (125% reserve ratio) and Phase 3 (150% reserve ratio) thresholds
+> defined in the Terms and Conditions and Phase 1 Economic Safety Specification.
+
+#### 4.3.3 Governance and Adjustability
+
+These allocation percentages are **Program Rules parameters** and may be adjusted through the DAO
+governance process defined in the MountainShares DAO Governance Charter, subject to:
+
+- A minimum Treasury Reserve allocation of 20% (floor, not subject to ordinary DAO vote)
+- A minimum H4H Operations allocation of 20% (floor, required for nonprofit sustainability)
+- Any changes requiring a super-majority (66%) DAO vote and Board of Directors ratification
+- Changes disclosed to Users per Section 10.3 of the Terms and Conditions (minimum 30 days notice)
+
 ---
 
 ## 5. PMS Load and Cash‑Out Limits (Phase 1 Baseline)
@@ -125,6 +174,6 @@ Benefits‑Sensitive Accounts have PMS cash‑out disabled by default regardless
 |-------------------------|-------------------------|-------------------------------------------------------|
 | Governance eligibility  | 10 EMS hours + 30 days  | To obtain 1 UEI vote (per DAO spec)                  |
 | Quorum for key proposals| 30% of eligible UEIs    | For rate/cap changes, phase transitions               |
-| Super‑majority threshold| 66%                     | For “constitutional” or high‑impact changes           |
+| Super‑majority threshold| 66%                     | For "constitutional" or high‑impact changes           |
 
 All numeric values above are subject to revision via governance, within the bounds of the Terms and Economic Safety Specification.
