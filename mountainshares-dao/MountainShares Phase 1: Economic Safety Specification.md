@@ -8,7 +8,7 @@
 > - **Anti-leakage and closed-loop spending:** The separation of the recognition ledger from capped, reserve-backed M$ (Section 1) and the reserve-ratio-driven adjustment table (Section 3) operationalize anti-leakage design and keep the closed loop anchored in real backing assets.
 > - **Bounty and corrective programs:** Promo-pool rules (Section 4) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded “bounties” aligned with safety math rather than unconstrained giveaways.
 
-**Version:** 1.1
+**Version:** 1.1 (corrected)
 **Date:** March 12, 2026
 **Status:** DAO Governance Document
 **Scope:** West Virginia Pilot (Phase 1)
@@ -21,7 +21,8 @@
 | Version | Date | Summary |
 |---------|------|---------|
 | 1.0 | January 15, 2026 | Initial release |
-| 1.1 | March 12, 2026 | Added Phase 0 foundation section; integrated gamification layer (EMS earning categories, Data Stewardship, badge system cross-references); added fee split breakdown; added three-stage platform arc context; added Community Champion role and ground-truthing provisions; added Benefits-Sensitive Account protections; added data stewardship KPIs; cross-referenced Parameter Tables, Participation Map, and both gamification docs throughout |
+| 1.1 | March 12, 2026 | Added Phase 0 foundation section; integrated gamification layer (EMS earning categories, Data Stewardship, badge system cross-references); added three-stage platform arc context; added Community Champion role and ground-truthing provisions; added Benefits-Sensitive Account protections; added data stewardship KPIs; cross-referenced Parameter Tables, Participation Map, and both gamification docs throughout |
+| 1.1 (corrected) | March 12, 2026 | Removed fabricated fee split percentages (60/20/15/5); fee allocation is governed by existing smart contract structure and Parameter Tables, not invented here |
 
 ---
 
@@ -78,7 +79,7 @@ All current rates and caps are maintained in the [Program Rules – Parameter Ta
 
 Participants receiving means-tested public benefits (SNAP, Medicaid, SSI, WV WORKS, etc.) are protected by default. Benefits-Sensitive Accounts have:
 
-- **Hard balance cap:** M$ wallet balance may not exceed a threshold set to protect benefits eligibility (DAO-governed, defaults to conservative level at Phase 1 launch)
+- **Hard balance cap:** M$ wallet balance may not exceed a threshold set to protect benefits eligibility (DAO-governed, defaults to conservative level at Phase 1 launch; see [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 6)
 - **Throttled earning rate:** EMS-to-M$ conversion throttles automatically if balance approaches cap
 - **No forced disclosure:** Participation in The Commons does not require disclosure of benefit status; protection is opt-in and participant-controlled
 - **Ms. Jarvis proactive notice:** When a Benefits-Sensitive Account participant approaches a threshold, Ms. Jarvis provides a plain-language notice and suggests they consult with a benefits counselor before converting additional EMS
@@ -102,26 +103,16 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 
 **Backing Assets Include:**
 - USD load fees (users converting USD → M$)
-- Merchant transaction fees (1.80% of eligible M$ transactions per [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md))
+- Merchant transaction fees (1.80% of eligible M$ transactions)
+- Internal transfer fees (0.25%)
+- ATM/refund fees ($1.25 flat)
 - CLIO NFT revenue
 - DAO-approved grants or donations
-- Data stewardship and verification service revenue (where applicable)
 - *Excludes:* EMS recognition hours, future promises
 
-### 4.2 Fee Split Breakdown
+All fee rates are defined in the [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 4 and are smart-contracted. Fee allocation across reserve backing, promo pool, operations, and data stewardship is governed per the existing smart contract structure and Parameter Tables — not specified in this document.
 
-Every merchant transaction fee and USD load fee is split across four purposes. The split is a governed parameter — defaults are set at launch and adjustable by DAO vote within safety bands.
-
-| Fee Destination | Default % | Purpose |
-|----------------|-----------|--------|
-| **Reserve backing** | 60% | Maintains the reserve ratio backing outstanding M$ |
-| **Promo pool** | 20% | Funds quest bonuses, seasonal campaigns, and badge rewards |
-| **Operations** | 15% | H4H and KTS platform operations, Ms. Jarvis infrastructure |
-| **Data stewardship fund** | 5% | Funds EMS awards for verification ping responses and ground-truthing activities |
-
-> The data stewardship fund ensures that the ground-truthing and verification cycle is self-sustaining — participation in data accuracy is recognized and rewarded without drawing from the main reserve.
-
-### 4.3 Safety Thresholds (Ms. Jarvis Enforces Automatically)
+### 4.2 Safety Thresholds (Ms. Jarvis Enforces Automatically)
 
 | Reserve Ratio | Global Base Rate | User Cap Adjustment | Bonus Promos | Action |
 |---------------|------------------|-------------------|------------|--------|
@@ -138,11 +129,11 @@ Every merchant transaction fee and USD load fee is split across four purposes. T
 
 ---
 
-## 5. Monthly Promo & Bonus Pool (Funded Separately)
+## 5. Monthly Promo & Bonus Pool
 
 ### 5.1 Promo Pool Budget
-- **Source:** 20% of fee revenue (see Section 4.2 fee split). Separate from EMS conversion budget.
-- **Max Size:** 2–3% of monthly processed volume, capped at X M$/month (DAO sets X per [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md)).
+- **Source:** Allocated from fees and treasury per the smart contract structure and [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 4.2.
+- **Max Size:** 2–3% of monthly processed volume, capped at X M$/month (DAO sets X per Parameter Tables).
 - **Example:** If volume is 100k USD/month, promo pool ≤ 2–3k M$/month.
 
 ### 5.2 Bonus Rules
@@ -151,7 +142,7 @@ Every merchant transaction fee and USD load fee is split across four purposes. T
 - **Bonuses still count against the user’s per-month convertible cap** — they do not bypass it.
 - Bonuses pause automatically when reserve ratio < 1.0.
 - Quest completion rewards, seasonal campaign bonuses, and streak milestone rewards all draw from this pool.
-- Data stewardship verification rewards draw from the separate **data stewardship fund** (Section 4.2), not the promo pool.
+- Data stewardship verification rewards are funded separately per the smart contract structure — they do not draw from the promo pool.
 
 ---
 
@@ -165,7 +156,7 @@ The following categories are recognized as qualifying EMS-earning activities in 
 | **Learning and Teaching** | Workshops, skill sessions, mentoring, learning modules | 1 EMS hr per verified hour |
 | **Cultural Preservation** | Clio trail markers, oral history, heritage events, traditions | 1 EMS hr per verified hour |
 | **Land and Mapping** | GIS validation, place record submission, parcel verification | 1 EMS hr per verified hour |
-| **Data Stewardship** | Ground-truthing, contact collection (with consent), Ms. Jarvis verification ping responses, record updates | EMS awarded per verified activity and per ping response; funded from data stewardship fund |
+| **Data Stewardship** | Ground-truthing, contact collection (with consent), Ms. Jarvis verification ping responses, record updates | EMS awarded per verified activity and per ping response; funded per smart contract structure |
 | **Community Events** | Commons-hosted events, volunteer hours, local programs | 1 EMS hr per verified hour |
 | **Governance Participation** | DAO votes, proposal review and feedback, governance sessions | 1 EMS hr per session |
 | **Emergency Preparedness** | Prep activities during active NOAA alert periods, resilience drills | Promo bonus when reserve permits |
@@ -185,7 +176,7 @@ Data accuracy is a core commons value and a recognized EMS-earning activity. Rur
 2. **Explicit opt-in consent** is required and documented at collection time (collector UEI, collection date, consent method, contact type).
 3. Ms. Jarvis runs automated verification pings every **6–12 months** to each consenting record holder.
 4. When the record holder **responds and confirms or updates** their data, they earn EMS hours. The record is marked verified with a new timestamp and confidence score.
-5. Verification rewards draw from the data stewardship fund (Section 4.2), not the promo pool.
+5. Verification rewards are funded per the existing smart contract structure, separate from the promo pool.
 
 ### 7.2 Community Champion Role in Data Stewardship
 
@@ -215,14 +206,12 @@ Full KPI definitions are in the [KPI Specification](MountainShares%20KPI%20Speci
 
 ## 8. DAO Authority: What Can Change & How
 
-### 8.1 DAO Can Vote To Increase (Requires Super-Majority, e.g., 66%+)
+### 8.1 DAO Can Vote To Change (Requires Super-Majority, e.g., 66%+)
 
 ✅ **Global base rate** (0.2 → 0.5 → 0.8 → 1.0), *only if reserve ratio is in safe zone*
 ✅ **Per-user monthly caps** (40/80 → 60/100 → 80/120), *only if reserve ratio supports it*
 ✅ **Tier assignment criteria** (e.g., add new community roles as Tier 2)
 ✅ **Promo pool budget** (increase X M$/month), *only if backing assets support it*
-✅ **Fee split percentages** (Section 4.2), *only within published safety bands per Parameter Tables*
-✅ **Data stewardship fund allocation**, *within safety bands*
 ✅ **Hard trigger thresholds themselves** (move 1.5 to 1.4, etc.), *only once system is stable + audited*
 ✅ **Quest categories, seasonal campaigns, badge criteria**, *within reserve-ratio safety bands*
 ✅ **Champion role scope and focus per phase**, *through standard proposal lifecycle*
@@ -235,6 +224,7 @@ Full KPI definitions are in the [KPI Specification](MountainShares%20KPI%20Speci
 ❌ Override Benefits-Sensitive Account protections without supermajority + legal review
 ❌ Overrule legal / safety prohibitions (drugs, weapons, exploitation, etc.)
 ❌ Remove consent requirements from data stewardship workflows
+❌ Alter smart-contracted fee rates outside the governance process defined in the Parameter Tables
 
 ### 8.3 Ms. Jarvis Authority (Automatic, No Vote Needed)
 
@@ -314,7 +304,6 @@ Every UEI can see (updated daily):
 
 **Network:**
 - Current reserve ratio, backing assets breakdown, total outstanding M$, next rate tier projection
-- Fee split allocation (how fees are being distributed across reserve, promo, ops, and data stewardship fund)
 - Data stewardship KPIs: % records verified in last 12 months, ping response rate
 - Active participant count, monthly EMS hours logged, monthly M$ minted and spent
 
@@ -331,7 +320,7 @@ Every UEI can see (updated daily):
 
 - **Daily:** Ms. Jarvis publishes reserve ratio, auto-applies threshold-triggered adjustments, runs data confidence scoring
 - **Weekly:** Network snapshot (active users, volume, M$ minted, promo spend, data stewardship KPIs)
-- **Monthly:** Full treasury audit, DAO governance session (proposals + votes), fee split review
+- **Monthly:** Full treasury audit, DAO governance session (proposals + votes)
 - **Quarterly:** External audit by independent WV nonprofit (if funds permit); Champion role scope review through governance
 - **Every 6–12 months:** Ms. Jarvis verification ping cycle for all consenting place records
 
@@ -342,7 +331,7 @@ Every UEI can see (updated daily):
 ### 14.1 If Reserve Ratio Falls Below 0.5 (Critical)
 - All EMS conversions pause immediately
 - Only USD loads and merchant fees accepted
-- Data stewardship fund protected — verification ping cycles continue
+- Data stewardship verification ping cycles continue — funded separately from main reserve
 - Emergency governance session called within 48 hours
 - Options: (a) shut down gracefully, (b) seek external funding, (c) reset with community consent
 
@@ -356,7 +345,7 @@ Every UEI can see (updated daily):
 - Contact data collection paused immediately
 - Affected record holders notified per Privacy Policy obligations
 - Incident logged publicly (anonymized)
-- Data stewardship fund paused until breach is remediated and reviewed
+- Data stewardship verification paused until breach is remediated and reviewed
 
 ---
 
@@ -365,13 +354,12 @@ Every UEI can see (updated daily):
 - **UEI:** Unique Entity Identifier (per user, including individuals and orgs)
 - **EMS:** Earned Merit Score hour — 1 hour of qualifying community work logged with UEI + geo + timestamp
 - **M$:** MountainShares token (spendable, reserve-backed, convertible)
-- **Backing Assets:** Liquid USD and near-liquid reserves (fees, donations, CLIO revenue, data service revenue)
+- **Backing Assets:** Liquid USD and near-liquid reserves (fees, donations, CLIO revenue)
 - **Reserve Ratio:** Backing Assets / Outstanding M$; Ms. Jarvis enforces thresholds
 - **Tier:** User classification (Tier 1 = general, Tier 2 = verified EMS/caregiving)
 - **Hard Trigger:** Automatic enforcement rule (Ms. Jarvis, no override)
 - **DAO Vote:** Community governance (1 UEI = 1 vote, super-majority for increases)
-- **Benefits-Sensitive Account:** Account flagged (by participant opt-in) as belonging to a means-tested benefits recipient; subject to additional cap and throttle protections
-- **Data Stewardship Fund:** Separate fee-funded pool (5% of fee revenue) that rewards ground-truthing, contact collection, and verification ping responses
+- **Benefits-Sensitive Account:** Account flagged (by participant opt-in) as belonging to a means-tested benefits recipient; subject to additional cap and throttle protections per Parameter Tables Section 6
 - **Ground Truthing:** The activity of collecting, verifying, and updating local place and contact records with documented consent
 - **Verification Ping:** An automated Ms. Jarvis outreach (email or SMS) to a consenting record holder asking them to confirm or update their data; responding earns EMS hours
 - **Confidence Score:** Ms. Jarvis’s per-record quality rating based on verification recency, response history, and cross-source consistency
@@ -415,7 +403,7 @@ Key roles relevant to this specification:
 | **Phase 0 Participant** | Founding EMS hours and badges carry forward; Groundbreaker rank permanent |
 | **Community Champion** | Primary ground-truthing and data stewardship force in Phase 1 early; role evolves through governance |
 | **Safety Champion** | Ongoing post-Phase 0 safety review; feeds into quarterly audit cycle |
-| **Merchant** | Pays 1.80% transaction fee; fee split funds reserve, promo pool, ops, and data stewardship fund |
+| **Merchant** | Pays 1.80% transaction fee per Parameter Tables Section 4; fees feed reserve backing and promo pool per smart contract structure |
 | **Ms. Jarvis** | Enforces all hard triggers; runs verification pings; maintains reserve ratio and confidence scores |
 
 ---
