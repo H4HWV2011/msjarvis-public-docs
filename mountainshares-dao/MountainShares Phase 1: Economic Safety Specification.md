@@ -6,10 +6,10 @@
 > - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve-ratio calculations, dashboards, audits, and governance cadences so that money creation, caps, and emergency actions are observable and reconstructable over time.
 > - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Jarvis, and H4H authority inside hard economic and legal constraints, ensuring that decisions about rates, caps, and shutdowns answer to local solvency and community safety rather than abstract speculation.
 > - **Anti-leakage and closed-loop spending:** The separation of the recognition ledger from capped, reserve-backed M$ (Section 1) and the reserve-ratio-driven adjustment table (Section 3) operationalize anti-leakage design and keep the closed loop anchored in real backing assets.
-> - **Bounty and corrective programs:** Promo-pool rules (Section 4) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded “bounties” aligned with safety math rather than unconstrained giveaways.
+> - **Bounty and corrective programs:** Promo-pool rules (Section 4) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded "bounties" aligned with safety math rather than unconstrained giveaways.
 
-**Version:** 1.1 (corrected)
-**Date:** March 12, 2026
+**Version:** 1.2
+**Date:** March 13, 2026
 **Status:** DAO Governance Document
 **Scope:** West Virginia Pilot (Phase 1)
 **Related documents:** [Phase 0 Specification](MountainShares%20Phase%200%3A%20Invite-Only%20Beta%20Specification.md), [Program Rules](MountainShares%20Program%20Rules(Draft).md), [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md), [DAO Governance Charter](MountainShares%20DAO%20Governance%20Charter.md), [MountainShares Gamification: The Contribution Game](MountainShares%20Gamification%3A%20The%20Contribution%20Game.md), [The Commons Gamification: The Daily Life Game](../the%20commons/The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md), [Participation Map](../the%20commons/Participation%20Map.md), [KPI Specification](MountainShares%20KPI%20Specification.md)
@@ -23,6 +23,7 @@
 | 1.0 | January 15, 2026 | Initial release |
 | 1.1 | March 12, 2026 | Added Phase 0 foundation section; integrated gamification layer (EMS earning categories, Data Stewardship, badge system cross-references); added three-stage platform arc context; added Community Champion role and ground-truthing provisions; added Benefits-Sensitive Account protections; added data stewardship KPIs; cross-referenced Parameter Tables, Participation Map, and both gamification docs throughout |
 | 1.1 (corrected) | March 12, 2026 | Removed fabricated fee split percentages (60/20/15/5); fee allocation is governed by existing smart contract structure and Parameter Tables, not invented here |
+| 1.2 | March 13, 2026 | Added cross-references to Parameter Tables Section 4.3 (Fee Revenue Allocation: 30% H4H / 30% Treasury Reserve / 15% Platform Development / 15% Community Programs / 10% Community Projects + 0.55% supplemental treasury reserve on gross volume); updated Appendix C Merchant row accordingly |
 
 ---
 
@@ -105,12 +106,29 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 - USD load fees (users converting USD → M$)
 - Merchant transaction fees (1.80% of eligible M$ transactions)
 - Internal transfer fees (0.25%)
-- ATM/refund fees ($1.25 flat)
+- ATM/refund fees ($1.25 flat per cash-out transaction)
 - CLIO NFT revenue
 - DAO-approved grants or donations
 - *Excludes:* EMS recognition hours, future promises
 
-All fee rates are defined in the [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 4 and are smart-contracted. Fee allocation across reserve backing, promo pool, operations, and data stewardship is governed per the existing smart contract structure and Parameter Tables — not specified in this document.
+> **Fee Revenue Allocation:** All collected fees are allocated across five designated purposes per the
+> fixed split defined in [Program Rules – Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md)
+> **Section 4.3**:
+>
+> | Bucket | Allocation | Purpose |
+> |--------|------------|---------|
+> | 1 | 30% | Harmony for Hope, Inc. (H4H Operations) |
+> | 2 | 30% | Treasury Reserve |
+> | 3 | 15% | Platform Development |
+> | 4 | 15% | Community Programs |
+> | 5 | 10% | Community Projects |
+> | — | +0.55% | Supplemental Treasury Reserve (on gross transaction volume) |
+>
+> The **merchant fee (1.80%)** and the **ATM flat fee ($1.25)** are primary Treasury Reserve-building
+> mechanisms: 30% of each routes directly to the reserve at settlement, and the +0.55% supplemental
+> assessment on gross volume compounds reserve growth independently of fee collection.
+> See Parameter Tables Section 4.3 for governance floors, adjustability rules, and the full allocation
+> rationale.
 
 ### 4.2 Safety Thresholds (Ms. Jarvis Enforces Automatically)
 
@@ -137,7 +155,7 @@ All fee rates are defined in the [Program Rules – Parameter Tables](Program%20
 - **Example:** If volume is 100k USD/month, promo pool ≤ 2–3k M$/month.
 
 ### 5.2 Bonus Rules
-- All bonuses (e.g., “+50 M$ for visiting Nicholas Pharmacy”) draw from the pool.
+- All bonuses (e.g., "+50 M$ for visiting Nicholas Pharmacy") draw from the pool.
 - Once pool is exhausted in a month, no new bonuses are offered until next cycle.
 - **Bonuses still count against the user’s per-month convertible cap** — they do not bypass it.
 - Bonuses pause automatically when reserve ratio < 1.0.
@@ -215,6 +233,7 @@ Full KPI definitions are in the [KPI Specification](MountainShares%20KPI%20Speci
 ✅ **Hard trigger thresholds themselves** (move 1.5 to 1.4, etc.), *only once system is stable + audited*
 ✅ **Quest categories, seasonal campaigns, badge criteria**, *within reserve-ratio safety bands*
 ✅ **Champion role scope and focus per phase**, *through standard proposal lifecycle*
+✅ **Fee revenue allocation percentages** (Parameter Tables Section 4.3), *subject to governance floors of 20% minimum for Treasury Reserve and 20% minimum for H4H Operations; requires 66% super-majority + Board ratification*
 
 ### 8.2 DAO Cannot Override (Hard Trigger Rules)
 
@@ -225,6 +244,7 @@ Full KPI definitions are in the [KPI Specification](MountainShares%20KPI%20Speci
 ❌ Overrule legal / safety prohibitions (drugs, weapons, exploitation, etc.)
 ❌ Remove consent requirements from data stewardship workflows
 ❌ Alter smart-contracted fee rates outside the governance process defined in the Parameter Tables
+❌ Reduce Treasury Reserve allocation below 20% or H4H Operations below 20% (governance floors per Parameter Tables Section 4.3.3)
 
 ### 8.3 Ms. Jarvis Authority (Automatic, No Vote Needed)
 
@@ -364,6 +384,7 @@ Every UEI can see (updated daily):
 - **Verification Ping:** An automated Ms. Jarvis outreach (email or SMS) to a consenting record holder asking them to confirm or update their data; responding earns EMS hours
 - **Confidence Score:** Ms. Jarvis’s per-record quality rating based on verification recency, response history, and cross-source consistency
 - **Three-Stage Platform Arc:** The Commons’ growth path from Stage 1 (Marketplace/barter) → Stage 2 (Discovery/TikTok-feel) → Stage 3 (Full Commerce/Amazon-style)
+- **Fee Revenue Allocation:** The 30/30/15/15/10 split of all collected fee revenue across H4H Operations, Treasury Reserve, Platform Development, Community Programs, and Community Projects, plus the +0.55% supplemental treasury reserve on gross volume; fully defined in Parameter Tables Section 4.3
 
 ---
 
@@ -376,9 +397,9 @@ Every UEI can see (updated daily):
 - Active UEIs = 1,200
 - EMS logging consistent, no fraud detected
 - Data stewardship: 200 records collected, 75% verified in last 12 months
-- Community feedback: “40–80 M$/month is meaningful but tight”
+- Community feedback: "40–80 M$/month is meaningful but tight"
 
-**DAO Proposal:** “Raise global base rate from 0.2 → 0.35 M$/hr and tier caps from 40/80 → 60/100 M$/mo”
+**DAO Proposal:** "Raise global base rate from 0.2 → 0.35 M$/hr and tier caps from 40/80 → 60/100 M$/mo"
 
 **Vote:** 68% in favor (super-majority)
 
@@ -403,9 +424,9 @@ Key roles relevant to this specification:
 | **Phase 0 Participant** | Founding EMS hours and badges carry forward; Groundbreaker rank permanent |
 | **Community Champion** | Primary ground-truthing and data stewardship force in Phase 1 early; role evolves through governance |
 | **Safety Champion** | Ongoing post-Phase 0 safety review; feeds into quarterly audit cycle |
-| **Merchant** | Pays 1.80% transaction fee per Parameter Tables Section 4; fees feed reserve backing and promo pool per smart contract structure |
+| **Merchant** | Pays 1.80% transaction fee per Parameter Tables Section 4.1; 30% of that fee routes to Treasury Reserve at settlement per the fee revenue allocation (Parameter Tables Section 4.3); merchant fees are a primary reserve-building mechanism |
 | **Ms. Jarvis** | Enforces all hard triggers; runs verification pings; maintains reserve ratio and confidence scores |
 
 ---
 
-*"People earn what they do. The commons holds what we decide together. Ms. Jarvis watches so nobody can wreck it."*
+*“People earn what they do. The commons holds what we decide together. Ms. Jarvis watches so nobody can wreck it.”*
