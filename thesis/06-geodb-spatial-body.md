@@ -32,6 +32,7 @@ The focus is on the current structure and status of the PostgreSQL PostGIS‑bas
 - **Size:** 91 GB
 - **Tables:** 501 total (34 GBIM-related)
 - **GBIM Corpus:** 5.4M+ verified beliefs across 5 main tables
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Ms. Jarvis Architecture                   │
@@ -44,11 +45,11 @@ The focus is on the current structure and status of the PostgreSQL PostGIS‑bas
 │  │ PostgreSQL   │ ChromaDB     │ Support Services         │ │
 │  │ msjarvisgis  │ Vector Store │ (Redis, Neo4j)          │ │
 │  │              │              │                          │ │
-│  │ • PostGIS    │ • Embeddings │ • local_resources        │ │
-│  │ • 501 tables │ • Collections│   (Postgres)             │ │
-│  │ • GBIM       │   - beliefs  │ • Spatial cache          │ │
-│  │   corpus     │   - spatial  │ • Graph relationships    │ │
-│  │ • 91 GB      │   - benefits │                          │ │
+│  │ -  PostGIS    │ -  Embeddings │ -  local_resources        │ │
+│  │ -  501 tables │ -  Collections│   (Postgres)             │ │
+│  │ -  GBIM       │   - beliefs  │ -  Spatial cache          │ │
+│  │   corpus     │   - spatial  │ -  Graph relationships    │ │
+│  │ -  91 GB      │   - benefits │                          │ │
 │  └──────────────┴──────────────┴──────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -83,6 +84,7 @@ Operationally, this entails a PostgreSQL PostGIS‑backed geodatabase that holds
 At the storage level, Ms. Jarvis uses a PostgreSQL 16 PostGIS database (`msjarvisgis`) as the main container for West Virginia vector datasets. This PostGIS instance runs on the host system (not in Docker) at /var/lib/postgresql/16/msjarvis and is accessed by multiple services for spatial reasoning and data access.
 
 **Access Configuration:**
+
 ```python
 import psycopg2
 
@@ -101,6 +103,7 @@ cursor.execute("""
     WHERE (where_axis->>'county') = 'Fayette'
 """)
 ```
+
 ```bash
 # Command-line access
 sudo -u postgres psql -p 5432 -d msjarvisgis
@@ -172,6 +175,7 @@ The current deployment includes a substantial, production‑grade subset of West
   - National Register points and polygons and related historic resources.
 
 Across these themes, the PostgreSQL `msjarvisgis` GBIM/GeoDB deployment integrates millions of features from approximately 501 tables representing statewide datasets. Feature counts and table names are catalogued in database inventories so that claims about coverage can be verified and updated as ingestion continues.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │        West Virginia Statewide Geospatial Mesh              │
@@ -180,18 +184,18 @@ Across these themes, the PostgreSQL `msjarvisgis` GBIM/GeoDB deployment integrat
 │                                                              │
 │  Census & Demographics        Infrastructure & Hazards      │
 │  ┌──────────────────────┐    ┌──────────────────────┐      │
-│  │ • Blocks (2020)      │    │ • Mines (abandoned)  │      │
-│  │ • Block groups       │    │ • Dams               │      │
-│  │ • ZIP codes          │    │ • Floodplains        │      │
-│  │ • Counties           │    │ • Rail networks      │      │
-│  └──────────────────────┘    │ • Waterways          │      │
+│  │ -  Blocks (2020)      │    │ -  Mines (abandoned)  │      │
+│  │ -  Block groups       │    │ -  Dams               │      │
+│  │ -  ZIP codes          │    │ -  Floodplains        │      │
+│  │ -  Counties           │    │ -  Rail networks      │      │
+│  └──────────────────────┘    │ -  Waterways          │      │
 │                               └──────────────────────┘      │
 │  Structures & Buildings       Facilities & Services         │
 │  ┌──────────────────────┐    ┌──────────────────────┐      │
-│  │ • SAMB points        │    │ • Hospitals          │      │
-│  │ • Building footprints│    │ • Libraries          │      │
-│  │ • Microsoft points   │    │ • Benefits offices   │      │
-│  │   (millions)         │    │ • Community centers  │      │
+│  │ -  SAMB points        │    │ -  Hospitals          │      │
+│  │ -  Building footprints│    │ -  Libraries          │      │
+│  │ -  Microsoft points   │    │ -  Benefits offices   │      │
+│  │   (millions)         │    │ -  Community centers  │      │
 │  └──────────────────────┘    └──────────────────────┘      │
 │                                                              │
 │  All integrated with GBIM beliefs (5.4M+ rows)              │
@@ -207,6 +211,7 @@ Across these themes, the PostgreSQL `msjarvisgis` GBIM/GeoDB deployment integrat
 ### 6.5 Spatial Embeddings and Geo‑Referenced Beliefs
 
 To connect geometric features with high‑dimensional semantic reasoning, Ms. Jarvis maintains collections derived from GBIM beliefs and spatial entities in the shared ChromaDB vector store. These collections are hosted in a shared HTTP‑backed instance, configured with 384‑dimensional embeddings, and serve as the canonical spatial memory layer for RAG.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   GeoDB → GBIM → ChromaDB → RAG Pipeline                    │
@@ -217,21 +222,21 @@ To connect geometric features with high‑dimensional semantic reasoning, Ms. Ja
 │  │  501 spatial tables                            │         │
 │  │    ↓                                            │         │
 │  │  gbimbeliefnormalized (5.4M rows)              │         │
-│  │    • identity axis (source_table, source_pk)   │         │
-│  │    • where axis (lat, lon, geometry)           │         │
-│  │    • 9 JSONB axes total                        │         │
+│  │    -  identity axis (source_table, source_pk)   │         │
+│  │    -  where axis (lat, lon, geometry)           │         │
+│  │    -  9 JSONB axes total                        │         │
 │  └────────────────────────────────────────────────┘         │
 │              ↓                                               │
 │  ChromaDB Vector Collections                                │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  gbim_beliefs_v2 (primary GBIM collection)     │         │
-│  │    • Embeddings from 9 axes                    │         │
-│  │    • Metadata: belief_id, source_table,        │         │
+│  │    -  Embeddings from 9 axes                    │         │
+│  │    -  Metadata: belief_id, source_table,        │         │
 │  │      source_pk, epoch, spatial coords          │         │
 │  │                                                 │         │
 │  │  gis_wv_benefits (benefits facilities)         │         │
-│  │    • Benefits-specific embeddings              │         │
-│  │    • Metadata: facility type, county, ZIP,     │         │
+│  │    -  Benefits-specific embeddings              │         │
+│  │    -  Metadata: facility type, county, ZIP,     │         │
 │  │      local_resource_id                         │         │
 │  └────────────────────────────────────────────────┘         │
 │              ↓                                               │
@@ -317,6 +322,7 @@ This linkage allows the Steward System to traverse:
 ### 6.8 Geo‑Aware RAG, Benefits Flows, and Multi‑Model Use
 
 The PostgreSQL GeoDB layer and its GBIM/ChromaDB vector mirrors play a direct role in retrieval‑augmented generation, particularly for spatially explicit and benefits‑oriented queries. When a query includes spatial references—such as towns, hollows, counties, rivers, ZIP codes, or named facilities—the RAG pipeline can invoke geo‑aware paths.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   Geo-Aware Benefits RAG Pipeline                           │
@@ -341,9 +347,9 @@ The PostgreSQL GeoDB layer and its GBIM/ChromaDB vector mirrors play a direct ro
 │     AND verification_status = 'verified'                    │
 │              ↓                                               │
 │  5. Assemble Context                                        │
-│     • GBIM beliefs (spatial + institutional)                │
-│     • Facility details (from ChromaDB)                      │
-│     • Program info (from local_resources)                   │
+│     -  GBIM beliefs (spatial + institutional)                │
+│     -  Facility details (from ChromaDB)                      │
+│     -  Program info (from local_resources)                   │
 │              ↓                                               │
 │  6. LLM Ensemble Response                                   │
 │     "In Fayette County, food assistance is available at..." │
