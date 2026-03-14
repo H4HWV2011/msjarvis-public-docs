@@ -3,11 +3,11 @@
 This chapter describes how Ms. Jarvis already uses a concrete semantic memory system to support place‑based reasoning about West Virginia, connecting GBIM beliefs, the msjarvisgis statewide spatial corpus, and a verified local resource registry into an inspectable retrieval pipeline. It supports:  
 - **P1 – Every where is entangled** by storing texts, GIS‑derived entities, and programme records in shared relational tables and production vector collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` that can be jointly retrieved and joined, so that legal, economic, infrastructural, and social facts about Appalachia are handled as a single interconnected memory rather than as disconnected files or ad‑hoc lookups.  
 - **P3 – Power has a geometry** by representing relationships among institutions, places, and access to help as explicit GBIM records, GeoDB features in msjarvisgis, Chroma collections, and logged retrieval paths whose behaviour can be inspected, clustered, and audited, making it possible to see how different parts of the system are actually traversed when answering questions about extraction, obligation, and care.  
-- **P5 – Design is a geographic act** by treating collection schemas, metadata choices, enrichment scripts, retrieval rules, and join logic in the GBIM/GeoDB/Chroma stack as deliberate interventions into how West Virginia is represented and searched, so that design decisions about Ms. Jarvis's semantic memory layer are understood as decisions about how the region itself can be perceived and acted upon.  
+- **P5 – Design is a geographic act** by treating collection schemas, metadata choices, enrichment scripts, retrieval rules, and join logic in the GBIM/GeoDB/Chroma stack as deliberate interventions into how West Virginia is represented and searched, so that design decisions about Ms. Jarvis’s semantic memory layer are understood as decisions about how the region itself can be perceived and acted upon.  
 - **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific layers and records, including GBIM‑derived geographies, msjarvisgis features, and a programme registry keyed by county and ZIP where populated, so that queries about help, risk, or opportunity are resolved through structures that explicitly encode where people live and which institutions serve them.  
 - **P16 – Power accountable to place** by making long‑term memory, retrieval behaviour, and query‑to‑evidence links explicit and queryable, with logs and database joins that show which GBIM beliefs, GeoDB features, vector‑collection entries, and local_resources rows were used in answers about particular communities, instead of hiding those choices inside opaque model weights.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it defines the production semantic memory substrate and retrieval layer—centred on collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` and on the msjarvisgis/GBIM/local_resources apparatus—that Quantarithmia's reasoning, GBIM's belief structures, the verified `local_resources` band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis already run on in the live system.
+As such, this chapter belongs to the **Computational Instrument** tier: it defines the production semantic memory substrate and retrieval layer—centred on collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` and on the msjarvisgis/GBIM/local_resources apparatus—that Quantarithmia’s reasoning, GBIM’s belief structures, the verified `local_resources` band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis already run on in the live system.
 
 ## 5. ChromaDB as Semantic Memory
 
@@ -40,10 +40,10 @@ In the Ms. Jarvis architecture, ChromaDB plays several interlocking roles.
   A unified GIS‑derived collection such as `gbim_worldview_entities` holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables in the msjarvisgis database and providing the semantic representation of the spatial body described in the GBIM and GeoDB chapters. The current production deployment centres on this consolidated worldview collection with millions of records and spatial provenance linking back to PostgreSQL PostGIS geometries and belief rows, complemented by task‑specific collections such as `gis_wv_benefits` that focus on benefits‑relevant facilities.
 
 - **Retrieval engine for RAG.**  
-  At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval over collections like `gbim_beliefs_v2`; a GIS RAG service uses `gbim_worldview_entities` and `gis_wv_benefits` for spatial questions. This behaviour instantiates the query projection and neighbourhood selection mechanisms described in the Hilbert‑space model and forms the unstructured side of Ms. Jarvis's memory, which is then deterministically joined against structured stores like the PostgreSQL msjarvisgis GBIM database and `local_resources` before being handed to the ensemble.
+  At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval over collections like `gbim_beliefs_v2`; a GIS RAG service uses `gbim_worldview_entities` and `gis_wv_benefits` for spatial questions. This behaviour instantiates the query projection and neighbourhood selection mechanisms described in the Hilbert‑space model and forms the unstructured side of Ms. Jarvis’s memory, which is then deterministically joined against structured stores like the PostgreSQL msjarvisgis GBIM database and `local_resources` before being handed to the ensemble.
 
 - **Structural backbone for inspectable memory.**  
-  Because collections and metadata are explicitly defined, ChromaDB's structure mirrors core parts of GBIM, the msjarvisgis GeoDB layer, the thesis organisation, and the local‑resources band. This makes it possible to enumerate collections, inspect document counts, audit metadata, and correlate logs of RAG calls with the underlying memory, rather than relying on hidden internal state.
+  Because collections and metadata are explicitly defined, ChromaDB’s structure mirrors core parts of GBIM, the msjarvisgis GeoDB layer, the thesis organisation, and the local‑resources band. This makes it possible to enumerate collections, inspect document counts, audit metadata, and correlate logs of RAG calls with the underlying memory, rather than relying on hidden internal state.
 
 Taken together, this design makes the semantic memory system inspectable and debuggable: researchers and community partners can see what is stored, how it is grouped, which collections underpin particular advisory behaviours, how unstructured resource documents tie back to specific, verified programme rows in the relational registry, and how RAG and the ensemble use these elements to answer live questions.
 
@@ -132,24 +132,24 @@ Resource‑related documents (for example, county quick guides, seasonal assista
 
 In addition, a dedicated `gis_wv_benefits` collection stores semantic descriptions and metadata for benefits‑related facilities (for example, Oak Hill hubs and Beckley DHHR offices), keyed by county, ZIP, and GBIM entities from the PostgreSQL msjarvisgis database. These collections provide the unstructured side of local resources and benefits. At retrieval time, Ms. Jarvis uses metadata and `local_resource_id` (or facility IDs) to resolve from an embedded snippet in ChromaDB to a normalized registry entry or GBIM entity that contains ZIP coverage, phones, emails, contacts, and verification metadata.
 
-A key aspect of this band is that the underlying data are not purely desk‑compiled. Harmony for Hope has convened a **Community Champions** group to ground‑truth resource information, with Boone County resident **Crystal Colyer** serving as a lead "boots‑on‑the‑ground" validator. Working especially across Boone, Kanawha, and nearby counties, she verifies the existence, hours, and accessibility of food pantries and other supports, and her findings drive updates to both the `local_resources` registry and the associated resource‑document collections. In Kanawha County in particular, many of the food and resource locations currently represented in Ms. Jarvis's semantic memory come directly from her fieldwork, ensuring that the system's answers about help in Charleston and surrounding communities rest on community‑validated data rather than unverified lists.
+A key aspect of this band is that the underlying data are not purely desk‑compiled. Harmony for Hope has convened a **Community Champions** group to ground‑truth resource information, with Boone County resident **Crystal Colyer** serving as a lead “boots‑on‑the‑ground” validator. Working especially across Boone, Kanawha, and nearby counties, she verifies the existence, hours, and accessibility of food pantries and other supports, and her findings drive updates to both the `local_resources` registry and the associated resource‑document collections. In Kanawha County in particular, many of the food and resource locations currently represented in Ms. Jarvis’s semantic memory come directly from her fieldwork, ensuring that the system’s answers about help in Charleston and surrounding communities rest on community‑validated data rather than unverified lists.
 
 ---
 
 ### 5.4 From Hilbert Space to ChromaDB (and Back to Registries)
 
-ChromaDB provides the concrete realization of the Hilbert‑space representation described in the previous chapter, while structured stores such as the PostgreSQL msjarvisgis GBIM tables and `local_resources` provide the "hard edges" that RAG resolves into.
+ChromaDB provides the concrete realization of the Hilbert‑space representation described in the previous chapter, while structured stores such as the PostgreSQL msjarvisgis GBIM tables and `local_resources` provide the “hard edges” that RAG resolves into.
 
 **Embeddings as vectors.**  
 The embedding model maps texts and entities into high‑dimensional real vectors. ChromaDB stores these vectors alongside metadata (identifiers, timestamps, entity types, geographies, resource keys) and exposes operations such as nearest‑neighbor search, filtered retrieval, and upsert.
 
 **Collections as working subspaces.**  
-Each ChromaDB collection corresponds to an empirically instantiated subset of H_App, grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of "who helps whom, where, and how."
+Each ChromaDB collection corresponds to an empirically instantiated subset of H_App, grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of “who helps whom, where, and how.”
 
 **Queries as projections plus joins.**  
 Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of H_App, retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, and `gbim_entity`) to join that unstructured context against `local_resources` and the PostgreSQL msjarvisgis GBIM database, enforcing that any recommended programme or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
 
-This mapping allows Ms. Jarvis's memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, RAG calls, and joins to structured registries.
+This mapping allows Ms. Jarvis’s memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, RAG calls, and joins to structured registries.
 
 ---
 
@@ -165,24 +165,51 @@ Any Chroma collection that stores embeddings produced by this model is configure
 
 ChromaDB is accessed as a shared HTTP service in this deployment; earlier patterns using per‑service local stores are now considered legacy.
 
-#### 5.6.1 Shared HTTP Service
+#### 5.6.1 Shared HTTP Service — Confirmed Configuration (March 13, 2026)
 
-In the active environment, services connect to a shared ChromaDB instance through an HTTP client configured with explicit host and port, with:
+In the active environment, services connect to a shared ChromaDB instance through an HTTP client. The **canonical production address** as of March 13, 2026 is:
 
-- a container dedicated to the vector store,  
-- persistent on‑disk storage mounted into the container, and  
-- a single catalog that includes spatial, semantic, resource‑document, and benefits collections.
+- **Host:** `127.0.0.1`
+- **Port:** `8002`
+- **Instance type:** ChromaDB HTTP server (persistent, host-system process)
+- **Storage:** on-disk, host filesystem (not containerized)
 
-Connection patterns follow a simple template:
 ```python
 import chromadb
 
-client = chromadb.HttpClient(host="localhost", port=8000)
+client = chromadb.HttpClient(host="127.0.0.1", port=8002)
 collection = client.get_collection("gbim_worldview_entities")
 print("Total entities:", collection.count())
 ```
 
-The shared instance is treated as the canonical semantic memory store for this deployment and is used by the text RAG, GIS RAG, and other memory‑aware services behind the main chat and search endpoints.
+The shared instance is treated as the canonical semantic memory store and is used by the text RAG, GIS RAG, and other memory‑aware services behind the main chat and search endpoints.
+
+#### 5.6.2 Active Collections (Verified March 13, 2026)
+
+The following collections were confirmed present on the live server via `client.list_collections()`:
+
+| Collection | Domain | Status |
+|---|---|---|
+| `gbim_worldview_entities` | GBIM spatial worldview | 🔄 Full 5.4M ingest running |
+| `psychological_rag` | Psychological safety corpus | ✅ Active |
+| `autonomous_learner` | Autonomous learning patterns | ✅ Active |
+| `spiritual_texts` | Spiritual and values corpus | ✅ Active |
+| `geospatialfeatures` | GIS feature embeddings | ✅ Active |
+| `msjarvis_docs` | System documentation | ✅ Active |
+| `GBIM_sample_rows` | GBIM testing sample (5,000 rows) | ✅ Active |
+| `GBIM_Fayette_sample` | Fayette County GBIM sample | ✅ Active |
+| `GBIM_sample` | General GBIM sample | ✅ Active |
+| `msjarvis-smoke` | Smoke test collection | ✅ Active |
+
+#### 5.6.3 Legacy Archive Location
+
+A prior ChromaDB on-disk store was located at:
+
+```
+/mnt/nvme1/msjarvis-rebuild/chroma_db
+```
+
+This path is on the second NVMe drive (`/dev/nvme1n1p1`, mounted at `/mnt/nvme1`). This store is treated as a **read-only historical archive** and is not the active HTTP server. It should not be written to or used for new ingest. All active work targets the HTTP server at `127.0.0.1:8002`.
 
 ---
 
@@ -200,7 +227,7 @@ The spatial collection mirrors the GBIM attributes corpus from the PostgreSQL ms
 Resource‑related collections index unstructured PDFs and guides while tagging entries with `local_resource_id` or other keys. Once a snippet is retrieved, Ms. Jarvis resolves it to a row in the `local_resources` table, which encodes `resource_type`, county, ZIP coverage, contact details, and verification fields. This ensures that recommendations are backed by explicit, up‑to‑date programme records rather than free‑floating text alone.
 
 **Benefits and GIS RAG integration.**  
-The `gis_wv_benefits` collection indexes semantic descriptions of benefits facilities and is queried by GIS RAG services for prompts like "benefits near Oak Hill" or "Raleigh County assistance offices." Metadata such as county and GBIM entity identifiers (linking to PostgreSQL msjarvisgis) enable joins back to GBIM and relationships to other worldview entities. Combined with text RAG over other collections, this yields blended semantic and spatial context for the ensemble.
+The `gis_wv_benefits` collection indexes semantic descriptions of benefits facilities and is queried by GIS RAG services for prompts like “benefits near Oak Hill” or “Raleigh County assistance offices.” Metadata such as county and GBIM entity identifiers (linking to PostgreSQL msjarvisgis) enable joins back to GBIM and relationships to other worldview entities. Combined with text RAG over other collections, this yields blended semantic and spatial context for the ensemble.
 
 **RAG context building.**  
 For spatial or resource questions, the RAG pipeline queries both spatial and resource collections to retrieve relevant entities, PDFs, and programme descriptions. Retrieved texts, metadata, spatial identifiers, and registry keys are combined into context windows for language models, with filtering by collection, geography, topic, resource type, and verification status. Logs record which collections and IDs were used per query.
@@ -229,7 +256,7 @@ cursor.execute("""
 """, (entity_ref,))
 ```
 
-End‑to‑end, the pipeline behaves as a structured walk through curated, domain‑specific memory organised around the PostgreSQL msjarvisgis GBIM database, the GeoDB spatial body, resource registries, and Quantarithmia's research concepts, mediated by ChromaDB and observed through RAG and ensemble logs.
+End‑to‑end, the pipeline behaves as a structured walk through curated, domain‑specific memory organised around the PostgreSQL msjarvisgis GBIM database, the GeoDB spatial body, resource registries, and Quantarithmia’s research concepts, mediated by ChromaDB and observed through RAG and ensemble logs.
 
 ---
 
@@ -290,7 +317,7 @@ Auditability and traceability for this semantic memory layer rely on the same pr
 
 ### 5.11 Limitations and Future Work
 
-Several originally "future‑work" items have now been completed and should be treated as foundations rather than as open tasks:
+Several originally “future‑work” items have now been completed and should be treated as foundations rather than as open tasks:
 
 - A unified GBIM embedding collection (`gbim_beliefs_v2`) populated from PostgreSQL `msjarvisgis.gbimbeliefnormalized` and used by RAG.  
 - A West‑Virginia‑biased spatial semantic memory built around a consolidated spatial collection such as `gbim_worldview_entities`, with coordinates and provenance that mirror the PostgreSQL msjarvisgis GeoDB corpus (91 GB, 501 tables).  
