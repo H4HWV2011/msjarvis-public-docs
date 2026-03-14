@@ -181,4 +181,4 @@ The completion of this ingest represents the crossing of a critical threshold: M
 
 This is not a prototype. It is a production deployment, verified against the authoritative PostgreSQL source, running on the Legion 5 development machine in Oak Hill, West Virginia, as of March 14, 2026.
 
-*Last updated: 2026-03-14 19:20 EDT by Carrie Kidd (Mamma Kidd), Oak Hill WV*
+*Last updated: 2026-03-14 19:20 EDT by Carrie Kidd (Mamma Kidd), Mount Hope WV*
