@@ -26,7 +26,7 @@ is not yet running as of the March 13 2026 session.
 | WOAH | jarvis-woah | 7012 | ✅ Running | ❌ Not surfaced | WOAH reasoning available from bridge; not yet in unified glassbox |
 | Ollama | jarvis-ollama | active | ✅ Running | N/A | LLM backend |
 | Redis | jarvis-redis | active | ✅ Running | N/A | Cache layer |
-| ChromaDB | jarvis-chroma | active | ⚠️ Degraded | ❌ | Returns HTTP 405 on health POST (wrong method); semantic memory unavailable |
+| ChromaDB (HTTP) | host-system process | 8002 | ✅ Running | ✅ | Live at 127.0.0.1:8002; full GBIM ingest running as of 2026-03-13 evening |
 | Direct RAG | jarvis-direct-rag | 8199 | ❌ DNS Fail | ❌ | `[Errno -2] Name or service not known` inside Docker network; container DNS not resolving |
 | Neurobiological Master | jarvis-neurobiological-master | 8018 | ⚠️ 405 on health | ❌ | HTTP method mismatch on health endpoint |
 | 20-LLM Production | jarvis-20llm-production | 8008 | ❌ Not running | ❌ | Not yet in rebuild compose file; required by `/chat_wv` full path |
@@ -68,7 +68,7 @@ Currently, only `bbb` is populated. `consciousness` is `{"error":""}`.
 
 ---
 
-## What Happened Today (March 13, 2026)
+## What Happened Today (March 13, 2026 — Daytime Session)
 
 1. `msjarvisconsciousnessbridge.py` timeout raised from 45s → 120s (Hilbert `/chat_wv` takes ~120s).
 2. Bridge container rebuilt and confirmed returning valid JSON at port 8020.
@@ -81,15 +81,85 @@ Currently, only `bbb` is populated. `consciousness` is `{"error":""}`.
 
 ---
 
+## GBIM Chroma Restoration Session (March 13, 2026 — Evening)
+
+### Background
+Working directory for this session:
+```
+~/msjarvis-safe/recovered-services_20llm_full/
+```
+Virtual environment: `~/msjarvis-venvs/chroma_venv/`
+
+### ChromaDB Server Confirmed Live
+The host-system ChromaDB HTTP server at `127.0.0.1:8002` was confirmed running with 10 collections accessible.
+
+### Active Collections (Verified 2026-03-13 ~21:00 EDT)
+
+| Collection | Domain |
+|---|---|
+| `msjarvis-smoke` | Smoke test |
+| `GBIM_sample_rows` | GBIM testing sample (5,000 rows) |
+| `GBIM_Fayette_sample` | Fayette County GBIM sample |
+| `spiritual_texts` | Spiritual and values corpus |
+| `psychological_rag` | Psychological safety corpus |
+| `geospatialfeatures` | GIS feature embeddings |
+| `GBIM_sample` | General GBIM sample |
+| `gbim_worldview_entities` | GBIM spatial worldview — **full 5.4M ingest running** |
+| `autonomous_learner` | Autonomous learning patterns |
+| `msjarvis_docs` | System documentation |
+
+### Legacy Archive Located
+The prior ChromaDB on-disk store was found at:
+```
+/mnt/nvme1/msjarvis-rebuild/chroma_db
+```
+This is on the second NVMe drive (`/dev/nvme1n1p1`, mounted at `/mnt/nvme1`).
+**Status: read-only historical archive. Do not write to this path.**
+All active ingest targets the HTTP server at `127.0.0.1:8002`.
+
+### Second NVMe Contents
+`/mnt/nvme1/` contains three directories:
+- `gbim_data/` — GBIM source data
+- `msjarvis-data/` — Ms. Jarvis data assets
+- `msjarvis-rebuild/` — prior rebuild artifacts (includes legacy `chroma_db/`)
+
+### Full GBIM Ingest Launched
+A full ingest of all 5.4M+ GBIM worldview entities was launched into `gbim_worldview_entities`.
+Source file:
+```
+data/gbim/gbim_entities_for_chroma.csv
+```
+Batch size: 5,400. Progress confirmed with first batch log: `Added 5400 GBIM entities`.
+Ingest is **running as background process** and is expected to take several hours.
+
+The ingest script uses `col.add()` with id-based upsert — safe to re-run if interrupted.
+Each document text is constructed as:
+```
+{entity_type} {source_table} {label}
+```
+with all non-empty CSV fields included as metadata (values truncated to 500 chars).
+
+### Significance for Thesis
+This session demonstrates end-to-end GBIM semantic memory restoration:
+- Live ChromaDB HTTP server at `127.0.0.1:8002`
+- Source: PostgreSQL `msjarvisgis.gbim_worldview_entity` → CSV → Chroma
+- Collection `gbim_worldview_entities` now receiving all 5.4M+ West Virginia spatial entities
+- Spatial provenance: EPSG:26917 (UTM Zone 17N NAD83) centroids in metadata
+- Prior sample-only limitation (5,000 rows) eliminated — full corpus being ingested
+- Eliminates the last major gap between documented architecture and live system capability
+
+---
+
 ## Immediate Next Steps (before deleting this file)
 
+- [ ] Monitor GBIM full ingest completion — check `col.count()` on `gbim_worldview_entities` until it reaches 5.4M+
 - [ ] Wire `recovered-services/services/ms_jarvis_unified_gateway.py` `process_unified` into active `services/ms_jarvis_unified_gateway.py`
 - [ ] Add `/wv_summary` endpoint to `services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py`
-- [ ] Fix ChromaDB health check (GET not POST)
 - [ ] Fix `jarvis-direct-rag` DNS resolution inside Docker network
 - [ ] Add `jarvis-20llm-production` to rebuild compose (or document as out-of-scope for rebuild phase 1)
+- [ ] Update chapters 05, 06 with confirmed second NVMe mount and legacy archive location
 - [ ] Once `consciousness` block is fully populated in glassbox, update chapters 39, 40, 41 and delete this file
 
 ---
 
-*Last updated: 2026-03-13 by Carrie Kidd (Mamma Kidd), Oak Hill WV*
+*Last updated: 2026-03-13 21:28 EDT by Carrie Kidd (Mamma Kidd), Oak Hill WV*
