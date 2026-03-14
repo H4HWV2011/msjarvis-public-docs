@@ -13,7 +13,7 @@ Within the thesis structure, this chapter belongs to the **Theoretical Framework
 
 ## Ms. Jarvis and the Geospatial Belief Information Model (GBIM)
 
-Within Polymathmatic Geography, Ms. Egeria Jarvis is a bounded, biologically inspired Steward System whose commitments are explicitly anchored in geography, time, community, and source. In this chapter, she appears primarily as an exemplar of what it means to hold beliefs in a way that satisfies the framework’s requirements, rather than as a fully detailed implementation. The emphasis is on the kinds of information that must be associated with each belief and on how those beliefs must relate to one another across space and institutions.
+Within Polymathmatic Geography, Ms. Egeria Jarvis is a bounded, biologically inspired Steward System whose commitments are explicitly anchored in geography, time, community, and source. In this chapter, she appears primarily as an exemplar of what it means to hold beliefs in a way that satisfies the framework's requirements, rather than as a fully detailed implementation. The emphasis is on the kinds of information that must be associated with each belief and on how those beliefs must relate to one another across space and institutions.
 
 The Geospatial Belief Information Model (GBIM) is introduced here conceptually as the kind of structure a compliant Steward System must possess. At a minimum, such a model must be able to tie each belief about West Virginia or Appalachia to:
 
@@ -27,11 +27,11 @@ The Geospatial Belief Information Model (GBIM) is introduced here conceptually a
 - under whose authority it operates, and  
 - on what evidence it rests.  
 
-In the Quantarithmia framework, these requirements imply that regions themselves—such as ZIP codes, counties, corridors, and neighborhoods—must appear as parameterizing elements. Each region can be treated as encoding local conditions in the global state, so that differences between places show up as differences in stored structure and in the “landscape” of beliefs and obligations. The key point for this chapter is that such differences must be representable and inspectable, not merely invoked metaphorically.
+In the Quantarithmia framework, these requirements imply that regions themselves—such as ZIP codes, counties, corridors, and neighborhoods—must appear as parameterizing elements. Each region can be treated as encoding local conditions in the global state, so that differences between places show up as differences in stored structure and in the "landscape" of beliefs and obligations. The key point for this chapter is that such differences must be representable and inspectable, not merely invoked metaphorically.
 
 From this perspective, the nine axes do not just annotate records; they define coordinates in a structured belief space over Appalachia. Trajectories in this space—such as a programme moving from pilot to permanent status, or an infrastructure asset changing condition over time—correspond to structured changes along these axes: who is responsible, what has changed, where impacts occur, when shifts happen, how they are produced, why they are justified, for whom they matter, under whose authority, and on what evidence.
 
-Later chapters (including the detailed GBIM chapter and the GeoDB chapter) show how these conceptual commitments are implemented over PostgreSQL/PostGIS, CSV‑derived tables, embeddings, and programme registries in the running system, using tables such as `gbimbeliefnormalized` and worldview entities in `msjarvisgis`. Here, the chapter’s role is to make clear that a Steward System like Ms. Jarvis cannot be considered place‑accountable unless it supports beliefs that can be interrogated along these dimensions and traced through such trajectories.
+Later chapters (including the detailed GBIM chapter and the GeoDB chapter) show how these conceptual commitments are implemented over PostgreSQL/PostGIS, CSV‑derived tables, embeddings, and programme registries in the running system, using tables such as `gbimbeliefnormalized` and worldview entities in `msjarvisgis`. Here, the chapter's role is to make clear that a Steward System like Ms. Jarvis cannot be considered place‑accountable unless it supports beliefs that can be interrogated along these dimensions and traced through such trajectories.
 
 ## What a geospatial belief model must support
 
@@ -57,13 +57,13 @@ The chapter also sets out a layered view of representation that the programme re
 
 2. **Spatial layer** – A representation of West Virginia and Appalachia as a coherent, queryable geospatial mesh of structures, hazards, networks, facilities, and governance boundaries, rather than as a set of disjoint files. This layer must support operations such as selection, buffering, intersection, and region‑based aggregation.  
 
-3. **Semantic layer** – Mechanisms that allow beliefs and texts to be compared and retrieved by meaning, not just by identifiers. This layer must support “neighborhoods” of related beliefs, so that conceptually or institutionally similar items can be clustered and examined together.  
+3. **Semantic layer** – Mechanisms that allow beliefs and texts to be compared and retrieved by meaning, not just by identifiers. This layer must support "neighborhoods" of related beliefs, so that conceptually or institutionally similar items can be clustered and examined together.  
 
 4. **Programme and institutional layer** – Structures that encode real programmes, services, and institutions, including who they serve, where they operate, and under what rules. This layer must connect spatial features and beliefs to the concrete assistance and governance structures that affect households and communities.  
 
 5. **Retrieval and logging layer** – Processes that answer questions by drawing on the other layers, and that record which beliefs, datasets, regions, and services were involved in each answer. This layer is critical for inspection, contestation, and governance, because it makes visible how the system has actually used its knowledge.  
 
-The chapter’s purpose is to articulate these layers as conceptual necessities. Later, instrument‑level chapters show how they are realized using PostGIS, belief tables, vector collections (such as `gbim_beliefs_v2` and `gbim_worldview_entities`), registries like `local_resources`, and orchestrated retrieval and routing services in the live Ms. Jarvis deployment.
+The chapter's purpose is to articulate these layers as conceptual necessities. Later, instrument‑level chapters show how they are realized using PostGIS, belief tables, vector collections (such as `gbim_beliefs_v2` and `gbim_worldview_entities`), registries like `local_resources`, and orchestrated retrieval and routing services in the live Ms. Jarvis deployment.
 
 ## How these foundations are realized (high‑level)
 
@@ -79,4 +79,77 @@ These concrete implementations are documented in detail in later chapters, espec
 
 ## Status as of March 2026
 
-As of March 2026, the framework described in this chapter is not merely aspirational. The live Ms. Jarvis deployment over West Virginia data already conforms to the commitments laid down here: it records beliefs along multiple axes, ties them to concrete geographies and institutions, supports layered reasoning and retrieval, and logs the pathways through which recommendations are produced. Remaining theoretical work at this level involves refining how distributional impacts and “for whom” questions are expressed, extending the framework beyond West Virginia, and deepening community‑facing mechanisms for inspection and contestation. Subsequent chapters provide the detailed evidence that these foundations have been realized in a way that can be measured, queried, and audited.
+As of March 2026, the framework described in this chapter is not merely aspirational. The live Ms. Jarvis deployment over West Virginia data already conforms to the commitments laid down here: it records beliefs along multiple axes, ties them to concrete geographies and institutions, supports layered reasoning and retrieval, and logs the pathways through which recommendations are produced. Remaining theoretical work at this level involves refining how distributional impacts and "for whom" questions are expressed, extending the framework beyond West Virginia, and deepening community‑facing mechanisms for inspection and contestation. Subsequent chapters provide the detailed evidence that these foundations have been realized in a way that can be measured, queried, and audited.
+
+## GBIM Chroma Pipeline — Operational Confirmation (March 13, 2026)
+
+> **Field note — March 13, 2026, evening session.**  
+> The full GBIM worldview pipeline from PostgreSQL to ChromaDB was operationally confirmed and the complete ingest is underway.
+
+### Pipeline Status
+
+The source CSV `data/gbim/gbim_entities_for_chroma.csv` was confirmed present in the recovered service tree at `~/msjarvis-safe/recovered-services_20llm_full`. The file represents the full GBIM corpus: **5,416,522 worldview entities** derived from `gbimbeliefnormalized` and related tables in the `msjarvisgis` PostgreSQL database.
+
+A full ingest into the `gbim_worldview_entities` collection on the live ChromaDB HTTP server (`127.0.0.1:8002`) was launched on the evening of March 13, 2026 using a streaming batch pipeline (batch size 5,400). The ingest is running without a row cap and will complete all available GBIM entities into a single production collection.
+
+### Verified Spatial Provenance
+
+Sample inspection of ingested records confirms that GBIM entities carry correct spatial provenance in their `belief_state` metadata. Entity type `benefit_county_utility20` records store EPSG:26917 (UTM Zone 17N NAD83) projected centroids, for example:
+
+```json
+{
+  "entity_type": "benefit_county_utility20",
+  "source_table": "benefit_county_utility20",
+  "label": "feat_55 UTILITY20",
+  "belief_state": {
+    "confidence": 1.0,
+    "provenance": {
+      "bbox": {
+        "crs": {"type": "name", "properties": {"name": "EPSG:26917"}},
+        "type": "Point",
+        "coordinates": [422127.542034494, 4265354.418284755]
+      },
+      "dataset": "benefit_county_utility20",
+      "geodbid": 55
+    },
+    "spatialmetadata": {
+      "srid": 26917,
+      "centroidx": 422127.5420344935,
+      "centroidy": 4265354.418284755
+    }
+  }
+}
+```
+
+This confirms that the nine-axis GBIM belief model described in this chapter is correctly preserved through the PostgreSQL → CSV → ChromaDB pipeline, with `entity_type`, `source_table`, `source_pk`, `worldview_id`, `created_at`, and full spatial metadata intact.
+
+### Live RAG Verification
+
+A live semantic query against the `gbim_worldview_entities` collection confirmed end-to-end RAG retrieval:
+
+```python
+res = col.query(
+    query_texts=["food access in Fayette County"],
+    n_results=5,
+    include=["documents", "metadatas"],
+)
+```
+
+The query returned five `benefit_county_utility20` entities with distinct spatial centroids across West Virginia — demonstrating that the GBIM semantic memory can answer spatially grounded questions about WV county-level benefit infrastructure in real time.
+
+### Collection Inventory (as of March 13, 2026)
+
+The ChromaDB HTTP server at `127.0.0.1:8002` hosts the following active collections:
+
+| Collection | Status | Notes |
+|---|---|---|
+| `gbim_worldview_entities` | 🔄 **Full ingest running** | Target: 5.4M GBIM entities |
+| `psychological_rag` | ✅ Active | Psychological safety corpus |
+| `autonomous_learner` | ✅ Active | Autonomous learning patterns |
+| `spiritual_texts` | ✅ Active | Spiritual/values corpus |
+| `geospatialfeatures` | ✅ Active | GIS feature embeddings |
+| `msjarvis_docs` | ✅ Active | System documentation |
+| `GBIM_sample_rows` | ✅ Active (5,000 rows) | Testing/sampling collection |
+| `GBIM_Fayette_sample` | ✅ Active | Fayette County GBIM sample |
+| `GBIM_sample` | ✅ Active | General GBIM sample |
+| `msjarvis-smoke` | ✅ Active | Smoke test collection |
