@@ -1,136 +1,227 @@
->#### Why this matters for Polymathmatic Geography  
->This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:  
->P1 – Every where is entangled by tying conversational experiences and world‑model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.  
->P3 – Power has a geometry by making long‑term memory a structured, queryable space over worldview‑tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.  
->P5 – Design is a geographic act by deciding which entities, programs, and communities are promoted into GBIM, given nine‑axis beliefs, and mirrored into hippocampal collections keyed by worldview, dataset, and feature identity.  
->P12 – Intelligence with a ZIP code by anchoring consolidated memories in WV geospatial layers, normalized nine‑axis beliefs, and local knowledge bases so that questions about “who is helped where” are answered in terms of concrete places and entities.  
->P16 – Power accountable to place by storing rich, provenance‑aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.  
+> #### Why this matters for Polymathmatic Geography
+> This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:
+> - **P1 – Every where is entangled** by tying conversational experiences and world-model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.
+> - **P3 – Power has a geometry** by making long-term memory a structured, queryable space over worldview-tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.
+> - **P5 – Design is a geographic act** by deciding which entities, programs, and communities are promoted into GBIM, given nine-axis beliefs, and mirrored into hippocampal collections keyed by worldview, dataset, and feature identity.
+> - **P12 – Intelligence with a ZIP code** by anchoring consolidated memories in WV geospatial layers, normalized nine-axis beliefs, and local knowledge bases so that questions about "who is helped where" are answered in terms of concrete places and entities.
+> - **P16 – Power accountable to place** by storing rich, provenance-aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.
+>
+> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis's activity and world models into a long-term, place-aware memory substrate. The `jarvis-hippocampus` service was deployed March 15, 2026 (commit `b90f9ff`) as part of the 79-container production stack and is confirmed operational in the 349.87s end-to-end pipeline benchmark.
 
->As such, this chapter belongs to the Computational Instrument tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis’s activity and world models into a long‑term, place‑aware memory substrate.
+<img width="1100" height="900" alt="Hippocampal consolidation in Ms. Jarvis" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
 
-><img width="1100" height="900" alt="unnamed(19)" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
+> *Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine-axis beliefs, enriched with centroids and provenance, are mirrored into a `geospatialfeatures` vector collection that serves as a long-term, place-aware memory index for retrieval and audit.*
 
->>Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine‑axis beliefs, enriched with centroids and provenance, are mirrored into a geospatialfeatures vector collection that serves as a long‑term, place‑aware memory index for retrieval and audit.
+---
 
-### Hippocampus and Memory Consolidation  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#14-hippocampus-and-memory-consolidation)  
-This chapter describes how recent activity is turned into durable records in the system’s long‑term stores. The design borrows the idea of a hippocampal buffer that receives short‑lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is primarily played by the GBIM + beliefs + Chroma hippocampus: GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine‑axis belief rows in `gbim_belief_normalized`, and a Chroma collection called `geospatialfeatures` that mirrors centroid‑bearing entities together with worldview, dataset, GeoDB IDs, and other provenance. Neurobiological work on hippocampal replay and complementary learning systems (for example, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5814533/ and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937280/) provides the conceptual backdrop for this design.
+# 14. Hippocampus and Memory Consolidation
 
-14.1 Role in the Overall Architecture  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#141-role-in-the-overall-architecture)  
-The consolidation layer sits between fast‑changing streams of requests and the slower, more stable memory and knowledge stores. As shown in Figure 14.1, the GBIM promotion and normalization pipeline feeds a hippocampal vector store that higher‑level services query by worldview, dataset, and spatial footprint.
+This chapter describes how recent activity is turned into durable records in the system's long-term stores. The design borrows the idea of a hippocampal buffer that receives short-lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is primarily played by the GBIM + beliefs + Chroma hippocampus: GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine-axis belief rows in `gbim_belief_normalized`, and a ChromaDB collection called `geospatialfeatures` that mirrors centroid-bearing entities together with worldview, dataset, GeoDB IDs, and other provenance. As of March 15, 2026, the `jarvis-hippocampus` service is deployed and confirmed operational as part of the 79-container production stack (commit `b90f9ff`), and ChromaDB is fully containerized at port 8000 with the `chroma_data` Docker volume (restored March 15). Neurobiological work on hippocampal replay and complementary learning systems provides the conceptual backdrop for this design.
+
+**Production state (March 15, 2026):**
+- `jarvis-hippocampus` service: ✅ Deployed and operational (commit `b90f9ff`)
+- ChromaDB `geospatialfeatures` collection: ✅ Active (port 8000, `chroma_data` volume)
+- PostgreSQL `msjarvis` (port 5433): ✅ 5,416,521 GBIM entities, 80 epochs, 206 source layers
+- PostgreSQL `gisdb` (port 5433): ✅ 13 GB PostGIS, 39 tables, 993 ZCTA centroids
+- GBIM temporal confidence decay: ✅ Deployed March 15 — all entities carry `last_verified`, `confidence_decay`, `needs_verification`
+- Integration with 9-phase pipeline: ✅ Confirmed in 349.87s end-to-end benchmark (March 15, 2026)
+
+---
+
+## 14.1 Role in the Overall Architecture
+
+The consolidation layer sits between fast-changing streams of requests and the slower, more stable memory and knowledge stores. As shown in Figure 14.1, the GBIM promotion and normalization pipeline feeds a hippocampal vector store that higher-level services query by worldview, dataset, and spatial footprint. The `jarvis-hippocampus` service (deployed March 15, 2026) provides this consolidation function as a dedicated microservice within the 79-container production stack.
 
 A GBIM promotion and normalization pipeline:
 
-- Promotes WV GIS features and other raw inputs into `gbim_worldview_entity`, keyed by `worldview_id`, `entity_type`, `source_table`, and `source_pk`.  
-- Maintains a 1:1 normalized belief row for every GBIM entity in `gbim_belief_normalized`, with JSONB axes (identity, who, for_whom, what, when, where, why, how, authority, evidence).  
-- Extracts centroids and provenance (`evidence.provenance.dataset`, `evidence.provenance.geodbid`) and mirrors them into a Chroma `geospatialfeatures` collection as documents with metadata (`gbim_entity_id`, `worldview_id`, `dataset`, `source_table`, `source_pk`, `geodbid`, `centroid_x`, `centroid_y`, `srid`).  
+- Promotes WV GIS features and other raw inputs into `gbim_worldview_entity`, keyed by `worldview_id`, `entity_type`, `source_table`, and `source_pk`.
+- Maintains a 1:1 normalized belief row for every GBIM entity in `gbim_belief_normalized`, with JSONB axes (identity, who, for_whom, what, when, where, why, how, authority, evidence). As of March 15, 2026, all 5,416,521 entities also carry temporal decay fields: `last_verified`, `confidence_decay`, `needs_verification`.
+- Extracts centroids and provenance (`evidence.provenance.dataset`, `evidence.provenance.geodbid`) and mirrors them into the ChromaDB `geospatialfeatures` collection (port 8000, `chroma_data` volume) as documents with metadata (`gbim_entity_id`, `worldview_id`, `dataset`, `source_table`, `source_pk`, `geodbid`, `centroid_x`, `centroid_y`, `srid`).
 
-This GBIM + beliefs + Chroma stack therefore acts as a hippocampal buffer: it observes world‑tied entities and program semantics, enriches them with structured beliefs and spatial context, then writes them into a persistent vector store keyed by worldview, dataset, and feature identity for future use. In combination with the introspective, qualia, and orchestration layers described earlier, this provides a path from “what exists and what just happened” to “what the system will remember and reuse later,” in a form that can be inspected and audited against concrete places and datasets.
+This GBIM + beliefs + Chroma stack therefore acts as a hippocampal buffer: it observes world-tied entities and program semantics, enriches them with structured beliefs and spatial context, then writes them into a persistent vector store keyed by worldview, dataset, and feature identity for future use. In combination with the introspective, qualia, and orchestration layers described in Chapters 11, 12, and 17, this provides a path from "what exists and what just happened" to "what the system will remember and reuse later," in a form that can be inspected and audited against concrete places and datasets.
 
-14.2 Inputs to the Consolidation Process  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#142-inputs-to-the-consolidation-process)  
-The inputs listed here correspond to the world‑model backbone on the left side of Figure 14.1. The consolidation routines draw on several concrete sources of information that already exist in the system:
+**Relationship to the 9-phase pipeline (Chapter 17):**
+The `jarvis-hippocampus` service participates in the production 9-phase pipeline by:
+1. Receiving GBIM entity promotions from Phase 4 RAG context building
+2. Writing consolidated hippocampal entries during `background_rag_store` (post-processing)
+3. Supplying the `geospatialfeatures` collection as a retrieval target for Phase 4 RAG queries
+4. Exposing `confidence_decay` multipliers (Phase 5) derived from `gbim_belief_normalized` temporal metadata
 
-**GBIM entities and normalized beliefs**  
-The core inputs are rows in `gbim_worldview_entity` and their 1:1 normalized belief snapshots in `gbim_belief_normalized`. Each belief row encodes identity (label, GBIM ID, source_table, source_pk, worldview_id), where (SRID, centroids, bbox, optional county/zip), and `evidence.provenance` (dataset, original feature IDs). These form the semantic and spatial backbone of hippocampal memory.
+---
 
-**Geospatial provenance and centroids**  
-For features with geometry, the belief `where` axis records centroids and SRIDs derived from underlying WV GIS layers. These values are streamed into Chroma metadata (`centroid_x`, `centroid_y`, `srid`) so that retrieval can respect spatial context and coordinate systems.
+## 14.2 Inputs to the Consolidation Process
 
-**Program and institutional entities**  
-Benefit programs, governance entities, and institutional structures can also be represented as GBIM entities with beliefs over what, for_whom, why, when, and authority. As those entities are promoted, they join the same hippocampal fabric as geospatial features, allowing queries to traverse both physical and institutional space.
+The inputs listed here correspond to the world-model backbone on the left side of Figure 14.1. The consolidation routines draw on several concrete sources of information that already exist in the system.
 
-**Orchestration‑level interactions**  
-Higher‑level services (unified gateway, brain orchestrator, GIS‑RAG, WV entangled gateway) consume GBIM + beliefs + Chroma when answering questions and may create or update GBIM entities and beliefs based on user interactions. In this way, interactions feed into the GBIM belief space and, through ingestion, into the hippocampal Chroma collections.
+**GBIM entities and normalized beliefs**
+The core inputs are rows in `gbim_worldview_entity` and their 1:1 normalized belief snapshots in `gbim_belief_normalized` (PostgreSQL `msjarvis`, port 5433). Each belief row encodes identity (label, GBIM ID, source_table, source_pk, worldview_id), where (SRID, centroids, bbox, optional county/zip), and `evidence.provenance` (dataset, original feature IDs). As of March 15, 2026, all 5,416,521 entities also carry temporal decay metadata: `last_verified`, `confidence_decay`, `needs_verification`. These form the semantic and spatial backbone of hippocampal memory.
+
+**Geospatial provenance and centroids**
+For features with geometry, the belief `where` axis records centroids and SRIDs derived from underlying WV GIS layers (PostgreSQL `gisdb`, port 5433 — PostGIS, 13 GB, 39 tables, 993 ZCTA centroids from `zcta_wv_centroids`). These values are streamed into ChromaDB `geospatialfeatures` metadata (`centroid_x`, `centroid_y`, `srid`) so that retrieval can respect spatial context and coordinate systems.
+
+**Program and institutional entities**
+Benefit programs, governance entities, and institutional structures can also be represented as GBIM entities with beliefs over what, for_whom, why, when, and authority. As those entities are promoted, they join the same hippocampal fabric as geospatial features, allowing queries to traverse both physical and institutional space. Community-validated resource data from `jarvis-local-resources-db` (port 5435) is also eligible for promotion into the GBIM + beliefs + Chroma pipeline.
+
+**Orchestration-level interactions**
+Higher-level services (unified gateway, brain orchestrator, GIS-RAG at port 8004, WV entangled gateway) consume GBIM + beliefs + Chroma when answering questions and may create or update GBIM entities and beliefs based on user interactions. In this way, interactions feed into the GBIM belief space and, through ingestion, into the hippocampal ChromaDB collections. The 9-phase pipeline's `background_rag_store` (Chapter 17 post-processing) is the primary mechanism by which live query-response pairs are routed back through the hippocampal consolidation process.
 
 Taken together, these inputs supply both the raw material to be stored (entities, beliefs, spatial footprints) and the signals about how the system has interpreted and used them.
 
-14.3 Criteria for What Is Stored  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#143-criteria-for-what-is-stored)  
-In the current implementation, the consolidation pipeline is inclusive at the world‑model level: every GBIM entity with a centroid has a normalized belief row and is mirrored into the `geospatialfeatures` collection. There is not yet a fine‑grained selection mechanism that stores only some entities or beliefs in hippocampal indexes.
+---
 
-**Implicit significance and structure**  
-Because the pipeline always writes a structured belief snapshot, and always includes provenance (dataset, GeoDB ID) and spatial context for centroided entities, the hippocampal surface naturally emphasizes entities that are well‑grounded in both data and space. Indexing by worldview and dataset also encodes which layers and institutional perspectives are considered part of the canonical memory.
+## 14.3 Criteria for What Is Stored
 
-**Planned selection criteria**  
+In the current implementation, the consolidation pipeline is inclusive at the world-model level: every GBIM entity with a centroid has a normalized belief row (including temporal decay metadata as of March 15, 2026) and is mirrored into the `geospatialfeatures` collection. There is not yet a fine-grained selection mechanism that stores only some entities or beliefs in hippocampal indexes.
+
+**Implicit significance and structure**
+Because the pipeline always writes a structured belief snapshot, and always includes provenance (dataset, GeoDB ID) and spatial context for centroided entities, the hippocampal surface naturally emphasizes entities that are well-grounded in both data and space. Indexing by worldview and dataset also encodes which layers and institutional perspectives are considered part of the canonical memory. The `needs_verification=TRUE` flag (100% of 5,416,521 entities at March 15 launch baseline) represents the initial state before the POC verification loop begins clearing entities as confirmed.
+
+**Planned selection criteria**
 The design for this layer goes further, envisioning explicit logic that prioritizes:
 
-- High‑impact or sensitive programs and features, including governance‑ or safety‑related infrastructure.  
-- Novel or under‑represented combinations of locations, populations, and benefit rules.  
-- Episodes where beliefs were corrected or forked across worldviews.  
-- Repeatedly accessed regions or entities that merit summarized, higher‑level hippocampal entries.  
+- High-impact or sensitive programs and features, including governance- or safety-related infrastructure.
+- Novel or under-represented combinations of locations, populations, and benefit rules.
+- Episodes where beliefs were corrected or forked across worldviews.
+- Repeatedly accessed regions or entities that merit summarized, higher-level hippocampal entries.
+- Entities where `confidence_decay` has fallen below threshold (future integration with POC verification loop).
 
-These criteria can be implemented on top of the existing GBIM + beliefs + Chroma pipeline by inspecting belief metadata and usage patterns before deciding whether to store full detail, a summary, or nothing beyond base GBIM presence. At present, consolidation is intentionally broad, ensuring that a rich, place‑tied backbone is available.
+These criteria can be implemented on top of the existing GBIM + beliefs + Chroma pipeline by inspecting belief metadata and usage patterns before deciding whether to store full detail, a summary, or nothing beyond base GBIM presence. At present, consolidation is intentionally broad, ensuring that a rich, place-tied backbone is available.
 
-14.4 Transformation into Long‑Term Memory  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#144-transformation-into-longterm-memory)  
-When an entity passes through the GBIM + belief + Chroma pipeline, it is transformed into durable structures that can be joined and queried from multiple angles:
+---
 
-**Structured beliefs and metadata in Postgres**  
-GBIM entities receive normalized belief rows capturing identity, spatial footprint, program semantics, and provenance. This relational/JSONB structure serves as the canonical long‑term representation.
+## 14.4 Transformation into Long-Term Memory
 
-**Documents and metadata in Chroma**  
-Centroid‑bearing entities are added to the `geospatialfeatures` collection as simple documents (for example, “label (type) from dataset:source_pk at centroid (x, y)”) with rich metadata (`gbim_entity_id`, `worldview_id`, `dataset`, `source_table`, `source_pk`, `centroid_x`, `centroid_y`, `srid`, `geodbid`). This provides a fast hippocampal index for metadata‑filtered recall.
+When an entity passes through the GBIM + belief + Chroma pipeline, it is transformed into durable structures that can be joined and queried from multiple angles.
 
-**Implicit belief and routing traces (planned)**  
-As Ms. Jarvis’s belief graph and routing logic mature, Chroma metadata can be extended to include explicit references to belief nodes, routing decisions, and normative labels, turning each hippocampal entry into a trace of how the system’s internal model and policies interacted with that entity.
+**Structured beliefs and metadata in PostgreSQL (`msjarvis`, port 5433)**
+GBIM entities receive normalized belief rows in `gbim_belief_normalized` capturing identity, spatial footprint, program semantics, and provenance. As of March 15, 2026, every belief row also carries `last_verified` (timestamp of most recent confirmation), `confidence_decay` (multiplier applied by Phase 5 of the 9-phase pipeline), and `needs_verification` (Boolean flag triggering the future POC verification loop). This relational/JSONB structure serves as the canonical long-term representation.
 
-**Spatial anchoring via geospatial layers**  
-Because beliefs carry centroids, SRIDs, and optional administrative labels, hippocampal entries can be linked back to counties, cities, watersheds, and other layers maintained elsewhere in the geospatial stack. This anchors abstract programs and features in specific West Virginia places.
+**Documents and metadata in ChromaDB `geospatialfeatures` (port 8000, `chroma_data` volume)**
+Centroid-bearing entities are added to the `geospatialfeatures` collection as simple documents (for example, `"label (type) from dataset:source_pk at centroid (x, y)"`) with rich metadata:
 
-These transformations map directly to the central pipeline and hippocampal store blocks in Figure 14.1. This pipeline converts world‑tied entities into richly annotated memory entries that can be retrieved by metadata filters and, where embeddings are enabled, by semantic similarity, and can always be joined back to structured beliefs and GIS layers.
+```python
+{
+    "gbim_entity_id": "uuid",
+    "worldview_id": "worldview-uuid",
+    "dataset": "source_dataset_name",
+    "source_table": "wvgistcbuildingfootprints",
+    "source_pk": "feat_1703912",
+    "geodbid": "geodb-feature-id",
+    "centroid_x": 534821.4,
+    "centroid_y": 4188432.7,
+    "srid": 26917,
+    "last_verified": "2026-03-15T00:00:00Z",
+    "confidence_decay": 0.95,
+    "needs_verification": true
+}
+```
 
-14.5 Temporal Organization and Decay  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#145-temporal-organization-and-decay)  
-In many neuro‑inspired designs, hippocampal systems maintain a temporal hierarchy of memories and implement decay. In the current codebase, there is no explicit pruning, expiration, or summarization logic applied to `gbim_belief_normalized` or the `geospatialfeatures` collection beyond routine data‑management scripts.
+This provides a fast hippocampal index for metadata-filtered recall backed by the persistent `chroma_data` Docker volume (restored March 15, 2026).
 
-**Current behavior**  
-Every GBIM entity in the relevant worldview receives a normalized belief row and, if centroided, an entry in `geospatialfeatures`. No in‑repo code yet deletes, aggregates, or down‑samples entities based on age, usage, or importance, so the effective behavior is an ever‑growing world‑model and hippocampal index.
+**Implicit belief and routing traces (planned)**
+As Ms. Jarvis's belief graph and routing logic mature, ChromaDB `geospatialfeatures` metadata can be extended to include explicit references to belief nodes, routing decisions, and normative labels, turning each hippocampal entry into a trace of how the system's internal model and policies interacted with that entity.
 
-**Planned temporal hierarchy**  
-The design described for this layer anticipates:
+**Spatial anchoring via geospatial layers**
+Because beliefs carry centroids, SRIDs, and optional administrative labels, hippocampal entries can be linked back to counties, cities, watersheds, and other layers maintained in `gisdb` (port 5433). The `zcta_wv_centroids` table (993 rows) provides the canonical ZIP-level spatial anchors. This connects abstract programs and features to specific West Virginia places.
 
-- A recent window of high‑granularity belief and hippocampal entries suitable for detailed forensic analysis.  
-- Intermediate summarizations that merge multiple similar entities or interactions into trend‑level records.  
-- A long‑term backbone of especially important precedents, patterns, and governance‑relevant insights that are protected from aggressive pruning.  
+These transformations map directly to the central pipeline and hippocampal store blocks in Figure 14.1.
 
-These behaviors can be implemented as periodic jobs or DGM‑driven optimization steps over the GBIM and Chroma layers. For now, descriptions of temporal organization and decay should be understood as forward‑looking design notes grounded in the current always‑append behavior.
+---
 
-14.6 Interaction with Retrieval and Introspection  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#146-interaction-with-retrieval-and-introspection)  
-Consolidated GBIM and hippocampal entries play a direct role in how Ms. Jarvis retrieves context and can be tightly integrated with introspective narratives:
+## 14.5 Temporal Organization and Decay
 
-**Retrieval feedback loop**  
-When higher‑level services (for example, GIS‑RAG, WV entangled gateway) need context, they:
+In many neuro-inspired designs, hippocampal systems maintain a temporal hierarchy of memories and implement decay. As of March 15, 2026, Ms. Jarvis has deployed the first phase of temporal organization: the GBIM confidence decay system.
 
-1. Use worldview, dataset, and spatial constraints (bboxes, centroids, counties) to select candidate GBIM entities and beliefs.  
-2. Use those provenance keys (`worldview_id`, `dataset`, `geodbid`) as filters in Chroma’s `geospatialfeatures` collection, retrieving relevant entities quickly.  
-3. Join Chroma hits back to `gbim_worldview_entity` and `gbim_belief_normalized` to assemble answers and map overlays that are grounded in both beliefs and physical space.  
+**Current behavior (March 15, 2026)**
+Every GBIM entity in the relevant worldview receives a normalized belief row with `last_verified`, `confidence_decay`, and `needs_verification` fields. The `confidence_decay` multiplier is applied at Phase 5 of every production 9-phase pipeline request (Chapter 17), attenuating response confidence proportionally to how long an entity has gone without verification. At the March 15 launch baseline, 100% of 5,416,521 entities carry `needs_verification=TRUE` — the expected initial state, not a data quality error. No in-repo code yet deletes, aggregates, or down-samples entities based on age beyond this decay mechanism, so the effective behavior remains an ever-growing world-model and hippocampal index with decay-weighted confidence.
 
-**Introspective descriptions of memory use**  
-As the introspective layer evolves, it can report which GBIM entities, datasets, and spatial regions were consulted for a given response, and how their beliefs influenced the result. Instead of referring only to “conversation documents,” introspection can speak about buildings, roads, programs, and jurisdictions as concrete memory units.
+**POC verification loop (planned, highest-priority future work)**
+The POC (Point of Contact) verification loop will automate the process of re-contacting a resource's designated point of contact when `needs_verification=TRUE` and resetting `confidence` to 1.0 on confirmation. This is the primary mechanism for clearing the initial 100% flagged state and for maintaining temporal freshness of hippocampal memory. Until implemented, the flag-and-attenuate approach via `confidence_decay` serves as the operative temporal decay mechanism.
 
-**Optimization over hippocampal histories**  
-Self‑improving agents in the DGM layer can treat GBIM + beliefs + Chroma as a dataset for discovering weaknesses, biases, or gaps in coverage—for example, which counties are under‑represented, which datasets are heavily relied on, or where repeated corrections to beliefs occur. Quality‑diversity and open‑ended search frameworks (such as Stanley et al., https://arxiv.org/abs/1702.00705) are natural tools for this analysis.
+**Planned temporal hierarchy**
+Beyond the current decay system, the design anticipates:
 
-Retrieval feedback loops and audit/equity analyses are shown as downstream consumers of the hippocampal index in Figure 14.1. In this way, consolidation is not just archival; it actively shapes future retrieval contexts, introspective narratives, and self‑improvement strategies over a geospatially grounded world model.
+- A recent window of high-granularity belief and hippocampal entries suitable for detailed forensic analysis.
+- Intermediate summarizations that merge multiple similar entities or interactions into trend-level records.
+- A long-term backbone of especially important precedents, patterns, and governance-relevant insights that are protected from aggressive pruning.
 
-14.7 Alignment with Spatial and Governance Goals  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#147-alignment-with-spatial-and-governance-goals)  
-Because much of Ms. Jarvis’s mission is tied to specific regions, communities, and institutions, the consolidation layer is designed to align closely with spatial and governance‑oriented goals.
+These behaviors can be implemented as periodic jobs or 69-DGM-driven optimization steps (Chapter 32) over the GBIM and ChromaDB layers. For now, descriptions of temporal hierarchy beyond `confidence_decay` should be understood as forward-looking design notes grounded in the current always-append behavior with decay-weighted confidence.
 
-**Place‑aware memory**  
-Extensive WV geospatial layers—counties, block groups, census tracts, cities, facilities, infrastructure, and more—coexist with GBIM entities and their beliefs. By mirroring centroid‑bearing entities into Chroma with worldview IDs, datasets, and spatial metadata, consolidation enables later analyses to ask how particular counties, towns, or facilities have been represented and served in the system’s history. Work on volunteered geographic information and data‑driven geography, such as Goodchild’s “Citizens as sensors” (https://link.springer.com/article/10.1007/s10708-007-9111-y) and Kitchin’s “The Data Revolution” (https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2281418), supports this emphasis on spatial data as a body for AI.
+---
 
-**Institutional continuity and norms**  
-As governance‑relevant beliefs and norms are encoded in GBIM worldviews, hippocampal entries can link entities and episodes—such as advisory interactions or policy‑related questions—to the councils, districts, or organizations they involve. This preserves institutional memory that connects decisions and recommendations through time and across worldviews.
+## 14.6 Interaction with Retrieval and Introspection
 
-**Equity and oversight**  
-By combining spatial identifiers, belief metadata, and hippocampal retrieval histories, analysts and agents can examine whether certain communities receive less assistance, face different patterns of risk, or encounter more frequent misunderstandings. These insights can inform adjustments to routing, content, or outreach so that the system’s behavior better supports equitable outcomes. Ostrom’s work on design principles for local and global commons (https://dlc.dlib.indiana.edu/dlc/bitstream/handle/10535/7566/Ostrom_Design%20Principles%20ISSJ%202010.pdf) offers one lens for interpreting such patterns.
+Consolidated GBIM and hippocampal entries play a direct role in how Ms. Jarvis retrieves context and can be tightly integrated with introspective narratives.
 
-Retrieval feedback loops and audit/equity analyses are shown as downstream consumers of the hippocampal index in Figure 14.1. The heavy geospatial footprint thus becomes an integral part of the hippocampal layer, allowing consolidation to encode not just what happened, but where and with whom it happened.
+**Retrieval feedback loop (9-phase pipeline integration)**
+When higher-level services (GIS-RAG at port 8004, WV entangled gateway, `jarvis-spiritual-rag` at port 8005) need context during Phase 4 of the 9-phase pipeline, they:
 
-14.8 Summary  
-[](https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/14-hippocampus-and-memory-consolidation.md#148-summary)  
-The consolidation layer captures how recent activity and world‑modeling are turned into lasting structure across GBIM entities, normalized beliefs, and spatially indexed hippocampal collections. A GBIM + belief + Chroma pipeline functions as a hippocampal buffer: it maintains a 1:1 normalized belief snapshot for every GBIM entity, mirrors every centroid‑bearing entity into a `geospatialfeatures` collection keyed by worldview, dataset, and spatial footprint, and exposes this fabric to higher‑level services for retrieval and reasoning. Temporal hierarchies, selective storage criteria, and tighter integration with interaction‑level memory and governance models are active design directions that build on this foundation. Subsequent chapters describe how global controls and executive processes use these consolidated, place‑aware memories as part of broader feedback loops that shape Ms. Jarvis’s ongoing evolution.
+1. Use worldview, dataset, and spatial constraints (bboxes, centroids, counties, `zcta_wv_centroids` from `gisdb`) to select candidate GBIM entities and beliefs from `msjarvis.gbim_belief_normalized`.
+2. Use those provenance keys (`worldview_id`, `dataset`, `geodbid`) as ChromaDB metadata filters in the `geospatialfeatures` collection (port 8000), retrieving relevant entities quickly.
+3. Apply `confidence_decay` weighting at Phase 5 to attenuate results based on verification recency.
+4. Join ChromaDB hits back to `gbim_worldview_entity` and `gbim_belief_normalized` (PostgreSQL `msjarvis`, port 5433) to assemble answers and map overlays grounded in both beliefs and physical space.
+5. Join spatial identifiers to `gisdb.zcta_wv_centroids` (port 5433) and `jarvis-local-resources-db` (port 5435) for community-anchored resource context.
+
+**Introspective descriptions of memory use**
+As the introspective layer evolves, it can report which GBIM entities, datasets, and spatial regions were consulted for a given response, and how their beliefs and `confidence_decay` values influenced the result. Instead of referring only to "conversation documents," introspection can speak about buildings, roads, programs, and jurisdictions as concrete memory units with known verification timestamps.
+
+**Optimization over hippocampal histories via 69-DGM cascade**
+Self-improving agents in the 69-DGM layer (Chapter 32, `jarvis-69dgm-bridge` port 9000) can treat GBIM + beliefs + ChromaDB `geospatialfeatures` as a dataset for discovering weaknesses, biases, or gaps in coverage — for example, which counties are under-represented, which datasets are heavily relied on, where repeated corrections to beliefs occur, or which entities have the longest-decayed `confidence_decay` values. Quality-diversity and open-ended search frameworks are natural tools for this analysis. The 23-connector × 3-stage cascade (69 DGM operations per pass) that validates every production response is the current implementation of this optimization loop.
+
+---
+
+## 14.7 Alignment with Spatial and Governance Goals
+
+Because much of Ms. Jarvis's mission is tied to specific regions, communities, and institutions in West Virginia, the consolidation layer is designed to align closely with spatial and governance-oriented goals.
+
+**Place-aware memory**
+Extensive WV geospatial layers — counties, block groups, census tracts, cities, facilities, infrastructure, and more — coexist as GBIM entities and beliefs in PostgreSQL `msjarvis` (5,416,521 entities from 206 source layers) and PostGIS `gisdb` (13 GB, 39 tables). By mirroring centroid-bearing entities into ChromaDB `geospatialfeatures` with worldview IDs, datasets, and spatial metadata, consolidation enables later analyses to ask how particular counties, towns, or facilities have been represented and served in the system's history. The 993 ZCTA centroids in `gisdb.zcta_wv_centroids` provide the canonical ZIP-level anchors for this place-aware fabric.
+
+**Community-validated institutional continuity**
+As governance-relevant beliefs and norms are encoded in GBIM worldviews, hippocampal entries link entities and episodes to the councils, districts, or organizations they involve. Community-validated data from Harmony for Hope's Community Champions (stored in `jarvis-local-resources-db`, port 5435, and confirmed in the March 15 end-to-end benchmark) is eligible for promotion into the hippocampal pipeline, ensuring that ground-truth verification by community members like lead validator Crystal Colyer feeds durable, place-grounded memory. This preserves institutional memory that connects decisions and recommendations through time and across worldviews.
+
+**Equity, oversight, and temporal accountability**
+By combining spatial identifiers, belief metadata (including `confidence_decay` and `needs_verification`), and hippocampal retrieval histories, analysts and agents can examine whether certain communities receive less assistance, face different patterns of risk, or encounter more frequent misunderstandings. The `needs_verification` flag makes temporal gaps in confirmation explicit and auditable: communities can see not only which entities were used in a response but how recently those entities were confirmed against ground truth. These insights can inform adjustments to routing, content, or outreach so that the system's behavior better supports equitable outcomes.
+
+---
+
+## 14.8 Implementation Status (March 15, 2026)
+
+**Confirmed operational (March 15, 2026, commit `b90f9ff`):**
+- ✅ `jarvis-hippocampus` service deployed in 79-container production stack
+- ✅ ChromaDB `geospatialfeatures` collection active (port 8000, `chroma_data` volume restored March 15)
+- ✅ PostgreSQL `msjarvis` (port 5433): 5,416,521 GBIM entities with normalized `gbim_belief_normalized` rows
+- ✅ GBIM temporal decay deployed: all 5,416,521 entities carry `last_verified`, `confidence_decay`, `needs_verification`
+- ✅ `confidence_decay` multiplier applied at Phase 5 of every production 9-phase pipeline request
+- ✅ `background_rag_store` routing post-processing back into hippocampal consolidation (verified in Chapter 17 benchmark)
+- ✅ `geospatialfeatures` collection queried by GIS-RAG (port 8004) and `jarvis-spiritual-rag` (port 8005) during Phase 4 RAG context building
+- ✅ Integration with `gisdb.zcta_wv_centroids` (993 rows) for spatial anchoring
+- ✅ `jarvis-local-resources-db` (port 5435) community resource data eligible for GBIM promotion
+- ✅ Confirmed participation in 349.87s end-to-end pipeline benchmark (March 15, 2026, all 9 phases approved)
+
+**Remaining work:**
+
+**POC verification loop (highest-priority future work)**
+The automated POC verification loop — where the system contacts a resource's designated point of contact when `needs_verification=TRUE` and resets `confidence` to 1.0 on confirmation — is not yet automated. Current state: flag-and-attenuate via `confidence_decay` only. This is the primary mechanism for clearing the initial 100% flagged baseline.
+
+**Selective storage criteria**
+Fine-grained selection logic (high-impact features, novel combinations, corrected beliefs, heavily accessed regions) is designed but not yet implemented. Currently all centroided entities are mirrored to `geospatialfeatures`.
+
+**Temporal hierarchy beyond decay**
+Intermediate summarizations, pruning of aged entries, and long-term backbone extraction remain forward-looking design intentions implemented on top of the current always-append plus decay-weight behavior.
+
+**Metadata backfill**
+Extended metadata fields (`worldview_id`, `bbox`, `dataset`) need backfill across all 5,416,521 `geospatialfeatures` ChromaDB entries. Backfill pipeline exists but requires execution post-ingest (see Chapter 5 §5.11).
+
+**Tighter belief-routing traces**
+Extending `geospatialfeatures` ChromaDB metadata to include explicit belief node references, routing decisions, and normative labels — turning each hippocampal entry into a full trace of the system's internal model interaction — is planned but not yet implemented.
+
+---
+
+## 14.9 Summary
+
+The consolidation layer captures how recent activity and world-modeling are turned into lasting structure across GBIM entities, normalized beliefs with temporal decay, and spatially indexed hippocampal ChromaDB collections. The `jarvis-hippocampus` service (deployed March 15, 2026, commit `b90f9ff`) functions as the dedicated hippocampal buffer within the 79-container production stack: it maintains a 1:1 normalized belief snapshot (with `confidence_decay` temporal metadata) for every GBIM entity in PostgreSQL `msjarvis` (port 5433), mirrors every centroid-bearing entity into the `geospatialfeatures` ChromaDB collection (port 8000, `chroma_data` volume) keyed by worldview, dataset, and spatial footprint, and exposes this fabric to higher-level services during Phase 4 RAG context building. The `confidence_decay` multiplier applied at Phase 5 of every production request makes hippocampal temporal state an active, measurable factor in every response — not merely an archival attribute.
+
+POC verification loop automation, selective storage criteria, temporal hierarchy beyond decay, and tighter belief-routing traces are active design directions that build on this foundation. Subsequent chapters describe how global controls, the 69-DGM cascade (Chapter 32), and executive processes (Chapter 17) use these consolidated, place-aware memories as part of broader feedback loops that shape Ms. Jarvis's ongoing evolution. Chapter 5 describes the ChromaDB `chroma_data` volume and `geospatialfeatures` collection architecture in detail. Chapter 17 describes how the `confidence_decay` multiplier is applied at Phase 5 of the 9-phase production pipeline.
+
+*Last updated: 2026-03-15 19:12 EDT by Carrie Kidd, Oak Hill WV*
