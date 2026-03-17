@@ -1,11 +1,5 @@
 # Case Study: The Roman Empire Meme as Inadvertent Commons Probe
 
-**Discipline folder:** `discipline/case_studies/`
-**File:** `roman-empire-meme-as-commons-probe.md`
-**Tags:** symbolic commons, braided semantics, unanchored meaning, gender-power geometry, inadvertent methodology, meme as data, imagination geography
-
----
-
 ## Overview
 
 In 2022–2023, a simple viral question swept TikTok and Instagram: women asked the men in their lives how often they think about the Roman Empire. The responses—millions of them, across age, class, geography, and culture—revealed that large numbers of men think about Rome regularly, often without being able to say why. The trend was followed by formal polling from Ipsos and YouGov, which confirmed a measurable gender gap in Roman imaginative frequency even in representative samples.
