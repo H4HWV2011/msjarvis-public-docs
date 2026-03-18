@@ -1,4 +1,4 @@
-## Why this matters for Polymathmatic Geography
+# Why This Matters for Polymathmatic Geography
 
 This chapter shows how Ms. Jarvis's "thinking" is implemented as an organized fabric of local language models and services rather than a single opaque model instance. It supports:
 
@@ -12,7 +12,7 @@ This chapter shows how Ms. Jarvis's "thinking" is implemented as an organized fa
 
 - **P16 – Power accountable to place** by exposing LLMs only through glass-box HTTP services with confirmed ports, logs, and timeouts, so that every path from user question to model output can be audited and constrained.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it specifies the model pool, timeouts, ports, and service fabric that turn Quantarithmia's spatial-justice instruments into live, language-facing behavior. As of March 18, 2026, the fabric runs **21 active models** (22 proxies; BakLLaVA permanently disabled — CLIP load issues documented in `ai_server_20llm_PRODUCTION.py`), operates within a 79-container fully compose-managed production stack, and is verified at ~436s end-to-end across the enhanced 9-phase pipeline (Phase 1.45 community memory added; Phase 3.75 eliminated).
+As such, this chapter belongs to the **Computational Instrument** tier: it specifies the model pool, timeouts, ports, and service fabric that turn Quantarithmia's spatial-justice instruments into live, language-facing behavior. As of March 18, 2026, the fabric runs **21 active models** (22 proxies; BakLLaVA permanently disabled — CLIP load issues documented in `ai_server_20llm_PRODUCTION.py`), operates within an **80-container fully compose-managed production stack** (all services bound to `127.0.0.1`; zero `0.0.0.0` exposures), and is verified at ~436s end-to-end across the enhanced 9-phase pipeline (Phase 1.45 community memory added; Phase 3.75 eliminated).
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -63,6 +63,8 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  │  Evaluates consensus answer only               │         │
 │  │  (raw_responses dump eliminated)               │         │
 │  │  Ports 7230/7231/7232/7233 · ~60-86s           │         │
+│  │  All 5 judge services: compose-managed         │         │
+│  │  restart: unless-stopped (as of Mar 18)        │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
@@ -71,8 +73,9 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
-│  │  Phase 7 — 69-DGM Cascade (port 9000)          │         │
+│  │  Phase 7 — 69-DGM Cascade (port 19000→9000)   │         │
 │  │  23 connectors × 3 stages                      │         │
+│  │  127.0.0.1:19000 (re-locked Mar 18)            │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
@@ -86,7 +89,65 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 11.1.** The LLM fabric of Ms. Jarvis (March 18, 2026): user queries flow through NBB prefrontal (Phase 1), 7-filter BBB stack (Phase 1.4), ChromaDB semantic community memory retrieval via `all-minilm:latest` 384-dim embeddings (Phase 1.45 — NEW), psychology pre-assessment (Phase 3), LM Synthesizer calling `jarvis-ollama:11434` directly with `llama3.1:latest` and Ms. Egeria Jarvis persona injected (Phase 3.5), 21-model ensemble / 22 proxies with BakLLaVA permanently disabled (Phase 2.5), judge pipeline evaluating consensus answer only (Phase 3 — optimized), GBIM temporal confidence decay (Phase 5), 69-DGM cascade (Phase 7), safety/governance, and `normalize_identity()`. Phase 3.75 eliminated. All LLMs are exposed only via glass-box HTTP services and are grounded in West Virginia-specific memory anchored to three PostgreSQL databases.
+> **Figure 11.1.** The LLM fabric of Ms. Jarvis (March 18, 2026): user queries flow through NBB prefrontal (Phase 1), 7-filter BBB stack (Phase 1.4), ChromaDB semantic community memory retrieval via `all-minilm:latest` 384-dim embeddings (Phase 1.45 — NEW), psychology pre-assessment (Phase 3), LM Synthesizer calling `jarvis-ollama:11434` directly with `llama3.1:latest` and Ms. Egeria Jarvis persona injected (Phase 3.5), 21-model ensemble / 22 proxies with BakLLaVA permanently disabled (Phase 2.5), judge pipeline evaluating consensus answer only — all 5 judge services now compose-managed with `restart: unless-stopped` (Phase 3 — optimized), GBIM temporal confidence decay (Phase 5), 69-DGM cascade re-locked to `127.0.0.1:19000` (Phase 7), safety/governance, and `normalize_identity()`. Phase 3.75 eliminated. All LLMs are exposed only via glass-box HTTP services and are grounded in West Virginia-specific memory anchored to three PostgreSQL databases.
+
+---
+
+## Security Hardening — March 18, 2026
+
+> **This section records a mandatory audit event.** Prior to March 18, 2026, multiple
+> services in the LLM fabric were bound to `0.0.0.0`, exposing internal ports on all
+> network interfaces. This was identified and fully remediated during a single session.
+> All 80 containers are now bound to `127.0.0.1` exclusively.
+
+### Services Re-locked to 127.0.0.1 (March 18, 2026)
+
+| Service | Was | Now |
+|---|---|---|
+| `jarvis-i-containers` | `0.0.0.0:8015` | `127.0.0.1:8015` |
+| `jarvis-consciousness-bridge` | `0.0.0.0:8020` | `127.0.0.1:8020` |
+| `jarvis-constitutional-guardian` | `0.0.0.0:8091` | `127.0.0.1:8091` |
+| `jarvis-69dgm-bridge` | `0.0.0.0:9000` (reverted) | `127.0.0.1:19000->9000` (re-locked) |
+| `jarvis-wv-entangled-gateway` | `0.0.0.0:8010` | `127.0.0.1:8010` |
+| `jarvis-spiritual-rag` | `0.0.0.0:8005` | `127.0.0.1:8005` |
+| `jarvis-psychology-services` | `0.0.0.0:8019` | `127.0.0.1:8019` |
+| `jarvis-hippocampus` | `0.0.0.0:8011` | `127.0.0.1:8011` |
+| `jarvis-gis-rag` | `0.0.0.0:8004` | `127.0.0.1:8004` |
+| `jarvis-toroidal` | `0.0.0.0:8025` | `127.0.0.1:8025` |
+
+**Verification command (post-remediation, must return empty):**
+```bash
+docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0" | grep -v "127.0.0.1"
+```
+
+Result as of March 18, 2026: **empty** — zero public exposures.
+
+### Judge Services Brought Under Compose Management (March 18, 2026)
+
+Prior to March 18, 2026, all 5 judge services were started as orphaned manual `docker run`
+containers with `restart: no`. They would not survive a system reboot. They were not defined
+in `docker-compose.yml` and had no `build:` directive — Docker attempted to pull them from a
+registry on next boot, producing:
+
+```
+Error response from daemon: pull access denied for msjarvis-rebuild-jarvis-judge-ethics,
+repository does not exist or may require 'docker login'
+```
+
+**Remediation applied March 18, 2026:**
+
+- `services/Dockerfile.judge` copied from `services-safe/Dockerfile.judge`
+- All 5 source files canonically named under `services/`:
+  - `judge_pipeline.py`
+  - `judge_truth_filter.py`
+  - `judge_consistency_engine.py`
+  - `judge_alignment_filter.py`
+  - `judge_ethics_filter.py`
+- `docker-compose.yml` updated: all 5 services now use `build: context: ./services, dockerfile: Dockerfile.judge`
+- All 5 services given `restart: unless-stopped`
+- All 5 ports locked to `127.0.0.1`
+
+Committed to branch `feature/cb-bbb-routing-fix` at commit `a10725d7`.
 
 ---
 
@@ -94,18 +155,18 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 
 | Category | Details |
 |---|---|
-| **Implemented and verified** | `jarvis-main-brain` → **127.0.0.1:8050** (confirmed). `jarvis-ollama` → **127.0.0.1:11434** (confirmed). `jarvis-wv-entangled-gateway` → **127.0.0.1:8010** (confirmed). `jarvis-spiritual-rag` (GBIM / worldview RAG) → **127.0.0.1:8005** (confirmed; earlier plan documents used 8103). `jarvis-gis-rag` → **127.0.0.1:8004** (confirmed). `jarvis-rag-server` (general RAG) → **127.0.0.1:8003** (confirmed; ONNX model downloaded and ChromaDB integration working). `jarvis-lm-synthesizer` → **127.0.0.1:8001** (confirmed; calls `jarvis-ollama:11434/api/generate` directly with `llama3.1:latest`; Ms. Egeria Jarvis persona prompt injected; previously called `jarvis-roche-llm` — corrected March 18, 2026). `psychological_rag_domain` → **127.0.0.1:8006** (confirmed; port corrected from 9006). `jarvis-psychology-services` → **127.0.0.1:8019** (confirmed; Phase 3 active on every production request). PostgreSQL `msjarvis` → **127.0.0.1:5433** (5,416,521 GBIM entities, 80 epochs, 206 source layers, temporal decay metadata). PostgreSQL `gisdb` → **127.0.0.1:5433** (13 GB PostGIS, 39 tables, 993 ZCTA centroids). `jarvis-local-resources-db` → **127.0.0.1:5435** (community resources, confirmed). ChromaDB → **127.0.0.1:8000** (`chroma_data` Docker volume; `psychological_rag` 968 items; `autonomous_learner` 21,181 items). `nbb_woah_algorithms` → **127.0.0.1:8104** host → internal 8010 (confirmed). `jarvis-woah` → **127.0.0.1:7012** (confirmed). `jarvis-blood-brain-barrier` → **0.0.0.0:8016** (confirmed; 7-filter stack; `truth_score` null guard added March 18; fail-open on HTTP 500 added March 18). `jarvis-20llm-production` → **127.0.0.1:8008** (confirmed; 21 active models / 22 proxies; BakLLaVA permanently disabled); wall-clock consensus ~320-360s. Judge pipeline → evaluates consensus answer only; raw_responses dump eliminated; ~60-86s (was ~85-100s). `jarvis-semaphore` → **127.0.0.1:8030** (confirmed; `max_concurrent: 4`; requires float `timeout`). `llm1-proxy` through `llm22-proxy` → **127.0.0.1:8201-8222** (21 active; llm11/BakLLaVA permanently disabled). `jarvis-hippocampus` → **127.0.0.1:8011**. `jarvis-69dgm-bridge` → **127.0.0.1:9000** (confirmed; Phase 7, 23 connectors × 3 stages). Judge services confirmed: `jarvis-judge-truth` 7230, `jarvis-judge-consistency` 7231, `jarvis-judge-alignment` 7232, `jarvis-judge-ethics` 7233. `jarvis-constitutional-guardian` → **127.0.0.1:8091** (confirmed). `jarvis-fifth-dgm` → **127.0.0.1:4002** (confirmed). `jarvis-redis` → **127.0.0.1:6380** (confirmed). `/chat/async` + `/chat/status/{job_id}` + `/chat/cancel/{job_id}` + `/chat/cancel/all` confirmed (Redis-backed, 30-min TTL, true asyncio task cancellation). `/chatlight/async` + `/chatlight/status/{job_id}` confirmed (tag `v2026.03.02-chatlight-async-working`). `normalize_identity()` confirmed producing Ms. Jarvis identity voice. Phase 1.45 ChromaDB semantic community memory retrieval confirmed — `all-minilm:latest` 384-dim, `autonomous_learner` collection, top-5 results prepended to `enhanced_message`. All 79 containers fully compose-managed. End-to-end benchmark: ~436s (full pipeline with community memory enrichment). |
-| **Architectural fixes recorded as permanent decisions** | BBB output guard `apply_output_guards_async` timeout corrected from `None` → **8.0s** (2026-03-02). Main-brain httpx client for semaphore proxy: `Timeout(None, connect=5.0, read=None)` — semaphore manages 600s deadline (2026-03-02). `llmtimeout` in chatlight handler corrected from `None` → `600.0` (2026-03-02). I-Containers schema corrected to `{"message": …, "userid": "neurobiological_master"}` (2026-03-01). Consciousness Bridge actual port confirmed as **8018** (2026-03-01). PostgreSQL port corrected to **5433** (not 5432). ChromaDB port corrected to **8000** with `chroma_data` volume (not port 8002). `psychological_rag_domain` port corrected to **8006** (not 9006). RAG server `/store` payload corrected to `user_id` (not `userid`). Spiritual RAG port corrected to **8005** (not 8103). LM Synthesizer target corrected from `jarvis-roche-llm` → `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (March 18, 2026). Judges now evaluate consensus answer only — raw_responses dump eliminated (March 18, 2026). Phase 3.75 (Final Polish via llm22-proxy) eliminated — merged into Phase 3.5 single Ollama call (March 18, 2026). BakLLaVA permanently disabled via `ai_server_20llm_PRODUCTION.py` name-check guard (March 18, 2026). `all-minilm:latest` (384-dim) confirmed as required embedding model — `nomic-embed-text` (768-dim) is incompatible with existing collections (March 18, 2026). Docker Compose upgraded from v1.29.2 → v5.1.0 (March 17, 2026). All 79 containers now compose-managed; all `build:` directives replaced with `image:` references (March 17, 2026). |
+| **Implemented and verified** | `jarvis-main-brain` → **127.0.0.1:8050** (confirmed). `jarvis-ollama` → **127.0.0.1:11434** (confirmed). `jarvis-wv-entangled-gateway` → **127.0.0.1:8010** (confirmed; re-locked Mar 18). `jarvis-spiritual-rag` (GBIM / worldview RAG) → **127.0.0.1:8005** (confirmed; re-locked Mar 18; earlier plan documents used 8103). `jarvis-gis-rag` → **127.0.0.1:8004** (confirmed; re-locked Mar 18). `jarvis-rag-server` (general RAG) → **127.0.0.1:8003** (confirmed; ONNX model downloaded and ChromaDB integration working). `jarvis-lm-synthesizer` → **127.0.0.1:8001** (confirmed; calls `jarvis-ollama:11434/api/generate` directly with `llama3.1:latest`; Ms. Egeria Jarvis persona prompt injected; previously called `jarvis-roche-llm` — corrected March 18, 2026). `psychological_rag_domain` → **127.0.0.1:8006** (confirmed; port corrected from 9006). `jarvis-psychology-services` → **127.0.0.1:8019** (confirmed; re-locked Mar 18; Phase 3 active on every production request). PostgreSQL `msjarvis` → **127.0.0.1:5433** (5,416,521 GBIM entities, 80 epochs, 206 source layers, temporal decay metadata). PostgreSQL `gisdb` → **127.0.0.1:5433** (13 GB PostGIS, 39 tables, 993 ZCTA centroids). `jarvis-local-resources-db` → **127.0.0.1:5435** (community resources, confirmed). ChromaDB → **127.0.0.1:8000** (`chroma_data` Docker volume; `psychological_rag` 968 items; `autonomous_learner` 21,181 items). `nbb_woah_algorithms` → **127.0.0.1:8104** host → internal 8010 (confirmed). `jarvis-woah` → **127.0.0.1:7012** (confirmed). `jarvis-blood-brain-barrier` → **127.0.0.1:8016** (confirmed; 7-filter stack; `truth_score` null guard added March 18; fail-open on HTTP 500 added March 18). `jarvis-20llm-production` → **127.0.0.1:8008** (confirmed; 21 active models / 22 proxies; BakLLaVA permanently disabled); wall-clock consensus ~320-360s. Judge pipeline → **all 5 services compose-managed with `restart: unless-stopped` as of March 18**; evaluates consensus answer only; raw_responses dump eliminated; ~60-86s (was ~85-100s). `jarvis-semaphore` → **127.0.0.1:8030** (confirmed; `max_concurrent: 4`; requires float `timeout`). `llm1-proxy` through `llm22-proxy` → **127.0.0.1:8201-8222** (21 active; llm11/BakLLaVA permanently disabled). `jarvis-hippocampus` → **127.0.0.1:8011** (re-locked Mar 18). `jarvis-69dgm-bridge` → **127.0.0.1:19000->9000** (re-locked Mar 18; Phase 7, 23 connectors × 3 stages). Judge services confirmed compose-managed: `jarvis-judge-truth` 127.0.0.1:7230, `jarvis-judge-consistency` 127.0.0.1:7231, `jarvis-judge-alignment` 127.0.0.1:7232, `jarvis-judge-ethics` 127.0.0.1:7233, `jarvis-judge-pipeline` 127.0.0.1:7239. `jarvis-constitutional-guardian` → **127.0.0.1:8091** (re-locked Mar 18). `jarvis-fifth-dgm` → **127.0.0.1:4002** (confirmed). `jarvis-redis` → **127.0.0.1:6380** (confirmed). `/chat/async` + `/chat/status/{job_id}` + `/chat/cancel/{job_id}` + `/chat/cancel/all` confirmed (Redis-backed, 30-min TTL, true asyncio task cancellation). `/chatlight/async` + `/chatlight/status/{job_id}` confirmed (tag `v2026.03.02-chatlight-async-working`). `normalize_identity()` confirmed producing Ms. Jarvis identity voice. Phase 1.45 ChromaDB semantic community memory retrieval confirmed — `all-minilm:latest` 384-dim, `autonomous_learner` collection, top-5 results prepended to `enhanced_message`. **All 80 containers fully compose-managed. Zero `0.0.0.0` exposures.** End-to-end benchmark: ~436s (full pipeline with community memory enrichment). |
+| **Architectural fixes recorded as permanent decisions** | BBB output guard `apply_output_guards_async` timeout corrected from `None` → **8.0s** (2026-03-02). Main-brain httpx client for semaphore proxy: `Timeout(None, connect=5.0, read=None)` — semaphore manages 600s deadline (2026-03-02). `llmtimeout` in chatlight handler corrected from `None` → `600.0` (2026-03-02). I-Containers schema corrected to `{"message": …, "userid": "neurobiological_master"}` (2026-03-01). Consciousness Bridge locked to **127.0.0.1:8020** (re-locked Mar 18). PostgreSQL port corrected to **5433** (not 5432). ChromaDB port corrected to **8000** with `chroma_data` volume (not port 8002). `psychological_rag_domain` port corrected to **8006** (not 9006). RAG server `/store` payload corrected to `user_id` (not `userid`). Spiritual RAG port corrected to **8005** (not 8103). LM Synthesizer target corrected from `jarvis-roche-llm` → `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (March 18, 2026). Judges now evaluate consensus answer only — raw_responses dump eliminated (March 18, 2026). Phase 3.75 (Final Polish via llm22-proxy) eliminated — merged into Phase 3.5 single Ollama call (March 18, 2026). BakLLaVA permanently disabled via `ai_server_20llm_PRODUCTION.py` name-check guard (March 18, 2026). `all-minilm:latest` (384-dim) confirmed as required embedding model — `nomic-embed-text` (768-dim) is incompatible with existing collections (March 18, 2026). Docker Compose upgraded from v1.29.2 → v5.1.0 (March 17, 2026). All 80 containers now compose-managed; all ports locked to `127.0.0.1` (March 18, 2026). All 5 judge services brought under compose management with `restart: unless-stopped`; `Dockerfile.judge` and canonical source files added to `services/` (March 18, 2026). `jarvis-69dgm-bridge` host port permanently mapped as `127.0.0.1:19000->9000` (March 18, 2026). |
 | **Partially implemented / scaffolded** | Per-request model breakdowns and per-model latency / error-rate metrics are logged but no dedicated debug HTTP endpoint exposes them yet. Ensemble decision rules are operational but not encoded in a machine-readable schema. WOAH-to-model-selection coupling exists conceptually but is not yet wired as an explicit routing rule in main-brain config. POC verification loop for GBIM temporal decay (`needs_verification=TRUE` entities) is future work. |
 | **Future work / design intent only** | Richer debug and metrics endpoints for per-request agent breakdowns. Formal JSON schemas for ensemble decision rules and judge aggregation. Tighter coupling between WOAH weights, Fifth DGM proposals, entangled RAG traces, and model selection in high-stakes governance flows. Additional small, task-specific model pools registered behind the same fabric. UI layer consuming `/chat/async` poll pattern. Automated POC verification loop to reset `confidence_decay` to 1.0 for confirmed community resource entities. |
 
-> **Port corrections and updates (permanent record).** Earlier planning documents listed the Spiritual Root / GBIM RAG service at **8103** — confirmed running port is **8005**. `psychological_rag_domain` was listed at 9006 — confirmed running port is **8006**. PostgreSQL is at **port 5433** (not 5432). ChromaDB is at **port 8000** with `chroma_data` Docker volume (not port 8002). LM Synthesizer previously documented as calling `jarvis-roche-llm` — corrected to `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (March 18, 2026). All references in this chapter use these corrected values.
+> **Port corrections and updates (permanent record).** Earlier planning documents listed the Spiritual Root / GBIM RAG service at **8103** — confirmed running port is **8005**. `psychological_rag_domain` was listed at 9006 — confirmed running port is **8006**. PostgreSQL is at **port 5433** (not 5432). ChromaDB is at **port 8000** with `chroma_data` Docker volume (not port 8002). LM Synthesizer previously documented as calling `jarvis-roche-llm` — corrected to `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (March 18, 2026). `jarvis-69dgm-bridge` host port is **19000** (maps to internal 9000) — not 9000 directly (March 18, 2026). All references in this chapter use these corrected values.
 
 ---
 
 # 11. The LLM Fabric of Ms. Jarvis
 
-This chapter describes the local language models that form the "LLM fabric" of Ms. Egeria Jarvis and how they are woven into the broader three-database PostgreSQL architecture (GBIM port 5433, PostGIS port 5433, community resources port 5435), ChromaDB (port 8000, `chroma_data` volume), RAG services, autonomous learning, and GeoDB infrastructure. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack, all exposed through well-defined HTTP services confirmed running as of March 18, 2026.
+This chapter describes the local language models that form the "LLM fabric" of Ms. Egeria Jarvis and how they are woven into the broader three-database PostgreSQL architecture (GBIM port 5433, PostGIS port 5433, community resources port 5435), ChromaDB (port 8000, `chroma_data` volume), RAG services, autonomous learning, and GeoDB infrastructure. Rather than treating LLMs as independent agents, the system treats them as constrained tools and judges embedded in a larger retrieval and belief stack, all exposed through well-defined HTTP services confirmed running as of March 18, 2026. **All services are bound exclusively to `127.0.0.1`; no service exposes a port on `0.0.0.0`.**
 
 ---
 
@@ -122,7 +183,7 @@ if name and name.lower().startswith("bakllava"):
 The following table is the authoritative proxy-to-model mapping as of March 18, 2026:
 
 | Proxy | Port | Model | Specialty |
-| :--- | :--- | :--- | :--- |
+|:---|:---|:---|:---|
 | llm1-proxy | 8201 | TinyLlama (`tinyllama:1.1b`) | Quick responses |
 | llm2-proxy | 8202 | Gemma (`gemma:latest`) | Synthesis |
 | llm3-proxy | 8203 | MedLlama2 (`medllama2:latest`) | Medical knowledge |
@@ -133,7 +194,7 @@ The following table is the authoritative proxy-to-model mapping as of March 18, 
 | llm8-proxy | 8208 | CodeLlama (`codellama:latest`) | Code understanding |
 | llm9-proxy | 8209 | DeepSeek Coder (`deepseek-coder:latest`) | Code generation |
 | llm10-proxy | 8210 | Phi3 Mini (`phi3:mini`) | Fast reasoning |
-| llm11-proxy | 8211 | **BakLLaVA — DISABLED** (`llmXX-bakllava-disabled`) | Visual reasoning — disabled, CLIP load issues |
+| llm11-proxy | 8211 | **BakLLaVA — DISABLED** | Visual reasoning — permanently disabled, CLIP load issues |
 | llm12-proxy | 8212 | Dolphin-Phi (`dolphin-phi:latest`) | Dialogue |
 | llm13-proxy | 8213 | Orca-Mini (`orca-mini:latest`) | Reasoning |
 | llm14-proxy | 8214 | Qwen2 (`qwen2:latest`) | Multilingual understanding |
@@ -170,7 +231,7 @@ In the current deployment, these models play distinct but overlapping roles with
 
 ## 11.3 Service Topology and Ports
 
-The following port assignments are drawn from the confirmed March 18, 2026 deployment and supersede all earlier planning drafts.
+The following port assignments are drawn from the confirmed March 18, 2026 deployment and supersede all earlier planning drafts. **All services are bound to 127.0.0.1.**
 
 **Main Brain API — 127.0.0.1:8050 (`jarvis-main-brain`).**
 Primary external-facing interface. Orchestrates calls to all downstream services. Exposes `/chat` (synchronous), `/chat/async` + `/chat/status/{job_id}` + `/chat/cancel/{job_id}` + `/chat/cancel/all` (full-pipeline async, Redis-backed, 30-min TTL, true asyncio task cancellation), `/chatlight` (synchronous lightweight), and `/chatlight/async` + `/chatlight/status/{job_id}` (lightweight async).
@@ -191,28 +252,31 @@ Phase 3.5 voice delivery service. Calls `jarvis-ollama:11434/api/generate` direc
 Active FastAPI service. `/store` accepts `user_id` and logs episodic events to ChromaDB; PostgreSQL insertion failures are warnings, not fatal errors.
 
 **GIS RAG — 127.0.0.1:8004 (`jarvis-gis-rag`).**
-Spatially aware `/search` over geospatial ChromaDB collections and PostgreSQL `gisdb` mirrors.
+Re-locked to `127.0.0.1` March 18, 2026. Spatially aware `/search` over geospatial ChromaDB collections and PostgreSQL `gisdb` mirrors.
 
 **Spiritual Root / GBIM RAG — 127.0.0.1:8005 (`jarvis-spiritual-rag`).**
-`/search` over GBIM- and worldview-oriented ChromaDB collections. Earlier plan documents listed 8103; confirmed running port is **8005**.
+Re-locked to `127.0.0.1` March 18, 2026. `/search` over GBIM- and worldview-oriented ChromaDB collections. Earlier plan documents listed 8103; confirmed running port is **8005**.
 
 **Psychological RAG — 127.0.0.1:8006 (`psychological_rag_domain`).**
 ChromaDB `psychological_rag` collection (968 items: therapy, mindfulness, trauma, depression, anxiety, social support). Earlier plan documents listed 9006; confirmed running port is **8006**.
 
 **WV-Entangled Gateway — 127.0.0.1:8010 (`jarvis-wv-entangled-gateway`).**
-WV-biased, multi-collection ChromaDB retrieval using the `WVEntangledContext` envelope.
+Re-locked to `127.0.0.1` March 18, 2026. WV-biased, multi-collection ChromaDB retrieval using the `WVEntangledContext` envelope.
 
 **Hippocampus — 127.0.0.1:8011 (`jarvis-hippocampus`).**
-Conversation-level memory consolidation over ChromaDB (port 8000) and PostgreSQL `msjarvis` GBIM. Temporal decay-aware.
+Re-locked to `127.0.0.1` March 18, 2026. Conversation-level memory consolidation over ChromaDB (port 8000) and PostgreSQL `msjarvis` GBIM. Temporal decay-aware.
 
 **I-Containers — 127.0.0.1:8015 (`jarvis-i-containers`).**
-Identity and perspective manager. Schema: `{"message": …, "userid": "neurobiological_master"}`. Exposes `/next-learning-topic` for the autonomous learner.
+Re-locked to `127.0.0.1` March 18, 2026. Identity and perspective manager. Schema: `{"message": …, "userid": "neurobiological_master"}`. Exposes `/next-learning-topic` for the autonomous learner.
 
-**BBB 7-filter stack — 0.0.0.0:8016 (`jarvis-blood-brain-barrier`).**
+**BBB 7-filter stack — 127.0.0.1:8016 (`jarvis-blood-brain-barrier`).**
 Phase 1.4 input filter and Phase 4.5 output guard. `truth_score` null guard added March 18. Fail-open on HTTP 500 errors added March 18. `apply_output_guards_async` timeout: `8.0s`.
 
 **Psychology Services — 127.0.0.1:8019 (`jarvis-psychology-services`).**
-Phase 3 psychology pre-assessment on every production request: severity classification, crisis indicator Boolean, five structured guidance fields.
+Re-locked to `127.0.0.1` March 18, 2026. Phase 3 psychology pre-assessment on every production request: severity classification, crisis indicator Boolean, five structured guidance fields.
+
+**Consciousness Bridge — 127.0.0.1:8020 (`jarvis-consciousness-bridge`).**
+Re-locked to `127.0.0.1` March 18, 2026. Mandatory infrastructure for the neurobiological pipeline.
 
 **20-LLM Production Ensemble — 127.0.0.1:8008 (`jarvis-20llm-production`).**
 21 active models / 22 proxies. Uvicorn backlog 2048, keep-alive 600s. Judges now evaluate the synthesized consensus answer only — the raw_responses dump from all 21 models is no longer sent to judges (corrected March 18; reduced judge pipeline time ~60–86s from ~85–100s).
@@ -226,15 +290,29 @@ Mandatory intermediary. `max_concurrent: 4`. Requires float `timeout: 600.0`. Ma
 **WOAH services.**
 `nbb_woah_algorithms` at **127.0.0.1:8104** (host) → internal 8010. `jarvis-woah` at **127.0.0.1:7012**.
 
-**Judge services.**
-`jarvis-judge-truth` 7230, `jarvis-judge-consistency` 7231, `jarvis-judge-alignment` 7232, `jarvis-judge-ethics` 7233. Input: consensus answer only (not raw_responses).
+**Constitutional Guardian — 127.0.0.1:8091 (`jarvis-constitutional-guardian`).**
+Re-locked to `127.0.0.1` March 18, 2026. See Chapter 37.
 
-**Constitutional Guardian — 127.0.0.1:8091.** See Chapter 37.
+**Judge Services — all compose-managed as of March 18, 2026.**
+All 5 judge services formally defined in `docker-compose.yml` with `restart: unless-stopped`, built from `services/Dockerfile.judge`. Previously orphaned manual `docker run` containers with `restart: no`; would not survive reboot.
+
+| Service | Host Port | Source File |
+|---|---|---|
+| `jarvis-judge-pipeline` | 127.0.0.1:7239 | `services/judge_pipeline.py` |
+| `jarvis-judge-truth` | 127.0.0.1:7230 | `services/judge_truth_filter.py` |
+| `jarvis-judge-consistency` | 127.0.0.1:7231 | `services/judge_consistency_engine.py` |
+| `jarvis-judge-alignment` | 127.0.0.1:7232 | `services/judge_alignment_filter.py` |
+| `jarvis-judge-ethics` | 127.0.0.1:7233 | `services/judge_ethics_filter.py` |
+
+Input to judges: consensus answer only (not raw_responses). Time: ~60–86s.
 
 **Fifth DGM — 127.0.0.1:4002 (`jarvis-fifth-dgm`).** See Chapter 9.
 
-**69-DGM Cascade — 127.0.0.1:9000 (`jarvis-69dgm-bridge`).**
-Phase 7 validation: 23 connectors × 3 stages = 69 DGM operations per pass.
+**69-DGM Cascade — 127.0.0.1:19000→9000 (`jarvis-69dgm-bridge`).**
+Re-locked to `127.0.0.1:19000` March 18, 2026 (had reverted to `0.0.0.0:9000` in intermediate compose edit). Phase 7 validation: 23 connectors × 3 stages = 69 DGM operations per pass. Internal container port remains 9000; host binding is 19000.
+
+**Toroidal Sync — 127.0.0.1:8025 (`jarvis-toroidal`).**
+Re-locked to `127.0.0.1` March 18, 2026. Bidirectional ChromaDB↔GIS sync loop (Chapter 26).
 
 **Autonomous Learner — 127.0.0.1:8425 (`jarvis-autonomous-learner`).**
 Writes to `autonomous_learner` ChromaDB collection (port 8000) using `all-minilm:latest` 384-dim embeddings. 21,181 items as of March 18, 2026. Cooperates with `jarvis-i-containers` via `/next-learning-topic`.
@@ -285,8 +363,8 @@ Fifth DGM (port 4002), WOAH (ports 8104 and 7012), `nbb-i-containers` (port 8101
 **Phase 2.5 → Semaphore → 21-LLM ensemble synthesis.**
 The main brain calls `jarvis-20llm-production` (port 8008) via `jarvis-semaphore` (port 8030, `max_concurrent: 4`, `timeout=600.0`). The ensemble fans out to 22 proxies (ports 8201–8222); 21 active (BakLLaVA excluded). StarCoder2 is excluded from consensus when it returns 0-character responses. Wall-clock consensus: ~320–360s.
 
-**Phase 3 — Judge Pipeline.**
-Four deterministic judges evaluate the **consensus answer only** — the `raw_responses` dump from all 21 models is no longer sent to judges. Rule-based validation: Truth (port 7230), Consistency (port 7231), Alignment (port 7232), Ethics (port 7233). Time: ~60–86s (reduced from ~85–100s by eliminating raw_responses dump).
+**Phase 3 — Judge Pipeline (compose-managed as of March 18, 2026).**
+Four deterministic judges evaluate the **consensus answer only** — the `raw_responses` dump from all 21 models is no longer sent to judges. Rule-based validation: Truth (port 7230), Consistency (port 7231), Alignment (port 7232), Ethics (port 7233). Master coordinator: judge-pipeline (port 7239). Time: ~60–86s (reduced from ~85–100s by eliminating raw_responses dump). All 5 services now have `restart: unless-stopped` and survive system reboots.
 
 **Phase 3.5 — LM Synthesizer + Voice Delivery (merged — Phase 3.75 eliminated).**
 The LM Synthesizer takes the judge pipeline's `final_answer` and calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest`. The following persona prompt is injected:
@@ -311,11 +389,11 @@ The final response is returned directly. The previously separate Phase 3.75 Fina
 **Phase 5 — GBIM temporal confidence decay.**
 `confidence_decay` multiplier applied to responses anchored in GBIM entities. Entities with `needs_verification=TRUE` receive attenuated confidence scores.
 
-**Phase 7 — 69-DGM cascade (`jarvis-69dgm-bridge`, port 9000).**
-23 connectors × 3 stages = 69 DGM operations.
+**Phase 7 — 69-DGM cascade (`jarvis-69dgm-bridge`, host port 19000 → internal 9000).**
+23 connectors × 3 stages = 69 DGM operations. Re-locked to `127.0.0.1:19000` March 18, 2026.
 
 **Phase 4.5 and governance — BBB output guard, judges, constitutional guardian.**
-`apply_output_guards_async` passes the response through BBB `/filter` (port 8016, `timeout=8.0s`). Fail-open behavior mirrors Phase 1.4.
+`apply_output_guards_async` passes the response through BBB `/filter` (port 8016, `timeout=8.0s`). Fail-open behavior mirrors Phase 1.4. Constitutional Guardian enforces principles audit at port 8091.
 
 **Post-processing — identity normalization.**
 `normalize_identity()` produces Ms. Jarvis's identity voice. `TruthValidator` verifies `correct_identity`, `correct_creator`, and `relationship_clear` against PostgreSQL `msjarvis` GBIM. Response logged to `ms_jarvis_memory` ChromaDB collection and `episodic_log` in PostgreSQL.
@@ -331,14 +409,14 @@ The Fifth DGM and I-container services use LLM calls (via WOAH) to decide which 
 The autonomous learner (port 8425) writes processed knowledge into the `autonomous_learner` ChromaDB collection (port 8000) using `all-minilm:latest` 384-dim embeddings. As of March 18, 2026, the collection holds 21,181 items growing at ~288/day. The Phase 1.45 retrieval step means this growing corpus now actively enriches every production query before it reaches the LLM ensemble.
 
 **Ensemble and judge patterns.**
-21 active models produce independent responses with no read timeout. Phase 5 GBIM temporal decay weights attenuate confidence for aged GBIM entities. Phase 7 69-DGM cascade provides authoritative post-ensemble validation. Judges evaluate the synthesized consensus answer only — not the raw per-model dump.
+21 active models produce independent responses with no read timeout. Phase 5 GBIM temporal decay weights attenuate confidence for aged GBIM entities. Phase 7 69-DGM cascade provides authoritative post-ensemble validation. Judges evaluate the synthesized consensus answer only — not the raw per-model dump. All 5 judge services are now compose-managed and reboot-safe.
 
 ---
 
 ## 11.6 Operational Constraints and Fabric Behavior
 
 **Resource and disk constraints.**
-More than twenty model files are installed under `~/.ollama/models` but only a subset is hot at a given time. Multi-source PostgreSQL queries, ChromaDB semantic retrieval, autonomous learner writes, WOAH evaluations, and 21-model ensemble calls all contend for CPU, memory, and disk bandwidth.
+More than twenty model files are installed under `~/.ollama/models` but only a subset is hot at a given time. Multi-source PostgreSQL queries, ChromaDB semantic retrieval, autonomous learner writes, WOAH evaluations, and 21-model ensemble calls all contend for CPU, memory, and disk bandwidth. Disk utilization as of March 18, 2026: 661 GB used / 937 GB total (75%).
 
 **Timeouts and free-flow thinking.**
 All 22 LLM proxies have `read=None` to enable unconstrained generation. The BBB output guard uses `timeout=8.0s` (permanent fix 2026-03-02). The semaphore proxy enforces `max_concurrent: 4`.
@@ -350,7 +428,7 @@ Because each Ollama model run is sequential within the ensemble, back-to-back re
 Phase 5 `confidence_decay` multipliers attenuate confidence for responses citing older, unverified GBIM entities. The POC verification loop (future work) will restore `confidence_decay` to 1.0 when entities are confirmed by community validators.
 
 **Failure modes and fallbacks.**
-If judge services are down, the main brain falls back to the ensemble answer and marks consensus metrics as degraded. Any stage failure in the neurobiological pipeline stores `{"status": "bypassed", "error": "…"}` and processing continues. BBB non-200 responses now fail open (March 18, 2026).
+If judge services are down, the main brain falls back to the ensemble answer and marks consensus metrics as degraded. Any stage failure in the neurobiological pipeline stores `{"status": "bypassed", "error": "…"}` and processing continues. BBB non-200 responses now fail open (March 18, 2026). Judge services now survive reboots (compose-managed, `restart: unless-stopped`, March 18, 2026).
 
 ---
 
@@ -361,18 +439,19 @@ If judge services are down, the main brain falls back to the ensemble answer and
 - **Semaphore proxy.** Mandatory intermediary on port 8030. Main brain must pass `timeout: 600.0` (float, not `None`). Permanent architectural decision (2026-03-02).
 - **BBB output guard timeout.** `apply_output_guards_async` must use `httpx.AsyncClient(timeout=8.0)`. The original `timeout=None` is a known regression risk.
 - **LM Synthesizer.** Port 8001. Calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest`. Persona prompt must be preserved in all rebuilds. Phase 3.75 is permanently eliminated.
-- **Judge pipeline.** Must receive consensus answer only — never the raw_responses dump.
+- **Judge pipeline.** Must receive consensus answer only — never the raw_responses dump. All 5 judge containers must be defined in `docker-compose.yml` with `build: context: ./services, dockerfile: Dockerfile.judge` and `restart: unless-stopped`. Source files: `services/judge_pipeline.py`, `services/judge_truth_filter.py`, `services/judge_consistency_engine.py`, `services/judge_alignment_filter.py`, `services/judge_ethics_filter.py`.
 - **Three-database PostgreSQL architecture.** `msjarvis` and `gisdb` at **port 5433**. `jarvis-local-resources-db` at **port 5435**. Never reference port 5432.
 - **ChromaDB.** Port **8000**, `chroma_data` volume. Required embedding model: `all-minilm:latest` (384-dim). Never reference port 8002 or `nomic-embed-text`.
 - **Autonomous learner.** Count: 21,181 as of March 18, 2026. Phase 1.45 retrieval queries this collection on every production request.
-- **Hippocampus.** Port 8011. Must be in all future compose definitions.
-- **69-DGM cascade.** Port 9000. 23 connectors × 3 stages. Must be in all future compose definitions.
+- **Hippocampus.** Port 8011. Must be in all future compose definitions. Locked to `127.0.0.1`.
+- **69-DGM cascade.** Host port 19000 → internal 9000. Must be in all future compose definitions as `127.0.0.1:19000:9000`. Never expose as `0.0.0.0:9000`.
+- **Port binding policy (permanent).** All services must be bound to `127.0.0.1` in `docker-compose.yml`. The two format variants that evade automated sed replacement are: bare `- PORT:PORT` (no IP prefix) and explicit `- 0.0.0.0:PORT:PORT`. Both must be replaced with `- 127.0.0.1:HOST:CONTAINER`. Verification: `docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0"` must return empty.
 - **Async chat endpoints.** `/chat/async`, `/chat/status/{job_id}`, `/chat/cancel/{job_id}`, `/chat/cancel/all` — Redis-backed, 30-min TTL, true asyncio task cancellation. Must be preserved in all future main-brain rebuilds.
-- **Compose management.** All 79 containers defined in `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`. All `build:` directives replaced with `image:` references. Docker Compose v5.1.0.
+- **Compose management.** All 80 containers defined in `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`. Docker Compose v5.1.0.
 
 **Git milestones for this chapter's verified states:**
 
-| Tag | Date | Milestone |
+| Tag / Commit | Date | Milestone |
 |---|---|---|
 | `v2026.02.28-fabric-green` | 2026-02-28 | Baseline fabric operational |
 | `v2026.03.01-fabric-32-32` | 2026-03-01 | All 32 fabric services passing health checks |
@@ -380,8 +459,10 @@ If judge services are down, the main brain falls back to the ensemble answer and
 | `v2026.03.01-neuro-pipeline-4-4` | 2026-03-01 | Full neurobiological pipeline at ~300ms |
 | `v2026.03.02-chatlight-async-working` | 2026-03-02 | Async chat + `normalize_identity()` confirmed |
 | `b90f9ff` | 2026-03-15 | 79 containers: 22/22 LLMs + 3 PostgreSQL DBs + hippocampus + psych services + 7-filter BBB + 69-DGM + 349.87s benchmark |
-| *(March 18 session)* | 2026-03-18 | Phase 1.45 community memory · BakLLaVA permanently disabled · Phase 3.75 eliminated · judges evaluate consensus only · LM Synthesizer persona confirmed · all-minilm:latest 384-dim · Docker Compose v5.1.0 · all 79 containers compose-managed · ~436s end-to-end |
+| `a10725d7` | 2026-03-18 | Judge services brought under compose; 15 services locked to 127.0.0.1 |
+| `5007d605` | 2026-03-18 | Remaining 10 services re-locked; zero 0.0.0.0 exposures across all 80 containers |
+| *(March 18 session)* | 2026-03-18 | Phase 1.45 community memory · BakLLaVA permanently disabled · Phase 3.75 eliminated · judges evaluate consensus only · LM Synthesizer persona confirmed · all-minilm:latest 384-dim · Docker Compose v5.1.0 · all 80 containers compose-managed · zero 0.0.0.0 exposures · ~436s end-to-end |
 
-For the canonical description of how this entire fabric fits into a live user interaction, see **Chapter 17**. For the neurobiological architecture that structures the fabric, see **Chapter 12**. For the BBB 7-filter specification, see **Chapter 16**. For the 69-DGM cascade specification, see **Chapter 32**. For the three-database PostgreSQL architecture, see **Chapter 6**.
+For the canonical description of how this entire fabric fits into a live user interaction, see **Chapter 17**. For the neurobiological architecture that structures the fabric, see **Chapter 12**. For the BBB 7-filter specification, see **Chapter 16**. For the 69-DGM cascade specification, see **Chapter 32**. For the three-database PostgreSQL architecture, see **Chapter 6**. For the judge pipeline and LLM ensemble specification, see **Chapter 33**.
 
 *Last updated: 2026-03-18 by Carrie Kidd, Mount Hope WV*
