@@ -632,4 +632,4 @@ The `gbim_worldview_entities` collection is fully populated at 5,416,521 entitie
 
 The three-database PostgreSQL architecture (`msjarvis` for belief provenance, `gisdb` for PostGIS spatial queries, `jarvis-local-resources-db` for community resources) complements ChromaDB's semantic layer, providing structured joins, spatial primitives, and validated community data. GBIM temporal confidence decay is deployed across all entities, with the `confidence_decay` multiplier applied at Phase 5 of every production request. Together, these systems enable Ms. Jarvis to act as an accountable, place-based steward for West Virginia communities.
 
-*Last updated: 2026-03-18 by Carrie Kidd, Oak Hill WV*
+*Last updated: 2026-03-18 by Carrie Kidd, Mount Hope WV*
