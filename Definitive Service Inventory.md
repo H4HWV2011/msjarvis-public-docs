@@ -1,16 +1,22 @@
 # Ms. Jarvis — Definitive Service Inventory
-**Audit Date**: March 2–3, 2026  
-**Platform**: Lenovo Legion 5 16IRX9 (Intel i9, NVIDIA RTX 4050, 29 GB RAM)  
-**Audit method**: `docker ps`, health endpoint probes, `docker inspect`, host PostgreSQL queries  
+**Audit Date**: March 18, 2026 (updated from March 2–3, 2026)
+**Platform**: Lenovo Legion 5 16IRX9 (Intel i9, NVIDIA RTX 4050, 29 GB RAM)
+**Audit method**: `docker ps`, health endpoint probes, `docker inspect`, host PostgreSQL queries
+**Branch at audit**: `feature/cb-bbb-routing-fix` (commit `5007d605`)
 
 ---
 
-## Security Remediation (Completed This Audit)
+## Security Remediation Log
 
-| Item | Before | After | Method |
-|---|---|---|---|
-| `jarvis-69dgm-bridge` port binding | `0.0.0.0:19000->9000` | `127.0.0.1:19000->9000` | `docker-compose.yml` corrected, container recreated |
-| `gbim-recovery` port binding | `0.0.0.0:5459->5432` | Removed | Container stopped and removed; data confirmed on host PostgreSQL |
+| Date | Item | Before | After | Method |
+|---|---|---|---|---|
+| Mar 2–3, 2026 | `jarvis-69dgm-bridge` port binding | `0.0.0.0:19000->9000` | `127.0.0.1:19000->9000` | `docker-compose.yml` corrected, container recreated |
+| Mar 2–3, 2026 | `gbim-recovery` port binding | `0.0.0.0:5459->5432` | Removed | Container stopped and removed; data confirmed on host PostgreSQL |
+| Mar 18, 2026 | 10 services exposed on `0.0.0.0` | Various `0.0.0.0:PORT` | All `127.0.0.1:PORT` | Python replace pass on `docker-compose.yml`; `--force-recreate` |
+| Mar 18, 2026 | 5 judge services orphaned | Manual `docker run`, `restart: no` | Compose-managed, `restart: unless-stopped` | Added `build:` entries + `Dockerfile.judge` to `services/` |
+| Mar 18, 2026 | `jarvis-69dgm-bridge` reverted exposure | `0.0.0.0:9000->9000` | `127.0.0.1:19000->9000` | Re-applied; was lost in intermediate compose edit |
+
+**Result as of March 18, 2026**: Zero `0.0.0.0` exposures across all 80 running containers. All services localhost-only.
 
 ---
 
@@ -22,7 +28,7 @@
 | `jarvis-brain-orchestrator` | 127.0.0.1:17260 | 7260 | ✅ Healthy | Continuous coordinator |
 | `jarvis-unified-gateway` | 127.0.0.1:18018 | 8001 | ✅ Running | Defense-in-depth gateway; Constitutional Guardian → BBB |
 | `jarvis-semaphore` | 127.0.0.1:8030 | 8030 | ✅ Healthy | Mandatory intermediary; `max_concurrent: 4` |
-| `jarvis-steward` | none (internal 8060) | 8060 | ✅ Healthy | Internal only; no host binding; purpose: community stewardship interface |
+| `jarvis-steward` | none (internal 8060) | 8060 | ✅ Healthy | Internal only; no host binding; community stewardship interface |
 
 ---
 
@@ -63,9 +69,9 @@
 | Container | Host Port | Internal Port | Status | Notes |
 |---|---|---|---|---|
 | `jarvis-blood-brain-barrier` | 127.0.0.1:8016 | 8016 | ✅ Running | 5 filters; output guard timeout 8.0s (fixed 2026-03-02) |
-| `jarvis-69dgm-bridge` | 127.0.0.1:19000 | 9000 | ✅ Running | 23 connectors × 3 stages = 69 DGM operations per pass |
-| `jarvis-constitutional-guardian` | 127.0.0.1:8091 | 8091 | ✅ Running | Constitutional enforcement; audit trail |
-| `jarvis-psychology-services` | 127.0.0.1:8019 | 8019 | ✅ Running | Pre-ensemble psychological assessment |
+| `jarvis-69dgm-bridge` | 127.0.0.1:19000 | 9000 | ✅ Running | 23 connectors × 3 stages = 69 DGM operations per pass; re-locked Mar 18 |
+| `jarvis-constitutional-guardian` | 127.0.0.1:8091 | 8091 | ✅ Running | Locked to 127.0.0.1 Mar 18; Constitutional enforcement; audit trail |
+| `jarvis-psychology-services` | 127.0.0.1:8019 | 8019 | ✅ Running | Locked to 127.0.0.1 Mar 18; pre-ensemble psychological assessment |
 | `psychological_rag_domain` | 127.0.0.1:8006 | 9006 | ✅ Running | Psychology RAG domain; separate from psychology-services |
 
 ---
@@ -75,17 +81,17 @@
 | Container | Host Port | Internal Port | Status | Notes |
 |---|---|---|---|---|
 | `jarvis-neurobiological-master` | none (internal 8018) | 8018 | ✅ Running | v2.0.0; sequences 4/4 pipeline at ~300ms |
-| `jarvis-consciousness-bridge` | none (internal 8018) | 8018 | ✅ Running | Mandatory infrastructure; actual bind confirmed via `/proc/net/tcp` |
+| `jarvis-consciousness-bridge` | 127.0.0.1:8020 | 8020 | ✅ Running | Locked to 127.0.0.1 Mar 18; mandatory infrastructure |
 | `jarvis-qualia-engine` | none (internal 8017) | 8017 | ✅ Running | Stage 3 of neurobiological pipeline |
-| `jarvis-i-containers` | none (internal 8015) | 8015 | ✅ Running | Identity containers; `icontainers-identity` layer |
+| `jarvis-i-containers` | 127.0.0.1:8015 | 8015 | ✅ Running | Locked to 127.0.0.1 Mar 18; identity containers; `icontainers-identity` layer |
 | `jarvis-fifth-dgm` | none (internal 4002) | 4002 | ✅ Running | Fifth Darwin-Gödel Machine |
 | `jarvis-mother-protocols` | none (internal 4000) | 4000 | ✅ Running | Mother protocols; not wired into primary `/chat` path |
 | `jarvis-temporal-consciousness` | none (internal 7007) | 7007 | ✅ Running | Temporal consciousness; flag-gated in pipeline |
 | `jarvis-fractal-consciousness` | none (internal 8027) | 8027 | ✅ Running | Fractal consciousness; internal Docker network only |
 | `jarvis-swarm-intelligence` | none (internal 8021) | 8021 | ✅ Running | Swarm coordination layer |
 | `jarvis-autonomous-learner` | 127.0.0.1:8425 | 8425 | ✅ Running | Background research and memory enrichment |
-| `jarvis-hippocampus` | 127.0.0.1:8011 | 8011 | ✅ Running | Long-term memory consolidation |
-| `jarvis-toroidal` | 127.0.0.1:8025 | 8025 | ✅ Healthy | Toroidal Chroma↔GIS bidirectional sync loop (Chapter 26) |
+| `jarvis-hippocampus` | 127.0.0.1:8011 | 8011 | ✅ Running | Locked to 127.0.0.1 Mar 18; long-term memory consolidation |
+| `jarvis-toroidal` | 127.0.0.1:8025 | 8025 | ✅ Healthy | Locked to 127.0.0.1 Mar 18; Toroidal Chroma↔GIS bidirectional sync loop (Chapter 26) |
 
 ---
 
@@ -109,15 +115,23 @@
 
 ---
 
-## Judge Pipeline
+## Judge Pipeline (Updated March 18, 2026)
 
-| Container | Host Port | Internal Port | Status | Notes |
-|---|---|---|---|---|
-| `jarvis-judge-pipeline` | none (internal 7239) | 7239 | ✅ Running | Master judge coordinator |
-| `jarvis-judge-truth` | none (internal 7230) | 7230 | ✅ Running | |
-| `jarvis-judge-consistency` | none (internal 7231) | 7231 | ✅ Running | Consistency score 0.975 |
-| `jarvis-judge-alignment` | none (internal 7232) | 7232 | ✅ Running | |
-| `jarvis-judge-ethics` | none (internal 7233) | 7233 | ✅ Running | |
+> **Change log**: All 5 judge services were previously orphaned manual `docker run` containers
+> with `restart: no` — they would not survive a reboot. As of March 18, 2026, all are
+> formally managed by `docker-compose.yml` with `restart: unless-stopped`, built from
+> `services/Dockerfile.judge`. Source files canonically named under `services/judge_*.py`.
+> All ports locked to `127.0.0.1`.
+
+| Container | Host Port | Internal Port | Status | Compose-managed | Notes |
+|---|---|---|---|---|---|
+| `jarvis-judge-pipeline` | 127.0.0.1:7239 | 7239 | ✅ Running | ✅ Yes (Mar 18) | Master judge coordinator; `judge_pipeline.py` |
+| `jarvis-judge-truth` | 127.0.0.1:7230 | 7230 | ✅ Running | ✅ Yes (Mar 18) | Truth filter; `judge_truth_filter.py` |
+| `jarvis-judge-consistency` | 127.0.0.1:7231 | 7231 | ✅ Running | ✅ Yes (Mar 18) | Consistency score 0.975; `judge_consistency_engine.py` |
+| `jarvis-judge-alignment` | 127.0.0.1:7232 | 7232 | ✅ Running | ✅ Yes (Mar 18) | Alignment filter; `judge_alignment_filter.py` |
+| `jarvis-judge-ethics` | 127.0.0.1:7233 | 7233 | ✅ Running | ✅ Yes (Mar 18) | Ethics filter; `judge_ethics_filter.py` |
+
+**Shared build**: All 5 use `services/Dockerfile.judge` (Python 3.11-slim; fastapi, uvicorn, httpx, redis, pydantic).
 
 ---
 
@@ -126,10 +140,10 @@
 | Container | Host Port | Internal Port | Status | Notes |
 |---|---|---|---|---|
 | `jarvis-rag-server` | 127.0.0.1:8003 | 8003 | ✅ Running | Primary text RAG |
-| `jarvis-gis-rag` | 127.0.0.1:8004 | 8004 | ✅ Running | Spatial/benefits RAG |
-| `jarvis-spiritual-rag` | 127.0.0.1:8005 | 8005 | ✅ Running | Spiritual RAG |
-| `jarvis-wv-entangled-gateway` | none (internal 8010) | 8010 | ⚠️ Degraded | WV-biased multi-collection retrieval; `production_20llm` URL config needs fix |
-| `jarvis-web-research` | 127.0.0.1:18008 | 8008 | ✅ Running | Web research service (note: host port 18008, not 18009 as previously documented) |
+| `jarvis-gis-rag` | 127.0.0.1:8004 | 8004 | ✅ Running | Locked to 127.0.0.1 Mar 18; spatial/benefits RAG |
+| `jarvis-spiritual-rag` | 127.0.0.1:8005 | 8005 | ✅ Running | Locked to 127.0.0.1 Mar 18; spiritual RAG |
+| `jarvis-wv-entangled-gateway` | 127.0.0.1:8010 | 8010 | ⚠️ Degraded | Locked to 127.0.0.1 Mar 18; WV-biased multi-collection retrieval; `production_20llm` URL config needs fix |
+| `jarvis-web-research` | 127.0.0.1:18008 | 8008 | ✅ Running | Host port 18008 (not 18009 as previously documented — thesis correction required) |
 | `jarvis-aaacpe-rag` | 127.0.0.1:8032 | 8032 | ✅ Running | Appalachian cultural intelligence RAG; 10 documents |
 | `jarvis-aaacpe-scraper` | 127.0.0.1:8033 | 8033 | ✅ Running | AaaCPE scraper; shared `aaacpe-cultural-data` volume |
 | `jarvis-local-resources` | none (internal 8006) | 8006 | ✅ Running | ZIP/county-keyed program registry |
@@ -148,7 +162,7 @@
 | `neo4j` | 127.0.0.1:7687, 7475 | Neo4j 5.13 | ✅ Running | Identity graphs; GBIM graph relationships |
 | `mysql` | 127.0.0.1:3307 | MySQL 8.2 | ✅ Running | Schema not yet documented |
 | **Host PostgreSQL `msjarvisgis`** | **5432 (host)** | **PostGIS 16** | **✅ Verified** | **GBIM corpus: 5,416,522 verified beliefs (Feb 20, 2026)** |
-| **Host PostgreSQL `msjarvis`** | **5432 (host)** | **PostgreSQL 16** | **✅ Running** | Secondary host database |
+| **Host PostgreSQL `msjarvis`** | **5433 (host)** | **PostgreSQL 16** | **✅ Running** | Secondary host database; listens on 5433 |
 
 ---
 
@@ -157,6 +171,25 @@
 | Container | Host Port | Status | Notes |
 |---|---|---|---|
 | `ipfs/kubo` | 127.0.0.1:5001 | ✅ Running | **Intentional infrastructure** — content addressing for MountainShares/The Commons; kubo/0.39.0; 19 external peers; corpus currently empty (default pin only); needs Chapter 11 documentation |
+
+---
+
+## Judge Source File Registry (March 18, 2026)
+
+All files under `services/` in the `msjarvis-rebuild` repo:
+
+```
+services/Dockerfile.judge          # Shared build for all 5 judge containers
+services/judge_pipeline.py         # Master coordinator (canonical copy of jarvis-judge-pipeline_judge_pipeline.py)
+services/judge_truth_filter.py     # Truth filter (from jarvis-judge-truth_lm_synthesizer.py)
+services/judge_consistency_engine.py # Consistency engine (from jarvis-judge-consistency_lm_synthesizer.py)
+services/judge_alignment_filter.py # Alignment filter (from jarvis-judge-alignment_lm_synthesizer.py)
+services/judge_ethics_filter.py    # Ethics filter (from jarvis-judge-ethics_lm_synthesizer.py)
+```
+
+Originals preserved in `services-safe/` as:
+- `jarvis-judge-pipeline_judge_pipeline.py` (and `.backup_beforesynth`)
+- `jarvis-judge-*_lm_synthesizer.py` (one per domain)
 
 ---
 
@@ -186,6 +219,8 @@
 | 11 | `jarvis-toroidal` not documented | Toroidal Chroma↔GIS sync service; port 8025 |
 | 11 | `jarvis-fractal-consciousness` not documented | Internal consciousness service; port 8027 |
 | 11 | `jarvis-agents-service` not documented | Internal agents service; port 8005 |
+| 33 | Judge services "orphaned containers" | Judge services compose-managed as of March 18, 2026 |
+| 40 | No March 18 security audit | Add March 18 hardening: 10 services re-locked, 5 judges brought under compose |
 
 ---
 
@@ -193,16 +228,22 @@
 
 | Category | Count | Status |
 |---|---|---|
-| Total containers running | 84 | ✅ |
+| Total containers running | 80 | ✅ (down from 84; 4 removed/consolidated since Mar 2–3 audit) |
 | Core orchestration | 5 | ✅ All healthy |
 | LLM fabric (proxies + Ollama) | 23 | ✅ 21/22 responding |
 | Safety and validation | 5 | ✅ All running |
-| Consciousness/neurobiological | 13 | ✅ All running |
+| Consciousness/neurobiological | 12 | ✅ All running |
 | NBB subconscious layer | 13 | ✅ All running |
-| Judge pipeline | 5 | ✅ All running |
+| Judge pipeline | 5 | ✅ All running; compose-managed as of Mar 18 |
 | RAG and retrieval | 10 | ⚠️ 9/10 healthy; wv-entangled-gateway degraded |
 | Data stores | 6 containers + 2 host clusters | ✅ All accessible |
 | Infrastructure | 1 (IPFS) | ✅ Intentional |
-| Security issues resolved | 2 | ✅ Both closed |
-| Services previously undocumented | 6 | 📝 Documentation pending |
+| Services with `0.0.0.0` exposure | 0 | ✅ Zero (was 10 at start of Mar 18 session) |
+| Judge services compose-managed | 5 | ✅ (was 0; all were orphaned manual containers) |
+| Services previously undocumented | 6 | 📝 Thesis update required |
 | GBIM belief count corrected | — | 📝 Thesis update required |
+
+---
+
+*Last updated: March 18, 2026 — Carrie A. Kidd / Harmony for Hope, Inc.*
+*Repo: H4HWV2011/msjarvis-public-docs*
