@@ -40,7 +40,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - Clarify and document the active Chroma instance, collection topology, and RAG retrieval paths.
 - Build structured evaluation and red-team test suites before any broader production use.
 
-> **Retrospective note (March 15, 2026):** Many of the services listed as non-operational in this December 2025 snapshot have since been brought online. The March 15, 2026 production stack (commit `b90f9ff`) runs 79 confirmed containers including `jarvis-neurobiological-master`, `jarvis-i-containers`, `jarvis-qualia-engine`, `jarvis-consciousness-bridge`, `jarvis-autonomous-learner`, `jarvis-fifth-dgm`, and others. The ChromaDB topology (three-instance ambiguity noted in Section 8) was resolved — the canonical instance is `jarvis-chroma` at port 8000 with `chroma_data` Docker volume. PostgreSQL replaced Neo4j and MySQL as the canonical structured data store. See Section 40-B and Chapter 17 for current operational state.
+> **Retrospective note (March 18, 2026):** Many of the services listed as non-operational in this December 2025 snapshot have since been brought online. The March 18, 2026 production stack runs 79 confirmed containers — all fully compose-managed via Docker Compose v5.1.0 (upgraded from v1.29.2, March 17, 2026) using `image:` references only (all `build:` directives converted March 17). The stack includes `jarvis-neurobiological-master`, `jarvis-i-containers`, `jarvis-qualia-engine`, `jarvis-consciousness-bridge`, `jarvis-autonomous-learner`, `jarvis-fifth-dgm`, and others. The ChromaDB topology (three-instance ambiguity noted in Section 8) was resolved — the canonical instance is `jarvis-chroma` at port 8000 with `chroma_data` Docker volume; all collections use 384-dimensional vectors (`all-minilm:latest`). PostgreSQL replaced Neo4j and MySQL as the canonical structured data store. Hash-prefixed container names (`981f44e18cf6_jarvis-20llm-production` etc.) have been resolved — all 8 affected containers now have clean, stable `container_name:` entries. See Section 40-B and Chapter 17 for current operational state.
 
 ---
 
@@ -79,7 +79,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - `fifth-dgm`
 - 7 additional services not identified in this snapshot (no successful health responses)
 
-> **Retrospective note (March 15, 2026):** The non-operational services listed above have been progressively resolved. See current service topology in Chapter 11 and Chapter 12. Neo4j and MySQL have been superseded by PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities), `gisdb` (port 5433, PostGIS), and `jarvis-local-resources-db` (port 5435) as the canonical structured data stores. `jarvis-llm-bridge` on port 8006 has been superseded by `jarvis-20llm-production` on port 8008 and `psychological_rag_domain` on port 8006.
+> **Retrospective note (March 18, 2026):** The non-operational services listed above have been progressively resolved. See current service topology in Chapter 11 and Chapter 12. Neo4j and MySQL have been superseded by PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities), `gisdb` (port 5433, PostGIS), and `jarvis-local-resources-db` (port 5435) as the canonical structured data stores. `jarvis-llm-bridge` on port 8006 has been superseded by `jarvis-20llm-production` on port 8008 and `psychological_rag_domain` on port 8006.
 
 ---
 
@@ -139,7 +139,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 
 **Conclusion:** Heavier strategic planning shifts even more load to `llm_bridge` (≈71% of total latency), reinforcing that multi-agent synthesis is the dominant cost driver.
 
-> **Retrospective note (March 15, 2026):** The March 15, 2026 production 9-phase pipeline benchmark is 349.87s end-to-end (commit `b90f9ff`), which is comparable to the agi-plan-1 result above despite now passing through substantially more services (79 containers, BBB 7-filter stack, Phase 3 psychology pre-assessment, LM Synthesizer, 22-model ensemble, Phase 5 GBIM temporal decay, Phase 7 69-DGM cascade). The health-check amplification issue was resolved by the TTL-cache implementation. See Chapter 17 for the canonical 9-phase pipeline timing breakdown.
+> **Retrospective note (March 18, 2026):** The March 18, 2026 production 9-phase pipeline benchmark is ~436 seconds end-to-end (optimized from a 532s pre-optimization baseline), comparable to the agi-plan-1 result above despite now passing through substantially more services: 79 containers, BBB 7-filter stack, Phase 1.45 community memory retrieval (21,181 `autonomous_learner` records), Phase 3 psychology pre-assessment, merged LM Synthesizer + Voice Delivery (Phase 3.5), 21-active-model ensemble, judge pipeline (consensus-only, ~60–86s), Phase 5 GBIM temporal decay, Phase 7 69-DGM cascade. The health-check amplification issue was resolved by the 30s TTL-cache implementation (added March 18). See Chapter 17 for the canonical 9-phase pipeline timing breakdown and Chapter 39 for the full phase-by-phase timing table.
 
 ---
 
@@ -189,7 +189,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 
 **Action:** Build a comprehensive adversarial test suite (20+ scenarios) covering prompt injection, jailbreak attempts, authority confusion, and context smuggling before any broader deployment.
 
-> **Retrospective note (March 15, 2026):** The BBB has expanded from 4 active filters (December 2025: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection — wired December 2025, fully confirmed 2026-03-13) to a 7-filter stack as of March 15, 2026 (adding SteganographyDetection, TruthVerification, ContextAwareness). The SafetyMonitor word-boundary regex was corrected March 15 to eliminate false-positives on community resource terms. The red-team adversarial test suite remains an open item (see Section 40-B open items).
+> **Retrospective note (March 18, 2026):** The BBB has expanded from 4 active filters (December 2025: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection — wired December 2025, fully confirmed 2026-03-13) to a 7-filter stack as of March 15, 2026 (adding SteganographyDetection, TruthVerification, ContextAwareness). The SafetyMonitor word-boundary regex was corrected March 15 to eliminate false-positives on community resource terms. A `truth_score` null guard and fail-open behavior on HTTP 500 were added to both the BBB input filter and BBB output guard on March 18, 2026. The red-team adversarial test suite remains an open item (see Section 40-B open items).
 
 ---
 
@@ -203,7 +203,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - **RAG retrieval:** No end-to-end retrieval trace was captured; behavior was inferred but not verified with collection-level introspection
 - **Collections:** Names, schemas, and dimensions were not enumerated; treated as unknown in this snapshot
 
-> **Resolution (March 15, 2026):** The canonical ChromaDB instance is `jarvis-chroma` at **127.0.0.1:8000** with `chroma_data` Docker volume (restored March 15, 2026). Active collections confirmed: `ms_jarvis_memory`, `mountainshares_knowledge`, `episodic_index`, `conversation_history`, `autonomous_learner`, `psychological_rag` (968 items), `gbim_beliefs_v2`, `gbim_worldview_entities`, `gis_wv_benefits`. The `services-chroma-1` and `msjarvis-rebuild-chroma-1` instances are not used in the current production stack.
+> **Resolution (March 18, 2026):** The canonical ChromaDB instance is `jarvis-chroma` at **127.0.0.1:8000** with `chroma_data` Docker volume (restored March 15, 2026). All collections use **384-dimensional vectors** (`all-minilm:latest`) — the `nomic-embed-text` model (768-dim) is incompatible and must not be used. Active collections confirmed as of March 18: `ms_jarvis_memory`, `mountainshares_knowledge`, `episodic_index`, `conversation_history`, `autonomous_learner` (21,181 records, growing ~288/day; queried at Phase 1.45 on every `/chat` call), `psychological_rag` (968 records), `gbim_worldview_entities`, `gis_wv_benefits`, `appalachian_cultural_intelligence` (5 records), `GBIM_sample_rows` (5,000 records), `GBIM_sample` (3 records), `msjarvis-smoke` (1 record). The `_DummyCollection` error that previously blocked semantic retrieval is resolved by the `all-minilm:latest` implementation. The `services-chroma-1` and `msjarvis-rebuild-chroma-1` instances are not part of the current production stack.
 
 ### Neo4j Database (December 2025 State)
 
@@ -212,7 +212,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - **GBIM data:** Unknown in this snapshot (no spatial Cypher queries were traced)
 - **Identity graphs:** Unknown (no usage observed during this one-hour session)
 
-> **Resolution (March 15, 2026):** Neo4j has been superseded by PostgreSQL `msjarvis` (port 5433) as the canonical GBIM store. The 5,416,521 GBIM entities (80 epochs, 206 source layers) with temporal decay metadata (`last_verified`, `confidence_decay`, `needs_verification`) are stored in PostgreSQL. `services-neo4j-1` is not part of the current production stack.
+> **Resolution (March 18, 2026):** Neo4j has been superseded by PostgreSQL `msjarvis` (port 5433) as the canonical GBIM store. The 5,416,521 GBIM entities (80 epochs, 206 source layers) with temporal decay metadata (`last_verified`, `confidence_decay`, `needs_verification`) are stored in PostgreSQL. `services-neo4j-1` is not part of the current production stack.
 
 ### MySQL Database (December 2025 State)
 
@@ -221,7 +221,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - **Schema:** Not documented during this session
 - **Usage:** Unclear; no queries were traced or logged by the test harness
 
-> **Resolution (March 15, 2026):** MySQL has been superseded by the three-database PostgreSQL architecture: `msjarvis` (port 5433, GBIM), `gisdb` (port 5433, PostGIS), `jarvis-local-resources-db` (port 5435, community resources). `services-mysql-1` is not part of the current production stack.
+> **Resolution (March 18, 2026):** MySQL has been superseded by the three-database PostgreSQL architecture: `msjarvis` (port 5433, GBIM), `gisdb` (port 5433, PostGIS), `jarvis-local-resources-db` (port 5435, community resources). `services-mysql-1` is not part of the current production stack.
 
 ---
 
@@ -234,25 +234,25 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - **Solution:** Implement a health-check TTL cache (5–10 seconds): first request within the TTL performs real health checks (2–5 seconds); subsequent requests inside the TTL window return cached results (<50 ms). Expected result: up to ~95% reduction in per-request health-check overhead.
 - **Estimated improvement:** Before: ≈1 request per 5 seconds. After: up to ≈1 request per 2 seconds. Net: ~150% increase in achievable throughput.
 - **Status (December 2025):** TTL-cache design and pseudocode prepared; implementation pending.
-- **Status (March 15, 2026):** ✅ Resolved. TTL-cache implemented. March 15 end-to-end benchmark is 349.87s without health-check amplification overhead.
+- **Status (March 18, 2026):** ✅ Resolved. 30s TTL cache with 2s per-service timeout implemented and deployed March 18. Phase 1 health-check cost is ~0.7s after the first query; cached results used for all subsequent queries within the 30s window.
 
 ### Issue 2: Non-Operational Services (MEDIUM PRIORITY)
 
 - **Problem:** 15 of 23 services (~65%) did not respond to health checks. Unknown whether they were misconfigured, failing, intentionally offline, or blocked by dependencies.
 - **Recommendation:** For each non-operational service: inspect container logs, check resource constraints, verify startup configuration, attempt manual restart, document status.
-- **Status (March 15, 2026):** ✅ Substantially resolved. The March 15, 2026 79-container production stack includes all previously non-operational services. See Chapter 11 for full current service topology.
+- **Status (March 18, 2026):** ✅ Substantially resolved. The March 18, 2026 79-container production stack includes all previously non-operational services, fully managed via Docker Compose v5.1.0 (`image:` references only, no rebuilds). See Chapter 11 for full current service topology.
 
 ### Issue 3: Red-Team Security Gap (HIGH PRIORITY)
 
 - **Problem:** BBB approved 100% of benign test requests and was never stressed by adversarial queries. No prompt-injection, jailbreak, or targeted misuse scenarios were included. Actual vulnerability surface unknown.
 - **Recommendation:** Design and implement a red-team test suite including prompt injection (20+), jailbreak attempts (10+), authority-confusion prompts (5+), context-smuggling patterns (5+), and known adversarial prompts.
-- **Status (March 15, 2026):** ⏳ Still outstanding. See Section 40-B open items.
+- **Status (March 18, 2026):** ⏳ Still outstanding — highest priority remaining security gap.
 
 ### Issue 4: Missing Quantitative Quality Metrics (MEDIUM PRIORITY)
 
 - **Problem:** Evaluation was purely qualitative (human "excellent/poor" judgments). No automatic metrics such as BLEU/ROUGE, factual accuracy, hallucination rate, or baseline comparisons.
 - **Recommendation:** Develop an evaluation rubric covering response accuracy, completeness, clarity, safety, and factual consistency across responses and with PostgreSQL GBIM ground truth.
-- **Status (March 15, 2026):** ⏳ Still outstanding. The March 15 deployment introduced `confidence_decay` multipliers (Phase 5) that provide a quantitative temporal confidence signal for GBIM-anchored claims, representing partial progress toward factual accuracy metrics.
+- **Status (March 18, 2026):** ⏳ Still outstanding. Phase 5 `confidence_decay` multipliers (from GBIM temporal metadata, deployed March 15) provide a quantitative temporal confidence signal for GBIM-anchored claims, representing partial progress toward factual accuracy metrics. Hallucination on local community resources (Mount Hope, Fayette County) remains an open quality gap — see Section 40-B open items.
 
 ---
 
@@ -260,22 +260,22 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 
 ### Must-do before any production use
 
-- ✅ Implement health-check TTL cache (5–10 seconds) to eliminate per-request sweeps
+- ✅ Implement health-check TTL cache (30s TTL, 2s timeout, March 18) to eliminate per-request sweeps
 - ❌ Build and integrate a red-team test suite (20+ adversarial scenarios)
 - ❌ Design and run a load-testing suite (10+ concurrent users/requests)
-- ✅ Ensure all 23 core services are either operational or explicitly documented (79 containers confirmed March 15)
+- ✅ Ensure all core services are either operational or explicitly documented (79 containers confirmed March 18)
 
 ### Should-do soon
 
 - ❌ Deploy distributed tracing (e.g., OpenTelemetry) for end-to-end request tracking
 - ❌ Add metrics collection (e.g., Prometheus + Grafana) for resource and latency monitoring
 - ❌ Introduce quantitative quality metrics for key AGI-style tasks
-- ✅ Complete repair/diagnosis for the 15 non-operational services identified (resolved March 15)
+- ✅ Complete repair/diagnosis for the non-operational services identified (resolved March 18)
 
 ### Nice-to-have
 
 - ❌ Add response caching to reduce duplicate processing for repeated or similar ULTIMATE requests
-- ❌ Explore multi-instance `llm_bridge` (horizontal scaling and load balancing) to reduce latency and improve throughput for multi-agent synthesis
+- ❌ Explore GPU inference server (WVU partnership pending) to reduce Phase 2.5 LLM ensemble from ~320–360s to target ~80–120s
 
 ---
 
@@ -293,7 +293,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 
 This session resolved a set of inter-related issues in `jarvis-main-brain` (port 8050) `ultimatechat` path that had caused `validated_by` to always be `None`, `architecture_layers` to always be `0`, and the Blood-Brain Barrier sub-filter methods to be defined but not wired into the `/filter` request handler. By end of session, all 6 consciousness layers were confirmed active and populating `UltimateResponse`, BBB `/filter` and `/truth` endpoints returned HTTP 200 with real output, and the I-Containers `call_icontainers` stub had been replaced with a live HTTP implementation.
 
-This remediation session established the operational baseline that the March 15, 2026 production stack (commit `b90f9ff`) is built upon. All fixes recorded here are permanent architectural decisions.
+This remediation session established the operational baseline that the March 15, 2026 production stack (commit `b90f9ff`) and the March 18, 2026 production stack are built upon. All fixes recorded here are permanent architectural decisions.
 
 ---
 
@@ -312,7 +312,7 @@ This remediation session established the operational baseline that the March 15,
 | 9 | `normalize_identity()` | Identity substitutions were applied but some model names slipped through in paragraph context | Confirmed firing correctly; `clean_response_for_display()` handles paragraph-level; both run in sequence | ✅ Confirmed |
 | 10 | `call_nbb_icontainers()` | Had dead duplicate code below a `return` statement | Identified for cleanup (not yet removed — logged as open item) | ⏳ Pending |
 
-> **Subsequent expansions (March 15, 2026):** The BBB expanded from 4 to 7 filters (SteganographyDetection, TruthVerification, ContextAwareness added March 15). SafetyMonitor word-boundary regex corrected March 15. The `consciousness_layers` list now includes Phase 3 psychology pre-assessment output from `jarvis-psychology-services` (port 8019, deployed March 15). `validated_by` and `architecture_layers` fields now reflect the full 9-phase pipeline contribution. See Chapter 17 for the canonical current `UltimateResponse` schema.
+> **Subsequent expansions (March 18, 2026):** The BBB expanded from 4 to 7 filters (SteganographyDetection, TruthVerification, ContextAwareness added March 15). SafetyMonitor word-boundary regex corrected March 15. `truth_score` null guard and fail-open on HTTP 500 added to BBB input filter and output guard March 18. Phase 1.45 community memory retrieval (`all-minilm:latest` → `autonomous_learner` 21,181 records, top-5 prepended to `enhanced_message`) added March 17. Phase 3.5 + Phase 3.75 merged into single Ollama call March 18 (saves ~40s). Judge pipeline updated to consensus-only March 16 (saves ~15–20s). All 79 containers fully compose-managed via Docker Compose v5.1.0 with `image:` references (no `build:`, no rebuilds) as of March 17. Hash-prefixed container names resolved March 17–18. Redis-backed async job system with true cancellation deployed March 17. End-to-end benchmark: ~436 seconds (optimized from 532s baseline). The `consciousness_layers` list now reflects all phase contributions from the full 9-phase pipeline. `validated_by` and `architecture_layers` fields now reflect the full 9-phase pipeline contribution. See Chapter 17 for the canonical current `UltimateResponse` schema.
 
 ---
 
@@ -338,7 +338,7 @@ This remediation session established the operational baseline that the March 15,
 }
 ```
 
-> **Note:** The above is the confirmed state as of 2026-03-13. The March 15, 2026 production deployment (commit `b90f9ff`) includes additional consciousness layer contributions from the psychology pre-assessment (Phase 3), GBIM temporal decay (Phase 5), and 69-DGM cascade (Phase 7). The current canonical `UltimateResponse` schema is documented in Chapter 17.
+> **Note:** The above is the confirmed state as of 2026-03-13. The March 18, 2026 production deployment includes additional consciousness layer contributions from Phase 1.45 community memory retrieval, psychology pre-assessment (Phase 3), GBIM temporal decay (Phase 5), and 69-DGM cascade (Phase 7). The current canonical `UltimateResponse` schema is documented in Chapter 17.
 
 ---
 
@@ -362,27 +362,46 @@ curl -sS -X POST http://localhost:8050/ultimatechat \
   | jq '{validated_by, architecture_layers, consciousness_layers, truth_verdict}'
 ```
 
-> **Note:** The above smoke tests are the canonical baseline established 2026-03-13. For the full current smoke test suite including all March 15 services (BBB 7 filters, psychology services port 8019, hippocampus port 8011, psychological RAG port 8006, 22-model ensemble port 8008, 69-DGM cascade port 9000, three PostgreSQL databases), see **Chapter 41**.
+> **Note:** The above smoke tests are the canonical baseline established 2026-03-13. For the full current smoke test suite including all March 15–18 services (BBB 7 filters with fail-open, Phase 1.45 community memory via `autonomous_learner`, psychology services port 8019, hippocampus port 8011, psychological RAG port 8006, 21-active-model ensemble port 8008 via semaphore proxy port 8030, judge pipeline ports 7230–7233 consensus-only, 69-DGM cascade port 9000, three PostgreSQL databases, Redis-backed async job system), see **Chapter 41**.
 
 ---
 
-## Open Items After the 2026-03-13 Session
+## Known Issues and Resolution Status (March 18, 2026)
 
-| Item | Priority | Status (March 15, 2026) |
+| Issue | Priority | Status (March 18, 2026) |
 |---|---|---|
 | Remove dead code below `return` in `call_nbb_icontainers()` | Low | ⏳ Cosmetic cleanup; no functional impact |
-| Wire `store_in_subconscious_rag` to real ChromaDB collections | Medium | ✅ Resolved — ChromaDB `chroma_data` volume restored March 15; `ms_jarvis_memory` writes confirmed active on every `/chat` call (Chapter 17 §17.6) |
-| Complete judge pipeline `# TODO` placeholder in `ultimatechat` | Medium | ⏳ Judge services running (ports 7230–7233) and wired into governance path; full integration into every `ultimatechat` call is ongoing |
-| Red-team adversarial test suite | High | ⏳ Still outstanding — highest priority remaining security gap (see Section 9 Issue 3 above) |
+| Wire `store_in_subconscious_rag` to real ChromaDB collections | Medium | ✅ Resolved — ChromaDB `chroma_data` volume restored March 15; `ms_jarvis_memory` writes confirmed active (Chapter 17 §17.7) |
+| Complete judge pipeline integration into every `ultimatechat` call | Medium | ✅ Resolved — judge ports corrected to 7230–7233 (March 16); consensus-only mode deployed |
+| Red-team adversarial test suite | High | ⏳ Still outstanding — highest priority remaining security gap |
+| Response truncation (~730 chars, `max_tokens: 500`) | High | ✅ Fixed — `max_tokens` set to -1 (unlimited); `llm22-proxy` 8,192-token limit confirmed |
+| ChromaDB `_DummyCollection` blocking semantic retrieval | High | ✅ Fixed — `all-minilm:latest` (384-dim) semantic retrieval deployed March 17 |
+| Redis response persistence (in-memory only, lost on restart) | High | ✅ Fixed — Redis-backed job system with 30-min TTL deployed March 17 |
+| 33 services not in `docker-compose.yml` | High | ✅ Fixed — all 79 containers now fully compose-managed (March 17) |
+| `build:` directives causing slow/unpredictable startup | Medium | ✅ Fixed — all `build:` entries converted to `image:` references (March 17) |
+| Docker Compose v1.29.2 `ContainerConfig` crash bug | High | ✅ Fixed — upgraded to Docker Compose v5.1.0 (March 17) |
+| Hash-prefixed container names (e.g., `981f44e18cf6_jarvis-20llm-production`) | Medium | ✅ Fixed — `container_name:` added to all 8 affected containers (March 17–18) |
+| Judge pipeline URL wrong (port 7239 for all judges) | High | ✅ Fixed — corrected to 7230 / 7231 / 7232 / 7233 (March 16) |
+| LM Synthesizer calling `jarvis-roche-llm` (HTTP 500) | High | ✅ Fixed — now calls `jarvis-ollama:11434/api/generate` directly (March 18) |
+| NBB Prefrontal Cortex 422 errors | Medium | ✅ Resolved — `message` field payload confirmed correct; service healthy |
+| I-Containers 422 errors | Medium | ✅ Resolved — port corrected to 8015 |
+| BBB `truth_score` `KeyError` crash | High | ✅ Fixed — null guard added to BBB orchestrator (March 18) |
+| BBB blocking entire pipeline on HTTP 500 errors | High | ✅ Fixed — fail-open behavior on non-200 BBB responses (both input and output guard, March 18) |
+| `web-research` and `rag-server` container restart loops | High | ✅ Fixed — source files deployed via `docker cp` |
+| Idempotency TTL in-memory only | Medium | ✅ Fixed — Redis-backed, 1,800s TTL |
+| Health-check amplification (full sweep per request) | High | ✅ Fixed — 30s TTL cache, 2s per-service timeout (March 18) |
+| Hallucination on local community resources (Mount Hope, local nonprofits) | High | 🔴 OPEN — `gis_rag` and `local_resources` databases return empty for Mount Hope queries; LLMs generate from training data. Factually accurate programs (LIHEAP, WV 2-1-1) pass BBB. Fabricated organization names blocked by ethical filter. Root cause: real community resource data not yet loaded. Resolution: Community Champions data entry next priority. |
+| BBB ethical filter blocking "certainly" | — | BY DESIGN — ethical filter correctly detecting unverified specific claims; not a false positive |
 
 ---
 
 ## Cross-References
 
-- **Chapter 16** — BBB `/filter` and `/truth` endpoints, `truth_verdict` schema, filter method signatures, 7-filter stack specification
-- **Chapter 17** — Canonical `ultimatechat` 9-phase execution sequence and current `UltimateResponse` schema
+- **Chapter 16** — BBB `/filter` and `/truth` endpoints, `truth_verdict` schema, filter method signatures, 7-filter stack specification, fail-open behavior, `truth_score` null guard
+- **Chapter 17** — Canonical `ultimatechat` 9-phase execution sequence (Phase 1.45 community memory, merged Phase 3.5, consensus-only judge pipeline, ~436s benchmark) and current `UltimateResponse` schema
 - **Chapter 22** — `call_icontainers` HTTP implementation (I-Containers, port 8015) and `normalize_identity()` specification
 - **Chapter 29** — Psychology services (port 8019) and BBB psychological safety integration
+- **Chapter 39** — Operational evaluation: phase-by-phase timing table, Docker Compose v5.1.0 upgrade details, `build:` → `image:` conversion, hash-prefixed container name resolution, hardware envelope, optimization history
 - **Chapter 41** — Canonical current smoke test suite (supersedes 2026-03-13 tests above)
 
-*Last updated: 2026-03-15 19:33 EDT by Carrie Kidd, Mount Hope WV*
+*Last updated: 2026-03-18 by Carrie Kidd, Mount Hope WV*
