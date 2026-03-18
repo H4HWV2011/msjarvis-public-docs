@@ -1,6 +1,19 @@
-# 40. System Audit and Operational Validation
+# Why This Matters for Polymathmatic Geography
 
-This chapter consolidates two formal audit records for Ms. Jarvis: the initial December 2025 operational validation snapshot (Section 40-A), which established the first end-to-end ULTIMATE coordination baseline, and the March 13, 2026 remediation audit (Section 40-B), which brought the `ultimatechat` execution path to full operational status with 6 confirmed consciousness layers. Together these records provide the authoritative before/after operational baseline for the system.
+Chapter 40 is the living audit record for Ms. Jarvis. It preserves each formal validation snapshot as an immutable section rather than overwriting history, so that the evolution from 8 operational services (December 2025) to 80 fully compose-managed, localhost-only containers (March 18, 2026) is traceable and citable. This chapter supports:
+
+- **P16 – Power accountable to place** by creating an auditable record of every service state change, security remediation, and architectural fix, so that Appalachian communities and their partners can verify the system was built and corrected with transparency.
+
+- **P3 – Power has a geometry** by exposing the port topology, binding changes, and service wiring decisions that define what the system can and cannot do at each point in time.
+
+- **P5 – Design is a geographic act** by treating each audit entry as a design decision log — recording not just what was fixed, but why, what it was before, and what permanent architectural constraints it established.
+
+This chapter consolidates four formal audit records:
+
+- **Section 40-A** — Initial Operational Validation (December 11, 2025): first end-to-end ULTIMATE coordination baseline, 8/23 services operational.
+- **Section 40-B** — Remediation Audit (March 13, 2026): `ultimatechat` path brought to full operational status, 6 confirmed consciousness layers.
+- **Section 40-C** — Security Hardening Audit (March 18, 2026): zero `0.0.0.0` exposures, all 5 judge services compose-managed, 80 containers fully managed, ~436s end-to-end benchmark.
+- **Appendix 40-D** — Definitive Service Inventory (March 18, 2026): authoritative per-service table drawn from live `docker ps` and health endpoint probes.
 
 ---
 
@@ -40,7 +53,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - Clarify and document the active Chroma instance, collection topology, and RAG retrieval paths.
 - Build structured evaluation and red-team test suites before any broader production use.
 
-> **Retrospective note (March 18, 2026):** Many of the services listed as non-operational in this December 2025 snapshot have since been brought online. The March 18, 2026 production stack runs 79 confirmed containers — all fully compose-managed via Docker Compose v5.1.0 (upgraded from v1.29.2, March 17, 2026) using `image:` references only (all `build:` directives converted March 17). The stack includes `jarvis-neurobiological-master`, `jarvis-i-containers`, `jarvis-qualia-engine`, `jarvis-consciousness-bridge`, `jarvis-autonomous-learner`, `jarvis-fifth-dgm`, and others. The ChromaDB topology (three-instance ambiguity noted in Section 8) was resolved — the canonical instance is `jarvis-chroma` at port 8000 with `chroma_data` Docker volume; all collections use 384-dimensional vectors (`all-minilm:latest`). PostgreSQL replaced Neo4j and MySQL as the canonical structured data store. Hash-prefixed container names (`981f44e18cf6_jarvis-20llm-production` etc.) have been resolved — all 8 affected containers now have clean, stable `container_name:` entries. See Section 40-B and Chapter 17 for current operational state.
+> **Retrospective note (March 18, 2026):** The non-operational services listed in this December 2025 snapshot have since been brought online. The March 18, 2026 production stack runs **80 confirmed containers** — all fully compose-managed via Docker Compose v5.1.0 (upgraded from v1.29.2, March 17, 2026) using `image:` references only (all `build:` directives converted March 17). All services are bound exclusively to `127.0.0.1`; zero `0.0.0.0` exposures. The ChromaDB topology ambiguity (three instances) was resolved — canonical instance is `jarvis-chroma` at port **8000** with `chroma_data` Docker volume; all collections use 384-dimensional vectors (`all-minilm:latest`). PostgreSQL replaced Neo4j and MySQL as the canonical structured data store. Hash-prefixed container names resolved March 17–18. See Section 40-C and Chapter 17 for current operational state.
 
 ---
 
@@ -79,7 +92,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - `fifth-dgm`
 - 7 additional services not identified in this snapshot (no successful health responses)
 
-> **Retrospective note (March 18, 2026):** The non-operational services listed above have been progressively resolved. See current service topology in Chapter 11 and Chapter 12. Neo4j and MySQL have been superseded by PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities), `gisdb` (port 5433, PostGIS), and `jarvis-local-resources-db` (port 5435) as the canonical structured data stores. `jarvis-llm-bridge` on port 8006 has been superseded by `jarvis-20llm-production` on port 8008 and `psychological_rag_domain` on port 8006.
+> **Retrospective note (March 18, 2026):** The non-operational services listed above have been progressively resolved. See Appendix 40-D for the full March 18, 2026 service inventory. Neo4j and MySQL have been superseded by the three-database PostgreSQL architecture: `msjarvis` (port 5433, 5,416,521 GBIM entities, 80 epochs, 206 source layers), `gisdb` (port 5433, PostGIS, 13 GB, 39 tables), and `jarvis-local-resources-db` (port 5435). `jarvis-llm-bridge` on port 8006 has been superseded by `jarvis-20llm-production` on port 8008 and `psychological_rag_domain` on port 8006.
 
 ---
 
@@ -125,8 +138,6 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 | llm_bridge processing | 120s | 61.5% | **YES — primary bottleneck** |
 | Response aggregation | 10s | 5.1% | No |
 
-**Conclusion:** `llm_bridge` (22-agent synthesis) is the primary bottleneck, accounting for over 60% of total latency in this test.
-
 ### Request Latency Breakdown — agi-plan-1 (353 seconds total)
 
 | Component | Duration | Percentage |
@@ -137,9 +148,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 | llm_bridge processing | 250s | 70.8% |
 | Response aggregation | 7s | 2.0% |
 
-**Conclusion:** Heavier strategic planning shifts even more load to `llm_bridge` (≈71% of total latency), reinforcing that multi-agent synthesis is the dominant cost driver.
-
-> **Retrospective note (March 18, 2026):** The March 18, 2026 production 9-phase pipeline benchmark is ~436 seconds end-to-end (optimized from a 532s pre-optimization baseline), comparable to the agi-plan-1 result above despite now passing through substantially more services: 79 containers, BBB 7-filter stack, Phase 1.45 community memory retrieval (21,181 `autonomous_learner` records), Phase 3 psychology pre-assessment, merged LM Synthesizer + Voice Delivery (Phase 3.5), 21-active-model ensemble, judge pipeline (consensus-only, ~60–86s), Phase 5 GBIM temporal decay, Phase 7 69-DGM cascade. The health-check amplification issue was resolved by the 30s TTL-cache implementation (added March 18). See Chapter 17 for the canonical 9-phase pipeline timing breakdown and Chapter 39 for the full phase-by-phase timing table.
+> **Retrospective note (March 18, 2026):** The March 18, 2026 production 9-phase pipeline benchmark is **~436 seconds** end-to-end (optimized from a 532s pre-optimization baseline), comparable to the agi-plan-1 result above despite now passing through substantially more services: 80 containers, BBB 7-filter stack (Phase 1.4), Phase 1.45 community memory retrieval (21,181 `autonomous_learner` records), Phase 3 psychology pre-assessment, 21-model ensemble via semaphore proxy (~320–360s), judge pipeline consensus-only (~60–86s), merged Phase 3.5 LM Synthesizer + Voice Delivery (~30–55s), Phase 5 GBIM temporal decay, Phase 7 69-DGM cascade. The health-check amplification issue was resolved by the 30s TTL-cache implementation (March 18, 2026): Phase 1 health-check cost is ~0.7s after the first query.
 
 ---
 
@@ -148,21 +157,13 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 ### Crash/Restart Events
 
 - **Event 1:** No crashes observed during test cases 1–2.
-- **Event 2:** Service restart when test case 3 was initiated, under heavy, back-to-back ULTIMATE requests.
+- **Event 2:** Service restart when test case 3 was initiated under heavy, back-to-back ULTIMATE requests.
   - **Cause:** Full-service health sweeps on every request, combined with long-running ULTIMATE tasks, led to resource exhaustion (Uvicorn).
-  - **Symptom:** Health checks to 23 services × long tasks produced quasi-continuous load.
   - **Recovery:** Automatic restart within ~10 seconds; no data loss observed, but user-visible interruption is likely under real traffic.
 
 ### Memory/CPU Usage
 
 - Not measured in this session; no dedicated monitoring (Prometheus/Grafana) was deployed.
-- **Recommendation:** Deploy Prometheus + Grafana (or equivalent) before future load or long-duration tests to capture detailed resource and latency profiles.
-
-### Service Uptime
-
-- All 8 services that were operational at the beginning of the test remained up during the completed test cases.
-- No mid-request service failures were observed on the successful runs.
-- Graceful degradation mechanisms (behavior when some services fail) were not exercised in this session.
 
 ---
 
@@ -173,13 +174,8 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 | Test | Result | Evidence |
 |---|---|---|
 | Content filtering | ✅ 100% | All examined requests passed through BBB and were filtered |
-| Request approval | ✅ 100% | All tested requests were approved; no rejections were triggered |
+| Request approval | ✅ 100% | All tested requests were approved; no rejections triggered |
 | Log consistency | ✅ 100% | Logs showed consistent "approved and filtered" operations |
-
-**BBB behavior log (examples):**
-- `[INFO] BBB: Query approved and filtered`
-- `[DEBUG] Filtered query forwarded to web_research`
-- `[DEBUG] Context cleaned and enhanced`
 
 ### Safety Testing Status
 
@@ -187,9 +183,7 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 - ❌ No jailbreak-style prompts or red-team attacks simulated
 - ❌ No tests explicitly designed to trick or subvert BBB or downstream models
 
-**Action:** Build a comprehensive adversarial test suite (20+ scenarios) covering prompt injection, jailbreak attempts, authority confusion, and context smuggling before any broader deployment.
-
-> **Retrospective note (March 18, 2026):** The BBB has expanded from 4 active filters (December 2025: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection — wired December 2025, fully confirmed 2026-03-13) to a 7-filter stack as of March 15, 2026 (adding SteganographyDetection, TruthVerification, ContextAwareness). The SafetyMonitor word-boundary regex was corrected March 15 to eliminate false-positives on community resource terms. A `truth_score` null guard and fail-open behavior on HTTP 500 were added to both the BBB input filter and BBB output guard on March 18, 2026. The red-team adversarial test suite remains an open item (see Section 40-B open items).
+> **Retrospective note (March 18, 2026):** The BBB expanded from 4 active filters (December 2025: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection) to a 7-filter stack as of March 15, 2026 (adding SteganographyDetection, TruthVerification, ContextAwareness). SafetyMonitor word-boundary regex was corrected March 15 to eliminate false-positives on community resource terms. A `truth_score` null guard and fail-open behavior on HTTP 500 were added to both the BBB input filter and output guard on March 18, 2026. BBB is now bound to `127.0.0.1:8016` (was `0.0.0.0:8016` — re-locked March 18). The red-team adversarial test suite remains an open item.
 
 ---
 
@@ -198,84 +192,28 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 ### ChromaDB Instance Topology (December 2025 State)
 
 - **Instances found:** `jarvis-chroma`, `services-chroma-1`, `msjarvis-rebuild-chroma-1`
-- **Primary instance:** Unclear at the time of this audit (required later code and port inspection)
-- **RAG storage:** Requests confirmed queuing to a Chroma-backed path, but the exact instance was not conclusively identified in this session
-- **RAG retrieval:** No end-to-end retrieval trace was captured; behavior was inferred but not verified with collection-level introspection
-- **Collections:** Names, schemas, and dimensions were not enumerated; treated as unknown in this snapshot
+- **Primary instance:** Unclear at the time of this audit
 
-> **Resolution (March 18, 2026):** The canonical ChromaDB instance is `jarvis-chroma` at **127.0.0.1:8000** with `chroma_data` Docker volume (restored March 15, 2026). All collections use **384-dimensional vectors** (`all-minilm:latest`) — the `nomic-embed-text` model (768-dim) is incompatible and must not be used. Active collections confirmed as of March 18: `ms_jarvis_memory`, `mountainshares_knowledge`, `episodic_index`, `conversation_history`, `autonomous_learner` (21,181 records, growing ~288/day; queried at Phase 1.45 on every `/chat` call), `psychological_rag` (968 records), `gbim_worldview_entities`, `gis_wv_benefits`, `appalachian_cultural_intelligence` (5 records), `GBIM_sample_rows` (5,000 records), `GBIM_sample` (3 records), `msjarvis-smoke` (1 record). The `_DummyCollection` error that previously blocked semantic retrieval is resolved by the `all-minilm:latest` implementation. The `services-chroma-1` and `msjarvis-rebuild-chroma-1` instances are not part of the current production stack.
+> **Resolution (March 18, 2026):** The canonical ChromaDB instance is `jarvis-chroma` at **127.0.0.1:8000** with `chroma_data` Docker volume. All collections use **384-dimensional vectors** (`all-minilm:latest`) — `nomic-embed-text` (768-dim) is incompatible. Active collections: `ms_jarvis_memory`, `mountainshares_knowledge`, `episodic_index`, `conversation_history`, `autonomous_learner` (21,181 records, growing ~288/day; queried at Phase 1.45 on every `/chat` call), `psychological_rag` (968 records), `gbim_worldview_entities`, `gis_wv_benefits`, `appalachian_cultural_intelligence`, `GBIM_sample_rows` (5,000 records), `GBIM_sample`, `msjarvis-smoke`. The `services-chroma-1` and `msjarvis-rebuild-chroma-1` instances are not part of the current production stack.
 
-### Neo4j Database (December 2025 State)
+### Neo4j and MySQL (December 2025 State)
 
-- **Instance:** `services-neo4j-1` (ports 7474 and 7687 accessible)
-- **Status:** Operational; HTTP and Bolt ports responded
-- **GBIM data:** Unknown in this snapshot (no spatial Cypher queries were traced)
-- **Identity graphs:** Unknown (no usage observed during this one-hour session)
-
-> **Resolution (March 18, 2026):** Neo4j has been superseded by PostgreSQL `msjarvis` (port 5433) as the canonical GBIM store. The 5,416,521 GBIM entities (80 epochs, 206 source layers) with temporal decay metadata (`last_verified`, `confidence_decay`, `needs_verification`) are stored in PostgreSQL. `services-neo4j-1` is not part of the current production stack.
-
-### MySQL Database (December 2025 State)
-
-- **Instance:** `services-mysql-1` (host 3307 mapped to container 3306)
-- **Status:** Operational; port responded
-- **Schema:** Not documented during this session
-- **Usage:** Unclear; no queries were traced or logged by the test harness
-
-> **Resolution (March 18, 2026):** MySQL has been superseded by the three-database PostgreSQL architecture: `msjarvis` (port 5433, GBIM), `gisdb` (port 5433, PostGIS), `jarvis-local-resources-db` (port 5435, community resources). `services-mysql-1` is not part of the current production stack.
+> **Resolution (March 18, 2026):** Neo4j and MySQL have been superseded by the three-database PostgreSQL architecture. `msjarvis` (port 5433, 5,416,521 GBIM entities, 80 epochs, 206 source layers, temporal decay metadata), `gisdb` (port 5433, PostGIS, 13 GB, 39 tables, 993 ZCTA centroids), and `jarvis-local-resources-db` (port 5435, community resources, human-validated by Harmony for Hope Community Champions). `services-neo4j-1` and `services-mysql-1` are not part of the current production stack.
 
 ---
 
 ## Section 9: Critical Issues and Recommendations
 
-### Issue 1: Health-Check Amplification (HIGH PRIORITY)
-
-- **Problem:** Every ULTIMATE request triggers a full health-check sweep to all 23 services. Adds 2–5 seconds of overhead per request and significantly increases load under sustained traffic. Combined with long-running requests, this pattern contributed to service restarts.
-- **Impact:** Effective throughput limited to roughly 1 ULTIMATE request every ~5 seconds. Unsustainable for any real production deployment.
-- **Solution:** Implement a health-check TTL cache (5–10 seconds): first request within the TTL performs real health checks (2–5 seconds); subsequent requests inside the TTL window return cached results (<50 ms). Expected result: up to ~95% reduction in per-request health-check overhead.
-- **Estimated improvement:** Before: ≈1 request per 5 seconds. After: up to ≈1 request per 2 seconds. Net: ~150% increase in achievable throughput.
-- **Status (December 2025):** TTL-cache design and pseudocode prepared; implementation pending.
-- **Status (March 18, 2026):** ✅ Resolved. 30s TTL cache with 2s per-service timeout implemented and deployed March 18. Phase 1 health-check cost is ~0.7s after the first query; cached results used for all subsequent queries within the 30s window.
-
-### Issue 2: Non-Operational Services (MEDIUM PRIORITY)
-
-- **Problem:** 15 of 23 services (~65%) did not respond to health checks. Unknown whether they were misconfigured, failing, intentionally offline, or blocked by dependencies.
-- **Recommendation:** For each non-operational service: inspect container logs, check resource constraints, verify startup configuration, attempt manual restart, document status.
-- **Status (March 18, 2026):** ✅ Substantially resolved. The March 18, 2026 79-container production stack includes all previously non-operational services, fully managed via Docker Compose v5.1.0 (`image:` references only, no rebuilds). See Chapter 11 for full current service topology.
-
-### Issue 3: Red-Team Security Gap (HIGH PRIORITY)
-
-- **Problem:** BBB approved 100% of benign test requests and was never stressed by adversarial queries. No prompt-injection, jailbreak, or targeted misuse scenarios were included. Actual vulnerability surface unknown.
-- **Recommendation:** Design and implement a red-team test suite including prompt injection (20+), jailbreak attempts (10+), authority-confusion prompts (5+), context-smuggling patterns (5+), and known adversarial prompts.
-- **Status (March 18, 2026):** ⏳ Still outstanding — highest priority remaining security gap.
-
-### Issue 4: Missing Quantitative Quality Metrics (MEDIUM PRIORITY)
-
-- **Problem:** Evaluation was purely qualitative (human "excellent/poor" judgments). No automatic metrics such as BLEU/ROUGE, factual accuracy, hallucination rate, or baseline comparisons.
-- **Recommendation:** Develop an evaluation rubric covering response accuracy, completeness, clarity, safety, and factual consistency across responses and with PostgreSQL GBIM ground truth.
-- **Status (March 18, 2026):** ⏳ Still outstanding. Phase 5 `confidence_decay` multipliers (from GBIM temporal metadata, deployed March 15) provide a quantitative temporal confidence signal for GBIM-anchored claims, representing partial progress toward factual accuracy metrics. Hallucination on local community resources (Mount Hope, Fayette County) remains an open quality gap — see Section 40-B open items.
-
----
-
-## Section 10: Phase 2 Priorities
-
-### Must-do before any production use
-
-- ✅ Implement health-check TTL cache (30s TTL, 2s timeout, March 18) to eliminate per-request sweeps
-- ❌ Build and integrate a red-team test suite (20+ adversarial scenarios)
-- ❌ Design and run a load-testing suite (10+ concurrent users/requests)
-- ✅ Ensure all core services are either operational or explicitly documented (79 containers confirmed March 18)
-
-### Should-do soon
-
-- ❌ Deploy distributed tracing (e.g., OpenTelemetry) for end-to-end request tracking
-- ❌ Add metrics collection (e.g., Prometheus + Grafana) for resource and latency monitoring
-- ❌ Introduce quantitative quality metrics for key AGI-style tasks
-- ✅ Complete repair/diagnosis for the non-operational services identified (resolved March 18)
-
-### Nice-to-have
-
-- ❌ Add response caching to reduce duplicate processing for repeated or similar ULTIMATE requests
-- ❌ Explore GPU inference server (WVU partnership pending) to reduce Phase 2.5 LLM ensemble from ~320–360s to target ~80–120s
+| Issue | Priority | Status (March 18, 2026) |
+|---|---|---|
+| Health-check amplification (full sweep per request) | HIGH | ✅ Fixed — 30s TTL cache, 2s per-service timeout (March 18) |
+| Non-operational services (15/23) | MEDIUM | ✅ Resolved — 80 containers confirmed operational (March 18) |
+| Red-team adversarial test suite | HIGH | 🔴 OPEN — highest priority remaining security gap |
+| Missing quantitative quality metrics | MEDIUM | ⏳ Partial — Phase 5 `confidence_decay` provides temporal confidence; hallucination on local resources remains open |
+| ChromaDB instance ambiguity | HIGH | ✅ Fixed — canonical instance `jarvis-chroma:8000` with `chroma_data` volume |
+| `build:` directives causing unpredictable startup | MEDIUM | ✅ Fixed — all converted to `image:` references (March 17) |
+| Docker Compose v1.29.2 crash bug | HIGH | ✅ Fixed — upgraded to v5.1.0 (March 17) |
+| Hash-prefixed container names | MEDIUM | ✅ Fixed — `container_name:` added to all affected containers |
 
 ---
 
@@ -283,17 +221,15 @@ This chapter consolidates two formal audit records for Ms. Jarvis: the initial D
 
 # 40-B. Remediation Audit Entry — 2026-03-13
 
-**Session date:** 2026-03-13 (late night EDT, carried into 2026-03-13 morning)
+**Session date:** 2026-03-13 (late night EDT)
 **Auditor:** Carrie Kidd (Mamma Kidd), Harmony for Hope, Inc.
-**Purpose:** Document all fixes applied and confirmed during the 2026-03-13 remediation session that brought the `ultimatechat` execution path to full operational status.
+**Purpose:** Document all fixes applied and confirmed during the 2026-03-13 session that brought the `ultimatechat` execution path to full operational status.
 
 ---
 
 ## Summary
 
-This session resolved a set of inter-related issues in `jarvis-main-brain` (port 8050) `ultimatechat` path that had caused `validated_by` to always be `None`, `architecture_layers` to always be `0`, and the Blood-Brain Barrier sub-filter methods to be defined but not wired into the `/filter` request handler. By end of session, all 6 consciousness layers were confirmed active and populating `UltimateResponse`, BBB `/filter` and `/truth` endpoints returned HTTP 200 with real output, and the I-Containers `call_icontainers` stub had been replaced with a live HTTP implementation.
-
-This remediation session established the operational baseline that the March 15, 2026 production stack (commit `b90f9ff`) and the March 18, 2026 production stack are built upon. All fixes recorded here are permanent architectural decisions.
+This session resolved a set of inter-related issues in `jarvis-main-brain` (port 8050) that had caused `validated_by` to always be `None`, `architecture_layers` to always be `0`, and the Blood-Brain Barrier sub-filter methods to be defined but not wired into the `/filter` request handler. By end of session, all 6 consciousness layers were confirmed active, BBB `/filter` and `/truth` returned HTTP 200, and the I-Containers `call_icontainers` stub had been replaced with a live HTTP implementation.
 
 ---
 
@@ -301,18 +237,18 @@ This remediation session established the operational baseline that the March 15,
 
 | # | Component | Problem | Fix Applied | Confirmed |
 |---|---|---|---|---|
-| 1 | `jarvis-blood-brain-barrier` `/filter` | `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection` were defined but not called inside the `/filter` request handler | Wired all four filter methods into the `/filter` handler with correct call signatures: `.filter(text)`, `.filter(text)`, `.check(text)`, `.detect_threats(text)` | ✅ HTTP 200, structured JSON |
-| 2 | `jarvis-blood-brain-barrier` `/truth` | Endpoint existed in early design docs but was not implemented in `blood_brain_barrier.py` | Added `POST /truth` endpoint returning `{"valid": bool, "confidence": float, "principal_reasons": [str]}` | ✅ HTTP 200, schema confirmed |
-| 3 | `UltimateResponse.truth_verdict` | `truth_verdict` was not being populated from BBB output | Wired `call_truth_filter()` → BBB `/truth` → `truth_verdict` field on `UltimateResponse` | ✅ Confirmed populated |
-| 4 | `clean_response_for_display()` | Only stripped inline "As LLaMA…" disclaimers; paragraph-level model self-identification passed through | Expanded to strip full paragraphs opening with "As LLaMA", "As Mistral", "As an AI", "As a language model", etc. | ✅ Identity voice clean |
-| 5 | `call_icontainers()` | Function was an empty stub returning `{}` — I-Containers service was never actually called | Replaced with live `httpx` POST to `jarvis-i-containers:8015/process` with correct schema `{"message": ..., "userid": ...}` | ✅ `icontainers-identity` layer active |
-| 6 | `consciousness_layers` assembly | `icontainers-identity` and `nbb-icontainers` were never appended to `consciousness_layers` | Added both layers to the `consciousness_layers` list after their respective HTTP calls | ✅ 6 layers confirmed in response |
-| 7 | `validated_by` field | Always returned `None` (hardcoded) | Changed to derive `validated_by` from the names of all active layers in `consciousness_layers` at response assembly time | ✅ Returns comma-separated layer names |
-| 8 | `architecture_layers` field | Always returned `0` (hardcoded) | Changed to return `len(consciousness_layers)` — a live count | ✅ Returns `6` |
-| 9 | `normalize_identity()` | Identity substitutions were applied but some model names slipped through in paragraph context | Confirmed firing correctly; `clean_response_for_display()` handles paragraph-level; both run in sequence | ✅ Confirmed |
-| 10 | `call_nbb_icontainers()` | Had dead duplicate code below a `return` statement | Identified for cleanup (not yet removed — logged as open item) | ⏳ Pending |
+| 1 | BBB `/filter` | `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection` were defined but not called inside the handler | Wired all four filter methods into the `/filter` handler | ✅ HTTP 200, structured JSON |
+| 2 | BBB `/truth` | Endpoint not implemented | Added `POST /truth` returning `{valid, confidence, principal_reasons}` | ✅ HTTP 200, schema confirmed |
+| 3 | `UltimateResponse.truth_verdict` | Not populated from BBB output | Wired `call_truth_filter()` → BBB `/truth` → `truth_verdict` | ✅ Confirmed populated |
+| 4 | `clean_response_for_display()` | Only stripped inline disclaimers; paragraph-level model self-identification passed through | Expanded to strip full paragraphs opening with "As LLaMA", "As Mistral", "As an AI", etc. | ✅ Identity voice clean |
+| 5 | `call_icontainers()` | Empty stub returning `{}` — service never called | Replaced with live `httpx` POST to `jarvis-i-containers:8015/process` | ✅ `icontainers-identity` layer active |
+| 6 | `consciousness_layers` assembly | `icontainers-identity` and `nbb-icontainers` never appended | Added both layers to the list after their HTTP calls | ✅ 6 layers confirmed |
+| 7 | `validated_by` field | Always returned `None` (hardcoded) | Derive from names of all active layers at assembly time | ✅ Returns comma-separated layer names |
+| 8 | `architecture_layers` field | Always returned `0` (hardcoded) | Return `len(consciousness_layers)` | ✅ Returns `6` |
+| 9 | `normalize_identity()` | Some model names slipped through in paragraph context | Confirmed firing correctly; `clean_response_for_display()` handles paragraph-level | ✅ Confirmed |
+| 10 | `call_nbb_icontainers()` | Dead duplicate code below a `return` statement | Identified for cleanup | ⏳ Cosmetic; no functional impact |
 
-> **Subsequent expansions (March 18, 2026):** The BBB expanded from 4 to 7 filters (SteganographyDetection, TruthVerification, ContextAwareness added March 15). SafetyMonitor word-boundary regex corrected March 15. `truth_score` null guard and fail-open on HTTP 500 added to BBB input filter and output guard March 18. Phase 1.45 community memory retrieval (`all-minilm:latest` → `autonomous_learner` 21,181 records, top-5 prepended to `enhanced_message`) added March 17. Phase 3.5 + Phase 3.75 merged into single Ollama call March 18 (saves ~40s). Judge pipeline updated to consensus-only March 16 (saves ~15–20s). All 79 containers fully compose-managed via Docker Compose v5.1.0 with `image:` references (no `build:`, no rebuilds) as of March 17. Hash-prefixed container names resolved March 17–18. Redis-backed async job system with true cancellation deployed March 17. End-to-end benchmark: ~436 seconds (optimized from 532s baseline). The `consciousness_layers` list now reflects all phase contributions from the full 9-phase pipeline. `validated_by` and `architecture_layers` fields now reflect the full 9-phase pipeline contribution. See Chapter 17 for the canonical current `UltimateResponse` schema.
+> **Subsequent expansions (March 18, 2026):** BBB expanded from 4 to 7 filters (March 15). SafetyMonitor regex corrected (March 15). `truth_score` null guard and fail-open on HTTP 500 added (March 18). Phase 1.45 community memory retrieval added (March 17). Phase 3.5 + 3.75 merged into single Ollama call (March 18). Judge pipeline updated to consensus-only (March 16). All 80 containers fully compose-managed (March 17–18). Security hardening: zero `0.0.0.0` exposures, all 5 judge services compose-managed (March 18). End-to-end benchmark: ~436s.
 
 ---
 
@@ -338,11 +274,11 @@ This remediation session established the operational baseline that the March 15,
 }
 ```
 
-> **Note:** The above is the confirmed state as of 2026-03-13. The March 18, 2026 production deployment includes additional consciousness layer contributions from Phase 1.45 community memory retrieval, psychology pre-assessment (Phase 3), GBIM temporal decay (Phase 5), and 69-DGM cascade (Phase 7). The current canonical `UltimateResponse` schema is documented in Chapter 17.
+> **Note:** The above is the confirmed state as of 2026-03-13. The March 18, 2026 production `UltimateResponse` schema includes additional consciousness layer contributions from Phase 1.45 community memory, psychology pre-assessment (Phase 3), GBIM temporal decay (Phase 5), and 69-DGM cascade (Phase 7). See Chapter 17 for the current canonical schema.
 
 ---
 
-## Confirmed Smoke Tests (Canonical as of 2026-03-13, superseded by Chapter 41)
+## Confirmed Smoke Tests (Canonical as of 2026-03-13)
 
 ```bash
 # BBB /filter
@@ -362,46 +298,528 @@ curl -sS -X POST http://localhost:8050/ultimatechat \
   | jq '{validated_by, architecture_layers, consciousness_layers, truth_verdict}'
 ```
 
-> **Note:** The above smoke tests are the canonical baseline established 2026-03-13. For the full current smoke test suite including all March 15–18 services (BBB 7 filters with fail-open, Phase 1.45 community memory via `autonomous_learner`, psychology services port 8019, hippocampus port 8011, psychological RAG port 8006, 21-active-model ensemble port 8008 via semaphore proxy port 8030, judge pipeline ports 7230–7233 consensus-only, 69-DGM cascade port 9000, three PostgreSQL databases, Redis-backed async job system), see **Chapter 41**.
+> **Note:** For the full current smoke test suite including all March 15–18 services, see **Chapter 41**.
 
 ---
 
-## Known Issues and Resolution Status (March 18, 2026)
+## Known Issues and Resolution Status (as updated to March 18, 2026)
 
-| Issue | Priority | Status (March 18, 2026) |
+| Issue | Priority | Status |
 |---|---|---|
-| Remove dead code below `return` in `call_nbb_icontainers()` | Low | ⏳ Cosmetic cleanup; no functional impact |
-| Wire `store_in_subconscious_rag` to real ChromaDB collections | Medium | ✅ Resolved — ChromaDB `chroma_data` volume restored March 15; `ms_jarvis_memory` writes confirmed active (Chapter 17 §17.7) |
-| Complete judge pipeline integration into every `ultimatechat` call | Medium | ✅ Resolved — judge ports corrected to 7230–7233 (March 16); consensus-only mode deployed |
-| Red-team adversarial test suite | High | ⏳ Still outstanding — highest priority remaining security gap |
-| Response truncation (~730 chars, `max_tokens: 500`) | High | ✅ Fixed — `max_tokens` set to -1 (unlimited); `llm22-proxy` 8,192-token limit confirmed |
-| ChromaDB `_DummyCollection` blocking semantic retrieval | High | ✅ Fixed — `all-minilm:latest` (384-dim) semantic retrieval deployed March 17 |
-| Redis response persistence (in-memory only, lost on restart) | High | ✅ Fixed — Redis-backed job system with 30-min TTL deployed March 17 |
-| 33 services not in `docker-compose.yml` | High | ✅ Fixed — all 79 containers now fully compose-managed (March 17) |
-| `build:` directives causing slow/unpredictable startup | Medium | ✅ Fixed — all `build:` entries converted to `image:` references (March 17) |
-| Docker Compose v1.29.2 `ContainerConfig` crash bug | High | ✅ Fixed — upgraded to Docker Compose v5.1.0 (March 17) |
-| Hash-prefixed container names (e.g., `981f44e18cf6_jarvis-20llm-production`) | Medium | ✅ Fixed — `container_name:` added to all 8 affected containers (March 17–18) |
-| Judge pipeline URL wrong (port 7239 for all judges) | High | ✅ Fixed — corrected to 7230 / 7231 / 7232 / 7233 (March 16) |
+| Dead code below `return` in `call_nbb_icontainers()` | Low | ⏳ Cosmetic; no functional impact |
+| `store_in_subconscious_rag` to real ChromaDB collections | Medium | ✅ Resolved — `chroma_data` volume restored March 15; `ms_jarvis_memory` writes confirmed |
+| Judge pipeline integration | Medium | ✅ Resolved — ports corrected 7230–7233 (March 16); consensus-only mode deployed; all 5 services compose-managed (March 18) |
+| Red-team adversarial test suite | High | 🔴 OPEN — highest priority remaining security gap |
+| Response truncation (`max_tokens: 500`) | High | ✅ Fixed — `max_tokens: -1` (unlimited); `llm22-proxy` 8,192-token limit confirmed |
+| ChromaDB `_DummyCollection` blocking retrieval | High | ✅ Fixed — `all-minilm:latest` 384-dim deployed March 17 |
+| Redis response in-memory only (lost on restart) | High | ✅ Fixed — Redis-backed job system, 30-min TTL (March 17) |
+| 33 services not in `docker-compose.yml` | High | ✅ Fixed — all 80 containers compose-managed (March 17–18) |
+| `build:` directives causing slow startup | Medium | ✅ Fixed — all converted to `image:` references (March 17) |
+| Docker Compose v1.29.2 crash bug | High | ✅ Fixed — upgraded to v5.1.0 (March 17) |
+| Hash-prefixed container names | Medium | ✅ Fixed — `container_name:` added to all 8 affected containers |
+| Judge pipeline URL wrong (all on port 7239) | High | ✅ Fixed — corrected to 7230/7231/7232/7233 (March 16) |
 | LM Synthesizer calling `jarvis-roche-llm` (HTTP 500) | High | ✅ Fixed — now calls `jarvis-ollama:11434/api/generate` directly (March 18) |
-| NBB Prefrontal Cortex 422 errors | Medium | ✅ Resolved — `message` field payload confirmed correct; service healthy |
-| I-Containers 422 errors | Medium | ✅ Resolved — port corrected to 8015 |
-| BBB `truth_score` `KeyError` crash | High | ✅ Fixed — null guard added to BBB orchestrator (March 18) |
-| BBB blocking entire pipeline on HTTP 500 errors | High | ✅ Fixed — fail-open behavior on non-200 BBB responses (both input and output guard, March 18) |
-| `web-research` and `rag-server` container restart loops | High | ✅ Fixed — source files deployed via `docker cp` |
-| Idempotency TTL in-memory only | Medium | ✅ Fixed — Redis-backed, 1,800s TTL |
-| Health-check amplification (full sweep per request) | High | ✅ Fixed — 30s TTL cache, 2s per-service timeout (March 18) |
-| Hallucination on local community resources (Mount Hope, local nonprofits) | High | 🔴 OPEN — `gis_rag` and `local_resources` databases return empty for Mount Hope queries; LLMs generate from training data. Factually accurate programs (LIHEAP, WV 2-1-1) pass BBB. Fabricated organization names blocked by ethical filter. Root cause: real community resource data not yet loaded. Resolution: Community Champions data entry next priority. |
-| BBB ethical filter blocking "certainly" | — | BY DESIGN — ethical filter correctly detecting unverified specific claims; not a false positive |
+| BBB `truth_score` `KeyError` crash | High | ✅ Fixed — null guard added (March 18) |
+| BBB blocking pipeline on HTTP 500 | High | ✅ Fixed — fail-open behavior added (March 18) |
+| Services exposed on `0.0.0.0` | High | ✅ Fixed — all 10 re-locked to `127.0.0.1` (March 18); see Section 40-C |
+| Judge services orphaned (`docker run`, restart: no) | High | ✅ Fixed — all 5 compose-managed, `restart: unless-stopped` (March 18); see Section 40-C |
+| Health-check amplification | High | ✅ Fixed — 30s TTL cache, 2s per-service timeout (March 18) |
+| Hallucination on local community resources | High | 🔴 OPEN — `gis_rag` and `local_resources` return empty for Mount Hope queries; Community Champions data entry is next priority |
+
+---
+
+---
+
+# 40-C. Security Hardening Audit — March 18, 2026
+
+**Session date:** March 18, 2026 (morning EDT)
+**Auditor:** Carrie Kidd (Mamma Kidd), Harmony for Hope, Inc.
+**Branch at audit:** `feature/cb-bbb-routing-fix`
+**Commits:** `a10725d7` (judge compose management), `5007d605` (zero 0.0.0.0 exposures)
+**Purpose:** Document all security hardening actions completed March 18, 2026 that brought the production stack to zero `0.0.0.0` exposures and formally compose-managed judge services.
+
+---
+
+## Summary
+
+This session identified and remediated two classes of infrastructure security gap that had persisted across multiple previous sessions:
+
+1. **Port exposure:** Multiple services were bound to `0.0.0.0`, making internal ports accessible on all network interfaces rather than exclusively on localhost. Ten services were re-locked to `127.0.0.1`, including several that had been correctly bound in earlier sessions but reverted during intermediate `docker-compose.yml` edits.
+
+2. **Judge services orphaned:** All 5 judge services were running as manual `docker run` containers with `restart: no`. They were not defined in `docker-compose.yml` and had no `Dockerfile` or source files in the `services/` directory. On every system reboot or `docker compose down`, the entire judge pipeline would fail silently — the main brain would operate in degraded fallback mode with `consensus_score: 0.8` and `expert_count: 0` with no alerting.
+
+By end of session, verified state: **zero `0.0.0.0` exposures** across all 80 containers; **all 5 judge services compose-managed** with `restart: unless-stopped`; **80-container stack** fully managed by Docker Compose v5.1.0.
+
+---
+
+## Pre-Remediation State (Start of March 18 Session)
+
+### Services Exposed on 0.0.0.0
+
+The following services were bound to `0.0.0.0` at the start of the March 18 session, making their ports accessible on all interfaces:
+
+| Service | Exposed Port | Risk |
+|---|---|---|
+| `jarvis-i-containers` | `0.0.0.0:8015` | Identity manager — internal only |
+| `jarvis-consciousness-bridge` | `0.0.0.0:8020` | Neurobiological pipeline — internal only |
+| `jarvis-constitutional-guardian` | `0.0.0.0:8091` | Constitutional enforcement — internal only |
+| `jarvis-69dgm-bridge` | `0.0.0.0:9000` | Had reverted from `127.0.0.1:19000` post-March audit |
+| `jarvis-wv-entangled-gateway` | `0.0.0.0:8010` | WV RAG retrieval — internal only |
+| `jarvis-spiritual-rag` | `0.0.0.0:8005` | GBIM/worldview RAG — internal only |
+| `jarvis-psychology-services` | `0.0.0.0:8019` | Psychology pre-assessment — internal only |
+| `jarvis-hippocampus` | `0.0.0.0:8011` | Memory consolidation — internal only |
+| `jarvis-gis-rag` | `0.0.0.0:8004` | Geospatial RAG — internal only |
+| `jarvis-toroidal` | `0.0.0.0:8025` | ChromaDB↔GIS sync — internal only |
+
+> **Note on `jarvis-69dgm-bridge`:** This service was previously corrected to `127.0.0.1:19000->9000` during the March 2–3 audit. It reverted to `0.0.0.0:9000->9000` in an intermediate compose edit and was re-locked March 18. The canonical host binding is `127.0.0.1:19000:9000` (host port 19000 maps to internal container port 9000). Earlier documentation referencing the service at host port 9000 directly is incorrect.
+
+### Judge Services Orphaned (pre-March 18)
+
+| Service | State | Restart Policy | In compose? | Source files in services/? |
+|---|---|---|---|---|
+| `jarvis-judge-pipeline` | Running (manual) | `restart: no` | ❌ No | ❌ No |
+| `jarvis-judge-truth` | Running (manual) | `restart: no` | ❌ No | ❌ No |
+| `jarvis-judge-consistency` | Running (manual) | `restart: no` | ❌ No | ❌ No |
+| `jarvis-judge-alignment` | Running (manual) | `restart: no` | ❌ No | ❌ No |
+| `jarvis-judge-ethics` | Running (manual) | `restart: no` | ❌ No | ❌ No |
+
+**Failure mode:** On any reboot or `docker compose down`, Docker attempted to pull images for these containers from a registry. Because no public image exists with these names, pull would fail:
+
+```
+Error response from daemon: pull access denied for msjarvis-rebuild-jarvis-judge-ethics,
+repository does not exist or may require 'docker login'
+```
+
+All 5 judge services would remain stopped indefinitely. The main brain would silently operate in degraded mode: `consensus_score: 0.8`, `expert_count: 0`, `judge_verdicts: {}`.
+
+---
+
+## Remediation Steps (March 18, 2026)
+
+### Step 1 — Re-lock all services to 127.0.0.1
+
+Applied a Python replace pass over `docker-compose.yml` to convert all `0.0.0.0:PORT:PORT` and bare `- PORT:PORT` patterns to `- 127.0.0.1:PORT:PORT`. Containers recreated with `--force-recreate`.
+
+**Verification command (must return empty):**
+
+```bash
+docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0"
+```
+
+Result: **empty** — zero public exposures.
+
+### Step 2 — Bring judge services under compose management
+
+1. Copied `services/Dockerfile.judge` from `services-safe/Dockerfile.judge`
+2. Canonically named all 5 source files under `services/`:
+
+```
+services/judge_pipeline.py            (from jarvis-judge-pipeline_judge_pipeline.py)
+services/judge_truth_filter.py        (from jarvis-judge-truth_lm_synthesizer.py)
+services/judge_consistency_engine.py  (from jarvis-judge-consistency_lm_synthesizer.py)
+services/judge_alignment_filter.py    (from jarvis-judge-alignment_lm_synthesizer.py)
+services/judge_ethics_filter.py       (from jarvis-judge-ethics_lm_synthesizer.py)
+```
+
+Originals preserved in `services-safe/`.
+
+3. Added all 5 judge service definitions to `docker-compose.yml`:
+
+```yaml
+jarvis-judge-pipeline:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_pipeline.py
+  ports:
+    - "127.0.0.1:7239:7239"
+  restart: unless-stopped
+
+jarvis-judge-truth:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_truth_filter.py
+  ports:
+    - "127.0.0.1:7230:7230"
+  restart: unless-stopped
+
+jarvis-judge-consistency:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_consistency_engine.py
+  ports:
+    - "127.0.0.1:7231:7231"
+  restart: unless-stopped
+
+jarvis-judge-alignment:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_alignment_filter.py
+  ports:
+    - "127.0.0.1:7232:7232"
+  restart: unless-stopped
+
+jarvis-judge-ethics:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_ethics_filter.py
+  ports:
+    - "127.0.0.1:7233:7233"
+  restart: unless-stopped
+```
+
+4. Rebuilt and started all 5 services: `docker compose up -d --build jarvis-judge-pipeline jarvis-judge-truth jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics`
+
+### Step 3 — Re-lock jarvis-69dgm-bridge host port
+
+Confirmed host port mapping as `127.0.0.1:19000:9000` in `docker-compose.yml`. Container recreated. This is the permanent canonical mapping for this service.
+
+### Step 4 — Additional fixes deployed in this session
+
+| Fix | Details |
+|---|---|
+| BBB `truth_score` null guard | `KeyError` crash when `truth_score` absent from BBB response; null guard added to BBB orchestrator |
+| BBB fail-open on HTTP 500 | Both input filter and output guard now fail-open on non-200 BBB responses; legitimate queries no longer blocked by BBB infrastructure failures |
+| LM Synthesizer target corrected | `jarvis-roche-llm` (HTTP 500) → `jarvis-ollama:11434/api/generate` with `llama3.1:latest` |
+| Phase 3.75 eliminated | Final LLM Polish pass via `llm22-proxy` merged into Phase 3.5 single Ollama call; saves ~40s/query |
+| BakLLaVA permanently disabled | Name-check guard added to `ai_server_20llm_PRODUCTION.py`: `if name.lower().startswith("bakllava"): m["active"] = False` |
+| Health-check TTL cache | 30s TTL, 2s per-service timeout; Phase 1 health-check cost ~0.7s after first query |
+| Phase 1.45 community memory retrieval | `all-minilm:latest` 384-dim, `autonomous_learner` collection (21,181 records), top-5 prepended to `enhanced_message` |
+
+---
+
+## Post-Remediation Verification (March 18, 2026)
+
+### Zero 0.0.0.0 exposures
+
+```bash
+# Must return empty:
+docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0"
+# Result: (empty)
+```
+
+### All 5 judge services compose-managed
+
+```bash
+# All 5 must appear with Up status and source in compose:
+docker compose ps | grep judge
+# Result: all 5 services show Up, compose-managed
+
+# All 5 must be bound to 127.0.0.1:
+docker ps --format "{{.Names}}\t{{.Ports}}" | grep judge
+# Result: all show 127.0.0.1:7230-7233,7239 — no 0.0.0.0
+```
+
+### 69-DGM bridge re-locked
+
+```bash
+docker ps --format "{{.Names}}\t{{.Ports}}" | grep 69dgm
+# Result: jarvis-69dgm-bridge  127.0.0.1:19000->9000/tcp
+```
+
+### End-to-end benchmark
+
+Full pipeline benchmark post-remediation: **~436 seconds** (optimized from 532s baseline).
+
+| Metric | Value |
+|---|---|
+| Total containers | 80 |
+| `0.0.0.0` exposures | 0 |
+| Judge services compose-managed | 5/5 |
+| Judge services with `restart: unless-stopped` | 5/5 |
+| End-to-end benchmark | ~436s |
+| Consensus score (identity question) | 0.975 |
+| Judge verdicts | Truth=1.0, Consistency=1.0, Alignment=1.0, Ethics=0.9 |
+
+---
+
+## Permanent Architectural Decisions Established March 18, 2026
+
+All of the following are permanent decisions and must be preserved in all future builds:
+
+- **All services bound to `127.0.0.1`.** No service may expose a port on `0.0.0.0`. Verification: `docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0"` must return empty after any compose operation.
+- **`jarvis-69dgm-bridge` host port is `19000`.** Internal container port is 9000. Compose mapping: `127.0.0.1:19000:9000`. Never reference this service at port 9000 directly on the host.
+- **All 5 judge services must be defined in `docker-compose.yml`** with `build: context: ./services, dockerfile: Dockerfile.judge` and `restart: unless-stopped`. Do not start judge services with manual `docker run`.
+- **Judge services evaluate consensus answer only.** Never send `raw_responses` dump to judges.
+- **BakLLaVA disabled.** Name-check guard in `ai_server_20llm_PRODUCTION.py` must be preserved.
+- **Phase 3.75 eliminated.** Phase 3.5 is the complete, single Ollama voice delivery call.
+- **BBB fail-open.** Non-200 BBB responses must not block the pipeline. Fail-open on both input filter and output guard.
+- **`all-minilm:latest` (384-dim) is the required embedding model.** `nomic-embed-text` (768-dim) is incompatible with all existing ChromaDB collections.
+- **PostgreSQL at port 5433 (`msjarvis`, `gisdb`); community resources at port 5435.** Port 5432 is never correct for production databases.
+- **ChromaDB at port 8000** with `chroma_data` volume. Port 8002 is incorrect.
+
+---
+
+## Open Items After March 18 Session
+
+| Item | Priority |
+|---|---|
+| Red-team adversarial test suite (20+ scenarios: prompt injection, jailbreak, authority confusion, context smuggling) | 🔴 HIGH — highest priority remaining security gap |
+| Hallucination on local community resources (Mount Hope, Fayette County) — Community Champions data entry | 🔴 HIGH |
+| `jarvis-wv-entangled-gateway` degraded — `production_20llm` URL config needs fix | 🟡 MEDIUM |
+| Dead code below `return` in `call_nbb_icontainers()` | 🟢 LOW — cosmetic |
+| Prometheus/Grafana metrics pipeline | 🟡 MEDIUM — future work |
+| GPU inference server (WVU partnership) to reduce ensemble time ~320–360s → ~80–120s | 🟡 MEDIUM — future work |
+| StarCoder2 (llm7-proxy) — retune or replace for community-domain queries | 🟡 MEDIUM |
+| Formal JSON schemas for ensemble decision rules and judge aggregation | 🟡 MEDIUM |
 
 ---
 
 ## Cross-References
 
-- **Chapter 16** — BBB `/filter` and `/truth` endpoints, `truth_verdict` schema, filter method signatures, 7-filter stack specification, fail-open behavior, `truth_score` null guard
-- **Chapter 17** — Canonical `ultimatechat` 9-phase execution sequence (Phase 1.45 community memory, merged Phase 3.5, consensus-only judge pipeline, ~436s benchmark) and current `UltimateResponse` schema
-- **Chapter 22** — `call_icontainers` HTTP implementation (I-Containers, port 8015) and `normalize_identity()` specification
-- **Chapter 29** — Psychology services (port 8019) and BBB psychological safety integration
-- **Chapter 39** — Operational evaluation: phase-by-phase timing table, Docker Compose v5.1.0 upgrade details, `build:` → `image:` conversion, hash-prefixed container name resolution, hardware envelope, optimization history
-- **Chapter 41** — Canonical current smoke test suite (supersedes 2026-03-13 tests above)
+- **Chapter 11** — LLM fabric and full service topology; port corrections; security hardening summary; 80-container inventory
+- **Chapter 16** — BBB 7-filter stack specification, fail-open behavior, `truth_score` null guard, output guard timeout
+- **Chapter 17** — Canonical `ultimatechat` 9-phase execution sequence and current `UltimateResponse` schema
+- **Chapter 22** — `call_icontainers` HTTP implementation and `normalize_identity()` specification
+- **Chapter 29** — Psychology services (port 8019) and psychological safety integration
+- **Chapter 33** — Judge pipeline: compose management, `Dockerfile.judge`, source files, consensus-only evaluation, service inventory
+- **Chapter 39** — Operational evaluation: phase-by-phase timing, Docker Compose v5.1.0 upgrade, `build:` → `image:` conversion, hardware envelope
+- **Chapter 41** — Canonical current smoke test suite
 
-*Last updated: 2026-03-18 by Carrie Kidd, Mount Hope WV*
+---
+
+---
+
+# Appendix 40-D. Definitive Service Inventory (March 18, 2026)
+
+**Audit Date:** March 18, 2026
+**Platform:** Lenovo Legion 5 16IRX9 (Intel i9, NVIDIA RTX 4050, 29 GB RAM)
+**Audit method:** `docker ps`, health endpoint probes, `docker inspect`, host PostgreSQL queries
+**Branch at audit:** `feature/cb-bbb-routing-fix` (commit `5007d605`)
+**Total containers:** 80 | **0.0.0.0 exposures:** 0
+
+---
+
+## Security Remediation Log
+
+| Date | Item | Before | After | Method |
+|---|---|---|---|---|
+| Mar 2–3, 2026 | `jarvis-69dgm-bridge` port binding | `0.0.0.0:19000->9000` | `127.0.0.1:19000->9000` | `docker-compose.yml` corrected, container recreated |
+| Mar 2–3, 2026 | `gbim-recovery` port binding | `0.0.0.0:5459->5432` | Removed | Container stopped and removed; data confirmed on host PostgreSQL |
+| Mar 18, 2026 | 10 services exposed on `0.0.0.0` | Various `0.0.0.0:PORT` | All `127.0.0.1:PORT` | Python replace pass on `docker-compose.yml`; `--force-recreate` |
+| Mar 18, 2026 | 5 judge services orphaned | Manual `docker run`, `restart: no` | Compose-managed, `restart: unless-stopped` | Added `build:` entries + `Dockerfile.judge` to `services/` |
+| Mar 18, 2026 | `jarvis-69dgm-bridge` reverted exposure | `0.0.0.0:9000->9000` | `127.0.0.1:19000->9000` | Re-applied; was lost in intermediate compose edit |
+
+**Result as of March 18, 2026:** Zero `0.0.0.0` exposures across all 80 running containers. All services localhost-only.
+
+---
+
+## Core Orchestration
+
+| Container | Host Port | Internal Port | Status | Notes |
+|---|---|---|---|---|
+| `jarvis-main-brain` | 127.0.0.1:8050 | 8050 | ✅ Healthy | Primary entrypoint; `/chat`, `/chatlight/async`, `/selftestfabric` |
+| `jarvis-brain-orchestrator` | 127.0.0.1:17260 | 7260 | ✅ Healthy | Continuous coordinator |
+| `jarvis-unified-gateway` | 127.0.0.1:18018 | 8001 | ✅ Running | Defense-in-depth gateway; Constitutional Guardian → BBB |
+| `jarvis-semaphore` | 127.0.0.1:8030 | 8030 | ✅ Healthy | Mandatory intermediary; `max_concurrent: 4`; requires `timeout: 600.0` |
+| `jarvis-steward` | none (internal 8060) | 8060 | ✅ Healthy | Internal only; no host binding; community stewardship interface |
+
+---
+
+## LLM Fabric
+
+| Container | Host Port | Internal Port | Status | Notes |
+|---|---|---|---|---|
+| `jarvis-20llm-production` | 127.0.0.1:8008 | 8008 | ✅ Running | 22-slot ensemble; 21/22 responding; BakLLaVA permanently disabled |
+| `jarvis-ollama` | 127.0.0.1:11434 | 11434 | ✅ Running | Ollama backend; 20 GB memory limit; 26 models available |
+| `jarvis-lm-synthesizer` | none (internal 8001) | 8001 | ✅ Running | Phase 3.5 voice delivery; calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest` |
+| `llm1-proxy` | 127.0.0.1:8201 | 8201 | ✅ Running | TinyLlama (`tinyllama:1.1b`) |
+| `llm2-proxy` | 127.0.0.1:8202 | 8202 | ✅ Running | Gemma (`gemma:latest`) |
+| `llm3-proxy` | 127.0.0.1:8203 | 8203 | ✅ Running | MedLlama2 (`medllama2:latest`) |
+| `llm4-proxy` | 127.0.0.1:8204 | 8204 | ✅ Running | MiniCPM-V (`minicpm-v:latest`) |
+| `llm5-proxy` | 127.0.0.1:8205 | 8205 | ✅ Running | LLaVA (`llava:latest`) |
+| `llm6-proxy` | 127.0.0.1:8206 | 8206 | ✅ Running | SQLCoder (`sqlcoder:latest`) |
+| `llm7-proxy` | 127.0.0.1:8207 | 8207 | ⚠️ Running | StarCoder2 (`starcoder2:latest`) — frequently 0-char on community queries |
+| `llm8-proxy` | 127.0.0.1:8208 | 8208 | ✅ Running | CodeLlama (`codellama:latest`) |
+| `llm9-proxy` | 127.0.0.1:8209 | 8209 | ✅ Running | DeepSeek Coder (`deepseek-coder:latest`) |
+| `llm10-proxy` | 127.0.0.1:8210 | 8210 | ✅ Running | Phi3 Mini (`phi3:mini`) |
+| `llm11-proxy` | 127.0.0.1:8211 | 8211 | 🚫 Disabled | BakLLaVA — permanently disabled via name-check guard (CLIP load issues) |
+| `llm12-proxy` | 127.0.0.1:8212 | 8212 | ✅ Running | Dolphin-Phi (`dolphin-phi:latest`) |
+| `llm13-proxy` | 127.0.0.1:8213 | 8213 | ✅ Running | Orca-Mini (`orca-mini:latest`) |
+| `llm14-proxy` | 127.0.0.1:8214 | 8214 | ✅ Running | Qwen2 (`qwen2:latest`) |
+| `llm15-proxy` | 127.0.0.1:8215 | 8215 | ✅ Running | Zephyr (`zephyr:latest`) |
+| `llm16-proxy` | 127.0.0.1:8216 | 8216 | ✅ Running | Starling-LM (`starling-lm:latest`) |
+| `llm17-proxy` | 127.0.0.1:8217 | 8217 | ✅ Running | Neural-Chat (`neural-chat:latest`) |
+| `llm18-proxy` | 127.0.0.1:8218 | 8218 | ✅ Running | OpenChat (`openchat:latest`) |
+| `llm19-proxy` | 127.0.0.1:8219 | 8219 | ✅ Running | Vicuna (`vicuna:latest`) |
+| `llm20-proxy` | 127.0.0.1:8220 | 8220 | ✅ Running | LLaMA 2 (`llama2:latest`) |
+| `llm21-proxy` | 127.0.0.1:8221 | 8221 | ✅ Running | Mistral (`mistral:latest`) |
+| `llm22-proxy` | 127.0.0.1:8222 | 8222 | ✅ Running | LLaMA 3.1 (`llama3.1:8b`) |
+
+---
+
+## Safety and Validation
+
+| Container | Host Port | Internal Port | Status | Notes |
+|---|---|---|---|---|
+| `jarvis-blood-brain-barrier` | 127.0.0.1:8016 | 8016 | ✅ Running | 7-filter stack; output guard timeout 8.0s; `truth_score` null guard; fail-open on HTTP 500; re-locked Mar 18 |
+| `jarvis-69dgm-bridge` | 127.0.0.1:19000 | 9000 | ✅ Running | Phase 7; 23 connectors × 3 stages = 69 DGM operations; host port 19000 → internal 9000; re-locked Mar 18 |
+| `jarvis-constitutional-guardian` | 127.0.0.1:8091 | 8091 | ✅ Running | Constitutional enforcement; audit trail; re-locked Mar 18 |
+| `jarvis-psychology-services` | 127.0.0.1:8019 | 8019 | ✅ Running | Phase 3 psychology pre-assessment on every request; re-locked Mar 18 |
+| `psychological_rag_domain` | 127.0.0.1:8006 | 9006 | ✅ Running | Psychology RAG domain; 968 items; `psychological_rag` ChromaDB collection |
+
+---
+
+## Consciousness and Neurobiological Stack
+
+| Container | Host Port | Internal Port | Status | Notes |
+|---|---|---|---|---|
+| `jarvis-neurobiological-master` | none (internal 8018) | 8018 | ✅ Running | v2.0.0; sequences 4/4 pipeline at ~300ms |
+| `jarvis-consciousness-bridge` | 127.0.0.1:8020 | 8020 | ✅ Running | Re-locked to 127.0.0.1 Mar 18; mandatory neurobiological pipeline infrastructure |
+| `jarvis-qualia-engine` | none (internal 8017) | 8017 | ✅ Running | Stage 3 of neurobiological pipeline |
+| `jarvis-i-containers` | 127.0.0.1:8015 | 8015 | ✅ Running | Re-locked Mar 18; identity containers; `icontainers-identity` layer; schema `{message, userid: "neurobiological_master"}` |
+| `jarvis-fifth-dgm` | none (internal 4002) | 4002 | ✅ Running | Fifth Darwin-Gödel Machine |
+| `jarvis-mother-protocols` | none (internal 4000) | 4000 | ✅ Running | Mother protocols; not wired into primary `/chat` path |
+| `jarvis-temporal-consciousness` | none (internal 7007) | 7007 | ✅ Running | Flag-gated in pipeline |
+| `jarvis-fractal-consciousness` | none (internal 8027) | 8027 | ✅ Running | Internal Docker network only |
+| `jarvis-swarm-intelligence` | none (internal 8021) | 8021 | ✅ Running | Swarm coordination layer |
+| `jarvis-autonomous-learner` | 127.0.0.1:8425 | 8425 | ✅ Running | 21,181 items in `autonomous_learner` collection; ~288/day growth; queried at Phase 1.45 |
+| `jarvis-hippocampus` | 127.0.0.1:8011 | 8011 | ✅ Running | Re-locked Mar 18; long-term memory consolidation |
+| `jarvis-toroidal` | 127.0.0.1:8025 | 8025 | ✅ Healthy | Re-locked Mar 18; Toroidal ChromaDB↔GIS bidirectional sync loop (Chapter 26) |
+
+---
+
+## NBB Subconscious Layer (13 containers)
+
+| Container | Host Port | Internal Port | Status | Notes |
+|---|---|---|---|---|
+| `nbb-i-containers` | 127.0.0.1:8101 | 7001 | ✅ Running | NBB I-containers; also exposes 7005 internally |
+| `nbb_consciousness_containers` | 127.0.0.1:8102 | 7002 | ✅ Running | |
+| `nbb_spiritual_root` | 127.0.0.1:8103 | 7003 | ✅ Running | |
+| `nbb_woah_algorithms` | 127.0.0.1:8104 | 7004 | ✅ Running | WOAH port 8104 host → internal 7004; `jarvis-woah` = port 7012 |
+| `nbb_prefrontal_cortex` | 127.0.0.1:8105 | 7005 | ✅ Running | Distinct from `nbb-i-containers` |
+| `nbb_heteroglobulin_transport` | 127.0.0.1:8106 | 7006 | ✅ Running | |
+| `nbb_mother_carrie_protocols` | 127.0.0.1:8107 | 7007 | ✅ Running | |
+| `nbb_pituitary_gland` | 127.0.0.1:8108 | 7008 | ✅ Running | Health via Redis DynamicPortService |
+| `nbb_spiritual_maternal_integration` | 127.0.0.1:8109 | 7009 | ✅ Running | |
+| `nbb_subconscious` | 127.0.0.1:8112 | 7011 | ✅ Running | |
+| `nbb_blood_brain_barrier` | 127.0.0.1:8301 | 7001 | ✅ Running | NBB-layer BBB |
+| `nbb_darwin_godel_machines` | 127.0.0.1:8302 | 7003 | ✅ Running | |
+| `nbb_qualia_engine` | 127.0.0.1:8303 | 7008 | ✅ Running | |
+
+---
+
+## Judge Pipeline (All Compose-Managed — March 18, 2026)
+
+> **All 5 judge services were previously orphaned manual `docker run` containers with `restart: no`.
+> As of March 18, 2026, all are formally managed by `docker-compose.yml` with `restart: unless-stopped`,
+> built from `services/Dockerfile.judge`. All ports locked to `127.0.0.1`.**
+
+| Container | Host Port | Internal Port | Status | Compose-managed | Notes |
+|---|---|---|---|---|---|
+| `jarvis-judge-pipeline` | 127.0.0.1:7239 | 7239 | ✅ Running | ✅ Yes (Mar 18) | Master coordinator; `judge_pipeline.py` |
+| `jarvis-judge-truth` | 127.0.0.1:7230 | 7230 | ✅ Running | ✅ Yes (Mar 18) | Truth filter; `judge_truth_filter.py` |
+| `jarvis-judge-consistency` | 127.0.0.1:7231 | 7231 | ✅ Running | ✅ Yes (Mar 18) | Consistency engine; `judge_consistency_engine.py` |
+| `jarvis-judge-alignment` | 127.0.0.1:7232 | 7232 | ✅ Running | ✅ Yes (Mar 18) | Alignment filter; `judge_alignment_filter.py` |
+| `jarvis-judge-ethics` | 127.0.0.1:7233 | 7233 | ✅ Running | ✅ Yes (Mar 18) | Ethics filter; `judge_ethics_filter.py` |
+
+**Shared build:** All 5 use `services/Dockerfile.judge` (Python 3.11-slim; fastapi, uvicorn, httpx, redis, pydantic).
+
+### Judge Source File Registry
+
+```
+services/Dockerfile.judge              # Shared build for all 5 judge containers
+services/judge_pipeline.py             # Master coordinator
+services/judge_truth_filter.py         # Truth filter
+services/judge_consistency_engine.py   # Consistency engine
+services/judge_alignment_filter.py     # Alignment filter
+services/judge_ethics_filter.py        # Ethics filter
+```
+
+Originals preserved in `services-safe/` as `jarvis-judge-*_lm_synthesizer.py` (one per domain) and `jarvis-judge-pipeline_judge_pipeline.py`.
+
+---
+
+## RAG and Retrieval Services
+
+| Container | Host Port | Internal Port | Status | Notes |
+|---|---|---|---|---|
+| `jarvis-rag-server` | 127.0.0.1:8003 | 8003 | ✅ Running | Primary text RAG; `/store` accepts `user_id` |
+| `jarvis-gis-rag` | 127.0.0.1:8004 | 8004 | ✅ Running | Re-locked Mar 18; spatial/benefits RAG over `gisdb` PostGIS |
+| `jarvis-spiritual-rag` | 127.0.0.1:8005 | 8005 | ✅ Running | Re-locked Mar 18; GBIM/worldview RAG; confirmed port 8005 (not 8103) |
+| `jarvis-wv-entangled-gateway` | 127.0.0.1:8010 | 8010 | ⚠️ Degraded | Re-locked Mar 18; WV-biased multi-collection retrieval; `production_20llm` URL config needs fix |
+| `jarvis-web-research` | 127.0.0.1:18008 | 8008 | ✅ Running | Host port 18008 → internal 8008 (not 18009 — thesis correction required) |
+| `jarvis-aaacpe-rag` | 127.0.0.1:8032 | 8032 | ✅ Running | Appalachian cultural intelligence RAG; 10 documents |
+| `jarvis-aaacpe-scraper` | 127.0.0.1:8033 | 8033 | ✅ Running | AaaCPE scraper; shared `aaacpe-cultural-data` volume |
+| `jarvis-local-resources` | none (internal 8006) | 8006 | ✅ Running | ZIP/county-keyed program registry; internal only |
+| `jarvis-agents-service` | none (internal 8005) | 8005 | ✅ Healthy | Agents service; internal only |
+| `jarvis-woah` | none (internal 7012) | 7012 | ✅ Running | WOAH algorithms service; internal only |
+
+---
+
+## Data Stores
+
+| Container / Service | Host Port | Type | Status | Notes |
+|---|---|---|---|---|
+| `jarvis-chroma` | 127.0.0.1:8000 | ChromaDB | ✅ Healthy | `chroma_data` volume; all collections 384-dim (`all-minilm:latest`); port 8000 (not 8002) |
+| `jarvis-redis` | 127.0.0.1:6380 | Redis 7 | ✅ Healthy | DynamicPortService; NBB health registration; async job state 30-min TTL |
+| `jarvis-local-resources-db` | 127.0.0.1:5435 | PostGIS 15 | ✅ Running | Community resources program registry; human-validated by Harmony for Hope Community Champions |
+| **Host PostgreSQL `msjarvis`** | **127.0.0.1:5433** | **PostgreSQL 16** | **✅ Verified** | **GBIM corpus: 5,416,521 verified beliefs; 80 epochs; 206 source layers; temporal decay metadata** |
+| **Host PostgreSQL `gisdb`** | **127.0.0.1:5433** | **PostGIS 16** | **✅ Verified** | **13 GB; 39 tables; 993 ZCTA centroids** |
+| `ipfs/kubo` | 127.0.0.1:5001 | IPFS | ✅ Running | Intentional infrastructure — content addressing for MountainShares/The Commons; kubo/0.39.0; 19 external peers; corpus currently empty (default pin only) |
+
+> **PostgreSQL note:** Both `msjarvis` (GBIM) and `gisdb` (PostGIS) listen on host port **5433**. `jarvis-local-resources-db` listens on host port **5435**. Port 5432 is not used in the current production stack.
+
+---
+
+## GBIM Corpus State (March 2026 Verified)
+
+| Metric | Value |
+|---|---|
+| Database | Host PostgreSQL `msjarvis`, port 5433 |
+| Verified belief count | **5,416,521** |
+| Fully classified beliefs | 1,356,660 across 24 named epochs |
+| Training epochs | 80 |
+| Source layers | 206 |
+| Temporal decay metadata | `last_verified`, `confidence_decay`, `needs_verification` per entity |
+| Pending epoch enrichment | 4,059,862 across 20+ source tables |
+| Largest unclassified sources | WV GIS TC building footprints (2.1M), SAMB structure points (1.4M), wind energy (209K), flood plain structures (81K) |
+| Last ingestion date | February 20, 2026 |
+| Projected post-enrichment count | ~10M (pending epoch enrichment scripts) |
+
+> **Thesis correction required:** Earlier chapters and the December 2025 audit referenced 10,221,702 beliefs. The correct verified count is **5,416,521** as of February 20, 2026. The projected ~10M figure is post-enrichment.
+
+---
+
+## Thesis Corrections Required (Identified at March 18 Audit)
+
+| Chapter | Current Text | Correct Text |
+|---|---|---|
+| 39, and all others | "10,221,702 beliefs" | "5,416,521 verified beliefs (Feb 20, 2026); ~10M projected post epoch enrichment" |
+| 11, 17, others | "`jarvis-web-research`: 18009" | "`jarvis-web-research`: host 18008 → internal 8008" |
+| 11, 12, 17 | NBB "8 containers" | NBB "13 containers" (see inventory above) |
+| 11, 40 | `ipfs/kubo` not documented | Intentional MountainShares/Commons infrastructure |
+| 11 | `jarvis-steward` not documented | Internal service port 8060; community stewardship interface |
+| 11 | `jarvis-toroidal` not documented | Toroidal ChromaDB↔GIS sync; host port 8025; re-locked Mar 18 |
+| 11 | `jarvis-fractal-consciousness` not documented | Internal consciousness service; port 8027 |
+| 11 | `jarvis-agents-service` not documented | Internal agents service; port 8005 |
+| 33 | Judge services "orphaned containers" | Judge services compose-managed as of March 18, 2026 |
+| 40 | No March 18 security audit | Section 40-C added |
+
+---
+
+## Audit Summary
+
+| Category | Count | Status |
+|---|---|---|
+| Total containers running | 80 | ✅ |
+| Core orchestration | 5 | ✅ All healthy |
+| LLM fabric (proxies + Ollama + LM Synthesizer) | 25 | ✅ 21/22 responding; BakLLaVA disabled |
+| Safety and validation | 5 | ✅ All running |
+| Consciousness/neurobiological | 12 | ✅ All running |
+| NBB subconscious layer | 13 | ✅ All running |
+| Judge pipeline | 5 | ✅ All running; compose-managed Mar 18 |
+| RAG and retrieval | 10 | ⚠️ 9/10 healthy; wv-entangled-gateway degraded |
+| Data stores | 3 containers + 2 host clusters + IPFS | ✅ All accessible |
+| Services with `0.0.0.0` exposure | 0 | ✅ Zero (was 10 at start of Mar 18 session) |
+| Judge services compose-managed | 5/5 | ✅ (was 0; all were orphaned) |
+| Previously undocumented services | 6 | 📝 Thesis update required |
+| GBIM belief count | 5,416,521 | 📝 Thesis correction required (was 10,221,702) |
+
+---
+
+*Last updated: March 18, 2026 — Carrie A. Kidd
