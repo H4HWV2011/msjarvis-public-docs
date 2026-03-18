@@ -3,7 +3,7 @@
 
 # Ms. Jarvis Public Documentation & Thesis Systems Overview
 
-**Location:** Oak Hill / Mount Hope, West Virginia  
+**Location:** Mount Hope, West Virginia  
 **Status:** Live Steward System / Full Production Deployment  
 **Last Updated:** March 18, 2026
 
