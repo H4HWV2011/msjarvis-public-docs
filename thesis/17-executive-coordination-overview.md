@@ -1,275 +1,162 @@
 > **Why this matters for Polymathmatic Geography**
-> This chapter explains how Ms. Jarvis's "front lobe" decides which instruments to play on each request, including a distinct neuro-inspired prefrontal stage. It supports:
-> - **P1 – Every where is entangled** by routing between spatial, semantic, commons, and neurobiological services as one coordinated instrument grounded in three PostgreSQL databases (`msjarvis` port 5433 with 5,416,521 verified GBIM beliefs; `gisdb` port 5433 with 13 GB PostGIS spatial data; `jarvis-local-resources-db` port 5435 with community resources), including a prefrontal NBB layer that runs ahead of deeper reasoning.
-> - **P3 – Power has a geometry** by making control flow and authority legible in the microservice graph and in explicit `consciousness_layers`, rather than hiding them inside a monolith.
-> - **P5 – Design is a geographic act** by encoding how Appalachian questions are steered through local RAG sourced from PostgreSQL GBIM, web research, spiritual and BBB filters, a prefrontal cortex microservice, and a psychological pre-assessment layer.
-> - **P12 – Intelligence with a ZIP code** by prioritizing place-aware services (GIS-backed RAG from PostgreSQL `gisdb`, MountainShares knowledge, local web research, community resources from `jarvis-local-resources-db`) whenever they are healthy.
-> - **P16 – Power accountable to place** by exposing routing decisions, prefrontal verdicts, health state, and memory writes through explicit APIs, logs, and `consciousness_layers`, with temporal confidence decay (`confidence_decay` multiplier) applied to every response at Phase 5.
+> This chapter provides the empirical grounding for all architectural claims made across the thesis. It supports:
+> - **P1 – Every where is entangled** by measuring the actual cost of entangling spatial, semantic, community memory, and neurobiological services on a single commodity host — demonstrating that a geographically rooted AI system can achieve full-pipeline operation even on hardware typical of a rural nonprofit.
+> - **P3 – Power has a geometry** by making the per-phase timing profile visible, showing exactly which stages account for latency and where optimization pressure should be directed.
+> - **P5 – Design is a geographic act** by showing that design decisions — merging Phase 3.5/3.75, switching judge payload to consensus-only, adding health-check caching, converting compose to image-based — have measurable geographic consequences: a system that can be rebooted and fully operational in two commands is a system a community organization can actually steward.
+> - **P12 – Intelligence with a ZIP code** by documenting that 21 models, three PostgreSQL databases, 21,181 community memories, and 5,416,521 GBIM entities all operate on a Lenovo Legion 5 in a home office in Oak Hill, West Virginia.
+> - **P16 – Power accountable to place** by publishing the benchmark methodology, the exact query used, the hardware envelope, and the per-phase timing so that future operators and researchers can reproduce, audit, and improve upon these measurements.
 >
-> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the executive coordinator that turns a set of independent services into a single, inspectable cognitive system with a measurable prefrontal phase and a verified 9-phase production pipeline (~436s end-to-end benchmark, March 18, 2026).
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│   Executive Coordination Flow — 9-Phase Pipeline            │
-│   (Production State: March 18, 2026)                        │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  UltimateRequest (message, userid, role)                    │
-│      ↓                                                       │
-│  Phase 1 — Service Discovery & Prefrontal Planning          │
-│      -  discover_services() → available_services map         │
-│         (health results cached 30s TTL, 2s timeout/service) │
-│      -  Append prefrontal_planner ConsciousnessLayer         │
-│      -  call_nbb_prefrontal → nbb-i-containers (8101)        │
-│      ↓                                                       │
-│  Phase 1.4 — BBB Input Filter (7 filters)                   │
-│      -  EthicalFilter, SpiritualFilter                       │
-│      -  SafetyMonitor (word-boundary regex, March 15)        │
-│      -  ThreatDetection                                      │
-│      -  SteganographyDetection (March 15)                    │
-│      -  TruthVerification (March 15)                         │
-│      -  ContextAwareness (March 15)                          │
-│      -  truth_score null guard (March 18)                    │
-│      -  fail-open on HTTP 500 (March 18)                     │
-│      ↓                                                       │
-│  Phase 1.45 — Community Memory Retrieval (NEW March 17)     │
-│      -  all-minilm:latest → 384-dim embedding               │
-│         via jarvis-ollama:11434/api/embeddings               │
-│      -  Query autonomous_learner (21,181 records)            │
-│      -  Top-5 memories prepended to enhanced_message         │
-│      ↓                                                       │
-│  Phase 2 — Truth Verdict                                    │
-│      -  call_truth_filter → BBB POST /truth (port 8016)      │
-│      -  truthverdict attached (advisory)                     │
-│      ↓                                                       │
-│  Phase 3 — Psychology Pre-Assessment                        │
-│      -  jarvis-psychology-services (port 8019)               │
-│      -  /psychological_assessment endpoint                   │
-│      -  Severity classification, crisis indicator check      │
-│      -  Deployed March 15, 2026                              │
-│      ↓                                                       │
-│  Phase 4 — Context Building (RAG)                           │
-│      -  build_rag_context → jarvis-spiritual-rag (8005)      │
-│        Queries PostgreSQL msjarvis (GBIM beliefs)           │
-│        Queries PostgreSQL gisdb (PostGIS, 993 ZCTA)         │
-│        Queries jarvis-local-resources-db (port 5435)        │
-│        Queries ChromaDB (port 8000, chroma_data vol)        │
-│        Queries psychological_rag_domain (port 8006)         │
-│      -  build_web_context → jarvis-web-research (internal)   │
-│      ↓                                                       │
-│  Phase 3.5 — LM Synthesizer + Voice Delivery (MERGED)      │
-│      -  jarvis-lm-synthesizer (port 8001)                    │
-│      -  Calls jarvis-ollama:11434/api/generate directly      │
-│      -  model: llama3.1:latest                               │
-│      -  Ms. Egeria Jarvis persona prompt injected            │
-│      -  Phase 3.75 ELIMINATED — merged into this pass        │
-│      -  ~30–55s; saves ~40s vs. previous two-pass design     │
-│      ↓                                                       │
-│  Phase 2.5 — LLM Ensemble Synthesis                         │
-│      -  Semaphore proxy (port 8030, max_concurrent: 4)       │
-│      -  jarvis-20llm-production (port 8008)                  │
-│      -  21 active models (22 proxies; StarCoder2 returns     │
-│         0 chars on community queries)                        │
-│      -  ~320–360s wall clock (rich prompt, CPU-only)         │
-│      ↓                                                       │
-│  Phase 3 — Judge Pipeline (UPDATED)                         │
-│      -  4 judges evaluate consensus answer ONLY              │
-│      -  raw_responses dump eliminated                        │
-│      -  judge time reduced from ~85-100s to ~60-86s          │
-│      -  ports: 7230 / 7231 / 7232 / 7233 (fixed March 16)  │
-│      ↓                                                       │
-│  Phase 7 — 69-DGM Cascade Validation                        │
-│      -  jarvis-69dgm-bridge (port 9000)                      │
-│      -  23 connectors × 3 stages = 69 DGM operations/pass    │
-│      -  Architecturally authoritative                        │
-│      ↓                                                       │
-│  Phase 4.5 — BBB Output Guard                               │
-│      -  apply_output_guards_async → BBB /filter (8.0s)       │
-│      -  fail-open on HTTP 500 (March 18)                     │
-│      -  debug logging: approved/blocked status               │
-│      ↓                                                       │
-│  Phase 5 — Confidence Decay Multiplier                      │
-│      -  confidence_decay from GBIM temporal metadata         │
-│      -  Applied to all responses (deployed March 15)         │
-│      ↓                                                       │
-│  Post-Processing                                            │
-│      -  clean_response_for_display                           │
-│      -  normalize_identity (Ms. Jarvis voice)                │
-│      -  background_rag_store → ms_jarvis_memory              │
-│      ↓                                                       │
-│  UltimateResponse                                           │
-│      -  response, servicesused, consciousnesslevel           │
-│      -  processingtime, architecturelayers                   │
-│      -  consciousnesslayers, truthverdict                    │
-│      -  confidence_decay_applied                             │
-│                                                              │
-│  End-to-end benchmark (March 18, 2026): ~436 seconds        │
-│  (optimized from 532s baseline; richer pipeline with        │
-│   community memory enrichment)                              │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-> **Figure 17.1.** Executive coordination flow in Ms. Jarvis ULTIMATE: the 9-phase pipeline from UltimateRequest through service discovery (with 30s health cache) and prefrontal planning, BBB 7-filter input guard (with fail-open), Phase 1.45 community memory retrieval (21,181-item `autonomous_learner`), truth verdict, psychology pre-assessment, RAG context building from three PostgreSQL databases and ChromaDB, LM Synthesizer + Voice Delivery (merged, Phase 3.5), 21-model LLM ensemble synthesis, judge pipeline (consensus-only, Phase 3), 69-DGM cascade validation, BBB output guard (fail-open), confidence decay multiplier, and post-processing to UltimateResponse. End-to-end benchmark: ~436 seconds (March 18, 2026, optimized from 532s baseline).
+> As such, this chapter belongs to the **Empirical Evidence** tier: it converts architectural claims into falsifiable, reproducible measurements anchored to a specific place, time, and hardware configuration.
 
 ---
 
-## Status as of March 18, 2026
+# 39. Operational Evaluation
 
-| Category | Details |
+This chapter presents the empirical operational evaluation of the Ms. Egeria Jarvis ULTIMATE system as deployed on the reference hardware configuration at Oak Hill, West Virginia, as of March 18, 2026. It documents end-to-end response time benchmarks, per-phase timing profiles, container management infrastructure, and the optimizations applied during the March 16–18, 2026 sessions that moved the system from a 532-second pre-optimization baseline to an approximately 436-second measured pipeline.
+
+All measurements reflect CPU-only inference on the Lenovo Legion 5 reference host. GPU-accelerated inference via the WVU partnership server remains pending and is expected to reduce Phase 2.5 (LLM ensemble) from ~320–360 seconds to a significantly lower floor.
+
+---
+
+## 39.1 Reference Hardware and Software Environment
+
+All benchmarks reported in this chapter were produced on the following configuration:
+
+| Component | Specification |
 |---|---|
-| **Implemented and verified (March 18, 2026)** | `jarvis-main-brain` confirmed running at **127.0.0.1:8050**. `UltimateRequest` model (message, userid, role, useallservices) and `UltimateResponse` (response, servicesused, consciousnesslevel, processingtime, architecturelayers, consciousnesslayers, truthverdict, confidence_decay_applied) both live. `SERVICES` registry and `discover_services()` health-check loop operational — **health results cached 30s TTL, 2s timeout per service** (added March 18). `prefrontal_planner` `ConsciousnessLayer` appended on every `/chat` call. `call_nbb_prefrontal` called unconditionally at the start of every `ultimate_chat` execution; NBB prefrontal cortex is `nbb-i-containers` at **127.0.0.1:8101** (internal 7005), confirmed running; payload `message` field confirmed correct (422 errors resolved). **Phase 1.4 — BBB 7-filter input stack:** EthicalFilter, SpiritualFilter, SafetyMonitor (word-boundary regex fix applied March 15), ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness — all confirmed operational. **`truth_score` null guard and fail-open on HTTP 500 added March 18.** **Phase 1.45 — Community Memory Retrieval (NEW March 17, 2026):** Semantic retrieval via `all-minilm:latest` (384-dim, pulled March 17 into `jarvis-ollama:11434`) queries `autonomous_learner` ChromaDB collection (21,181 records); top-5 most semantically similar community interaction records are prepended to `enhanced_message` before LLM processing. All ChromaDB collections use 384-dimensional vectors — `nomic-embed-text` (768-dim) is incompatible and must not be used. `call_truth_filter` invoking BBB on **0.0.0.0:8016** (`jarvis-blood-brain-barrier`, confirmed) for input truth verdict (Phase 2), attached as `truthverdict` on `UltimateResponse`. **Phase 3 — Psychology Pre-Assessment:** `jarvis-psychology-services` at **127.0.0.1:8019** providing `/psychological_assessment` — severity classification and crisis indicator check on every production request. **Phase 4 — RAG from three PostgreSQL databases + ChromaDB:** PostgreSQL `msjarvis` at **127.0.0.1:5433** (5,416,521 verified GBIM entities, 80 epochs, 206 source layers); `gisdb` at **127.0.0.1:5433** (PostGIS, 13 GB, 39 tables, 993 ZCTA centroids); `jarvis-local-resources-db` at **127.0.0.1:5435** (community resources); ChromaDB at **127.0.0.1:8000** (`chroma_data` volume, restored March 15); `psychological_rag_domain` at **127.0.0.1:8006** (restored March 15). **Phase 3.5 — LM Synthesizer + Voice Delivery (MERGED March 18):** `jarvis-lm-synthesizer` at **127.0.0.1:8001** now calls `jarvis-ollama:11434/api/generate` directly with `llama3.1:latest` and the Ms. Egeria Jarvis persona prompt injected. The previously separate Phase 3.75 (Final Polish via `llm22-proxy`) is **eliminated** — merged into a single Ollama pass, saving ~40 seconds per query. `jarvis-20llm-production` at **127.0.0.1:8008** (confirmed) as primary LLM fabric; **21 active models** (22 proxies; StarCoder2 returns 0 characters on community queries and is excluded from consensus); wall-clock consensus ~320–360s (rich prompt, CPU-only). Semaphore proxy (`jarvis-semaphore`, **port 8030**, `max_concurrent: 4`) confirmed as mandatory intermediary. **Phase 3 — Judge Pipeline (UPDATED):** 4 judges (truth, consistency, alignment, ethics) at ports 7230/7231/7232/7233 (corrected from 7239, March 16) now evaluate the **consensus answer only** — `raw_responses` dump from all 21 models is no longer sent to judges, reducing judge time from ~85–100s to ~60–86s. **Phase 7 — 69-DGM cascade:** `jarvis-69dgm-bridge` port 9000, 23 connectors × 3 stages = 69 DGM operations per pass, architecturally authoritative; `CHROMA_HOST` fix deployed March 16. `apply_output_guards_async` calling BBB `/filter` as Phase 4.5 output guard; timeout **8.0s** (fixed 2026-03-02); **fail-open on HTTP 500 and debug logging added March 18.** **Phase 5 — Confidence decay multiplier:** `confidence_decay` from GBIM temporal metadata applied to all responses. `normalize_identity` applied to every response. `background_rag_store` scheduling near-duplicate check and RAG write after every `/chat` response. **Redis-backed async job system (NEW March 17):** `/chat/async` + `/chat/status/{job_id}` + `/chat/cancel/{job_id}` + `/chat/cancel/all` — job state persists in Redis (`jarvis-redis:6379`) with 30-minute TTL; true asyncio task cancellation stops 21-LLM pipeline mid-run. **All 79 containers fully compose-managed as of March 17** (`~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`, Docker Compose v5.1.0, all `build:` → `image:` conversions complete). **End-to-end benchmark: ~436 seconds** (March 18, 2026, optimized from 532s baseline; richer pipeline with community memory enrichment). |
-| **Partially implemented / scaffolded** | `truth_verdict` is attached to every response and is advisory in the current deployment — it does not hard-gate the input pipeline. Modules in `SERVICES` registry including `qualia_engine`, `i_containers`, `neurobiological_master`, and `autonomous_learner` are exercised in other workflows but not yet wired into the `/chat` path. `ms_jarvis_memory` is currently append-only; deduplication via near-duplicate similarity check is advisory. POC verification loop for GBIM `needs_verification=TRUE` entities not yet automated (flag-and-attenuate only). Hallucination from LLMs on community resources (Mount Hope, local nonprofits) remains open: verified knowledge bases (`gis_rag`, `local_resources`) return empty for Mount Hope queries; factually accurate programs (LIHEAP, WV 2-1-1) pass BBB; fabricated organization names are blocked by ethical filter. Root cause: real community resource data not yet in verified databases. |
-| **Future work / design intent only** | Hard-gate behavior on `truth_verdict` for certain role or threat levels. Full wiring of `qualia_engine`, `i_containers`, `neurobiological_master`, and `autonomous_learner` into the `/chat` execution path. Automated POC verification loop (re-contact resource POC when `confidence_decay` threshold crossed, reset `confidence` to 1.0 on confirmation). Richer per-phase timing and per-model latency exposure via a dedicated metrics endpoint. UI layer consuming `/chat/async` poll pattern for non-blocking chat interface. GPU server acceleration (WVU partnership — pending). |
+| **Host** | Lenovo Legion 5 (16IRX9) |
+| **CPU** | Intel Core i9 |
+| **GPU** | NVIDIA RTX 4050 — present but not used for inference |
+| **RAM** | 29 GB system RAM |
+| **Inference mode** | CPU-only — `size_vram: 0` on all Ollama models |
+| **Ollama container memory limit** | 20 GB |
+| **Operating system** | Linux (Docker host) |
+| **Docker Compose version** | v5.1.0 (upgraded March 17, 2026 from v1.29.2) |
+| **Active containers** | 79 (fully compose-managed as of March 17, 2026) |
+| **PostgreSQL `msjarvis`** | port 5433 — 5,416,521 GBIM entities, 80 epochs, 206 source layers |
+| **PostgreSQL `gisdb`** | port 5433 — PostGIS, 13 GB, 39 tables, 993 ZCTA centroids |
+| **PostgreSQL `jarvis-local-resources-db`** | port 5435 — community resources |
+| **ChromaDB** | port 8000 — `chroma_data` volume, 384-dim (`all-minilm:latest`) |
+| **`autonomous_learner` collection** | 21,181 records (growing ~288/day) |
+| **Location** | Oak Hill / Mount Hope, West Virginia |
 
-> **This chapter is the canonical description of the `ultimatechat` and `chatlight` execution paths.** All other chapters that reference "what happens on a user chat," "main brain coordination," or the `UltimateResponse` structure should cross-reference here.
->
-> **`ultimatechat` authoritative 9-phase sequence (March 18, 2026):**
-> `UltimateRequest` received → `prefrontal_planner` layer appended → `call_nbb_prefrontal` executed → **Phase 1.4** BBB 7-filter input stack (fail-open, `truth_score` null guard) → **Phase 1.45** community memory retrieval (`all-minilm:latest` → `autonomous_learner` 21,181 records → top-5 prepended to `enhanced_message`) → **Phase 2** `call_truth_filter` via BBB port 8016 `POST /truth` → `truthverdict` attached (advisory) → **Phase 3 (pre-LLM)** psychology pre-assessment via `jarvis-psychology-services` port 8019 → **Phase 4** RAG context via `jarvis-spiritual-rag` port 8005 (queries PostgreSQL `msjarvis` + `gisdb` + `jarvis-local-resources-db` + ChromaDB port 8000 + `psychological_rag_domain` port 8006) + `jarvis-web-research` (internal) → **Phase 3.5** LM Synthesizer port 8001 → `jarvis-ollama:11434/api/generate` (`llama3.1:latest`, Ms. Jarvis persona, merged with former Phase 3.75) → **Phase 2.5** `llm20production` synthesis via semaphore proxy port 8030 → `jarvis-20llm-production` port 8008 → **Phase 3 (post-LLM)** 4-judge pipeline ports 7230–7233 (consensus answer only, `raw_responses` eliminated) → **Phase 7** 69-DGM cascade port 9000 → **Phase 4.5** `apply_output_guards_async` via BBB (8.0s timeout, fail-open) → **Phase 5** `confidence_decay` multiplier → `normalize_identity` → `background_rag_store` into `ms_jarvis_memory` → `UltimateResponse` returned.
->
-> **`/chat/async` + `/chat/status/{job_id}` (Redis-backed async, March 17, 2026):**
-> `POST /chat/async` received → `job_id` returned instantly → background task runs full 9-phase pipeline → job state stored in Redis (`jarvis-redis:6379`, 30-min TTL, survives container restarts) → client polls `GET /chat/status/{job_id}` → result with full `UltimateResponse` fields. `DELETE /chat/cancel/{job_id}` and `DELETE /chat/cancel/all` perform true asyncio task cancellation — 21-LLM pipeline stops immediately mid-run.
-
----
-
-# 17. Executive Coordination Overview
-
-This chapter describes the concrete control layer implemented by the `Ms. Jarvis ULTIMATE` main-brain service on **port 8050**, which decides which subsystems to invoke, in what order, and under which constraints for each request. It serves as a bridge between the neuro-inspired NBB modules and the containerized services that implement them, with emphasis on responsibilities, information flows, and observed runtime behavior. As of March 18, 2026, the full 9-phase production pipeline has been end-to-end verified at approximately **436 seconds** (optimized from a 532s pre-optimization baseline), with Phase 1.45 community memory retrieval added, Phase 3 judges operating on consensus-only, and Phases 3.5 and 3.75 merged into a single LM Synthesizer + Voice Delivery pass.
-
----
-
-## 17.1 Role in the System
-
-In the current deployment, the executive layer is realized by a single FastAPI application, `jarvis-main-brain` (confirmed running at **127.0.0.1:8050**), which coordinates 79 operational containers across consciousness, processing, and infrastructure services based on a static `SERVICES` registry and live health checks (cached 30s TTL, 2s per-service timeout as of March 18). For each user request, this layer interprets the input, runs a neuro-inspired prefrontal stage, runs a 7-filter BBB input gate, retrieves semantic community memories (Phase 1.45), performs psychology pre-assessment, builds RAG context from three PostgreSQL databases and ChromaDB, synthesizes via the 21-active-model ensemble, validates through the judge pipeline and 69-DGM cascade, applies the BBB output guard, and applies the GBIM temporal confidence decay multiplier before returning a coherent reply.
-
-Interpretation is handled via the `UltimateRequest` model, which captures the user's message, `userid`, a `role` (for example `"community"`), and a `useallservices` flag indicating whether broad fan-out is permitted. Planning is expressed in explicit code that uses the `SERVICES` dictionary plus `discover_services()` to decide which components are actually available. Integration merges the outputs of selected components, applies BBB-based safety filtering, normalizes Ms. Jarvis's identity, applies the confidence decay multiplier, and returns an `UltimateResponse` containing `response`, `servicesused`, `consciousnesslevel`, `processingtime`, `architecturelayers`, `consciousnesslayers`, `truthverdict`, and `confidence_decay_applied`.
-
-This chapter is the system of record for what actually happens on a live user chat. Other chapters describing "main brain behavior," "consciousness coordinator," or "executive layer" — including Chapters 11, 12, 16, 23, and 25 — should point here for the authoritative execution path.
+> **GPU status note:** The NVIDIA RTX 4050 is present but all inference runs CPU-only (`size_vram: 0` on every Ollama model). The path to GPU-accelerated inference is the WVU partnership server, currently pending. All benchmarks in this chapter reflect the CPU-only performance envelope and represent a conservative floor.
 
 ---
 
-## 17.2 Inputs and Signals
+## 39.2 End-to-End Benchmark
 
-When deciding how to process a `/chat` call, the coordinator draws on several classes of signals. The primary input is the `UltimateRequest` payload, which encodes the current message, the user identity, a role label, and a high-level instruction about whether to use all services. A second key input is the dynamic `available_services` map, obtained by probing each entry in the `SERVICES` dictionary for a healthy response via `check_service_health` — **results are now cached for 30 seconds with a 2-second per-service timeout** (added March 18, eliminating the ~0.7s-per-query overhead after the first check).
+### 39.2.1 Primary Benchmark (March 18, 2026)
 
-The `SERVICES` registry includes: `qualia_engine`, `consciousness_bridge`, `blood_brain_barrier`, `neurobiological_master`, `i_containers`, `autonomous_learner`, `rag_server`, `web_research`, `llm20_production`, `lm_synthesizer` (port 8001), `psychology_services` (port 8019), `psychological_rag_domain` (port 8006), and NBB microservices. All three PostgreSQL databases (ports 5433 and 5435) and ChromaDB (port 8000, checked via `/api/v1/heartbeat`) are also monitored. Ollama is checked via `/api/tags` to eliminate double-404 round trips.
+| Metric | Value |
+|---|---|
+| **Benchmark date** | March 18, 2026 |
+| **Query** | "What community resources are available in Fayette County, WV?" |
+| **Pipeline** | Full 9-phase ULTIMATE pipeline |
+| **All phases approved** | Yes |
+| **End-to-end response time** | **~436 seconds** |
+| **Pre-optimization baseline** | 532 seconds (before March 16–18 optimizations) |
+| **Time saved by optimizations** | ~96 seconds (~18% improvement) |
 
-For asynchronous jobs created via `/chat/async`, the system maintains Redis-backed job tables (`jarvis-redis:6379`, 30-minute TTL) keyed by `job_id`, with each entry storing job status (queued, running, done, or error), a progress string, creation time, the original message and `userid`, and on completion the full result object. True asyncio task cancellation is supported — `DELETE /chat/cancel/{job_id}` or `DELETE /chat/cancel/all` stops the 21-LLM pipeline immediately mid-run via `_job_tasks[job_id].cancel()`. Global settings — including the API key, the `MAX_CONCURRENT_CHATS` semaphore limit (2 sessions), and service URLs — are represented via environment variables and module-level constants.
+### 39.2.2 Historical Benchmark (March 15, 2026, commit `b90f9ff`)
+
+| Metric | Value |
+|---|---|
+| **Benchmark date** | March 15, 2026 |
+| **Query** | "What community resources are available in Fayette County, WV?" |
+| **End-to-end response time** | 349.87 seconds |
+| **Phases** | 9-phase pipeline; Phase 1.45 and merged Phase 3.5/3.75 not yet deployed |
+| **LLM models** | 22/22 HTTP 200 (StarCoder2 still counted; consensus extraction issue not yet flagged) |
+
+> **Note on the apparent regression:** The March 18 benchmark (~436s) is higher than the March 15 benchmark (349.87s) because the pipeline is **richer**, not slower. Phase 1.45 community memory retrieval, the merged LM Synthesizer persona synthesis, and the consensus-only judge optimization were all absent on March 15. The March 15 figure represents a less complete pipeline. The March 16–18 sessions first revealed the actual full-pipeline cost (532s) and then optimized it to ~436s. The 349.87s figure should be understood as a partial-pipeline measurement.
 
 ---
 
-## 17.3 Concrete Request Flow — 9-Phase Pipeline
+## 39.3 Phase-by-Phase Timing Profile
 
-In the current deployment, the concrete decision flow for a synchronous `/chat` request is implemented by the `ultimate_chat` handler and follows a reproducible, fixed 9-phase sequence. The full pipeline end-to-end benchmark is approximately **436 seconds** (March 18, 2026, optimized from 532s baseline).
+The following table documents the wall-clock cost of each phase of the full 9-phase pipeline as measured on the reference hardware (March 18, 2026, CPU-only inference, full community-memory-enriched prompt):
 
-**Phase 1 — Service discovery and prefrontal planning.** When a request arrives, the coordinator logs the message and constructs an empty `available_services` dictionary, populating it by iterating over all `(service_name, url)` pairs in `SERVICES` and invoking `check_service_health`. Health results are **cached for 30 seconds** with a **2-second timeout per service** — after the first query, Phase 1 completes in ~0.7s or less. The coordinator then appends a `ConsciousnessLayer` named `"prefrontal_planner"` with `kind="prefrontal"` and `status="active"`. Immediately afterward, it calls `call_nbb_prefrontal` with the raw message and a simple context dictionary containing `userid` and `role`. The NBB prefrontal cortex service is `nbb-i-containers` at **127.0.0.1:8101** (internal 7005), confirmed running; the correct payload uses the `message` field (422 errors resolved March 18). Its result is recorded as a second `ConsciousnessLayer` named `"nbb_prefrontal_cortex"`. This stage runs unconditionally at the start of every `ultimate_chat` call.
-
-**Phase 1.4 — BBB 7-filter input stack.** Before community memory retrieval, the request passes through the 7-filter blood-brain barrier input stack on **port 8016**: EthicalFilter, SpiritualFilter, SafetyMonitor (word-boundary regex fix applied March 15 — word-boundary threshold ≤3 chars eliminates false-positives on community resource terms), ThreatDetection, SteganographyDetection (deployed March 15), TruthVerification (deployed March 15), and ContextAwareness (deployed March 15). **As of March 18:** a `truth_score` null guard prevents `KeyError` crashes on BBB responses with missing fields, and the BBB input filter is **fail-open on HTTP 500** — if the BBB service returns a non-200 response, the pipeline continues rather than blocking. Total Phase 1.4 cost: ~1.3s. See **Chapter 16** for full BBB specification.
-
-**Phase 1.45 — Semantic community memory retrieval (NEW — March 17, 2026).** After the BBB input filter approves the query and before truth verdict, the main brain performs semantic memory retrieval grounded in the `autonomous_learner` ChromaDB collection:
-
-1. The query is embedded via `all-minilm:latest` at `jarvis-ollama:11434/api/embeddings`, producing a **384-dimensional** vector.
-2. The vector is used to query `autonomous_learner` (21,181 records as of March 18, 2026).
-3. The 5 most semantically similar community interaction records are retrieved (documents + metadata + distances).
-4. The retrieved memories are prepended to `enhanced_message` before it reaches the LLM ensemble.
-
-> **Critical — Embedding model lock:** All ChromaDB collections use **384-dimensional vectors** produced by `all-minilm:latest`. The `nomic-embed-text` model produces **768-dimensional vectors** and is **incompatible** with all existing collections. Any service, script, or migration that generates embeddings for ChromaDB must use `all-minilm:latest`. The `_DummyCollection` error that previously blocked semantic retrieval is resolved — `all-minilm` semantic retrieval is the fix.
-
-**Phase 2 — Truth verdict on the input.** The coordinator sends the original user message through `call_truth_filter`, which invokes `jarvis-blood-brain-barrier` on **port 8016** via `POST /truth` and returns a slim verdict containing `valid`, `confidence`, and `principalreasons`. This verdict is attached as `truthverdict` in the final response. In the current deployment, the pipeline treats this verdict as advisory rather than as a hard gate; hard-gate behavior for specific role or threat levels is identified as future work.
-
-**Phase 3 (pre-LLM) — Psychology pre-assessment.** The request is assessed by `jarvis-psychology-services` at **127.0.0.1:8019** (deployed March 15, 2026) via `/psychological_assessment`. This service classifies severity and checks for crisis indicators on every production request, returning `psychological_assessment`, `therapeutic_guidance`, `emotional_support`, `wellbeing_recommendations`, and `evidence_based_approaches`. It is backed by `psychological_rag_domain` (port 8006), which queries ChromaDB's psychological corpus (968 records). This phase was absent prior to March 15 due to missing container builds and the missing ChromaDB volume.
-
-**Phase 4 — Context building with RAG and web research.** For context gathering, the coordinator checks whether `"rag_server"` and `"web_research"` appear in `available_services` and, if so, calls them via `build_rag_context` and `build_web_context`. The RAG helper queries `jarvis-spiritual-rag` at **port 8005** (confirmed running — earlier plan documents listed 8103; the correct port is **8005**) via its `/search` endpoint, which in turn queries:
-- PostgreSQL `msjarvis` (port 5433) — 5,416,521 GBIM beliefs with temporal decay metadata
-- PostgreSQL `gisdb` (port 5433) — PostGIS, 13 GB, 39 tables, 993 ZCTA centroids
-- PostgreSQL `jarvis-local-resources-db` (port 5435) — community resources (confirmed in end-to-end benchmark)
-- ChromaDB (port 8000, `chroma_data` volume) — `gbim_worldview_entities` and other collections (all 384-dim, `all-minilm:latest`)
-- `psychological_rag_domain` (port 8006) — psychological corpus (968 records)
-
-The web helper calls `jarvis-web-research` (internal Docker network). These blocks are combined into a `context_block` and used by `build_egeria_prompt` to construct the enhanced prompt grounded in PostgreSQL GBIM spatial and institutional knowledge, with Phase 1.45 community memories already prepended.
-
-**Phase 3.5 — LM Synthesizer + Voice Delivery (MERGED — March 18, 2026).** The previously separate Phase 3.5 (LM Synthesizer refinement) and Phase 3.75 (Final LLM Polish via `llm22-proxy`) have been **merged into a single Ollama call**. `jarvis-lm-synthesizer` at **port 8001** now:
-1. Takes the judge pipeline's `final_answer` directly.
-2. Calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (LM Synthesizer URL fixed from `jarvis-roche-llm` to `jarvis-ollama`, March 18).
-3. Injects the Ms. Egeria Jarvis persona prompt — warm, maternal, Appalachian voice, no meta-commentary.
-4. Returns the final response directly without a separate polish pass.
-
-**Phase 3.75 is eliminated.** The redundant `llm22-proxy` call is removed, saving approximately **40 seconds per query**. Wall-clock cost for the merged Phase 3.5: ~30–55s.
-
-**Phase 2.5 — LLM fabric selection and execution.** The coordinator targets `llm20_production` as its primary LLM fabric. The ensemble (`jarvis-20llm-production`, port **8008**) is accessed via the semaphore proxy (`jarvis-semaphore`, port **8030**, `max_concurrent: 4`), which is a mandatory intermediary that serializes concurrent Ollama requests. The semaphore proxy requires a float `timeout` value in its payload; the main brain passes `600.0` and uses `httpx.Timeout(None, connect=5.0, read=None)` on its own client. **21 of 22 proxy containers produce usable responses**; StarCoder2 (llm7-proxy, port 8207) frequently returns 0-character responses on community queries and is excluded from consensus extraction. Wall-clock ensemble time is approximately **320–360 seconds** for the full pipeline (rich prompt, CPU-only inference). Standalone direct calls to port 8008 with short prompts complete in ~110s; the difference reflects prompt size in the full pipeline.
-
-**Active LLM model roster (21 active, 22 proxies):**
-
-| Proxy | Port | Model |
+| Phase | Description | Wall-clock cost |
 |---|---|---|
-| llm1-proxy | 8201 | TinyLlama (`tinyllama:latest`) |
-| llm2-proxy | 8202 | Gemma (`gemma:2b`) |
-| llm3-proxy | 8203 | MedLlama2 (`medllama2:latest`) |
-| llm4-proxy | 8204 | MiniCPM-V (`minicpm-v:latest`) |
-| llm5-proxy | 8205 | LLaVA (`llava:latest`) |
-| llm6-proxy | 8206 | SQLCoder (`sqlcoder:latest`) |
-| llm7-proxy | 8207 | StarCoder2 (`starcoder2:latest`) — **0-char on community queries** |
-| llm8-proxy | 8208 | CodeLlama (`codellama:latest`) |
-| llm9-proxy | 8209 | DeepSeek Coder (`deepseek-coder:latest`) |
-| llm10-proxy | 8210 | Phi3 Mini (`phi3:mini`) |
-| llm11-proxy | 8211 | (assigned — verify against `llm_consensus_20_FINAL.py`) |
-| llm12-proxy | 8212 | Dolphin-Phi (`dolphin-phi:latest`) |
-| llm13-proxy | 8213 | Orca-Mini (`orca-mini:latest`) |
-| llm14-proxy | 8214 | Qwen2 (`qwen2:latest`) |
-| llm15-proxy | 8215 | Zephyr (`zephyr:latest`) |
-| llm16-proxy | 8216 | Starling-LM (`starling-lm:latest`) |
-| llm17-proxy | 8217 | Neural-Chat (`neural-chat:latest`) |
-| llm18-proxy | 8218 | OpenChat (`openchat:latest`) |
-| llm19-proxy | 8219 | Vicuna (`vicuna:latest`) |
-| llm20-proxy | 8220 | LLaMA 2 (`llama2:latest`) |
-| llm21-proxy | 8221 | Mistral (`mistral:latest`) |
-| llm22-proxy | 8222 | LLaMA 3.1 (`llama3:latest`) |
+| **Phase 1** | Service discovery + prefrontal planning (health cache: 30s TTL, 2s timeout/service) | ~0.7s (cached after first query) |
+| **Phase 1.4** | BBB 7-filter input stack (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness; fail-open on HTTP 500; `truth_score` null guard) | ~1.3s total (incl. Phase 1.45) |
+| **Phase 1.45** | Semantic community memory retrieval — `all-minilm:latest` (384-dim) → `autonomous_learner` (21,181 records) → top-5 prepended to `enhanced_message` | Included in Phase 1.4 total |
+| **Phase 1.75–3 (pre-LLM)** | Truth verdict (BBB port 8016) + psychology pre-assessment (port 8019) + consciousness layers | ~0.5s |
+| **Phase 4** | RAG context building — `jarvis-spiritual-rag` (port 8005) querying PostgreSQL `msjarvis` + `gisdb` + `jarvis-local-resources-db` + ChromaDB + `psychological_rag_domain`; web research (internal) | Included in Phase 1.75–3 total |
+| **Phase 2.5** | 21-model LLM ensemble synthesis — semaphore proxy (port 8030) → `jarvis-20llm-production` (port 8008), rich prompt, CPU-only | **~320–360s** (hardware floor) |
+| **Phase 3 (post-LLM)** | 4-judge pipeline (consensus answer only; `raw_responses` dump eliminated; ports 7230–7233) | **~60–86s** (reduced from ~85–100s) |
+| **Phase 3.5** | LM Synthesizer + Voice Delivery (merged; `jarvis-ollama:11434/api/generate`, `llama3.1:latest`, Ms. Jarvis persona; Phase 3.75 eliminated) | **~30–55s** (saves ~40s vs. two-pass) |
+| **Phase 7 + Phase 4.5** | 69-DGM cascade (port 9000) + BBB output guard (port 8016, 8.0s timeout, fail-open) | ~0.5s |
+| **Phase 5 + post-processing** | Confidence decay multiplier + `normalize_identity` + `background_rag_store` (async) | ~0.5s |
+| **Total** | Full 9-phase pipeline | **~436s** |
 
-For full details on the ensemble and judge pipeline, see **Chapter 33**.
+### 39.3.1 Optimization History
 
-**Phase 3 (post-LLM) — Judge pipeline (UPDATED — March 16, 2026).** All LLM ensemble outputs pass through the 4-judge pipeline (truth, consistency, alignment, ethics) at ports 7230, 7231, 7232, and 7233 (corrected from previously wrong port 7239). **Critically, the judges now evaluate the consensus answer only** — the full `raw_responses` dump from all 21 models is no longer sent to the judge payload. This change reduced judge pipeline wall-clock time from ~85–100s to **~60–86s**, a significant throughput improvement. Judge outputs are architecturally authoritative and inform the `final_answer` handed to the LM Synthesizer.
+| Optimization | Applied | Time saved |
+|---|---|---|
+| Judge pipeline consensus-only (eliminated `raw_responses` dump) | March 16, 2026 | ~15–20s per query |
+| Phase 3.5 + Phase 3.75 merged into single Ollama call | March 18, 2026 | ~40s per query |
+| Health check caching (30s TTL, 2s timeout) | March 18, 2026 | ~0.7s after first query |
+| BBB fail-open on HTTP 500 (eliminates hang on BBB errors) | March 18, 2026 | eliminates hangs |
+| Judge URL corrections (7239 → 7230/7231/7232/7233) | March 16, 2026 | eliminates silent judge failures |
+| LM Synthesizer URL fix (`jarvis-roche-llm` → `jarvis-ollama:11434`) | March 18, 2026 | eliminates Phase 3.5 errors |
+| **Total measured improvement** | March 16–18, 2026 | **~96s (~18%)** |
 
-**Phase 7 — 69-DGM cascade validation.** All responses pass through `jarvis-69dgm-bridge` at **port 9000**, which runs 23 active connectors through a 3-stage observe–propose–evaluate cascade: 23 × 3 = 69 DGM operations per pass. `CHROMA_HOST` fix deployed March 16 restored ChromaDB connectivity for the bridge. Verdicts are architecturally authoritative and are not overridden by downstream components. All validation is grounded in PostgreSQL `msjarvis` GBIM beliefs. See **Chapter 32** for full 69-DGM specification.
+### 39.3.2 Remaining Hardware Floor
 
-**Phase 4.5 — BBB output guard.** The raw LLM output passes through `clean_response_for_display` to strip legacy RAG metadata, then through `apply_output_guards_async`, which calls the BBB's `/filter` endpoint on port 8016 using `httpx.AsyncClient(timeout=8.0)`. The 8-second timeout is a permanent architectural fix (2026-03-02). **As of March 18:** the output guard is **fail-open on HTTP 500** — if the BBB `/filter` endpoint returns a non-200 response, the filtered content passes through unchanged and the failure is logged. Debug logging now emits explicit `approved`/`blocked` status on every output guard invocation.
+The dominant cost — **~320–360 seconds** — is Phase 2.5: the 21-model LLM ensemble running CPU-only inference on the Legion 5. This is a hardware floor, not a software optimization target. The LLM ensemble wall clock varies with:
 
-**Phase 5 — Confidence decay multiplier.** The GBIM temporal confidence decay metadata (deployed March 15, 2026) is applied to the response. Every GBIM entity carries `last_verified`, `confidence_decay`, and `needs_verification` fields. The `confidence_decay` multiplier attenuates response confidence when the response draws on entities not recently confirmed. At the March 18 baseline, 100% of 5,416,521 entities carry `needs_verification=TRUE` — the expected state at system launch, not a data quality error. The POC verification loop (future work) will clear this flag as entities are confirmed.
-
-**Post-processing.** After Phase 5, `normalize_identity` ensures the answer speaks as Ms. Egeria Jarvis rather than as a generic LLM — confirmed producing identity-aware responses on both synchronous and async paths. In parallel, `background_rag_store` checks for near-duplicate entries via `/search` with `top_k=1` and, if no near-duplicate is found, stores a truncated version of the query and response plus metadata into `ms_jarvis_memory`. The final `UltimateResponse` aggregates the safe, normalized answer, `servicesused`, `consciousnesslevel` (currently `"ultimate_collective"`), total `processingtime`, `architecturelayers`, the consciousness layers, the BBB `truthverdict`, and `confidence_decay_applied`.
+- **Prompt size:** Direct calls to port 8008 with short prompts complete in ~110s. The full pipeline uses a community-memory-enriched, RAG-grounded prompt that is substantially longer, driving the ~320–360s range.
+- **Semaphore queuing:** With `max_concurrent: 4` in the semaphore proxy, back-to-back requests accumulate. The semaphore should be drained between benchmark runs.
+- **Hardware bottleneck:** `size_vram: 0` on all models confirms no GPU acceleration. The path to sub-120s ensemble times is the WVU partnership GPU server (pending).
 
 ---
 
-## 17.4 Interaction with Other Layers
+## 39.4 Container Infrastructure
 
-Because the `SERVICES` registry spans consciousness, processing, gateway, and infrastructure layers, the executive coordinator sits at their intersection. It decides whether a given request will be routed through context layers (all three PostgreSQL databases, ChromaDB, `psychological_rag_domain`) or handled with a narrower subset when those subsystems are unavailable, and it unconditionally exercises the NBB prefrontal cortex, Phase 1.45 community memory retrieval, 7-filter BBB input stack, psychology pre-assessment, LM Synthesizer + Voice (merged), judge pipeline, 69-DGM cascade, and BBB output guard on every production request.
+### 39.4.1 Docker Compose Upgrade
 
-Although the registry includes modules like `qualia_engine`, `i_containers`, `autonomous_learner` (queried at Phase 1.45 for community memory; not yet wired into the core `/chat` orchestration path), and `neurobiological_master`, these remain available for other workflows and are identified as future expansion points for the `/chat` path. Three new services deployed March 15 — `jarvis-hippocampus` (episodic memory indexing), `jarvis-toroidal-geometry` (topological spatial reasoning), and `jarvis-psychology-services` port 8019 — are now wired into the production path. All 79 containers are fully compose-managed as of March 17, 2026, via `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml` (Docker Compose v5.1.0, all `build:` directives converted to `image:` references — no rebuilds required on startup).
+| Aspect | Previous state (March 15, 2026) | Current state (March 18, 2026) |
+|---|---|---|
+| **Docker Compose version** | v1.29.2 | **v5.1.0** |
+| **Upgrade driver** | v1.29.2 produced `ContainerConfig` crash bug on startup | v5.1.0 eliminates crash bug |
+| **Compose file** | `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml` | Same path, updated content |
+| **`build:` directives** | Present on most services — rebuilt images on every `docker compose up` | **All `build:` entries converted to `image:` references** — no rebuild on startup |
+| **Container startup time** | Variable; rebuilds added minutes on first `up` | Deterministic — image pulls if missing, runs if present |
 
----
+> **The `build:` → `image:` conversion is a critical operational change.** Prior to March 17, running `docker compose up -d` would trigger image rebuilds for most services, making startup slow and unpredictable. All 79 containers now reference pre-built images. `docker compose up -d` simply starts containers using existing images. This makes the system reboot-safe: after a power cycle or crash, the verified two-command reboot sequence restores the full 79-container system without rebuilding anything.
 
-## 17.5 Asynchronous Job Handling
+### 39.4.2 Hash-Prefixed Container Names — Fixed
 
-The executive layer exposes a Redis-backed asynchronous interface for long-running requests.
+Eight containers previously received Docker-assigned hash-prefixed names (for example, `981f44e18cf6_jarvis-20llm-production`) rather than clean, human-readable names. This made log inspection, `docker exec` commands, and health checks fragile and error-prone.
 
-**Full-pipeline async (`/chat/async`, `/chat/status/{job_id}`, `/chat/cancel/{job_id}`, `/chat/cancel/all`) — NEW March 17, 2026.** When a client submits an async request, the service generates a `job_id`, stores an entry in Redis (`jarvis-redis:6379`, 30-minute TTL) with `status: "processing"`, and launches `process_chat_job` as an independent asyncio task registered in `_job_tasks`. That coroutine runs the full 9-phase `ultimate_chat` coordination pipeline — service discovery, NBB prefrontal execution, 7-filter BBB input stack, Phase 1.45 community memory retrieval, truth verdict, psychology pre-assessment, RAG context building, LM Synthesizer + Voice (merged), 21-model ensemble synthesis, judge pipeline (consensus-only), 69-DGM validation, BBB output guard, confidence decay multiplier, identity normalization, and background RAG storage — updating job status as it proceeds and marking the entry `"complete"` or `"error"` on termination. **Job state survives `jarvis-main-brain` container restarts** because Redis persists the state independently. `DELETE /chat/cancel/{job_id}` performs true asyncio task cancellation — the 21-LLM pipeline stops immediately mid-run. `DELETE /chat/cancel/all` cancels all active jobs simultaneously.
+| Fix applied | March 17–18, 2026 |
+|---|---|
+| **Method** | `container_name:` added to all 8 affected service entries in `docker-compose.yml` |
+| **Affected containers** | `jarvis-20llm-production` and 7 others previously hash-prefixed |
+| **Result** | All 79 containers now have clean, stable names |
+| **Verification** | `docker ps --format '{{.Names}}'` shows no hash-prefixed entries |
 
-**Lightweight consensus async (`/chatlight/async` + `/chatlight/status/{job_id}`).** Added 2026-03-02 (git tag `v2026.03.02-chatlight-async-working`). This interface bypasses the full prefrontal, community memory, RAG, and web-research pipeline and routes directly to the 21-model ensemble via the semaphore proxy. The submit endpoint returns a `job_id` and `poll_url` instantly. The client polls `/chatlight/status/{job_id}` at any interval; the response includes `status` (queued / running / done / error), `elapsed` seconds, and on completion a `result` object containing `answer`, `response`, `latency`, `mode: "light-async"`, `models_responded`, and `userid`. `normalize_identity` is applied, confirming that Ms. Jarvis's identity voice is present on the lightweight path. Note: `/chatlight` does not include Phase 1.45 community memory enrichment; use `/chat/async` for community-memory-grounded responses.
+### 39.4.3 Previously Missing Containers Added
 
----
+| Category | Previous state | Current state |
+|---|---|---|
+| **Services requiring manual startup** | 6 containers (judges + 69dgm bridge) started manually | All 6 managed by `~/jarvis_startup.sh` with retry logic |
+| **Corpus containers** | 3 not in compose (`jarvis-local-resources`, etc.) | All corpus containers in compose permanently |
+| **Missing service containers** | 6 missing (`jarvis-hippocampus`, `jarvis-gis-rag`, `jarvis-spiritual-rag`, etc.) | All 6 added with correct `image:` references |
+| **Total compose-managed** | ~70 of 79 containers | **All 79 containers** |
 
-## 17.6 Verified Reboot Sequence (NEW — March 17, 2026)
-
-After any system reboot or `docker compose` restart, Ms. Egeria Jarvis is brought back online with two commands:
+### 39.4.4 Verified Reboot Sequence
 
 ```bash
-# Step 1: Start all compose-managed containers (79 total)
+# Step 1: Start all 79 compose-managed containers
 cd ~/msjarvis-rebuild-working/msjarvis-rebuild && docker compose up -d
 
-# Step 2: Start and verify the six pipeline containers + health checks
+# Step 2: Start and verify the six pipeline containers
 ~/jarvis_startup.sh
 ```
 
-**Go signal:** The startup script confirms six green health checkmarks:
+**Go signal — six green checkmarks from `~/jarvis_startup.sh`:**
 - `jarvis-judge-truth` ✅
 - `jarvis-judge-consistency` ✅
 - `jarvis-judge-alignment` ✅
@@ -277,106 +164,143 @@ cd ~/msjarvis-rebuild-working/msjarvis-rebuild && docker compose up -d
 - `jarvis-judge-pipeline` ✅
 - `jarvis-69dgm-bridge` ✅
 
-The startup script (`~/jarvis_startup.sh`) manages these six containers for historical reasons; it includes health verification with retry logic using `docker exec` Python `urllib` internally, as these containers do not expose ports to the host. Container management details as of March 17, 2026:
-
-- All 79 containers defined in `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`
-- All `build:` directives replaced with `image:` references — **no rebuild required on startup**
-- Docker Compose v5.1.0 (upgraded from broken v1.29.2, which caused `ContainerConfig` crash bug)
-- All 8 previously hash-prefixed container names (e.g., `981f44e18cf6_jarvis-20llm-production`) now have clean names via `container_name:` in compose
-- All corpus containers (including `jarvis-local-resources`, `jarvis-hippocampus`, `jarvis-gis-rag`, `jarvis-spiritual-rag`) added to compose permanently
+The startup script uses `docker exec` with Python `urllib` internally for health verification (these six containers do not expose ports to the host). It includes retry logic to wait for each container to become healthy before proceeding.
 
 ---
 
-## 17.7 RAG Storage and Memory Integration
+## 39.5 ChromaDB Collection State (March 18, 2026)
 
-The executive coordinator not only consumes RAG context from three PostgreSQL databases and ChromaDB but also contributes new experience back into `ms_jarvis_memory` via `background_rag_store`. After assembling a final response for a `/chat` request, it schedules this coroutine with the original message, the final response text, and the list of `servicesused`. The background task first calls the RAG server's `/search` endpoint with the query and `top_k=1` to check for near-duplicates; if the top result's similarity score exceeds a configured threshold, the task logs a `rag_skip_duplicate` event and skips the write.
+| Collection | Record count | Notes |
+|---|---|---|
+| `gbim_worldview_entities` | 5,416,521 | Complete WV GBIM spatial corpus; unchanged |
+| `autonomous_learner` | 21,181 | Growing ~288/day; queried at Phase 1.45 |
+| `psychological_rag` | 968 | Unchanged |
+| `spiritual_texts` | 23 | Unchanged |
+| `appalachian_cultural_intelligence` | 5 | New — not previously documented |
+| `GBIM_sample_rows` | 5,000 | New — not previously documented |
+| `GBIM_sample` | 3 | New — not previously documented |
+| `msjarvis-smoke` | 1 | New — smoke test record |
+| `msjarvis_docs` | 0 | Scaffolded — pending ingest |
+| `GBIM_Fayette_sample` | 0 | Scaffolded — pending ingest |
+| `geospatialfeatures` | 0 | Scaffolded — pending ingest |
 
-If the query is sufficiently novel, the task calls the RAG server's `/store` endpoint with a payload that includes a system `userid` (for example `"autosystem"`), truncated versions of the query and response, an ISO-formatted timestamp, and metadata such as the first few `servicesused` and flags indicating the record was auto-stored and deduplicated. In the current deployment, `ms_jarvis_memory` is append-only; the deduplication check is advisory. Because this consolidation occurs in the background, the main `/chat` response returns promptly while memory updates proceed asynchronously. The `autonomous_learner` collection (21,181 records, growing ~288/day) is written separately by the autonomous learning subsystem and is the source queried at Phase 1.45 — not written by `background_rag_store`.
+> **All collections use 384-dimensional vectors (`all-minilm:latest`).** The `nomic-embed-text` model produces 768-dimensional vectors and is incompatible with all existing collections. The `_DummyCollection` error that previously prevented semantic retrieval is resolved by the `all-minilm:latest` implementation deployed March 17, 2026.
 
 ---
 
-## 17.8 Health-Check and Prefrontal Behavior
+## 39.6 LLM Ensemble State (March 18, 2026)
 
-Service discovery uses `check_service_health` to probe each configured service, preferring `/health` when available and otherwise falling back to a GET on the service's primary operation path or root URL. **As of March 18:** ChromaDB is checked via `/api/v1/heartbeat` and Ollama via `/api/tags` (eliminates double-404 round trips). All health results are **cached for 30 seconds** — the ~0.7s Phase 1 cost only occurs on the first query; subsequent queries within the window use cached results.
+| Proxy | Port | Model | Active status |
+|---|---|---|---|
+| llm1-proxy | 8201 | TinyLlama (`tinyllama:latest`) | ✅ Active |
+| llm2-proxy | 8202 | Gemma (`gemma:2b`) | ✅ Active |
+| llm3-proxy | 8203 | MedLlama2 (`medllama2:latest`) | ✅ Active |
+| llm4-proxy | 8204 | MiniCPM-V (`minicpm-v:latest`) | ✅ Active |
+| llm5-proxy | 8205 | LLaVA (`llava:latest`) | ✅ Active |
+| llm6-proxy | 8206 | SQLCoder (`sqlcoder:latest`) | ✅ Active |
+| llm7-proxy | 8207 | StarCoder2 (`starcoder2:latest`) | ⚠️ Returns 0-char on community queries |
+| llm8-proxy | 8208 | CodeLlama (`codellama:latest`) | ✅ Active |
+| llm9-proxy | 8209 | DeepSeek Coder (`deepseek-coder:latest`) | ✅ Active |
+| llm10-proxy | 8210 | Phi3 Mini (`phi3:mini`) | ✅ Active |
+| llm11-proxy | 8211 | (verify against `llm_consensus_20_FINAL.py`) | ✅ Active |
+| llm12-proxy | 8212 | Dolphin-Phi (`dolphin-phi:latest`) | ✅ Active |
+| llm13-proxy | 8213 | Orca-Mini (`orca-mini:latest`) | ✅ Active |
+| llm14-proxy | 8214 | Qwen2 (`qwen2:latest`) | ✅ Active |
+| llm15-proxy | 8215 | Zephyr (`zephyr:latest`) | ✅ Active |
+| llm16-proxy | 8216 | Starling-LM (`starling-lm:latest`) | ✅ Active |
+| llm17-proxy | 8217 | Neural-Chat (`neural-chat:latest`) | ✅ Active |
+| llm18-proxy | 8218 | OpenChat (`openchat:latest`) | ✅ Active |
+| llm19-proxy | 8219 | Vicuna (`vicuna:latest`) | ✅ Active |
+| llm20-proxy | 8220 | LLaMA 2 (`llama2:latest`) | ✅ Active |
+| llm21-proxy | 8221 | Mistral (`mistral:latest`) | ✅ Active |
+| llm22-proxy | 8222 | LLaMA 3.1 (`llama3:latest`) | ✅ Active |
 
-With `nbb-i-containers` at **127.0.0.1:8101** confirmed running and the `message` field payload confirmed correct (422 errors resolved), `discover_services` includes `"nbb_prefrontal_cortex"` in `available_services`, enabling the prefrontal stage to run reliably at the start of each `ultimate_chat` request. The prefrontal call uses a short timeout (currently 3 seconds) and does not block the rest of the pipeline: if the NBB service is slow or unavailable, `call_nbb_prefrontal` returns a status of `"timeout"` or `"exception"` and the main coordinator continues. When the NBB service responds successfully, its consciousness-bridge-style summary is recorded under `prefrontal_response` and its internal layers are nested under `consciousnesslayers`.
+**Active count: 21 of 22 proxies.** StarCoder2 (llm7-proxy, port 8207) is wired and responds HTTP 200 but returns 0-character response bodies on community-domain queries; the consensus extraction logic excludes 0-length responses automatically. The March 15 benchmark reported "22/22 HTTP 200" because the 0-char issue had not yet been identified; the accurate active count for community query consensus is **21**.
+
+**LM Synthesizer (Phase 3.5):** Calls `jarvis-ollama:11434/api/generate` directly with `model: llama3.1:latest` and the Ms. Egeria Jarvis persona prompt injected. Previously incorrectly wired to `jarvis-roche-llm` (returned HTTP 500 on every Phase 3.5 call); fixed March 18, 2026.
 
 ---
 
-## 17.9 Operational Pattern and Performance
+## 39.7 Known Issues and Resolution Status (March 18, 2026)
 
-Empirical measurements from the reference host (Legion 5, Intel i9, NVIDIA RTX 4050 — **CPU-only inference, size_vram: 0 on all models**, 29 GB RAM, 20 GB Ollama container limit) show the following latency profile as of March 18, 2026:
-
-| Phase | Wall-clock cost |
+| Issue | Status as of March 18 |
 |---|---|
-| Phase 1: Health checks | ~0.7s (cached after first query) |
-| Phase 1.4: BBB input (7 filters) | ~1.3s total (incl. Phase 1.45) |
-| Phase 1.45: Community memory (ChromaDB) | included in Phase 1.4 total |
-| Phase 1.75–3: Pre-LLM consciousness layers | ~0.5s |
-| Phase 2.5: 21 LLMs (rich prompt) | ~320–360s (hardware floor, CPU-only) |
-| Phase 3: Judge pipeline (consensus only) | ~60–86s |
-| Phase 3.5: LM Synthesizer + Voice (merged) | ~30–55s |
-| Phase 4 + 4.5: Bridge + BBB output | ~0.5s |
-| **End-to-end total** | **~436s (optimized from 532s baseline)** |
-
-For comparison: direct calls to port 8008 with short prompts complete in ~110s; the ~320–360s ensemble time in the full pipeline reflects the richer, community-memory-enriched prompt. The path to faster inference is GPU server acceleration via the WVU partnership (pending).
-
-- **`/chatlight/async` (lightweight consensus):** 21-model ensemble completes in ~120–145s; full job wall clock ~130–160s including semaphore queuing, BBB output guard (8s), and identity normalization. Does not include Phase 1.45 community memory enrichment.
-- **`/chat/async` (full 9-phase pipeline, Redis-backed):** Same ~436s as synchronous; returns `job_id` instantly; client polls for result.
-- **Semaphore queuing effect:** Multiple concurrent requests queue in `jarvis-semaphore` (max 4 concurrent). Back-to-back test calls accumulate ~320–360s each. Restart the semaphore between test sessions to drain queued work before benchmarking.
-
----
-
-## 17.10 Implementation vs. Conceptual Model
-
-In the current deployment, the running implementation of the executive layer closely tracks the conceptual responsibilities set out at the beginning of the chapter. The March 15–18, 2026 deployment cycle completes the gap between declared 9-phase architecture and live pipeline execution:
-
-- **Previously declared but unconfirmed (March 15 baseline):** LM Synthesizer Phase 3.5, psychology pre-assessment Phase 3, SteganographyDetection + TruthVerification + ContextAwareness in BBB Phase 1.4, 69-DGM cascade Phase 7, confidence decay multiplier Phase 5, `jarvis-local-resources-db` RAG retrieval.
-- **Confirmed operational March 15–18:** All of the above, plus: Phase 1.45 community memory retrieval (new), judge pipeline consensus-only mode (faster), Phase 3.5/3.75 merged (saves ~40s), 21-active-model consensus, Redis-backed async jobs with true cancellation, health-check caching, BBB fail-open on HTTP 500, all 79 containers fully compose-managed.
-
-There remain deliberate gaps between the broader architectural vision and this entrypoint's wiring. The `SERVICES` registry includes additional neurobiological and community-oriented modules (`qualia_engine`, `i_containers`, `neurobiological_master`, `autonomous_learner` — the last of which is queried at Phase 1.45 but not yet wired into the broader `/chat` orchestration) that are exercised in other workflows but not yet integrated into the core `/chat` decision path. The automated POC verification loop for GBIM `needs_verification=TRUE` entities remains future work. This staged integration strategy allows the system to deliver robust, explainable responses while preserving room for future experiments in deeper neurobiological and community-governance coupling.
+| Response truncation (~730 chars, `max_tokens: 500`) | ✅ FIXED — `max_tokens` set to -1 (unlimited); `llm22-proxy` has 8,192-token limit |
+| ChromaDB `_DummyCollection` error blocking semantic retrieval | ✅ FIXED — `all-minilm:latest` semantic retrieval implemented |
+| Redis response persistence (in-memory only) | ✅ FIXED — Redis-backed job system with 30-min TTL deployed |
+| 33 services not in docker-compose | ✅ FIXED — all 79 containers now in compose |
+| Idempotency TTL in-memory only | ✅ FIXED — Redis-backed, 1,800s TTL |
+| Judge pipeline URL wrong (7239) | ✅ FIXED — corrected to 7230/7231/7232/7233 (March 16) |
+| LM Synthesizer calling `jarvis-roche-llm` | ✅ FIXED — calls `jarvis-ollama:11434` directly (March 18) |
+| NBB Prefrontal Cortex 422 errors | ✅ RESOLVED — `message` field payload confirmed correct; service healthy |
+| I-Containers 422 errors | ✅ RESOLVED — port corrected to 8015 |
+| BBB `truth_score` `KeyError` | ✅ FIXED — null guard added to BBB orchestrator (March 18) |
+| BBB blocking on HTTP 500 errors | ✅ FIXED — fail-open behavior on non-200 BBB responses (March 18) |
+| `web-research` and `rag-server` container restart loops | ✅ FIXED — source files deployed via `docker cp` |
+| Hash-prefixed container names | ✅ FIXED — `container_name:` added to all 8 affected containers (March 17–18) |
+| Docker Compose `ContainerConfig` crash bug | ✅ FIXED — upgraded to v5.1.0 from v1.29.2 (March 17) |
+| `build:` directives causing slow startup | ✅ FIXED — all converted to `image:` references (March 17) |
+| Hallucination from LLMs on community resources (Mount Hope, local nonprofits) | 🔴 OPEN — `gis_rag` and `local_resources` return empty for Mount Hope queries; LLMs generating from training data. Factually accurate programs (LIHEAP, WV 2-1-1) pass BBB. Fabricated organization names blocked by ethical filter. Root cause: real community resource data not yet loaded into verified databases. Resolution: Community Champions data entry is next priority. |
+| BBB ethical filter blocking "certainly" | BY DESIGN — ethical filter correctly detecting unverified specific claims; not a false positive |
 
 ---
 
-## 17.11 Summary
+## 39.8 Async Job API State (March 18, 2026)
 
-The executive coordination layer — realized by `jarvis-main-brain` at **127.0.0.1:8050** — provides a concrete and instrumented account of how a multi-layer cognitive architecture is orchestrated in practice across 79 operational containers. The confirmed execution sequences are:
+The Redis-backed async job system deployed March 17, 2026, provides non-blocking access to the full 9-phase pipeline:
 
-**`/chat` (synchronous, full 9-phase pipeline — ~436s benchmark, March 18, 2026):**
-1. `UltimateRequest` (message, userid, role, useallservices) received at `/chat`
-2. `prefrontal_planner` `ConsciousnessLayer` appended; `available_services` populated (30s cache, 2s timeout)
-3. `call_nbb_prefrontal` executed unconditionally → `nbb-i-containers` at **127.0.0.1:8101** (payload: `message` field)
-4. **Phase 1.4** — BBB 7-filter input stack → **0.0.0.0:8016** (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness; `truth_score` null guard; fail-open on HTTP 500)
-5. **Phase 1.45** — Community memory retrieval: `all-minilm:latest` (384-dim) via `jarvis-ollama:11434/api/embeddings` → `autonomous_learner` (21,181 records) → top-5 prepended to `enhanced_message`
-6. **Phase 2** — `call_truth_filter` → BBB **port 8016** `POST /truth` → `truthverdict` attached (advisory)
-7. **Phase 3 (pre-LLM)** — `jarvis-psychology-services` **port 8019** → `/psychological_assessment` severity classification
-8. **Phase 4** — RAG context: `jarvis-spiritual-rag` **port 8005** queries PostgreSQL `msjarvis` (port 5433) + `gisdb` (port 5433) + `jarvis-local-resources-db` (port 5435) + ChromaDB (port 8000) + `psychological_rag_domain` (port 8006); web context: `jarvis-web-research` (internal Docker network)
-9. **Phase 3.5** — LM Synthesizer **port 8001** → `jarvis-ollama:11434/api/generate` (`llama3.1:latest`, Ms. Jarvis persona, merged with eliminated Phase 3.75; ~30–55s)
-10. **Phase 2.5** — `llm20production` synthesis → semaphore proxy (port 8030) → `jarvis-20llm-production` **port 8008** (~320–360s, 21 active models)
-11. **Phase 3 (post-LLM)** — 4-judge pipeline ports 7230–7233 (consensus answer only, `raw_responses` eliminated; ~60–86s)
-12. **Phase 7** — 69-DGM cascade **port 9000** (23 × 3 = 69 DGM operations, authoritative)
-13. **Phase 4.5** — `apply_output_guards_async` → BBB **port 8016** `/filter` (8.0s timeout, fail-open on HTTP 500, debug logging)
-14. **Phase 5** — `confidence_decay` multiplier applied from GBIM temporal metadata
-15. `normalize_identity` applied
-16. `background_rag_store` scheduled → `ms_jarvis_memory` (append-only, dedup advisory)
-17. `UltimateResponse` returned: `response`, `servicesused`, `consciousnesslevel`, `processingtime`, `architecturelayers`, `consciousnesslayers`, `truthverdict`, `confidence_decay_applied`
+| Endpoint | Method | Function |
+|---|---|---|
+| `/chat/async` | POST | Create async job — returns `job_id` immediately |
+| `/chat/status/{job_id}` | GET | Poll for progress and result |
+| `/chat/cancel/{job_id}` | DELETE | Cancel specific job — true asyncio task cancellation |
+| `/chat/cancel/all` | DELETE | Cancel all running jobs |
 
-**`/chat/async` + `/chat/status/{job_id}` (Redis-backed full-pipeline async — March 17, 2026):**
-1. `POST /chat/async` received → `job_id` returned instantly; state stored in Redis (`jarvis-redis:6379`, 30-min TTL)
-2. Background asyncio task registered in `_job_tasks[job_id]`; runs full 9-phase pipeline (same as `/chat` above)
-3. Job state (`processing` → `complete`/`error`) survives `jarvis-main-brain` container restarts
-4. `DELETE /chat/cancel/{job_id}` — true asyncio task cancellation, stops 21-LLM pipeline mid-run
-5. `DELETE /chat/cancel/all` — cancels all active jobs simultaneously
-6. Client polls `GET /chat/status/{job_id}` → returns `status`, `progress`, and on completion full `result`
+**Implementation details:**
 
-**`/chatlight/async` + `/chatlight/status/{job_id}` (async, lightweight consensus — verified March 2, 2026):**
-1. `POST /chatlight/async` received → `job_id` + `poll_url` returned instantly
-2. Background task acquires `chat_semaphore`; calls `discover_services()`
-3. `build_egeria_prompt` constructs enhanced message (no Phase 1.45 community memory on this path)
-4. `httpx.Timeout(None, connect=5.0, read=None)` client → semaphore proxy (port 8030) → `jarvis-20llm-production` (port 8008, timeout 600.0 passed to semaphore)
-5. 21-model ensemble completes (~120–145s); response extracted from `body["response"]`
-6. `clean_response_for_display` → `apply_output_guards_async` (BBB, 8.0s timeout, fail-open) → `normalize_identity`
-7. Job marked `done`; `result` includes `answer`, `latency`, `mode: "light-async"`, `models_responded`
-8. Client polls `GET /chatlight/status/{job_id}` → returns `status`, `elapsed`, `result`
+- Job state stored in Redis (`jarvis-redis:6379`) with **30-minute TTL**
+- State **survives `jarvis-main-brain` container restarts** (Redis persists independently)
+- `DELETE /chat/cancel/{job_id}` performs **true asyncio task cancellation** — the 21-LLM pipeline stops immediately mid-run via `_job_tasks[job_id].cancel()`
+- `active_jobs` dictionary replaced by Redis-backed store (in-memory-only limitation is resolved)
 
-By anchoring the high-level metaphors of prefrontal control, community memory grounding, introspection, and consolidation in specific code paths, data structures, and performance measurements — grounded in three PostgreSQL databases (`msjarvis` port 5433: 5,416,521 GBIM entities, 80 epochs, 206 source layers; `gisdb` port 5433: 13 GB PostGIS, 993 ZCTA centroids; `jarvis-local-resources-db` port 5435: community resources) and confirmed at ~436s end-to-end (optimized from 532s baseline) — this layer demonstrates that the thesis's coordination concepts are not only architecturally coherent but also implementable, measurable, and amenable to targeted optimization. For details on the 21-active-model ensemble and judge pipeline (consensus-only, ~60–86s) invoked at Phases 2.5 and 3, see **Chapter 33**. For the 69-DGM cascade see **Chapter 32**. For the BBB 7-filter stack see **Chapter 16**. For the Neurobiological Master's own BBB → I-containers → Qualia → consciousness-bridge pipeline (a separate flow not in the primary `/chat` path) see **Chapter 12**. For GBIM temporal confidence decay and POC verification loop design see **Chapter 9**.
+---
+
+## 39.9 Evaluation Against Thesis Claims
+
+This section cross-references the empirical measurements in this chapter against specific architectural and theoretical claims made elsewhere in the thesis.
+
+**Claim: Full 9-phase pipeline is implementable on commodity hardware.**  
+**Status: Confirmed.** ~436s end-to-end on a Lenovo Legion 5 (CPU-only inference). All 9 phases execute without errors on the reference host. The system is operationally deployable by a rural nonprofit with standard consumer hardware.
+
+**Claim: Community memory enrichment (Phase 1.45) grounds every response in accumulated community intelligence.**  
+**Status: Confirmed.** 21,181 `autonomous_learner` records are semantically queried on every request via `all-minilm:latest` (384-dim). Top-5 matching memories are prepended to `enhanced_message` before LLM processing. Growing at ~288 records/day.
+
+**Claim: GBIM beliefs (5,416,521) provide temporal confidence decay for all responses.**  
+**Status: Confirmed.** `confidence_decay` multiplier applied at Phase 5. All 5,416,521 entities carry `needs_verification=TRUE` at launch baseline — expected initial state; POC verification loop will clear flag as entities are confirmed.
+
+**Claim: Three PostgreSQL databases provide authoritative grounding for WV-scoped queries.**  
+**Status: Confirmed operationally; partially confirmed for community resources.** `msjarvis` (port 5433) and `gisdb` (port 5433) respond correctly in all benchmarks. `jarvis-local-resources-db` (port 5435) is confirmed in the pipeline but returns empty results for Mount Hope queries — real community resource data not yet loaded.
+
+**Claim: System can be rebooted and fully operational with two commands.**  
+**Status: Confirmed.** `docker compose up -d` + `~/jarvis_startup.sh` restores all 79 containers. Verified March 17, 2026.
+
+**Claim: WV-first routing suppresses web context for WV-scoped queries.**  
+**Status: Confirmed.** Main brain WV-scoped flag logic is operational; `web_context` excluded from context assembly when county + WV role detected; WV RAG + GIS + registry treated as authoritative.
+
+**Claim: Response quality is limited by hallucination on local community resources.**  
+**Status: Confirmed and open.** LLMs generate plausible but unverified local resource names for Mount Hope/Fayette County queries when `local_resources` database is empty. Factually accurate programs with external verification (LIHEAP, WV 2-1-1, New River Health) pass BBB. Fabricated specific organization names and locations are blocked by the ethical filter's deception-detection logic. This is the primary remaining quality gap as of March 18, 2026.
+
+---
+
+## 39.10 Performance Roadmap
+
+| Milestone | Expected improvement | Dependency |
+|---|---|---|
+| GPU inference (WVU partnership server) | Phase 2.5: ~320–360s → target ~80–120s; total pipeline: ~436s → ~160–200s | WVU partnership activation |
+| Community Champions data entry into `jarvis-local-resources-db` | Eliminates hallucination on local resource queries | Community volunteer coordination |
+| `autonomous_learner` collection growth (21,181 → target 50,000+) | Richer Phase 1.45 community memory matching | Continuous autonomous learning (~288/day) |
+| Persistent `active_jobs` store (Redis-backed, deployed March 17) | ✅ Complete — job state survives restarts | Deployed |
+| Automated POC verification loop for GBIM `needs_verification=TRUE` entities | Progressive clearing of confidence decay floor | Future development |
+| UI layer consuming `/chat/async` poll pattern | Non-blocking chat interface for community users | Future development |
+
+*Last updated: 2026-03-18 by Carrie Kidd, Mount Hope WV*
