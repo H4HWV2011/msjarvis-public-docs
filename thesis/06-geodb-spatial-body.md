@@ -12,6 +12,8 @@ This chapter defines the spatial "body" of Ms. Jarvis and specifies how West Vir
 
 - **P16 – Power accountable to place** by ensuring that advisory and governance behaviors are traceable to specific, queryable features, facilities, and programme footprints in West Virginia, with logged retrieval paths from the PostgreSQL `msjarvisgis` database, GBIM belief tables, vector collections such as `gbim_beliefs_v2` and `gis_wv_benefits`, and `local_resources` into the ensemble stack and governance logs — and by being honest about the limits of parcel-level resolution where the underlying data does not support it.
 
+The question "I need help" contains a location. The location contains a history. The history contains a set of programs, hazards, rights, and remedies that the person asking may not know exist. Ms. Jarvis's spatial body exists to make that knowledge computable and to surface it without requiring the person to already know what to ask for.
+
 Accordingly, this chapter belongs to the **Computational Instrument** tier: it specifies the geospatial substrate — centred on the PostgreSQL 16 `msjarvisgis` PostGIS database (port 5432, 91 GB, 501 tables), the current GBIM corpus (5.4M+ verified beliefs), and their Chroma collections — that already allows Quantarithmia's justice-oriented reasoning to operate on real communities, infrastructures, and landscapes in Appalachia and to route actual households to concrete, locally valid forms of assistance.
 
 ---
@@ -38,7 +40,7 @@ The focus is on the current structure and status of the PostgreSQL PostGIS-based
 - **Database Name:** `local_resources`
 - **Role:** Spatially resolved building, parcel, county, and tax district registry
 - **Key Views:** `building_with_parcel`, `parcel_with_county_tax`, `building_parcel_county_tax`
-- **Key Materialized Views:** `county_tax_building_summary` (707 rows, sub-millisecond reads)
+- **Key Materialized Views:** `county_tax_building_summary` (707 rows, sub-millisecond reads, concurrent refresh enabled)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -88,10 +90,10 @@ As of March 19, 2026, the `local_resources` database has been advanced from a fl
 
 | Object | Type | Status | Notes |
 |---|---|---|---|
-| `wv_tax_districts_poly` | Table | ✅ Live | 600 features, SRID 26917 + 4326, GiST indexed |
-| `parcel_with_county_tax` | View | ✅ Live | ST_Within join: parcels → county + tax district |
-| `building_parcel_county_tax` | View | ✅ Live | Full building → parcel → county → tax chain |
-| `county_tax_building_summary` | Materialized View | ✅ Live | 707 rows, <1ms reads, concurrent refresh enabled |
+| `wv_tax_districts_poly` | Table | Live | 600 features, SRID 26917 + 4326, GiST indexed |
+| `parcel_with_county_tax` | View | Live | ST_Within join: parcels → county + tax district |
+| `building_parcel_county_tax` | View | Live | Full building → parcel → county → tax chain |
+| `county_tax_building_summary` | Materialized View | Live | 707 rows, <1ms reads, concurrent refresh enabled |
 
 ---
 
@@ -119,13 +121,8 @@ cursor.execute("""
 ```
 
 ```bash
-# Command-line access
 sudo -u postgres psql -p 5432 -d msjarvisgis
-
-# List GBIM tables
 \dt gbim*
-
-# Query spatial coverage
 SELECT COUNT(*) FROM gbim_worldview_entity;
 ```
 
@@ -160,6 +157,8 @@ The current deployment includes a substantial, production-grade subset of West V
   - SAMB structure points in northern and southern regions,
   - WV GIS Technical Center building footprints numbering in the millions,
   - Microsoft-derived building points contributing additional structure-like locations.
+
+  The multi-source nature of this inventory introduces duplication that must be managed explicitly before address extraction or program routing proceeds. See Section 6.4.1.
 
 - **Hazard and infrastructure layers.**
   Datasets representing:
@@ -218,6 +217,58 @@ The current deployment includes a substantial, production-grade subset of West V
 ```
 
 > Figure 6.2. Conceptual overview of the statewide geospatial mesh maintained in PostgreSQL GeoDB and GBIM, summarizing integrated census units, structures, hazards, civic facilities, governance layers, and benefits-relevant sites.
+
+---
+
+### 6.4.1 The Multi-Source Building Inventory and Deduplication
+
+The statewide structure inventory in `wv_buildings` is assembled from three independent sources, each produced by a different organization using different methodology, vintage, and coverage logic:
+
+- **SAMB** (Statewide Address and Mapping Base) — structure points compiled from county assessor records
+- **WV GIS Technical Center building footprints** — polygon footprints derived from aerial imagery, converted to centroids, with `sourcetable = wvgistc_building_footprints`
+- **Microsoft building points** — machine-learning-derived structure detections from satellite imagery
+
+This multi-source assembly is a strength — each dataset fills gaps the others leave, and together they produce the most complete statewide structure inventory available for West Virginia. But it introduces a well-defined problem: the same physical structure frequently appears as multiple rows in `wv_buildings` with different `building_id` values, different `sourcetable` values, and nearly identical but not identical coordinates.
+
+This is not a data error. It is the honest consequence of combining three independently produced datasets that were never designed to reference each other.
+
+**What Was Discovered Operationally**
+
+During the March 19, 2026 spatial chain build — constructing the building → parcel → county → tax district linkage in `local_resources` — this duplication became operationally visible in two ways.
+
+First, raw building counts from joins against `wv_buildings` overstate the true number of distinct structures. The `county_tax_building_summary` materialized view reports `building_count` values that represent source records, not necessarily distinct physical locations. The true count of distinct addressable structures is lower by a factor that varies by county and reflects the overlap between source datasets.
+
+Second, the `building_parcel_county_tax` view revealed extreme building-per-parcel counts in the top offenders — parcels carrying 266 to 985 buildings. While most of these were explained by legitimate large-tract land ownership (federal land, coal company holdings, utility corridors, and placeholder district IDs), the multi-source duplication problem means that even on `standard` parcels, some building IDs represent the same physical structure counted twice or three times.
+
+**The Deduplication Strategy**
+
+Spatial deduplication identifies buildings within a threshold distance (5–15 meters, to be calibrated per source pair) that share the same parcel and assigns them a single canonical `building_id` for address and program routing. The diagnostic query pattern is:
+
+```sql
+SELECT
+  a.building_id   AS building_a,
+  b.building_id   AS building_b,
+  a.sourcetable   AS source_a,
+  b.sourcetable   AS source_b,
+  ST_Distance(
+    a.geom::geography,
+    b.geom::geography
+  )               AS dist_m
+FROM wv_buildings a
+JOIN wv_buildings b
+  ON a.building_id < b.building_id
+  AND ST_DWithin(a.geom::geography, b.geom::geography, 10)
+WHERE a.sourcetable != b.sourcetable
+LIMIT 100;
+```
+
+Until full deduplication is complete, all building counts in `county_tax_building_summary` and downstream reporting carry an explicit caveat: they represent source records, not verified distinct structures. This uncertainty is surfaced explicitly in RAG responses when building-level counts are cited, consistent with Ms. Jarvis's P16 commitment that power must be accountable to place — which requires being honest about the limits of the data, not just its capabilities.
+
+The architectural solution is a `canonical_building_id` field, to be added to `wv_buildings` after deduplication, that collapses duplicates to a single authoritative record per physical structure. All program routing, address extraction, and GBIM belief generation will operate on `canonical_building_id` rather than raw `building_id` once that field is populated. This is a near-term roadmap item and a prerequisite for address extraction.
+
+**Why This Matters for RAG and Program Routing**
+
+The deduplication problem has a direct consequence for the geo-aware RAG pipeline described in Section 6.8. If a duplicate building record is resolved to a program entry in `local_resources`, the same household could appear to qualify for the same program under two different `building_id` values. In a benefits routing context this is not just an analytical error — it is a failure of the system's core promise to route real households to real help accurately.
 
 ---
 
@@ -280,40 +331,55 @@ A critical finding from the March 19, 2026 operational build is that WV tax parc
 This is not a data error. It reflects well-documented characteristics of WV assessor data:
 
 - **Rights-of-way and linear features.** Pipeline companies, power utilities, railroads, and highway departments typically hold one parcel ID per county for their entire corridor. Every building spatially assigned to that corridor shares the parcel ID.
-- **Government and exempt properties.** State-owned land, federal land, and municipal property often carry a single parcel ID for entire tracts — a state park with 300 structures (cabins, maintenance buildings, shelters) all sharing one record.
+- **Government and exempt properties.** State-owned land, federal land, and municipal property often carry a single parcel ID for entire tracts. The Tucker County federal land parcel (parcel 161, `cleanparcelid = 47NO0IDO0ID`) covers 264 km² — approximately 25% of Tucker County's total area — and contains 782 structures including ranger stations, shelters, fire towers, and campground buildings consistent with Monongahela National Forest holdings.
+- **Coal company surface rights.** Large corporate land holdings in the southern coalfield counties carry one parcel ID for entire tracts. The Mingo County parcel 1066780 covers 81 km² and contains 501 structures consistent with a coal company surface rights holding — company houses, preparation plants, tipples, mine portals, and infrastructure scattered across a hollow system under one corporate ownership record.
 - **Water and utility district parcels.** Placeholder IDs for water and sewer infrastructure that spans multiple physical locations, identifiable in the data by `cleanparcelid` patterns such as `WATERATER`.
 - **Unmatched building fallback.** Buildings that fall outside any parcel polygon — along county lines, in hollow communities where parcel data is sparse, or for structures built after the last parcel update — are assigned a default catch-all parcel for that county or district.
+- **Dense multi-unit residential developments.** The Berkeley County parcel 1146728 (0.56 km², 592 buildings, all from `wvgistc_building_footprints`, distinct coordinates spread across the parcel area) represents a legitimate dense residential development — most likely a large mobile home park or apartment complex — where all units share one ownership parcel ID. Each building is a real, distinct, addressable structure requiring individual program routing through nearest 911 address point resolution rather than parcel situs address extraction.
 
 **This matters critically for P16 — Power accountable to place.** If these catch-all parcels are allowed to propagate unclassified into address extraction and program routing, the system will assign hundreds of different households the same situs address and route them to the same program record. That is not a minor data quality issue — it is a failure mode that actively harms people navigating benefits systems.
 
-The required intervention is parcel classification before address extraction proceeds:
+**Parcel Classification Implementation**
+
+The `parcel_type` column was added to `wv_parcels` on March 19, 2026:
 
 ```sql
--- Step 1: Add classification column
 ALTER TABLE wv_parcels
-  ADD COLUMN parcel_type text DEFAULT 'standard';
+  ADD COLUMN IF NOT EXISTS parcel_type text DEFAULT 'standard';
 
--- Step 2: Flag catch-all parcels (threshold TBD from diagnostic)
-UPDATE wv_parcels
-SET parcel_type = 'catchall'
-WHERE parcel_id IN (
-  SELECT parcel_id
-  FROM building_parcel_county_tax
-  GROUP BY parcel_id
-  HAVING COUNT(building_id) > 10
-);
+UPDATE wv_parcels SET parcel_type = 'federal_land'
+  WHERE parcel_id = 161;
 
--- Step 3: Flag known utility/water placeholder patterns
-UPDATE wv_parcels
-SET parcel_type = 'utility'
-WHERE cleanparcelid ILIKE '%WATER%'
-   OR cleanparcelid ILIKE '%ROW%'
-   OR cleanparcelid ILIKE '%RR%';
+UPDATE wv_parcels SET parcel_type = 'large_private'
+  WHERE parcel_id IN (1066780, 1165188);
+
+UPDATE wv_parcels SET parcel_type = 'unmatched'
+  WHERE parcel_id = 1389823;
+
+UPDATE wv_parcels SET parcel_type = 'multi_unit'
+  WHERE parcel_id = 1146728;
+
+UPDATE wv_parcels SET parcel_type = 'unmatched'
+WHERE parcel_type = 'standard'
+  AND (
+    cleanparcelid ILIKE '%WATER%'
+    OR cleanparcelid ILIKE '%0ID0ID%'
+    OR cleanparcelid ILIKE '%NOID%'
+    OR cleanparcelid ~ '^[0-9]{1,4}$'
+  );
 ```
 
-Once classified, the `building_parcel_county_tax` view and all downstream address extraction logic must filter by `parcel_type = 'standard'` for one-to-one address resolution, and route multi-structure parcels through a separate spatial resolution path (nearest 911 address point, centroid geocode, or explicit multi-unit flagging).
+The resulting classification distribution across 1,389,855 total parcels:
 
-This section replaces the earlier Section 6.6 "Staged and Partially Integrated Layers" framing, which described the problem in abstract terms. The operational reality is more specific: the parcel classification problem is a known, enumerable issue in the live data that must be resolved before parcel-level reasoning can be trusted for household-level program routing.
+| `parcel_type` | Count | Addressable Strategy |
+|---|---|---|
+| `standard` | 1,389,785 | Parcel situs address extraction |
+| `unmatched` | 66 | Skip — no valid address possible |
+| `large_private` | 2 | Centroid routing only |
+| `federal_land` | 1 | Federal address system |
+| `multi_unit` | 1 | Nearest 911 address point per building |
+
+The addressable building universe on `standard` parcels is **2,010,808 buildings** — an upper bound that will be refined downward as spatial deduplication proceeds. The 4,855 buildings on non-standard parcels are protected from bad address assignment.
 
 ---
 
@@ -349,59 +415,66 @@ This linkage allows the Steward System to traverse:
 
 ### 6.8 Geo-Aware RAG, Benefits Flows, and Multi-Model Use
 
-The PostgreSQL GeoDB layer and its GBIM/ChromaDB vector mirrors play a direct role in retrieval-augmented generation, particularly for spatially explicit and benefits-oriented queries.
+The PostgreSQL GeoDB layer and its GBIM/ChromaDB vector mirrors play a direct role in retrieval-augmented generation, particularly for spatially explicit and benefits-oriented queries. The resolution level at which this pipeline operates — parcel and tax district granularity — is the resolution level at which WV program eligibility actually operates. A query as simple as "I need help" contains a location; that location contains a history of hazards, land ownership patterns, infrastructure gaps, and program eligibilities that the person asking may not know exist. The geo-aware pipeline exists to surface that knowledge without requiring the user to already know what to ask for.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   Geo-Aware Benefits RAG Pipeline                           │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1. User Query: "food assistance near Oak Hill"             │
+│  1. User Query: "I need help with my electric bill"         │
 │              ↓                                               │
-│  2. PostgreSQL Spatial Filter                               │
+│  2. Location Resolution                                     │
+│     building_id → parcel_id → county → tax_district        │
+│     parcel_type = 'standard' → full address resolution      │
+│              ↓                                               │
+│  3. PostgreSQL Spatial Filter                               │
 │     SELECT * FROM gbimbeliefnormalized                       │
-│     WHERE (where_axis->>'county') = 'Fayette'               │
-│     AND (what_axis->>'type') LIKE '%food%'                  │
+│     WHERE (where_axis->>'county') = 'Mingo'                 │
+│     AND (what_axis->>'type') LIKE '%utility%'               │
 │              ↓                                               │
-│  3. ChromaDB Vector Search                                  │
+│  4. ChromaDB Vector Search                                  │
 │     collection: gis_wv_benefits                             │
-│     filter: {county: "Fayette", type: "food"}               │
-│     → Returns 10 most relevant facilities                   │
+│     filter: {county: "Mingo", type: "utility_assistance"}   │
+│     → Returns relevant facilities and programs              │
 │              ↓                                               │
-│  4. Join to local_resources (Postgres)                      │
-│     SELECT bpct.*, lr.*                                     │
-│     FROM building_parcel_county_tax bpct                    │
-│     JOIN local_resources lr                                 │
-│       ON lr.county = bpct.county_name                       │
-│      AND lr.program_type = 'food_assistance'                │
-│      AND lr.verification_status = 'verified'                │
-│     JOIN wv_parcels wp                                      │
-│       ON wp.parcel_id = bpct.parcel_id                      │
-│      AND wp.parcel_type = 'standard'   -- required          │
+│  5. Spatial Hazard Check                                    │
+│     ST_DWithin(building.geom, aml_sites.geom, 500)         │
+│     ST_Intersects(building.geom, floodplains.geom)          │
+│     → Surfaces related hazards and connected programs       │
 │              ↓                                               │
-│  5. Assemble Context                                        │
+│  6. Join to local_resources                                 │
+│     WHERE county = 'Mingo'                                  │
+│     AND program_type IN ('utility_assistance', 'aml',       │
+│       'weatherization')                                     │
+│     AND verification_status = 'verified'                    │
+│     AND parcel_type = 'standard'                            │
+│              ↓                                               │
+│  7. Assemble Context with Resolution Confidence             │
 │     - GBIM beliefs (spatial + institutional)                │
-│     - Facility details (from ChromaDB)                      │
-│     - Program info (from local_resources)                   │
-│     - Resolution confidence flag (standard vs catchall)     │
+│     - Verified program records from local_resources         │
+│     - Hazard proximity flags                                │
+│     - parcel_type confidence signal                         │
 │              ↓                                               │
-│  6. LLM Ensemble Response                                   │
-│     "In Fayette County, food assistance is available at..."  │
-│     [or: "Address resolution for this location is          │
-│      approximate — parcel data covers a utility corridor."] │
+│  8. LLM Ensemble Response                                   │
+│     "Here is your LIEAP contact. Your address is also       │
+│      within 400m of a mapped AML subsidence area —          │
+│      here is who to contact about that separately,          │
+│      and it will not affect your LIEAP eligibility."        │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6.4. Geo-aware retrieval-augmented generation pipeline for benefits queries, updated to include parcel classification filtering and resolution confidence flagging. Standard parcels route to verified program records; catch-all and utility parcels route to approximate spatial resolution with explicit uncertainty surfaced to the user.
+> Figure 6.4. Geo-aware retrieval-augmented generation pipeline updated to include parcel classification filtering, hazard proximity checking, and resolution confidence surfacing. The pipeline operates at parcel and tax district granularity — the resolution level at which WV program eligibility actually operates.
 
 For spatial and benefits questions, the system can:
 
-- Apply PostgreSQL PostGIS filters (for example, `ST_Intersects` with floodplain polygons, buffers around facilities, or membership in administrative boundaries) to constrain candidate features.
-- Query GBIM belief collections in ChromaDB to retrieve semantically and spatially relevant beliefs, using metadata filters such as `source_table`, `epoch`, or structured tags in the JSONB axes.
+- Apply PostgreSQL PostGIS filters to constrain candidate features by county, tax district, or spatial relationship to hazard layers.
+- Query GBIM belief collections in ChromaDB to retrieve semantically and spatially relevant beliefs.
 - Query `gis_wv_benefits` in ChromaDB to retrieve benefits facilities relevant to a specified county, ZIP, or named place.
-- Incorporate local resource entries by joining facility beliefs and ZIP/county data to `local_resources`, filtered by programme type, verification status, and parcel classification.
-- Surface resolution confidence explicitly in ensemble context so that models can distinguish between a household address resolved to a specific standard parcel versus one resolved only to a county or tax district.
+- Check spatial proximity to hazard layers (AML sites, floodplains, dam inundation zones) and surface connected programs the user did not know to ask about.
+- Incorporate local resource entries filtered by programme type, verification status, and parcel classification.
+- Surface resolution confidence explicitly so that models distinguish between a household address resolved to a specific standard parcel versus one resolved only to a county or tax district.
 
 Different models within the ensemble specialize in tasks such as:
 
@@ -414,34 +487,31 @@ Different models within the ensemble specialize in tasks such as:
 
 ### 6.9 Roadmap for Full Statewide Integration
 
-The near-term objective for the GeoDB and `local_resources` layer is to complete the building → parcel → address → program routing chain with appropriate parcel classification, and to surface the resulting spatial resolution into GBIM embeddings and ChromaDB collections.
-
 **Immediate priorities (post March 19, 2026):**
 
-- **Parcel classification.** Run the diagnostic query against `building_parcel_county_tax` to enumerate catch-all and utility parcels by `cleanparcelid` pattern and building multiplicity. Apply `parcel_type` flags to `wv_parcels` before any address extraction proceeds.
+- **Spatial deduplication and `canonical_building_id`.** Implement the spatial clustering deduplication strategy described in Section 6.4.1. Add `canonical_building_id` to `wv_buildings`. Route all address extraction, program routing, and GBIM belief generation through canonical records rather than raw `building_id` values.
 
-- **Address extraction for standard parcels.** Extract situs address fields from WV assessor/CAMA exports or 911 address point layers, joined by `parcel_id`, for parcels classified as `standard`. Multi-structure parcels route through nearest-address-point spatial resolution.
+- **WV 911 address point ingestion.** The WV Enhanced 911 Council statewide address point dataset (`WV_Addresses`) is not currently present in `msjarvisgis`. This dataset is the authoritative source for situs addresses at the parcel and unit level and is required for `multi_unit` parcel resolution and hollow community address assignment. Download from the WV GIS Technical Center and ingest as `wv_e911_addresses`, then expose to `local_resources` via `postgres_fdw`.
 
-- **Propagate address fields through views.** Add `situs_street`, `situs_city`, `situs_state`, `situs_zip` to `parcel_with_county_tax` and `building_parcel_county_tax` so that every building in the chain carries a resolvable or explicitly-approximate address.
+- **Address extraction for standard parcels.** Once 911 address points are available and deduplication is complete, extract situs address fields joined by `parcel_id` for all `standard` parcels. Propagate `situs_street`, `situs_city`, `situs_state`, `situs_zip` through `parcel_with_county_tax` and `building_parcel_county_tax`.
+
+- **Materialize `building_parcel_county_tax`.** The current view recomputes the full spatial join chain on every query, producing 2–3 minute query times for operations that should take seconds. Materializing this view with indexes on `building_id`, `parcel_id`, and `county_name` is a prerequisite for production-grade query performance.
 
 **Medium-term priorities:**
 
 - **Completing schema normalization.**
-  Resolving remaining geometry, SRID, and numeric precision issues in legacy WV GIS Technical Center and federal/state layers, and adopting the common SRID 26917 convention wherever feasible within PostgreSQL.
+  Resolving remaining geometry, SRID, and numeric precision issues in legacy WV GIS Technical Center and federal/state layers, adopting the common SRID 26917 convention wherever feasible.
 
-- **Maintaining coverage in GBIM and embeddings.**
-  Ensuring that beliefs associated with newly normalized datasets receive complete axis values, text representations, and embeddings in the spatial/GBIM ChromaDB collections (including `gbim_beliefs_v2`), and that their spatial and institutional metadata are exposed for RAG.
+- **Layer ingestion priority sequence.**
+  The 500+ layers in `msjarvisgis` are ingested into `local_resources` following a priority order based on program routing value: (1) FEMA floodplains, (2) Census blocks 2020, (3) abandoned mine lands, (4) ZIP Code Tabulation Areas, (5) WV broadband coverage, (6) community action agency service areas. Each layer follows the established pattern: load raw table → classify anomalies → build view → validate → materialize.
 
 - **Syncing `local_resources` spatial chain into GBIM.**
-  The building → parcel → county → tax district chain in `local_resources` is not yet reflected in `gbim_beliefs_v2` embeddings or `gis_wv_benefits` metadata. Specifically, `tax_geodb_id` and `county_geodb_id` are not yet available as ChromaDB metadata filters, which means spatial filtering by tax district is not yet possible in RAG flows. This sync is the next major integration milestone.
+  The building → parcel → county → tax district chain in `local_resources` is not yet reflected in `gbim_beliefs_v2` embeddings or `gis_wv_benefits` metadata. The `tax_geodb_id`, `parcel_type`, and `county_geodb_id` fields are not yet available as ChromaDB metadata filters, which means spatial filtering by tax district is not yet possible in live RAG flows. Syncing these fields into ChromaDB metadata is the next major integration milestone after address extraction.
 
-- **Consolidating and documenting collections.**
-  Treating GBIM-derived belief collections and `gis_wv_benefits` as the primary spatial and benefits vector indexes in ChromaDB, with legacy `geodb*` collections documented as historical or specialized.
-
-- **Extending the local resource registry.**
-  Continuing to ingest and normalize programme information into `local_resources`, extending coverage across additional West Virginia counties and ZIP codes, and maintaining verification status and timestamps.
+- **Maintaining coverage in GBIM and embeddings.**
+  Ensuring that beliefs associated with newly normalized datasets receive complete axis values, text representations, and embeddings in `gbim_beliefs_v2`, and that their spatial and institutional metadata are exposed for RAG.
 
 - **Maintaining inventories and audit trails.**
-  Periodically regenerating and archiving inventories of PostgreSQL PostGIS tables, GBIM beliefs, ChromaDB collections, and `local_resources` entries, including counts and metadata coverage.
+  Periodically regenerating and archiving inventories of PostgreSQL PostGIS tables, GBIM beliefs, ChromaDB collections, and `local_resources` entries, including counts and metadata coverage, to ensure that the spatial body of Ms. Jarvis remains transparent and auditable.
 
-As these milestones are met, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers at the scale of millions of entities stored in PostgreSQL, with each advisory behaviour traceable to specific, inspectable geographies, GBIM beliefs, and programme records in `local_resources` — and with explicit acknowledgment of the limits of that resolution where the underlying parcel data does not support it.
+As these milestones are met, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers at the scale of millions of entities — with each advisory behaviour traceable to specific, inspectable geographies, GBIM beliefs, and programme records in `local_resources` — and with explicit acknowledgment of the limits of that resolution where the underlying parcel data does not support it. The spatial body of the Steward System is not a backdrop for reasoning. It is the ethical substrate through which justice-oriented intelligence becomes possible in Appalachia.
