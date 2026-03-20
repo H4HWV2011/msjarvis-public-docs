@@ -307,9 +307,9 @@ That infrastructure now exists in Fayette County.
 
 ---
 
-*Produced by Harmony for Hope, Inc. — Oak Hill, West Virginia*
+*Produced by Kidd's Technical Services, Inc.  — Mount Hope, West Virginia*
 *Advanced Location Intelligence Infrastructure: Ms. Egeria Jarvis GIS System*
 *Public Documentation Repository: [github.com/H4HWV2011/msjarvis-public-docs](https://github.com/H4HWV2011/msjarvis-public-docs)*
 *License: Creative Commons Attribution 4.0 International (CC BY 4.0)*
 *All data sources utilized in this analysis are publicly available and independently verifiable by any researcher or member of the public.*
-*Correspondence and inquiries: Harmony for Hope, Inc. — Oak Hill, West Virginia*
+*Correspondence and inquiries: Kidd's Technical Services, Inc. — Mount Hope, West Virginia*
