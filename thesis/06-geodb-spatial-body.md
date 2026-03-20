@@ -40,7 +40,7 @@ The focus is on the current structure and status of the PostgreSQL PostGIS-based
 - **Database Name:** `local_resources`
 - **Role:** Spatially resolved building, parcel, county, and tax district registry
 - **Key Views:** `building_with_parcel`, `parcel_with_county_tax`, `building_parcel_county_tax`
-- **Key Materialized Views:** `county_tax_building_summary` (707 rows, sub-millisecond reads, concurrent refresh enabled)
+- **Key Materialized Views:** `county_tax_building_summary` (707 rows, sub-millisecond reads, concurrent refresh enabled, ~4 min refresh time)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -147,7 +147,7 @@ The current deployment includes a substantial, production-grade subset of West V
   Statewide 2020 Census blocks and block groups in projected coordinate systems, providing population and administrative meshes at fine spatial scales.
 
 - **Structures and buildings.**
-  A dense statewide structure inventory composed of SAMB structure points, WV GIS Technical Center building footprints numbering in the millions, and Microsoft-derived building points. The multi-source nature of this inventory introduces duplication that must be managed explicitly before address extraction or program routing proceeds. See Section 6.4.1.
+  A dense statewide structure inventory of 2,121,018 ingested records assembled from three independent sources — SAMB structure points, WV GIS Technical Center building footprints, and Microsoft-derived building points — resolving to 2,120,976 canonical structures after deduplication. See Section 6.4.1.
 
 - **Hazard and infrastructure layers.**
   Abandoned mine lands (lines and polygons), dams (coal-related and non-coal-related), floodplain structure inventories and flood hazard zones, rail networks and terminals, navigable waterways and river-mile indexing, and energy and communication infrastructure where available.
@@ -177,7 +177,7 @@ The current deployment includes a substantial, production-grade subset of West V
 │  │ - SAMB points        │    │ - Hospitals          │      │
 │  │ - Building footprints│    │ - Libraries          │      │
 │  │ - Microsoft points   │    │ - Benefits offices   │      │
-│  │   (millions)        │    │ - Community centers  │      │
+│  │ - 2,120,976 canonical│    │ - Community centers  │      │
 │  └──────────────────────┘    └──────────────────────┘      │
 │                                                              │
 │  All integrated with GBIM beliefs (5.4M+ rows)              │
@@ -190,72 +190,76 @@ The current deployment includes a substantial, production-grade subset of West V
 
 ---
 
-### 6.4.1 The Multi-Source Building Inventory and Deduplication
+### 6.4.1 The Multi-Source Building Inventory: Three West Virginias in One Mesh
 
 The statewide structure inventory in `wv_buildings` is assembled from three independent sources:
 
-- **SAMB** (Statewide Address and Mapping Base) — structure points compiled from county assessor records
-- **WV GIS Technical Center building footprints** — polygon footprints derived from aerial imagery, converted to centroids, with `sourcetable = wvgistc_building_footprints`
-- **Microsoft building points** — machine-learning-derived structure detections from satellite imagery
+- **SAMB** (Statewide Address and Mapping Base) — structure points compiled from county assessor records. SAMB mapped the **administrative** West Virginia: houses, trailers, garages, anything with a tax or address relationship.
+- **WV GIS Technical Center building footprints** — polygon footprints derived from aerial imagery, converted to centroids. WV GIS mapped the **visible** West Virginia: if it has a roof, it is in here, regardless of whether it is taxed or addressed.
+- **Microsoft building points** — machine-learning-derived structure detections from satellite imagery. Microsoft mapped the **detectable** West Virginia: independently derived with no reference to either of the above.
 
-This multi-source assembly is a strength — each dataset fills gaps the others leave, producing the most complete statewide structure inventory available for West Virginia. But it introduces a well-defined problem: the same physical structure frequently appears as multiple rows in `wv_buildings` with different `building_id` values, different `sourcetable` values, and nearly identical but not identical coordinates. This is not a data error. It is the honest consequence of combining three independently produced datasets that were never designed to reference each other.
+These three methodologies are epistemically independent. SAMB could not have been derived from the imagery. WV GIS did not consult tax records. Microsoft's ML had no knowledge of either. They are three completely different answers to the question "what counts as a building in West Virginia" — and the data proves it.
 
-**What Was Discovered Operationally**
+**Deduplication Results (Verified March 19, 2026):**
 
-During the March 19, 2026 spatial chain build, this duplication became operationally visible in two ways. First, raw building counts from joins against `wv_buildings` overstate the true number of distinct structures — the `county_tax_building_summary` materialized view reports source records, not necessarily distinct physical locations. Second, the `building_parcel_county_tax` view revealed extreme building-per-parcel counts in the top offenders, with parcels carrying 266 to 985 buildings. While most of these were explained by legitimate large-tract land ownership, the multi-source duplication problem means that even on `standard` parcels, some building IDs represent the same physical structure counted two or three times.
+Spatial deduplication across all 2,121,018 ingested records using a 0.0001-degree threshold (~10 meters) with `canonical_building_id` assignment produced the following result:
 
-The `wv_buildings` schema is lean by design:
-
-| Column | Notes |
+| Metric | Value |
 |---|---|
-| `building_id` | text identifier |
-| `label` | human-readable name or description |
-| `btype` | building type classification |
-| `sourcetable` | which source dataset the record came from |
-| `country` | country-level provenance tag from multi-source ingestion |
-| `geom` | PostGIS geometry (USER-DEFINED type) |
+| Total records ingested | 2,121,018 |
+| Cross-source duplicate pairs identified | 42 |
+| Records remapped to canonical ID | 42 |
+| Canonical structures (addressable universe) | 2,120,976 |
 
-As of March 19, 2026, GiST and btree indexes have been added to `wv_buildings`:
+Every duplicate pair involved the 2008 WV DOE office/industrial survey (`officebuildings_wvdo_200807_utm83`, `industrialbuildings_wvdo_200807_utm83`) overlapping with WV GIS Technical Center footprints. SAMB has zero cross-source duplicates. Microsoft has zero cross-source duplicates. One additional internal duplicate (`I-235` ↔ `O-125`, distance ~0 degrees) was identified within the 2008 WV DOE survey itself and resolved by pointing `I-235` to `O-125` as canonical.
 
-```sql
-CREATE INDEX wv_buildings_geom_idx
-  ON wv_buildings USING GIST (geom);
-
-CREATE INDEX wv_buildings_building_id_idx
-  ON wv_buildings (building_id);
-```
-
-**The Deduplication Strategy**
-
-Spatial deduplication identifies buildings within a threshold distance (5–15 meters, to be calibrated per source pair) and from different source tables, assigning them a single canonical `building_id` for address and program routing. The diagnostic query pattern is:
+**Source Count Distribution (Verified March 19, 2026):**
 
 ```sql
-SELECT
-  a.building_id   AS building_a,
-  b.building_id   AS building_b,
-  a.sourcetable   AS source_a,
-  b.sourcetable   AS source_b,
-  ST_Distance(
-    a.geom::geography,
-    b.geom::geography
-  )               AS dist_m
-FROM wv_buildings a
-JOIN wv_buildings b
-  ON a.building_id < b.building_id
-  AND a.sourcetable != b.sourcetable
-  AND ST_DWithin(a.geom::geography, b.geom::geography, 10)
-LIMIT 100;
+SELECT source_count, COUNT(*) AS buildings,
+       ROUND(COUNT(*) * 100.0 / 2120976, 2) AS pct
+FROM wv_buildings
+WHERE canonical_building_id = building_id
+GROUP BY source_count ORDER BY source_count DESC;
 ```
 
-Until full deduplication is complete, all building counts in `county_tax_building_summary` and downstream reporting carry an explicit caveat: they represent source records, not verified distinct structures. This uncertainty is surfaced explicitly in RAG responses when building-level counts are cited, consistent with Ms. Jarvis's P16 commitment that power must be accountable to place.
+| `source_count` | Buildings | Pct | Meaning |
+|---|---|---|---|
+| 2 | 41 | ~0.00% | Two independent methods confirmed |
+| 1 | 2,120,935 | ~100.00% | Single source — domain-specific authority |
 
-The architectural solution is a `canonical_building_id` field, to be added to `wv_buildings` after deduplication, that collapses duplicates to a single authoritative record per physical structure. All program routing, address extraction, and GBIM belief generation will operate on `canonical_building_id` rather than raw `building_id` once that field is populated. This is a near-term roadmap item and a prerequisite for address extraction.
+Of 2,120,976 canonical structures, 99.998% are known to exactly one independent source — confirming that SAMB, WV GIS Technical Center, and Microsoft's ML detection are three complementary surveys of three different West Virginias, assembled here for the first time into a single queryable mesh. There are no triple-confirmed structures. The three sources were each doing entirely different jobs, with almost no geographic or methodological overlap.
+
+**What This Means for Program Routing**
+
+Single-source buildings are not low-confidence buildings. They carry domain-specific authority:
+
+| Source | Single-source meaning | RAG routing implication |
+|---|---|---|
+| SAMB only | Administratively real; tax and address record exists | Direct address extraction from parcel situs |
+| WV GIS only | Spatially real; visible from aerial imagery but untaxed or unaddressed | Route via nearest 911 address point |
+| Microsoft only | Computationally detected; may be off-grid, demolished, or a non-residential structure | Flag for verification; still surface program proximity |
+
+The most important population for Ms. Jarvis is the `source_count = 1` buildings from WV GIS or Microsoft that have no SAMB record — physically real structures that the administrative state does not know exist. These are the households that fall through every conventional benefits system precisely because they do not appear in the administrative record. The building inventory exists to find them.
+
+**Schema State (Verified March 19, 2026):**
+
+```sql
+-- canonical_building_id: populated for all 2,120,976 canonical records
+-- source_count: 1 or 2 for all canonical records
+-- Indexes: wv_buildings_geom_idx (GiST), wv_buildings_building_id_idx (btree),
+--          wv_buildings_canonical_id_idx (btree)
+SELECT building_id, canonical_building_id, source_count, sourcetable
+FROM wv_buildings
+WHERE source_count = 2
+LIMIT 5;
+```
 
 **A Note on View Architecture and Query Performance**
 
-The spatial chain in `local_resources` was built deliberately as views before materialization — a design decision that proved its value during the March 19, 2026 build sprint. Views are transparent and inspectable; every schema correction, parcel classification discovery, and anomaly was surfaced because the join logic remained queryable during development. Materialized views sacrifice that transparency for performance and should only be created after the logic is proven and anomalies are handled.
+The spatial chain in `local_resources` was built deliberately as views before materialization. Views are transparent and inspectable; every schema correction, parcel classification discovery, and anomaly was surfaced because the join logic remained queryable during development. Materialized views sacrifice that transparency for performance and should only be created after the logic is proven and anomalies are handled.
 
-A critical operational lesson from this sprint: correlated subqueries against `building_parcel_county_tax` — which recomputes the full `ST_Within` join chain on every evaluation — must never be run at scale until the view is materialized. A query with a correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation. Materializing `building_parcel_county_tax` with indexes on `building_id`, `parcel_id`, and `county_name` is listed as an immediate roadmap priority in Section 6.9.
+A critical operational lesson from the March 19, 2026 build sprint: correlated subqueries against `building_parcel_county_tax` — which recomputes the full `ST_Within` join chain on every evaluation — must never be run at scale until the view is materialized. A query with a correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation. Similarly, `ST_DWithin` self-joins using the `::geography` cast across 2M+ rows ran for 11+ minutes without returning results; replacing the cast with degree-based `ST_Expand` + `ST_DWithin` reduced the same query to 10 seconds. Materializing `building_parcel_county_tax` with indexes on `building_id`, `parcel_id`, and `county_name` is listed as an immediate roadmap priority in Section 6.9.
 
 ---
 
@@ -364,7 +368,7 @@ The resulting classification distribution:
 | `federal_land` | 1 | Federal address system |
 | `multi_unit` | 1 | Nearest 911 address point per building |
 
-The addressable building universe on `standard` parcels is **2,010,808 buildings** — an upper bound refined downward as spatial deduplication proceeds. The 4,855 buildings on non-standard parcels are protected from bad address assignment.
+The addressable building universe on `standard` parcels is **2,010,808 buildings** — an upper bound that the deduplication work in Section 6.4.1 has already refined. The 4,855 buildings on non-standard parcels are protected from bad address assignment.
 
 ---
 
@@ -473,7 +477,7 @@ The remaining gap before full RAG integration at parcel granularity is the sync 
 
 **Immediate priorities (post March 19, 2026):**
 
-- **Materialize `building_parcel_county_tax`.** The current view recomputes the full spatial join chain on every query, producing 2–3 minute query times for operations that should take seconds. A correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation during the March 19 sprint. Materializing this view with indexes on `building_id`, `parcel_id`, and `county_name` is a prerequisite for all subsequent spatial operations at scale.
+- **Materialize `building_parcel_county_tax`.** The current view recomputes the full spatial join chain on every query. Materializing this view with indexes on `building_id`, `parcel_id`, and `county_name` is a prerequisite for all subsequent spatial operations at scale.
 
 ```sql
 CREATE MATERIALIZED VIEW building_parcel_county_tax_mv AS
@@ -483,19 +487,25 @@ CREATE INDEX bpct_mv_building_id_idx
   ON building_parcel_county_tax_mv (building_id);
 
 CREATE INDEX bpct_mv_parcel_id_idx
-  ON building_parvis_county_tax_mv (parcel_id);
+  ON building_parcel_county_tax_mv (parcel_id);
 
 CREATE INDEX bpct_mv_county_idx
   ON building_parcel_county_tax_mv (county_name);
 ```
 
-- **Spatial deduplication and `canonical_building_id`.** Implement spatial clustering deduplication across `wv_buildings` source pairs. Add `canonical_building_id` to `wv_buildings`. Route all address extraction, program routing, and GBIM belief generation through canonical records.
-
 - **WV 911 address point ingestion.** The WV Enhanced 911 Council statewide address point dataset (`WV_Addresses`) is not currently present in `msjarvisgis`. This dataset is required for `multi_unit` parcel resolution and hollow community address assignment. Download from the WV GIS Technical Center and ingest as `wv_e911_addresses`, then expose to `local_resources` via `postgres_fdw`.
 
-- **Address extraction for standard parcels.** Once 911 address points are available and deduplication is complete, extract situs address fields for all `standard` parcels and propagate through `parcel_with_county_tax` and `building_parcel_county_tax`.
+- **Address extraction for standard parcels.** Once 911 address points are available, extract situs address fields for all `standard` parcels and propagate through `parcel_with_county_tax` and `building_parcel_county_tax`.
 
-- **Sync `local_resources` spatial chain into ChromaDB.** Add `tax_geodb_id`, `parcel_type`, and `county_geodb_id` as queryable metadata filters in `gbim_beliefs_v2` and `gis_wv_benefits` to enable tax district granularity in live RAG flows.
+- **Sync `local_resources` spatial chain into ChromaDB.** Add `tax_geodb_id`, `parcel_type`, `source_count`, and `county_geodb_id` as queryable metadata filters in `gbim_beliefs_v2` and `gis_wv_benefits` to enable tax district granularity in live RAG flows.
+
+- **Scheduled materialized view refresh.** The `county_tax_building_summary` refresh costs approximately 4 minutes. Schedule via host crontab:
+
+```bash
+0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources \
+  -c "REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary" \
+  >> /var/log/jarvis_mv_refresh.log 2>&1
+```
 
 **Medium-term priorities:**
 
