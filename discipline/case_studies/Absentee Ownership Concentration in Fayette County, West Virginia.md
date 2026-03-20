@@ -1,7 +1,7 @@
 # Case Study: Institutional Timberland Acquisition, Federal Subsidy Utilization, and Absentee Ownership Concentration in Fayette County, West Virginia
 
 **Date of Analysis:** March 20, 2026
-**Producing Organization:** Harmony for Hope, Inc. — Oak Hill, West Virginia
+**Producing Organization:** Kidd's Technical Services Inc. — Mount Hope, West Virginia
 **Analytical System:** Advanced Location Intelligence Infrastructure
 **Primary Database:** `msjarvisgis` — `public.mvw_gbim_landowner_spatial`
 **Data Source:** Fayette County, West Virginia Public Property Assessment Records
