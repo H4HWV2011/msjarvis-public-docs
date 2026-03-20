@@ -348,7 +348,7 @@ To connect geometric features with high-dimensional semantic reasoning, Ms. Jarv
 │  │    - Metadata: belief_id, source_table,        │         │
 │  │      source_pk, epoch, spatial coords          │         │
 │  │                                                │         │
-│  │  gis_wv_benefits (benefits facilities)        │         │
+│  │  gis_wv_benefits (benefits facilities)         │         │
 │  │    - Benefits-specific embeddings              │         │
 │  │    - Metadata: facility type, county, ZIP,     │         │
 │  │      local_resource_id                         │         │
@@ -556,7 +556,10 @@ The remaining gap before full RAG integration at parcel granularity is the sync 
 - ✅ `building_parcel_county_tax_mv` materialized — 7,354,707 rows with address columns
 - ✅ Address coverage verified — 97.17% of records carry verified situs address
 - ✅ `parcel_type` classification protecting 208,427 non-standard building records
-- ✅ Scheduled `county_tax_building_summary` refresh via host crontab
+- ✅ Scheduled materialized view refresh activated via host crontab (March 19, 2026)
+  - `county_tax_building_summary` — nightly at 2:00 AM
+  - `building_parcel_county_tax_mv` — weekly Sunday at 3:00 AM
+  - Both logging to `/var/log/jarvis_mv_refresh.log`
 
 **Immediate priorities:**
 
@@ -570,20 +573,6 @@ shp2pgsql -s 4326 -I WV_Addresses.shp public.wv_e911_addresses \
 - **USGS 3DEP elevation drape.** Download 1/3 arc-second GeoTIFF tiles for West Virginia from USGS National Map, load via `raster2pgsql`, and populate Z values on all 2,120,976 canonical buildings. Priority coverage: Fayette, Raleigh, and Kanawha counties.
 
 - **Sync `local_resources` spatial chain into ChromaDB.** Add `tax_geodb_id`, `parcel_type`, `source_count`, `address_confidence`, and `county_geodb_id` as queryable metadata filters in `gbim_beliefs_v2` and `gis_wv_benefits` to enable tax district granularity in live RAG flows.
-
-- **Scheduled materialized view refresh.** The `county_tax_building_summary` refresh costs approximately 4 minutes. The `building_parcel_county_tax_mv` refresh costs approximately 41 minutes. Schedule both via host crontab:
-
-```bash
-# county_tax_building_summary — nightly at 2:00 AM
-0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources \
-  -c "REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary" \
-  >> /var/log/jarvis_mv_refresh.log 2>&1
-
-# building_parcel_county_tax_mv — weekly Sunday at 3:00 AM
-0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources \
-  -c "REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv" \
-  >> /var/log/jarvis_mv_refresh.log 2>&1
-```
 
 **Medium-term priorities:**
 
