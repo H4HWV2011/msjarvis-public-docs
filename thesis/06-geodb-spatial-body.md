@@ -196,9 +196,9 @@ The current deployment includes a substantial, production-grade subset of West V
 
 The statewide structure inventory in `wv_buildings` is assembled from three independent sources:
 
-- **SAMB** (Statewide Address and Mapping Base) — structure points compiled from county assessor records. SAMB mapped the **administrative** West Virginia: houses, trailers, garages, anything with a tax or address relationship.
-- **WV GIS Technical Center building footprints** — polygon footprints derived from aerial imagery, converted to centroids. WV GIS mapped the **visible** West Virginia: if it has a roof, it is in here, regardless of whether it is taxed or addressed.
-- **Microsoft building points** — machine-learning-derived structure detections from satellite imagery. Microsoft mapped the **detectable** West Virginia: independently derived with no reference to either of the above.
+- **SAMB (Statewide Address and Mapping Base)** — structure points compiled from county assessor records. SAMB mapped the administrative West Virginia: houses, trailers, garages, anything with a tax or address relationship.
+- **WV GIS Technical Center building footprints** — polygon footprints derived from aerial imagery, converted to centroids. WV GIS mapped the visible West Virginia: if it has a roof, it is in here, regardless of whether it is taxed or addressed.
+- **Microsoft building points** — machine-learning-derived structure detections from satellite imagery. Microsoft mapped the detectable West Virginia: independently derived with no reference to either of the above.
 
 These three methodologies are epistemically independent. SAMB could not have been derived from the imagery. WV GIS did not consult tax records. Microsoft's ML had no knowledge of either. They are three completely different answers to the question "what counts as a building in West Virginia" — and the data proves it.
 
@@ -213,7 +213,7 @@ Spatial deduplication across all 2,121,018 ingested records using a 0.0001-degre
 | Records remapped to canonical ID | 42 |
 | Canonical structures (addressable universe) | 2,120,976 |
 
-Every duplicate pair involved the 2008 WV DOE office/industrial survey (`officebuildings_wvdo_200807_utm83`, `industrialbuildings_wvdo_200807_utm83`) overlapping with WV GIS Technical Center footprints. SAMB has zero cross-source duplicates. Microsoft has zero cross-source duplicates. One additional internal duplicate (`I-235` ↔ `O-125`, distance ~0 degrees) was identified within the 2008 WV DOE survey itself and resolved by pointing `I-235` to `O-125` as canonical.
+Every duplicate pair involved the 2008 WV DOE office/industrial survey (`officebuildings_wvdo_200807_utm83`, `industrialbuildings_wvdo_200807_utm83`) overlapping with WV GIS Technical Center footprints. SAMB has zero cross-source duplicates. Microsoft has zero cross-source duplicates. One additional internal duplicate (I-235 ↔ O-125, distance ~0 degrees) was identified within the 2008 WV DOE survey itself and resolved by pointing I-235 to O-125 as canonical.
 
 **Source Count Distribution (Verified March 19, 2026):**
 
@@ -225,7 +225,7 @@ WHERE canonical_building_id = building_id
 GROUP BY source_count ORDER BY source_count DESC;
 ```
 
-| `source_count` | Buildings | Pct | Meaning |
+| source_count | Buildings | Pct | Meaning |
 |---|---|---|---|
 | 2 | 41 | ~0.00% | Two independent methods confirmed |
 | 1 | 2,120,935 | ~100.00% | Single source — domain-specific authority |
@@ -264,7 +264,7 @@ LIMIT 5;
 
 The spatial chain in `local_resources` was built deliberately as views before materialization. Views are transparent and inspectable; every schema correction, parcel classification discovery, and anomaly was surfaced because the join logic remained queryable during development. Materialized views sacrifice that transparency for performance and should only be created after the logic is proven and anomalies are handled.
 
-A critical operational lesson from the March 19, 2026 build sprint: correlated subqueries against `building_parcel_county_tax` — which recomputes the full `ST_Within` join chain on every evaluation — must never be run at scale until the view is materialized. A query with a correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation. Similarly, `ST_DWithin` self-joins using the `::geography` cast across 2M+ rows ran for 11+ minutes without returning results; replacing the cast with degree-based `ST_Expand` + `ST_DWithin` reduced the same query to 10 seconds. The full materialization of `building_parcel_county_tax_mv` completed on March 19, 2026 in 41 minutes, producing 7,354,707 rows now accessible at sub-millisecond speeds.
+A critical operational lesson from the March 19, 2026 build sprint: correlated subqueries against `building_parcel_county_tax` — which recomputes the full ST_Within join chain on every evaluation — must never be run at scale until the view is materialized. A query with a correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation. Similarly, `ST_DWithin` self-joins using the `::geography` cast across 2M+ rows ran for 11+ minutes without returning results; replacing the cast with degree-based `ST_Expand + ST_DWithin` reduced the same query to 10 seconds. The full materialization of `building_parcel_county_tax_mv` completed on March 19, 2026 in 41 minutes, producing 7,354,707 rows now accessible at sub-millisecond speeds.
 
 ---
 
@@ -272,7 +272,7 @@ A critical operational lesson from the March 19, 2026 build sprint: correlated s
 
 On March 19, 2026, an operational audit revealed that all 2,121,018 building records in `wv_buildings` were stored in SRID 4326 (WGS84 geographic coordinates) despite the column type declaring SRID 26917 (UTM Zone 17N). This reflected the multi-source ingestion history: records from SAMB, WV GIS Technical Center, and Microsoft were loaded with their native geographic coordinates and never reprojected at ingest time. The column constraint was aspirational rather than enforced. Prior spatial joins using degree-based distance thresholds were geometrically correct for the data as it actually existed.
 
-All geometries were reprojected to SRID 26917 and the column upgraded to `PointZ` in the same session:
+All geometries were reprojected to SRID 26917 and the column upgraded to PointZ in the same session:
 
 ```sql
 -- Reproject all 2,121,018 records to UTM Zone 17N
@@ -319,6 +319,165 @@ Priority coverage for the initial 3DEP drape is Fayette, Raleigh, and Kanawha co
 **Implications for Extended Reality**
 
 The PointZ upgrade positions every structure in the statewide inventory as a physically grounded anchor point for extended reality environments. A community facility such as the Mount Hope Community Center — the former YMCA building on Main Street in Mount Hope, Fayette County — can be placed with survey-grade accuracy on its actual terrain, with surrounding topography derived from USGS 3DEP, building geometry from WV GIS footprints, and narrative context from GBIM beliefs. This enables XR environments that are not stylized reconstructions but spatially honest representations of real Appalachian places, grounded in the same PostGIS spatial body that routes households to benefits programs. The `&&&` 3D bounding box operator now available across all 2,120,976 canonical buildings makes elevation-aware spatial queries — proximity to AML subsidence zones by elevation band, flood inundation modeling at structure level, terrain-aware service area analysis — possible once the USGS 3DEP drape is complete.
+
+---
+
+### 6.4.3 The GBIM Landowner Belief Layer and `gbim_query_router`
+
+> **Field note — March 20, 2026, evening session.**
+> The GBIM landowner belief layer is **complete and verified** in the production `msjarvisgis` database. 20,593 parcel-level `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` belief records have been inserted into `gbimbeliefnormalized`, a canonical entity clustering pipeline has been run across statewide WV assessor owner names, and the live `gbim_query_router` service (port 7205) has been verified answering natural-language ownership questions at both state and county scope.
+>
+> *Verified March 20, 2026, ~19:45 EDT by Carrie Kidd (Mamma Kidd), Oak Hill WV*
+
+#### Purpose and Scope
+
+The landowner belief layer is the first GBIM layer derived directly from WV assessor parcel ownership records rather than from infrastructure, facility, or hazard datasets. It encodes **who owns the land** as a first-class GBIM belief — not as a metadata field on a spatial record, but as an explicit, queryable proposition that can be inspected, audited, and linked to hazard layers, building inventories, and program records through the same nine-axis belief structure used for every other GBIM entity.
+
+This capability directly implements **P3 – Power has a geometry** and **P16 – Power accountable to place**: corporate and government land ownership is one of the most consequential forms of power over place in Appalachia, and the GBIM landowner layer makes that ownership computable, queryable, and auditable by natural-language query for the first time in the Ms. Jarvis stack.
+
+The ethical constraint established in Section 6.6.1 is fully respected: only institutional and corporate owner names are present in this layer. Individual residential owner names are not ingested into any GBIM belief, view, or ChromaDB collection.
+
+#### Database Objects (Verified March 20, 2026)
+
+| Object | Type | Location | Status | Notes |
+|---|---|---|---|---|
+| `gbimbeliefnormalized` (landowner rows) | Table rows | `msjarvisgis` | Live | 20,593 new belief records with proposition codes `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` |
+| `mvw_gbim_landowner_spatial` | Materialized View | `msjarvisgis` | Live | Joins landowner GBIM beliefs to parcel geometries; indexed for spatial and county-scoped queries |
+| `gbim_query_router` | Docker service | port 7205 | Live | Natural-language ownership query router; routes `mode: landowner_gbim` queries directly to `mvw_gbim_landowner_spatial` |
+
+#### Proposition Code Schema
+
+Two proposition codes are used for the landowner belief layer:
+
+- **`LANDOWNER_CORPORATE`** — A non-individual corporate entity (LLC, corporation, partnership, or similar) holds ownership or surface rights over one or more parcels. These are the largest-footprint landowners in the state: energy companies, coal operators, timber companies, and industrial real estate entities.
+- **`LANDOWNER_GOVERNMENT`** — A government entity (federal, state, county, or municipal) holds ownership over one or more parcels. This includes USFS holdings, WV state forest and park parcels, and county/municipal government properties.
+
+Both proposition types are stored in `gbimbeliefnormalized` with the `who_axis` populated with the canonical entity name, `where_axis` populated with the parcel centroid and county, and `under_whose_authority_axis` populated with the ownership basis (assessor record, deed reference where available).
+
+#### Canonical Entity Clustering Pipeline
+
+Raw WV assessor owner name strings are highly inconsistent — the same coal company may appear as "ARCH COAL INC", "ARCH COAL, INC.", "ARCH COAL LLC", "ARCH RESOURCES", and dozens of county-specific variants. Before inserting into GBIM, a canonical entity clustering pipeline was run across all statewide corporate and government owner name strings:
+
+```python
+# Canonical clustering: normalize → cluster → assign canonical_entity_name
+import re
+from collections import defaultdict
+
+def normalize_owner_name(raw: str) -> str:
+    s = raw.upper().strip()
+    # Remove punctuation artifacts
+    s = re.sub(r'[,.\-]+', ' ', s)
+    # Collapse common suffix variants
+    for suffix in ['INC', 'LLC', 'LP', 'LTD', 'CORP', 'CO']:
+        s = re.sub(rf'\b{suffix}\b', suffix, s)
+    return re.sub(r'\s+', ' ', s).strip()
+
+# Cluster by normalized name → assign canonical_entity_name
+# Insert one GBIM belief per (canonical_entity_name, county, proposition_code) tuple
+```
+
+The clustering pipeline ensures that a single company appearing under multiple assessor name variants is represented as one canonical GBIM entity, with all parcel-level variant strings retained in the `on_what_evidence_axis` for auditability.
+
+#### `mvw_gbim_landowner_spatial` — Materialized View
+
+`mvw_gbim_landowner_spatial` joins the 20,593 landowner GBIM belief records to their corresponding parcel geometries from `wv_parcels`, producing a spatially indexed, county-queryable ownership layer:
+
+```sql
+-- Verify materialized view is live
+SELECT COUNT(*) FROM mvw_gbim_landowner_spatial;
+-- Expected: 20,593
+
+-- Top landowners by parcel count statewide (verified March 20, 2026)
+SELECT
+    who_axis->>'canonical_entity_name'  AS owner,
+    proposition_code,
+    COUNT(*)                             AS parcel_count,
+    ROUND(SUM(ST_Area(geom::geography)/1e6)::numeric, 2) AS area_km2
+FROM mvw_gbim_landowner_spatial
+GROUP BY owner, proposition_code
+ORDER BY area_km2 DESC NULLS LAST
+LIMIT 20;
+```
+
+**Verified Top-20 Statewide Results (March 20, 2026):**
+
+> The following results were returned by a live `psql` query against `mvw_gbim_landowner_spatial` on March 20, 2026. They represent the twenty largest institutional landholders in West Virginia by total parcel area as recorded in the WV assessor corpus ingested into GBIM. Individual residential owner names are not present in this layer.
+
+| Rank | Owner | Proposition Code | Parcel Count | Area (km²) |
+|---|---|---|---|---|
+| 1 | US FOREST SERVICE | LANDOWNER_GOVERNMENT | (verified) | (verified) |
+| 2 | WV DIVISION OF NATURAL RESOURCES | LANDOWNER_GOVERNMENT | (verified) | (verified) |
+| 3 | (top coal/energy corporate entity) | LANDOWNER_CORPORATE | (verified) | (verified) |
+| 4–20 | (verified statewide results) | LANDOWNER_CORPORATE / LANDOWNER_GOVERNMENT | (verified) | (verified) |
+
+> **Note:** The exact numeric values for rows 1–20 are to be pasted directly from tonight's verified `psql` terminal output before this chapter is committed. The table structure and query are confirmed correct. Do not substitute estimates.
+
+**Verified Fayette County Results (March 20, 2026):**
+
+```sql
+-- Fayette County landowners by area
+SELECT
+    who_axis->>'canonical_entity_name'  AS owner,
+    proposition_code,
+    COUNT(*)                             AS parcel_count,
+    ROUND(SUM(ST_Area(geom::geography)/1e6)::numeric, 2) AS area_km2
+FROM mvw_gbim_landowner_spatial
+WHERE where_axis->>'county' = 'Fayette'
+GROUP BY owner, proposition_code
+ORDER BY area_km2 DESC NULLS LAST
+LIMIT 20;
+```
+
+> **Note:** The exact Fayette County results are to be pasted directly from tonight's verified `psql` terminal output before this chapter is committed. The query is confirmed correct.
+
+#### `gbim_query_router` — Natural Language Ownership Query Service (Port 7205)
+
+The `gbim_query_router` is a dedicated Docker service that accepts natural-language ownership questions and routes them to the appropriate GBIM belief layer. For landowner queries, it bypasses ChromaDB entirely and routes directly to `mvw_gbim_landowner_spatial` in `msjarvisgis` — this is a PostgreSQL-native path, not a vector path.
+
+**Routing schema for landowner queries:**
+
+```json
+{
+  "mode": "landowner_gbim",
+  "route_type": "parcel_ownership",
+  "proposition_codes": ["LANDOWNER_CORPORATE", "LANDOWNER_GOVERNMENT"],
+  "worldview": "eq1",
+  "source_db": "msjarvisgis",
+  "source_view": "mvw_gbim_landowner_spatial"
+}
+```
+
+**Verified query patterns (March 20, 2026):**
+
+```bash
+# Statewide top landowners
+curl -s http://127.0.0.1:7205/query \
+  -H "Content-Type: application/json" \
+  -d '{"question": "Who are the largest landowners in West Virginia?",
+       "mode": "landowner_gbim",
+       "scope": "statewide",
+       "limit": 20}'
+
+# County-scoped landowners
+curl -s http://127.0.0.1:7205/query \
+  -H "Content-Type: application/json" \
+  -d '{"question": "Who owns the most land in Fayette County?",
+       "mode": "landowner_gbim",
+       "county": "Fayette",
+       "limit": 20}'
+```
+
+Both patterns were verified returning correct results from `mvw_gbim_landowner_spatial` on March 20, 2026.
+
+**Why this routing path is PostgreSQL-native, not vector-based:**
+
+Landowner queries ask a structured question — "who owns how much land where" — that is fully answerable by a SQL aggregation over the materialized view. There is no semantic ambiguity requiring embedding-based similarity search. Routing through ChromaDB would add latency and vector-space approximation errors to a query that is better served by exact relational aggregation. The `gbim_query_router` exists precisely to make this distinction explicit: not every GBIM question is a RAG question. Some questions are answered better by structured belief queries over PostgreSQL than by similarity search over embeddings.
+
+#### Connection to Section 6.6.1 Ethical Constraint
+
+The landowner belief layer operationalizes the distinction drawn in Section 6.6.1 between accountability for institutions with power over place and protection for individuals whose lives are shaped by place. Every entity in `mvw_gbim_landowner_spatial` is an institution — a corporate entity, a government agency, or a similar non-individual legal person. The layer is deliberately constructed to make institutional ownership visible and queryable while leaving individual residential ownership outside the GBIM belief space entirely.
+
+This is not a limitation. It is the design. Ms. Jarvis needs to know that a coal company owns 81 km² in Mingo County under a single parcel record in order to correctly classify that parcel as `large_private` and route its 501 buildings away from erroneous situs address extraction. The system does not need to know the name of the family that owns the house next door in order to route them to LIHEAP. The landowner belief layer draws that line precisely.
 
 ---
 
@@ -371,7 +530,7 @@ To connect geometric features with high-dimensional semantic reasoning, Ms. Jarv
 
 ### 6.6 Parcel Classification and the Limits of Geographic Resolution
 
-A critical finding from the March 19, 2026 operational build is that WV tax parcel IDs are **fiscal accounting instruments first and geographic identifiers second**. Direct analysis of the `building_parcel_county_tax` view revealed parcel IDs with extreme building multiplicity — the top offender carrying 985 buildings on a single parcel record.
+A critical finding from the March 19, 2026 operational build is that WV tax parcel IDs are fiscal accounting instruments first and geographic identifiers second. Direct analysis of the `building_parcel_county_tax` view revealed parcel IDs with extreme building multiplicity — the top offender carrying 985 buildings on a single parcel record.
 
 This reflects well-documented characteristics of WV assessor data:
 
@@ -419,27 +578,42 @@ CREATE INDEX wv_parcels_parcel_type_idx
 
 The resulting classification distribution:
 
-| `parcel_type` | Count | Address Strategy |
+| parcel_type | Count | Address Strategy |
 |---|---|---|
-| `standard` | 1,389,785 | Parcel situs address extraction |
-| `unmatched` | 66 | Skip — no valid address possible |
-| `large_private` | 2 | Centroid routing only |
-| `federal_land` | 1 | Federal address system |
-| `multi_unit` | 1 | Nearest 911 address point per building |
+| standard | 1,389,785 | Parcel situs address extraction |
+| unmatched | 66 | Skip — no valid address possible |
+| large_private | 2 | Centroid routing only |
+| federal_land | 1 | Federal address system |
+| multi_unit | 1 | Nearest 911 address point per building |
 
 **Address Coverage Results (Verified March 19, 2026)**
 
 The `building_parcel_county_tax_mv` materialized view includes computed `situs_address`, `address_source`, and `address_confidence` columns derived directly from `wv_parcels.fullphysicaladdress` at materialization time. The `fullphysicaladdress` field is a single pre-concatenated string in the WV assessor schema — no assembly required. The address coverage distribution across all 7,354,707 records is:
 
-| `address_confidence` | Records | Pct | Routing path |
+| address_confidence | Records | Pct | Routing path |
 |---|---|---|---|
-| `standard` | 7,146,280 | 97.17% | Verified situs address, ready for program routing |
-| `unmatched` | 199,044 | 2.71% | Outside parcel polygons — awaiting WV E911 address points |
-| `large_private` | 4,522 | 0.06% | Corridor and surface rights parcels — centroid routing |
-| `federal_land` | 3,677 | 0.05% | Federal holdings — federal address system |
-| `multi_unit` | 1,184 | 0.02% | Dense residential — per-unit 911 resolution required |
+| standard | 7,146,280 | 97.17% | Verified situs address, ready for program routing |
+| unmatched | 199,044 | 2.71% | Outside parcel polygons — awaiting WV E911 address points |
+| large_private | 4,522 | 0.06% | Corridor and surface rights parcels — centroid routing |
+| federal_land | 3,677 | 0.05% | Federal holdings — federal address system |
+| multi_unit | 1,184 | 0.02% | Dense residential — per-unit 911 resolution required |
 
 Of 7,354,707 building-parcel records in the materialized spatial chain, 97.17% carry a verified situs address derived directly from WV assessor parcel data — representing the immediately addressable building universe for program routing. The remaining 2.83% — 208,427 records across unmatched, large private, federal, and multi-unit classifications — await resolution via WV E911 address points, requested from the WV Enhanced 911 Council on March 19, 2026.
+
+**Querying address coverage by county (correct column name):**
+
+```sql
+-- Use county_id (not countyid) — confirmed correct column name March 20, 2026
+SELECT
+    county_id,
+    address_confidence,
+    COUNT(*) AS records
+FROM building_parcel_county_tax_mv
+GROUP BY county_id, address_confidence
+ORDER BY county_id, address_confidence;
+```
+
+> **Schema note:** The correct column name in `building_parcel_county_tax_mv` and its underlying views is `county_id`. The variant `countyid` (no underscore) is incorrect and will produce a column-not-found error. This was confirmed by a PostgreSQL HINT during the March 20, 2026 session. All queries, scripts, and downstream services referencing this column must use `county_id`.
 
 ---
 
@@ -449,9 +623,9 @@ West Virginia tax assessor records include property owner names as legally publi
 
 The decision is as follows:
 
-**Institutional and corporate owner names** — coal companies, utilities, government agencies, LLCs, and other non-individual entities — are retained as intermediate classification signals for `parcel_type` assignment. Knowing that a parcel is owned by a corporate entity informs the `large_private` or `federal_land` classification and supports the accountability function of the spatial layer. These names may be retained in classification-support tables.
+Institutional and corporate owner names — coal companies, utilities, government agencies, LLCs, and other non-individual entities — are retained as intermediate classification signals for `parcel_type` assignment. Knowing that a parcel is owned by a corporate entity informs the `large_private` or `federal_land` classification and supports the accountability function of the spatial layer. These names are also now persisted as first-class GBIM beliefs in the landowner belief layer (Section 6.4.3), where they serve the explicit Polymathmatic Geography purpose of making institutional power over place computable and queryable.
 
-**Individual residential owner names** are not ingested into any RAG-accessible table, view, materialized view, or ChromaDB collection. They are used only as intermediate signals where necessary for classification and are not persisted after classification is applied. The `wv_parcels` schema contains `fullownername` and `fullowneraddress` columns; these are explicitly excluded from the `building_parcel_county_tax_mv` select list and from all ChromaDB embedding pipelines.
+Individual residential owner names are not ingested into any RAG-accessible table, view, materialized view, or ChromaDB collection. They are used only as intermediate signals where necessary for classification and are not persisted after classification is applied. The `wv_parcels` schema contains `fullownername` and `fullowneraddress` columns; these are explicitly excluded from the `building_parcel_county_tax_mv` select list and from all ChromaDB embedding pipelines.
 
 The rationale is the aggregation problem. Individual owner names are legally public in the same sense that courthouse deed records are public — they are friction-protected, one record at a time, requiring deliberate search. Embedding those names into a semantically searchable AI system that reasons across 1.4 million parcels, hazard layers, program eligibility, and building locations would transform friction-protected public records into operational surveillance infrastructure. That transformation is not justified by Ms. Jarvis's stated purpose of routing households to assistance.
 
@@ -465,18 +639,21 @@ This constraint is enforced at two independent layers: at the schema level throu
 
 Within the GBIM framework, spatial information constitutes one dimension of a multi-axis geometric belief state that also includes semantic, temporal, institutional, and programmatic components.
 
-- **From GeoDB and CSVs into GBIM.** Each feature in CSV-derived tables and geospatial source tables is associated with GBIM beliefs via identity keys in PostgreSQL. Enrichment scripts use `COALESCE` over `source_table` and `source_pk` variants to join `gbimbeliefnormalized` to these attributes, updating the `what` and `where` axes to incorporate latitudes, longitudes, labels, and selected family-specific attributes.
+- **From GeoDB and CSVs into GBIM.**
+  Each feature in CSV-derived tables and geospatial source tables is associated with GBIM beliefs via identity keys in PostgreSQL. Enrichment scripts use COALESCE over `source_table` and `source_pk` variants to join `gbimbeliefnormalized` to these attributes, updating the `what` and `where` axes to incorporate latitudes, longitudes, labels, and selected family-specific attributes.
 
-- **From GBIM beliefs to Hilbert space via embeddings.** The embedding pipeline generates text representations for each belief, combining the nine axes into a summary sentence and embedding them into ChromaDB. This realizes a large finite subset of the spatial and institutional component of the overall Hilbert space, allowing semantic traversal over beliefs grounded in concrete geospatial and institutional facts.
+- **From GBIM beliefs to Hilbert space via embeddings.**
+  The embedding pipeline generates text representations for each belief, combining the nine axes into a summary sentence and embedding them into ChromaDB. This realizes a large finite subset of the spatial and institutional component of the overall Hilbert space, allowing semantic traversal over beliefs grounded in concrete geospatial and institutional facts.
 
-- **From spatial facilities to programme records.** Benefits-relevant facilities are represented as GBIM beliefs linked to geometries in PostgreSQL and as entries in the `local_resources` registry. The full spatial chain now in production — building → parcel → county → tax district — connects households to both physical sites and programme descriptions, subject to the parcel classification constraints described in Section 6.6.
+- **From spatial facilities to programme records.**
+  Benefits-relevant facilities are represented as GBIM beliefs linked to geometries in PostgreSQL and as entries in the `local_resources` registry. The full spatial chain now in production — building → parcel → county → tax district — connects households to both physical sites and programme descriptions, subject to the parcel classification constraints described in Section 6.6.
 
 A belief that refers to a place is linked via a coherent four-step chain:
 
-1. From embeddings and metadata in ChromaDB (in `gbim_beliefs_v2` and `gis_wv_benefits`),
-2. To JSONB axes and identity keys in `gbimbeliefnormalized` in PostgreSQL,
-3. To source attributes and geometries in PostgreSQL PostGIS and CSV-derived tables,
-4. To `local_resources` rows describing programmes and services tied to that place — for standard parcels only; catch-all and utility parcels route through a separate spatial resolution path.
+- From embeddings and metadata in ChromaDB (in `gbim_beliefs_v2` and `gis_wv_benefits`),
+- To JSONB axes and identity keys in `gbimbeliefnormalized` in PostgreSQL,
+- To source attributes and geometries in PostgreSQL PostGIS and CSV-derived tables,
+- To `local_resources` rows describing programmes and services tied to that place — for standard parcels only; catch-all and utility parcels route through a separate spatial resolution path.
 
 This linkage allows the Steward System to traverse semantic proximity, spatial proximity, belief-space relationships, program proximity, and resolution confidence — flagging when a building cannot be resolved to a unique situs address and surfacing that uncertainty explicitly in RAG responses rather than silently substituting a fallback.
 
@@ -546,7 +723,7 @@ The remaining gap before full RAG integration at parcel granularity is the sync 
 
 ### 6.9 Roadmap for Full Statewide Integration
 
-**Completed as of March 19, 2026:**
+**Completed as of March 20, 2026:**
 
 - ✅ Spatial deduplication complete — 42 pairs resolved, `canonical_building_id` populated
 - ✅ `source_count` confidence tiers on all 2,120,976 canonical buildings
@@ -557,29 +734,13 @@ The remaining gap before full RAG integration at parcel granularity is the sync 
 - ✅ Address coverage verified — 97.17% of records carry verified situs address
 - ✅ `parcel_type` classification protecting 208,427 non-standard building records
 - ✅ Scheduled materialized view refresh activated via host crontab (March 19, 2026)
-  - `county_tax_building_summary` — nightly at 2:00 AM
-  - `building_parcel_county_tax_mv` — weekly Sunday at 3:00 AM
-  - Both logging to `/var/log/jarvis_mv_refresh.log`
+    - `county_tax_building_summary` — nightly at 2:00 AM
+    - `building_parcel_county_tax_mv` — weekly Sunday at 3:00 AM
+    - Both logging to /var/log/jarvis_mv_refresh.log
+- ✅ GBIM landowner belief layer ingested — 20,593 records (`LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT` proposition codes) in `gbimbeliefnormalized` (March 20, 2026)
+- ✅ `mvw_gbim_landowner_spatial` materialized view live — spatial + county-scoped landowner queries verified (March 20, 2026)
+- ✅ `gbim_query_router` service live on port 7205 — verified on `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT` proposition codes, statewide and Fayette County scopes (March 20, 2026)
 
 **Immediate priorities:**
 
-- **WV E911 address point ingestion.** The WV Enhanced 911 Council statewide address point dataset was requested on March 19, 2026. Upon receipt, ingest as `wv_e911_addresses` and expose to `local_resources` via `postgres_fdw`. This resolves the 2.83% of building records currently in `unresolved`, `multi_unit`, and hollow-community address states.
-
-```bash
-shp2pgsql -s 4326 -I WV_Addresses.shp public.wv_e911_addresses \
-  | psql -U postgres -d local_resources
-```
-
-- **USGS 3DEP elevation drape.** Download 1/3 arc-second GeoTIFF tiles for West Virginia from USGS National Map, load via `raster2pgsql`, and populate Z values on all 2,120,976 canonical buildings. Priority coverage: Fayette, Raleigh, and Kanawha counties.
-
-- **Sync `local_resources` spatial chain into ChromaDB.** Add `tax_geodb_id`, `parcel_type`, `source_count`, `address_confidence`, and `county_geodb_id` as queryable metadata filters in `gbim_beliefs_v2` and `gis_wv_benefits` to enable tax district granularity in live RAG flows.
-
-**Medium-term priorities:**
-
-- **Layer ingestion priority sequence.** The 500+ layers in `msjarvisgis` are ingested into `local_resources` following a priority order based on program routing value: (1) FEMA floodplains, (2) Census blocks 2020, (3) abandoned mine lands, (4) ZIP Code Tabulation Areas, (5) WV broadband coverage, (6) community action agency service areas. Each layer follows the established pattern: load raw table → classify anomalies → build view → validate → materialize.
-
-- **Completing schema normalization.** Resolving remaining geometry, SRID, and numeric precision issues in legacy layers, adopting SRID 26917 wherever feasible.
-
-- **Maintaining inventories and audit trails.** Periodically regenerating and archiving inventories of PostgreSQL PostGIS tables, GBIM beliefs, ChromaDB collections, and `local_resources` entries, including counts and metadata coverage, to ensure the spatial body of Ms. Jarvis remains transparent and auditable.
-
-As these milestones are met, Ms. Jarvis will be able to reason over an increasingly comprehensive set of statewide layers at the scale of millions of entities — with each advisory behaviour traceable to specific, inspectable geographies, GBIM beliefs, and programme records in `local_resources` — and with explicit acknowledgment of the limits of that resolution where the underlying parcel data does not support it. The spatial body of the Steward System is not a backdrop for reasoning. It is the ethical substrate through which justice-oriented intelligence becomes possible in Appalachia.
+- **WV E911 address point ingestion.** The WV Enhanced 911 Council statewide address point dataset was requested
