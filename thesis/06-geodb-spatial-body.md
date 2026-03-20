@@ -40,7 +40,7 @@ The focus is on the current structure and status of the PostgreSQL PostGIS-based
 - **Database Name:** `local_resources`
 - **Role:** Spatially resolved building, parcel, county, and tax district registry
 - **Key Views:** `building_with_parcel`, `parcel_with_county_tax`, `building_parcel_county_tax`
-- **Key Materialized Views:** `county_tax_building_summary` (707 rows, sub-millisecond reads, concurrent refresh enabled, ~4 min refresh time)
+- **Key Materialized Views:** `building_parcel_county_tax_mv` (7,354,707 rows, 41-minute build, sub-millisecond reads, 3D GiST indexed); `county_tax_building_summary` (707 rows, ~4 min refresh)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -84,13 +84,14 @@ The GeoDB layer now satisfies three primary objectives:
 - **Integration with GBIM, semantic memory, `local_resources`, and RAG.**
   It integrates cleanly with GBIM belief tables, the shared ChromaDB vector store, and the `local_resources` registry so that spatial, semantic, institutional, and programme dimensions are used together in a single reasoning pipeline.
 
-As of March 19, 2026, the `local_resources` database has been advanced from a flat ZIP/county registry into a spatially resolved infrastructure database. The full spatial chain — building → parcel → county → tax district — is now live and queryable, backed by the following objects:
+As of March 19, 2026, the `local_resources` database has been advanced from a flat ZIP/county registry into a fully materialized, 3D-capable spatial infrastructure database. The full spatial chain — building → parcel → county → tax district — is now live, materialized, and queryable at sub-millisecond speeds, backed by the following objects:
 
 | Object | Type | Status | Notes |
 |---|---|---|---|
 | `wv_tax_districts_poly` | Table | Live | 600 features, SRID 26917 + 4326, GiST indexed |
 | `parcel_with_county_tax` | View | Live | ST_Within join: parcels → county + tax district |
 | `building_parcel_county_tax` | View | Live | Full building → parcel → county → tax chain |
+| `building_parcel_county_tax_mv` | Materialized View | Live | 7,354,707 rows, 3D GiST indexed, address columns included |
 | `county_tax_building_summary` | Materialized View | Live | 707 rows, sub-millisecond reads, concurrent refresh enabled |
 
 ---
@@ -147,7 +148,7 @@ The current deployment includes a substantial, production-grade subset of West V
   Statewide 2020 Census blocks and block groups in projected coordinate systems, providing population and administrative meshes at fine spatial scales.
 
 - **Structures and buildings.**
-  A dense statewide structure inventory of 2,121,018 ingested records assembled from three independent sources — SAMB structure points, WV GIS Technical Center building footprints, and Microsoft-derived building points — resolving to 2,120,976 canonical structures after deduplication. See Section 6.4.1.
+  A dense statewide structure inventory of 2,121,018 ingested records assembled from three independent sources — SAMB structure points, WV GIS Technical Center building footprints, and Microsoft-derived building points — resolving to 2,120,976 canonical structures after deduplication. All structures are stored as PointZ geometry in SRID 26917, with Z values currently set to 0.0 pending USGS 3DEP elevation drape. See Sections 6.4.1 and 6.4.2.
 
 - **Hazard and infrastructure layers.**
   Abandoned mine lands (lines and polygons), dams (coal-related and non-coal-related), floodplain structure inventories and flood hazard zones, rail networks and terminals, navigable waterways and river-mile indexing, and energy and communication infrastructure where available.
@@ -178,6 +179,7 @@ The current deployment includes a substantial, production-grade subset of West V
 │  │ - Building footprints│    │ - Libraries          │      │
 │  │ - Microsoft points   │    │ - Benefits offices   │      │
 │  │ - 2,120,976 canonical│    │ - Community centers  │      │
+│  │ - PointZ, SRID 26917 │    │                      │      │
 │  └──────────────────────┘    └──────────────────────┘      │
 │                                                              │
 │  All integrated with GBIM beliefs (5.4M+ rows)              │
@@ -228,7 +230,7 @@ GROUP BY source_count ORDER BY source_count DESC;
 | 2 | 41 | ~0.00% | Two independent methods confirmed |
 | 1 | 2,120,935 | ~100.00% | Single source — domain-specific authority |
 
-Of 2,120,976 canonical structures, 99.998% are known to exactly one independent source — confirming that SAMB, WV GIS Technical Center, and Microsoft's ML detection are three complementary surveys of three different West Virginias, assembled here for the first time into a single queryable mesh. There are no triple-confirmed structures. The three sources were each doing entirely different jobs, with almost no geographic or methodological overlap.
+Of 2,120,976 canonical structures, 99.998% are known to exactly one independent source — confirming that SAMB, WV GIS Technical Center, and Microsoft's ML detection are three complementary surveys of three different West Virginias, assembled here for the first time into a single queryable mesh. There are no triple-confirmed structures. The three sources were each doing entirely different jobs with almost no geographic or methodological overlap.
 
 **What This Means for Program Routing**
 
@@ -238,7 +240,7 @@ Single-source buildings are not low-confidence buildings. They carry domain-spec
 |---|---|---|
 | SAMB only | Administratively real; tax and address record exists | Direct address extraction from parcel situs |
 | WV GIS only | Spatially real; visible from aerial imagery but untaxed or unaddressed | Route via nearest 911 address point |
-| Microsoft only | Computationally detected; may be off-grid, demolished, or a non-residential structure | Flag for verification; still surface program proximity |
+| Microsoft only | Computationally detected; may be off-grid, demolished, or non-residential | Flag for verification; still surface program proximity |
 
 The most important population for Ms. Jarvis is the `source_count = 1` buildings from WV GIS or Microsoft that have no SAMB record — physically real structures that the administrative state does not know exist. These are the households that fall through every conventional benefits system precisely because they do not appear in the administrative record. The building inventory exists to find them.
 
@@ -247,9 +249,12 @@ The most important population for Ms. Jarvis is the `source_count = 1` buildings
 ```sql
 -- canonical_building_id: populated for all 2,120,976 canonical records
 -- source_count: 1 or 2 for all canonical records
--- Indexes: wv_buildings_geom_idx (GiST), wv_buildings_building_id_idx (btree),
+-- geom: PointZ, SRID 26917 (upgraded March 19, 2026 — see Section 6.4.2)
+-- Indexes: wv_buildings_geom_idx (3D GiST gist_geometry_ops_nd),
+--          wv_buildings_building_id_idx (btree),
 --          wv_buildings_canonical_id_idx (btree)
-SELECT building_id, canonical_building_id, source_count, sourcetable
+SELECT building_id, canonical_building_id, source_count,
+       ST_CoordDim(geom) AS dims, ST_SRID(geom) AS srid
 FROM wv_buildings
 WHERE source_count = 2
 LIMIT 5;
@@ -259,7 +264,61 @@ LIMIT 5;
 
 The spatial chain in `local_resources` was built deliberately as views before materialization. Views are transparent and inspectable; every schema correction, parcel classification discovery, and anomaly was surfaced because the join logic remained queryable during development. Materialized views sacrifice that transparency for performance and should only be created after the logic is proven and anomalies are handled.
 
-A critical operational lesson from the March 19, 2026 build sprint: correlated subqueries against `building_parcel_county_tax` — which recomputes the full `ST_Within` join chain on every evaluation — must never be run at scale until the view is materialized. A query with a correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation. Similarly, `ST_DWithin` self-joins using the `::geography` cast across 2M+ rows ran for 11+ minutes without returning results; replacing the cast with degree-based `ST_Expand` + `ST_DWithin` reduced the same query to 10 seconds. Materializing `building_parcel_county_tax` with indexes on `building_id`, `parcel_id`, and `county_name` is listed as an immediate roadmap priority in Section 6.9.
+A critical operational lesson from the March 19, 2026 build sprint: correlated subqueries against `building_parcel_county_tax` — which recomputes the full `ST_Within` join chain on every evaluation — must never be run at scale until the view is materialized. A query with a correlated subquery against this view across 2M+ buildings ran for 37 minutes before cancellation. Similarly, `ST_DWithin` self-joins using the `::geography` cast across 2M+ rows ran for 11+ minutes without returning results; replacing the cast with degree-based `ST_Expand` + `ST_DWithin` reduced the same query to 10 seconds. The full materialization of `building_parcel_county_tax_mv` completed on March 19, 2026 in 41 minutes, producing 7,354,707 rows now accessible at sub-millisecond speeds.
+
+---
+
+### 6.4.2 The 3D Spatial Upgrade
+
+On March 19, 2026, an operational audit revealed that all 2,121,018 building records in `wv_buildings` were stored in SRID 4326 (WGS84 geographic coordinates) despite the column type declaring SRID 26917 (UTM Zone 17N). This reflected the multi-source ingestion history: records from SAMB, WV GIS Technical Center, and Microsoft were loaded with their native geographic coordinates and never reprojected at ingest time. The column constraint was aspirational rather than enforced. Prior spatial joins using degree-based distance thresholds were geometrically correct for the data as it actually existed.
+
+All geometries were reprojected to SRID 26917 and the column upgraded to `PointZ` in the same session:
+
+```sql
+-- Reproject all 2,121,018 records to UTM Zone 17N
+UPDATE wv_buildings
+SET geom = ST_Transform(geom, 26917)
+WHERE ST_SRID(geom) = 4326;
+-- Time: 31.8 seconds
+
+-- Upgrade column to PointZ (Z initialized to 0.0)
+ALTER TABLE wv_buildings
+  ALTER COLUMN geom TYPE geometry(PointZ, 26917)
+  USING ST_Force3D(geom);
+-- Time: 10.7 seconds
+
+-- Rebuild index for 3D operations
+DROP INDEX wv_buildings_geom_idx;
+CREATE INDEX wv_buildings_geom_idx
+  ON wv_buildings USING GIST (geom gist_geometry_ops_nd);
+-- Time: 12.9 seconds
+```
+
+Verification confirmed all 2,121,018 records now carry `ST_CoordDim = 3` and `ST_SRID = 26917`. A 3D bounding box query using the `&&&` operator against the new index returned 10 results in 0.250ms, confirming the 3D GiST index is fully operational.
+
+**Current Z State and the USGS 3DEP Roadmap**
+
+All Z values are currently 0.0 — the PointZ upgrade initializes Z without elevation data. Populating Z with real-world ground elevation requires the USGS 3DEP (3D Elevation Program) statewide DEM, available as 1/3 arc-second (~10 meter) GeoTIFF tiles from the USGS National Map. West Virginia requires approximately 15 tiles for full statewide coverage. The drape operation will use PostGIS raster functions:
+
+```sql
+-- After loading wv_dem_3dep raster table via raster2pgsql:
+UPDATE wv_buildings b
+SET geom = ST_SetSRID(
+  ST_MakePoint(
+    ST_X(b.geom),
+    ST_Y(b.geom),
+    ST_Value(r.rast, ST_Transform(b.geom, ST_SRID(r.rast)))
+  ), 26917
+)
+FROM wv_dem_3dep r
+WHERE ST_Intersects(r.rast, ST_Transform(b.geom, ST_SRID(r.rast)));
+```
+
+Priority coverage for the initial 3DEP drape is Fayette, Raleigh, and Kanawha counties, where AML subsidence, flood hazard, and hollow community analysis is most operationally critical for Ms. Jarvis's benefits routing functions.
+
+**Implications for Extended Reality**
+
+The PointZ upgrade positions every structure in the statewide inventory as a physically grounded anchor point for extended reality environments. A community facility such as the Mount Hope Community Center — the former YMCA building on Main Street in Mount Hope, Fayette County — can be placed with survey-grade accuracy on its actual terrain, with surrounding topography derived from USGS 3DEP, building geometry from WV GIS footprints, and narrative context from GBIM beliefs. This enables XR environments that are not stylized reconstructions but spatially honest representations of real Appalachian places, grounded in the same PostGIS spatial body that routes households to benefits programs. The `&&&` 3D bounding box operator now available across all 2,120,976 canonical buildings makes elevation-aware spatial queries — proximity to AML subsidence zones by elevation band, flood inundation modeling at structure level, terrain-aware service area analysis — possible once the USGS 3DEP drape is complete.
 
 ---
 
@@ -368,7 +427,19 @@ The resulting classification distribution:
 | `federal_land` | 1 | Federal address system |
 | `multi_unit` | 1 | Nearest 911 address point per building |
 
-The addressable building universe on `standard` parcels is **2,010,808 buildings** — an upper bound that the deduplication work in Section 6.4.1 has already refined. The 4,855 buildings on non-standard parcels are protected from bad address assignment.
+**Address Coverage Results (Verified March 19, 2026)**
+
+The `building_parcel_county_tax_mv` materialized view includes computed `situs_address`, `address_source`, and `address_confidence` columns derived directly from `wv_parcels.fullphysicaladdress` at materialization time. The `fullphysicaladdress` field is a single pre-concatenated string in the WV assessor schema — no assembly required. The address coverage distribution across all 7,354,707 records is:
+
+| `address_confidence` | Records | Pct | Routing path |
+|---|---|---|---|
+| `standard` | 7,146,280 | 97.17% | Verified situs address, ready for program routing |
+| `unmatched` | 199,044 | 2.71% | Outside parcel polygons — awaiting WV E911 address points |
+| `large_private` | 4,522 | 0.06% | Corridor and surface rights parcels — centroid routing |
+| `federal_land` | 3,677 | 0.05% | Federal holdings — federal address system |
+| `multi_unit` | 1,184 | 0.02% | Dense residential — per-unit 911 resolution required |
+
+Of 7,354,707 building-parcel records in the materialized spatial chain, 97.17% carry a verified situs address derived directly from WV assessor parcel data — representing the immediately addressable building universe for program routing. The remaining 2.83% — 208,427 records across unmatched, large private, federal, and multi-unit classifications — await resolution via WV E911 address points, requested from the WV Enhanced 911 Council on March 19, 2026.
 
 ---
 
@@ -380,7 +451,7 @@ The decision is as follows:
 
 **Institutional and corporate owner names** — coal companies, utilities, government agencies, LLCs, and other non-individual entities — are retained as intermediate classification signals for `parcel_type` assignment. Knowing that a parcel is owned by a corporate entity informs the `large_private` or `federal_land` classification and supports the accountability function of the spatial layer. These names may be retained in classification-support tables.
 
-**Individual residential owner names** are not ingested into any RAG-accessible table, view, materialized view, or ChromaDB collection. They are used only as intermediate signals where necessary for classification and are not persisted after classification is applied.
+**Individual residential owner names** are not ingested into any RAG-accessible table, view, materialized view, or ChromaDB collection. They are used only as intermediate signals where necessary for classification and are not persisted after classification is applied. The `wv_parcels` schema contains `fullownername` and `fullowneraddress` columns; these are explicitly excluded from the `building_parcel_county_tax_mv` select list and from all ChromaDB embedding pipelines.
 
 The rationale is the aggregation problem. Individual owner names are legally public in the same sense that courthouse deed records are public — they are friction-protected, one record at a time, requiring deliberate search. Embedding those names into a semantically searchable AI system that reasons across 1.4 million parcels, hazard layers, program eligibility, and building locations would transform friction-protected public records into operational surveillance infrastructure. That transformation is not justified by Ms. Jarvis's stated purpose of routing households to assistance.
 
@@ -454,7 +525,7 @@ A query as simple as "I need help" contains a location. That location contains a
 │     - GBIM beliefs (spatial + institutional)                │
 │     - Verified program records from local_resources         │
 │     - Hazard proximity flags                                │
-│     - parcel_type confidence signal                         │
+│     - parcel_type + address_confidence signals              │
 │              ↓                                               │
 │  8. LLM Ensemble Response                                   │
 │     "Here is your LIEAP contact. Your address is also       │
@@ -469,41 +540,48 @@ A query as simple as "I need help" contains a location. That location contains a
 
 For spatial and benefits questions, the system can apply PostGIS filters to constrain candidate features by county, tax district, or spatial relationship to hazard layers; query `gbim_beliefs_v2` and `gis_wv_benefits` in ChromaDB for semantically relevant beliefs and facilities; check spatial proximity to hazard layers and surface connected programs the user did not know to ask about; and incorporate `local_resources` entries filtered by programme type, verification status, and parcel classification.
 
-The remaining gap before full RAG integration at parcel granularity is the sync of `local_resources` spatial chain metadata — `tax_geodb_id`, `parcel_type`, and `county_geodb_id` — into ChromaDB as queryable metadata filters. Until that sync runs, spatial filtering by tax district is not yet possible in live RAG flows. Once complete, the pipeline moves from county-level granularity to parcel and tax district granularity for all household-level queries.
+The remaining gap before full RAG integration at parcel granularity is the sync of `local_resources` spatial chain metadata — `tax_geodb_id`, `parcel_type`, `source_count`, `address_confidence`, and `county_geodb_id` — into ChromaDB as queryable metadata filters. Until that sync runs, spatial filtering by tax district is not yet possible in live RAG flows. Once complete, the pipeline moves from county-level granularity to parcel and tax district granularity for all household-level queries.
 
 ---
 
 ### 6.9 Roadmap for Full Statewide Integration
 
-**Immediate priorities (post March 19, 2026):**
+**Completed as of March 19, 2026:**
 
-- **Materialize `building_parcel_county_tax`.** The current view recomputes the full spatial join chain on every query. Materializing this view with indexes on `building_id`, `parcel_id`, and `county_name` is a prerequisite for all subsequent spatial operations at scale.
+- ✅ Spatial deduplication complete — 42 pairs resolved, `canonical_building_id` populated
+- ✅ `source_count` confidence tiers on all 2,120,976 canonical buildings
+- ✅ All geometries reprojected from SRID 4326 to 26917
+- ✅ All buildings upgraded to PointZ geometry
+- ✅ 3D GiST index (`gist_geometry_ops_nd`) live at 0.250ms
+- ✅ `building_parcel_county_tax_mv` materialized — 7,354,707 rows with address columns
+- ✅ Address coverage verified — 97.17% of records carry verified situs address
+- ✅ `parcel_type` classification protecting 208,427 non-standard building records
+- ✅ Scheduled `county_tax_building_summary` refresh via host crontab
 
-```sql
-CREATE MATERIALIZED VIEW building_parcel_county_tax_mv AS
-SELECT * FROM building_parcel_county_tax;
+**Immediate priorities:**
 
-CREATE INDEX bpct_mv_building_id_idx
-  ON building_parcel_county_tax_mv (building_id);
-
-CREATE INDEX bpct_mv_parcel_id_idx
-  ON building_parcel_county_tax_mv (parcel_id);
-
-CREATE INDEX bpct_mv_county_idx
-  ON building_parcel_county_tax_mv (county_name);
-```
-
-- **WV 911 address point ingestion.** The WV Enhanced 911 Council statewide address point dataset (`WV_Addresses`) is not currently present in `msjarvisgis`. This dataset is required for `multi_unit` parcel resolution and hollow community address assignment. Download from the WV GIS Technical Center and ingest as `wv_e911_addresses`, then expose to `local_resources` via `postgres_fdw`.
-
-- **Address extraction for standard parcels.** Once 911 address points are available, extract situs address fields for all `standard` parcels and propagate through `parcel_with_county_tax` and `building_parcel_county_tax`.
-
-- **Sync `local_resources` spatial chain into ChromaDB.** Add `tax_geodb_id`, `parcel_type`, `source_count`, and `county_geodb_id` as queryable metadata filters in `gbim_beliefs_v2` and `gis_wv_benefits` to enable tax district granularity in live RAG flows.
-
-- **Scheduled materialized view refresh.** The `county_tax_building_summary` refresh costs approximately 4 minutes. Schedule via host crontab:
+- **WV E911 address point ingestion.** The WV Enhanced 911 Council statewide address point dataset was requested on March 19, 2026. Upon receipt, ingest as `wv_e911_addresses` and expose to `local_resources` via `postgres_fdw`. This resolves the 2.83% of building records currently in `unresolved`, `multi_unit`, and hollow-community address states.
 
 ```bash
+shp2pgsql -s 4326 -I WV_Addresses.shp public.wv_e911_addresses \
+  | psql -U postgres -d local_resources
+```
+
+- **USGS 3DEP elevation drape.** Download 1/3 arc-second GeoTIFF tiles for West Virginia from USGS National Map, load via `raster2pgsql`, and populate Z values on all 2,120,976 canonical buildings. Priority coverage: Fayette, Raleigh, and Kanawha counties.
+
+- **Sync `local_resources` spatial chain into ChromaDB.** Add `tax_geodb_id`, `parcel_type`, `source_count`, `address_confidence`, and `county_geodb_id` as queryable metadata filters in `gbim_beliefs_v2` and `gis_wv_benefits` to enable tax district granularity in live RAG flows.
+
+- **Scheduled materialized view refresh.** The `county_tax_building_summary` refresh costs approximately 4 minutes. The `building_parcel_county_tax_mv` refresh costs approximately 41 minutes. Schedule both via host crontab:
+
+```bash
+# county_tax_building_summary — nightly at 2:00 AM
 0 2 * * * docker exec jarvis-local-resources-db psql -U postgres -d local_resources \
   -c "REFRESH MATERIALIZED VIEW CONCURRENTLY county_tax_building_summary" \
+  >> /var/log/jarvis_mv_refresh.log 2>&1
+
+# building_parcel_county_tax_mv — weekly Sunday at 3:00 AM
+0 3 * * 0 docker exec jarvis-local-resources-db psql -U postgres -d local_resources \
+  -c "REFRESH MATERIALIZED VIEW CONCURRENTLY building_parcel_county_tax_mv" \
   >> /var/log/jarvis_mv_refresh.log 2>&1
 ```
 
