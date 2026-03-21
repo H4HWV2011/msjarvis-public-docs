@@ -1,10 +1,29 @@
-# Chapter 42: Post-Quantum Security Layer
+## Why This Matters for Polymathmatic Geography
 
-## Overview
+This chapter documents the first active deployment of post-quantum cryptography in the Ms. Jarvis production stack and its role as the cryptographic enforcement arm of the system's constitutional AI architecture. It supports:
 
-Ms. Jarvis implements a post-quantum (PQ) cryptographic security layer designed to protect AI verdict integrity, data confidentiality, and inference privacy against both current and future adversarial threats — including threats from quantum-capable adversaries. This layer was designed, implemented, and verified on March 20, 2026, as a foundational component of the Ms. Jarvis constitutional AI infrastructure.
+- **P3 – Power has a geometry** by making the integrity of every AI verdict cryptographically verifiable — corporate landowner queries routed through `gbim_query_router`, judge verdicts, and LLM consensus answers all pass through a tamper-evident signing layer before they can influence community-facing outputs.
+- **P16 – Power accountable to place** by ensuring that AI decisions affecting Appalachian communities are signed with post-quantum cryptography, logged with full audit provenance, and cannot be silently forged or modified by any party — including infrastructure operators.
+- **P5 – Design is a geographic act** by treating the choice of ML-DSA-65 (Dilithium) over classical ECDSA as an explicit architectural decision: a system built for long-term community data governance must be resistant to threats that may not yet exist at deployment time.
+
+As such, this chapter belongs to the **Constitutional Enforcement** tier: it describes the cryptographic layer that gives the Ms. Jarvis constitutional principles (truth, ethics, alignment, consistency) enforcement teeth beyond policy aspirations.
+
+---
+
+# 42. Post-Quantum Security Layer
+
+Ms. Jarvis implements a post-quantum (PQ) cryptographic security layer designed to protect AI verdict integrity, data confidentiality, and inference privacy against both current and future adversarial threats — including threats from quantum-capable adversaries. This layer was designed and first deployed on March 20, 2026. The judge signing key infrastructure — `judgesigner.py` deployed in all five judge containers, `dilithium_py` installed in `Dockerfile.judge`, and `judge_sk.bin`/`judge_pk.bin` present in `services/` — constitutes the **first active deployment of post-quantum cryptography in the live Ms. Jarvis system** as of March 21, 2026.
 
 The security architecture follows a defense-in-depth model: every AI verdict is cryptographically signed before it can influence system behavior, all data at rest is encrypted, and every communication channel negotiates post-quantum key encapsulation. No single point of failure can compromise the integrity of the system's decision-making pipeline.
+
+**Production state (March 21, 2026):**
+- `dilithium_py`: ✅ Installed in `Dockerfile.judge` as a `pip install` step
+- `judgesigner.py`: ✅ Present in `services/` and `services-safe/`; deployed to all 5 judge containers
+- `judge_sk.bin` / `judge_pk.bin`: ✅ Present in `services/`; mounted into judge containers at startup
+- Signing integration status: ⚠️ **Open question** — see §42.3.3 for current scaffolding status
+- `jarvis-crypto-policy` (port 8099): ✅ Policy service live
+- BBB verdict gate: ✅ Active with live `bbb_check_verdict` httpx call (wired March 21, 2026)
+- PostgreSQL TDE (`jarvis-local-resources-db`): ✅ AES-256-GCM via pgcrypto
 
 ---
 
@@ -65,17 +84,144 @@ All 22 LLM proxy services in the Ms. Jarvis inference layer carry a `crypto_clie
 
 This means that even if the policy service goes down, no proxy will ever negotiate a weak cipher suite. The fallback is always the strongest configuration, not the weakest.
 
-### 42.3.3 Judge Pipeline Signing
+### 42.3.3 Judge Pipeline Signing Infrastructure
 
 The Ms. Jarvis judge pipeline consists of five specialized judge services, each responsible for evaluating AI outputs against a different constitutional dimension:
 
-- `jarvis-judge-pipeline` — overall verdict orchestration
-- `jarvis-judge-truth` — factual accuracy and grounding
-- `jarvis-judge-ethics` — ethical principle alignment
-- `jarvis-judge-alignment` — constitutional value alignment
-- `jarvis-judge-consistency` — cross-session behavioral consistency
+- `jarvis-judge-pipeline` — overall verdict orchestration (port 7239)
+- `jarvis-judge-truth` — factual accuracy and grounding (port 7230)
+- `jarvis-judge-ethics` — ethical principle alignment (port 7233)
+- `jarvis-judge-alignment` — constitutional value alignment (port 7232)
+- `jarvis-judge-consistency` — cross-session behavioral consistency (port 7231)
 
-Each judge service uses the `judgesigner` module to produce ML-DSA-65 signatures on every verdict it issues. A signed verdict contains:
+All five are built from `services/Dockerfile.judge` with `dilithium_py` installed as a pip dependency, and all five have `judgesigner.py` deployed in `services/` and available within their container filesystem.
+
+#### `dilithium_py` Installation (Dockerfile.judge)
+
+The `dilithium_py` package provides a pure-Python implementation of ML-DSA-65 (CRYSTALS-Dilithium) and is installed in the judge image via a `pip install` step in `Dockerfile.judge`:
+
+```dockerfile
+# Dockerfile.judge (relevant excerpt)
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Core judge service dependencies
+COPY requirements.judge.txt .
+RUN pip install --no-cache-dir -r requirements.judge.txt
+
+# Post-quantum signing dependency
+RUN pip install --no-cache-dir dilithium_py
+
+# Copy judge source files and signing infrastructure
+COPY . .
+```
+
+This means every judge container image — `jarvis-judge-pipeline`, `jarvis-judge-truth`, `jarvis-judge-consistency`, `jarvis-judge-alignment`, `jarvis-judge-ethics` — has `dilithium_py` available in its Python environment. No external C library or NIST reference implementation is required; `dilithium_py` is a self-contained pure-Python implementation. After any `Dockerfile.judge` change, all five judge images must be rebuilt with `--no-cache` per §42.5.4 and §19.14.
+
+#### `judgesigner.py` — The Signing Module
+
+`judgesigner.py` is the canonical post-quantum signing module for the judge pipeline. It is present in:
+
+- `services/judgesigner.py` — the Docker build context, copied into every judge image
+- `services-safe/judgesigner.py` — the authoritative backup (read-only reference; see §19.14)
+
+The module provides two primary operations:
+
+```python
+# Sign a verdict payload (called by each judge when producing a verdict)
+def sign_verdict(verdict_payload: dict, sk_path: str = "judge_sk.bin") -> dict:
+    """
+    Returns the verdict_payload augmented with a signature block:
+    {
+        ...original verdict fields...,
+        "signature": {
+            "algorithm": "ML-DSA-65",
+            "value": "<base64-encoded signature, ~3309 raw bytes>",
+            "payload_hash": "<SHA3-256 hex of canonical verdict JSON>",
+            "key_fingerprint": "<first 16 hex chars of SHA3-256 of public key>",
+            "timestamp": "<ISO-8601 UTC>",
+            "signed_by": "<service_name>"
+        }
+    }
+    """
+
+# Verify a signed verdict (called by pipeline coordinator and BBB gate)
+def verify_verdict(signed_verdict: dict, pk_path: str = "judge_pk.bin") -> bool:
+    """
+    1. Reconstructs canonical JSON of verdict payload (excl. signature block)
+    2. Computes SHA3-256 hash independently
+    3. Compares to stored payload_hash — rejects if mismatch (tamper detection)
+    4. Verifies ML-DSA-65 signature against canonical public key
+    Returns True only if both hash check and signature verification pass.
+    """
+```
+
+#### Current Scaffolding Status — Open Question
+
+> ⚠️ **As of March 21, 2026, it is not confirmed whether `judgesigner.py` is actively called within the running judge scripts (`judge_truth_filter.py`, `judge_consistency_engine.py`, `judge_alignment_filter.py`, `judge_ethics_filter.py`, `judge_pipeline.py`) or whether it is deployed but not yet integrated into the live signing path.**
+
+The deployment evidence is:
+- `judgesigner.py` is present in `services/` and `services-safe/` ✅
+- `dilithium_py` is installed in `Dockerfile.judge` ✅
+- `judge_sk.bin` and `judge_pk.bin` are present in `services/` ✅
+- All five judge images are built with these assets available ✅
+
+What has not yet been verified:
+- Whether any of the five judge scripts contain an `import judgesigner` statement
+- Whether `sign_verdict()` is called before a judge returns its score to the pipeline coordinator
+- Whether `verify_verdict()` is called in `judge_pipeline.py` after receiving sub-judge responses
+- Whether the BBB gate's `bbb_check_verdict` path (wired live March 21, 2026) includes signature verification
+
+**Two possible states:**
+
+| State | Description | Implication |
+|---|---|---|
+| **Fully scaffolded** | `judgesigner.py` is deployed but none of the five judge scripts call it yet | Signing infrastructure is present and ready; activation requires adding `sign_verdict()` calls to each judge script and `verify_verdict()` calls to the pipeline coordinator |
+| **Partially active** | Some judge scripts call `sign_verdict()` but the pipeline coordinator does not yet call `verify_verdict()` | Verdicts are signed but signatures are not verified in-pipeline; signing is one-way only |
+
+**Recommended verification command:**
+
+```bash
+# Check whether judgesigner is imported in any running judge script:
+for container in jarvis-judge-pipeline jarvis-judge-truth \
+    jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics; do
+  echo "=== $container ==="
+  docker exec $container grep -r "judgesigner\|sign_verdict\|verify_verdict" /app/ \
+    --include="*.py" 2>/dev/null || echo "  [no references found]"
+done
+```
+
+This check should be run and the result recorded before the next judge image rebuild. The answer determines whether §42.3.3 needs to be updated to "fully active" or "scaffolded for next sprint."
+
+**Resolution path if scaffolded:**
+To activate signing, add the following pattern to each sub-judge script before returning:
+
+```python
+# At the top of each judge script:
+from judgesigner import sign_verdict
+
+# Before returning the verdict dict:
+verdict = {
+    "score": score,
+    "verdict": verdict_label,
+    "issues": issues,
+    "reasoning": reasoning
+}
+return sign_verdict(verdict, sk_path="/app/judge_sk.bin")
+```
+
+And in `judge_pipeline.py`, after receiving each sub-judge response:
+
+```python
+from judgesigner import verify_verdict
+
+# After receiving sub-judge response:
+if not verify_verdict(sub_verdict, pk_path="/app/judge_pk.bin"):
+    raise ValueError(f"Sub-judge signature verification failed: {judge_name}")
+```
+
+A signed verdict contains:
 
 - The verdict payload (score, decision, context)
 - A base64-encoded ML-DSA-65 signature (~3,309 raw bytes)
@@ -89,49 +235,210 @@ Tamper detection works as follows: when a verdict is received for verification, 
 
 ### 42.3.4 BBB Verdict Gate
 
-The Behavioral Boundary and Blocking (BBB) gate is the final checkpoint before any AI verdict influences a user-facing response. It operates on signed verdicts and enforces four active constitutional filters.
+The Behavioral Boundary and Blocking (BBB) gate (port 8016) is the final checkpoint before any AI verdict influences a user-facing response. It operates on signed verdicts and enforces six active constitutional filters (ethical, spiritual, safety, threat detection, steganography, truth verification), with `truth_score` null guard and fail-open on HTTP 500.
 
-A verdict must pass the BBB gate to proceed. Verdicts that fail — whether due to invalid signatures, failed tamper checks, or constitutional filter violations — are blocked and logged. The gate is always active; there is no bypass path in the production configuration.
+As of March 21, 2026, the `bbb_check_verdict` call from `judge_pipeline.py` is live — a real async httpx POST to `jarvis-blood-brain-barrier:8016/filter`, replacing the prior stub. A verdict must pass the BBB gate to proceed. Verdicts that fail — whether due to invalid signatures, failed tamper checks, or constitutional filter violations — are blocked and logged. The gate is always active; there is no bypass path in the production configuration.
 
 The combination of cryptographic signing (proving the verdict came from an authorized judge) and BBB filtering (proving the verdict content meets constitutional standards) means that a compromised or manipulated verdict cannot reach users even if an attacker gains access to the judge pipeline network.
 
 ### 42.3.5 PostgreSQL Transparent Data Encryption
 
-All data stored in the `jarvis-local-resources-db` PostgreSQL instance is encrypted at rest using AES-256-GCM through pgcrypto-based transparent data encryption (TDE) functions. Encryption and decryption are handled at the database function layer, meaning data is never written to disk in plaintext.
+All data stored in the `jarvis-local-resources-db` PostgreSQL instance (port 5435) is encrypted at rest using AES-256-GCM through pgcrypto-based transparent data encryption (TDE) functions. Encryption and decryption are handled at the database function layer, meaning data is never written to disk in plaintext.
 
 The key derivation uses HKDF-SHA3-256, producing unique per-record keys derived from a master key that is never stored in the database itself.
 
 ---
 
-## 42.4 Keypair Governance
+## 42.4 Judge Signing Key Infrastructure
 
-The canonical ML-DSA-65 signing keypair is the most sensitive operational secret in the PQ security layer. Its governance follows these rules:
+The canonical ML-DSA-65 signing keypair is the most sensitive operational secret in the PQ security layer and constitutes the first active deployment of post-quantum cryptography in the live Ms. Jarvis system.
 
-- **Generation:** The keypair was generated once using a cryptographically secure random source. It will not be regenerated unless a compromise is confirmed. Ephemeral keypair generation (which would produce a different key per container) is disabled in production by ensuring the canonical key files are present before any judge service starts.
-- **Distribution:** The canonical keypair is distributed to judge containers at startup via a controlled deployment process. It is never embedded in container images, never committed to version control, and never transmitted over unencrypted channels.
-- **Rotation policy:** Keypair rotation should be performed when:
-  - A judge container is confirmed compromised
-  - The ML-DSA-65 algorithm is deprecated by NIST
-  - The threat level reaches `CRITICAL` for more than 72 hours
-  - Routine rotation schedule (recommended annually for a system at this threat level)
-- **Verification:** The public key fingerprint (first 16 hex characters of SHA3-256 of the public key) serves as the canonical identifier for the active keypair. All five judge containers must show an identical fingerprint. Any deviation indicates a container is using an unauthorized keypair and should be investigated immediately. The active fingerprint is recorded in internal operations documentation and is not published externally.
-- **Backup:** The private key must be backed up to offline, encrypted storage independent of the deployment environment. Loss of the private key requires keypair rotation and re-signing of any stored verdicts that need future verification.
+### 42.4.1 Key Files
+
+| File | Location | Contents | Sensitivity |
+|---|---|---|---|
+| `judge_sk.bin` | `services/judge_sk.bin` | ML-DSA-65 private (signing) key | **SECRET — never commit to version control** |
+| `judge_pk.bin` | `services/judge_pk.bin` | ML-DSA-65 public (verification) key | Non-secret; safe to distribute to verifiers |
+
+Both files are present in `services/` as of March 21, 2026. They are copied into judge container images at build time (via `COPY . .` in `Dockerfile.judge`) and are available at `/app/judge_sk.bin` and `/app/judge_pk.bin` within each running judge container.
+
+> **Critical:** `judge_sk.bin` must be added to `.gitignore` and must never be committed to the repository. If it is accidentally committed, the keypair must be considered compromised and must be rotated immediately (see §42.4.4).
+
+### 42.4.2 Key Generation
+
+The keypair was generated using `dilithium_py`'s secure random key generation. The generation procedure (run once at infrastructure initialization):
+
+```python
+from dilithium_py.ml_dsa import ML_DSA_65
+import os
+
+# Generate canonical keypair
+pk, sk = ML_DSA_65.keygen()
+
+# Write to services/ (never to version control)
+with open("services/judge_pk.bin", "wb") as f:
+    f.write(pk)
+
+with open("services/judge_sk.bin", "wb") as f:
+    f.write(sk)
+
+# Compute and record the public key fingerprint for verification
+import hashlib
+pk_bytes = open("services/judge_pk.bin", "rb").read()
+fingerprint = hashlib.sha3_256(pk_bytes).hexdigest()[:16]
+print(f"Public key fingerprint: {fingerprint}")
+# Record this fingerprint in internal operations documentation
+```
+
+The keypair will not be regenerated unless a compromise is confirmed or a rotation trigger is met (§42.4.4). Ephemeral keypair generation — which would produce a different key per container startup — is disabled in production by ensuring the canonical key files are present in `services/` before any judge image is built.
+
+### 42.4.3 Key Distribution
+
+The canonical keypair is distributed to judge containers at build time via the `COPY . .` directive in `Dockerfile.judge`. This approach:
+
+- Ensures all five judge containers use an identical keypair (required for cross-service verification)
+- Does not require runtime key injection or secret management infrastructure
+- Means key rotation requires rebuilding all five judge images with `--no-cache` (§42.4.4)
+
+**What this approach does NOT provide:**
+- Runtime key rotation without image rebuild
+- Separate keypairs per judge service (by design — shared keypair enables cross-service verification)
+- Key injection via Docker secrets or Vault (identified as future hardening work)
+
+The public key (`judge_pk.bin`) may also be made available to external verifiers who need to confirm verdict authenticity without having access to the judge containers.
+
+### 42.4.4 Key Lifecycle and Rotation Policy
+
+**Rotation triggers** — the keypair must be rotated when any of the following occur:
+
+1. `judge_sk.bin` is confirmed or suspected committed to version control
+2. A judge container is confirmed compromised (unauthorized access to the container filesystem)
+3. The ML-DSA-65 algorithm is deprecated or weakened by NIST
+4. The threat level reaches `CRITICAL` for more than 72 consecutive hours
+5. Routine rotation schedule — recommended annually for a system at `NOMINAL` threat level
+
+**Rotation procedure:**
+
+```bash
+# Step 1: Generate new keypair
+python3 - <<'EOF'
+from dilithium_py.ml_dsa import ML_DSA_65
+import hashlib
+
+pk, sk = ML_DSA_65.keygen()
+
+with open("services/judge_pk.bin", "wb") as f:
+    f.write(pk)
+with open("services/judge_sk.bin", "wb") as f:
+    f.write(sk)
+
+fingerprint = hashlib.sha3_256(pk).hexdigest()[:16]
+print(f"New public key fingerprint: {fingerprint}")
+EOF
+
+# Step 2: Update services-safe/ with new keys
+cp services/judge_pk.bin services-safe/judge_pk.bin
+# Do NOT copy judge_sk.bin to services-safe/ — private key backup is offline only
+
+# Step 3: Rebuild all judge images with --no-cache (mandatory after any services/ change)
+docker compose build --no-cache \
+  jarvis-judge-pipeline jarvis-judge-truth \
+  jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics
+
+# Step 4: Bring judge services back up
+docker compose up -d \
+  jarvis-judge-pipeline jarvis-judge-truth \
+  jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics
+
+# Step 5: Verify all five containers show the same new fingerprint
+for container in jarvis-judge-pipeline jarvis-judge-truth \
+    jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics; do
+  echo -n "$container: "
+  docker exec $container python3 -c "
+import hashlib
+pk = open('/app/judge_pk.bin','rb').read()
+print(hashlib.sha3_256(pk).hexdigest()[:16])
+"
+done
+# Expected: all five lines show the identical new fingerprint
+```
+
+### 42.4.5 Key Verification
+
+**Unified fingerprint check** — run after any judge image rebuild to confirm all five containers use the same keypair:
+
+```bash
+# All five containers must show identical output:
+for container in jarvis-judge-pipeline jarvis-judge-truth \
+    jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics; do
+  docker exec $container python3 -c \
+    "import hashlib; pk=open('/app/judge_pk.bin','rb').read(); \
+     print('$(echo $container):', hashlib.sha3_256(pk).hexdigest()[:16])"
+done
+```
+
+Any container showing a different fingerprint is using an unauthorized keypair and must be stopped, investigated, and rebuilt before returning to production.
+
+**Backup:** The private key (`judge_sk.bin`) must be backed up to offline, encrypted storage independent of the deployment environment. Loss of the private key with no backup requires keypair rotation and invalidates all previously signed verdicts. The backup medium should be air-gapped and encrypted at rest with AES-256-GCM.
 
 ---
 
-## 42.5 Threat Model
+## 42.5 Integration with the Judge Pipeline (March 21, 2026 State)
+
+### 42.5.1 What Is Confirmed Deployed
+
+As of March 21, 2026, the following post-quantum signing assets are confirmed present and functional in the production environment:
+
+| Asset | Status | Location |
+|---|---|---|
+| `dilithium_py` | ✅ Installed | `Dockerfile.judge` → all 5 judge images |
+| `judgesigner.py` | ✅ Deployed | `services/`, `services-safe/`, all 5 judge containers |
+| `judge_sk.bin` | ✅ Present | `services/`, mounted at `/app/judge_sk.bin` in judge containers |
+| `judge_pk.bin` | ✅ Present | `services/`, mounted at `/app/judge_pk.bin` in judge containers |
+| `bbb_check_verdict` live call | ✅ Active | `judge_pipeline.py` → `jarvis-blood-brain-barrier:8016/filter` (March 21) |
+
+### 42.5.2 What Requires Verification
+
+The following integration questions remain open as of March 21, 2026 and must be answered in the next session:
+
+1. Does `judge_pipeline.py` call `judgesigner.sign_verdict()` before returning verdicts to the main brain?
+2. Does `judge_pipeline.py` call `judgesigner.verify_verdict()` after receiving responses from each sub-judge?
+3. Do the four sub-judge scripts (`judge_truth_filter.py`, `judge_consistency_engine.py`, `judge_alignment_filter.py`, `judge_ethics_filter.py`) each call `judgesigner.sign_verdict()` before returning their score?
+4. Does the BBB gate's `bbb_check_verdict` path include signature verification, or only content filtering?
+
+Run the verification command in §42.3.3 at the start of the next session to answer all four questions.
+
+### 42.5.3 Relationship to `services/` Build Context Integrity
+
+Because `judge_sk.bin` is part of the `services/` directory — the Docker build context for all judge images — it is subject to the same build context integrity requirements documented in §19.14 of Chapter 19. Specifically:
+
+- `judge_sk.bin` must appear in the pre-rebuild checklist alongside the judge Python scripts
+- If `services/` drift is detected (via `diff <(ls services/ | grep judge | sort) <(ls services-safe/ | grep judge | sort)`), the absence of `judge_sk.bin` or `judge_pk.bin` is a rotation trigger, not just a file restoration task
+- `judge_sk.bin` must not be copied to `services-safe/` — the private key backup is offline only
+- `judge_pk.bin` may be copied to `services-safe/` as part of the restoration reference set
+
+### 42.5.4 The `--no-cache` Requirement for Key Changes
+
+Docker's layer cache does not inspect file content — it caches based on modification timestamps and build context hashes. If `judge_sk.bin` or `judge_pk.bin` are replaced (during rotation) but the cached image layer is served, judge containers will run with the old keys. This is a silent failure mode identical in character to the ghost file contamination documented in §19.14.
+
+**Rule: Any replacement of `judge_sk.bin` or `judge_pk.bin` in `services/` requires `docker compose build --no-cache` for all five judge services before bringing them back up.**
+
+---
+
+## 42.6 Threat Model
 
 The PQ security layer is designed to resist the following threat categories:
 
 - **Quantum adversary (future threat):** A cryptographically relevant quantum computer could break RSA, ECDSA, and X25519 using Shor's algorithm. The ML-KEM-768 and ML-DSA-65 components are believed to be resistant to quantum attack at NIST security level 3 (equivalent to AES-192 brute force). The hybrid KEM approach means harvest-now-decrypt-later attacks on today's traffic are resisted even if a quantum computer becomes available in the future.
 - **Verdict tampering:** An adversary with access to the judge network who modifies a verdict in transit will be detected by the SHA3-256 hash check in `verify_verdict` before the signature check runs. An adversary who cannot forge ML-DSA-65 signatures cannot produce a valid signed verdict.
 - **Rogue judge container:** A judge container that has been compromised and is producing malicious verdicts will produce signatures under a different keypair (since it cannot access the canonical private key without the deployment process). These signatures will fail verification against the canonical public key and be rejected by the BBB gate.
+- **Ghost file contamination (§19.14 class attack):** A `services/` file replacement that deposits wrong content under a correct filename (e.g., substituting `lm_synthesizer.py` for `judge_truth_filter.py`) would also allow substitution of a rogue `judge_sk.bin`. The pre-rebuild checklist in §19.14 and the unified fingerprint check in §42.4.5 together detect this before it reaches production.
 - **Prompt injection via inference:** Attempts to manipulate AI outputs through crafted inputs are caught at the BBB gate's constitutional filter layer before they can influence downstream behavior.
 - **Inference privacy attacks:** Differential privacy (Gaussian mechanism) at a conservatively low epsilon value is applied to inference outputs, limiting membership inference and model inversion attacks.
 
 ---
 
-## 42.6 Operational Checklist
+## 42.7 Operational Checklist
 
 After every system restart (`docker compose up -d`), the following verification steps confirm the PQ security layer is fully operational:
 
@@ -139,55 +446,77 @@ After every system restart (`docker compose up -d`), the following verification 
 # 1. Verify crypto policy service is healthy
 curl -sf http://127.0.0.1:8099/health | python3 -m json.tool
 
-# 2. Verify judge keypair is unified across all containers
-bash scripts/redeploy-judge-keys.sh
+# 2. Verify unified judge keypair fingerprint across all 5 containers
+for container in jarvis-judge-pipeline jarvis-judge-truth \
+    jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics; do
+  echo -n "$container: "
+  docker exec $container python3 -c \
+    "import hashlib; pk=open('/app/judge_pk.bin','rb').read(); \
+     print(hashlib.sha3_256(pk).hexdigest()[:16])"
+done
+# Expected: identical fingerprint on all 5 lines
 
-# 3. Verify signing is working
-docker exec jarvis-judge-pipeline python3 /tmp/sc_judge.py
+# 3. Verify judgesigner import and signing availability
+docker exec jarvis-judge-pipeline python3 -c \
+  "from judgesigner import sign_verdict, verify_verdict; \
+   print('judgesigner: OK')"
 
-# 4. Verify BBB gate is active
+# 4. Verify dilithium_py is importable
+docker exec jarvis-judge-pipeline python3 -c \
+  "from dilithium_py.ml_dsa import ML_DSA_65; print('dilithium_py: OK')"
+
+# 5. Verify BBB gate is active and accepting verdict checks
 curl -sf http://127.0.0.1:8016/health | python3 -m json.tool
 
-# 5. Verify PostgreSQL TDE is functional
+# 6. Verify PostgreSQL TDE is functional
 docker exec -i jarvis-local-resources-db psql -U postgres -c \
   "SELECT 'TDE roundtrip OK' WHERE jarvis_decrypt(
      jarvis_encrypt('test', current_setting('app.tde_key')),
      current_setting('app.tde_key')) = 'test';"
+
+# 7. Check whether judgesigner is actively called in running judge scripts:
+for container in jarvis-judge-pipeline jarvis-judge-truth \
+    jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics; do
+  echo "=== $container ==="
+  docker exec $container grep -r "sign_verdict\|verify_verdict" /app/ \
+    --include="*.py" 2>/dev/null || echo "  [not yet integrated — scaffolded only]"
+done
 ```
 
-All five checks should pass before the system is considered production-ready after a restart.
+All checks except #7 should pass before the system is considered production-ready after a restart. Check #7 documents current scaffolding status and must be updated in this chapter when signing is fully activated.
 
 ---
 
-## 42.7 Relationship to Ms. Jarvis Constitutional Architecture
+## 42.8 Relationship to Ms. Jarvis Constitutional Architecture
 
 The PQ security layer does not operate in isolation. It is the cryptographic enforcement arm of the Ms. Jarvis constitutional AI framework. The constitutional principles — truth, ethics, alignment, consistency — are not merely aspirational statements. They are enforced by signed, tamper-evident verdicts that cannot be bypassed, forged, or silently modified.
 
 This means that the community governance model built on top of Ms. Jarvis — the MountainShares DAO, the Commons participation system, the regional development data infrastructure — rests on a foundation where every AI decision that affects community members is:
 
 - Produced by a judge service operating under constitutional constraints
-- Cryptographically signed with a post-quantum algorithm
+- Built from verified source files (§19.14 build context integrity)
+- Cryptographically signed with ML-DSA-65 (once §42.5.2 is confirmed active)
 - Verified for integrity before influencing any output
-- Filtered through constitutional boundary checks
+- Filtered through constitutional boundary checks via the live BBB gate
 - Logged with a tamper-evident audit trail
 
 For a system designed to serve Appalachian communities who have historically been subject to extractive systems they could not audit or contest, this is not a technical nicety — it is a prerequisite for trustworthiness.
 
 ---
 
-## 42.8 Steganographic Channel Layer
+## 42.9 Steganographic Channel Layer
 
 Ms. Jarvis employs steganography as a secondary integrity and covert signaling mechanism operating beneath the visible cryptographic layer. Where the PQ signing layer makes verdict integrity verifiable, the steganographic layer makes tampering detectable from outputs that carry no visible signature field — an adversary monitoring the system's outputs cannot determine whether a covert integrity signal is present, absent, or what it contains.
 
-### 42.8.1 Design Intent
+### 42.9.1 Design Intent
 
 Steganography in Ms. Jarvis serves three distinct purposes:
 
 - **Covert integrity watermarking (outbound)** — AI outputs carry an embedded signal that encodes a hash of the generating verdict, the signing key fingerprint, and a session identifier. A downstream verifier with the correct extraction key can confirm the output is authentic without any visible signature field being present in the response.
-- **Covert channel detection (inbound)** — Inputs to the system are scanned for steganographic payloads before processing. This detects prompt injection attempts that use steganographic encoding to smuggle instructions past surface-level content filters that only inspect visible text.
+- **Covert channel detection (inbound)** — Inputs to the system are scanned for steganographic payloads before processing. This detects prompt injection attempts that use steganographic encoding to smuggle instructions past surface-level content filters that only inspect visible text. The BBB gate's steganography filter is one of its six active constitutional filters as of March 21, 2026.
 - **Out-of-band audit signaling** — The system can embed low-bandwidth audit signals in routine outputs that are readable only by authorized monitoring infrastructure, providing a tamper-evident audit trail that persists even if the visible logging layer is compromised.
 
-### 42.8.2 Inbound Steganographic Scanning
+### 42.9.2 Inbound Steganographic Scanning
 
 Every input received by the LLM proxy layer is passed through a steganographic scanner before it reaches an inference model. The scanner checks for:
 
@@ -197,7 +526,7 @@ Every input received by the LLM proxy layer is passed through a steganographic s
 
 Inputs that trigger steganographic detection are flagged, logged, and routed to the ethics and alignment judges for elevated scrutiny before any inference proceeds. The flagging does not automatically reject the input — a legitimate user could inadvertently submit content with steganographic artifacts — but it raises the constitutional filter threshold for that session.
 
-### 42.8.3 Outbound Watermarking
+### 42.9.3 Outbound Watermarking
 
 AI outputs produced by the Ms. Jarvis inference layer carry an embedded steganographic watermark before delivery. The watermark encoding process:
 
@@ -208,17 +537,17 @@ AI outputs produced by the Ms. Jarvis inference layer carry an embedded steganog
 
 The result is an output that reads identically to a human reader but carries a machine-verifiable provenance signal. If an output is later presented out of context — stripped of its metadata, reassigned to a different source, or claimed to have been produced by a different system — the watermark can confirm or deny its origin.
 
-### 42.8.4 Steganographic Key Governance
+### 42.9.4 Steganographic Key Governance
 
 The steganographic encoding and decoding keys are derived from the canonical ML-DSA-65 signing keypair using HKDF-SHA3-256 with a domain separation label. This means:
 
-- Keypair rotation automatically rotates the steganographic keys — no separate stego key management is required
+- Keypair rotation (§42.4.4) automatically rotates the steganographic keys — no separate stego key management is required
 - An adversary who does not have the signing keypair cannot extract or forge watermarks
 - The steganographic key is never stored independently — it is derived on demand and held only in memory during encoding/decoding operations
 
 The derivation scheme uses domain separation to ensure the steganographic key is cryptographically independent of the signing key even though both are derived from the same root material.
 
-### 42.8.5 Relationship to the PQ Security Layer
+### 42.9.5 Relationship to the PQ Security Layer
 
 The steganographic layer and the PQ signing layer are complementary, not redundant:
 
@@ -227,13 +556,13 @@ The steganographic layer and the PQ signing layer are complementary, not redunda
 | Visibility | Signature field present in verdict | No visible artifact in output |
 | Verifiability | Anyone with public key can verify | Only parties with extraction key can read |
 | Tampering signal | Signature fails verification | Watermark absent or corrupted |
-| Inbound threat detection | No | Yes — scans for hidden instructions |
+| Inbound threat detection | No | Yes — scans for hidden instructions (BBB filter) |
 | Audit persistence | In verdict log | Embedded in output itself |
 | Quantum resistance | Yes (ML-DSA-65) | Via derived key from PQ keypair |
 
-An output that passes BBB gate review carries both: a valid ML-DSA-65 verdict signature in the internal pipeline and a steganographic watermark in the delivered text. An output that has been tampered with after delivery will fail both checks — the signature will not match the modified content, and the watermark will be absent or corrupted.
+An output that passes BBB gate review carries both: a valid ML-DSA-65 verdict signature in the internal pipeline (once fully activated per §42.5.2) and a steganographic watermark in the delivered text. An output that has been tampered with after delivery will fail both checks — the signature will not match the modified content, and the watermark will be absent or corrupted.
 
-### 42.8.6 Operational Notes
+### 42.9.6 Operational Notes
 
 - Steganographic scanning adds negligible latency to inbound processing (typically < 2ms per input at current throughput)
 - Outbound watermarking is applied after BBB gate approval and before delivery — it is the last operation in the output pipeline
@@ -242,6 +571,23 @@ An output that passes BBB gate review carries both: a valid ML-DSA-65 verdict si
 
 ---
 
-*Section 42.8 added March 20, 2026. Steganographic layer implemented as part of the BBB gate and judge pipeline integration. Extraction key is derived from the canonical judge signing keypair and rotates with it automatically.*
+## 42.10 Known Issues and Status (March 21, 2026)
 
-*Chapter 42 documents the PQ security layer implementation completed March 20, 2026. Next chapter: BBB Gate Integration Testing and End-to-End Verdict Flow Verification.*
+| Issue | Status |
+|---|---|
+| `dilithium_py` not installed in `Dockerfile.judge` | ✅ FIXED — installed as `pip install dilithium_py` step (March 20, 2026) |
+| `judgesigner.py` not deployed to judge containers | ✅ FIXED — present in `services/`, `services-safe/`, all 5 judge images (March 20–21, 2026) |
+| `judge_sk.bin` / `judge_pk.bin` not present in `services/` | ✅ FIXED — both files present in `services/`; mounted at `/app/` in judge containers (March 20, 2026) |
+| `bbb_check_verdict` stub (no live BBB call from judge pipeline) | ✅ FIXED — live async httpx POST to `jarvis-blood-brain-barrier:8016/filter` (March 21, 2026) |
+| Ghost file contamination — `lm_synthesizer.py` clones in `services/` | ✅ FIXED — real judge scripts restored from `services-safe/`; `--no-cache` rebuild completed (March 21, 2026); see §19.14 |
+| `judgesigner.py` active call status in running judge scripts | ⚠️ OPEN — unconfirmed whether `sign_verdict()` / `verify_verdict()` are called in live judge scripts; run verification command in §42.3.3 to determine |
+| `judge_sk.bin` in `.gitignore` | ⚠️ VERIFY — confirm `services/judge_sk.bin` is listed in `.gitignore` before next commit |
+| Offline backup of `judge_sk.bin` | ⚠️ OPEN — private key backup to offline encrypted storage not yet confirmed |
+
+---
+
+*§42.3.3 scaffolding status and §42.5.2 integration questions added March 21, 2026 based on session findings. Activate this section to "fully deployed" once `docker exec` verification confirms live `sign_verdict()` / `verify_verdict()` calls in all five judge scripts.*
+
+*Chapter 42 documents the PQ security layer with the judge signing key infrastructure as the first active post-quantum deployment in the live system. Next chapter: BBB Gate Integration Testing and End-to-End Verdict Flow Verification.*
+
+*Last updated: 2026-03-21 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
