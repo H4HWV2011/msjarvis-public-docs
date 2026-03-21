@@ -63,7 +63,7 @@ As such, this chapter belongs to the **Computational Instrument** tier: it descr
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 19.1.** Container architecture and routing flow. As of March 20, 2026, all 80 containers are fully compose-managed via Docker Compose v5.1.0 at `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`. `gbim_query_router` (port 7205) is the 80th container, added March 20, 2026, serving the GBIM landowner belief layer via a PostgreSQL-native path that bypasses ChromaDB entirely.
+> **Figure 19.1.** Container architecture and routing flow. As of March 21, 2026, all 80 containers are fully compose-managed via Docker Compose v5.1.0 at `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`. `gbim_query_router` (port 7205) is the 80th container, added March 20, 2026, serving the GBIM landowner belief layer via a PostgreSQL-native path that bypasses ChromaDB entirely.
 
 ---
 
@@ -71,12 +71,15 @@ As such, this chapter belongs to the **Computational Instrument** tier: it descr
 
 This chapter describes the high-level layout of the container-based structures that receive activity from earlier layers and route it into deeper evaluation paths anchored in PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5,416,522 verified GBIM beliefs including 20,593 landowner beliefs as of March 20, 2026). The goal is to separate the flow of events into clear stages, so that each stage has a well-defined role in deciding what is ignored, what is kept for background consideration, and what becomes part of PostgreSQL or ChromaDB central stores.
 
-In the implemented system, these responsibilities are realized by a set of Dockerized services that cooperate via HTTP and shared data stores. As of March 20, 2026, all **80 production containers** are defined in a single `docker-compose.yml` and managed via Docker Compose v5.1.0 — no manual service startup is required beyond `~/jarvis_startup.sh` for the six judge/gateway pipeline containers. The 80th container, `gbim_query_router` (port 7205), was promoted to production on March 20, 2026, and is the first Ms. Jarvis service whose retrieval path is entirely relational — no ChromaDB, no vector similarity, no embedding pipeline.
+In the implemented system, these responsibilities are realized by a set of Dockerized services that cooperate via HTTP and shared data stores. As of March 21, 2026, all **80 production containers** are defined in a single `docker-compose.yml` and managed via Docker Compose v5.1.0 — no manual service startup is required beyond `~/jarvis_startup.sh` for the six judge/gateway pipeline containers. The 80th container, `gbim_query_router` (port 7205), was promoted to production on March 20, 2026, and is the first Ms. Jarvis service whose retrieval path is entirely relational — no ChromaDB, no vector similarity, no embedding pipeline.
 
-**Production state (March 20, 2026):**
+> **March 21, 2026 addendum:** A structural vulnerability was discovered and remediated during today's working session. Files in `services/` — the Docker build context for all judge images — had been silently replaced with `lm_synthesizer.py` clones bearing incorrect names. All four sub-judge containers built and started successfully because the clones were valid FastAPI services, meaning the corruption was undetectable by Docker alone. This incident motivates the new **§19.14 Build Context Integrity** subsection, which documents mandatory verification procedures for the `services/` canonical directory.
+
+**Production state (March 21, 2026):**
 - All 80 containers: ✅ Fully compose-managed via Docker Compose v5.1.0
 - Compose file: `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`
-- All `build:` directives: ✅ Converted to `image:` references — no rebuilds on startup
+- All `build:` directives: ✅ Converted to `image:` references for non-judge services — no rebuilds on startup
+- Judge services: ✅ Real source files confirmed in `services/` (March 21, 2026); `--no-cache` rebuild completed
 - `gbim_query_router` (port 7205): ✅ Added to compose March 20, 2026 — landowner belief layer live
 - GBIM corpus: ✅ 5,416,522 beliefs in `gbimbeliefnormalized` including 20,593 landowner beliefs
 - `mvw_gbim_landowner_spatial`: ✅ Materialized and spatially indexed — March 20, 2026
@@ -200,16 +203,16 @@ After routing, the container layer produces several types of outputs that feed l
 
 Conceptually, the container architecture provides a structured way to receive, normalize, and direct events into deeper evaluative paths anchored in PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5,416,522 verified GBIM beliefs as of March 20, 2026). It defines how diverse inputs — user interactions, internal learning results, external signals, and structural changes — enter the system's evaluative core. By enforcing clear stages and control flags, it supports disciplined decision-making about what is ignored, what is kept for background consideration, and what is integrated into PostgreSQL central memory and GBIM belief structures.
 
-The remaining sections of this chapter ground this abstraction in the current production deployment topology, focusing on Docker containers, port mappings, compose management, and service roles as of March 20, 2026.
+The remaining sections of this chapter ground this abstraction in the current production deployment topology, focusing on Docker containers, port mappings, compose management, and service roles as of March 21, 2026.
 
 ---
 
-## 19.8 Operational Container Topology (March 20, 2026)
+## 19.8 Operational Container Topology (March 21, 2026)
 
-This section is the authoritative operational state as of March 20, 2026, superseding the March 18, 2026 snapshot. The topology is derived from `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml` (Docker Compose v5.1.0), runtime `docker ps` output, `~/jarvis_startup.sh`, and verification scripts.
+This section is the authoritative operational state as of March 21, 2026, superseding the March 20, 2026 snapshot. The topology is derived from `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml` (Docker Compose v5.1.0), runtime `docker ps` output, `~/jarvis_startup.sh`, and verification scripts.
 
-> **Compose management baseline (March 20, 2026):**
-> All **80 production containers** are defined in a single `docker-compose.yml`. `gbim_query_router` (port 7205) was added to compose on March 20, 2026, as the 80th container. All `build:` directives remain converted to `image:` references — no image rebuilds occur on startup. Reboot sequence is unchanged: `docker compose up -d` followed by `~/jarvis_startup.sh`.
+> **Compose management baseline (March 21, 2026):**
+> All **80 production containers** are defined in a single `docker-compose.yml`. `gbim_query_router` (port 7205) was added to compose on March 20, 2026, as the 80th container. All `build:` directives remain converted to `image:` references for non-judge services — no image rebuilds occur on startup for those containers. Judge service images were rebuilt with `--no-cache` on March 21, 2026, after ghost file remediation (see §19.14). Reboot sequence is unchanged: `docker compose up -d` followed by `~/jarvis_startup.sh`.
 
 ### Core Orchestration Layer
 
@@ -225,26 +228,26 @@ The `jarvis-main-brain` container hosts the `Ms. Jarvis ULTIMATE` main-brain Fas
 
 | Container | Port Mapping | Role |
 |---|---:|---|
-| jarvis-blood-brain-barrier | 8016→8016 | 7-filter content filter with `truth_score` null guard and fail-open on HTTP 500 |
+| jarvis-blood-brain-barrier | 8016→8016 | 6-filter content filter (ethical, spiritual, safety, threat_detection, steganography, truth_verification) with `truth_score` null guard and fail-open on HTTP 500; `barrier_stats` live; `bbb_check_verdict` wired from judge pipeline (March 21, 2026) |
 | jarvis-20llm-production | 8008→8008 | 21-active-model LLM ensemble (22 proxies; StarCoder2 returns 0-char on community queries) |
 | jarvis-llm22-proxy (semaphore) | 8030→8030 | Semaphore proxy for `jarvis-20llm-production` (max_tokens -1, unlimited output) |
-| jarvis-lm-synthesizer | (internal) | LM Synthesizer: calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest` + Ms. Jarvis persona prompt; merged Phase 3.5 + 3.75 single pass |
+| jarvis-lm-synthesizer | 8001 (internal) | LM Synthesizer: calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest` + Ms. Jarvis persona prompt; merged Phase 3.5 + 3.75 single pass |
 | jarvis-web-research | 18009→8009 | External knowledge retrieval; web-based context enhancement; excluded for `landowner_gbim` mode |
 
 ---
 
-### Judge Pipeline (ports not exposed to host — accessed via `docker exec` from `jarvis_startup.sh`)
+### Judge Pipeline (compose-managed — all ports bound to 127.0.0.1)
 
-| Container | Internal Port | Role |
-|---|---:|---|
-| jarvis-judge-truth | 7230 | Deterministic truth judge; evaluates consensus answer only |
-| jarvis-judge-consistency | 7231 | Deterministic consistency judge |
-| jarvis-judge-alignment | 7232 | Deterministic alignment judge |
-| jarvis-judge-ethics | 7233 | Deterministic ethics judge |
-| jarvis-judge-pipeline | (internal) | Judge pipeline orchestrator |
-| jarvis-69dgm-bridge | 9000 | 69-DGM cascade (23-connector × 3-stage); validates every production response |
+| Container | Internal Port | Source File | Role |
+|---|---:|---|---|
+| jarvis-judge-pipeline | 7239 | `services/judge_pipeline.py` | Coordinator: `POST /evaluate`, `asyncio.gather()`, aggregation, `bbb_check_verdict` live httpx POST |
+| jarvis-judge-truth | 7230 | `services/judge_truth_filter.py` | Truth evaluation (`heuristic_contradiction_v1`) |
+| jarvis-judge-consistency | 7231 | `services/judge_consistency_engine.py` | Internal coherence, contradiction detection |
+| jarvis-judge-alignment | 7232 | `services/judge_alignment_filter.py` | Ms. Jarvis identity adherence, community values |
+| jarvis-judge-ethics | 7233 | `services/judge_ethics_filter.py` | Harm screening, spiritual appropriateness |
+| jarvis-69dgm-bridge | 9000 | — | 69-DGM cascade (23-connector × 3-stage); validates every production response |
 
-These six containers are managed by `~/jarvis_startup.sh` outside compose for historical reasons. Port corrections from the erroneous 7239 to the correct 7230/7231/7232/7233 were applied March 16, 2026. `jarvis-69dgm-bridge` had its `CHROMA_HOST` fix deployed March 16.
+All five judge service containers are **compose-managed** with `restart: unless-stopped`. Source files confirmed as real judge scripts (not `lm_synthesizer.py` clones) on March 21, 2026. Images rebuilt with `--no-cache` on March 21, 2026. Sub-judge default ports corrected from all-7239 to 7230/7231/7232/7233 in `judge_pipeline.py` lines 16–19. See §19.14 for build context integrity requirements.
 
 ---
 
@@ -273,32 +276,33 @@ These six containers are managed by `~/jarvis_startup.sh` outside compose for hi
 > **`gbim_query_router` — architectural note:** This is the only RAG-class service in the Ms. Jarvis stack that does not use ChromaDB. Every other RAG service passes through the shared ChromaDB instance (port 8000) for 384-dim `all-minilm:latest` vector similarity search. `gbim_query_router` routes directly to `mvw_gbim_landowner_spatial` via SQL aggregation — a deliberate architectural decision reflecting that corporate and government landowner queries have exact, deterministic answers in the relational GBIM corpus. Approximate vector nearest-neighbor search would introduce unnecessary error. The relational path is faster, more accurate, and fully auditable to specific `gbimbeliefnormalized` rows with nine-axis provenance.
 >
 > **Verified query patterns (both confirmed March 20, 2026):**
-> ```python
-> # Pattern 1 — Statewide top landowners
-> import httpx
-> statewide = httpx.post(
->     "http://127.0.0.1:7205/query",
->     json={
->         "question": "Who are the largest landowners in West Virginia?",
->         "mode": "landowner_gbim",
->         "route_type": "parcel_ownership",
->         "scope": "statewide",
->         "limit": 20
->     }
-> )
->
-> # Pattern 2 — County-scoped landowners
-> county = httpx.post(
->     "http://127.0.0.1:7205/query",
->     json={
->         "question": "Who owns the most land in Fayette County?",
->         "mode": "landowner_gbim",
->         "route_type": "parcel_ownership",
->         "county": "Fayette",
->         "limit": 20
->     }
-> )
-> ```
+
+```python
+# Pattern 1 — Statewide top landowners
+import httpx
+statewide = httpx.post(
+    "http://127.0.0.1:7205/query",
+    json={
+        "question": "Who are the largest landowners in West Virginia?",
+        "mode": "landowner_gbim",
+        "route_type": "parcel_ownership",
+        "scope": "statewide",
+        "limit": 20
+    }
+)
+
+# Pattern 2 — County-scoped landowners
+county = httpx.post(
+    "http://127.0.0.1:7205/query",
+    json={
+        "question": "Who owns the most land in Fayette County?",
+        "mode": "landowner_gbim",
+        "route_type": "parcel_ownership",
+        "county": "Fayette",
+        "limit": 20
+    }
+)
+```
 
 ---
 
@@ -344,7 +348,7 @@ All 22 proxies route through `jarvis-20llm-production` (port 8008) via the semap
 | jarvis-redis | 6379→6379 | Redis: async job state (30-min TTL), idempotency TTL (1,800s), health cache |
 | jarvis-ollama | 11434→11434 | Ollama LLM backend: `all-minilm:latest` (384-dim embeddings), `llama3.1:latest` (LM Synthesizer), all 22 model proxies |
 
-> **Canonical ChromaDB collections (March 20, 2026 — all 384-dim via `all-minilm:latest`):**
+> **Canonical ChromaDB collections (March 21, 2026 — all 384-dim via `all-minilm:latest`):**
 >
 > | Collection | Records | Notes |
 > |---|---:|---|
@@ -376,7 +380,7 @@ In addition to static ports defined in `docker-compose.yml`, the system uses a s
 
 ---
 
-### Verified Reboot Sequence (March 20, 2026)
+### Verified Reboot Sequence (March 21, 2026)
 
 After any system reboot or `docker compose` restart, the full 80-container production stack is brought online with two commands:
 
@@ -397,6 +401,8 @@ cd ~/msjarvis-rebuild-working/msjarvis-rebuild && docker compose up -d
 - `jarvis-69dgm-bridge`
 
 `gbim_query_router` is compose-managed and starts with Step 1. It does not require `jarvis_startup.sh` intervention.
+
+> **Important:** Before running `docker compose up -d` after any change to judge service source files in `services/`, verify build context integrity per §19.14. If source files were renamed or corrected, rebuild with `--no-cache` before bringing services up.
 
 ---
 
@@ -458,7 +464,7 @@ Several shell scripts provide concrete evidence of how the container architectur
 
 ---
 
-## 19.11 Known Issues and Resolution Status (March 20, 2026)
+## 19.11 Known Issues and Resolution Status (March 21, 2026)
 
 | Issue | Status |
 |---|---|
@@ -467,7 +473,7 @@ Several shell scripts provide concrete evidence of how the container architectur
 | Redis response persistence (in-memory only) | ✅ FIXED — full Redis-backed job system with 30-min TTL deployed March 17 |
 | 33 services not in `docker-compose.yml` | ✅ FIXED — all containers now in compose |
 | Idempotency TTL in-memory only | ✅ FIXED — Redis-backed, 1,800s TTL |
-| Judge pipeline URL wrong (port 7239 for all judges) | ✅ FIXED — corrected to 7230/7231/7232/7233 (March 16) |
+| Judge pipeline URL wrong (port 7239 for all judges) | ✅ FIXED — corrected to 7230/7231/7232/7233 (March 16); default ports in `judge_pipeline.py` also corrected March 21 |
 | LM Synthesizer calling `jarvis-roche-llm` (HTTP 500) | ✅ FIXED — now calls `jarvis-ollama:11434/api/generate` directly (March 18) |
 | NBB Prefrontal Cortex 422 errors | ✅ RESOLVED — `message` field payload confirmed correct; service healthy |
 | I-Containers 422 errors | ✅ RESOLVED — port corrected to 8015 (March 13) |
@@ -476,10 +482,12 @@ Several shell scripts provide concrete evidence of how the container architectur
 | `web-research` and `rag-server` restart loops | ✅ FIXED — source files deployed via `docker cp` |
 | Hash-prefixed container names | ✅ FIXED — `container_name:` added to all 8 affected containers (March 17–18) |
 | `hilbert-gateway` port conflict | ✅ FIXED — resolved during March 17 compose audit |
-| `build:` directives causing slow/unpredictable startup | ✅ FIXED — all `build:` entries converted to `image:` references (March 17) |
+| `build:` directives causing slow/unpredictable startup | ✅ FIXED — all `build:` entries converted to `image:` references for non-judge services (March 17) |
 | Docker Compose v1.29.2 `ContainerConfig` crash bug | ✅ FIXED — upgraded to Docker Compose v5.1.0 (March 17) |
 | `who` / `under_whose_authority` axes unpopulated at parcel scale | ✅ FIXED — 20,593 landowner beliefs ingested; `gbim_query_router` live (March 20) |
 | Landowner queries returning no results | ✅ FIXED — `mvw_gbim_landowner_spatial` materialized; both statewide and county-scoped patterns verified (March 20) |
+| **Ghost file contamination — `lm_synthesizer.py` clones in `services/`** | **✅ FIXED (March 21, 2026) — real judge scripts restored from `services-safe/`; images rebuilt with `--no-cache`; sub-judge default ports corrected; `bbb_check_verdict` stub replaced with live httpx call. See §19.14.** |
+| `bbb_check_verdict` stub — no live BBB call from judge pipeline | ✅ FIXED — live async httpx POST to `jarvis-blood-brain-barrier:8016/filter` (March 21, 2026) |
 | Hallucination on local community resources (Mount Hope, Fayette County) | 🔴 OPEN — `gis_rag` and `local_resources` databases return empty for Mount Hope queries; LLMs generating from training data. Factually accurate programs (LIHEAP, WV 2-1-1) pass BBB. Fabricated organization names blocked by ethical filter. Root cause: real community resource data not yet loaded. Resolution: Community Champions data entry next priority. |
 | BBB ethical filter blocking "certainly" | BY DESIGN — ethical filter correctly detecting unverified specific claims; not a false positive |
 | StarCoder2 returning 0-char responses on community queries | KNOWN — 21 of 22 models active; consensus extracted correctly; StarCoder2 proxied but unreliable on non-code queries |
@@ -493,16 +501,17 @@ Several shell scripts provide concrete evidence of how the container architectur
 | Initial deployment | 70 | Core stack |
 | March 13, 2026 | 73 | I-Containers port fix; 3 corpus containers identified missing |
 | March 17, 2026 | 79 | 9 missing containers added to compose; Redis async job system; Docker Compose v5.1.0 upgrade |
-| March 18, 2026 | 79 | Compose audit complete; all `build:` → `image:`; hash-prefix names resolved |
+| March 18, 2026 | 79 | Compose audit complete; all `build:` → `image:` for non-judge services; hash-prefix names resolved |
 | **March 20, 2026** | **80** | **`gbim_query_router` (port 7205) — landowner belief layer live** |
+| **March 21, 2026** | **80** | **Ghost file remediation: real judge scripts restored, sub-judge ports corrected, `bbb_check_verdict` live, `judgesigner.py` deployed; container count unchanged** |
 
 ---
 
 ## 19.13 Summary
 
-The container architecture and routing layer described here provide the structural glue between external interfaces, executive coordination, autonomous learning, and PostgreSQL long-term memory. As of March 20, 2026, this architecture is fully operationalized in an **80-container production stack**, entirely managed by Docker Compose v5.1.0 (`image:` references only, no rebuilds), with a verified two-command reboot sequence and Redis-backed async job management.
+The container architecture and routing layer described here provide the structural glue between external interfaces, executive coordination, autonomous learning, and PostgreSQL long-term memory. As of March 21, 2026, this architecture is fully operationalized in an **80-container production stack**, entirely managed by Docker Compose v5.1.0, with a verified two-command reboot sequence and Redis-backed async job management.
 
-The most significant addition since the March 18 snapshot is `gbim_query_router` (port 7205) — the 80th production container and the first service in the Ms. Jarvis stack to route entirely outside ChromaDB. It makes 20,593 verified GBIM landowner beliefs (LANDOWNER_CORPORATE + LANDOWNER_GOVERNMENT, worldview eq1) queryable by natural language against `mvw_gbim_landowner_spatial` in `msjarvisgis`, closing the `who` and `under_whose_authority` axes of the GBIM nine-axis belief model at parcel scale across all West Virginia counties.
+The most significant additions since the March 20 snapshot are the March 21, 2026 ghost file remediation (§19.14) and the judge pipeline → BBB live integration. Together these close two silent failure modes: judge containers running the wrong logic undetected for days, and the judge pipeline's BBB check being a non-functional stub. Build context integrity verification is now a required practice before any judge image rebuild.
 
 Through a combination of Dockerized services, service registry mechanisms, 30s TTL health-check caching, Phase 1.45 community memory retrieval via `all-minilm:latest` (384-dim), and structured normalization of events into container records, the system can:
 
@@ -515,4 +524,195 @@ Through a combination of Dockerized services, service registry mechanisms, 30s T
 
 All memory and routing flows are ultimately anchored to PostgreSQL `msjarvisgis` at port 5432.
 
-*Last updated: 2026-03-20 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+---
+
+## 19.14 Build Context Integrity (New — March 21, 2026)
+
+> **This section documents a structural vulnerability discovered March 21, 2026, and the permanent verification procedures required to prevent recurrence.**
+
+### The Vulnerability: Silent Source File Contamination
+
+On March 21, 2026, inspection of the running judge containers revealed that all four sub-judge source files in `services/` — the Docker build context for all judge images — were not real judge scripts. They were copies of `lm_synthesizer.py` with incorrect names, a silent artifact of a prior `mv` operation that had been committed without content verification.
+
+The corruption was undetectable by Docker alone. The containers:
+
+- Built successfully — the clones were syntactically valid FastAPI services
+- Started successfully — they bound to ports and responded to health checks
+- Produced scores — they generated output indistinguishable in structure from real judge output
+
+Only behavioral analysis (all four sub-judges producing identical behavior regardless of input) revealed the problem. The contamination persisted for multiple days across multiple sessions.
+
+### Why `services/` Is the Critical Directory
+
+`services/` is the **Docker build context** for all five judge service images:
+
+```yaml
+jarvis-judge-pipeline:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_pipeline.py
+
+jarvis-judge-truth:
+  build:
+    context: ./services
+    dockerfile: Dockerfile.judge
+  command: python judge_truth_filter.py
+
+# ... and so on for all 5 judge services
+```
+
+When Docker builds a judge image, it copies **everything in `services/`** into the image layer. The `command:` directive specifies which Python file to execute at container startup. If `judge_truth_filter.py` in `services/` contains `lm_synthesizer.py` code, the built image runs LM Synthesizer logic when told to execute `judge_truth_filter.py` — and Docker has no mechanism to detect that the file content does not match its name.
+
+This makes `services/` a **high-risk directory**: any incorrect file copy or rename operation that deposits wrong content under a correct filename will silently corrupt the next image build, and that corruption will be invisible until the running behavior is inspected.
+
+### Why `services-safe/` Exists
+
+`services-safe/` is the **authoritative backup directory** — a read-only reference copy of the canonical judge scripts that is never modified by routine operations. Its purpose is:
+
+1. To provide a known-good source for restoration when `services/` is suspected or confirmed corrupted
+2. To serve as the diff target for automated drift detection
+3. To persist the verified versions of all judge scripts across sessions and branches
+
+`services-safe/` should contain exactly:
+
+```
+services-safe/Dockerfile.judge
+services-safe/judge_pipeline.py
+services-safe/judge_truth_filter.py
+services-safe/judge_consistency_engine.py
+services-safe/judge_alignment_filter.py
+services-safe/judge_ethics_filter.py
+services-safe/judgesigner.py
+```
+
+`services-safe/` must never be used as the Docker build context. It is a reference and restoration source only.
+
+### Detecting Drift Between `services/` and `services-safe/`
+
+The primary drift detection command — run before every judge image rebuild:
+
+```bash
+# Check that services/ and services-safe/ contain the same judge-related files:
+diff <(ls services/ | grep judge | sort) <(ls services-safe/ | grep judge | sort)
+# Expected: empty output (no diff)
+
+# If diff shows files missing from services/ — restore from services-safe/:
+# cp services-safe/<missing_file> services/<missing_file>
+```
+
+Content verification — detect ghost file contamination even when filenames match:
+
+```bash
+# Verify no judge script in services/ contains lm_synthesizer artifacts:
+grep -l "lm_synthesizer\|LMSynthesizer\|class LMSynthesizer\|port=8001" services/judge_*.py
+# Expected: empty output
+
+# Verify Dockerfile.judge is present in services/:
+ls -la services/Dockerfile.judge
+# Expected: file present, non-zero size
+
+# Verify judgesigner.py is present in services/:
+ls -la services/judgesigner.py
+# Expected: file present, non-zero size
+
+# Full content diff between services/ and services-safe/ for all judge files:
+for f in judge_pipeline.py judge_truth_filter.py judge_consistency_engine.py \
+          judge_alignment_filter.py judge_ethics_filter.py judgesigner.py Dockerfile.judge; do
+  if ! diff -q services/$f services-safe/$f > /dev/null 2>&1; then
+    echo "DRIFT DETECTED: $f"
+  fi
+done
+# Expected: empty output (all files identical)
+```
+
+### The `--no-cache` Requirement
+
+Docker's layer cache is based on file modification timestamps and build context hashes — not on file content semantics. When source files in `services/` are renamed or corrected, Docker may serve a cached image layer that was built from the previous (incorrect) file content if `--no-cache` is not specified.
+
+**Rule: Any time a judge source file in `services/` is renamed, replaced, or restored, the judge images must be rebuilt with `--no-cache`:**
+
+```bash
+# Rebuild all judge images without cache after any services/ file change:
+docker compose build --no-cache \
+  jarvis-judge-pipeline \
+  jarvis-judge-truth \
+  jarvis-judge-consistency \
+  jarvis-judge-alignment \
+  jarvis-judge-ethics
+
+# Then bring services back up:
+docker compose up -d \
+  jarvis-judge-pipeline \
+  jarvis-judge-truth \
+  jarvis-judge-consistency \
+  jarvis-judge-alignment \
+  jarvis-judge-ethics
+```
+
+The `--no-cache` flag forces Docker to re-read every file in the build context from disk, guaranteeing that the rebuilt image reflects the actual current content of `services/` rather than a cached layer from a prior build.
+
+### Complete Pre-Rebuild Checklist
+
+Before rebuilding any judge image, run all of the following in order:
+
+```bash
+# 1. Verify filename set matches between services/ and services-safe/:
+diff <(ls services/ | grep judge | sort) <(ls services-safe/ | grep judge | sort)
+
+# 2. Verify no ghost lm_synthesizer content in judge scripts:
+grep -l "lm_synthesizer\|LMSynthesizer" services/judge_*.py
+
+# 3. Verify correct default sub-judge ports in judge_pipeline.py (lines 16-19):
+grep "JUDGE_.*URL.*:7239" services/judge_pipeline.py
+# Expected: empty output (7239 is coordinator only)
+
+# 4. Verify bbb_check_verdict is not a stub:
+grep "bbb_status.*stub" services/judge_pipeline.py
+# Expected: empty output
+
+# 5. Verify Dockerfile.judge and judgesigner.py are present:
+ls -la services/Dockerfile.judge services/judgesigner.py
+
+# 6. Only if all checks pass — rebuild with --no-cache:
+docker compose build --no-cache jarvis-judge-pipeline jarvis-judge-truth \
+  jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics
+
+# 7. Bring services up and verify:
+docker compose up -d jarvis-judge-pipeline jarvis-judge-truth \
+  jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics
+
+docker compose ps | grep judge
+# Expected: all 5 services running, not restarting
+```
+
+### Restoration Procedure
+
+If ghost file contamination is detected in `services/`, restore all judge scripts from `services-safe/` before rebuilding:
+
+```bash
+# Restore all judge scripts from authoritative backup:
+cp services-safe/judge_pipeline.py      services/judge_pipeline.py
+cp services-safe/judge_truth_filter.py  services/judge_truth_filter.py
+cp services-safe/judge_consistency_engine.py services/judge_consistency_engine.py
+cp services-safe/judge_alignment_filter.py   services/judge_alignment_filter.py
+cp services-safe/judge_ethics_filter.py      services/judge_ethics_filter.py
+cp services-safe/Dockerfile.judge            services/Dockerfile.judge
+cp services-safe/judgesigner.py              services/judgesigner.py
+
+# Verify content after restore:
+grep -l "lm_synthesizer" services/judge_*.py
+# Expected: empty output
+
+# Rebuild with --no-cache:
+docker compose build --no-cache jarvis-judge-pipeline jarvis-judge-truth \
+  jarvis-judge-consistency jarvis-judge-alignment jarvis-judge-ethics
+```
+
+### Operational Rule
+
+> **Never use `docker compose build` (without `--no-cache`) for judge services after any file change in `services/`. Always run the pre-rebuild checklist. Always restore from `services-safe/` if content drift is detected. The build cache is a silent failure mode for this class of corruption.**
+
+This rule applies regardless of how minor the change appears. A rename that looks cosmetic may have deposited wrong content under a correct name. The checklist is the only defense.
+
+*Last updated: 2026-03-21 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
