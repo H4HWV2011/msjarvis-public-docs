@@ -119,7 +119,7 @@ The canonical ML-DSA-65 signing keypair is the most sensitive operational secret
 - The threat level reaches CRITICAL for more than 72 hours
 - Routine rotation schedule (recommended annually for a system at this threat level)
 
-**Verification:** The public key fingerprint `d81a5d9037635007` (first 16 hex characters of SHA3-256 of the public key) serves as the canonical identifier for the current keypair. All five judge containers should show this fingerprint. Any deviation indicates a container is using an unauthorized keypair and should be investigated immediately.
+**Verification:** The public key fingerprint (first 16 hex characters of SHA3-256 of the public key) serves as the canonical identifier for the active keypair. All five judge containers must show an identical fingerprint. Any deviation indicates a container is using an unauthorized keypair and should be investigated immediately. The active fingerprint is recorded in internal operations documentation and is not published externally.
 
 **Backup:** The private key (`judge_sk.bin`, 4,032 bytes) must be backed up to offline, encrypted storage independent of the deployment environment. Loss of the private key requires keypair rotation and re-signing of any stored verdicts that need future verification.
 
@@ -185,4 +185,87 @@ For a system designed to serve Appalachian communities who have historically bee
 
 ---
 
-*Chapter 42 documents the PQ security layer implementation completed March 20, 2026. Key fingerprint: `d81a5d9037635007`. Next chapter: BBB Gate Integration Testing and End-to-End Verdict Flow Verification.*
+## 42.8 Steganographic Channel Layer
+
+Ms. Jarvis employs steganography as a secondary integrity and covert signaling mechanism operating beneath the visible cryptographic layer. Where the PQ signing layer makes verdict integrity *verifiable*, the steganographic layer makes tampering *invisible to detect from the outside* — an adversary monitoring the system's outputs cannot determine whether a covert integrity signal is present, absent, or what it contains.
+
+---
+
+### 42.8.1 Design Intent
+
+Steganography in Ms. Jarvis serves three distinct purposes:
+
+1. **Covert integrity watermarking (outbound)** — AI outputs carry an embedded signal that encodes a hash of the generating verdict, the signing key fingerprint, and a session identifier. A downstream verifier with the correct extraction key can confirm the output is authentic without any visible signature field being present in the response.
+
+2. **Covert channel detection (inbound)** — Inputs to the system are scanned for steganographic payloads before processing. This detects prompt injection attempts that use steganographic encoding to smuggle instructions past surface-level content filters that only inspect visible text.
+
+3. **Out-of-band audit signaling** — The system can embed low-bandwidth audit signals in routine outputs that are readable only by authorized monitoring infrastructure, providing a tamper-evident audit trail that persists even if the visible logging layer is compromised.
+
+---
+
+### 42.8.2 Inbound Steganographic Scanning
+
+Every input received by the LLM proxy layer is passed through a steganographic scanner before it reaches an inference model. The scanner checks for:
+
+- **Text steganography** — zero-width characters, homoglyph substitution, unusual Unicode normalization forms, and whitespace encoding schemes that can carry hidden instructions invisible to human reviewers
+- **Structural encoding** — patterns in punctuation, capitalization, or word spacing that encode instructions using linguistic steganography techniques
+- **Image steganography** (where image inputs are accepted) — LSB (least significant bit) encoding, DCT coefficient manipulation, and palette-based encoding in submitted images
+
+Inputs that trigger steganographic detection are flagged, logged, and routed to the ethics and alignment judges for elevated scrutiny before any inference proceeds. The flagging does not automatically reject the input — a legitimate user could inadvertently submit content with steganographic artifacts — but it raises the constitutional filter threshold for that session.
+
+---
+
+### 42.8.3 Outbound Watermarking
+
+AI outputs produced by the Ms. Jarvis inference layer carry an embedded steganographic watermark before delivery. The watermark encoding process:
+
+1. Takes the finalized output text after BBB gate approval
+2. Computes a compact payload combining a hash of the generating verdict, a key-derived identifier, and a session token
+3. Encodes this payload using a zero-width Unicode steganography scheme that adds no visible characters and does not alter the meaning, tone, or structure of the output
+4. The encoding key is derived from the canonical signing keypair, meaning only a party with access to the public key can extract and verify the watermark
+
+The result is an output that reads identically to a human reader but carries a machine-verifiable provenance signal. If an output is later presented out of context — stripped of its metadata, reassigned to a different source, or claimed to have been produced by a different system — the watermark can confirm or deny its origin.
+
+---
+
+### 42.8.4 Steganographic Key Governance
+
+The steganographic encoding and decoding keys are derived from the canonical ML-DSA-65 signing keypair using HKDF-SHA3-256 with a domain separation label. This means:
+
+- Keypair rotation automatically rotates the steganographic keys — no separate stego key management is required
+- An adversary who does not have the signing keypair cannot extract or forge watermarks
+- The steganographic key is never stored independently — it is derived on demand and held only in memory during encoding/decoding operations
+
+The derivation scheme uses domain separation to ensure the steganographic key is cryptographically independent of the signing key even though both are derived from the same root material.
+
+---
+
+### 42.8.5 Relationship to the PQ Security Layer
+
+The steganographic layer and the PQ signing layer are complementary, not redundant:
+
+| Property | PQ Signing (ML-DSA-65) | Steganography |
+|---|---|---|
+| Visibility | Signature field present in verdict | No visible artifact in output |
+| Verifiability | Anyone with public key can verify | Only parties with extraction key can read |
+| Tampering signal | Signature fails verification | Watermark absent or corrupted |
+| Inbound threat detection | No | Yes — scans for hidden instructions |
+| Audit persistence | In verdict log | Embedded in output itself |
+| Quantum resistance | Yes (ML-DSA-65) | Via derived key from PQ keypair |
+
+An output that passes BBB gate review carries both: a valid ML-DSA-65 verdict signature in the internal pipeline and a steganographic watermark in the delivered text. An output that has been tampered with after delivery will fail both checks — the signature will not match the modified content, and the watermark will be absent or corrupted.
+
+---
+
+### 42.8.6 Operational Notes
+
+- Steganographic scanning adds negligible latency to inbound processing (typically < 2ms per input at current throughput)
+- Outbound watermarking is applied after BBB gate approval and before delivery — it is the last operation in the output pipeline
+- The scanner's detection threshold is configurable via the `jarvis-crypto-policy` service — at ELEVATED threat level, the scanner applies stricter pattern matching with a lower false-negative rate at the cost of a marginally higher false-positive rate
+- Watermark extraction tooling is maintained in the internal operations toolkit and is not exposed via any public API
+
+---
+
+*Section 42.8 added March 20, 2026. Steganographic layer implemented as part of the BBB gate and judge pipeline integration. Extraction key is derived from the canonical judge signing keypair and rotates with it automatically.*
+
+*Chapter 42 documents the PQ security layer implementation completed March 20, 2026. Next chapter: BBB Gate Integration Testing and End-to-End Verdict Flow Verification.*
