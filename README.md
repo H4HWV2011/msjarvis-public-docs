@@ -3,40 +3,59 @@
 
 > *"Built in Mount Hope, West Virginia. Governed by the communities it serves."*
 
-**Ms. Egeria Jarvis** is a live, place-based AI steward system running in production in Mount Hope, West Virginia as of January 2026. [cite:145] This repository is its complete public documentation: the intellectual discipline that grounds it, the theoretical framework that shapes it, the governance and economic systems it serves, the 43-chapter computational thesis that argues for it, and the operational records that prove it. [cite:139]
+**Ms. Egeria Jarvis** is a live, place-based AI steward system running in production in Mount Hope, West Virginia as of January 2026. This repository is its complete public documentation: the intellectual discipline that grounds it, the theoretical framework that shapes it, the governance and economic systems it serves, the 43-chapter computational thesis that argues for it, and the operational records that prove it.
 
-This is not a demo. It is not a proposal. It is a working system — more than 51,000 Python modules across 175 services, a PostGIS spatial database holding millions of West Virginia records, and a live governance infrastructure governing a closed-loop community economy. [cite:145]
+This is not a demo. It is not a proposal. It is a working system — 80 containerized services, more than 51,000 Python modules, a PostGIS spatial database holding 5.4 million verified geospatial beliefs across West Virginia, and a live governance infrastructure governing a closed-loop community economy — running on a Lenovo Legion 5 in Mount Hope, West Virginia.
 
-Contact: **kiddstechnical@gmail.com**
-License: See [LICENSE](./LICENSE)
-
----
-
-## What This Repository Is
-
-This is the **public documentation repository** for the Ms. Jarvis project — a glass-box record of what is being built, why, and for whom. It contains:
-
-- The **intellectual discipline** (Polymathmatic Geography) that provides the theoretical foundation
-- The **applied framework** (Quantarithmia) that focuses that discipline on Appalachian spatial justice
-- The **AI system architecture** (Ms. Jarvis / GBIM) documented in a 43-chapter computational thesis
-- The **economic instrument** (MountainShares DAO) — a community-governed closed-loop economy
-- The **community platform** (The Commons) — the daily-life interface where participants interact
-- The **governance, legal, and safety documents** that make the system accountable
-- The **API specifications, security policy, and contributing guidelines** for technical partners
-
-Everything here is authored by **Carrie Ann Kidd** of Mount Hope, West Virginia, under the umbrella of **Harmony for Hope, Inc.**
+**Contact:** kiddstechnical@gmail.com
+**License:** See [LICENSE](./LICENSE)
 
 ---
 
-## The System in Three Layers
+## The Core Claim
 
-You can understand this project in three nested layers:
+Most rural communities in Appalachia are surveyed, studied, and analyzed by outside institutions — then watched as that data, value, and decision-making power flows somewhere else. Ms. Jarvis is built on a different premise:
 
-| Layer | What It Is | Where to Start |
-|---|---|---|
-| **Polymathmatic Geography** | The intellectual discipline — studying entangled spaces where land, law, money, technology, story, and faith are inseparable | [`discipline/`](./discipline/) |
-| **Quantarithmia** | The applied framework — how maximopolies and megaopolies reshape Appalachian communities, and how community-first alternatives are designed | [`theory/`](./theory/) |
-| **Ms. Jarvis + MountainShares + The Commons** | The live system — the AI steward, the closed-loop economy, and the community platform in daily operation in West Virginia | [`thesis/`](./thesis/), [`mountainshares-dao/`](./mountainshares-dao/), [`the commons/`](./the%20commons/) |
+**What if the community owned the intelligence infrastructure?**
+
+Not the outputs. Not the reports. The infrastructure itself — the data, the models, the governance, the economic instruments, and the buildings that house it.
+
+That is what this project is building.
+
+---
+
+## Three Entangled Systems
+
+This project is not just software. It is three systems working together:
+
+### 1. Ms. Jarvis — The AI Steward
+A place-based AI assistant designed to make hidden patterns of power, ownership, and resource flow visible to the community that lives with them. It reasons from 5.4 million georeferenced beliefs about West Virginia — parcels, buildings, roads, census blocks, infrastructure, and public data — not from generic global training data. Every answer is tied to a real place. Every constraint is published. Every step is traceable.
+
+### 2. MountainShares DAO — The Economic Instrument
+A closed-loop community economy governed by a democratic DAO structure, designed to keep value circulating within Fayette County rather than extracting outward to absentee owners. MountainShares tokens represent community contributions — labor, knowledge, care, participation — and are redeemable within the local economy. The system is explicitly designed to be safe for participants on public benefits (SNAP, SSI, Medicaid).
+
+### 3. The Commons — The Community Platform
+The daily-life interface where Mount Hope residents interact with the system, participate in governance, earn and spend MountainShares, access local resources, and build community wealth. The Commons is not an app. It is a governed spatial institution — with charters, audit mechanisms, privacy protections, and community-controlled rules — that happens to have a digital interface.
+
+---
+
+## The Physical Infrastructure Layer
+
+**Ms. Jarvis is also a tool for comprehensive community planning and building infrastructure.**
+
+The system has mapped the existing physical assets across West Virginia's 9th District — schools, clinics, arts and community centers, municipal buildings, small business hubs, and annexed corridors around Mount Hope — as an infrastructure network showing concentrations of demand, access, and public expectations for construction, water, power, and permitting. [cite:146]
+
+The anchor building for this work is the **Miner's Academy** in Mount Hope — a historic structure being positioned as the physical home of the Ms. Jarvis infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed in coordination with Delegate Pritt and framed around Mount Hope revitalization and state innovation goals. [cite:147]
+
+The physical infrastructure strategy includes:
+
+- **Building identification and condition assessment** — Ms. Jarvis maps vacant, underutilized, and historically significant buildings as candidate infrastructure nodes
+- **Parcel and ownership analysis** — The GBIM corpus includes absentee ownership concentration data for Fayette County, making extraction patterns visible on the map
+- **Comprehensive plan support** — The system is designed to support Mount Hope's comprehensive planning process by providing georeferenced community data that is locally owned and locally governed
+- **XR documentation** — Key buildings (including the Mount Hope Community Center, site of JFK's 1960 visit) are being documented in extended reality for community memory and heritage tourism
+- **Infrastructure demand modeling** — Spatial analysis of where water, power, broadband, and permitting bottlenecks intersect with community development priorities
+
+This is the connection between the digital and physical layers of the project: **Ms. Jarvis is not just software. She is a steward of place.**
 
 ---
 
@@ -46,12 +65,29 @@ A question arrives — *"Where is food access most fragile in our county?"* — 
 
 1. **Receives it** through a secure, logged web gateway
 2. **Grounds it spatially** via the Geospatial Belief Information Model (GBIM) — tying the question to real parcels, roads, census blocks, and infrastructure in West Virginia
-3. **Retrieves memory** from a Hilbert-space semantic store holding over 6 million spatial records
-4. **Reasons across** an ensemble of large language models, coordinated by a routing and judgment layer
-5. **Checks the answer** against written constitutional constraints and governance rules before any output is returned
+3. **Retrieves memory** from a semantic store holding 5,416,522 verified georeferenced beliefs
+4. **Reasons across** a 22-slot LLM ensemble, coordinated by a routing and judgment layer
+5. **Checks the answer** against written constitutional constraints, 5 judge services (truth, consistency, alignment, ethics, and pipeline), and a blood-brain barrier safety filter before any output is returned
 6. **Returns a stewarded result** — a narrative, annotated map, or data table tied to real places — with sources and reasoning visible
 
-Every step is traceable. Every constraint is published. The system is designed to support community decisions, never to make them. [cite:145]
+Every step is traceable. Every constraint is published. The system is designed to support community decisions, never to make them.
+
+---
+
+## What Is Already Running (March 2026)
+
+| Component | Status |
+|---|---|
+| 80 containerized services | ✅ All localhost-locked; zero external exposure |
+| 22-slot LLM ensemble (Ollama backend, 26 models) | ✅ 21/22 responding |
+| Host PostgreSQL + PostGIS (msjarvisgis) | ✅ 5,416,522 verified beliefs |
+| ChromaDB semantic vector store | ✅ Healthy |
+| 5-judge pipeline (truth, consistency, alignment, ethics) | ✅ All compose-managed as of Mar 18, 2026 |
+| Blood-brain barrier safety filter | ✅ Running |
+| Constitutional Guardian service | ✅ Running |
+| IPFS/Kubo node | ✅ Intentional MountainShares/Commons infrastructure |
+| MountainShares Phase 0 beta | ✅ In preparation |
+| The Commons platform | ✅ Onboarding infrastructure in place |
 
 ---
 
@@ -61,18 +97,17 @@ Every step is traceable. Every constraint is published. The system is designed t
 msjarvis-public-docs/
 │
 ├── README.md                          ← You are here
-├── LICENSE                            ← Licensing terms for all documentation
+├── LICENSE                            ← Licensing terms
 ├── bibliography.md                    ← Complete annotated bibliography
-├── Definitive Service Inventory.md    ← Authoritative map of all 79–84 containerized services
+├── Definitive Service Inventory.md    ← Authoritative map of all 80 running services
 ├── The Ms. Jarvis Steward System.md   ← Plain-language steward system overview
 │
 ├── discipline/                        ← Polymathmatic Geography: the foundational field
-│   ├── Principles of Polymathmatic Geography.md
 │   ├── Polymathmatic Geography: A Manifesto.md
+│   ├── Principles of Polymathmatic Geography.md
 │   ├── Definitions and Scope.md
-│   ├── Methods.md
-│   ├── [16 additional documents]
-│   └── case_studies/                  ← Applied case studies
+│   ├── [19 additional documents]
+│   └── case_studies/
 │       ├── Absentee Ownership Concentration in Fayette County, WV.md
 │       ├── Entangled Space after Kant and Durkheim.md
 │       ├── Prefrontal Alignment Episode.md
@@ -81,50 +116,27 @@ msjarvis-public-docs/
 │
 ├── theory/                            ← Quantarithmia framework + AI safety design
 │   ├── Quantarithmia Framework.md
-│   ├── Off Switch Design.md
-│   ├── Quantarithmia_Journal.pdf
-│   └── What-is-Quantarithmia.pdf
+│   └── Off Switch Design.md
 │
 ├── thesis/                            ← 43-chapter computational thesis
 │   ├── 00-overview.md                 ← Start here for the full system narrative
-│   ├── 01-quantarithmia.md
-│   ├── 02-ms-jarvis-gbim.md
-│   ├── [Chapters 03–42]
-│   └── 42-Post-Quantum Security Layer.md
+│   └── [Chapters 01–42]
 │
 ├── mountainshares-dao/                ← MountainShares: closed-loop community economy
-│   ├── mountainshares-dao.md          ← Start here
+│   ├── mountainshares-dao.md
 │   ├── MountainShares DAO Governance Charter.md
-│   ├── MountainShares Program Rules (Draft).md
-│   ├── [Phase 0–3 Specifications]
 │   ├── Audit and Risk Management Plan.md
-│   └── [12 additional documents]
+│   └── [15 additional documents]
 │
 ├── the commons/                       ← The Commons: community platform
 │   ├── Participation Map.md
-│   ├── The Commons Gamification: The Daily Life Game.md
 │   ├── BSA-Benefits-Sensitive Accounts.md
 │   ├── Government Commons Node & Ms. Jarvis Partnership Overview.md
-│   └── [9 additional documents]
+│   └── [10 additional documents]
 │
 ├── docs/                              ← Documentation hub, API overview, partner brief
-│   ├── index.md
-│   ├── API-OVERVIEW.md
-│   ├── Partner Brief.md
-│   ├── how-to-read-this-thesis.md
-│   ├── kidd_technical_services_detailed_timesheet_2025-2026.md
-│   └── contract/
-│       ├── Community Champion.md
-│       └── Safety Champion Participation Agreement.md
-│
 ├── api_specs/                         ← OpenAPI specification
-│   └── openapi.json.md
-│
 ├── security/                          ← Security, access policy, contributing guide
-│   ├── SECURITY-OVERVIEW.md
-│   ├── SOURCE_ACCESS.md
-│   └── CONTRIBUTING.md
-│
 ├── branding/                          ← Visual identity assets
 └── flyers/                            ← Community outreach materials
 ```
@@ -133,105 +145,58 @@ msjarvis-public-docs/
 
 ## Entry Points by Audience
 
-**If you are a community member or prospective participant:**
-1. [The Ms. Jarvis Steward System.md](./The%20Ms.%20Jarvis%20Steward%20System.md) — plain-language overview
-2. [mountainshares-dao/mountainshares-dao.md](./mountainshares-dao/mountainshares-dao.md) — what MountainShares is and is not
-3. [the commons/Onboarding Checklists.md](./the%20commons/Onboarding%20Checklists.md) — how to get started
+**Community members and prospective participants:**
+→ [The Ms. Jarvis Steward System.md](./The%20Ms.%20Jarvis%20Steward%20System.md) · [mountainshares-dao/mountainshares-dao.md](./mountainshares-dao/mountainshares-dao.md) · [the commons/Onboarding Checklists.md](./the%20commons/Onboarding%20Checklists.md)
 
-**If you are on public benefits (SNAP, SSI, Medicaid):**
-1. [the commons/BSA-Benefits-Sensitive Accounts.md](./the%20commons/BSA-Benefits%E2%80%91Sensitive%20Accounts%20.md) — how The Commons protects your eligibility
-2. [mountainshares-dao/MountainShares Phase 1: Economic Safety Specification.md](./mountainshares-dao/MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md) — the safety architecture
+**Public benefits recipients (SNAP, SSI, Medicaid):**
+→ [the commons/BSA-Benefits-Sensitive Accounts.md](./the%20commons/BSA-Benefits%E2%80%91Sensitive%20Accounts%20.md) · [mountainshares-dao/MountainShares Phase 1: Economic Safety Specification.md](./mountainshares-dao/MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md)
 
-**If you are a funder or institutional partner:**
-1. [mountainshares-dao/MountainShares Funder Overview.md](./mountainshares-dao/MountainShares%20Funder%20Overview%20.md) — the impact case
-2. [docs/Partner Brief.md](./docs/Partner%20Brief.md) — the concise partnership frame
-3. [thesis/00-overview.md](./thesis/00-overview.md) — the full system narrative
-4. [docs/kidd_technical_services_detailed_timesheet_2025-2026.md](./docs/kidd_technical_services_detailed_timesheet_2025-2026.md) — labor transparency record
+**Funders and institutional partners:**
+→ [mountainshares-dao/MountainShares Funder Overview.md](./mountainshares-dao/MountainShares%20Funder%20Overview%20.md) · [docs/Partner Brief.md](./docs/Partner%20Brief.md) · [thesis/00-overview.md](./thesis/00-overview.md) · [docs/kidd_technical_services_detailed_timesheet_2025-2026.md](./docs/kidd_technical_services_detailed_timesheet_2025-2026.md)
 
-**If you are a government agency or elected official:**
-1. [the commons/Government Commons Node & Ms. Jarvis Partnership Overview.md](./the%20commons/Government%20Commons%20Node%20%26%20Ms.%20Jarvis%20Partnership%20Overview.md) — partnership framework
-2. [mountainshares-dao/MountainShares DAO Governance Charter.md](./mountainshares-dao/MountainShares%20DAO%20Governance%20Charter.md) — governance architecture
-3. [the commons/Privacy Policy.md](./the%20commons/Privacy%20Policy.md) — data governance
+**Government agencies, elected officials, and comprehensive planners:**
+→ [the commons/Government Commons Node & Ms. Jarvis Partnership Overview.md](./the%20commons/Government%20Commons%20Node%20%26%20Ms.%20Jarvis%20Partnership%20Overview.md) · [discipline/case_studies/Absentee Ownership Concentration in Fayette County, West Virginia.md](./discipline/case_studies/Absentee%20Ownership%20Concentration%20in%20Fayette%20County%2C%20West%20Virginia.md) · [mountainshares-dao/MountainShares DAO Governance Charter.md](./mountainshares-dao/MountainShares%20DAO%20Governance%20Charter.md)
 
-**If you are a university or research partner:**
-1. [the commons/University Commons Node Partnership Overview.md](./the%20commons/University%20Commons%20Node%20Partnership%20Overview.md) — academic partnership framework
-2. [thesis/01-researcher-position.md](./thesis/01-researcher-position.md) — researcher positionality
-3. [discipline/Comparative Frameworks in Geography and Commons.md](./discipline/Comparative%20Frameworks%20in%20Geography%20and%20Commons.md) — disciplinary positioning
+**Building infrastructure and economic development partners:**
+→ [Definitive Service Inventory.md](./Definitive%20Service%20Inventory.md) · [discipline/case_studies/Absentee Ownership Concentration in Fayette County, West Virginia.md](./discipline/case_studies/Absentee%20Ownership%20Concentration%20in%20Fayette%20County%2C%20West%20Virginia.md) · [thesis/06-geodb-spatial-body.md](./thesis/06-geodb-spatial-body.md) · [mountainshares-dao/MountainShares Funder Overview.md](./mountainshares-dao/MountainShares%20Funder%20Overview%20.md)
 
-**If you are an AI safety researcher:**
-1. [theory/Off Switch Design.md](./theory/Off%20Switch%20Design.md) — the safety architecture
-2. [thesis/10-woah-weighted-optimization-hierarchy.md](./thesis/10-woah-weighted-optimization-hierarchy.md) — value alignment
-3. [thesis/16-blood-brain-barrier-and-safeguards.md](./thesis/16-blood-brain-barrier-and-safeguards.md) — architectural safety
-4. [thesis/29-psychological-safeguards-and-pia.md](./thesis/29-psychological-safeguards-and-pia.md) — psychological integrity
-5. [discipline/case_studies/Prefrontal Alignment Episode.md](./discipline/case_studies/Prefrontal%20Alignment%20Episode.md) — live safety case study
+**University and research partners:**
+→ [the commons/University Commons Node Partnership Overview.md](./the%20commons/University%20Commons%20Node%20Partnership%20Overview.md) · [thesis/01-researcher-position.md](./thesis/01-researcher-position.md) · [discipline/Comparative Frameworks in Geography and Commons.md](./discipline/Comparative%20Frameworks%20in%20Geography%20and%20Commons.md)
 
-**If you are a lawyer, regulator, or policy researcher:**
-1. [mountainshares-dao/Terms and Conditions.md](./mountainshares-dao/Terms%20and%20Conditions.md) — binding legal framework
-2. [the commons/The Commons – Terms of Use.md](./the%20commons/The%20Commons%20%E2%80%93%20Terms%20of%20Use.md) — platform legal terms
-3. [security/SOURCE_ACCESS.md](./security/SOURCE_ACCESS.md) — access policy
-4. [mountainshares-dao/Audit and Risk Management Plan.md](./mountainshares-dao/Audit%20and%20Risk%20Management%20Plan.md) — audit architecture
+**AI safety researchers:**
+→ [theory/Off Switch Design.md](./theory/Off%20Switch%20Design.md) · [thesis/10-woah-weighted-optimization-hierarchy.md](./thesis/10-woah-weighted-optimization-hierarchy.md) · [thesis/16-blood-brain-barrier-and-safeguards.md](./thesis/16-blood-brain-barrier-and-safeguards.md) · [thesis/29-psychological-safeguards-and-pia.md](./thesis/29-psychological-safeguards-and-pia.md) · [discipline/case_studies/Prefrontal Alignment Episode.md](./discipline/case_studies/Prefrontal%20Alignment%20Episode.md)
 
-**If you are a developer or technical integrator:**
-1. [docs/API-OVERVIEW.md](./docs/API-OVERVIEW.md) — API overview
-2. [api_specs/openapi.json.md](./api_specs/openapi.json.md) — OpenAPI specification
-3. [Definitive Service Inventory.md](./Definitive%20Service%20Inventory.md) — full service map
-4. [thesis/19-container-architecture-and-routing.md](./thesis/19-container-architecture-and-routing.md) — container architecture
+**Lawyers, regulators, and policy researchers:**
+→ [mountainshares-dao/Terms and Conditions.md](./mountainshares-dao/Terms%20and%20Conditions.md) · [the commons/The Commons – Terms of Use.md](./the%20commons/The%20Commons%20%E2%80%93%20Terms%20of%20Use.md) · [security/SOURCE_ACCESS.md](./security/SOURCE_ACCESS.md) · [mountainshares-dao/Audit and Risk Management Plan.md](./mountainshares-dao/Audit%20and%20Risk%20Management%20Plan.md)
 
-**If you are completely new and want to understand the ideas:**
-1. [theory/What-is-Quantarithmia.pdf](./theory/What-is-Quantarithmia.pdf) — accessible plain-language introduction
-2. [discipline/what-is-polymatmatic-geography.md](./discipline/what-is-polymatmatic-geography.md) — what the discipline is
-3. [thesis/00-thesis-overview.md](./thesis/00-thesis-overview.md) — the full chapter map
+**Developers and technical integrators:**
+→ [docs/API-OVERVIEW.md](./docs/API-OVERVIEW.md) · [api_specs/openapi.json.md](./api_specs/openapi.json.md) · [Definitive Service Inventory.md](./Definitive%20Service%20Inventory.md) · [thesis/19-container-architecture-and-routing.md](./thesis/19-container-architecture-and-routing.md)
 
----
-
-## What Makes This Different
-
-Most AI systems hide how they reach a conclusion, are trained on global data with no sense of place, and ask you to trust the model without showing receipts.
-
-Ms. Jarvis is built differently: [cite:145]
-
-- **Place-based** — every answer is tied to real locations in West Virginia
-- **Traceable** — sources, rules, and reasoning are visible and auditable
-- **Constrained** — written constitutional limits on what the system may and may not do, published in full
-- **Community-governed** — MountainShares and The Commons operate under democratic governance with published charters, audit plans, and KPI frameworks
-- **Benefits-safe** — explicit architecture protecting participants whose income includes public benefits
-- **Spiritually grounded** — the system's deepest commitments are rooted in liberation theology and Appalachian community values, not abstracted from place
-
----
-
-## What Is Already Running
-
-As of January 2026: [cite:145]
-
-- **51,000+ Python modules** across 175 containerized services
-- **PostgreSQL + PostGIS** spatial database with millions of West Virginia records
-- **6 million+ spatial records** from West Virginia GIS layers indexed for semantic search
-- **Multi-model LLM ensemble** with routing, judgment, and constitutional checking layers
-- **MountainShares Phase 0** invite-only beta in preparation for launch
-- **The Commons platform** with onboarding, gamification, and safety champion infrastructure in place
+**Completely new readers:**
+→ [theory/What-is-Quantarithmia.pdf](./theory/What-is-Quantarithmia.pdf) · [discipline/what-is-polymatmatic-geography.md](./discipline/what-is-polymatmatic-geography.md) · [thesis/00-thesis-overview.md](./thesis/00-thesis-overview.md)
 
 ---
 
 ## Three Questions Being Tested
 
-This system is a live research project. The questions under active investigation are: [cite:145]
+This system is a live research project. The questions under active investigation are:
 
 1. **Trust and clarity** — Do residents, partners, and auditors find Ms. Jarvis more understandable and trustworthy than black-box AI or opaque government process?
-2. **Seeing extraction** — Can the system make hidden patterns of resource extraction visible on the map, so local people can act on them?
+2. **Seeing extraction** — Can the system make hidden patterns of absentee ownership and resource extraction visible on the map, so local people can act on them?
 3. **Stronger local safety nets** — Does MountainShares keep more value circulating in the community and make people feel safer, without becoming an unregulated financial institution?
 
 ---
 
-## About Harmony for Hope, Inc.
+## About This Project
 
-Harmony for Hope, Inc. is a West Virginia nonprofit headquartered in Mount Hope, Fayette County, West Virginia. It is the institutional home of Ms. Jarvis, MountainShares DAO, and The Commons platform. Kidd's Technical Services, Inc. provides the technical development and infrastructure services.
+**Harmony for Hope, Inc.** is a West Virginia nonprofit headquartered in Mount Hope, Fayette County, West Virginia. It is the institutional home of Ms. Jarvis, MountainShares DAO, and The Commons platform. **Kidd's Technical Services, Inc.** provides the technical development and infrastructure services.
 
-**Founder and Principal Investigator:** Carrie Ann Kidd (Mamma Kidd)
+**Founder and Principal Investigator:** Carrie Ann Kidd (Mamma Kidd) — Mount Hope, West Virginia
 **Contact:** kiddstechnical@gmail.com
-**Location:** Mount Hope, West Virginia
 
 ---
 
 *This repository is a living document. Sections are published as they are completed.*
 *© Carrie Ann Kidd / Harmony for Hope, Inc. See [LICENSE](./LICENSE) for terms.*
 *Polymathmatic Geography, Quantarithmia, and the Ms. Jarvis system are original works authored by Carrie Ann Kidd.*
+*Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
