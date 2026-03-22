@@ -7,7 +7,7 @@
 
 This is not a demo. It is not a proposal. It is a working system — 80 containerized services, more than 51,000 Python modules, a PostGIS spatial database holding 5.4 million verified geospatial beliefs across West Virginia, and a live governance infrastructure governing a closed-loop community economy — running on a Lenovo Legion 5 in Mount Hope, West Virginia.
 
-**Contact:** kiddstechnical@gmail.com
+**Contact:** [kiddstechnical@gmail.com](mailto:kiddstechnical@gmail.com)
 **License:** See [LICENSE](./LICENSE)
 
 ---
@@ -43,9 +43,9 @@ The daily-life interface where Mount Hope residents interact with the system, pa
 
 **Ms. Jarvis is also a tool for comprehensive community planning and building infrastructure.**
 
-The system has mapped the existing physical assets across West Virginia's 9th District — schools, clinics, arts and community centers, municipal buildings, small business hubs, and annexed corridors around Mount Hope — as an infrastructure network showing concentrations of demand, access, and public expectations for construction, water, power, and permitting. [cite:146]
+The system has mapped the existing physical assets across West Virginia's 9th District — schools, clinics, arts and community centers, municipal buildings, small business hubs, and annexed corridors around Mount Hope — as an infrastructure network showing concentrations of demand, access, and public expectations for construction, water, power, and permitting.
 
-The anchor building for this work is the **Miner's Academy** in Mount Hope — a historic structure being positioned as the physical home of the Ms. Jarvis infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed in coordination with Delegate Pritt and framed around Mount Hope revitalization and state innovation goals. [cite:147]
+The anchor building for this work is the **Miner's Academy** in Mount Hope — a historic structure being positioned as the physical home of the Ms. Jarvis infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed for planned coordination with community partners and framed around Mount Hope revitalization and state innovation goals.
 
 The physical infrastructure strategy includes:
 
@@ -192,7 +192,7 @@ This system is a live research project. The questions under active investigation
 **Harmony for Hope, Inc.** is a West Virginia nonprofit headquartered in Mount Hope, Fayette County, West Virginia. It is the institutional home of Ms. Jarvis, MountainShares DAO, and The Commons platform. **Kidd's Technical Services, Inc.** provides the technical development and infrastructure services.
 
 **Founder and Principal Investigator:** Carrie Ann Kidd (Mamma Kidd) — Mount Hope, West Virginia
-**Contact:** kiddstechnical@gmail.com
+**Contact:** [kiddstechnical@gmail.com](mailto:kiddstechnical@gmail.com)
 
 ---
 
