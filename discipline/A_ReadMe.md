@@ -139,4 +139,4 @@ The discipline documented here is the intellectual foundation for every other se
 
 *Polymathmatic Geography is a living discipline. These documents are offered as a starting point — to be tested, refined, and extended in collaboration with communities, researchers, and practitioners wherever entangled spaces are found.*
 
-*Built in Mount Hope, West Virginia. © Carrie Kidd / Harmony for Hope, Inc. See [LICENSE](../LICENSE) for terms.*
+*Built by Kidd's Technical Services for Harmony for Hope, Inc. — Mount Hope, West Virginia. See [LICENSE](../LICENSE) for terms.*
