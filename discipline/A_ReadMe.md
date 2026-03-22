@@ -73,14 +73,14 @@ The full principles document is at [Principles of Polymathmatic Geography.md](./
 | [Polymathmatic Geography and Metaphysical Edges.md](./Polymathmatic%20Geography%20and%20Metaphysical%20Edges.md) | The outer boundaries of the discipline — where measurement ends and belief begins. |
 | [Polymathmatic Geography and Physics‑Style Method.md](./Polymathmatic%20Geography%20and%20Physics%E2%80%91Style%20Method.md) | How physics-style formalism (Hilbert spaces, field equations, conservation laws) is borrowed and adapted for geographic use. |
 | [Polymathmatic Geography and Representation Learning.md](./Polymathmatic%20Geography%20and%20Representation%20Learning.md) | The relationship between machine learning embeddings and geographic belief representation. |
-| [Polymathmatic Geography and the GeoBelief Information Model (GBIM).md](./Polymathmatic%20Geography%20and%20the%20GeoBelief%20Information%20Model%20%28GBIM.md) | How the GBIM operationalizes polymathmatic geography computationally — anchoring every belief to where, when, and what evidence supports it. |
+| [Polymathmatic Geography and the GeoBelief Information Model (GBIM).md](./Polymathmatic%20Geography%20and%20the%20GeoBelief%20Information%20Model%20%28GBIM%29.md) | How the GBIM operationalizes polymathmatic geography computationally — anchoring every belief to where, when, and what evidence supports it. |
 | [Non-Digital Commons in a Polymathmatic Lens.md](./Non-Digital%20Commons%20in%20a%20Polymathmatic%20Lens.md) | Land trusts, watershed councils, seed libraries, church halls — non-digital commons as geographic institutions. |
 | [Comparative Frameworks in Geography and Commons.md](./Comparative%20Frameworks%20in%20Geography%20and%20Commons.md) | Side-by-side comparison of polymathmatic geography with GIS traditions, political ecology, commons theory, and platform studies. |
 | [Ethics of Anchors and Non‑Representation.md](./Ethics%20of%20Anchors%20and%20Non%E2%80%91Representation.md) | The ethical obligations of anchoring claims to place — and the harm of representing communities without their consent. |
 | [Measurement, Resolution, and Limits.md](./Measurement%2C%20Resolution%2C%20and%20Limits.md) | What can and cannot be measured in entangled spaces, and why honest limits matter. |
 | [Semantics in Polymathmatic Geography.md](./Semantics%20in%20Polymathmatic%20Geography.md) | How language, meaning, and spatial anchoring interact — the semantic layer of geographic belief. |
-| [World‑Models and Anchoring (Safety Pins to Planets).md](./World%E2%80%91Models%20and%20Anchoring%20%28Safety%20Pins%20to%20Planets.md) | The theory of world-models — from micro-scale safety constraints to planetary-scale belief architectures. |
-| [Polymatmatic Geography and Beyond 3D Maps.md](./Polymatmatic%20Geography%20and%20%20Beyond%203D%20Maps.md) | Why geography must move beyond three-dimensional representation into belief space, time, and relational geometry. |
+| [World‑Models and Anchoring (Safety Pins to Planets).md](./World%E2%80%91Models%20and%20Anchoring%20%28Safety%20Pins%20to%20Planets%29.md) | The theory of world-models — from micro-scale safety constraints to planetary-scale belief architectures. |
+| [Polymatmatic Geography and Beyond 3D Maps.md](./Polymatmatic%20Geography%20and%20Beyond%203D%20Maps.md) | Why geography must move beyond three-dimensional representation into belief space, time, and relational geometry. |
 
 ---
 
@@ -130,13 +130,13 @@ The `case_studies/` subfolder contains grounded empirical and theoretical applic
 The discipline documented here is the intellectual foundation for every other section:
 
 - **The thesis** (`../thesis/`) implements this discipline computationally across 43 chapters.
-- **Ms. Jarvis** is the AI instrument described in Section 4 (Methods) and Section 5 (Quantarithmia).
-- **MountainShares DAO** (`../mountainshares-dao/`) is the closed-loop economic instrument theorized in Principles P8 and P9.
-- **The Commons** (`../the commons/`) is the community platform built on Principles P6, P7, and P8.
+- **Ms. Jarvis** is the AI instrument described in Section 4 (Methods) and Section 5 (Quantarithmia) — a Kidd's Technical Services system.
+- **MountainShares DAO** (`../mountainshares-dao/`) is the closed-loop economic instrument theorized in Principles P8 and P9 — a Harmony for Hope, Inc. product.
+- **The Commons** (`../the commons/`) is the community platform built on Principles P6, P7, and P8 — a Harmony for Hope, Inc. product.
 - **The GBIM** (GeoBelief Information Model) operationalizes Principles P1, P3, P12, and P17 in the PostgreSQL database with 5,416,521 entities anchored to West Virginia geography.
 
 ---
 
-*Polymathmatic Geography is a living discipline. These documents are offered as a starting point — to be tested, refined, and extended in collaboration with communities, researchers, and practitioners wherever entangled spaces are found.*
+*Polymathmatic Geography is an original discipline authored by Carrie Ann Kidd — Mount Hope, West Virginia. These documents are offered as a starting point — to be tested, refined, and extended in collaboration with communities, researchers, and practitioners wherever entangled spaces are found.*
 
-*Built by Kidd's Technical Services for Harmony for Hope, Inc. — Mount Hope, West Virginia. See [LICENSE](../LICENSE) for terms.*
+*See [LICENSE](../LICENSE) for terms.*
