@@ -1,7 +1,7 @@
 # Chapter 00 — System Overview
 ## Ms. Egeria Jarvis: Architecture, Services, and Production Status
 
-*Last updated: 2026-03-20 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-03-22 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
 ---
 
@@ -20,7 +20,7 @@ Every number in this chapter is verified. Every service listed is production-liv
 **Program:** Quantarithmia / Polymathmatic Geography / Harmony for Hope, Inc.
 **Home:** Oak Hill / Mount Hope, Fayette County, West Virginia
 **Architecture:** Distributed microservice stack, Docker Compose orchestrated
-**Production as of:** March 20, 2026
+**Production as of:** March 22, 2026
 
 Ms. Jarvis is not a general-purpose assistant with a West Virginia skin. She is a place-bound intelligence system whose reasoning is structurally anchored to the physical geography, institutional landscape, landowner record, and programmatic infrastructure of West Virginia. The service architecture described in this chapter is the operational expression of that commitment.
 
@@ -28,14 +28,16 @@ Ms. Jarvis is not a general-purpose assistant with a West Virginia skin. She is 
 
 ## 00.2 Production Service Registry
 
-The Ms. Jarvis stack comprises **85 containerized services** as of March 20, 2026, reflecting the addition of `gbim_query_router` (port 7205) to the production stack during the landowner belief sprint. Services are grouped by function below.
+The Ms. Jarvis stack comprises **83 containerized services** as of March 22, 2026.
 
-> **Field note — March 20, 2026:** Service count advances from 84 to **85** with the promotion of `gbim_query_router` to production. This service handles all structured GBIM landowner belief queries via a PostgreSQL-native path against `mvw_gbim_landowner_spatial` in `msjarvisgis`. It does not use ChromaDB. It does not use the embedding pipeline. It is the first Ms. Jarvis service whose retrieval path is entirely relational — and it is the service that makes 20,593 verified landowner beliefs queryable by natural language for the first time.
+> **Field note — March 20, 2026:** Service count advanced from 84 to **85** with the promotion of `gbim_query_router` to production. This service handles all structured GBIM landowner belief queries via a PostgreSQL-native path against `mvw_gbim_landowner_spatial` in `msjarvisgis`. It does not use ChromaDB. It does not use the embedding pipeline. It is the first Ms. Jarvis service whose retrieval path is entirely relational — and it is the service that makes 20,593 verified landowner beliefs queryable by natural language for the first time.
+
+> **Field note — March 21–22, 2026:** The March 20 count of **85** included 3 orphaned containers that were not part of the active compose-managed stack: `jarvis-crypto-policy`, `jarvis-ingest-api`, and `jarvis-ingest-watcher`. These containers were not defined in `docker-compose.yml` with `restart: unless-stopped`, would not survive a reboot, and have been removed from the active stack. The verified production count is **83**. This was confirmed via `VERIFYANDTEST.sh` on March 21–22, 2026.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│         Ms. Jarvis Production Service Registry — March 20, 2026     │
-│                         85 Services Total                           │
+│         Ms. Jarvis Production Service Registry — March 22, 2026     │
+│                         83 Services Total                           │
 ├──────────────────────────────────┬──────────┬───────────────────────┤
 │ Service                          │ Port     │ Status                │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
@@ -59,7 +61,7 @@ The Ms. Jarvis stack comprises **85 containerized services** as of March 20, 202
 │ web-research-gateway             │ 8007     │ ✅ Production          │
 │ registry-resolver                │ 8008     │ ✅ Production          │
 │ community-memory-service         │ 8009     │ ✅ Production (Ph 1.45)│
-│ gbim_query_router                │ 7205     │ ✅ Production ★ NEW    │
+│ gbim_query_router                │ 7205     │ ✅ Production ★        │
 │                                  │          │   (March 20, 2026)    │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
 │ LLM ENSEMBLE (21 models)         │          │                       │
@@ -82,7 +84,7 @@ The Ms. Jarvis stack comprises **85 containerized services** as of March 20, 202
 │ gbim-worldview-service           │ 7202     │ ✅ Production          │
 │ geodb-connector                  │ 7203     │ ✅ Production          │
 │ spatial-index-service            │ 7204     │ ✅ Production          │
-│ gbim_query_router                │ 7205     │ ✅ Production ★ NEW    │
+│ gbim_query_router                │ 7205     │ ✅ Production ★        │
 │   (landowner belief path)        │          │   Landowner GBIM only │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
 │ GOVERNANCE & SAFETY              │          │                       │
@@ -100,9 +102,13 @@ The Ms. Jarvis stack comprises **85 containerized services** as of March 20, 202
 │ community-stake-registry         │ 8084     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
 │ DATA STORES (infrastructure)     │          │                       │
-│ jarvis-chromadb                  │ 8000     │ ✅ Production          │
+│ jarvis-chromadb                  │ 8002     │ ✅ Production          │
+│   (host port 8002 →              │ (host)   │   container-internal  │
+│    container-internal 8000)      │          │   8000                │
 │ jarvis-ollama                    │ 11434    │ ✅ Production          │
-│ jarvis-redis                     │ 6379     │ ✅ Production          │
+│ jarvis-redis                     │ 6380     │ ✅ Production          │
+│   (host port 6380 →              │ (host)   │   container-internal  │
+│    container-internal 6379)      │          │   6379                │
 │ jarvis-neo4j                     │ 7474/    │ ✅ Production          │
 │                                  │ 7687     │                       │
 │ jarvis-local-resources-db        │ 5435     │ ✅ Production          │
@@ -116,14 +122,19 @@ The Ms. Jarvis stack comprises **85 containerized services** as of March 20, 202
 │ config-service, api-gateway,     │          │                       │
 │ notification-service, scheduler, │          │                       │
 │ backup-service, and others       │          │                       │
+│                                  │          │                       │
+│ ⛔ REMOVED FROM ACTIVE STACK     │          │                       │
+│ jarvis-crypto-policy             │ —        │ ❌ Orphaned — removed  │
+│ jarvis-ingest-api                │ —        │ ❌ Orphaned — removed  │
+│ jarvis-ingest-watcher            │ —        │ ❌ Orphaned — removed  │
 └──────────────────────────────────┴──────────┴───────────────────────┘
 ```
 
-> Figure 00-1. Ms. Jarvis production service registry as of March 20, 2026. ★ marks the service added in the March 20, 2026 landowner belief sprint. `gbim_query_router` appears in both the RAG Pipeline and Spatial & GBIM Services groups because it bridges both functional domains — it is invoked by the RAG pipeline but operates entirely within the GBIM spatial layer.
+> Figure 00-1. Ms. Jarvis production service registry as of March 22, 2026. ★ marks `gbim_query_router`, added in the March 20, 2026 landowner belief sprint. Three orphaned containers (`jarvis-crypto-policy`, `jarvis-ingest-api`, `jarvis-ingest-watcher`) present in the March 20 count of 85 have been removed from the active stack — verified via `VERIFYANDTEST.sh` March 21–22, 2026. Verified production count is **83**. ChromaDB host port is **8002** (`127.0.0.1:8002->8000/tcp`). Redis host port is **6380** (`127.0.0.1:6380->6379/tcp`). `gbim_query_router` appears in both the RAG Pipeline and Spatial & GBIM Services groups because it bridges both functional domains — it is invoked by the RAG pipeline but operates entirely within the GBIM spatial layer.
 
 ### 00.2.1 The `gbim_query_router` Service (Port 7205) — Added March 20, 2026
 
-`gbim_query_router` is the 85th production service in the Ms. Jarvis stack. It is architecturally distinct from every other RAG service in one critical way: **it does not touch ChromaDB**. All other retrieval paths in the RAG pipeline pass through the shared ChromaDB instance (port 8000) for vector similarity search over 384-dimensional `all-minilm:latest` embeddings. `gbim_query_router` does not. It routes directly to `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) via SQL aggregation.
+`gbim_query_router` is architecturally distinct from every other RAG service in one critical way: **it does not touch ChromaDB**. All other retrieval paths in the RAG pipeline pass through the shared ChromaDB instance (host port **8002**, container-internal 8000) for vector similarity search over 384-dimensional `all-minilm:latest` embeddings. `gbim_query_router` does not. It routes directly to `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) via SQL aggregation.
 
 This is not a limitation — it is a deliberate architectural choice. Landowner queries ask who owns how much land where. That question has a deterministic, exact answer in the GBIM relational corpus. Approximate vector nearest-neighbor search would introduce unnecessary error. The relational path is faster, more accurate, and fully auditable: every result can be traced to a specific row in `gbimbeliefnormalized` with full nine-axis provenance.
 
@@ -177,7 +188,7 @@ county = httpx.post(
 
 ## 00.3 GBIM Corpus Status
 
-The GBIM corpus is the epistemic core of the Ms. Jarvis Steward System. All production beliefs live in two PostgreSQL databases on the host system. The table below reflects the verified production state as of **March 20, 2026**, including the 20,593 landowner beliefs added during the evening sprint.
+The GBIM corpus is the epistemic core of the Ms. Egeria Jarvis Steward System. All production beliefs live in two PostgreSQL databases on the host system. The table below reflects the verified production state as of **March 20, 2026**, including the 20,593 landowner beliefs added during the evening sprint.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -211,7 +222,7 @@ The GBIM corpus is the epistemic core of the Ms. Jarvis Steward System. All prod
 │    beliefs, spatially indexed,     │  indexed)      │               │
 │    served by gbim_query_router)    │                │               │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ TOTAL verified GBIM beliefs        │ 5,436,522 *    │               │
+│ TOTAL verified GBIM beliefs        │ 5,416,522 *    │               │
 │ (* gbimbeliefnormalized 5,416,522  │                │               │
 │  + 20,593 landowner beliefs now    │                │               │
 │  materialized in                   │                │               │
@@ -246,10 +257,12 @@ Individual residential owner names are not present. See Section 2.8 (Chapter 02)
 
 All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** via `jarvis-ollama` (port 11434). This embedding model is locked for all production collections. `nomic-embed-text` (768-dim) is **incompatible** with all existing collections and must not be used for any ingestion or retrieval operation.
 
+> **Port note (March 22, 2026):** ChromaDB host port is **8002** (`127.0.0.1:8002->8000/tcp`). Container-internal port is 8000. All scripts and health checks must use port **8002** for host-side access. Auto-detect: `docker port jarvis-chroma 8000/tcp`.
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│           ChromaDB Production Collections — March 20, 2026          │
-│                    port 8000 — all-minilm:latest                    │
+│           ChromaDB Production Collections — March 22, 2026          │
+│             host port 8002 — all-minilm:latest (384-dim)            │
 ├──────────────────────────────────────┬──────────────┬───────────────┤
 │ Collection                           │ Items        │ Notes         │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
@@ -282,7 +295,15 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │ GBIM_sample_rows                     │ 5,000        │ Test/validate │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
 │ geospatialfeatures                   │ 0            │ Scaffolded    │
-│ msjarvis_docs                        │ 0            │ Scaffolded    │
+├──────────────────────────────────────┼──────────────┼───────────────┤
+│ msjarvis_docs                        │ 2,348        │ ✅ Active      │
+│                                      │              │ 52 verified WV│
+│                                      │              │ community res.│
+│                                      │              │ (Kanawha +    │
+│                                      │              │ Fayette) +    │
+│                                      │              │ 2,296 system  │
+│                                      │              │ docs ingested │
+│                                      │              │ March 22, 2026│
 ├──────────────────────────────────────┼──────────────┼───────────────┤
 │ ⚠ LANDOWNER BELIEFS                 │ NOT IN       │ Served by     │
 │ (LANDOWNER_CORPORATE /               │ CHROMADB     │ gbim_query_   │
@@ -292,7 +313,7 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 └──────────────────────────────────────┴──────────────┴───────────────┘
 ```
 
-> Figure 00-3. ChromaDB collection inventory, March 20, 2026. Landowner beliefs are explicitly called out as absent from ChromaDB — they are the only GBIM belief class served exclusively via a PostgreSQL-native path.
+> Figure 00-3. ChromaDB collection inventory, March 22, 2026. `msjarvis_docs` updated from 0 (Scaffolded) to **2,348 Active** — 52 verified WV community resources (Kanawha + Fayette counties) plus 2,296 system docs, ingested March 22, 2026. Landowner beliefs are explicitly called out as absent from ChromaDB — they are the only GBIM belief class served exclusively via a PostgreSQL-native path.
 
 ---
 
@@ -300,7 +321,7 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│          Ms. Jarvis Database Infrastructure — March 20, 2026        │
+│          Ms. Jarvis Database Infrastructure — March 22, 2026        │
 ├─────────────────────────┬────────┬──────────────────────────────────┤
 │ Database                │ Port   │ Status & Key Facts               │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
@@ -321,26 +342,32 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │                         │        │ 7,354,707 rows, sub-ms reads     │
 │                         │        │ 97.17% address coverage verified │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ ChromaDB                │ 8000   │ ✅ Docker (jarvis-chromadb)      │
-│ (vector store)          │        │ 5,416,521 gbim_worldview_        │
+│ ChromaDB                │ 8002   │ ✅ Docker (jarvis-chroma)        │
+│ (vector store)          │ (host) │ host port 8002 →                 │
+│                         │        │ container-internal 8000          │
+│                         │        │ 5,416,521 gbim_worldview_        │
 │                         │        │ entities — 384-dim, all-minilm  │
 │                         │        │ 21,181+ autonomous_learner items │
+│                         │        │ msjarvis_docs: 2,348 ✅ Active   │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ Redis                   │ 6379   │ ✅ Docker (jarvis-redis)         │
-│ (cache)                 │        │ Spatial cache + session state    │
+│ Redis                   │ 6380   │ ✅ Docker (jarvis-redis)         │
+│ (cache)                 │ (host) │ host port 6380 →                 │
+│                         │        │ container-internal 6379          │
+│                         │        │ Spatial cache + session state    │
+│                         │        │ Async job status key: 'complete' │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ Neo4j                   │ 7474 / │ ✅ Docker                        │
 │ (graph)                 │ 7687   │ Graph relationships + GBIM links │
 └─────────────────────────┴────────┴──────────────────────────────────┘
 ```
 
-> Figure 00-4. Database infrastructure summary. ★ marks tables/views updated in the March 20, 2026 landowner sprint.
+> Figure 00-4. Database infrastructure summary, March 22, 2026. ★ marks tables/views updated in the March 20, 2026 landowner sprint. ChromaDB host port corrected to **8002** (March 22, 2026). Redis host port corrected to **6380** (March 22, 2026). Redis async job status key confirmed as `'complete'` (not `'done'`).
 
 ---
 
-## 00.6 Full Pipeline Flow (March 20, 2026)
+## 00.6 Full Pipeline Flow (March 22, 2026)
 
-The production query pipeline as of March 20, 2026:
+The production query pipeline as of March 22, 2026:
 
 ```
 User Query
@@ -350,20 +377,20 @@ Unified Gateway (port 8050)
 BBB Input Filter (port 8016) — Phase 1.4 guardrail
     ↓
 Phase 1.45 — Community Memory Retrieval
-    autonomous_learner (ChromaDB, port 8000)
+    autonomous_learner (ChromaDB, host port 8002)
     all-minilm:latest — top-5 memories prepended to enhanced_message
     ↓
 Main Brain Orchestration (port 8010)
     ├── Text RAG (port 8003 / 8004)
-    │     ChromaDB collections — WV-first routing
+    │     ChromaDB collections (host port 8002) — WV-first routing
     │     governance, thesis, gis_wv_benefits, gbim_beliefs_v2
     │
     ├── GIS RAG (port 8005)
     │     PostgreSQL msjarvisgis (port 5432) spatial filter
-    │     + ChromaDB gbim_worldview_entities
+    │     + ChromaDB gbim_worldview_entities (host port 8002)
     │     PostGIS centroid / ST_DWithin queries
     │
-    ├── GBIM Landowner Router (port 7205) ★ NEW
+    ├── GBIM Landowner Router (port 7205) ★
     │     mode: landowner_gbim
     │     route_type: parcel_ownership
     │     → mvw_gbim_landowner_spatial (msjarvisgis, port 5432)
@@ -393,19 +420,22 @@ Blood-Brain Barrier Output (port 8017)
 Response to User
 ```
 
-> Figure 00-5. Full production pipeline flow, March 20, 2026, reflecting `gbim_query_router` as the fifth parallel retrieval path alongside text RAG, GIS RAG, web research, and registry resolution.
+> Figure 00-5. Full production pipeline flow, March 22, 2026, reflecting `gbim_query_router` as the fifth parallel retrieval path alongside text RAG, GIS RAG, web research, and registry resolution. All ChromaDB references updated to host port 8002.
 
 ---
 
 ## 00.7 Service Count History
 
-| Date | Services | Notable Addition |
+| Date | Services | Notable Addition / Change |
 |---|---|---|
 | Initial deployment | 79 | Core stack |
 | Pre-March 14, 2026 | 82 | Phase 1.45 community memory services added |
 | March 14, 2026 | 83 | `psychological-rag` (port 8006) promoted to production |
 | March 19, 2026 | 84 | Spatial infrastructure services finalized (3D GiST, materialized views) |
-| **March 20, 2026** | **85** | **`gbim_query_router` (port 7205) — landowner belief layer live** |
+| March 20, 2026 | 85 (reported) | `gbim_query_router` (port 7205) — landowner belief layer live |
+| **March 21–22, 2026** | **83 (verified)** | **3 orphaned containers removed from active stack (`jarvis-crypto-policy`, `jarvis-ingest-api`, `jarvis-ingest-watcher`). Verified via `VERIFYANDTEST.sh`.** |
+
+> **Note on the March 20 → March 22 count correction:** The reported count of 85 on March 20 included `jarvis-crypto-policy`, `jarvis-ingest-api`, and `jarvis-ingest-watcher` — three containers that were running as orphaned `docker run` instances not defined in `docker-compose.yml` with `restart: unless-stopped`. They would not survive a reboot and are not part of the production-managed stack. Removing these from the count yields the verified production total of **83**.
 
 ---
 
@@ -413,7 +443,7 @@ Response to User
 
 | Metric | Value | Verified |
 |---|---|---|
-| Total services | **85** | March 20, 2026 |
+| Total services (compose-managed) | **83** | March 21–22, 2026 (VERIFYANDTEST.sh) |
 | LLM models in ensemble | **21** | March 20, 2026 |
 | GBIM beliefs (`gbimbeliefnormalized`) | **5,416,522** | March 20, 2026 |
 | — of which: landowner beliefs ★ | **20,593** | March 20, 2026 |
@@ -421,6 +451,7 @@ Response to User
 | GBIM worldview entities (ChromaDB) | **5,416,521** | March 20, 2026 |
 | `autonomous_learner` items | **21,181+** | March 20, 2026 (~288/day) |
 | `psychological_rag` items | **968** | March 20, 2026 |
+| `msjarvis_docs` items | **2,348** | March 22, 2026 (52 WV community resources + 2,296 system docs) |
 | Canonical buildings (`wv_buildings`) | **2,120,976** | March 19, 2026 |
 | Building-parcel records (MV) | **7,354,707** | March 19, 2026 |
 | Address coverage (verified situs) | **97.17%** | March 19, 2026 |
@@ -431,5 +462,8 @@ Response to User
 | Worldview | **eq1** | All production beliefs |
 | GBIM landowner query service | **`gbim_query_router` port 7205** | March 20, 2026 |
 | Landowner query path | **PostgreSQL-native — no ChromaDB** | March 20, 2026 |
+| ChromaDB host port | **8002** (`127.0.0.1:8002->8000/tcp`) | March 22, 2026 |
+| Redis host port | **6380** (`127.0.0.1:6380->6379/tcp`) | March 22, 2026 |
+| Redis async job status key | **`'complete'`** (not `'done'`) | March 22, 2026 |
 
-*Last updated: 2026-03-20, ~19:45 EDT, Mount Hope WV*
+*Last updated: 2026-03-22, Mount Hope WV*
