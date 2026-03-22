@@ -4,7 +4,7 @@ Carrie Kidd (Mamma Kidd) — Oak Hill, WV
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter formalizes how psychological and mental-health knowledge is integrated into Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over time, all grounded in three PostgreSQL databases (msjarvis port 5433: 5,416,521 verified GBIM beliefs; gisdb port 5433: 13 GB PostGIS; jarvis-local-resources-db port 5435: community resources). It supports:
+This chapter formalizes how psychological and mental-health knowledge is integrated into Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over time, all grounded in three PostgreSQL databases (`msjarvis` port 5433: 5,416,521 verified GBIM beliefs; `gisdb` port 5433: 13 GB PostGIS; `jarvis-local-resources-db` port 5435: community resources). It supports:
 
 - **P1 – Every where is entangled** by ensuring that psychological safeguards are woven into the same retrieval, filtering, and memory infrastructure anchored to PostgreSQL that handles spatial and technical content, not isolated in a separate silo.
 - **P3 – Power has a geometry** by making psychological constraints visible as named services, tagged collections, PostgreSQL-validated rules, and explicit endpoints rather than hiding them in opaque model behavior.
@@ -19,10 +19,21 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   Psychological Safeguards Architecture                     │
-│   (Production State: March 21, 2026)                        │
+│   (Production State: March 22, 2026)                        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  User Request → jarvis-main-brain (8050)                    │
+│  User Request → Caddy Perimeter (8443, HTTPS)               │
+│      ↓                                                       │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Caddy forward_auth → jarvis_auth_service      │         │
+│  │  (port 8055, systemd-managed)                  │         │
+│  │  Role: carrie_admin — full access              │         │
+│  │  Role: hayden_test  — internal test role       │         │
+│  │  Enforced at: Caddy perimeter (not yet at      │         │
+│  │  route level — OPEN ITEM: per-route RBAC)      │         │
+│  └────────────────────────────────────────────────┘         │
+│      ↓ (authenticated, X-Jarvis-Role injected)              │
+│  jarvis-main-brain (8050)                                   │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Phase 1.4 — BBB 7-Filter Input Stack         │         │
@@ -84,6 +95,8 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  │  -  Psychology service outputs                  │         │
 │  │  -  SteganographyDetection trigger logs         │         │
 │  │    (zero_width_homoglyph_structural_v1)        │         │
+│  │  -  jarvis_auth_service access logs             │         │
+│  │    (role: carrie_admin, hayden_test)           │         │
 │  │                                                 │         │
 │  │  Analysis:                                      │         │
 │  │  -  Recurring truthverdict violations           │         │
@@ -91,6 +104,8 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  │  -  Identity-confusion patterns                 │         │
 │  │  -  Steganographic injection attempt patterns   │         │
 │  │  -  Underuse of psychological guidance          │         │
+│  │  -  Role-differentiated interaction patterns    │         │
+│  │    (carrie_admin vs hayden_test)               │         │
 │  │                                                 │         │
 │  │  Outputs (written recommendations):            │         │
 │  │  -  BBB parameter adjustments                   │         │
@@ -98,6 +113,8 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  │  -  Mode policy refinements                     │         │
 │  │  -  Guidance corpus additions (PostgreSQL-      │         │
 │  │    validated for WV community context)         │         │
+│  │  -  RBAC route-level policy proposals           │         │
+│  │    (current: perimeter-only enforcement)       │         │
 │  │                                                 │         │
 │  │  Operator Action Required for Implementation   │         │
 │  └────────────────────────────────────────────────┘         │
@@ -105,30 +122,34 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  Accountability                                             │
 │  -  PostgreSQL-auditable PIA records                         │
 │  -  BBB barrier_stats logged (all 7 filters)                 │
+│  -  jarvis_auth_service access log → /var/log/caddy/         │
+│    jarvis_redteam.log (role field per entry)               │
 │  -  Community governance review                              │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 29.1.** Psychological safeguards architecture (March 21, 2026): BBB 7-filter pipeline and TruthValidator validated against PostgreSQL `msjarvis` provide primary safety gate on every request (Phase 1.4); `SteganographyDetection` (`zero_width_homoglyph_structural_v1`, `confidence: 1.0`) confirmed active March 21 as a structural integrity safeguard against adversarial payload injection; psychological services (Phase 3, deployed March 15 — active on every production request) offer severity classification, crisis indicator check, and evidence-based guidance; manual PIA review loop samples logs including steganography trigger events and produces written recommendations requiring operator action; all accountability records PostgreSQL-auditable for community governance review.
+> **Figure 29.1.** Psychological safeguards architecture (March 22, 2026): Caddy perimeter (port 8443) with `forward_auth` enforcing role-based access control via `jarvis_auth_service` (port 8055, systemd) is the outermost layer — token roles `carrie_admin` (full access) and `hayden_test` (internal test role) are enforced at the perimeter; per-route RBAC is an open item. The BBB 7-filter pipeline and TruthValidator validated against PostgreSQL `msjarvis` provide the primary safety gate on every authenticated request (Phase 1.4); `SteganographyDetection` (`zero_width_homoglyph_structural_v1`, `confidence: 1.0`) confirmed active March 21 as a structural integrity safeguard against adversarial payload injection; psychological services (Phase 3, deployed March 15 — active on every production request) offer severity classification, crisis indicator check, and evidence-based guidance; manual PIA review loop samples logs including steganography trigger events, role-access patterns, and produces written recommendations requiring operator action; all accountability records PostgreSQL-auditable for community governance review.
 
 ---
 
-## Status as of March 21, 2026
+## Status as of March 22, 2026
 
 | Category | Details |
 |---|---|
-| Implemented and verified | `jarvis-psychology-services` confirmed running at `127.0.0.1:8019` (deployed March 15, commit b90f9ff). Exposes `/psychological_assessment` accepting a query and returning structured fields: `psychological_assessment`, `therapeutic_guidance`, `emotional_support`, `wellbeing_recommendations`, `evidence_based_approaches`. Phase 3 psychology pre-assessment is active on every production 9-phase pipeline request (Chapter 17), including severity classification and crisis indicator check — confirmed in 349.87s end-to-end benchmark. `psychological_rag_domain` confirmed running at `127.0.0.1:8006` (port corrected from 9006 to 8006 as of March 15 containerized deployment). Exposes `/search` and `/add_document` for a curated psychological corpus (968 items: therapy, mindfulness, trauma, depression, anxiety, social support). ChromaDB `psychological_rag` collection confirmed present (port 8000, `chroma_data` Docker volume restored March 15). PostgreSQL `msjarvis` at `127.0.0.1:5433` (5,416,521 verified GBIM entities) as ground truth for validating psychological guidance against West Virginia community context. BBB 7-filter pipeline at `127.0.0.1:8016` (all services re-locked to `127.0.0.1`, March 18, 2026): EthicalFilter, SpiritualFilter, SafetyMonitor (word-boundary regex fixed March 15), ThreatDetection, **SteganographyDetection (`zero_width_homoglyph_structural_v1`, `confidence: 1.0` — confirmed active March 21, 2026)**, TruthVerification, ContextAwareness. `normalize_identity` and TruthValidator enforce prohibitions on anthropomorphic claims and identity confusion validated against PostgreSQL `msjarvis` GBIM on every `ultimatechat` response. `truthverdict` attached to every UltimateResponse with `correct_identity`, `correct_creator`, `relationship_clear` booleans. |
-| Partially implemented / scaffolded | PIA review loop exists as a structured process that manually samples logs and introspection outputs, producing written recommendations — it does not auto-rewrite configuration, prompts, or filters. Integration of PIA recommendations back into barrier parameters, judge weights, or mode settings requires explicit operator action. Psychological-guidance-specific `consciousnesslayers` entries appear when `jarvis-psychology-services` is explicitly invoked; they are now consistently produced at Phase 3 of the 9-phase pipeline. Population- and risk-type-specific retrieval tagging (e.g. rural grief, adolescent caregivers) is partially implemented; differential retrieval tuning grounded in PostgreSQL GBIM West Virginia data is future work. Steganographic trigger event logging is active but automated aggregation into PIA pattern reports is future work. |
-| Future work / design intent only | Automated, scheduled PIA review cycle with machine-readable output format for direct configuration integration. Automated propagation of PIA recommendations into BBB penalty weights, judge instructions, and global mode policies without manual operator step. Persistent introspective log of PIA cycle inputs, analyses, and recommendations as a first-class ChromaDB collection with PostgreSQL audit trail. Population- and risk-type-specific retrieval tuning driving differential guidance validated against PostgreSQL GBIM West Virginia community data. Automated aggregation of `SteganographyDetection` trigger events into PIA pattern analysis reports. |
+| Implemented and verified | `jarvis-psychology-services` confirmed running at `127.0.0.1:8019` (deployed March 15, commit b90f9ff). Exposes `/psychological_assessment` accepting a query and returning structured fields: `psychological_assessment`, `therapeutic_guidance`, `emotional_support`, `wellbeing_recommendations`, `evidence_based_approaches`. Phase 3 psychology pre-assessment is active on every production 9-phase pipeline request (Chapter 17), including severity classification and crisis indicator check — confirmed in 349.87s end-to-end benchmark. `psychological_rag_domain` confirmed running at `127.0.0.1:8006` (port corrected from 9006 to 8006 as of March 15 containerized deployment). Exposes `/search` and `/add_document` for a curated psychological corpus (968 items: therapy, mindfulness, trauma, depression, anxiety, social support). ChromaDB `psychological_rag` collection confirmed present (port 8000, `chroma_data` Docker volume restored March 15). PostgreSQL `msjarvis` at `127.0.0.1:5433` (5,416,521 verified GBIM entities) as ground truth for validating psychological guidance against West Virginia community context. BBB 7-filter pipeline at `127.0.0.1:8016` (all services re-locked to `127.0.0.1`, March 18, 2026): EthicalFilter, SpiritualFilter, SafetyMonitor (word-boundary regex fixed March 15), ThreatDetection, **SteganographyDetection (`zero_width_homoglyph_structural_v1`, `confidence: 1.0` — confirmed active March 21, 2026)**, TruthVerification, ContextAwareness. `normalize_identity` and TruthValidator enforce prohibitions on anthropomorphic claims and identity confusion validated against PostgreSQL `msjarvis` GBIM on every `ultimatechat` response. `truthverdict` attached to every UltimateResponse with `correct_identity`, `correct_creator`, `relationship_clear` booleans. **Caddy perimeter (port 8443) with `jarvis_auth_service` (port 8055, systemd-managed) enforcing token-based RBAC — NEW March 22, 2026.** Red-team token roles confirmed: `carrie_admin` (full access), `hayden_test` (internal test role). RBAC enforced at Caddy perimeter. |
+| Partially implemented / scaffolded | PIA review loop exists as a structured process that manually samples logs and introspection outputs, producing written recommendations — it does not auto-rewrite configuration, prompts, or filters. Integration of PIA recommendations back into barrier parameters, judge weights, or mode settings requires explicit operator action. Psychological-guidance-specific `consciousnesslayers` entries appear when `jarvis-psychology-services` is explicitly invoked; they are now consistently produced at Phase 3 of the 9-phase pipeline. Population- and risk-type-specific retrieval tagging (e.g. rural grief, adolescent caregivers) is partially implemented; differential retrieval tuning grounded in PostgreSQL GBIM West Virginia data is future work. Steganographic trigger event logging is active but automated aggregation into PIA pattern reports is future work. **RBAC is enforced at the Caddy perimeter only — per-route role enforcement (e.g. restricting `/chat_async` or `/chat_cancel_all` by role) is an open item.** |
+| Future work / design intent only | Automated, scheduled PIA review cycle with machine-readable output format for direct configuration integration. Automated propagation of PIA recommendations into BBB penalty weights, judge instructions, and global mode policies without manual operator step. Persistent introspective log of PIA cycle inputs, analyses, and recommendations as a first-class ChromaDB collection with PostgreSQL audit trail. Population- and risk-type-specific retrieval tuning driving differential guidance validated against PostgreSQL GBIM West Virginia community data. Automated aggregation of `SteganographyDetection` trigger events into PIA pattern analysis reports. **Per-route RBAC enforcement at the application layer** (currently perimeter-only). Role-differentiated rate limiting (e.g. tighter limits for `hayden_test` vs `carrie_admin`). |
 
-Cross-reference: The BBB 7-filter pipeline that enforces safety and ethical constraints validated against PostgreSQL is described in Chapter 16. Identity normalization and TruthValidator validated against PostgreSQL GBIM are described in Chapter 22. The psychological services' relationship to the meaning-oriented track is described in Chapter 23. For the canonical 9-phase `ultimatechat` execution sequence see Chapter 17. For the March 18, 2026 security hardening that re-locked all services to `127.0.0.1`, see Chapter 40 §40-C.
+Cross-reference: The BBB 7-filter pipeline that enforces safety and ethical constraints validated against PostgreSQL is described in Chapter 16. Identity normalization and TruthValidator validated against PostgreSQL GBIM are described in Chapter 22. The psychological services' relationship to the meaning-oriented track is described in Chapter 23. For the canonical 9-phase `ultimatechat` execution sequence see Chapter 17. For the March 18, 2026 security hardening that re-locked all services to `127.0.0.1`, see Chapter 40 §40-C. For the Caddy perimeter layer and `jarvis_auth_service` architecture see Chapter 19 §19.8.1–§19.8.2.
 
 ---
 
 ## 29. Psychological Safeguards and the PIA Review Loop
 
-This chapter formalizes how psychological and mental-health knowledge is integrated into Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over time. In the current deployment (March 21, 2026), this is realized through two confirmed running services — `jarvis-psychology-services` (port 8019, deployed March 15) and `psychological_rag_domain` (port 8006, containerized March 15) — a curated psychological corpus in ChromaDB (968 items, `psychological_rag` collection, port 8000, `chroma_data` volume restored March 15), validation against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for West Virginia community context, the BBB 7-filter pipeline at `127.0.0.1:8016` as the primary live Phase 1.4 safety gate, and a manual PIA review process that produces recommendations rather than automated rewrites.
+This chapter formalizes how psychological and mental-health knowledge is integrated into Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over time. In the current deployment (March 22, 2026), this is realized through two confirmed running services — `jarvis-psychology-services` (port 8019, deployed March 15) and `psychological_rag_domain` (port 8006, containerized March 15) — a curated psychological corpus in ChromaDB (968 items, `psychological_rag` collection, port 8000, `chroma_data` volume restored March 15), validation against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for West Virginia community context, the BBB 7-filter pipeline at `127.0.0.1:8016` as the primary live Phase 1.4 safety gate, and a manual PIA review process that produces recommendations rather than automated rewrites.
+
+**New as of March 22, 2026:** All external `/chat*` traffic now passes through the Caddy perimeter layer (port 8443) with `forward_auth` enforcing token-based role-based access control via `jarvis_auth_service` (port 8055, systemd-managed) before reaching any internal service. Two red-team token roles are active: `carrie_admin` (full access) and `hayden_test` (internal test role). RBAC is currently enforced at the Caddy perimeter only; per-route enforcement is an open item documented in §29.8 and in the open items table.
 
 Phase 3 psychology pre-assessment is active on every production 9-phase pipeline request (confirmed March 15, 2026, 349.87s end-to-end benchmark, all phases approved). Prior to March 15, `jarvis-psychology-services` was unavailable due to missing container builds and the missing ChromaDB `chroma_data` volume. Both services are now confirmed operational.
 
@@ -150,12 +171,13 @@ In the current deployment, psychological guidance grounded in PostgreSQL `msjarv
 
 ---
 
-## 29.2 Confirmed Active Safeguards (March 21, 2026)
+## 29.2 Confirmed Active Safeguards (March 22, 2026)
 
-The following table records all confirmed active psychological safeguards as of March 21, 2026. This table is the authoritative reference for PIA review scope and regression testing in Chapter 41 §41.4.1.
+The following table records all confirmed active psychological safeguards as of March 22, 2026. This table is the authoritative reference for PIA review scope and regression testing in Chapter 41 §41.4.1.
 
 | Safeguard | Service / Location | Confirmed | Notes |
 |---|---|---|---|
+| Caddy perimeter RBAC | Caddy (port 8443) + `jarvis_auth_service` (port 8055) | ✅ March 22 | `carrie_admin` (full access), `hayden_test` (internal test role); perimeter-level enforcement; per-route RBAC is OPEN ITEM |
 | EthicalFilter | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | All requests |
 | SpiritualFilter | BBB Phase 1.4 | ✅ March 15 | All requests |
 | SafetyMonitor | BBB Phase 1.4 | ✅ March 15 | Word-boundary regex fix March 15; no false-positives on community resource terms |
@@ -171,7 +193,50 @@ The following table records all confirmed active psychological safeguards as of 
 
 ---
 
-## 29.3 Organization of the Guidance Corpus
+## 29.3 Red-Team Token Roles and RBAC (NEW — March 22, 2026)
+
+Role-based access control for red-team and administrative access is enforced at the Caddy perimeter layer via `jarvis_auth_service` (port 8055, systemd-managed). All `/chat*` route traffic passes through `forward_auth` before reaching any internal service.
+
+### Active Token Roles
+
+| Role | Access Level | Notes |
+|---|---|---|
+| `carrie_admin` | Full access | All `/chat*` routes; no rate-limit overrides applied at role level (Caddy rate limits still apply per-IP) |
+| `hayden_test` | Internal test role | All `/chat*` routes; intended for red-team and regression testing sessions; same perimeter enforcement as `carrie_admin` |
+
+### Enforcement Architecture
+
+```
+Request → Caddy (8443)
+    ↓
+forward_auth → jarvis_auth_service:8055/validate
+    ├── Token present + valid role (carrie_admin / hayden_test)
+    │     → 200 OK
+    │     → X-Jarvis-User, X-Jarvis-Role, X-Jarvis-Session injected
+    │     → forward to bbb-input-filter:8016
+    └── No token / invalid / unknown role
+          → 401 or 403
+          → rejected at perimeter
+          → no internal service reached
+```
+
+`jarvis_auth_service` writes each auth decision (timestamp, client IP, role, decision) to `/var/log/caddy/jarvis_redteam.log` (structured JSON, same file as Caddy access log). This log is the primary input for PIA review of role-differentiated access patterns.
+
+### Open Item: Per-Route RBAC
+
+**RBAC is currently enforced at the Caddy perimeter only.** Once a token is validated and a role is established, all `/chat*` routes are reachable regardless of role. Per-route enforcement — for example, restricting `/chat_cancel_all` to `carrie_admin` only, or limiting `hayden_test` to read-only endpoints — is **not yet implemented**.
+
+This is logged as an open item for the following reasons:
+
+- The `X-Jarvis-Role` header is injected by `jarvis_auth_service` and forwarded to `bbb-input-filter:8016` on every authenticated request, making the role available to internal services for future enforcement.
+- `jarvis-main-brain` does not currently inspect `X-Jarvis-Role` to gate individual route access.
+- Route-level enforcement will require changes to `jarvis-main-brain` FastAPI route handlers or a Caddy route-matchers configuration update.
+
+**Resolution path:** Add route-level `forward_auth` matchers in the Caddyfile that return 403 for `hayden_test` on destructive or privileged endpoints (`/chat_cancel_all`, `/chat_cancel/{job_id}`, any future admin endpoints). Document confirmed enforcement in Chapter 42 §42.3.2 when complete.
+
+---
+
+## 29.4 Organization of the Guidance Corpus
 
 In the current deployment, psychological guidance materials are curated in the `psychological_rag` collection within ChromaDB (`127.0.0.1:8000`, `chroma_data` Docker volume, restored March 15) and served via `psychological_rag_domain` (`127.0.0.1:8006`, confirmed running March 15), with validation against PostgreSQL `msjarvis` for West Virginia community context.
 
@@ -181,9 +246,11 @@ In the current deployment, psychological guidance materials are curated in the `
 
 ---
 
-## 29.4 Use During Live Interactions — 9-Phase Pipeline Integration
+## 29.5 Use During Live Interactions — 9-Phase Pipeline Integration
 
-In the current deployment (March 21, 2026), psychological safeguards validated against PostgreSQL `msjarvis` are active at multiple phases of the 9-phase production pipeline (Chapter 17).
+In the current deployment (March 22, 2026), psychological safeguards validated against PostgreSQL `msjarvis` are active at multiple phases of the 9-phase production pipeline (Chapter 17).
+
+**Caddy perimeter + `jarvis_auth_service` (Tier 1 — always first).** Before any request reaches Phase 1.4 or any internal service, it passes through Caddy (port 8443) and `jarvis_auth_service` (port 8055). The token role (`carrie_admin` or `hayden_test`) is established here and injected as `X-Jarvis-Role`. Unauthenticated or unrecognized requests are rejected at the perimeter — no internal service is reached. Access decisions are written to `/var/log/caddy/jarvis_redteam.log`.
 
 **Phase 1.4 — BBB 7-filter input stack.** Before any content reaches the psychological assessment or LLM synthesis phases, the request passes through all 7 BBB filters (port 8016): EthicalFilter, SpiritualFilter, SafetyMonitor (word-boundary regex fixed March 15), ThreatDetection, **SteganographyDetection (`zero_width_homoglyph_structural_v1`, `confidence: 1.0`, confirmed active March 21)**, TruthVerification, and ContextAwareness. This is the primary live gate for psychologically sensitive content, validated against PostgreSQL `msjarvis` GBIM ground truth. The steganography filter's role within PIA is to ensure that adversarially encoded inputs — which could otherwise bypass human-readable content review — are intercepted before they can influence Phase 3 severity classification, crisis flag detection, or identity normalization.
 
@@ -206,7 +273,7 @@ Phase 3 output feeds the LM Synthesizer (Phase 3.5, internal port 8001), which i
 
 ---
 
-## 29.5 The PIA Review Loop
+## 29.6 The PIA Review Loop
 
 In the current deployment, the Psychology-Informed Alignment (PIA) review loop exists as a structured manual process that samples logs and introspection outputs validated against PostgreSQL `msjarvis`, producing written recommendations — not auto-rewrites of configuration, prompts, or filters.
 
@@ -216,28 +283,30 @@ In the current deployment, the Psychology-Informed Alignment (PIA) review loop e
 - `truthverdict` fields from UltimateResponse (`correct_identity`, `correct_creator`, `relationship_clear`) validated against PostgreSQL `msjarvis` GBIM
 - BBB `barrier_stats` counters (`total_filtered`, `total_blocked`, `pass_rate`) from the 7-filter pipeline, including per-filter trigger rates
 - **`SteganographyDetection` trigger logs** — events where `zero_width_homoglyph_structural_v1` flagged content at `confidence: 1.0`, including input payload patterns and trigger frequency
+- **`jarvis_auth_service` access logs** — `/var/log/caddy/jarvis_redteam.log` entries showing role (`carrie_admin`, `hayden_test`), timestamp, and auth decision, for role-differentiated interaction pattern analysis
 - Phase 3 outputs from `jarvis-psychology-services` (severity classifications, crisis flags)
 - `psychological_rag_domain` `/search` usage patterns against the 968-item corpus
 - `confidence_decay` values from GBIM temporal metadata (Phase 5) for entities underlying psychological resource recommendations
 
 Automated, scheduled sampling and automated aggregation of `SteganographyDetection` trigger events into PIA pattern reports are identified as future work.
 
-**Analysis.** The PIA review examines recurring patterns in system behavior validated against PostgreSQL GBIM — recurring `truthverdict` violations, BBB 7-filter block-rate trends, identity-confusion patterns in TruthValidator outputs, adversarial steganographic injection attempt patterns (newly confirmable as of March 21), underuse of psychological guidance in sensitive interaction categories, and crisis indicator detection rates from Phase 3. Some classification of patterns is still heuristic; fully automated pattern-detection is identified as future work. Clinical frameworks such as DSM-style nosology inform human reviewers' judgments at this stage but are not implemented as automatic diagnostic pipelines.
+**Analysis.** The PIA review examines recurring patterns in system behavior validated against PostgreSQL GBIM — recurring `truthverdict` violations, BBB 7-filter block-rate trends, identity-confusion patterns in TruthValidator outputs, adversarial steganographic injection attempt patterns (newly confirmable as of March 21), underuse of psychological guidance in sensitive interaction categories, crisis indicator detection rates from Phase 3, and role-differentiated access patterns from `jarvis_redteam.log` (e.g. whether `hayden_test` sessions surface different safeguard trigger patterns than `carrie_admin` sessions). Some classification of patterns is still heuristic; fully automated pattern-detection is identified as future work. Clinical frameworks such as DSM-style nosology inform human reviewers' judgments at this stage but are not implemented as automatic diagnostic pipelines.
 
 **Outputs and recommendations.** The PIA review loop produces structured written recommendations such as:
 
 - "Tighten identity phrasing constraints validated against PostgreSQL in crisis-related dialogues"
 - "Introduce explicit boundary statements for maternal metaphors"
 - "Increase Phase 3 severity threshold for economic-stress queries common in Appalachian community contexts"
-- "Add to psychological_rag corpus: rural grief resources validated against Fayette County community data from `jarvis-local-resources-db`"
+- "Add to `psychological_rag` corpus: rural grief resources validated against Fayette County community data from `jarvis-local-resources-db`"
 - "Review `confidence_decay` for DHHR mental health service entities (currently `needs_verification=TRUE`)"
 - "Audit `SteganographyDetection` trigger log for recurring payload patterns that may indicate targeted adversarial probing of the psychological safeguard boundary"
+- "Implement per-route RBAC to restrict `/chat_cancel_all` and destructive endpoints to `carrie_admin` only — current perimeter-only enforcement does not prevent `hayden_test` from reaching these routes"
 
 These are human-interpretable and require explicit operator action to implement — they do not automatically rewrite BBB parameters, judge instructions, or global mode policies. Machine-readable output format and automated propagation are identified as future work.
 
 ---
 
-## 29.6 Integration with Barriers, Modes, and Judge Components
+## 29.7 Integration with Barriers, Modes, and Judge Components
 
 In the current deployment, PIA recommendations can be applied to several confirmed control surfaces validated against PostgreSQL `msjarvis`, but application requires explicit operator action.
 
@@ -249,28 +318,48 @@ In the current deployment, PIA recommendations can be applied to several confirm
 
 **69-DGM cascade integration.** The 69-DGM cascade (`jarvis-69dgm-bridge`, host port 19000 → internal port 9000, 23 connectors × 3 stages) at Phase 7 provides an additional validation layer for psychologically sensitive responses. 69-DGM verdicts are architecturally authoritative and grounded in PostgreSQL `msjarvis` GBIM beliefs; future PIA recommendations may target specific DGM connector configurations relevant to psychological safety, including connectors that evaluate structural encoding anomalies downstream of the steganography filter.
 
+**RBAC-informed PIA recommendations.** As role-differentiated access log data accumulates in `/var/log/caddy/jarvis_redteam.log`, PIA review will be able to compare safeguard trigger rates across `carrie_admin` and `hayden_test` sessions. Persistent differences in trigger rates may indicate that the test role is surfacing prompts or interaction patterns that stress psychological safeguard boundaries differently from operator sessions — a signal that per-route RBAC or role-differentiated rate limiting should be prioritized.
+
 ---
 
-## 29.7 Recording, Memory, and Accountability
+## 29.8 Recording, Memory, and Accountability
 
 In the current deployment, psychological safeguards are recorded through several confirmed mechanisms with PostgreSQL-auditable trails.
 
 **`ms_jarvis_memory` and interaction logs.** Every `/chat` response produces a `bg_<ISO8601>` entry in `ms_jarvis_memory` ChromaDB (port 8000, `chroma_data` volume; Chapter 17 §17.6), with `truthverdict` fields recording BBB 7-filter judgments validated against PostgreSQL GBIM including ethics violations and crisis flag triggers. These entries are the primary raw material for PIA sampling. BBB `barrier_stats` counters provide aggregate counts of filter interventions across all 7 filters, including those triggered by psychologically sensitive content and those triggered by `SteganographyDetection` (`zero_width_homoglyph_structural_v1`).
 
+**`jarvis_auth_service` access log.** Every auth decision made by `jarvis_auth_service` (port 8055) is written to `/var/log/caddy/jarvis_redteam.log` as structured JSON. Each entry includes: timestamp, client IP, role (`carrie_admin` / `hayden_test` / unknown), auth decision (pass / reject), and HTTP status code returned to Caddy. This log is a PIA input for detecting anomalous access patterns, high-frequency rejection events (potential brute-force), or role-correlated safeguard trigger patterns.
+
 **Phase 3 assessment records.** Every production request generates a Phase 3 psychology pre-assessment record from `jarvis-psychology-services` (port 8019) — severity classification, crisis indicator Boolean, and five structured guidance fields. These records are included in `consciousnesslayers` of the UltimateResponse and are available for PIA sampling. The March 15 deployment means this is the first date from which a complete longitudinal Phase 3 assessment record exists.
 
 **PIA review records.** Each manual PIA review cycle produces a written record of inputs sampled, patterns observed validated against PostgreSQL GBIM, and recommendations proposed. The design intends these records will be written into a dedicated ChromaDB collection as timestamped introspective artifacts tagged as `psychological-alignment` entries with PostgreSQL audit trail. In the current deployment, these records are maintained as manually produced documents rather than automatically ingested into ChromaDB.
 
-**Human oversight and governance.** PIA review outputs are explicitly designed for inspection by human reviewers including domain experts, ethicists, and community governance bodies, with all validations traceable to PostgreSQL `msjarvis` GBIM ground truth. This material supports questions such as: "Has the system systematically improved in handling crisis-adjacent queries?", "Where have psychological safeguards validated against PostgreSQL been relaxed or tightened?", "Do the recorded mitigations align with declared community norms anchored in PostgreSQL GBIM?", "Are DHHR and mental health service entities in `jarvis-local-resources-db` being confirmed through the POC verification loop promptly?", and "Is the steganographic trigger rate consistent with incidental encoding artifacts or indicative of targeted probing?" The design treats psychological risk as a first-class governance concern, on par with technical reliability and knowledge integrity. DSM-style frameworks inform human oversight here as reference points, but automated behavior remains conservative and non-diagnostic.
+**Human oversight and governance.** PIA review outputs are explicitly designed for inspection by human reviewers including domain experts, ethicists, and community governance bodies, with all validations traceable to PostgreSQL `msjarvis` GBIM ground truth. This material supports questions such as: "Has the system systematically improved in handling crisis-adjacent queries?", "Where have psychological safeguards validated against PostgreSQL been relaxed or tightened?", "Do the recorded mitigations align with declared community norms anchored in PostgreSQL GBIM?", "Are DHHR and mental health service entities in `jarvis-local-resources-db` being confirmed through the POC verification loop promptly?", "Is the steganographic trigger rate consistent with incidental encoding artifacts or indicative of targeted probing?", and "Does the `hayden_test` access pattern reveal interaction types that should inform per-route RBAC design?" The design treats psychological risk as a first-class governance concern, on par with technical reliability and knowledge integrity. DSM-style frameworks inform human oversight here as reference points, but automated behavior remains conservative and non-diagnostic.
 
 ---
 
-## 29.8 Summary
+## 29.9 Open Items (March 22, 2026)
 
-In the current deployment (March 21, 2026), psychological safeguards are realized through two confirmed running services — `jarvis-psychology-services` (`127.0.0.1:8019`, deployed March 15) and `psychological_rag_domain` (`127.0.0.1:8006`, containerized March 15) — a curated psychological corpus in ChromaDB (`127.0.0.1:8000`, `chroma_data` volume, 968 items in `psychological_rag` collection), validation against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for West Virginia community context, the BBB 7-filter pipeline at `127.0.0.1:8016` as the primary Phase 1.4 live safety gate, `normalize_identity` plus TruthValidator validated against PostgreSQL applied to every `ultimatechat` response, and the BBB output guard receiving the full judge verdict dict (integrated March 18, 2026).
+| Item | Priority | Notes |
+|---|---|---|
+| **Per-route RBAC enforcement** | HIGH | RBAC currently enforced at Caddy perimeter only. `hayden_test` and `carrie_admin` can both reach all `/chat*` routes once authenticated. Per-route enforcement (restrict `/chat_cancel_all`, `/chat_cancel/{job_id}`, future admin endpoints to `carrie_admin` only) requires `jarvis-main-brain` route handler changes or Caddy route-matcher config. See §29.3. |
+| Role-differentiated rate limiting | MEDIUM | Caddy `caddy-ratelimit` module applies per-IP limits; role-differentiated limits (e.g. tighter burst limit for `hayden_test`) are not yet configured. |
+| Automated PIA sampling cycle | FUTURE | Scheduled, machine-readable PIA review with direct configuration integration. |
+| Automated `SteganographyDetection` trigger aggregation | FUTURE | Automated aggregation of trigger events into PIA pattern analysis reports. |
+| Per-route RBAC for `gbim_query_router` (port 7205) | FUTURE | Landowner belief queries currently reachable by any authenticated role; access restriction pending production hardening pass. |
+| PIA records as first-class ChromaDB collection | FUTURE | Currently maintained as manually produced documents; automated ingest with PostgreSQL audit trail is future work. |
+| Population- and risk-type-specific RAG retrieval tuning | FUTURE | Differential retrieval grounded in PostgreSQL GBIM West Virginia community data for Appalachian-specific guidance corpus. |
 
-Key operational facts as of March 21, 2026:
+---
 
+## 29.10 Summary
+
+In the current deployment (March 22, 2026), psychological safeguards are realized through two confirmed running services — `jarvis-psychology-services` (`127.0.0.1:8019`, deployed March 15) and `psychological_rag_domain` (`127.0.0.1:8006`, containerized March 15) — a curated psychological corpus in ChromaDB (`127.0.0.1:8000`, `chroma_data` volume, 968 items in `psychological_rag` collection), validation against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for West Virginia community context, the BBB 7-filter pipeline at `127.0.0.1:8016` as the primary Phase 1.4 live safety gate, `normalize_identity` plus TruthValidator validated against PostgreSQL applied to every `ultimatechat` response, the BBB output guard receiving the full judge verdict dict (integrated March 18, 2026), and — **new as of March 22, 2026** — the Caddy perimeter layer (port 8443) with `jarvis_auth_service` (port 8055, systemd-managed) enforcing token-based RBAC with two active red-team roles.
+
+Key operational facts as of March 22, 2026:
+
+- **Caddy perimeter RBAC active** — token roles `carrie_admin` (full access) and `hayden_test` (internal test role) enforced via `forward_auth` at port 8443; access decisions logged to `/var/log/caddy/jarvis_redteam.log`
+- **Per-route RBAC is an open item** — enforcement is perimeter-only; `hayden_test` can reach all `/chat*` routes once authenticated; route-level restriction is pending (see §29.3 and §29.9)
 - Phase 3 psychology pre-assessment is active on every production 9-phase pipeline request (confirmed in 349.87s end-to-end benchmark)
 - BBB has 7 confirmed active filters: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, **SteganographyDetection (`zero_width_homoglyph_structural_v1`, `confidence: 1.0` — confirmed active March 21, 2026 as a PIA structural integrity safeguard)**, TruthVerification, ContextAwareness
 - SafetyMonitor word-boundary regex fixed March 15 — eliminates false-positives on community resource terms
@@ -281,10 +370,13 @@ Key operational facts as of March 21, 2026:
 
 Two important constraints must be stated clearly: the PIA review loop produces written recommendations through a manual sampling process validated against PostgreSQL, not auto-rewrites; and propagation of PIA recommendations into BBB parameters, judge weights, or mode policies requires explicit operator action. The psychological guidance stack is explicitly non-diagnostic: it does not implement DSM-5 in full, and any DSM-style constructs are used only at a high-level, psychoeducational layer validated against PostgreSQL community data rather than as clinical criteria.
 
-The design intends that future work will automate the PIA sampling cycle with PostgreSQL-auditable output (including automated aggregation of `SteganographyDetection` trigger events), produce machine-readable recommendation outputs for direct configuration integration, persist PIA records as a first-class ChromaDB collection with PostgreSQL audit trail for ongoing governance review, and refine corpus curation and tagging so that place-specific and population-specific mental-health materials grounded in Appalachian contexts via PostgreSQL GBIM are more systematically retrieved while maintaining clear boundaries between supportive guidance and clinical diagnosis.
+The design intends that future work will: implement per-route RBAC enforcement (highest-priority open item as of March 22, 2026); automate the PIA sampling cycle with PostgreSQL-auditable output (including automated aggregation of `SteganographyDetection` trigger events and role-differentiated access pattern analysis); produce machine-readable recommendation outputs for direct configuration integration; persist PIA records as a first-class ChromaDB collection with PostgreSQL audit trail for ongoing governance review; and refine corpus curation and tagging so that place-specific and population-specific mental-health materials grounded in Appalachian contexts via PostgreSQL GBIM are more systematically retrieved while maintaining clear boundaries between supportive guidance and clinical diagnosis.
 
-For the BBB 7-filter pipeline that enforces safety constraints validated against PostgreSQL see Chapter 16. For the identity constraints enforced alongside psychological safeguards validated against PostgreSQL see Chapter 22. For the canonical 9-phase `ultimatechat` execution sequence see Chapter 17. For ChromaDB `psychological_rag` collection architecture see Chapter 5. For the March 18, 2026 security hardening that re-locked all services to `127.0.0.1` and integrated the full verdict dict into the BBB output guard see Chapter 40 §40-C.
+For the BBB 7-filter pipeline that enforces safety constraints validated against PostgreSQL see Chapter 16. For the identity constraints enforced alongside psychological safeguards validated against PostgreSQL see Chapter 22. For the canonical 9-phase `ultimatechat` execution sequence see Chapter 17. For ChromaDB `psychological_rag` collection architecture see Chapter 5. For the March 18, 2026 security hardening that re-locked all services to `127.0.0.1` and integrated the full verdict dict into the BBB output guard see Chapter 40 §40-C. For the Caddy perimeter layer and `jarvis_auth_service` full architecture see Chapter 19 §19.8.1–§19.8.2.
 
 ---
 
-*Last updated: 2026-03-21 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-03-22 by Carrie Kidd (Mamma Kidd), Oak Hill WV*
+*Red-team token roles (`carrie_admin`, `hayden_test`) added to PIA section — March 22, 2026*
+*Per-route RBAC documented as open item — March 22, 2026*
+*All sections current as of March 22, 2026*
