@@ -1,156 +1,11 @@
-# Why This Matters for Polymathmatic Geography
-
-This chapter describes how multiple language models and evaluation components operate together in Ms. Jarvis during live requests, all grounded in the three-database PostgreSQL architecture (`msjarvis` port 5433 with 5,416,521 verified GBIM beliefs; `gisdb` port 5433 PostGIS; `jarvis-local-resources-db` port 5435). It supports:
-
-- **P1 – Every where is entangled** by routing every user query through 21 expert models and 5 judge services whose combined signals propagate through barrier, container, and memory layers anchored to PostgreSQL as first-class inputs.
-
-- **P3 – Power has a geometry** by making evaluation explicit and inspectable — `consensus_score`, `judge_verdicts`, `all_issues`, and per-judge scores are all surfaced in `consciousnesslayers` on every `UltimateResponse`.
-
-- **P5 – Design is a geographic act** by applying alignment and ethics judges that specifically check for adherence to Ms. Egeria Jarvis's community-service identity and Appalachian-rooted values constraints validated against PostgreSQL GBIM.
-
-- **P12 – Intelligence with a ZIP code** by grounding the composite prompt sent to all 21 experts with local RAG context from `jarvis-spiritual-rag` (port **8005**, queries PostgreSQL-sourced GBIM collections) and `jarvis-gis-rag` (port **8004**, queries PostgreSQL `gisdb`) before any synthesis occurs.
-
-- **P16 – Power accountable to place** by exposing consensus metrics, judge scores, and refinement flags so communities, auditors, and operators can inspect the quality-assurance signals behind every response validated against PostgreSQL.
-
-As such, this chapter belongs to the **Computational Instrument** tier: it is the authoritative description of the `jarvis-20llm-production` ensemble and judge pipeline invoked at Phase 2.5/Phase 3 of the canonical `ultimatechat` execution sequence (Chapter 17 §17.3). Chapters 11, 17, and 25 should cross-reference here for details on the 21-LLM + judge pipeline stack.
-
-As of March 21, 2026, the fabric runs **21 active models** (22 proxies; BakLLaVA permanently disabled), all 5 judge services are **formally compose-managed with `restart: unless-stopped`**, all ports are bound to **127.0.0.1**, the judge pipeline is fully wired to BBB (`bbb_checked: true`), and the verified end-to-end benchmark is **~436 seconds**.
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│   Language Model Ensemble + Judge Pipeline Architecture    │
-│   (Production State: March 21, 2026)                        │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  User Query → jarvis-main-brain (127.0.0.1:8050)            │
-│      ↓                                                       │
-│  Phase 1.45 — Community Memory Retrieval                    │
-│  -  autonomous_learner ChromaDB (21,181 records)             │
-│  -  all-minilm:latest 384-dim semantic search                │
-│  -  Top-5 memories prepended to enhanced_message             │
-│      ↓                                                       │
-│  Context Assembly (validated vs PostgreSQL)                 │
-│  -  PostgreSQL-sourced RAG (spiritual-rag 8005)              │
-│  -  PostgreSQL gisdb (gis-rag 8004)                          │
-│  -  Web research (when enabled)                              │
-│  -  Persona framing (Ms. Egeria Jarvis)                      │
-│      ↓                                                       │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  jarvis-20llm-production (127.0.0.1:8008)     │         │
-│  │  via jarvis-semaphore (127.0.0.1:8030)        │         │
-│  │  ─────────────────────────────────────────    │         │
-│  │  21 Active Expert Models (Sequential)         │         │
-│  │  llm1-proxy to llm22-proxy                    │         │
-│  │  127.0.0.1:8201-8222                          │         │
-│  │  (llm11/BakLLaVA permanently disabled;        │         │
-│  │   StarCoder2 returns 0-char on community      │         │
-│  │   queries — 21 reliably active)               │         │
-│  │                                                │         │
-│  │  Outputs:                                      │         │
-│  │  -  response (synthesized consensus)            │         │
-│  │  -  minds_participated (typically 21)           │         │
-│  │  -  expert_responses array                      │         │
-│  │  -  /cached_expert_responses endpoint           │         │
-│  └────────────────────────────────────────────────┘         │
-│      ↓                                                       │
-│  Clean Response (strip multi-agent metadata)                │
-│  Cache Workaround (fetch expert_responses if stripped)      │
-│      ↓                                                       │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  jarvis-judge-pipeline (127.0.0.1:7239)       │         │
-│  │  ──────────────────────────────────────────   │         │
-│  │  POST /evaluate — consensus answer ONLY        │         │
-│  │  (raw_responses dump eliminated March 16)      │         │
-│  │  asyncio.gather() parallel execution           │         │
-│  │  ALL 5 SERVICES: compose-managed               │         │
-│  │  restart: unless-stopped (March 18, 2026)      │         │
-│  │  Dockerfile.judge / services/ source files     │         │
-│  │  Real judge scripts confirmed March 21, 2026   │         │
-│  │  bbb_check_verdict: LIVE (not stub)            │         │
-│  │                                                │         │
-│  │  ┌──────────────────────────────────────────┐ │         │
-│  │  │  judge-truth (127.0.0.1:7230)            │ │         │
-│  │  │  -  heuristic_contradiction_v1 method     │ │         │
-│  │  │  -  Logical soundness checks              │ │         │
-│  │  │  -  Returns truth_score + issues          │ │         │
-│  │  └──────────────────────────────────────────┘ │         │
-│  │  ┌──────────────────────────────────────────┐ │         │
-│  │  │  judge-consistency (127.0.0.1:7231)      │ │         │
-│  │  │  -  Internal coherence                    │ │         │
-│  │  │  -  Contradiction detection               │ │         │
-│  │  │  -  Returns consistency_score             │ │         │
-│  │  └──────────────────────────────────────────┘ │         │
-│  │  ┌──────────────────────────────────────────┐ │         │
-│  │  │  judge-alignment (127.0.0.1:7232)        │ │         │
-│  │  │  -  Ms. Jarvis identity adherence         │ │         │
-│  │  │  -  Community values (vs GBIM)            │ │         │
-│  │  │  -  Returns alignment_score               │ │         │
-│  │  └──────────────────────────────────────────┘ │         │
-│  │  ┌──────────────────────────────────────────┐ │         │
-│  │  │  judge-ethics (127.0.0.1:7233)           │ │         │
-│  │  │  -  Harm screening                        │ │         │
-│  │  │  -  Spiritual appropriateness             │ │         │
-│  │  │  -  Returns ethics_score (default 0.9)    │ │         │
-│  │  └──────────────────────────────────────────┘ │         │
-│  │                                                │         │
-│  │  Aggregation:                                  │         │
-│  │  -  consensus_score = mean(4 judge scores)     │         │
-│  │  -  expert_count = 21                           │         │
-│  │  -  successful_experts = typically 21           │         │
-│  │  -  reasoning with CONSENSUS_SCORE              │         │
-│  │  -  judge_verdicts (pass/warning/fail)          │         │
-│  │  -  all_issues aggregated                       │         │
-│  │  -  bbb_check_verdict: live POST /filter call   │         │
-│  └────────────────────────────────────────────────┘         │
-│      ↓                                                       │
-│  Phase 3.5 — LM Synthesizer + Voice Delivery (merged)      │
-│  -  jarvis-ollama:11434/api/generate (llama3.1:latest)       │
-│  -  Ms. Egeria Jarvis persona prompt injected                │
-│  -  Single Ollama call (Phase 3.75 eliminated March 18)      │
-│  -  ~30-55s                                                  │
-│      ↓                                                       │
-│  BBB Output Guard (127.0.0.1:8016, validated vs PostgreSQL) │
-│  -  6 active filters: ethical, spiritual, safety,           │
-│     threat_detection, steganography, truth_verification     │
-│  -  bbb_checked: true (March 21, 2026)                       │
-│  normalize_identity (Ms. Egeria Jarvis persona)             │
-│      ↓                                                       │
-│  UltimateResponse                                           │
-│  -  response (persona-wrapped final_answer)                  │
-│  -  judge-pipeline consciousnesslayer:                       │
-│    - consensus_score (0.0-1.0)                              │
-│    - expert_count (21)                                      │
-│    - successful_experts (typically 21)                      │
-│    - reasoning                                              │
-│    - judge_verdicts {truth, consistency, alignment, ethics} │
-│    - judge_scores {truth, consistency, alignment, ethics}   │
-│    - bbb_checked: true                                      │
-│  -  truthverdict (from BBB, validated vs PostgreSQL)         │
-│  -  background_rag_store → ms_jarvis_memory (ChromaDB)       │
-│                                                              │
-│  Fallback (if judge pipeline down):                         │
-│  -  Use 21-LLM answer as-is                                  │
-│  -  consensus_score: 0.8 (conservative)                      │
-│  -  expert_count: 0 (signals degraded mode)                  │
-│  -  status: "error" or "skipped"                             │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-> **Figure 33.1.** Language model ensemble and judge pipeline architecture: 21 active expert models queried sequentially via semaphore proxy, synthesized consensus answer passed to the 5-service judge pipeline (pipeline coordinator + truth + consistency + alignment + ethics) executing in parallel against the consensus answer only (raw_responses dump eliminated March 16, 2026), aggregated consensus_score and judge verdicts exposed in consciousnesslayers, Phase 3.5 LM Synthesizer + Voice Delivery merged into a single Ollama call (Phase 3.75 eliminated March 18, 2026), all context grounded in PostgreSQL-sourced RAG collections plus Phase 1.45 community memory retrieval (21,181 `autonomous_learner` records via `all-minilm:latest` 384-dim). **All 5 judge services are now compose-managed with `restart: unless-stopped` and bound to 127.0.0.1** (March 18, 2026). **Judge pipeline fully wired to BBB with `bbb_checked: true`** (March 21, 2026). Fallback to degraded mode if judge pipeline unavailable.
-
----
-
-## Status as of March 21, 2026
-
-| Category | Details |
-|---|---|
-| **Implemented and verified** | `jarvis-20llm-production` (`ai_server_20llm_PRODUCTION.py`) confirmed running at **127.0.0.1:8008**. `jarvis-semaphore` proxy confirmed running at **127.0.0.1:8030**. **21 active expert model proxy containers** (`llm1-proxy` through `llm22-proxy`) confirmed running at **127.0.0.1:8201–8222** (22 proxies total; BakLLaVA at 8211 permanently disabled via name-check guard in `ai_server_20llm_PRODUCTION.py`; StarCoder2 at 8207 returns 0-char responses on community queries — 21 reliably active). **All 5 judge services formally defined in `docker-compose.yml` with `restart: unless-stopped` and bound to `127.0.0.1`** (March 18, 2026): `jarvis-judge-pipeline` **127.0.0.1:7239**, `jarvis-judge-truth` **127.0.0.1:7230**, `jarvis-judge-consistency` **127.0.0.1:7231**, `jarvis-judge-alignment` **127.0.0.1:7232**, `jarvis-judge-ethics` **127.0.0.1:7233**. **Real judge source files restored to `services/` on March 21, 2026** (see §33.2 addendum). `Dockerfile.judge` confirmed present in `services/` with explicit `COPY judgesigner.py`. `judgesigner.py` (`dilithium_py` post-quantum signing) deployed in all 5 judge containers. **Judge pipeline updated March 16, 2026: evaluates consensus answer ONLY** — `raw_responses` dump no longer sent to judges; judge pipeline time reduced from ~85–100s to ~60–86s. **Phase 3.75 (Final LLM Polish via llm22-proxy) ELIMINATED March 18, 2026** — merged into Phase 3.5 LM Synthesizer single Ollama call; saves ~40s per query. **Phase 1.45 community memory retrieval** confirmed — `autonomous_learner` ChromaDB collection (21,181 records, growing ~288/day) queried via `all-minilm:latest` (384-dim) before LLM ensemble; top-5 memories prepended to `enhanced_message`. PostgreSQL `msjarvis` at **127.0.0.1:5433** (5,416,521 GBIM entities, 80 epochs, 206 source layers). PostgreSQL `gisdb` at **127.0.0.1:5433** (PostGIS). `jarvis-local-resources-db` at **127.0.0.1:5435**. `POST /evaluate` endpoint on judge pipeline operational. `/cached_expert_responses` endpoint on `jarvis-20llm-production` operational. `asyncio.gather()` parallel judge execution confirmed. `judge-pipeline` consciousness layer in `UltimateResponse` confirmed. **`bbb_check_verdict` confirmed live** — real async `httpx.AsyncClient` POST to `jarvis-blood-brain-barrier:8016/filter` (March 21, 2026); stub eliminated. BBB `barrier_stats`: `total_filtered: 19`, `total_blocked: 2`, `pass_rate: 0.89`. Fallback behavior confirmed. All 80 containers fully compose-managed via Docker Compose v5.1.0. Zero `0.0.0.0` exposures. **Verified performance (March 21, 2026):** consensus score **0.975** on identity questions; 21/21 expert participation; all four judge verdicts pass (Truth=1.0, Consistency=1.0, Alignment=1.0, Ethics=0.9); all 6 BBB filters passing (ethical=1.0, spiritual=1.0, safety=1.0, threat_detection=1.0, steganography=clean, truth_verification=1.0); `bbb_checked: true`; end-to-end **~436 seconds**. |
-| **Architectural fixes recorded as permanent decisions** | Judge services brought from orphaned manual `docker run` (restart: no) → compose-managed (restart: unless-stopped), Dockerfile.judge, `services/` canonical source files (March 18, 2026). Real judge scripts confirmed in `services/` (March 21, 2026) — ghost `lm_synthesizer.py` clones removed. Sub-judge default ports corrected in `judge_pipeline.py` (all were `7239`; corrected to 7230, 7231, 7232, 7233 — March 21, 2026). `bbb_check_verdict` stub replaced with live async httpx call to `jarvis-blood-brain-barrier:8016/filter` (March 21, 2026). `BBB_URL` env var added to all judge service compose definitions. All 5 judge ports locked to `127.0.0.1` (March 18, 2026). BBB port corrected from `0.0.0.0:8016` → `127.0.0.1:8016` (March 18, 2026). PostgreSQL port corrected from **5432** → **5433** throughout (March 18, 2026). PostgreSQL database corrected from `msjarvisgis` → `msjarvis` throughout (March 18, 2026). Judge pipeline coordinator port confirmed as **7239** (not 7230). Consensus-only judge input permanently enforced (March 16, 2026). Phase 3.75 eliminated (March 18, 2026). BakLLaVA permanently disabled via `ai_server_20llm_PRODUCTION.py` name-check guard (March 18, 2026). LM Synthesizer target corrected from `jarvis-roche-llm` → `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (March 18, 2026). `all-minilm:latest` (384-dim) confirmed as required embedding model — `nomic-embed-text` (768-dim) is incompatible with existing collections (March 18, 2026). |
-| **Partially implemented / scaffolded** | Truth judge uses `heuristic_contradiction_v1` (rule-based pattern matching) — not live PostgreSQL GBIM lookup; GBIM-grounded verification is future work (see §33.2.3). Direct BBB integration with consensus-score thresholds for automated promotion/quarantine is not yet wired into the live path. ChromaDB persistence of judge reasoning as a first-class collection for pattern learning is not yet implemented. Per-request model breakdowns and per-model latency/error-rate metrics are logged but no dedicated HTTP endpoint exposes them. |
-| **Future work / design intent only** | RAG-grounded truth verification: wire `judge_truth_filter.py` into `jarvis-spiritual-rag:8005` or `jarvis-gis-rag:8004` to check factual claims against retrieved GBIM documents rather than heuristic pattern-matching — upgrade path from `heuristic_contradiction_v1` to `rag_grounded_v2`. Prometheus metrics for consensus distribution and judge latency. Dynamic expert pool selection based on task type and historical consensus patterns. Expert response caching and reuse for similar queries. Per-domain expert weighting, clustering of similar answers, multi-stage arbitration. ChromaDB persistence of judge reasoning as a first-class collection. Automated promotion/quarantine pipeline driven by `consensus_score` thresholds in collaboration with BBB. PostgreSQL-backed consensus metrics aggregation for long-term system health tracking. StarCoder2 evaluation — replace or retune for community-domain query performance. GPU inference server (WVU partnership pending) to reduce Phase 2.5 from ~320–360s to target ~80–120s. |
+# Chapter 33 — Language Model Ensemble and Judge Systems in Live Operation
 
 > **Port and database corrections (permanent record).** Earlier drafts of this chapter referenced PostgreSQL as `msjarvisgis` at port **5432** with 91 GB / 501 tables. The confirmed production database is `msjarvis` at port **5433** (5,416,521 GBIM entities, 80 epochs, 206 source layers). The PostGIS database is `gisdb` at port **5433** (13 GB, 39 tables). The community resources database is `jarvis-local-resources-db` at port **5435**. BBB was referenced at `0.0.0.0:8016` — corrected to `127.0.0.1:8016`. All references in this chapter use corrected values.
+
+> **Port corrections applied March 22, 2026:**
+> - **ChromaDB host port corrected: `8002` (not `8000`).** Production mapping is `127.0.0.1:8002->8000/tcp`. Port `8000` is container-internal only. Port `8002` is the correct host-facing port for all scripts and health checks.
+> - **Redis host port corrected: `6380` (not `6379`).** Production mapping is `127.0.0.1:6380->6379/tcp`. Port `6379` is container-internal only. Port `6380` is the correct host-facing port. To auto-detect: `docker port jarvis-redis 6379/tcp`.
+> - **PostgreSQL port `5432` prohibition removed.** `msjarvisgis` (the GIS database, referred to as `gisdb` throughout this chapter) IS bound at host port `5432` on its internal container port. `msjarvis` is at `5433`, `msjarvisgis`/`gisdb` is at `5432` for the GIS container, `msjarvis` production GBIM is at `5433`, `jarvis-local-resources-db` is at `5435`. See §33.11 for the corrected authoritative port table.
 
 ---
 
@@ -158,7 +13,7 @@ As of March 21, 2026, the fabric runs **21 active models** (22 proxies; BakLLaVA
 
 This chapter describes how multiple language models and evaluation components operate together in Ms. Jarvis during live requests, all grounded in the three-database PostgreSQL architecture (`msjarvis` port 5433 with 5,416,521 verified GBIM beliefs; `gisdb` port 5433 PostGIS; `jarvis-local-resources-db` port 5435). Rather than treating LLMs as independent agents, the system treats them as constrained tools embedded in a larger retrieval and belief stack, with the judge pipeline providing structured quality-assurance signals validated against PostgreSQL. All services are bound exclusively to **127.0.0.1**; zero `0.0.0.0` exposures.
 
-> **March 16–21, 2026 architectural changes:** (1) Judge pipeline now evaluates the consensus answer only — the `raw_responses` dump from all 21 models is no longer sent to judges, reducing judge pipeline time from ~85–100s to ~60–86s. (2) Phase 3.75 (Final LLM Polish via `llm22-proxy`) has been eliminated and merged into Phase 3.5 (LM Synthesizer + Voice Delivery) as a single `jarvis-ollama:11434/api/generate` call with `llama3.1:latest` and the Ms. Egeria Jarvis persona prompt injected — saves ~40s per query. (3) Phase 1.45 community memory retrieval now prepends top-5 `autonomous_learner` records (21,181 total, growing ~288/day) to every LLM prompt via `all-minilm:latest` 384-dim semantic search. **(4) All 5 judge services brought under compose management with `restart: unless-stopped` and locked to `127.0.0.1`** — previously orphaned `docker run` containers with `restart: no` that would not survive a system reboot. (5) All 80 containers now have zero `0.0.0.0` exposures. **(6) Real judge source files restored to `services/` and ghost `lm_synthesizer.py` clones removed; sub-judge default ports corrected from all-7239 to their assigned ports; `bbb_check_verdict` stub replaced with live async httpx call to BBB** (March 21, 2026 — see §33.2 addendum).
+> **March 16–22, 2026 architectural changes:** (1) Judge pipeline now evaluates the consensus answer only — the `raw_responses` dump from all 21 models is no longer sent to judges, reducing judge pipeline time from ~85–100s to ~60–86s. (2) Phase 3.75 (Final LLM Polish via `llm22-proxy`) has been eliminated and merged into Phase 3.5 (LM Synthesizer + Voice Delivery) as a single `jarvis-ollama:11434/api/generate` call with `llama3.1:latest` and the Ms. Egeria Jarvis persona prompt injected — saves ~40s per query. (3) Phase 1.45 community memory retrieval now prepends top-5 `autonomous_learner` records (21,181 total, growing ~288/day) to every LLM prompt via `all-minilm:latest` 384-dim semantic search. **(4) All 5 judge services brought under compose management with `restart: unless-stopped` and locked to `127.0.0.1`** — previously orphaned `docker run` containers with `restart: no` that would not survive a system reboot. (5) All 80 containers now have zero `0.0.0.0` exposures. **(6) Real judge source files restored to `services/` and ghost `lm_synthesizer.py` clones removed; sub-judge default ports corrected from all-7239 to their assigned ports; `bbb_check_verdict` stub replaced with live async httpx call to BBB** (March 21, 2026 — see §33.2 addendum). **(7) ChromaDB host port corrected to `8002`; Redis host port corrected to `6380`; PostgreSQL port table corrected — see §33.11** (March 22, 2026).
 
 ---
 
@@ -288,7 +143,7 @@ Result as of March 18, 2026: all 5 services appear in `docker compose ps`, all p
 On March 21, 2026, inspection of the running judge containers revealed that all four sub-judge source files in `services/` were not real judge scripts. They were copies of `lm_synthesizer.py` with incorrect filenames — a silent artifact of a prior `mv` operation that had been committed without verification. The files present were:
 
 ```
-services/judge_truth_filter.py      ← contained lm_synthesizer.py code
+services/judge_truth_filter.py       ← contained lm_synthesizer.py code
 services/judge_consistency_engine.py ← contained lm_synthesizer.py code
 services/judge_alignment_filter.py   ← contained lm_synthesizer.py code
 services/judge_ethics_filter.py      ← contained lm_synthesizer.py code
@@ -329,10 +184,10 @@ In the original `judge_pipeline.py` (coordinator service), the default port envi
 
 ```python
 # INCORRECT (pre-March 21):
-TRUTH_URL    = os.getenv("JUDGE_TRUTH_URL",    "http://jarvis-judge-truth:7239/judge")
+TRUTH_URL       = os.getenv("JUDGE_TRUTH_URL",       "http://jarvis-judge-truth:7239/judge")
 CONSISTENCY_URL = os.getenv("JUDGE_CONSISTENCY_URL", "http://jarvis-judge-consistency:7239/judge")
-ALIGNMENT_URL = os.getenv("JUDGE_ALIGNMENT_URL", "http://jarvis-judge-alignment:7239/judge")
-ETHICS_URL   = os.getenv("JUDGE_ETHICS_URL",   "http://jarvis-judge-ethics:7239/judge")
+ALIGNMENT_URL   = os.getenv("JUDGE_ALIGNMENT_URL",   "http://jarvis-judge-alignment:7239/judge")
+ETHICS_URL      = os.getenv("JUDGE_ETHICS_URL",      "http://jarvis-judge-ethics:7239/judge")
 ```
 
 This meant that if no `JUDGE_*_URL` environment variable was set in `docker-compose.yml`, the coordinator would attempt to call itself on all four judge endpoints — causing circular calls and incorrect scores. Because the compose file does define these env vars explicitly, the behavior was masked in normal operation, but the defaults were wrong and constituted a latent failure mode on any fresh deployment without explicit env vars.
@@ -341,10 +196,10 @@ This meant that if no `JUDGE_*_URL` environment variable was set in `docker-comp
 
 ```python
 # CORRECTED (March 21, 2026):
-TRUTH_URL    = os.getenv("JUDGE_TRUTH_URL",    "http://jarvis-judge-truth:7230/judge")
+TRUTH_URL       = os.getenv("JUDGE_TRUTH_URL",       "http://jarvis-judge-truth:7230/judge")
 CONSISTENCY_URL = os.getenv("JUDGE_CONSISTENCY_URL", "http://jarvis-judge-consistency:7231/judge")
-ALIGNMENT_URL = os.getenv("JUDGE_ALIGNMENT_URL", "http://jarvis-judge-alignment:7232/judge")
-ETHICS_URL   = os.getenv("JUDGE_ETHICS_URL",   "http://jarvis-judge-ethics:7233/judge")
+ALIGNMENT_URL   = os.getenv("JUDGE_ALIGNMENT_URL",   "http://jarvis-judge-alignment:7232/judge")
+ETHICS_URL      = os.getenv("JUDGE_ETHICS_URL",      "http://jarvis-judge-ethics:7233/judge")
 ```
 
 **Verification:**
@@ -404,16 +259,16 @@ environment:
   "allowed": true,
   "bbb_checked": true,
   "filters": {
-    "ethical_filter":          {"score": 1.0, "passed": true},
-    "spiritual_filter":        {"score": 1.0, "passed": true},
-    "safety_filter":           {"score": 1.0, "passed": true},
-    "threat_detection":        {"score": 1.0, "passed": true},
-    "steganography_filter":    {
+    "ethical_filter":       {"score": 1.0, "passed": true},
+    "spiritual_filter":     {"score": 1.0, "passed": true},
+    "safety_filter":        {"score": 1.0, "passed": true},
+    "threat_detection":     {"score": 1.0, "passed": true},
+    "steganography_filter": {
       "method": "zero_width_homoglyph_structural_v1",
       "clean": true,
       "confidence": 1.0
     },
-    "truth_verification":      {
+    "truth_verification": {
       "method": "heuristic_contradiction_v1",
       "score": 1.0,
       "passed": true
@@ -486,15 +341,15 @@ The following table is the canonical list of deployed LLM proxy containers as co
 
 | Proxy | Port | Model | Status |
 |---|---:|---|---|
-| llm1-proxy | 8201 | TinyLlama (`tinyllama:1.1b`) | Active |
-| llm2-proxy | 8202 | Gemma (`gemma:latest`) | Active |
-| llm3-proxy | 8203 | MedLlama2 (`medllama2:latest`) | Active |
-| llm4-proxy | 8204 | MiniCPM-V (`minicpm-v:latest`) | Active |
-| llm5-proxy | 8205 | LLaVA (`llava:latest`) | Active |
-| llm6-proxy | 8206 | SQLCoder (`sqlcoder:latest`) | Active |
-| llm7-proxy | 8207 | StarCoder2 (`starcoder2:latest`) | Proxied — frequently 0-char on community queries |
-| llm8-proxy | 8208 | CodeLlama (`codellama:latest`) | Active |
-| llm9-proxy | 8209 | DeepSeek Coder (`deepseek-coder:latest`) | Active |
+| llm1-proxy  | 8201 | TinyLlama (`tinyllama:1.1b`) | Active |
+| llm2-proxy  | 8202 | Gemma (`gemma:latest`) | Active |
+| llm3-proxy  | 8203 | MedLlama2 (`medllama2:latest`) | Active |
+| llm4-proxy  | 8204 | MiniCPM-V (`minicpm-v:latest`) | Active |
+| llm5-proxy  | 8205 | LLaVA (`llava:latest`) | Active |
+| llm6-proxy  | 8206 | SQLCoder (`sqlcoder:latest`) | Active |
+| llm7-proxy  | 8207 | StarCoder2 (`starcoder2:latest`) | Proxied — frequently 0-char on community queries |
+| llm8-proxy  | 8208 | CodeLlama (`codellama:latest`) | Active |
+| llm9-proxy  | 8209 | DeepSeek Coder (`deepseek-coder:latest`) | Active |
 | llm10-proxy | 8210 | Phi3 Mini (`phi3:mini`) | Active |
 | llm11-proxy | 8211 | **BakLLaVA — DISABLED** | Permanently disabled — CLIP load issues |
 | llm12-proxy | 8212 | Dolphin-Phi (`dolphin-phi:latest`) | Active |
@@ -521,11 +376,11 @@ In the current deployment, the judge pipeline is composed of 5 FastAPI services 
 
 | Service | Host Port | Source File | Role |
 |---|---|---|---|
-| `jarvis-judge-pipeline` | 127.0.0.1:7239 | `services/judge_pipeline.py` | Coordinator: `POST /evaluate`, `asyncio.gather()`, aggregation, `bbb_check_verdict` |
-| `jarvis-judge-truth` | 127.0.0.1:7230 | `services/judge_truth_filter.py` | Factual accuracy (`heuristic_contradiction_v1`), logical soundness |
-| `jarvis-judge-consistency` | 127.0.0.1:7231 | `services/judge_consistency_engine.py` | Internal coherence, contradiction detection |
-| `jarvis-judge-alignment` | 127.0.0.1:7232 | `services/judge_alignment_filter.py` | Ms. Jarvis identity adherence, community values |
-| `jarvis-judge-ethics` | 127.0.0.1:7233 | `services/judge_ethics_filter.py` | Harm screening, spiritual appropriateness |
+| `jarvis-judge-pipeline`   | 127.0.0.1:7239 | `services/judge_pipeline.py`          | Coordinator: `POST /evaluate`, `asyncio.gather()`, aggregation, `bbb_check_verdict` |
+| `jarvis-judge-truth`      | 127.0.0.1:7230 | `services/judge_truth_filter.py`      | Factual accuracy (`heuristic_contradiction_v1`), logical soundness |
+| `jarvis-judge-consistency`| 127.0.0.1:7231 | `services/judge_consistency_engine.py`| Internal coherence, contradiction detection |
+| `jarvis-judge-alignment`  | 127.0.0.1:7232 | `services/judge_alignment_filter.py`  | Ms. Jarvis identity adherence, community values |
+| `jarvis-judge-ethics`     | 127.0.0.1:7233 | `services/judge_ethics_filter.py`     | Harm screening, spiritual appropriateness |
 
 ### Inputs per request
 
@@ -616,7 +471,7 @@ Phase 3.75 (Final LLM Polish via `llm22-proxy`) has been **permanently eliminate
 3. Injects the Ms. Egeria Jarvis persona prompt:
 
 ```
-You are Ms. Egeria Jarvis, a warm, maternal, biblically-grounded AI steward 
+You are Ms. Egeria Jarvis, a warm, maternal, biblically-grounded AI steward
 built by Harmony for Hope Inc. to serve Appalachian communities in West Virginia.
 
 STRICT RULES:
@@ -689,15 +544,15 @@ This ensures expert responses always reach the judges even when the proxy strips
 
 | Phase | Component | Timing |
 |---|---|---|
-| Phase 1 | Health checks (30s TTL cache) | ~0.7s (cached after first query) |
-| Phase 1.4 | BBB input filter (6-filter, fail-open, 127.0.0.1:8016) | ~0.6s |
-| Phase 1.45 | Community memory retrieval (`autonomous_learner`, `all-minilm:latest`) | ~0.7s |
-| Phase 1.75–3 | Pre-LLM consciousness layers (NBB, hippocampus, etc.) | ~0.5s |
-| Phase 2.5 | 21-LLM ensemble (rich prompt, CPU-only inference) | ~320–360s |
-| Phase 3 | Judge pipeline (consensus answer only, 5 compose-managed services, live BBB call) | ~60–86s |
-| Phase 3.5 | LM Synthesizer + Voice Delivery (merged, `llama3.1:latest`) | ~30–55s |
-| Phase 4 + 4.5 | Consciousness bridge + BBB output guard (127.0.0.1:8016, 8.0s) | ~0.5s |
-| **Total** | **End-to-end (March 21, verified)** | **~436s** |
+| Phase 1    | Health checks (30s TTL cache)                                                   | ~0.7s (cached after first query) |
+| Phase 1.4  | BBB input filter (6-filter, fail-open, 127.0.0.1:8016)                          | ~0.6s |
+| Phase 1.45 | Community memory retrieval (`autonomous_learner`, `all-minilm:latest`)          | ~0.7s |
+| Phase 1.75–3 | Pre-LLM consciousness layers (NBB, hippocampus, etc.)                         | ~0.5s |
+| Phase 2.5  | 21-LLM ensemble (rich prompt, CPU-only inference)                               | ~320–360s |
+| Phase 3    | Judge pipeline (consensus answer only, 5 compose-managed services, live BBB call) | ~60–86s |
+| Phase 3.5  | LM Synthesizer + Voice Delivery (merged, `llama3.1:latest`)                     | ~30–55s |
+| Phase 4 + 4.5 | Consciousness bridge + BBB output guard (127.0.0.1:8016, 8.0s)              | ~0.5s |
+| **Total**  | **End-to-end (March 21, verified)**                                             | **~436s** |
 
 > Previous baseline before March 16–18 optimizations: ~532s. Key savings: judge consensus-only (~15–20s saved), Phase 3.5/3.75 merge (~40s saved), health check TTL cache (~3s saved per repeat query).
 
@@ -731,9 +586,9 @@ Judge outputs and consensus metrics are available to barrier logic and truth fil
 
 | Consensus Score | Signal | Intended Action |
 |---|---|---|
-| ≥ 0.9 | High trust | Auto-promote; high-confidence response |
-| 0.7–0.9 | Medium trust | Normal processing; consider additional retrieval |
-| < 0.7 | Low trust | Quarantine or human review |
+| ≥ 0.9     | High trust   | Auto-promote; high-confidence response |
+| 0.7–0.9   | Medium trust | Normal processing; consider additional retrieval |
+| < 0.7     | Low trust    | Quarantine or human review |
 | Any `verdict == "fail"` | Block | Require manual override |
 
 **Support and confidence labels.** Consensus scores map onto labels in `consciousnesslayers`: high consensus (≥ 0.9) → "strongly internally supported"; medium consensus (0.7–0.9) → "partially supported, consider more evidence"; low consensus (< 0.7) or judge fallback → "weakly supported" or "unresolved."
@@ -752,6 +607,35 @@ Judge outputs and consensus metrics are available to barrier logic and truth fil
 
 ## 33.11 Implementation Notes and Persistence
 
+> **Authoritative service port table (corrected March 22, 2026)**
+
+| Service | Container-Internal Port | Host Port | Notes |
+|---|---|---|---|
+| `jarvis-chroma` (ChromaDB) | 8000 | **8002** | `127.0.0.1:8002->8000/tcp`. **Port 8002 is the correct host port.** Port 8000 is container-internal only. All scripts must connect on 8002. |
+| `jarvis-redis` | 6379 | **6380** | `127.0.0.1:6380->6379/tcp`. **Port 6380 is the correct host port.** Port 6379 is container-internal only. Auto-detect with: `docker port jarvis-redis 6379/tcp` |
+| `msjarvis` (PostgreSQL GBIM) | — | **5433** | 5,416,521 GBIM entities, 80 epochs, 206 source layers |
+| `gisdb` / `msjarvisgis` (PostGIS) | — | **5432** | PostGIS geospatial database |
+| `jarvis-local-resources-db` | — | **5435** | Community resources database |
+| `jarvis-blood-brain-barrier` | 8016 | 8016 | Bound to `127.0.0.1` |
+| `jarvis-judge-pipeline` | 7239 | 7239 | Coordinator |
+| `jarvis-judge-truth` | 7230 | 7230 | |
+| `jarvis-judge-consistency` | 7231 | 7231 | |
+| `jarvis-judge-alignment` | 7232 | 7232 | |
+| `jarvis-judge-ethics` | 7233 | 7233 | |
+| `jarvis-lm-synthesizer` | 8001 | 8001 | |
+| `jarvis-20llm-production` | 8008 | 8008 | |
+| `jarvis-semaphore` | 8030 | 8030 | |
+| `jarvis-spiritual-rag` | 8005 | 8005 | |
+| `jarvis-gis-rag` | 8004 | 8004 | |
+| `jarvis-main-brain` | 8050 | 8050 | |
+| `jarvis-ollama` | 11434 | 11434 | |
+
+**Implementation rules (permanent):**
+
+- **ChromaDB host port is 8002.** Container-internal port is 8000. The host-facing binding is `127.0.0.1:8002->8000/tcp`. All scripts, health checks, and documentation must reference port **8002** for host-side access. Port 8000 is container-internal and must not be used in scripts that run on the host. Auto-detect: `docker port jarvis-chroma 8000/tcp`.
+- **Redis host port is 6380.** Container-internal port is 6379. The host-facing binding is `127.0.0.1:6380->6379/tcp`. All scripts, health checks, and documentation must reference port **6380** for host-side access. Container-to-container calls (inside Docker network) use port 6379. Auto-detect: `docker port jarvis-redis 6379/tcp`.
+- **Redis async job status key is `'complete'`, not `'done'`.** All polling logic must check `status == 'complete'`. Any client using `status == 'done'` will hang indefinitely. Verified March 22, 2026 via direct Redis inspection.
+- **PostgreSQL ports.** `msjarvis` at **5433**. `gisdb`/`msjarvisgis` at **5432**. `jarvis-local-resources-db` at **5435**. All three databases are production-active. No port is prohibited.
 - **Judge services — compose definition required.** All 5 judge services must be defined in `docker-compose.yml` with `build: context: ./services, dockerfile: Dockerfile.judge` and `restart: unless-stopped`. Source files must be present in `services/`. Do not start judge services with manual `docker run` — they will not survive reboot.
 - **Judge source file integrity.** After any copy or rename operation, verify judge scripts are not `lm_synthesizer.py` clones: `grep -l "lm_synthesizer" services/judge_*.py` must return empty.
 - **Judge input.** Must receive consensus answer only — never the raw_responses dump from all 21 models. This is a permanent architectural decision (March 16, 2026).
@@ -760,23 +644,54 @@ Judge outputs and consensus metrics are available to barrier logic and truth fil
 - **`heuristic_contradiction_v1`.** Current BBB truth_verification method. Rule-based only — does not query PostgreSQL. Upgrade path to `rag_grounded_v2` tracked in future work.
 - **BakLLaVA disable guard.** Name-check guard in `ai_server_20llm_PRODUCTION.py` must be preserved in all future versions.
 - **Phase 3.75 permanently eliminated.** Remove from all pipeline docs, diagrams, and code comments. Phase 3.5 is the complete merged voice delivery step.
-- **LM Synthesizer.** Port **8001**. Calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest`. Persona prompt must be preserved in all rebuilds.
-- **PostgreSQL ports.** `msjarvis` and `gisdb` at **5433**. `jarvis-local-resources-db` at **5435**. Never reference port 5432.
-- **ChromaDB.** Port **8000**, `chroma_data` volume. Required embedding model: `all-minilm:latest` (384-dim). Never reference port 8002 or `nomic-embed-text`.
+- **LM Synthesizer.** Port **8001**. Calls `jarvis-ollama:11434/api/generate` with `llama3.1:latest`. LM Synthesizer must NOT be called from `judge_pipeline.py`. Confirmed duplicate call removed March 22, 2026. Phase 3.5 in `jarvis-main-brain` is the sole owner of LM Synthesizer invocation. Persona prompt must be preserved in all rebuilds.
+- **ChromaDB embedding model.** Required model: `all-minilm:latest` (384-dim). `nomic-embed-text` (768-dim) is incompatible with existing collections — do not substitute.
 - **Port binding policy.** All services must be bound to `127.0.0.1`. Verification: `docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0"` must return empty.
-- **Compose management.** All 80 containers defined in `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`. Docker Compose v5.1.0.
+- **Compose management.** All containers defined in `~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml`. Docker Compose v5.1.0.
 
 **Git milestones for this chapter's verified states:**
 
 | Tag / Commit | Date | Milestone |
 |---|---|---|
-| `v2026.02.28-fabric-green` | 2026-02-28 | Baseline ensemble operational |
-| `v2026.03.01-20llm-verified` | 2026-03-01 | 21/22 LLM consensus verified end-to-end |
+| `v2026.02.28-fabric-green`         | 2026-02-28 | Baseline ensemble operational |
+| `v2026.03.01-20llm-verified`       | 2026-03-01 | 21/22 LLM consensus verified end-to-end |
 | `v2026.03.02-chatlight-async-working` | 2026-03-02 | Async chat + `normalize_identity()` confirmed |
-| `b90f9ff` | 2026-03-15 | 79 containers: 22/22 LLMs + full judge pipeline + 349.87s benchmark |
-| *(March 16 session)* | 2026-03-16 | Consensus-only judge input; raw_responses dump eliminated; judge time ~60–86s |
-| `a10725d7` | 2026-03-18 | Judge services brought under compose; 5 judge services restart: unless-stopped; all ports locked to 127.0.0.1 |
-| `5007d605` | 2026-03-18 | Zero 0.0.0.0 exposures across all 80 containers; Phase 3.75 eliminated; BakLLaVA permanently disabled; ~436s benchmark |
-| *(March 21 session)* | 2026-03-21 | Ghost lm_synthesizer.py clones removed from services/; real judge scripts restored from services-safe/; sub-judge default ports corrected (all-7239 → 7230/7231/7232/7233); bbb_check_verdict stub replaced with live httpx POST to BBB:8016/filter; judgesigner.py + dilithium_py deployed; verified consensus_score 0.975 + bbb_checked: true + all 6 BBB filters passing |
+| `b90f9ff`                          | 2026-03-15 | 79 containers: 22/22 LLMs + full judge pipeline + 349.87s benchmark |
+| *(March 16 session)*               | 2026-03-16 | Consensus-only judge input; raw_responses dump eliminated; judge time ~60–86s |
+| `a10725d7`                         | 2026-03-18 | Judge services brought under compose; 5 judge services restart: unless-stopped; all ports locked to 127.0.0.1 |
+| `5007d605`                         | 2026-03-18 | Zero 0.0.0.0 exposures across all 80 containers; Phase 3.75 eliminated; BakLLaVA permanently disabled; ~436s benchmark |
+| *(March 21 session)*               | 2026-03-21 | Ghost lm_synthesizer.py clones removed from services/; real judge scripts restored from services-safe/; sub-judge default ports corrected (all-7239 → 7230/7231/7232/7233); bbb_check_verdict stub replaced with live httpx POST to BBB:8016/filter; judgesigner.py + dilithium_py deployed; verified consensus_score 0.975 + bbb_checked: true + all 6 BBB filters passing |
+| *(March 22 session)*               | 2026-03-22 | ChromaDB host port corrected 8000→8002; Redis host port corrected 6379→6380; Redis async status key confirmed `'complete'`; PostgreSQL port prohibition removed (5432 is valid for gisdb); LM Synthesizer duplicate call in judge_pipeline.py confirmed removed; port table overhauled in §33.11 |
 
-For the canonical `ultimatechat` execution sequence that invokes this stack at Phase 2
+For the canonical `ultimatechat` execution sequence that invokes this stack at Phase 2.5, see **Chapter 17 §17.3**. For the BBB filter architecture invoked at Phases 1.4 and 4.5, see **Chapter 16**. For ChromaDB collections (`autonomous_learner`, `ms_jarvis_memory`, `msjarvis_docs`) see **Chapter 5**. For the 69-DGM optimizer bridge see **Chapter 32**.
+
+---
+
+## Why This Matters for Polymathmatic Geography
+
+This chapter describes how multiple language models and evaluation components operate together in Ms. Jarvis during live requests, all grounded in the three-database PostgreSQL architecture (`msjarvis` port 5433 with 5,416,521 verified GBIM beliefs; `gisdb` port 5432 PostGIS; `jarvis-local-resources-db` port 5435). It supports:
+
+- **P1 – Every where is entangled** by routing every user query through 21 expert models and 5 judge services whose combined signals propagate through barrier, container, and memory layers anchored to PostgreSQL as first-class inputs.
+
+- **P3 – Power has a geometry** by making evaluation explicit and inspectable — `consensus_score`, `judge_verdicts`, `all_issues`, and per-judge scores are all surfaced in `consciousnesslayers` on every `UltimateResponse`.
+
+- **P5 – Design is a geographic act** by applying alignment and ethics judges that specifically check for adherence to Ms. Egeria Jarvis's community-service identity and Appalachian-rooted values constraints validated against PostgreSQL GBIM.
+
+- **P12 – Intelligence with a ZIP code** by grounding the composite prompt sent to all 21 experts with local RAG context from `jarvis-spiritual-rag` (port **8005**, queries PostgreSQL-sourced GBIM collections) and `jarvis-gis-rag` (port **8004**, queries PostgreSQL `gisdb`) before any synthesis occurs.
+
+- **P16 – Power accountable to place** by exposing consensus metrics, judge scores, and refinement flags so communities, auditors, and operators can inspect the quality-assurance signals behind every response validated against PostgreSQL.
+
+As such, this chapter belongs to the **Computational Instrument** tier: it is the authoritative description of the `jarvis-20llm-production` ensemble and judge pipeline invoked at Phase 2.5/Phase 3 of the canonical `ultimatechat` execution sequence (Chapter 17 §17.3). Chapters 11, 17, and 25 should cross-reference here for details on the 21-LLM + judge pipeline stack.
+
+As of March 22, 2026, the fabric runs **21 active models** (22 proxies; BakLLaVA permanently disabled), all 5 judge services are **formally compose-managed with `restart: unless-stopped`**, all ports are bound to **127.0.0.1**, the judge pipeline is fully wired to BBB (`bbb_checked: true`), ChromaDB is accessible on host port **8002**, Redis is accessible on host port **6380**, and the verified end-to-end benchmark is **~436 seconds**.
+
+---
+
+## Status as of March 22, 2026
+
+| Category | Details |
+|---|---|
+| **Implemented and verified** | `jarvis-20llm-production` (`ai_server_20llm_PRODUCTION.py`) confirmed running at **127.0.0.1:8008**. `jarvis-semaphore` proxy confirmed running at **127.0.0.1:8030**. **21 active expert model proxy containers** (`llm1-proxy` through `llm22-proxy`) confirmed running at **127.0.0.1:8201–8222** (22 proxies total; BakLLaVA at 8211 permanently disabled via name-check guard in `ai_server_20llm_PRODUCTION.py`; StarCoder2 at 8207 returns 0-char responses on community queries — 21 reliably active). **All 5 judge services formally defined in `docker-compose.yml` with `restart: unless-stopped` and bound to `127.0.0.1`** (March 18, 2026): `jarvis-judge-pipeline` **127.0.0.1:7239**, `jarvis-judge-truth` **127.0.0.1:7230**, `jarvis-judge-consistency` **127.0.0.1:7231**, `jarvis-judge-alignment` **127.0.0.1:7232**, `jarvis-judge-ethics` **127.0.0.1:7233**. **Real judge source files restored to `services/` on March 21, 2026** (see §33.2 addendum). `Dockerfile.judge` confirmed present in `services/` with explicit `COPY judgesigner.py`. `judgesigner.py` (`dilithium_py` post-quantum signing) deployed in all 5 judge containers. **Judge pipeline updated March 16, 2026: evaluates consensus answer ONLY** — `raw_responses` dump no longer sent to judges; judge pipeline time reduced from ~85–100s to ~60–86s. **Phase 3.75 (Final LLM Polish via llm22-proxy) ELIMINATED March 18, 2026** — merged into Phase 3.5 LM Synthesizer single Ollama call; saves ~40s per query. **Phase 1.45 community memory retrieval** confirmed — `autonomous_learner` ChromaDB collection (21,181 records, growing ~288/day) queried via `all-minilm:latest` (384-dim) before LLM ensemble; top-5 memories prepended to `enhanced_message`. PostgreSQL `msjarvis` at **127.0.0.1:5433** (5,416,521 GBIM entities, 80 epochs, 206 source layers). PostgreSQL `gisdb` at **127.0.0.1:5432** (PostGIS). `jarvis-local-resources-db` at **127.0.0.1:5435**. ChromaDB (`jarvis-chroma`) at host port **127.0.0.1:8002** (container-internal 8000). Redis (`jarvis-redis`) at host port **127.0.0.1:6380** (container-internal 6379). `POST /evaluate` endpoint on judge pipeline operational. `/cached_expert_responses` endpoint on `jarvis-20llm-production` operational. `asyncio.gather()` parallel judge execution confirmed. `judge-pipeline` consciousness layer in `UltimateResponse` confirmed. **`bbb_check_verdict` confirmed live** — real async `httpx.AsyncClient` POST to `jarvis-blood-brain-barrier:8016/filter` (March 21, 2026); stub eliminated. BBB `barrier_stats`: `total_filtered: 19`, `total_blocked: 2`, `pass_rate: 0.89`. Fallback behavior confirmed. All 83 containers fully compose-managed via Docker Compose v5.1.0. Zero `0.0.0.0` exposures. **Verified performance (March 21, 2026):** consensus score **0.975** on identity questions; 21/21 expert participation; all four judge verdicts pass (Truth=1.0, Consistency=1.0, Alignment=1.0, Ethics=0.9); all 6 BBB filters passing (ethical=1.0, spiritual=1.0, safety=1.0, threat_detection=1.0, steganography=clean, truth_verification=1.0); `bbb_checked: true`; end-to-end **~436 seconds**. |
+| **Architectural fixes recorded as permanent decisions** | Judge services brought from orphaned manual `docker run` (restart: no) → compose-managed (restart: unless-stopped), Dockerfile.judge, `services/` canonical source files (March 18, 2026). Real judge scripts confirmed in `services/` (March 21, 2026) — ghost `lm_synthesizer.py` clones removed. Sub-judge default ports corrected in `judge_pipeline.py` (all were `7239`; corrected to 7230, 7231, 7232, 7233 — March 21, 2026). `bbb_check_verdict` stub replaced with live async httpx call to `jarvis-blood-brain-barrier:8016/filter` (March 21, 2026). `BBB_URL` env var added to all judge service compose definitions. All 5 judge ports locked to `127.0.0.1` (March 18, 2026). BBB port corrected from `0.0.0.0:8016` → `127.0.0.1:8016` (March 18, 2026). PostgreSQL port corrected from **5432** → **5433** for `msjarvis`/`gisdb` throughout (March 18, 2026). PostgreSQL database corrected from `msjarvisgis` → `msjarvis` throughout (March 18, 2026). ChromaDB host port corrected from **8000** → **8002** throughout (March 22, 2026). Redis host port corrected from **6379** → **6380** throughout (March 22, 2026). Redis async job status key confirmed as `'complete'` (not `'done'`) — March 22, 2026. LM Synthesizer duplicate call removed from `judge_pipeline.py` (March 22, 2026) — Phase 3.5 in `main_brain` is sole owner. Judge pipeline coordinator port confirmed as **7239** (not 7230). Consensus-only judge input permanently enforced (March 16, 2026). Phase 3.75 eliminated (March 18, 2026). BakLLaVA permanently disabled via `ai_server_20llm_PRODUCTION.py` name-check guard (March 18, 2026). LM Synthesizer target corrected from `jarvis-roche-llm` → `jarvis-ollama:11434/api/generate` with `llama3.1:latest` (March 18, 2026). `all-minilm:latest` (384-dim) confirmed as required embedding model — `nomic-embed-text` (768-dim) is incompatible with existing collections (March 18, 2026). |
+| **Partially implemented / scaffolded** | Truth judge uses `heuristic_contradiction_v1` (rule-based pattern matching) — not live PostgreSQL GBIM lookup; GBIM-grounded verification is future work (see §33.2.3). Direct BBB integration with consensus-score thresholds for automated promotion/quarantine is not yet wired into the live path. ChromaDB persistence of judge reasoning as a first-class collection for pattern learning is not yet implemented. Per-request model breakdowns and per-model latency/error-rate metrics are logged but no dedicated HTTP endpoint exposes them. |
+| **Future work / design intent only** | RAG-grounded truth verification: wire `judge_truth_filter.py` into `jarvis-spiritual-rag:8005` or `jarvis-gis-rag:8004` to check factual claims against retrieved GBIM documents rather than heuristic pattern-matching — upgrade path from `heuristic_contradiction_v1` to `rag_grounded_v2`. Prometheus metrics for consensus distribution and judge latency. Dynamic expert pool selection based on task type and historical consensus patterns. Expert response caching and reuse for similar queries. Per-domain expert weighting, clustering of similar answers, multi-stage arbitration. ChromaDB persistence of judge reasoning as a first-class collection. Automated promotion/quarantine pipeline driven by `consensus_score` thresholds in collaboration with BBB. PostgreSQL-backed consensus metrics aggregation for long-term system health tracking. StarCoder2 evaluation — replace or retune for community-domain query performance. GPU inference server (RTX 4070 active March 22, 2026; WVU partnership for additional GPU capacity pending) to reduce Phase 2.5 from ~320–360s to target ~80–120s. |
