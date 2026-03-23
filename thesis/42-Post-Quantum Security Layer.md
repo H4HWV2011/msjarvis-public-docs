@@ -1,6 +1,6 @@
 # Chapter 42 — Post-Quantum Security Layer
 
-**Carrie Kidd (Mamma Kidd) — Oak Hill, WV**
+**Carrie Kidd (Mamma Kidd) — Mount Hope, WV**
 **Last updated: March 22, 2026 (final evening session)**
 
 > **Corrections and additions applied March 22, 2026:**
