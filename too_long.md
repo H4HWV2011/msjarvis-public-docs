@@ -1,1643 +1,259 @@
-akidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Find all CSVs across the entire project
-find ~ -name "*.csv" -not -path "*/\.*" 2>/dev/null | sort > /tmp/all_csvs.txt
-wc -l /tmp/all_csvs.txt
-cat /tmp/all_csvs.txt
-1593 /tmp/all_csvs.txt
-/home/cakidd/data/wv_buildings/h_app_industrialbuildings_wvdo_200807_utm83_features.csv
-/home/cakidd/data/wv_buildings/h_app_officebuildings_wvdo_200807_utm83_features.csv
-/home/cakidd/data/wv_buildings/horn_h_app_industrialbuildings_wvdo_200807_utm83_features_eq1.csv
-/home/cakidd/data/wv_buildings/horn_h_app_officebuildings_wvdo_200807_utm83_features_eq1.csv
-/home/cakidd/data/wv_buildings/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/data/wv_buildings/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/Downloads/kidd_technical_services_detailed_timesheet_2025-2026(1).csv
-/home/cakidd/Downloads/kidd_technical_services_detailed_timesheet_2025-2026.csv
-/home/cakidd/Downloads/kidd_technical_services_feb_5_19_2026_detailed.csv
-/home/cakidd/Downloads/kidd_technical_services_timesheet_2025-2026.csv
-/home/cakidd/Downloads/spiritual_traditions_target.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/BARBOUR.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/BERKELEY.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/BOONE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/BRAXTON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/BROOKE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/CABELL.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/CALHOUN.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/CLAY.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/DODDRIDGE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/FAYETTE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/GILMER.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/GRANT.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/GREENBRIER.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/HAMPSHIRE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/HANCOCK.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/HARDY.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/HARRISON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/JACKSON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/JEFFERSON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/KANAWHA PART1.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/KANAWHA PART2.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/LEWIS.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/LINCOLN.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/LOGAN.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MARION.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MARSHALL.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MASON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MCDOWELL.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MERCER.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MINERAL.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MINGO.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MONONGALIA.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MONROE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/MORGAN.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/NICHOLAS.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/OHIO.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/PENDLETON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/PLEASANTS.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/POCAHONTAS.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/PRESTON.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/PUTNAM.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/RALEIGH.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/RANDOLPH.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/RITCHIE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/ROANE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/SUMMERS.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/TAYLOR.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/TUCKER.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/TYLER.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/UPSHUR.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/WAYNE.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/WEBSTER.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/WETZEL.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/WIRT.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/WOOD.csv
-/home/cakidd/Downloads/WV Address Points_CSV03232026/WYOMING.csv
-/home/cakidd/go/pkg/mod/gonum.org/v1/gonum@v0.16.0/graph/formats/rdf/testdata/manifest.csv
-/home/cakidd/msjarvis-public-docs/docs/kidd_technical_services_detailed_timesheet_2025-2026.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/911centers_wvdem_032819_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/agents.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/agents_healthy.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/batch1.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/batch2.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/batch4.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/blockgroups_census_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/blockgroups_census_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/blockgroups_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/blockgroups_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/blockgroups_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/bridge_manifest_batch2.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/bridge_manifest_core69.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/bridge_manifest.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/bridge_manifest_FULL_BACKUP.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/bridge_manifest_services_only.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/calderl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulation_2500_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationover10k_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationsover10k_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationsover10k_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulationsover2500_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/coals2_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/coals2_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/coals2_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/communityboundary_min_att_20250121_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/correctionalinstitutions_hsip_20091230_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/countycityparkboundaries_20201104_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/countyseats_usgs_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/countyseats_usgs_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/courthousescounty_manysources_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/courthousesfederal_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/courthousesfederal_manysources_200203_utm_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/cvfault_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/cvfault_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/cvpoly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/cvpoly_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/cvpoly_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/damsnoncoal_usgs_2002_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/dams_usarmycorpsofengineers_200010_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/dams_usarmycropsofengineers_200010_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/excursionpassengertrains_wvdof_200102_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/excursionpassengertrains_wvdof_200102_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/facilities_epa_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/facilities_epa_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/failed_services.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/faultgl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/fault_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/feature_geometries_full_attributes.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/features_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/fire_departments_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/fire_dept_wvdem_092017_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geolgyl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geolgyp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/geotextl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/healthruralfacilities_manysources_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/highered_wvemd_072420_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/highered_wvemd_072420_wgc84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/hospitals_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/impact_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/indexgrid15minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/indexgrid15minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/indexgrid1minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/industrialparks_wvdo_200078_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/industrialsites_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/inedexgrid1minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/knowledge_docs_attributes.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/knowledge_docs_metadata.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/libraries_manysources_2001_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/libraries_manysources_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/mesh_interest_timeline.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/metfacp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/mineraloperations_usgs_200204_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/mineraloperations_usgs_200204_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/ms_jarvis_attributes_live.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/ms_jarvis_tile_index_20251028_225447.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/ms_jarvis_tile_index_20251028_234406.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalatlasstreams_usgs_199903_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalatlasstreams_usgs_199903_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalregister_point_20200923_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalregister_point_20200923_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/paroleoffices_manysources_2008_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/paroleoffices_manysources_2008_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/placesofworship_hsip_20080723_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/placesofworship_hsip_20080723_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/policedept_wvdem_012319_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/policedept_wvdem_012319_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populatedplaces_census_201112_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populatedplaces_census_20112_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populatedplaces_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populatedplaces_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populatedplaces_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populationdatablockgroups_uscensus_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/populationdatablockgroups_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/pow_wvgistc_062919_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/pow_wvgistc_062919_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/railnetworkregion_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/railnetworkregion_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/railnetworkwv_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/railnetworkwv_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/realtimestreamflowstations_usgs_200012_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/realtimestreamflowstations_usgs_200012_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/realtimestreamflowstations_usgs_200012_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/sewertreatmentplants_wvdep_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/solidwastefacilities_wvdep_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/solidwastefacilities_wvdep_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/springs_wvges_1986_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/springs_wvges_1986_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/states_region_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/structurepolygons_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/summits_gistc_052012_utm83_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/summits_gistc_052012_wgs84_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towersam_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towersasr_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towersasr_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towerscellular_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towerscellular_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towersfm_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towersmicrowave_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towersmicrowave_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towerspager_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towerspager_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towers_wvpublicbroadcasting_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/towers_wvpublicbroadcasting_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/votingdistrictswv_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wv_microsoft_20180207_utm17n83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatebounadary100k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstateboundary100k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstateboundary24k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wv_tax_districts_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/wv_tax_districts_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/zipcodetabulationarea_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services/zipcodetabulationarea_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log10.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log1p.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sin.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sinh.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tan.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tanh.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_center.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_process.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_subcenter.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_13.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_14.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_15.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_16.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_17.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_18.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_190.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_191.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_19.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_20.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_21.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_3.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_4.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_5.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_6.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_0_7.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_10_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_10_191.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_10_1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_10_2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_10_3.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_10_4.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_1_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_1_1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_1_2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_20_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_20_1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_20_2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_2_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_2_3.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_2_4.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_2_5.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_2_6.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_3.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_4.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_5.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_3_6.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_0.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_10.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_1.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_2.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_3.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_4.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_5.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_6.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_7.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_8.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_4_9.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_local_Canada.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_local_HPC.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_local_index.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_local_MRMS.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_local_NCEP.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_2_local_NDFD.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_4_5.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/grib2_table_versions.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/gt_datum.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/gt_ellips.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/MM_m_idofic.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/ozi_datum.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/ozi_ellips.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/s57agencies.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/s57attributes.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/s57expectedinput.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/s57objectclasses.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data/stateplane.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/sklearn/datasets/data/breast_cancer.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/sklearn/datasets/data/iris.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/sklearn/datasets/data/linnerud_exercise.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/sklearn/datasets/data/linnerud_physiological.csv
-/home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/sklearn/datasets/data/wine_data.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/911centers_wvdem_032819_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/agents.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/agents_healthy.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/batch1.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/batch2.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/batch4.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/blockgroups_census_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/blockgroups_census_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/blockgroups_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/blockgroups_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/blockgroups_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_batch2.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_core69.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_FULL_BACKUP.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_services_only.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/calderl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulation_2500_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationover10k_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationsover10k_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationsover10k_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulationsover2500_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/coals2_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/coals2_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/coals2_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/communityboundary_min_att_20250121_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/correctionalinstitutions_hsip_20091230_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/countycityparkboundaries_20201104_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/countyseats_usgs_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/countyseats_usgs_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/courthousescounty_manysources_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/courthousesfederal_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/courthousesfederal_manysources_200203_utm_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/cvfault_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/cvfault_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/cvpoly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/cvpoly_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/cvpoly_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/damsnoncoal_usgs_2002_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/dams_usarmycorpsofengineers_200010_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/dams_usarmycropsofengineers_200010_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/excursionpassengertrains_wvdof_200102_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/excursionpassengertrains_wvdof_200102_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/facilities_epa_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/facilities_epa_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/failed_services.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/faultgl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/fault_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/feature_geometries_full_attributes.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/features_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/fire_departments_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/fire_dept_wvdem_092017_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geolgyl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geolgyp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geotextl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/healthruralfacilities_manysources_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/highered_wvemd_072420_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/highered_wvemd_072420_wgc84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/hospitals_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/impact_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/indexgrid15minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/indexgrid15minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/indexgrid1minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/industrialparks_wvdo_200078_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/industrialsites_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/inedexgrid1minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/knowledge_docs_attributes.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/knowledge_docs_metadata.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/libraries_manysources_2001_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/libraries_manysources_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/mesh_interest_timeline.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/metfacp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/mineraloperations_usgs_200204_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/mineraloperations_usgs_200204_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_attributes_live.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_tile_index_20251028_225447.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_tile_index_20251028_234406.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalatlasstreams_usgs_199903_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalatlasstreams_usgs_199903_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalregister_point_20200923_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalregister_point_20200923_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/paroleoffices_manysources_2008_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/paroleoffices_manysources_2008_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/placesofworship_hsip_20080723_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/placesofworship_hsip_20080723_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/policedept_wvdem_012319_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/policedept_wvdem_012319_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populatedplaces_census_201112_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populatedplaces_census_20112_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populatedplaces_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populatedplaces_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populatedplaces_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populationdatablockgroups_uscensus_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/populationdatablockgroups_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/pow_wvgistc_062919_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/pow_wvgistc_062919_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/railnetworkregion_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/railnetworkregion_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/railnetworkwv_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/railnetworkwv_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/realtimestreamflowstations_usgs_200012_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/realtimestreamflowstations_usgs_200012_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/realtimestreamflowstations_usgs_200012_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/sewertreatmentplants_wvdep_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/solidwastefacilities_wvdep_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/solidwastefacilities_wvdep_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/springs_wvges_1986_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/springs_wvges_1986_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/states_region_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/structurepolygons_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/summits_gistc_052012_utm83_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/summits_gistc_052012_wgs84_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towersam_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towersasr_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towersasr_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towerscellular_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towerscellular_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towersfm_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towersmicrowave_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towersmicrowave_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towerspager_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towerspager_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towers_wvpublicbroadcasting_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/towers_wvpublicbroadcasting_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/votingdistrictswv_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wv_microsoft_20180207_utm17n83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatebounadary100k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstateboundary100k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstateboundary24k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatehousedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wv_tax_districts_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wv_tax_districts_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/zipcodetabulationarea_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/zipcodetabulationarea_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/911centers_wvdem_032819_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/911centers_wvdem_032819_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/agents.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/agents_healthy.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/batch1.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/batch2.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/batch3.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/batch4.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blockgroups_census_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blockgroups_census_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blockgroups_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blockgroups_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blockgroups_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blockgroups_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blocks_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/blocks_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_batch2.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_core69.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_critical_add.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_FULL_BACKUP.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_priority_services.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_services_only.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_with_utilities_backup.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridges_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/calderl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/chroma_manifest.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulation_2500_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulation_2500_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationover10k_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationsover10k_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationsover10k_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationsover2500_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulationsover2500_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/coals2_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/coals2_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/coals2_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/communityboundary_min_att_20250121_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/communityboundary_min_att_20250121_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/communityhealthproviders_wvhealthcareauthority_200802_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/correctionalinstitutions_hsip_20091230_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/countycityparkboundaries_20201104_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/countyseats_usgs_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/countyseats_usgs_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/courthousescounty_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/courthousescounty_manysources_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/courthousesfederal_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/courthousesfederal_manysources_200203_utm_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/cvfault_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/cvfault_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/cvfault_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/cvpoly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/cvpoly_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/cvpoly_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/damsnoncoal_usgs_2002_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/damsnoncoal_usgs_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/dams_usarmycorpsofengineers_200010_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/dams_usarmycropsofengineers_200010_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/excursionpassengertrains_wvdof_200102_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/excursionpassengertrains_wvdof_200102_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/facilities_epa_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/facilities_epa_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/failed_services.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/faultgl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/fault_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/feature_geometries_full_attributes.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/features_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/fire_departments_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/fire_dept_wvdem_092017_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geolgyl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geolgyp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geotextl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/glacagl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/glacal_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/healthruralfacilities_manysources_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/highered_wvemd_072420_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/highered_wvemd_072420_wgc84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/historicalaerialphotographycountycoverage_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hospitals_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hospitals_wvdem_040519_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hospitals_wvdem_040519_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hospitalswvdem040519utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/impact_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/indexgrid15minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/indexgrid15minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/indexgrid1minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/industrialparks_wvdo_200078_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/industrialsites_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/inedexgrid1minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/knowledge_docs_attributes.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/knowledge_docs_metadata.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/libraries_manysources_2001_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/libraries_manysources_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakesline_nhd_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakesline_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/mesh_interest_timeline.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metfacp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metropolitanandmicropolitanstatisticalareas_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metropolitanandmicropolitanstatisticalareas_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/mineraloperations_usgs_200204_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/mineraloperations_usgs_200204_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisattributesgis_census.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_attributes_gis.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisattributesgis.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisattributesgis_full_backup.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisattributesgis_small.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_attributes_live.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvis_gis_manifest.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_tile_index_20251028_225447.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_tile_index_20251028_234406.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalatlasstreams_usgs_199903_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalatlasstreams_usgs_199903_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalregister_point_20200923_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalregister_point_20200923_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nursinghomes_wvdem_041219_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nursinghomes_wvdem_041219_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/paroleoffices_manysources_2008_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/paroleoffices_manysources_2008_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/placesofworship_hsip_20080723_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/placesofworship_hsip_20080723_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/policedept_wvdem_012319_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/policedept_wvdem_012319_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populatedplaces_census_201112_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populatedplaces_census_20112_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populatedplaces_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populatedplaces_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populatedplaces_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populatedplaces_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populationdatablockgroups_uscensus_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/populationdatablockgroups_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/pow_wvgistc_062919_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/pow_wvgistc_062919_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/processed_gis/gis_file_catalog.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/publichealthdepts_hsip_20091229_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/publichealthdepts_hsip_20091229_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/railnetworkregion_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/railnetworkregion_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/railnetworkwv_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/railnetworkwv_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/realtimestreamflowstations_usgs_200012_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/realtimestreamflowstations_usgs_200012_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/realtimestreamflowstations_usgs_200012_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/recreationalwwtrails_ofwv_20151117_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/sewertreatmentplants_wvdep_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/solidwastefacilities_wvdep_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/solidwastefacilities_wvdep_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/springs_wvges_1986_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/springs_wvges_1986_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/states_region_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/structurepointsnorth_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/structurepointssouth_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/structurepolygons_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/summits_gistc_052012_utm83_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/summits_gistc_052012_wgs84_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/timberremovalvolume_usfs_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersam_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersasr_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersasr_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towerscellular_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towerscellular_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersfm_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersmicrowave_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersmicrowave_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towerspager_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towerspager_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersprivate_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towersprivate_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towers_wvpublicbroadcasting_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/towers_wvpublicbroadcasting_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/votingdistrictswv_legislativeservices_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/votingdistrictswv_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/workforceinvestmentareas_wvgistc_200208_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvgistc_building_footprints_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvgistcbuildingfootprints_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wv_microsoft_20180207_utm17n83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatebounadary100k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstateboundary100k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstateboundary24k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstateboundary24k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatehousedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatehousedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatehousedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatehousedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatesenatedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wv_tax_districts_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wv_tax_districts_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wv_tax_districts_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/zipcodetabulationarea_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/zipcodetabulationarea_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/911centers_wvdem_032819_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/agents.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/agents_healthy.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/batch1.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/batch2.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/batch4.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/blockgroups_census_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/blockgroups_census_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/blockgroups_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/blockgroups_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/blockgroups_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_batch2.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_core69.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_FULL_BACKUP.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_services_only.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/calderl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulation_2500_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationover10k_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationsover10k_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationsover10k_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulationsover2500_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/coals2_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/coals2_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/coals2_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/communityboundary_min_att_20250121_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/correctionalinstitutions_hsip_20091230_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/countycityparkboundaries_20201104_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/countyseats_usgs_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/countyseats_usgs_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/courthousescounty_manysources_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/courthousesfederal_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/courthousesfederal_manysources_200203_utm_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/cvfault_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/cvfault_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/cvpoly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/cvpoly_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/cvpoly_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/damsnoncoal_usgs_2002_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/dams_usarmycorpsofengineers_200010_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/dams_usarmycropsofengineers_200010_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/excursionpassengertrains_wvdof_200102_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/excursionpassengertrains_wvdof_200102_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/facilities_epa_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/facilities_epa_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/failed_services.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/faultgl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/fault_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/feature_geometries_full_attributes.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/features_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/fire_departments_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/fire_dept_wvdem_092017_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geolgyl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geolgyp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geotextl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/healthruralfacilities_manysources_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/highered_wvemd_072420_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/highered_wvemd_072420_wgc84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/hospitals_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/impact_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/indexgrid15minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/indexgrid15minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/indexgrid1minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/industrialparks_wvdo_200078_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/industrialsites_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/inedexgrid1minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/knowledge_docs_attributes.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/knowledge_docs_metadata.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/libraries_manysources_2001_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/libraries_manysources_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/mesh_interest_timeline.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/metfacp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/mineraloperations_usgs_200204_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/mineraloperations_usgs_200204_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_attributes_live.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_tile_index_20251028_225447.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_tile_index_20251028_234406.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalatlasstreams_usgs_199903_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalatlasstreams_usgs_199903_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalregister_point_20200923_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalregister_point_20200923_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/paroleoffices_manysources_2008_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/paroleoffices_manysources_2008_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/placesofworship_hsip_20080723_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/placesofworship_hsip_20080723_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/policedept_wvdem_012319_gcs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/policedept_wvdem_012319_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populatedplaces_census_201112_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populatedplaces_census_20112_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populatedplaces_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populatedplaces_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populatedplaces_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populationdatablockgroups_uscensus_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/populationdatablockgroups_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/pow_wvgistc_062919_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/pow_wvgistc_062919_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/railnetworkregion_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/railnetworkregion_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/railnetworkwv_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/railnetworkwv_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/realtimestreamflowstations_usgs_200012_ll27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/realtimestreamflowstations_usgs_200012_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/realtimestreamflowstations_usgs_200012_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/sewertreatmentplants_wvdep_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/solidwastefacilities_wvdep_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/solidwastefacilities_wvdep_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/springs_wvges_1986_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/springs_wvges_1986_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/states_region_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/structurepolygons_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/summits_gistc_052012_utm83_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/summits_gistc_052012_wgs84_shp_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towersam_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towersasr_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towersasr_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towerscellular_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towerscellular_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towersfm_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towersmicrowave_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towersmicrowave_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towerspager_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towerspager_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towers_wvpublicbroadcasting_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/towers_wvpublicbroadcasting_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/votingdistrictswv_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wv_microsoft_20180207_utm17n83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatebounadary100k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstateboundary100k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstateboundary24k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatehousedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatehousedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatehousedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatehousedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wv_tax_districts_ll83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wv_tax_districts_wma84_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/zipcodetabulationarea_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/zipcodetabulationarea_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/911centers_wvdem_032819_gcs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/911centers_wvdem_032819_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/agents.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/agents_healthy.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/batch1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/batch2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/batch3.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/batch4.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blockgroups_census_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blockgroups_census_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blockgroups_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blockgroups_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blockgroups_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blockgroups_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blocks_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/blocks_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_batch2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_core69.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_critical_add.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_FULL_BACKUP.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_priority_services.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_services_only.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridge_manifest_with_utilities_backup.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/bridges_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/calderl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log10.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log1p.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sin.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sinh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tan.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tanh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_manifest.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulation_2500_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulation_2500_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationover10k_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationsover10k_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationsover10k_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationsover2500_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulationsover2500_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/coals2_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/coals2_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/coals2_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/communityboundary_min_att_20250121_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/communityboundary_min_att_20250121_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/communityhealthproviders_wvhealthcareauthority_200802_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/correctionalinstitutions_hsip_20091230_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/countycityparkboundaries_20201104_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/countyseats_usgs_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/countyseats_usgs_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/courthousescounty_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/courthousescounty_manysources_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/courthousesfederal_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/courthousesfederal_manysources_200203_utm_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/cvfault_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/cvfault_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/cvfault_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/cvpoly_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/cvpoly_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/cvpoly_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/damsnoncoal_usgs_2002_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/damsnoncoal_usgs_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/dams_usarmycorpsofengineers_200010_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/dams_usarmycropsofengineers_200010_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/data/gbim/gbim_entities_for_chroma.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/excursionpassengertrains_wvdof_200102_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/excursionpassengertrains_wvdof_200102_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/facilities_epa_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/facilities_epa_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/failed_services.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/faultgl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/fault_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/feature_geometries_full_attributes.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/features_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/fire_departments_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/fire_dept_wvdem_092017_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geolgyl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geolgyp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/geotextl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/glacagl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/glacal_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/healthruralfacilities_manysources_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/highered_wvemd_072420_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/highered_wvemd_072420_wgc84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/historicalaerialphotographycountycoverage_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/hospitals_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/hospitals_wvdem_040519_gcs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/hospitals_wvdem_040519_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/hospitalswvdem040519utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/impact_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/indexgrid15minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/indexgrid15minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/indexgrid1minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/industrialparks_wvdo_200078_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/industrialsites_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/inedexgrid1minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/knowledge_docs_attributes.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/knowledge_docs_metadata.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/libraries_manysources_2001_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/libraries_manysources_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/majorriversandlakesline_nhd_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/majorriversandlakesline_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/mesh_interest_timeline.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metfacp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metropolitanandmicropolitanstatisticalareas_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metropolitanandmicropolitanstatisticalareas_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/mineraloperations_usgs_200204_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/mineraloperations_usgs_200204_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/msjarvisattributesgis_census.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/ms_jarvis_attributes_gis.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/msjarvisattributesgis.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/msjarvisattributesgis_full_backup.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/msjarvisattributesgis_small.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/ms_jarvis_attributes_live.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/msjarvis_gis_manifest.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/ms_jarvis_tile_index_20251028_225447.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/ms_jarvis_tile_index_20251028_234406.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalatlasstreams_usgs_199903_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalatlasstreams_usgs_199903_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalregister_point_20200923_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalregister_point_20200923_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nursinghomes_wvdem_041219_gcs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/nursinghomes_wvdem_041219_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/paroleoffices_manysources_2008_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/paroleoffices_manysources_2008_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/placesofworship_hsip_20080723_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/placesofworship_hsip_20080723_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/policedept_wvdem_012319_gcs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/policedept_wvdem_012319_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populatedplaces_census_201112_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populatedplaces_census_20112_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populatedplaces_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populatedplaces_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populatedplaces_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populatedplaces_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populationdatablockgroups_uscensus_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/populationdatablockgroups_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/pow_wvgistc_062919_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/pow_wvgistc_062919_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/processed_gis/gis_file_catalog.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/publichealthdepts_hsip_20091229_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/publichealthdepts_hsip_20091229_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/railnetworkregion_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/railnetworkregion_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/railnetworkwv_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/railnetworkwv_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/realtimestreamflowstations_usgs_200012_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/realtimestreamflowstations_usgs_200012_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/realtimestreamflowstations_usgs_200012_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/recreationalwwtrails_ofwv_20151117_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/sewertreatmentplants_wvdep_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/solidwastefacilities_wvdep_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/solidwastefacilities_wvdep_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/springs_wvges_1986_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/springs_wvges_1986_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/states_region_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/structurepointsnorth_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/structurepointssouth_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/structurepolygons_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/summits_gistc_052012_utm83_shp_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/summits_gistc_052012_wgs84_shp_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/timberremovalvolume_usfs_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersam_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersasr_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersasr_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towerscellular_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towerscellular_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersfm_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersmicrowave_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersmicrowave_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towerspager_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towerspager_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersprivate_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towersprivate_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towers_wvpublicbroadcasting_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/towers_wvpublicbroadcasting_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log10.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log1p.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sin.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sinh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tan.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tanh.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-1.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-2.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/sklearn/datasets/data/breast_cancer.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/sklearn/datasets/data/iris.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/sklearn/datasets/data/linnerud_exercise.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/sklearn/datasets/data/linnerud_physiological.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/sklearn/datasets/data/wine_data.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/votingdistrictswv_legislativeservices_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/votingdistrictswv_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/workforceinvestmentareas_wvgistc_200208_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvgistc_building_footprints_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvgistcbuildingfootprints_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wv_microsoft_20180207_utm17n83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatebounadary100k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstateboundary100k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstateboundary24k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstateboundary24k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatehousedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatehousedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatehousedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatehousedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatesenatedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wv_tax_districts_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wv_tax_districts_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/wv_tax_districts_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/zipcodetabulationarea_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services_20llm_full/zipcodetabulationarea_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/911centers_wvdem_032819_gcs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/agents.csv
-/home/cakidd/msjarvis-safe/recovered-services/agents_healthy.csv
-/home/cakidd/msjarvis-safe/recovered-services/amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/batch1.csv
-/home/cakidd/msjarvis-safe/recovered-services/batch2.csv
-/home/cakidd/msjarvis-safe/recovered-services/batch4.csv
-/home/cakidd/msjarvis-safe/recovered-services/blockgroups_census_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/blockgroups_census_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/blockgroups_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/blockgroups_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/blockgroups_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/bridge_manifest_batch2.csv
-/home/cakidd/msjarvis-safe/recovered-services/bridge_manifest_core69.csv
-/home/cakidd/msjarvis-safe/recovered-services/bridge_manifest.csv
-/home/cakidd/msjarvis-safe/recovered-services/bridge_manifest_FULL_BACKUP.csv
-/home/cakidd/msjarvis-safe/recovered-services/bridge_manifest_services_only.csv
-/home/cakidd/msjarvis-safe/recovered-services/calderl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulation_2500_census_201111_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationover10k_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationsover10k_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationsover10k_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulationsover2500_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/coals2_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/coals2_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/coals2_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/communityboundary_min_att_20250121_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/correctionalinstitutions_hsip_20091230_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/countycityparkboundaries_20201104_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/countyseats_usgs_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/countyseats_usgs_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/courthousescounty_manysources_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/courthousesfederal_manysources_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/courthousesfederal_manysources_200203_utm_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/cvfault_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/cvfault_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/cvpoly_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/cvpoly_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/cvpoly_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/damsnoncoal_usgs_2002_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/dams_usarmycorpsofengineers_200010_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/dams_usarmycropsofengineers_200010_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/excursionpassengertrains_wvdof_200102_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/excursionpassengertrains_wvdof_200102_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/facilities_epa_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/facilities_epa_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/failed_services.csv
-/home/cakidd/msjarvis-safe/recovered-services/faultgl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/fault_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/feature_geometries_full_attributes.csv
-/home/cakidd/msjarvis-safe/recovered-services/features_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/fire_departments_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/fire_dept_wvdem_092017_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geolgyl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geolgyp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/geotextl_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/healthruralfacilities_manysources_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/highered_wvemd_072420_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/highered_wvemd_072420_wgc84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/hospitals_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/impact_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/indexgrid15minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/indexgrid15minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/indexgrid1minutequads_wvgistc_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/industrialbuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/industrialparks_wvdo_200078_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/industrialsites_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/inedexgrid1minutequads_wvgistc_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/knowledge_docs_attributes.csv
-/home/cakidd/msjarvis-safe/recovered-services/knowledge_docs_metadata.csv
-/home/cakidd/msjarvis-safe/recovered-services/libraries_manysources_2001_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/libraries_manysources_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/mesh_interest_timeline.csv
-/home/cakidd/msjarvis-safe/recovered-services/metfacp_reg_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/mineraloperations_usgs_200204_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/mineraloperations_usgs_200204_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/ms_jarvis_attributes_live.csv
-/home/cakidd/msjarvis-safe/recovered-services/ms_jarvis_tile_index_20251028_225447.csv
-/home/cakidd/msjarvis-safe/recovered-services/ms_jarvis_tile_index_20251028_234406.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalatlasstreams_usgs_199903_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalatlasstreams_usgs_199903_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalregister_point_20200923_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalregister_point_20200923_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/officebuildings_wvdo_200807_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/paroleoffices_manysources_2008_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/paroleoffices_manysources_2008_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/placesofworship_hsip_20080723_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/placesofworship_hsip_20080723_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/policedept_wvdem_012319_gcs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/policedept_wvdem_012319_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populatedplaces_census_201112_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populatedplaces_census_20112_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populatedplaces_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populatedplaces_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populatedplaces_uscensus_1990_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populationdatablockgroups_uscensus_2000_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/populationdatablockgroups_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/pow_wvgistc_062919_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/pow_wvgistc_062919_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/railnetworkregion_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/railnetworkregion_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/railnetworkwv_usdot_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/railnetworkwv_usdot_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/realtimestreamflowstations_usgs_200012_ll27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/realtimestreamflowstations_usgs_200012_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/realtimestreamflowstations_usgs_200012_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/sewertreatmentplants_wvdep_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/solidwastefacilities_wvdep_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/solidwastefacilities_wvdep_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/springs_wvges_1986_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/springs_wvges_1986_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/states_region_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/structurepolygons_samb_2003_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/summits_gistc_052012_utm83_shp_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/summits_gistc_052012_wgs84_shp_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towersam_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towersasr_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towersasr_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towerscellular_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towerscellular_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towersfm_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towersmicrowave_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towersmicrowave_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towerspager_fcc_200202_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towerspager_fcc_200202_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towers_wvpublicbroadcasting_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/towers_wvpublicbroadcasting_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/votingdistrictswv_uscensus_2000_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wv_microsoft_20180207_utm17n83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatebounadary100k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstateboundary100k_usgs_200203_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstateboundary24k_usgs_200203_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatehousedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatehousedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatehousedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatehousedistricts_manysources_2002_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wv_tax_districts_ll83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/wv_tax_districts_wma84_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/zipcodetabulationarea_census_2020_utm83_attrs.csv
-/home/cakidd/msjarvis-safe/recovered-services/zipcodetabulationarea_census_2020_wma84_attrs.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log10.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log1p.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log2.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-log.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sin.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-sinh.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tan.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-tanh.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-1.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/mt19937-testset-2.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-1.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64dxsm-testset-2.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-1.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/pcg64-testset-2.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-1.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/philox-testset-2.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-1.csv
-/home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data/sfc64-testset-2.csv
-cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Also find GeoJSON, JSON, JSONL
-find ~ -name "*.geojson" -o -name "*.jsonl" -o -name "*.json" \
-  -not -path "*/\.*" -not -path "*/node_modules/*" 2>/dev/null \
-  | sort > /tmp/all_geodata.txt
-wc -l /tmp/all_geodata.txt
-1629 /tmp/all_geodata.txt
-cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Find shapefiles too
-find ~ -name "*.shp" -not -path "*/\.*" 2>/dev/null | sort > /tmp/all_shapefiles.txt
-wc -l /tmp/all_shapefiles.txt
-4 /tmp/all_shapefiles.txt
-cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Summarize by directory
-find ~ -name "*.csv" -not -path "*/\.*" 2>/dev/null \
-  | xargs -I{} dirname {} | sort | uniq -c | sort -rn | head -30
-    256 /home/cakidd/msjarvis-safe/recovered-services_20llm_full
-    256 /home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe
-    201 /home/cakidd/msjarvis-safe/recovered-services
-    201 /home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services
-    201 /home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services
-    201 /home/cakidd/msjarvis-rebuild-recover/msjarvis-rebuild/recovered-services
-     75 /home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/pyogrio/gdal_data
-     56 /home/cakidd/Downloads/WV Address Points_CSV03232026
-     20 /home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/_core/tests/data
-     20 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/_core/tests/data
-     20 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/data
-     20 /home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/_core/tests/data
-     10 /home/cakidd/msjarvis-venvs/chroma_venv/lib/python3.12/site-packages/numpy/random/tests/data
-     10 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/numpy/random/tests/data
-     10 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/chroma_inspect_venv/lib/python3.12/site-packages/numpy/random/tests/data
-     10 /home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/numpy/random/tests/data
-      6 /home/cakidd/data/wv_buildings
-      5 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/venv/lib/python3.12/site-packages/sklearn/datasets/data
-      5 /home/cakidd/msjarvis-rebuild-working/ingest-venv/lib/python3.12/site-packages/sklearn/datasets/data
-      5 /home/cakidd/Downloads
-      1 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/processed_gis
-      1 /home/cakidd/msjarvis-safe/recovered-services_20llm_full/data/gbim
-      1 /home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/processed_gis
-      1 /home/cakidd/msjarvis-public-docs/docs
-      1 /home/cakidd/go/pkg/mod/gonum.org/v1/gonum@v0.16.0/graph/formats/rdf/testdata
-cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ ls -lh ~/msjarvis-rebuild-working/ingest/incoming/ 2>/dev/null | head -20
-ls -lh ~/msjarvis-rebuild-working/ingest/done/ 2>/dev/null | wc -l
-ls -lh ~/msjarvis-rebuild-working/ingest/failed/ 2>/dev/null | wc -l
-0
-0
+cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # First let's see what each empty view/table is defined as
+docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c "
+SELECT table_name, table_type 
+FROM information_schema.tables 
+WHERE table_schema='public' 
+AND table_name IN (
+  'zip_codes','building_with_parcel','resources',
+  'parcel_with_county_tax','building_parcel_county_tax', 
+  'program_with_county','wv_samb_all','vw_local_resources',
+  'program_footprint','building_with_county','program_zip6',
+  'program_building','building_with_region','program_with_region',
+  'us_zip_county_wv','program_footprint_with_county'
+)
+ORDER BY table_name;
+"
+          table_name           | table_type 
+-------------------------------+------------
+ building_parcel_county_tax    | VIEW
+ building_with_county          | VIEW
+ building_with_parcel          | VIEW
+ building_with_region          | VIEW
+ parcel_with_county_tax        | VIEW
+ program_building              | VIEW
+ program_footprint             | VIEW
+ program_footprint_with_county | VIEW
+ program_with_county           | VIEW
+ program_with_region           | VIEW
+ program_zip6                  | VIEW
+ resources                     | VIEW
+ us_zip_county_wv              | VIEW
+ vw_local_resources            | VIEW
+ wv_samb_all                   | VIEW
+ zip_codes                     | VIEW
+(16 rows)
+
+cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c "
+SELECT viewname, definition FROM pg_views WHERE schemaname='public';
+"
+           viewname            |                                                                                                                                                                       definition                                                                                                                                                                       
+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ program_footprint             |  SELECT p.program_id,                                                                                                                                                                                                                                                                                                                                 +
+                               |     p.program_name,                                                                                                                                                                                                                                                                                                                                   +
+                               |     p.zip_code AS usps_zip,                                                                                                                                                                                                                                                                                                                           +
+                               |     pb.zip6_poly,                                                                                                                                                                                                                                                                                                                                     +
+                               |     COALESCE(r.region_name, 'Unlabeled region'::text) AS region_name,                                                                                                                                                                                                                                                                                 +
+                               |     count(DISTINCT pb.building_id) AS building_count                                                                                                                                                                                                                                                                                                  +
+                               |    FROM ((program_building pb                                                                                                                                                                                                                                                                                                                         +
+                               |      JOIN community_programs p ON ((pb.program_id = p.program_id)))                                                                                                                                                                                                                                                                                   +
+                               |      LEFT JOIN zip6_regions r ON ((pb.zip6_poly = r.zip6_poly)))                                                                                                                                                                                                                                                                                      +
+                               |   GROUP BY p.program_id, p.program_name, p.zip_code, pb.zip6_poly, r.region_name;
+ geography_columns             |  SELECT current_database() AS f_table_catalog,                                                                                                                                                                                                                                                                                                        +
+                               |     n.nspname AS f_table_schema,                                                                                                                                                                                                                                                                                                                      +
+                               |     c.relname AS f_table_name,                                                                                                                                                                                                                                                                                                                        +
+                               |     a.attname AS f_geography_column,                                                                                                                                                                                                                                                                                                                  +
+                               |     postgis_typmod_dims(a.atttypmod) AS coord_dimension,                                                                                                                                                                                                                                                                                              +
+                               |     postgis_typmod_srid(a.atttypmod) AS srid,                                                                                                                                                                                                                                                                                                         +
+                               |     postgis_typmod_type(a.atttypmod) AS type                                                                                                                                                                                                                                                                                                          +
+                               |    FROM pg_class c,                                                                                                                                                                                                                                                                                                                                   +
+                               |     pg_attribute a,                                                                                                                                                                                                                                                                                                                                   +
+                               |     pg_type t,                                                                                                                                                                                                                                                                                                                                        +
+                               |     pg_namespace n                                                                                                                                                                                                                                                                                                                                    +
+                               |   WHERE ((t.typname = 'geography'::name) AND (a.attisdropped = false) AND (a.atttypid = t.oid) AND (a.attrelid = c.oid) AND (c.relnamespace = n.oid) AND (c.relkind = ANY (ARRAY['r'::"char", 'v'::"char", 'm'::"char", 'f'::"char", 'p'::"char"])) AND (NOT pg_is_other_temp_schema(c.relnamespace)) AND has_table_privilege(c.oid, 'SELECT'::text));
+ geometry_columns              |  SELECT (current_database())::character varying(256) AS f_table_catalog,                                                                                                                                                                                                                                                                              +
+                               |     n.nspname AS f_table_schema,                                                                                                                                                                                                                                                                                                                      +
+                               |     c.relname AS f_table_name,                                                                                                                                                                                                                                                                                                                        +
+                               |     a.attname AS f_geometry_column,                                                                                                                                                                                                                                                                                                                   +
+                               |     COALESCE(postgis_typmod_dims(a.atttypmod), sn.ndims, 2) AS coord_dimension,                                                                                                                                                                                                                                                                       +
+                               |     COALESCE(NULLIF(postgis_typmod_srid(a.atttypmod), 0), sr.srid, 0) AS srid,                                                                                                                                                                                                                                                                        +
+                               |     (replace(replace(COALESCE(NULLIF(upper(postgis_typmod_type(a.atttypmod)), 'GEOMETRY'::text), st.type, 'GEOMETRY'::text), 'ZM'::text, ''::text), 'Z'::text, ''::text))::character varying(30) AS type                                                                                                                                              +
+                               |    FROM ((((((pg_class c                                                                                                                                                                                                                                                                                                                              +
+                               |      JOIN pg_attribute a ON (((a.attrelid = c.oid) AND (NOT a.attisdropped))))                                                                                                                                                                                                                                                                        +
+                               |      JOIN pg_namespace n ON ((c.relnamespace = n.oid)))                                                                                                                                                                                                                                                                                               +
+                               |      JOIN pg_type t ON ((a.atttypid = t.oid)))                                                                                                                                                                                                                                                                                                        +
+                               |      LEFT JOIN ( SELECT s.connamespace,                                                                                                                                                                                                                                                                                                               +
+                               |             s.conrelid,                                                                                                                                                                                                                                                                                                                               +
+                               |             s.conkey,                                                                                                                                                                                                                                                                                                                                 +
+                               |             replace(split_part(s.consrc, ''''::text, 2), ')'::text, ''::text) AS type                                                                                                                                                                                                                                                                 +
+                               |            FROM ( SELECT pg_constraint.connamespace,                                                                                                                                                                                                                                                                                                  +
+                               |                     pg_constraint.conrelid,                                                                                                                                                                                                                                                                                                           +
+                               |                     pg_constraint.conkey,                                                                                                                                                                                                                                                                                                             +
+                               |                     pg_get_constraintdef(pg_constraint.oid) AS consrc                                                                                                                                                                                                                                                                                 +
+                               |                    FROM pg_constraint) s                                                                                                                                                                                                                                                                                                              +
+                               |           WHERE (s.consrc ~~* '%geometrytype(% = %'::text)) st ON (((st.connamespace = n.oid) AND (st.conrelid = c.oid) AND (a.attnum = ANY (st.conkey)))))                                                                                                                                                                                           +
+                               |      LEFT JOIN ( SELECT s.connamespace,                                                                                                                                                                                                                                                                                                               +
+                               |             s.conrelid,                                                                                                                                                                                                                                                                                                                               +
+                               |             s.conkey,                                                                                                                                                                                                                                                                                                                                 +
+                               |             (replace(split_part(s.consrc, ' = '::text, 2), ')'::text, ''::text))::integer AS ndims                                                                                                                                                                                                                                                    +
+                               |            FROM ( SELECT pg_constraint.connamespace,                                                                                                                                                                                                                                                                                                  +
+                               |                     pg_constraint.conrelid,                                                                                                                                                                                                                                                                                                           +
+                               |                     pg_constraint.conkey,                                                                                                                                                                                                                                                                                                             +
+                               |                     pg_get_constraintdef(pg_constraint.oid) AS consrc                                                                                                                                                                                                                                                                                 +
+                               |                    FROM pg_constraint) s                                                                                                                                                                                                                                                                                                              +
+                               |           WHERE (s.consrc ~~* '%ndims(% = %'::text)) sn ON (((sn.connamespace = n.oid) AND (sn.conrelid = c.oid) AND (a.attnum = ANY (sn.conkey)))))                                                                                                                                                                                                  +
+                               |      LEFT JOIN ( SELECT s.connamespace,                                                                                                                                                                                                                                                                                                               +
+                               |             s.conrelid,                                                                                                                                                                                                                                                                                                                               +
+                               |             s.conkey,                                                                                                                                                                                                                                                                                                                                 +
+                               |             (replace(replace(split_part(s.consrc, ' = '::text, 2), ')'::text, ''::text), '('::text, ''::text))::integer AS srid                                                                                                                                                                                                                       +
+                               |            FROM ( SELECT pg_constraint.connamespace,                                                                                                                                                                                                                                                                                                  +
+                               |                     pg_constraint.conrelid,                                                                                                                                                                                                                                                                                                           +
+                               |                     pg_constraint.conkey,                                                                                                                                                                                                                                                                                                             +
+                               |                     pg_get_constraintdef(pg_constraint.oid) AS consrc                                                                                                                                                                                                                                                                                 +
+                               |                    FROM pg_constraint) s                                                                                                                                                                                                                                                                                                              +
+                               |           WHERE (s.consrc ~~* '%srid(% = %'::text)) sr ON (((sr.connamespace = n.oid) AND (sr.conrelid = c.oid) AND (a.attnum = ANY (sr.conkey)))))                                                                                                                                                                                                   +
+                               |   WHERE ((c.relkind = ANY (ARRAY['r'::"char", 'v'::"char", 'm'::"char", 'f'::"char", 'p'::"char"])) AND (NOT (c.relname = 'raster_columns'::name)) AND (t.typname = 'geometry'::name) AND (NOT pg_is_other_temp_schema(c.relnamespace)) AND has_table_privilege(c.oid, 'SELECT'::text));
+ program_with_county           |  SELECT p.program_id,                                                                                                                                                                                                                                                                                                                                 +
+                               |     p.program_name,                                                                                                                                                                                                                                                                                                                                   +
+                               |     p.zip_code,                                                                                                                                                                                                                                                                                                                                       +
+                               |     p.fips_county,                                                                                                                                                                                                                                                                                                                                    +
+                               |     uc.county_name,                                                                                                                                                                                                                                                                                                                                   +
+                               |     uc.state_abbr                                                                                                                                                                                                                                                                                                                                     +
+                               |    FROM (community_programs p                                                                                                                                                                                                                                                                                                                         +
+                               |      LEFT JOIN us_zip_county_wv uc ON ((p.zip_code = uc.zip)));
+ resources                     |  SELECT community_programs.program_id AS id,                                                                                                                                                                                                                                                                                                          +
+                               |     community_programs.program_name AS name,                                                                                                                                                                                                                                                                                                          +
+                               |     community_programs.description,                                                                                                                                                                                                                                                                                                                   +
+                               |     community_programs.zip_code AS zip,                                                                                                                                                                                                                                                                                                               +
+                               |     community_programs.fips_county AS county,                                                                                                                                                                                                                                                                                                         +
+                               |     community_programs.service_type[1] AS resource_type,                                                                                                                                                                                                                                                                                              +
+                               |     community_programs.lat,                                                                                                                                                                                                                                                                                                                           +
+                               |     community_programs.lon,                                                                                                                                                                                                                                                                                                                           +
+                               |     community_programs.phone AS contact_phone,                                                                                                                                                                                                                                                                                                        +
+                               |     community_programs.url,                                                                                                                                                                                                                                                                                                                           +
+                               |     community_programs.eligibility,                                                                                                                                                                                                                                                                                                                   +
+                               |     community_programs.income_limit,                                                                                                                                                                                                                                                                                                                  +
+                               |     community_programs.service_type                                                                                                                                                                                                                                                                                                                   +
+                               |    FROM community_programs;
+ zip_codes                     |  SELECT DISTINCT community_programs.zip_code AS zip,                                                                                                                                                                                                                                                                                                  +
+                               |     community_programs.city,                                                                                                                                                                                                                                                                                                                          +
+                               |     community_programs.fips_county AS county                                                                                                                                                                                                                                                                                                          +
+                               |    FROM community_programs;
+ us_zip_county_wv              |  SELECT cp.zip_code AS zip,                                                                                                                                                                                                                                                                                                                           +
+                               |     cp.fips_county AS county_fips,                                                                                                                                                                                                                                                                                                                    +
+                               |     cp.city AS county_name,                                                                                                                                                                                                                                                                                                                           +
+                               |     'WV'::text AS state_abbr,                                                                                                                                                                                                                                                                                                                         +
+                               |     st_setsrid(st_makepoint(cp.lon, cp.lat), 4326) AS geom                                                                                                                                                                                                                                                                                            +
+                               |    FROM community_programs cp                                                                                                                                                                                                                                                                                                                         +
+                               |   WHERE (cp.fips_county IS NOT NULL);
+ building_with_county          |  SELECT DISTINCT ON (b.building_id) b.building_id,                                                                                                                                                                                                                                                                                                    +
+                               |     b.zip AS building_zip6,                                                                                                                                                                                                                                                                                                                           +
+                               |     c.geodb_id,                                                                                                                                                                                                                                                                                                                                       +
+                               |     c.county_name                                                                                                                                                                                                                                                                                                                                     +
+                               |    FROM (building_profile b                                                                                                                                                                                                                                                                                                                           +
+                               |      JOIN wv_counties c ON (st_within(b.geom, c.geom_4326)))                                                                                                                                                                                                                                                                                          +
+                               |   ORDER BY b.building_id, (st_distance(b.geom, st_centroid(c.geom_4326)));
+ wv_samb_all                   |  SELECT 'north'::text AS samb_region,                                                                                                                                                                                                                                                                                                                 +
+                               |     wv_samb_north.building_id,                                                                                                                                                                                                                                                                                                                        +
+                               |     wv_samb_north.label,                                                                                                                                                                                                                                                                                                                              +
+                               |     wv_samb_north.btype,                                                                                                                                                                                                                                                                                                                              +
+                               |     wv_samb_north.sourcetable,                                                                                                                                                                                                                                                                                                                        +
+                               |     wv_samb_north.country,                                                                                                                                                                                                                                                                                                                            +
+                               |     wv_samb_north.geom                                                                                                                                                                                                                                                                                                                                +
+                               |    FROM wv_samb_north                                                                                                                                                                                                                                                                                                                                 +
+                               | UNION ALL                                                                                                                                                                                                                                                                                                                                             +
+                               |  SELECT 'south'::text AS samb_region,                                                                                                                                                                                                                                                                                                                 +
+                               |     wv_samb_south.building_id,                                                                                                                                                                                                                                                                                                                        +
+                               |     wv_samb_south.label,                                                                                                                                                                                                                                                                                                                              +
+                               |     wv_samb_south.btype,                                                                                                                                                                                                                                                                                                                              +
+                               |     wv_samb_south.sourcetable,                                                                                                                                                                                                                                                                                                                        +
+                               |     wv_samb_south.country,                                                                                                                                                                                                                                                                                                                            +
+                               |     wv_samb_south.geom                                                                                                                                                                                                                                                                                                                                +
+                               |    FROM wv_samb_south;
+ vw_local_resources            |  SELECT ((('x'::text || substr(md5(community_programs.program_id), 1, 8)))::bit(32))::integer AS id,                                                                                                                                                                                                                                                  +
+                               |     community_programs.program_name AS name,                                                                                                                                                                                                                                                                                                          +
+                               |     community_programs.description,                                                                                                                                                                                                                                                                                                                   +
+                               |     community_programs.zip_code AS zip_spatial,                                                                                                                                                                                                                                                                                                       +
+                               |     community_programs.fips_county AS county_spatial,                                                                                                                                                                                                                                                                                                 +
+                               |     community_programs.service_type[1] AS resource_type,                                                                                                                                                                                                                                                                                              +
+                               |     community_programs.lat,                                                                                                                                                                                                                                                                                                                           +
+                               |     community_programs.lon,                                                                                                                                                                                                                                                                                                                           +
+                               |     community_programs.phone,                                                                                                                                                                                                                                                                                                                         +
+                               |     community_programs.url,                                                                                                                                                                                                                                                                                                                           +
+                               |     community_programs.eligibility,                                                                                                                                                                                                                                                                                                                   +
+                               |     community_programs.income_limit,                                                                                                                                                                                                                                                                                                                  +
+                               |     community_programs.service_type,                                                                                                                                                                                                                                                                                                                  +
+                               |     st_setsrid(st_makepoint(community_programs.lon, community_programs.lat), 4326) AS geom,                                                                                                                                                                                                                                                           +
+                               |     community_programs.bbb_status AS verification_status,                                                                                                                                                                                                                                                                                             +
+                               |     NULL::boolean AS income_test_required,                                                                                                                                                                                                                                                                                                            +
+                               |     NULL::boolean AS limit_unknown,                                                                                                                                                                                                                                                                                                                   +
+                               |     NULL::boolean AS verified,                                                                                                                                                                                                                                                                                                                        +
+                               |     NULL::numeric AS fpl_pct                                                                                                                                                                                                                                                                                                                          +
+                               |    FROM community_programs                                                                                                                                                                                                                                                                                                                            +
+                               |   WHERE ((community_programs.lat IS NOT NULL) AND (community_programs.lon IS NOT NULL));
+ program_zip6                  |  SELECT p.program_id,                                                                                                                                                                                                                                                                                                                                 +
+                               |     p.program_name,                                                                                                                                                                                                                                                                                                                                   +
+                               |     zc.zip AS zip6_poly                                                                                                                                                                                                                                                                                                                               +
+                               |    FROM (community_programs p                                                                                                                                                                                                                                                                                                                         +
+                               |      JOIN wv_zip_codes zc ON (st_within(p.geom, zc.geom)));
+ program_building              |  SELECT pz.program_id,                                                                                                                                                                                                                                                                                                                                +
+                               |     pz.program_name,                                                                                                                                                                                                                                                                                                                                  +
+                               |     b.building_id,                                                                                                                                                                                                                                                                                                                                    +
+                               |     b.zip AS building_zip6,                                                                                                                                                                                                                                                                                                                           +
+                               |     m.zip6_poly                                                                                                                                                                                                                                                                                                                                       +
+                               |    FROM ((program_zip6 pz                                                                                                                                                                                                                                                                                                                             +
+                               |      JOIN building_zip6_to_zip6poly m ON ((pz.zip6_poly = m.zip6_poly)))                                                                                                                                                                                                                                                                              +
+                               |      JOIN building_profile b ON ((b.zip = m.building_zip6)));
+ building_with_region          |  SELECT b.building_id,                                                                                                                                                                                                                                                                                                                                +
+                               |     b.zip AS building_zip6,                                                                                                                                                                                                                                                                                                                           +
+                               |     m.zip6_poly,                                                                                                                                                                                                                                                                                                                                      +
+                               |     r.region_name,                                                                                                                                                                                                                                                                                                                                    +
+                               |     r.notes                                                                                                                                                                                                                                                                                                                                           +
+                               |    FROM ((building_profile b                                                                                                                                                                                                                                                                                                                          +
+                               |      JOIN building_zip6_to_zip6poly m ON ((b.zip = m.building_zip6)))                                                                                                                                                                                                                                                                                 +
+                               |      LEFT JOIN zip6_regions r ON ((m.zip6_poly = r.zip6_poly)));
+ program_with_region           |  SELECT pz.program_id,                                                                                                                                                                                                                                                                                                                                +
+                               |     pz.program_name,                                                                                                                                                                                                                                                                                                                                  +
+                               |     pz.zip6_poly,                                                                                                                                                                                                                                                                                                                                     +
+                               |     r.region_name,                                                                                                                                                                                                                                                                                                                                    +
+                               |     r.notes                                                                                                                                                                                                                                                                                                                                           +
+                               |    FROM (program_zip6 pz                                                                                                                                                                                                                                                                                                                              +
+                               |      LEFT JOIN zip6_regions r ON ((pz.zip6_poly = r.zip6_poly)));
+ program_footprint_with_county |  SELECT pf.program_id,                                                                                                                                                                                                                                                                                                                                +
+                               |     pf.program_name,                                                                                                                                                                                                                                                                                                                                  +
+                               |     pf.usps_zip,                                                                                                                                                                                                                                                                                                                                      +
+                               |     pf.zip6_poly,                                                                                                                                                                                                                                                                                                                                     +
+                               |     zr.region_name,                                                                                                                                                                                                                                                                                                                                   +
+                               |     zr.county_geodb_id,                                                                                                                                                                                                                                                                                                                               +
+                               |     zr.pretty_county_name AS county_name,                                                                                                                                                                                                                                                                                                             +
+                               |     pf.building_count                                                                                                                                                                                                                                                                                                                                 +
+                               |    FROM (program_footprint pf                                                                                                                                                                                                                                                                                                                         +
+                               |      JOIN zip6_regions zr ON ((pf.zip6_poly = zr.zip6_poly)));
+ building_with_parcel          |  SELECT DISTINCT ON (b.building_id) b.building_id,                                                                                                                                                                                                                                                                                                    +
+                               |     b.zip AS building_zip6,                                                                                                                                                                                                                                                                                                                           +
+                               |     p.parcel_id,                                                                                                                                                                                                                                                                                                                                      +
+                               |     p.cleanparcelid,                                                                                                                                                                                                                                                                                                                                  +
+                               |     p.codist,                                                                                                                                                                                                                                                                                                                                         +
+                               |     p.countyid,                                                                                                                                                                                                                                                                                                                                       +
+                               |     p.shape_area,                                                                                                                                                                                                                                                                                                                                     +
+                               |     p.shape_length                                                                                                                                                                                                                                                                                                                                    +
+                               |    FROM (building_profile b                                                                                                                                                                                                                                                                                                                           +
+                               |      JOIN wv_parcels p ON (st_within(b.geom, p.geom_4326)))                                                                                                                                                                                                                                                                                           +
+                               |   ORDER BY b.building_id, (st_area(p.geom_4326));
+ parcel_with_county_tax        |  SELECT DISTINCT ON (p.parcel_id) p.parcel_id,                                                                                                                                                                                                                                                                                                        +
+                               |     p.cleanparcelid,                                                                                                                                                                                                                                                                                                                                  +
+                               |     p.codist,                                                                                                                                                                                                                                                                                                                                         +
+                               |     p.countyid,                                                                                                                                                                                                                                                                                                                                       +
+                               |     c.geodb_id AS county_geodb_id,                                                                                                                                                                                                                                                                                                                    +
+                               |     c.pretty_name AS county_name,                                                                                                                                                                                                                                                                                                                     +
+                               |     t.geodb_id AS tax_geodb_id,                                                                                                                                                                                                                                                                                                                       +
+                               |     t.tax_district_label                                                                                                                                                                                                                                                                                                                              +
+                               |    FROM ((wv_parcels p                                                                                                                                                                                                                                                                                                                                +
+                               |      LEFT JOIN wv_counties c ON (st_within(st_centroid(p.geom_4326), c.geom_4326)))                                                                                                                                                                                                                                                                   +
+                               |      LEFT JOIN wv_tax_districts_poly t ON (st_within(st_centroid(p.geom_4326), t.geom_4326)))                                                                                                                                                                                                                                                         +
+                               |   ORDER BY p.parcel_id, (st_area(p.geom_4326));
+ building_parcel_county_tax    |  SELECT bwp.building_id,                                                                                                                                                                                                                                                                                                                              +
+                               |     bwp.building_zip6,                                                                                                                                                                                                                                                                                                                                +
+                               |     bwp.parcel_id,                                                                                                                                                                                                                                                                                                                                    +
+                               |     bwp.cleanparcelid,                                                                                                                                                                                                                                                                                                                                +
+                               |     bwp.codist,                                                                                                                                                                                                                                                                                                                                       +
+                               |     bwp.countyid,                                                                                                                                                                                                                                                                                                                                     +
+                               |     pwt.county_name,                                                                                                                                                                                                                                                                                                                                  +
+                               |     pwt.county_geodb_id,                                                                                                                                                                                                                                                                                                                              +
+                               |     pwt.tax_district_label,                                                                                                                                                                                                                                                                                                                           +
+                               |     pwt.tax_geodb_id                                                                                                                                                                                                                                                                                                                                  +
+                               |    FROM (building_with_parcel bwp                                                                                                                                                                                                                                                                                                                     +
+                               |      LEFT JOIN parcel_with_county_tax pwt ON ((bwp.parcel_id = pwt.parcel_id)));
+(18 rows)
+
 cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 
