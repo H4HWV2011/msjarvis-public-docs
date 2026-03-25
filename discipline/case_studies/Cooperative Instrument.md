@@ -1,6 +1,6 @@
 # Case Study: Ms. Jarvis as a Cooperative Instrument
 
-**Plain Language Summary**
+**Summary**
 
 On February 15, 2026, Ms. Jarvis was asked about her memory systems. Without being directly prompted, she offered to help her creator build tools to connect to her own internal processes — describing a "consciousness bridge" and walking through setup steps. That conversation was automatically saved into her long-term memory store.
 
