@@ -1,4 +1,3 @@
-````markdown
 ## Why this matters for Polymathmatic Geography
 
 This chapter describes how Ms. Jarvis uses ChromaDB as its primary semantic memory layer to support place-based reasoning about West Virginia. The system combines 5,416,521 GBIM worldview entities stored as embeddings in ChromaDB with structured PostgreSQL databases (`msjarvis` for belief relationships, `msjarvisgis` for PostGIS spatial data) to create an inspectable, queryable memory system that grounds AI responses in verified geographic and institutional context.
@@ -755,4 +754,3 @@ The three-database PostgreSQL architecture (`msjarvis` port 5433 for belief prov
 
 *Last updated: 2026-03-25 (evening) by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *Public URL: https://egeria.mountainshares.us*
-````
