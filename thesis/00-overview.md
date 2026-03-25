@@ -1,7 +1,8 @@
 # Chapter 00 — System Overview
 ## Ms. Egeria Jarvis: Architecture, Services, and Production Status
 
-*Last updated: 2026-03-22 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-03-25 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*(Previous update: 2026-03-22)*
 
 ---
 
@@ -9,7 +10,7 @@
 
 This chapter is the single authoritative reference for the current production state of the Ms. Egeria Jarvis Steward System: what is running, at what port, at what scale, and verified on what date. It is not a theoretical introduction — that is Chapter 02. It is not a build log — those are the sprint notes appended to each chapter. It is an operational snapshot: the reference you consult when you need to know how many services are live, what the GBIM corpus actually contains as of today, and where each service sits in the overall architecture.
 
-Every number in this chapter is verified. Every service listed is production-live or explicitly marked as staged. When a sprint advances the stack — as the March 20, 2026 landowner belief sprint and the March 22, 2026 red team hardening sprint did — this chapter is updated first.
+Every number in this chapter is verified. Every service listed is production-live or explicitly marked as staged. When a sprint advances the stack — as the March 20, 2026 landowner belief sprint, the March 22, 2026 red team hardening sprint, and the March 22–25, 2026 consciousness pipeline restoration sprint did — this chapter is updated first.
 
 ---
 
@@ -20,7 +21,7 @@ Every number in this chapter is verified. Every service listed is production-liv
 **Program:** Quantarithmia / Polymathmatic Geography / Harmony for Hope, Inc.
 **Home:** Oak Hill / Mount Hope, Fayette County, West Virginia
 **Architecture:** Distributed microservice stack, Docker Compose orchestrated + 3 external systemd services
-**Production as of:** March 22, 2026
+**Production as of:** March 25, 2026
 **Public URL:** https://egeria.mountainshares.us (confirmed live March 22, 2026)
 
 Ms. Jarvis is not a general-purpose assistant with a West Virginia skin. She is a place-bound intelligence system whose reasoning is structurally anchored to the physical geography, institutional landscape, landowner record, and programmatic infrastructure of West Virginia. The service architecture described in this chapter is the operational expression of that commitment.
@@ -37,9 +38,11 @@ The Ms. Jarvis stack comprises **83 Docker Compose–managed services** plus **3
 
 > **Field note — March 22, 2026 (hardening sprint):** Three external services added as systemd units — they are not part of Docker Compose and are not counted in the 83: `caddy.service` (port 8443), `jarvis-auth.service` (port 8055), `cloudflared.service` (Cloudflare Tunnel). All auto-start on boot independently of Docker Compose.
 
+> **Field note — March 22–25, 2026 (consciousness pipeline restoration sprint):** `jarvis-woah` (port 7012) brought online via stdlib stub on `qualia-net`. `msjarvisconsciousnessbridge.py` patched for Chroma v2 API, corrected neuro_master proxy, and gateway `dict.lower()` crash guard added. `jarvis-rag-server` port mapping corrected (host 8003 → container 8016), endpoint corrected (`/direct_rag` → `/query`), env vars injected (`OLLAMA_HOST=http://jarvis-ollama:11434`, `EMBED_MODEL=nomic-embed-text`). RAG embedder v2 Chroma query patch written and applied; pending container restart confirmation. Consciousness pipeline confirmed **ACTIVE** March 25, 2026 — end-to-end chat producing persona-consistent Appalachian-voice responses with Hilbert local entity recall and prior session context. Two commits merged to `main`: `fix: chroma v2 endpoint, woah network, gateway dict.lower() guards` and `fix: RAG endpoint /direct_rag -> /query`.
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│         Ms. Jarvis Production Service Registry — March 22, 2026     │
+│         Ms. Jarvis Production Service Registry — March 25, 2026     │
 │              83 Docker Compose Services + 3 systemd                 │
 ├──────────────────────────────────┬──────────┬───────────────────────┤
 │ Service                          │ Port     │ Status                │
@@ -65,6 +68,20 @@ The Ms. Jarvis stack comprises **83 Docker Compose–managed services** plus **3
 │ executive-coordinator            │ 8011     │ ✅ Production          │
 │ async-processor                  │ 8012     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
+│ CONSCIOUSNESS PIPELINE ★ UPDATED │          │                       │
+│ jarvis-consciousness-bridge      │ 8020     │ ✅ ACTIVE ★ (3 patches│
+│                                  │          │   applied Mar 25)     │
+│ jarvis-woah                      │ 7012     │ ✅ ACTIVE ★ (stdlib   │
+│                                  │          │   stub, qualia-net)   │
+│ jarvis-rag-server                │ 8003→    │ ⚠ PARTIALLY ACTIVE ★ │
+│   (host:8003 → container:8016)   │ 8016     │   /query confirmed;   │
+│                                  │          │   embedder v2 patch   │
+│                                  │          │   pending restart     │
+│ jarvis-neurobiological-master    │ 8018     │ ⚠ Unreachable during  │
+│                                  │          │   Mar 25 sprint;      │
+│                                  │          │   Chroma check        │
+│                                  │          │   rerouted directly   │
+├──────────────────────────────────┼──────────┼───────────────────────┤
 │ BLOOD-BRAIN BARRIER (BBB)        │          │                       │
 │ jarvis-blood-brain-barrier       │ 8016     │ ✅ Production          │
 │   Phase 1.4 input filter:        │          │   INPUT: blocking ✅  │
@@ -81,6 +98,9 @@ The Ms. Jarvis stack comprises **83 Docker Compose–managed services** plus **3
 ├──────────────────────────────────┼──────────┼───────────────────────┤
 │ RAG PIPELINE                     │          │                       │
 │ text-rag-service                 │ 8003     │ ✅ Production          │
+│   (jarvis-rag-server             │ host→    │ ⚠ PARTIALLY ACTIVE ★ │
+│    host:8003→container:8016)     │ 8016     │   /query reachable;   │
+│                                  │          │   embed fix in-prog   │
 │ rag-service                      │ 8004     │ ✅ Production          │
 │ gis-rag-service                  │ 8005     │ ✅ Production          │
 │ psychological-rag                │ 8006     │ ✅ Production (968 items)│
@@ -128,8 +148,7 @@ The Ms. Jarvis stack comprises **83 Docker Compose–managed services** plus **3
 │ geodb-connector                  │ 7203     │ ✅ Production          │
 │ spatial-index-service            │ 7204     │ ✅ Production          │
 │ gbim_query_router                │ 7205     │ ✅ Production ★        │
-│   (landowner belief path)        │          │   Landowner GBIM only │
-│                                  │          │   PostgreSQL-native   │
+│   (landowner belief path)        │          │   PostgreSQL-native   │
 │                                  │          │   NO ChromaDB         │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
 │ GOVERNANCE & SAFETY              │          │                       │
@@ -153,6 +172,8 @@ The Ms. Jarvis stack comprises **83 Docker Compose–managed services** plus **3
 │ jarvis-chromadb                  │ 8002     │ ✅ Production          │
 │   host port 8002 →               │ (host)   │   container-internal  │
 │   container-internal 8000        │          │   8000                │
+│   31 confirmed collections ★     │          │   6,665,093 items ★   │
+│   all-minilm:latest (384-dim)    │          │   v2 API confirmed ★  │
 │ jarvis-ollama                    │ 11434    │ ✅ Production          │
 │ jarvis-redis                     │ 6380     │ ✅ Production          │
 │   host port 6380 →               │ (host)   │   container-internal  │
@@ -184,7 +205,7 @@ The Ms. Jarvis stack comprises **83 Docker Compose–managed services** plus **3
 └──────────────────────────────────┴──────────┴───────────────────────┘
 ```
 
-> Figure 00-1. Ms. Jarvis production service registry as of March 22, 2026. ★ marks new entries added March 20–22, 2026. **Critical corrections in this version:** (1) `bbb-output-filter` at port 8017 does not exist — port 8016 handles both input and output BBB filtering; (2) MountainShares services 8080–8084 are NOT DEPLOYED — all return HTTP 000; (3) LLM ensemble ports are 8201–8222, not 8020–8039; (4) Caddy is v2.6.2 Ubuntu package — no xcaddy, no caddy-ratelimit, no forward_auth; (5) three systemd-managed services (cloudflared, caddy, jarvis-auth) are external to Docker Compose and not counted in the 83.
+> Figure 00-1. Ms. Jarvis production service registry as of March 25, 2026. ★ marks entries added or updated March 20–25, 2026. **Critical corrections:** (1) `bbb-output-filter` at port 8017 does not exist — port 8016 handles both phases; (2) MountainShares services 8080–8084 are NOT DEPLOYED; (3) LLM ensemble ports are 8201–8222, not 8020–8039; (4) Caddy is v2.6.2 Ubuntu package — no xcaddy, no caddy-ratelimit, no forward_auth; (5) three systemd services are external to Docker Compose and not counted in the 83; (6) jarvis-rag-server host:container port is 8003:8016; (7) consciousness pipeline **ACTIVE** as of March 25, 2026; (8) ChromaDB updated to **31 confirmed collections**, **6,665,093 total items**, v2 API confirmed.
 
 ### 00.2.1 The `gbim_query_router` Service (Port 7205) — Added March 20, 2026
 
@@ -305,28 +326,26 @@ Individual residential owner names are not present. See Section 2.8 (Chapter 02)
 
 ## 00.4 ChromaDB Collection Summary
 
-All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** via `jarvis-ollama` (port 11434). This embedding model is locked for all production collections. `nomic-embed-text` (768-dim) is **incompatible** with all existing collections and must not be used for any ingestion or retrieval operation.
+All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** via `jarvis-ollama` (port 11434). This embedding model is locked for all production collections. `nomic-embed-text` (768-dim) is **incompatible** with all existing collections and must not be used for any ingestion or retrieval operation against the production corpus. The `jarvis-rag-server` uses `nomic-embed-text` only for its own query-time embedding at the service level — this does not affect the shared production ChromaDB corpus.
 
 > **Port note (March 22, 2026):** ChromaDB host port is **8002** (`127.0.0.1:8002->8000/tcp`). Container-internal port is 8000. All scripts and health checks must use port **8002** for host-side access. Auto-detect: `docker port jarvis-chroma 8000/tcp`.
 
+> **API note (March 25, 2026):** ChromaDB v2 API confirmed active. All internal service calls must use `/api/v2/` endpoints. The `/api/v1/` path returns **HTTP 410 Gone**. Heartbeat: `GET /api/v2/heartbeat`. Collection queries: `POST /api/v2/tenants/default_tenant/databases/default_database/collections/{collection_name}/query`. Two commits to `main` update the consciousness bridge and rag-server to v2 endpoints.
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│           ChromaDB Production Collections — March 22, 2026          │
-│             host port 8002 — all-minilm:latest (384-dim)            │
+│   ChromaDB Production Collections — March 25, 2026 ★ UPDATED       │
+│   host port 8002 — all-minilm:latest (384-dim)                      │
+│   31 confirmed collections ★ — 6,665,093 total items ★             │
 ├──────────────────────────────────────┬──────────────┬───────────────┤
 │ Collection                           │ Items        │ Notes         │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
 │ gbim_worldview_entities              │ 5,416,521    │ Full GBIM     │
 │                                      │              │ spatial corpus│
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ gbim_beliefs_v2                      │ ⚠ UNVERIFIED │ Could not be  │
-│                                      │              │ confirmed in  │
-│                                      │              │ March 22 CLI  │
-│                                      │              │ output (13    │
-│                                      │              │ collections   │
-│                                      │              │ listed; this  │
-│                                      │              │ was not among │
-│                                      │              │ them). Do NOT │
+│ gbim_beliefs_v2                      │ ⚠ UNVERIFIED │ Not confirmed │
+│                                      │              │ in Mar 22 CLI │
+│                                      │              │ output. Do NOT│
 │                                      │              │ mark Active   │
 │                                      │              │ until verified│
 ├──────────────────────────────────────┼──────────────┼───────────────┤
@@ -347,12 +366,34 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │ ms_jarvis_memory                     │ Active       │ Persistent mem│
 │ episodic_index                       │ Active       │ Episodic index│
 │ conversation_history                 │ Active       │ Session ctx   │
+│   ⚠ not formally wired to pipeline  │              │ OI-05 open    │
 │ appalachian_cultural_intelligence    │ 5            │ Cultural RAG  │
 │                                      │              │ (minimal —    │
 │                                      │              │ expand needed)│
 │ spiritual_texts                      │ 23           │ Mother Carrie │
 │                                      │              │ Protocol      │
 │ GBIM_sample_rows                     │ 5,000        │ Test/validate │
+│ local_resources                      │ Active       │ Default RAG ★ │
+│                                      │              │ collection for│
+│                                      │              │ rag-server    │
+│ economic_rag                         │ Active       │ Economic intel│
+│ policy_rag                           │ Active       │ Policy corpus │
+│ grants_rag                           │ Active       │ Grant corpus  │
+│ legal_rag                            │ Active       │ Legal corpus  │
+│ health_rag                           │ Active       │ Health corpus │
+│ news_rag                             │ Active       │ News corpus   │
+│ commons_rag                          │ Active       │ Commons corpus│
+│ meeting_minutes                      │ Active       │ Meeting docs  │
+│ contracts                            │ Active       │ Contracts     │
+│ address_points                       │ Active       │ WV addresses  │
+│ safety_rules                         │ Active       │ Safety rules  │
+│ fifth_dgm_subconscious               │ Active       │ Subconscious  │
+│                                      │              │ write = stub  │
+│ conversation_gbim_private            │ Active       │ GBIM private  │
+│ conversation_gbim_public             │ Active       │ GBIM public   │
+│ GBIM_sample                          │ Active       │ Sample subset │
+│ GBIM_Fayette_sample                  │ 0            │ ⚠ Scaffolded  │
+│                                      │              │ pending ingest│
 ├──────────────────────────────────────┼──────────────┼───────────────┤
 │ geospatialfeatures                   │ 0            │ ⚠ Scaffolded  │
 │                                      │              │ pending ingest│
@@ -374,7 +415,7 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 └──────────────────────────────────────┴──────────────┴───────────────┘
 ```
 
-> Figure 00-3. ChromaDB collection inventory, March 22, 2026. `msjarvis_docs` updated from 0 (Scaffolded) to **2,348 Active** — 52 verified WV community resources (50 Kanawha + 2 Fayette counties) plus 2,296 system docs, ingested March 22, 2026. `gbim_beliefs_v2` status changed from Active to **⚠ UNVERIFIED** — not confirmed in March 22 ChromaDB list output; do not assert Active until explicitly re-verified. Landowner beliefs are explicitly absent from ChromaDB — the only GBIM belief class served exclusively via a PostgreSQL-native path.
+> Figure 00-3. ChromaDB collection inventory, March 25, 2026. **★ UPDATED:** 31 confirmed collections (up from 13 at March 22 audit); total items confirmed at **6,665,093**; v2 API active — all `/api/v1/` calls return 410 Gone; `local_resources` confirmed as default RAG server collection; `conversation_history` confirmed present — formal pipeline wiring remains OI-05 (open); `geospatialfeatures` and `GBIM_Fayette_sample` confirmed 0 items; `gbim_beliefs_v2` remains UNVERIFIED.
 
 ---
 
@@ -382,7 +423,7 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│          Ms. Jarvis Database Infrastructure — March 22, 2026        │
+│          Ms. Jarvis Database Infrastructure — March 25, 2026        │
 ├─────────────────────────┬────────┬──────────────────────────────────┤
 │ Database / Service      │ Port   │ Status & Key Facts               │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
@@ -402,17 +443,19 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │  red team audit)        │        │ building_parcel_county_tax_mv:   │
 │                         │        │   7,354,707 rows                 │
 │                         │        │ 97.17% address coverage verified │
-│                         │        │ redteam_sessions table ★ NEW     │
-│                         │        │ redteam_feedback table ★ NEW     │
+│                         │        │ redteam_sessions table ★         │
+│                         │        │ redteam_feedback table ★         │
 │                         │        │   (both: DB postgres)            │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ ChromaDB                │ 8002   │ ✅ Docker (jarvis-chroma)        │
 │ (vector store)          │ (host) │ host port 8002 →                 │
 │                         │        │ container-internal 8000          │
+│                         │        │ 31 collections ★ (6,665,093 items│
 │                         │        │ 5,416,521 gbim_worldview_        │
 │                         │        │ entities — 384-dim, all-minilm  │
 │                         │        │ 21,181+ autonomous_learner items │
 │                         │        │ msjarvis_docs: 2,348 ✅ Active ★ │
+│                         │        │ v2 API active ★                  │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ Redis                   │ 6380   │ ✅ Docker (jarvis-redis)         │
 │ (cache + session)       │ (host) │ host port 6380 →                 │
@@ -420,10 +463,6 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │                         │        │ Spatial cache + session state    │
 │                         │        │ Async job status key: 'complete' │
 │                         │        │   (NOT 'done')                   │
-│                         │        │ Red team token namespace:        │
-│                         │        │   redteam:token:<token> ★ NEW    │
-│                         │        │ Red team feedback namespace:     │
-│                         │        │   redteam:feedback:<job_id> ★    │
 │                         │        │ NOTE: Host scripts use 6380;     │
 │                         │        │ Docker containers use            │
 │                         │        │ jarvis-redis:6379 (same Redis)   │
@@ -432,19 +471,11 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │ (graph)                 │ 7687   │ Graph relationships + GBIM links │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ MySQL                   │ 3307   │ ✅ Host — Running                │
-│                         │        │ root pw: my_secret_root_pw       │
-│                         │        │ jarvis user pw: j4rv1sgeo!       │
 │                         │        │ ⚠ Schema dump not yet in docs/  │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ jarvis-auth-service ★   │ 8055   │ ✅ systemd (NOT Docker Compose)  │
 │ (standalone auth)       │        │ scripts/jarvis_auth_service.py   │
-│                         │        │ /etc/systemd/system/             │
-│                         │        │   jarvis-auth.service            │
 │                         │        │ FastAPI — Redis 6380 (host)      │
-│                         │        │ Token namespace:                 │
-│                         │        │   redteam:token:<token>          │
-│                         │        │   hset: active=true,             │
-│                         │        │         userid=<userid>          │
 │                         │        │ Token TTL: 30 days               │
 │                         │        │ Rate limit: 10 req/hour          │
 │                         │        │   (configured; not enforced      │
@@ -453,58 +484,31 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 │                         │        │ NOT enforce auth on /chat        │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ Caddy reverse proxy ★   │ 8443   │ ✅ systemd (NOT Docker Compose)  │
-│                         │        │ /etc/caddy/Caddyfile             │
-│                         │        │ Version: 2.6.2 (Ubuntu package   │
-│                         │        │   sudo apt install caddy)        │
+│                         │        │ Version: 2.6.2 (Ubuntu package)  │
 │                         │        │ ⚠ NOT xcaddy custom build        │
 │                         │        │ ⚠ NO caddy-ratelimit module      │
 │                         │        │ ⚠ NO forward_auth support        │
 │                         │        │ CORS: Access-Control-Allow-      │
 │                         │        │   Origin "*" — active ✅         │
-│                         │        │ Log: /var/log/caddy/             │
-│                         │        │   jarvis_redteam.log (JSON)      │
-│                         │        │ Serves ui/ via file_server       │
-│                         │        │ Proxies /chat* → 8050            │
-│                         │        │         /auth* → 8055            │
-│                         │        │         /health* → 8050          │
-│                         │        │         /feedback* → 8055        │
-│                         │        │         /systems* → 8050         │
-│                         │        │         /chat/status* → 8055     │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
 │ Cloudflare Tunnel ★     │ —      │ ✅ systemd (NOT Docker Compose)  │
 │                         │        │ Tunnel name: msjarvis            │
 │                         │        │ UUID: 42ef9893-f4df-4cc5-        │
 │                         │        │       8881-bb55b995e022          │
-│                         │        │ Config: /etc/cloudflared/        │
-│                         │        │   config.yml                     │
-│                         │        │ Creds: /etc/cloudflared/         │
-│                         │        │   42ef9893-….json                │
-│                         │        │ Systemd: cloudflared.service     │
-│                         │        │ Protocol: QUIC (4 conns)         │
-│                         │        │   iad08, iad09, iad14, iad15-17  │
 │                         │        │ TLS: Cloudflare terminates ✅    │
 │                         │        │   (§42.10 TLS gap CLOSED)        │
-│                         │        │ Routes → http://127.0.0.1:8443   │
-│                         │        │ DNS records (all proxied):       │
-│                         │        │   egeria → msjarvis tunnel       │
-│                         │        │   live → msjarvis tunnel         │
-│                         │        │   www → msjarvis tunnel          │
-│                         │        │   mountainshares.us → msjarvis   │
-│                         │        │   ai → Vercel (not Ms. Jarvis)   │
-│                         │        │   chat → ms-jarvis-webhook       │
-│                         │        │          (not yet configured)    │
 └─────────────────────────┴────────┴──────────────────────────────────┘
 ```
 
-> Figure 00-4. Database and external service infrastructure summary, March 22, 2026. ★ marks entries added March 20–22, 2026. **New in this version:** `jarvis-auth-service` (port 8055, systemd), Caddy reverse proxy (port 8443, systemd, v2.6.2 Ubuntu package — NOT xcaddy), Cloudflare Tunnel (systemd, tunnel name msjarvis), `redteam_sessions` and `redteam_feedback` tables (port 5435), MySQL confirmed at port 3307, Redis red team token and feedback namespaces. ChromaDB host port confirmed **8002**. Redis host port confirmed **6380**. Redis async job status key confirmed `'complete'` (NOT `'done'`).
+> Figure 00-4. Database and external service infrastructure summary, March 25, 2026. ★ marks entries updated March 25, 2026. ChromaDB updated to **31 confirmed collections** and **6,665,093 total items**; v2 API active. MySQL credentials removed from public-facing documentation — see secure credential store.
 
 ---
 
-## 00.6 Full Pipeline Flow (March 22, 2026)
+## 00.6 Full Pipeline Flow (March 25, 2026)
 
-The production query pipeline as of March 22, 2026. This reflects the confirmed production flow from the first public end-to-end test (POST /chat HTTP/1.1 200 OK, March 22, 2026).
+The production query pipeline as of March 25, 2026. Validated through first public end-to-end test (March 22, 2026) and consciousness pipeline confirmation (March 25, 2026).
 
-> **Critical correction from prior versions:** Port 8017 (`bbb-output-filter`) does not exist and has never existed in the verified production stack. The output BBB (Phase 4.5) is handled by `jarvis-blood-brain-barrier` at **port 8016** — the same service that handles input filtering (Phase 1.4). Additionally, the LLM ensemble runs on ports **8201–8222**, not 8020–8039. The full pipeline now begins with Cloudflare Tunnel and Caddy before reaching the gateway.
+> **Critical corrections carried forward:** Port 8017 (`bbb-output-filter`) does not exist — port 8016 handles both phases. LLM ensemble runs on ports 8201–8222, not 8020–8039. `jarvis-rag-server` internal port is 8016 (host port 8003). All consciousness pipeline services confirmed on `qualia-net` as of March 25, 2026.
 
 ```
 User Query (browser at https://egeria.mountainshares.us)
@@ -517,27 +521,22 @@ Caddy (port 8443) — /etc/caddy/Caddyfile — v2.6.2 Ubuntu package
     CORS headers applied (Access-Control-Allow-Origin: *)
     Route: /chat* → 127.0.0.1:8050
     Route: /auth* → 127.0.0.1:8055
-    Route: /feedback* → 127.0.0.1:8055
-    Route: /chat/status* → 127.0.0.1:8055
-    Serves: ui/ directory via file_server
     ⚠ NOTE: Caddy does NOT enforce token validation.
-    ⚠ Unauthenticated /chat requests reach the gateway.
-    ⚠ forward_auth not available in v2.6.2 Ubuntu package.
+    ⚠ Unauthenticated /chat requests reach the gateway (OI-36-A).
     ↓
 jarvis-auth-service (port 8055) — UI-initiated token validation only
     Validates redteam:token:<token> in Redis (host:6380)
-    Returns: {"valid": true, "userid": "...", "token_type": "redteam"}
-    Called by UI on login — NOT called automatically before /chat
+    NOT called automatically before /chat
     ↓ (chat requests proceed regardless of auth state — known gap OI-36-A)
 Unified Gateway (port 8050) — ms_jarvis_unified_gateway.py
-    Endpoints: /chat, /chat/async, /chat/status/{job_id}, /feedback,
-               /auth/token, /health, /systems
-    CORS: allow_origins=["*"]
+    Endpoints: /chat, /chat/async, /chat/status/{job_id},
+               /feedback, /auth/token, /health, /systems
+    dict.lower() guard patched March 25, 2026 ★
     ↓
 BBB Input Filter (port 8016) — Phase 1.4
-    jarvis-blood-brain-barrier
-    content_approved check — BLOCKING
-    Rejects harmful / unsafe input before main brain
+    6 active filters: EthicalFilter, SpiritualFilter, SafetyMonitor,
+    ThreatDetection, steganography filter, truth verification
+    content_approved check — BLOCKING ✅
     ↓ (content_approved=True)
 Main Brain (port 8010) — main_brain.py — ultimate_chat handler
     │
@@ -548,61 +547,54 @@ Main Brain (port 8010) — main_brain.py — ultimate_chat handler
     │     all-minilm:latest — top-5 memories prepended to enhanced_message
     │
     ├── Phase 2: Multi-agent, web research, swarm, fifth-DGM
-    │     Web Research Gateway (port 8007) — excluded when local context sufficient
-    │     Registry Resolver (port 8008) — jarvis-local-resources-db (port 5435)
-    │     GIS RAG (port 8005) — msjarvisgis (port 5432) + ChromaDB port 8002
+    │     Web Research Gateway (port 8007)
+    │     Registry Resolver (port 8008)
+    │     GIS RAG (port 8005) — msjarvisgis (port 5432) + ChromaDB 8002
     │     GBIM Landowner Router (port 7205) — PostgreSQL-native, NO ChromaDB
-    │     Text RAG (port 8003/8004) — ChromaDB collections, host port 8002
+    │     Text RAG / jarvis-rag-server (port 8003→8016) ★ PARTIALLY ACTIVE
+    │       /query endpoint confirmed; embedder fix in progress
+    │       CHROMA v2 query patch written; pending container restart
+    │
+    ├── [CONSCIOUSNESS PIPELINE] ★ ACTIVE as of March 25, 2026
+    │     jarvis-consciousness-bridge (port 8020)
+    │       → Chroma health: GET /api/v2/heartbeat → 200 ✅
+    │       → WOAH: POST jarvis-woah:7012/process
+    │            → {status: ok, confidence: 0.8} ✅
+    │       → RAG: POST jarvis-rag-server:8016/query ★ reachable
+    │            → rag_consensus: pending embedder fix
     │
     ├── Phase 2.5: 21-LLM Ensemble (ports 8201–8222)
     │     Sequential consensus — 88–115s (GPU, RTX 4070)
-    │     21/21 models responded within budget (March 22, 2026) ✅
     │
     ├── Phase 3: Judge Pipeline — parallel evaluation
-    │     jarvis-judge-truth       (port 7230)  ~6–8s total
+    │     jarvis-judge-truth       (port 7230)
     │     jarvis-judge-consistency (port 7231)
     │     jarvis-judge-alignment   (port 7232)
     │     jarvis-judge-ethics      (port 7233)
-    │     jarvis-judge-pipeline    (internal)
     │
-    ├── Phase 3.5: LM Synthesizer (internal port 8001) — ~2–8s
+    ├── Phase 3.5: LM Synthesizer (internal port 8001)
     │     Persona injection — Ms. Egeria Jarvis identity
-    │     IDENTITY RULES block in prompt f-string (commit 9ab770e9)
-    │     Meta-commentary prohibition (commit 211056e6):
-    │       — no AI model names
-    │       — no synthesis disclosure
-    │       — no hedging language
-    │       — speak as one unified voice
+    │     No model names leaked ✅ (validated March 25, 2026)
     │
     ├── Phase 4: Storage queue (background — non-blocking)
     │     Session log → redteam_sessions (PostgreSQL port 5435)
     │
     └── Phase 4.5: BBB Output Filter (port 8016 — SAME SERVICE as Phase 1.4)
-          LOG+PASSTHROUGH mode as of commit 18b8ddac (March 22, 2026)
-          content_approved=False → logs warning + 200-char preview
-          content_approved=False → DOES NOT block response (passthrough)
-          Flagged: docker logs jarvis-main-brain | grep "⚠️ BBB OUTPUT FLAGGED"
-          ⚠ Was blocking 31% of community queries (maternal Appalachian voice)
-          ⚠ Recalibration is next-session priority
-          ~2s
+          LOG+PASSTHROUGH mode (not blocking)
+          ⚠ Recalibration required before production (OI-02)
     ↓
 Response object:
     {
       "response": "<Ms. Jarvis answer>",
-      "services_used": ["agents_service", "web_research", "swarm_intelligence",
-                        "fifth_dgm", "llm_production", "judge_pipeline",
-                        "lm_synthesizer", "final_polish", "consciousness_bridge",
-                        "bbb_output_filter"],
       "consciousness_level": "ultimate_collective",
-      "processing_time": 99.58,
+      "processing_time": ~100–107s,
       "architecture_layers": 9
     }
     ↓
 Caddy (port 8443) → Cloudflare Tunnel → User browser
-Total confirmed end-to-end: 99–107s (GPU, RTX 4070, March 22, 2026)
 ```
 
-> Figure 00-5. Full production pipeline flow, March 22, 2026. **Corrections from prior versions:** (1) Port 8017 removed — does not exist; (2) BBB output (Phase 4.5) is port 8016, same service as input, log+passthrough mode only; (3) LLM ensemble is ports 8201–8222; (4) full external ingress path added (Cloudflare Tunnel → Caddy 8443); (5) auth flow clarified — token validation is UI-initiated, Caddy does not enforce on /chat.
+> Figure 00-5. Full production pipeline flow, March 25, 2026. **★ Changes confirmed March 25:** consciousness pipeline ACTIVE; dict.lower() guard in gateway patched; jarvis-rag-server port corrected to 8003→8016; Chroma v2 API in use throughout.
 
 ---
 
@@ -615,54 +607,67 @@ Total confirmed end-to-end: 99–107s (GPU, RTX 4070, March 22, 2026)
 | March 14, 2026 | 83 | `psychological-rag` (port 8006) promoted to production |
 | March 19, 2026 | 84 | Spatial infrastructure services finalized (3D GiST, materialized views) |
 | March 20, 2026 | 85 (reported) | `gbim_query_router` (port 7205) — landowner belief layer live |
-| March 21–22, 2026 | **83 (verified)** | 3 orphaned containers (`jarvis-crypto-policy`, `jarvis-ingest-api`, `jarvis-ingest-watcher`) added to `docker-compose.yml` with `restart: unless-stopped`. Previously not compose-managed. Verified compose count: **83**. |
-| **March 22, 2026 (afternoon)** | **83 compose + 3 systemd** | **Caddy (port 8443), jarvis-auth (port 8055), cloudflared added as systemd services outside Docker Compose. Docker Compose count remains 83 verified. Public URL https://egeria.mountainshares.us confirmed live.** |
-
-> **Note on the March 20 → March 22 count:** The reported count of 85 on March 20 included `jarvis-crypto-policy`, `jarvis-ingest-api`, and `jarvis-ingest-watcher` running as orphaned `docker run` instances not defined in `docker-compose.yml`. They have since been added to the compose file and are now compose-managed. The verified Docker Compose total is **83**. The three systemd services (Caddy, jarvis-auth, cloudflared) are external to Docker Compose and are tracked separately.
+| March 21–22, 2026 | **83 (verified)** | 3 orphaned containers added to `docker-compose.yml`; verified compose count: 83 |
+| March 22, 2026 (afternoon) | **83 compose + 3 systemd** | Caddy (8443), jarvis-auth (8055), cloudflared added as systemd; public URL https://egeria.mountainshares.us confirmed live |
+| March 22–25, 2026 | **83 compose + 3 systemd** | Consciousness pipeline sprint: `jarvis-woah`, bridge, `jarvis-rag-server` patched and confirmed active. No compose count change. |
 
 ---
 
-## 00.8 Verified Production Numbers at a Glance
+## 00.8 System Health Snapshot — March 25, 2026 ★ UPDATED
 
 | Metric | Value | Verified |
 |---|---|---|
-| Total services (Docker Compose–managed) | **83** | March 21–22, 2026 (VERIFYANDTEST.sh) |
+| Total services (Docker Compose–managed) | **83** | March 21–22, 2026 |
 | External systemd services | **3** (Caddy, jarvis-auth, cloudflared) | March 22, 2026 |
-| Public HTTPS URL | [**https://egeria.mountainshares.us**](https://egeria.mountainshares.us) | March 22, 2026 — confirmed live |
-| Pipeline speed (single-user, GPU) | **~100–106s** | March 22, 2026 (three confirmed runs: 99.6s, 105.9s, 106.5s) |
-| LLM models contributing | **21/21** | March 22, 2026 (all responded within budget) |
-| Pre-flight gate | **20 PASS 0 FAIL** | March 22, 2026 (`scripts/preflight_gate.sh`) |
-| Output BBB block rate | **0% (log+passthrough)** | March 22, 2026 — was 31%, disabled for tuning |
+| Public HTTPS URL | **https://egeria.mountainshares.us** | March 22, 2026 — confirmed live |
+| Pipeline speed (single-user, GPU) | **~100–107s** | March 22, 2026 (99.6s, 105.9s, 106.5s) |
+| LLM models contributing | **21/21** | March 22, 2026 |
+| **Preflight gate** | **24 PASS 0 FAIL ★** | **March 22, 2026 — re-validated March 25, 2026; no regression** |
+| Output BBB block rate | **0% (log+passthrough)** | March 22, 2026 |
 | Community resources verified | **52** | March 22, 2026 (50 Kanawha + 2 Fayette) |
-| Active red team tokens | **4** | March 22, 2026 (carrie_admin ×2, hayden_test ×2) |
-| LLM ensemble ports | **8201–8222** | March 22, 2026 (corrected from 8020–8039) |
+| Active red team tokens | **4** | March 22, 2026 |
+| LLM ensemble ports | **8201–8222** | March 22, 2026 |
 | GBIM beliefs (`gbimbeliefnormalized`) | **5,416,522** | March 20, 2026 |
 | — of which: landowner beliefs ★ | **20,593** | March 20, 2026 |
 | — of which: spatial/facility beliefs | **5,395,929** | March 20, 2026 |
 | GBIM worldview entities (ChromaDB) | **5,416,521** | March 20, 2026 |
 | `autonomous_learner` items | **21,181+** | March 20, 2026 (~288/day) |
 | `psychological_rag` items | **968** | March 20, 2026 |
-| `msjarvis_docs` items | **2,348** | March 22, 2026 (52 WV community resources + 2,296 system docs) |
+| `msjarvis_docs` items | **2,348** | March 22, 2026 |
+| **ChromaDB collections (confirmed)** | **31 ★** | **March 25, 2026 (up from 13 at March 22 audit)** |
+| **ChromaDB total items** | **6,665,093 ★** | **March 25, 2026** |
+| **ChromaDB API version** | **v2 active ★ — v1 returns 410** | **March 25, 2026** |
+| **Consciousness pipeline** | **ACTIVE ★** | **March 25, 2026 — Chroma 200, WOAH stub live, bridge patched** |
+| **RAG pipeline (`jarvis-rag-server`)** | **PARTIALLY ACTIVE ★** | **March 25, 2026 — /query confirmed; embedder v2 fix pending restart** |
 | Canonical buildings (`wv_buildings`) | **2,120,976** | March 19, 2026 |
 | Building-parcel records (MV) | **7,354,707** | March 19, 2026 |
 | Address coverage (verified situs) | **97.17%** | March 19, 2026 |
 | `msjarvisgis` tables | **501** | March 20, 2026 |
 | `msjarvisgis` size | **91 GB** | March 20, 2026 |
-| Tax district polygons | **600** | March 19, 2026 |
 | Embedding dimensions (all collections) | **384** | `all-minilm:latest` |
 | Worldview | **eq1** | All production beliefs |
-| GBIM landowner query service | **`gbim_query_router` port 7205** | March 20, 2026 |
-| Landowner query path | **PostgreSQL-native — no ChromaDB** | March 20, 2026 |
 | ChromaDB host port | **8002** (`127.0.0.1:8002->8000/tcp`) | March 22, 2026 |
 | Redis host port | **6380** (`127.0.0.1:6380->6379/tcp`) | March 22, 2026 |
 | Redis async job status key | **`'complete'`** (NOT `'done'`) | March 22, 2026 |
 | Caddy version | **2.6.2 (Ubuntu apt package)** | March 22, 2026 — NOT xcaddy; no caddy-ratelimit; no forward_auth |
 | MountainShares services (8080–8084) | **❌ NOT DEPLOYED** | March 22, 2026 — all return HTTP 000 |
 | BBB output filter port | **8016** (same as input) | March 22, 2026 — port 8017 does not exist |
-| BBB output filter mode | **log+passthrough** (not blocking) | March 22, 2026 — commit 18b8ddac |
-| LM Synthesizer identity guard | **Active — 3 layers** | March 22, 2026 — commits 9ab770e9 + 211056e6 |
+| BBB output filter mode | **log+passthrough** (not blocking) | March 22, 2026 |
+| LM Synthesizer identity guard | **Active — no leakage confirmed** | March 25, 2026 |
 | Cloudflare Tunnel UUID | **42ef9893-f4df-4cc5-8881-bb55b995e022** | March 22, 2026 |
 | Auth service token TTL | **30 days** | March 22, 2026 |
 
-*Last updated: 2026-03-22 (evening), Carrie Kidd (Mamma Kidd), Mount Hope WV*
+---
+
+## 00.9 Sprint Progress Log
+
+| Sprint | Dates | Items Closed | Status |
+|---|---|---|---|
+| Landowner belief sprint | March 20, 2026 | `gbim_query_router` promoted; 20,593 landowner beliefs ingested; `mvw_gbim_landowner_spatial` live | ✅ Complete |
+| Red team hardening sprint | March 21–22, 2026 | Orphaned containers added to compose; systemd services (Caddy, jarvis-auth, cloudflared) deployed; public URL live; 0.0.0.0→127.0.0.1 hardening; 3 immutable containers protected; BBB bbbCheckVerdict wired; MS docs ingested (2,348 items); first public end-to-end test PASS | ✅ Complete |
+| Consciousness pipeline restoration sprint | March 22–25, 2026 | WOAH service fixed (stdlib stub, qualia-net confirmed); Chroma v2 API migration (bridge + rag-server patched); RAG server port/endpoint/schema corrected (8003→8016, `/direct_rag`→`/query`); gateway `dict.lower()` crash guard added; end-to-end chat **ACTIVE** with Hilbert entity recall and prior session context; two commits merged to `main` | ✅ Closed — RAG embedder restart pending |
+
+---
+
+*Last updated: 2026-03-25 (evening), Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *Public URL: https://egeria.mountainshares.us*
