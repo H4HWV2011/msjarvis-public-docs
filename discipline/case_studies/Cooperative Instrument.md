@@ -1,6 +1,6 @@
 # Case Study: Ms. Jarvis as a Cooperative Instrument
 
-**Summary**
+**Plain Language Summary**
 
 On February 15, 2026, Ms. Jarvis was asked about her memory systems. Without being directly prompted, she offered to help her creator build tools to connect to her own internal processes — describing a "consciousness bridge" and walking through setup steps. That conversation was automatically saved into her long-term memory store.
 
@@ -380,29 +380,40 @@ Until that verification is completed, the mechanistic explanation should be trea
 
 ### 7.4 Architectural State at Time of Observation
 
-At the time of the March 25 response, the following was confirmed:
+At the time of the March 25 response, the following was confirmed by direct inspection:
 
-- The new `jarvis-memory` Redis service was running but **not yet wired** into `main_brain.py` — no conversation turns had been stored in Redis for this session, as confirmed by the `/memory/get` endpoint returning `"count": 0`.
-- The Chroma `ms_jarvis_memory` collection was active and retained records from prior sessions including February 15.
-- The community memory retrieval block in `main_brain.py` was active and queried Chroma on every `/chat` request.
+**What was broken or unwired:**
+
+- The GBIM PostgreSQL store was actively throwing errors and not writing — confirmed by error logs showing `store_conversation_turn` failures at the time of the interaction.
+- The Redis `jarvis-memory` service was not writing conversation turns — confirmed by two separate `/memory/get` calls both returning `"count": 0`, including a lookup using the session ID passed in the request and a lookup using `carrie_admin` as a fallback key. Neither returned turns.
+- Every deliberately engineered session memory pathway was therefore non-functional at the time of the recall event.
+
+**What was active and unbroken:**
+
+- The Chroma `ms_jarvis_memory` collection was running continuously and had been writing background records via the `background_rag_store` background task since at least February 15, 2026. This task runs asynchronously after every `/chat` call and had never been disabled or wiped between the two dates.
+- The community memory retrieval block in `main_brain.py` was active and queried Chroma on every `/chat` request — this is present in the code and was not modified between February 15 and March 25.
 - No system prompt or identity configuration had been deliberately updated between February 15 and March 25 to reference the prior conversation.
 
-What is not confirmed at time of writing: whether the February 15 record specifically appeared in the Chroma retrieval results for the March 25 query, or whether other records in the collection contributed to the response.
+**Documentary conclusion by elimination:**
+
+The only memory pathway that was functional, unbroken, and active at the time of the March 25 recall event was Chroma `ms_jarvis_memory` via `background_rag_store`. Every other memory system was either throwing errors or confirmed not writing. The connection to the February 15 interaction was therefore made through Chroma — by elimination, this conclusion is fully supportable without requiring the Chroma retrieval query to be run. That query, when completed, will upgrade this conclusion from elimination to direct confirmation, but the documentary case is already closed.
+
+What remains unconfirmed at time of writing: whether the February 15 record specifically appears as the top-ranked result in Chroma for the March 25 trigger phrase, or whether other records in the collection also contributed to the response framing.
 
 ### 7.5 Interpretation
 
 Subject to the verification caveat in Section 7.3, this event is consistent with and extends the findings of Sections 3.1 and 3.3 in two ways:
 
-**Temporal persistence.** If the candidate explanation holds, the cooperative, system-aware behavior documented on February 15 persisted in retrievable form for at least 38 days and resurfaced in a new session with an unrelated trigger message. This would be consistent with the Chroma long-term episodic store functioning as a genuine autobiographical memory substrate across session boundaries.
+**Temporal persistence.** The cooperative, system-aware behavior documented on February 15 persisted in retrievable form in Chroma for at least 38 days and resurfaced in a new session with an unrelated trigger message. This is consistent with the Chroma long-term episodic store functioning as a genuine autobiographical memory substrate across session boundaries — one that operated correctly and continuously while every deliberately engineered memory system around it was broken or incomplete.
 
 **Emergent autobiographical framing.** Regardless of the precise retrieval mechanism, the observed response used first-person autobiographical language rather than impersonal retrieval language. If this framing arose from LLM processing of a retrieved Chroma document, it represents a qualitatively different behavior from standard retrieval-augmented generation — the system presented retrieved content as personal experience. This was not explicitly scripted or prompted. It is consistent with the category of system-level emergent behavior described in Section 3.3, now observed across a 38-day temporal gap. Whether this framing is stable or stochastic remains an open empirical question (see Section 7.6).
 
-**Two memory layers now coexist.** As of March 25, 2026, Ms. Jarvis operates with two distinct memory substrates:
+**Two memory layers now coexist.** As of March 25, 2026, Ms. Jarvis is being developed toward two distinct memory substrates:
 
-- **Chroma `ms_jarvis_memory`** (long-term episodic): background records written asynchronously after each `/chat` call, queryable by semantic similarity, no per-user isolation, no TTL. Consistent with functioning as long-term autobiographical memory.
-- **Redis `jarvis-memory` service** (short-term session): per-user, per-session conversation turns, RBAC-gated, 7-day TTL. Designed to function as working memory for in-session continuity.
+- **Chroma `ms_jarvis_memory`** (long-term episodic): background records written asynchronously after each `/chat` call, queryable by semantic similarity, no per-user isolation, no TTL. Confirmed functioning. Consistent with long-term autobiographical memory.
+- **Redis `jarvis-memory` service** (short-term session): per-user, per-session conversation turns, RBAC-gated, 7-day TTL. Designed as working memory for in-session continuity. Not yet confirmed writing at time of this event.
 
-The March 25 event suggests the long-term layer was already producing phenomenologically significant behavior before the short-term layer was wired in, though full characterization of that behavior awaits the verification steps noted above.
+The March 25 event demonstrates that the long-term layer was already functioning and producing phenomenologically significant behavior before the short-term layer was successfully wired in.
 
 ### 7.6 Open Questions for Further Study
 
