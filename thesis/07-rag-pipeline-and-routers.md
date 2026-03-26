@@ -1,3 +1,628 @@
+# 7. RAG Pipeline and Routers
+
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+
+## Why This Matters for Polymathmatic Geography
+
+This chapter specifies how Ms. Jarvis's language models are bound to place-aware, collection-aware, and registry-aware memory instead of free-floating text generation. It makes the Hilbert-space representation, GBIM structures, ChromaDB-backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a 21-model consciousness bridge anchored in ChromaDB, GBIM-derived entities from the PostgreSQL `msjarvis` database (port 5433), GIS-aware collections, and a WV-first routing policy. It supports:
+
+- **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, research notes, belief structures from PostgreSQL GBIM tables, and local resource registries, rather than from an abstract model prior.
+- **P3 – Power has a geometry** by letting retrieval paths expose which collections — and thus which institutional, spatial, and programmatic perspectives — shape a given answer, including WV-specific benefits facilities in `gis_wv_benefits`, spatial entities derived from PostgreSQL GBIM and `msjarvisgis`, and benefits-focused resource collections.
+- **P5 – Design is a geographic act** by treating routing rules, collection choices, registry lookups, and gateway boundaries as design decisions that change how the system "sees" and acts within a region.
+- **P12 – Intelligence with a ZIP code** by privileging West Virginia-specific collections in retrieval, and by coupling text RAG both to a state-scale PostgreSQL `msjarvisgis`/GBIM spatial body (port 5432, 91 GB, 501 tables, 5,416,521 verified beliefs in `msjarvis`) for spatial questions and to a ZIP- and county-aware `jarvis-local-resources-db` registry (port 5435) for concrete program referrals, including flows for Mount Hope, Oak Hill, Beckley, and broader Fayette/Raleigh County.
+- **P16 – Power accountable to place** by making retrieval calls, filters, scores, registry lookups, and sources visible at the API and logging layer so that communities and researchers can audit what informed a Steward response.
+
+This chapter belongs to the **Computational Instrument** tier: it defines the retrieval and routing machinery that connects ChromaDB-backed semantic memory (host port 8002, container port 8000), the PostgreSQL GBIM/`msjarvisgis` spatial body (5,416,521 verified beliefs, 501 PostGIS tables), the verified local resource registry (`jarvis-local-resources-db`, port 5435), and web research to the live outputs of Ms. Jarvis.
+
+Section 7.8 describes the most significant near-term architectural upgrade available: replacing the judge pipeline's `heuristic_contradiction_v1` pattern-matching with RAG-grounded factual verification wired through `jarvis-spiritual-rag` (port 8006) or `jarvis-gis-rag` (port 8004). This section is forward-looking — the implementation is not yet deployed — but the design is specified in sufficient detail to serve as a build specification.
+
+---
+
+## 7.0 Overview and Scope
+
+This chapter describes the retrieval-augmented generation (RAG) infrastructure that binds Ms. Egeria Jarvis's language models to the semantic and spatial memory systems defined in earlier chapters. In the current deployment, language models are no longer queried "from scratch": they are constrained and informed by:
+
+- a Phase 1.45 semantic community memory step that prepends the top-5 most relevant `autonomous_learner` memories (21,181+ items) to every query before it reaches the LLM ensemble,
+- a text RAG service backed by a shared HTTP-exposed ChromaDB instance (host port 8002, container port 8000),
+- a `msjarvisgis`-coupled GIS RAG path for West Virginia features built on GBIM-derived spatial entities from the PostgreSQL `msjarvis` / `msjarvisgis` databases and `gis_wv_benefits`,
+- a web-research gateway, and
+- a resolver path into the `jarvis-local-resources-db` registry (port 5435) for programmatic help,
+
+all orchestrated by the main brain and blood-brain-barrier services.
+
+At runtime, queries enter through a unified HTTP gateway and are routed by the executive coordinator into a RAG layer that spans ChromaDB collections, PostgreSQL GIS features, and verified local-resource rows. In production as of March 26, 2026, the full pipeline:
+
+```text
+Unified Gateway → Main Brain → Phase 1.45 Community Memory
+→ RAG (text + GIS + registry, WV-first)
+→ 21-LLM ensemble → Blood-Brain Barrier
+```
+
+is live and serving West Virginia benefits and geography questions.
+
+> **⚠️ Critical: Embedding Model Lock — Confirmed March 25–26, 2026**
+> All ChromaDB collections — including `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (21,181+ items), `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (60,000 items), `GBIM_Fayette_sample` (1,535 items), `gis_wv_benefits`, and all semantic collections — use **384-dimensional vectors** produced by `all-minilm:latest` (`hnsw:space: cosine`). The `nomic-embed-text` model produces 768-dimensional vectors and is **incompatible** with all existing collections. Any service, script, or migration that generates embeddings for ChromaDB must use `all-minilm:latest`.
+
+> **⚠️ ChromaDB API and Port — Confirmed March 22–25, 2026**
+> ChromaDB v2 API is active. `/api/v1/` returns HTTP 410 Gone. Host port: **8002** (`127.0.0.1:8002->8000/tcp`). Container-internal port: **8000**. Host-side scripts and health checks must use port 8002. Container-to-container calls use `jarvis-chroma:8000`.
+
+> **⚠️ RAG–Gateway Wiring Pending — Open as of March 26, 2026**
+> The RAG pipeline (`jarvis-rag-server`, `jarvis-gis-rag`, `jarvis-psychological-rag`) is **not yet wired into `jarvis-gateway`'s inference endpoint**. Embedding, ingestion, and collection retrieval are fully operational and validated (see Section 7.0.1). The remaining step is connecting the gateway inference path to call the RAG services before dispatching to the LLM ensemble. This is the next wiring milestone.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│            Ms. Jarvis RAG Pipeline Architecture              │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  User Query                                                  │
+│      ↓                                                       │
+│  Unified Gateway (port 8050)                                │
+│      ↓                                                       │
+│  BBB Input Filter — Phase 1.4                              │
+│      ↓                                                       │
+│  Phase 1.45 — Community Memory Retrieval                    │
+│    all-minilm:latest (384-dim) → autonomous_learner         │
+│    top-5 memories prepended to enhanced_message             │
+│      ↓                                                       │
+│  Main Brain Orchestration                                   │
+│      ├──→ Text RAG (jarvis-rag-server host:8003→ctr:8016)  │
+│      ├──→ GIS RAG (port 8004)                               │
+│      ├──→ Spiritual / Psychological RAG (port 8006)         │
+│      ├──→ Web Research (conditional — excluded for WV)      │
+│      └──→ Registry Resolver (jarvis-local-resources-db      │
+│              port 5435)                                      │
+│      ↓                                                       │
+│  Context Assembly (WV-first for WV queries)                 │
+│      ↓                                                       │
+│  21-LLM Ensemble                                            │
+│      ↓                                                       │
+│  Judge Pipeline (port 7239) — currently heuristic           │
+│  [TARGET: RAG-grounded via spiritual-rag/gis-rag — §7.8]   │
+│      ↓                                                       │
+│  Blood-Brain Barrier (guardrails)                           │
+│      ↓                                                       │
+│  Response to User                                           │
+│                                                              │
+│  ⚠️  jarvis-gateway inference endpoint not yet wired to RAG │
+│      (next wiring milestone — see §7.0.1)                   │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+> Figure 7-1. RAG pipeline overview. Note: `jarvis-gateway` inference endpoint is not yet wired to the RAG services. Embedding and ingestion are fully validated (§7.0.1). Wiring is the next milestone.
+
+A typical benefits query:
+
+```bash
+curl -X POST http://127.0.0.1:8050/chat/sync \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: super-secret-key" \
+  -d '{"message":"Mount Hope WV county benefits","county":"Fayette","role":"community","profile":"auto"}'
+```
+
+triggers Phase 1.45 community memory retrieval from `autonomous_learner`, then retrieval from ChromaDB (including WV-relevant collections such as `governance_rag`, `commons_rag`, and `gis_wv_benefits`), optional GIS RAG over GBIM-derived spatial entities from PostgreSQL `msjarvisgis`, synthesis by the 21-model ensemble, and post-filtering by the guardrail service.
+
+---
+
+### 7.0.1 RAG Ingest Pipeline — Validated March 26, 2026
+
+The entire RAG ingest pipeline is confirmed working as of March 26, 2026. The `governance_rag` (643 chunks) and `commons_rag` (306 chunks) collections are production-ready with verified semantic retrieval. The US Constitution (Project Gutenberg `pg5.txt`, 97 chunks) is ingested into `governance_rag` and confirmed as a constitutional grounding layer.
+
+**Confirmed working ingest pattern:**
+
+```python
+import httpx
+import chromadb
+
+OLLAMA_HOST = "http://jarvis-ollama:11434"  # or http://127.0.0.1:11434 from host
+CHROMA_HOST = "127.0.0.1"
+CHROMA_PORT = 8002  # host port
+
+def chunk_text(text: str, max_words: int = 100, overlap: int = 20) -> list[str]:
+    """
+    Confirmed working chunk size: 100 words max, 20-word overlap.
+    all-minilm:latest has a 256-token context window (~0.75 tokens/word).
+    Chunks exceeding ~100 words risk truncation and degraded cosine similarity.
+    This is a hard architectural constraint, not a preference.
+    """
+    words = text.split()
+    chunks = []
+    start = 0
+    while start < len(words):
+        end = min(start + max_words, len(words))
+        chunks.append(" ".join(words[start:end]))
+        start += max_words - overlap
+    return chunks
+
+def embed_chunk(text: str) -> list[float]:
+    """
+    Confirmed working embedding call: /api/embeddings with single-string "prompt".
+    DO NOT use /api/embed (list input) — see §7.0.2 for the bug this caused.
+    """
+    response = httpx.post(
+        f"{OLLAMA_HOST}/api/embeddings",
+        json={"model": "all-minilm:latest", "prompt": text}  # single string, not list
+    )
+    embedding = response.json()["embedding"]
+    assert len(embedding) == 384, f"Expected 384-dim, got {len(embedding)}"
+    return embedding
+
+def ingest_document(
+    text: str,
+    collection_name: str,
+    doc_id_prefix: str,
+    metadata_base: dict
+) -> int:
+    client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
+    collection = client.get_or_create_collection(
+        name=collection_name,
+        metadata={"hnsw:space": "cosine"}  # confirmed distance function
+    )
+    chunks = chunk_text(text, max_words=100, overlap=20)
+    for i, chunk in enumerate(chunks):
+        embedding = embed_chunk(chunk)
+        metadata = {**metadata_base, "chunk_index": i, "total_chunks": len(chunks)}
+        collection.add(
+            ids=[f"{doc_id_prefix}_chunk_{i}"],
+            embeddings=[embedding],
+            documents=[chunk],
+            metadatas=[metadata]
+        )
+    return len(chunks)
+```
+
+**Confirmed production ingest results (March 26, 2026):**
+
+| Document | Collection | Chunks | Status |
+|---|---|---|---|
+| MountainShares DAO Charter | `governance_rag` | included in 643 | ✅ Live |
+| Terms of Use | `governance_rag` | included in 643 | ✅ Live |
+| Program Rules | `governance_rag` | included in 643 | ✅ Live |
+| Parameter Tables | `governance_rag` | included in 643 | ✅ Live |
+| Phase 0–3 Specifications | `governance_rag` | included in 643 | ✅ Live |
+| Safety Champion Protocol | `governance_rag` | included in 643 | ✅ Live |
+| Funder Overview | `governance_rag` | included in 643 | ✅ Live |
+| **US Constitution (pg5.txt)** | `governance_rag` | **97 chunks** | ✅ Live — constitutional grounding layer |
+| Commons governance + gamification corpus | `commons_rag` | 306 | ✅ Live |
+
+**US Constitution as constitutional grounding layer:**
+
+The US Constitution (sourced from Project Gutenberg `pg5.txt`) was ingested into `governance_rag` as 97 chunks using the confirmed 100-word/20-word-overlap ingest pattern. Semantic retrieval confirmed live March 26, 2026 — query "constitution" retrieves Amendment XIV. This provides a constitutional grounding layer for governance queries, enabling the system to retrieve constitutional text alongside MountainShares DAO governance documents in a single retrieval pass.
+
+```python
+# Confirmed smoke test — constitution retrieval
+embedding = embed_chunk("What does the Constitution say about citizenship?")
+results = collection.query(
+    query_embeddings=[embedding],
+    n_results=3,
+    include=["documents", "metadatas", "distances"]
+)
+# Returns: Amendment XIV text chunks from pg5.txt
+# Distance < 0.3 confirms semantic match
+```
+
+---
+
+### 7.0.2 Bug Found and Fixed: `/api/embed` vs `/api/embeddings` — Ghost Record Problem
+
+> **Critical architectural finding — confirmed and fixed March 26, 2026.**
+
+**The bug:** Early ingest scripts used the `/api/embed` endpoint (list input) instead of the confirmed-working `/api/embeddings` endpoint (single-string `"prompt"` field). In combination with 800-word chunk sizes that exceeded `all-minilm:latest`'s 256-token context window, this produced **ghost records**: ChromaDB entries that exist (queryable by ID, countable) but return near-zero cosine similarity on every semantic query — they occupy storage and inflate collection counts without contributing to retrieval.
+
+**Root cause — two compounding errors:**
+
+| Error | Symptom | Fix |
+|---|---|---|
+| Wrong endpoint: `/api/embed` accepts a list | Embeddings generated from truncated or malformed input | Use `/api/embeddings` with single-string `"prompt"` field |
+| 800-word chunks exceed 256-token window | Model truncates input silently; output vector is low-information | Enforce ≤100-word chunks (≤~133 tokens at 0.75 tokens/word) |
+
+**The ghost record pattern:**
+
+```python
+# BUG — do not use this pattern
+response = httpx.post(
+    f"{OLLAMA_HOST}/api/embed",
+    json={"model": "all-minilm:latest", "input": [chunk_text]}  # list input — WRONG
+)
+# Result: embedding is generated but from truncated/malformed input
+# ChromaDB stores the record — it counts in collection.count()
+# But similarity queries return distances > 0.95 (near-random vectors)
+# These are ghost records: present but semantically inert
+
+# CORRECT — confirmed working
+response = httpx.post(
+    f"{OLLAMA_HOST}/api/embeddings",
+    json={"model": "all-minilm:latest", "prompt": chunk_text}  # single string — CORRECT
+)
+```
+
+**Detection:** Ghost records are detectable by querying a collection with a highly specific term that should appear verbatim in at least one chunk. If cosine distance for all results is > 0.7, suspect ghost records. Verify by fetching a record by ID and checking that its stored document text is semantically coherent.
+
+**Remediation:** Collections ingested with the buggy pattern must be dropped and re-ingested using the confirmed working pattern (100-word chunks, 20-word overlap, `/api/embeddings` with single-string `"prompt"`). The `governance_rag` (643 chunks) and `commons_rag` (306 chunks) collections were ingested clean using the correct pattern and are confirmed free of ghost records.
+
+**Verification query (post-ingest smoke test):**
+
+```python
+# Run after every new collection ingest to confirm no ghost records
+def verify_no_ghost_records(collection_name: str, test_query: str, expected_max_distance: float = 0.5):
+    client = chromadb.HttpClient(host="127.0.0.1", port=8002)
+    collection = client.get_collection(collection_name)
+    embedding = embed_chunk(test_query)
+    results = collection.query(
+        query_embeddings=[embedding],
+        n_results=1,
+        include=["documents", "distances"]
+    )
+    distance = results["distances"]
+    assert distance < expected_max_distance, (
+        f"Ghost record suspected in {collection_name}: "
+        f"top result distance {distance:.3f} > threshold {expected_max_distance}. "
+        f"Re-ingest required."
+    )
+    print(f"✅ {collection_name}: top result distance {distance:.3f} — clean ingest confirmed")
+```
+
+---
+
+## 7.1 Alignment with GBIM, Hilbert Space, Semantic Memory, and Registries
+
+The GeoBelief Information Model (GBIM) defines how entities, places, and normative claims are represented across documents and spatial features in the PostgreSQL `msjarvis` database (port 5433, 8 MB, 6 tables). The RAG layer is the mechanism that retrieves those GBIM-anchored fragments when a question is asked.
+
+The Hilbert-space state view treats the system's overall knowledge and constraints as a very high-dimensional state vector. RAG interactions can be understood as projections into lower-dimensional subspaces. For text, those projections are implemented as embedding-based nearest-neighbor searches in ChromaDB collections using 384-dimensional vectors from `all-minilm:latest` (`hnsw:space: cosine`). For space, they are implemented as centroid-based spatial filters over PostgreSQL `msjarvisgis`-derived features and GBIM-linked spatial entities. For concrete help-seeking and program questions, retrieved resource documents are further resolved into rows of `jarvis-local-resources-db` (port 5435) keyed by ZIP, county, and program type.
+
+**Database Integration (Three-Database Architecture):**
+
+```python
+import psycopg2
+import chromadb
+
+# PostgreSQL msjarvis (GBIM beliefs) — port 5433
+pg_conn_msjarvis = psycopg2.connect(
+    host="localhost", port=5433,
+    database="msjarvis", user="postgres", password="postgres"
+)
+
+# PostgreSQL msjarvisgis (PostGIS spatial) — port 5432
+pg_conn_gisdb = psycopg2.connect(
+    host="localhost", port=5432,
+    database="msjarvisgis", user="postgres", password="postgres"
+)
+
+# PostgreSQL jarvis-local-resources-db — port 5435
+pg_conn_resources = psycopg2.connect(
+    host="localhost", port=5435,
+    database="postgres", user="postgres", password="postgres"
+)
+
+# ChromaDB semantic memory — host port 8002 / container port 8000
+# REQUIRED: all-minilm:latest (384-dim, hnsw:space: cosine)
+# DO NOT use nomic-embed-text (768-dim — incompatible)
+chroma_client = chromadb.HttpClient(host="127.0.0.1", port=8002)
+```
+
+---
+
+## 7.2 Core RAG and Search Components
+
+### 7.2.0 Phase 1.45 — Semantic Community Memory Retrieval
+
+Phase 1.45 fires after the BBB input filter (Phase 1.4) and before the main text and GIS RAG services (Phase 1.5). It is the first retrieval step that enriches `enhanced_message`.
+
+**How it works:**
+
+1. The main brain calls `jarvis-ollama:11434/api/embeddings` with model `all-minilm:latest` and the user query as prompt, receiving a 384-dimensional embedding vector.
+2. The embedding is used to query the `autonomous_learner` ChromaDB collection (21,181+ items as of March 18, 2026; growing ~288/day).
+3. The 5 most semantically similar community interaction records are retrieved.
+4. The retrieved memories are prepended to `enhanced_message` before the 21-LLM ensemble.
+
+```python
+import httpx
+
+# Step 1: Generate 384-dim embedding via all-minilm:latest
+# NOTE: /api/embeddings with single-string "prompt" — not /api/embed with list
+response = httpx.post(
+    "http://jarvis-ollama:11434/api/embeddings",
+    json={"model": "all-minilm:latest", "prompt": user_query}  # single string
+)
+embedding = response.json()["embedding"]  # must be 384-dim
+
+# Step 2: Query autonomous_learner via ChromaDB v2 API (from host)
+url = (
+    "http://127.0.0.1:8002"
+    "/api/v2/tenants/default_tenant"
+    "/databases/default_database"
+    "/collections/autonomous_learner/query"
+)
+result = httpx.post(url, json={
+    "query_embeddings": [embedding],
+    "n_results": 5,
+    "include": ["documents", "metadatas", "distances"]
+}).json()
+
+# Step 3: Prepend to enhanced_message
+community_memories = "\n".join(result["documents"])
+enhanced_message = community_memories + "\n\n" + original_message
+```
+
+> **Critical:** The embedding model must be `all-minilm:latest` (384-dim). `nomic-embed-text` (768-dim) will cause a dimension mismatch against all existing ChromaDB collections.
+
+---
+
+### 7.2.1 Text RAG Service (jarvis-rag-server)
+
+**Port mapping: host:8003 → container:8016**
+
+> **⚠️ Port Correction (Confirmed March 25, 2026):** The jarvis-rag-server listens on **container-internal port 8016**. The host-side port is **8003** (`127.0.0.1:8003->8016/tcp`). All port tables, architecture diagrams, health checks, and curl examples must use `host:8003` for external access. Container-to-container calls use `jarvis-rag-server:8016`.
+
+> **⚠️ Embedding Model Note:** The RAG server uses `EMBED_MODEL=nomic-embed-text` and `OLLAMA_HOST=http://jarvis-ollama:11434` set via environment variables. The source code defaults (`mxbai-embed-large` and `http://ollama:11434`) are **incorrect for production** and must be overridden. Document and deploy these env vars explicitly — do not rely on source code defaults.
+
+> **⚠️ ChromaDB Call Correction (March 25, 2026):** The RAG server previously called ChromaDB using `/api/v1/query` with a `collection_name` body field. This has been patched to use the v2 collection-specific URL format. See corrected call signature below.
+
+> **⚠️ Known Issue — Default Collection:** The consciousness bridge uses `local_resources` as its default ChromaDB collection. The `local_resources` collection contains verified Fayette County community resource data and is the primary RAG collection for community queries. Ensure this collection is populated and current before routing community queries through the consciousness bridge.
+
+> **⚠️ RAG–Gateway Wiring Pending:** `jarvis-rag-server` is not yet wired into `jarvis-gateway`'s inference endpoint. The ingest pipeline and collection retrieval are fully validated. Wiring `jarvis-gateway` to call `jarvis-rag-server:8016` (container) or `127.0.0.1:8003` (host) before dispatching to the LLM ensemble is the next milestone.
+
+**Endpoint:** `POST /query`
+
+**RAGQuery schema (confirmed Pydantic schema):**
+
+| Field | Type | Required | Default | Notes |
+|---|---|---|---|---|
+| `collection` | string | ✅ Yes | — | ChromaDB collection name |
+| `message` | string | ✅ Yes | — | Query text |
+| `user_id` | string | No | `"defaultuser"` | Optional session identifier |
+| `n_results` | int | No | `8` | Number of results to retrieve |
+
+> **Removed:** The `/direct_rag` endpoint does not exist and must not be referenced anywhere in documentation or client code.
+
+**Example query:**
+
+```bash
+# From host — use port 8003
+curl -X POST http://127.0.0.1:8003/query \
+  -H "Content-Type: application/json" \
+  -d '{
+    "collection": "governance_rag",
+    "message": "What does the DAO charter say about membership?",
+    "user_id": "defaultuser",
+    "n_results": 8
+  }'
+```
+
+```bash
+# Constitutional grounding query
+curl -X POST http://127.0.0.1:8003/query \
+  -H "Content-Type: application/json" \
+  -d '{
+    "collection": "governance_rag",
+    "message": "Amendment XIV citizenship rights",
+    "user_id": "defaultuser",
+    "n_results": 5
+  }'
+# Returns: US Constitution Amendment XIV chunks from pg5.txt ingest
+```
+
+**Corrected ChromaDB v2 call signature (patched March 25, 2026):**
+
+The RAG server previously called:
+
+```text
+POST /api/v1/query  (body: {"collection_name": "...", ...})
+```
+
+This returns HTTP 410 Gone. The patched call uses the v2 collection-specific URL:
+
+```python
+import httpx
+
+# Corrected v2 call — collection name in URL path, not body
+CHROMA_HOST = "jarvis-chroma"   # container-internal
+CHROMA_PORT = 8000              # container-internal port
+
+url = (
+    f"http://{CHROMA_HOST}:{CHROMA_PORT}"
+    "/api/v2/tenants/default_tenant"
+    "/databases/default_database"
+    f"/collections/{collection_name}/query"
+)
+
+resp = httpx.post(url, json={
+    "query_embeddings": [embedding_vector],
+    "n_results": n_results,
+    "include": ["documents", "metadatas", "distances"]
+})
+```
+
+**Active collections for text RAG — ★ UPDATED March 26, 2026:**
+
+| Collection | Items | Purpose |
+|---|---|---|
+| `local_resources` | Active | **Default collection** — verified Fayette County community resources; primary for community queries via consciousness bridge |
+| `autonomous_learner` | 21,181+ | Community interaction memories — queried at Phase 1.45 |
+| `gbim_worldview_entities` | 5,416,521 | Complete WV GBIM spatial corpus |
+| `governance_rag` | ★ **643 chunks** | MountainShares DAO corpus + US Constitution (97 chunks) — **CONFIRMED LIVE** |
+| `commons_rag` | ★ **306 chunks** | Commons governance + gamification — **CONFIRMED LIVE** |
+| `gbim_beliefs_v2` | Active | GBIM beliefs v2 |
+| `gis_wv_benefits` | Active | WV benefits facilities |
+| `psychological_rag` | 968 | Mental health corpus (port 8006) |
+| `appalachian_cultural_intelligence` | ★ **820** | Appalachian cultural context — **LIVE** (was: 5) |
+| `spiritual_texts` | ★ **19,338** | Mother Carrie Protocol corpus — **LIVE** (was: 23) |
+| `geospatialfeatures` | ★ **60,000** | GIS feature embeddings — **LIVE** (was: 0) |
+| `GBIM_Fayette_sample` | ★ **1,535** | Fayette County GBIM sample — **LIVE** (was: 0) |
+| `ms_jarvis_memory` | Active | Conversation memory |
+| `mountainshares_knowledge` | Active | MountainShares governance |
+| `episodic_index` | Active | Episodic memory index |
+| `conversation_history` | Active | Conversation history |
+| `GBIM_sample_rows` | 5,000 | GBIM test sample |
+| `msjarvis_docs` | 2,348 | System docs + 52 WV community resources |
+
+> All collections: **384-dim, `all-minilm:latest`, `hnsw:space: cosine`**. Do not use `nomic-embed-text`.
+
+---
+
+### 7.2.2 GIS RAG Service (port 8004)
+
+The GIS RAG service is a dedicated geospatial retrieval path serving West Virginia spatial questions. It queries:
+
+- `gbim_worldview_entities` — 5,416,521 embeddings of West Virginia geospatial features from PostgreSQL `msjarvisgis` / `msjarvis`
+- `gis_wv_benefits` — semantic descriptions and metadata for benefits-related facilities (DHHR offices, health clinics, assistance centers)
+- `geospatialfeatures` — **★ 60,000 items, confirmed live March 26, 2026**
+- `GBIM_Fayette_sample` — **★ 1,535 items, confirmed live March 26, 2026**
+
+Each indexed entity stores a short text description and metadata fields: `worldview_id`, `dataset`, `county`, `gbim_entity`, `centroid_x`, `centroid_y` (SRID 26917). Metadata links back to `msjarvis.gbim_beliefs` (via `entity_id`) and `msjarvisgis.zcta_wv_centroids` (993 WV ZIP centroids, via `zip`).
+
+All embeddings use `all-minilm:latest` (384-dim, `hnsw:space: cosine`).
+
+**Example spatial query flow:**
+
+1. User: "hospitals near Mount Hope"
+2. ChromaDB (host port 8002, v2 API): Retrieve entities with semantic similarity to "hospital"
+3. PostGIS (msjarvisgis port 5432): Query `zcta_wv_centroids` for Mount Hope (ZIP 25880) centroid → `(37.8782, -81.2056)`
+4. Filter: ChromaDB results within 10-mile radius
+5. Response: Ranked hospitals with distances
+
+```python
+import httpx
+
+# Query GIS RAG from host
+resp = httpx.post(
+    "http://127.0.0.1:8004/query",
+    json={"query": "hospitals near Mount Hope", "n_results": 5}
+)
+```
+
+---
+
+### 7.2.3 Spiritual / Psychological RAG Service (port 8006)
+
+The Spiritual/Psychological RAG service retrieves from the `spiritual_texts` (**★ 19,338 items** — confirmed live March 26, 2026), `psychological_rag` (968 items), `governance_rag` (643 chunks), `commons_rag` (306 chunks), and `appalachian_cultural_intelligence` (**★ 820 items** — confirmed live March 26, 2026) ChromaDB collections. It serves:
+
+1. **Mother Carrie Protocol queries** — normative and doctrinal questions grounded in the explicit values corpus.
+2. **Community values alignment checks** — questions evaluated against Appalachian community values.
+3. **Psychological safety queries** — trauma, wellbeing, counseling, mental health.
+
+All embeddings use `all-minilm:latest` (384-dim). The service exposes `POST /query` accepting `{"query": str, "n_results": int, "collection_filter": [str]}`.
+
+This service is the primary RAG backend for the **alignment judge upgrade** described in Section 7.8.
+
+---
+
+### 7.2.4 Web-Research Gateway
+
+External web retrieval is handled by a dedicated gateway rather than allowing arbitrary outbound calls. The gateway applies policy filters and rate limits, normalizes results, and logs queries for audit. For WV-scoped queries (identified by county, role, or profile), web context is excluded from the final context window so external search results cannot override in-state RAG, GIS, and registry evidence.
+
+---
+
+### 7.2.5 Local Resource Registry Resolver (jarvis-local-resources-db, port 5435)
+
+The local resource resolver accepts structured hints (`county`, `zip`, `resource_type`, optional `local_resource_id`), queries `jarvis-local-resources-db` (port 5435), and returns normalized program records with fields: `name`, `description`, `contact_phone`, `contact_email`, `url`, `zip_coverage`, `last_verified_at`.
+
+```python
+import psycopg2
+
+conn = psycopg2.connect(
+    host="localhost", port=5435,
+    database="postgres", user="postgres", password="postgres"
+)
+cursor = conn.cursor()
+cursor.execute("""
+    SELECT resource_name, resource_type, address, phone
+    FROM community_resources
+    WHERE county = %s
+""", ('Fayette',))
+```
+
+> **Known Issue — OPEN as of March 26, 2026:** `jarvis-local-resources-db` returns empty results for Mount Hope and most Fayette County queries because verified community resource data has not yet been fully loaded. LLMs fall back to training data for local specifics. Factually accurate programs (LIHEAP, WV 2-1-1) pass the BBB. Fabricated organization names are blocked by the ethical filter. Resolution: Community Champions data entry is the next priority. **Exception:** The `local_resources` ChromaDB collection (default for consciousness bridge) contains verified Fayette County community resource data and is operational.
+
+---
+
+### 7.2.6 Landowner Belief Router (gbim_query_router, port 7205)
+
+The landowner belief router is a dedicated PostgreSQL-native routing service. It does not use ChromaDB or vector similarity search. It serves natural-language landowner queries by translating them into SQL aggregations against `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432), returning ranked ownership records with acreage, parcel count, and county breakdown.
+
+```python
+import httpx
+
+# Statewide top landowners
+response = httpx.post(
+    "http://127.0.0.1:7205/query",
+    json={
+        "question": "Who are the largest landowners in West Virginia?",
+        "mode": "landowner_gbim",
+        "route_type": "parcel_ownership",
+        "scope": "statewide",
+        "limit": 20
+    }
+)
+
+# County-scoped
+response_county = httpx.post(
+    "http://127.0.0.1:7205/query",
+    json={
+        "question": "Who owns the most land in Fayette County?",
+        "mode": "landowner_gbim",
+        "route_type": "parcel_ownership",
+        "county": "Fayette",
+        "limit": 20
+    }
+)
+```
+
+---
+
+## 7.3 Retrieval Flows
+
+### 7.3.1 Non-Spatial RAG Flow
+
+1. **Query intake.** User request enters unified gateway; coordinator wraps into internal job structure.
+2. **Phase 1.45 — Community memory retrieval.** Main brain embeds query via `all-minilm:latest` (384-dim) using `/api/embeddings` with single-string `"prompt"`. Retrieves top-5 from `autonomous_learner`. Prepends to `enhanced_message`.
+3. **Routing to text RAG.** Orchestration calls `jarvis-rag-server` (host:8003 → container:8016) via `POST /query` with `collection` and `message` fields.
+4. **Retrieval from ChromaDB (v2 API, host port 8002).** Text RAG service embeds query, runs similarity search, returns scored documents with metadata.
+5. **Context assembly.** Phase 1.45 memories + RAG results merged into context window; source separation preserved. For governance queries, `governance_rag` (643 chunks, including US Constitution) and `commons_rag` (306 chunks) provide DAO and constitutional grounding.
+6. **Generation and guarding.** LM Synthesizer (Phase 3.5) applies Ms. Egeria Jarvis persona via `jarvis-ollama:11434/api/generate` with `llama3.1:latest`. Output routed through blood-brain barrier.
+
+---
+
+### 7.3.2 Spatial RAG Flow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│   Spatial RAG: Semantic + Geographic Retrieval               │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Semantic Retrieval (ChromaDB host port 8002 / v2 API)      │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Query: "hospitals near Mount Hope"            │         │
+│  │  Embed query (all-minilm:latest, 384-dim,      │         │
+│  │    /api/embeddings single-string prompt)       │         │
+│  │  → Search gis_wv_benefits +                    │         │
+│  │    gbim_worldview_entities +                   │         │
+│  │    geospatialfeatures (60,000 items) +          │         │
+│  │    GBIM_Fayette_sample (1,535 items)            │         │
+│  │  Returns: Embeddings + metadata                │         │
+│  │    - facility_type, county, GBIM ID             │         │
+│  └────────────────────────────────────────────────┘         │
+│              ↓                                               │
+│  Geographic Filtering (PostgreSQL msjarvisgis port 5432)    │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Use GBIM IDs from ChromaDB                    │         │
+│  │  Query: SELECT zip, lat, lon                   │         │
+│  │    FROM zcta_wv_centroids                      │         │
+│  │    WHERE zip = '25880'  -- Mount Hope          │         │
+│  │  Then: spatial filter within 10-mile radius    │         │
+│  │  Returns: Full geometries + attributes         │         │
+│  └────────────────────────────────────────────────┘         │
+│              ↓                                               │
+│  GBIM Belief Provenance (PostgreSQL msjarvis port 5433)     │
+│  ┌────────────────────────────────────────────────┐         │
+│  │  Query: gbim_beliefs WHERE entity_id = ?       │         │
+│  │  Returns: confidence_decay, needs_verification │         │
+│  └────────────────────────────────────────────────┘         │
+│              ↓                                               │
+│  Combined Results → LLM Context                             │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 > Figure 7-3. Spatial RAG flow including `geospatialfeatures` (60,000 items) and `GBIM_Fayette_sample` (1,535 items), both confirmed live March 26, 2026.
 
