@@ -1,4 +1,3 @@
-text
 # Chapter 00 — System Overview
 ## Ms. Egeria Jarvis: Architecture, Services, and Production Status
 
