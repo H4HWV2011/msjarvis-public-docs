@@ -42,151 +42,151 @@ The Ms. Jarvis stack comprises **56 Docker Compose–managed services** in the `
 
 > **Field note — March 26, 2026 (RAG corpus completion sprint):** All ChromaDB RAG collections fully populated and semantically verified. `governance_rag` ingested to **643 chunks** (MountainShares DAO full corpus + US Constitution 97 chunks from Project Gutenberg). `commons_rag` ingested to **306 chunks** (full Commons governance and gamification corpus). `geospatialfeatures` confirmed **60,000 items**. `GBIM_Fayette_sample` confirmed **1,535 items**. `appalachian_cultural_intelligence` confirmed **820 items**. `spiritual_texts` confirmed **19,338 items**. EEG heartbeat services (`eeg-delta`, `eeg-theta`, `eeg-beta`) confirmed live. Semantic retrieval smoke-tested and verified across all four RAG domains. Rebuild namespace: `msjarvis-rebuild`. **Total confirmed live containers: 56.**
 
+```
 ┌─────────────────────────────────────────────────────────────────────┐
-│ Ms. Jarvis Production Service Registry — March 26, 2026 │
-│ 56 Docker Compose Services (msjarvis-rebuild) + 3 systemd │
+│     Ms. Jarvis Production Service Registry — March 26, 2026         │
+│         56 Docker Compose Services (msjarvis-rebuild) + 3 systemd   │
 ├──────────────────────────────────┬──────────┬───────────────────────┤
-│ Service │ Port │ Status │
+│ Service                          │ Port     │ Status                │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ EXTERNAL ACCESS (systemd — not Docker Compose) │
-│ cloudflared (Cloudflare Tunnel) │ — │ ✅ systemd — QUIC │
-│ tunnel: msjarvis │ │ egeria.mountain- │
-│ UUID: 42ef9893-… │ │ shares.us live │
-│ caddy (reverse proxy) │ 8443 │ ✅ systemd — v2.6.2 │
-│ /etc/caddy/Caddyfile │ │ Ubuntu pkg — CORS │
-│ ⚠ No forward_auth │ │ active; no xcaddy; │
-│ ⚠ No caddy-ratelimit │ │ no per-IP rate limit│
-│ jarvis-auth-service │ 8055 │ ✅ systemd — FastAPI │
-│ scripts/jarvis_auth_service.py │ │ token validation │
-│ /etc/systemd/system/ │ │ Redis 6380 — 30-day │
-│ jarvis-auth.service │ │ TTL; UI-initiated │
-│ │ │ only (not enforced │
-│ │ │ at proxy layer ⚠) │
+│ EXTERNAL ACCESS (systemd — not Docker Compose)                      │
+│ cloudflared (Cloudflare Tunnel)  │ —        │ ✅ systemd — QUIC     │
+│   tunnel: msjarvis               │          │   egeria.mountain-    │
+│   UUID: 42ef9893-…               │          │   shares.us live      │
+│ caddy (reverse proxy)            │ 8443     │ ✅ systemd — v2.6.2   │
+│   /etc/caddy/Caddyfile           │          │   Ubuntu pkg — CORS   │
+│   ⚠ No forward_auth             │          │   active; no xcaddy;  │
+│   ⚠ No caddy-ratelimit          │          │   no per-IP rate limit│
+│ jarvis-auth-service              │ 8055     │ ✅ systemd — FastAPI  │
+│   scripts/jarvis_auth_service.py │          │   token validation    │
+│   /etc/systemd/system/           │          │   Redis 6380 — 30-day │
+│   jarvis-auth.service            │          │   TTL; UI-initiated   │
+│                                  │          │   only (not enforced  │
+│                                  │          │   at proxy layer ⚠)  │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ GATEWAY & ORCHESTRATION │ │ │
-│ unified-gateway │ 8050 │ ✅ Production │
-│ main-brain │ 8010 │ ✅ Production │
-│ executive-coordinator │ 8011 │ ✅ Production │
-│ async-processor │ 8012 │ ✅ Production │
+│ GATEWAY & ORCHESTRATION          │          │                       │
+│ unified-gateway                  │ 8050     │ ✅ Production          │
+│ main-brain                       │ 8010     │ ✅ Production          │
+│ executive-coordinator            │ 8011     │ ✅ Production          │
+│ async-processor                  │ 8012     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ CONSCIOUSNESS PIPELINE ★ ACTIVE │ │ │
-│ jarvis-consciousness-bridge │ 8020 │ ✅ ACTIVE ★ │
-│ jarvis-woah │ 7012 │ ✅ ACTIVE ★ │
-│ jarvis-rag-server │ 8003→ │ ⚠ PARTIALLY ACTIVE ★ │
-│ (host:8003 → container:8016) │ 8016 │ /query confirmed; │
-│ │ │ embedder v2 patch │
-│ │ │ pending restart │
-│ jarvis-neurobiological-master │ 8018 │ ⚠ Check pending │
+│ CONSCIOUSNESS PIPELINE ★ ACTIVE  │          │                       │
+│ jarvis-consciousness-bridge      │ 8020     │ ✅ ACTIVE ★            │
+│ jarvis-woah                      │ 7012     │ ✅ ACTIVE ★            │
+│ jarvis-rag-server                │ 8003→    │ ⚠ PARTIALLY ACTIVE ★ │
+│   (host:8003 → container:8016)   │ 8016     │   /query confirmed;   │
+│                                  │          │   embedder v2 patch   │
+│                                  │          │   pending restart     │
+│ jarvis-neurobiological-master    │ 8018     │ ⚠ Check pending       │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ BLOOD-BRAIN BARRIER (BBB) │ │ │
-│ jarvis-blood-brain-barrier │ 8016 │ ✅ Production │
-│ Phase 1.4 input filter: │ │ INPUT: blocking ✅ │
-│ ACTIVE — blocking │ │ OUTPUT (Ph 4.5): │
-│ Phase 4.5 output filter: │ │ log+passthrough ⚠ │
-│ LOG+PASSTHROUGH (not blocking) │ │ │
-│ ⛔ bbb-output-filter (port 8017) │ 8017 │ ❌ DOES NOT EXIST │
-│ THIS CONTAINER IS NOT RUNNING │ │ Port 8016 handles │
-│ and never existed │ │ both phases │
-│ guardrail-service │ 8018 │ ✅ Production │
-│ constitutional-layer │ 8019 │ ✅ Production │
+│ BLOOD-BRAIN BARRIER (BBB)        │          │                       │
+│ jarvis-blood-brain-barrier       │ 8016     │ ✅ Production          │
+│   Phase 1.4 input filter:        │          │   INPUT: blocking ✅  │
+│   ACTIVE — blocking              │          │   OUTPUT (Ph 4.5):    │
+│   Phase 4.5 output filter:       │          │   log+passthrough ⚠  │
+│   LOG+PASSTHROUGH (not blocking) │          │                       │
+│ ⛔ bbb-output-filter (port 8017) │ 8017     │ ❌ DOES NOT EXIST     │
+│   THIS CONTAINER IS NOT RUNNING  │          │   Port 8016 handles   │
+│   and never existed              │          │   both phases         │
+│ guardrail-service                │ 8018     │ ✅ Production          │
+│ constitutional-layer             │ 8019     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ RAG PIPELINE ★ CORPUS COMPLETE │ │ │
-│ text-rag-service │ 8003 │ ✅ Production │
-│ rag-service │ 8004 │ ✅ Production │
-│ gis-rag-service │ 8005 │ ✅ Production │
-│ psychological-rag │ 8006 │ ✅ Production (968) │
-│ web-research-gateway │ 8007 │ ✅ Production │
-│ registry-resolver │ 8008 │ ✅ Production │
-│ community-memory-service │ 8009 │ ✅ Production │
-│ gbim_query_router │ 7205 │ ✅ Production ★ │
+│ RAG PIPELINE ★ CORPUS COMPLETE   │          │                       │
+│ text-rag-service                 │ 8003     │ ✅ Production          │
+│ rag-service                      │ 8004     │ ✅ Production          │
+│ gis-rag-service                  │ 8005     │ ✅ Production          │
+│ psychological-rag                │ 8006     │ ✅ Production (968)    │
+│ web-research-gateway             │ 8007     │ ✅ Production          │
+│ registry-resolver                │ 8008     │ ✅ Production          │
+│ community-memory-service         │ 8009     │ ✅ Production          │
+│ gbim_query_router                │ 7205     │ ✅ Production ★        │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ EEG HEARTBEAT ★ ALL LIVE │ │ │
-│ eeg-delta │ — │ ✅ LIVE — 30s cadence │
-│ │ │ 1 pulse confirmed │
-│ eeg-theta │ — │ ✅ LIVE — 60s cadence │
-│ │ │ 486 pulses confirmed│
-│ eeg-beta │ — │ ✅ LIVE — 5-min cadence│
-│ │ │ topic: Appalachian │
-│ │ │ 1 pulse confirmed │
+│ EEG HEARTBEAT ★ ALL LIVE         │          │                       │
+│ eeg-delta                        │ —        │ ✅ LIVE — 30s cadence  │
+│                                  │          │   1 pulse confirmed   │
+│ eeg-theta                        │ —        │ ✅ LIVE — 60s cadence  │
+│                                  │          │   486 pulses confirmed│
+│ eeg-beta                         │ —        │ ✅ LIVE — 5-min cadence│
+│                                  │          │   topic: Appalachian  │
+│                                  │          │   1 pulse confirmed   │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ LLM ENSEMBLE (21 models) │ │ │
-│ llm-proxy-01 … 21 │8201–8222 │ ✅ Production │
-│ ensemble-coordinator │ 8040 │ ✅ Production │
-│ consensus-engine │ 8041 │ ✅ Production │
+│ LLM ENSEMBLE (21 models)         │          │                       │
+│ llm-proxy-01 … 21                │8201–8222 │ ✅ Production          │
+│ ensemble-coordinator             │ 8040     │ ✅ Production          │
+│ consensus-engine                 │ 8041     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ LM SYNTHESIZER │ │ │
-│ lm-synthesizer │ 8001 │ ✅ Production │
+│ LM SYNTHESIZER                   │          │                       │
+│ lm-synthesizer                   │ 8001     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ JUDGE PIPELINE │ │ │
-│ jarvis-judge-truth │ 7230 │ ✅ Production │
-│ jarvis-judge-consistency │ 7231 │ ✅ Production │
-│ jarvis-judge-alignment │ 7232 │ ✅ Production │
-│ jarvis-judge-ethics │ 7233 │ ✅ Production │
-│ jarvis-judge-pipeline │ internal │ ✅ Production │
-│ jarvis-69dgm-bridge │ 9000 │ ✅ Production │
+│ JUDGE PIPELINE                   │          │                       │
+│ jarvis-judge-truth               │ 7230     │ ✅ Production          │
+│ jarvis-judge-consistency         │ 7231     │ ✅ Production          │
+│ jarvis-judge-alignment           │ 7232     │ ✅ Production          │
+│ jarvis-judge-ethics              │ 7233     │ ✅ Production          │
+│ jarvis-judge-pipeline            │ internal │ ✅ Production          │
+│ jarvis-69dgm-bridge              │ 9000     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ MEMORY & LEARNING │ │ │
-│ autonomous-learner │ 8060 │ ✅ Production │
-│ episodic-memory │ 8061 │ ✅ Production │
-│ working-memory │ 8062 │ ✅ Production │
-│ long-term-memory │ 8063 │ ✅ Production │
-│ memory-consolidation │ 8064 │ ✅ Production │
-│ phase-145-community-memory │ 8065 │ ✅ Production │
+│ MEMORY & LEARNING                │          │                       │
+│ autonomous-learner               │ 8060     │ ✅ Production          │
+│ episodic-memory                  │ 8061     │ ✅ Production          │
+│ working-memory                   │ 8062     │ ✅ Production          │
+│ long-term-memory                 │ 8063     │ ✅ Production          │
+│ memory-consolidation             │ 8064     │ ✅ Production          │
+│ phase-145-community-memory       │ 8065     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ SPATIAL & GBIM SERVICES │ │ │
-│ spatial-reasoning-service │ 7200 │ ✅ Production │
-│ gbim-belief-service │ 7201 │ ✅ Production │
-│ gbim-worldview-service │ 7202 │ ✅ Production │
-│ geodb-connector │ 7203 │ ✅ Production │
-│ spatial-index-service │ 7204 │ ✅ Production │
-│ gbim_query_router │ 7205 │ ✅ Production ★ │
-│ (landowner belief path) │ │ PostgreSQL-native │
-│ │ │ NO ChromaDB │
+│ SPATIAL & GBIM SERVICES          │          │                       │
+│ spatial-reasoning-service        │ 7200     │ ✅ Production          │
+│ gbim-belief-service              │ 7201     │ ✅ Production          │
+│ gbim-worldview-service           │ 7202     │ ✅ Production          │
+│ geodb-connector                  │ 7203     │ ✅ Production          │
+│ spatial-index-service            │ 7204     │ ✅ Production          │
+│ gbim_query_router                │ 7205     │ ✅ Production ★        │
+│   (landowner belief path)        │          │   PostgreSQL-native   │
+│                                  │          │   NO ChromaDB         │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ GOVERNANCE & SAFETY │ │ │
-│ ethics-filter │ 8070 │ ✅ Production │
-│ safety-monitor │ 8071 │ ✅ Production │
-│ bias-detector │ 8072 │ ✅ Production │
-│ transparency-logger │ 8073 │ ✅ Production │
-│ audit-service │ 8074 │ ✅ Production │
+│ GOVERNANCE & SAFETY              │          │                       │
+│ ethics-filter                    │ 8070     │ ✅ Production          │
+│ safety-monitor                   │ 8071     │ ✅ Production          │
+│ bias-detector                    │ 8072     │ ✅ Production          │
+│ transparency-logger              │ 8073     │ ✅ Production          │
+│ audit-service                    │ 8074     │ ✅ Production          │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ MOUNTAINSHARES & DAO │ │ │
-│ mountainshares-coordinator │ 8080 │ ❌ NOT DEPLOYED │
-│ commons-gamification │ 8081 │ ❌ NOT DEPLOYED │
-│ dao-governance │ 8082 │ ❌ NOT DEPLOYED │
-│ token-service │ 8083 │ ❌ NOT DEPLOYED │
-│ community-stake-registry │ 8084 │ ❌ NOT DEPLOYED │
-│ Corpus fully ingested ✅ — │ │ Services await │
-│ governance_rag: 643 chunks │ │ Phase 0 beta launch │
-│ commons_rag: 306 chunks │ │ │
+│ MOUNTAINSHARES & DAO             │          │                       │
+│ mountainshares-coordinator       │ 8080     │ ❌ NOT DEPLOYED        │
+│ commons-gamification             │ 8081     │ ❌ NOT DEPLOYED        │
+│ dao-governance                   │ 8082     │ ❌ NOT DEPLOYED        │
+│ token-service                    │ 8083     │ ❌ NOT DEPLOYED        │
+│ community-stake-registry         │ 8084     │ ❌ NOT DEPLOYED        │
+│   Corpus fully ingested ✅ —     │          │   Services await      │
+│   governance_rag: 643 chunks     │          │   Phase 0 beta launch │
+│   commons_rag: 306 chunks        │          │                       │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ DATA STORES (infrastructure) │ │ │
-│ jarvis-chromadb │ 8002 │ ✅ Production │
-│ host port 8002 → │ (host) │ container 8000 │
-│ all-minilm:latest (384-dim) │ │ v2 API confirmed ★ │
-│ jarvis-ollama │ 11434 │ ✅ Production │
-│ jarvis-redis │ 6380 │ ✅ Production │
-│ jarvis-neo4j │ 7474/ │ ✅ Production │
-│ │ 7687 │ │
-│ jarvis-local-resources-db │ 5435 │ ✅ Production │
-│ [PostgreSQL msjarvis] │ 5433 │ ✅ Host — Production │
-│ [PostgreSQL msjarvisgis] │ 5432 │ ✅ Host — Production │
-│ [MySQL] │ 3307 │ ✅ Host — Running │
+│ DATA STORES (infrastructure)     │          │                       │
+│ jarvis-chromadb                  │ 8002     │ ✅ Production          │
+│   host port 8002 →               │ (host)   │   container 8000      │
+│   all-minilm:latest (384-dim)    │          │   v2 API confirmed ★  │
+│ jarvis-ollama                    │ 11434    │ ✅ Production          │
+│ jarvis-redis                     │ 6380     │ ✅ Production          │
+│ jarvis-neo4j                     │ 7474/    │ ✅ Production          │
+│                                  │ 7687     │                       │
+│ jarvis-local-resources-db        │ 5435     │ ✅ Production          │
+│ [PostgreSQL msjarvis]            │ 5433     │ ✅ Host — Production   │
+│ [PostgreSQL msjarvisgis]         │ 5432     │ ✅ Host — Production   │
+│ [MySQL]                          │ 3307     │ ✅ Host — Running      │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ INGEST & CRYPTO │ │ │
-│ jarvis-crypto-policy │ — │ ✅ Running (compose) │
-│ jarvis-ingest-api │ — │ ✅ Running (compose) │
-│ jarvis-ingest-watcher │ — │ ✅ Running (compose) │
+│ INGEST & CRYPTO                  │          │                       │
+│ jarvis-crypto-policy             │ —        │ ✅ Running (compose)   │
+│ jarvis-ingest-api                │ —        │ ✅ Running (compose)   │
+│ jarvis-ingest-watcher            │ —        │ ✅ Running (compose)   │
 ├──────────────────────────────────┼──────────┼───────────────────────┤
-│ SUPPORT & UTILITY SERVICES │ │ │
-│ health-monitor, metrics, │ various │ ✅ Production │
-│ log-aggregator, cache-manager, │ │ │
-│ config-service, api-gateway, │ │ │
-│ notification-service, scheduler, │ │ │
-│ backup-service, and others │ │ │
+│ SUPPORT & UTILITY SERVICES       │          │                       │
+│ health-monitor, metrics,         │ various  │ ✅ Production          │
+│ log-aggregator, cache-manager,   │          │                       │
+│ config-service, api-gateway,     │          │                       │
+│ notification-service, scheduler, │          │                       │
+│ backup-service, and others       │          │                       │
 └──────────────────────────────────┴──────────┴───────────────────────┘
-
-text
+```
 
 > Figure 00-1. Ms. Jarvis production service registry as of March 26, 2026. ★ marks entries added or updated March 26, 2026. **Verified container count: 56 (msjarvis-rebuild namespace).** EEG heartbeat services (delta, theta, beta) confirmed live. RAG corpus collections fully populated — see Section 00.4 for verified counts. MountainShares services 8080–8084 remain NOT DEPLOYED (corpus ingested; services await Phase 0 beta launch). Port 8017 (`bbb-output-filter`) does not exist — port 8016 handles both input and output phases.
 
@@ -248,45 +248,45 @@ county = httpx.post(
 
 The GBIM corpus is the epistemic core of the Ms. Egeria Jarvis Steward System. All production beliefs live in two PostgreSQL databases on the host system. The table below reflects the verified production state as of **March 20, 2026**, including the 20,593 landowner beliefs added during the evening sprint.
 
+```
 ┌─────────────────────────────────────────────────────────────────────┐
-│ GBIM Corpus — Verified Production State │
-│ March 20, 2026, ~19:45 EDT │
+│            GBIM Corpus — Verified Production State                  │
+│                     March 20, 2026, ~19:45 EDT                      │
 ├────────────────────────────────────┬────────────────┬───────────────┤
-│ Table / View │ Records │ Database │
+│ Table / View                       │ Records        │ Database      │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ gbimbeliefnormalized │ 5,416,522 │ msjarvisgis │
-│ (nine JSONB axes, worldview eq1) │ (21 GB) │ port 5432 │
-│ ┣ spatial / facility beliefs │ 5,395,929 │ │
-│ ┗ landowner beliefs ★ NEW │ 20,593 │ │
-│ (LANDOWNER_CORPORATE + │ │ │
-│ LANDOWNER_GOVERNMENT) │ │ │
+│ gbimbeliefnormalized               │ 5,416,522      │ msjarvisgis   │
+│   (nine JSONB axes, worldview eq1) │ (21 GB)        │ port 5432     │
+│   ┣ spatial / facility beliefs     │ 5,395,929      │               │
+│   ┗ landowner beliefs ★ NEW        │    20,593      │               │
+│     (LANDOWNER_CORPORATE +         │                │               │
+│      LANDOWNER_GOVERNMENT)         │                │               │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ gbim_worldview_entity │ 5,416,521 │ msjarvisgis │
-│ (entity relationships, │ (47 GB) │ port 5432 │
-│ worldview eq1) │ │ │
+│ gbim_worldview_entity              │ 5,416,521      │ msjarvisgis   │
+│   (entity relationships,           │ (47 GB)        │ port 5432     │
+│    worldview eq1)                  │                │               │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ gbim_beliefs │ 5,289,747 │ msjarvisgis │
-│ (core beliefs, structured cols) │ (3 GB) │ port 5432 │
+│ gbim_beliefs                       │ 5,289,747      │ msjarvisgis   │
+│   (core beliefs, structured cols)  │ (3 GB)         │ port 5432     │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ gbim_evidence │ 2,121,230 │ msjarvisgis │
-│ (supporting evidence) │ (680 MB) │ port 5432 │
+│ gbim_evidence                      │ 2,121,230      │ msjarvisgis   │
+│   (supporting evidence)            │ (680 MB)       │ port 5432     │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ gbim_belief_evidence │ 2,121,230 │ msjarvisgis │
-│ (belief-evidence linkages) │ (232 MB) │ port 5432 │
+│ gbim_belief_evidence               │ 2,121,230      │ msjarvisgis   │
+│   (belief-evidence linkages)       │ (232 MB)       │ port 5432     │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ mvw_gbim_landowner_spatial ★ NEW │ 20,593 │ msjarvisgis │
-│ (materialized view — landowner │ (spatially │ port 5432 │
-│ beliefs, spatially indexed, │ indexed) │ │
-│ served by gbim_query_router) │ │ │
+│ mvw_gbim_landowner_spatial ★ NEW   │    20,593      │ msjarvisgis   │
+│   (materialized view — landowner   │ (spatially     │ port 5432     │
+│    beliefs, spatially indexed,     │  indexed)      │               │
+│    served by gbim_query_router)    │                │               │
 ├────────────────────────────────────┼────────────────┼───────────────┤
-│ TOTAL verified GBIM beliefs │ 5,416,522 * │ │
-│ (* landowner rows are a subset of │ │ │
-│ gbimbeliefnormalized, not │ │ │
-│ additive — total unique belief │ │ │
-│ rows = 5,416,522) │ │ │
+│ TOTAL verified GBIM beliefs        │ 5,416,522 *    │               │
+│ (* landowner rows are a subset of  │                │               │
+│  gbimbeliefnormalized, not         │                │               │
+│  additive — total unique belief    │                │               │
+│  rows = 5,416,522)                 │                │               │
 └────────────────────────────────────┴────────────────┴───────────────┘
-
-text
+```
 
 > Figure 00-2. GBIM corpus verified production state, March 20, 2026. ★ marks tables/views added or updated in the March 20, 2026 landowner sprint.
 
@@ -302,94 +302,94 @@ All vector collections use **`all-minilm:latest` (384-dimensional embeddings)** 
 
 > **Embedding API note (March 26, 2026):** Use `/api/embeddings` (single-string `prompt` key) — NOT `/api/embed`. The `/api/embed` endpoint with list input was tested and confirmed, but production ingest pipeline uses single-string path for compatibility.
 
+```
 ┌─────────────────────────────────────────────────────────────────────┐
-│ ChromaDB Production Collections — March 26, 2026 ★ UPDATED │
-│ host port 8002 — all-minilm:latest (384-dim, cosine) │
-│ RAG collections fully populated ★ │
+│   ChromaDB Production Collections — March 26, 2026 ★ UPDATED       │
+│   host port 8002 — all-minilm:latest (384-dim, cosine)              │
+│   RAG collections fully populated ★                                 │
 ├──────────────────────────────────────┬──────────────┬───────────────┤
-│ Collection │ Items │ Notes │
+│ Collection                           │ Items        │ Notes         │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ gbim_worldview_entities │ 5,416,521 │ Full GBIM │
-│ │ │ spatial corpus│
+│ gbim_worldview_entities              │ 5,416,521    │ Full GBIM     │
+│                                      │              │ spatial corpus│
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ geospatialfeatures ★ │ 60,000 │ ✅ POPULATED │
-│ │ │ OI-12 CLOSED │
+│ geospatialfeatures ★                 │ 60,000       │ ✅ POPULATED  │
+│                                      │              │ OI-12 CLOSED  │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ GBIM_Fayette_sample ★ │ 1,535 │ ✅ POPULATED │
-│ │ │ OI-13 CLOSED │
+│ GBIM_Fayette_sample ★                │ 1,535        │ ✅ POPULATED  │
+│                                      │              │ OI-13 CLOSED  │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ appalachian_cultural_intelligence ★ │ 820 │ ✅ POPULATED │
-│ │ │ OI-14 CLOSED │
+│ appalachian_cultural_intelligence ★  │ 820          │ ✅ POPULATED  │
+│                                      │              │ OI-14 CLOSED  │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ spiritual_texts ★ │ 19,338 │ ✅ POPULATED │
-│ │ │ OI-15 CLOSED │
-│ │ │ Mother Carrie │
-│ │ │ Protocol │
+│ spiritual_texts ★                    │ 19,338       │ ✅ POPULATED  │
+│                                      │              │ OI-15 CLOSED  │
+│                                      │              │ Mother Carrie │
+│                                      │              │ Protocol      │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ governance_rag ★ │ 643 chunks │ ✅ POPULATED │
-│ │ │ OI-19 CLOSED │
-│ │ │ MountainShares│
-│ │ │ DAO full corpus│
-│ │ │ + US Const. │
-│ │ │ (97 chunks, │
-│ │ │ Gutenberg) │
-│ │ │ Retrieval │
-│ │ │ verified ✅ │
+│ governance_rag ★                     │ 643 chunks   │ ✅ POPULATED  │
+│                                      │              │ OI-19 CLOSED  │
+│                                      │              │ MountainShares│
+│                                      │              │ DAO full corpus│
+│                                      │              │ + US Const.   │
+│                                      │              │ (97 chunks,   │
+│                                      │              │ Gutenberg)    │
+│                                      │              │ Retrieval     │
+│                                      │              │ verified ✅   │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ commons_rag ★ │ 306 chunks │ ✅ POPULATED │
-│ │ │ OI-20 CLOSED │
-│ │ │ Full Commons │
-│ │ │ governance + │
-│ │ │ gamification │
-│ │ │ corpus │
-│ │ │ Retrieval │
-│ │ │ verified ✅ │
+│ commons_rag ★                        │ 306 chunks   │ ✅ POPULATED  │
+│                                      │              │ OI-20 CLOSED  │
+│                                      │              │ Full Commons  │
+│                                      │              │ governance +  │
+│                                      │              │ gamification  │
+│                                      │              │ corpus        │
+│                                      │              │ Retrieval     │
+│                                      │              │ verified ✅   │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ autonomous_learner │ 21,181+ │ ~288/day │
-│ │ (growing) │ Phase 1.45 │
+│ autonomous_learner                   │ 21,181+      │ ~288/day      │
+│                                      │ (growing)    │ Phase 1.45    │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ psychological_rag │ 968 │ port 8006 │
-│ │ │ crisis/mental │
-│ │ │ health corpus │
+│ psychological_rag                    │ 968          │ port 8006     │
+│                                      │              │ crisis/mental │
+│                                      │              │ health corpus │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ msjarvis_docs │ 2,348 │ ✅ Active │
-│ │ │ 52 WV community│
-│ │ │ resources + │
-│ │ │ 2,296 sys docs│
+│ msjarvis_docs                        │ 2,348        │ ✅ Active      │
+│                                      │              │ 52 WV community│
+│                                      │              │ resources +   │
+│                                      │              │ 2,296 sys docs│
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ governance │ Active │ WV governance │
-│ thesis │ Active │ Theory corpus │
-│ mountainshares_knowledge │ Active │ DAO/economics │
-│ ms_jarvis_memory │ Active │ Persistent mem│
-│ episodic_index │ Active │ Episodic index│
-│ conversation_history │ Active │ Session ctx │
-│ ⚠ not formally wired to pipeline │ │ OI-05 open │
-│ gis_wv_benefits │ Active │ WV benefits │
-│ GBIM_sample_rows │ 5,000 │ Test/validate │
-│ local_resources │ Active │ Default RAG │
-│ economic_rag │ Active │ Economic intel│
-│ policy_rag │ Active │ Policy corpus │
-│ grants_rag │ Active │ Grant corpus │
-│ legal_rag │ Active │ Legal corpus │
-│ health_rag │ Active │ Health corpus │
-│ news_rag │ Active │ News corpus │
-│ meeting_minutes │ Active │ Meeting docs │
-│ contracts │ Active │ Contracts │
-│ address_points │ Active │ WV addresses │
-│ safety_rules │ Active │ Safety rules │
-│ fifth_dgm_subconscious │ Active │ Subconscious │
-│ conversation_gbim_private │ Active │ GBIM private │
-│ conversation_gbim_public │ Active │ GBIM public │
-│ GBIM_sample │ Active │ Sample subset │
+│ governance                           │ Active       │ WV governance │
+│ thesis                               │ Active       │ Theory corpus │
+│ mountainshares_knowledge             │ Active       │ DAO/economics │
+│ ms_jarvis_memory                     │ Active       │ Persistent mem│
+│ episodic_index                       │ Active       │ Episodic index│
+│ conversation_history                 │ Active       │ Session ctx   │
+│   ⚠ not formally wired to pipeline  │              │ OI-05 open    │
+│ gis_wv_benefits                      │ Active       │ WV benefits   │
+│ GBIM_sample_rows                     │ 5,000        │ Test/validate │
+│ local_resources                      │ Active       │ Default RAG   │
+│ economic_rag                         │ Active       │ Economic intel│
+│ policy_rag                           │ Active       │ Policy corpus │
+│ grants_rag                           │ Active       │ Grant corpus  │
+│ legal_rag                            │ Active       │ Legal corpus  │
+│ health_rag                           │ Active       │ Health corpus │
+│ news_rag                             │ Active       │ News corpus   │
+│ meeting_minutes                      │ Active       │ Meeting docs  │
+│ contracts                            │ Active       │ Contracts     │
+│ address_points                       │ Active       │ WV addresses  │
+│ safety_rules                         │ Active       │ Safety rules  │
+│ fifth_dgm_subconscious               │ Active       │ Subconscious  │
+│ conversation_gbim_private            │ Active       │ GBIM private  │
+│ conversation_gbim_public             │ Active       │ GBIM public   │
+│ GBIM_sample                          │ Active       │ Sample subset │
 ├──────────────────────────────────────┼──────────────┼───────────────┤
-│ ⚠ LANDOWNER BELIEFS │ NOT IN │ Served by │
-│ (LANDOWNER_CORPORATE / │ CHROMADB │ gbim_query_ │
-│ LANDOWNER_GOVERNMENT) │ │ router (7205) │
-│ │ │ PostgreSQL │
-│ │ │ native path │
+│ ⚠ LANDOWNER BELIEFS                 │ NOT IN       │ Served by     │
+│ (LANDOWNER_CORPORATE /               │ CHROMADB     │ gbim_query_   │
+│  LANDOWNER_GOVERNMENT)               │              │ router (7205) │
+│                                      │              │ PostgreSQL    │
+│                                      │              │ native path   │
 └──────────────────────────────────────┴──────────────┴───────────────┘
-
-text
+```
 
 > Figure 00-3. ChromaDB collection inventory, March 26, 2026. ★ **UPDATED:** All six previously sparse or missing RAG collections are now fully populated and semantically verified (OI-12 through OI-20 closed). `governance_rag` contains the complete MountainShares DAO corpus plus the full US Constitution (Project Gutenberg pg5.txt). `commons_rag` contains the full Commons governance and gamification corpus. Semantic retrieval smoke-tested: BSA → SNAP/Medicaid/TANF ✅; constitutional rights → Amendment XIV ✅; Daily Life Game → Contribution Game + Participation Map ✅; governance rules → DAO Terms + Phase 0 Audit ✅.
 
@@ -397,67 +397,67 @@ text
 
 ## 00.5 Database Infrastructure Summary
 
+```
 ┌─────────────────────────────────────────────────────────────────────┐
-│ Ms. Jarvis Database Infrastructure — March 26, 2026 │
+│          Ms. Jarvis Database Infrastructure — March 26, 2026        │
 ├─────────────────────────┬────────┬──────────────────────────────────┤
-│ Database / Service │ Port │ Status & Key Facts │
+│ Database / Service      │ Port   │ Status & Key Facts               │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ msjarvisgis │ 5432 │ ✅ Host PostgreSQL 16 + PostGIS │
-│ (primary spatial + │ │ 91 GB — 501 tables │
-│ GBIM + landowner) │ │ 5,416,522 beliefs in │
-│ │ │ gbimbeliefnormalized │
-│ │ │ incl. 20,593 landowner beliefs ★ │
-│ │ │ mvw_gbim_landowner_spatial live ★ │
+│ msjarvisgis             │ 5432   │ ✅ Host PostgreSQL 16 + PostGIS  │
+│ (primary spatial +      │        │ 91 GB — 501 tables               │
+│  GBIM + landowner)      │        │ 5,416,522 beliefs in             │
+│                         │        │ gbimbeliefnormalized             │
+│                         │        │ incl. 20,593 landowner beliefs ★ │
+│                         │        │ mvw_gbim_landowner_spatial live ★ │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ msjarvis │ 5433 │ ✅ Host PostgreSQL │
-│ (GBIM belief store, │ │ 8 MB — 6 tables │
-│ RAG-facing) │ │ Primary RAG query target │
+│ msjarvis                │ 5433   │ ✅ Host PostgreSQL               │
+│ (GBIM belief store,     │        │ 8 MB — 6 tables                  │
+│  RAG-facing)            │        │ Primary RAG query target         │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ local_resources │ 5435 │ ✅ Docker (jarvis-local- │
-│ (program registry + │ │ resources-db), PostgreSQL 15 │
-│ red team audit) │ │ building_parcel_county_tax_mv: │
-│ │ │ 7,354,707 rows │
-│ │ │ 97.17% address coverage verified │
-│ │ │ redteam_sessions + feedback tbls │
+│ local_resources         │ 5435   │ ✅ Docker (jarvis-local-         │
+│ (program registry +     │        │   resources-db), PostgreSQL 15   │
+│  red team audit)        │        │ building_parcel_county_tax_mv:   │
+│                         │        │   7,354,707 rows                 │
+│                         │        │ 97.17% address coverage verified │
+│                         │        │ redteam_sessions + feedback tbls │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ ChromaDB │ 8002 │ ✅ Docker (jarvis-chroma) │
-│ (vector store) │ (host) │ host port 8002 → container 8000 │
-│ │ │ all-minilm:latest (384-dim) │
-│ │ │ cosine similarity space │
-│ │ │ 100-word chunk constraint │
-│ │ │ v2 API active ★ │
-│ │ │ RAG collections fully populated ★│
+│ ChromaDB                │ 8002   │ ✅ Docker (jarvis-chroma)        │
+│ (vector store)          │ (host) │ host port 8002 → container 8000  │
+│                         │        │ all-minilm:latest (384-dim)      │
+│                         │        │ cosine similarity space          │
+│                         │        │ 100-word chunk constraint        │
+│                         │        │ v2 API active ★                  │
+│                         │        │ RAG collections fully populated ★│
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ Redis │ 6380 │ ✅ Docker (jarvis-redis) │
-│ (cache + session) │ (host) │ host port 6380 → container 6379 │
-│ │ │ Async job status key: 'complete' │
+│ Redis                   │ 6380   │ ✅ Docker (jarvis-redis)         │
+│ (cache + session)       │ (host) │ host port 6380 → container 6379  │
+│                         │        │ Async job status key: 'complete' │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ Neo4j │ 7474 / │ ✅ Docker │
-│ (graph) │ 7687 │ Graph relationships + GBIM links │
+│ Neo4j                   │ 7474 / │ ✅ Docker                        │
+│ (graph)                 │ 7687   │ Graph relationships + GBIM links │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ MySQL │ 3307 │ ✅ Host — Running │
-│ │ │ ⚠ Schema dump not yet in docs/ │
+│ MySQL                   │ 3307   │ ✅ Host — Running                │
+│                         │        │ ⚠ Schema dump not yet in docs/  │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ jarvis-auth-service ★ │ 8055 │ ✅ systemd (NOT Docker Compose) │
-│ (standalone auth) │ │ FastAPI — Redis 6380 (host) │
-│ │ │ Token TTL: 30 days │
-│ │ │ UI-initiated only ⚠ │
+│ jarvis-auth-service ★   │ 8055   │ ✅ systemd (NOT Docker Compose)  │
+│ (standalone auth)       │        │ FastAPI — Redis 6380 (host)      │
+│                         │        │ Token TTL: 30 days               │
+│                         │        │ UI-initiated only ⚠              │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ Caddy reverse proxy ★ │ 8443 │ ✅ systemd (NOT Docker Compose) │
-│ │ │ Version: 2.6.2 (Ubuntu package) │
-│ │ │ ⚠ NOT xcaddy — no caddy-ratelimit│
-│ │ │ ⚠ NO forward_auth support │
-│ │ │ CORS: Access-Control-Allow- │
-│ │ │ Origin "*" — active ✅ │
+│ Caddy reverse proxy ★   │ 8443   │ ✅ systemd (NOT Docker Compose)  │
+│                         │        │ Version: 2.6.2 (Ubuntu package)  │
+│                         │        │ ⚠ NOT xcaddy — no caddy-ratelimit│
+│                         │        │ ⚠ NO forward_auth support        │
+│                         │        │ CORS: Access-Control-Allow-      │
+│                         │        │   Origin "*" — active ✅         │
 ├─────────────────────────┼────────┼──────────────────────────────────┤
-│ Cloudflare Tunnel ★ │ — │ ✅ systemd (NOT Docker Compose) │
-│ │ │ Tunnel name: msjarvis │
-│ │ │ UUID: 42ef9893-f4df-4cc5- │
-│ │ │ 8881-bb55b995e022 │
-│ │ │ TLS: Cloudflare terminates ✅ │
+│ Cloudflare Tunnel ★     │ —      │ ✅ systemd (NOT Docker Compose)  │
+│                         │        │ Tunnel name: msjarvis            │
+│                         │        │ UUID: 42ef9893-f4df-4cc5-        │
+│                         │        │       8881-bb55b995e022          │
+│                         │        │ TLS: Cloudflare terminates ✅    │
 └─────────────────────────┴────────┴──────────────────────────────────┘
-
-text
+```
 
 > Figure 00-4. Database and external service infrastructure summary, March 26, 2026.
 
@@ -467,63 +467,63 @@ text
 
 The production query pipeline as of March 26, 2026. Validated through first public end-to-end test (March 22, 2026) and consciousness pipeline confirmation (March 25, 2026). RAG corpus fully populated March 26, 2026.
 
+```
 User Query (browser at https://egeria.mountainshares.us)
-↓
+    ↓
 Cloudflare Tunnel (HTTPS/QUIC → Legion localhost)
-TLS terminated by Cloudflare ✅
-↓
+    TLS terminated by Cloudflare ✅
+    ↓
 Caddy (port 8443) — v2.6.2 Ubuntu package
-CORS headers applied
-Route: /chat* → 127.0.0.1:8050
-⚠ Caddy does NOT enforce token validation (OI-36-A)
-↓
+    CORS headers applied
+    Route: /chat* → 127.0.0.1:8050
+    ⚠ Caddy does NOT enforce token validation (OI-36-A)
+    ↓
 jarvis-auth-service (port 8055) — UI-initiated token validation only
-↓ (chat requests proceed regardless of auth state — known gap OI-36-A)
+    ↓ (chat requests proceed regardless of auth state — known gap OI-36-A)
 Unified Gateway (port 8050)
-dict.lower() guard patched March 25, 2026 ★
-↓
+    dict.lower() guard patched March 25, 2026 ★
+    ↓
 BBB Input Filter (port 8016) — Phase 1.4 — BLOCKING ✅
-↓ (content_approved=True)
+    ↓ (content_approved=True)
 Main Brain (port 8010)
-│
-├── Phase 1.45: Community Memory Retrieval
-│ autonomous_learner (ChromaDB port 8002)
-│
-├── Phase 2: Multi-agent, web research, spatial, GBIM
-│ GIS RAG (port 8005)
-│ GBIM Landowner Router (port 7205) — PostgreSQL-native
-│ Text RAG / jarvis-rag-server (port 8003→8016) ★
-│ governance_rag: 643 chunks ✅
-│ commons_rag: 306 chunks ✅
-│ All RAG collections fully populated ★
-│ ⚠ Gateway wiring to inference endpoint pending
-│
-├── [EEG HEARTBEAT] ★ ALL LIVE
-│ eeg-delta: 30s cadence — 1 pulse confirmed ✅
-│ eeg-theta: 60s cadence — 486 pulses confirmed ✅
-│ eeg-beta: 5-min cadence, topic: Appalachian ✅
-│
-├── [CONSCIOUSNESS PIPELINE] ★ ACTIVE
-│ jarvis-consciousness-bridge (port 8020) ✅
-│ jarvis-woah (port 7012) ✅
-│ jarvis-rag-server (port 8016) ⚠ embedder fix pending
-│
-├── Phase 2.5: 21-LLM Ensemble (ports 8201–8222)
-│ ~88–115s (GPU, RTX 4070)
-│
-├── Phase 3: Judge Pipeline
-│ jarvis-judge-truth (7230), -consistency (7231)
-│ jarvis-judge-alignment (7232), -ethics (7233)
-│
-├── Phase 3.5: LM Synthesizer (port 8001)
-│ Persona injection — no model name leakage ✅
-│
-└── Phase 4.5: BBB Output Filter (port 8016 — same service)
-LOG+PASSTHROUGH mode ⚠ (recalibration pending OI-02)
-↓
+    │
+    ├── Phase 1.45: Community Memory Retrieval
+    │     autonomous_learner (ChromaDB port 8002)
+    │
+    ├── Phase 2: Multi-agent, web research, spatial, GBIM
+    │     GIS RAG (port 8005)
+    │     GBIM Landowner Router (port 7205) — PostgreSQL-native
+    │     Text RAG / jarvis-rag-server (port 8003→8016) ★
+    │       governance_rag: 643 chunks ✅
+    │       commons_rag: 306 chunks ✅
+    │       All RAG collections fully populated ★
+    │       ⚠ Gateway wiring to inference endpoint pending
+    │
+    ├── [EEG HEARTBEAT] ★ ALL LIVE
+    │     eeg-delta: 30s cadence — 1 pulse confirmed ✅
+    │     eeg-theta: 60s cadence — 486 pulses confirmed ✅
+    │     eeg-beta:  5-min cadence, topic: Appalachian ✅
+    │
+    ├── [CONSCIOUSNESS PIPELINE] ★ ACTIVE
+    │     jarvis-consciousness-bridge (port 8020) ✅
+    │     jarvis-woah (port 7012) ✅
+    │     jarvis-rag-server (port 8016) ⚠ embedder fix pending
+    │
+    ├── Phase 2.5: 21-LLM Ensemble (ports 8201–8222)
+    │     ~88–115s (GPU, RTX 4070)
+    │
+    ├── Phase 3: Judge Pipeline
+    │     jarvis-judge-truth (7230), -consistency (7231)
+    │     jarvis-judge-alignment (7232), -ethics (7233)
+    │
+    ├── Phase 3.5: LM Synthesizer (port 8001)
+    │     Persona injection — no model name leakage ✅
+    │
+    └── Phase 4.5: BBB Output Filter (port 8016 — same service)
+          LOG+PASSTHROUGH mode ⚠ (recalibration pending OI-02)
+    ↓
 Response → Caddy → Cloudflare Tunnel → User browser
-
-text
+```
 
 > Figure 00-5. Full production pipeline flow, March 26, 2026. ★ RAG corpus fully populated — `governance_rag` (643 chunks) and `commons_rag` (306 chunks) semantically verified. Gateway wiring of RAG collections to inference endpoint remains pending next sprint.
 
@@ -594,4 +594,4 @@ text
 *Last updated: 2026-03-26, Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *Public URL: https://egeria.mountainshares.us*
 *Rebuild namespace: msjarvis-rebuild — 56 containers confirmed live*
-
+````
