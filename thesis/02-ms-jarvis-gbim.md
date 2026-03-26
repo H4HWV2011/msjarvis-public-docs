@@ -654,4 +654,3 @@ The constitutional-layer enforcement of these constraints — query refusal logi
 *Last updated: 2026-03-26, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
 *Section 2.8 (intellectual honesty correction) added March 21, 2026.*
 *Section 2.6 and 2.10 updated March 26, 2026 — RAG corpus completion sprint; all collections now populated.*
-````
