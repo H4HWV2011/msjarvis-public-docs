@@ -7,6 +7,8 @@ This folder contains the **full 43-chapter computational thesis** for the Ms. Ja
 
 The thesis is not a conventional academic document. It is a living, public record of a system being built in real time, authored from within the community and infrastructure it describes, grounded in the discipline of Polymathmatic Geography and the framework of Quantarithmia.
 
+> **Status as of March 26, 2026:** The Ms. Jarvis rebuild sprint is complete. The system is running at **56 confirmed live containers** in the `msjarvis-rebuild` namespace. All corpus collections are fully populated and semantically verified. EEG heartbeat services (delta, theta, beta) are confirmed live. The RAG governance and commons collections are ingested and retrieval-tested. This thesis reflects the system as it stands on that date.
+
 ---
 
 ## How This Thesis Is Organized
@@ -52,7 +54,7 @@ Documents the live technical infrastructure — containers, routing, data pipeli
 
 | Chapter | Title | What It Contains |
 |---|---|---|
-| [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) | Container Architecture | The full Docker/container architecture — how 79–84 containerized services are organized, networked, and routed |
+| [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) | Container Architecture | The full Docker/container architecture — how **56 confirmed live containerized services** are organized, networked, and routed in the `msjarvis-rebuild` namespace |
 | [20-first-stage-evaluation.md](./20-first-stage-evaluation.md) | First-Stage Evaluation | The first formal evaluation of the system's technical and conceptual integrity after initial build |
 | [21-background-store-and-patterns.md](./21-background-store-and-patterns.md) | Background Store | The background data store — persistent patterns, baseline knowledge, and long-term contextual memory |
 | [22-identity-focused-retention.md](./22-identity-focused-retention.md) | Identity Retention | How Ms. Jarvis retains and maintains coherent identity across sessions, restarts, and updates |
@@ -61,7 +63,7 @@ Documents the live technical infrastructure — containers, routing, data pipeli
 | [25-consciousness-coordinator-and-services.md](./25-consciousness-coordinator-and-services.md) | Consciousness Coordinator | The consciousness coordinator service — the orchestrating process that integrates outputs across the full system |
 | [26-temporal-toroidal-semaphore-structure.md](./26-temporal-toroidal-semaphore-structure.md) | Toroidal Semaphore | The temporal toroidal semaphore — the time-aware synchronization structure that prevents race conditions across distributed services |
 | [27-web-research-and-autonomy.md](./27-web-research-and-autonomy.md) | Web Research & Autonomy | How Ms. Jarvis conducts autonomous web research within constitutional constraints |
-| [28-heartbeat-and-live-cycles.md](./28-heartbeat-and-live-cycles.md) | Heartbeat Cycles | The heartbeat service — the continuous monitoring and live-cycle management that keeps the system healthy |
+| [28-heartbeat-and-live-cycles.md](./28-heartbeat-and-live-cycles.md) | Heartbeat Cycles | The heartbeat service — the continuous monitoring and live-cycle management that keeps the system healthy. **As of March 26, 2026: eeg-delta (30s cadence), eeg-theta (60s cadence, 486 pulses confirmed), and eeg-beta (5-min cadence, topic: Appalachian) are all confirmed live.** |
 | [29-psychological-safeguards-and-pia.md](./29-psychological-safeguards-and-pia.md) | Psychological Safeguards | The psychological safeguards and Psychological Integrity Architecture (PIA) — how the system is protected from destabilization, manipulation, and identity drift |
 | [30-aapcappE-scraper-and-corpus.md](./30-aapcappE-scraper-and-corpus.md) | AAPCAppE Corpus | The Appalachian corpus scraper and knowledge base — how local knowledge, policy documents, and community sources are ingested and maintained |
 | [31-mountainshares-and-infrastructure.md](./31-mountainshares-and-infrastructure.md) | MountainShares Infrastructure | The technical infrastructure layer of MountainShares — how the economic instrument is implemented at the systems level |
@@ -76,7 +78,7 @@ Documents the most technically and philosophically demanding components: fractal
 | [34-spiritual-root-and-mother-carrie.md](./34-spiritual-root-and-mother-carrie.md) | Spiritual Root | The spiritual root of the system — "Mother Carrie," liberation theology, and how spiritual grounding shapes the architecture's deepest commitments |
 | [35-swarm-functions-and-eternal-watchdogs.md](./35-swarm-functions-and-eternal-watchdogs.md) | Swarm & Watchdogs | Swarm functions and eternal watchdog processes — the distributed monitoring and self-healing architecture |
 | [36-identity-and-registration.md](./36-identity-and-registration.md) | Identity & Registration | The identity registration system — how participants, institutions, and the AI itself are registered, verified, and maintained within the system |
-| [37-constitutional-principles-service.md](./37-constitutional-principles-service.md) | Constitutional Principles | The Constitutional Principles Service — how the system's foundational values and constraints are encoded, enforced, and audited in real time |
+| [37-constitutional-principles-service.md](./37-constitutional-principles-service.md) | Constitutional Principles | The Constitutional Principles Service — how the system's foundational values and constraints are encoded, enforced, and audited in real time. **As of March 26, 2026: `governance_rag` contains 643 semantically indexed chunks including the full US Constitution (97 chunks, Project Gutenberg) and all MountainShares governance documents.** |
 | [38-external-communication-and-authority.md](./38-external-communication-and-authority.md) | External Communication | How Ms. Jarvis communicates externally — the protocols, authority constraints, and transparency requirements governing outward-facing outputs |
 | [39-operational-evaluation.md](./39-operational-evaluation.md) | Operational Evaluation | The second formal evaluation — operational readiness, live system performance, and alignment with design intent |
 | [40-system-audit-and-operational-validation.md](./40-system-audit-and-operational-validation.md) | System Audit | The full system audit and operational validation — the rigorous technical and governance review of the complete system |
@@ -88,6 +90,23 @@ The final movement: continuous validation, post-quantum security, and the forwar
 |---|---|---|
 | [41-test-harness-and-continuous-validation.md](./41-test-harness-and-continuous-validation.md) | Test Harness | The full test harness and continuous validation architecture — how the system is tested, monitored, and verified on an ongoing basis |
 | [42-Post-Quantum Security Layer.md](./42-Post-Quantum%20Security%20Layer.md) | Post-Quantum Security | The post-quantum security layer — how the system is designed to remain secure against quantum computing threats, with implementation specifications |
+
+---
+
+## Corpus Status — March 26, 2026
+
+All ChromaDB collections are fully populated and semantically verified as of the March 2026 rebuild sprint:
+
+| Collection | Count | Status |
+|---|---|---|
+| `geospatialfeatures` | 60,000 items | ✅ Live |
+| `GBIM_Fayette_sample` | 1,535 items | ✅ Live |
+| `appalachian_cultural_intelligence` | 820 items | ✅ Live |
+| `spiritual_texts` | 19,338 items | ✅ Live |
+| `governance_rag` | 643 chunks | ✅ Live — US Constitution + full MountainShares DAO corpus |
+| `commons_rag` | 306 chunks | ✅ Live — full Commons governance and gamification corpus |
+
+Embedding model: `all-minilm` (384-dim, cosine similarity, 100-word chunk constraint, port 8002).
 
 ---
 
@@ -109,7 +128,7 @@ The final movement: continuous validation, post-quantum security, and the forwar
 - [02-ms-jarvis-gbim.md](./02-ms-jarvis-gbim.md) — the GBIM core
 - [07-rag-pipeline-and-routers.md](./07-rag-pipeline-and-routers.md) — RAG and routing
 - [11-llm-fabric-of-ms-jarvis.md](./11-llm-fabric-of-ms-jarvis.md) — LLM orchestration
-- [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) — Docker/container layer
+- [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) — Docker/container layer (56 containers live)
 - [25-consciousness-coordinator-and-services.md](./25-consciousness-coordinator-and-services.md) — consciousness coordinator
 - [40-system-audit-and-operational-validation.md](./40-system-audit-and-operational-validation.md) — full audit
 
@@ -137,8 +156,8 @@ Every folder in this repository is a component of what this thesis documents:
 |---|---|
 | `discipline/` | Chapters 01 (Quantarithmia), researcher position (01) |
 | `theory/` | Chapters 01 (Quantarithmia full framework), off-switch (see 16, 29, 37) |
-| `mountainshares-dao/` | Chapters 03, 31 |
-| `the commons/` | Referenced throughout Movement III and IV |
+| `mountainshares-dao/` | Chapters 03, 31 — full governance corpus ingested into `governance_rag` |
+| `the commons/` | Referenced throughout Movement III and IV — full corpus ingested into `commons_rag` |
 | `docs/` | Navigation layer for this thesis and the full system |
 
 The thesis is the *argument* that every other folder is *evidence* for.
@@ -148,3 +167,4 @@ The thesis is the *argument* that every other folder is *evidence* for.
 *Thesis authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
 *See [LICENSE](../LICENSE) for terms.*
+*Last verified: March 26, 2026 — rebuild sprint complete, 56 containers live.*
