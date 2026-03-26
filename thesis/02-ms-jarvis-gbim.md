@@ -1,48 +1,92 @@
-# 2. The Geometric Belief Model and GBIM Architecture
 
-*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+This is what "validated against PostgreSQL GBIM" would mean. It does not yet exist in the live judge scripts.
 
----
+### 2.8.6 Path to Closing the Gap
 
-## Why This Matters for Polymathmatic Geography
+1. Add PostgreSQL connection pool to `Dockerfile.judge` — `psycopg2` or `asyncpg` must be available in the judge image (currently not explicitly installed).
+2. Implement GBIM query functions in `judge_truth_filter.py` — entity extraction from response text (NER or regex-based), belief lookup against `gbimbeliefnormalized`, contradiction scoring against retrieved beliefs.
+3. Implement GBIM worldview filter in `judge_alignment_filter.py` — query the `eq1` worldview for relevant normative and community-value beliefs, compute alignment score against worldview constraints.
+4. Update `UltimateResponse` schema — add `gbim_beliefs_consulted: int` and `gbim_contradictions_detected: int` fields to the judge output block so external consumers can see whether GBIM was actually queried.
+5. Update Chapter 17, Chapter 33, and all judge pipeline documentation to reflect the current heuristic implementation until the GBIM-grounded implementation is deployed.
 
-This chapter provides the theoretical foundation for understanding how Ms. Jarvis represents knowledge, belief, and uncertainty — and why those representations are structured the way they are. It supports:
+Until these steps are complete, the correct accurate description of the truth and alignment judges is: **heuristic pattern-matching filters that approximate constitutional validation but do not consult the GBIM corpus.**
 
-- **P1 – Every where is entangled** by establishing that belief is not stored as isolated facts but as multi-axis geometric structures in which spatial, temporal, institutional, and normative dimensions are co-present and mutually constraining — so that a single GBIM belief about a hospital in Fayette County is simultaneously a claim about what exists, where it is, when it was verified, who has authority over it, and what its implications are for program routing.
+### 2.8.7 What Is Not Affected by This Correction
 
-- **P3 – Power has a geometry** by showing that the GBIM axis structure — particularly `who`, `where`, `under_whose_authority`, and `for_whom` — is designed to make institutional power over place explicit and queryable, not buried in unstructured text. The landowner belief layer (Section 2.6.4, field note March 20, 2026) is the direct realization of this principle at parcel scale.
+The following are unaffected by this correction and remain accurate as documented:
 
-- **P5 – Design is a geographic act** by treating the nine-axis GBIM schema, the worldview structure, the collection inventory, and the ChromaDB configuration not as neutral technical choices but as geographic and political decisions that determine which facts are computable, which relationships are traversable, and which forms of institutional accountability are operationally enforceable.
-
-- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model in a concrete PostgreSQL corpus — msjarvis (port 5433), msjarvisgis (port 5432), and their ChromaDB mirrors — so that the abstract framework of quantum-geometric belief representation is always already indexed to real West Virginia places, programs, and populations.
-
-- **P16 – Power accountable to place** by designing the belief structure so that institutional actors — government agencies, corporate landowners, utility companies — are represented as first-class GBIM entities with explicit `under_whose_authority` and `who` axis entries, making them queryable and auditable in a way that individual residential actors deliberately are not.
-
-The theoretical framework in this chapter is not a preamble to the system — it is the system's operating logic, expressed at the level of schema, routing, and collection design rather than at the level of code.
-
-Accordingly, this chapter belongs to the **Theoretical Foundation** tier: it establishes the geometric belief model, the nine-axis GBIM schema, the Hilbert-space representation of uncertainty, the worldview structure, and the ChromaDB collection inventory that together constitute the epistemic architecture of Ms. Egeria Jarvis.
-
----
-
-## 2.1 Purpose and Scope
-
-This chapter establishes the theoretical framework underlying the **GeoBelief Information Model (GBIM)** — the core representational system that allows Ms. Egeria Jarvis to hold, update, route, and reason over structured beliefs about West Virginia's physical world, institutional landscape, and programmatic infrastructure.
-
-GBIM is not a database schema in the conventional sense. It is a multi-axis geometric representation of belief that treats each claim about the world as a structured object with nine dimensions, each encoding a distinct aspect of the claim's meaning, provenance, authority, and applicability. This nine-axis structure is what allows beliefs derived from a WV assessor parcel record, a federal hazard dataset, a community organization's program flyer, and a peer-reviewed paper on Appalachian poverty to coexist in a single corpus and be meaningfully compared, combined, and routed.
-
-The chapter is organized as follows:
-
-- **Section 2.2** introduces the nine-axis belief schema and explains the role of each axis.
-- **Section 2.3** presents the Hilbert-space model of belief and uncertainty that motivates the GBIM design.
-- **Section 2.4** describes the worldview structure (`eq1` and related worldviews) and its role in routing and filtering.
-- **Section 2.5** describes the PostgreSQL GBIM corpus — its current scale, table structure, and production status as of March 2026.
-- **Section 2.6** presents the ChromaDB collection inventory — the vector-backed memory layer that makes GBIM beliefs semantically retrievable — updated through March 26, 2026.
-- **Section 2.7** addresses the relationship between GBIM, the GeoDB spatial body (Chapter 6), the RAG pipeline (Chapter 7), and the local resource registry.
-- **Section 2.8** is an intellectual honesty correction (March 21, 2026): it documents the gap between GBIM's designed role as the ground truth for judge verification and the current actual implementation of the truth and alignment judges, which use heuristic pattern-matching, not live PostgreSQL queries.
-- **Section 2.9** documents the ethical architecture of the belief corpus — specifically the exclusion of individual residential owner names and the full accountability metadata required for institutional actors.
+- The GBIM corpus itself (5,416,522 beliefs, **20,593 landowner beliefs**, `eq1` worldview) is real, verified, and production-operational.
+- The `gbim_query_router` (port 7205) **does** make live PostgreSQL queries against `mvw_gbim_landowner_spatial` — landowner routing is accurate as documented.
+- The `jarvis-spiritual-rag` and `jarvis-gis-rag` services do query GBIM-derived ChromaDB collections as part of Phase 1 context assembly — RAG grounding is operational.
+- **All ChromaDB RAG collections are now fully populated and semantically verified as of March 26, 2026** — `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (60,000 items), `GBIM_Fayette_sample` (1,535 items), `appalachian_cultural_intelligence` (820 items), `spiritual_texts` (19,338 items).
+- The BBB gate's constitutional filters are active and enforced — the verdict gate is real.
+- The ML-DSA-65 signing infrastructure (Chapter 42) is deployed as documented.
+- The nine-axis schema, Hilbert-space model, and worldview architecture described in this chapter are the correct design targets and accurately represent the intended operational architecture.
 
 ---
 
-## 2.2 The Nine-Axis Belief Schema
+## 2.9 Ethical Architecture of the Belief Corpus
 
-Every belief in the GBIM corpus is a structured object with nine named axes. Each axis is stored as a JSONB field in `gbimbeliefnormalized`, allowing flexible, typed, and queryable representation of the full semantic content of the belief.
+The nine-axis structure is not value-neutral. Every axis encodes a design decision about what matters, who is accountable, and what the system should be able to know. Two design decisions are treated as foundational constraints that are enforced at the schema level and cannot be overridden by routing or prompting:
+
+**Constraint 1: Individual residential owner names are excluded from the GBIM belief corpus.**
+
+The `who_axis` of the landowner belief layer contains only institutional and corporate entity names. Individual residential owner names from WV assessor records are not ingested into any GBIM belief table, materialized view, ChromaDB collection, or RAG-accessible store. This constraint is enforced structurally: the ingestion pipeline selects only records where the assessor owner name matches patterns associated with corporate and government entities, and the `gbim_query_router` queries only `proposition_code IN ('LANDOWNER_CORPORATE', 'LANDOWNER_GOVERNMENT')`.
+
+The rationale is the **aggregation problem**: individual owner names are legally public as friction-protected courthouse records. Embedding them into a semantically searchable, spatially indexed, multi-million-parcel AI system would convert friction-protected public records into operational surveillance infrastructure — a transformation not justified by Ms. Jarvis's stated purpose of routing households to assistance.
+
+**Constraint 2: Institutional actors are represented with full accountability metadata.**
+
+The `under_whose_authority_axis` and `on_what_evidence_axis` for institutional beliefs — including all landowner beliefs — must include sufficient provenance to allow any displayed belief to be traced back to its source record. Corporate and government landholders are named, counted, and area-summarized with full assessor provenance, precisely because accountability for institutions with power over place is the counterpart to privacy protection for individuals whose lives are shaped by place.
+
+These two constraints together define the ethical architecture of the GBIM belief corpus: **a system that makes power legible without making vulnerability exploitable.**
+
+The constitutional-layer enforcement of these constraints — query refusal logic in the blood-brain barrier and main brain services — is documented in Chapter 42. Schema-level and constitutional-layer protections are mutually reinforcing: neither alone is sufficient for a system operating at 5.4 million beliefs and growing.
+
+---
+
+## 2.10 Current Status and Roadmap — Updated March 26, 2026
+
+**Production as of March 26, 2026 — 56 confirmed live containers (msjarvis-rebuild namespace):**
+
+- ✅ 5,416,522 GBIM beliefs in `gbimbeliefnormalized` — nine axes, worldview `eq1`, PostgreSQL `msjarvisgis`
+- ✅ 5,416,521 entities in `gbim_worldview_entities` — ChromaDB, 384-dim, `all-minilm:latest`
+- ✅ `gbim_beliefs_v2` live — production GBIM v2 collection
+- ✅ `autonomous_learner` at 21,181 items and growing (~288/day)
+- ✅ `gis_wv_benefits` live — WV benefits facilities collection
+- ✅ `psychological_rag` at 968 items (port 8006)
+- ✅ **GBIM landowner belief layer live** — **20,593 records**, `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT`, worldview `eq1` (March 20, 2026)
+- ✅ `mvw_gbim_landowner_spatial` materialized and spatially indexed (March 20, 2026)
+- ✅ `gbim_query_router` live on port 7205 — statewide and county-scoped ownership queries verified; **PostgreSQL-native, no ChromaDB** (March 20, 2026)
+- ✅ **`geospatialfeatures` — 60,000 items** (March 26, 2026 — OI-12 CLOSED) ★
+- ✅ **`GBIM_Fayette_sample` — 1,535 items** (March 26, 2026 — OI-13 CLOSED) ★
+- ✅ **`appalachian_cultural_intelligence` — 820 items** (March 26, 2026 — OI-14 CLOSED) ★
+- ✅ **`spiritual_texts` — 19,338 items** (March 26, 2026 — OI-15 CLOSED) ★
+- ✅ **`governance_rag` — 643 chunks** (March 26, 2026 — OI-19 CLOSED) ★
+- ✅ **`commons_rag` — 306 chunks** (March 26, 2026 — OI-20 CLOSED) ★
+- ✅ EEG heartbeat services live — `eeg-delta` (30s), `eeg-theta` (60s, 486 pulses), `eeg-beta` (5-min, topic: Appalachian)
+- ✅ Phase 1.45 community memory retrieval live — top-5 `autonomous_learner` records prepended to every query
+- ✅ Consciousness pipeline ACTIVE — end-to-end chat confirmed March 25, 2026
+- ⚠️ Judge GBIM grounding: design intent only — truth and alignment judges use `heuristic_contradiction_v1`, not live GBIM queries (see Section 2.8)
+- ⚠️ RAG → gateway inference wiring: collections populated; wiring to inference endpoint is next sprint
+
+**Immediate priorities:**
+
+- Implement GBIM-grounded judge validation (Section 2.8.6) — highest-priority architectural gap
+- Wire RAG collections into `jarvis-gateway` inference endpoint — corpus is ready; routing connection is next
+- Ingest WV Constitution into `governance_rag` (US Constitution ingested; WV state constitution pending)
+- Ingest WV E911 address points into `local_resources` to resolve 208,427 unmatched building records
+- Expand `eeg-beta` topic rotation beyond single Appalachian topic
+
+**Medium-term priorities:**
+
+- Expand landowner belief layer coverage as updated WV assessor vintages become available
+- Build `eq2` worldview for multi-state Appalachian scope
+- Complete USGS 3DEP elevation drape for Fayette, Raleigh, and Kanawha counties
+- Deploy MountainShares container services (ports 8080–8084) at Phase 0 beta launch
+
+---
+
+*Last updated: 2026-03-26, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+*Section 2.8 (intellectual honesty correction) added March 21, 2026.*
+*Section 2.6 and 2.10 updated March 26, 2026 — RAG corpus completion sprint; all collections now populated.*
