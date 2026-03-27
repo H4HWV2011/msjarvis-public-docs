@@ -8,7 +8,7 @@ This chapter describes how Ms. Jarvis uses a concrete semantic memory system to 
 - **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific layers and records, including GBIM‑derived geographies, `msjarvisgis` features, and a programme registry keyed by county and ZIP where populated, so that queries about help, risk, or opportunity are resolved through structures that explicitly encode where people live and which institutions serve them.
 - **P16 – Power accountable to place** by making long‑term memory, retrieval behaviour, and query‑to‑evidence links explicit and queryable, with logs and database joins that show which GBIM beliefs, GeoDB features, vector‑collection entries, and `local_resources` rows were used in answers about particular communities, instead of hiding those choices inside opaque model weights.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it defines the production semantic memory substrate and retrieval layer—centred on collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` and on the `msjarvisgis`/GBIM/`local_resources` apparatus—that Quantarithmia's reasoning, GBIM's belief structures, the verified local‑resources band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis run on in the live system as of March 26, 2026.
+As such, this chapter belongs to the **Computational Instrument** tier: it defines the production semantic memory substrate and retrieval layer—centred on collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` and on the `msjarvisgis`/GBIM/`local_resources` apparatus—that Quantarithmia's reasoning, GBIM's belief structures, the verified local‑resources band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis run on in the live system as of **March 27, 2026**.
 
 ---
 
@@ -52,7 +52,7 @@ Taken together, this design makes the semantic memory system inspectable and deb
 
 ### 4.3 Collections and Data Domains
 
-In the production deployment as of March 26, 2026, the primary Chroma instance exposes collections that fall into three broad families: general semantic memory, GeoDB‑derived spatial memory, and resource‑related materials that link into `local_resources` and benefits RAG paths.
+In the production deployment as of **March 27, 2026**, the primary Chroma instance exposes collections that fall into three broad families: general semantic memory, GeoDB‑derived spatial memory, and resource‑related materials that link into `local_resources` and benefits RAG paths.
 
 #### 4.3.1 Production Spatial Collection
 
@@ -113,7 +113,7 @@ Prior to consolidation, spatial memory was distributed across individual `*_attr
 
 In the current deployment, principal general‑semantic collections are defined for:
 
-- autonomous learning traces (`autonomous_learner` — 21,181+ items, growing ~288/day)
+- autonomous learning traces (`autonomous_learner` — 21,181+ items as of March 26, 2026, growing ~288/day — update count per current `docker exec` query against live container)
 - research history and notebook‑like notes
 - thesis and GBIM‑related documentation
 - personal and organisational documents for the steward/author
@@ -155,9 +155,9 @@ This mapping allows Ms. Jarvis's memory to be described both geometrically, in t
 
 ---
 
-### 4.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE March 26, 2026
+### 4.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE March 27, 2026
 
-> **Architectural finding — confirmed March 26, 2026.** The embedding model and its constraints are no longer planned or provisional. All ChromaDB production collections use `all-minilm:latest` (384-dimensional, cosine similarity distance function), served by `jarvis-ollama` at `ollama:11434/api/embeddings`. This is confirmed live across all collections in the `msjarvis-rebuild` namespace.
+> **Architectural finding — confirmed March 27, 2026.** The embedding model and its constraints are no longer planned or provisional. All ChromaDB production collections use `all-minilm:latest` (384-dimensional, cosine similarity distance function), served by `jarvis-ollama` at `ollama:11434/api/embeddings`. This is confirmed live across all collections in the `msjarvis-rebuild` namespace.
 
 **Confirmed production embedding specification:**
 
@@ -172,7 +172,7 @@ This mapping allows Ms. Jarvis's memory to be described both geometrically, in t
 
 > ⚠️ **Embedding model lock — enforced.** The `nomic-embed-text` model produces 768-dimensional vectors and is **incompatible** with all existing production collections. Any ingestion, retrieval, migration, or backfill script must use `all-minilm:latest` (384-dim). This constraint is enforced at the service level and cannot be overridden by prompting or configuration.
 
-> **⚠️ Architectural Finding — Chunk Size Constraint (discovered March 26, 2026).**
+> **⚠️ Architectural Finding — Chunk Size Constraint (discovered March 26, 2026; confirmed March 27, 2026).**
 >
 > The `all-minilm:latest` model operates under a **256-token context window limit**. At approximately 0.75 tokens per word, this constrains meaningful semantic content to roughly **100 words per chunk maximum**. This is not a soft preference — chunks exceeding ~100 words risk truncation, degraded embedding quality, and reduced retrieval precision.
 >
@@ -297,9 +297,20 @@ Collection names, metadata schemas, embedding configurations (model: `all-minilm
 
 ---
 
-### 4.10 Production Deployment Characteristics — March 26, 2026
+### 4.10 Production Deployment Characteristics — March 27, 2026
 
-In production as of March 26, 2026 (56 confirmed live containers, `msjarvis-rebuild` namespace):
+In production as of **March 27, 2026** (**96 confirmed live containers**, `msjarvis-rebuild` namespace):
+
+> ⚠️ **Collection count discrepancy — `appalachian_cultural_intelligence` vs. `aaacpe_corpus` — REQUIRES RESOLUTION before committing Chapter 4 and Chapter 5 updates.**
+>
+> This table previously showed `appalachian_cultural_intelligence` at 820 items (confirmed March 26, 2026 — OI-14 CLOSED). The AaaCPE chapter (Chapter 30) and the March 27, 2026 production state record 65 documents in ChromaDB from the `jarvis-aaacpe-scraper` (port 8033, `total_runs: 1`, 39 sources). **These may be two different collections:**
+>
+> - `appalachian_cultural_intelligence` — 820 items: a pre-existing Appalachian cultural context corpus (curated text, values, and cultural intelligence content) ingested as part of the March 26, 2026 RAG corpus completion sprint (OI-14). Collection name confirmed in Chapter 2 §2.6.6 and Chapter 5.
+> - `aaacpe_corpus` — 65 documents: the live AaaCPE web scrape corpus, populated March 27, 2026 by `jarvis-aaacpe-scraper` (port 8033) from 39 Appalachian emergency and community resource sources.
+>
+> **If these are two separate collections** (most likely — different names, different provenance, different item counts), both should appear in this table. **If `appalachian_cultural_intelligence` IS the AaaCPE collection** (same collection, different name reference), then 820 and 65 are contradictory and one count is wrong.
+>
+> **Required action:** Run `docker exec jarvis-chroma chromadb list-collections` (or equivalent ChromaDB v2 API call to list all collections) to confirm whether both `appalachian_cultural_intelligence` and `aaacpe_corpus` exist as distinct collections, and what their current item counts are. Until this is confirmed, both are listed in the table below with their last-known counts and a discrepancy flag. Do not commit Chapter 4 or Chapter 5 with a single merged entry for this collection.
 
 | Collection | Status | Items | Notes |
 |---|---|---|---|
@@ -311,9 +322,10 @@ In production as of March 26, 2026 (56 confirmed live containers, `msjarvis-rebu
 | `GBIM_Fayette_sample` | ✅ Live | 1,535 | Confirmed March 26, 2026 |
 | `governance_rag` | ✅ Live | 643 chunks | Full DAO corpus + US Constitution; 100-word chunks |
 | `commons_rag` | ✅ Live | 306 chunks | Full Commons corpus; 100-word chunks |
-| `appalachian_cultural_intelligence` | ✅ Live | 820 | Confirmed March 26, 2026 |
+| `appalachian_cultural_intelligence` | ✅ Live | **820** ⚠️ | Confirmed March 26, 2026 (OI-14 CLOSED) — **see discrepancy note above**. If this is a distinct collection from `aaacpe_corpus`, 820 is correct. If it IS `aaacpe_corpus`, reconcile against 65-document live count. |
+| `aaacpe_corpus` | ✅ Live | **65 docs** ★ | AaaCPE web scrape — `jarvis-aaacpe-scraper` (port 8033), 39 sources, `total_runs: 1`, confirmed March 27, 2026. **⚠️ Verify whether this is a separate collection from `appalachian_cultural_intelligence` — see discrepancy note above.** |
 | `spiritual_texts` | ✅ Live | 19,338 | Mother Carrie Protocol |
-| `autonomous_learner` | ✅ Live | 21,181+ | Growing ~288/day |
+| `autonomous_learner` | ✅ Live | 21,181+ | Growing ~288/day as of March 26, 2026 — **update count per current `docker exec` query against live container** |
 | `ms_jarvis_memory` | ✅ Live | Active | Cross-session continuity |
 | `episodic_index` | ✅ Live | Active | Temporal reasoning |
 | `conversation_history` | ✅ Live | Active | OI-05 open — pipeline wiring pending |
@@ -330,7 +342,9 @@ Several originally "future‑work" items have now been completed and should be t
 
 - A unified GBIM embedding collection (`gbim_beliefs_v2`) populated from `gbimbeliefnormalized` and used by RAG — **confirmed live**
 - A West‑Virginia‑biased spatial semantic memory built around `gbim_worldview_entities` with 5,416,521 records — **confirmed live**
-- All RAG collections fully populated: `governance_rag` (643), `commons_rag` (306), `geospatialfeatures` (60,000), `GBIM_Fayette_sample` (1,535), `appalachian_cultural_intelligence` (820), `spiritual_texts` (19,338) — **confirmed live March 26, 2026**
+- All RAG collections fully populated: `governance_rag` (643), `commons_rag` (306), `geospatialfeatures` (60,000), `GBIM_Fayette_sample` (1,535), `spiritual_texts` (19,338) — **confirmed live March 26, 2026**
+- `appalachian_cultural_intelligence` — **820 items confirmed March 26, 2026 (OI-14 CLOSED)** ⚠️ — **see §4.10 discrepancy note**; verify whether this is the same collection as `aaacpe_corpus` (65 docs, March 27, 2026) before treating 820 as the authoritative count
+- `aaacpe_corpus` — **65 documents confirmed March 27, 2026** ★ — `jarvis-aaacpe-scraper` (port 8033) live, 39 sources, RAG retrieval verified (emergency protocol + Fayette County utility examples)
 - Deterministic joins from ChromaDB results back to GBIM and GeoDB via stable identifiers (`entity_id`, `source_table`, `source_pk`) and to `local_resources` via `local_resource_id` — **confirmed operational**
 - `all-minilm:latest` 384-dim embedding model with confirmed 100-word chunk constraint — **confirmed live and documented**
 
@@ -343,6 +357,8 @@ Remaining limitations and genuine future work include:
 - **WV Constitution ingest.** US Constitution is ingested (97 chunks in `governance_rag`); WV state constitution is the next governance document to ingest, applying the 100-word chunk rule.
 
 - **Chunk audit for pre-constraint collections.** Collections ingested before the 100-word chunk constraint was formally documented (March 26, 2026) should be audited for oversized chunks that may degrade retrieval quality.
+
+- **`appalachian_cultural_intelligence` / `aaacpe_corpus` reconciliation.** ⚠️ The relationship between these two collection names and their respective item counts (820 vs. 65) must be resolved before the next sprint. Run a live collection inventory to confirm distinct collection existence and current counts.
 
 - **Semantic gaps and representational limits.**
   Certain forms of knowledge—embodied experience, oral history, spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies (graphs, qualitative annotations, GBIM‑linked justice metrics, community‑led tagging, and registries like `local_resources`) are needed to supplement the vector store.
@@ -363,9 +379,12 @@ Future work will:
 **Implementation Status**
 
 **Badge: PRODUCTION — ALL COLLECTIONS LIVE**
-The conceptual role of ChromaDB as semantic memory is fully implemented across all planned collections as of March 26, 2026. The `all-minilm:latest` 384-dim embedding model is confirmed live with a documented 100-word chunk constraint that shapes all future ingestion pipelines. A verified `local_resources` band in Postgres complements ChromaDB, providing structured, ZIP‑aware, and periodically re‑verified programme information that Ms. Jarvis uses alongside semantic retrieval to act as an accountable, place‑based Steward System in West Virginia.
+The conceptual role of ChromaDB as semantic memory is fully implemented across all planned collections as of March 27, 2026. The `all-minilm:latest` 384-dim embedding model is confirmed live with a documented 100-word chunk constraint that shapes all future ingestion pipelines. A verified `local_resources` band in Postgres complements ChromaDB, providing structured, ZIP‑aware, and periodically re‑verified programme information that Ms. Jarvis uses alongside semantic retrieval to act as an accountable, place‑based Steward System in West Virginia.
 
 ---
 
-*Last updated: 2026-03-26, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
-*Section 4.5 updated March 26, 2026: `all-minilm:latest` 384-dim embedding confirmed live; "planned embedding model" language removed throughout; 100-word/256-token chunk size constraint documented as confirmed architectural finding.*
+*Last updated: 2026-03-27, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+*Section 4.5 updated March 26, 2026: `all-minilm:latest` 384-dim embedding confirmed live; "planned embedding model" language removed throughout; 100-word/256-token chunk size constraint documented as confirmed architectural finding. Confirmed March 27, 2026.*
+*Container count corrected to 96 confirmed live containers (`msjarvis-rebuild` namespace) — March 27, 2026.*
+*★ AaaCPE scraper confirmed live March 27, 2026 — 65 documents in ChromaDB from 39 sources (`total_runs: 1`); RAG search verified returning emergency protocol + Fayette County utility example. Collection name: `aaacpe_corpus` (port 8032/8033). ⚠️ Discrepancy between `appalachian_cultural_intelligence` (820 items, OI-14) and `aaacpe_corpus` (65 docs) flagged for resolution — see §4.10 and §4.11.*
+`````
