@@ -1,6 +1,7 @@
 # 3. MountainShares DAO and Community Economy
 
 > **Case Study: Appalachian Economic Commons**
+
 <div align="center">
   <img width="500" alt="FaiGvpYi" src="https://github.com/user-attachments/assets/ede5051c-b005-4540-81f8-5bb92461e06d" />
 </div>
@@ -16,7 +17,7 @@ Within this thesis, MountainShares functions as **Case Study 1** in the emerging
 
 Within **polymathmatic geography** and the **Quantarithmia** framework, MountainShares is a DAO‑based economic and governance system designed to keep value, voice, and decision‑making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It is intentionally positioned as a community‑governed project that operates alongside, not in place of, existing banks, credit unions, or regulated financial institutions. In the current deployment, MountainShares operates on the same production GBIM, GeoDB, Chroma, and `local_resources` stack described in the instrumentation chapters, using those structures for live benefits and governance queries.
 
-Within the thesis, MountainShares serves as the institutional case study where Quantarithmia's spatial‑justice commitments and Ms. Jarvis's GBIM‑powered analysis are translated into concrete rules, roles, and processes. The GBIM corpus—maintained in the PostgreSQL 16 `msjarvisgis` database (port 5432) with 5,416,522 verified beliefs organized across nine epistemic axes—provides the spatial and institutional grounding for MountainShares governance analysis, risk assessment, and community accountability mechanisms.
+Within the thesis, MountainShares serves as the institutional case study where Quantarithmia's spatial‑justice commitments and Ms. Jarvis's GBIM‑powered analysis are translated into concrete rules, roles, and processes. The GBIM corpus — maintained in the PostgreSQL 16 `msjarvisgis` database (port 5432) with **5,416,522 verified beliefs** organized across nine epistemic axes — provides the spatial and institutional grounding for MountainShares governance analysis, risk assessment, and community accountability mechanisms.
 
 > **Governance corpus — ★ CONFIRMED LIVE March 26, 2026.** The complete MountainShares DAO governance documentation is fully ingested into the `governance_rag` ChromaDB collection (**643 chunks, semantically indexed and retrieval-verified**). The ingested corpus includes:
 >
@@ -36,7 +37,9 @@ Within the thesis, MountainShares serves as the institutional case study where Q
 > | Phase 0 Audit Template | ✅ Ingested |
 > | US Constitution (97 chunks, Project Gutenberg) | ✅ Ingested |
 >
-> Semantic retrieval verified March 26, 2026. The `governance_rag` collection was previously listed as missing or empty in earlier chapter drafts — that status is now closed. Ms. Jarvis can answer natural-language governance queries against this corpus as of March 26, 2026.
+> Semantic retrieval verified March 26, 2026. Ms. Jarvis can answer natural-language governance queries against this corpus as of March 26, 2026.
+
+> **★ Phase 0 Beta — LAUNCHED March 26–27, 2026.** All five MountainShares container services (ports 8080–8084) are deployed and live in the `msjarvis-rebuild` namespace. Five smart contracts are confirmed live on **Arbitrum One mainnet (chain ID 42161)**. The commons gamification corpus (`commons_rag`, 306 chunks) and governance corpus (`governance_rag`, 643 chunks) provide the semantic backing for Phase 0 community governance queries. Phase 0 is an invite-only beta — no public members yet, but the full technical stack is operational.
 
 ---
 
@@ -74,8 +77,8 @@ Fees are structured so that most friction is at the boundaries (loading in, merc
 
 MountainShares governance is explicitly phased. The Phase 0 through Phase 3 specifications are fully ingested into the `governance_rag` ChromaDB collection (643 chunks, confirmed live March 26, 2026), making governance rules and phase transition criteria queryable by natural language through Ms. Jarvis:
 
-- **Phase 0 — Invite-only beta (specification and audit template ingested ✅)**
-  The Phase 0 spec defines the invite-only beta parameters, participant constraints, and audit requirements. The Phase 0 audit template is ingested and available for governance queries. Container services for MountainShares (ports 8080–8084) are not yet deployed — the corpus is ready; the beta has not yet launched.
+- **Phase 0 — Invite-only beta (★ LAUNCHED March 26–27, 2026)**
+  The Phase 0 spec defines the invite-only beta parameters, participant constraints, and audit requirements. All five MountainShares container services (ports 8080–8084) are deployed and live. Five smart contracts are confirmed live on Arbitrum One mainnet (chain ID 42161). The `governance_rag` (643 chunks) and `commons_rag` (306 chunks) collections provide the semantic backing for Phase 0 governance. No public members yet — invite-only beta is the current operational state.
 
 - **Growth phase**
   As participation and capacity increase, more decisions move into community proposals, voting, and review processes, supported by Ms. Jarvis's analytical and explanatory tools.
@@ -87,9 +90,79 @@ MountainShares governance is explicitly phased. The Phase 0 through Phase 3 spec
   <img width="600" height="600" alt="Gemini_Generated_Image_23ytfz23ytfz23yt" src="https://github.com/user-attachments/assets/0ca4c125-e44d-4596-b129-fb22cfe1f130" />
 </div>
 
-> Figure 3. MountainShares governance phases: Phase 0 (invite-only beta — spec ingested, launch pending) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).
+> Figure 3. MountainShares governance phases: Phase 0 (invite-only beta — ★ LAUNCHED March 26–27, 2026, Arbitrum One mainnet, chain ID 42161) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).
 
 This phased approach acknowledges that a fully "flat" governance structure is unrealistic at launch, but treats early central roles as temporary scaffolding rather than a permanent power center.
+
+---
+
+## MountainShares Container Services — ★ DEPLOYED March 26–27, 2026
+
+All five MountainShares container services are live in the `msjarvis-rebuild` namespace as of March 26–27, 2026. This section documents the production service architecture backing Phase 0 beta operations.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│   MountainShares Container Services — Phase 0 Beta          │
+│   ★ DEPLOYED March 26–27, 2026 — msjarvis-rebuild namespace │
+│   Blockchain: Arbitrum One mainnet (chain ID 42161)         │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  jarvis-mountainshares-gateway    port 8080  ✅ LIVE        │
+│    Primary API gateway for MountainShares services          │
+│                                                              │
+│  jarvis-mountainshares-wallet     port 8081  ✅ LIVE        │
+│    Wallet management and balance operations                 │
+│                                                              │
+│  jarvis-mountainshares-governance port 8082  ✅ LIVE        │
+│    DAO governance proposal and voting interface             │
+│    Backed by governance_rag (643 chunks)                    │
+│                                                              │
+│  jarvis-mountainshares-commons    port 8083  ✅ LIVE        │
+│    Commons gamification and participation tracking          │
+│    Backed by commons_rag (306 chunks)                       │
+│                                                              │
+│  jarvis-mountainshares-audit      port 8084  ✅ LIVE        │
+│    Phase 0 audit trail and accountability logging           │
+│    Phase 0 Audit Template: ingested ✅                      │
+│                                                              │
+│  Smart Contracts (Arbitrum One mainnet, chain ID 42161)     │
+│  ────────────────────────────────────────────────────       │
+│  5 smart contracts confirmed live — March 26–27, 2026       │
+│  Governing: wallet, governance, commons, audit, treasury    │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+*Figure 3a. MountainShares Phase 0 container and smart contract architecture. All five services live in `msjarvis-rebuild` namespace. Five smart contracts live on Arbitrum One mainnet (chain ID 42161). Governance and commons RAG collections provide semantic backing for natural-language governance queries through Ms. Jarvis.*
+
+### Corpus Backing for Phase 0
+
+Phase 0 governance and commons operations are backed by two live ChromaDB RAG collections, both confirmed semantically indexed and retrieval-verified March 26, 2026:
+
+| Collection | Chunks | Content | Retrieval Status |
+|---|---|---|---|
+| `governance_rag` | **643** | DAO Charter, Terms, Program Rules, Parameter Tables, Phase 0–3 specs, KPI Spec, Safety Champion, Funder Overview, Phase 0 Audit Template, US Constitution (97 chunks) | ✅ Verified March 26, 2026 |
+| `commons_rag` | **306** | Full Commons governance + gamification corpus — Daily Life Game, Contribution Game, Participation Map | ✅ Verified March 26, 2026 (Daily Life Game → Contribution Game + Participation Map ✅) |
+
+### Blockchain Infrastructure
+
+Phase 0 beta operates on **Arbitrum One mainnet** (chain ID 42161) — a Layer 2 Ethereum rollup chosen for its lower transaction costs relative to Ethereum mainnet while maintaining Ethereum-level security guarantees. This choice reflects the spatial-justice orientation of MountainShares: community members in Appalachian WV should not face prohibitive gas costs to participate in governance operations.
+
+```python
+# MountainShares Phase 0 — blockchain connection reference
+MOUNTAINSHARES_CHAIN = {
+    "network": "Arbitrum One",
+    "chain_id": 42161,
+    "layer": "L2 Ethereum rollup",
+    "public_url": "https://egeria.mountainshares.us",
+    "smart_contracts": 5,         # all live March 26-27, 2026
+    "container_services": 5,      # ports 8080-8084, all live
+    "namespace": "msjarvis-rebuild",
+    "phase": "Phase 0 invite-only beta",
+    "governance_rag_chunks": 643,
+    "commons_rag_chunks": 306
+}
+```
 
 ---
 
@@ -158,9 +231,9 @@ For the purposes of this thesis and public documentation:
 - Participation in MountainShares may have legal or tax implications that depend on individual circumstances and jurisdiction; participants are responsible for seeking their own professional advice.
 - Formal legal instruments (such as Terms of Use, privacy policies, and entity charters) will ultimately govern real‑world deployment and may supplement or override parts of this description where required by law or by future community‑approved updates.
 
-Auditability and traceability for MountainShares rely on the same production apparatus that supports Ms. Jarvis more broadly: logged GBIM beliefs from the PostgreSQL `msjarvisgis` database (5,416,522 verified rows), GeoDB features across 501 spatial tables, ChromaDB vector collections (`gbim_beliefs_v2`, `gbim_worldview_entities`, `gis_wv_benefits`, and **`governance_rag` — 643 chunks, live March 26, 2026**), and governance and application logs together provide an evidence trail for how analyses and decisions were produced.
+Auditability and traceability for MountainShares rely on the same production apparatus that supports Ms. Jarvis more broadly: logged GBIM beliefs from the PostgreSQL `msjarvisgis` database (5,416,522 verified rows), GeoDB features across 501 spatial tables, ChromaDB vector collections (`gbim_beliefs_v2`, `gbim_worldview_entities`, `gis_wv_benefits`, **`governance_rag` — 643 chunks, live March 26, 2026**, **`commons_rag` — 306 chunks, live March 26, 2026**), and governance and application logs together provide an evidence trail for how analyses and decisions were produced.
 
-**Database Infrastructure Note:** MountainShares governance queries access the GBIM corpus via PostgreSQL 16 at port 5432 (host system). The `msjarvisgis` database contains the complete spatial and institutional knowledge base that grounds all governance analysis in concrete West Virginia geographic reality. Connection example:
+**Database Infrastructure Note:** MountainShares governance queries access the GBIM corpus via PostgreSQL 16 at port 5432 (host system). The `msjarvisgis` database contains the complete spatial and institutional knowledge base that grounds all governance analysis in concrete West Virginia geographic reality.
 
 ```python
 import psycopg2
@@ -176,29 +249,34 @@ conn = psycopg2.connect(
 
 ---
 
-## Deployment Status — March 26, 2026
+## Deployment Status — ★ UPDATED March 27, 2026
 
 | Component | Status | Notes |
 |---|---|---|
 | `governance_rag` ChromaDB collection | ✅ **643 chunks — LIVE** | Full DAO corpus + US Constitution ingested; semantic retrieval verified March 26, 2026 |
+| `commons_rag` ChromaDB collection | ✅ **306 chunks — LIVE** | Full Commons governance + gamification corpus; retrieval verified March 26, 2026 |
 | MountainShares DAO Charter | ✅ Ingested | Available via `governance_rag` |
 | Terms of Use | ✅ Ingested | Available via `governance_rag` |
 | Program Rules | ✅ Ingested | Available via `governance_rag` |
 | Parameter Tables | ✅ Ingested | Available via `governance_rag` |
-| Phase 0 Spec (invite-only beta) | ✅ Ingested | Spec live in corpus; beta not yet launched |
+| Phase 0 Spec (invite-only beta) | ✅ Ingested | Spec live in corpus |
 | Phase 0 Audit Template | ✅ Ingested | Available via `governance_rag` |
 | Phase 1–3 Specifications | ✅ Ingested | Available via `governance_rag` |
 | KPI Specification | ✅ Ingested | Available via `governance_rag` |
 | Safety Champion Protocol | ✅ Ingested | Available via `governance_rag` |
 | Funder Overview | ✅ Ingested | Available via `governance_rag` |
 | US Constitution | ✅ Ingested (97 chunks) | Project Gutenberg pg5.txt; available via `governance_rag` |
-| MountainShares container services (ports 8080–8084) | ❌ **Not yet deployed** | Corpus ready; awaiting Phase 0 beta launch |
-| Phase 0 invite-only beta (live members) | ⏳ **Pending** | No live members yet; launch timing TBD |
-| `commons_rag` ChromaDB collection | ✅ **306 chunks — LIVE** | Full Commons governance + gamification corpus ingested; retrieval verified March 26, 2026 |
+| MountainShares container services | ✅ **ALL FIVE LIVE** (ports 8080–8084) | ★ Deployed March 26–27, 2026; `msjarvis-rebuild` namespace |
+| Smart contracts — Arbitrum One mainnet | ✅ **5 contracts LIVE** | ★ Chain ID 42161; deployed March 26–27, 2026 |
+| Public URL | ✅ **https://egeria.mountainshares.us** | Live |
+| Phase 0 invite-only beta | ✅ **LAUNCHED** | ★ March 26–27, 2026 — no public members yet; invite-only operational |
+| Phase 1 (public launch) | ⏳ Pending | Follows Phase 0 audit and community review |
 
-> **Status — March 26, 2026.** This chapter presents an operational governance overview built on the current Ms. Jarvis/GBIM stack (PostgreSQL 16, 5,416,522 verified beliefs, 91 GB corpus). The `governance_rag` collection (643 chunks) and `commons_rag` collection (306 chunks) are confirmed live and semantically indexed — the governance corpus is no longer missing or sparse. MountainShares container services and Phase 0 beta launch remain pending. Subsequent chapters and appendices deepen the analysis of MountainShares as a case study in spatial justice, institutional design, and AI‑supported community governance, and cross‑reference its role as Case Study 1 in the polymathmatic case‑study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
+> **Status — March 27, 2026.** This chapter presents the MountainShares Phase 0 beta as a live operational system. The `governance_rag` collection (643 chunks) and `commons_rag` collection (306 chunks) are confirmed live and semantically indexed. All five MountainShares container services (ports 8080–8084) are deployed in the `msjarvis-rebuild` namespace. Five smart contracts are live on Arbitrum One mainnet (chain ID 42161). The GBIM corpus — 5,416,522 verified beliefs including 20,593 landowner beliefs (worldview `eq1`) — grounds all governance analysis in West Virginia's geographic and institutional reality. Subsequent chapters and appendices deepen the analysis of MountainShares as Case Study 1 in the polymathmatic case‑study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
 
 ---
 
-*Last updated: 2026-03-26, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
-*`governance_rag` updated from missing → 643 chunks live; Phase 0 spec and audit template confirmed ingested March 26, 2026.*
+*Last updated: 2026-03-27, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+*Phase 0 beta launched March 26–27, 2026: 5 container services live (ports 8080–8084), 5 smart contracts live on Arbitrum One mainnet (chain ID 42161).*
+*`governance_rag`: 643 chunks live. `commons_rag`: 306 chunks live. Both retrieval-verified March 26, 2026.*
+`````
