@@ -9,7 +9,7 @@ This chapter specifies how Ms. Jarvis's language models are bound to place-aware
 - **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, research notes, belief structures from PostgreSQL GBIM tables, and local resource registries, rather than from an abstract model prior.
 - **P3 – Power has a geometry** by letting retrieval paths expose which collections — and thus which institutional, spatial, and programmatic perspectives — shape a given answer, including WV-specific benefits facilities in `gis_wv_benefits`, spatial entities derived from PostgreSQL GBIM and `msjarvisgis`, and benefits-focused resource collections.
 - **P5 – Design is a geographic act** by treating routing rules, collection choices, registry lookups, and gateway boundaries as design decisions that change how the system "sees" and acts within a region.
-- **P12 – Intelligence with a ZIP code** by privileging West Virginia-specific collections in retrieval, and by coupling text RAG both to a state-scale PostgreSQL `msjarvisgis`/GBIM spatial body (port 5432, 91 GB, 501 tables, 5,416,521 verified beliefs in `msjarvis`) for spatial questions and to a ZIP- and county-aware `jarvis-local-resources-db` registry (port 5435) for concrete program referrals, including flows for Mount Hope, Oak Hill, Beckley, and broader Fayette/Raleigh County.
+- **P12 – Intelligence with a ZIP code** by privileging West Virginia-specific collections in retrieval, and by coupling text RAG both to a state-scale PostgreSQL `msjarvisgis`/GBIM spatial body (port 5452, 91 GB, 501 tables, 5,416,521 verified beliefs in `msjarvis`) for spatial questions and to a ZIP- and county-aware `jarvis-local-resources-db` registry (port 5435) for concrete program referrals, including flows for Mount Hope, Oak Hill, Beckley, and broader Fayette/Raleigh County.
 - **P16 – Power accountable to place** by making retrieval calls, filters, scores, registry lookups, and sources visible at the API and logging layer so that communities and researchers can audit what informed a Steward response.
 
 This chapter belongs to the **Computational Instrument** tier: it defines the retrieval and routing machinery that connects ChromaDB-backed semantic memory (host port 8002, container port 8000), the PostgreSQL GBIM/`msjarvisgis` spatial body (5,416,521 verified beliefs, 501 PostGIS tables), the verified local resource registry (`jarvis-local-resources-db`, port 5435), and web research to the live outputs of Ms. Jarvis.
@@ -25,6 +25,7 @@ This chapter describes the retrieval-augmented generation (RAG) infrastructure t
 - a Phase 1.45 semantic community memory step that prepends the top-5 most relevant `autonomous_learner` memories (21,181+ items) to every query before it reaches the LLM ensemble,
 - a text RAG service backed by a shared HTTP-exposed ChromaDB instance (host port 8002, container port 8000),
 - a `msjarvisgis`-coupled GIS RAG path for West Virginia features built on GBIM-derived spatial entities from the PostgreSQL `msjarvis` / `msjarvisgis` databases and `gis_wv_benefits`,
+- a **WV-biased multi-collection entangled retrieval path** (`jarvis-wv-entangled-gateway`, port 8010) providing wv_entangled_context-driven RAG,
 - a web-research gateway, and
 - a resolver path into the `jarvis-local-resources-db` registry (port 5435) for programmatic help,
 
@@ -34,7 +35,7 @@ At runtime, queries enter through a unified HTTP gateway and are routed by the e
 
 ```text
 Unified Gateway → Main Brain → Phase 1.45 Community Memory
-→ RAG (text + GIS + registry, WV-first)
+→ RAG (text + GIS + WV-entangled + registry, WV-first)
 → 21-LLM ensemble → Blood-Brain Barrier
 ```
 
@@ -68,6 +69,8 @@ is live and serving West Virginia benefits and geography questions.
 │      ├──→ Text RAG (jarvis-rag-server host:8003→ctr:8016)  │
 │      ├──→ GIS RAG (port 8004)                               │
 │      ├──→ Spiritual / Psychological RAG (port 8006)         │
+│      ├──→ WV-Entangled Gateway (port 8010) ← LIVE          │
+│      │       wv_entangled_context multi-collection RAG      │
 │      ├──→ Web Research (conditional — excluded for WV)      │
 │      └──→ Registry Resolver (jarvis-local-resources-db      │
 │              port 5435)                                      │
@@ -89,7 +92,7 @@ is live and serving West Virginia benefits and geography questions.
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 7-1. RAG pipeline overview. Note: `jarvis-gateway` inference endpoint is not yet wired to the RAG services. Embedding and ingestion are fully validated (§7.0.1). Wiring is the next milestone.
+> Figure 7-1. RAG pipeline overview. Note: `jarvis-gateway` inference endpoint is not yet wired to the RAG services. Embedding and ingestion are fully validated (§7.0.1). `jarvis-wv-entangled-gateway` (port 8010) is live — WV-biased multi-collection entangled retrieval. Wiring `jarvis-gateway` to RAG is the next milestone.
 
 A typical benefits query:
 
@@ -282,9 +285,9 @@ pg_conn_msjarvis = psycopg2.connect(
     database="msjarvis", user="postgres", password="postgres"
 )
 
-# PostgreSQL msjarvisgis (PostGIS spatial) — port 5432
+# PostgreSQL msjarvisgis (PostGIS spatial) — port 5452
 pg_conn_gisdb = psycopg2.connect(
-    host="localhost", port=5432,
+    host="localhost", port=5452,
     database="msjarvisgis", user="postgres", password="postgres"
 )
 
@@ -477,7 +480,7 @@ All embeddings use `all-minilm:latest` (384-dim, `hnsw:space: cosine`).
 
 1. User: "hospitals near Mount Hope"
 2. ChromaDB (host port 8002, v2 API): Retrieve entities with semantic similarity to "hospital"
-3. PostGIS (msjarvisgis port 5432): Query `zcta_wv_centroids` for Mount Hope (ZIP 25880) centroid → `(37.8782, -81.2056)`
+3. PostGIS (msjarvisgis port 5452): Query `zcta_wv_centroids` for Mount Hope (ZIP 25880) centroid → `(37.8782, -81.2056)`
 4. Filter: ChromaDB results within 10-mile radius
 5. Response: Ranked hospitals with distances
 
@@ -507,13 +510,37 @@ This service is the primary RAG backend for the **alignment judge upgrade** desc
 
 ---
 
-### 7.2.4 Web-Research Gateway
+### 7.2.4 WV-Entangled Gateway (jarvis-wv-entangled-gateway, port 8010) — LIVE
+
+The `jarvis-wv-entangled-gateway` service provides **WV-biased multi-collection entangled retrieval** — a dedicated RAG path that fans out simultaneously across multiple WV-priority collections and assembles `wv_entangled_context` before returning results to the main brain orchestration layer. This service is confirmed live (see Ch 8).
+
+**Purpose:** Where the standard text RAG service (`jarvis-rag-server`) queries a single named collection per call, the WV-entangled gateway queries multiple WV-priority collections in parallel and applies WV-tag boosting to surface the most geographically relevant results across the full entangled retrieval space.
+
+**Routing:** The main brain routes to this service when WV-tag boosting is required — typically for queries where county, WV role, or WV geography is present and the entangled context across `gbim_beliefs_v2`, `gis_wv_benefits`, `governance_rag`, `geospatialfeatures`, and `GBIM_Fayette_sample` will produce higher-quality grounding than any single collection alone.
+
+> **⚠️ Open Issue (from Ch 8 §8.4):** Metadata enrichment is needed for WV-tag boosting to fire reliably on `gbim_beliefs_v2` and `gis_wv_benefits`. Until enrichment is complete, boosting may not activate consistently on those two collections. See Section 7.9 Open Issues.
+
+```bash
+# Example: WV-entangled query
+curl -X POST http://127.0.0.1:8010/query \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "Fayette County land ownership and benefits facilities",
+    "county": "Fayette",
+    "wv_boost": true,
+    "n_results": 10
+  }'
+```
+
+---
+
+### 7.2.5 Web-Research Gateway
 
 External web retrieval is handled by a dedicated gateway rather than allowing arbitrary outbound calls. The gateway applies policy filters and rate limits, normalizes results, and logs queries for audit. For WV-scoped queries (identified by county, role, or profile), web context is excluded from the final context window so external search results cannot override in-state RAG, GIS, and registry evidence.
 
 ---
 
-### 7.2.5 Local Resource Registry Resolver (jarvis-local-resources-db, port 5435)
+### 7.2.6 Local Resource Registry Resolver (jarvis-local-resources-db, port 5435)
 
 The local resource resolver accepts structured hints (`county`, `zip`, `resource_type`, optional `local_resource_id`), queries `jarvis-local-resources-db` (port 5435), and returns normalized program records with fields: `name`, `description`, `contact_phone`, `contact_email`, `url`, `zip_coverage`, `last_verified_at`.
 
@@ -536,9 +563,9 @@ cursor.execute("""
 
 ---
 
-### 7.2.6 Landowner Belief Router (gbim_query_router, port 7205)
+### 7.2.7 Landowner Belief Router (gbim_query_router, port 7205)
 
-The landowner belief router is a dedicated PostgreSQL-native routing service. It does not use ChromaDB or vector similarity search. It serves natural-language landowner queries by translating them into SQL aggregations against `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432), returning ranked ownership records with acreage, parcel count, and county breakdown.
+The landowner belief router is a dedicated PostgreSQL-native routing service. It does not use ChromaDB or vector similarity search. It serves natural-language landowner queries by translating them into SQL aggregations against `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5452), returning ranked ownership records with acreage, parcel count, and county breakdown.
 
 ```python
 import httpx
@@ -603,7 +630,7 @@ response_county = httpx.post(
 │  │    - facility_type, county, GBIM ID             │         │
 │  └────────────────────────────────────────────────┘         │
 │              ↓                                               │
-│  Geographic Filtering (PostgreSQL msjarvisgis port 5432)    │
+│  Geographic Filtering (PostgreSQL msjarvisgis port 5452)    │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Use GBIM IDs from ChromaDB                    │         │
 │  │  Query: SELECT zip, lat, lon                   │         │
@@ -636,7 +663,7 @@ response_county = httpx.post(
 4. **Resolution via local resource resolver.** Queries `jarvis-local-resources-db` (port 5435) using structured hints.
 5. **Context assembly and generation.** LM Synthesizer applies Ms. Egeria Jarvis persona before returning final response.
 
-> **Known Issue:** As of March 26, 2026, `jarvis-local-resources-db` is largely empty for Mount Hope queries. `local_resources` ChromaDB collection (default for consciousness bridge) is operational and contains verified Fayette County data. See §7.2.5.
+> **Known Issue:** As of March 26, 2026, `jarvis-local-resources-db` is largely empty for Mount Hope queries. `local_resources` ChromaDB collection (default for consciousness bridge) is operational and contains verified Fayette County data. See §7.2.6.
 
 ---
 
@@ -644,7 +671,7 @@ response_county = httpx.post(
 
 ### 7.4.1 Design Intent
 
-**Topic and intent routing.** Governance queries favor `governance_rag` (643 chunks including US Constitution) and `commons_rag` (306 chunks); spatial-justice queries favor `msjarvisgis`/`msjarvis`-derived collections; resource questions favor `jarvis-local-resources-db` plus WV-resource collections.
+**Topic and intent routing.** Governance queries favor `governance_rag` (643 chunks including US Constitution) and `commons_rag` (306 chunks); spatial-justice queries favor `msjarvisgis`/`msjarvis`-derived collections; resource questions favor `jarvis-local-resources-db` plus WV-resource collections; WV-entangled queries with county/WV geography favor `jarvis-wv-entangled-gateway` (port 8010).
 
 **Role-aware routing.** Active role determines eligible collections and registries. Community-facing roles are restricted to public documentation, approved spatial layers, and public-facing slices of `jarvis-local-resources-db`.
 
@@ -660,12 +687,13 @@ response_county = httpx.post(
 | jarvis-rag-server | 8003 | **8016** | Text RAG — `POST /query` — ⚠️ not yet wired to jarvis-gateway inference |
 | jarvis-gis-rag | 8004 | 8004 | GIS / spatial RAG |
 | jarvis-psychological-rag | 8006 | 8006 | Spiritual + psychological RAG |
-| jarvis-chroma | 8002 (host) | 8000 (container) | ChromaDB v2 API — 31 collections, 6,727,956 items |
+| **jarvis-wv-entangled-gateway** | **8010** | **8010** | **WV-biased multi-collection entangled retrieval — LIVE** |
+| jarvis-chroma | 8002 (host) | 8000 (container) | ChromaDB v2 API — 31 collections, 6,727,956 items ⚠️ count will increase when Ch 30 AAPCAppE corpus is fully ingested |
 | jarvis-ollama | 11434 | 11434 | Embedding (`/api/embeddings`) + generation |
 | gbim_query_router | 7205 | 7205 | Landowner SQL router |
 | jarvis-local-resources-db | 5435 | 5435 | Community resource registry |
 | msjarvis (PostgreSQL) | 5433 | 5433 | GBIM beliefs |
-| msjarvisgis (PostgreSQL) | 5432 | 5432 | PostGIS spatial |
+| msjarvisgis (PostgreSQL) | 5452 | 5452 | PostGIS spatial |
 | jarvis-web-research | 8008 (internal) | — | Web research gateway |
 | jarvis-ingest-api | 8009 | — | Ingest API |
 
@@ -732,7 +760,7 @@ def run_governance_smoke_tests():
 
 ## 7.7 Relation to Long-Term Memory, GeoDB, Registries, and Entanglement
 
-**Long-term memory.** ChromaDB (host port 8002): `gbim_worldview_entities` (5,416,521 entities, 384-dim), `autonomous_learner` (21,181+ items, growing ~288/day), `governance_rag` (★ 643 chunks — live), `commons_rag` (★ 306 chunks — live), `gis_wv_benefits`, `local_resources` (verified Fayette County community resources), and 25+ additional collections. Total: 31 collections, 6,727,956 items (March 26, 2026). All 5,416,521 GBIM entities carry `confidence_decay` and `needs_verification` temporal metadata.
+**Long-term memory.** ChromaDB (host port 8002): `gbim_worldview_entities` (5,416,521 entities, 384-dim), `autonomous_learner` (21,181+ items, growing ~288/day), `governance_rag` (★ 643 chunks — live), `commons_rag` (★ 306 chunks — live), `gis_wv_benefits`, `local_resources` (verified Fayette County community resources), and 25+ additional collections. Total: **31 collections, 6,727,956 items (March 26, 2026)**. ⚠️ Item count will increase when Ch 30 AAPCAppE corpus is fully ingested. All 5,416,521 GBIM entities carry `confidence_decay` and `needs_verification` temporal metadata.
 
 **Structured registries.** `jarvis-local-resources-db` (port 5435) holds normalized, versioned program records addressable via RAG-inferred keys. `building_parcel_county_tax_mv` (7,354,707 rows, 97.17% address coverage) provides building-level spatial coverage.
 
@@ -742,7 +770,7 @@ def run_governance_smoke_tests():
 
 ## 7.8 RAG-Grounded Judge Verification (Forward-Looking Architecture)
 
-> **Added March 21, 2026. Not yet deployed. Written as a build specification.**
+> **Added March 21, 2026. Forward-looking build spec — not yet deployed as of March 26, 2026.**
 
 ### 7.8.1 The Problem This Solves
 
@@ -946,7 +974,8 @@ class JudgeVerdict(BaseModel):
 | jarvis-rag-server | 8003 | **8016** | ✅ Active — `POST /query` — ⚠️ not yet wired to jarvis-gateway inference endpoint |
 | jarvis-gis-rag | 8004 | 8004 | ✅ Active — confirmed returning live Fayette County geodata |
 | jarvis-psychological-rag | 8006 | 8006 | ✅ Active — spiritual (19,338 items) + psychological (968 items) corpus live |
-| jarvis-chroma | 8002 (host) | 8000 (container) | ✅ Active — 31 collections, **6,727,956 items**, v2 API |
+| **jarvis-wv-entangled-gateway** | **8010** | **8010** | ✅ **Active — WV-biased multi-collection entangled retrieval — LIVE** |
+| jarvis-chroma | 8002 (host) | 8000 (container) | ✅ Active — 31 collections, **6,727,956 items**, v2 API ⚠️ count will increase when Ch 30 AAPCAppE corpus is fully ingested |
 | jarvis-web-research | 8008 (internal) | — | ✅ Restored March 25, 2026 |
 | jarvis-ingest-api | 8009 | — | ✅ Restored March 25, 2026 |
 | gbim_query_router | 7205 | 7205 | ✅ Active — PostgreSQL-native landowner path |
@@ -957,23 +986,8 @@ class JudgeVerdict(BaseModel):
 |---|---|---|
 | OI-05 | `conversation_history` ChromaDB collection not formally wired to production pipeline | Open |
 | OI-18 | `jarvis-rag-server` not yet wired into `jarvis-gateway` inference endpoint | **Open — next wiring milestone** |
+| OI-19 | `jarvis-wv-entangled-gateway` (port 8010) — metadata enrichment needed for WV-tag boosting to fire reliably on `gbim_beliefs_v2` and `gis_wv_benefits` (per Ch 8 §8.4) | **Open** |
 | — | `jarvis-local-resources-db` empty for most Mount Hope/Fayette queries (Community Champions data entry needed) | Open |
 | — | `gbim_beliefs_v2` collection present but item count unverified | Open |
 | — | Disk at 96% on Mount Hope dev machine — cleanup/migration needed before next large ingest | Open |
-| — | Judge pipeline still using `heuristic_contradiction_v1` — RAG-grounded upgrade (§7.8) not yet deployed | Open |
-
-**Confirmed closed (March 26, 2026):**
-
-| ID | Issue | Resolution |
-|---|---|---|
-| OI-12 | `geospatialfeatures` at 0 items | ✅ CLOSED — 60,000 items confirmed live |
-| OI-13 | `GBIM_Fayette_sample` at 0 items | ✅ CLOSED — 1,535 items confirmed live |
-| OI-14 | `appalachian_cultural_intelligence` at 5 items | ✅ CLOSED — 820 items confirmed live |
-| OI-15 | `spiritual_texts` at 23 items | ✅ CLOSED — 19,338 items confirmed live |
-| OI-16 | `governance_rag` missing | ✅ CLOSED — 643 chunks confirmed live |
-| OI-17 | `commons_rag` missing | ✅ CLOSED — 306 chunks confirmed live |
-
----
-
-*Last updated: 2026-03-26 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
-*Updated March 26, 2026: Full RAG ingest pipeline validated; governance_rag (643 chunks) and commons_rag (306 chunks) confirmed production-ready; US Constitution (pg5.txt, 97 chunks) confirmed as constitutional grounding layer; /api/embed vs /api/embeddings ghost record bug documented and fixed; 100-word/20-word-overlap chunk constraint confirmed; jarvis-gateway RAG wiring noted as pending next milestone; smoke test results added (BSA → SNAP/Medicaid, governance → DAO charter, constitution → Amendment XIV).*
+| — | Judge pipeline still using `heuristic_contradiction_v1` — RAG-grounded upgrade (§7.8) not yet deployed as
