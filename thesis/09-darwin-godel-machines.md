@@ -1,49 +1,83 @@
+# 9. Darwin–Gödel Machines and the Fifth DGM
 
-`POST /process` response:
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+
+## Overview
+
+This chapter describes the Darwin–Gödel Machine (DGM) architecture implemented in Ms. Egeria Jarvis, with particular focus on the **Fifth DGM**: the consciousness filter and identity orchestrator (`jarvis-fifth-dgm`, port 4002) that represents Ms. Jarvis's first fully deployed DGM component. The chapter situates the Fifth DGM within the broader 73-DGM fractal layer (Chapter 32), explains how it interacts with the WOAH evaluation services, I-container identity system, and ChromaDB/PostgreSQL stack, and documents confirmed production operation through March 25, 2026.
+
+A Darwin–Gödel Machine differs from a classical Gödel Machine in that it does not require formal proofs of utility improvement before adopting self-modifications. Instead, it uses empirical evaluation — running candidate changes and measuring outcomes — guided by safety constraints and human oversight. Ms. Jarvis's implementation applies this principle at two levels: the Fifth DGM applies it to content entering consciousness and identity memory; the broader 73-DGM layer (Chapter 32) applies it to code-level service patches.
+
+---
+
+## 9.1 Theoretical Background: Classical vs. Darwin–Gödel Machines
+
+**Classical Gödel Machines (Schmidhuber, 2003–2007).** A classical Gödel Machine is a self-referential system that may rewrite any part of itself — including its own learning algorithm — provided it can construct a formal proof that the rewrite will increase expected utility. The proof requirement makes classical Gödel Machines theoretically rigorous but practically intractable for large, real-world systems: generating formal proofs of utility improvement over arbitrary time horizons is computationally infeasible.
+
+**Darwin–Gödel Machines.** A DGM replaces the formal proof requirement with empirical evaluation. Candidate self-modifications are proposed, tested, and either adopted or rejected based on measured outcomes rather than proofs. Safety and governance constraints replace the proof obligation as the primary check on harmful modifications. This makes DGMs practically implementable while retaining the key DGM properties: self-reference, archival traces, and principled (if empirical rather than proof-based) self-improvement.
+
+**Ms. Jarvis's implementation.** Ms. Jarvis does NOT implement a proof-based classical Gödel Machine. It implements a Darwin–Gödel Machine architecture with:
+- Empirical evaluation of candidate changes (not formal proofs)
+- Scoped self-modification (73 mutable services, 3 immutable protected services)
+- Comprehensive archival traces for governance and audit
+- Human oversight as the primary safety constraint on significant changes
+
+---
+
+## 9.2 The Fifth DGM: Consciousness Filter and Identity Orchestrator
+
+The Fifth DGM (`jarvis-fifth-dgm`, port 4002) is the first fully deployed DGM component in Ms. Jarvis. Its domain is not code modification but **content filtering and identity memory**: it decides which content from the incoming stream deserves to be promoted into Ms. Jarvis's I-container (identity memory), and it orchestrates how that identity memory shapes downstream reasoning.
+
+### 9.2.1 Architecture
+
+The Fifth DGM exposes the following endpoints:
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/filter_consciousness` | POST | First-pass content filter — consciousness YES/NO decision |
+| `/analyze` | POST | Full DGM analysis including identity context |
+| `/i_container` | GET | Retrieve current I-container contents |
+| `/identity` | GET | Retrieve current identity state |
+| `/consciousness_stats` | GET | Service health and statistics |
+
+The service runs on `jarvis-fifth-dgm:4002` (container-internal) and is called by the main-brain during the `ultimatechat` path.
+
+### 9.2.2 The I-Container
+
+The I-container is a persistent, session-aware identity memory store. It holds items that have passed the Fifth DGM's filter and, optionally, been weighted by the WOAH algorithms service (port 8104). Each I-container entry includes:
 
 ```json
 {
-  "status": "ok",
-  "content": "WOAH stub reasoning complete",
-  "confidence": 0.8
+  "content": "<content string>",
+  "timestamp": "<iso8601>",
+  "woah_weight": "<float>"
 }
 ```
 
-`woah_stub.py` reference implementation:
+High-weight items (WOAH weight ≥ 0.75) are promoted as core identity context. These items can be retrieved via `/i_container` and fed back into Ms. Jarvis's persona prompt, shaping how the 21-LLM ensemble reasons about identity-relevant questions.
 
-```python
-from http.server import HTTPServer, BaseHTTPRequestHandler
-import json
+---
 
-class WOAHHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        if self.path == "/":
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(json.dumps({"status": "ok", "service": "jarvis-woah"}).encode())
+## 9.3 Consciousness Filter Pipeline
 
-    def do_POST(self):
-        if self.path == "/process":
-            content_length = int(self.headers.get("Content-Length", 0))
-            self.rfile.read(content_length)  # consume body
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(json.dumps({
-                "status": "ok",
-                "content": "WOAH stub reasoning complete",
-                "confidence": 0.8
-            }).encode())
+### 9.3.1 First-Pass Filter: `filter_consciousness`
 
-    def log_message(self, format, *args):
-        pass  # suppress access logs
+When the main-brain calls `/filter_consciousness`, the Fifth DGM applies a local first-pass filter to the incoming content. The filter evaluates:
+- Relevance to Ms. Jarvis's core identity domains (Appalachian geography, WV benefits, community governance, GBIM spatial structures)
+- Alignment with the Mother Carrie Protocol values corpus
+- Safety and ethical constraints
 
-if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", 7012), WOAHHandler)
-    print("jarvis-woah stub listening on port 7012")
-    server.serve_forever()
-```
+The filter returns a `consciousness_decision` field: `"YES"` (content may proceed to identity evaluation) or `"NO"` (content is not suitable for identity promotion). All decisions are logged with reasoning for governance review.
+
+### 9.3.2 WOAH Weight Evaluation: `_evaluate_for_i_container`
+
+Content that passes the first-pass filter proceeds to the WOAH algorithms service (`nbb_woah_algorithms`, host port 8104, container port 8010) for identity-promotion scoring.
+
+### 9.3.3 I-Container Promotion
+
+If the WOAH weight meets or exceeds the configured threshold (≥ 0.75), the content is written to the I-container with its timestamp and weight. The I-container persists across the service lifetime and accumulates identity-relevant material over time.
+
+### 9.3.4 WOAH Evaluation Flow
 
 **WOAH evaluation flow (Fifth DGM → nbb_woah_algorithms:8104):**
 
@@ -69,6 +103,8 @@ to `POST {woah_url}/process`. If WOAH returns HTTP 200 and valid JSON, the respo
 Errors (WOAH not running, invalid JSON, non-200 responses) are logged and swallowed — they do not block the main consciousness filter path.
 
 > **OI-29 Status (March 25, 2026):** `jarvis-woah` stub is confirmed operational and integrated into the consciousness pipeline. The informal WOAH result schema (reading `hierarchical_weight` with defaults) is functional. Formal Pydantic schema formalization remains future work.
+
+> **Cross-reference:** The `woah_stub.py` stub implementation and its deployment method (stdlib `http.server`, volume-mounted, executed via `python3 /woah_stub.py`, listening on port 7012) belong canonically in **§10 Deployment Status**. See §10 for the full reference implementation and confirmed deployment configuration.
 
 ### 9.3.5 Confirmed Live Operation: February 15, 2026
 
@@ -123,6 +159,8 @@ request_body = {
 }
 ```
 
+> **⚠️ Port Correction — jarvis-69dgm-bridge (Confirmed March 18, 2026):** The 69-DGM Bridge host port was corrected in Ch. 11 as of March 18, 2026. The correct mapping is `127.0.0.1:19000→9000/tcp` — the host-side port is **19000**, not 9000 directly. All health checks, curl commands, and service registry entries referencing the 69-DGM Bridge must use host port **19000** for external access. Container-to-container calls use `jarvis-69dgm-bridge:9000`.
+
 ### 9.4.2 Fifth DGM Integration Module
 
 ```python
@@ -154,11 +192,13 @@ class FifthDGMIntegration:
 
 Beyond the Fifth DGM, Ms. Jarvis implements a **fully operational** 73-DGM layer documented in Chapter 32. As of March 2026, the Darwin–Gödel layer is production-ready with services managing the complete observe–propose–evaluate–adopt cycle across 73 mutable services.
 
+> **⚠️ Layer count note:** The "73-DGM layer" count reflects the service audit at the time of Chapter 32 drafting. The March 25, 2026 sprint may have added or reorganized services. The authoritative count will be confirmed in a Chapter 32 audit pass. Until that audit is complete, "73" should be treated as the working figure, subject to revision.
+
 **The Fifth DGM in context.** The Fifth DGM is one of 12 Consciousness & NBB services governed by the broader DGM infrastructure.
 
 **Other DGM components (see Chapter 32):**
 - **NBB Darwin–Gödel Machines Service** (port 8302): Generates contextual patch proposals across all 73 services
-- **69-DGM Bridge** (port 19000): RAG-integrated safety assessment for all requests
+- **69-DGM Bridge** (host port **19000** → container port 9000 — confirmed March 18, 2026): RAG-integrated safety assessment for all requests
 - **Adoption Worker** (port 8400): Processes queued patches with dry-run capability
 - **73 mutable services** across RAG, Consciousness/NBB, Judge Pipeline, LLM Proxies, and Infrastructure
 
@@ -189,7 +229,7 @@ The Fifth DGM operates within the broader multi-agent architecture including the
 | `nbb_woah_algorithms` | 8104 | 8010 | Identity-promotion scoring; called by Fifth DGM |
 | `jarvis-woah` | 7012 | 7012 | Consciousness pipeline WOAH node; stdlib stub, qualia-net |
 
-**Orchestration and main-brain (port 8050).** The main-brain retains overall control of the `ultimatechat` path (see Chapter 17). It invokes RAG services, calls the ensemble service, passes outputs through the Blood-Brain Barrier, and may consult the Fifth DGM for identity context, but does not cede control over routing or external outputs to DGM components.
+**Orchestration and main-brain (port 8050).** The main-brain (`jarvis-consciousness-bridge`, port 8020 — actual bind port 8018; compose declares 8020 — see Ch. 12 §12.1) retains overall control of the `ultimatechat` path (see Chapter 17). It invokes RAG services, calls the ensemble service, passes outputs through the Blood-Brain Barrier, and may consult the Fifth DGM for identity context, but does not cede control over routing or external outputs to DGM components.
 
 **Consistency with prior chapters.** The Fifth DGM:
 - Respects GBIM's worldview layer (Chapter 2) by not introducing a parallel belief system
@@ -206,11 +246,13 @@ The Fifth DGM operates within the broader multi-agent architecture including the
 
 **Proof-based classical Gödel Machine remains theoretical.** Ms. Jarvis does NOT implement a proof-based classical Gödel Machine with guaranteed utility improvements derived from formal verification.
 
-**Fifth DGM is operational; WOAH services are operational.** The Fifth DGM consciousness filter at port 4002 and both WOAH services (ports 8104 and 7012) are confirmed production services as of March 25, 2026. `jarvis-woah` uses the stdlib `http.server` stub (`woah_stub.py`) mounted as a volume and executed via `python3 /woah_stub.py` — no uvicorn or FastAPI required.
+**Fifth DGM is operational; WOAH services are operational.** The Fifth DGM consciousness filter at port 4002 and both WOAH services (ports 8104 and 7012) are confirmed production services as of March 25, 2026. `jarvis-woah` uses the stdlib `http.server` stub (`woah_stub.py`) mounted as a volume and executed via `python3 /woah_stub.py` — no uvicorn or FastAPI required. For the canonical stub implementation and deployment method, see **§10 Deployment Status**.
 
 **Subconscious RAG storage is scaffolded.** `_store_in_subconscious_rag` currently logs and updates counters. Wiring it to actual ChromaDB collections with PostgreSQL GBIM/GeoDB-aware metadata is identified as near-term work.
 
 **OI-29 — WOAH Pydantic schema (open).** The operational `jarvis-woah` stub is confirmed live and integrated into the consciousness pipeline as of March 25, 2026. The informal weight schema (reading `hierarchical_weight` with defaults) is functional. Formal Pydantic schema formalization remains future work.
+
+> **⚠️ Open Item — March 25, 2026:** `jarvis-neurobiological-master` was found **unreachable** during the March 25, 2026 session. This is an open item. The Chroma health check was rerouted as a direct consequence: rather than routing through `jarvis-neurobiological-master`, the health check now calls `jarvis-chroma:8000/api/v2/heartbeat` directly (confirmed → 200 ✅). Restoring `jarvis-neurobiological-master` reachability is tracked as an open item.
 
 **Human oversight remains required.** Significant behavioral changes remain subject to human review, legal and ethical constraints, and version control. The DGM layer is designed to propose and test self-improvements, not to autonomously rewrite itself without governance oversight.
 
@@ -226,6 +268,12 @@ This chapter has documented the operational Fifth DGM: the consciousness filter 
 
 The I-container identity layer is not theoretical: it was confirmed running on 2026-02-15, producing a real, session-specific ego boundary entry inside a live `UltimateResponse`, with a simultaneously skipped `nbb-prefrontal-cortex` layer providing a clean contrast that rules out a default artifact (§9.3.5). This was extended on 2026-03-02 when `normalize_identity()` was verified producing Ms. Jarvis's identity voice on the `chatlight/async` path.
 
-The WOAH services were further confirmed on 2026-03-25: `jarvis-woah` (port 7012) confirmed operational with the stdlib stub on qualia-net; `jarvis-consciousness-bridge` (port 8020) confirmed calling ChromaDB v2 API; end-to-end consciousness pipeline producing persona-consistent Appalachian-voice responses with Hilbert local entity recall. Two commits merged to main March 25, 2026.
+The WOAH services were further confirmed on 2026-03-25: `jarvis-woah` (port 7012) confirmed operational with the stdlib stub on qualia-net; `jarvis-consciousness-bridge` (port 8020, actual bind port 8018 — see Ch. 12 §12.1) confirmed calling ChromaDB v2 API; end-to-end consciousness pipeline producing persona-consistent Appalachian-voice responses with Hilbert local entity recall. Two commits merged to main March 25, 2026.
 
 The Fifth DGM documented here is part of the larger 73-DGM fractal architecture documented in **Chapter 32: Fractal Optimization and the 73-DGM Layer**. For the canonical description of how the Fifth DGM participates in live user interactions, see **Chapter 17**.
+
+---
+
+*Last updated: 2026-03-27 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*★ March 27, 2026: §9.3.4 cross-reference to §10 added for woah_stub.py canonical location; §9.4.1 ⚠️ port note added — jarvis-69dgm-bridge confirmed host port 19000→9000 (Ch. 11, March 18, 2026); §9.5 layer-count note added — 73-DGM count pending Ch. 32 audit post March 25 sprint; §9.7 parenthetical added — jarvis-consciousness-bridge actual bind port 8018, compose declares 8020 (see Ch. 12 §12.1); §9.8 ⚠️ open item added — jarvis-neurobiological-master unreachable March 25, 2026; Chroma health check rerouted to jarvis-chroma:8000/api/v2/heartbeat.*
+`````
