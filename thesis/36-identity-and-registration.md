@@ -1,28 +1,36 @@
 # 36. Identity and Registration
 
-**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
-**Last updated: March 27, 2026 — public URL cross-reference added (§36.12); Ch 40/Ch 41 session contract baseline note added (§36.10, §36.11); Ch 37 BBB filter diagram discrepancy noted (§36.5.1)**
+**Carrie Kidd (Mamma Kidd) · Pax, WV**
+**Last updated: ★ March 28, 2026 — 96/96 containers Up (zero Restarting, zero Exited); PostgreSQL `msjarvis:5433` restored (★ 5,416,521 GBIM entities with `confidence_decay` metadata); `msjarvisgis:5432` confirmed (★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (★ 40 active collections / 6,675,442 total vectors); `psychological_rag` restored (968 docs); `jarvis-memory:8056` secured (durable BBB audit trail, `_auth()` confirmed, `JARVIS_API_KEY` set); container count updated to 96 throughout; public URL confirmed live (§36.12); Ch 40/Ch 41 session contract baseline note re-confirmed (§36.10, §36.11); Ch 37 BBB filter diagram discrepancy re-confirmed (§36.5.1); March 27, 2026 additions carried forward**
 
 ---
 
-> **Port and database corrections (permanent record — March 22, 2026):**
+> **Port and database corrections (permanent record — updated ★ March 28, 2026):**
 >
-> Earlier drafts of this chapter referenced PostgreSQL as `msjarvisgis` at port 5432 with 91 GB / 501 tables. The confirmed production databases are:
-> - `msjarvis` at port **5433** — 5,416,521 GBIM entities, 80 epochs, 206 source layers
-> - `gisdb` / `msjarvisgis` (PostGIS) at port **5432** — 13 GB, 39 tables
+> The confirmed production databases are:
+> - `msjarvis` at port **5433** — ★ 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers (restored March 28)
+> - `gisdb` / `msjarvisgis` (PostGIS) at port **5452** — ★ 91 GB, 501 tables, 993 ZCTA centroids (confirmed March 28)
 > - `jarvis-local-resources-db` at port **5435** — community resources database
 >
-> Redis has **one container** (`jarvis-redis`) with two port mappings:
+> ★ **`confidence_decay` metadata note (March 28):** `msjarvis:5433` GBIM entities now carry `confidence_decay` metadata enabling temporal confidence grading. Identity and registration validation queries against high-decay GBIM entities should flag those entities for episodic audit before treating them as confirmed ground truth.
+>
+> ★ **`msjarvisgis:5452` corrections (March 28):** Prior drafts listed this database as 13 GB / 39 tables. Confirmed March 28: 91 GB PostGIS, 501 tables, 993 ZCTA centroids. All references updated throughout this chapter.
+>
+> Redis has **one container** (`jarvis-redis` — ★ Up 96/96) with two port mappings:
 > - Container-internal port: **6379** (used by container-to-container calls inside the Docker network)
 > - Host-facing port: **6380** (`127.0.0.1:6380->6379/tcp` — used by all host scripts and the token service)
 >
-> All `redteam:token:*` keys are stored in `jarvis-redis` accessed via host port **6380**. The prior §36.6.1 table listing a separate "Red-team Redis" instance at port 6380 was misleading — there is one Redis container; the host port is 6380. See §36.6.1 (corrected) and §36.11.
+> All `redteam:token:*` keys are stored in `jarvis-redis` accessed via host port **6380**. There is one Redis container; the host port is 6380.
 >
-> BBB filter count corrected: the Blood-Brain Barrier pipeline runs **six filters** (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification) — not four.
+> BBB filter count confirmed: the Blood-Brain Barrier pipeline runs **six filters** (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification).
 >
 > Redis async job status key is `'complete'` (not `'done'`). Verified March 22, 2026.
 >
-> **⚠️ Cross-chapter note (March 27, 2026):** Chapter 37's architecture diagram (Figure 37.1) and §37.4.1 list only four BBB filters after the Constitutional Guardian check, omitting `steganography_filter` and `truth_verification`. This is a Ch 37 error — the six-filter count confirmed in this chapter's correction block is authoritative. Ch 37 requires correction to its BBB filter list.
+> ★ **`jarvis-memory:8056` durable audit trail (secured March 28):** All BBB gate decisions — Phase 1.4 filter events and Phase 4.5 output guard events — are now persistently logged at `jarvis-memory:8056` (`_auth()` confirmed, `JARVIS_API_KEY` set). Identity enforcement events (including `TruthValidator` verdicts and `normalize_identity` invocations where they trigger BBB gate checks) are part of this durable audit record. Gate decisions survive container restarts.
+>
+> ★ **ChromaDB full audit (March 28):** 40 active collections / 6,675,442 total vectors. `ms_jarvis_memory` collection confirmed present; `psychological_rag` restored to 968 docs. Host-facing ChromaDB port: **8002** (container-internal 8000; production mapping `127.0.0.1:8002->8000/tcp`).
+>
+> **⚠️ Cross-chapter note (March 27, 2026 — re-confirmed March 28):** Chapter 37's architecture diagram (Figure 37.1) and §37.4.1 list only four BBB filters after the Constitutional Guardian check, omitting `steganography_filter` and `truth_verification`. The six-filter count confirmed in this chapter's correction block and in Chapter 33 §33.2 is authoritative. Ch 37 requires correction to its BBB filter list.
 
 ---
 
@@ -34,20 +42,19 @@ communities. It supports:
 
 - **P1 – Every where is entangled** by tying individual identity and registration
   records to GBIM beliefs, spatial features, and institutional structures in
-  PostgreSQL `msjarvis` (port 5433, 5,416,521 verified GBIM entities, 80 epochs,
-  206 source layers) and `gisdb` (port 5432, PostGIS geospatial).
+  PostgreSQL `msjarvis` (port 5433 — ★ 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers) and `gisdb` (port 5452 — ★ PostGIS, 91 GB, 501 tables, 993 ZCTA centroids).
 - **P3 – Power has a geometry** by locating identity and access decisions within
   explicit services, tables, and policies rather than opaque prompts or ad‑hoc
-  scripts.
+  scripts. ★ All BBB gate decisions — including identity enforcement events — are now durably logged at `jarvis-memory:8056` (secured March 28), making the geometry of identity power persistently inspectable.
 - **P5 – Design is a geographic act** by grounding registration decisions in
   place‑specific rules, such as county boundaries, service areas, and partner
-  organizations represented in PostgreSQL `gisdb`.
+  organizations represented in PostgreSQL `gisdb` (★ 501 tables, 993 ZCTA centroids — enabling ZIP-code-level service area precision).
 - **P12 – Intelligence with a ZIP code** by treating identity and registration as
   mechanisms for aligning Ms. Jarvis's behavior with the lived realities of
   Appalachian communities, rather than generic user models.
 - **P16 – Power accountable to place** by ensuring that higher‑impact actions are
   tied to real people under clear rules with auditable trails in databases and
-  logs.
+  logs. ★ The `jarvis-memory:8056` durable audit trail (secured March 28) extends this accountability across container restarts — identity enforcement decisions are now part of a permanent, independently queryable governance record.
 
 As such, this chapter belongs to the **Computational Instrument tier**: it
 specifies concrete identity and registration mechanisms that sit between ordinary
@@ -71,8 +78,7 @@ what actions can be taken, and how explanations are framed in ways that are
 accountable to specific communities in West Virginia. From a systems perspective,
 identity appears as:
 
-- **Identifiers** in PostgreSQL tables and ChromaDB metadata, connecting people,
-  places, and institutions.
+- **Identifiers** in PostgreSQL tables and ChromaDB metadata (★ 40 active collections / 6,675,442 total vectors — March 28 full audit), connecting people, places, and institutions.
 - **Identity‑focused services** such as `jarvis-i-containers` and `TruthValidator`
   that interpret and enforce identity constraints at run time.
 - **Canonical statements** such as "I serve the community" and "I speak truth"
@@ -80,6 +86,7 @@ identity appears as:
 - **LM Synthesizer identity guard** in `services/lm_synthesizer.py` — a
   three-layer enforcement architecture (§36.5.2) that prevents model name leakage,
   synthesis disclosure, and identity evasion in every synthesized response.
+- ★ **`jarvis-memory:8056` durable identity audit** (secured March 28) — all identity enforcement gate decisions are now persistently logged with authentication, surviving container restarts and independently queryable for governance accountability.
 
 ---
 
@@ -90,8 +97,8 @@ interactions to recognized roles with specific authorizations. It is deliberatel
 modeled as a two‑part gate:
 
 1. **Identity recognition** – establishing who or what is interacting, with
-   references to PostgreSQL GBIM (`msjarvis` port 5433) and `gisdb` (port 5432)
-   records where possible.
+   references to PostgreSQL GBIM (`msjarvis` port 5433 — ★ 5,416,521 entities with `confidence_decay` metadata) and `gisdb` (port 5452 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids)
+   records where possible. ★ `confidence_decay` metadata on GBIM entities means that identity validation queries should additionally flag high-decay entities for episodic audit.
 2. **Registration and role assignment** – granting specific, scoped capabilities
    (such as access to a dataset, ability to submit forms, or participation in
    governance workflows) under that identity.
@@ -110,12 +117,12 @@ Chapter 23 and operational logs, the conceptual elements include:
 
 - **User and entity identifiers** – database rows representing individuals,
   households, partner organizations, and public institutions, linked to GBIM
-  beliefs and spatial features.
+  beliefs (★ `msjarvis:5433` — `confidence_decay` metadata available for temporal confidence grading) and spatial features (★ `gisdb:5452` — 993 ZCTA centroids for ZIP-code-level spatial linking).
 - **Identity‑related metadata** – flags, roles, and relationship descriptors
   stored alongside identifiers, capturing how a person or institution relates to
   Harmony for Hope and to Ms. Jarvis.
 - **Audit and provenance fields** – timestamps, sources, and verification status
-  fields that record how an identity was established and under what evidence.
+  fields that record how an identity was established and under what evidence. ★ BBB gate decisions involving identity enforcement are now also durably logged at `jarvis-memory:8056` (secured March 28) — audit provenance extends beyond in-process logs to persistent authenticated records.
 
 These structures make it possible to trace which real‑world entities are
 implicated when Ms. Jarvis answers or takes action, and to reconstruct decisions
@@ -132,13 +139,12 @@ reflect West Virginia's geographic and institutional context. Examples include:
   healthcare, or local resources.
 - **Partner roles** for organizations such as clinics, schools, or nonprofits
   operating within particular counties or service areas documented in PostgreSQL
-  `gisdb` (port 5432).
+  `gisdb` (port 5452 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids confirmed March 28).
 - **Curator and governance roles** for people responsible for reviewing background
   patterns, updating identity specifications, and adjudicating difficult cases.
 
 Each role is grounded in spatial data and institutional records so that Ms. Jarvis
-can apply rules that respect county boundaries, service catchment areas, and legal
-jurisdictions.
+can apply rules that respect county boundaries, service catchment areas (★ now resolvable to ZIP-code level via 993 ZCTA centroids), and legal jurisdictions.
 
 ---
 
@@ -148,61 +154,60 @@ Identity and registration interact with other parts of the system along several
 dimensions:
 
 - **Background store and memory** – entries in the `ms_jarvis_memory` ChromaDB
-  collection accumulate identity‑relevant patterns over time, such as repeated
-  interactions about particular places or institutions. (Note: collection name
-  is `ms_jarvis_memory`; host-facing ChromaDB port is **8002**.)
+  collection (★ confirmed present in 40-collection / 6,675,442-vector ChromaDB inventory — March 28 full audit; host-facing ChromaDB port: **8002**) accumulate identity‑relevant patterns over time, such as repeated interactions about particular places or institutions.
 - **Identity‑focused retention** – a small subset of identity statements is
   promoted into the deepest identity layer described in Chapter 22, where
   canonical statements and `TruthValidator` structures reside.
 - **Global control and policy** – identity signals influence routing and filtering
   decisions in the main brain, BBB, and registration‑specific validators,
-  especially when questions touch on governance, benefits, or data access.
+  especially when questions touch on governance, benefits, or data access. ★ All BBB identity enforcement decisions are now durably logged at `jarvis-memory:8056` (secured March 28).
+- ★ **`psychological_rag` restored (March 28)** — 968 documents restored in the `psychological_rag` ChromaDB collection, providing full community wellbeing context to identity signal routing when psychological assessment is active.
 
 These connections ensure that identity is not just a front‑door concern but an
 ongoing influence on how Ms. Jarvis reasons and responds.
 
 ---
 
-### 36.5.1 Live Identity Evidence and Endpoints (March 22, 2026)
+### 36.5.1 Live Identity Evidence and Endpoints (★ March 28, 2026 — 96/96 Up)
 
 In the current deployment, the registration and access‑control structure described
 in this chapter is anchored to a concrete identity infrastructure that runs on
 every `ultimatechat` request. The core pieces are:
 
-- **`normalize_identity`** in `jarvis-main-brain` (port 8050), which rewrites all
+- **`normalize_identity`** in `jarvis-main-brain` (port 8050 — ★ Up 96/96), which rewrites all
   ensemble outputs into the Ms. Egeria Jarvis persona and suppresses "I am just a
   language model" framings. It enforces canonical identity statements such as "I
   serve the community" and "I value ethics", ensuring that responses remain
   consistent with the system's defined role. See §36.5.2 for the three-layer
   LM Synthesizer identity guard that enforces these constraints at the synthesis
-  layer.
+  layer. ★ Identity guard stability re-confirmed in 96/96 Up audit March 28 — no regressions.
 - **`TruthValidator`**, embedded in the neurobiological BBB package and called
   from the main‑brain pipeline, which encodes specific facts about Ms. Jarvis's
   correct self‑description, correct creator attribution, non‑human status, and
   accountability to West Virginia communities. For each assessment, it returns a
   `truthverdict` with fields `truth_validated`, `truth_score`, `correct_identity`,
-  `correct_creator`, and `relationship_clear`, attached to every `UltimateResponse`.
-- **The `icontainers-identity` layer** (`jarvis-i-containers`, port 8015), which
+  `correct_creator`, and `relationship_clear`, attached to every `UltimateResponse`. ★ `TruthValidator` validation is informed by `msjarvis:5433` GBIM community facts — `confidence_decay` metadata now flags high-uncertainty GBIM entities for episodic audit before use as identity ground truth.
+- **The `icontainers-identity` layer** (`jarvis-i-containers`, port 8015 — ★ Up 96/96), which
   produces real, timestamped, session‑specific ego boundary entries visible in
   `UltimateResponse.identity_layers` and `consciousness_layers`. The 2026‑02‑15
   case study confirmed an active `root-self` entry with `ego_boundaries`,
   `experiential_processing`, `observer_processing`, and `meta_level` fields.
-- **The BBB six‑filter pipeline** at port 8016 (`EthicalFilter`, `SpiritualFilter`,
+- **The BBB six‑filter pipeline** at port 8016 (★ Up 96/96 — `EthicalFilter`, `SpiritualFilter`,
   `SafetyMonitor`, `ThreatDetection`, `steganography_filter`,
   `truth_verification`), which treats identity commitments and community‑grounded
   constraints as first‑class checks when deciding what to allow, block, or
   annotate. Current `truth_verification` method: `heuristic_contradiction_v1`
   (rule-based; upgrade path to `rag_grounded_v2` tracked in Chapter 33 §33.2.3).
   Phase 4.5 BBB output is in **log+passthrough mode** as of commit `18b8ddac`
-  (March 22, 2026), pending output threshold recalibration.
+  (March 22, 2026), pending output threshold recalibration. ★ All six-filter gate decisions — including `truth_verification` events — are now durably logged at `jarvis-memory:8056` (secured March 28).
 
-> **⚠️ Cross-chapter discrepancy note (March 27, 2026):** Chapter 37's architecture diagram (Figure 37.1) and §37.4.1 list only **four** BBB filters after the Constitutional Guardian check, omitting `steganography_filter` and `truth_verification`. The six-filter count confirmed in this chapter's correction block and in Chapter 33 §33.2 is authoritative. Ch 37 requires correction to its BBB filter list to match. Until Ch 37 is updated, treat this chapter and Ch 33 as the authoritative six-filter reference.
+> **⚠️ Cross-chapter discrepancy note (March 27, 2026 — re-confirmed March 28):** Chapter 37's architecture diagram (Figure 37.1) and §37.4.1 list only **four** BBB filters after the Constitutional Guardian check, omitting `steganography_filter` and `truth_verification`. The six-filter count confirmed in this chapter's correction block and in Chapter 33 §33.2 is authoritative. Ch 37 requires correction to its BBB filter list to match. Until Ch 37 is updated, treat this chapter and Ch 33 as the authoritative six-filter reference.
 
 Together, these mechanisms ensure that the "who is acting under which role"
 questions from this chapter are enforced not only in registration flows but also
 in the behavior of everyday responses. Identity is thus expressed simultaneously
-in database rows, in live HTTP services, and in the structure of every
-`UltimateResponse` object.
+in database rows, in live HTTP services, the structure of every
+`UltimateResponse` object, and ★ in the durable `jarvis-memory:8056` audit trail (secured March 28).
 
 Verified identity response (March 22, 2026) — query "Hello Ms Jarvis, who are you
 and what is your purpose?":
@@ -214,7 +219,7 @@ West Virginia. My purpose is to serve Appalachian communities."
 ```
 
 No model names detected. No synthesis disclosure. No hedging language.
-Identity correct. ✅ End-to-end: 105.9s (GPU, March 22, 2026).
+Identity correct. ✅ End-to-end: 105.9s (GPU, March 22, 2026). ★ Identity guard re-confirmed stable in 96/96 Up audit March 28.
 
 ---
 
@@ -223,7 +228,7 @@ Identity correct. ✅ End-to-end: 105.9s (GPU, March 22, 2026).
 The `services/lm_synthesizer.py` file implements a three-layer identity
 enforcement architecture in response to bug ID-03, where Ms. Jarvis was failing
 to reliably identify herself and in some cases leaking underlying model names
-through synthesized responses.
+through synthesized responses. ★ As of March 28, `jarvis-lm-synthesizer:8001` is confirmed Up 96/96 — identity guard stability re-confirmed.
 
 **Layer 1 — `IDENTITY_GUARD` constant (documented failure mode — ID-03 original bug)**
 
@@ -289,10 +294,10 @@ synthesized output and to prevent synthesis architecture disclosure:
 #   never attribute uncertainty to a model
 ```
 
-**Ownership rule:** The LM Synthesizer (port 8001) is called **exclusively** from
+**Ownership rule:** The LM Synthesizer (port 8001 — ★ Up 96/96) is called **exclusively** from
 `main_brain.py` Phase 3.5. `judge_pipeline.py` must not call it. The duplicate
 call that previously existed in `judge_pipeline.py` was removed March 22, 2026
-(see Chapter 33 §33.5).
+(see Chapter 33 §33.5). ★ Re-confirmed in 96/96 Up audit March 28.
 
 **Identity guard verification:**
 
@@ -312,6 +317,11 @@ grep -n "model by name\|synthesis occurred\|speak as one" services/lm_synthesize
 # Confirm no synthesizer call in judge_pipeline.py:
 grep -n "lm.synthesizer\|lm_synthesizer\|port.*8001\|jarvis-lm-synthesizer" services/judge_pipeline.py
 # Expected: empty output
+
+# ★ Confirm durable identity audit at jarvis-memory:8056 (March 28 addition):
+curl -H "Authorization: Bearer $JARVIS_API_KEY" \
+  http://localhost:8056/memories?limit=5
+# Expected: most recent durable BBB/identity gate decision records
 ```
 
 ---
@@ -323,9 +333,9 @@ registry** for the Ms. Jarvis stack. It is the concrete realization of the
 registration gate described in §36.2: a verified caller is one whose bearer token
 exists as an active key in Redis.
 
-### 36.6.1 Storage Backend (Corrected March 22, 2026)
+### 36.6.1 Storage Backend (Confirmed ★ March 28, 2026)
 
-Tokens are stored in **`jarvis-redis`**, accessed via host port **6380**.
+Tokens are stored in **`jarvis-redis`** (★ Up 96/96), accessed via host port **6380**.
 
 > **Important — one Redis container, two port references:**
 >
@@ -334,7 +344,7 @@ Tokens are stored in **`jarvis-redis`**, accessed via host port **6380**.
 > | Container-internal port | **6379** | Used by container-to-container calls inside the Docker network |
 > | Host-facing port | **6380** | `127.0.0.1:6380->6379/tcp` — used by all host scripts, CLI, and `jarvis_token_service.py` |
 >
-> There is **one** Redis container (`jarvis-redis`). All token operations —
+> There is **one** Redis container (`jarvis-redis` — ★ Up 96/96). All token operations —
 > issue, validate, revoke, list — target **host port 6380** when called from the
 > host. Container services that call Redis internally use port 6379.
 >
@@ -381,9 +391,9 @@ or via direct Redis CLI calls to host port 6380 for emergency operations only
 
 ---
 
-## 36.7 Production Token Classes (March 22, 2026)
+## 36.7 Production Token Classes (★ March 28, 2026)
 
-Two token classes are active in production as of March 22, 2026. Each class
+Two token classes are active in production. Each class
 represents a role level; tokens within a class share the same `role` field value.
 
 ### 36.7.1 `carrie_admin`
@@ -398,7 +408,7 @@ represents a role level; tokens within a class share the same `role` field value
 
 The `carrie_admin` role is the highest-privilege class in the current token
 hierarchy. Routes gated on `carrie_admin` include constitutional audit endpoints
-and any future administrative management surfaces.
+and any future administrative management surfaces. ★ `jarvis-memory:8056` (secured March 28) durable audit logging applies to all `carrie_admin` gate decisions.
 
 ### 36.7.2 `hayden_test`
 
@@ -434,10 +444,10 @@ to protect people and communities. These rules include:
   clearer accountability.
 - **Transparency and auditability** – identity‑related decisions (such as granting
   a role or performing a high‑impact action) are logged with references to
-  PostgreSQL records and, where appropriate, GBIM beliefs.
+  PostgreSQL records and, where appropriate, GBIM beliefs (★ `msjarvis:5433` — `confidence_decay` metadata adds temporal confidence grading to GBIM-backed identity decisions). ★ All BBB gate decisions involving identity enforcement are now durably logged at `jarvis-memory:8056` (secured March 28) — audit trails persist across container restarts.
 - **Alignment with local partners** – registration rules are co‑designed with
   Harmony for Hope and other partners to reflect local norms and legal
-  requirements.
+  requirements grounded in PostgreSQL `gisdb` (★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids — enabling ZIP-code-level alignment with service areas).
 
 These constraints turn identity and registration into tools for shared governance
 rather than unilateral control by the system.
@@ -469,6 +479,12 @@ redis-cli -p 6380 SET "redteam:token:<token_value>" \
 redis-cli -p 6380 KEYS "job:*" | head -5
 # Then inspect a key: redis-cli -p 6380 GET "job:<job_id>"
 # Status field must read "complete" when done — "done" is incorrect and will cause hangs
+
+# ★ Verify jarvis-redis is Up (March 28 addition):
+docker inspect jarvis-redis --format '{{.State.Status}}'
+# Expected: running
+docker port jarvis-redis 6379/tcp
+# Expected: 127.0.0.1:6380
 ```
 
 ---
@@ -480,9 +496,11 @@ Results are recorded here as the baseline for regression testing and are committ
 to the session contract at
 `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`).
 
-> **Cross-chapter reference (March 27, 2026):** The session contract at `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) is the **auth boundary test baseline** and must be referenced in:
+> **Cross-chapter reference (March 27, 2026 — re-confirmed ★ March 28):** The session contract at `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) is the **auth boundary test baseline** and must be referenced in:
 > - **Chapter 40 (System Audit)** — as the baseline for all token enforcement and gateway authentication audit checks.
 > - **Chapter 41 (Test Harness)** — as the regression baseline for auth boundary smoke tests; any test run that revisits token enforcement (OI-36-A) or role-based routing (OI-36-B) must compare results against the March 22, 2026 baseline recorded in this contract.
+>
+> ★ **March 28 addition:** The 96/96 container Up confirmation does not resolve OI-36-A or OI-36-B — these open items remain OPEN. The March 28 96/96 baseline is a new operational milestone; auth boundary enforcement status is unchanged from March 22, 2026 baseline.
 
 | Test | Expected | Observed | Status |
 |---|---|---|---|
@@ -491,7 +509,7 @@ to the session contract at
 | `hayden_test` on `/constitutional-audit` | 403 | 404 | ⚠️ Endpoint missing |
 | `carrie_admin` on `/constitutional-audit` | 200 | 404 | ⚠️ Endpoint missing |
 
-**Finding (March 22, 2026):** The token service issues and stores tokens correctly.
+**Finding (March 22, 2026 — status unchanged as of ★ March 28):** The token service issues and stores tokens correctly.
 The unified gateway at port 8050 does **not** validate tokens on incoming
 requests — token enforcement middleware is not yet wired into the gateway.
 `/constitutional-audit` is not implemented at the gateway layer. These are
@@ -504,7 +522,7 @@ deployment.
 
 ### ⚠️ OI-36-A — Token Validation Middleware Not Wired (Gateway Port 8050)
 
-- **Status:** OPEN — March 22, 2026
+- **Status:** OPEN — March 22, 2026 (★ unchanged as of March 28, 2026)
 - **Baseline reference:** `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) — auth boundary test results that define "not enforced" state. **Chapter 40 (System Audit) and Chapter 41 (Test Harness) must reference this contract as the baseline for all auth enforcement audit checks and regression tests.**
 - **Description:** `jarvis_token_service.py` correctly stores and retrieves tokens
   from Redis host port 6380. The unified gateway (`msjarvis_unified_gateway.py`,
@@ -518,10 +536,11 @@ deployment.
   4. Attaches the resolved `role` to the request context for downstream use.
 - **Blocking:** No current production workflows are blocked. Community-facing
   deployment requires this to be resolved before public exposure.
+- ★ **March 28 note:** When OI-36-A is resolved and token middleware is active, all token validation gate decisions should be included in the durable `jarvis-memory:8056` audit trail for governance accountability.
 
 ### ⚠️ OI-36-B — Role-Based Route Restriction (403) Not Implemented
 
-- **Status:** OPEN — March 22, 2026
+- **Status:** OPEN — March 22, 2026 (★ unchanged as of March 28, 2026)
 - **Baseline reference:** `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) — see §36.10. **Chapter 40 and Chapter 41 must treat the 404 response on `/constitutional-audit` and the 200 response on unauthenticated `/chat` as the documented pre-enforcement baseline.**
 - **Description:** Role-based route restriction — returning `403 Forbidden` when a
   valid token with insufficient role attempts to access a privileged route — is
@@ -546,17 +565,25 @@ ROUTE_ROLES = {
   middleware, not ambiguity about the design.
 - **Blocking:** Administrative and constitutional audit routes cannot be safely
   exposed until both OI-36-A and OI-36-B are resolved.
+- ★ **March 28 note:** When OI-36-B is resolved and role-based routing is active, all `403 Forbidden` gate decisions should be included in the durable `jarvis-memory:8056` audit trail for governance accountability.
 
 ---
 
 ## 36.12 Current Status and Future Work
 
-As of March 22, 2026, identity and registration are partially implemented and
-evolving. GPU inference is active (RTX 4070); verified end-to-end pipeline runs
-in **99–107 seconds** (three confirmed runs March 22, 2026: 99.6s, 105.9s,
-106.5s). **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us).** This URL should be cross-referenced from the thesis overview and README documents (`msjarvis-public-docs/README.md` and any overview index) to ensure community stakeholders can locate the live system endpoint without navigating into chapter-level documentation.
+As of ★ March 28, 2026 (96/96 containers Up — zero Restarting, zero Exited), identity and registration are partially implemented and
+evolving. GPU inference is active (RTX 4070); verified end-to-end pipeline runs in **99–107 seconds** (three confirmed runs March 22, 2026: 99.6s, 105.9s, 106.5s). **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us).** This URL should be cross-referenced from the thesis overview and README documents (`msjarvis-public-docs/README.md` and any overview index) to ensure community stakeholders can locate the live system endpoint without navigating into chapter-level documentation.
 
-**Implemented and verified:**
+**★ March 28, 2026 implemented and verified (additions to March 22 baseline):**
+
+- ★ **`jarvis-memory:8056` durable BBB + identity audit trail secured** — `_auth()` confirmed, `JARVIS_API_KEY` set; all BBB gate decisions (Phase 1.4 filter events, Phase 4.5 output guard events, `TruthValidator` enforcement events) durably logged; gate decisions survive container restarts; independently queryable for governance accountability.
+- ★ **`msjarvis:5433` restored** — 5,416,521 GBIM entities with `confidence_decay` metadata; temporal confidence grading now available for all GBIM-backed identity validation queries.
+- ★ **`msjarvisgis:5452` confirmed** — 91 GB PostGIS, 501 tables, 993 ZCTA centroids; ZIP-code-level spatial precision for role and partner area grounding.
+- ★ **ChromaDB full audit confirmed** — 40 active collections / 6,675,442 total vectors; `ms_jarvis_memory` present; `psychological_rag` restored to 968 docs.
+- ★ **96/96 containers Up** — zero Restarting, zero Exited; all identity services (`jarvis-main-brain:8050`, `jarvis-lm-synthesizer:8001`, `jarvis-blood-brain-barrier:8016`, `jarvis-i-containers:8015`, `jarvis-redis`, `jarvis-chroma`) confirmed Up.
+- ★ **Identity guard stability re-confirmed** — `cleanResponseForDisplay` fix (commit 40-B fix 4) held; no model name leakage; no synthesis disclosure; no hedging language in identity responses.
+
+**Implemented and verified (March 22, 2026 baseline — still current):**
 
 - Canonical identity statements defined in configuration and surfaced via
   identity‑related endpoints.
@@ -575,19 +602,15 @@ in **99–107 seconds** (three confirmed runs March 22, 2026: 99.6s, 105.9s,
   tokens as `redteam:token:<token>` in `jarvis-redis` at host port **6380**.
 - Four production tokens active across two classes: `carrie_admin` (×2) and
   `hayden_test` (×2).
-- PostgreSQL: `msjarvis` at port 5433 (5,416,521 GBIM entities); `gisdb` at
-  port 5432 (PostGIS); `jarvis-local-resources-db` at port 5435.
-- ChromaDB (`jarvis-chroma`) host port **8002** (container-internal 8000).
 - Redis async job status key confirmed as `'complete'` (not `'done'`).
-- All **83 containers** bound exclusively to `127.0.0.1`. Zero `0.0.0.0` exposures. **83 is the authoritative baseline container count going forward** (verified March 22, 2026).
-- Pre-flight gate: 20 PASS 0 FAIL (`scripts/preflight_gate.sh`, March 22, 2026).
+- Pre-flight gate: 20 PASS 0 FAIL (`scripts/preflight_gate.sh`, March 22, 2026 baseline; ★ re-run pending for March 28 confirmation).
 
 **Open items / future work:**
 
 - Token validation middleware wired into gateway port 8050 (OI-36-A) — **required
-  before community-facing deployment.** Baseline: SESSION-2026-03-22.md (commit `d966351`).
+  before community-facing deployment.** Baseline: SESSION-2026-03-22.md (commit `d966351`). ★ When resolved, token gate decisions should be durably logged at `jarvis-memory:8056`.
 - Role-based route restriction returning `403 Forbidden` for insufficient role
-  (OI-36-B) — **required before community-facing deployment.** Baseline: SESSION-2026-03-22.md (commit `d966351`).
+  (OI-36-B) — **required before community-facing deployment.** Baseline: SESSION-2026-03-22.md (commit `d966351`). ★ When resolved, `403` gate decisions should be durably logged at `jarvis-memory:8056`.
 - `/constitutional-audit` endpoint implemented at the gateway layer.
 - Public URL [https://egeria.mountainshares.us](https://egeria.mountainshares.us) added to thesis README and overview index.
 - `rag_grounded_v2` truth verification — wire `judge_truth_filter.py` into
@@ -596,7 +619,8 @@ in **99–107 seconds** (three confirmed runs March 22, 2026: 99.6s, 105.9s,
 - Automated promotion pipelines for moving patterns from background memory into
   identity‑level entries based on breadth, depth, and value‑alignment criteria.
 - More granular role‑based access control tied to spatial and institutional
-  features in PostgreSQL `gisdb` (port 5432).
+  features in PostgreSQL `gisdb` (★ 501 tables, 993 ZCTA centroids — ready for ZIP-code-level role scoping once OI-36-A/B resolved).
+- Automated decay-aware GBIM audit flagging for identity validation queries against high-decay `msjarvis:5433` entities.
 - Richer introspection and health endpoints that expose counts and status of
   identity‑related elements for curators.
 
@@ -605,34 +629,41 @@ identity‑focused retention layer and the dual‑track architecture in more det
 
 ---
 
-## 36.13 Status Table (March 22, 2026)
+## 36.13 Status Table (★ March 28, 2026)
 
-| Component | Role in identity and registration | Status (March 22, 2026) |
+| Component | Role in identity and registration | Status (★ March 28, 2026) |
 |---|---|---|
-| `normalize_identity` (`jarvis-main-brain`, port 8050) | Rewrites all responses into the Ms. Jarvis persona; suppresses generic "I am just a language model" framings; enforces canonical identity statements. | ✅ Implemented. Runs on every `ultimatechat` response. |
-| `TruthValidator` | Encodes canonical facts about Ms. Jarvis's self‑description, creator, non‑human status, and West Virginia accountability; produces `truth_verdict` on every `UltimateResponse`. | ✅ Implemented. Confirmed live 2026‑02‑15. |
-| `jarvis-i-containers` (port 8015) — `icontainers-identity` layer | Produces `root-self` ego entries and ego‑boundary records visible in `identity_layers` and `consciousness_layers`. | ✅ Implemented. Confirmed active 2026‑02‑15. |
-| BBB six‑filter pipeline (`jarvis-blood-brain-barrier`, port 8016) | Applies `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection`, `steganography_filter`, `truth_verification` to all traffic. Phase 4.5 in log+passthrough mode (commit `18b8ddac`). | ✅ Implemented. Confirmed running on every `ultimatechat` request. |
-| LM Synthesizer identity guard — Layer 1 (`IDENTITY_GUARD` constant) | Documents the ID-03 failure mode — constant defined but NOT injected into f-string. Retained as permanent failure-mode record. | ✅ Documented. Not functional by design. Do not inject. |
-| LM Synthesizer identity guard — Layer 2 (IDENTITY RULES in f-string) | Working fix — identity rules injected directly into prompt f-string sent to `jarvis-ollama`. | ✅ Active. Confirmed working March 22, 2026. |
-| LM Synthesizer identity guard — Layer 3 (meta-commentary prohibition) | Prevents model name leakage, synthesis disclosure, and hedging language. Commit `211056e6`. | ✅ Active. Confirmed working March 22, 2026. |
-| `jarvis_token_service.py` — production token registry | Issues, validates, and revokes bearer tokens; stores as `redteam:token:<token>` in `jarvis-redis` host port 6380. | ✅ Implemented. 4 tokens active across 2 classes. |
-| Gateway token validation middleware (port 8050) | Enforces `401 Unauthorized` for missing or inactive tokens on protected routes. | ❌ Not wired — OI-36-A. Required before community-facing deployment. Baseline: SESSION-2026-03-22.md (commit `d966351`). |
-| Role-based route restriction (403) | Returns `403 Forbidden` when a valid token lacks sufficient role for a route. | ❌ Not implemented — OI-36-B. Required before community-facing deployment. Baseline: SESSION-2026-03-22.md (commit `d966351`). |
+| `normalize_identity` (`jarvis-main-brain`, port 8050) | Rewrites all responses into the Ms. Jarvis persona; suppresses generic "I am just a language model" framings; enforces canonical identity statements. | ✅ Implemented. ★ Up 96/96. Runs on every `ultimatechat` response. Identity guard stability re-confirmed March 28. |
+| `TruthValidator` | Encodes canonical facts about Ms. Jarvis's self‑description, creator, non‑human status, and West Virginia accountability; produces `truth_verdict` on every `UltimateResponse`. ★ Validation informed by `msjarvis:5433` GBIM with `confidence_decay` metadata. | ✅ Implemented. Confirmed live 2026‑02‑15. ★ `confidence_decay` metadata now available for temporal confidence grading of GBIM facts. |
+| `jarvis-i-containers` (port 8015) — `icontainers-identity` layer | Produces `root-self` ego entries and ego‑boundary records visible in `identity_layers` and `consciousness_layers`. | ✅ Implemented. ★ Up 96/96. Confirmed active 2026‑02‑15. |
+| BBB six‑filter pipeline (`jarvis-blood-brain-barrier`, port 8016) | Applies `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection`, `steganography_filter`, `truth_verification` to all traffic. Phase 4.5 in log+passthrough mode (commit `18b8ddac`). ★ All gate decisions durably logged at `jarvis-memory:8056`. | ✅ Implemented. ★ Up 96/96. ★ Durable audit trail secured March 28. |
+| ★ `jarvis-memory:8056` durable identity audit trail | Persistently logs all BBB gate decisions including identity enforcement events (`TruthValidator`, `truth_verification` filter, `normalize_identity` BBB checks). Survives container restarts. `_auth()` confirmed, `JARVIS_API_KEY` set. | ★ Secured March 28. New capability — not in March 22 baseline. |
+| LM Synthesizer identity guard — Layer 1 (`IDENTITY_GUARD` constant) | Documents the ID-03 failure mode — constant defined but NOT injected into f-string. Retained as permanent failure-mode record. | ✅ Documented. Not functional by design. Do not inject. ★ `jarvis-lm-synthesizer:8001` Up 96/96. |
+| LM Synthesizer identity guard — Layer 2 (IDENTITY RULES in f-string) | Working fix — identity rules injected directly into prompt f-string sent to `jarvis-ollama`. | ✅ Active. Confirmed working March 22, 2026. ★ Stability re-confirmed March 28. |
+| LM Synthesizer identity guard — Layer 3 (meta-commentary prohibition) | Prevents model name leakage, synthesis disclosure, and hedging language. Commit `211056e6`. | ✅ Active. Confirmed working March 22, 2026. ★ Stability re-confirmed March 28. |
+| `jarvis_token_service.py` — production token registry | Issues, validates, and revokes bearer tokens; stores as `redteam:token:<token>` in `jarvis-redis` (★ Up 96/96) host port 6380. | ✅ Implemented. 4 tokens active across 2 classes. ★ `jarvis-redis` Up 96/96. |
+| Gateway token validation middleware (port 8050) | Enforces `401 Unauthorized` for missing or inactive tokens on protected routes. | ❌ Not wired — OI-36-A. Required before community-facing deployment. Baseline: SESSION-2026-03-22.md (commit `d966351`). ★ When resolved, gate decisions should log to `jarvis-memory:8056`. |
+| Role-based route restriction (403) | Returns `403 Forbidden` when a valid token lacks sufficient role for a route. | ❌ Not implemented — OI-36-B. Required before community-facing deployment. Baseline: SESSION-2026-03-22.md (commit `d966351`). ★ When resolved, gate decisions should log to `jarvis-memory:8056`. |
 | `/constitutional-audit` endpoint | Administrative audit route for `carrie_admin` tokens. | ❌ Not implemented at gateway layer. |
-| Registration roles and audit tables | Tie higher‑impact actions to real people and institutions under shared rules, with PostgreSQL‑backed audit trails. | ⚙️ Conceptually implemented; automated promotion and cross‑path analytics are future work. |
+| Registration roles and audit tables | Tie higher‑impact actions to real people and institutions under shared rules, with PostgreSQL‑backed audit trails. ★ `confidence_decay` GBIM metadata and `jarvis-memory:8056` durable logging add temporal confidence grading and persistent accountability. | ⚙️ Conceptually implemented; automated promotion and cross‑path analytics are future work. |
 
 By combining these elements, Ms. Jarvis treats identity and registration as shared
 instruments for accountability: they shape how the system speaks, what it may do,
 and how those decisions can be inspected over time, all grounded in PostgreSQL
-`msjarvis` (port 5433) as the primary factual source of truth and `gisdb`
-(port 5432) as the geospatial source of truth.
+`msjarvis` (port 5433 — ★ 5,416,521 entities with `confidence_decay` metadata) as the primary factual source of truth, `gisdb` (port 5452 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids) as the geospatial source of truth, and ★ `jarvis-memory:8056` (secured March 28) as the durable governance audit substrate.
 
 ---
 
 *Chapter 36 — Identity and Registration*
 *Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*
-*Mount Hope, Fayette County, West Virginia*
-*Last updated: March 27, 2026 by Carrie Kidd (Mamma Kidd)*
-`````
-
+*Pax, West Virginia*
+*Last updated: ★ March 28, 2026 by Carrie Kidd (Mamma Kidd)*
+*★ March 28, 2026: 96/96 containers Up confirmed (zero Restarting, zero Exited) — all service status references updated throughout*
+*★ March 28, 2026: `jarvis-memory:8056` secured (durable BBB + identity audit trail, `_auth()` confirmed, `JARVIS_API_KEY` set) — §36.1, §36.2, §36.3, §36.4, §36.5, §36.5.1, §36.5.2, §36.8, §36.10, §36.11, §36.12, §36.13, correction block updated; durable audit verification command added to §36.5.2; `jarvis-memory` row added to §36.13 Status Table*
+*★ March 28, 2026: `msjarvis:5433` restored (5,416,521 GBIM entities with `confidence_decay` metadata) — §36.1, §36.2, §36.3, §36.4, §36.8, §36.12, §36.13, Why This Matters, correction block updated; decay-aware identity validation note added throughout*
+*★ March 28, 2026: `msjarvisgis:5452` confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids) — §36.1, §36.2, §36.4, §36.8, §36.12, §36.13, Why This Matters, correction block updated; ZCTA centroid spatial precision noted throughout*
+*★ March 28, 2026: ChromaDB full audit confirmed (40 active collections / 6,675,442 total vectors; `ms_jarvis_memory` present; `psychological_rag` restored 968 docs) — §36.1, §36.5, §36.12 updated*
+*★ March 28, 2026: Container count updated to 96 throughout; identity guard stability re-confirmed; LM Synthesizer ownership rule re-confirmed*
+*★ March 28, 2026: OI-36-A and OI-36-B status confirmed OPEN (unchanged from March 22); March 28 notes added re: durable audit logging when resolved*
+*★ March 28, 2026: preflight_gate.sh re-run pending for March 28 confirmation — §36.12 noted*
+*March 27, 2026: public URL cross-reference added (§36.12); Ch 40/Ch 41 session contract baseline note added (§36.10, §36.11); Ch 37 BBB filter diagram discrepancy noted (§36.5.1)*
