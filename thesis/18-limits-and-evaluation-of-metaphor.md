@@ -2,6 +2,10 @@
 
 Carrie Kidd (Mamma Kidd) — Mount Hope, WV
 
+*Last updated: 2026-03-27 — Figure 18.1 hippocampus row updated to add jarvis-memory (confirmed March 27, 2026); §18.7 governance/hallucination note updated with AAPCAppE first-run progress; §18.10 autonomous_learner note updated with AAPCAppE external-source contribution*
+
+---
+
 ## Why This Matters for Polymathmatic Geography
 
 This chapter evaluates the neurobiological framing not as a claim that Ms. Jarvis is a brain, but as a design language for distributed, place-aware computation. It supports:
@@ -25,7 +29,10 @@ As such, this chapter belongs to the **Computational Instrument** tier: it tests
 │  ──────────────────────           ────────────────────────  │
 │                                                              │
 │  Hippocampus                  →   jarvis-hippocampus (8011) │
-│  (long-term memory)                PostgreSQL msjarvisgis   │
+│  (long-term memory)                + jarvis-memory          │
+│                                    confirmed ✅ verified     │
+│                                    March 27, 2026           │
+│                                    PostgreSQL msjarvisgis   │
 │                                    ChromaDB collections      │
 │                                                              │
 │  Prefrontal Cortex           →   jarvis-main-brain (8050)   │
@@ -52,7 +59,7 @@ As such, this chapter belongs to the **Computational Instrument** tier: it tests
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 18.1.** Biological metaphors mapped to actual implementation: the left column shows neurobiological concepts used as organizing principles; the right column shows the concrete services, databases, and code that implement those principles. PostgreSQL `msjarvisgis` at port 5432 serves as the grounding memory substrate.
+> **Figure 18.1.** Biological metaphors mapped to actual implementation: the left column shows neurobiological concepts used as organizing principles; the right column shows the concrete services, databases, and code that implement those principles. Hippocampus row updated March 27, 2026: `jarvis-hippocampus` (8011) + `jarvis-memory` — confirmed ✅ verified March 27, 2026 (canonical deploy at commit b90f9ff, port 8011). PostgreSQL `msjarvisgis` at port 5432 serves as the grounding memory substrate.
 
 ---
 
@@ -189,6 +196,8 @@ Case studies provide a structured way to assess how well the biologically framed
 
 **Governance and policy scenarios.** Situations that involve weighing trade-offs, applying rules to particular communities, or responding to sensitive content test the interaction between BBB-style filters, truth validators against PostgreSQL ground truth, ensemble LLMs, and higher-level coordination policies. Comparisons between intended policies (as documented) and observed behaviors in these scenarios help identify gaps in both design and implementation, echoing concerns in commons governance work such as Ostrom. The hallucination-on-Mount-Hope issue (Chapter 39 §39.9, Chapter 41 §41.12) is a live example: the governance scenario exposes a gap between the community resource policy intent and the empty `jarvis-local-resources-db` state, and the BBB ethical filter's correct blocking of fabricated organization names is a measurable policy alignment success even within that gap.
 
+> **March 27, 2026 update:** As of March 27, 2026, the AAPCAppE scraper first run (`jarvis-ingest-watcher`, 65 documents, 39 sources confirmed) represents the first progress toward closing the empty `jarvis-local-resources-db` gap for Mount Hope/Fayette County resource queries. The hallucination issue documented in §39.9 and §41.12 remains open until Community Champions data entry is complete, but the ingest pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`) is now operational and no longer stub-only. Cross-reference **OI-30** tracking item for full AAPCAppE corpus completion.
+
 Comparative analysis across scenarios can be used to contrast the current multi-layer architecture with simpler baselines (for example, a single LLM with ad hoc prompting) to justify the added complexity of the biologically inspired design anchored in PostgreSQL `msjarvisgis`.
 
 ---
@@ -223,7 +232,7 @@ To move beyond anecdotal observation, future work can develop more formal empiri
 
 - **Benchmark suites** that stress different "layers" (for example, truth-filter-heavy tasks vs. PostgreSQL RAG-heavy tasks vs. pure LLM reasoning) to see how performance and quality vary with the mix of active services and database load. The capital city query (`consensus_score: 0.975`) represents the low-end of community memory relevance and high-end of factual consensus; a Mount Hope community resource query exercises the opposite profile.
 
-- **Longitudinal studies** of PostgreSQL `msjarvisgis` and ChromaDB RAG memory growth and drift, examining how the system's responses change as more auto-stored interactions accumulate (the `autonomous_learner` collection is growing at approximately 288 records/day from the 21,181 March 21, 2026 baseline) and how well truth filters and consolidation processes keep the memory base aligned with external reference data in PostgreSQL GBIM (5.4M+ verified beliefs).
+- **Longitudinal studies** of PostgreSQL `msjarvisgis` and ChromaDB RAG memory growth and drift, examining how the system's responses change as more auto-stored interactions accumulate (the `autonomous_learner` collection is growing at approximately 288 records/day from the 21,181 March 21, 2026 baseline). As of March 27, 2026, the AAPCAppE scraper first run has begun contributing external-source documents to the Chroma instance alongside the `autonomous_learner` interaction-derived records — see **Ch. 14 §14.8** for the updated collection table. Longitudinal tracking should now account for both interaction-derived growth and scraper-ingested external-source growth as distinct corpus streams. The `autonomous_learner` and AAPCAppE streams together determine how well truth filters and consolidation processes keep the memory base aligned with external reference data in PostgreSQL GBIM (5.4M+ verified beliefs).
 
 - **Metaphor-tracking studies** that ask, for each biologically named component, whether the metaphor is still the most informative label or whether an engineering term has become more accurate. This is a living documentation task rather than a one-time evaluation.
 
@@ -241,4 +250,6 @@ By articulating clear evaluation criteria, instrumenting the running system incl
 
 ---
 
-*Last updated: 2026-03-21 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-03-27 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*★ March 27, 2026: Figure 18.1 hippocampus row updated — jarvis-hippocampus (8011) + jarvis-memory confirmed ✅ verified March 27, 2026 (commit b90f9ff); §18.7 governance/hallucination note updated — AAPCAppE scraper first run (65 docs, 39 sources, jarvis-ingest-watcher operational) represents first progress toward closing empty jarvis-local-resources-db gap; OI-30 cross-reference added; §18.10 longitudinal study note updated — AAPCAppE scraper now contributing external-source documents to Chroma alongside autonomous_learner interaction-derived records; Ch. 14 §14.8 collection table cross-reference added.*
+`````
