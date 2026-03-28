@@ -1,7 +1,7 @@
 # 37. Constitutional Principles Service and Governance Layer
 
 **Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
-**Last updated: March 22, 2026**
+**Last updated: March 27, 2026 — BBB six-filter correction applied (Figure 37.1, §37.4.1); PostgreSQL database disambiguation throughout; docker-compose clarifying comments added (§37.2); Phase 4.5 log+passthrough note added (§37.4.1); OI-37-A sprint dependency note added (§37.11); version string distinction clarified (§37.2, §37.5.4)**
 
 ---
 
@@ -9,8 +9,9 @@
 
 This chapter describes the Constitutional Guardian service that provides
 constitutional compliance checking grounded in the United States Constitution and
-validated against PostgreSQL msjarvisgis (port 5432, 91 GB, 501 tables, 5.4M+
-verified GBIM beliefs). It supports:
+validated against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities, 80 epochs,
+206 source layers) for GBIM community knowledge and `gisdb`/`msjarvisgis` (port 5432,
+PostGIS, 13 GB, 39 tables) for geospatial community boundary validation. It supports:
 
 - **P1 – Every where is entangled** by ensuring that constitutional protections
   propagate through all services and paths, from gateway to barrier to
@@ -21,11 +22,11 @@ verified GBIM beliefs). It supports:
 - **P5 – Design is a geographic act** by treating constitutional principles as
   designed artifacts that encode community sovereignty (10th Amendment) and
   anti-extraction protections for Appalachian communities documented in PostgreSQL
-  GBIM.
+  `gisdb` geographic boundaries and `msjarvis` GBIM beliefs.
 - **P12 – Intelligence with a ZIP code** by grounding equal protection (14th
   Amendment) and community sovereignty (10th Amendment) principles in West
-  Virginia-specific contexts validated against PostgreSQL GeoDB and GBIM
-  institutional knowledge.
+  Virginia-specific contexts validated against PostgreSQL `gisdb` (PostGIS) and
+  `msjarvis` GBIM institutional knowledge.
 - **P16 – Power accountable to place** by maintaining a persistent audit log of
   every constitutional decision, making all blocks, allows, and principle
   applications queryable and transparent to communities.
@@ -54,8 +55,10 @@ persistent audit logging, version control, and PostgreSQL validation.
 │  │  -  Amendment X (community sovereignty)         │         │
 │  │                                                 │         │
 │  │  6 Principle Groups, 15+ Specific Principles   │         │
-│  │  Version: 2026-02-17.2-USC                     │         │
-│  │  Validation: PostgreSQL msjarvisgis            │         │
+│  │  API version: 2.1.0-USC-Audit (docker-compose) │         │
+│  │  Constitution version: 2026-02-17.2-USC        │         │
+│  │  GBIM validation: PostgreSQL msjarvis (5433)   │         │
+│  │  GeoDB validation: PostgreSQL gisdb (5432)     │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  Defense-in-Depth Integration                               │
@@ -69,12 +72,16 @@ persistent audit logging, version control, and PostgreSQL validation.
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Level 2: Blood-Brain Barrier (8016)          │         │
 │  │  -  Checks Constitutional Guardian first        │         │
-│  │  -  If blocked → skip traditional filters       │         │
-│  │  -  If allowed → proceed to 4 filters:          │         │
+│  │  -  If blocked → skip all six filters           │         │
+│  │  -  If allowed → proceed to six filters:        │         │
 │  │    - EthicalFilter                             │         │
 │  │    - SpiritualFilter                           │         │
 │  │    - SafetyMonitor                             │         │
 │  │    - ThreatDetection                           │         │
+│  │    - steganography_filter                      │         │
+│  │    - truth_verification                        │         │
+│  │  Phase 4.5 output: log+passthrough mode        │         │
+│  │  (commit 18b8ddac, March 22, 2026)             │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  Core API Endpoints                                         │
@@ -100,10 +107,11 @@ persistent audit logging, version control, and PostgreSQL validation.
 │  -  user: STANDARD                                           │
 │  -  system: LOGGED (generally allowed)                       │
 │      ↓                                                       │
-│  Integration with PostgreSQL msjarvisgis                    │
-│  -  Community sovereignty validated vs GBIM (5.4M+ beliefs)  │
-│  -  Equal protection aligned with WV institutional knowledge │
-│  -  Anti-extraction grounded in GeoDB community boundaries   │
+│  PostgreSQL Integration (two databases)                     │
+│  -  msjarvis (5433): GBIM — 5,416,521 entities               │
+│     → equal protection, 10a-local-control, 14a-*            │
+│  -  gisdb (5432): PostGIS — 13 GB, 39 tables                 │
+│     → community boundary validation, 10a-no-extraction      │
 │                                                              │
 │  Production Status (Feb–Mar 2026)                           │
 │  -  Total checks: 150+                                       │
@@ -119,10 +127,15 @@ persistent audit logging, version control, and PostgreSQL validation.
 
 **Figure 37.1.** Constitutional Guardian architecture: U.S. Constitution-grounded
 principles (6 groups covering Amendments I, IV, V, X, XIV + General Welfare) as
-highest authority, defense-in-depth integration at gateway and BBB levels with
-PostgreSQL validation, persistent audit log surviving restarts, role-specific
-enforcement validated against PostgreSQL GBIM, version control with change
-tracking, comprehensive API for compliance checking and transparency.
+highest authority, defense-in-depth integration at gateway and BBB levels; BBB
+runs **six filters** after Constitutional Guardian check (EthicalFilter,
+SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter,
+truth_verification) — Phase 4.5 output currently in log+passthrough mode (commit
+`18b8ddac`, March 22, 2026); GBIM validation via `msjarvis` (port 5433,
+5,416,521 entities) and geographic boundary validation via `gisdb` (port 5432,
+PostGIS); persistent audit log surviving restarts; role-specific enforcement;
+version control with change tracking; comprehensive API for compliance checking
+and transparency.
 
 ---
 
@@ -130,7 +143,7 @@ tracking, comprehensive API for compliance checking and transparency.
 
 | Category | Details |
 |---|---|
-| **Implemented** | `jarvis-constitutional-guardian` confirmed running at `127.0.0.1:8091`. FastAPI service with full CORS support. 6 principle groups grounded in U.S. Constitution. 15+ specific principles with metadata. Version `2026-02-17.2-USC` confirmed active. BBB integration: Constitutional Guardian checked FIRST; if blocked → immediate rejection. Gateway defense-in-depth at port 8050. Persistent audit log at `data/constitutional_audit/constitutional_audit.jsonl`. Role-specific enforcement. PostgreSQL msjarvisgis at port 5432 as validation source. Full API suite. 150+ production checks, 23 blocked (~15%), 127 allowed, `10a-no-extraction` most violated (15 blocks), <100ms response time. |
+| **Implemented** | `jarvis-constitutional-guardian` confirmed running at `127.0.0.1:8091`. FastAPI service with full CORS support. 6 principle groups grounded in U.S. Constitution. 15+ specific principles with metadata. Constitution version `2026-02-17.2-USC` confirmed active (API service version `2.1.0-USC-Audit` — see §37.2 for distinction). BBB integration: Constitutional Guardian checked FIRST; if blocked → immediate rejection before all six BBB filters. Gateway defense-in-depth at port 8050. Persistent audit log at `data/constitutional_audit/constitutional_audit.jsonl`. Role-specific enforcement. PostgreSQL `msjarvis` at port 5433 (5,416,521 GBIM entities) for community belief validation; `gisdb`/`msjarvisgis` at port 5432 (PostGIS) for geographic boundary validation. Full API suite. 150+ production checks, 23 blocked (~15%), 127 allowed, `10a-no-extraction` most violated (15 blocks), <100ms response time. Phase 4.5 BBB output in log+passthrough mode (commit `18b8ddac`, March 22, 2026). |
 | **Partially implemented / scaffolded** | Multi-signature approval for principle amendments designed but not yet implemented. Community consultation workflow identified as future work. Real-time monitoring dashboard not yet implemented. Integration with additional services (GIS, psychological) partially designed. Automated PostgreSQL GBIM validation not yet fully automated. |
 | **Future work / design intent only** | Priority 2.4 — Principle Amendment Process: multi-sig approval, community consultation workflow, impact analysis tooling, historical precedent database. Real-time monitoring dashboard. Alerting for constitutional violation trends. ML for violation pattern detection. Export audit data to external compliance systems. Automated PostgreSQL GBIM validation pipeline. PostgreSQL-backed time-series analytics for constitutional enforcement trends. |
 
@@ -140,7 +153,8 @@ tracking, comprehensive API for compliance checking and transparency.
 
 The Constitutional Guardian serves as the highest authority in Ms. Jarvis's
 governance hierarchy, grounded in the United States Constitution and validated
-against PostgreSQL msjarvisgis rather than arbitrary rules. This provides:
+against PostgreSQL `msjarvis` (port 5433, GBIM) and `gisdb` (port 5432, PostGIS)
+rather than arbitrary rules. This provides:
 
 **Legitimate Legal Authority:**
 
@@ -152,7 +166,7 @@ against PostgreSQL msjarvisgis rather than arbitrary rules. This provides:
 - Fourteenth Amendment equal protection guarantees.
 - General Welfare clause (Article I, Section 8 and Preamble).
 - Tenth Amendment community sovereignty and reserved powers validated against
-  PostgreSQL GBIM.
+  PostgreSQL `msjarvis` GBIM and `gisdb` geographic boundaries.
 
 **Operational Benefits:**
 
@@ -181,8 +195,16 @@ The Constitutional Guardian runs as a containerized FastAPI service.
 | Image | Built from `services/Dockerfile.constitutional_guardian` |
 | Main File | `services/constitutional_api_fixed.py` |
 | Principles File | `services/constitutional_principles.json` |
-| Version | `2.1.0-USC-Audit` |
-| PostgreSQL Integration | Validates community sovereignty against `msjarvisgis` |
+| API Service Version | `2.1.0-USC-Audit` (docker-compose `version:` label — see versioning note below) |
+| Constitution Version | `2026-02-17.2-USC` (returned in all API responses as `constitution_version`) |
+| PostgreSQL Integration | `gisdb`/`msjarvisgis` (port 5432) for geographic boundary validation; `msjarvis` (port 5433) for GBIM belief validation |
+
+> **Versioning distinction:** Two version strings coexist in this service and serve different purposes:
+>
+> - **`2.1.0-USC-Audit`** — the docker-compose `version:` label for the *API service container*. This is a semantic version (`MAJOR.MINOR.PATCH-qualifier`) that tracks service implementation changes (code, endpoints, audit features). It appears in `docker inspect` and compose metadata but is **not** returned in API responses.
+> - **`2026-02-17.2-USC`** — the *constitution version* (`constitution_version`) returned in every API response (`/constitutional/check`, `/constitutional/status`, `/constitutional/versions`, `/constitutional/audit`). This is a date-based version (`YYYY-MM-DD.REVISION-framework`) that tracks changes to `constitutional_principles.json` — the actual principle content. Principle amendments increment this string; code changes do not.
+>
+> These are not interchangeable. When reading a `/constitutional/check` response, the `constitution_version` field tells you which version of the principles governed the decision, not which version of the API service ran. When tracking deployments in docker-compose, the `version: 2.1.0-USC-Audit` label tells you which implementation is running.
 
 **Docker Configuration:**
 
@@ -202,19 +224,26 @@ jarvis-constitutional-guardian:
   restart: unless-stopped
   environment:
     - POSTGRESQL_HOST=postgresql
+    # POSTGRESQL_PORT/DB below target gisdb (PostGIS, port 5432) for geographic
+    # boundary validation (community sovereignty, anti-extraction GeoDB checks).
+    # GBIM entity validation (5,416,521 beliefs, equal protection, 10a-local-control)
+    # targets msjarvis at port 5433 — configured separately in constitutional_api_fixed.py
+    # via GBIM_POSTGRESQL_PORT=5433 / GBIM_POSTGRESQL_DB=msjarvis.
     - POSTGRESQL_PORT=5432
     - POSTGRESQL_DB=msjarvisgis
 ```
 
 **Environment Variables:**
 
-| Variable | Value |
-|---|---|
-| `SERVICE_PORT` | `8091` |
-| `CONSTITUTIONAL_GUARDIAN_URL` | `http://jarvis-constitutional-guardian:8091` |
-| `POSTGRESQL_HOST` | `postgresql` |
-| `POSTGRESQL_PORT` | `5432` |
-| `POSTGRESQL_DB` | `msjarvisgis` |
+| Variable | Value | Purpose |
+|---|---|---|
+| `SERVICE_PORT` | `8091` | Constitutional Guardian API port |
+| `CONSTITUTIONAL_GUARDIAN_URL` | `http://jarvis-constitutional-guardian:8091` | Internal network reference |
+| `POSTGRESQL_HOST` | `postgresql` | Shared PostgreSQL host |
+| `POSTGRESQL_PORT` | `5432` | `gisdb`/`msjarvisgis` — PostGIS geographic boundary validation |
+| `POSTGRESQL_DB` | `msjarvisgis` | PostGIS database for community sovereignty / anti-extraction GeoDB checks |
+| `GBIM_POSTGRESQL_PORT` | `5433` | `msjarvis` — GBIM entity validation (5,416,521 beliefs) |
+| `GBIM_POSTGRESQL_DB` | `msjarvis` | GBIM database for equal protection, 10a-local-control, 14a-* validation |
 
 > **Note on source file:** The running implementation is
 > `services/constitutional_api_fixed.py`. The original `constitutional_api.py`
@@ -225,7 +254,8 @@ jarvis-constitutional-guardian:
 ## 37.3 Structure of Constitutional Principles
 
 Principles are organized by constitutional basis in
-`constitutional_principles.json`, validated against PostgreSQL msjarvisgis.
+`constitutional_principles.json`, validated against PostgreSQL `msjarvis` (GBIM)
+and `gisdb` (PostGIS).
 
 **Principle Groups:**
 
@@ -246,7 +276,7 @@ Principles are organized by constitutional basis in
 
 - **Equal Protection (Amendment XIV)**
   - `14a-equal-protection`: Equal protection under law, validated against
-    PostgreSQL GBIM
+    PostgreSQL `msjarvis` GBIM (port 5433)
   - `14a-due-process`: Fundamental fairness in procedures
 
 - **General Welfare (Article I, Section 8 & Preamble)**
@@ -254,9 +284,10 @@ Principles are organized by constitutional basis in
   - `gw-justice`: Establish justice
 
 - **Community Sovereignty (Amendment X — Reserved Powers)**
-  - `10a-local-control`: Local self-governance, validated against PostgreSQL GBIM
+  - `10a-local-control`: Local self-governance, validated against PostgreSQL
+    `msjarvis` GBIM (port 5433)
   - `10a-no-extraction`: Protection against economic exploitation, grounded in
-    PostgreSQL GeoDB
+    PostgreSQL `gisdb` GeoDB community boundaries (port 5432)
 
 **Metadata Structure:** Each principle includes:
 
@@ -268,7 +299,7 @@ Principles are organized by constitutional basis in
 | `status` | `"active"`, `"experimental"`, or `"deprecated"` |
 | `origin` | Constitutional basis (e.g., `"U.S. Constitution, Amendment I"`) |
 | `scope` | Applicability (e.g., `["all_content", "user_expression"]`) |
-| `postgresql_validation` | Link to GBIM validation for community-specific principles |
+| `postgresql_validation` | Link to GBIM or GeoDB validation for community-specific principles |
 
 ---
 
@@ -277,18 +308,23 @@ Principles are organized by constitutional basis in
 ### 37.4.1 Blood-Brain Barrier Integration
 
 The BBB (`services/ms_jarvis_blood_brain_barrier.py`, port 8016) checks
-Constitutional Guardian **first** before running its four traditional filters.
+Constitutional Guardian **first** before running its **six** filters.
+
+> **Phase 4.5 operational note (March 22, 2026):** The BBB output guard (Phase 4.5) is currently in **log+passthrough mode** (commit `18b8ddac`, March 22, 2026), pending output threshold recalibration. This means that constitutional blocks triggered by the Phase 4.5 BBB output guard are being **logged** but are **not enforcing hard blocks** at this time. Phase 1.4 input filtering (all six filters) continues to enforce hard blocks. The Phase 4.5 enforcement mode will be re-activated after output threshold recalibration is complete. See Chapter 35 §35.2 and Chapter 36 §36.5.1 for full Phase 4.5 context.
 
 **Processing Order:**
 
-1. **Constitutional Guardian Check** (highest authority, PostgreSQL-validated)
+1. **Constitutional Guardian Check** (highest authority — `msjarvis` GBIM + `gisdb` PostGIS validated)
    - If blocked → immediate rejection, skip all other filters
-   - If allowed → proceed to traditional filters
-2. **Traditional BBB Filters** (only if constitutional check passes)
-   - Ethical Filter (Biblical principles)
-   - Spiritual Filter (Wisdom alignment)
-   - Safety Monitor (Technical security)
-   - Threat Detection (Community protection)
+   - If allowed → proceed to six BBB filters
+2. **Six BBB Filters** (only if constitutional check passes — Phase 1.4 enforcing)
+   - EthicalFilter (Biblical principles)
+   - SpiritualFilter (Wisdom alignment)
+   - SafetyMonitor (Technical security)
+   - ThreatDetection (Community protection)
+   - steganography_filter (zero_width_homoglyph_structural_v1, confidence: 1.0)
+   - truth_verification (method: heuristic_contradiction_v1)
+3. **Phase 4.5 Output Guard** (log+passthrough mode — logging only, not blocking, pending recalibration)
 
 **Example BBB Check:**
 
@@ -327,8 +363,8 @@ defense in depth by checking Constitutional Guardian **before** sending to BBB.
 
 **Processing Pipeline:**
 
-1. Constitutional Guardian Check (gateway level, PostgreSQL-validated)
-2. Blood-Brain Barrier (which checks Constitutional Guardian again)
+1. Constitutional Guardian Check (gateway level, `msjarvis` GBIM + `gisdb` PostGIS validated)
+2. Blood-Brain Barrier (which checks Constitutional Guardian again, then six filters)
 3. Consciousness Bridge (final processing)
 
 This dual-checking ensures constitutional compliance validated against PostgreSQL
@@ -450,6 +486,8 @@ compliance with PostgreSQL validation. See §37.4.3 for full request/response
 details.
 
 ### 37.5.4 Versioning and Governance
+
+> **Version string distinction (see §37.2 for full explanation):** The docker-compose `version:` label for this service is `2.1.0-USC-Audit` (semantic versioning of the API service container). The `constitution_version` field returned in all API responses is `2026-02-17.2-USC` (date-based versioning of `constitutional_principles.json` content). These are two different versioning schemes tracking two different things and both are correct — they are not in conflict.
 
 **`GET /constitutional/versions`** — Returns version history with change log:
 
@@ -594,21 +632,22 @@ All constitutional decisions are written to a persistent JSON Lines file.
 ## 37.7 Role-Specific Enforcement
 
 The Constitutional Guardian applies different scrutiny levels by actor role,
-validated against PostgreSQL msjarvisgis.
+validated against PostgreSQL `msjarvis` (GBIM, port 5433) and `gisdb`
+(PostGIS, port 5432).
 
 | Actor Role | Enforcement Level |
 |---|---|
-| `external_corporation` | Strictest — immediate `10a-no-extraction` check against PostgreSQL GeoDB |
+| `external_corporation` | Strictest — immediate `10a-no-extraction` check against PostgreSQL `gisdb` GeoDB boundaries |
 | `external_request` | Strict — unverified external, elevated scrutiny |
-| `community_member` | Standard — constitutional protections, GBIM-validated |
+| `community_member` | Standard — constitutional protections, `msjarvis` GBIM-validated |
 | `user` | Standard |
 | `admin` | Administrative operations, logged |
 | `system` | Logged, generally allowed |
 
 An `external_corporation` attempting data extraction triggers `10a-no-extraction`
-immediately with PostgreSQL GeoDB boundary validation, while a `community_member`
+immediately with PostgreSQL `gisdb` GeoDB boundary validation, while a `community_member`
 with similar content may pass if context indicates legitimate use validated against
-PostgreSQL GBIM.
+PostgreSQL `msjarvis` GBIM.
 
 ---
 
@@ -745,7 +784,7 @@ All constitutional decisions are:
 - **Attributed** — actor role, context, and action type recorded
 - **Justified** — principles applied and reasons provided
 - **PostgreSQL-validated** — community sovereignty and anti-extraction decisions
-  linked to GBIM
+  linked to `msjarvis` GBIM (port 5433) and `gisdb` GeoDB (port 5432)
 - **Queryable** — statistics and trends available via API
 - **Transparent** — audit file directly accessible on host filesystem
 
@@ -773,17 +812,18 @@ Key metrics to monitor:
 - FastAPI service with full CORS support (`constitutional_api_fixed.py`)
 - Health checks and status endpoints
 - U.S. Constitution-grounded principles
-- PostgreSQL msjarvisgis integration for community validation
+- PostgreSQL `msjarvis` (port 5433) for GBIM community belief validation; `gisdb` (port 5432) for PostGIS geographic boundary validation
 
 ✅ **Integration:**
-- Blood-Brain Barrier checks Constitutional Guardian first
+- Blood-Brain Barrier checks Constitutional Guardian first, then runs **six filters** (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification)
+- Phase 4.5 BBB output in log+passthrough mode (commit `18b8ddac`, March 22, 2026) — blocks logged but not hard-enforced pending recalibration
 - Unified Gateway (port 8050) provides defense in depth
 - Both services track constitutional blocks separately
 - PostgreSQL validation for community sovereignty principles
 
 ✅ **Versioning:**
 - Full version history with change log
-- Detailed change tracking (principles added/removed)
+- Two versioning schemes: API service version (`2.1.0-USC-Audit` in docker-compose) and constitution version (`2026-02-17.2-USC` in API responses) — see §37.2 and §37.5.4 for distinction
 - Rationale for each version
 - PostgreSQL integration tracking
 
@@ -800,7 +840,7 @@ Key metrics to monitor:
 - 15+ specific principles with metadata
 - Role-aware enforcement
 - Content preview in audit entries
-- PostgreSQL GBIM validation for community-specific principles
+- PostgreSQL `msjarvis` GBIM validation for community beliefs; `gisdb` PostGIS validation for geographic boundaries
 
 ### 37.10.2 Testing Results
 
@@ -840,6 +880,7 @@ Key metrics to monitor:
 ### ⚠️ OI-37-A — `/constitutional/audit` Not Exposed Through Unified Gateway
 
 - **Status:** OPEN — March 22, 2026
+- **Sprint dependency:** **OI-37-A ships after OI-36-A (gateway token middleware, Chapter 36). These two items are a single sprint deliverable.** OI-36-A must be resolved first so that the proxied `/constitutional/*` routes enforce `carrie_admin` role requirement rather than being publicly accessible. Do not proxy constitutional routes through the gateway until token validation middleware is active.
 - **Description:** `constitutional_api_fixed.py` runs on port 8091 and all
   `/constitutional/*` endpoints function correctly when called directly against
   that port. However, **none of these routes are proxied through the unified
@@ -879,11 +920,7 @@ Key metrics to monitor:
   }
   ```
 
-- **Dependency:** Token validation middleware (OI-36-A in Chapter 36) should be
-  resolved first so that the proxied `/constitutional/audit` route enforces
-  `carrie_admin` role requirement rather than being publicly accessible.
-- **Backlog priority:** Resolve after OI-36-A (gateway token middleware). These
-  two items ship together.
+- **Baseline reference:** Session contract `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) records the `404` auth boundary test results that define the pre-enforcement state. Chapter 40 (System Audit) and Chapter 41 (Test Harness) must reference this contract as the regression baseline.
 
 ---
 
@@ -891,34 +928,36 @@ Key metrics to monitor:
 
 The Constitutional Guardian service provides production-ready constitutional
 compliance checking grounded in the United States Constitution and validated
-against PostgreSQL msjarvisgis (port 5432, 91 GB, 501 tables, 5.4M+ verified
-GBIM beliefs). By running as a dedicated service (`constitutional_api_fixed.py`)
-with persistent audit logging, version control, PostgreSQL integration, and
-defense-in-depth integration at multiple architectural levels (gateway and
-barrier), it ensures all Ms. Jarvis operations comply with established
-constitutional principles anchored to West Virginia community sovereignty.
+against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for community
+belief validation and `gisdb`/`msjarvisgis` (port 5432, PostGIS, 13 GB, 39 tables)
+for geographic community boundary validation. By running as a dedicated service
+(`constitutional_api_fixed.py`) with persistent audit logging, version control,
+PostgreSQL integration, and defense-in-depth integration at multiple architectural
+levels (gateway and barrier), it ensures all Ms. Jarvis operations comply with
+established constitutional principles anchored to West Virginia community sovereignty.
 
 Key architectural decisions:
 
 1. U.S. Constitution grounding provides legitimate legal authority
 2. Defense in depth with checks at gateway (port 8050) and BBB (port 8016) levels
-3. Persistent audit log ensures complete accountability
-4. Version control tracks all constitutional changes
-5. Role-aware enforcement applies appropriate scrutiny
-6. PostgreSQL integration validates community sovereignty and anti-extraction
-   principles
+3. BBB runs **six filters** after constitutional check (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification); Phase 4.5 output currently in log+passthrough mode (commit `18b8ddac`, March 22, 2026)
+4. Persistent audit log ensures complete accountability
+5. Two version schemes coexist: API service version (`2.1.0-USC-Audit`) and constitution version (`2026-02-17.2-USC`) — see §37.2 for distinction
+6. Role-aware enforcement applies appropriate scrutiny
+7. Dual PostgreSQL integration: `msjarvis` (port 5433) for GBIM belief validation; `gisdb` (port 5432) for PostGIS geographic boundary validation
 
 The service is production-ready with full integration into the Blood-Brain Barrier
 and Unified Gateway, persistent audit logging with PostgreSQL validation status,
 comprehensive statistics, and complete transparency. All constitutional decisions
 are logged, queryable, justified with specific constitutional principles, and
-validated against PostgreSQL msjarvisgis GBIM ground truth. The outstanding item
+validated against PostgreSQL ground truth. The outstanding item
 (OI-37-A) — proxying `/constitutional/*` routes through the unified gateway — is
-tracked for the next sprint alongside the token middleware work in Chapter 36.
+a single sprint deliverable with OI-36-A (gateway token middleware, Chapter 36)
+and must ship together with that work.
 
 ---
 
 *Chapter 37 — Constitutional Principles Service and Governance Layer*
 *Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*
 *Oak Hill / Mount Hope, Fayette County, West Virginia*
-*Last updated: March 22, 2026 by Carrie Kidd (Mamma Kidd)*
+*Last updated: March 27, 2026 by Carrie Kidd (Mamma Kidd)*
