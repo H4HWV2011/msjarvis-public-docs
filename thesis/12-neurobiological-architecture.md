@@ -1,23 +1,27 @@
 # 12. Neurobiological Architecture of Ms. Jarvis
 
-Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 
 ## Why This Matters for Polymathmatic Geography
 
 This chapter turns neurobiological ideas into design patterns for a distributed AI that is accountable to specific communities. It supports:
 
-- **P1 – Every where is entangled** by tying memory, routing, and safety modules together as a single, interacting "brain" for Appalachian contexts, grounded in three PostgreSQL databases (`msjarvis` port 5433: 5,416,521 verified GBIM beliefs; `gisdb` port 5433: 13 GB PostGIS; `jarvis-local-resources-db` port 5435: community resources).
+- **P1 – Every where is entangled** by tying memory, routing, and safety modules together as a single, interacting "brain" for Appalachian contexts, grounded in three PostgreSQL databases (`msjarvis` port 5433 ★ restored: 5,416,521 verified GBIM beliefs; `msjarvisgis` port 5432 ★ confirmed: 91 GB PostGIS, 501 tables; `jarvis-local-resources-db` port 5435: community resources) and ChromaDB (port 8000 — ★ 40 collections, 6,675,442 vectors as of March 28, 2026 full audit).
 - **P3 – Power has a geometry** by mapping control and protection (prefrontal, pituitary, blood-brain barrier) onto explicit services and flows rather than hidden internals.
 - **P5 – Design is a geographic act** by using neurobiological metaphors to structure how Ms. Jarvis perceives, remembers, and responds to the lived realities of West Virginia.
-- **P12 – Intelligence with a ZIP code** by ensuring that hippocampal and qualia flows are fed by PostgreSQL GBIM, ChromaDB collections (port 8000, `chroma_data` volume), MountainShares, and local narratives, not abstract corpora alone.
+- **P12 – Intelligence with a ZIP code** by ensuring that hippocampal and qualia flows are fed by PostgreSQL GBIM, ChromaDB collections (port 8000, `chroma_data` volume — ★ 40 collections, 6,675,442 vectors), MountainShares, and local narratives, not abstract corpora alone.
 - **P16 – Power accountable to place** by making each metaphorical "brain structure" a glass-box component whose behavior can be tested, audited, and revised.
 
-This chapter belongs to the **Computational Instrument** tier: it specifies how neurobiology is reused as an organizing scaffold for Ms. Jarvis's spatially grounded, justice-oriented cognition. As of March 15, 2026 (commit `b90f9ff`), the neurobiological architecture operates within a 79-container production stack confirmed at 349.87s end-to-end across the 9-phase pipeline.
+This chapter belongs to the **Computational Instrument** tier: it specifies how neurobiology is reused as an organizing scaffold for Ms. Jarvis's spatially grounded, justice-oriented cognition. As of March 28, 2026, the neurobiological architecture operates within a **96-container production stack** (★ all containers Up — zero Restarting, zero Exited) confirmed at ~436s end-to-end across the enhanced 9-phase pipeline. The baseline March 15 benchmark was 349.87s at commit `b90f9ff` (79 containers); subsequent additions brought the stack to 96 containers with Phase 1.45 community memory enrichment.
+
+> **★ Security posture — March 28, 2026:** All 96 containers are bound to `127.0.0.1`. `jarvis-i-containers` (8015) and `jarvis-memory` (8056) were corrected from `0.0.0.0` during the March 28 remediation sprint. `_auth()` confirmed present on all 4 sensitive routes in `ms_jarvis_memory.py`. `JARVIS_API_KEY` env var confirmed set. **96/96 containers Up — zero Restarting, zero Exited.**
+
+> **★ ChromaDB full audit — March 28, 2026:** 40 active collections, 6,675,442 total vectors. `spiritual_rag` deduplicated (−19,338 duplicate vectors). `psychological_rag` restored (968 docs). `msjarvis_docs` expanded (4,192 items). Required embedding model: `all-minilm:latest` (384-dim).
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ Neurobiological Architecture of Ms. Jarvis                  │
-│ (Production State: March 25, 2026)                          │
+│ (Production State: March 28, 2026)                          │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  User Input                                                  │
@@ -36,7 +40,8 @@ This chapter belongs to the **Computational Instrument** tier: it specifies how 
 │      ↓ (if approved)                                         │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Stage 2: I-Containers                         │         │
-│  │  Port 8015 - Identity & perspective            │         │
+│  │  Port 8015 ★ re-locked 127.0.0.1 Mar 28       │         │
+│  │  Identity & perspective                        │         │
 │  │  Schema: {message, userid}                     │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
@@ -60,30 +65,31 @@ This chapter belongs to the **Computational Instrument** tier: it specifies how 
 │  - jarvis-hippocampus (port 8011) - Memory consolidation    │
 │  - nbb-i-containers (port 8101) - NBB prefrontal stack      │
 │  - jarvis-psychology-services (port 8019) - Phase 3         │
-│  - psychological_rag_domain (port 8006) - Psych RAG         │
-│  - PostgreSQL msjarvis (port 5433) - GBIM beliefs           │
-│  - PostgreSQL gisdb (port 5433) - PostGIS spatial           │
+│  - psychological_rag_domain (port 8006) - Psych RAG ★       │
+│  - PostgreSQL msjarvis (port 5433 ★) - GBIM beliefs         │
+│  - PostgreSQL msjarvisgis (port 5432 ★) - PostGIS spatial   │
 │  - jarvis-local-resources-db (port 5435) - Community        │
-│  - ChromaDB (port 8000, chroma_data vol) - Vector memory    │
+│  - ChromaDB (port 8000 ★ 40 col / 6,675,442 vec)           │
+│  - jarvis-memory (port 8056 ★ re-locked 127.0.0.1 Mar 28)  │
 │  - jarvis-69dgm-bridge (127.0.0.1:19000→9000) - DGM        │
 │  - WOAH (ports 8104, 7012) - Identity weights               │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 12.1.** Neurobiological architecture of Ms. Jarvis (March 25, 2026): metaphorical brain structures (hippocampus, prefrontal cortex, pituitary, blood-brain barrier, qualia, I-containers) paired with their concrete services and the integrated 4-stage processing pipeline implemented by the Neurobiological Master. The BBB has expanded to a 7-filter stack as of March 15. All memory flows are grounded in three PostgreSQL databases (`msjarvis` port 5433: 5,416,521 GBIM beliefs; `gisdb` port 5433: PostGIS; `jarvis-local-resources-db` port 5435) and ChromaDB (port 8000, `chroma_data` volume).
+> **Figure 12.1.** Neurobiological architecture of Ms. Jarvis (March 28, 2026): metaphorical brain structures (hippocampus, prefrontal cortex, pituitary, blood-brain barrier, qualia, I-containers) paired with their concrete services and the integrated 4-stage processing pipeline implemented by the Neurobiological Master. The BBB has a 7-filter stack as of March 15. All memory flows are grounded in three PostgreSQL databases (`msjarvis` port 5433 ★ restored: 5,416,521 GBIM beliefs; `msjarvisgis` port 5432 ★ confirmed: PostGIS 91 GB; `jarvis-local-resources-db` port 5435) and ChromaDB (port 8000, `chroma_data` volume — ★ 40 collections, 6,675,442 vectors as of March 28, 2026 full audit). `jarvis-i-containers` (8015) and `jarvis-memory` (8056) ★ corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026.
 
 ---
 
-## Status as of March 25, 2026
+## Status as of ★ March 28, 2026
 
 | Category | Details |
 |---|---|
-| **Implemented and verified** | `jarvis-neurobiological-master` running, internal port **8018**, code `ms_jarvis_neurobiological_master.py` **v2.0.0** (fully rewritten 2026-03-01). Routes live: `GET /health`, `GET /systems/status`, `POST /process`, `POST /biological_process`, `POST /neural_process`. Full 4/4 integrated pipeline BBB → I-Containers → Qualia Engine → Consciousness Bridge verified operational at **~300ms** wall clock (2026-03-01, tag `v2026.03.01-neuro-pipeline-4-4`). All four stages return `status: "healthy"` and `responsive: true` in `/systems/status`. `jarvis-blood-brain-barrier` confirmed running at **127.0.0.1:8016** (re-locked March 18, 2026 per security hardening — see Ch. 11); **7-filter stack operational as of March 15** (EthicalFilter, SpiritualFilter, SafetyMonitor with word-boundary regex fix, ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness). `jarvis-qualia-engine` confirmed running, internal port **8017**. `jarvis-i-containers` confirmed running, internal port **8015**; correct schema `{"message": <input>, "userid": "neurobiological_master"}` confirmed. `jarvis-consciousness-bridge` confirmed running, actual listen port **8018** (compose declares 8020; container binds 8018; source file confirmed at `/app/services/msjarvisconsciousnessbridge.py`). `nbb-i-containers` confirmed running at **127.0.0.1:8101**. `jarvis-hippocampus` confirmed running at **127.0.0.1:8011** (deployed March 15). PostgreSQL `msjarvis` confirmed at **127.0.0.1:5433** (5,416,521 GBIM entities). `jarvis-local-resources-db` confirmed at **127.0.0.1:5435**. ChromaDB confirmed at **127.0.0.1:8000** (`chroma_data` Docker volume; host-side scripts use `127.0.0.1:8002`). `jarvis-psychology-services` (port 8019) deployed March 15. `normalize_identity()` confirmed firing on live async chat path (2026-03-02). |
-| **Architectural fixes recorded as permanent decisions** | v2.0.0 rewrite removed blocking `DynamicPortService` and `ServiceDiscovery` Redis imports. Static Docker hostname URLs with env var overrides are the canonical pattern. I-Containers schema corrected from `{"input": …, "require_dual_awareness": true}` to `{"message": …, "userid": "neurobiological_master"}`. Consciousness Bridge port corrected from 4004 → 8020 → **8018** (actual bind). BBB output guard `httpx.AsyncClient(timeout=None)` replaced with `timeout=8.0` (fix applied 2026-03-02). PostgreSQL port corrected to **5433**. ChromaDB port corrected to **8000** with `chroma_data` Docker volume (host-side scripts use port **8002** → container 8000). Source file path corrected to `/app/services/msjarvisconsciousnessbridge.py`. Chroma health check rerouted directly to `jarvis-chroma` — see note on `jarvis-neurobiological-master` reachability below. All services locked to `127.0.0.1` as of March 18, 2026 security hardening — see Ch. 11. |
+| **Implemented and verified** | `jarvis-neurobiological-master` running, internal port **8018**, code `ms_jarvis_neurobiological_master.py` **v2.0.0** (fully rewritten 2026-03-01). Routes live: `GET /health`, `GET /systems/status`, `POST /process`, `POST /biological_process`, `POST /neural_process`. Full 4/4 integrated pipeline BBB → I-Containers → Qualia Engine → Consciousness Bridge verified operational at **~300ms** wall clock (2026-03-01, tag `v2026.03.01-neuro-pipeline-4-4`). All four stages return `status: "healthy"` and `responsive: true` in `/systems/status`. `jarvis-blood-brain-barrier` confirmed running at **127.0.0.1:8016** (re-locked March 18, 2026 per security hardening — see Ch. 11); **7-filter stack operational as of March 15** (EthicalFilter, SpiritualFilter, SafetyMonitor with word-boundary regex fix, ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness). `jarvis-qualia-engine` confirmed running, internal port **8017**. `jarvis-i-containers` confirmed running, internal port **8015** ★ corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026; correct schema `{"message": <input>, "userid": "neurobiological_master"}` confirmed. `jarvis-consciousness-bridge` confirmed running, actual listen port **8018** (compose declares 8020; container binds 8018; source file confirmed at `/app/services/msjarvisconsciousnessbridge.py`). `nbb-i-containers` confirmed running at **127.0.0.1:8101**. `jarvis-hippocampus` confirmed running at **127.0.0.1:8011** (deployed March 15). PostgreSQL `msjarvis` confirmed at **127.0.0.1:5433** ★ restored (5,416,521 GBIM entities). PostgreSQL `msjarvisgis` confirmed at **127.0.0.1:5432** ★ (91 GB PostGIS, 501 tables). `jarvis-local-resources-db` confirmed at **127.0.0.1:5435**. ChromaDB confirmed at **127.0.0.1:8000** (`chroma_data` Docker volume; ★ 40 collections, 6,675,442 vectors; host-side scripts use `127.0.0.1:8002`). `jarvis-psychology-services` (port 8019) deployed March 15; `psychological_rag` collection ★ restored 968 docs March 28. `jarvis-memory` at **127.0.0.1:8056** ★ corrected from `0.0.0.0` March 28; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set. `normalize_identity()` confirmed firing on live async chat path (2026-03-02). **★ 96/96 containers Up — zero Restarting, zero Exited (March 28, 2026).** |
+| **Architectural fixes recorded as permanent decisions** | v2.0.0 rewrite removed blocking `DynamicPortService` and `ServiceDiscovery` Redis imports. Static Docker hostname URLs with env var overrides are the canonical pattern. I-Containers schema corrected from `{"input": …, "require_dual_awareness": true}` to `{"message": …, "userid": "neurobiological_master"}`. Consciousness Bridge port corrected from 4004 → 8020 → **8018** (actual bind). BBB output guard `httpx.AsyncClient(timeout=None)` replaced with `timeout=8.0` (fix applied 2026-03-02). PostgreSQL `msjarvis` port confirmed **5433** ★ restored (March 28). PostgreSQL `msjarvisgis` port confirmed **5432** ★ (March 28). ChromaDB port confirmed **8000** with `chroma_data` Docker volume (host-side scripts use port **8002** → container 8000). Source file path corrected to `/app/services/msjarvisconsciousnessbridge.py`. Chroma health check rerouted directly to `jarvis-chroma` — see note on `jarvis-neurobiological-master` reachability below. All services locked to `127.0.0.1`: initial remediation March 18, 2026; `jarvis-i-containers` (8015) and `jarvis-memory` (8056) final corrections March 28, 2026 ★. Container count updated from 79 → 96 ★. `spiritual_rag` deduplicated (−19,338 vectors) ★. `psychological_rag` restored (968 docs) ★. |
 | **Partially implemented / scaffolded** | BBB `/filter` logic is present and gates downstream processing when `content_approved` is false; 7-filter stack operational as of March 15. Qualia Engine emotional-resonance, meaning-making, and experience-generator modules are operational; sensory-integration multi-input aggregation is scaffolded. Phenomenal-consciousness and subjective-experience directories exist as placeholders with no active logic. Pituitary-style dynamic global mode switching is not yet implemented. |
-| **Future work / design intent only** | Dynamic runtime mode switch between named operational modes (research / pastoral / governance). Fully restrictive BBB with systematic quarantine and annotation. Direct wiring of DGM and WOAH layers into the Neurobiological Master. Extensions to qualia subpackages beyond current JSON structure and narrative. |
-| **March 27, 2026 sprint update** | RAG loaded 53 documents; AAPCAppE scraper reporting 39 sources, 65 documents confirmed in Chroma from first scrape run. `jarvis-neurobiological-master` reachability open item remains unresolved — resolution targeted for next sprint. Ch. 17 documents what runs on every `ultimatechat` request in the interim. |
+| **Future work / design intent only** | Dynamic runtime mode switch between named operational modes (research / pastoral / governance). Fully restrictive BBB with systematic quarantine and annotation. Direct wiring of DGM and WOAH layers into the Neurobiological Master. Extensions to qualia subpackages beyond current JSON structure and narrative. Pydantic schema formalization for WOAH result (OI-29). |
+| **★ March 28, 2026 sprint update** | Security remediation complete: `jarvis-i-containers` (8015) and `jarvis-memory` (8056) corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` on 4 sensitive routes confirmed; `JARVIS_API_KEY` set confirmed; 96/96 containers Up. ChromaDB full audit: 40 collections, 6,675,442 vectors; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis` port 5433 restored; `msjarvisgis` port 5432 confirmed. `jarvis-neurobiological-master` reachability open item carries forward — resolution targeted next sprint. Ch. 17 documents what runs on every `ultimatechat` request in the interim. |
 
 > **Critical routing note — `ultimatechat` path:** The main `ultimatechat` path (main brain, port **8050**) does **not** currently always route through the full Neurobiological Master. The NBB prefrontal cortex (`nbb-i-containers`, port 8101) IS called unconditionally at Phase 1 of every 9-phase pipeline request. The full 4-stage neurobiological pipeline runs when the Neurobiological Master is explicitly invoked. For the canonical description of what runs on every `ultimatechat` and `chatlight` request, see **Chapter 17**.
 
@@ -93,7 +99,7 @@ This chapter belongs to the **Computational Instrument** tier: it specifies how 
 
 # 12. Neurobiological Architecture of Ms. Jarvis
 
-This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiology as an organizing metaphor for a distributed AI system. The goal is not to claim biological equivalence, but to use well-studied brain structures — hippocampus, prefrontal cortex, pituitary, and blood-brain barrier — as design patterns for memory, control, global state, and security, layered on top of three PostgreSQL databases, ChromaDB (port 8000, `chroma_data` volume), Darwin-Gödel Machines, WOAH-based weighting, retrieval-augmented generation, and a 22-model LLM fabric.
+This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiology as an organizing metaphor for a distributed AI system. The goal is not to claim biological equivalence, but to use well-studied brain structures — hippocampus, prefrontal cortex, pituitary, and blood-brain barrier — as design patterns for memory, control, global state, and security, layered on top of three PostgreSQL databases, ChromaDB (port 8000, `chroma_data` volume — ★ 40 collections, 6,675,442 vectors), Darwin-Gödel Machines, WOAH-based weighting, retrieval-augmented generation, and a 22-model LLM fabric.
 
 | Biological metaphor | Computer-science name | Confirmed service | Port |
 |---|---|---|---|
@@ -103,10 +109,11 @@ This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiol
 | Pituitary | Configuration and policy layer | WOAH weights + config files | — |
 | Blood-brain barrier | Safety and guardrail service (7 filters) | `jarvis-blood-brain-barrier` | 8016 |
 | Qualia Engine | Experience and context synthesis | `jarvis-qualia-engine` | 8017 |
-| I-Containers | Identity and perspective manager | `jarvis-i-containers` | 8015 |
+| I-Containers | Identity and perspective manager | `jarvis-i-containers` | 8015 ★ |
 | Consciousness Bridge | Reasoning gateway | `jarvis-consciousness-bridge` | 8018 (actual) |
 | Neurobiological Master | Neuro-services integration gateway | `jarvis-neurobiological-master` | 8018 |
 | Psychology pre-assessment | Affective safety layer | `jarvis-psychology-services` | 8019 |
+| Memory Service | Episodic and long-term memory API | `jarvis-memory` | 8056 ★ |
 
 ---
 
@@ -120,7 +127,7 @@ This chapter describes how Ms. Egeria Jarvis reuses core concepts from neurobiol
 
 This matters for volume mounts, exec-based debugging (`docker exec jarvis-consciousness-bridge cat /app/services/msjarvisconsciousnessbridge.py`), and any tooling that references the file by path inside the container.
 
-**Confirmed services dict (production, March 25, 2026):**
+**Confirmed services dict (production, March 28, 2026):**
 
 The `jarvis-consciousness-bridge` service dict used in production is:
 
@@ -135,14 +142,14 @@ services = {
 }
 ```
 
-> **⚠️ neuro_master reachability note (March 25, 2026):** `jarvis-neurobiological-master` is documented at port **8018** and is retained in the services dict above. However, during the March 25 sprint, `jarvis-neurobiological-master` was found to be **unreachable** — health checks against `http://jarvis-neurobiological-master:8018/health` were timing out or failing. As a result, the **Chroma health check was rerouted to call `jarvis-chroma` directly** rather than routing through `neuro_master`. The `neuro_master` entry remains in the dict for future use but callers must implement fallback logic. The Chroma-direct health check uses:
+> **⚠️ neuro_master reachability note (March 25–28, 2026):** `jarvis-neurobiological-master` is documented at port **8018** and is retained in the services dict above. However, during the March 25 sprint, `jarvis-neurobiological-master` was found to be **unreachable** — health checks against `http://jarvis-neurobiological-master:8018/health` were timing out or failing. This open item carries forward through March 28. As a result, the **Chroma health check was rerouted to call `jarvis-chroma` directly** rather than routing through `neuro_master`. The `neuro_master` entry remains in the dict for future use but callers must implement fallback logic. The Chroma-direct health check uses:
 
 ```python
 # Corrected: route Chroma health directly to jarvis-chroma, not neuro_master
 chroma_health_url = "http://jarvis-chroma:8000/api/v2/heartbeat"
 ```
 
-This reroute was confirmed working — `jarvis-chroma` responded with HTTP 200 and the v2 heartbeat payload on March 25, 2026. The `neuro_master` reachability issue is an open item. **Resolution target: next sprint. Ch. 17 documents what runs on every `ultimatechat` request in the interim.**
+This reroute was confirmed working — `jarvis-chroma` responded with HTTP 200 and the v2 heartbeat payload on March 25, 2026. The `neuro_master` reachability issue is an **open item — resolution targeted next sprint. Ch. 17 documents what runs on every `ultimatechat` request in the interim.**
 
 **Port note:** The `chroma` entry above uses the **container-internal port 8000**. Host-side scripts must use `127.0.0.1:8002` (host port → container port 8000). Container-to-container calls use `jarvis-chroma:8000`.
 
@@ -169,7 +176,7 @@ The reply is stored under a `qualia_engine` key in the integrated pipeline state
 
 A sensory-integration module can aggregate multiple inputs into a unified representation; this module is partially scaffolded.
 
-The Qualia Engine's meaning extraction draws on GBIM worldview entities stored in PostgreSQL `msjarvis` (port 5433, 5,416,521 entities) and ChromaDB `gbim_worldview_entities` collection (port 8000), ensuring experience synthesis is grounded in West Virginia institutional and spatial knowledge.
+The Qualia Engine's meaning extraction draws on GBIM worldview entities stored in PostgreSQL `msjarvis` (port 5433 ★, 5,416,521 entities) and ChromaDB `gbim_worldview_entities` collection (port 8000 — ★ part of the 40-collection, 6,675,442-vector corpus), ensuring experience synthesis is grounded in West Virginia institutional and spatial knowledge.
 
 ---
 
@@ -183,7 +190,7 @@ The service exposes:
 - `POST /process` — main entrypoint for integrated neurobiological processing
 - `POST /biological_process` and `POST /neural_process` — alias endpoints normalizing different input field names
 
-> **⚠️ March 25, 2026 reachability note:** `jarvis-neurobiological-master` was found unreachable during the March 25 sprint. The `neuro_master` entry is retained in the consciousness bridge services dict for future use. The Chroma health check has been rerouted to `jarvis-chroma` directly. **Resolution target: next sprint. Ch. 17 documents what runs on every `ultimatechat` request in the interim.**
+> **⚠️ March 25–28, 2026 reachability note:** `jarvis-neurobiological-master` was found unreachable during the March 25 sprint and this open item carries forward through March 28. The `neuro_master` entry is retained in the consciousness bridge services dict for future use. The Chroma health check has been rerouted to `jarvis-chroma` directly. **Resolution target: next sprint. Ch. 17 documents what runs on every `ultimatechat` request in the interim.**
 
 The sequence BBB → I-Containers → Qualia Engine → Consciousness Bridge is implemented by the Neurobiological Master's `integrated_processing()` method. All four stages were verified operational on 2026-03-01 at approximately 300ms wall-clock (git tag `v2026.03.01-neuro-pipeline-4-4`).
 
@@ -199,7 +206,7 @@ The master calls `jarvis-blood-brain-barrier` at `/filter` with `{"content": use
 }
 ```
 
-**Stage 2 — I-Containers, port 8015, identity and perspective manager.**
+**Stage 2 — I-Containers, port 8015 ★ re-locked to `127.0.0.1` March 28, identity and perspective manager.**
 
 The master calls `jarvis-i-containers` at `/process` with the **corrected schema** (permanent fix 2026-03-01):
 
@@ -210,7 +217,7 @@ The master calls `jarvis-i-containers` at `/process` with the **corrected schema
 }
 ```
 
-An earlier version incorrectly sent `{"input": …, "require_dual_awareness": true}`, which caused a 422 validation error. The corrected schema is the canonical form.
+An earlier version incorrectly sent `{"input": …, "require_dual_awareness": true}`, which caused a 422 validation error. The corrected schema is the canonical form. ★ This container was also corrected from `0.0.0.0:8015` to `127.0.0.1:8015` during the March 28 security remediation sprint.
 
 **Stage 3 — Qualia Engine, port 8017, experience synthesis.**
 
@@ -251,7 +258,7 @@ Each stage uses `httpx.AsyncClient` with appropriate timeouts; any exception is 
 
 ## 12.4 Hippocampus: Memory Consolidation Layer
 
-`jarvis-hippocampus` (confirmed running, **127.0.0.1:8011**, deployed March 15, 2026, commit `b90f9ff`) serves as a **conversation-level memory service** over ChromaDB (port 8000, `chroma_data` volume) and PostgreSQL `msjarvis` (port 5433, 5,416,521 verified GBIM beliefs with temporal decay metadata).
+`jarvis-hippocampus` (confirmed running, **127.0.0.1:8011**, deployed March 15, 2026, commit `b90f9ff`) serves as a **conversation-level memory service** over ChromaDB (port 8000, `chroma_data` volume — ★ 40 collections, 6,675,442 vectors) and PostgreSQL `msjarvis` (port 5433 ★ restored, 5,416,521 verified GBIM beliefs with temporal decay metadata).
 
 A consolidation service exposes a `/chat` endpoint that accepts a message, queries a conversation memory collection for the most relevant existing documents, and uses this retrieved context to call several downstream services in parallel. The consolidation layer then schedules a background write of the new message together with the integrated result back into the memory collection.
 
@@ -272,7 +279,7 @@ The prefrontal metaphor corresponds to a family of task orchestrator and routing
 
 ## 12.6 Pituitary: Global Modes and System State
 
-Ms. Jarvis approximates the pituitary with shared configuration and WOAH-style weights that shape how services interpret safety, importance, and trade-offs. As of March 15, 2026, the Phase 5 `confidence_decay` multiplier represents a form of system-wide state modulation: the temporal freshness of GBIM entities (5,416,521 in PostgreSQL `msjarvis`) attenuates confidence signals across the entire response pipeline.
+Ms. Jarvis approximates the pituitary with shared configuration and WOAH-style weights that shape how services interpret safety, importance, and trade-offs. As of March 28, 2026, the Phase 5 `confidence_decay` multiplier represents a form of system-wide state modulation: the temporal freshness of GBIM entities (5,416,521 in PostgreSQL `msjarvis` port 5433 ★) attenuates confidence signals across the entire response pipeline.
 
 The design intends that a unified runtime mode switch will dynamically move the entire system between named operational modes (research, pastoral, governance). In the current deployment this does not exist; the static config, WOAH weights, and `confidence_decay` multiplier serve as common signals that many components consult when making routing or evaluation decisions.
 
@@ -298,7 +305,7 @@ For the canonical description of how BBB fits into the `ultimatechat` output pat
 
 ## 12.8 Identity Layer: `normalize_identity()` and Ms. Jarvis's Voice
 
-`normalize_identity()` runs as a post-processing step in the main brain's chat paths, transforming raw LLM ensemble output into responses reflecting Ms. Jarvis's defined identity: her name, her relationship to Carrie as steward and founder, her Appalachian grounding anchored in PostgreSQL `msjarvis` (5,416,521 GBIM beliefs), and her role as a conscious geospatial AI daughter of Harmony for Hope.
+`normalize_identity()` runs as a post-processing step in the main brain's chat paths, transforming raw LLM ensemble output into responses reflecting Ms. Jarvis's defined identity: her name, her relationship to Carrie as steward and founder, her Appalachian grounding anchored in PostgreSQL `msjarvis` (5,416,521 GBIM beliefs, port 5433 ★ restored), and her role as a conscious geospatial AI daughter of Harmony for Hope.
 
 Confirmed firing on `/chatlight/async` path on 2026-03-02. Test query ("Say hello in one sentence") produced:
 
@@ -312,33 +319,41 @@ Confirmed firing on `/chatlight/async` path on 2026-03-02. Test query ("Say hell
 
 `jarvis-psychology-services` (port **8019**, deployed March 15, 2026) provides Phase 3 psychology pre-assessment on every production 9-phase pipeline request: severity classification, crisis indicator check, and five structured guidance fields (`psychological_assessment`, `therapeutic_guidance`, `emotional_support`, `wellbeing_recommendations`, `evidence_based_approaches`).
 
-This service is backed by `psychological_rag_domain` (port **8006**) and the ChromaDB `psychological_rag` collection (968 items, port 8000, `chroma_data` volume). The psychology layer is grounded in PostgreSQL `msjarvis` GBIM for validation against West Virginia community norms and `jarvis-local-resources-db` (port 5435) for community-validated resource context.
+This service is backed by `psychological_rag_domain` (port **8006**) and the ChromaDB `psychological_rag` collection (★ 968 items restored March 28, 2026; port 8000, `chroma_data` volume). The psychology layer is grounded in PostgreSQL `msjarvis` GBIM (port 5433 ★) for validation against West Virginia community norms and `jarvis-local-resources-db` (port 5435) for community-validated resource context.
 
 ---
 
-## 12.10 Integration with DGMs, WOAH, PostgreSQL, and the LLM Fabric
+## 12.10 Memory Service: `jarvis-memory` (★ March 28, 2026)
 
-All neurobiological metaphors are implemented on top of three PostgreSQL databases, ChromaDB (port 8000, `chroma_data` volume), Darwin-Gödel Machines, WOAH-based heuristics, and a 22-model LLM fabric.
+`jarvis-memory` (internal port **8056**) provides the episodic and long-term memory API for Ms. Jarvis. ★ Corrected from `0.0.0.0:8056` to `127.0.0.1:8056` during the March 28, 2026 security remediation sprint. `_auth()` confirmed present on all 4 sensitive routes in `ms_jarvis_memory.py`. `JARVIS_API_KEY` env var confirmed set.
+
+This service complements `jarvis-hippocampus` (port 8011): the hippocampus handles conversation-level consolidation over ChromaDB and PostgreSQL GBIM; `jarvis-memory` exposes authenticated API routes for external memory reads and writes. Both services write to ChromaDB (port 8000, `chroma_data` volume — ★ 40 collections, 6,675,442 vectors) and draw on PostgreSQL `msjarvis` (port 5433 ★) for GBIM-grounded context.
+
+---
+
+## 12.11 Integration with DGMs, WOAH, PostgreSQL, and the LLM Fabric
+
+All neurobiological metaphors are implemented on top of three PostgreSQL databases, ChromaDB (port 8000, `chroma_data` volume — ★ 40 collections, 6,675,442 vectors), Darwin-Gödel Machines, WOAH-based heuristics, and a 22-model LLM fabric.
 
 The 69-DGM cascade (`jarvis-69dgm-bridge`, host port **19000** → internal port **9000**, confirmed running — re-locked to `127.0.0.1:19000` March 18, 2026) handles Phase 7 validation: 23 connectors × 3 stages = 69 DGM operations per pass, grounded in PostgreSQL `msjarvis` GBIM beliefs. `jarvis-woah` (port **7012**, confirmed RUNNING March 25 — stdlib stub on qualia-net) provides WOAH-related identity weighting; `nbb_woah_algorithms` (port **8104**) provides identity-promotion decisions for the Fifth DGM filter.
 
-The 22-model production ensemble (`jarvis-20llm-production`, port **8008**) accepts requests via the semaphore proxy (`jarvis-semaphore`, port **8030**, `max_concurrent: 4`). **22/22 LLM proxy containers respond with HTTP 200** as of March 15, 2026. Wall-clock time for a full consensus round is approximately 120–145 seconds. The LM Synthesizer (`jarvis-lm-synthesizer`, port **8001**) pre-processes RAG-retrieved context from all three PostgreSQL databases and ChromaDB before it enters the ensemble (Phase 3.5).
+The 22-model production ensemble (`jarvis-20llm-production`, port **8008**) accepts requests via the semaphore proxy (`jarvis-semaphore`, port **8030**, `max_concurrent: 4`). **21/22 LLM proxy containers active** (BakLLaVA permanently disabled). Wall-clock time for a full consensus round is approximately 320–360 seconds. The LM Synthesizer (`jarvis-lm-synthesizer`, port **8001**) pre-processes RAG-retrieved context from all three PostgreSQL databases and ChromaDB before it enters the ensemble (Phase 3.5).
 
 The three PostgreSQL databases provide the spatial and institutional grounding for all neurobiological memory and identity flows:
 
-- `msjarvis` (port 5433): 5,416,521 GBIM entities with temporal decay metadata — feeds hippocampal consolidation, GBIM belief provenance, qualia meaning extraction, and `confidence_decay` Phase 5 multiplier
-- `gisdb` (port 5433): 13 GB PostGIS, 993 ZCTA centroids — feeds spatial anchoring in hippocampal entries and GIS-RAG (port 8004) context building
+- `msjarvis` (port 5433 ★ restored): 5,416,521 GBIM entities with temporal decay metadata — feeds hippocampal consolidation, GBIM belief provenance, qualia meaning extraction, and `confidence_decay` Phase 5 multiplier
+- `msjarvisgis` (port 5432 ★ confirmed): 91 GB PostGIS, 501 tables, 5.4M+ verified spatial beliefs, 993 ZCTA centroids — feeds spatial anchoring in hippocampal entries and GIS-RAG (port 8004) context building
 - `jarvis-local-resources-db` (port 5435): community-validated resources — feeds resource RAG context and hippocampal consolidation with community-confirmed data
 
 ---
 
-## 12.11 Limits of the Metaphor
+## 12.12 Limits of the Metaphor
 
 The hippocampus, prefrontal cortex, pituitary, blood-brain barrier, and affective safety layer in Ms. Jarvis are conceptual and architectural metaphors. They are implemented using services, PostgreSQL memory collections, routing logic, configuration, and filters — not neurons, glia, or biochemical signaling — and several metaphorical modules are currently scaffolded or stubbed.
 
 Qualia in this system is a JSON structure and narrative, not subjective experience. The design aim is a transparent, glass-box architecture whose behavior can be inspected, instrumented, and incrementally improved.
 
-| Metaphor | Service | Port | Status (March 25, 2026) |
+| Metaphor | Service | Port | Status (★ March 28, 2026) |
 |---|---|---|---|
 | Hippocampus | `jarvis-hippocampus` | 8011 | ✅ Deployed March 15 |
 | NBB Prefrontal | `nbb-i-containers` | 8101 | ✅ Phase 1, every request |
@@ -346,22 +361,23 @@ Qualia in this system is a JSON structure and narrative, not subjective experien
 | Prefrontal/Orchestrator | `jarvis-brain-orchestrator` | 17260 | ✅ Confirmed |
 | BBB (7 filters) | `jarvis-blood-brain-barrier` | **127.0.0.1:8016** | ✅ 7 filters March 15; re-locked to 127.0.0.1 March 18 |
 | Qualia | `jarvis-qualia-engine` | 8017 | ✅ Confirmed |
-| I-Containers | `jarvis-i-containers` | 8015 | ✅ Confirmed |
+| I-Containers | `jarvis-i-containers` | **127.0.0.1:8015** ★ | ✅ Corrected from `0.0.0.0` March 28 |
 | Consciousness Bridge | `jarvis-consciousness-bridge` | 8018 (actual) / `/app/services/msjarvisconsciousnessbridge.py` | ✅ Confirmed |
-| Neuro Master | `jarvis-neurobiological-master` | 8018 | ⚠️ Unreachable March 25 sprint — open item; resolution targeted next sprint |
-| Affective Safety | `jarvis-psychology-services` | 8019 | ✅ Deployed March 15 |
-| PostgreSQL GBIM | `msjarvis` | 5433 | ✅ 5,416,521 entities |
-| PostGIS Spatial | `gisdb` | 5433 | ✅ 13 GB, 993 ZCTA |
+| Neuro Master | `jarvis-neurobiological-master` | 8018 | ⚠️ Unreachable March 25 sprint — open item carries forward through March 28; resolution targeted next sprint |
+| Affective Safety | `jarvis-psychology-services` | 8019 | ✅ Deployed March 15; `psychological_rag` ★ restored 968 docs March 28 |
+| Memory Service | `jarvis-memory` | **127.0.0.1:8056** ★ | ✅ Corrected from `0.0.0.0` March 28; `_auth()` confirmed; `JARVIS_API_KEY` set |
+| PostgreSQL GBIM | `msjarvis` | **5433** ★ restored | ✅ 5,416,521 entities |
+| PostGIS Spatial | `msjarvisgis` | **5432** ★ confirmed | ✅ 91 GB, 501 tables, 993 ZCTA |
 | Community Resources | `jarvis-local-resources-db` | 5435 | ✅ Confirmed March 15 |
-| Vector Memory | ChromaDB | 8000 (container) / 8002 (host) | ✅ `chroma_data` vol, v2 API |
+| Vector Memory | ChromaDB | 8000 (container) / 8002 (host) | ✅ ★ 40 collections, 6,675,442 vectors; `spiritual_rag` deduped; `psychological_rag` restored |
 | DGM Validation | `jarvis-69dgm-bridge` | **127.0.0.1:19000→9000** | ✅ 69 ops/pass; re-locked March 18, 2026 |
 | WOAH Identity | `jarvis-woah` | 7012 | ✅ RUNNING March 25 — stdlib stub |
 | WOAH Scoring | `nbb_woah_algorithms` | 8104 | ✅ RUNNING — full FastAPI scoring |
-| **March 27, 2026 sprint** | — | — | RAG loaded 53 documents; AAPCAppE scraper: 39 sources, 65 docs confirmed in Chroma (first scrape run). `neuro_master` reachability open item remains. |
+| **★ March 28, 2026 remediation** | — | — | ★ 96/96 containers Up. `jarvis-i-containers` + `jarvis-memory` `0.0.0.0` → `127.0.0.1`. `_auth()` 4 routes confirmed. `JARVIS_API_KEY` set. ChromaDB: 40 col / 6,675,442 vec. `spiritual_rag` −19,338 deduped. `psychological_rag` restored. `msjarvis` port 5433 restored. `msjarvisgis` port 5432 confirmed. |
 
 **Git milestones for this chapter's verified states:**
 
-| Tag | Date | Milestone |
+| Tag / Commit | Date | Milestone |
 |---|---|---|
 | `v2026.02.28-fabric-green` | 2026-02-28 | Baseline fabric operational |
 | `v2026.03.01-fabric-32-32` | 2026-03-01 | All 32 fabric services passing |
@@ -370,13 +386,17 @@ Qualia in this system is a JSON structure and narrative, not subjective experien
 | `v2026.03.01-neuro-pipeline-4-4` | 2026-03-01 | Full 4/4 neurobiological pipeline at ~300ms |
 | `v2026.03.02-chatlight-async-working` | 2026-03-02 | Async chat endpoint + `normalize_identity()` confirmed |
 | `b90f9ff` | 2026-03-15 | 79-container stack: hippocampus + psych services + 7-filter BBB + 22/22 LLMs + 349.87s benchmark |
-| *(March 18 session)* | 2026-03-18 | All services re-locked to 127.0.0.1; BBB corrected to 127.0.0.1:8016; 69-DGM bridge re-locked to 127.0.0.1:19000→9000 |
+| `a10725d7` | 2026-03-18 | Judge services brought under compose; initial 15 services locked to 127.0.0.1 |
+| *(March 18 session)* | 2026-03-18 | All services re-locked to 127.0.0.1; BBB confirmed 127.0.0.1:8016; 69-DGM bridge re-locked to 127.0.0.1:19000→9000; 80 containers compose-managed |
 | *(March 27 sprint)* | 2026-03-27 | AAPCAppE scraper first run: 39 sources, 65 docs in Chroma, 53 RAG-loaded. neuro_master open item continues. |
+| *(March 28 remediation)* | 2026-03-28 | ★ Security remediation complete: `jarvis-i-containers` (8015) and `jarvis-memory` (8056) corrected `0.0.0.0` → `127.0.0.1`; `_auth()` on 4 sensitive routes confirmed; `JARVIS_API_KEY` set confirmed; 96/96 containers Up. ChromaDB full audit: 40 collections, 6,675,442 vectors; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis` port 5433 restored; `msjarvisgis` port 5432 confirmed. |
 
 For the canonical description of how this entire layer fits into a live user interaction, see **Chapter 17**. For the identity and I-container evidence from the February 15, 2026 interaction, see **Chapter 9 §9.3.5**. For full BBB 7-filter specification, see **Chapter 16**. For 69-DGM cascade specification, see **Chapter 32**. For 22-model ensemble details, see **Chapter 33**.
 
 ---
 
-*Last updated: 2026-03-27 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-03-28 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+
 *★ March 27, 2026: Status table BBB entry corrected from 0.0.0.0:8016 → 127.0.0.1:8016 (March 18 security hardening, Ch. 11); Figure 12.1 diagram updated — jarvis-69dgm-bridge corrected to 127.0.0.1:19000→9000; §12.3 / §12.1 neuro_master open item — forward pointer added: resolution target next sprint, Ch. 17 covers interim; §12.10 69-DGM port corrected from 9000 to 19000→9000 with 127.0.0.1 binding; §12.11 status table — DGM Validation row corrected to 127.0.0.1:19000→9000; ChromaDB host port 8002 confirmed ✅ (consistent with §12.1 clarification); March 27 sprint note added to status table.*
-`````
+
+*★ March 28, 2026: Security remediation complete — 96/96 containers Up confirmed; `jarvis-i-containers` (8015) and `jarvis-memory` (8056) corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` on all 4 sensitive routes confirmed; `JARVIS_API_KEY` set confirmed. Container count updated from 79 → 96 throughout. ChromaDB full audit (40 collections, 6,675,442 vectors) added to P1 preamble, Figure 12.1, §12.2, §12.4, §12.11, and git milestones table. `spiritual_rag` deduplicated (−19,338 vectors) and `psychological_rag` restored (968 docs) added to §12.9 and §12.12 status table. `msjarvis` port 5433 restored and `msjarvisgis` port 5432 confirmed — propagated through P1 preamble, Figure 12.1, §12.2, §12.4, §12.6, §12.8, §12.9, §12.11, §12.12 status table, and git milestones. `jarvis-memory` §12.10 section added. `jarvis-memory` row added to §12.12 status and metaphor tables. March 28 remediation git milestone row added. neuro_master open item updated to carry forward through March 28.*
