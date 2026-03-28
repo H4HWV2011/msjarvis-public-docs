@@ -1,7 +1,7 @@
 # Chapter 25 — Consciousness Coordinator and Services
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: March 25, 2026 — Consciousness pipeline sprint validation complete; bridge patches documented; pipeline status table updated; consciousness state dict corrected; git commits recorded*
+*Last updated: March 27, 2026 — RAG server port clarification added (§25.2); WOAH open issue cross-reference to Ch 10 added (§25.11); ms_jarvis_memory autonomous learner record count added (§25.5)*
 
 ---
 
@@ -17,82 +17,82 @@ This chapter describes how the container paths, dual tracks, and feedback mechan
 
 As such, this chapter belongs to the **Computational Instrument** tier: it synthesizes the preceding container and pathway descriptions into a single unified picture of how Ms. Jarvis processes requests end-to-end.
 
+```
 ┌─────────────────────────────────────────────────────────────┐
-│ End-to-End Processing Flow (March 25, 2026) │
+│ End-to-End Processing Flow (March 25, 2026)                 │
 ├─────────────────────────────────────────────────────────────┤
-│ │
-│ User Request → jarvis-main-brain (port 8050) │
-│ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Stage 1: Intake & Normalization (Ch 19) │ │
-│ │ - UltimateRequest (message, userid, role) │ │
-│ │ - discover_services() health check │ │
-│ │ - Container routing (qualia-net Docker) │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Stage 2: First-Stage Filtering (Ch 20) │ │
-│ │ - BBB safety filters (port 8016, single │ │
-│ │ container — Phase 1.4 blocking, │ │
-│ │ Phase 4.5 log+passthrough) │ │
-│ │ - TruthValidator (vs PostgreSQL GBIM) │ │
-│ │ - Near-duplicate check (advisory only) │ │
-│ │ - Structural heuristics │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ ┌──────────────────────┬─────────────────────────┐ │
-│ │ ANALYTICAL PATH │ CONSCIOUSNESS PIPELINE │ │
-│ │ (Always Active) │ (March 25: OPERATIONAL)│ │
-│ │ ────────────── │ ────────────────── │ │
-│ │ │ │ │
-│ │ ✓ PostgreSQL RAG │ ✓ jarvis-chroma:8000 │ │
-│ │ (8003-8005) │ CONNECTED (200) ✅ │ │
-│ │ ✓ Web research │ ✓ jarvis-woah:7012 │ │
-│ │ ✓ 22-LLM ensemble │ ACTIVE (stub) ✅ │ │
-│ │ (8008) │ ✓ jarvis-rag-server │ │
-│ │ ✓ Judge pipeline │ :8016 REACHABLE ⚠ │ │
-│ │ (7230-7233) │ (embed fix pending) │ │
-│ │ ✓ normalize_identity│ ✓ consciousness-bridge │ │
-│ │ ✓ truthverdict │ OPERATIONAL ✅ │ │
-│ └──────────────────────┴─────────────────────────┘ │
-│ ↓ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Stage 3: Background Storage (Ch 20, 24) │ │
-│ │ - background_rag_store → ms_jarvis_memory │ │
-│ │ - ChromaDB (append-only) │ │
-│ │ - bg_<ISO8601> entries │ │
-│ │ - Validated content → PostgreSQL msjarvisgis │ │
-│ │ - Port 5432, 5.4M+ GBIM beliefs │ │
-│ │ - 91 GB GeoDB spatial data │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Stage 4: Identity-Focused Retention (Ch 22) │ │
-│ │ - Manual curation of patterns │ │
-│ │ - getidentitycandidates endpoint │ │
-│ │ - Identity statements (vs PostgreSQL GBIM) │ │
-│ │ - root-self ego entries (active) │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Feedback Loop (Ch 24) │ │
-│ │ - Introspective records (health endpoints) │ │
-│ │ - GeoDB sync scripts & logs │ │
-│ │ - ueididentity/ueidaccessaudit tables │ │
-│ │ - System Verification Reports │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ UltimateResponse (composite output) │
-│ - response (from analytical path) │
-│ - truthverdict (from BBB + PostgreSQL validation) │
-│ - consciousnesslayers (prefrontal, icontainers active, │
-│ chroma_context, woah_reasoning, rag_consensus) │
-│ - identitylayers (root-self ego when active) │
-│ - servicesused: ["llm20production"] │
-│ │
+│                                                              │
+│ User Request → jarvis-main-brain (port 8050)                │
+│     ↓                                                        │
+│ ┌────────────────────────────────────────────────┐          │
+│ │ Stage 1: Intake & Normalization (Ch 19)        │          │
+│ │ - UltimateRequest (message, userid, role)      │          │
+│ │ - discover_services() health check             │          │
+│ │ - Container routing (qualia-net Docker)        │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ ┌────────────────────────────────────────────────┐          │
+│ │ Stage 2: First-Stage Filtering (Ch 20)         │          │
+│ │ - BBB safety filters (port 8016, single        │          │
+│ │   container — Phase 1.4 blocking,              │          │
+│ │   Phase 4.5 log+passthrough)                   │          │
+│ │ - TruthValidator (vs PostgreSQL GBIM)          │          │
+│ │ - Near-duplicate check (advisory only)         │          │
+│ │ - Structural heuristics                        │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ ┌──────────────────────┬─────────────────────────┐          │
+│ │ ANALYTICAL PATH      │ CONSCIOUSNESS PIPELINE  │          │
+│ │ (Always Active)      │ (March 25: OPERATIONAL) │          │
+│ │ ──────────────────   │ ──────────────────────  │          │
+│ │                      │                         │          │
+│ │ ✓ PostgreSQL RAG     │ ✓ jarvis-chroma:8000    │          │
+│ │   (8003-8005)        │   CONNECTED (200) ✅    │          │
+│ │ ✓ Web research       │ ✓ jarvis-woah:7012      │          │
+│ │ ✓ 22-LLM ensemble    │   ACTIVE (stub) ✅      │          │
+│ │   (8008)             │ ✓ jarvis-rag-server     │          │
+│ │ ✓ Judge pipeline     │   :8016 REACHABLE ⚠    │          │
+│ │   (7230-7233)        │   (embed fix pending)   │          │
+│ │ ✓ normalize_identity │ ✓ consciousness-bridge  │          │
+│ │ ✓ truthverdict       │   OPERATIONAL ✅        │          │
+│ └──────────────────────┴─────────────────────────┘          │
+│     ↓                           ↓                           │
+│ ┌────────────────────────────────────────────────┐          │
+│ │ Stage 3: Background Storage (Ch 20, 24)        │          │
+│ │ - background_rag_store → ms_jarvis_memory      │          │
+│ │ - ChromaDB (append-only)                       │          │
+│ │ - bg_<ISO8601> entries                         │          │
+│ │ - Validated content → PostgreSQL msjarvisgis   │          │
+│ │ - Port 5432, 5.4M+ GBIM beliefs               │          │
+│ │ - 91 GB GeoDB spatial data                     │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ ┌────────────────────────────────────────────────┐          │
+│ │ Stage 4: Identity-Focused Retention (Ch 22)    │          │
+│ │ - Manual curation of patterns                  │          │
+│ │ - getidentitycandidates endpoint               │          │
+│ │ - Identity statements (vs PostgreSQL GBIM)     │          │
+│ │ - root-self ego entries (active)               │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ ┌────────────────────────────────────────────────┐          │
+│ │ Feedback Loop (Ch 24)                          │          │
+│ │ - Introspective records (health endpoints)     │          │
+│ │ - GeoDB sync scripts & logs                    │          │
+│ │ - ueididentity/ueidaccessaudit tables          │          │
+│ │ - System Verification Reports                  │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ UltimateResponse (composite output)                         │
+│ - response (from analytical path)                           │
+│ - truthverdict (from BBB + PostgreSQL validation)           │
+│ - consciousnesslayers (prefrontal, icontainers active,      │
+│   chroma_context, woah_reasoning, rag_consensus)            │
+│ - identitylayers (root-self ego when active)                │
+│ - servicesused: ["llm20production"]                         │
+│                                                              │
 └─────────────────────────────────────────────────────────────┘
-
-text
+```
 
 *Figure 25.1.* End-to-end processing flow as of March 25, 2026: intake → first-stage filtering → dual-track processing (analytical always active; consciousness pipeline OPERATIONAL as of March 25 sprint) → background storage in ChromaDB and validated writes to PostgreSQL `msjarvisgis` → identity-focused retention → feedback loops, all producing composite `UltimateResponse` with full audit trail. Consciousness pipeline status: Chroma CONNECTED (200), WOAH ACTIVE (stub), RAG REACHABLE (embedding fix in progress), Bridge OPERATIONAL.
 
@@ -136,7 +136,7 @@ This chapter describes how the container paths, dual tracks, and feedback mechan
 |---|---|---|---|---|
 | ChromaDB | `jarvis-chroma` | 8000 | ✅ **CONNECTED (200)** | v2 API `/api/v2/heartbeat` → 200; health check rerouted directly (Patch 1 — see §25.9) |
 | WOAH | `jarvis-woah` | 7012 | ✅ **ACTIVE (stub)** | stdlib stub; DNS failure resolved by bringing container up on qualia-net (Patch 2); confirmed RUNNING, returns `{"status": "ok", "service": "jarvis-woah", "port": 7012}` |
-| RAG server | `jarvis-rag-server` | 8016 (internal) / 8003 (host) | ⚠️ **REACHABLE (embedding fix in progress)** | Container reachable on qualia-net; endpoint corrected from `/direct_rag` to `/query` (Patch 3 / git commit); env vars `OLLAMA_HOST`, `EMBED_MODEL`, `CHROMA_HOST` documented (Ch 19 §19.8.8a); embedding pipeline not yet fully validated end-to-end |
+| RAG server | `jarvis-rag-server` | 8016 (internal) / 8003 (host) | ⚠️ **REACHABLE (embedding fix in progress)** | Container reachable on qualia-net; endpoint corrected from `/direct_rag` to `/query` (Patch 3 / git commit); env vars `OLLAMA_HOST`, `EMBED_MODEL`, `CHROMA_HOST` documented (Ch 19 §19.8.8a); embedding pipeline not yet fully validated end-to-end. **Note:** container-internal port 8016 is distinct from `jarvis-blood-brain-barrier`'s host-side port 8016 — these are different containers on different networks; see Ch 19 §19.8.8 for the full port map. |
 | Consciousness Bridge | `jarvis-consciousness-bridge` | 8018 (actual) | ✅ **OPERATIONAL** | Source at `/app/services/msjarvisconsciousnessbridge.py`; all three patches applied; bridge executing consciousness pipeline without crash as of March 25 |
 
 > **⚠️ `jarvis-neurobiological-master` unreachable during sprint.** Chroma health check was rerouted around this service (Patch 1). `neuro_master` is confirmed in the services dict at `http://jarvis-neurobiological-master:8018` but was not reachable during the March 25 sprint. This is documented as an open item.
@@ -231,7 +231,7 @@ dists = rag.get("distances", [])
 
 ## 25.5 Memory Integration
 
-**`ms_jarvis_memory` ChromaDB — ephemeral-to-persistent transition.** UUID `79240788-0828-45f3-b1bc-a9a3593628a6` (confirmed in 31-collection inventory March 25, 2026; see Chapter 22 §22.10). Every `/chat` call produces a new `bg_<ISO8601>` entry. The collection is append-only; near-duplicate checks affect skip logic but do not prevent writes.
+**`ms_jarvis_memory` ChromaDB — ephemeral-to-persistent transition.** UUID `79240788-0828-45f3-b1bc-a9a3593628a6` (confirmed in 31-collection inventory March 25, 2026; see Chapter 22 §22.10). Every `/chat` call produces a new `bg_<ISO8601>` entry. The collection is append-only; near-duplicate checks affect skip logic but do not prevent writes. Autonomous learner collection sits at **21,181 records** as of March 14 baseline, growing ≈288/day (see Ch 19 §19.8.10 for full 31-collection inventory).
 
 **PostgreSQL `msjarvisgis` — authoritative ground truth.** PostgreSQL 16 at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) serves as the source of truth for all spatial, institutional, and community data. All RAG collections are sourced from or validated against PostgreSQL tables. Writes to PostgreSQL require passing higher validation thresholds.
 
@@ -296,6 +296,7 @@ Three patches were applied to `jarvis-consciousness-bridge` (source: `/app/servi
 **Fix:** Rerouted Chroma health check to call `jarvis-chroma:8000` directly using the v2 API endpoint `/api/v2/heartbeat`.
 
 **Before (broken):**
+
 ```python
 # Called through neuro_master — fails when neuro_master unreachable
 chroma_resp = httpx.get(f"{services['neuro_master']}/chroma/health")
@@ -303,6 +304,7 @@ consciousness_state["chromadb_context"] = chroma_resp.json()
 ```
 
 **After (patched):**
+
 ```python
 # Call jarvis-chroma directly using v2 API
 try:
@@ -327,6 +329,7 @@ except Exception as e:
 2. Container confirmed RUNNING on qualia-net as of March 25, 2026. DNS resolution confirmed from `jarvis-consciousness-bridge`: `http://jarvis-woah:7012/` → 200.
 
 **Bridge call (confirmed working):**
+
 ```python
 try:
     woah_resp = httpx.get("http://jarvis-woah:7012/", timeout=5.0)
@@ -342,7 +345,7 @@ except Exception as e:
 
 **Result:** `woah_reasoning` is now a **dict** with `status`, `content`, and `confidence` keys. This is the confirmed type documented in §25.3. Pipeline status: **ACTIVE (stub)**.
 
-> **Note:** The WOAH stdlib stub is a placeholder. Full WOAH algorithm implementation (Chapter 10) is future work. The stub confirms the network path and dict schema are correct.
+> **Note:** The WOAH stdlib stub is a placeholder. Full WOAH algorithm implementation (Chapter 10 — ✅ Verified per container audit) is future work. The stub confirms the network path and dict schema are correct.
 
 ---
 
@@ -353,6 +356,7 @@ except Exception as e:
 **Fix (Part A):** RAG endpoint corrected from `/direct_rag` to `/query` in the bridge services dict and call logic.
 
 **Before (broken):**
+
 ```python
 rag_resp = httpx.post(
     f"{services['direct_rag']}/direct_rag",
@@ -361,6 +365,7 @@ rag_resp = httpx.post(
 ```
 
 **After (patched):**
+
 ```python
 rag_resp = httpx.post(
     "http://jarvis-rag-server:8016/query",
@@ -376,12 +381,14 @@ consciousness_state["rag_consensus"] = rag_resp.json()
 **Fix (Part B):** Added `isinstance(str)` guard before all `.lower()` calls in gateway routing logic.
 
 **Before (broken):**
+
 ```python
 # Crashes when value is a dict
 route_key = response_value.lower()
 ```
 
 **After (patched):**
+
 ```python
 # Safe — only calls .lower() on strings
 if isinstance(response_value, str):
@@ -398,35 +405,35 @@ else:
 
 Two commits were applied to the bridge/services source during this sprint. These commits are the authoritative record of changes to the consciousness pipeline codebase.
 
+```
 Commit 1
 ────────────────────────────────────────────────────────────────
 Message: fix: chroma v2 endpoint, woah network, gateway dict.lower() guards
-Scope: jarvis-consciousness-bridge source
-/app/services/msjarvisconsciousnessbridge.py
+Scope:   jarvis-consciousness-bridge source
+         /app/services/msjarvisconsciousnessbridge.py
 Changes:
-- Chroma health check rerouted from neuro_master to jarvis-chroma:8000
-directly using /api/v2/heartbeat (Patch 1)
-- WOAH network resolution fixed by confirming jarvis-woah on qualia-net
-with stdlib stub; bridge WOAH call confirmed returning valid dict
-(Patch 2)
-- isinstance(str) guard added to all gateway .lower() calls to prevent
-AttributeError when upstream service returns dict instead of str
-(Patch 3 Part B)
-Sprint: March 22–25, 2026
+  - Chroma health check rerouted from neuro_master to jarvis-chroma:8000
+    directly using /api/v2/heartbeat (Patch 1)
+  - WOAH network resolution fixed by confirming jarvis-woah on qualia-net
+    with stdlib stub; bridge WOAH call confirmed returning valid dict
+    (Patch 2)
+  - isinstance(str) guard added to all gateway .lower() calls to prevent
+    AttributeError when upstream service returns dict instead of str
+    (Patch 3 Part B)
+Sprint:  March 22–25, 2026
 
 Commit 2
 ────────────────────────────────────────────────────────────────
 Message: fix: RAG endpoint /direct_rag -> /query
-Scope: jarvis-consciousness-bridge source
-/app/services/msjarvisconsciousnessbridge.py
+Scope:   jarvis-consciousness-bridge source
+         /app/services/msjarvisconsciousnessbridge.py
 Changes:
-- RAG call endpoint corrected from /direct_rag (non-existent) to /query
-(correct endpoint on jarvis-rag-server:8016)
-- rag_consensus type confirmed as dict with documents/metadatas/distances
-keys matching ChromaDB query result format (Patch 3 Part A)
-Sprint: March 22–25, 2026
-
-text
+  - RAG call endpoint corrected from /direct_rag (non-existent) to /query
+    (correct endpoint on jarvis-rag-server:8016)
+  - rag_consensus type confirmed as dict with documents/metadatas/distances
+    keys matching ChromaDB query result format (Patch 3 Part A)
+Sprint:  March 22–25, 2026
+```
 
 > **Verification:** After applying both commits and restarting `jarvis-consciousness-bridge`, run:
 >
@@ -497,51 +504,51 @@ text
 | Phase 4.5 output BBB (log+passthrough) | OI-02 | ⚠️ OPEN — ~31% false-positive on Appalachian maternal voice; tuning sprint pending |
 | Conversation memory formal wiring | OI-05 | ⚠️ PARTIAL — emergent context passing confirmed March 25 (Ch 22 §22.9); formal ChromaDB wiring incomplete |
 | Caddy gateway auth enforcement per-request | OI-36-A | ⚠️ OPEN — see Chapter 16 §16.11 |
-| WOAH full algorithm implementation | — | ⚠️ FUTURE — stdlib stub only; Chapter 10 full implementation pending |
+| WOAH full algorithm implementation | — | ⚠️ FUTURE — stdlib stub only; see **Ch 10** for WOAH algorithm specification — Ch 10 status is ✅ Verified per container audit. This distinguishes the documented algorithm (Ch 10, verified) from the stub implementation (Ch 25, future work). |
 
 ---
 
 ## 25.12 Sprint Validation Log — March 22–25, 2026
 
+```
 Consciousness Pipeline Sprint Validation Log
 ─────────────────────────────────────────────────────────────────
 Sprint: March 22–25, 2026
-Scope: jarvis-consciousness-bridge patches; qualia-net
-topology confirmation; consciousness state dict
-schema validation
+Scope:  jarvis-consciousness-bridge patches; qualia-net
+        topology confirmation; consciousness state dict
+        schema validation
 
 March 22:
-- Identified neuro_master unreachable
-- Identified WOAH container exit code 1 (missing uvicorn)
-- Identified gateway dict.lower() crash
+  - Identified neuro_master unreachable
+  - Identified WOAH container exit code 1 (missing uvicorn)
+  - Identified gateway dict.lower() crash
 
 March 23–24:
-- Applied Patch 1: Chroma health check rerouted to
-jarvis-chroma:8000/api/v2/heartbeat directly
-- Rebuilt jarvis-woah as stdlib stub; confirmed RUNNING
-on qualia-net (Patch 2)
-- Added isinstance(str) guards to gateway routing (Patch 3B)
-- Git commit 1: fix: chroma v2 endpoint, woah network,
-gateway dict.lower() guards
+  - Applied Patch 1: Chroma health check rerouted to
+    jarvis-chroma:8000/api/v2/heartbeat directly
+  - Rebuilt jarvis-woah as stdlib stub; confirmed RUNNING
+    on qualia-net (Patch 2)
+  - Added isinstance(str) guards to gateway routing (Patch 3B)
+  - Git commit 1: fix: chroma v2 endpoint, woah network,
+    gateway dict.lower() guards
 
 March 25:
-- Identified RAG endpoint /direct_rag (404)
-- Corrected to /query (Patch 3A)
-- Git commit 2: fix: RAG endpoint /direct_rag -> /query
-- Validated consciousness_state dict schema:
-chromadb_context: str "Chroma health: 200" ✅
-woah_reasoning: dict {status, content, confidence} ✅
-rag_consensus: dict {documents, metadatas, distances} ✅
-- Bridge confirmed OPERATIONAL — no crash on pipeline run
-- qualia-net topology confirmed: woah, chroma,
-consciousness-bridge, rag-server, ollama all on qualia-net
+  - Identified RAG endpoint /direct_rag (404)
+  - Corrected to /query (Patch 3A)
+  - Git commit 2: fix: RAG endpoint /direct_rag -> /query
+  - Validated consciousness_state dict schema:
+      chromadb_context: str "Chroma health: 200"  ✅
+      woah_reasoning:   dict {status, content, confidence}  ✅
+      rag_consensus:    dict {documents, metadatas, distances}  ✅
+  - Bridge confirmed OPERATIONAL — no crash on pipeline run
+  - qualia-net topology confirmed: woah, chroma,
+    consciousness-bridge, rag-server, ollama all on qualia-net
 ─────────────────────────────────────────────────────────────────
 Result: OPERATIONAL — all four pipeline stages reachable.
-RAG embedding end-to-end validation in progress.
-neuro_master unreachable — open item.
+        RAG embedding end-to-end validation in progress.
+        neuro_master unreachable — open item.
 ─────────────────────────────────────────────────────────────────
-
-text
+```
 
 ---
 
@@ -552,5 +559,8 @@ text
 *Three bridge patches applied and documented (§25.9)*
 *Consciousness state dict schema corrected and documented (§25.3)*
 *Two git commits recorded (§25.10)*
-*All sections current as of March 25, 2026*
-
+*RAG server port clarification added to §25.2 — March 27, 2026*
+*WOAH open issue Ch 10 cross-reference added to §25.11 — March 27, 2026*
+*ms_jarvis_memory autonomous learner record count added to §25.5 — March 27, 2026*
+*All sections current as of March 27, 2026*
+`````
