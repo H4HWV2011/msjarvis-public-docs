@@ -1,6 +1,6 @@
 # 10. WOAH: Weighted Optimization Algorithm Hierarchy
 
-Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 
 ## Why This Matters for Polymathmatic Geography
 
@@ -18,9 +18,13 @@ WOAH operates at **Phase 2.5 of the 9-phase `ultimatechat` pipeline** (see Ch. 1
 
 > Figure 10.1. WOAH as a WOA-inspired orchestration service in Ms. Jarvis, weighting multiple agents and feeding those weights into the consciousness and routing stack with Appalachian, place-aware priorities.
 
+> **★ Security posture — March 28, 2026:** All services including `jarvis-woah` (port 7012) and `nbb_woah_algorithms` (port 8104) are bound to `127.0.0.1`. The `0.0.0.0` exposures on `jarvis-i-containers` (8015) and `jarvis-memory` (8056) were corrected during the March 28 remediation sprint. `_auth()` is confirmed present on all 4 sensitive routes in `ms_jarvis_memory.py`. `JARVIS_API_KEY` env var confirmed set. **96/96 containers Up — zero Restarting, zero Exited — confirmed March 28, 2026.**
+
+> **★ ChromaDB full audit — March 28, 2026:** 40 active collections, 6,675,442 total vectors. `spiritual_rag` deduplicated (−19,338 duplicate vectors). `psychological_rag` restored (968 docs). `msjarvis_docs` expanded (4,192 items). `msjarvis` (GBIM beliefs) port 5433 restored. `msjarvisgis` (PostGIS spatial) port 5432 confirmed throughout.
+
 ---
 
-# WOAH: Weighted Optimization Algorithm Hierarchy
+## WOAH: Weighted Optimization Algorithm Hierarchy
 
 This chapter describes WOAH (Weighted Optimization Algorithm Hierarchy) as used in Ms. Egeria Jarvis. WOAH is inspired by the Whale Optimization Algorithm (WOA), a population-based metaheuristic that models humpback whale hunting with exploration and exploitation phases, but it is not a textbook WOA implementation. In this system, WOAH is a set of concrete Python services that evaluate and weight multiple agents (LLMs, DGMs, RAG paths) and feed those weights into the consciousness and orchestration layers, helping coordinate many minds rather than optimizing a single numeric function.
 
@@ -28,11 +32,11 @@ WOAH should therefore be understood as a WOA-inspired orchestration pattern impl
 
 ---
 
-## Deployment Status (March 25, 2026)
+## Deployment Status — ★ Updated March 28, 2026
 
 ### Container Status: RUNNING ✅
 
-As of March 25, 2026, `jarvis-woah` (port 7012) is **confirmed RUNNING** on `qualia-net` (IP `172.18.0.x`).
+As of March 28, 2026, `jarvis-woah` (port 7012) is **confirmed RUNNING** on `qualia-net` (IP `172.18.0.x`). **96/96 containers Up — zero Restarting, zero Exited.**
 
 **Previous failure and root cause:** The container was previously exiting with code 1 due to `ModuleNotFoundError: No module named 'uvicorn'`. The original stub attempted to import uvicorn and FastAPI, which are not present in the `python:3.11-slim` base image. This caused the container to exit immediately at startup.
 
@@ -103,9 +107,9 @@ if __name__ == "__main__":
     server.serve_forever()
 ```
 
-### WOAH Service Port Reference (March 25, 2026)
+### WOAH Service Port Reference — ★ Updated March 28, 2026
 
-> **⚠️ Security Hardening — March 18, 2026:** All ports are locked to `127.0.0.1` as of the March 18, 2026 security hardening pass — see Ch. 11 for the full port-lock audit and confirmed bindings.
+> **⚠️ Security Hardening — March 18, 2026 + March 28, 2026:** All ports are locked to `127.0.0.1`. March 18, 2026 hardening pass locked all external-facing ports. March 28, 2026 remediation corrected remaining `0.0.0.0` exposures on `jarvis-i-containers` (8015) and `jarvis-memory` (8056). See Ch. 11 for the full port-lock audit and confirmed bindings. **96/96 containers Up as of March 28, 2026.**
 
 | Service | Host Port | Container Port | Network | Status |
 |---|---|---|---|---|
@@ -238,7 +242,8 @@ WOAH occupies an intermediate layer in the Ms. Jarvis architecture, operating at
 
 **Upstream layers:**
 - Direct user queries reaching the unified gateway
-- Domain-specific agents and services: RAG and ChromaDB lookups, Hilbert-space spatial reasoning, neurobiological and consciousness services, specialized governance and spatial agents
+- Domain-specific agents and services: RAG and ChromaDB lookups (★ 40 collections, 6,675,442 vectors as of March 28, 2026), Hilbert-space spatial reasoning, neurobiological and consciousness services, specialized governance and spatial agents
+- PostgreSQL `msjarvisgis` (port 5432 — ★ confirmed March 28, 2026; 91 GB, 501 tables, 5.4M+ verified beliefs) and `msjarvis` (port 5433 — ★ restored March 28, 2026)
 
 **WOAH layer (Phase 2.5):**
 - Called when the system needs to decide:
@@ -251,6 +256,7 @@ WOAH occupies an intermediate layer in the Ms. Jarvis architecture, operating at
 - The Fifth DGM (port 4002) tracks how many inputs have been evaluated by WOAH, how many were accepted into subconscious or I-containers, and timestamps of the most recent WOAH evaluations
 - Consciousness coordinators and bridges (including `jarvis-consciousness-bridge`, port 8020) record when WOAH was used as one of the services in an end-to-end pipeline
 - WOAH's identity weights influence which memories are promoted, how they are indexed, and how strongly they shape future responses
+- Identity-promoted items stored to ChromaDB use `all-minilm:latest` (384-dim, `hnsw:space: cosine`) — the mandatory embedding model for all 40 active collections
 
 ### Service Integration: jarvis-woah vs nbb_woah_algorithms
 
@@ -303,9 +309,26 @@ resp = httpx.post(
 #          novelty, stability, composite_weight, identity_type, weight_category
 ```
 
+**Full scoring response schema:**
+
+```json
+{
+  "content": "MountainShares cooperative economic development in Fayette County",
+  "metadata": {"source": "governance", "county": "Fayette"},
+  "hierarchical_weight": 0.87,
+  "self_relevance": 0.91,
+  "temporal_importance": 0.78,
+  "novelty": 0.65,
+  "stability": 0.82,
+  "composite_weight": 0.83,
+  "identity_type": "structural",
+  "weight_category": "strong_identity"
+}
+```
+
 ---
 
-## Confirmed Operational State (March 25, 2026)
+## Confirmed Operational State — ★ Updated March 28, 2026
 
 | Check | Result |
 |---|---|
@@ -319,6 +342,13 @@ resp = httpx.post(
 | `nbb_woah_algorithms` (port 8104) | ✅ RUNNING — full FastAPI scoring service |
 | Fifth DGM WOAH evaluation cycles | ✅ Recording successful WOAH evaluations |
 | `jarvis-consciousness-bridge` ChromaDB v2 call | ✅ `/api/v2/heartbeat` → 200 |
+| All ports bound to `127.0.0.1` | ✅ **★ Confirmed March 28, 2026** |
+| `0.0.0.0` exposures remaining | ✅ **★ Zero — corrected March 28, 2026** |
+| `_auth()` on sensitive routes | ✅ **★ Confirmed on all 4 routes, March 28, 2026** |
+| Total containers Up | ✅ **★ 96/96 — zero Restarting, zero Exited** |
+| ChromaDB collections (full audit) | ✅ **★ 40 collections, 6,675,442 vectors — March 28, 2026** |
+| `msjarvisgis` port | ✅ **★ 5432 confirmed throughout — corrected March 28** |
+| `msjarvis` port | ✅ **★ 5433 restored — March 28, 2026** |
 
 **DNS resolution note:** The DNS failure from `jarvis-consciousness-bridge` to `jarvis-woah` was previously reported as a potential network misconfiguration. This has been confirmed as a **false diagnosis** — the failure was caused entirely by `jarvis-woah` exiting at startup (exit code 1). Docker's embedded DNS cannot resolve a container that is not running. No changes to `qualia-net` topology, DNS configuration, or bridge network settings were needed or made.
 
@@ -351,16 +381,19 @@ From a Polymathmatic Geography perspective, WOAH functions as a **computational 
 - By privileging Appalachian keyphrases and MountainShares themes in its semantic identity function, WOAH encodes a **place-specific prior** about what counts as core identity work.
 - By decomposing identity into axes like `self_relevance`, `temporal_importance`, and `stability`, it offers a vocabulary for **geographic narrative structure** — which memories persist, which are fleeting, and how they are tied to particular counties or projects.
 - By maintaining a population of weight vectors and exposing it via `/woah_population_debug`, it makes **power accountable to place**: researchers can see whether the optimization dynamics are drifting toward or away from the values and geographies the system claims to serve.
+- By weighting items ingested into ChromaDB collections (all using `all-minilm:latest` 384-dim, `hnsw:space: cosine` — ★ 40 collections, 6,675,442 vectors as of March 28, 2026), WOAH directly shapes which Appalachian narratives persist in the long-term semantic memory of `autonomous_learner` (21,181+ items, growing ~288/day) and `governance_rag` (643 chunks including the US Constitution).
 
 WOAH belongs in the **Computational Instrument** tier:
 - It is not just a low-level library, but a first-class service whose weights shape the flow of information and influence
 - It is explicitly designed to be **inspectable and tunable**, so that West Virginia communities and collaborators can see and adjust how their stories are being weighted
 - It demonstrates how WOA-style ideas can be repurposed from pure numeric optimization into **place-grounded orchestration of many minds**, aligned with Quantarithmia's justice-oriented instruments
 
-> **Status (March 25, 2026):** Both WOAH services are RUNNING. `jarvis-woah` (port 7012) is confirmed operational on qualia-net using the stdlib `http.server` stub deployed via volume bind mount. `nbb_woah_algorithms` (port 8104) implements the full heuristic semantic identity function, WOA-inspired population dynamics over weight vectors, and the `/woah_population_debug` endpoint for inspecting the internal population. Both services are actively integrated with the Fifth DGM consciousness metrics and the consciousness bridge pipeline. All ports locked to `127.0.0.1` as of March 18, 2026 security hardening — see Ch. 11. The stub's optimization theory, formal evaluation, and broader orchestration influence remain evolving areas of work.
+> **Status — ★ March 28, 2026:** Both WOAH services are RUNNING. `jarvis-woah` (port 7012) is confirmed operational on qualia-net using the stdlib `http.server` stub deployed via volume bind mount. `nbb_woah_algorithms` (port 8104) implements the full heuristic semantic identity function, WOA-inspired population dynamics over weight vectors, and the `/woah_population_debug` endpoint for inspecting the internal population. Both services are actively integrated with the Fifth DGM consciousness metrics and the consciousness bridge pipeline. All ports locked to `127.0.0.1` — confirmed March 18, 2026 (initial hardening) and March 28, 2026 (remediation sprint). 96/96 containers Up. ChromaDB full audit: 40 collections, 6,675,442 total vectors. `spiritual_rag` deduplicated (−19,338 vectors). `psychological_rag` restored (968 docs). `msjarvis` port 5433 restored. `msjarvisgis` port 5432 confirmed. The stub's optimization theory, formal evaluation, and broader orchestration influence remain evolving areas of work.
 
 ---
 
-*Last updated: 2026-03-27 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
-*★ March 27, 2026: Port reference table — ⚠️ security hardening note added (all ports locked to 127.0.0.1 as of March 18, 2026, see Ch. 11); woah_stub.py block — canonical-home sentence added (reference implementation for Ch. 9 §9.3.4 and Ch. 10; canonical home is Ch. 10); pipeline phase number added throughout — WOAH operates at Phase 2.5 of the 9-phase ultimatechat pipeline (see Ch. 11 §11.4); DNS resolution false-diagnosis note already present ✅ — no change.*
-`````
+*Last updated: 2026-03-28 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+
+*Updated March 27, 2026: Port reference table — ⚠️ security hardening note added (all ports locked to `127.0.0.1` as of March 18, 2026, see Ch. 11); `woah_stub.py` block — canonical-home sentence added (reference implementation for Ch. 9 §9.3.4 and Ch. 10; canonical home is Ch. 10); pipeline phase number added throughout — WOAH operates at Phase 2.5 of the 9-phase `ultimatechat` pipeline (see Ch. 11 §11.4); DNS resolution false-diagnosis note already present ✅ — no change.*
+
+*★ March 28, 2026: Security remediation complete — 96/96 containers Up confirmed; `jarvis-i-containers` (8015) and `jarvis-memory` (8056) corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` on all 4 sensitive routes confirmed; `JARVIS_API_KEY` set confirmed. Confirmed operational state table expanded with March 28 security and audit rows. `msjarvisgis` port confirmed 5432 throughout; `msjarvis` port 5433 restored — both noted in consciousness/orchestration stack section and status block. ChromaDB full audit (40 collections, 6,675,442 vectors) added to upstream-layers description and place-accountable-intelligence section. `spiritual_rag` deduplicated and `psychological_rag` restored referenced in status block. Full scoring response JSON schema example added to service-integration section. `autonomous_learner` and `governance_rag` collection references added to place-accountable-intelligence section to ground WOAH's memory-weighting role in confirmed live collections.*
