@@ -1,8 +1,7 @@
 # 29. Psychological Safeguards and the PIA Review Loop
 
-Carrie Kidd (Mamma Kidd) — Pax, WV
-*(Note: prior drafts listed Oak Hill, WV — updated to Pax, WV as primary/residential address. If Oak Hill is the intended mailing or professional publication address, revert this line intentionally.)*
-
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+*
 ## Why This Matters for Polymathmatic Geography
 
 This chapter formalizes how psychological and mental-health knowledge is integrated into Ms. Jarvis to guide interaction patterns, monitor interaction risks, and adapt system behavior over time, all grounded in three PostgreSQL databases (`msjarvis` port 5433: 5,416,521 verified GBIM beliefs; `gisdb` port 5433: 13 GB PostGIS; `jarvis-local-resources-db` port 5435: community resources). It supports:
@@ -379,11 +378,9 @@ For the BBB 7-filter pipeline that enforces safety constraints validated against
 
 ---
 
-*Last updated: 2026-03-27 by Carrie Kidd (Mamma Kidd), Pax WV*
+*Last updated: 2026-03-27 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *BBB output guard port 8016 added to safeguards table — March 27, 2026*
 *Ch 42 §42.3.2 forward reference verification note added — March 27, 2026*
 *jarvis-spiritual-rag port 8005 verification note added — March 27, 2026*
 *gbim_query_router port 7205 verification note added — March 27, 2026*
-*Location line updated Pax, WV (confirm if Oak Hill preferred for publication) — March 27, 2026*
-*All other sections current as of March 22, 2026*
 `````
