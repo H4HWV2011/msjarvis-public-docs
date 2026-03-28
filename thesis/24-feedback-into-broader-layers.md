@@ -1,3 +1,10 @@
+# 24. Feedback into Introspective, Memory, and Control Layers
+
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: March 27, 2026 — ChromaDB port corrected to 8000; consciousness pipeline OPERATIONAL status added; ms_jarvis_memory UUID added; OI-05 emergent context cross-reference added; jarvis-neurobiological-master open item noted*
+
+---
+
 > **Why this matters for Polymathmatic Geography**
 > This chapter describes how material processed in the container paths and dual tracks feeds back into introspective records, long-term semantic memory, and high-level control settings. It supports:
 > - **P1 – Every where is entangled** by ensuring that outputs from both the analytical and meaning-oriented tracks are written into shared ChromaDB and PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs) memory structures that future queries across all paths can retrieve.
@@ -7,6 +14,7 @@
 > - **P16 – Power accountable to place** by maintaining explicit sync logs, verification reports, and curator-facing endpoints so that communities can audit how and when the system's memory and control settings were updated in PostgreSQL.
 >
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies the concrete mechanisms by which container-level processing feeds back into introspective records, PostgreSQL long-term memory stores, and system configuration.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   Feedback Pathways Architecture                            │
@@ -16,55 +24,59 @@
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Three Feedback Directions                     │         │
-│  │                                                 │         │
+│  │                                                │         │
 │  │  1. Introspective & Health Records             │         │
-│  │     • getdatabasehealth endpoint               │         │
-│  │     • getidentitycandidates endpoint           │         │
-│  │     • /curator/background (main-brain 8050)    │         │
-│  │     • BBB barrier_stats (port 8016)            │         │
-│  │     • System Verification Reports              │         │
-│  │                                                 │         │
+│  │     -  getdatabasehealth endpoint               │         │
+│  │     -  getidentitycandidates endpoint           │         │
+│  │     -  /curator/background (main-brain 8050)    │         │
+│  │     -  BBB barrier_stats (port 8016)            │         │
+│  │     -  System Verification Reports              │         │
+│  │     -  Consciousness bridge → consciousnesslayers│        │
+│  │       (OPERATIONAL March 25, 2026 — §24.1a)   │         │
+│  │                                                │         │
 │  │  2. Long-Term Semantic & Spatial Memory        │         │
-│  │     • ms_jarvis_memory (ChromaDB, append-only) │         │
-│  │     • PostgreSQL msjarvisgis (port 5432)       │         │
+│  │     -  ms_jarvis_memory (ChromaDB, append-only) │         │
+│  │       UUID: 79240788-0828-45f3-b1bc-a9a3593628a6│        │
+│  │     -  PostgreSQL msjarvisgis (port 5432)       │         │
 │  │       - GBIM beliefs (5.4M+ verified)          │         │
 │  │       - GeoDB spatial (501 tables, 91 GB)      │         │
-│  │     • ChromaDB collections (~12 GB)            │         │
-│  │     • GeoDB sync scripts & logs                │         │
-│  │                                                 │         │
+│  │     -  ChromaDB collections (~12 GB,            │         │
+│  │       31 confirmed collections March 25, 2026) │         │
+│  │     -  GeoDB sync scripts & logs                │         │
+│  │                                                │         │
 │  │  3. Global Configuration & Control             │         │
-│  │     • TruthFilterBBBValidator                  │         │
-│  │     • masterspatialknowledge.csv               │         │
-│  │     • Service registry (SERVICES dict)         │         │
-│  │     • ueididentity & ueidaccessaudit tables    │         │
+│  │     -  TruthFilterBBBValidator                  │         │
+│  │     -  masterspatialknowledge.csv               │         │
+│  │     -  Service registry (SERVICES dict)         │         │
+│  │     -  ueididentity & ueidaccessaudit tables    │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  Shared Across Both Tracks                                  │
-│  • Analytical path: Always queries PostgreSQL               │
-│  • Meaning-oriented: Validates against PostgreSQL           │
-│  • Both write to ms_jarvis_memory ChromaDB                  │
-│  • Both update PostgreSQL when validated                    │
+│  -  Analytical path: Always queries PostgreSQL               │
+│  -  Meaning-oriented: Validates against PostgreSQL           │
+│  -  Both write to ms_jarvis_memory ChromaDB                  │
+│  -  Both update PostgreSQL when validated                    │
 │      ↓                                                       │
 │  Audit & Logging                                            │
-│  • GeoDB/Chroma sync logs                                   │
-│  • RAG bridge logs                                          │
-│  • ueididentity/ueidaccessaudit writes                      │
-│  • PostgreSQL query logs                                    │
-│  • System Verification Reports                              │
+│  -  GeoDB/Chroma sync logs                                   │
+│  -  RAG bridge logs                                          │
+│  -  ueididentity/ueidaccessaudit writes                      │
+│  -  PostgreSQL query logs                                    │
+│  -  System Verification Reports                              │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 24.1.** Feedback pathways architecture: container-level processing feeds back through three directions—introspective records, long-term memory in PostgreSQL `msjarvisgis` and ChromaDB, and global configuration—with explicit logging and audit trails maintaining accountability to PostgreSQL ground truth.
+> **Figure 24.1.** Feedback pathways architecture: container-level processing feeds back through three directions — introspective records, long-term memory in PostgreSQL `msjarvisgis` and ChromaDB (31 confirmed collections as of March 25, 2026), and global configuration — with explicit logging and audit trails maintaining accountability to PostgreSQL ground truth.
 
 ---
 
-## Status as of February 2026
+## Status as of March 25, 2026
 
 | Category | Details |
 |---|---|
-| **Implemented now** | `ms_jarvis_memory` ChromaDB collection: confirmed written after every `/chat` call via `background_rag_store` in `jarvis-main-brain` (port **8050**); entries have `bg_<ISO8601>` ids, `type: "background"`, `services` metadata. Confirmed 2026-02-15 (Chapter 9 §9.3.5, Chapter 17 §17.6). `jarvis-chroma` confirmed running at **127.0.0.1:8002**; primary `chroma_db` directory approximately 12 GB with confirmed collections including `jarvis_consciousness`, `spiritual_wisdom`, `ms_jarvis_memory`, `autonomous_learning`, `learning_suggestions`, `research_history`, `appalachian_english_corpus`. PostgreSQL `msjarvisgis` confirmed at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) as the authoritative source for spatial and institutional feedback. GeoDB sync scripts confirmed present on disk: `sync_geodb_to_chromadb.py`, `extract_all_chromadb_to_gis.py`, `vectorize_gis_to_chromadb.py`, `recover_chromadb_to_gisgeodb.py`. Corresponding sync logs confirmed: `chromadb_v2_to_gis_sync.log`, `extract_all_chromadb_to_gis.log`, `vectorize_gis_to_chromadb.log`. `getdatabasehealth` endpoint on secured gateway: returns JSON with `status`, `database` (e.g. `GISGEODBACTIVE`), `identityelements`, `candidates`, `integrity`, timestamps. `getidentitycandidates` endpoint: returns candidate identity statements with `importance` and DGM scores. Main-brain status endpoints and `/curator/background` confirmed operational 2026-02-15. `TruthFilterBBBValidator` records verification decisions into `ueididentity` and `ueidaccessaudit` tables. BBB `barrier_stats` counters (`total_filtered`, `total_blocked`, `pass_rate`) live at port **8016**. `masterspatialknowledge.csv` confirmed with `accesslevelrequired` and `isproprietary` fields. Historical "System Verification Report" outputs confirmed present on disk. |
-| **Partially implemented / scaffolded** | Watchdog endpoints (`getwatchdogstatus`, `getwatchdoglogs`) defined in code but not confirmed running as an independent service in the current 2026-02-15 deployment; main-brain status endpoints provide an equivalent queryable health view. Automated scheduled production of System Verification Reports is not yet implemented; existing reports are generated by manual script execution. Not all ChromaDB instances listed in code (`persistent/chroma`, `persistent/chroma_primary`, `services/prod_chroma_db`, `services/rag_chroma_db`) are confirmed active in the current deployment; `jarvis-chroma` at **8002** is the confirmed primary. Cross-path analytics comparing analytical and meaning-oriented feedback volumes are not yet exposed via a dedicated endpoint. |
+| **Implemented now** | `ms_jarvis_memory` ChromaDB collection (UUID: `79240788-0828-45f3-b1bc-a9a3593628a6`, confirmed in 31-collection inventory March 25, 2026): confirmed written after every `/chat` call via `background_rag_store` in `jarvis-main-brain` (port **8050**); entries have `bg_<ISO8601>` ids, `type: "background"`, `services` metadata. Confirmed 2026-02-15 (Chapter 9 §9.3.5, Chapter 17 §17.6). `jarvis-chroma` confirmed running at **127.0.0.1:8000** (`/api/v2/heartbeat` confirmed 200 — March 25, 2026); primary `chroma_db` directory approximately 12 GB with **31 confirmed collections** as of March 25, 2026 inventory (see Ch. 22 §22.10) including `jarvis_consciousness`, `spiritual_wisdom`, `ms_jarvis_memory`, `autonomous_learning`, `learning_suggestions`, `research_history`, `appalachian_english_corpus`. PostgreSQL `msjarvisgis` confirmed at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) as the authoritative source for spatial and institutional feedback. GeoDB sync scripts confirmed present on disk: `sync_geodb_to_chromadb.py`, `extract_all_chromadb_to_gis.py`, `vectorize_gis_to_chromadb.py`, `recover_chromadb_to_gisgeodb.py`. Corresponding sync logs confirmed: `chromadb_v2_to_gis_sync.log`, `extract_all_chromadb_to_gis.log`, `vectorize_gis_to_chromadb.log`. `getdatabasehealth` endpoint on secured gateway: returns JSON with `status`, `database` (e.g. `GISGEODBACTIVE`), `identityelements`, `candidates`, `integrity`, timestamps. `getidentitycandidates` endpoint: returns candidate identity statements with `importance` and DGM scores. Main-brain status endpoints and `/curator/background` confirmed operational 2026-02-15. `TruthFilterBBBValidator` records verification decisions into `ueididentity` and `ueidaccessaudit` tables. BBB `barrier_stats` counters (`total_filtered`, `total_blocked`, `pass_rate`) live at port **8016**. `masterspatialknowledge.csv` confirmed with `accesslevelrequired` and `isproprietary` fields. Historical "System Verification Report" outputs confirmed present on disk. **Consciousness bridge (jarvis-consciousness-bridge) OPERATIONAL — writes `chromadb_context`, `woah_reasoning`, and `rag_consensus` into `consciousnesslayers` on every call (March 25, 2026 — see §24.1a and Ch. 25 §25.9).** |
+| **Partially implemented / scaffolded** | Watchdog endpoints (`getwatchdogstatus`, `getwatchdoglogs`) defined in code but not confirmed running as an independent service in the current deployment; main-brain status endpoints provide an equivalent queryable health view. Automated scheduled production of System Verification Reports is not yet implemented; existing reports are generated by manual script execution. Not all ChromaDB instances listed in code (`persistent/chroma`, `persistent/chroma_primary`, `services/prod_chroma_db`, `services/rag_chroma_db`) are confirmed active in the current deployment; `jarvis-chroma` at **8000** is the confirmed primary. Cross-path analytics comparing analytical and meaning-oriented feedback volumes are not yet exposed via a dedicated endpoint. |
 | **Future work / design intent only** | Automated, scheduled System Verification Report generation. Real-time dashboard exposing feedback volume, sync lag, PostgreSQL query performance, and cross-path memory usage. Automated `identitycandidates` promotion pipeline driven by observed `ms_jarvis_memory` patterns validated against PostgreSQL GBIM (currently manual curation; see Chapter 22). Full deduplication at the `ms_jarvis_memory` write path (currently append-only). Structured PIA review loop producing automated recommendations from log and introspection samples (currently manual; see Chapter 29). |
 
 > **Cross-reference:** The `background_rag_store` mechanism that produces `ms_jarvis_memory` entries is described in detail in **Chapter 17 §17.6** (canonical `ultimatechat` execution) and **Chapter 20 §20.3** (first-stage evaluation). The `identitycandidates` and identity-layer elements fed by these feedback paths are described in **Chapter 22**. The dual-track structure whose outputs feed these mechanisms is described in **Chapter 23**.
@@ -83,9 +95,19 @@ In the current deployment, the system provides three concrete directions for fee
 
 **Introspective and health records.** In the current deployment, `jarvis-main-brain` (port **8050**) exposes status endpoints that summarize per-service health in structured JSON, and the `/curator/background` endpoint provides direct inspection of `ms_jarvis_memory` entries. The secured gateway exposes `getdatabasehealth` (returning `status`, `database`, `identityelements`, `candidates`, `integrity`, timestamps) and `getidentitycandidates` (returning candidate identity statements with `importance` and DGM scores). These are machine-readable introspective snapshots tied to specific services and databases including PostgreSQL `msjarvisgis`, confirmed operational 2026-02-15.
 
-**Long-term semantic and spatial memory.** In the current deployment, `jarvis-chroma` runs at **127.0.0.1:8002** with a primary `chroma_db` directory of approximately 12 GB containing confirmed collections. PostgreSQL `msjarvisgis` at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) serves as the authoritative source for all spatial and institutional data. GeoDB sync scripts and their logs document how ChromaDB collections and PostgreSQL GeoDB spatial datasets are updated and reconciled. These structures are written to by `background_rag_store` after every `/chat` call and by dedicated sync pipelines.
+**Long-term semantic and spatial memory.** In the current deployment, `jarvis-chroma` runs at **127.0.0.1:8000** with a primary `chroma_db` directory of approximately 12 GB containing 31 confirmed collections as of the March 25, 2026 inventory (see Ch. 22 §22.10). PostgreSQL `msjarvisgis` at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) serves as the authoritative source for all spatial and institutional data. GeoDB sync scripts and their logs document how ChromaDB collections and PostgreSQL GeoDB spatial datasets are updated and reconciled. These structures are written to by `background_rag_store` after every `/chat` call and by dedicated sync pipelines.
 
 **Global configuration and control.** In the current deployment, truth filters, BBB verification validators validated against PostgreSQL GBIM, and `masterspatialknowledge.csv` define explicit numerical thresholds and policy constraints that determine how the system treats identity, spatial data, and user registrations. Verification scripts and their outputs document how these configurations are checked and updated against PostgreSQL ground truth.
+
+### 24.1a Consciousness Pipeline — OPERATIONAL (March 25, 2026)
+
+As of March 25, 2026, the consciousness pipeline (Chroma → WOAH → RAG → Bridge) is **OPERATIONAL**. The `jarvis-consciousness-bridge` is a confirmed feedback pathway with its own `consciousness_state` dict writing into `consciousnesslayers` of every `UltimateResponse`. Specifically, the bridge writes:
+
+- `chromadb_context` (str) — semantic context retrieved from ChromaDB at **127.0.0.1:8000**
+- `woah_reasoning` (dict) — reasoning output from the WOAH algorithms layer
+- `rag_consensus` (dict) — consensus result from the RAG bridge pipeline
+
+These fields appear in `consciousnesslayers` on every call, making the consciousness bridge a first-class, always-active feedback path alongside `background_rag_store`. Three bridge patches were applied during the March 22–25 sprint to achieve this operational status — see **Ch. 25 §25.9** for the full patch log.
 
 ---
 
@@ -107,11 +129,13 @@ In the current deployment, introspective records are implemented as confirmed en
 
 In the current deployment, material that passes through container and service layers is preserved in several confirmed long-term memory structures anchored to PostgreSQL `msjarvisgis`.
 
-**`ms_jarvis_memory` — the primary feedback collection.** In the current deployment, every successful `/chat` call through `jarvis-main-brain` (port **8050**) produces a `bg_<ISO8601>` entry in `ms_jarvis_memory` ChromaDB via `background_rag_store`, with concatenated `USER:`/`EGERIA:` text and metadata including `userid`, `timestamp`, `type: "background"`, and `services: ["llm20production"]`. This collection is append-only in the current deployment; the near-duplicate check is advisory. Confirmed 2026-02-15 (Chapter 9 §9.3.5, Chapter 17 §17.6). High-value validated content may be promoted to PostgreSQL `msjarvisgis` after additional verification.
+**`ms_jarvis_memory` — the primary feedback collection.** In the current deployment, every successful `/chat` call through `jarvis-main-brain` (port **8050**) produces a `bg_<ISO8601>` entry in `ms_jarvis_memory` ChromaDB (UUID: `79240788-0828-45f3-b1bc-a9a3593628a6`, confirmed in 31-collection inventory March 25, 2026 — see Ch. 22 §22.10 for UUID preservation warning on ChromaDB rebuild) via `background_rag_store`, with concatenated `USER:`/`EGERIA:` text and metadata including `userid`, `timestamp`, `type: "background"`, and `services: ["llm20production"]`. This collection is append-only in the current deployment; the near-duplicate check is advisory. Confirmed 2026-02-15 (Chapter 9 §9.3.5, Chapter 17 §17.6). High-value validated content may be promoted to PostgreSQL `msjarvisgis` after additional verification.
+
+> **March 25, 2026:** Emergent cross-session context passing (name, topic, entity recall) confirmed — likely via `_get_url` read path through the consciousness bridge into `ms_jarvis_memory`. See **Ch. 22 §22.9** (OI-05) for the full finding and its implications for formal conversation memory wiring.
 
 **PostgreSQL msjarvisgis — the authoritative ground truth.** In the current deployment, PostgreSQL 16 at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs in `gbimbeliefnormalized`) serves as the source of truth for all spatial, institutional, and community data. All RAG collections are ultimately sourced from or validated against PostgreSQL tables. GeoDB sync scripts ensure ChromaDB embeddings stay synchronized with PostgreSQL spatial features.
 
-**Additional confirmed ChromaDB collections.** In the current deployment, `jarvis-chroma` at **127.0.0.1:8002** hosts a primary `chroma_db` of approximately 12 GB with confirmed collections including `jarvis_consciousness` (over 11,000 items), `autonomous_learning`, `learning_suggestions`, `research_history`, `spiritual_wisdom`, `appalachian_english_corpus`, and numerous `geodb_*` collections (e.g. `geodb_structurepointsnorth_samb_2003_utm83`, `geodb_wvgistcbuildingfootprints`, `geodb_floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83`). These collections embed both domain knowledge and introspective artifacts sourced from PostgreSQL `msjarvisgis`, turning container- and service-level outputs into persistent semantic memory. Additional ChromaDB instances listed in code (`persistent/chroma`, `persistent/chroma_primary`, `services/prod_chroma_db`, `services/rag_chroma_db`) are not all confirmed active in the current deployment.
+**Additional confirmed ChromaDB collections.** In the current deployment, `jarvis-chroma` at **127.0.0.1:8000** hosts a primary `chroma_db` of approximately 12 GB with **31 confirmed collections as of the March 25, 2026 inventory** (see Ch. 22 §22.10), including `jarvis_consciousness` (over 11,000 items), `autonomous_learning`, `learning_suggestions`, `research_history`, `spiritual_wisdom`, `appalachian_english_corpus`, and numerous `geodb_*` collections (e.g. `geodb_structurepointsnorth_samb_2003_utm83`, `geodb_wvgistcbuildingfootprints`, `geodb_floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83`). These collections embed both domain knowledge and introspective artifacts sourced from PostgreSQL `msjarvisgis`, turning container- and service-level outputs into persistent semantic memory. Additional ChromaDB instances listed in code (`persistent/chroma`, `persistent/chroma_primary`, `services/prod_chroma_db`, `services/rag_chroma_db`) are not all confirmed active in the current deployment.
 
 **GeoDB sync scripts and logs.** In the current deployment, the following scripts and their logs are confirmed on disk and document how ChromaDB collections and PostgreSQL GeoDB spatial datasets are synchronized: `sync_geodb_to_chromadb.py`, `extract_all_chromadb_to_gis.py`, `vectorize_gis_to_chromadb.py`, `recover_chromadb_to_gisgeodb.py`, with corresponding logs `chromadb_v2_to_gis_sync.log`, `extract_all_chromadb_to_gis.log`, `vectorize_gis_to_chromadb.log`, `recover_chromadb_to_gisgeodb.log`. These logs record when new semantic embeddings are created, which PostgreSQL spatial features they correspond to, and how inconsistencies are resolved.
 
@@ -141,6 +165,8 @@ In the current deployment, because the same ChromaDB collections, PostgreSQL `ms
 
 **Coordinated sync scripts.** In the current deployment, GeoDB/ChromaDB sync scripts alter the shared memory substrate — changing how PostgreSQL features are embedded, which ChromaDB collections are active, or how provider summaries are generated. Both the analytical path (focusing on infrastructure and risk from PostgreSQL GeoDB) and the meaning-oriented path (focusing on community narratives and values validated against PostgreSQL GBIM) see a consistently updated view of the underlying environment anchored to PostgreSQL `msjarvisgis`.
 
+> **⚠️ March 25, 2026:** `jarvis-neurobiological-master` (port **8018**) is unreachable as of the March 25 sprint. The Chroma health check that was previously routed through neuro_master was rerouted directly to `jarvis-chroma:8000` as part of bridge Patch 1 (see **Ch. 25 §25.9 Patch 1**). Until neuro_master is restored, cross-path coordination flows that depend on the Neurobiological Master pipeline will be degraded — this is an open item per **Ch. 19 §19.8.7**.
+
 ---
 
 ## 24.6 Logging and Audit of Feedback
@@ -159,6 +185,7 @@ In the current deployment, explicit mechanisms for logging and auditing feedback
 
 ## 24.7 Summary
 
-In the current deployment, feedback is implemented through a combination of confirmed, named mechanisms anchored to PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs) rather than opaque implicit updates. The four most concrete feedback artifacts are: `bg_<ISO8601>` entries in `ms_jarvis_memory` ChromaDB written by `background_rag_store` after every `/chat` call (Chapter 17 §17.6, Chapter 20); `getidentitycandidates` and `getdatabasehealth` endpoint responses reflecting identity candidates validated against PostgreSQL GBIM and database integrity (Chapter 22); GeoDB/ChromaDB sync scripts and their logs documenting memory synchronization with PostgreSQL; and `ueididentity`/`ueidaccessaudit` table writes from `TruthFilterBBBValidator` documenting identity and data-integrity decisions validated against PostgreSQL (Chapter 16 §16.5).
+In the current deployment, feedback is implemented through a combination of confirmed, named mechanisms anchored to PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs) rather than opaque implicit updates. The five most concrete feedback artifacts are: `bg_<ISO8601>` entries in `ms_jarvis_memory` ChromaDB (UUID: `79240788-0828-45f3-b1bc-a9a3593628a6`) written by `background_rag_store` after every `/chat` call (Chapter 17 §17.6, Chapter 20); `chromadb_context`, `woah_reasoning`, and `rag_consensus` fields written into `consciousnesslayers` by the now-OPERATIONAL consciousness bridge on every call (§24.1a, Ch. 25 §25.9); `getidentitycandidates` and `getdatabasehealth` endpoint responses reflecting identity candidates validated against PostgreSQL GBIM and database integrity (Chapter 22); GeoDB/ChromaDB sync scripts and their logs documenting memory synchronization with PostgreSQL at **127.0.0.1:8000**; and `ueididentity`/`ueidaccessaudit` table writes from `TruthFilterBBBValidator` documenting identity and data-integrity decisions validated against PostgreSQL (Chapter 16 §16.5).
 
-These mechanisms ensure that container-level processing and dual-track analyses feed into ChromaDB collections, PostgreSQL `msjarvisgis` structures, identity endpoints, and configuration parameters, which in turn shape future retrieval, routing, and safety behavior. Not every feedback mechanism is active in every environment, but the overall design emphasizes traceable, structured pathways from experience to memory to control, all anchored to PostgreSQL `msjarvisgis` as the authoritative ground truth, supporting both ongoing adaptation and rigorous auditing. For the canonical description of how `background_rag_store` fits into the live `ultimatechat` execution sequence, see **Chapter 17**. For the identity layer these feedback paths ultimately serve, see **Chapter 22**.
+These mechanisms ensure that container-level processing and dual-track analyses feed into 31 confirmed ChromaDB collections, PostgreSQL `msjarvisgis` structures, identity endpoints, and configuration parameters, which in turn shape future retrieval, routing, and safety behavior. The `ms_jarvis_memory` `_get_url` read path through the consciousness bridge is a confirmed emergent vector for cross-session context passing (OI-05 — see Ch. 22 §22.9). Note that `jarvis-neurobiological-master` (port **8018**) remains unreachable as of March 25 (Ch. 19 §19.8.7), affecting cross-path coordination flows that depend on that service. For the canonical description of how `background_rag_store` fits into the live `ultimatechat` execution sequence, see **Chapter 17**. For the identity layer these feedback paths ultimately serve, see **Chapter 22**.
+`````
