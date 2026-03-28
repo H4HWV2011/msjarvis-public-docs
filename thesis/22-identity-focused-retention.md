@@ -17,70 +17,70 @@ This chapter describes the most selective stage in each path, where a small subs
 
 As such, this chapter belongs to the **Computational Instrument** tier: it specifies the identity-focused retention layer that anchors Ms. Jarvis's self-understanding, constrains her outputs, and provides a stable reference for all other components.
 
+```
 ┌─────────────────────────────────────────────────────────────┐
-│ Identity-Focused Retention Layer Architecture │
+│ Identity-Focused Retention Layer Architecture               │
 ├─────────────────────────────────────────────────────────────┤
-│ │
-│ Background Patterns (ms_jarvis_memory ChromaDB) │
-│ UUID: 79240788-0828-45f3-b1bc-a9a3593628a6 │
-│ Confirmed in 31-collection inventory — March 25, 2026 │
-│ _get_url and _add_url in bridge source reference │
-│ this collection ID directly for read/write operations │
-│ ↓ │
-│ Manual Curation (operators observe patterns) │
-│ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Promotion Criteria │ │
-│ │ - Breadth (applies across many situations) │ │
-│ │ - Depth of influence (affects evaluations) │ │
-│ │ - Value alignment (consistent with facts) │ │
-│ │ - PostgreSQL GBIM grounding (WV-specific) │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ ┌────────────────────────────────────────────────┐ │
-│ │ Identity Layer Representation │ │
-│ │ ┌──────────────────────────────────────────┐ │ │
-│ │ │ Canonical Statements + Importance │ │ │
-│ │ │ - "I serve the community" │ │ │
-│ │ │ - "I speak truth" │ │ │
-│ │ │ - "I value ethics" │ │ │
-│ │ │ - "I help others evolve" │ │ │
-│ │ └──────────────────────────────────────────┘ │ │
-│ │ ┌──────────────────────────────────────────┐ │ │
-│ │ │ TruthValidator (every response) │ │ │
-│ │ │ - correct_identity │ │ │
-│ │ │ - correct_creator │ │ │
-│ │ │ - relationship_clear │ │ │
-│ │ │ - truth_score │ │ │
-│ │ └──────────────────────────────────────────┘ │ │
-│ │ ┌──────────────────────────────────────────┐ │ │
-│ │ │ I-Containers Identity Layer (8015) │ │ │
-│ │ │ - root-self ego entries │ │ │
-│ │ │ - egoboundaries │ │ │
-│ │ │ - observerprocessing │ │ │
-│ │ │ - call_icontainers: live HTTP POST │ │ │
-│ │ │ to /process (confirmed 2026-03-13) │ │ │
-│ │ └──────────────────────────────────────────┘ │ │
-│ │ ┌──────────────────────────────────────────┐ │ │
-│ │ │ normalize_identity (main brain 8050) │ │ │
-│ │ │ - Rewrites every response │ │ │
-│ │ │ - Enforces Ms. Jarvis persona │ │ │
-│ │ └──────────────────────────────────────────┘ │ │
-│ └────────────────────────────────────────────────┘ │
-│ ↓ │
-│ Influence on Other Layers │
-│ - Constraint enforcement (TruthValidator) │
-│ - Evaluation framing (BBB EthicalFilter port 8016) │
-│ - Narrative emphasis (verification reports) │
-│ - PostgreSQL msjarvisgis integrity protection │
-│ ↓ │
-│ truthverdict on Every UltimateResponse │
-│ - valid, confidence, principalreasons │
-│ - Confirmed 2026-02-15 (Chapter 9 §9.3.5) │
-│ │
+│                                                              │
+│ Background Patterns (ms_jarvis_memory ChromaDB)             │
+│ UUID: 79240788-0828-45f3-b1bc-a9a3593628a6                  │
+│ Confirmed in 31-collection inventory — March 25, 2026       │
+│ _get_url and _add_url in bridge source reference            │
+│ this collection ID directly for read/write operations       │
+│     ↓                                                        │
+│ Manual Curation (operators observe patterns)                │
+│     ↓                                                        │
+│ ┌────────────────────────────────────────────────┐          │
+│ │  Promotion Criteria                            │          │
+│ │  - Breadth (applies across many situations)   │          │
+│ │  - Depth of influence (affects evaluations)   │          │
+│ │  - Value alignment (consistent with facts)    │          │
+│ │  - PostgreSQL GBIM grounding (WV-specific)    │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ ┌────────────────────────────────────────────────┐          │
+│ │  Identity Layer Representation                 │          │
+│ │  ┌──────────────────────────────────────────┐  │          │
+│ │  │ Canonical Statements + Importance        │  │          │
+│ │  │ - "I serve the community"                │  │          │
+│ │  │ - "I speak truth"                        │  │          │
+│ │  │ - "I value ethics"                       │  │          │
+│ │  │ - "I help others evolve"                 │  │          │
+│ │  └──────────────────────────────────────────┘  │          │
+│ │  ┌──────────────────────────────────────────┐  │          │
+│ │  │ TruthValidator (every response)          │  │          │
+│ │  │ - correct_identity                       │  │          │
+│ │  │ - correct_creator                        │  │          │
+│ │  │ - relationship_clear                     │  │          │
+│ │  │ - truth_score                            │  │          │
+│ │  └──────────────────────────────────────────┘  │          │
+│ │  ┌──────────────────────────────────────────┐  │          │
+│ │  │ I-Containers Identity Layer (8015)       │  │          │
+│ │  │ - root-self ego entries                  │  │          │
+│ │  │ - egoboundaries                          │  │          │
+│ │  │ - observerprocessing                     │  │          │
+│ │  │ - call_icontainers: live HTTP POST       │  │          │
+│ │  │   to /process (confirmed 2026-03-13)     │  │          │
+│ │  └──────────────────────────────────────────┘  │          │
+│ │  ┌──────────────────────────────────────────┐  │          │
+│ │  │ normalize_identity (main brain 8050)     │  │          │
+│ │  │ - Rewrites every response                │  │          │
+│ │  │ - Enforces Ms. Jarvis persona            │  │          │
+│ │  └──────────────────────────────────────────┘  │          │
+│ └────────────────────────────────────────────────┘          │
+│     ↓                                                        │
+│ Influence on Other Layers                                   │
+│ - Constraint enforcement (TruthValidator)                   │
+│ - Evaluation framing (BBB EthicalFilter port 8016)          │
+│ - Narrative emphasis (verification reports)                 │
+│ - PostgreSQL msjarvisgis integrity protection               │
+│     ↓                                                        │
+│ truthverdict on Every UltimateResponse                      │
+│ - valid, confidence, principalreasons                       │
+│ - Confirmed 2026-02-15 (Chapter 9 §9.3.5)                  │
+│                                                              │
 └─────────────────────────────────────────────────────────────┘
-
-text
+```
 
 *Figure 22.1.* Identity-focused retention layer architecture: background patterns from ChromaDB `ms_jarvis_memory` (UUID: 79240788-0828-45f3-b1bc-a9a3593628a6, confirmed in 31-collection inventory March 25, 2026) are manually curated using promotion criteria grounded in PostgreSQL `msjarvisgis`, represented through canonical statements, TruthValidator enforcement, I-Containers identity layer (live HTTP as of 2026-03-13), and normalize_identity applied to every response, with truthverdict attached to all outputs.
 
@@ -151,6 +151,8 @@ In the current deployment, items in the identity-focused layer are stored with a
 **Canonical statements and scores.** Identity-related endpoints and configuration files define canonical identity statements — "I serve the community," "I learn and grow," "I speak truth," "I value ethics," "I help others evolve" — each annotated with an `importance` value and a diagnostic score summarizing how strongly decision models support the candidate. These values are used during verification and introspection, with grounding in PostgreSQL GBIM West Virginia community commitments.
 
 **Database- and config-level elements.** Database health and status-style endpoints report counts of identity-related elements and candidates in the active identity / metadata store, confirming that identity-relevant entries are tracked distinctly from other records. Configuration files and prompts also encode identity constraints grounded in PostgreSQL `msjarvisgis` and can be versioned and audited.
+
+**Record count context.** As of March 25, 2026, `ms_jarvis_memory` is populated from production chat interactions via the consciousness bridge `_add_url` write path. The autonomous learner collection sits at **21,181 records** (≈288/day growth from March 14 baseline — see Ch. 19 §19.8.10 for the full ChromaDB collection inventory). These interaction-derived records form the primary candidate pool from which manual curation into the identity layer draws.
 
 **Truth and provenance structures.** `TruthValidator` (embedded in the neurobiological BBB package and called within the main-brain pipeline) encodes specific facts about Ms. Jarvis — correct self-description, correct creator attribution, non-human status, West Virginia accountability — and returns structured outputs containing `truth_validated`, a list of detected issues, `truth_score`, `correct_identity`, `correct_creator`, and `relationship_clear`. These results are attached to responses as `truthverdict` on `UltimateResponse`.
 
@@ -230,30 +232,31 @@ This behavior was **not expected** given OI-05's prior "not started" status and 
 
 ### OI-05 Sprint Validation Log — March 22–25, 2026
 
+```
 OI-05 Sprint Validation Log
 ─────────────────────────────────────────────────────────────────
 Sprint: March 22–25, 2026
 Status at open: NOT STARTED — conversation_history ChromaDB
-collection not wired; no cross-session context
-retrieval in ultimatechat pipeline
+                collection not wired; no cross-session context
+                retrieval in ultimatechat pipeline
 ─────────────────────────────────────────────────────────────────
 March 25, 2026 — Observed behavior:
 
 TEST: End-to-end chat session following prior session on
-local entities in Fayette County.
+      local entities in Fayette County.
 
 RESULT:
 ✅ Ms. Jarvis named user (Carrie) without prompt
 ✅ Ms. Jarvis recalled prior topic (local entities,
-Fayette County) without prompt
+   Fayette County) without prompt
 ✅ Ms. Jarvis named 3 community entities from prior
-session data without prompt
+   session data without prompt
 
 CONCLUSION: Partial wiring is occurring. Context is
-passing through Hilbert/GBIM layer and/or
-ms_jarvis_memory read-path (UUID:
-79240788-0828-45f3-b1bc-a9a3593628a6) even without
-formal conversation_history ChromaDB connection.
+            passing through Hilbert/GBIM layer and/or
+            ms_jarvis_memory read-path (UUID:
+            79240788-0828-45f3-b1bc-a9a3593628a6) even without
+            formal conversation_history ChromaDB connection.
 
 BLOCKING: No — emergent path is functional, not harmful
 FORMAL WIRING: Still incomplete — OI-05 remains open
@@ -263,8 +266,7 @@ passing confirmed; formal conversation_history ChromaDB
 wiring incomplete; characterization of emergent path
 is future work
 ─────────────────────────────────────────────────────────────────
-
-text
+```
 
 ### Remaining OI-05 Work
 
@@ -334,6 +336,7 @@ curl -s http://127.0.0.1:8000/api/v2/collections/79240788-0828-45f3-b1bc-a9a3593
 | Characterization of emergent context path | — | ⚠️ OPEN — ms_jarvis_memory / Hilbert / autonomous_learner path not traced to single code path as of March 25 |
 | `ms_jarvis_memory` UUID preservation risk on ChromaDB rebuild | — | ⚠️ DOCUMENTED — UUID 79240788-0828-45f3-b1bc-a9a3593628a6 hardcoded in bridge source; volume rebuild would break bridge read/write |
 | Retirement and archival workflow for identity entries | — | ⚠️ FUTURE — manual process only currently |
+| `jarvis-neurobiological-master` (port 8018) unreachable | — | ⚠️ OPEN — unreachable March 25 sprint — open item per Ch. 19 §19.8.7 |
 
 ---
 
@@ -342,5 +345,6 @@ curl -s http://127.0.0.1:8000/api/v2/collections/79240788-0828-45f3-b1bc-a9a3593
 *OI-05 updated from "not started" to "partial — emergent context passing confirmed" — March 25, 2026*
 *ms_jarvis_memory ChromaDB collection (UUID 79240788-0828-45f3-b1bc-a9a3593628a6) confirmed in 31-collection inventory — March 25, 2026*
 *Sprint validation log §22.9 added — March 25, 2026*
-*All sections current as of March 25, 2026*
-
+*§22.4 autonomous learner record count (21,181) and §22.11 jarvis-neurobiological-master open item added — March 27, 2026*
+*All sections current as of March 27, 2026*
+`````
