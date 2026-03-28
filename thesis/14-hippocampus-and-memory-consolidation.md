@@ -1,14 +1,18 @@
-> #### Why this matters for Polymathmatic Geography
-> This chapter explains how Ms. Jarvis turns lived interactions—often about specific West Virginia places—into durable, inspectable memory. It supports:
-> - **P1 – Every where is entangled** by tying conversational experiences and world-model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.
-> - **P3 – Power has a geometry** by making long-term memory a structured, queryable space over worldview-tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.
-> - **P5 – Design is a geographic act** by deciding which entities, programs, and communities are promoted into GBIM, given nine-axis beliefs, and mirrored into hippocampal collections keyed by worldview, dataset, and feature identity.
-> - **P12 – Intelligence with a ZIP code** by anchoring consolidated memories in WV geospatial layers, normalized nine-axis beliefs, and local knowledge bases so that questions about "who is helped where" are answered in terms of concrete places and entities.
-> - **P16 – Power accountable to place** by storing rich, provenance-aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.
->
-> As such, this chapter belongs to the **Computational Instrument** tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis's activity and world models into a long-term, place-aware memory substrate. The `jarvis-hippocampus` service was deployed March 15, 2026 (commit `b90f9ff`) as part of the 79-container production stack and is confirmed operational in the end-to-end pipeline benchmark. Phase 1.45 community memory retrieval (deployed March 17, 2026) queries the `autonomous_learner` ChromaDB collection — 21,181 records as of March 18, 2026, growing ~288/day — on every production `/chat` request, making hippocampal memory an active input to every response rather than a background archive.
+# 14. Hippocampus and Memory Consolidation
 
-<img width="1100" height="900" alt="Hippocampal consolidation in Ms. Jarvis" src="https://github.com/user-attachments/assets/fdccceea-72b4-4e90-99d1-4d44286c55db" />
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+
+## Why This Matters for Polymathmatic Geography
+
+This chapter explains how Ms. Jarvis turns lived interactions — often about specific West Virginia places — into durable, inspectable memory. It supports:
+
+- **P1 – Every where is entangled** by tying conversational experiences and world-model updates to shared semantic, institutional, and spatial backbones grounded in GBIM entities, normalized beliefs, and a statewide hippocampal index.
+- **P3 – Power has a geometry** by making long-term memory a structured, queryable space over worldview-tied features, not an opaque chat log, so that reasoning paths can be traced across specific datasets, programs, and jurisdictions.
+- **P5 – Design is a geographic act** by deciding which entities, programs, and communities are promoted into GBIM, given nine-axis beliefs, and mirrored into hippocampal collections keyed by worldview, dataset, and feature identity.
+- **P12 – Intelligence with a ZIP code** by anchoring consolidated memories in WV geospatial layers, normalized nine-axis beliefs, and local knowledge bases so that questions about "who is helped where" are answered in terms of concrete places and entities.
+- **P16 – Power accountable to place** by storing rich, provenance-aware traces (worldview IDs, datasets, GeoDB feature IDs, centroids, SRIDs) so communities can audit how advice and analysis are grounded in their own places rather than abstract averages.
+
+As such, this chapter belongs to the **Computational Instrument** tier: it specifies the hippocampal consolidation pipeline that turns Ms. Jarvis's activity and world models into a long-term, place-aware memory substrate. The `jarvis-hippocampus` service was deployed March 15, 2026 (commit `b90f9ff`) as part of the 79-container production stack and is confirmed operational in the end-to-end pipeline benchmark. Phase 1.45 community memory retrieval (deployed March 17, 2026) queries the `autonomous_learner` ChromaDB collection — 21,181 records as of March 18, 2026, growing ~288/day — on every production `/chat` request, making hippocampal memory an active input to every response rather than a background archive.
 
 > *Figure 14.1. Hippocampal consolidation in Ms. Jarvis: GBIM entities and normalized nine-axis beliefs, enriched with centroids and provenance, are mirrored into a `geospatialfeatures` vector collection that serves as a long-term, place-aware memory index for retrieval and audit. Phase 1.45 (deployed March 17, 2026) adds a second active retrieval path: the `autonomous_learner` collection (21,181 records) is queried on every `/chat` request via `all-minilm:latest` (384-dim) semantic search, prepending the top-5 most relevant community interaction records to every LLM prompt.*
 
@@ -18,15 +22,18 @@
 
 This chapter describes how recent activity is turned into durable records in the system's long-term stores. The design borrows the idea of a hippocampal buffer that receives short-lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is played by two complementary subsystems: (1) the GBIM + beliefs + Chroma hippocampus — GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine-axis belief rows in `gbim_belief_normalized`, and a ChromaDB collection called `geospatialfeatures` that mirrors centroid-bearing entities together with worldview, dataset, GeoDB IDs, and other provenance; and (2) the `autonomous_learner` ChromaDB collection, which accumulates community interaction records at ~288 per day and is queried at Phase 1.45 of every production `/chat` request. As of March 18, 2026, the `jarvis-hippocampus` service is deployed and confirmed operational as part of the 79-container production stack (commit `b90f9ff`), ChromaDB is fully containerized at port 8000 with the `chroma_data` Docker volume (restored March 15), and all ChromaDB collections use **384-dimensional vectors** produced by `all-minilm:latest`. Neurobiological work on hippocampal replay and complementary learning systems provides the conceptual backdrop for this design.
 
-**Production state (March 18, 2026):**
+**Production state (March 18, 2026 baseline; March 27, 2026 sprint update):**
+
 - `jarvis-hippocampus` service: ✅ Deployed and operational (commit `b90f9ff`)
 - ChromaDB `geospatialfeatures` collection: ✅ Active (port 8000, `chroma_data` volume)
-- ChromaDB `autonomous_learner` collection: ✅ **21,181 records** (growing ~288/day; queried at Phase 1.45 on every `/chat` call)
+- ChromaDB `autonomous_learner` collection: ✅ **21,181 records** as of March 18, 2026 (growing ~288/day; queried at Phase 1.45 on every `/chat` call)
 - Embedding model: ✅ **`all-minilm:latest` (384-dim)** — canonical embedding model for all ChromaDB collections
 - PostgreSQL `msjarvis` (port 5433): ✅ 5,416,521 GBIM entities, 80 epochs, 206 source layers
 - PostgreSQL `gisdb` (port 5433): ✅ 13 GB PostGIS, 39 tables, 993 ZCTA centroids
 - GBIM temporal confidence decay: ✅ Deployed March 15 — all entities carry `last_verified`, `confidence_decay`, `needs_verification`
 - Integration with 9-phase pipeline: ✅ Confirmed in end-to-end benchmark (~436s, March 18, 2026, optimized from 532s baseline)
+
+> **📈 March 27, 2026 sprint update:** 65 additional documents confirmed in Chroma from AAPCAppE scraper first run (`jarvis-ingest-watcher`). RAG confirmed loading 53 documents (7 new base cultural docs). `autonomous_learner` collection trajectory: first external-source documents now flowing. Scraper reporting 39 sources, `total_runs: 1`. See §14.8 for updated collection table.
 
 > **Critical — Embedding model lock (March 17, 2026):** All ChromaDB collections — including `geospatialfeatures`, `autonomous_learner`, `gbim_worldview_entities`, `psychological_rag`, `ms_jarvis_memory`, and all others — use **384-dimensional vectors** produced by `all-minilm:latest` (pulled into `jarvis-ollama:11434`, March 17). The `nomic-embed-text` model produces **768-dimensional vectors** and is **incompatible** with all existing collections. Any service, script, or migration that generates embeddings for ChromaDB must use `all-minilm:latest`. The `_DummyCollection` error that previously blocked semantic retrieval from `autonomous_learner` is resolved by this implementation.
 
@@ -43,7 +50,7 @@ As of March 17, 2026, a second active hippocampal pathway operates in parallel: 
 | Pathway | Collection | Records | Query timing | Mechanism |
 |---|---|---|---|---|
 | GBIM + beliefs consolidation | `geospatialfeatures` | ~5.4M entities mirrored | Phase 4 RAG (on-demand) | Metadata-filtered ChromaDB + PostgreSQL join |
-| Community interaction memory | `autonomous_learner` | 21,181 (growing ~288/day) | Phase 1.45 (every request) | `all-minilm:latest` semantic search, top-5 prepended |
+| Community interaction memory | `autonomous_learner` | 21,181 (growing ~288/day; 65 new external-source docs from AAPCAppE scraper as of March 27) | Phase 1.45 (every request) | `all-minilm:latest` semantic search, top-5 prepended |
 
 A GBIM promotion and normalization pipeline:
 
@@ -55,6 +62,7 @@ This GBIM + beliefs + Chroma stack therefore acts as a hippocampal buffer: it ob
 
 **Relationship to the 9-phase pipeline (Chapter 17):**
 The `jarvis-hippocampus` service and `autonomous_learner` collection participate in the production 9-phase pipeline by:
+
 1. **Phase 1.45:** `autonomous_learner` queried via `all-minilm:latest` (384-dim) on every request — top-5 community memories prepended to `enhanced_message`
 2. **Phase 4:** `geospatialfeatures` collection queried by GIS-RAG (port 8004) and `jarvis-spiritual-rag` (port 8005) as part of RAG context building; GBIM entities and beliefs retrieved from PostgreSQL `msjarvis`
 3. **Phase 5:** `confidence_decay` multiplier derived from `gbim_belief_normalized` temporal metadata applied to every response
@@ -73,7 +81,7 @@ The core inputs are rows in `gbim_worldview_entity` and their 1:1 normalized bel
 For features with geometry, the belief `where` axis records centroids and SRIDs derived from underlying WV GIS layers (PostgreSQL `gisdb`, port 5433 — PostGIS, 13 GB, 39 tables, 993 ZCTA centroids from `zcta_wv_centroids`). These values are streamed into ChromaDB `geospatialfeatures` metadata (`centroid_x`, `centroid_y`, `srid`) so that retrieval can respect spatial context and coordinate systems. All embeddings for `geospatialfeatures` use `all-minilm:latest` (384-dim) to maintain collection compatibility.
 
 **Community interaction records (`autonomous_learner`)**
-The `autonomous_learner` ChromaDB collection (21,181 records as of March 18, 2026; growing ~288/day) accumulates community interaction records produced by the autonomous learning subsystem. These records are written separately from `background_rag_store` and represent a different hippocampal pathway: experiential, interaction-derived memory rather than structured GBIM entity promotion. They are queried at Phase 1.45 via `all-minilm:latest` semantic search on every production request.
+The `autonomous_learner` ChromaDB collection (21,181 records as of March 18, 2026; growing ~288/day) accumulates community interaction records produced by the autonomous learning subsystem. These records are written separately from `background_rag_store` and represent a different hippocampal pathway: experiential, interaction-derived memory rather than structured GBIM entity promotion. They are queried at Phase 1.45 via `all-minilm:latest` semantic search on every production request. As of March 27, 2026, the AAPCAppE scraper first run has begun adding external-source documents to the ingest pipeline — see §14.3 and §14.8.
 
 **Program and institutional entities**
 Benefit programs, governance entities, and institutional structures can also be represented as GBIM entities with beliefs over what, for_whom, why, when, and authority. As those entities are promoted, they join the same hippocampal fabric as geospatial features, allowing queries to traverse both physical and institutional space. Community-validated resource data from `jarvis-local-resources-db` (port 5435) is also eligible for promotion into the GBIM + beliefs + Chroma pipeline.
@@ -88,6 +96,8 @@ Taken together, these inputs supply both the raw material to be stored (entities
 ## 14.3 Criteria for What Is Stored
 
 In the current implementation, the consolidation pipeline is inclusive at the world-model level: every GBIM entity with a centroid has a normalized belief row (including temporal decay metadata as of March 15, 2026) and is mirrored into the `geospatialfeatures` collection. For `autonomous_learner`, every community interaction processed by the autonomous learning subsystem is appended — deduplication in `ms_jarvis_memory` is advisory and handled separately by `background_rag_store`'s near-duplicate check. There is not yet a fine-grained selection mechanism that stores only some entities or beliefs in hippocampal indexes.
+
+**As of March 27, 2026**, AAPCAppE scraper documents now constitute the first external-source entries in the ingest pipeline — distinct from autonomous-learner interaction records. Deduplication between the two pathways (scraper-ingested documents vs. autonomous-learner interaction records) is a documented future work item.
 
 **Implicit significance and structure**
 Because the pipeline always writes a structured belief snapshot, and always includes provenance (dataset, GeoDB ID) and spatial context for centroided entities, the hippocampal surface naturally emphasizes entities that are well-grounded in both data and space. Indexing by worldview and dataset also encodes which layers and institutional perspectives are considered part of the canonical memory. The `needs_verification=TRUE` flag (100% of 5,416,521 entities at March 15 launch baseline) represents the initial state before the POC verification loop begins clearing entities as confirmed. The 21,181 `autonomous_learner` records represent accumulated community interaction experience growing at ~288/day.
@@ -196,7 +206,7 @@ This pathway guarantees that every LLM response is grounded in the system's accu
 As the introspective layer evolves, it can report which GBIM entities, datasets, and spatial regions were consulted for a given response, which `autonomous_learner` records were prepended at Phase 1.45, and how their `confidence_decay` values influenced the result. Instead of referring only to "conversation documents," introspection can speak about buildings, roads, programs, and jurisdictions as concrete memory units with known verification timestamps, alongside community interaction records with known semantic relevance scores.
 
 **Optimization over hippocampal histories via 69-DGM cascade**
-Self-improving agents in the 69-DGM layer (Chapter 32, `jarvis-69dgm-bridge` port 9000) can treat GBIM + beliefs + ChromaDB `geospatialfeatures` and `autonomous_learner` as datasets for discovering weaknesses, biases, or gaps in coverage — for example, which counties are under-represented, which datasets are heavily relied on, where repeated corrections to beliefs occur, which entities have the longest-decayed `confidence_decay` values, or which `autonomous_learner` records are never surfaced by Phase 1.45 retrieval and may warrant consolidation or pruning. The 23-connector × 3-stage cascade (69 DGM operations per pass) that validates every production response is the current implementation of this optimization loop.
+Self-improving agents in the 69-DGM layer (Chapter 32, `jarvis-69dgm-bridge` host port 19000 → internal 9000) can treat GBIM + beliefs + ChromaDB `geospatialfeatures` and `autonomous_learner` as datasets for discovering weaknesses, biases, or gaps in coverage — for example, which counties are under-represented, which datasets are heavily relied on, where repeated corrections to beliefs occur, which entities have the longest-decayed `confidence_decay` values, or which `autonomous_learner` records are never surfaced by Phase 1.45 retrieval and may warrant consolidation or pruning. The 23-connector × 3-stage cascade (69 DGM operations per pass) that validates every production response is the current implementation of this optimization loop.
 
 ---
 
@@ -215,7 +225,7 @@ By combining spatial identifiers, belief metadata (including `confidence_decay` 
 
 ---
 
-## 14.8 Implementation Status (March 18, 2026)
+## 14.8 Implementation Status (March 18, 2026; updated March 27, 2026)
 
 **Confirmed operational (March 18, 2026):**
 - ✅ `jarvis-hippocampus` service deployed in 79-container production stack (commit `b90f9ff`)
@@ -232,19 +242,20 @@ By combining spatial identifiers, belief metadata (including `confidence_decay` 
 - ✅ `jarvis-local-resources-db` (port 5435) community resource data eligible for GBIM promotion
 - ✅ Phase 1.45 community memory retrieval confirmed in ~436s end-to-end benchmark (March 18, 2026)
 
-**Additional ChromaDB collections confirmed (March 18, 2026):**
+**Additional ChromaDB collections (March 18, 2026 baseline; March 27, 2026 sprint update):**
 
 | Collection | Records | Notes |
 |---|---|---|
 | `gbim_worldview_entities` | 5,416,521 | Complete WV GBIM spatial corpus |
-| `autonomous_learner` | 21,181 | Growing ~288/day; Phase 1.45 active retrieval |
+| `autonomous_learner` | 21,181 baseline (March 18); growing — 65 additional documents from AAPCAppE scraper first run (March 27) | Phase 1.45 active retrieval; first external-source docs now flowing |
+| `aapcappe_corpus` | 65 | First scrape run complete March 27, 2026 (39 sources, `total_runs: 1`); 53 RAG-loaded, 7 new base cultural docs |
 | `psychological_rag` | 968 | Unchanged |
 | `spiritual_texts` | 23 | Unchanged |
 | `appalachian_cultural_intelligence` | 5 | Confirmed March 18 |
 | `GBIM_sample_rows` | 5,000 | Confirmed March 18 |
 | `GBIM_sample` | 3 | Confirmed March 18 |
 | `msjarvis-smoke` | 1 | Smoke test record |
-| `msjarvis_docs` | 0 | Scaffolded — pending ingest |
+| `msjarvis_docs` | 53 (March 27 RAG load) | RAG server confirmed loading 53 documents March 27, 2026 (7 new base cultural docs); previously 0 — scaffolded pending ingest |
 | `GBIM_Fayette_sample` | 0 | Scaffolded — pending ingest |
 | `geospatialfeatures` | 0 | Scaffolded — pending backfill ingest |
 
@@ -269,10 +280,14 @@ Extending `geospatialfeatures` ChromaDB metadata to include explicit belief node
 
 ## 14.9 Summary
 
-The consolidation layer captures how recent activity and world-modeling are turned into lasting structure across two complementary hippocampal pathways: (1) GBIM entities with normalized beliefs and temporal decay metadata in PostgreSQL `msjarvis` (port 5433), mirrored as centroid-bearing records into the `geospatialfeatures` ChromaDB collection (port 8000, `chroma_data` volume), queried by GIS-RAG and spiritual-RAG during Phase 4; and (2) the `autonomous_learner` ChromaDB collection (21,181 records, growing ~288/day), queried via `all-minilm:latest` (384-dim) semantic search at Phase 1.45 of every production `/chat` request, with top-5 community memories prepended to `enhanced_message`.
+The consolidation layer captures how recent activity and world-modeling are turned into lasting structure across two complementary hippocampal pathways: (1) GBIM entities with normalized beliefs and temporal decay metadata in PostgreSQL `msjarvis` (port 5433), mirrored as centroid-bearing records into the `geospatialfeatures` ChromaDB collection (port 8000, `chroma_data` volume), queried by GIS-RAG and spiritual-RAG during Phase 4; and (2) the `autonomous_learner` ChromaDB collection (21,181 records as of March 18, 2026 baseline; growing ~288/day with first external-source AAPCAppE scraper documents now flowing as of March 27, 2026), queried via `all-minilm:latest` (384-dim) semantic search at Phase 1.45 of every production `/chat` request, with top-5 community memories prepended to `enhanced_message`.
 
-The `jarvis-hippocampus` service (deployed March 15, 2026, commit `b90f9ff`) functions as the dedicated hippocampal buffer within the 79-container production stack. The `confidence_decay` multiplier applied at Phase 5 of every production request makes hippocampal temporal state an active, measurable factor in every response — not merely an archival attribute. Phase 1.45 community memory retrieval (deployed March 17, 2026) makes `autonomous_learner` a live, prompt-level input to every response rather than a passive background store. The critical embedding model lock — **`all-minilm:latest` (384-dim) for all ChromaDB collections** — ensures collection compatibility and is a permanent architectural constraint.
+The `jarvis-hippocampus` service (deployed March 15, 2026, commit `b90f9ff`) functions as the dedicated hippocampal buffer within the 79-container production stack. The **`jarvis-memory` service operates as a companion container to `jarvis-hippocampus`**, confirmed verified in the March 27, 2026 container audit (see **Chapter 12 §12.11**). The `confidence_decay` multiplier applied at Phase 5 of every production request makes hippocampal temporal state an active, measurable factor in every response — not merely an archival attribute. Phase 1.45 community memory retrieval (deployed March 17, 2026) makes `autonomous_learner` a live, prompt-level input to every response rather than a passive background store. The critical embedding model lock — **`all-minilm:latest` (384-dim) for all ChromaDB collections** — ensures collection compatibility and is a permanent architectural constraint.
 
 POC verification loop automation, `geospatialfeatures` backfill ingest, selective storage criteria, temporal hierarchy beyond decay, and tighter belief-routing traces are active design directions that build on this foundation. Subsequent chapters describe how global controls, the 69-DGM cascade (Chapter 32), and executive processes (Chapter 17) use these consolidated, place-aware memories as part of broader feedback loops that shape Ms. Jarvis's ongoing evolution. Chapter 5 describes the ChromaDB `chroma_data` volume and collection architecture in detail. Chapter 17 describes how Phase 1.45 community memory retrieval and the `confidence_decay` multiplier are applied in the 9-phase production pipeline.
 
-*Last updated: 2026-03-18 by Carrie Kidd, Mount Hope WV*
+---
+
+*Last updated: 2026-03-27 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*★ March 27, 2026: Production state block updated — AAPCAppE scraper first run confirmed 65 documents in Chroma, RAG loaded 53 documents (7 new base cultural docs), first external-source documents now flowing into autonomous_learner pipeline; §14.3 selective storage note added — AAPCAppE scraper documents are first external-source entries, deduplication between scraper and autonomous-learner pathways is documented future work; §14.8 ChromaDB table updated — msjarvis_docs row updated from 0 to 53 (March 27 RAG load), aapcappe_corpus row added (65 docs, 39 sources, total_runs: 1, first scrape March 27), autonomous_learner row updated with March 27 sprint note; §14.9 jarvis-memory companion container note added — confirmed in March 27 container audit, see Ch. 12 §12.11.*
+`````
