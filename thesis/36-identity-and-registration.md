@@ -1,7 +1,7 @@
 # 36. Identity and Registration
 
 **Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
-**Last updated: March 22, 2026**
+**Last updated: March 27, 2026 — public URL cross-reference added (§36.12); Ch 40/Ch 41 session contract baseline note added (§36.10, §36.11); Ch 37 BBB filter diagram discrepancy noted (§36.5.1)**
 
 ---
 
@@ -21,6 +21,8 @@
 > BBB filter count corrected: the Blood-Brain Barrier pipeline runs **six filters** (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification) — not four.
 >
 > Redis async job status key is `'complete'` (not `'done'`). Verified March 22, 2026.
+>
+> **⚠️ Cross-chapter note (March 27, 2026):** Chapter 37's architecture diagram (Figure 37.1) and §37.4.1 list only four BBB filters after the Constitutional Guardian check, omitting `steganography_filter` and `truth_verification`. This is a Ch 37 error — the six-filter count confirmed in this chapter's correction block is authoritative. Ch 37 requires correction to its BBB filter list.
 
 ---
 
@@ -193,6 +195,8 @@ every `ultimatechat` request. The core pieces are:
   (rule-based; upgrade path to `rag_grounded_v2` tracked in Chapter 33 §33.2.3).
   Phase 4.5 BBB output is in **log+passthrough mode** as of commit `18b8ddac`
   (March 22, 2026), pending output threshold recalibration.
+
+> **⚠️ Cross-chapter discrepancy note (March 27, 2026):** Chapter 37's architecture diagram (Figure 37.1) and §37.4.1 list only **four** BBB filters after the Constitutional Guardian check, omitting `steganography_filter` and `truth_verification`. The six-filter count confirmed in this chapter's correction block and in Chapter 33 §33.2 is authoritative. Ch 37 requires correction to its BBB filter list to match. Until Ch 37 is updated, treat this chapter and Ch 33 as the authoritative six-filter reference.
 
 Together, these mechanisms ensure that the "who is acting under which role"
 questions from this chapter are enforced not only in registration flows but also
@@ -476,6 +480,10 @@ Results are recorded here as the baseline for regression testing and are committ
 to the session contract at
 `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`).
 
+> **Cross-chapter reference (March 27, 2026):** The session contract at `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) is the **auth boundary test baseline** and must be referenced in:
+> - **Chapter 40 (System Audit)** — as the baseline for all token enforcement and gateway authentication audit checks.
+> - **Chapter 41 (Test Harness)** — as the regression baseline for auth boundary smoke tests; any test run that revisits token enforcement (OI-36-A) or role-based routing (OI-36-B) must compare results against the March 22, 2026 baseline recorded in this contract.
+
 | Test | Expected | Observed | Status |
 |---|---|---|---|
 | No token on `/chat` | 401 | 200 | ⚠️ Not enforced |
@@ -497,6 +505,7 @@ deployment.
 ### ⚠️ OI-36-A — Token Validation Middleware Not Wired (Gateway Port 8050)
 
 - **Status:** OPEN — March 22, 2026
+- **Baseline reference:** `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) — auth boundary test results that define "not enforced" state. **Chapter 40 (System Audit) and Chapter 41 (Test Harness) must reference this contract as the baseline for all auth enforcement audit checks and regression tests.**
 - **Description:** `jarvis_token_service.py` correctly stores and retrieves tokens
   from Redis host port 6380. The unified gateway (`msjarvis_unified_gateway.py`,
   port 8050) does not call the token service on inbound requests. All routes
@@ -513,6 +522,7 @@ deployment.
 ### ⚠️ OI-36-B — Role-Based Route Restriction (403) Not Implemented
 
 - **Status:** OPEN — March 22, 2026
+- **Baseline reference:** `msjarvis-public-docs/docs/contract/SESSION-2026-03-22.md` (commit `d966351`) — see §36.10. **Chapter 40 and Chapter 41 must treat the 404 response on `/constitutional-audit` and the 200 response on unauthenticated `/chat` as the documented pre-enforcement baseline.**
 - **Description:** Role-based route restriction — returning `403 Forbidden` when a
   valid token with insufficient role attempts to access a privileged route — is
   **not yet implemented**. No route in the current gateway configuration checks the
@@ -544,7 +554,7 @@ ROUTE_ROLES = {
 As of March 22, 2026, identity and registration are partially implemented and
 evolving. GPU inference is active (RTX 4070); verified end-to-end pipeline runs
 in **99–107 seconds** (three confirmed runs March 22, 2026: 99.6s, 105.9s,
-106.5s). Public URL confirmed live: https://egeria.mountainshares.us.
+106.5s). **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us).** This URL should be cross-referenced from the thesis overview and README documents (`msjarvis-public-docs/README.md` and any overview index) to ensure community stakeholders can locate the live system endpoint without navigating into chapter-level documentation.
 
 **Implemented and verified:**
 
@@ -569,16 +579,17 @@ in **99–107 seconds** (three confirmed runs March 22, 2026: 99.6s, 105.9s,
   port 5432 (PostGIS); `jarvis-local-resources-db` at port 5435.
 - ChromaDB (`jarvis-chroma`) host port **8002** (container-internal 8000).
 - Redis async job status key confirmed as `'complete'` (not `'done'`).
-- All 83 containers bound exclusively to `127.0.0.1`. Zero `0.0.0.0` exposures.
+- All **83 containers** bound exclusively to `127.0.0.1`. Zero `0.0.0.0` exposures. **83 is the authoritative baseline container count going forward** (verified March 22, 2026).
 - Pre-flight gate: 20 PASS 0 FAIL (`scripts/preflight_gate.sh`, March 22, 2026).
 
 **Open items / future work:**
 
 - Token validation middleware wired into gateway port 8050 (OI-36-A) — **required
-  before community-facing deployment.**
+  before community-facing deployment.** Baseline: SESSION-2026-03-22.md (commit `d966351`).
 - Role-based route restriction returning `403 Forbidden` for insufficient role
-  (OI-36-B) — **required before community-facing deployment.**
+  (OI-36-B) — **required before community-facing deployment.** Baseline: SESSION-2026-03-22.md (commit `d966351`).
 - `/constitutional-audit` endpoint implemented at the gateway layer.
+- Public URL [https://egeria.mountainshares.us](https://egeria.mountainshares.us) added to thesis README and overview index.
 - `rag_grounded_v2` truth verification — wire `judge_truth_filter.py` into
   `jarvis-spiritual-rag:8005` or `jarvis-gis-rag:8004` (tracked in Chapter 33
   §33.2.3).
@@ -606,8 +617,8 @@ identity‑focused retention layer and the dual‑track architecture in more det
 | LM Synthesizer identity guard — Layer 2 (IDENTITY RULES in f-string) | Working fix — identity rules injected directly into prompt f-string sent to `jarvis-ollama`. | ✅ Active. Confirmed working March 22, 2026. |
 | LM Synthesizer identity guard — Layer 3 (meta-commentary prohibition) | Prevents model name leakage, synthesis disclosure, and hedging language. Commit `211056e6`. | ✅ Active. Confirmed working March 22, 2026. |
 | `jarvis_token_service.py` — production token registry | Issues, validates, and revokes bearer tokens; stores as `redteam:token:<token>` in `jarvis-redis` host port 6380. | ✅ Implemented. 4 tokens active across 2 classes. |
-| Gateway token validation middleware (port 8050) | Enforces `401 Unauthorized` for missing or inactive tokens on protected routes. | ❌ Not wired — OI-36-A. Required before community-facing deployment. |
-| Role-based route restriction (403) | Returns `403 Forbidden` when a valid token lacks sufficient role for a route. | ❌ Not implemented — OI-36-B. Required before community-facing deployment. |
+| Gateway token validation middleware (port 8050) | Enforces `401 Unauthorized` for missing or inactive tokens on protected routes. | ❌ Not wired — OI-36-A. Required before community-facing deployment. Baseline: SESSION-2026-03-22.md (commit `d966351`). |
+| Role-based route restriction (403) | Returns `403 Forbidden` when a valid token lacks sufficient role for a route. | ❌ Not implemented — OI-36-B. Required before community-facing deployment. Baseline: SESSION-2026-03-22.md (commit `d966351`). |
 | `/constitutional-audit` endpoint | Administrative audit route for `carrie_admin` tokens. | ❌ Not implemented at gateway layer. |
 | Registration roles and audit tables | Tie higher‑impact actions to real people and institutions under shared rules, with PostgreSQL‑backed audit trails. | ⚙️ Conceptually implemented; automated promotion and cross‑path analytics are future work. |
 
@@ -622,4 +633,6 @@ and how those decisions can be inspected over time, all grounded in PostgreSQL
 *Chapter 36 — Identity and Registration*
 *Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*
 *Mount Hope, Fayette County, West Virginia*
-*Last updated: March 22, 2026 by Carrie Kidd (Mamma Kidd)*
+*Last updated: March 27, 2026 by Carrie Kidd (Mamma Kidd)*
+`````
+
