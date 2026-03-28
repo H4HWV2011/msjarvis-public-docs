@@ -1,3 +1,10 @@
+# 20. First-Stage Evaluation and Immediate Filtering
+
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: March 25, 2026 — status table synchronized with March 25 sprint; autonomous learner record count updated; Ch 22 OI-05 cross-reference added*
+
+---
+
 > **Why this matters for Polymathmatic Geography**
 > This chapter explains the first gate Ms. Jarvis applies to every incoming record — a fast, inexpensive layer that decides what gets stored, what gets flagged, and what gets dropped before any deeper reasoning begins. It supports:
 > - **P1 – Every where is entangled** by ensuring that even the fastest evaluation respects safety, truth, and place-based constraints before allowing content to entangle with community memories stored in PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs).
@@ -7,6 +14,7 @@
 > - **P16 – Power accountable to place** by recording reason codes, confidence indicators, and aggregated statistics so communities can audit how and why the system filtered their data before it reached PostgreSQL `msjarvisgis`.
 >
 > As such, this chapter belongs to the **Computational Instrument** tier: it specifies the first evaluation and filtering layer that protects downstream memory and reasoning from overload, redundancy, and unsafe content.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   First-Stage Evaluation and Filtering Flow                 │
@@ -16,11 +24,11 @@
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Fast Evaluation Signals                       │         │
-│  │  • Tag/keyword matches                         │         │
-│  │  • Near-duplicate check (similarity)           │         │
-│  │  • Structural heuristics (length, format)      │         │
-│  │  • BBB safety verdict (port 8016)              │         │
-│  │  • Truth validators                            │         │
+│  │  -  Tag/keyword matches                         │         │
+│  │  -  Near-duplicate check (similarity)           │         │
+│  │  -  Structural heuristics (length, format)      │         │
+│  │  -  BBB safety verdict (port 8016)              │         │
+│  │  -  Truth validators                            │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  Keep-or-Discard Decision                                   │
@@ -28,28 +36,28 @@
 │  ┌──────────────┬──────────────┬──────────────┐             │
 │  │  KEEP        │  DISCARD     │  DEFERRED    │             │
 │  │              │              │              │             │
-│  │  Write to:   │  • Skip      │  • Flag for  │             │
-│  │  • ChromaDB  │  • Log only  │    review    │             │
-│  │  • Postgres  │  • Advisory  │  • Quarantine│             │
+│  │  Write to:   │  -  Skip      │  -  Flag for  │             │
+│  │  -  ChromaDB  │  -  Log only  │    review    │             │
+│  │  -  Postgres  │  -  Advisory  │  -  Quarantine│             │
 │  │    backup    │    verdict   │              │             │
 │  └──────────────┴──────────────┴──────────────┘             │
 │      ↓                                                       │
 │  Annotations & Metadata                                      │
-│  • Reason codes (OUT_OF_SCOPE, SAFETY_DENIED, etc.)         │
-│  • Confidence scores                                        │
-│  • truthverdict (valid, confidence, principalreasons)       │
-│  • bg_<ISO8601> ID for background entries                   │
+│  -  Reason codes (OUT_OF_SCOPE, SAFETY_DENIED, etc.)         │
+│  -  Confidence scores                                        │
+│  -  truthverdict (valid, confidence, principalreasons)       │
+│  -  bg_<ISO8601> ID for background entries                   │
 │      ↓                                                       │
 │  Storage Destinations                                       │
-│  • ms_jarvis_memory (ChromaDB, port 8002)                   │
+│  -  ms_jarvis_memory (ChromaDB, port 8000)                   │
 │    - APPEND-ONLY (no dedup at write)                        │
-│  • PostgreSQL msjarvisgis (port 5432)                       │
+│  -  PostgreSQL msjarvisgis (port 5432)                       │
 │    - For trusted, validated content only                    │
-│  • Audit logs                                               │
+│  -  Audit logs                                               │
 │                                                              │
 │  Parallel Path Assignment                                   │
-│  • Meaning-focused → psychology services (8019, 9006)       │
-│  • Analytical → GeoDB spatial queries (PostgreSQL)          │
+│  -  Meaning-focused → psychology services (8019, 8006)       │
+│  -  Analytical → GeoDB spatial queries (PostgreSQL)          │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -58,19 +66,17 @@
 
 ---
 
-## Status as of February 2026
+## Status as of March 25, 2026
 
 | Category | Details |
 |---|---|
-| **Implemented now** | `background_rag_store` confirmed operational in `jarvis-main-brain` (port **8050**): runs as a background task after every `/chat` response, performs a near-duplicate check via RAG server `/search` with `top_k=1`, and writes accepted interactions into `ms_jarvis_memory` ChromaDB collection with `bg_<ISO8601>` ids, `type: "background"` metadata, and `services: ["llm20production"]`. **`ms_jarvis_memory` is append-only in the current deployment**: deduplication is advisory — it affects the skip logic and downstream reuse, not the write path. Repeated identical messages produce distinct entries with separate timestamps. `truthverdict` from BBB (port **8016**) attached to every `UltimateResponse`, providing `valid`, `confidence`, and `principalreasons` signals. `/curator/background` endpoint on main brain (port **8050**) providing stable, auditable view of background store contents. BBB four-filter pipeline (`EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection`) operational as pre-filter gate. Identity truth validators (`normalize_identity`, `TruthValidator`) applied on every response. PostgreSQL `msjarvisgis` at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) as protected destination for validated content. Confirmed in 2026-02-15 case study: `bg_<ISO8601>` entries in `ms_jarvis_memory` verified via Python REPL and `/curator/background` query (see Chapter 9 §9.3.5 and Chapter 17 §17.6). |
-| **Partially implemented / scaffolded** | Novelty/near-duplicate check influences legacy RAG storage and skip logic but does not currently prevent writes to `ms_jarvis_memory`; ChromaDB background store remains append-only. Track-level differentiation between meaning-focused and analytical path evaluators is present as a design pattern but not yet fully implemented as distinct threshold configurations in the current deployment. `truthverdict` is advisory in the current `ultimatechat` path — it does not hard-gate input processing before ChromaDB writes, though it does gate PostgreSQL `msjarvisgis` writes for trusted content. Aggregated first-stage statistics (counts and rates by role, track, and source) are logged but not yet exposed via a dedicated metrics endpoint. |
+| **Implemented now** | `background_rag_store` confirmed operational in `jarvis-main-brain` (port **8050**): runs as a background task after every `/chat` response, performs a near-duplicate check via RAG server `/search` with `top_k=1`, and writes accepted interactions into `ms_jarvis_memory` ChromaDB collection with `bg_<ISO8601>` ids, `type: "background"` metadata, and `services: ["llm20production"]`. **`ms_jarvis_memory` is append-only in the current deployment**: deduplication is advisory — it affects the skip logic and downstream reuse, not the write path. Repeated identical messages produce distinct entries with separate timestamps. `truthverdict` from BBB (port **8016**) attached to every `UltimateResponse`, providing `valid`, `confidence`, and `principalreasons` signals. `/curator/background` endpoint on main brain (port **8050**) providing stable, auditable view of background store contents. BBB four-filter pipeline (`EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`, `ThreatDetection`) operational as pre-filter gate. Identity truth validators (`normalize_identity`, `TruthValidator`) applied on every response. PostgreSQL `msjarvisgis` at **127.0.0.1:5432** (91 GB, 501 tables, 5.4M+ verified GBIM beliefs) as protected destination for validated content. Autonomous learner: **21,181 records**, growing ≈288/day from March 14 baseline (confirmed March 25, 2026 — see Ch. 19 §19.0 and Ch. 22). Confirmed in 2026-02-15 case study: `bg_<ISO8601>` entries in `ms_jarvis_memory` verified via Python REPL and `/curator/background` query (see Chapter 9 §9.3.5 and Chapter 17 §17.6). |
+| **Partially implemented / scaffolded** | Novelty/near-duplicate check influences legacy RAG storage and skip logic but does not currently prevent writes to `ms_jarvis_memory`; ChromaDB background store remains append-only. Track-level differentiation between meaning-focused and analytical path evaluators is present as a design pattern but not yet fully implemented as distinct threshold configurations in the current deployment. `truthverdict` is advisory in the current `ultimatechat` path — it does not hard-gate input processing before ChromaDB writes, though it does gate PostgreSQL `msjarvisgis` writes for trusted content. BBB Phase 4.5 output filter operates in LOG+PASSTHROUGH mode (OI-02) — not yet blocking. See Ch. 16. Aggregated first-stage statistics (counts and rates by role, track, and source) are logged but not yet exposed via a dedicated metrics endpoint. |
 | **Future work / design intent only** | Hard-gate behavior on `truthverdict` for specific role or threat levels blocking ChromaDB writes. Configurable per-track similarity thresholds that actually prevent writes for near-duplicate content. Persistent sampled-example store for borderline-case quality review. Automated introspective summaries reporting first-stage behavior across runs. Full deduplication at the write path for `ms_jarvis_memory`. |
 
 > **Cross-reference:** The canonical description of the `ultimatechat` execution path — including exactly where `background_rag_store` is scheduled, where `truthverdict` is computed and attached, and where BBB output-guarding fires — is in **Chapter 17**. This chapter describes the purpose, logic, and observed behavior of the first-stage evaluation layer that those mechanisms implement.
 
 ---
-
-# 20. First-Stage Evaluation and Immediate Filtering
 
 This chapter describes the first evaluation stage applied to incoming records after they have been routed into the container paths. In the current deployment, this stage is realized by a combination of fast safety checks, background storage for semantic memory in ChromaDB, truth-validation modules, and basic structural heuristics that protect PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs) from contamination. Its purpose is to make fast, inexpensive decisions about which items warrant further attention and which can be safely ignored, while preserving enough information to justify those decisions later.
 
@@ -80,9 +86,9 @@ This chapter describes the first evaluation stage applied to incoming records af
 
 In the current deployment, the first stage satisfies three practical objectives.
 
-**Reduce volume.** In the current deployment, the system quickly discards or downgrade low-value items so that later stages — such as deeper RAG integration, PostgreSQL GBIM graph updates, or I-container growth — are not overwhelmed. Although `ms_jarvis_memory` is currently append-only and does not deduplicate ChromaDB background entries at write time, the near-duplicate check in `background_rag_store` centralizes routing so that downstream services can choose whether to reuse or skip repeated content before writing to PostgreSQL `msjarvisgis`.
+**Reduce volume.** In the current deployment, the system quickly discards or downgrades low-value items so that later stages — such as deeper RAG integration, PostgreSQL GBIM graph updates, or I-container growth — are not overwhelmed. Although `ms_jarvis_memory` is currently append-only and does not deduplicate ChromaDB background entries at write time, the near-duplicate check in `background_rag_store` centralizes routing so that downstream services can choose whether to reuse or skip repeated content before writing to PostgreSQL `msjarvisgis`.
 
-**Preserve opportunity.** In the current deployment, user conversations that pass safety checks are queued for background handling and written into the `ms_jarvis_memory` semantic store in ChromaDB (confirmed running via `jarvis-chroma` at **127.0.0.1:8002**), where they can later contribute to autonomous learning, clustering, or case-study analysis. Only validated, high-confidence content is promoted to PostgreSQL `msjarvisgis` trusted stores.
+**Preserve opportunity.** In the current deployment, user conversations that pass safety checks are queued for background handling and written into the `ms_jarvis_memory` semantic store in ChromaDB (confirmed running via `jarvis-chroma` at **127.0.0.1:8000**), where they can later contribute to autonomous learning, clustering, or case-study analysis. Only validated, high-confidence content is promoted to PostgreSQL `msjarvisgis` trusted stores.
 
 **Respect constraints.** In the current deployment, BBB (`jarvis-blood-brain-barrier`, port **8016**) and truth-validation modules act as early gates that can veto or annotate content before it is allowed to influence PostgreSQL memory or downstream reasoning. The `truthverdict` attached to every `UltimateResponse` is the concrete artifact of this constraint, even though it is advisory for ChromaDB writes rather than a hard gate in the current deployment; it does gate PostgreSQL `msjarvisgis` writes for trusted content.
 
@@ -94,7 +100,7 @@ The focus is on simple, explainable decisions rather than detailed analysis, so 
 
 In the current deployment, the inputs to this stage are normalized records produced by the routing and container layers. For user-facing interactions, `jarvis-main-brain` on port **8050** provides structured `UltimateRequest` objects (message, `userid`, role, `useallservices`), a snapshot of services confirmed healthy by `discover_services()` at request time, and intermediate signals such as BBB filtering outcomes, `llm20production` ensemble results, and web-research context. For the canonical description of how these inputs are assembled, see **Chapter 17**.
 
-For internal tasks, the container architecture supplies candidate knowledge entries from the autonomous learner and Fifth DGM (where active; `jarvis-fifth-dgm`, port **4002**, confirmed running), and metrics, analysis results, and diagnostics from verification scripts and monitoring services. In both cases, records include identifiers, timestamps, role and domain tags from PostgreSQL GeoDB, content summaries, links to underlying PostgreSQL memory or spatial elements, and track assignments.
+For internal tasks, the container architecture supplies candidate knowledge entries from the autonomous learner (21,181 records as of March 25, 2026, growing ≈288/day) and Fifth DGM (where active; `jarvis-fifth-dgm`, port **4002**, confirmed running), and metrics, analysis results, and diagnostics from verification scripts and monitoring services. In both cases, records include identifiers, timestamps, role and domain tags from PostgreSQL GeoDB, content summaries, links to underlying PostgreSQL memory or spatial elements, and track assignments.
 
 ---
 
@@ -104,7 +110,7 @@ In the current deployment, the keep-or-discard decision appears most concretely 
 
 **`background_rag_store`.** After every `/chat` response, in the current deployment `jarvis-main-brain` schedules `background_rag_store` with the original message, response text, and `servicesused`. The task performs a near-duplicate check via the RAG server's `/search` endpoint with `top_k=1`. If the top result's similarity score exceeds a configured threshold, the task logs a `rag_skip_duplicate` event. If the query is sufficiently novel, it calls the RAG server's `/store` endpoint and writes the record into `ms_jarvis_memory` ChromaDB with a `bg_<ISO8601_TIMESTAMP>` id, `type: "background"` metadata, and the `servicesused` list. **`ms_jarvis_memory` is append-only in the current deployment**: the near-duplicate check is advisory and affects the skip logic only, not the write path. Repeated identical test messages produce distinct entries with separate timestamps and response variants. PostgreSQL `msjarvisgis` writes require passing additional validation gates.
 
-**BBB and identity truth validators.** In the current deployment, BBB (`jarvis-blood-brain-barrier`, port **8016**) marks records as disallowed or questionable via the `truthverdict` on `UltimateResponse`, thereby preventing flagged content from being treated as ground truth by downstream services and blocking writes to PostgreSQL `msjarvisgis` trusted stores even when the ChromaDB background write still occurs.
+**BBB and identity truth validators.** In the current deployment, BBB (`jarvis-blood-brain-barrier`, port **8016**) marks records as disallowed or questionable via the `truthverdict` on `UltimateResponse`, thereby preventing flagged content from being treated as ground truth by downstream services and blocking writes to PostgreSQL `msjarvisgis` trusted stores even when the ChromaDB background write still occurs. BBB Phase 4.5 output filter operates in LOG+PASSTHROUGH mode (OI-02) — not yet blocking. See Ch. 16.
 
 The keep-or-discard decision is based on relevance (whether the record is in scope for the active role and PostgreSQL GeoDB geography), novelty (near-duplicate check signal), and quality (non-empty, well-formed query and response, free from gross formatting errors).
 
@@ -144,7 +150,7 @@ Associated annotations include reason codes (short machine-readable flags such a
 
 In the current deployment, both the meaning-focused and analytical paths share the same `background_rag_store` and BBB infrastructure, with the track assignment from the routing layer determining which evaluator criteria apply and whether PostgreSQL GeoDB spatial context is required.
 
-**Meaning-focused path.** In the current deployment, this path may retain items that touch on themes of care, identity, or community even if they are not technically dense, because they contribute to psychological and community-context modules. Such items are written into ChromaDB background memory and may later be referenced by `jarvis-psychology-services` (port **8019**, confirmed running) or `psychological_rag_domain` (port **9006**, confirmed running). High-value items may be promoted to PostgreSQL `msjarvisgis` after additional validation.
+**Meaning-focused path.** In the current deployment, this path may retain items that touch on themes of care, identity, or community even if they are not technically dense, because they contribute to psychological and community-context modules. Such items are written into ChromaDB background memory and may later be referenced by `jarvis-psychology-services` (port **8019**, confirmed running) or `psychological_rag_domain` (port **8006**, confirmed running — authoritative port per Ch. 19 §19.8.8). High-value items may be promoted to PostgreSQL `msjarvisgis` after additional validation.
 
 **Analytical path.** In the current deployment, this path prioritizes items with clear technical content, structured data, or explicit problem statements grounded in PostgreSQL GeoDB spatial features. The design intends that distinct per-track threshold configurations will be implemented as the system matures; in the current deployment, both paths use the same near-duplicate and BBB filter parameters for ChromaDB writes, with PostgreSQL `msjarvisgis` writes requiring passing additional spatial and institutional validation gates.
 
@@ -162,13 +168,15 @@ In the current deployment, even when records are down-ranked or effectively disc
 
 **Introspective summaries.** In the current deployment, verification scripts can report how many items were written into `ms_jarvis_memory` ChromaDB during a test run, how often `truthverdict` flagged issues blocking PostgreSQL writes, and how many background tasks were queued without error. Automated production of such summaries on a scheduled basis is identified as future work.
 
+The `ms_jarvis_memory` ChromaDB collection (UUID `79240788-0828-45f3-b1bc-a9a3593628a6`, hardcoded in the consciousness bridge — see Ch. 22 §22.10) is the primary retention store for background interaction records. For emergent cross-session context passing behavior observed March 25, 2026, see **Ch. 22 §22.9** (OI-05).
+
 ---
 
 ## 20.8 Relationship to Truth and Safety Filters
 
 In the current deployment, first-stage evaluation is closely linked to BBB and truth-validation mechanisms that protect PostgreSQL `msjarvisgis`.
 
-**Blood–brain barrier (BBB), port 8016.** In the current deployment, `jarvis-blood-brain-barrier` acts as a pre-filter for user-facing interactions, blocking or transforming content that violates ethical or safety constraints before it can reach PostgreSQL deeper storage or influence reasoning. Its verdicts — `valid`, `confidence`, `principalreasons` — are attached as `truthverdict` on `UltimateResponse` and are advisory for ChromaDB writes in the current deployment rather than a hard gate, but do gate PostgreSQL `msjarvisgis` writes for trusted content. Hard-gate behavior for ChromaDB writes at specific role or threat levels is identified as future work.
+**Blood–brain barrier (BBB), port 8016.** In the current deployment, `jarvis-blood-brain-barrier` acts as a pre-filter for user-facing interactions, blocking or transforming content that violates ethical or safety constraints before it can reach PostgreSQL deeper storage or influence reasoning. Its verdicts — `valid`, `confidence`, `principalreasons` — are attached as `truthverdict` on `UltimateResponse` and are advisory for ChromaDB writes in the current deployment rather than a hard gate, but do gate PostgreSQL `msjarvisgis` writes for trusted content. BBB Phase 4.5 output filter operates in LOG+PASSTHROUGH mode (OI-02) — not yet blocking. See Ch. 16. Hard-gate behavior for ChromaDB writes at specific role or threat levels is identified as future work.
 
 **Truth validators.** In the current deployment, `TruthValidator` and `normalize_identity` check for hallucination patterns, identity confusion, and known factual constraints against PostgreSQL GBIM ground truth. When these modules detect violations, they annotate the record with issues and prevent it from being treated as trusted knowledge in PostgreSQL `msjarvisgis`, even if the ChromaDB background record remains in `ms_jarvis_memory`. These filters are domain-specific first-stage evaluators layered on top of the more generic structural and similarity-based checks described earlier.
 
@@ -184,7 +192,7 @@ In the current deployment, operational validation of the first-stage evaluation 
 
 **Effectiveness under realistic use.** In the current deployment, manual verification runs demonstrate that repeated identical messages produce multiple ChromaDB background entries clustering closely in embedding space but retaining distinct timestamps and response variants (confirming append-only behavior). Truth and safety filters are invoked consistently, with `truthverdict` fields reflecting ethics and identity assessments even for technical test messages, protecting PostgreSQL `msjarvisgis` from contamination. The `/curator/background` endpoint provides a stable, auditable view of what has been retained in ChromaDB, enabling researchers to inspect both nominal and edge-case behaviors.
 
-These operational checks do not exhaustively prove correctness but provide concrete evidence of how the first-stage evaluation behaves in the live deployment as of mid-February 2026, including where its behavior diverges from the earlier, more aggressively de-duplicating design.
+These operational checks do not exhaustively prove correctness but provide concrete evidence of how the first-stage evaluation behaves in the live deployment as of the March 25, 2026 sprint, including where its behavior diverges from the earlier, more aggressively de-duplicating design.
 
 ---
 
@@ -192,6 +200,7 @@ These operational checks do not exhaustively prove correctness but provide concr
 
 In the current deployment, the first-stage evaluation and immediate filtering layer serves as the system's initial gate against overload, redundancy, and unsafe content before it reaches PostgreSQL `msjarvisgis` (port 5432, 91 GB, 501 tables, 5.4M+ verified GBIM beliefs). It operates on normalized records produced by routing and container structures, applying fast, explainable criteria based on relevance to PostgreSQL GeoDB geography, near-duplicate signals, structural quality, and domain-specific safety and truth rules. Outcomes are recorded with reason codes and confidence indicators, enabling later diagnostics and academic analysis.
 
-The two most concrete artifacts of this stage in the current deployment are: the `truthverdict` field on every `UltimateResponse` (computed by BBB at port **8016**), and the `bg_<ISO8601>` entries in the `ms_jarvis_memory` ChromaDB collection (written by `background_rag_store` after every `/chat` call). **`ms_jarvis_memory` is append-only** in the current deployment; lightweight near-duplicate checks influence legacy RAG reuse and skip logic but do not prevent ChromaDB writes. PostgreSQL `msjarvisgis` writes require passing additional validation gates to protect the 5.4M+ verified GBIM beliefs from contamination. For the canonical description of exactly where in the execution sequence these artifacts are produced, see **Chapter 17**.
+The two most concrete artifacts of this stage in the current deployment are: the `truthverdict` field on every `UltimateResponse` (computed by BBB at port **8016**), and the `bg_<ISO8601>` entries in the `ms_jarvis_memory` ChromaDB collection (written by `background_rag_store` after every `/chat` call). **`ms_jarvis_memory` is append-only** in the current deployment; lightweight near-duplicate checks influence legacy RAG reuse and skip logic but do not prevent ChromaDB writes. PostgreSQL `msjarvisgis` writes require passing additional validation gates to protect the 5.4M+ verified GBIM beliefs from contamination. For the canonical description of exactly where in the execution sequence these artifacts are produced, see **Chapter 17**. For emergent cross-session context passing behavior in `ms_jarvis_memory`, see **Ch. 22 §22.9** (OI-05).
 
 Subsequent chapters build on this foundation to describe how retained items are integrated into deeper PostgreSQL storage layers, how patterns over time are identified, and how the system's behavior evolves as its memories and models change while maintaining the integrity of PostgreSQL `msjarvisgis` as the spatial and institutional ground truth.
+`````
