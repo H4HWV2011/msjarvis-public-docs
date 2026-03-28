@@ -1,7 +1,7 @@
 # 2. The Geometric Belief Model and GBIM Architecture
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: 2026-03-27*
+*Last updated: 2026-03-28*
 
 ---
 
@@ -37,7 +37,7 @@ The chapter is organized as follows:
 - **Section 2.3** presents the Hilbert-space model of belief and uncertainty that motivates the GBIM design.
 - **Section 2.4** describes the worldview structure (`eq1` and related worldviews) and its role in routing and filtering.
 - **Section 2.5** describes the PostgreSQL GBIM corpus — its current scale, table structure, and production status as of March 2026.
-- **Section 2.6** presents the ChromaDB collection inventory — the vector-backed memory layer that makes GBIM beliefs semantically retrievable — updated through March 26, 2026.
+- **Section 2.6** presents the ChromaDB collection inventory — the vector-backed memory layer that makes GBIM beliefs semantically retrievable — updated through March 28, 2026.
 - **Section 2.7** addresses the relationship between GBIM, the GeoDB spatial body (Chapter 6), the RAG pipeline (Chapter 7), and the local resource registry.
 - **Section 2.8** is an intellectual honesty correction (March 21, 2026): it documents the gap between GBIM's designed role as the ground truth for judge verification and the current actual implementation of the truth and alignment judges, which use heuristic pattern-matching, not live PostgreSQL queries.
 - **Section 2.9** documents the ethical architecture of the belief corpus — specifically the exclusion of individual residential owner names and the full accountability metadata required for institutional actors.
@@ -152,7 +152,7 @@ This framework is not merely metaphorical. It motivates concrete architectural d
 
 The GBIM worldview structure allows the corpus to maintain multiple, simultaneously queryable perspectives on the same entities and places. Each belief is tagged with a `worldview_id` that identifies the interpretive frame within which it is valid.
 
-The production worldview as of March 2026 is **`eq1`** — the primary equity-oriented worldview that grounds Ms. Jarvis's reasoning in Appalachian community perspectives, WV state data, and federal program structures as they operate in West Virginia. All **5,416,522** production beliefs in `gbimbeliefnormalized` — including all **20,593 landowner beliefs** (proposition codes `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT`, verified March 20, 2026) — are tagged `worldview_id = 'eq1'`.
+The production worldview as of March 2026 is **`eq1`** — the primary equity-oriented worldview that grounds Ms. Jarvis's reasoning in Appalachian community perspectives, WV state data, and federal program structures as they operate in West Virginia. All **5,416,521** production beliefs in `gbimbeliefnormalized` — including all **20,593 landowner beliefs** (proposition codes `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT`, verified March 20, 2026) — are tagged `worldview_id = 'eq1'`.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -164,7 +164,7 @@ The production worldview as of March 2026 is **`eq1`** — the primary equity-or
 │  Interpretive frame: Appalachian equity orientation         │
 │  Data scope: WV state + federal sources verified for WV     │
 │  Population: WV households, communities, programs           │
-│  Belief count: 5,416,522 (gbimbeliefnormalized)             │
+│  Belief count: 5,416,521 (gbimbeliefnormalized)             │
 │    of which: 20,593 landowner beliefs ★                     │
 │              (LANDOWNER_CORPORATE +                         │
 │               LANDOWNER_GOVERNMENT)                         │
@@ -181,7 +181,7 @@ The production worldview as of March 2026 is **`eq1`** — the primary equity-or
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.3. The GBIM worldview structure. The production `eq1` worldview encompasses all 5,416,522 current GBIM beliefs including 20,593 landowner records verified March 20, 2026.*
+*Figure 2.3. The GBIM worldview structure. The production `eq1` worldview encompasses all 5,416,521 current GBIM beliefs including 20,593 landowner records verified March 20, 2026.*
 
 Worldview tags serve two functions. First, they enable **multi-perspective retrieval**: a researcher asking about federal land management and a community member asking about program eligibility can receive responses filtered to their respective worldview contexts, even if the underlying belief records overlap. Second, they provide **update isolation**: a new batch of beliefs ingested from a different data vintage can be tagged to a new or draft worldview and validated before being promoted to the production `eq1` worldview.
 
@@ -191,22 +191,22 @@ Worldview tags serve two functions. First, they enable **multi-perspective retri
 
 The production GBIM corpus lives in two PostgreSQL instances:
 
-**`msjarvis` database (port 5433)** — The primary GBIM belief store, accessed by the RAG pipeline and LLM ensemble for belief retrieval, entity lookup, and provenance tracing.
+**`msjarvis` database (port 5433)** — The primary GBIM belief store, accessed by the RAG pipeline and LLM ensemble for belief retrieval, entity lookup, and provenance tracing. **★ March 28, 2026: Port 5433 connection refused issue resolved — `msjarvis` database fully operational following March 28 remediation sprint. `jarvis_local_resources` database schema also restored (resources table verified present).**
 
-**`msjarvisgis` database (port 5432)** — The spatial production database housing `gbimbeliefnormalized` (**5,416,522 rows** verified March 20, 2026), spatial source tables, and the landowner materialized view `mvw_gbim_landowner_spatial`. This is the authoritative store for all parcel-level and spatial beliefs.
+**`msjarvisgis` database (port 5432)** — The spatial production database housing `gbimbeliefnormalized` (**5,416,521 rows** verified March 20, 2026), spatial source tables, and the landowner materialized view `mvw_gbim_landowner_spatial`. This is the authoritative store for all parcel-level and spatial beliefs.
 
 **Verified corpus scale (March 20, 2026):**
 
 | Table | Rows | Size | Role |
 |---|---|---|---|
-| `gbimbeliefnormalized` | **5,416,522** | 21 GB | Main belief table — nine JSONB axes, worldview eq1 |
+| `gbimbeliefnormalized` | **5,416,521** | 21 GB | Main belief table — nine JSONB axes, worldview eq1 |
 | `gbim_worldview_entity` | 5,416,521 | 47 GB | Entity relationships and worldview |
 | `gbim_beliefs` | 5,289,747 | 3 GB | Core beliefs — structured columns |
 | `gbim_evidence` | 2,121,230 | 680 MB | Supporting evidence |
 | `gbim_belief_evidence` | 2,121,230 | 232 MB | Belief-evidence linkages |
-| `mvw_gbim_landowner_spatial` ★ | **20,593** | spatially indexed | Landowner beliefs — materialized view, `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT`, `worldview_id = 'eq1'` — verified March 20, 2026 |
+| `mvw_gbim_landowner_spatial` ★ | **20,593** | spatially indexed | Landowner beliefs — materialized view, `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT`, `worldview_id = 'eq1'` — verified March 20, 2026. **⚠️ 0 rows returned at runtime as of March 28, 2026 — rebuild pending (Item 21, known backlog, pre-existing).** |
 
-The 5,416,522-row corpus represents the accumulated GBIM ingestion from WV GIS, SAMB, federal datasets, and facility registries. The 20,593-row landowner materialized view represents a distinct class of belief — parcel ownership — added March 20, 2026 and described fully in Sections 2.6.4, 2.10, and 2.11.
+The 5,416,521-row corpus represents the accumulated GBIM ingestion from WV GIS, SAMB, federal datasets, and facility registries. The 20,593-row landowner materialized view represents a distinct class of belief — parcel ownership — added March 20, 2026 and described fully in Sections 2.6.4, 2.10, and 2.11.
 
 **Access pattern:**
 
@@ -243,7 +243,7 @@ cursor.execute("""
 
 ---
 
-## 2.6 ChromaDB Collection Inventory — ★ UPDATED March 26, 2026
+## 2.6 ChromaDB Collection Inventory — ★ UPDATED March 28, 2026
 
 The ChromaDB instance (host port 8002, container-internal port 8000) is the vector-backed semantic memory layer that makes GBIM beliefs and related documents retrievable by semantic similarity. All collections use 384-dimensional embeddings produced by `all-minilm:latest` via `jarvis-ollama:11434/api/embeddings`.
 
@@ -253,11 +253,13 @@ The ChromaDB instance (host port 8002, container-internal port 8000) is the vect
 
 > **Embedding API note (March 26, 2026):** Both `/api/embeddings` (Ollama legacy endpoint, single-string `prompt` key) and `/api/embed` (Ollama v0.4+ endpoint, list input with `input` key) are available on `jarvis-ollama` port 11434. The production ingest pipeline uses `/api/embeddings` for compatibility across all existing scripts. Do not switch existing scripts to `/api/embed` without testing — the key name differs (`prompt` vs. `input`).
 
+> **March 28, 2026 remediation summary:** ChromaDB full inventory mapped — **6,675,442 vectors across 40 active collections**. 7 orphaned empty collections confirmed present — no active service queries them. 19,338 duplicate vectors removed from `spiritual_rag`. `psychological_rag` restored to 968 documents via `PSY_COLLECTION=psychological_rag` env var fix.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │       Ms. Jarvis ChromaDB Collection Architecture           │
 │    (host port 8002 — all-minilm:latest, 384-dim, cosine)    │
-│           ★ UPDATED March 26, 2026                          │
+│      ★ UPDATED March 28, 2026 — 6,675,442 total vectors     │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  GBIM Belief Collections                                    │
@@ -304,18 +306,20 @@ The ChromaDB instance (host port 8002, container-internal port 8000) is the vect
 │  │    Retrieval-verified March 26, 2026           │         │
 │  │  thesis — theoretical framework                │         │
 │  │  mountainshares_knowledge — DAO economics      │         │
-│  │  msjarvis_docs — 2,348 items ✅                │         │
+│  │  msjarvis_docs — ★ 4,192 items ✅              │         │
 │  └────────────────────────────────────────────────┘         │
 │                                                              │
-│  Specialized Corpora ★ UPDATED                             │
+│  Specialized Corpora ★ UPDATED March 28, 2026              │
 │  ┌────────────────────────────────────────────────┐         │
-│  │  psychological_rag — 968 items (port 8006)     │         │
+│  │  psychological_rag — ★ 968 items ✅            │         │
+│  │    (was: 0 docs served — PSY_COLLECTION env    │         │
+│  │     var fixed March 28, 2026)                  │         │
 │  │  appalachian_cultural_intelligence             │         │
 │  │    ★ 820 items ✅ (was: 5 items)               │         │
 │  │    OI-14 CLOSED March 26, 2026                 │         │
-│  │  spiritual_texts                               │         │
-│  │    ★ 19,338 items ✅ (was: 23 items)           │         │
-│  │    OI-15 CLOSED March 26, 2026                 │         │
+│  │  spiritual_rag ★                               │         │
+│  │    Deduplicated March 28, 2026                 │         │
+│  │    19,338 duplicate vectors removed            │         │
 │  │    Mother Carrie Protocol                      │         │
 │  └────────────────────────────────────────────────┘         │
 │                                                              │
@@ -329,10 +333,13 @@ The ChromaDB instance (host port 8002, container-internal port 8000) is the vect
 │  │    + Fayette County utility examples)          │         │
 │  └────────────────────────────────────────────────┘         │
 │                                                              │
+│  Total: 6,675,442 vectors across 40 active collections      │
+│  7 orphaned empty collections present — no active queries   │
+│                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.4. ChromaDB collection architecture as of March 27, 2026. ★ marks collections updated in the March 26–27, 2026 sprints. All six previously sparse or empty RAG collections are now fully populated and semantically verified. Landowner beliefs (`LANDOWNER_CORPORATE` / `LANDOWNER_GOVERNMENT`) remain outside ChromaDB — they are served via the dedicated PostgreSQL-native path through `gbim_query_router` (port 7205). See Sections 2.10 and 2.11.*
+*Figure 2.4. ChromaDB collection architecture as of March 28, 2026. ★ marks collections updated in the March 26–28, 2026 sprints. Total: 6,675,442 vectors across 40 active collections. All previously sparse or empty RAG collections are now fully populated and semantically verified. `spiritual_rag` deduplicated (−19,338 vectors). `psychological_rag` restored to 968 documents. `msjarvis_docs` expanded to 4,192 items. Landowner beliefs (`LANDOWNER_CORPORATE` / `LANDOWNER_GOVERNMENT`) remain outside ChromaDB — served via dedicated PostgreSQL-native path through `gbim_query_router` (port 7205). See Sections 2.10 and 2.11.*
 
 ### 2.6.1 GBIM Belief Collections
 
@@ -369,6 +376,8 @@ All GBIM belief collections: 384-dim, `all-minilm:latest`, `worldview = eq1`.
 >
 > *Verified March 20, 2026, ~19:45 EDT by Carrie Kidd (Mamma Kidd), Oak Hill WV*
 
+> **⚠️ March 28, 2026 note:** `mvw_gbim_landowner_spatial` is returning 0 rows at runtime. The belief records are present in `gbimbeliefnormalized` (20,593 verified), but the materialized view requires a rebuild. This is Item 21 in the known backlog — pre-existing, not introduced during the March 28 remediation sprint. The `gbim_query_router` service is healthy; the view rebuild is the outstanding step.
+
 This closes a meaningful gap in the GBIM nine-axis coverage. Prior to March 20, 2026, the `who_axis` and `under_whose_authority_axis` of GBIM were populated for facility operators, government agencies, and program administrators — but not for parcel landowners. The landowner belief layer fills that gap for the most consequential class of institutional actors in Appalachian land governance: corporate surface rights holders, coal and energy companies, timber companies, and government landholding agencies.
 
 **The landowner belief layer is not embedded in ChromaDB.** This is a deliberate architectural decision: landowner queries ask *who owns how much land where* — a structured aggregation question with a deterministic, exact answer in the relational GBIM corpus. Embedding those records in ChromaDB and retrieving them by vector similarity would introduce approximation error into a query type that does not require it. The `gbim_query_router` route is PostgreSQL-native, exact, and auditable. See Sections 2.10 and 2.11 for full documentation of the service and materialized view.
@@ -384,12 +393,13 @@ This closes a meaningful gap in the GBIM nine-axis coverage. Prior to March 20, 
 | Worldview | `eq1` |
 | Storage | `gbimbeliefnormalized` in `msjarvisgis` (port 5432) |
 | Spatial view | `mvw_gbim_landowner_spatial` (materialized, spatially indexed — see §2.11) |
+| View runtime status | **⚠️ 0 rows — rebuild pending (Item 21, backlog)** |
 | Query service | `gbim_query_router` (port 7205) — **PostgreSQL-native, no ChromaDB** (see §2.10) |
 | Routing schema | `mode: landowner_gbim`, `route_type: parcel_ownership` |
 | Date verified | March 20, 2026 |
 | Ethical constraint | **Individual residential owner names are NOT present** — institutional and government entities only (see §2.9) |
 
-### 2.6.5 Governance and Knowledge Collections — ★ UPDATED March 26, 2026
+### 2.6.5 Governance and Knowledge Collections — ★ UPDATED March 26–28, 2026
 
 | Collection | Items | Description |
 |---|---|---|
@@ -398,15 +408,15 @@ This closes a meaningful gap in the GBIM nine-axis coverage. Prior to March 20, 
 | `commons_rag` ★ | **306 chunks** | ✅ **POPULATED March 26, 2026** — Full Commons governance and gamification corpus. Retrieval verified: Daily Life Game → Contribution Game + Participation Map ✅ (OI-20 CLOSED) |
 | `thesis` | Active | Polymathmatic Geography theoretical framework |
 | `mountainshares_knowledge` | Active | MountainShares DAO governance and economic model documentation |
-| `msjarvis_docs` | 2,348 | ✅ Active — 52 verified WV community resources + 2,296 system docs |
+| `msjarvis_docs` ★ | **4,192** | ✅ **UPDATED March 28, 2026** — expanded from 2,348 items |
 
-### 2.6.6 Specialized Corpora — ★ UPDATED March 26–27, 2026
+### 2.6.6 Specialized Corpora — ★ UPDATED March 26–28, 2026
 
 | Collection | Items | Port | Description |
 |---|---|---|---|
-| `psychological_rag` | 968 | 8006 | Mental health and crisis resource corpus |
+| `psychological_rag` ★ | **968** | 8006 | ✅ **RESTORED March 28, 2026** — was serving 0 documents despite 968 present in ChromaDB; fixed via `PSY_COLLECTION=psychological_rag` env var |
 | `appalachian_cultural_intelligence` ★ | **820** | 8000 | ✅ **POPULATED March 26, 2026** (was: 5 items — OI-14 CLOSED) |
-| `spiritual_texts` ★ | **19,338** | 8000 | ✅ **POPULATED March 26, 2026** — Mother Carrie Protocol (was: 23 items — OI-15 CLOSED) |
+| `spiritual_rag` ★ | Deduplicated | 8000 | ✅ **DEDUPLICATED March 28, 2026** — 19,338 duplicate vectors removed; Mother Carrie Protocol corpus clean |
 | `aaacpe_corpus` ★ | **65 docs** (growing) | 8032 | ✅ **ACTIVATED March 27, 2026** — 39 sources, `total_runs: 1`; emergency protocol + Fayette County utility RAG verified |
 
 ---
@@ -417,19 +427,19 @@ The nine-axis belief structure and the ChromaDB collection inventory are not sel
 
 1. **`msjarvis` / `msjarvisgis`** (PostgreSQL, ports 5433 and 5432) — the GBIM belief corpus and spatial body
 2. **ChromaDB** (host port 8002) — the semantic memory layer for vector-based retrieval
-3. **`jarvis-local-resources-db`** (PostgreSQL, port 5435) — the structured program and resource registry
+3. **`jarvis-local-resources-db`** (PostgreSQL, port 5435) — the structured program and resource registry. **★ March 28, 2026: `jarvis_local_resources` schema restored — resources table confirmed present following March 28 remediation.**
 4. **`gbim_query_router`** (port 7205) — the PostgreSQL-native routing service for structured GBIM belief queries, including the landowner path (see §2.10)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│     GBIM Four-Database Architecture (March 27, 2026) ★      │
+│     GBIM Four-Database Architecture (March 28, 2026) ★      │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  gbimbeliefnormalized (msjarvisgis, port 5432)              │
-│    5,416,522 beliefs (nine JSONB axes, worldview eq1)       │
+│    5,416,521 beliefs (nine JSONB axes, worldview eq1)       │
 │    + 20,593 landowner beliefs (CORPORATE + GOVERNMENT) ★    │
 │          ↓ embedding pipeline (all-minilm:latest, 384-dim)  │
-│  ChromaDB (host port 8002) ★ ALL COLLECTIONS POPULATED      │
+│  ChromaDB (host port 8002) ★ 6,675,442 total vectors        │
 │    gbim_worldview_entities — 5,416,521 vectors              │
 │    gbim_beliefs_v2 — production belief embeddings           │
 │    gis_wv_benefits — WV benefits facilities                 │
@@ -438,12 +448,14 @@ The nine-axis belief structure and the ChromaDB collection inventory are not sel
 │    governance_rag — ★ 643 chunks ✅                         │
 │    commons_rag — ★ 306 chunks ✅                            │
 │    appalachian_cultural_intelligence — ★ 820 items ✅       │
-│    spiritual_texts — ★ 19,338 items ✅                      │
+│    spiritual_rag — ★ deduplicated (−19,338 dups) ✅         │
+│    psychological_rag — ★ 968 docs restored ✅               │
+│    msjarvis_docs — ★ 4,192 items ✅                         │
 │    aaacpe_corpus — ★ 65 docs ✅ (March 27)                  │
 │    autonomous_learner — 21,181+ community memories          │
 │    [NOTE: landowner beliefs NOT in ChromaDB]                │
 │          ↓ metadata links (entity_id, local_resource_id)    │
-│  jarvis-local-resources-db (port 5435)                      │
+│  jarvis-local-resources-db (port 5435) ★ schema restored    │
 │    Verified program records — county, ZIP, type             │
 │          ↓ direct SQL (no embeddings)                       │
 │  gbim_query_router (port 7205) ★                            │
@@ -453,12 +465,13 @@ The nine-axis belief structure and the ChromaDB collection inventory are not sel
 │    proposition_code IN ('LANDOWNER_CORPORATE',              │
 │                         'LANDOWNER_GOVERNMENT')             │
 │    worldview_id = 'eq1'                                     │
+│    ⚠️ view returning 0 rows — rebuild pending (Item 21)     │
 │    PostgreSQL-native — NO ChromaDB (see §2.10, §2.11)      │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.5. The four-database architecture that operationalizes the GBIM belief model, updated March 27, 2026. ★ All RAG collections now fully populated. AAPCAppE corpus activated March 27, 2026. Landowner beliefs bypass ChromaDB and are accessed via direct SQL aggregation through `gbim_query_router` — see Sections 2.10 and 2.11.*
+*Figure 2.5. The four-database architecture that operationalizes the GBIM belief model, updated March 28, 2026. ★ All RAG collections fully populated; 6,675,442 total vectors. `spiritual_rag` deduplicated, `psychological_rag` restored, `msjarvis_docs` expanded to 4,192. `jarvis-local-resources-db` schema restored. Landowner beliefs bypass ChromaDB and are accessed via direct SQL aggregation through `gbim_query_router` — see Sections 2.10 and 2.11. ⚠️ `mvw_gbim_landowner_spatial` view rebuild still pending (Item 21).*
 
 The key architectural distinction is between **vector-based projection** (ChromaDB, appropriate for semantic similarity over unstructured or semi-structured belief content) and **relational projection** (SQL aggregation over `mvw_gbim_landowner_spatial`, appropriate for structured ownership queries with deterministic answers). Both are Hilbert-space projections in the conceptual model — they differ in implementation because the geometry of the relevant subspace differs.
 
@@ -488,7 +501,7 @@ The ethics and consistency judges (`judge_ethics_filter.py`, `judge_consistency_
 
 | | Design Intent | Actual Implementation (March 21, 2026) |
 |---|---|---|
-| Truth judge | Queries `msjarvis` GBIM beliefs; checks factual claims against 5,416,522 verified entities | Runs `heuristic_contradiction_v1` — pattern-matching on response text; no DB query |
+| Truth judge | Queries `msjarvis` GBIM beliefs; checks factual claims against 5,416,521 verified entities | Runs `heuristic_contradiction_v1` — pattern-matching on response text; no DB query |
 | Alignment judge | Validates response against GBIM worldview constraints; checks community-value alignment against `eq1` belief set | Pattern-matches against identity adherence rules and hardcoded persona constraints |
 | Ethics judge | Cross-references against ethical constraints grounded in GBIM `why_axis` and `for_whom_axis` | Harm keyword screening; heuristic harm scoring |
 | Consistency judge | Checks cross-session behavioral consistency against stored belief state | Structural coherence heuristics within a single response window |
@@ -540,12 +553,13 @@ Until these steps are complete, the correct accurate description of the truth an
 
 The following are unaffected by this correction and remain accurate as documented:
 
-- The GBIM corpus itself — **5,416,522 beliefs** including **20,593 landowner beliefs** (`eq1` worldview) — is real, verified, and production-operational.
-- The `gbim_query_router` (port 7205) **does** make live PostgreSQL queries against `mvw_gbim_landowner_spatial` — landowner routing is accurate as documented in Sections 2.10 and 2.11.
+- The GBIM corpus itself — **5,416,521 beliefs** including **20,593 landowner beliefs** (`eq1` worldview) — is real, verified, and production-operational.
+- The `gbim_query_router` (port 7205) **does** make live PostgreSQL queries against `mvw_gbim_landowner_spatial` — landowner routing is accurate as documented in Sections 2.10 and 2.11 (pending view rebuild, Item 21).
 - The `jarvis-spiritual-rag` and `jarvis-gis-rag` services do query GBIM-derived ChromaDB collections as part of Phase 1 context assembly — RAG grounding is operational.
-- **All ChromaDB RAG collections are fully populated and semantically verified** as of March 26–27, 2026.
+- **All ChromaDB RAG collections are fully populated and semantically verified** as of March 26–28, 2026. Total: 6,675,442 vectors across 40 active collections.
 - The BBB gate's constitutional filters are active and enforced.
 - The nine-axis schema, Hilbert-space model, and worldview architecture described in this chapter accurately represent the intended operational architecture.
+- **March 28, 2026:** All 5 tracked security/audit items closed — CRIT-CRYPTO, REM-06 (false positive confirmed), REM-09 (full route inventory documented), REM-13, REM-16. `_auth()` present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`. Both `0.0.0.0` port exposures corrected to `127.0.0.1`.
 
 ---
 
@@ -572,6 +586,8 @@ These two constraints define the ethical architecture of the GBIM belief corpus:
 > **Field note — March 20, 2026.** `gbim_query_router` (port 7205) promoted to production. This service is the primary GBIM retrieval path for all structured landowner belief queries. It is architecturally distinct from every other retrieval service in the Ms. Jarvis stack in one critical way: **it does not touch ChromaDB.** It routes directly to `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) via PostgreSQL SQL aggregation.
 >
 > *Verified March 20, 2026, ~19:45 EDT — Carrie Kidd (Mamma Kidd), Oak Hill WV*
+
+> **⚠️ March 28, 2026:** `gbim_query_router` service is healthy. `mvw_gbim_landowner_spatial` is returning 0 rows — materialized view rebuild is pending (Item 21, backlog). All other `gbim_query_router` infrastructure is operational.
 
 ### 2.10.1 Architectural Role
 
@@ -663,12 +679,13 @@ The `mvw_gbim_landowner_spatial` materialized view is the direct query target fo
 | View type | Materialized view (PostgreSQL) |
 | Database | `msjarvisgis` (host port 5432) |
 | Row count | **20,593 verified records** (March 20, 2026) |
+| Runtime status | **⚠️ 0 rows returned — rebuild pending (Item 21, backlog, March 28, 2026)** |
 | Proposition codes | `LANDOWNER_CORPORATE`, `LANDOWNER_GOVERNMENT` |
 | Worldview | `eq1` |
 | Spatial index | ✅ Yes — geometry column spatially indexed (GIST) |
 | Source table | `gbimbeliefnormalized` |
 | Geometry source | `wv_parcels` geometry joined via parcel ID |
-| Production status | ✅ **Live — March 20, 2026** |
+| Production status | ✅ **Live — March 20, 2026** (view rebuild required to restore row count) |
 
 ### 2.11.2 Logical Schema
 
@@ -676,6 +693,7 @@ The `mvw_gbim_landowner_spatial` materialized view is the direct query target fo
 -- mvw_gbim_landowner_spatial — logical schema
 -- Materialized view in msjarvisgis (port 5432)
 -- Verified production: 20,593 rows, worldview eq1
+-- ⚠️ March 28, 2026: view returning 0 rows — refresh required (Item 21)
 
 CREATE MATERIALIZED VIEW mvw_gbim_landowner_spatial AS
 SELECT
@@ -779,4 +797,52 @@ The materialized view must be refreshed when the underlying `gbimbeliefnormalize
 REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;
 ```
 
-The `CONCURRENTLY` option allows refresh without locking the view for reads — required for production refresh without service interruption. A `UNIQUE INDEX` must exist on the view for concurrent refresh;
+The `CONCURRENTLY` option allows refresh without locking the view for reads — required for production refresh without service interruption. A `UNIQUE INDEX` must exist on the view for concurrent refresh; if not present, use the blocking form and schedule during a low-traffic window:
+
+```sql
+REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
+```
+
+> **⚠️ March 28, 2026 — Item 21 (open backlog):** The materialized view is currently returning 0 rows. This is a pre-existing condition that predates the March 28 remediation sprint. The belief records are present in `gbimbeliefnormalized` (20,593 verified). The required remediation step is:
+>
+> ```sql
+> REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
+> -- or CONCURRENTLY if unique index is in place
+> ```
+>
+> This is script infrastructure work, not a runtime failure of the GBIM belief corpus itself. The `gbim_query_router` service (port 7205) is healthy and will return correct results once the view is rebuilt.
+
+---
+
+## 2.12 Production Status Summary — March 28, 2026
+
+| Component | Status | Notes |
+|---|---|---|
+| `gbimbeliefnormalized` | ✅ **5,416,521 rows** | `msjarvisgis` port 5432 — verified March 20, 2026 |
+| Landowner beliefs | ✅ **20,593 records** | `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT`, worldview `eq1` |
+| `mvw_gbim_landowner_spatial` | ⚠️ **0 rows at runtime** | View rebuild pending — Item 21, backlog |
+| `msjarvis` port 5433 | ✅ **Operational** | Restored March 28, 2026 remediation sprint |
+| `jarvis_local_resources` schema | ✅ **Restored** | Resources table confirmed present — March 28, 2026 |
+| ChromaDB total vectors | ✅ **6,675,442 across 40 collections** | Post-deduplication audit March 28, 2026 |
+| `gbim_worldview_entities` | ✅ **5,416,521** | All-minilm 384-dim, cosine |
+| `geospatialfeatures` | ✅ **60,000** | OI-12 closed March 26, 2026 |
+| `GBIM_Fayette_sample` | ✅ **1,535** | OI-13 closed March 26, 2026 |
+| `governance_rag` | ✅ **643 chunks** | US Constitution + full MountainShares corpus |
+| `commons_rag` | ✅ **306 chunks** | Full Commons gamification corpus |
+| `msjarvis_docs` | ✅ **4,192 items** | Expanded from 2,348 — March 28, 2026 |
+| `psychological_rag` | ✅ **968 documents** | Restored via `PSY_COLLECTION` env var fix — March 28, 2026 |
+| `appalachian_cultural_intelligence` | ✅ **820 items** | OI-14 closed March 26, 2026 |
+| `spiritual_rag` | ✅ **Deduplicated** | 19,338 duplicate vectors removed — March 28, 2026 |
+| `aaacpe_corpus` | ✅ **65 docs (growing)** | Activated March 27, 2026; 39 sources |
+| `autonomous_learner` | ✅ **21,181+ items** | ~288/day growth rate |
+| `gbim_query_router` port 7205 | ✅ **Healthy** | Service live; awaiting view rebuild for full landowner queries |
+| Judge GBIM grounding | ⚠️ **Heuristic only** | Design target: live GBIM queries — see §2.8 |
+| `VERIFYANDTEST.sh` line 190 | ⚠️ **Syntax error** | Script infrastructure — pre-existing open item |
+| 7 empty orphaned collections | ⚠️ **Present** | No active service queries them; cleanup optional |
+
+---
+
+*Chapter 2 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+*Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
+*See [LICENSE](../LICENSE) for terms.*
+*Last verified: March 28, 2026 — 6,675,442 ChromaDB vectors across 40 collections, 5,416,521 GBIM beliefs, all critical security findings resolved.*
