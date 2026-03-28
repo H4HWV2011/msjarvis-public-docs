@@ -1,39 +1,56 @@
-># 15. Pituitary and Global Modes
->
->## Why this matters for Polymathmatic Geography
->
->This chapter explains how Ms. Jarvis’s “global hormones” are implemented as constitutional rules, weights, modes, and always‑on services that shape every interaction. It supports:
->
->- **P1 – Every where is entangled** by tying global safety, ethics, and optimization signals to all agents, memories, and spatial backbones at once.
->- **P3 – Power has a geometry** by making global influence flow through explicit services and routing patterns instead of hidden parameters.
->- **P5 – Design is a geographic act** by encoding norms for Appalachian communities directly into system‑wide constraints and emphasis profiles.
->- **P12 – Intelligence with a ZIP code** by allowing global weights and principles to prioritize local context, commons, and community veto.
->- **P16 – Power accountable to place** by logging, hashing, and exposing global decisions and violations so they can be audited and contested.
->
->As such, this chapter belongs to the *Computational Instrument* tier: it specifies the “pituitary” layer of global modes and constraints that govern how Ms. Jarvis’s cognitive services behave in the running system.
->
-><img width="2752" height="1536" alt="unnamed(20)" src="https://github.com/user-attachments/assets/dd4946b7-818f-4d20-860e-eb397c277dd0" />
+# 15. Pituitary and Global Modes
 
->>Figure 15.1. Pituitary and global modes in Ms. Jarvis: constitutional guardrails, the blood–brain barrier, Fifth DGM, WOAH/DGM supervisors, and orchestration modes act as a global “hormone” layer shaping all agents, retrieval paths, and memory updates, with their decisions exposed via audit and transparency services.
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
+
+## Why This Matters for Polymathmatic Geography
+
+This chapter explains how Ms. Jarvis's "global hormones" are implemented as constitutional rules, weights, modes, and always-on services that shape every interaction. It supports:
+
+- **P1 – Every where is entangled** by tying global safety, ethics, and optimization signals to all agents, memories, and spatial backbones at once.
+- **P3 – Power has a geometry** by making global influence flow through explicit services and routing patterns instead of hidden parameters.
+- **P5 – Design is a geographic act** by encoding norms for Appalachian communities directly into system-wide constraints and emphasis profiles.
+- **P12 – Intelligence with a ZIP code** by allowing global weights and principles to prioritize local context, commons, and community veto.
+- **P16 – Power accountable to place** by logging, hashing, and exposing global decisions and violations so they can be audited and contested.
+
+As such, this chapter belongs to the *Computational Instrument* tier: it specifies the "pituitary" layer of global modes and constraints that govern how Ms. Jarvis's cognitive services behave in the running system.
+
+> *Figure 15.1. Pituitary and global modes in Ms. Jarvis: constitutional guardrails, the blood–brain barrier, Fifth DGM, WOAH/DGM supervisors, and orchestration modes act as a global "hormone" layer shaping all agents, retrieval paths, and memory updates, with their decisions exposed via audit and transparency services.*
+
+---
+
+## Status as of March 27, 2026
+
+| Service / Component | Status | Notes |
+|---|---|---|
+| `nbb_pituitary_gland` | ✅ Verified | March 27, 2026 container audit |
+| `jarvis-woah` (port **7012**, stdlib stub) | ✅ RUNNING | Confirmed March 25, 2026 — Ch. 10 §10.4 and Ch. 16 §16.13 |
+| `nbb_woah_algorithms` (port **8104**) | ✅ Verified | March 27, 2026 container audit |
+| `jarvis-fifth-dgm` | ✅ Fixed | Fixed March 27, 2026 sprint (see Ch. 32); companion to `jarvis-fractal-consciousness` |
+| Blood–Brain Barrier (`jarvis-blood-brain-barrier`, port **127.0.0.1:8016**) | ✅ Operational | 7-filter stack — re-locked to 127.0.0.1 March 18, 2026 (Ch. 11) |
+| `jarvis-69dgm-bridge` (host **127.0.0.1:19000** → internal **9000**) | ✅ Verified | Canonical DGM bridge — see Ch. 12 §12.11 and Ch. 17 §17.9 |
+| Constitutional Guardian / audit trail | ✅ Active | SHA-256 integrity-checked violation log |
+
+> **Port correction notice (March 27, 2026):** Earlier drafts of this chapter (§15.4) referenced `port 8000` (main AI), `port 7003` (DGM), and `port 33881` (orchestrator). These have been updated to match verified canonical ports in Ch. 17 §17.9: `jarvis-main-brain` is **port 8050**; DGM bridge is `jarvis-69dgm-bridge` at **host 19000 → internal 9000** (not 7003); `jarvis-woah` at **7012** ✅ is unchanged.
+
 ---
 
 ## 15.1 Purpose and Scope
 
-Global controls in Ms. Jarvis are realized as a set of always‑on governance and modulation services rather than static configuration files. The components listed here correspond to the ‘Pituitary & Global Controls’ layer in Figure 15.1. The core components in the live stack are:
+Global controls in Ms. Jarvis are realized as a set of always-on governance and modulation services rather than static configuration files. The components listed here correspond to the 'Pituitary & Global Controls' layer in Figure 15.1. The core components in the live stack are:
 
 ### Blood–Brain Barrier and constitutional guardrails
 
-A dedicated safety layer routes ultimate answers through a proxy and upstream barrier service (the blood–brain barrier microservice plus any ethics proxies), enforcing high‑level prohibitions (for example, no PII dumps, no clearly unsafe outputs), logging violations, and acting as the concrete realization of global constitutional constraints on generation.
+A dedicated safety layer routes ultimate answers through a proxy and upstream barrier service (the blood–brain barrier microservice, `jarvis-blood-brain-barrier` at **127.0.0.1:8016**, re-locked to 127.0.0.1 per March 18, 2026 security hardening — see Ch. 11), enforcing high-level prohibitions (for example, no PII dumps, no clearly unsafe outputs), logging violations, and acting as the concrete realization of global constitutional constraints on generation. The BBB runs a 7-filter stack as of March 15, 2026 (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness).
 
-### Fifth DGM orchestration (“hippocampal gate”)
+### Fifth DGM orchestration ("hippocampal gate")
 
-A running FastAPI service (jarvis‑fifth‑dgm) filters which experiences enter “subconscious” memory and, via WOAH‑style evaluation, which are promoted into identity‑carrying I‑containers, functioning as a global gate on what is allowed to shape Ms. Jarvis’s evolving self‑model.
+A running FastAPI service (`jarvis-fifth-dgm`, companion container to `jarvis-fractal-consciousness` — see **Ch. 32** for port details and service map; confirmed ✅ Fixed in March 27, 2026 sprint) filters which experiences enter "subconscious" memory and, via WOAH-style evaluation, which are promoted into identity-carrying I-containers, functioning as a global gate on what is allowed to shape Ms. Jarvis's evolving self-model.
 
 ### WOAH / DGM supervisory services
 
-WOAH / DGM services estimate multi‑scale complexity (fractal_dgm_woah), maintain and increment global WOAH weights, and expose optimization endpoints for self‑improving behavior, currently used as supervisory signals for identity, routing, and evaluation rather than full self‑rewrite engines.
+WOAH / DGM services estimate multi-scale complexity (`fractal_dgm_woah`), maintain and increment global WOAH weights, and expose optimization endpoints for self-improving behavior, currently used as supervisory signals for identity, routing, and evaluation rather than full self-rewrite engines. `jarvis-woah` runs at **port 7012** (stdlib stub, confirmed RUNNING March 25, 2026 — Ch. 10 §10.4 and Ch. 16 §16.13). `nbb_woah_algorithms` runs at **port 8104** (confirmed verified March 27, 2026 container audit).
 
-These controls are treated as dynamic state that can evolve over time, and their status and effects are surfaced through unified gateway and main‑brain status endpoints with explicit `system_transparency_mode` descriptions and per‑service health reports.
+These controls are treated as dynamic state that can evolve over time, and their status and effects are surfaced through unified gateway and main-brain status endpoints with explicit `system_transparency_mode` descriptions and per-service health reports.
 
 ---
 
@@ -49,41 +66,43 @@ The global layer manages several categories of settings and constraints, grounde
 ### WOAH weights and fractal dimensions
 
 - `config/woah_weights.json` specifies weights over dimensions such as `safety`, `truthfulness`, `helpfulness`, `local_context`, and `spiritual_alignment`, and fractal layers like `session`, `daily`, and `weekly`, representing global emphasis profiles.
-- Analysis services compute WOAH‑weighted complexity across gamma, beta, theta, and delta bands and interpret the result as “initializing,” “agents coordinating,” or “full DGM integration,” effectively labeling global cognitive state for given message sequences.
+- Analysis services compute WOAH-weighted complexity across gamma, beta, theta, and delta bands and interpret the result as "initializing," "agents coordinating," or "full DGM integration," effectively labeling global cognitive state for given message sequences.
 
 ### Roles, personas, and orchestration modes
 
-- The LLM bridge defines a multi‑model ensemble with per‑model role tags (for example, `quick_general`, `reasoning`, `medical`, `vision`, `code`, `multilingual`), allowing orchestration layers to reason about which kinds of capabilities they are invoking.
+- The LLM bridge defines a multi-model ensemble with per-model role tags (for example, `quick_general`, `reasoning`, `medical`, `vision`, `code`, `multilingual`), allowing orchestration layers to reason about which kinds of capabilities they are invoking.
 - DGM orchestrators maintain explicit mode fields such as `{"mode": "emergent_passthrough"}` and return responses labeled with `mode="dgm_complete_integration"`, making global orchestration state explicit in the API.
 
-### System‑wide transparency modes
+### System-wide transparency modes
 
-- Unified gateway endpoints advertise per‑subsystem `system_transparency_mode` strings describing the configuration of storage, RAG, qualia, WOAH, and GIS services (for example, indicating direct DB access, depth of analysis, or “no hidden loops”), which function as human‑readable global mode descriptors.
+- Unified gateway endpoints advertise per-subsystem `system_transparency_mode` strings describing the configuration of storage, RAG, qualia, WOAH, and GIS services (for example, indicating direct DB access, depth of analysis, or "no hidden loops"), which function as human-readable global mode descriptors.
 
-“Figure 15.1’s ‘Global Settings’ column summarizes these safety, WOAH, role, and transparency parameters. Each of these settings has a defined meaning and is either stored in structured config (for example, JSON/YAML) or exposed via documented HTTP endpoints whose outputs can be queried and versioned.
+Figure 15.1's 'Global Settings' column summarizes these safety, WOAH, role, and transparency parameters. Each of these settings has a defined meaning and is either stored in structured config (for example, JSON/YAML) or exposed via documented HTTP endpoints whose outputs can be queried and versioned.
 
 ---
 
 ## 15.3 Implementation and Storage
 
-The layered pipelines described here map to the ‘Cognitive Services & Agents’ layer under global controls in Figure 15.1. The global control state is implemented through a combination of configuration files, long‑running services, and code‑level flags:
+The layered pipelines described here map to the 'Cognitive Services & Agents' layer under global controls in Figure 15.1. The global control state is implemented through a combination of configuration files, long-running services, and code-level flags:
 
 ### Structured configuration and persistence
 
-- `config/settings.py` encapsulates application and database configuration (Facebook API, Neo4j, Redis, Chroma path) via Pydantic models, with environment‑based overrides and automatic creation of the Chroma path, providing a typed, persistent backing for global connectivity and storage settings.
+- `config/settings.py` encapsulates application and database configuration (Facebook API, Neo4j, Redis, Chroma path) via Pydantic models, with environment-based overrides and automatic creation of the Chroma path, providing a typed, persistent backing for global connectivity and storage settings.
 - `config/woah_weights.json`, `constitutional_principles.yml`, and `constitutional_principles.md` encode numeric weights and textual principles that guide behavior, and are updated or read by services like `woah_optimizer.py` and the Constitutional API.
 
-### Derived flags and in‑memory state
+### Derived flags and in-memory state
 
-- Services such as unified status and orchestrators derive simple flags like `woah_processed`, `darwin_processed`, `blood_brain_barrier_active`, `fifth_dgm_active`, and current DGM mode, and include them in JSON responses to higher‑level gateways.
-- Redis is used by some status components to track orchestrator state under keys like `jarvis:state`, contributing to short natural‑language or JSON summaries of the system’s current focus that can be consumed by higher‑level agents.
+- Services such as unified status and orchestrators derive simple flags like `woah_processed`, `darwin_processed`, `blood_brain_barrier_active`, `fifth_dgm_active`, and current DGM mode, and include them in JSON responses to higher-level gateways.
+- Redis is used by some status components to track orchestrator state under keys like `jarvis:state`, contributing to short natural-language or JSON summaries of the system's current focus that can be consumed by higher-level agents.
 
 ### Change logs and audits
 
-- The Constitutional Guardian logs every violation event with timestamps, associated principles, violation descriptions, and maintains a SHA‑256 hash over the log as `audit_integrity`, giving an integrity‑checked audit trail of blocked actions.
+- The Constitutional Guardian logs every violation event with timestamps, associated principles, violation descriptions, and maintains a SHA-256 hash over the log as `audit_integrity`, giving an integrity-checked audit trail of blocked actions.
 - Scripts such as `VERIFY_AND_TEST.sh`, `verify_full_integration.sh`, and `verify_all_claims.sh` define operational verification routines that can be invoked to assert that the deployed system is consistent with intended configurations and documentation.
 
-Services that need to obey global controls either read this state on startup and periodically (for example, via health/status calls) or rely on orchestrators and gateways that aggregate the relevant flags and present them as part of higher‑level responses.
+> **WOAH service status (March 25, 2026):** `woah_optimizer.py` was originally scaffolded as a stub for future logic. As of March 25, 2026, `jarvis-woah` (port **7012**) is confirmed RUNNING (stdlib stub, volume bind mount, qualia-net) — see **Ch. 10 §10.4** and **Ch. 16 §16.13** service confirmations. The service is operational; full adaptive weight-adjustment logic remains future work.
+
+Services that need to obey global controls either read this state on startup and periodically (for example, via health/status calls) or rely on orchestrators and gateways that aggregate the relevant flags and present them as part of higher-level responses.
 
 ---
 
@@ -93,62 +112,65 @@ Global settings materially influence how agents are selected, how retrieval oper
 
 ### Layered orchestration pipelines
 
-- `unified_app_coordinated_real.py` orchestrates a chain of services—main AI (port 8000), Darwin–Gödel Machine (7003), WOAH algorithms (7012), Mamma Kidd spiritual model (4003), and an orchestrator (33881)—tracking which layers have processed the request in `layers_processed` and exposing flags like `darwin_godel_active` and `woah_active`.
-- `unified_app_final.py` routes through the main AI and Mamma Kidd, then an orchestrator, and returns a response explicitly labeled with the `mamma_kidd` personality, demonstrating role‑shaped final outputs.
+- `unified_app_coordinated_real.py` orchestrates a chain of services — `jarvis-main-brain` (**port 8050**), `jarvis-69dgm-bridge` (host **127.0.0.1:19000** → internal **9000**), `jarvis-woah` (**port 7012**), Mamma Kidd spiritual model (**port 4003**), and the unified orchestrator — tracking which layers have processed the request in `layers_processed` and exposing flags like `darwin_godel_active` and `woah_active`.
+
+  > **Port corrections (March 27, 2026):** Earlier versions of this section listed `port 8000` (main AI), `port 7003` (DGM), and `port 33881` (orchestrator). Verified canonical ports per Ch. 17 §17.9: `jarvis-main-brain` → **8050**; DGM bridge → `jarvis-69dgm-bridge` **host 19000 → internal 9000**; `jarvis-woah` → **7012** ✅ (unchanged); Mamma Kidd spiritual → **4003** ✅ (unchanged).
+
+- `unified_app_final.py` routes through the main AI and Mamma Kidd, then an orchestrator, and returns a response explicitly labeled with the `mamma_kidd` personality, demonstrating role-shaped final outputs.
 
 ### Safety gating before retrieval and reasoning
 
-- The blood–brain barrier service and associated filters and judges enforce safety before deeper reasoning or retrieval occurs, blocking or rephrasing queries and returning structured reasons, which are logged and surfaced up to the main brain.
-- The Constitutional Guardian is designed to validate request payloads against surveillance‑ and PII‑related constraints, and its audit output can be used to examine whether specific retrieval or reasoning steps were blocked by constitutional rules.
+- The blood–brain barrier service (`jarvis-blood-brain-barrier`, **127.0.0.1:8016**) and associated filters and judges enforce safety before deeper reasoning or retrieval occurs, blocking or rephrasing queries and returning structured reasons, which are logged and surfaced up to the main brain.
+- The Constitutional Guardian is designed to validate request payloads against surveillance- and PII-related constraints, and its audit output can be used to examine whether specific retrieval or reasoning steps were blocked by constitutional rules.
 
-### Mode‑dependent depth and routing
+### Mode-dependent depth and routing
 
 - DGM orchestrators such as `master_chat_orchestrator_v9_dgm_complete.py` explicitly annotate responses with `dgm_orchestration` information (for example, `{"mode": "emergent_passthrough"}`) and a final mode field set to `"dgm_complete_integration"`, which can be consumed by downstream introspective and control layers.
-- Unified gateways control which services are invoked and how their outputs are merged, and their endpoints report `system_transparency_mode` texts describing whether, for example, full audit, high‑depth analysis, or minimal direct DB access modes are active for RAG and GIS subsystems.
+- Unified gateways control which services are invoked and how their outputs are merged, and their endpoints report `system_transparency_mode` texts describing whether, for example, full audit, high-depth analysis, or minimal direct DB access modes are active for RAG and GIS subsystems.
 
-In the live system, the main brain’s status layer treats the global stack—Ollama fabric, RAG server, Chroma, Redis, Fifth DGM, web research, and brain orchestrator—as a core fabric that must be healthy before ultimate modes are considered fully operational, and executive flows treat the blood–brain barrier, Fifth DGM, and WOAH stack as always‑on global modulators rather than optional add‑ons.
+In the live system, the main brain's status layer treats the global stack — Ollama fabric, RAG server, Chroma, Redis, Fifth DGM, web research, and brain orchestrator — as a core fabric that must be healthy before ultimate modes are considered fully operational, and executive flows treat the blood–brain barrier, Fifth DGM, and WOAH stack as always-on global modulators rather than optional add-ons.
 
 ---
 
-## 15.5 Interaction with Optimization and Self‑Improvement
+## 15.5 Interaction with Optimization and Self-Improvement
 
-As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer. Optimization and self‑improving components treat global controls both as constraints and as parameters to tune:
+As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer. Optimization and self-improving components treat global controls both as constraints and as parameters to tune:
 
 ### WOAH optimization and versioning
 
-- `woah_optimizer.py` implements a simple, long‑running process that repeatedly loads `woah_weights.json`, increments its version, and writes it back, serving as a scaffold for future logic that will adjust these weights according to system performance metrics stored in Redis or logs.
-- `ms_jarvis_fractal_dgm_woah.py` uses WOAH weights to compute a `weighted_complexity` and an improvement factor, and assigns interpretive labels to the system’s complexity state (for example, “High – WOAH harmonics active”), which can be used to gate when more aggressive self‑improvement actions are permitted.
+- `woah_optimizer.py` implements a simple, long-running process that repeatedly loads `woah_weights.json`, increments its version, and writes it back, serving as a scaffold for future logic that will adjust these weights according to system performance metrics stored in Redis or logs.
+- `ms_jarvis_fractal_dgm_woah.py` uses WOAH weights to compute a `weighted_complexity` and an improvement factor, and assigns interpretive labels to the system's complexity state (for example, "High – WOAH harmonics active"), which can be used to gate when more aggressive self-improvement actions are permitted.
 
 ### DGM supervisory and orchestration modes
 
-- `dgm_supervisor_woah_simple.py` exposes `/optimize_woah`, returning a structured object indicating that WOAH weights and hierarchies have been “optimized,” even though the current implementation is a stub; this endpoint represents an explicit control surface for exploration bounds and hierarchical tuning.
-- `master_chat_orchestrator_v9_dgm_complete.py` labels its main chat endpoint as “EMERGENT PASSTHROUGH MODE,” and returns structured metadata, including `dgm_orchestration`, `woah_optimization`, and `biological_processing`, enabling external processes to analyze and potentially adjust the orchestrator’s operating mode.
+- `dgm_supervisor_woah_simple.py` exposes `/optimize_woah`, returning a structured object indicating that WOAH weights and hierarchies have been "optimized," even though the current implementation is a stub; this endpoint represents an explicit control surface for exploration bounds and hierarchical tuning.
+- `master_chat_orchestrator_v9_dgm_complete.py` labels its main chat endpoint as "EMERGENT PASSTHROUGH MODE," and returns structured metadata, including `dgm_orchestration`, `woah_optimization`, and `biological_processing`, enabling external processes to analyze and potentially adjust the orchestrator's operating mode.
 
 ### Deployment gates and verification
 
-- Shell scripts such as `verify_full_integration.sh` and `VERIFY_AND_TEST.sh` provide system‑level checks that can be integrated into deployment pipelines to ensure that the state of safety filters, constitutional services, and orchestrators is acceptable before enabling new modes or self‑improvement behaviors in production.
+- Shell scripts such as `verify_full_integration.sh` and `VERIFY_AND_TEST.sh` provide system-level checks that can be integrated into deployment pipelines to ensure that the state of safety filters, constitutional services, and orchestrators is acceptable before enabling new modes or self-improvement behaviors in production.
 
-By tying optimization routines to centrally visible state—weights, modes, and constraint outputs—the system can adjust how ambitious or conservative it is without editing the code of each individual agent.
+By tying optimization routines to centrally visible state — weights, modes, and constraint outputs — the system can adjust how ambitious or conservative it is without editing the code of each individual agent.
 
 ---
 
 ## 15.6 Relationship to Introspection and Memory
 
-Global modes are both informed by and reflected in the system’s introspective and memory layers:
+Global modes are both informed by and reflected in the system's introspective and memory layers:
 
 ### Introspective awareness of modes
 
-Consciousness coordination logs already include fields describing which GBIM services and consciousness layers are active, and reference scores and discrepancies between mesh status and integrated beliefs, providing evidence that introspective summaries can incorporate mode‑like metadata about system configuration.
+Consciousness coordination logs already include fields describing which GBIM services and consciousness layers are active, and reference scores and discrepancies between mesh status and integrated beliefs, providing evidence that introspective summaries can incorporate mode-like metadata about system configuration.
 
 ### Consolidated memory annotated with configuration
 
-Consolidation pipelines that route through coordinated and final unified apps can include fields such as `woah_active`, `darwin_godel_active`, `fifth_dgm_active`, and the specific pipeline layers traversed, so that long‑term memory entries implicitly record which global mechanisms were engaged when a particular episode occurred.
+Consolidation pipelines that route through coordinated and final unified apps can include fields such as `woah_active`, `darwin_godel_active`, `fifth_dgm_active`, and the specific pipeline layers traversed, so that long-term memory entries implicitly record which global mechanisms were engaged when a particular episode occurred.
 
 ### Feedback loops into global settings
 
-Because the Constitutional Guardian maintains a detailed audit trail and WOAH/DGM analyzers report complexity and integration measures, higher‑level optimization or governance processes can examine these records to motivate adjustments—tightening constraints, altering role emphasis, or changing orchestrator modes when certain patterns of violations or instabilities are observed. As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer.
+Because the Constitutional Guardian maintains a detailed audit trail and WOAH/DGM analyzers report complexity and integration measures, higher-level optimization or governance processes can examine these records to motivate adjustments — tightening constraints, altering role emphasis, or changing orchestrator modes when certain patterns of violations or instabilities are observed. As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer.
 
-This creates a cycle in which high‑level state affects behavior, and observed behavior, recorded in introspective and consolidated structures, informs subsequent changes to that state.
+This creates a cycle in which high-level state affects behavior, and observed behavior, recorded in introspective and consolidated structures, informs subsequent changes to that state.
 
 ---
 
@@ -158,16 +180,16 @@ Because global settings have wide impact, the repository includes both formal me
 
 ### Constitutional enforcement and auditing
 
-- The Constitutional Guardian’s `validate` and `get_audit_trail` methods provide a programmatic way to assess requests against enumerated principles and to obtain an integrity‑checked log of decisions, including principle names, descriptions, and specific violation tags.
+- The Constitutional Guardian's `validate` and `get_audit_trail` methods provide a programmatic way to assess requests against enumerated principles and to obtain an integrity-checked log of decisions, including principle names, descriptions, and specific violation tags.
 - The Constitutional API and unified gateway expose `/constitutional/audit`, `/constitutional/principles`, and `/constitutional/status`, enabling external tools and governance bodies to inspect constraints and violation histories over HTTP.
 
 ### Administrative audit surfaces
 
-- The unified gateway’s `/admin/audit` endpoint reports service counts, log paths, and descriptive fields like “No Blackbox; Consciousness/Biometric/GIS Integrated,” establishing an admin‑facing account of which subsystems are online and how they are composed.
+- The unified gateway's `/admin/audit` endpoint reports service counts, log paths, and descriptive fields like "No Blackbox; Consciousness/Biometric/GIS Integrated," establishing an admin-facing account of which subsystems are online and how they are composed.
 
 ### Verification and testing scripts
 
-- Top‑level scripts such as `VERIFY_AND_TEST.sh`, `verify_full_integration.sh`, and `verify_all_claims.sh` formalize the process of checking microservice health, integration status, and documentation alignment, and can be treated as deployment gates that must pass before changes to modes or global weights are accepted.
+- Top-level scripts such as `VERIFY_AND_TEST.sh`, `verify_full_integration.sh`, and `verify_all_claims.sh` formalize the process of checking microservice health, integration status, and documentation alignment, and can be treated as deployment gates that must pass before changes to modes or global weights are accepted.
 
 As shown in Figure 15.1, optimization and governance processes read complexity labels and audit logs from memory and introspection and feed them back into the global control layer. These practices support a governance model in which global controls are not altered ad hoc but are mediated by explicit APIs, logs with integrity checks, and repeatable verification procedures.
 
@@ -175,6 +197,12 @@ As shown in Figure 15.1, optimization and governance processes read complexity l
 
 ## 15.8 Summary
 
-The pituitary and global modes layer in Ms. Jarvis is instantiated as a set of concrete services and configurations: a Constitutional Guardian with PII and surveillance constraints and an audit trail; a blood–brain barrier safety filter on ultimate outputs; a Fifth DGM “hippocampal gate” that decides what enters subconscious memory and identity; WOAH/DGM analyzers and supervisors that compute and adjust complexity‑related weights; and orchestrators that explicitly encode modes in their responses. Unified gateways, the main brain’s status endpoint, and admin/audit routes surface these elements via descriptive `system_transparency_mode` strings and per‑service health reports, tying low‑level configuration and constraints to high‑level, human‑interpretable modes.
+The pituitary and global modes layer in Ms. Jarvis is instantiated as a set of concrete services and configurations: a Constitutional Guardian with PII and surveillance constraints and an audit trail; a blood–brain barrier safety filter on ultimate outputs (`jarvis-blood-brain-barrier`, **127.0.0.1:8016**, 7-filter stack); **`jarvis-fifth-dgm` (companion to `jarvis-fractal-consciousness`) — confirmed ✅ Fixed in the March 27, 2026 sprint (see Ch. 32 for port details and service map)**; WOAH/DGM analyzers and supervisors that compute and adjust complexity-related weights (`jarvis-woah` port **7012** confirmed RUNNING March 25, 2026; `nbb_woah_algorithms` port **8104** confirmed verified March 27, 2026); and orchestrators that explicitly encode modes in their responses. Unified gateways, the main brain's status endpoint (`jarvis-main-brain` port **8050**), and admin/audit routes surface these elements via descriptive `system_transparency_mode` strings and per-service health reports, tying low-level configuration and constraints to high-level, human-interpretable modes.
 
-Later work on executive control and container design can build directly on this foundation by treating guardian decisions, WOAH weights, DGM modes, Fifth DGM state, and orchestrator health as first‑class inputs to higher‑level routing, scheduling, and policy adaptation.
+Later work on executive control and container design can build directly on this foundation by treating guardian decisions, WOAH weights, DGM modes, Fifth DGM state, and orchestrator health as first-class inputs to higher-level routing, scheduling, and policy adaptation.
+
+---
+
+*Last updated: 2026-03-27 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*★ March 27, 2026: Status table added — nbb_pituitary_gland ✅ verified, jarvis-woah port 7012 ✅ RUNNING (March 25), nbb_woah_algorithms port 8104 ✅ verified, jarvis-fifth-dgm ✅ Fixed (March 27 sprint); §15.1 Fifth DGM companion container and Ch. 32 cross-reference added; §15.3 WOAH stub note updated — jarvis-woah port 7012 confirmed RUNNING March 25, Ch. 10 §10.4 and Ch. 16 §16.13 cross-references added; §15.4 port table corrected — jarvis-main-brain 8050 (was 8000), jarvis-69dgm-bridge host 19000→9000 (was port 7003), jarvis-woah 7012 ✅ unchanged, port 33881 removed; §15.8 jarvis-fifth-dgm named explicitly with March 27 fix confirmation and Ch. 32 cross-reference.*
+`````
