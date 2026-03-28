@@ -2,6 +2,10 @@
 
 Carrie Kidd (Mamma Kidd) — Mount Hope, WV
 
+*Last updated: 2026-03-27 — §17.2 GPU corrected RTX 4050 → RTX 4070 (per Ch. 12 §12.1 confirmed hardware); §17.3 Phase 1.4 ContextAwareness 7th filter cross-reference to Ch. 16 §16.4 added; §17.7 Phase 1.45 AAPCAppE first-run footnote added (65 docs, March 27, 2026)*
+
+---
+
 ## Why This Matters for Polymathmatic Geography
 
 This chapter provides the empirical grounding for all architectural claims made across the thesis. It supports:
@@ -48,7 +52,7 @@ All timing figures and architectural claims in this chapter are grounded in the 
 │                                                              │
 │  Host              Lenovo Legion 5 (16IRX9), Intel i9       │
 │  RAM               29 GB system RAM                          │
-│  GPU               NVIDIA RTX 4050 — present, not used      │
+│  GPU               NVIDIA RTX 4070 — present, not used      │
 │  Inference mode    CPU-only (size_vram: 0 on all models)    │
 │  Docker Compose    v5.1.0 (upgraded from v1.29.2)           │
 │  Containers        80 fully compose-managed                 │
@@ -67,7 +71,7 @@ All timing figures and architectural claims in this chapter are grounded in the 
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-1. Reference deployment configuration for all benchmarks and execution-sequence documentation in this chapter. All measurements are CPU-only; GPU-accelerated inference via the WVU partnership server remains pending.
+> Figure 17-1. Reference deployment configuration for all benchmarks and execution-sequence documentation in this chapter. GPU corrected to RTX 4070 per Ch. 12 §12.1 confirmed hardware reference (March 27, 2026). All measurements are CPU-only; GPU-accelerated inference via the WVU partnership server remains pending.
 
 ---
 
@@ -101,6 +105,13 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │    7. ContextAwareness                                       │
 │  Fail-open on HTTP 500 — pipeline continues                 │
 │  Cost: ~1.3s total (including Phase 1.45)                   │
+│                                                              │
+│  Note: Ch. 16 §16.4 documents 6 named stable filters        │
+│  (EthicalFilter, SpiritualFilter, SafetyMonitor,            │
+│  ThreatDetection, SteganographyDetection,                   │
+│  TruthVerification); ContextAwareness is the 7th filter     │
+│  present in the Phase 1.4 stack per this canonical          │
+│  sequence. See Ch. 16 §16.4 for per-filter stability log.  │
 │                                                              │
 │  ── PHASE 1.45 ── Semantic Community Memory Retrieval (NEW) │
 │                                                              │
@@ -207,7 +218,7 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-2. Canonical `ultimatechat` execution sequence as of March 18, 2026. Two confirmed changes are marked **(UPDATED)**: (1) the judge pipeline now returns a full verdict dict, not a consensus answer string, and (2) the judge → BBB handoff is a confirmed, compose-managed step in which the BBB output guard receives and evaluates the full verdict dict before Phase 3.5 voice delivery.
+> Figure 17-2. Canonical `ultimatechat` execution sequence as of March 18, 2026. Two confirmed changes are marked **(UPDATED)**: (1) the judge pipeline now returns a full verdict dict, not a consensus answer string, and (2) the judge → BBB handoff is a confirmed, compose-managed step in which the BBB output guard receives and evaluates the full verdict dict before Phase 3.5 voice delivery. Phase 1.4 note: Ch. 16 §16.4 documents 6 named stable filters; ContextAwareness is the 7th filter present in this canonical stack.
 
 ---
 
@@ -249,7 +260,7 @@ This change is significant because it gives the BBB output guard access to the f
 │    ├─ Constitutional check (text + ethics_score)            │
 │    ├─ Truth gate (truth_score threshold)                     │
 │    ├─ Alignment gate (alignment_score threshold)            │
-│    ├─ Ethics gate (ethics_score threshold)                  │
+│    └─ Ethics gate (ethics_score threshold)                  │
 │    └─ Safety validation                                      │
 │      ↓                                                       │
 │  Pass / Amend / Hold                                        │
@@ -377,6 +388,8 @@ The following table documents the confirmed wall-clock cost of each phase on the
 
 > The 436-second end-to-end figure represents a ~18% improvement from the 532-second pre-optimization baseline. The dominant cost — ~320–360 seconds — is Phase 2.5 (CPU-only LLM ensemble) and represents a hardware floor, not a software optimization target. The path to sub-120-second ensemble times is GPU-accelerated inference via the WVU partnership server (pending).
 
+> **Phase 1.45 corpus note (March 27, 2026):** As of March 27, 2026, Phase 1.45 community memory retrieval now has access to **65 documents from the AAPCAppE first scrape run** (`jarvis-ingest-watcher` first confirmed run — 39 sources) in addition to the existing `autonomous_learner` corpus. RAG server also loaded 53 documents (7 new base cultural docs). See Ch. 16 §16.13 and Ch. 30 (OI-30) for full ingest pipeline status.
+
 ---
 
 ## 17.8 Optimization History (March 16–18, 2026)
@@ -473,4 +486,6 @@ The `build:` → `image:` conversion (March 17) makes this sequence fully determ
 
 ---
 
-*Last updated: 2026-03-21 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-03-27 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*★ March 27, 2026: §17.2 GPU corrected RTX 4050 → RTX 4070 (per Ch. 12 §12.1 confirmed hardware reference); §17.3 Phase 1.4 cross-reference added — Ch. 16 §16.4 documents 6 named stable filters; ContextAwareness is the 7th filter in this canonical stack; §17.7 Phase 1.45 footnote added — 65 AAPCAppE docs now available in Chroma as of March 27, 2026 first scrape run (39 sources), RAG 53 docs loaded, 7 new base cultural docs ingested.*
+`````
