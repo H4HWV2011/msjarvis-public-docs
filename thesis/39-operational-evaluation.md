@@ -1,4 +1,3 @@
-````markdown
 # Chapter 39 — Operational Evaluation
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV — Last updated: March 28, 2026 — container count updated to 96 (10 new containers confirmed live); jarvis-autonomous-learner port corrected to 8020 (not 8425); jarvis-rag-server internal port corrected to 8003→8003 (not 8003→8016); jarvis-consciousness-bridge confirmed internal-only on 8020; jarvis-gbim-query-router container name corrected; MountainShares/Commons/DAO services confirmed DEPLOYED (ports 8080–8084); jarvis-memory (8056), jarvis-hilbert-gateway (internal), jarvis-eeg-delta/theta/beta (8073–8075) documented; local_resources DSN corrected; 45 verified Kanawha resources (synthetic Fayette entries removed, data governance policy established); /resolve endpoint confirmed live; gisdb port 5452→5432 corrected throughout; ChromaDB collection count confirmed 31 / 6,665,093 items; ~436s CPU benchmark labeled stale; /direct_rag → /query corrected; preflight gate 24 PASS baseline confirmed; OI-05 PARTIALLY RESOLVED; OI-10 MATERIALLY ADVANCED*
@@ -863,4 +862,3 @@ Full `docker ps` snapshot verified March 28, 2026 — 96 containers total, zero
 *Last updated: March 28, 2026*
 *Author: Carrie Kidd (Mamma Kidd), Mount Hope, WV*
 *Repo: H4HWV2011/msjarvis-public-docs*
-````
