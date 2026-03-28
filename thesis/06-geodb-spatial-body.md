@@ -4,7 +4,7 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter specifies how Ms. Jarvis's language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space representation, GBIM structures, ChromaDB‑backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a 21‑model consciousness bridge anchored in ChromaDB, GBIM‑derived entities from the PostgreSQL `msjarvis` database (port 5433), GIS‑aware collections, and a WV‑first routing policy. It supports:
+This chapter specifies how Ms. Jarvis's language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space representation, GBIM structures, ChromaDB‑backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a 21‑model consciousness bridge anchored in ChromaDB, GBIM‑derived entities from the PostgreSQL `msjarvis` database (port 5433 — ★ restored March 28, 2026), GIS‑aware collections, and a WV‑first routing policy. It supports:
 
 - **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, research notes, belief structures from PostgreSQL GBIM tables, and local resource registries, rather than from an abstract model prior.
 - **P3 – Power has a geometry** by letting retrieval paths expose which collections—and thus which institutional, spatial, and programmatic perspectives—shape a given answer, including WV‑specific benefits facilities in `gis_wv_benefits`, spatial entities derived from PostgreSQL GBIM and `msjarvisgis`, benefits‑focused resource collections, and the GBIM landowner belief layer (`mvw_gbim_landowner_spatial`) that makes corporate and government land ownership computable and queryable by natural language.
@@ -31,7 +31,7 @@ This chapter describes the retrieval‑augmented generation (RAG) infrastructure
 
 all orchestrated by the main brain and blood–brain‑barrier services.
 
-At runtime, queries enter through a unified HTTP gateway (`POST /chat` or `POST /chat/async` on the main‑brain port) and are routed by the executive coordinator into a RAG layer that spans ChromaDB collections, PostgreSQL GIS features, GBIM landowner beliefs, and verified local‑resource rows. In production as of March 26, 2026, the full pipeline:
+At runtime, queries enter through a unified HTTP gateway (`POST /chat` or `POST /chat/async` on the main‑brain port) and are routed by the executive coordinator into a RAG layer that spans ChromaDB collections, PostgreSQL GIS features, GBIM landowner beliefs, and verified local‑resource rows. In production as of March 28, 2026, the full pipeline:
 
 ```text
 Unified Gateway → Main Brain → Phase 1.45 Community Memory → RAG (text + GIS + landowner + registry, WV‑first) → 21‑LLM ensemble → Blood–Brain Barrier
@@ -41,6 +41,8 @@ is live and serving West Virginia benefits, geography, and land ownership questi
 
 > **⚠️ Embedding Model Lock — Confirmed March 25–26, 2026:**
 > All ChromaDB collections — including `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner`, `gis_wv_benefits`, `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (**60,000 items**), `GBIM_Fayette_sample` (**1,535 items**), and all semantic collections — use **384-dimensional vectors** produced by **`all-minilm:latest`** (`hnsw:space: cosine`). The `nomic-embed-text` model produces **768-dimensional vectors** and is **incompatible** with all existing collections. Any service, script, or migration that generates embeddings for ChromaDB **must** use `all-minilm:latest`. The `gbim_query_router` landowner path does **not** use embeddings — it routes directly to PostgreSQL.
+
+> **★ Security posture — March 28, 2026:** All services are bound to `127.0.0.1`. The `0.0.0.0` exposures on `jarvis-i-containers` (8015) and `jarvis-memory` (8056) were corrected during the March 28 remediation sprint. `_auth()` is confirmed present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`. `JARVIS_API_KEY` env var is confirmed set in production.
 
 A typical benefits query such as:
 
@@ -75,7 +77,7 @@ Within the overall architecture, the RAG layer is the primary bridge between rel
 │      ↓                                                       │
 │  Unified Gateway (port 8050)                                │
 │      ↓                                                       │
-│  BBB Input Filter — Phase 1.4                              │
+│  BBB Input Filter — Phase 1.4                               │
 │      ↓                                                       │
 │  Phase 1.45 — Community Memory Retrieval                    │
 │    all-minilm:latest (384-dim) → autonomous_learner         │
@@ -108,7 +110,7 @@ Within the overall architecture, the RAG layer is the primary bridge between rel
 
 ### 6.1 Alignment with GBIM, Hilbert Space, Semantic Memory, GeoDB, and Registries
 
-The GeoBelief Information Model (GBIM) defines how entities, places, and normative claims are represented across documents and spatial features in the PostgreSQL `msjarvis` database (port 5433, 8 MB, 6 tables). The RAG layer is the mechanism that actually retrieves those GBIM‑anchored fragments when a question is asked. GBIM worldview entities and other beliefs from PostgreSQL are surfaced into ChromaDB as metadata‑rich records in `gbim_worldview_entities` (5,416,521 entities), and the RAG services are structured so they can filter, group, and boost results by these identifiers as metadata coverage matures.
+The GeoBelief Information Model (GBIM) defines how entities, places, and normative claims are represented across documents and spatial features in the PostgreSQL `msjarvis` database (port 5433 — ★ restored March 28, 2026; 8 MB, 6 tables). The RAG layer is the mechanism that actually retrieves those GBIM‑anchored fragments when a question is asked. GBIM worldview entities and other beliefs from PostgreSQL are surfaced into ChromaDB as metadata‑rich records in `gbim_worldview_entities` (5,416,521 entities), and the RAG services are structured so they can filter, group, and boost results by these identifiers as metadata coverage matures.
 
 As of March 20, 2026, GBIM beliefs include 20,593 landowner records (`LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` proposition codes) ingested from the WV assessor corpus and materialized in `mvw_gbim_landowner_spatial` in `msjarvisgis`. These landowner beliefs are accessed via a dedicated PostgreSQL-native path through `gbim_query_router` (port 7205) rather than through ChromaDB vector search — a deliberate routing distinction described fully in Section 6.2.6.
 
@@ -116,18 +118,18 @@ The Hilbert‑space state view treats the system's overall knowledge and constra
 
 ChromaDB‑backed semantic memory (Chapter 5) is the substrate for governance texts, thesis fragments, research notes, GBIM worldview entities, and resource guides, while PostgreSQL `msjarvisgis` defines the spatial body composed of PostGIS layers and exported worldview entities. In the March 2026 deployment, this alignment is implemented concretely:
 
-- ChromaDB collections are configured at **384 dimensions (`all-minilm:latest`, `hnsw:space: cosine`)** and accessed over a shared HTTP ChromaDB service at host port 8002 (container port 8000). This includes `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (queried at Phase 1.45), `gis_wv_benefits`, `psychological_rag` (968 items), `appalachian_cultural_intelligence` (**820 items** — confirmed live March 26, 2026; ⚠️ see Ch 5 §5.6.2 for March 27, 2026 AaaCPE discrepancy note), `spiritual_texts` (**19,338 items** — confirmed live March 26, 2026), `governance_rag` (**643 chunks** — confirmed live March 26, 2026), `commons_rag` (**306 chunks** — confirmed live March 26, 2026), `geospatialfeatures` (**60,000 items** — confirmed live March 26, 2026), `GBIM_Fayette_sample` (**1,535 items** — confirmed live March 26, 2026), `gbim_beliefs_v2`, and others.
+- ChromaDB collections are configured at **384 dimensions (`all-minilm:latest`, `hnsw:space: cosine`)** and accessed over a shared HTTP ChromaDB service at host port 8002 (container port 8000). This includes `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (queried at Phase 1.45), `gis_wv_benefits`, `psychological_rag` (**968 items** — ★ restored March 28, 2026), `appalachian_cultural_intelligence` (**820 items** — confirmed distinct collection, OI-14 CLOSED March 26, 2026), `aaacpe_corpus` (**65 documents** — confirmed distinct collection, `jarvis-aaacpe-scraper` port 8033, March 27, 2026), `spiritual_rag` (deduplicated — ★ 19,338 duplicate vectors removed March 28, 2026), `governance_rag` (**643 chunks** — confirmed live March 26, 2026), `commons_rag` (**306 chunks** — confirmed live March 26, 2026), `geospatialfeatures` (**60,000 items** — confirmed live March 26, 2026), `GBIM_Fayette_sample` (**1,535 items** — confirmed live March 26, 2026), `gbim_beliefs_v2`, and others. **★ March 28, 2026 full audit: 40 active collections, 6,675,442 total vectors.**
 - GIS RAG queries can reference metadata such as `worldview_id`, `county`, `dataset`, and `gbim_entity` to tie vector results back to PostgreSQL `msjarvis` GBIM and `msjarvisgis`.
 - Landowner queries are routed through `gbim_query_router` (port 7205), which issues SQL aggregations over `mvw_gbim_landowner_spatial` in `msjarvisgis` — no embeddings involved.
 - Resource‑related collections tag documents with `local_resource_id`, allowing RAG hits to be resolved to `jarvis-local-resources-db` rows for facilities in Oak Hill, Beckley, and surrounding ZIP codes.
 
-**Database Integration (Four-Database Architecture, March 26, 2026):**
+**Database Integration (Four-Database Architecture — ★ Confirmed March 28, 2026):**
 
 ```python
 import psycopg2
 import chromadb
 
-# PostgreSQL msjarvis (GBIM beliefs) — port 5433
+# PostgreSQL msjarvis (GBIM beliefs) — port 5433 (★ restored March 28, 2026)
 pg_conn_msjarvis = psycopg2.connect(
     host="localhost", port=5433,
     database="msjarvis", user="postgres", password="postgres"
@@ -297,7 +299,7 @@ The text RAG service takes a query string, a `top_k` parameter, optional metadat
 
 > **⚠️ Port confirmed March 25, 2026:** `jarvis-rag-server` maps **host:8003 → container:8016**. Container-internal port 8016 is the RAG server's own listen port — it is NOT the BBB. The BBB input filter is a separate service and does not run on port 8016. Additionally, `jarvis-rag-server` is not yet wired to the `jarvis-gateway` inference endpoint as of March 25, 2026.
 
-**Active collections for text RAG — ★ UPDATED March 26, 2026:**
+**Active collections for text RAG — ★ UPDATED March 28, 2026:**
 
 | Collection | Items | Purpose |
 |---|---|---|
@@ -308,9 +310,10 @@ The text RAG service takes a query string, a `top_k` parameter, optional metadat
 | `gis_wv_benefits` | Active | WV benefits facilities |
 | `governance_rag` | ★ **643 chunks** | MountainShares DAO corpus + US Constitution — **LIVE** |
 | `commons_rag` | ★ **306 chunks** | Commons governance + gamification — **LIVE** |
-| `psychological_rag` | 968 | Mental health corpus (port 8006) |
-| `appalachian_cultural_intelligence` | ★ **820** (⚠️ see Ch 5 §5.6.2) | Appalachian cultural context — **LIVE** (was: 5); March 27, 2026 AaaCPE discrepancy note — verify live count |
-| `spiritual_texts` | ★ **19,338** | Mother Carrie Protocol corpus — **LIVE** (was: 23) |
+| `psychological_rag` | ★ **968** | Mental health corpus (port 8006) — **★ Restored March 28** |
+| `appalachian_cultural_intelligence` | ★ **820** | Appalachian cultural context — **LIVE** — confirmed distinct from `aaacpe_corpus` (OI-14 CLOSED March 26) |
+| `aaacpe_corpus` | ★ **65 docs** | AaaCPE live web scrape corpus — `jarvis-aaacpe-scraper` port 8033, 39 sources — confirmed distinct from `appalachian_cultural_intelligence` |
+| `spiritual_rag` | Deduplicated | Mother Carrie Protocol corpus — **★ 19,338 duplicate vectors removed March 28** |
 | `geospatialfeatures` | ★ **60,000** | GIS feature embeddings — **LIVE** (was: 0) |
 | `GBIM_Fayette_sample` | ★ **1,535** | Fayette County sample — **LIVE** (was: 0) |
 | `ms_jarvis_memory` | Active | Conversation memory |
@@ -318,7 +321,7 @@ The text RAG service takes a query string, a `top_k` parameter, optional metadat
 | `episodic_index` | Active | Episodic memory index |
 | `conversation_history` | Active | Conversation history |
 | `GBIM_sample_rows` | 5,000 | GBIM test sample |
-| `msjarvis_docs` | 2,348 | System docs + 52 verified WV community resources |
+| `msjarvis_docs` | ★ **4,192** | System docs + verified WV community resources — **★ Expanded March 28** (was: 2,348) |
 
 > All collections: **384-dim, `all-minilm:latest`, `hnsw:space: cosine`**. Do not use `nomic-embed-text`.
 
@@ -561,6 +564,7 @@ The LM Synthesizer (Phase 3.5) applies the Ms. Egeria Jarvis persona via `jarvis
 │  └────────────────────────────────────────────────┘         │
 │              ↓                                               │
 │  GBIM Belief Provenance (PostgreSQL msjarvis port 5433)     │
+│  ★ Restored March 28, 2026                                  │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Query: gbim_beliefs WHERE entity_id = ?       │         │
 │  │  Returns: confidence_decay, needs_verification │         │
@@ -587,7 +591,7 @@ The LM Synthesizer (Phase 3.5) applies the Ms. Egeria Jarvis persona via `jarvis
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑3. Spatial RAG flow showing both the semantic+geographic path (GIS RAG via ChromaDB + `msjarvisgis` port 5452 — now including `geospatialfeatures` at 60,000 items and `GBIM_Fayette_sample` at 1,535 items) and the PostgreSQL-native landowner path (`gbim_query_router` → `mvw_gbim_landowner_spatial`). These are distinct routing paths — landowner queries bypass ChromaDB entirely.
+> Figure 6‑3. Spatial RAG flow showing both the semantic+geographic path (GIS RAG via ChromaDB + `msjarvisgis` port 5432 — including `geospatialfeatures` at 60,000 items and `GBIM_Fayette_sample` at 1,535 items) and the PostgreSQL-native landowner path (`gbim_query_router` → `mvw_gbim_landowner_spatial`). These are distinct routing paths — landowner queries bypass ChromaDB entirely. `msjarvis` port 5433 confirmed restored March 28, 2026.
 
 ---
 
@@ -622,7 +626,7 @@ The orchestration layer builds a context that includes both unstructured descrip
 |---|---|
 | Governance, policy, thesis | Text RAG (ChromaDB — `governance_rag`, `commons_rag`, thesis, GBIM collections) |
 | Spatial features, facilities | GIS RAG (ChromaDB + PostgreSQL `msjarvisgis`, port 5432) |
-| Land ownership, landowners | `gbim_query_router` (PostgreSQL `msjarvisgis`, port 5452) — PostgreSQL-native |
+| Land ownership, landowners | `gbim_query_router` (PostgreSQL `msjarvisgis`, port 7205) — PostgreSQL-native |
 | Resource and referral | Text RAG + `jarvis-local-resources-db` resolver |
 | System status | Internal orchestration |
 
@@ -632,7 +636,7 @@ The active role determines which collections and registries are eligible. Intern
 **Geography‑aware routing and WV‑first behavior.**
 For West Virginia, whenever a query is WV‑scoped, the system treats WV RAG, PostgreSQL `msjarvisgis` GIS, GBIM landowner beliefs, and registry context as the authoritative sources, and excludes web context from the final assembled context window.
 
-#### 6.4.2 Current Implementation (March 26, 2026)
+#### 6.4.2 Current Implementation — ★ UPDATED March 28, 2026
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -678,7 +682,7 @@ For West Virginia, whenever a query is WV‑scoped, the system treats WV RAG, Po
 
 > Figure 6‑4. Geography‑aware and query-type-aware routing in the Ms. Jarvis retrieval layer, showing the `landowner_gbim` path that routes directly to `gbim_query_router` rather than to ChromaDB.
 
-**Service routing table — ★ UPDATED March 26, 2026:**
+**Service routing table — ★ UPDATED March 28, 2026:**
 
 | Service | Host Port | Container Port | Notes |
 |---|---|---|---|
@@ -686,10 +690,12 @@ For West Virginia, whenever a query is WV‑scoped, the system treats WV RAG, Po
 | Main brain orchestration | 8001 (internal) | — | Routes all RAG paths |
 | `jarvis-rag-server` | **8003** | **8016** | ⚠️ **Confirmed March 25, 2026** — host:8003 → container:8016. Not yet wired to `jarvis-gateway` inference endpoint. Container port 8016 is NOT the BBB. |
 | GIS RAG | 8004 | — | Spatial feature queries |
-| `psychological-rag` | 8006 | — | Mental health corpus |
+| `psychological_rag` | 8006 | — | ★ **Restored March 28** — 968 docs now serving correctly (was: 0 docs) |
 | `jarvis-web-research` | 8008 (internal) | — | Restored March 25, 2026 |
 | `jarvis-ingest-api` | 8009 | — | Restored March 25, 2026 |
 | `jarvis-consciousness-bridge` | 8020 | — | ChromaDB v2 heartbeat confirmed |
+| `jarvis-aaacpe-rag` | 8032 | — | ★ Live March 27, 2026 — `aaacpe_corpus` (65 docs, 39 sources) |
+| `jarvis-aaacpe-scraper` | 8033 | — | ★ Live March 27, 2026 — `total_runs: 1` |
 | `gbim_query_router` | 7205 | — | PostgreSQL-native landowner path — NO ChromaDB |
 | ChromaDB | 8002 (host) | 8000 (container) | v2 API only — `/api/v1/` returns 410 |
 
@@ -724,7 +730,8 @@ For WV‑scoped queries, the ultimate prompt spells out that WV RAG, PostgreSQL 
 │  │  ├─ governance_rag (643 chunks — LIVE)         │         │
 │  │  ├─ commons_rag (306 chunks — LIVE)            │         │
 │  │  ├─ Thesis fragments (collection: thesis)      │         │
-│  │  └─ GBIM beliefs (from PostgreSQL msjarvis)    │         │
+│  │  └─ GBIM beliefs (from PostgreSQL msjarvis     │         │
+│  │       port 5433 — ★ restored March 28)         │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
@@ -757,7 +764,7 @@ For WV‑scoped queries, the ultimate prompt spells out that WV RAG, PostgreSQL 
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑5. Structure of contextual input assembled for language‑model reasoning, including the confirmed-live spatial collections (`geospatialfeatures` at 60,000 items and `GBIM_Fayette_sample` at 1,535 items) and governance RAG collections (`governance_rag` at 643 chunks, `commons_rag` at 306 chunks).
+> Figure 6‑5. Structure of contextual input assembled for language‑model reasoning, including confirmed-live spatial collections (`geospatialfeatures` at 60,000 items and `GBIM_Fayette_sample` at 1,535 items), governance RAG collections (`governance_rag` at 643 chunks, `commons_rag` at 306 chunks), and restored `msjarvis` port 5433 for GBIM belief provenance.
 
 ---
 
@@ -780,7 +787,8 @@ After retrieval and generation, the main brain routes candidate responses throug
 │    - autonomous_learner top-5 (Phase 1.45)                   │
 │    - ChromaDB collections queried (host port 8002)           │
 │    - PostgreSQL msjarvis tables accessed (port 5433)         │
-│    - mvw_gbim_landowner_spatial (msjarvisgis port 5452)      │
+│       ★ restored March 28, 2026                              │
+│    - mvw_gbim_landowner_spatial (msjarvisgis port 5432)      │
 │       via gbim_query_router (port 7205)                     │
 │    - jarvis-local-resources-db rows (port 5435)              │
 │    - Metadata filters applied                                │
@@ -792,7 +800,6 @@ After retrieval and generation, the main brain routes candidate responses throug
 │  Blood-Brain Barrier (guardrails — fail-open on HTTP 500)  │
 │    - Constitutional check                                     │
 │    - Safety validation                                        │
-│    - WV-first
 │    - WV-first enforcement (for WV queries)                   │
 │    ↓                                                         │
 │  Response (with logged sources)                             │
@@ -810,7 +817,7 @@ Logs capture which services were called, which collections were queried, which P
 ### 6.7 Relation to Long‑Term Memory, GeoDB, Registries, and Entanglement
 
 **Long‑term memory.**
-ChromaDB collections hold embedded representations at **384 dimensions (`all-minilm:latest`, `hnsw:space: cosine`)**: `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (growing ~288/day), `gis_wv_benefits`, `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (**60,000 items** — live March 26, 2026), `GBIM_Fayette_sample` (**1,535 items** — live March 26, 2026), and 20+ additional collections. Structured tables such as `jarvis-local-resources-db` (port 5435, database: `postgres`) hold normalized, versioned records addressable via RAG‑inferred keys. The GBIM landowner materialized view `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) holds 20,593 verified institutional landowner beliefs queryable via `gbim_query_router` (port 7205) — not embedded in ChromaDB, but fully integrated into the WV-first context assembly pipeline.
+ChromaDB collections hold embedded representations at **384 dimensions (`all-minilm:latest`, `hnsw:space: cosine`)**: `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (growing ~288/day), `gis_wv_benefits`, `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (**60,000 items** — live March 26, 2026), `GBIM_Fayette_sample` (**1,535 items** — live March 26, 2026), `appalachian_cultural_intelligence` (**820 items** — confirmed distinct from `aaacpe_corpus`), `aaacpe_corpus` (**65 documents** — confirmed distinct from `appalachian_cultural_intelligence`), `spiritual_rag` (deduplicated — ★ 19,338 duplicate vectors removed March 28, 2026), `psychological_rag` (**968 items** — ★ restored March 28, 2026), `msjarvis_docs` (**4,192 items** — ★ expanded March 28, 2026), and 20+ additional collections. **★ March 28, 2026 full audit: 40 active collections, 6,675,442 total vectors.** Structured tables such as `jarvis-local-resources-db` (port 5435, database: `postgres`) hold normalized, versioned records addressable via RAG‑inferred keys. The GBIM landowner materialized view `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) holds 20,593 verified institutional landowner beliefs queryable via `gbim_query_router` (port 7205) — not embedded in ChromaDB, but fully integrated into the WV-first context assembly pipeline.
 
 **Short‑term context.**
 Each retrieval call assembles a temporary context window from Phase 1.45 community memories plus retrieved items, sorted by relevance and grouped by collection, layer, registry, and router. For WV‑scoped queries, this window is explicitly WV‑first: assembled from community memories, West Virginia RAG (including live governance and commons RAG), PostgreSQL `msjarvisgis` GIS (including live spatial feature collections), GBIM landowner beliefs, and registry material, with web content excluded.
@@ -822,7 +829,49 @@ In this way, the present retrieval deployment should be understood as a fully op
 
 ***
 
-*Last updated: 2026-03-27, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+## 6.8 Production State Summary — ★ UPDATED March 28, 2026
+
+**Container stack:** **96/96 containers Up — zero Restarting, zero Exited — confirmed March 28, 2026**
+
+**Security posture — ★ March 28, 2026:**
+- All services bound to `127.0.0.1` ✅ — zero `0.0.0.0` exposures remain
+- `_auth()` confirmed on all 4 sensitive routes in `ms_jarvis_memory.py` ✅
+- `JARVIS_API_KEY` env var confirmed set ✅
+
+**ChromaDB (`jarvis-chroma`) — ★ March 28, 2026 full audit:**
+- Host port: **8002** (`127.0.0.1:8002->8000/tcp`) ✅
+- API: v2 active — `/api/v1/` returns HTTP 410 Gone ✅
+- Active collections: **40** ✅
+- Total vectors: **6,675,442** ✅
+- Embedding model: `all-minilm:latest` (384-dim, cosine) — all collections locked ✅
+- `spiritual_rag`: deduplicated — ★ 19,338 duplicate vectors removed ✅
+- `psychological_rag`: ★ restored to 968 docs (`PSY_COLLECTION` env var fix) ✅
+- `msjarvis_docs`: ★ expanded to 4,192 items ✅
+- `appalachian_cultural_intelligence` (820) and `aaacpe_corpus` (65): confirmed two distinct collections ✅
+
+**PostgreSQL cluster:**
+- Port 5433 — `msjarvis` — ★ **restored March 28, 2026** ✅ — `jarvis_local_resources` schema also restored
+- Port 5432 — `msjarvisgis` — 91 GB, 501 PostGIS tables, 993 WV ZIP centroids, 20,593 landowner beliefs ✅
+- Port 5435 — `jarvis-local-resources-db` — 7,354,707 building rows ✅
+
+**RAG and routing:**
+- Phase 1.45 community memory: live ✅
+- Text RAG (`jarvis-rag-server` host:8003 → container:8016): active ✅
+- GIS RAG (port 8004): confirmed operational ✅
+- `psychological_rag` (port 8006): ★ restored March 28 ✅
+- `gbim_query_router` (port 7205): PostgreSQL-native landowner path live ✅
+- `jarvis-aaacpe-rag` (port 8032): live March 27, 2026 ✅
+- `jarvis-aaacpe-scraper` (port 8033): live March 27, 2026 ✅
+- `jarvis-web-research` (port 8008 internal): restored March 25, 2026 ✅
+- `jarvis-ingest-api` (port 8009): restored March 25, 2026 ✅
+
+**Consciousness pipeline:**
+- `jarvis-consciousness-bridge` (port 8020): ACTIVE — Chroma v2 heartbeat 200 ✅
+- End-to-end pipeline confirmed producing persona-consistent Appalachian-voice responses ✅
+
+***
+
+*Last updated: 2026-03-28, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
 *Updated March 26, 2026: `geospatialfeatures` confirmed at 60,000 items (OI-12 CLOSED); `GBIM_Fayette_sample` confirmed at 1,535 items (OI-13 CLOSED); all "planned" and "in-progress" language removed for PostGIS spatial layer; ChromaDB host port updated to 8002 throughout; governance_rag (643 chunks) and commons_rag (306 chunks) references added as confirmed live.*
-*★ March 27, 2026: All `gisdb` references corrected to `msjarvisgis` (port 5452); `jarvis-local-resources-db` connection string corrected to `database="postgres"`; BBB Input Filter port label removed from Figure 6-1; `jarvis-rag-server` host:8003 → container:8016 port mapping added to Section 6.2.1 and Section 6.4.2 routing table with ⚠️ note re: gateway wiring; `local_resources` added as default-collection row in Section 6.2.1 table; `msjarvisgis.zcta_wv_centroids` corrected throughout spatial flow diagrams; Section 6.4.2 routing table completed with full `jarvis-rag-server` row; # 6. GeoDB Spatial Body heading and author attribution added to top of file.*
-`````
+*★ March 27, 2026: All `gisdb` references corrected to `msjarvisgis` (port 5432); `jarvis-local-resources-db` connection string corrected to `database="postgres"`; BBB Input Filter port label removed from Figure 6-1; `jarvis-rag-server` host:8003 → container:8016 port mapping added to Section 6.2.1 and Section 6.4.2 routing table with ⚠️ note re: gateway wiring; `local_resources` added as default-collection row in Section 6.2.1 table; `msjarvisgis.zcta_wv_centroids` corrected throughout spatial flow diagrams; Section 6.4.2 routing table completed with full `jarvis-rag-server` row.*
+*★ March 28, 2026: Security remediation complete — all `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set. `spiritual_rag` deduplicated (−19,338 vectors). `psychological_rag` restored (968 docs, `PSY_COLLECTION` fix). `msjarvis_docs` expanded (4,192 items). `msjarvis` port 5433 restored; `jarvis_local_resources` schema restored. `aaacpe_corpus` vs. `appalachian_cultural_intelligence` discrepancy resolved — two distinct collections confirmed. `jarvis-aaacpe-rag` (port 8032) and `jarvis-aaacpe-scraper` (port 8033) added to routing table. 40 active collections / 6,675,442 total vectors confirmed via full inventory audit. Section 6.8 production state summary added.*
