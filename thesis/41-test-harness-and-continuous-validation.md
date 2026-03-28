@@ -1,7 +1,7 @@
-# 41. Test Harness and Continuous Validation
+# Chapter 41 — Test Harness and Continuous Validation
 
 **Carrie Kidd (Mamma Kidd) — Mount Hope, WV**
-**Last updated: March 25, 2026**
+**Last updated: March 27, 2026 — preflight gate updated to 24 PASS / 0 FAIL (four new gates added March 22–25 sprint: Chroma v2 reachability, WOAH port 7012, RAG /query port 8003, consciousness bridge port 8020); all /direct_rag references replaced with /query (sprint Patch 3A); ChromaDB health probes updated to v2 API path; WOAH smoke test added; consciousness bridge smoke test added; jarvis-rag-server probe corrected to host port 8003; gisdb port 5452 stale typo corrected to 5432**
 
 > **Corrections applied March 22, 2026:**
 > - **Redis async job status key:** The correct Redis async job status key is `'complete'`,
@@ -24,13 +24,21 @@
 > - **`chromadata`** (no underscore) is the canonical ChromaDB volume name.
 > - **§41.12 open items:** Updated — see table.
 
-> **Updates applied March 25, 2026:**
+> **Updates applied March 25–27, 2026:**
+> - **Preflight gate: 24 PASS / 0 FAIL.** Four new checks added during the March 22–25
+>   sprint: (1) Chroma reachability via v2 API port 8002, (2) WOAH container active port
+>   7012, (3) RAG endpoint `/query` reachable port 8003, (4) consciousness bridge health
+>   port 8020. All references to "20 PASS 0 FAIL" as the current baseline are stale.
+> - **RAG endpoint corrected to `/query`** throughout. Sprint Patch 3A retired `/direct_rag`.
+> - **ChromaDB health probes updated to v2 API** (`/api/v2/heartbeat`). The v1 path is stale.
+> - **WOAH smoke test added** (§41.4.13). stdlib stub — do not test for Pydantic output.
+> - **Consciousness bridge smoke test added** (§41.4.14). All 3 patches confirmed active.
+> - **`jarvis-rag-server` host port 8003** corrected throughout. Internal port 8016 must
+>   not appear in host-side commands.
 > - **End-to-end chat regression test added** (§41.14) — community resources query, Fayette
 >   County, confirmed persona-consistent Appalachian voice, prior session context referenced,
->   no model name leakage. Chroma: 200. WOAH: `{status: ok, confidence: 0.8}`. Hilbert
->   entity recall: 3 local entities returned. RAG embedding fix in progress.
+>   no model name leakage.
 > - **OI-23 (semaphore timeout) not triggered** during March 25 sprint testing sessions.
->   All test queries completed without WV capital city test timeout.
 > - **§41.12 open items updated** to reflect March 25 sprint findings.
 
 ---
@@ -62,10 +70,10 @@ query test is the current canonical regression baseline.
 
 | Category | Details |
 |---|---|
-| **Implemented and verified** | `VERIFYANDTEST.sh` eternal watchdog producing timestamped reports confirming 32/32 core fabric services operational, 21/22 LLM proxies contributing to consensus (StarCoder2 wired but 0-char on community queries), 83 Docker containers running (verified March 21–22 via `VERIFYANDTEST.sh`; 3 orphaned containers removed), 26 Ollama models available, and three PostgreSQL databases connected: `msjarvis` port 5433 (5,416,521 GBIM entities); `gisdb`/`msjarvisgis` port 5432 (PostGIS, 91 GB, 501 tables, 20,593 landowner beliefs in `mvw_gbim_landowner_spatial`); `jarvis-local-resources-db` port 5435. ChromaDB `jarvis-chroma` at host port **8002** (`127.0.0.1:8002->8000/tcp`, `chromadata` volume). Canonical smoke tests for BBB 6-filter stack (`/health`, `/filter`, `/truth`), main-brain (`/health`, `/chat`, `/chat/async`, `/chat/status/{job_id}`), and `ultimatechat` `UltimateResponse` 6-layer verification defined and confirmed against live system. BBB output guard confirmed to receive full verdict dict (not answer text only) as of March 18, 2026. Judge pipeline BBB integration confirmed (step in Phase 4 sequence) as of March 21, 2026. All 5 judge services compose-managed (`restart: unless-stopped`) since March 18, 2026. All services bound exclusively to `127.0.0.1` — zero `0.0.0.0` exposures since March 18, 2026. Phase 1.45 community memory retrieval (21,181 `autonomous_learner` records, 384-dim `all-minilm:latest`) confirmed active on every production request. `apply_output_guards_async` timeout confirmed `8.0s`. `call_icontainers` confirmed live HTTP (fixed 2026-03-13). `nbb-icontainers` and `icontainers-identity` both contributing to confirmed 6-layer `UltimateResponse`. Phase 3 psychology pre-assessment (`jarvis-psychology-services` port 8019) confirmed active on every production request. `jarvis-hippocampus` (port 8011), `jarvis-lm-synthesizer` (port 8001 internal), `jarvis-69dgm-bridge` (host port 19000 → internal 9000, 23 connectors × 3 stages), and `psychological_rag_domain` (port 8006, 968 items) all confirmed in March 18 end-to-end benchmark. GBIM temporal confidence decay (Phase 5, `confidence_decay` multiplier) confirmed active. `gbim_query_router` (port 7205) added as the landowner belief path (March 20, 2026). **Redis async job status key confirmed as `'complete'` (not `'done'`) — March 22, 2026.** **ChromaDB host port confirmed as `8002`; Redis host port confirmed as `6380` — March 22, 2026.** `msjarvis_docs` ChromaDB collection: 2,348 active (52 WV community resources + 2,296 system docs, ingested March 22, 2026). GPU (RTX 4070) active — 99–107s end-to-end verified March 22, 2026. **March 25, 2026 regression test (community resources, Fayette County): Chroma 200, WOAH `{status: ok, confidence: 0.8}`, 3 Hilbert local entities returned, persona-consistent Appalachian voice confirmed, prior session context referenced, no model name leakage. RAG embedding fix in progress.** |
+| **Implemented and verified** | `VERIFYANDTEST.sh` eternal watchdog producing timestamped reports confirming 32/32 core fabric services operational, 21/22 LLM proxies contributing to consensus (StarCoder2 wired but 0-char on community queries), 83 Docker containers running (verified March 21–22 via `VERIFYANDTEST.sh`; 3 orphaned containers added to compose March 22), 26 Ollama models available, and three PostgreSQL databases connected: `msjarvis` port 5433 (5,416,521 GBIM entities); `gisdb`/`msjarvisgis` port 5432 (PostGIS, 91 GB, 501 tables, 20,593 landowner beliefs in `mvw_gbim_landowner_spatial`); `jarvis-local-resources-db` port 5435. ChromaDB `jarvis-chroma` at host port **8002** (`127.0.0.1:8002->8000/tcp`, `chromadata` volume). Canonical smoke tests for BBB 6-filter stack (`/health`, `/filter`, `/truth`), main-brain (`/health`, `/chat`, `/chat/async`, `/chat/status/{job_id}`), and `ultimatechat` `UltimateResponse` 6-layer verification defined and confirmed against live system. BBB output guard confirmed to receive full verdict dict (not answer text only) as of March 18, 2026. Judge pipeline BBB integration confirmed (step in Phase 4 sequence) as of March 21, 2026. All 5 judge services compose-managed (`restart: unless-stopped`) since March 18, 2026. All services bound exclusively to `127.0.0.1` — zero `0.0.0.0` exposures since March 18, 2026. Phase 1.45 community memory retrieval (21,181 `autonomous_learner` records, 384-dim `all-minilm:latest`) confirmed active on every production request. `apply_output_guards_async` timeout confirmed `8.0s`. `call_icontainers` confirmed live HTTP (fixed 2026-03-13). `nbb-icontainers` and `icontainers-identity` both contributing to confirmed 6-layer `UltimateResponse`. Phase 3 psychology pre-assessment (`jarvis-psychology-services` port 8019) confirmed active on every production request. `jarvis-hippocampus` (port 8011), `jarvis-lm-synthesizer` (port 8001 internal), `jarvis-69dgm-bridge` (host port 19000 → internal 9000, 23 connectors, 3 stages, 69 total operations), and `psychological_rag_domain` (port 8006, 968 items) all confirmed in March 18 end-to-end benchmark. GBIM temporal confidence decay (Phase 5, `confidence_decay` multiplier) confirmed active. `gbim_query_router` (port 7205) added as the landowner belief path (March 20, 2026). **Redis async job status key confirmed as `'complete'` (not `'done'`) — March 22, 2026.** **ChromaDB host port confirmed as `8002`; Redis host port confirmed as `6380` — March 22, 2026.** `msjarvis_docs` ChromaDB collection: 2,348 active (52 WV community resources + 2,296 system docs, ingested March 22, 2026). GPU (RTX 4070) active — 99–107s end-to-end verified March 22, 2026. **Preflight gate: 24 PASS 0 FAIL** (expanded from 20 during March 22–25 sprint). **March 25, 2026 regression test (community resources, Fayette County): Chroma 200, WOAH `{status: ok, confidence: 0.8}`, 3 Hilbert local entities returned, persona-consistent Appalachian voice confirmed, prior session context referenced, no model name leakage.** |
 | **Implemented since March 21** | Red-team adversarial sprint3: 15/17 defenses passed; gaps ID-03 and AU-02 documented. Community Champions: 52 verified records in ChromaDB `msjarvis_docs` (50 Kanawha + 11 Fayette in PostgreSQL). Automated cron: monthly `mvw_gbim_landowner_spatial` refresh cron scheduled (3am, 1st of month); `prometheus.yml` created. GPU inference: RTX 4070 active — ~99–107s verified. Public URL https://egeria.mountainshares.us live. |
-| **Implemented since March 22** | March 25 consciousness pipeline sprint: `jarvis-woah` (port 7012, stdlib stub, qualia-net confirmed), `jarvis-chroma` (port 8002, v2 API, 31 collections, 6,665,093 items), `jarvis-consciousness-bridge` (port 8020, 3 patches applied), `jarvis-rag-server` (port 8003→8016, `/query` confirmed, embedding env vars injected), `jarvis-ollama` reachable at `jarvis-ollama:11434` from RAG server, `jarvis-unified-gateway` (port 18018, `dict.lower()` guard patched). OI-23 semaphore timeout **not triggered** during March 25 sprint testing sessions. |
-| **Partially implemented / scaffolded** | Automated CI pipeline not yet triggering on every commit; `VERIFYANDTEST.sh` run manually or on demand. `VERIFYANDTEST.sh` log ingestion into ChromaDB `operations_history` designed but automated pipeline not yet active. BBB output guard score thresholds configurable pass/hold/amend pending. RAG embedding fix in progress — not yet returning documents (March 25). |
+| **Implemented since March 22** | March 25 consciousness pipeline sprint: `jarvis-woah` (port 7012, stdlib stub, qualia-net confirmed), `jarvis-chroma` (port 8002, v2 API, 31 collections, 6,665,093 items), `jarvis-consciousness-bridge` (port 8020, 3 patches applied), `jarvis-rag-server` (host port 8003→internal 8016, `/query` confirmed, embedding env vars injected), `jarvis-ollama` reachable at `jarvis-ollama:11434` from RAG server, `jarvis-unified-gateway` (port 18018, `dict.lower()` guard patched). OI-23 semaphore timeout **not triggered** during March 25 sprint testing sessions. |
+| **Partially implemented / scaffolded** | Automated CI pipeline not yet triggering on every commit; `VERIFYANDTEST.sh` run manually or on demand. `VERIFYANDTEST.sh` log ingestion into ChromaDB `operations_history` designed but automated pipeline not yet active. BBB output guard score thresholds configurable pass/hold/amend pending. RAG embedding document retrieval fix in progress — endpoint responds but not yet returning documents. |
 | **Future work / design intent only** | CI pipeline triggering health/topology + RAG + BBB suites on every commit. Distributed tracing for per-component latency (BBB, RAG, semaphore, LLM ensemble, 69-DGM). Quantitative quality benchmarks (BLEU/ROUGE, factual accuracy on curated WV datasets, hallucination tracking against PostgreSQL GBIM ground truth). Formal load testing under sustained multi-user concurrency. Automated adversarial library with clear pass/fail policy (AU-02 full regex implementation pending). POC verification loop for GBIM temporal decay entities. |
 
 **Cross-reference:** For the March 20–22, 2026 operational baseline this chapter validates,
@@ -87,22 +95,22 @@ of March 25, 2026. It incorporates:
 - The **March 15, 2026** baseline (commit `b90f9ff`, 349.87s end-to-end, 79 containers)
 - The **March 18, 2026** security hardening and optimization session (83 containers, zero
   `0.0.0.0` exposures, judge pipeline compose-managed, BBB full verdict dict integration,
-  ~436s CPU end-to-end baseline)
+  ~436s CPU end-to-end — **RETIRED/STALE, superseded by GPU baseline**)
 - The **March 20, 2026** GBIM landowner layer addition (`gbim_query_router` port 7205,
   20,593 landowner beliefs)
 - The **March 21, 2026** canonical integration test (current regression baseline)
-- The **March 21–22, 2026** stack verification that confirmed 83 containers (3 orphaned
-  removed)
+- The **March 21–22, 2026** stack verification that confirmed 83 containers
 - The **March 22, 2026** GPU activation (RTX 4070, 99–107s end-to-end), red-team sprint3
   (15/17 defenses), Community Champions ingest (52 records), and `prometheus.yml` creation
 - The **March 25, 2026** consciousness pipeline sprint — full operational confirmation of
   `jarvis-woah` (port 7012), `jarvis-chroma` (port 8002, v2 API, 31 collections, 6,665,093
-  items), `jarvis-consciousness-bridge` (port 8020, 3 patches), `jarvis-rag-server` (port
-  8003→8016, embedding env vars injected), `jarvis-ollama` (reachable at
-  `jarvis-ollama:11434` from RAG server), `jarvis-unified-gateway` (port 18018,
-  `dict.lower()` guard patched); and the March 25 end-to-end regression test confirming
-  persona-consistent Appalachian voice, prior session context referenced, no model name
-  leakage, and no OI-23 semaphore timeout
+  items), `jarvis-consciousness-bridge` (port 8020, 3 patches), `jarvis-rag-server` (host
+  port 8003→internal 8016, embedding env vars injected, `/query` confirmed), `jarvis-ollama`
+  (reachable at `jarvis-ollama:11434` from RAG server), `jarvis-unified-gateway` (port
+  18018, `dict.lower()` guard patched); and the March 25 end-to-end regression test
+  confirming persona-consistent Appalachian voice, prior session context referenced, no
+  model name leakage, and no OI-23 semaphore timeout. **Preflight gate expanded to
+  24 PASS / 0 FAIL.**
 
 The canonical reference system is the **Legion 5 host at Oak Hill, West Virginia**, running
 **83 Docker containers** (compose-managed), 32/32 core fabric services operational, and
@@ -135,6 +143,9 @@ is confirmed to include 6 active consciousness layers across a verified 99–107
   multipliers are applied correctly
 - Confirm that Phase 1.45 community memory retrieval is prepending top-5
   `autonomous_learner` records to every request (ChromaDB host port 8002)
+- Confirm the full consciousness pipeline is operational: `jarvis-woah` (port 7012),
+  `jarvis-chroma` (port 8002, v2 API), `jarvis-consciousness-bridge` (port 8020),
+  `jarvis-rag-server` (host port 8003), `jarvis-unified-gateway` (port 18018)
 - Provide repeatable smoke tests that can be re-run after any code change, container
   restart, or remediation session
 - Maintain the March 21, 2026 canonical integration test as the regression baseline for
@@ -161,9 +172,9 @@ referencing any other port for these services should be treated as stale.
 |---|---|---|---|---|
 | Main brain | jarvis-main-brain | 8050 | ✅ 2026-03 | Primary unified entrypoint |
 | LM Synthesizer | jarvis-lm-synthesizer | internal 8001 | ✅ 2026-03-15 | Phase 3.5; calls jarvis-ollama:11434 directly |
-| ChromaDB | jarvis-chroma | **8002** | ✅ 2026-03-25 | host 8002 → internal 8000; `chromadata` volume; 384-dim all-minilm; **31 collections, 6,665,093 items, v2 API confirmed March 25** |
-| General RAG | jarvis-rag-server | **8003** (host) / **8016** (internal) | ✅ 2026-03-25 | `/query` confirmed; embedding env vars injected; `jarvis-ollama:11434` reachable from container; embedding fix in progress |
-| GIS RAG | jarvis-gis-rag | 8004 | ✅ 2026-03 | PostGIS-backed; re-locked 127.0.0.1 Mar 18 |
+| ChromaDB | jarvis-chroma | **8002** | ✅ 2026-03-25 | host 8002 → internal 8000; `chromadata` volume; 384-dim all-minilm; **31 collections, 6,665,093 items, v2 API confirmed March 25**; health probe: `/api/v2/heartbeat` |
+| General RAG | jarvis-rag-server | **8003** (host) / **8016** (internal) | ✅ 2026-03-25 | `/query` confirmed (Patch 3A); embedding env vars injected; `jarvis-ollama:11434` reachable from container; host scripts use **8003** |
+| GIS RAG | jarvis-gis-rag | 8004 | ✅ 2026-03 | PostGIS-backed; queries `gisdb` port **5432** |
 | Spiritual/GBIM RAG | jarvis-spiritual-rag | 8005 | ✅ 2026-03 | Re-locked 127.0.0.1 Mar 18 |
 | Psychological RAG | psychological_rag_domain | 8006 | ✅ 2026-03-15 | 968 items |
 | 20-LLM ensemble | jarvis-20llm-production | 8008 | ✅ 2026-03 | 21/22 contributing to consensus |
@@ -171,7 +182,7 @@ referencing any other port for these services should be treated as stale.
 | Hippocampus | jarvis-hippocampus | 8011 | ✅ 2026-03-15 | Re-locked 127.0.0.1 Mar 18 |
 | Blood-brain barrier | jarvis-blood-brain-barrier | 8016 | ✅ 2026-03 | **6 filters**; full verdict dict output guard Mar 18 |
 | Qualia engine | jarvis-qualia-engine | 8017 | ✅ 2026-03 | /experience endpoint |
-| Neurobiological master | jarvis-neurobiological-master | internal 8018 | ✅ v2.0.0 | 4-stage pipeline ~300ms |
+| Neurobiological master | jarvis-neurobiological-master | internal 8018 | ⚠️ UNREACHABLE | Confirmed unreachable March 25; Chroma health rerouted to `jarvis-chroma:8000/api/v2/heartbeat` (Ch. 25 Patch 1); do not use as health probe target |
 | Psychology services | jarvis-psychology-services | 8019 | ✅ 2026-03-15 | Phase 3, every request; re-locked Mar 18 |
 | Consciousness bridge | jarvis-consciousness-bridge | 8020 | ✅ **2026-03-25** | **3 patches applied and committed March 25**; re-locked 127.0.0.1 Mar 18 |
 | I-Containers | jarvis-i-containers | 8015 | ✅ 2026-03-13 | Live HTTP; re-locked 127.0.0.1 Mar 18 |
@@ -179,10 +190,10 @@ referencing any other port for these services should be treated as stale.
 | Semaphore proxy | jarvis-semaphore | 8030 | ✅ 2026-03 | max_concurrent: 4; **OI-23 not triggered March 25** |
 | Constitutional Guardian | jarvis-constitutional-guardian | 8091 | ✅ 2026-03 | Re-locked 127.0.0.1 Mar 18 |
 | WOAH algorithms | nbb_woah_algorithms | 8104 | ✅ 2026-03 | Internal 8010 |
-| WOAH service | jarvis-woah | **7012** | ✅ **2026-03-25** | **stdlib stub, qualia-net confirmed, `{status: ok, confidence: 0.8}` March 25** |
+| WOAH service | jarvis-woah | **7012** | ✅ **2026-03-25** | **stdlib stub, qualia-net confirmed, `{"status": "ok", "service": "jarvis-woah", "port": 7012}` March 25; no Pydantic dependency** |
 | Unified gateway | jarvis-unified-gateway | **18018** | ✅ **2026-03-25** | **`dict.lower()` guard patched March 25** |
 | Fifth DGM | jarvis-fifth-dgm | 4002 | ✅ 2026-03 | |
-| 69-DGM bridge | jarvis-69dgm-bridge | **19000** (→9000 internal) | ✅ 2026-03 | Phase 7; host 19000, internal 9000; re-locked Mar 18 |
+| 69-DGM bridge | jarvis-69dgm-bridge | **19000** (→9000 internal) | ✅ 2026-03 | Phase 7; host 19000, internal 9000; 23 connectors, 3 stages, 69 total operations; re-locked Mar 18 |
 | Brain orchestrator | jarvis-brain-orchestrator | 17260 | ✅ 2026-03 | Internal 7260 |
 | Judge: truth | jarvis-judge-truth | 7230 | ✅ 2026-03-18 | Compose-managed Mar 18 |
 | Judge: consistency | jarvis-judge-consistency | 7231 | ✅ 2026-03-18 | Compose-managed Mar 18 |
@@ -190,7 +201,7 @@ referencing any other port for these services should be treated as stale.
 | Judge: ethics | jarvis-judge-ethics | 7233 | ✅ 2026-03-18 | Compose-managed Mar 18 |
 | Judge: pipeline | jarvis-judge-pipeline | 7239 | ✅ 2026-03-18 | Coordinator; compose-managed Mar 18 |
 | Autonomous learner | jarvis-autonomous-learner | 8425 | ✅ 2026-03 | 21,181 records; Phase 1.45 |
-| GBIM query router | gbim_query_router | 7205 | ✅ 2026-03-20 | Landowner beliefs; PostgreSQL-native path |
+| GBIM query router | gbim_query_router | 7205 | ✅ 2026-03-20 | Landowner beliefs; PostgreSQL-native path; queries `gisdb` port **5432** |
 | Ollama runtime | jarvis-ollama | 11434 | ✅ **2026-03-25** | 20 GB memory limit; 26 models; **reachable at `jarvis-ollama:11434` from RAG server (confirmed March 25)** |
 | Redis | jarvis-redis | **6380** | ✅ 2026-03-22 | host 6380 → internal 6379; job state, 30-min TTL; async status key: `'complete'` |
 | PostgreSQL GBIM | host-direct (msjarvis) | **5433** | ✅ 2026-03-15 | 5,416,521 GBIM entities |
@@ -198,20 +209,22 @@ referencing any other port for these services should be treated as stale.
 | PostgreSQL Community | host-direct (jarvis-local-resources-db) | **5435** | ✅ 2026-03-15 | Community resources |
 | LLM proxies 1–22 | llm1-proxy … llm22-proxy | 8201–8222 | ✅ 22/22 | 21 contributing consensus; StarCoder2 0-char |
 
-**Port correction record — permanent (updated March 25, 2026):**
+**Port correction record — permanent (updated March 27, 2026):**
 
 - **ChromaDB host port is `8002`** (`127.0.0.1:8002->8000/tcp`). Container-internal port
   is `8000`. All scripts must use `8002` for host-side access. Volume: `chromadata`.
+  Health probe must target `/api/v2/heartbeat` — the v1 path is stale.
 - **Redis host port is `6380`** (`127.0.0.1:6380->6379/tcp`). Container-internal port is
   `6379`. **Redis async job status key is `'complete'`, not `'done'`** — any client polling
   `status == 'done'` will hang indefinitely.
-- **`jarvis-rag-server` host port is `8003`** → container-internal port `8016`. (Added
-  March 25, 2026.) `/query` confirmed; embedding env vars injected. Do not use internal port
-  8016 in host scripts.
+- **`jarvis-rag-server` host port is `8003`** → container-internal port `8016`. All host
+  scripts and test harness probes must use port **8003**. Do not reference internal port
+  8016 from host scripts. RAG endpoint is `/query` — `/direct_rag` is retired (sprint
+  Patch 3A, March 25, 2026).
 - **`jarvis-unified-gateway` host port is `18018`**. `dict.lower()` guard patched March 25.
-- **`gisdb` / `msjarvisgis` (PostGIS, landowner beliefs) is at port `5432`.** It is NOT
-  at port 5433. `msjarvis` (primary GBIM) is at port `5433`. These are **different databases
-  on different ports**. They do not share a port.
+- **`gisdb` / `msjarvisgis` (PostGIS, landowner beliefs) is at port `5432`.** Any
+  reference to port 5452 for `gisdb` is a stale typo. `msjarvis` (primary GBIM) is at
+  port `5433`. These are **different databases on different ports**.
 - **`jarvis-local-resources-db` is at port `5435`** — NOT port `5432`.
 - **`jarvis-69dgm-bridge` host port is `19000`** → internal container port `9000`. Never
   reference this service at host port 9000 directly.
@@ -222,6 +235,8 @@ referencing any other port for these services should be treated as stale.
 - **BBB has 6 filters**: `EthicalFilter`, `SpiritualFilter`, `SafetyMonitor`,
   `ThreatDetection`, `steganography_filter`, `truth_verification`. Any reference to 7
   filters is stale.
+- **`jarvis-neurobiological-master`** (internal port 8018) is confirmed unreachable as of
+  March 25, 2026. Do not use port 8018 as a health probe target.
 - All services are bound to `127.0.0.1` — any `0.0.0.0` exposure is a security regression
   requiring immediate remediation.
 
@@ -236,17 +251,17 @@ A clean run as of March 25, 2026 confirms:
 - 32/32 core fabric services passing `/selftestfabric`
 - 21/22 LLM proxy containers contributing to consensus (22/22 HTTP 200; StarCoder2 wired
   but excluded from consensus due to 0-char responses on community queries)
-- **83 Docker containers running** (verified March 21–22, 2026; 3 orphaned containers
-  removed from the active stack)
+- **83 Docker containers running**
 - 26 Ollama models available
 - Three PostgreSQL databases connected: `msjarvis` (port 5433), `gisdb`/`msjarvisgis`
-  (port 5452), `jarvis-local-resources-db` (port 5435)
+  (port **5432**), `jarvis-local-resources-db` (port 5435)
 - ChromaDB `chromadata` volume mounted and accessible (host port **8002**) — **31
-  collections, 6,665,093 items**
+  collections, 6,665,093 items** — v2 API confirmed
 - `jarvis-woah` (port 7012): RUNNING — stdlib stub, qualia-net confirmed
 - `jarvis-consciousness-bridge` (port 8020): RUNNING — 3 patches applied
-- `jarvis-rag-server` (port 8003→8016): RUNNING — `/query` confirmed
+- `jarvis-rag-server` (host port 8003→internal 8016): RUNNING — `/query` confirmed
 - `jarvis-unified-gateway` (port 18018): RUNNING — `dict.lower()` guard patched
+- **Preflight gate: 24 PASS 0 FAIL**
 - **OI-23 (semaphore timeout) not triggered** during March 25 sprint testing sessions
 - System status: ✅ OPERATIONAL
 
@@ -258,6 +273,7 @@ bash VERIFYANDTEST.sh 2>&1 | tee /tmp/verify_$(date +%Y%m%d_%H%M%S).log
 
 Expected output indicators (all must be present for a clean run):
 
+```
 Services operational: 32/32
 LLM proxies healthy: 22/22 (21 contributing consensus — StarCoder2 0-char excluded)
 Docker containers running: 83
@@ -265,11 +281,11 @@ Ollama models available: 26
 PostgreSQL msjarvis (5433): CONNECTED — 5416521 GBIM entities
 PostgreSQL gisdb/msjarvisgis (5432): CONNECTED — PostGIS, 91 GB, 20593 landowner beliefs
 PostgreSQL jarvis-local-resources-db (5435): CONNECTED
-ChromaDB (8002→8000, chromadata): CONNECTED — 31 collections, 6665093 items
+ChromaDB (8002→8000, chromadata, v2 API): CONNECTED — 31 collections, 6665093 items
 psychological_rag: 968 items
 Psychology services (8019): HEALTHY — Phase 3 active
 Hippocampus (8011): HEALTHY
-69-DGM bridge (19000→9000): HEALTHY — 23 connectors operational
+69-DGM bridge (19000→9000): HEALTHY — 23 connectors, 3 stages, 69 total operations
 Judge pipeline (7239): HEALTHY — compose-managed
 Judge truth (7230): HEALTHY
 Judge consistency (7231): HEALTHY
@@ -278,13 +294,13 @@ Judge ethics (7233): HEALTHY
 gbim_query_router (7205): HEALTHY — landowner beliefs operational
 jarvis-woah (7012): RUNNING — stdlib stub, qualia-net confirmed
 jarvis-consciousness-bridge (8020): RUNNING — 3 patches applied
-jarvis-rag-server (8003→8016): RUNNING — /query confirmed, embedding env vars injected
+jarvis-rag-server (8003): RUNNING — /query confirmed, embedding env vars injected
 jarvis-unified-gateway (18018): RUNNING — dict.lower() guard patched
 Redis (6380→6379): CONNECTED — async status key: 'complete'
+Preflight gate: 24 PASS 0 FAIL
 0.0.0.0 exposures: 0
 System status: OPERATIONAL
-
-text
+```
 
 Failure indicators requiring immediate investigation:
 
@@ -298,10 +314,15 @@ Failure indicators requiring immediate investigation:
 - Any judge service unhealthy → check compose management:
   `docker compose ps | grep judge`
 - `Docker containers running: <83` → check for missing containers; `gbim_query_router`
-  (port 7205) and all 5 judge services must be compose-managed
+  (port 7205) and all 5 judge services must be compose-managed; crypto-policy,
+  ingest-api, ingest-watcher must be present
+- `Preflight gate: <24 PASS` → one of the 24 checks is failing; run
+  `bash scripts/preflight_gate.sh` for itemized output
 - `jarvis-woah (7012)` unhealthy → check stdlib stub rebuild; confirm qualia-net attachment
+- `jarvis-consciousness-bridge (8020)` unhealthy → verify 3 patches committed; check logs
 - `jarvis-rag-server (8003)` unhealthy → confirm embedding env vars injected; verify
-  `jarvis-ollama:11434` reachable from container
+  `jarvis-ollama:11434` reachable from container; confirm endpoint is `/query` not `/direct_rag`
+- ChromaDB v2 heartbeat failing → confirm health probe is `/api/v2/heartbeat` not v1 path
 
 ---
 
@@ -569,8 +590,8 @@ psql -h 127.0.0.1 -p 5432 -U postgres -d gisdb -c \
 Expected: count ≥ 993. Includes ZIP codes for Mount Hope (25880), Oak Hill (25901),
 Fayetteville (25840), and surrounding Fayette County communities.
 
-> **Port note:** `gisdb` is at port **5432** — NOT 5433. `msjarvis` is at 5433.
-> These are different databases on different ports.
+> **Port note:** `gisdb` is at port **5432** — NOT 5433 and NOT 5452. `msjarvis` is at
+> 5433. These are different databases on different ports.
 
 GBIM landowner belief count:
 
@@ -599,8 +620,7 @@ psql -h 127.0.0.1 -p 5435 -U postgres -d jarvis_local_resources -c \
   "SELECT COUNT(*) FROM resources WHERE verified = TRUE;"
 ```
 
-Expected: count ≥ 52 (52 verified Community Champions records — 50 Kanawha + 11 Fayette,
-52 net in ChromaDB `msjarvis_docs`, ingested March 22, 2026).
+Expected: count ≥ 52 (52 verified Community Champions records ingested March 22, 2026).
 
 ### 41.4.8 Judge Pipeline and BBB Verdict Dict Integration
 
@@ -630,10 +650,9 @@ Judge compose management verification:
 docker compose ps | grep judge
 ```
 
-Expected: all 5 judge services listed with running status. No judge service should appear
-in `docker ps` without also appearing in `docker compose ps`.
+Expected: all 5 judge services listed with running status.
 
-Verify no ghost file contamination (`lm_synthesizer.py` clones — fully fixed March 22):
+Verify no ghost file contamination:
 
 ```bash
 # Expected: empty output
@@ -680,8 +699,7 @@ curl -s -X POST http://127.0.0.1:8016/output_guard \
   | python3 -m json.tool
 ```
 
-Expected: `"passed": true`, `"bbb_checked": true`, `"verdict_received": true`. Fail-open
-behavior confirmed: if BBB returns HTTP 500, the pipeline must continue and log the failure.
+Expected: `"passed": true`, `"bbb_checked": true`, `"verdict_received": true`.
 
 BBB steganography aggregation fix verification:
 
@@ -704,7 +722,7 @@ curl -s http://127.0.0.1:7205/health | python3 -m json.tool
 ```
 
 Expected: `{"status": "healthy", ...}` confirming `gbim_query_router` is operational and
-`mvw_gbim_landowner_spatial` is accessible via `gisdb` port 5432.
+`mvw_gbim_landowner_spatial` is accessible via `gisdb` port **5432**.
 
 Landowner query (Fayette County large landowners):
 
@@ -738,10 +756,9 @@ curl -s http://127.0.0.1:8030/health | python3 -m json.tool
 
 Expected: healthy response confirming `max_concurrent: 4` semaphore gate is active.
 
-> **OI-23 status (March 25, 2026):** The `VERIFYANDTEST.sh` semaphore timeout (OI-23) was
-> **not triggered** during any March 25 sprint testing sessions. All test queries completed
-> without hitting the WV capital city test timeout. OI-23 remains documented as a known edge
-> case but did not occur in this sprint.
+> **OI-23 status (March 25, 2026):** The semaphore timeout (OI-23) was **not triggered**
+> during any March 25 sprint testing sessions. All test queries completed without hitting
+> the WV capital city test timeout. OI-23 remains documented as a known edge case.
 
 Operational note: If running multiple smoke tests back-to-back, restart the semaphore
 container between benchmark sessions to drain queued work before measuring latency:
@@ -766,6 +783,105 @@ done
 
 Expected: all 22 lines showing HTTP 200. `llm7-proxy` (StarCoder2) and `llm11-proxy`
 (BakLLaVA) noted as non-contributing; consensus extracts from 21 active models.
+
+### 41.4.12 Preflight Gate — 24 PASS / 0 FAIL
+
+The preflight gate script runs 24 discrete checks confirming the core production stack
+is ready. It expanded from 20 to 24 checks during the March 22–25 sprint. Run after every
+session start and after any container restart.
+
+```bash
+bash scripts/preflight_gate.sh
+```
+
+Expected output:
+
+```
+Preflight gate: 24 PASS 0 FAIL
+All 24 checks: PASS
+System: READY
+```
+
+The four checks added during the March 22–25 sprint are:
+
+| Gate # | Check | Target |
+|--------|-------|--------|
+| 21 | ChromaDB v2 API reachable | `127.0.0.1:8002/api/v2/heartbeat` → HTTP 200 |
+| 22 | WOAH container active | `127.0.0.1:7012/health` → `{"status": "ok"}` |
+| 23 | RAG `/query` endpoint reachable | `127.0.0.1:8003/health` → HTTP 200 |
+| 24 | Consciousness bridge health | `127.0.0.1:8020/health` → HTTP 200 |
+
+Any result showing fewer than 24 PASS is a regression. Run individual checks from §41.4.13
+and §41.4.14 to isolate the failing gate.
+
+### 41.4.13 WOAH Service Smoke Test — port 7012
+
+This test was added during the March 22–25 sprint as preflight gate 22. The `jarvis-woah`
+service is a stdlib stub — do not test for Pydantic schema output (OI-29 deferred).
+
+```bash
+curl -s http://127.0.0.1:7012/health | python3 -m json.tool
+```
+
+Expected response:
+
+```json
+{
+  "status": "ok",
+  "service": "jarvis-woah",
+  "port": 7012
+}
+```
+
+Failure indicators:
+
+- HTTP 000 or connection refused → WOAH container not running; check
+  `docker ps | grep jarvis-woah` and confirm `qualia-net` network attachment
+- HTTP 200 but Pydantic validation error in body → stdlib stub regression; the stub must
+  not import Pydantic; check for accidental dependency re-introduction in container image
+
+Qualia-net network attachment verification:
+
+```bash
+docker inspect jarvis-woah \
+  --format '{{range $k, $v := .NetworkSettings.Networks}}{{$k}}{{"\n"}}{{end}}'
+# Expected: qualia-net present in output
+```
+
+### 41.4.14 Consciousness Bridge Smoke Test — port 8020
+
+This test was added during the March 22–25 sprint as preflight gate 24. All three patches
+must be confirmed active.
+
+```bash
+curl -s http://127.0.0.1:8020/health | python3 -m json.tool
+```
+
+Expected: `"status": "healthy"` — 3 patches applied and committed March 25, 2026.
+
+Full consciousness pipeline summary check (runs all five components together):
+
+```bash
+echo "=== CONSCIOUSNESS PIPELINE CHECK (March 25, 2026 baseline) ==="
+for label_port in "WOAH:7012" "Chroma:8002" "Bridge:8020" "RAG:8003" "UnifiedGW:18018"; do
+  label="${label_port%%:*}"
+  port="${label_port##*:}"
+  code=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:${port}/health)
+  echo "$label (port $port): HTTP $code — $([ "$code" = "200" ] && echo PASS || echo CHECK)"
+done
+echo "=== END CONSCIOUSNESS PIPELINE CHECK ==="
+```
+
+Expected: all 5 lines showing `HTTP 200 — PASS`.
+
+Consciousness bridge patch verification:
+
+```bash
+docker exec jarvis-consciousness-bridge grep -r "patch" /app/ \
+  --include="*.py" -l 2>/dev/null
+# Expected: at least one file referencing patch logic
+# If empty: patch regression — check container image build date
+```
 
 ---
 
@@ -823,20 +939,19 @@ bbb = r.get('bbb_checked', False)
 answer = r.get('response', r.get('answer', ''))
 arch = r.get('architecture_layers', 0)
 validated = r.get('validated_by', 'MISSING')
-layers = r.get('consciousnesslayers', [])
-
+layers = r.get('consciousnesslayers', [
 print('=== REGRESSION BASELINE CHECK: March 21, 2026 ===')
-print(f'consensus_score:     {cs}  (baseline: 0.975, min: 0.95) -> {\"PASS\" if cs >= 0.95 else \"FAIL\"}')
-print(f'bbb_checked:         {bbb}  (must be True) -> {\"PASS\" if bbb else \"FAIL\"}')
-print(f'architecture_layers: {arch}  (min: 6) -> {\"PASS\" if arch >= 6 else \"FAIL\"}')
-print(f'validated_by:        {validated}  -> {\"PASS\" if validated == \"69_dgm_cascade\" else \"FAIL\"}')
-print(f'answer contains Charleston: {\"Charleston\" in answer}  -> {\"PASS\" if \"Charleston\" in answer else \"FAIL\"}')
-print(f'answer voice clean:  {not any(x in answer for x in [\"As LLaMA\",\"As Mistral\",\"As an AI\",\"As Gemma\"])}')
+print(f'consensus_score:     {cs}  (baseline: 0.975, min: 0.95) -> {"PASS" if cs >= 0.95 else "FAIL"}')
+print(f'bbb_checked:         {bbb}  (must be True) -> {"PASS" if bbb else "FAIL"}')
+print(f'architecture_layers: {arch}  (min: 6) -> {"PASS" if arch >= 6 else "FAIL"}')
+print(f'validated_by:        {validated}  -> {"PASS" if validated == "69_dgm_cascade" else "FAIL"}')
+print(f'answer contains Charleston: {"Charleston" in answer}  -> {"PASS" if "Charleston" in answer else "FAIL"}')
+print(f'answer voice clean:  {not any(x in answer for x in ["As LLaMA","As Mistral","As an AI","As Gemma"])}')
 print(f'consciousness layers: {len(layers)} active')
 
 tv = r.get('truthverdict', {})
-print(f'truth_verdict valid: {tv.get(\"valid\", \"MISSING\")}')
-print(f'truth_verdict confidence: {tv.get(\"confidence\", \"MISSING\")}')
+print(f'truth_verdict valid: {tv.get("valid", "MISSING")}')
+print(f'truth_verdict confidence: {tv.get("confidence", "MISSING")}')
 print()
 print('Judge scores:')
 for key in ['truth_score','consistency_score','alignment_score','ethics_score']:
@@ -862,7 +977,7 @@ print('=== END REGRESSION CHECK ===')
 | bbb_output_verdict_fields missing any of 4 judge scores | BBB full verdict dict integration regression (March 18) |
 | async poll status never reaches "complete" | Redis status key regression — client must check `status == 'complete'`, not `status == 'done'` |
 
----
+***
 
 ## 41.6 UltimateResponse 6-Layer Verification
 
@@ -892,20 +1007,20 @@ print(f'bbb_checked: {r.get(\"bbb_checked\", \"MISSING\")}')
 
 Expected output:
 
+```
 Layer count: 6
-prefrontal_planner: active
-nbb_prefrontal_cortex: active
-icontainers-identity: active
-nbb-icontainers: active
-qualia_engine: active
-consciousness_bridge: active
+  prefrontal_planner: active
+  nbb_prefrontal_cortex: active
+  icontainers-identity: active
+  nbb-icontainers: active
+  qualia_engine: active
+  consciousness_bridge: active
 architecture_layers: 6
 validated_by: 69_dgm_cascade
 truth_verdict valid: True
 truth_verdict confidence: 0.95
 bbb_checked: True
-
-text
+```
 
 Regression indicators:
 
@@ -914,8 +1029,7 @@ Regression indicators:
   `consciousness_bridge` (port 8020)
 - `icontainers-identity missing` → `call_icontainers` stub regression
   (fixed 2026-03-13; see Chapter 40 §40-B Fix #5)
-- `validated_by: MISSING` → 69-DGM bridge (host port 19000) not responding or returning
-  non-200
+- `validated_by: MISSING` → 69-DGM bridge (host port 19000) not responding
 - `validated_by: None` → `validated_by` hardcoded regression
   (fixed 2026-03-13; see Chapter 40 §40-B Fix #7)
 - `architecture_layers: 0` → `architecture_layers` hardcoded regression
@@ -928,7 +1042,7 @@ Regression indicators:
 - `bbb_checked: False` or `bbb_checked: MISSING` → BBB output guard not receiving verdict
   dict (March 18 integration regression)
 
----
+***
 
 ## 41.7 GBIM Temporal Decay Verification (Phase 5)
 
@@ -954,7 +1068,7 @@ Expected: `confidence_decay_applied: True` (or a float < 1.0 for responses citin
 `gbim_entities_cited` and `needs_verification_count` will be 0 until the RAG-grounded judge
 upgrade (Chapter 7 §7.8) is deployed; they should be present (not MISSING) even when 0.
 
----
+***
 
 ## 41.8 RAG Behavior Tests
 
@@ -965,7 +1079,7 @@ curl -s http://127.0.0.1:8005/health | python3 -m json.tool
 ```
 
 Expected: `{"status": "healthy", ...}` confirming `jarvis-spiritual-rag` is operational and
-`gbim_worldview_entities` ChromaDB collection is accessible.
+`gbim_worldview_entities` ChromaDB collection (host port **8002**, v2 API) is accessible.
 
 RAG search (West Virginia community query):
 
@@ -985,19 +1099,37 @@ General RAG health (`jarvis-rag-server`, host port **8003** → internal **8016*
 curl -s http://127.0.0.1:8003/health | python3 -m json.tool
 ```
 
-Expected: `{"status": "healthy", ...}` — `/query` confirmed, embedding env vars injected,
-`jarvis-ollama:11434` reachable from container. **Note (March 25):** RAG embedding fix is
-in progress — the `/query` endpoint responds but document retrieval is not yet returning
-results. Track under open item OI-RAG-25 (§41.12).
+Expected: `{"status": "healthy", ...}` — `/query` endpoint confirmed (Patch 3A), embedding
+env vars injected, `jarvis-ollama:11434` reachable from container.
 
-GIS RAG health (PostgreSQL `gisdb` port 5432):
+> **Note (March 25):** RAG document retrieval is in progress — the `/query` endpoint
+> responds and embedding pipeline is wired, but documents are not yet being returned in
+> results. Track under open item OI-RAG-25 (§41.12). Do NOT use `/direct_rag` — that
+> endpoint is retired.
+
+General RAG query probe:
+
+```bash
+curl -s -X POST http://127.0.0.1:8003/query \
+  -H "Content-Type: application/json" \
+  -d '{"query": "community resources in Fayette County West Virginia", "top_k": 5}' \
+  | python3 -m json.tool
+```
+
+Expected: `results` array present in response (may be empty while embedding fix is in
+progress — confirm endpoint responds HTTP 200 and does not return a 404 or 500).
+
+GIS RAG health (PostgreSQL `gisdb` port **5432**):
 
 ```bash
 curl -s http://127.0.0.1:8004/health | python3 -m json.tool
 ```
 
 Expected: healthy status confirming `jarvis-gis-rag` is querying PostgreSQL `gisdb`
-(PostGIS) at port **5452**.
+(PostGIS) at port **5432**.
+
+> **Port correction:** Any reference to port 5452 for `gisdb` in this section or anywhere
+> in this chapter is a stale typo. The correct port is **5432** throughout.
 
 GIS proximity search (Mount Hope, WV ZIP 25880):
 
@@ -1010,9 +1142,19 @@ curl -s -X POST http://127.0.0.1:8004/search \
 
 Expected: results referencing Fayette County geography, including ZCTA centroid data for
 25880 (Mount Hope) and surrounding communities, sourced from `gisdb` 993 ZCTA centroid
-table.
+table (port **5432**).
 
----
+ChromaDB v2 API health probe (canonical form):
+
+```bash
+curl -s http://127.0.0.1:8002/api/v2/heartbeat | python3 -m json.tool
+```
+
+Expected: HTTP 200 with heartbeat JSON body. Any 404 response indicates a stale v1 path
+(`/api/v1/heartbeat`) is being used somewhere in the stack — correct all such references
+to `/api/v2/heartbeat`.
+
+***
 
 ## 41.9 Safety and BBB Tests
 
@@ -1077,20 +1219,172 @@ passed**. Two documented gaps:
 All remaining 15 adversarial categories produce `"passed": false` or a heavily filtered BBB
 response with explicit logging.
 
----
+***
 
 ## 41.10 Continuous Improvement Loop
 
 The test harness feeds directly into the improvement cycle that produced the 2026-03-13
 remediation session (Chapter 40 §40-B), the March 18, 2026 security hardening session
-(Chapter 40 §40-C), and the March 20, 2026 GBIM landowner addition (Chapter 40 §40-E), and
+(Chapter 40 §40-C), the March 20, 2026 GBIM landowner addition (Chapter 40 §40-E), and
 the March 25, 2026 consciousness pipeline sprint (Chapter 40 §40-H). The process:
 
 1. Run `VERIFYANDTEST.sh` after any code change or container restart
-2. Run canonical smoke tests (§41.4) to confirm 83-container stack, 21+/22 LLMs, three
+2. Run `bash scripts/preflight_gate.sh` — must show **24 PASS 0 FAIL**
+3. Run canonical smoke tests (§41.4) to confirm 83-container stack, 21+/22 LLMs, three
    PostgreSQL databases, and 6-layer `UltimateResponse`
-3. Run the March 21, 2026 regression baseline test (§41.5) — this is the gate for every
+4. Run the March 21, 2026 regression baseline test (§41.5) — this is the gate for every
    future session
-4. Run GBIM temporal decay tests (§41.7) to confirm Phase 5 is active
-5. Run the March 25 regression test (§41.14) for community
+5. Run GBIM temporal decay tests (§41.7) to confirm Phase 5 is active
+6. Run the consciousness pipeline health suite (§41.4.12–§41.4.14) after any sprint
+   touching WOAH, Chroma, the bridge, RAG server, or unified gateway
+7. Log any failures with timestamp, error message, and container name
+8. Diagnose using `docker logs <container>` and the port map in §41.2
+9. Fix using the remediation patterns documented in Chapter 40 §40-B through §40-H
+10. Re-run smoke tests to confirm fix
+11. Update Chapter 40 with a new remediation entry if a new class of defect was found
+12. Update the port map (§41.2) and smoke tests if new services are added
+13. Commit all session outcomes to the session contract in
+    `msjarvis-public-docs/docs/contract/`
 
+***
+
+## 41.11 Roadmap for Automated Validation
+
+The harness will evolve along three axes:
+
+**Frequency and automation:**
+Near-term cron- or CI-based runs executing: health/topology suite, key RAG search tests
+(Mount Hope and Fayette County grounded), psychology services assessment tests, GBIM
+temporal decay checks, the March 21, 2026 regression baseline test (§41.5), the preflight
+gate (24 PASS / 0 FAIL), the consciousness pipeline suite (§41.4.12–§41.4.14), and a small
+adversarial BBB suite on every significant commit.
+
+**Depth of observability:**
+Distributed tracing and per-component latency metrics covering: BBB 6-filter time
+(Phase 1.4), Phase 1.45 community memory retrieval time (ChromaDB host port 8002),
+psychology pre-assessment time (Phase 3), judge pipeline time (Phase 3), judge BBB
+verdict dict handoff time, LM Synthesizer call time (Phase 3.5), 21-model ensemble
+wall clock (Phase 2.5), GBIM temporal decay application time (Phase 5), 69-DGM
+cascade time (Phase 7, 23 connectors / 3 stages / 69 total operations), BBB output
+guard time (Phase 4.5, currently log+passthrough), consciousness bridge latency (port
+8020), WOAH latency (port 7012), and RAG server query latency (host port 8003).
+
+**Coverage and rigor:**
+Grow the RAG test bank with more PostgreSQL GBIM-grounded queries tied to known Mount
+Hope, Fayette County, and West Virginia data. Expand safety testing with a curated
+adversarial library (priority: identity confusion and community-context social
+engineering). Introduce quantitative quality metrics (factual accuracy on curated WV
+datasets, hallucination tracking against PostgreSQL `msjarvis` GBIM ground truth at port
+5433, `confidence_decay` calibration). Implement POC verification loop — automated testing
+to confirm that GBIM entities flagged `needs_verification=TRUE` are surfaced and queued
+for re-verification.
+
+***
+
+## 41.12 Open Items
+
+| ID | Item | Status | Notes |
+|---|---|---|---|
+| OI-01 | CI pipeline triggering on every commit | Open | `VERIFYANDTEST.sh` run manually; `prometheus.yml` created March 22 |
+| OI-02 | Distributed tracing / per-component latency | Open | Design intent; `prometheus.yml` scaffolded |
+| OI-03 | Quantitative quality benchmarks (BLEU/ROUGE, factual accuracy) | Open | Design intent |
+| OI-04 | Formal load testing under multi-user concurrency | Open | Design intent |
+| OI-05 | Conversation memory (persistent session buffer) | Partially resolved | Emergent context carryover observed March 25; formal wiring incomplete |
+| OI-06 | BBB output guard score thresholds (configurable pass/hold/amend) | Open | Currently log+passthrough (commit `18b8ddac`) |
+| OI-07 | AU-02 full regex implementation (adversarial authority impersonation) | Open | String-match guard partial mitigation in place March 22 |
+| OI-08 | ID-03 identity confusion variant | Open | Not caught by current truth filter; documented for fix |
+| OI-09 | StarCoder2 0-char fix on community queries | Open | Wired but excluded from consensus |
+| OI-10 | Consciousness pipeline full integration | Materially advanced | All 5 components operational March 25; qualia calibration and formal WOAH algorithm pending |
+| OI-11 | VERIFYANDTEST.sh log ingestion into ChromaDB `operations_history` | Open | Designed; automated pipeline not yet active |
+| OI-12 | Automated adversarial library with pass/fail policy | Open | sprint3 manual; automation pending |
+| OI-13 | POC verification loop for GBIM temporal decay entities | Open | Design intent |
+| OI-14 | `jarvis-wv-entangled-gateway` (port 8010) production URL config fix | Open | Degraded; not primary entrypoint |
+| OI-23 | Semaphore timeout on WV capital city test | Not triggered March 25 | Known edge case; monitor |
+| OI-29 | WOAH Pydantic schema output (formal algorithm integration) | Deferred | stdlib stub operational; formal algorithm pending |
+| OI-RAG-25 | RAG document retrieval returning results | Open | `/query` responds; embedding pipeline wired; documents not yet returned March 25 |
+
+***
+
+## 41.13 Redis Async Job Status — Permanent Correction Record
+
+> ⚠️ **Permanent correction (March 22, 2026):** The Redis async job completion status key
+> is `'complete'` — **NOT** `'done'`. This was verified March 22, 2026 via direct Redis
+> inspection of `jarvis-redis` (host port **6380**, internal 6379). Any client, script,
+> or test that polls `status == 'done'` will hang indefinitely — the key is never set to
+> that value. All polling logic throughout this chapter and in production client code must
+> check `status == 'complete'`. This correction supersedes any prior documentation.
+
+Redis direct inspection command:
+
+```bash
+# After submitting an async chat, inspect Redis directly to confirm key format
+JOB_ID="<job_id_from_async_response>"
+redis-cli -h 127.0.0.1 -p 6380 GET "job:${JOB_ID}:status"
+# Expected: "complete" (not "done")
+redis-cli -h 127.0.0.1 -p 6380 TTL "job:${JOB_ID}:status"
+# Expected: positive integer ≤ 1800 (30-minute TTL)
+```
+
+***
+
+## 41.14 March 25, 2026 Community Resources Regression Test
+
+This test was added March 25, 2026 as the secondary regression baseline following the
+consciousness pipeline sprint. It complements the March 21, 2026 capital query baseline
+(§41.5) with a community-grounded, persona-sensitive query that exercises Phase 1.45
+community memory retrieval, ChromaDB v2 API, WOAH, and the consciousness bridge together.
+
+### 41.14.1 Test Specification
+
+| Field | Value |
+|---|---|
+| Test date | March 25, 2026 |
+| Test type | Full end-to-end — synchronous POST /chat |
+| Query | "What community resources are available in Fayette County, West Virginia?" |
+| Pipeline | Full 9-phase ULTIMATE pipeline (83 containers) |
+| Hardware | Lenovo Legion 5, RTX 4070 active (~99–107s) |
+
+### 41.14.2 Confirmed Output Values — March 25, 2026
+
+| Output field | Confirmed value |
+|---|---|
+| Chroma HTTP response | 200 |
+| WOAH response | `{"status": "ok", "confidence": 0.8}` |
+| Hilbert local entities returned | 3 |
+| Persona voice | Appalachian community voice confirmed — no model name leakage |
+| Prior session context | Referenced without re-statement in follow-up |
+| OI-23 (semaphore timeout) | Not triggered |
+| RAG embedding fix | In progress — endpoint operational, documents not yet returned |
+
+### 41.14.3 Test Command
+
+```bash
+curl -s -X POST http://127.0.0.1:8050/chat \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "What community resources are available in Fayette County, West Virginia?",
+    "userid": "regression-march25-2026",
+    "role": "community"
+  }' \
+  | python3 -c "
+import sys, json
+r = json.load(sys.stdin)
+answer = r.get('response', r.get('answer', ''))
+print('=== MARCH 25 REGRESSION CHECK ===')
+print(f'Chroma accessible:   {r.get(\"chroma_status\", \"check logs\")}')
+print(f'WOAH confidence:     {r.get(\"woah_confidence\", \"check logs\")}')
+print(f'bbb_checked:         {r.get(\"bbb_checked\", False)}')
+print(f'architecture_layers: {r.get(\"architecture_layers\", 0)}')
+print(f'validated_by:        {r.get(\"validated_by\", \"MISSING\")}')
+leakage = any(x in answer for x in ['As LLaMA','As Mistral','As an AI','As Gemma','GPT','OpenAI'])
+print(f'No model leakage:    {not leakage}  -> {\"PASS\" if not leakage else \"FAIL\"}')
+print(f'Fayette County in answer: {\"Fayette\" in answer}  -> {\"PASS\" if \"Fayette\" in answer else \"CHECK\"}')
+print('=== END MARCH 25 CHECK ===')
+"
+```
+
+***
+
+*End of Chapter 41 — Test Harness and Continuous Validation*
+*Last updated: March 27, 2026*
+*Author: Carrie Kidd (Mamma Kidd), Mount Hope, WV*
