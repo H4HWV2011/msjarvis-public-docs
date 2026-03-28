@@ -1,6 +1,7 @@
 # 29. Psychological Safeguards and the PIA Review Loop
 
-Carrie Kidd (Mamma Kidd) — Oak Hill, WV
+Carrie Kidd (Mamma Kidd) — Pax, WV
+*(Note: prior drafts listed Oak Hill, WV — updated to Pax, WV as primary/residential address. If Oak Hill is the intended mailing or professional publication address, revert this line intentionally.)*
 
 ## Why This Matters for Polymathmatic Geography
 
@@ -179,17 +180,17 @@ The following table records all confirmed active psychological safeguards as of 
 |---|---|---|---|
 | Caddy perimeter RBAC | Caddy (port 8443) + `jarvis_auth_service` (port 8055) | ✅ March 22 | `carrie_admin` (full access), `hayden_test` (internal test role); perimeter-level enforcement; per-route RBAC is OPEN ITEM |
 | EthicalFilter | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | All requests |
-| SpiritualFilter | BBB Phase 1.4 | ✅ March 15 | All requests |
-| SafetyMonitor | BBB Phase 1.4 | ✅ March 15 | Word-boundary regex fix March 15; no false-positives on community resource terms |
-| ThreatDetection | BBB Phase 1.4 | ✅ March 15 | All requests |
-| **SteganographyDetection** | **BBB Phase 1.4** | **✅ March 21** | **`zero_width_homoglyph_structural_v1`, `confidence: 1.0` — PIA structural integrity safeguard** |
-| TruthVerification | BBB Phase 1.4 | ✅ March 15 | All requests |
-| ContextAwareness | BBB Phase 1.4 | ✅ March 15 | All requests |
+| SpiritualFilter | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | All requests |
+| SafetyMonitor | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | Word-boundary regex fix March 15; no false-positives on community resource terms |
+| ThreatDetection | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | All requests |
+| **SteganographyDetection** | **BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`)** | **✅ March 21** | **`zero_width_homoglyph_structural_v1`, `confidence: 1.0` — PIA structural integrity safeguard** |
+| TruthVerification | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | All requests |
+| ContextAwareness | BBB Phase 1.4 (`jarvis-blood-brain-barrier:8016`) | ✅ March 15 | All requests |
 | TruthValidator | `jarvis-main-brain:8050` post-processing | ✅ March 15 | `correct_identity`, `correct_creator`, `relationship_clear` validated vs PostgreSQL `msjarvis` |
 | `normalize_identity` | `jarvis-main-brain:8050` post-processing | ✅ March 15 | Every `ultimatechat` response |
 | Phase 3 psychology pre-assessment | `jarvis-psychology-services:8019` | ✅ March 15 | Severity classification + crisis indicator on every request |
 | Psychological RAG retrieval | `psychological_rag_domain:8006` | ✅ March 15 | 968-item corpus; query-based retrieval |
-| BBB output guard | BBB Phase 4.5 | ✅ March 18 | Full verdict dict received (not answer text only); `apply_output_guards_async` 8.0s timeout |
+| BBB output guard | BBB Phase 4.5 (`jarvis-blood-brain-barrier:8016`) | ✅ March 18 | Full verdict dict received (not answer text only); `apply_output_guards_async` 8.0s timeout |
 
 ---
 
@@ -232,7 +233,9 @@ This is logged as an open item for the following reasons:
 - `jarvis-main-brain` does not currently inspect `X-Jarvis-Role` to gate individual route access.
 - Route-level enforcement will require changes to `jarvis-main-brain` FastAPI route handlers or a Caddy route-matchers configuration update.
 
-**Resolution path:** Add route-level `forward_auth` matchers in the Caddyfile that return 403 for `hayden_test` on destructive or privileged endpoints (`/chat_cancel_all`, `/chat_cancel/{job_id}`, any future admin endpoints). Document confirmed enforcement in Chapter 42 §42.3.2 when complete.
+**Resolution path:** Add route-level `forward_auth` matchers in the Caddyfile that return 403 for `hayden_test` on destructive or privileged endpoints (`/chat_cancel_all`, `/chat_cancel/{job_id}`, any future admin endpoints). Document confirmed enforcement in **Chapter 42 §42.3.2** when complete.
+
+> **⚠️ Forward reference note:** Verify that Ch 42 (Post-Quantum Security Layer) contains a §42.3.2 placeholder or section for per-route RBAC enforcement documentation. If §42.3.2 does not yet exist, add a stub section in Ch 42 with the heading "Per-Route RBAC Enforcement (Pending)" so this forward reference does not break. If the section is located at a different subsection number, update this cross-reference accordingly.
 
 ---
 
@@ -265,7 +268,7 @@ In the current deployment (March 22, 2026), psychological safeguards validated a
 
 Phase 3 output feeds the LM Synthesizer (Phase 3.5, internal port 8001), which incorporates psychological context alongside GBIM RAG, PostGIS spatial data, and community resource data before passing enriched context to the 22-model ensemble (Phase 2.5).
 
-**Phase 4 — Psychological RAG context building.** `jarvis-spiritual-rag` (port 8005) queries `psychological_rag_domain` (port 8006) as one of its RAG sources during Phase 4 context building, retrieving relevant entries from the 968-item `psychological_rag` ChromaDB collection (port 8000). This psychological RAG context is combined with GBIM beliefs (PostgreSQL `msjarvis`, port 5433), PostGIS spatial data (`gisdb`, port 5433), and community resources (`jarvis-local-resources-db`, port 5435) into the unified context block.
+**Phase 4 — Psychological RAG context building.** `jarvis-spiritual-rag` (port **8005** — confirmed against container manifest; cross-reference Ch 01 container mapping to verify this port was not renumbered during March hardening; if renumbered, update this reference) queries `psychological_rag_domain` (port 8006) as one of its RAG sources during Phase 4 context building, retrieving relevant entries from the 968-item `psychological_rag` ChromaDB collection (port 8000). This psychological RAG context is combined with GBIM beliefs (PostgreSQL `msjarvis`, port 5433), PostGIS spatial data (`gisdb`, port 5433), and community resources (`jarvis-local-resources-db`, port 5435) into the unified context block.
 
 **Phase 4.5 — BBB output guard.** After the 22-model ensemble and 69-DGM cascade, `apply_output_guards_async` passes the response through BBB `/filter` (port 8016, 8.0s timeout, fail-open behavior confirmed), receiving and evaluating the full judge verdict dict (integrated March 18, 2026) rather than answer text only. This ensures psychologically sensitive generated content is evaluated against all 7 filters including steganographic structure checks before delivery.
 
@@ -346,7 +349,7 @@ In the current deployment, psychological safeguards are recorded through several
 | Role-differentiated rate limiting | MEDIUM | Caddy `caddy-ratelimit` module applies per-IP limits; role-differentiated limits (e.g. tighter burst limit for `hayden_test`) are not yet configured. |
 | Automated PIA sampling cycle | FUTURE | Scheduled, machine-readable PIA review with direct configuration integration. |
 | Automated `SteganographyDetection` trigger aggregation | FUTURE | Automated aggregation of trigger events into PIA pattern analysis reports. |
-| Per-route RBAC for `gbim_query_router` (port 7205) | FUTURE | Landowner belief queries currently reachable by any authenticated role; access restriction pending production hardening pass. |
+| Per-route RBAC for `gbim_query_router` (port **7205** — cross-check against Ch 01 `jarvis-gbim-query-router` container mapping to confirm 7205 is the host-exposed port and was not renumbered in the March hardening session) | FUTURE | Landowner belief queries currently reachable by any authenticated role; access restriction pending production hardening pass. |
 | PIA records as first-class ChromaDB collection | FUTURE | Currently maintained as manually produced documents; automated ingest with PostgreSQL audit trail is future work. |
 | Population- and risk-type-specific RAG retrieval tuning | FUTURE | Differential retrieval grounded in PostgreSQL GBIM West Virginia community data for Appalachian-specific guidance corpus. |
 
@@ -354,7 +357,7 @@ In the current deployment, psychological safeguards are recorded through several
 
 ## 29.10 Summary
 
-In the current deployment (March 22, 2026), psychological safeguards are realized through two confirmed running services — `jarvis-psychology-services` (`127.0.0.1:8019`, deployed March 15) and `psychological_rag_domain` (`127.0.0.1:8006`, containerized March 15) — a curated psychological corpus in ChromaDB (`127.0.0.1:8000`, `chroma_data` volume, 968 items in `psychological_rag` collection), validation against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for West Virginia community context, the BBB 7-filter pipeline at `127.0.0.1:8016` as the primary Phase 1.4 live safety gate, `normalize_identity` plus TruthValidator validated against PostgreSQL applied to every `ultimatechat` response, the BBB output guard receiving the full judge verdict dict (integrated March 18, 2026), and — **new as of March 22, 2026** — the Caddy perimeter layer (port 8443) with `jarvis_auth_service` (port 8055, systemd-managed) enforcing token-based RBAC with two active red-team roles.
+In the current deployment (March 22, 2026), psychological safeguards are realized through two confirmed running services — `jarvis-psychology-services` (`127.0.0.1:8019`, deployed March 15) and `psychological_rag_domain` (`127.0.0.1:8006`, containerized March 15) — a curated psychological corpus in ChromaDB (`127.0.0.1:8000`, `chroma_data` volume, 968 items in `psychological_rag` collection), validation against PostgreSQL `msjarvis` (port 5433, 5,416,521 GBIM entities) for West Virginia community context, the BBB 7-filter pipeline at `127.0.0.1:8016` as the primary Phase 1.4 live safety gate, `normalize_identity` plus TruthValidator validated against PostgreSQL applied to every `ultimatechat` response, the BBB output guard (port 8016) receiving the full judge verdict dict (integrated March 18, 2026), and — **new as of March 22, 2026** — the Caddy perimeter layer (port 8443) with `jarvis_auth_service` (port 8055, systemd-managed) enforcing token-based RBAC with two active red-team roles.
 
 Key operational facts as of March 22, 2026:
 
@@ -363,7 +366,7 @@ Key operational facts as of March 22, 2026:
 - Phase 3 psychology pre-assessment is active on every production 9-phase pipeline request (confirmed in 349.87s end-to-end benchmark)
 - BBB has 7 confirmed active filters: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, **SteganographyDetection (`zero_width_homoglyph_structural_v1`, `confidence: 1.0` — confirmed active March 21, 2026 as a PIA structural integrity safeguard)**, TruthVerification, ContextAwareness
 - SafetyMonitor word-boundary regex fixed March 15 — eliminates false-positives on community resource terms
-- BBB output guard receives full judge verdict dict (not answer text only) — confirmed March 18, 2026
+- BBB output guard (port 8016) receives full judge verdict dict (not answer text only) — confirmed March 18, 2026
 - All BBB services re-locked to `127.0.0.1` — zero `0.0.0.0` exposures — confirmed March 18, 2026
 - `psychological_rag_domain` port is 8006 (not 9006 — corrected in March 15 containerized deployment)
 - ChromaDB `psychological_rag` collection previously unavailable; now accessible via `chroma_data` Docker volume
@@ -376,7 +379,11 @@ For the BBB 7-filter pipeline that enforces safety constraints validated against
 
 ---
 
-*Last updated: 2026-03-22 by Carrie Kidd (Mamma Kidd), Oak Hill WV*
-*Red-team token roles (`carrie_admin`, `hayden_test`) added to PIA section — March 22, 2026*
-*Per-route RBAC documented as open item — March 22, 2026*
-*All sections current as of March 22, 2026*
+*Last updated: 2026-03-27 by Carrie Kidd (Mamma Kidd), Pax WV*
+*BBB output guard port 8016 added to safeguards table — March 27, 2026*
+*Ch 42 §42.3.2 forward reference verification note added — March 27, 2026*
+*jarvis-spiritual-rag port 8005 verification note added — March 27, 2026*
+*gbim_query_router port 7205 verification note added — March 27, 2026*
+*Location line updated Pax, WV (confirm if Oak Hill preferred for publication) — March 27, 2026*
+*All other sections current as of March 22, 2026*
+`````
