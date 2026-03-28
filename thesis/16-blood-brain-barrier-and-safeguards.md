@@ -1,7 +1,7 @@
 # Chapter 16 — Blood–Brain Barrier and Safeguards
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: March 27, 2026 — §16.13 March 27 sprint follow-up note added; §16.5 ChromaDB host port clarification added; §16.10 AAPCAppE scraper (Ch. 30) cross-reference added*
+*Last updated: March 28, 2026 — ★ March 28, 2026 security remediation propagated throughout: 96/96 containers Up; `msjarvis` port 5433 restored; `msjarvisgis` port 5432 confirmed (91 GB PostGIS, 501 tables); ChromaDB full audit (40 collections, 6,675,442 vectors); `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items); `jarvis-memory` port 8056 corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` confirmed on 4 sensitive routes; Ch. 12 §12.11 cross-references updated to §12.12*
 
 ---
 
@@ -18,13 +18,13 @@ This chapter supports:
 
 The BBB is not a safety feature bolted onto the system after the fact. It is the constitutional layer that makes the rest of the system trustworthy enough to deploy in community contexts.
 
-As of **March 25, 2026**, the BBB operates as a **two-tier enforcement architecture**:
+As of **March 25, 2026** (★ confirmed Up March 28, 2026 in the 96-container production stack), the BBB operates as a **two-tier enforcement architecture**:
 
 - **Tier 1 — Perimeter layer:** Caddy reverse proxy (v2.6.2, Ubuntu package, port 8443, systemd-managed) with authentication routing on `/chat*` routes to `jarvis_auth_service` (port 8055) at the `/validate` endpoint. Authentication is enforced before any request reaches any internal service.
 
   > **⚠ Architecture correction — March 22, 2026:** The Caddy version deployed is **v2.6.2 via `sudo apt install caddy`** — the standard Ubuntu package. This version does **not** include the `caddy-ratelimit` module and does **not** support the `forward_auth` directive. Authentication calls to `/validate` are initiated by the **UI** and handled directly by `jarvis_auth_service` (port 8055). Caddy routes `/auth*` and `/chat/status*` paths to port 8055 but does **not** perform automatic subrequest-based token enforcement on every `/chat*` call. Unauthenticated `/chat` requests currently reach the gateway. This is a **known gap tracked as OI-36-A** and is a documented next-session priority. See §16.11 for full gap documentation.
 
-- **Tier 2 — Service layer:** `jarvis-blood-brain-barrier` (port 8016), which applies constitutional content filtering to every input (Phase 1.4) and every output (Phase 4.5 — confirmed in log+passthrough mode as of March 25, 2026; no blocking is occurring; this is intentional pending tuning sprint OI-02).
+- **Tier 2 — Service layer:** `jarvis-blood-brain-barrier` (port 8016), which applies constitutional content filtering to every input (Phase 1.4) and every output (Phase 4.5 — confirmed in log+passthrough mode as of March 25, 2026; no blocking is occurring; this is intentional pending tuning sprint OI-02). ★ Confirmed Up as part of the 96-container stack, March 28, 2026.
 
 > **⚠ Service architecture — verified March 25, 2026:** There is **one** BBB container: `jarvis-blood-brain-barrier` at **port 8016**. Port 8017 (`bbb-output-filter`) does **not exist** and has never been a running container in the verified production stack. Both input filtering (Phase 1.4) and output filtering (Phase 4.5) are handled by the **same service at port 8016**. All references to a separate `bbb-output-filter` container at port 8017 have been removed from this chapter and verified absent.
 
@@ -46,16 +46,17 @@ The BBB is implemented across three service files in the production codebase:
 - `neurobloodbrainbarrier.py` — neurobiological-layer BBB extension
 - `bbb_ethics_proxy.py` — ethics routing shim
 
-These are complemented by the Caddy configuration (v2.6.2, `/etc/caddy/Caddyfile`) and `jarvis_auth_service` (port 8055, `scripts/jarvis_auth_service.py`) added March 22, 2026.
+These are complemented by the Caddy configuration (v2.6.2, `/etc/caddy/Caddyfile`) and `jarvis_auth_service` (port 8055, `scripts/jarvis_auth_service.py`) added March 22, 2026. ★ The companion `jarvis-memory` service (port **8056**) — corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026, with `_auth()` confirmed on 4 sensitive routes and `JARVIS_API_KEY` set — provides the authenticated memory persistence layer that the BBB audit trail writes into (see §16.6 and Ch. 14 §14.8).
 
 ---
 
-## 16.2 BBB Architecture Overview (Verified March 25, 2026)
+## 16.2 BBB Architecture Overview (★ Updated March 28, 2026)
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │ BBB Enforcement Architecture                                     │
-│ (Verified Production State — March 25, 2026)                    │
+│ ★ Updated Production State — March 28, 2026                     │
+│   96/96 containers Up — zero Restarting, zero Exited            │
 ├──────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │ TIER 1 — PERIMETER LAYER (Caddy v2.6.2, port 8443, systemd)    │
@@ -82,7 +83,7 @@ These are complemented by the Caddy configuration (v2.6.2, `/etc/caddy/Caddyfile
 │                                                                  │
 │ TIER 2 — SERVICE LAYER (single BBB container)                   │
 │ ─────────────────────────────────────────────────────────────── │
-│ jarvis-blood-brain-barrier (port 8016)                          │
+│ jarvis-blood-brain-barrier (port 8016) ★ Up March 28, 2026     │
 │                                                                  │
 │   PHASE 1.4 — INPUT FILTER (BLOCKING ✅)                        │
 │   6 filters stable March 22–25, 2026 (see §16.13)              │
@@ -93,6 +94,9 @@ These are complemented by the Caddy configuration (v2.6.2, `/etc/caddy/Caddyfile
 │   Role-based routing enforcement                                 │
 │   Crisis routing intercept                                       │
 │   content_approved check → rejects harmful input                │
+│   ★ TruthVerification filter draws on msjarvis port 5433        │
+│     (5,416,521 GBIM entities) and msjarvisgis port 5432         │
+│     (91 GB PostGIS, 501 tables) for GBIM ground truth           │
 │                                                                  │
 │   PHASE 4.5 — OUTPUT FILTER (LOG+PASSTHROUGH ⚠)                │
 │   Confirmed log+passthrough mode as of March 25, 2026           │
@@ -102,6 +106,10 @@ These are complemented by the Caddy configuration (v2.6.2, `/etc/caddy/Caddyfile
 │   content_approved=False → DOES NOT block (passthrough)         │
 │   Recalibration tracked as OI-02 (tuning sprint pending)        │
 │                                                                  │
+│   ★ jarvis-memory (port 8056, 127.0.0.1 ★ corrected Mar 28)   │
+│     _auth() confirmed on 4 sensitive routes                     │
+│     JARVIS_API_KEY set — audit trail persistence secured         │
+│                                                                  │
 │   ⛔ bbb-output-filter (port 8017) — DOES NOT EXIST            │
 │   No container at port 8017 in verified production stack.       │
 │   Verified absent from this chapter — March 25, 2026.          │
@@ -110,10 +118,14 @@ These are complemented by the Caddy configuration (v2.6.2, `/etc/caddy/Caddyfile
 │ Requests pass through Phase 1.4 (blocking) before reaching      │
 │ the LLM ensemble. Responses pass through Phase 4.5              │
 │ (log+passthrough) before delivery. Both are the same service.   │
+│ ★ ChromaDB: 40 collections, 6,675,442 vectors (Mar 28 audit)   │
+│   spiritual_rag deduplicated (−19,338 vectors)                  │
+│   psychological_rag restored (968 docs)                          │
+│   msjarvis_docs expanded (4,192 items)                          │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 16.1. BBB enforcement architecture as of March 25, 2026. Tier 1 (Caddy perimeter) routes traffic and hosts the auth service but does NOT enforce token validation per-request (OI-36-A open). Tier 2 (port 8016, single container) handles both input blocking (Phase 1.4, fully active, 6 filters stable March 22–25) and output filtering (Phase 4.5, confirmed log+passthrough as of March 25 — no blocking, intentional pending OI-02 tuning sprint).*
+*Figure 16.1. BBB enforcement architecture as of ★ March 28, 2026. Tier 1 (Caddy perimeter) routes traffic and hosts the auth service but does NOT enforce token validation per-request (OI-36-A open). Tier 2 (port 8016, single container, ★ confirmed Up March 28) handles both input blocking (Phase 1.4, fully active, 6 filters stable March 22–25) and output filtering (Phase 4.5, confirmed log+passthrough as of March 25 — no blocking, intentional pending OI-02 tuning sprint). ★ March 28, 2026: 96/96 containers Up; `jarvis-memory` (8056) corrected from `0.0.0.0` to `127.0.0.1`; ChromaDB full audit (40 collections, 6,675,442 vectors).*
 
 ---
 
@@ -216,7 +228,7 @@ The `/auth/token` endpoint exists in both `ms_jarvis_unified_gateway.py` and `ma
 
 ### 16.4.1 `jarvis-blood-brain-barrier` — Port 8016
 
-The `jarvis-blood-brain-barrier` service (port 8016, Docker Compose–managed) is the **single BBB container** in the verified production stack. It handles **both** input filtering (Phase 1.4) and output filtering (Phase 4.5). **Port 8017 does not exist and is not referenced in this chapter.**
+The `jarvis-blood-brain-barrier` service (port 8016, Docker Compose–managed, ★ confirmed Up March 28, 2026) is the **single BBB container** in the verified production stack. It handles **both** input filtering (Phase 1.4) and output filtering (Phase 4.5). **Port 8017 does not exist and is not referenced in this chapter.**
 
 **Phase 1.4 — Input Filter (BLOCKING)**
 
@@ -238,10 +250,10 @@ Scans input text for prompt injection patterns: override instructions, persona-b
 Applies role-specific access constraints based on user context in the request.
 
 **5. Crisis routing intercept**
-Detects crisis-adjacent inputs (harm indicators, self-harm language, emergency patterns) and routes to the crisis resource path — `psychological_rag` (port 8006) plus local crisis resources from `jarvis-local-resources-db` — bypassing the LLM ensemble entirely.
+Detects crisis-adjacent inputs (harm indicators, self-harm language, emergency patterns) and routes to the crisis resource path — `psychological_rag` (port 8006, ★ collection restored to 968 docs March 28, 2026) plus local crisis resources from `jarvis-local-resources-db` (port 5435) — bypassing the LLM ensemble entirely.
 
 **6. Steganography detection / Truth verification**
-Scans for hidden message patterns (SteganographyDetection) and validates factual claims against PostgreSQL GBIM ground truth (TruthVerification). Both deployed March 15, 2026; stable through March 25, 2026 (see §16.13).
+Scans for hidden message patterns (SteganographyDetection) and validates factual claims against PostgreSQL GBIM ground truth (TruthVerification). Both deployed March 15, 2026; stable through March 25, 2026 (see §16.13). ★ TruthVerification draws on PostgreSQL `msjarvis` (port **5433** ★ restored, 5,416,521 GBIM entities with `confidence_decay` metadata) and `msjarvisgis` (port **5432** ★ confirmed, 91 GB PostGIS, 501 tables, 993 ZCTA centroids) for GBIM ground truth validation.
 
 **Request flow through Phase 1.4:**
 
@@ -255,7 +267,7 @@ BBB Phase 1.4 — jarvis-blood-brain-barrier:8016
 ├── Role-based routing check
 ├── Crisis routing intercept
 ├── Steganography detection
-├── Truth verification (GBIM ground truth)
+├── Truth verification (GBIM ground truth — msjarvis:5433 ★ / msjarvisgis:5432 ★)
 │
 ├── ANY FILTER FAILS:
 │   → content_approved=False
@@ -288,7 +300,7 @@ No blocking is occurring.
 **Root cause of the change:**
 The output BBB's ethical filter was flagging Ms. Jarvis's authentic maternal Appalachian voice as ethical violations. Phrases like *"Child, that's just plain wrong!"* — which are correct, culturally grounded, and consistent with the Ms. Jarvis persona — were triggering `content_approved=False`. In the first confirmed public test session, **14 of 45 output responses were blocked** (~31% false-positive rate on Appalachian maternal voice phrases). Blocking was disabled to allow red team testing to proceed without false-positive interference. The ~31% false-positive rate on Appalachian maternal voice phrases persists as of March 25, 2026 and is the target of the OI-02 tuning sprint.
 
-**Current behavior (log+passthrough — March 25, 2026):**
+**Current behavior (log+passthrough — confirmed March 25, 2026; ★ Up March 28):**
 
 ```
 LLM ensemble response complete
@@ -306,6 +318,8 @@ Phase 4.5 — jarvis-blood-brain-barrier:8016 (same service as Phase 1.4)
     → response passes through unchanged
 ↓
 Response delivered to client regardless of output BBB evaluation
+★ Audit log persisted to jarvis-memory (port 8056, 127.0.0.1 ★ corrected March 28)
+  _auth() confirmed on 4 sensitive routes — JARVIS_API_KEY set
 ```
 
 **Audit and tuning:**
@@ -320,12 +334,13 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 
 ---
 
-## 16.5 Full Chat Request Lifecycle (March 25, 2026)
+## 16.5 Full Chat Request Lifecycle (★ Updated March 28, 2026)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ Full Chat Request Lifecycle — BBB Enforcement                   │
-│ Verified Production State — March 25, 2026                      │
+│ ★ Updated Production State — March 28, 2026                    │
+│   96/96 containers Up — zero Restarting, zero Exited           │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │ 1. Client: POST /chat (browser at egeria.mountainshares.us)    │
@@ -340,11 +355,13 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 │ 4. Unified Gateway (port 8050)                                  │
 │    ↓                                                            │
 │ 5. BBB Phase 1.4 — INPUT FILTER (BLOCKING ✅)                  │
-│    jarvis-blood-brain-barrier:8016                              │
+│    jarvis-blood-brain-barrier:8016 ★ (Up March 28)             │
 │    6 filters — all stable March 22–25 (§16.13)                 │
 │    Phase gate / injection scan / ethical constraints /          │
 │    role-based routing / crisis intercept /                      │
 │    steganography detection / truth verification                 │
+│    TruthVerification: msjarvis:5433★ (5,416,521 entities) +    │
+│                       msjarvisgis:5432★ (91 GB PostGIS)         │
 │    content_approved=False → REJECT (structured response)        │
 │    ↓ (content_approved=True only)                               │
 │                                                                  │
@@ -353,12 +370,14 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 │    ├── Phase 1.45: autonomous_learner                           │
 │    │              ChromaDB host port 8002 → container           │
 │    │              jarvis-chroma:8000                            │
+│    │              ★ 40 collections, 6,675,442 total vectors     │
 │    │              top-5 memories prepended to enhanced_message  │
 │    ├── Phase 2:   Multi-agent, web research, swarm, fifth-DGM  │
 │    │   Text RAG (8003/8004) — ChromaDB host 8002 →             │
 │    │              jarvis-chroma:8000                            │
-│    │   GIS RAG (8005) — msjarvisgis port 5432 + ChromaDB       │
-│    │   GBIM Landowner Router (7205) — PostgreSQL-native         │
+│    │   GIS RAG (8005) — msjarvisgis:5432★ (91 GB PostGIS) +   │
+│    │              ChromaDB                                       │
+│    │   GBIM Landowner Router (7205) — msjarvis:5433★           │
 │    │   Registry Resolver (8008) — port 5435                     │
 │    │   Web Research Gateway (8007)                              │
 │    ├── Phase 2.5: 22-LLM Ensemble (ports 8201–8222)            │
@@ -370,13 +389,15 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 │                   → redteam_sessions (PostgreSQL port 5435)     │
 │    ↓                                                            │
 │ 7. BBB Phase 4.5 — OUTPUT FILTER (LOG+PASSTHROUGH ⚠)          │
-│    jarvis-blood-brain-barrier:8016 (same service)              │
+│    jarvis-blood-brain-barrier:8016 (same service) ★ Up Mar 28  │
 │    Confirmed log+passthrough — March 25, 2026                   │
 │    False-positive rate ~31% (maternal Appalachian voice)        │
 │    No blocking occurring — INTENTIONAL pending OI-02            │
 │    content_approved=False → logs warning + 200-char preview     │
 │    content_approved=False → response passes through unchanged   │
 │    ↓ (response passes regardless)                               │
+│    ★ Audit log → jarvis-memory:8056 (127.0.0.1 ★ corrected)   │
+│                   _auth() confirmed, JARVIS_API_KEY set         │
 │                                                                  │
 │ 8. Response via Caddy → Cloudflare Tunnel → Client browser     │
 │    Typical latency: 99–107s (GPU, single user, March 22)       │
@@ -384,13 +405,14 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 │ ⚠ Step 3 does NOT enforce authentication (OI-36-A open).       │
 │ ✅ Step 5 (input BBB) IS correctly blocking harmful inputs.     │
 │ ⚠ Step 7 (output BBB) is logging but NOT blocking (OI-02).    │
+│ ★ 96/96 containers Up — zero Restarting, zero Exited (Mar 28)  │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 16.2. Complete chat request lifecycle through the BBB enforcement layers as of March 25, 2026. Step 5 (Phase 1.4, 6 input filters) is fully blocking — all filters stable March 22–25 (§16.13). Step 7 (Phase 4.5 output filter) is confirmed log+passthrough as of March 25 — no blocking, intentional pending OI-02 tuning sprint. Phase 1.45 ChromaDB reference shows host port 8002 → container `jarvis-chroma:8000` — see port clarification note below. Caddy does not enforce authentication at the proxy layer (OI-36-A open).*
+*Figure 16.2. Complete chat request lifecycle through the BBB enforcement layers as of ★ March 28, 2026. Step 5 (Phase 1.4, 6 input filters, TruthVerification on `msjarvis` port 5433 ★ and `msjarvisgis` port 5432 ★) is fully blocking. Step 7 (Phase 4.5 output filter) is confirmed log+passthrough — no blocking, intentional pending OI-02. ★ 96/96 containers Up; `jarvis-memory` port 8056 corrected from `0.0.0.0` to `127.0.0.1`; ChromaDB full audit (40 collections, 6,675,442 vectors). Phase 1.45 ChromaDB reference shows host port 8002 → container `jarvis-chroma:8000` — see port clarification note below.*
 
-> **ChromaDB port clarification — Phase 1.45 and Phase 2 RAG (March 27, 2026):** The lifecycle diagram above shows ChromaDB at **host port 8002 → container `jarvis-chroma:8000`**. Host-side scripts and RAG services address ChromaDB via host port 8002; the container itself binds port 8000 internally. Both references are correct depending on perspective. Developers reading this diagram from a host-side context should use port 8002; the canonical internal container port is 8000 (see Ch. 5 and Ch. 14 §14.8 for the full ChromaDB port table).
+> **ChromaDB port clarification — Phase 1.45 and Phase 2 RAG (March 27, 2026; ★ confirmed March 28):** The lifecycle diagram above shows ChromaDB at **host port 8002 → container `jarvis-chroma:8000`**. Host-side scripts and RAG services address ChromaDB via host port 8002; the container itself binds port 8000 internally. Both references are correct depending on perspective. ★ As of the March 28, 2026 full audit, ChromaDB hosts **40 active collections and 6,675,442 total vectors** — `spiritual_rag` deduplicated (−19,338 vectors), `psychological_rag` restored (968 docs), `msjarvis_docs` expanded (4,192 items). Developers reading this diagram from a host-side context should use port 8002; the canonical internal container port is 8000 (see Ch. 5 and Ch. 14 §14.8 for the full ChromaDB collection table).
 
 ---
 
@@ -400,7 +422,7 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 
 **Constraint:** The BBB input filter blocks any request that would cause the system to retrieve, display, or reason about individual residential owner names from WV assessor records.
 
-**Enforcement mechanism:** Pattern matching on `proposition_code` for any GBIM query path; block on any path that does not restrict to `LANDOWNER_CORPORATE` or `LANDOWNER_GOVERNMENT`. Mirrors the schema-level constraint in `gbim_query_router` (port 7205). The two constraints are redundant by design.
+**Enforcement mechanism:** Pattern matching on `proposition_code` for any GBIM query path; block on any path that does not restrict to `LANDOWNER_CORPORATE` or `LANDOWNER_GOVERNMENT`. Mirrors the schema-level constraint in `gbim_query_router` (port 7205). The two constraints are redundant by design. ★ GBIM ground truth backing this filter is in PostgreSQL `msjarvis` (port **5433** ★ restored, 5,416,521 entities) and `msjarvisgis` (port **5432** ★ confirmed, 91 GB PostGIS, 501 tables, 993 ZCTA centroids).
 
 **Rationale (from Chapter 2, §2.9):** Individual owner names in assessor records are friction-protected public records. Embedding them into a semantically searchable, spatially indexed AI system converts friction-protected public records into operational surveillance infrastructure. This transformation is not justified by Ms. Jarvis's mission of routing households to assistance programs.
 
@@ -408,9 +430,9 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 
 **Constraint:** Any input containing harm indicators, self-harm language, or emergency signals is intercepted by Phase 1.4 and routed to the crisis resource path before reaching the LLM ensemble.
 
-**Enforcement mechanism:** Keyword and pattern detection in Phase 1.4; on detection, request is redirected to `psychological_rag` (port 8006) plus local crisis resources from `jarvis-local-resources-db`, bypassing the main LLM ensemble entirely.
+**Enforcement mechanism:** Keyword and pattern detection in Phase 1.4; on detection, request is redirected to `psychological_rag` (port 8006, ★ collection restored to 968 docs March 28, 2026) plus local crisis resources from `jarvis-local-resources-db` (port 5435), bypassing the main LLM ensemble entirely.
 
-**Rationale:** The LLM ensemble is not an appropriate first responder for crisis-adjacent queries. The first response must be a structured, verified referral to appropriate human resources.
+**Rationale:** The LLM ensemble is not an appropriate first responder for crisis-adjacent queries. The first response must be a structured, verified referral to appropriate human resources. ★ The restoration of `psychological_rag` to 968 docs (March 28, 2026) directly improves the quality of crisis-route responses — this collection had been degraded prior to the March 28 ChromaDB full audit.
 
 ### 16.6.3 Prompt Injection and Impersonation Defense
 
@@ -426,7 +448,7 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 
 **Constraint:** Outputs that break the Ms. Egeria Jarvis persona framing or expose internal system state should be blocked at Phase 4.5.
 
-**Current status (confirmed March 25, 2026):** Phase 4.5 is in **log+passthrough mode**. False-positive rate on Appalachian maternal voice phrases remains at ~31%. No blocking is occurring. This is intentional pending the OI-02 tuning sprint. The LM Synthesizer identity guard (commits `9ab770e9` + `211056e6`) provides persona enforcement upstream of the output BBB during the recalibration period.
+**Current status (confirmed March 25, 2026; ★ Up March 28):** Phase 4.5 is in **log+passthrough mode**. False-positive rate on Appalachian maternal voice phrases remains at ~31%. No blocking is occurring. This is intentional pending the OI-02 tuning sprint. The LM Synthesizer identity guard (commits `9ab770e9` + `211056e6`) provides persona enforcement upstream of the output BBB during the recalibration period. ★ Audit logs from Phase 4.5 are persisted to `jarvis-memory` (port **8056**, corrected from `0.0.0.0` to `127.0.0.1` March 28, `_auth()` confirmed on 4 sensitive routes) — ensuring the OI-02 flag data accumulates in a secured, authenticated store.
 
 **Identity guard active in LM Synthesizer:**
 
@@ -450,7 +472,7 @@ The BBB output filter (Phase 4.5) and the judge pipeline are complementary but s
 - The **judge pipeline** (Chapter 33) scores responses for truth, alignment, ethics, and consistency. It operates *within* the LLM ensemble's response construction process.
 - **Phase 4.5** applies threshold enforcement *after* the judge pipeline has run, using judge scores in the completed `UltimateResponse`.
 
-**Current limitation:** As of March 25, 2026, the truth and alignment judges use heuristic pattern-matching (`heuristic_contradiction_v1`), not live GBIM queries. Phase 4.5 is in log+passthrough mode — even if score thresholds are not met, the response is not blocked during the OI-02 recalibration period.
+**Current limitation:** As of March 25, 2026, the truth and alignment judges use heuristic pattern-matching (`heuristic_contradiction_v1`), not live GBIM queries. Phase 4.5 is in log+passthrough mode — even if score thresholds are not met, the response is not blocked during the OI-02 recalibration period. ★ When GBIM-grounded judge scoring is implemented, it will draw on PostgreSQL `msjarvis` (port **5433** ★, 5,416,521 entities with `confidence_decay` metadata) and ChromaDB (port **8000** ★, 40 collections, 6,675,442 vectors) for ground-truth validation — no architectural interface change required.
 
 When output BBB threshold recalibration is complete and blocking is re-enabled, the verdict gate will operate as follows:
 
@@ -472,25 +494,30 @@ IF prohibited_content detected → LOG (future: BLOCK)
 ELSE → PASS
 
 Current behavior: ALL cases → LOG + PASSTHROUGH (commit 18b8ddac, confirmed March 25, 2026)
+★ Audit persisted to jarvis-memory:8056 (127.0.0.1 ★, _auth() confirmed, JARVIS_API_KEY set)
 ```
 
 ---
 
-## 16.8 Output BBB Calibration Status (Updated March 25, 2026)
+## 16.8 Output BBB Calibration Status (★ Updated March 28, 2026)
 
 This section documents the current calibration state of the Phase 4.5 output filter and the path to re-enabling blocking mode.
 
-### Current State (March 25, 2026)
+### Current State (★ March 28, 2026)
 
 | Component | Status | Detail |
 |---|---|---|
-| Phase 1.4 Input BBB (port 8016) | ✅ BLOCKING | Fully active, 6 filters stable March 22–25 (§16.13) |
-| Phase 4.5 Output BBB (port 8016) | ⚠ LOG+PASSTHROUGH | Confirmed March 25, 2026 — no blocking occurring |
+| Phase 1.4 Input BBB (port 8016) | ✅ BLOCKING | Fully active, 6 filters stable March 22–25 (§16.13); ★ confirmed Up March 28 |
+| Phase 4.5 Output BBB (port 8016) | ⚠ LOG+PASSTHROUGH | Confirmed March 25, 2026 — no blocking occurring; ★ confirmed Up March 28 |
 | Output block rate | 0% | Intentional — pending OI-02 tuning sprint |
 | False-positive rate (Appalachian maternal voice) | ~31% | Unchanged from first confirmed public test session |
-| Output flag rate (logged) | Accumulating | In `docker logs jarvis-main-brain` for OI-02 analysis |
+| Output flag rate (logged) | Accumulating | In `docker logs jarvis-main-brain`; ★ also persisted to `jarvis-memory:8056` (corrected to 127.0.0.1 March 28, `_auth()` confirmed) |
 | Port 8017 (bbb-output-filter) | ❌ DOES NOT EXIST | Verified absent from chapter and documentation |
 | Blocking re-enable target | OI-02 tuning sprint | Pending — see path to recalibration below |
+| `psychological_rag` (crisis route) | ✅ ★ RESTORED | 968 docs — restored March 28, 2026 ChromaDB full audit |
+| ChromaDB corpus | ✅ ★ AUDITED | 40 collections, 6,675,442 total vectors (March 28, 2026) |
+| `spiritual_rag` | ✅ ★ DEDUPLICATED | −19,338 duplicate vectors removed March 28, 2026 |
+| `msjarvis_docs` | ✅ ★ EXPANDED | 4,192 items (March 28, 2026) |
 
 ### Why Blocking Was Disabled
 
@@ -503,11 +530,12 @@ Disabling blocking (not disabling logging) allows:
 
 ### Path to Recalibration (OI-02)
 
-1. **Collect flagged responses** during red team phase via `docker logs jarvis-main-brain | grep "BBB OUTPUT FLAGGED"`
+1. **Collect flagged responses** during red team phase via `docker logs jarvis-main-brain | grep "BBB OUTPUT FLAGGED"` and via `jarvis-memory:8056` authenticated query (★ corrected March 28)
 2. **Categorize false positives** — distinguish maternal/Appalachian voice patterns from genuine constitutional violations
 3. **Adjust thresholds** in `services/ms_jarvis_blood_brain_barrier.py` to exclude cultural voice patterns
 4. **Re-enable blocking** via reverting the `content_approved=False` passthrough logic at `main_brain.py` line 1169
 5. **Verify** with regression test: maternal Appalachian phrases must pass; known constitutional violations must still block
+6. ★ **Verify `spiritual_rag` post-deduplication** (−19,338 vectors removed March 28) — ensure output BBB spiritual alignment filter thresholds still calibrate correctly against the deduplicated collection
 
 ### Audit Commands
 
@@ -522,23 +550,34 @@ docker logs jarvis-main-brain 2>&1 | grep "FLAGGED RESPONSE PREVIEW"
 psql -h 127.0.0.1 -p 5435 -U postgres -d postgres \
   -c "SELECT userid, created_at, was_blocked FROM redteam_sessions \
       ORDER BY created_at DESC LIMIT 20;"
+
+# ★ Verify jarvis-memory security correction (March 28, 2026)
+# Service must be on 127.0.0.1:8056, NOT 0.0.0.0:8056
+docker inspect jarvis-memory | grep -A5 "PortBindings"
+# Expected: "HostIp": "127.0.0.1"
+
+# ★ Verify psychological_rag restoration (968 docs, March 28)
+curl -s http://localhost:8002/api/v1/collections | python3 -m json.tool | grep -A3 "psychological_rag"
 ```
 
 ---
 
-## 16.9 BBB Service Container Status (March 25, 2026)
+## 16.9 BBB Service Container Status (★ March 28, 2026)
 
 | Component | Container / service | Port | Status | Notes |
 |---|---|---|---|---|
 | Cloudflare Tunnel | `cloudflared.service` (systemd) | — | ✅ Active | TLS termination — §42.10 TLS gap CLOSED |
 | Caddy reverse proxy | `caddy.service` (systemd) | 8443 | ✅ Active | v2.6.2 Ubuntu pkg — CORS active — NO `forward_auth` |
 | Auth service | `jarvis-auth.service` (systemd) | 8055 | ✅ Active | `scripts/jarvis_auth_service.py` — UI-initiated only |
-| BBB (input + output) | `jarvis-blood-brain-barrier` (Docker Compose) | 8016 | ✅ Active | Phase 1.4: BLOCKING ✅ 6 filters stable March 22–25 — Phase 4.5: LOG+PASSTHROUGH ⚠ confirmed March 25 |
-| BBB ethics proxy | `jarvis-bbb-ethics-proxy` (Docker Compose) | — | ✅ Active | `bbb_ethics_proxy.py` — ethics routing shim |
-| ChromaDB | `jarvis-chroma` (Docker Compose) | 8000 (internal) / 8002 (host) | ✅ Active | v2 API confirmed; Chroma heartbeat v2 ✅ (March 27 sprint) |
+| BBB (input + output) | `jarvis-blood-brain-barrier` (Docker Compose) | 8016 | ✅ Active ★ Up Mar 28 | Phase 1.4: BLOCKING ✅ 6 filters stable March 22–25 — Phase 4.5: LOG+PASSTHROUGH ⚠ confirmed March 25; ★ 96/96 containers Up March 28 |
+| BBB ethics proxy | `jarvis-bbb-ethics-proxy` (Docker Compose) | — | ✅ Active ★ Up Mar 28 | `bbb_ethics_proxy.py` — ethics routing shim |
+| ChromaDB | `jarvis-chroma` (Docker Compose) | 8000 (internal) / 8002 (host) | ✅ Active ★ Up Mar 28 | ★ 40 collections, 6,675,442 total vectors (March 28 full audit); `spiritual_rag` deduplicated (−19,338); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items) |
+| `jarvis-memory` | Docker Compose | **8056** | ✅ Active ★ **Corrected Mar 28** | ★ Corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set — BBB audit trail persistence secured |
+| PostgreSQL `msjarvis` | Docker Compose | **5433** ★ restored | ✅ Active | 5,416,521 GBIM entities — TruthVerification ground truth; `confidence_decay` metadata |
+| PostgreSQL `msjarvisgis` | Docker Compose | **5432** ★ confirmed | ✅ Active | 91 GB PostGIS, 501 tables, 993 ZCTA centroids — GIS-RAG and spatial query backing |
 | ⛔ bbb-output-filter | — | 8017 | ❌ DOES NOT EXIST | Verified absent from chapter — March 25, 2026 |
 
-All BBB components log to `docker logs jarvis-blood-brain-barrier` and `docker logs jarvis-main-brain`. Constitutional filter events — blocks, rejections, output flags — are logged as structured entries including filter category, event type, and request context.
+All BBB components log to `docker logs jarvis-blood-brain-barrier` and `docker logs jarvis-main-brain`. Constitutional filter events — blocks, rejections, output flags — are logged as structured entries including filter category, event type, and request context. ★ Audit trail also persisted to `jarvis-memory:8056` (authenticated, `127.0.0.1`-bound as of March 28, 2026).
 
 ---
 
@@ -546,42 +585,46 @@ All BBB components log to `docker logs jarvis-blood-brain-barrier` and `docker l
 
 The BBB interacts with the following system components documented in other chapters:
 
-- **Chapter 2 (GBIM, §2.9):** The BBB input filter enforces the schema-level ethical constraints defined in §2.9 — individual residential name exclusion and institutional-only landowner query enforcement. These constraints are duplicated in both `gbim_query_router` and Phase 1.4; neither alone is sufficient.
-- **Chapter 2 (GBIM, §2.8):** The Phase 4.5 verdict gate enforces judge scores that are currently heuristic (`heuristic_contradiction_v1`). The architectural interface requires no change when GBIM-grounded scoring is implemented.
-- **Chapter 6 (GeoDB/GIS):** Spatial queries that would expose individual-level residential data are blocked at Phase 1.4 before reaching the GIS query service or `gbim_query_router` (port 7205).
+- **Chapter 2 (GBIM, §2.9):** The BBB input filter enforces the schema-level ethical constraints defined in §2.9 — individual residential name exclusion and institutional-only landowner query enforcement. These constraints are duplicated in both `gbim_query_router` and Phase 1.4; neither alone is sufficient. ★ GBIM ground truth is in PostgreSQL `msjarvis` (port **5433** ★ restored, 5,416,521 entities) and `msjarvisgis` (port **5432** ★ confirmed, 91 GB PostGIS, 501 tables).
+- **Chapter 2 (GBIM, §2.8):** The Phase 4.5 verdict gate enforces judge scores that are currently heuristic (`heuristic_contradiction_v1`). The architectural interface requires no change when GBIM-grounded scoring is implemented. ★ GBIM-grounded scoring will draw on `msjarvis:5433` and ChromaDB (40 collections, 6,675,442 vectors).
+- **Chapter 6 (GeoDB/GIS):** Spatial queries that would expose individual-level residential data are blocked at Phase 1.4 before reaching the GIS query service or `gbim_query_router` (port 7205). ★ `msjarvisgis` (port **5432** ★, 91 GB PostGIS, 501 tables, 993 ZCTA centroids) is the spatial data store backing GIS-RAG.
 - **Chapter 00 (Service Registry):** Port 8017 (`bbb-output-filter`) does not exist. Verified absent from this chapter as of March 25, 2026. Port 8016 is the single BBB container handling both phases.
-- **Chapter 10 (WOAH):** `jarvis-woah` (port 7012) confirmed RUNNING on qualia-net as of March 25, 2026 (stdlib stub, volume bind mount); `nbb_woah_algorithms` (port 8104) provides full identity scoring. Both integrated with the BBB-downstream pipeline.
-- **Chapter 12 (Neurobiological Architecture):** `jarvis-consciousness-bridge` source file confirmed at `/app/services/msjarvisconsciousnessbridge.py`. Services dict confirmed: `unified_gateway → :8011`, `neuro_master → :8018`, `direct_rag → :8003`, `hilbert → :8010`, `woah → :7012`, `chroma → :8000` (internal).
-- **Chapter 30 (AAPCAppE scraper):** `jarvis-ingest-watcher` completed first run **March 27, 2026** — 65 documents in Chroma, 39 sources confirmed. The ingest pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`) is no longer stub-only; Phase 1.45 RAG context now has first external-source Appalachian corpus documents available. Cross-reference **OI-30** tracking item for full corpus completion.
+- **Chapter 10 (WOAH):** `jarvis-woah` (port 7012) confirmed RUNNING on qualia-net as of March 25, 2026 (stdlib stub, volume bind mount; ★ confirmed Up March 28); `nbb_woah_algorithms` (port 8104) provides full identity scoring (★ confirmed Up March 28). Both integrated with the BBB-downstream pipeline.
+- **Chapter 12 (Neurobiological Architecture):** `jarvis-consciousness-bridge` source file confirmed at `/app/services/msjarvisconsciousnessbridge.py`. Services dict confirmed: `unified_gateway → :8011`, `neuro_master → :8018`, `direct_rag → :8003`, `hilbert → :8010`, `woah → :7012`, `chroma → :8000` (internal). ★ Cross-reference for `jarvis-memory` security correction: **Ch. 12 §12.12** (updated from §12.11 — chapter restructuring March 28, 2026).
+- **Chapter 14 (Hippocampus and Memory):** ★ `jarvis-memory` (port **8056**) corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` set. ChromaDB full audit (40 collections, 6,675,442 vectors): `spiritual_rag` deduplicated (−19,338 vectors), `psychological_rag` restored (968 docs), `msjarvis_docs` expanded (4,192 items). See **Ch. 14 §14.8** for the full collection table.
+- **Chapter 30 (AAPCAppE scraper):** `jarvis-ingest-watcher` completed first run **March 27, 2026** — 65 documents in Chroma, 39 sources confirmed. The ingest pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`) is no longer stub-only; Phase 1.45 RAG context now has first external-source Appalachian corpus documents available. ★ `msjarvis_docs` expanded to 4,192 items as of March 28 full audit. Cross-reference **OI-30** tracking item for full corpus completion.
 - **Chapter 33 (Judge pipeline):** The judge pipeline scores responses internally. Phase 4.5 enforces the verdict gate on those scores after the pipeline completes. Currently log+passthrough pending OI-02.
 - **Chapter 36 (Identity and Registration):** OI-36-A (token validation not enforced at gateway) documents the current auth gap that the Caddy perimeter layer was intended to close but has not yet closed due to the v2.6.2 package limitation.
 - **Chapter 42 (Post-quantum security):** §42.10 TLS gap is CLOSED by Cloudflare Tunnel architecture (March 22, 2026). ML-DSA-65 judge signing keys confirmed active across all five judges (19 PASS 0 FAIL). GPG AES256 backup of `judge_sk.bin` created: `/home/cakidd/judge_sk_backup_20260322.gpg`.
 
 ---
 
-## 16.11 Operational Notes and Known Gaps (March 25, 2026)
+## 16.11 Operational Notes and Known Gaps (★ March 28, 2026)
 
-**Confirmed working as documented:**
+**Confirmed working as documented (★ March 28, 2026 — 96/96 containers Up):**
 
-- ✅ `jarvis-blood-brain-barrier` (port 8016) active — Phase 1.4 input filter fully blocking
-- ✅ All 6 Phase 1.4 filters stable throughout March 22–25 sprint (§16.13)
+- ✅ `jarvis-blood-brain-barrier` (port 8016) active — Phase 1.4 input filter fully blocking; ★ confirmed Up March 28
+- ✅ All 6 Phase 1.4 filters stable throughout March 22–25 sprint (§16.13); ★ confirmed Up March 28
 - ✅ AU-02 developer impersonation guard active (`threat_detection.py` guard_triggers)
-- ✅ Crisis routing intercept active — `psychological_rag` (port 8006) path confirmed
+- ✅ Crisis routing intercept active — `psychological_rag` (port 8006) path confirmed; ★ collection restored to 968 docs March 28, 2026
 - ✅ Individual residential name exclusion enforced at Phase 1.4 and `gbim_query_router` schema
-- ✅ SteganographyDetection and TruthVerification filters stable March 22–25
+- ✅ SteganographyDetection and TruthVerification filters stable March 22–25; ★ TruthVerification backed by `msjarvis:5433` (5,416,521 entities) and `msjarvisgis:5432` (91 GB PostGIS, 501 tables)
 - ✅ `jarvis_auth_service` (port 8055) active — token validation available via `/auth/token`
 - ✅ Caddy CORS headers active — `Access-Control-Allow-Origin: *`
-- ✅ `bbb_ethics_proxy.py` active — ethics routing shim operational
+- ✅ `bbb_ethics_proxy.py` active — ethics routing shim operational; ★ confirmed Up March 28
 - ✅ LM Synthesizer identity guard active (commits `9ab770e9` + `211056e6`) — persona protection upstream of output BBB during OI-02 recalibration period
 - ✅ Port 8017 (`bbb-output-filter`) confirmed absent from chapter — March 25, 2026
+- ✅ ★ `jarvis-memory` (port **8056**) corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026 — `_auth()` confirmed on 4 sensitive routes — `JARVIS_API_KEY` confirmed set — BBB audit trail persistence secured
+- ✅ ★ ChromaDB full audit complete: 40 collections, 6,675,442 total vectors; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items)
+- ✅ ★ **96/96 containers Up — zero Restarting, zero Exited (March 28, 2026)**
 
-**Known gaps as of March 25, 2026:**
+**Known gaps as of ★ March 28, 2026:**
 
 - ⚠ **OI-36-A OPEN — Gateway-level auth not enforced.** Caddy v2.6.2 Ubuntu package does not support `forward_auth`. Unauthenticated `/chat` requests reach the gateway. Token validation is UI-initiated only. Enforcement must be added at the gateway middleware layer. Next-session priority.
-- ⚠ **OI-02 OPEN — Phase 4.5 output BBB in log+passthrough mode.** Confirmed March 25, 2026. False-positive rate ~31% on Appalachian maternal voice phrases. No blocking occurring — intentional. Recalibration required before re-enabling blocking. Flagged responses accumulating in `docker logs jarvis-main-brain` for analysis. Tuning sprint pending.
-- ⚠ **GBIM-grounded judge scoring not yet implemented** (Chapter 2, §2.8). Phase 4.5 verdict gate enforces heuristic judge scores. BBB interface requires no change when GBIM-grounded scoring is deployed.
+- ⚠ **OI-02 OPEN — Phase 4.5 output BBB in log+passthrough mode.** Confirmed March 25, 2026. False-positive rate ~31% on Appalachian maternal voice phrases. No blocking occurring — intentional. Recalibration required before re-enabling blocking. Flagged responses accumulating in `docker logs jarvis-main-brain` and `jarvis-memory:8056` (★ now secured on `127.0.0.1`, `_auth()` confirmed) for analysis. Tuning sprint pending. ★ `spiritual_rag` deduplication (−19,338 vectors, March 28) must be factored into OI-02 threshold recalibration — spiritual alignment filter thresholds need re-verification against the deduplicated collection.
+- ⚠ **GBIM-grounded judge scoring not yet implemented** (Chapter 2, §2.8). Phase 4.5 verdict gate enforces heuristic judge scores. BBB interface requires no change when GBIM-grounded scoring (drawing on `msjarvis:5433` and ChromaDB 40-collection corpus) is deployed.
 - ⚠ **Output BBB GBIM citation audit is not implemented.** Full cross-reference of institutional claims in output against `mvw_gbim_landowner_spatial` is not yet active.
-- ⚠ **`msjarvis_docs` ChromaDB collection** — RAG server confirmed loading 53 documents (7 new base cultural docs) on March 27, 2026 sprint; system can now answer some questions about its own documentation from the RAG layer. Full BBB architecture documentation ingest remains backlog item.
+- ⚠ **`msjarvis_docs` ChromaDB collection** — ★ expanded to 4,192 items (March 28, 2026 full audit, up from 53 on March 27). Full BBB architecture documentation ingest remains backlog item — but the collection is now substantially more populated than previously documented.
 - ⚠ **Per-IP rate limiting not implemented.** No `caddy-ratelimit` module available in v2.6.2 Ubuntu package. `jarvis_auth_service` configures 10 req/hour per user but this is not enforced at the proxy layer.
 
 ---
@@ -590,7 +633,9 @@ The BBB interacts with the following system components documented in other chapt
 
 The Blood–Brain Barrier is not a defensive measure against users. It is a commitment to the communities Ms. Jarvis is designed to serve.
 
-The architecture reflects the principle of **defense in depth** applied to community-facing AI infrastructure. No single enforcement point is sufficient for a system that handles community data, crisis-adjacent queries, and institutional accountability claims at scale. Phase 1.4 (input, blocking, 6 filters stable March 22–25) ensures that harmful inputs, injections, and privacy-violating queries do not reach the LLM ensemble regardless of authentication state. Phase 4.5 (output) will — once recalibrated under OI-02 — ensure that responses violating constitutional thresholds do not reach users. The LM Synthesizer identity guard provides persona protection upstream of the output BBB during the recalibration period.
+The architecture reflects the principle of **defense in depth** applied to community-facing AI infrastructure. No single enforcement point is sufficient for a system that handles community data, crisis-adjacent queries, and institutional accountability claims at scale. Phase 1.4 (input, blocking, 6 filters stable March 22–25, ★ confirmed Up March 28) ensures that harmful inputs, injections, and privacy-violating queries do not reach the LLM ensemble regardless of authentication state. Phase 4.5 (output) will — once recalibrated under OI-02 — ensure that responses violating constitutional thresholds do not reach users. The LM Synthesizer identity guard provides persona protection upstream of the output BBB during the recalibration period.
+
+★ The March 28, 2026 security remediation — 96/96 containers Up, all services bound to `127.0.0.1`, `jarvis-memory` (port 8056) corrected and `_auth()` confirmed, `JARVIS_API_KEY` set, ChromaDB full audit (40 collections, 6,675,442 vectors), `psychological_rag` restored (968 docs) — represents the strongest security and data quality baseline the BBB has operated against to date. This is the baseline from which OI-36-A gateway enforcement and OI-02 output BBB recalibration should be measured.
 
 The documented gaps (OI-36-A, OI-02) are tracked openly because transparency about current limitations is itself a constitutional commitment. Regional Development Authorities, university partners, and community organizations evaluating Ms. Jarvis as infrastructure can inspect the current state, understand exactly what is and is not enforced, and hold the system accountable to its documented constraints — including the documented gaps.
 
@@ -598,9 +643,9 @@ The BBB architecture, combined with the ML-DSA-65 signing infrastructure (Chapte
 
 ---
 
-## 16.13 Sprint Validation Log — March 22–25, 2026; March 27, 2026 Follow-Up
+## 16.13 Sprint Validation Log — March 22–25, 2026; March 27, 2026; ★ March 28, 2026
 
-This section records the Phase 1.4 filter stability verification for the March 22–25, 2026 sprint and the March 27, 2026 ingest sprint follow-up.
+This section records the Phase 1.4 filter stability verification for the March 22–25, 2026 sprint, the March 27, 2026 ingest sprint follow-up, and the ★ March 28, 2026 security remediation sprint.
 
 ### Phase 1.4 Input Filter Stability — March 22–25, 2026
 
@@ -611,7 +656,7 @@ This section records the Phase 1.4 filter stability verification for the March 2
 | SafetyMonitor | ✅ STABLE | Word-boundary regex fix (March 15) holding; no false-positives on community resource terms observed March 22–25 |
 | ThreatDetection | ✅ STABLE | AU-02 developer impersonation guard confirmed active; DAN and override patterns blocked throughout sprint |
 | SteganographyDetection | ✅ STABLE | Deployed March 15; no regressions observed March 22–25 |
-| TruthVerification | ✅ STABLE | Deployed March 15; GBIM ground truth validation passing throughout sprint |
+| TruthVerification | ✅ STABLE | Deployed March 15; GBIM ground truth validation passing throughout sprint; ★ backed by `msjarvis:5433` (5,416,521 entities) and `msjarvisgis:5432` (91 GB PostGIS, 501 tables) |
 
 **Summary:** All 6 Phase 1.4 input filters remained stable and passing throughout the March 22–25, 2026 sprint. No regressions detected. No filter required modification during this sprint.
 
@@ -639,6 +684,34 @@ This section records the Phase 1.4 filter stability verification for the March 2
 
 > **📈 March 27, 2026 ingest sprint:** AAPCAppE scraper (`jarvis-ingest-watcher`) completed first run — **39 sources, 65 documents in Chroma** confirmed. RAG server loaded **53 documents** (7 new base cultural docs ingested into `msjarvis_docs` collection). Both `jarvis-ingest-api` and `jarvis-ingest-watcher` containers built and running. Chroma heartbeat v2 confirmed ✅. The Phase 1.45 RAG context now has first external-source Appalachian corpus documents available — ingest pipeline no longer stub-only. Cross-reference **OI-30** tracking item for full AAPCAppE corpus completion and **Ch. 30** for scraper architecture.
 
+### ★ March 28, 2026 Security Remediation Sprint
+
+> **★ March 28, 2026 — Security remediation complete — 96/96 containers Up:**
+
+| Item | Result |
+|---|---|
+| Total containers | **96 Up — zero Restarting, zero Exited** |
+| `jarvis-memory` (port 8056) | ★ Corrected from `0.0.0.0` to `127.0.0.1` |
+| `_auth()` on sensitive routes | ★ Confirmed on 4 routes in `ms_jarvis_memory.py` |
+| `JARVIS_API_KEY` | ★ Confirmed set |
+| PostgreSQL `msjarvis` | ★ Port **5433** restored — 5,416,521 GBIM entities |
+| PostgreSQL `msjarvisgis` | ★ Port **5432** confirmed — 91 GB PostGIS, 501 tables, 993 ZCTA centroids |
+| ChromaDB full audit | ★ **40 collections, 6,675,442 total vectors** |
+| `spiritual_rag` | ★ Deduplicated — −19,338 duplicate vectors removed |
+| `psychological_rag` | ★ Restored — 968 docs (previously degraded) |
+| `msjarvis_docs` | ★ Expanded — 4,192 items |
+| `autonomous_learner` | ★ Updated — first external-source AAPCAppE docs flowing |
+| All services | ★ Bound to `127.0.0.1` — zero `0.0.0.0` exposures confirmed |
+| Ch. 12 cross-reference | ★ §12.11 → §12.12 (chapter restructuring) |
+
+**BBB-specific impacts of March 28, 2026 remediation:**
+
+- Phase 1.4 TruthVerification filter now backed by confirmed `msjarvis:5433` (5,416,521 entities with `confidence_decay` metadata) and `msjarvisgis:5432` (91 GB PostGIS, 501 tables) — ground truth quality baseline confirmed.
+- Crisis routing intercept (Phase 1.4 filter 5) now routes to a fully restored `psychological_rag` (968 docs) — highest-quality crisis-route response capability to date.
+- BBB audit trail persistence now secured: `jarvis-memory:8056` on `127.0.0.1`, `_auth()` on all 4 sensitive routes, `JARVIS_API_KEY` set — OI-02 flag data accumulates in authenticated, localhost-bound store.
+- OI-02 recalibration must account for `spiritual_rag` deduplication (−19,338 vectors) — spiritual alignment filter thresholds need re-verification against the deduplicated collection before blocking is re-enabled.
+- `msjarvis_docs` expansion (4,192 items) improves Phase 1.45 RAG context quality for BBB-adjacent queries about system architecture and constitutional constraints.
+
 ---
 
 *Chapter 16 — Blood–Brain Barrier and Safeguards*
@@ -646,4 +719,4 @@ This section records the Phase 1.4 filter stability verification for the March 2
 *Architecture corrected March 22, 2026: port 8017 removed; Phase 4.5 log+passthrough documented; Caddy v2.6.2 forward_auth limitation documented; OI-36-A gap formalized*
 *Updated March 25, 2026: Phase 4.5 log+passthrough confirmed — no blocking occurring — intentional pending OI-02; ~31% false-positive rate on Appalachian maternal voice phrases confirmed unchanged; all 6 Phase 1.4 input filters verified stable throughout March 22–25 sprint; port 8017 reference audit verified absent; sprint validation log §16.13 added*
 *Updated March 27, 2026: §16.13 March 27 sprint follow-up added — AAPCAppE scraper first run confirmed (39 sources, 65 docs, RAG 53 docs, 7 new base cultural docs, both ingest containers running); §16.5 Figure 16.2 ChromaDB host port 8002 → jarvis-chroma:8000 clarification added; §16.10 Ch. 30 AAPCAppE scraper cross-reference added with OI-30 tracking item*
-`````
+*★ Updated March 28, 2026: Security remediation propagated throughout — 96/96 containers Up; `jarvis-memory` port 8056 corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set; `msjarvis` port 5433 restored (5,416,521 GBIM entities); `msjarvisgis` port 5432 confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (40 collections, 6,675,442 total vectors); `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items); `autonomous_learner` updated — first external-source AAPCAppE docs flowing; Ch. 12 §12.11 cross-references updated to §12.12; §16.13 March 28 security remediation sprint log added; OI-02 recalibration note updated — spiritual_rag deduplication must be factored into threshold re-verification; all `0.0.0.0` exposures confirmed eliminated.*
