@@ -14,6 +14,8 @@ This chapter explains how Ms. Jarvis coordinates many specialized agents as a **
 
 This chapter belongs to the **Computational Instrument** tier: it specifies a WOA-inspired orchestration layer that coordinates Ms. Jarvis's multi-agent "mind" in service of Quantarithmia's justice-oriented instruments.
 
+WOAH operates at **Phase 2.5 of the 9-phase `ultimatechat` pipeline** (see Ch. 11 §11.4).
+
 > Figure 10.1. WOAH as a WOA-inspired orchestration service in Ms. Jarvis, weighting multiple agents and feeding those weights into the consciousness and routing stack with Appalachian, place-aware priorities.
 
 ---
@@ -61,6 +63,8 @@ Key points:
 
 ### woah_stub.py Reference Implementation
 
+> **Canonical home:** This `woah_stub.py` is the reference implementation for both Ch. 9 (§9.3.4) and this chapter (Ch. 10). Ch. 9 §9.3.4 cross-references this stub; the canonical home of the implementation and deployment specification is this chapter.
+
 ```python
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
@@ -101,6 +105,8 @@ if __name__ == "__main__":
 
 ### WOAH Service Port Reference (March 25, 2026)
 
+> **⚠️ Security Hardening — March 18, 2026:** All ports are locked to `127.0.0.1` as of the March 18, 2026 security hardening pass — see Ch. 11 for the full port-lock audit and confirmed bindings.
+
 | Service | Host Port | Container Port | Network | Status |
 |---|---|---|---|---|
 | `jarvis-woah` | 7012 | 7012 | qualia-net | ✅ RUNNING — stdlib stub |
@@ -129,6 +135,8 @@ In Ms. Jarvis, WOAH refers to a hierarchy of weighting and evaluation processes 
 - **Multiple agents as "whales"** — Different LLMs, DGMs, RAG paths, and analysis services act as candidate "whales," each producing outputs or evaluations over the same user query or memory item.
 - **Weighted evaluation** — WOAH services analyze those outputs and assign weights or scores indicating how much influence each agent should have for a given task, user, or place.
 - **Hierarchical integration** — These weights are fed into consciousness coordinators, qualia engines, and judge layers that combine agent outputs into a final response.
+
+WOAH is called at **Phase 2.5 of the 9-phase `ultimatechat` pipeline** — after initial BBB input filtering and community memory retrieval, and before the main RAG and LLM ensemble phases. See Ch. 11 §11.4 for the full 9-phase pipeline specification.
 
 ---
 
@@ -226,13 +234,13 @@ This endpoint provides:
 
 ## WOAH in the Consciousness and Orchestration Stack
 
-WOAH occupies an intermediate layer in the Ms. Jarvis architecture:
+WOAH occupies an intermediate layer in the Ms. Jarvis architecture, operating at **Phase 2.5 of the 9-phase `ultimatechat` pipeline** (see Ch. 11 §11.4):
 
 **Upstream layers:**
 - Direct user queries reaching the unified gateway
 - Domain-specific agents and services: RAG and ChromaDB lookups, Hilbert-space spatial reasoning, neurobiological and consciousness services, specialized governance and spatial agents
 
-**WOAH layer:**
+**WOAH layer (Phase 2.5):**
 - Called when the system needs to decide:
   - Whether a new memory should be treated as structural or episodic
   - How important a given narrative is to the user's autobiographical profile
@@ -246,21 +254,21 @@ WOAH occupies an intermediate layer in the Ms. Jarvis architecture:
 
 ### Service Integration: jarvis-woah vs nbb_woah_algorithms
 
+```text
 jarvis-consciousness-bridge (port 8020)
 │
 ├──→ jarvis-woah (port 7012, qualia-net)
-│ GET / → health check
-│ POST /process → stub response:
-│ {status: ok,
-│ content: "WOAH stub reasoning complete",
-│ confidence: 0.8}
+│     GET /  → health check
+│     POST /process → stub response:
+│       {status: ok,
+│        content: "WOAH stub reasoning complete",
+│        confidence: 0.8}
 │
 └──→ (internal) nbb_woah_algorithms (port 8104 host / 8010 container)
-POST /process → full semantic identity scoring
-+ WOA population dynamics
-GET /woah_population_debug → population state
-
-text
+      POST /process → full semantic identity scoring
+                    + WOA population dynamics
+      GET /woah_population_debug → population state
+```
 
 **Calling jarvis-woah from other containers (qualia-net):**
 
@@ -349,5 +357,10 @@ WOAH belongs in the **Computational Instrument** tier:
 - It is explicitly designed to be **inspectable and tunable**, so that West Virginia communities and collaborators can see and adjust how their stories are being weighted
 - It demonstrates how WOA-style ideas can be repurposed from pure numeric optimization into **place-grounded orchestration of many minds**, aligned with Quantarithmia's justice-oriented instruments
 
-> **Status (March 25, 2026):** Both WOAH services are RUNNING. `jarvis-woah` (port 7012) is confirmed operational on qualia-net using the stdlib `http.server` stub deployed via volume bind mount. `nbb_woah_algorithms` (port 8104) implements the full heuristic semantic identity function, WOA-inspired population dynamics over weight vectors, and the `/woah_population_debug` endpoint for inspecting the internal population. Both services are actively integrated with the Fifth DGM consciousness metrics and the consciousness bridge pipeline. The stub's optimization theory, formal evaluation, and broader orchestration influence remain evolving areas of work.
+> **Status (March 25, 2026):** Both WOAH services are RUNNING. `jarvis-woah` (port 7012) is confirmed operational on qualia-net using the stdlib `http.server` stub deployed via volume bind mount. `nbb_woah_algorithms` (port 8104) implements the full heuristic semantic identity function, WOA-inspired population dynamics over weight vectors, and the `/woah_population_debug` endpoint for inspecting the internal population. Both services are actively integrated with the Fifth DGM consciousness metrics and the consciousness bridge pipeline. All ports locked to `127.0.0.1` as of March 18, 2026 security hardening — see Ch. 11. The stub's optimization theory, formal evaluation, and broader orchestration influence remain evolving areas of work.
 
+---
+
+*Last updated: 2026-03-27 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*★ March 27, 2026: Port reference table — ⚠️ security hardening note added (all ports locked to 127.0.0.1 as of March 18, 2026, see Ch. 11); woah_stub.py block — canonical-home sentence added (reference implementation for Ch. 9 §9.3.4 and Ch. 10; canonical home is Ch. 10); pipeline phase number added throughout — WOAH operates at Phase 2.5 of the 9-phase ultimatechat pipeline (see Ch. 11 §11.4); DNS resolution false-diagnosis note already present ✅ — no change.*
+`````
