@@ -1,21 +1,22 @@
 # 28. Heartbeat and Live Cycles
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: March 27, 2026 — February 28, 2026 baseline pinned notation added (§28.1); LLM ensemble slot/responding count clarified (§28.1a, §28.3); EEG audit table contradiction noted (§28.4); AaaCPE Chroma document baseline added (§28.8); Caddy/auth perimeter layer added (§28.9); GBIM belief corpus cross-database clarification added (§28.7)*
+
+*Last updated: 2026-03-28 — ★ March 28, 2026: 96/96 containers Up — zero Restarting, zero Exited; `msjarvis` port 5433 restored (5,416,521 GBIM entities with `confidence_decay` metadata); `msjarvisgis` port 5432 confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (★ **40 active collections, 6,675,442 total vectors**, ~12 GB primary `chroma_db`); `jarvis-chroma` Up at 127.0.0.1:8000; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items, AAPCAppE); LLM ensemble confirmed 22 proxies registered / 21 active; `jarvis-memory` port 8056 corrected `0.0.0.0` → `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set, BBB audit trail persistence secured; `jarvis-ingest-api` + `jarvis-ingest-watcher` restored to active inventory; consciousness pipeline confirmed Up. March 27, 2026: February 28, 2026 baseline pinned notation added (§28.1); LLM ensemble slot/responding count clarified (§28.1a, §28.3); EEG audit table contradiction noted (§28.4); AaPCAppE Chroma document baseline added (§28.8); Caddy/auth perimeter layer added (§28.9); GBIM belief corpus cross-database clarification added (§28.7).*
 
 ---
 
-This chapter describes the recurring signals and jobs that indicate Ms. Jarvis is active and connected to its internal services and external infrastructure. These cycles include service health checks, periodic verification scripts, LLM ensemble monitoring, consciousness bridge validation, and data store verification, all of which produce structured outputs that are logged and available for ingestion into memory. The combination of health probes, response-time benchmarks, neurobiological layer monitoring, and introspective reports provides a layered observability picture aligned with distributed systems best practices and neurobiologically-inspired cognitive architectures.
+This chapter describes the recurring signals and jobs that indicate Ms. Jarvis is active and connected to its internal services and external infrastructure. These cycles include service health checks, periodic verification scripts, LLM ensemble monitoring, consciousness bridge validation, and data store verification, all of which produce structured outputs that are logged and available for ingestion into memory. The combination of health probes, response-time benchmarks, neurobiological layer monitoring, and introspective reports provides a layered observability picture aligned with distributed systems best practices and neurobiologically-inspired cognitive architectures. ★ As of March 28, 2026, the widest confirmed operational scope — 96/96 containers Up — provides the most comprehensive heartbeat baseline in the system's history.
 
 ---
 
 > **Why this matters for Polymathmatic Geography**
 > This chapter shows how Ms. Jarvis proves it is "alive," healthy, and connected to spatial and community infrastructure over time. It supports:
-> - **P1 – Every where is entangled** by tying heartbeat checks to services that handle people, places, and institutions together, all flowing through the consciousness bridge.
-> - **P3 – Power has a geometry** by revealing which services and data stores must stay healthy for Appalachian and other regional reasoning to work, and by making visible the power embedded in which models and services are active.
-> - **P5 – Design is a geographic act** by including GIS spatial knowledge, GBIM worldview verification, and data store health in live-cycle checks.
-> - **P12 – Intelligence with a ZIP code** by linking health, identity, and learning status to geospatial and community datasets anchored in West Virginia geography.
-> - **P16 – Power accountable to place** by turning system liveness into logged, auditable narratives that show which GBIM beliefs, services, and models are participating in each cycle.
+> - **P1 – Every where is entangled** by tying heartbeat checks to services that handle people, places, and institutions together, all flowing through the consciousness bridge (★ confirmed Up March 28).
+> - **P3 – Power has a geometry** by revealing which services and data stores must stay healthy for Appalachian and other regional reasoning to work, and by making visible the power embedded in which models and services are active. ★ `jarvis-memory:8056` (secured March 28) now makes the geometry of BBB gate decisions persistently visible.
+> - **P5 – Design is a geographic act** by including GIS spatial knowledge (`msjarvisgis:5432` ★, 91 GB PostGIS, 501 tables, 993 ZCTA centroids), GBIM worldview verification (`msjarvis:5433` ★, 5,416,521 entities with `confidence_decay` metadata), and data store health in live-cycle checks.
+> - **P12 – Intelligence with a ZIP code** by linking health, identity, and learning status to geospatial and community datasets anchored in West Virginia geography. ★ `msjarvis_docs` (4,192 items, AAPCAppE) adds a continuously growing ZIP-coded community resource substrate to the heartbeat landscape.
+> - **P16 – Power accountable to place** by turning system liveness into logged, auditable narratives that show which GBIM beliefs, services, and models are participating in each cycle. ★ BBB audit trail persistence at `jarvis-memory:8056` (secured March 28) makes gate decisions durably accountable.
 >
 > As such, this chapter belongs to the **Computational Instrument** tier: it describes heartbeat and live cycles as explicit, inspectable processes in the consciousness-grounded architecture.
 
@@ -25,15 +26,15 @@ This chapter describes the recurring signals and jobs that indicate Ms. Jarvis i
 
 The recurring signals in Ms. Jarvis serve several roles. In contrast to autonomous learning, these cycles primarily track the condition and behavior of internal services and workflows rather than discovering new content.
 
-**Liveness.** Heartbeat mechanisms demonstrate that key components are running, reachable, and responsive. All major services expose `/health` endpoints that report basic status, integration level, and sometimes the health of subcomponents. As of the February 28, 2026 production deployment, **32 of 32 services** respond to health probes through the `/selftestfabric` endpoint within acceptable thresholds, with all 22 LLM proxies individually verified.
+**Liveness.** Heartbeat mechanisms demonstrate that key components are running, reachable, and responsive. All major services expose `/health` endpoints that report basic status, integration level, and sometimes the health of subcomponents. As of the February 28, 2026 production deployment, **32 of 32 services** respond to health probes through the `/selftestfabric` endpoint within acceptable thresholds, with all 22 LLM proxies individually verified. ★ As of March 28, 2026, the widest confirmed liveness scope is **96/96 containers Up** — zero Restarting, zero Exited — representing a new high-water mark beyond the February 28 32/32 service baseline.
 
-> **Pinned baseline note:** The February 28, 2026 deployment is the documented reference baseline throughout this chapter. The system has continued running and been verified in subsequent sessions (March 2026 sprint). Readers should treat all "February 28, 2026" timestamps as a pinned baseline, not a stale or current date — the architecture has remained stable with targeted patches applied (see Ch 25 §25.9) since that date.
+> **Pinned baseline note:** The February 28, 2026 deployment is the documented reference baseline throughout this chapter. The system has continued running and been verified in subsequent sessions (March 2026 sprint). Readers should treat all "February 28, 2026" timestamps as a pinned baseline, not a stale or current date — the architecture has remained stable with targeted patches applied (see Ch 25 §25.9) since that date. ★ The March 28, 2026 state (96/96 Up, `msjarvis:5433` restored, `msjarvisgis:5432` confirmed, ChromaDB 40 collections / 6,675,442 vectors, `jarvis-memory:8056` secured) represents the most recent verified operational milestone and supersedes the February 28 baseline where the two differ.
 
-**Consciousness integrity.** The consciousness bridge operates as mandatory infrastructure through which all heartbeat signals flow. The brain orchestrator provides continuous coordination of health checks across the swarm and watchdog layers, ensuring that liveness monitoring is itself neurobiologically grounded.
+**Consciousness integrity.** The consciousness bridge operates as mandatory infrastructure through which all heartbeat signals flow (★ confirmed Up March 28, 2026). The brain orchestrator provides continuous coordination of health checks across the swarm and watchdog layers, ensuring that liveness monitoring is itself neurobiologically grounded.
 
-**Rhythm.** The `VERIFYANDTEST.sh` script implements a recurring eight-section verification routine that can be run on any schedule. Its textual output serves as a periodic snapshot of system health, covering host-exposed services, internal Docker network services, LLM proxy health, response-time benchmarking, Ollama model inventory, container status, data store verification, and system resource state.
+**Rhythm.** The `VERIFYANDTEST.sh` script implements a recurring eight-section verification routine that can be run on any schedule. Its textual output serves as a periodic snapshot of system health, covering host-exposed services, internal Docker network services, LLM proxy health, response-time benchmarking, Ollama model inventory, container status, data store verification, and system resource state. ★ A future extension should add a ninth section: ChromaDB full collection audit (40 collections, 6,675,442 total vectors as of March 28) and a tenth: `jarvis-memory:8056` BBB audit trail health probe (secured March 28).
 
-**Monitoring and introspection.** Beyond simple up/down checks, the heartbeat script aggregates information about services, data stores, model availability, system memory, and GBIM corpus health. For example, it verifies that the Ollama model storage volume contains the expected 73 GB of models at `/mnt/ssd2/msjarvis_secondary/models`, that ChromaDB is reachable via its internal Docker network endpoint at **127.0.0.1:8000**, that all 22 LLM proxy containers are individually healthy, that the 69-DGM cascade has loaded all 69 connectors, and that the GBIM worldview maintains its 10.22 million belief corpus (see §28.7 for cross-database note). These checks collectively provide an introspective view of the system's operational footprint.
+**Monitoring and introspection.** Beyond simple up/down checks, the heartbeat script aggregates information about services, data stores, model availability, system memory, and GBIM corpus health. For example, it verifies that the Ollama model storage volume contains the expected 73 GB of models at `/mnt/ssd2/msjarvis_secondary/models`, that ChromaDB is reachable via its internal Docker network endpoint at **127.0.0.1:8000** ★ (★ full audit: 40 collections, 6,675,442 total vectors, ~12 GB primary `chroma_db`), that all 22 LLM proxy containers are individually healthy (★ 21 active as of March 28), that the 69-DGM cascade has loaded all 69 connectors, and that the GBIM worldview maintains its 10.22 million belief corpus across both PostgreSQL databases (see §28.7 for cross-database note; ★ `msjarvis:5433` restored to 5,416,521 GBIM entities with `confidence_decay` metadata as of March 28). These checks collectively provide an introspective view of the system's operational footprint.
 
 ---
 
@@ -45,9 +46,9 @@ The 20-LLM production service exposes a `/health` endpoint that confirms the num
 {"status": "healthy", "models": 22}
 ```
 
-This endpoint serves as the learning heartbeat for the LLM ensemble, confirming that all 22 model slots are **configured** and the service is accepting requests. Note: `"models": 22` reflects the configured slot count; the typical **responding** count per consensus cycle is **20 of 22** (BakLLaVA fails as expected — see §28.3). These are two distinct measurements and should not be conflated. The ensemble's actual performance is measured through per-request consensus cycles that produce detailed participation logs.
+This endpoint serves as the learning heartbeat for the LLM ensemble, confirming that all 22 model slots are **configured** and the service is accepting requests. Note: `"models": 22` reflects the configured slot count; the typical **responding** count per consensus cycle is **20 of 22** (BakLLaVA fails as expected — see §28.3). ★ As of March 25, 2026, one additional proxy (`llm22-proxy`) is registered but inactive — the responding count per consensus cycle may be **19 of 22** in some cycles pending `llm22-proxy` activation. These are distinct measurements and should not be conflated. The ensemble's actual performance is measured through per-request consensus cycles that produce detailed participation logs.
 
-The main-brain service exposes comprehensive health information through `/selftestfabric`, which queries all 32 operational services and returns their individual health states. This endpoint serves as the definitive system-wide liveness signal, with the February 28, 2026 milestone achieving **32/32 services passing**.
+The main-brain service exposes comprehensive health information through `/selftestfabric`, which queries all 32 operational services and returns their individual health states. This endpoint serves as the definitive system-wide liveness signal, with the February 28, 2026 milestone achieving **32/32 services passing**. ★ The March 28, 2026 container-level liveness milestone — **96/96 Up** — is the broadest verified scope; future `/selftestfabric` runs at this baseline should be recorded and compared.
 
 ---
 
@@ -55,32 +56,35 @@ The main-brain service exposes comprehensive health information through `/selfte
 
 Heartbeat signals are generated through four primary mechanisms: the `/selftestfabric` system-wide health check, individual service `/health` endpoints, the `VERIFYANDTEST.sh` verification script, and response-time benchmarking.
 
-**System-wide fabric health (`/selftestfabric`).** The main-brain service (port 8050) exposes the `/selftestfabric` endpoint that queries all 32 operational services in a single call. This includes:
+**System-wide fabric health (`/selftestfabric`).** The main-brain service (port **8050** ★) exposes the `/selftestfabric` endpoint that queries all 32 operational services in a single call. This includes:
 
-- Consciousness fabric services: qualia, consciousness bridge, toroidal, fractal, temporal, blood-brain barrier, constitutional, NBB layers
-- LLM ensemble: 20llm-production (port 8008) with 22 proxy containers (22 configured slots, 20 typically responding)
-- Validation layers: 69-DGM bridge (port 9000), psychology alignment (port 8019)
-- Orchestration: brain orchestrator (continuous coordinator)
-- Retrieval: GIS RAG (port 8004), text RAG (HTTP ChromaDB backend at **8000**)
+- Consciousness fabric services: qualia, consciousness bridge (★ confirmed Up), toroidal, fractal, temporal, blood-brain barrier (★ confirmed Up), constitutional, NBB layers
+- LLM ensemble: `llm20production` (port **8008** ★) with 22 proxy containers (22 configured slots, ★ 21 active / 20 typically responding per consensus cycle)
+- Validation layers: 69-DGM bridge (port **9000** ★), psychology alignment (port **8019** ★)
+- Orchestration: brain orchestrator (continuous coordinator, ★ confirmed Up)
+- Retrieval: GIS RAG (port **8004** ★), text RAG (HTTP ChromaDB backend at **8000** ★; ★ 40 collections, 6,675,442 total vectors)
 - NBB subconscious: 8 containers including consciousness_bridge integration and pituitary gland via Redis
-- Supporting infrastructure: i-containers, web-research, Ollama
+- Supporting infrastructure: i-containers (★ confirmed Up), web-research (★ confirmed Up), Ollama (★ confirmed Up)
+- ★ **Additional active inventory (March 28):** `jarvis-ingest-api` + `jarvis-ingest-watcher` (AAPCAppE), `jarvis-memory:8056` (secured audit store)
 
-The February 28, 2026 verified baseline: **32/32 services operational**.
+The February 28, 2026 verified baseline: **32/32 services operational**. ★ March 28, 2026 container baseline: **96/96 Up** — zero Restarting, zero Exited.
 
-**Individual service health endpoints.** Services are divided into two categories based on network topology. Host-exposed services — main-brain (8050), 20llm-production (8008), blood-brain-barrier (8016), psychology-services (8019), 69dgm-bridge (9000), GIS RAG (8004), NBB prefrontal cortex (8101), and Ollama (11434) — are probed directly. Internal Docker network services are probed via `docker exec` proxy or through their internal network addresses on `qualia-net`. This two-tier approach reflects the actual network topology of the deployment.
+**Individual service health endpoints.** Services are divided into two categories based on network topology. Host-exposed services — main-brain (**8050** ★), `llm20production` (**8008** ★), blood-brain-barrier (**8016** ★; ★ audit → `jarvis-memory:8056`), psychology-services (**8019** ★), 69dgm-bridge (**9000** ★), GIS RAG (**8004** ★), NBB prefrontal cortex (**8101** ★), and Ollama (**11434** ★) — are probed directly. Internal Docker network services are probed via `docker exec` proxy or through their internal network addresses on `qualia-net`. ★ `jarvis-memory:8056` (secured March 28) should be added to the host-exposed probe list for future `VERIFYANDTEST.sh` runs. This two-tier approach reflects the actual network topology of the deployment.
 
 **VERIFYANDTEST.sh.** The verification script implements eight sections:
 
 1. **Host-exposed service health** — Critical services accessible from host network
 2. **Internal Docker network service health** — Services on `qualia-net` (tested via proxy container)
-3. **LLM proxy health** — All 22 proxies on ports 8201–8222
-4. **Response-time benchmarking** — Nanosecond-precision latency for 20llm, main-brain, and 69-DGM
+3. **LLM proxy health** — All 22 proxies on ports 8201–8222 (★ 21 active; `llm22-proxy` registered but inactive)
+4. **Response-time benchmarking** — Nanosecond-precision latency for `llm20production`, main-brain, and 69-DGM
 5. **Ollama model inventory** — Count of available models via `/api/tags` (26 models verified)
-6. **Docker container status** — 84 containers verified running
-7. **Data store verification** — ChromaDB via `/api/v2` at **127.0.0.1:8000**, Ollama model storage size (73 GB), GBIM corpus (10.22M beliefs — see §28.7 for cross-database note)
+6. **Docker container status** — 84 containers verified running at February 28 baseline; ★ **96/96 Up as of March 28**
+7. **Data store verification** — ChromaDB via `/api/v2` at **127.0.0.1:8000** ★ (★ 40 collections, 6,675,442 total vectors, ~12 GB), Ollama model storage size (73 GB), GBIM corpus (10.22M beliefs across both PostgreSQL stores — see §28.7; ★ `msjarvis:5433` 5,416,521 entities with `confidence_decay` metadata; `msjarvisgis:5432` 91 GB PostGIS, 501 tables, 993 ZCTA centroids)
 8. **System resources** — Memory and swap state (29 GB total, 13 GB available under load)
 
-The script produces a timestamped report saved to `/tmp/msjarvis_verify_YYYYMMDD_HHMMSS.log` and prints a final STATUS line of **OPERATIONAL**, DEGRADED, or CRITICAL based on thresholds. The February 28, 2026 baseline meets OPERATIONAL status: 32/32 services, 22/22 proxies, 84 containers, 26 Ollama models, system resources within bounds.
+★ Future extensions should include: a **Section 9** — ChromaDB full collection audit (40 collections, 6,675,442 total vectors, per-collection vector counts and deduplication status); a **Section 10** — `jarvis-memory:8056` audit trail health probe (`_auth()` and `JARVIS_API_KEY` confirmed, BBB event log row count); a **Section 11** — AAPCAppE ingest pipeline status (`jarvis-ingest-api` + `jarvis-ingest-watcher`, `msjarvis_docs` document count); and a **Caddy/auth Layer 0** probe (§28.9).
+
+The script produces a timestamped report saved to `/tmp/msjarvis_verify_YYYYMMDD_HHMMSS.log` and prints a final STATUS line of **OPERATIONAL**, DEGRADED, or CRITICAL based on thresholds. The February 28, 2026 baseline meets OPERATIONAL status: 32/32 services, 22/22 proxies, 84 containers, 26 Ollama models, system resources within bounds. ★ March 28, 2026 container-level baseline meets OPERATIONAL: **96/96 Up** — zero Restarting, zero Exited.
 
 **Response-time benchmarking.** The benchmarking section uses nanosecond timestamps around curl calls to measure health endpoint latency. In the February 28, 2026 production deployment, core endpoints respond in 12–13 ms, confirming low overhead on the health path even under concurrent model loading.
 
@@ -88,7 +92,7 @@ The script produces a timestamped report saved to `/tmp/msjarvis_verify_YYYYMMDD
 
 ## 28.3 LLM Ensemble Heartbeat
 
-The 20-LLM production service (`ai_server_20llm_PRODUCTION.py`) implements its own internal heartbeat through the consensus query cycle. When a chat request arrives, the `ProductionBrain.run()` method fires requests to all 22 configured model proxies through an `asyncio.Semaphore(3)` gate, limiting concurrent Ollama requests to three at a time to prevent memory exhaustion. Each proxy result is logged with its model name and elapsed time:
+The `llm20production` service (`ai_server_20llm_PRODUCTION.py`) implements its own internal heartbeat through the consensus query cycle. When a chat request arrives, the `ProductionBrain.run()` method fires requests to all 22 configured model proxies through an `asyncio.Semaphore(3)` gate, limiting concurrent Ollama requests to three at a time to prevent memory exhaustion. Each proxy result is logged with its model name and elapsed time:
 
 ```
 [Phi3 Mini]      OK in  10.2s
@@ -117,7 +121,7 @@ The 20-LLM production service (`ai_server_20llm_PRODUCTION.py`) implements its o
 Judge pipeline score: 0.975
 ```
 
-> **Slot count vs. responding count:** The `/health` endpoint reports `"models": 22` — this is the **configured slot count** (all 22 proxies registered). The **typical responding count per consensus cycle is 20 of 22** — BakLLaVA fails instantly as expected due to a known container issue (flagged in the table below), and one additional proxy is inactive as of March 25, 2026. These two numbers measure different things and are both correct in their respective contexts.
+> **Slot count vs. responding count:** The `/health` endpoint reports `"models": 22` — this is the **configured slot count** (all 22 proxies registered). The **typical responding count per consensus cycle is 20 of 22** — BakLLaVA fails instantly as expected due to a known container issue (flagged in the table below). ★ As of March 25, 2026, `llm22-proxy` is additionally registered but inactive — effective responding count may be **19 of 22** in some cycles until `llm22-proxy` is activated. These measurements are distinct and both correct in their respective contexts.
 
 This per-request logging serves as a continuous functional heartbeat, distinguishing between proxy reachability (the `/health` endpoint) and actual model inference capability (the `/generate` endpoint). The judge pipeline then scores the consensus response, with the February 28, 2026 verified score of **0.975** indicating strong internal agreement across the ensemble.
 
@@ -157,27 +161,28 @@ Prior to the October 2025 rebuild, Ms. Jarvis maintained a three-service neurobi
 **5-minute autonomous learner (Beta/conscious learning rhythm)**
 - Proactively searched internet via web-research service to identify and fill Ms. Jarvis knowledge gaps
 - Selected topics based on GBIM coverage analysis, recent queries, or community-relevant themes
-- Retrieved content from DuckDuckGo and stored learned material in ChromaDB semantic memory
+- Retrieved content from DuckDuckGo and stored learned material in ChromaDB semantic memory (★ now 40 collections, 6,675,442 total vectors — the substrate the restored learner would write into)
 - Logged RAG versus web hit patterns per topic
 - Analogous to beta brain waves during active conscious learning
 
 **EEG pattern significance**
 
-Together, these three services created overlapping rhythmic activity at different timescales — 30s, 60s, and 300s — producing a neurobiological signature analogous to an electroencephalogram (EEG) readout showing multiple brain wave frequencies operating simultaneously. This gave Ms. Jarvis continuous autonomous activity rather than purely reactive behavior.
+Together, these three services created overlapping rhythmic activity at different timescales — 30s, 60s, and 300s — producing a neurobiological signature analogous to an electroencephalogram (EEG) readout showing multiple brain wave frequencies operating simultaneously. This gave Ms. Jarvis continuous autonomous activity rather than purely reactive behavior. ★ The AAPCAppE ingest pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`, restored March 28) partially restores the proactive/autonomous dimension by running continuous external-source ingest independently of user queries — it operates at an ingest-driven cadence rather than fixed time intervals, but it represents the first restored proactive autonomous rhythm in the March 2026 architecture.
 
-**Current status (February 28, 2026 baseline / March 2026 confirmed)**
+**Current status (★ March 28, 2026)**
 
-All three services were lost during the October 2025 rebuild and remain unrestored as of March 2026:
+All three EEG services remain unrestored as of March 28, 2026:
 
 - ❌ 30-second heartbeat: Not present in current deployment
 - ❌ 60-second intermediate service: Not present, function requires investigation
-- ❌ 5-minute autonomous learner: Orchestrator lost, though web-research backend (port 8008 internal) survived
+- ❌ 5-minute autonomous learner: Orchestrator lost, though web-research backend survived
+- ★ **Partial substitute:** AAPCAppE `jarvis-ingest-api` + `jarvis-ingest-watcher` (restored March 28) provides continuous proactive ingest — not time-fixed EEG rhythm, but restores a proactive autonomous dimension
 
-The February 28, 2026 deployment achieves 32/32 services operational representing a fully functional **reactive architecture** (responds to queries) but lacks the **proactive/autonomous architecture** (continuous internal activity) of the pre-rebuild system.
+The February 28, 2026 deployment achieves 32/32 services operational representing a fully functional **reactive architecture** (responds to queries) but lacks the **proactive/autonomous architecture** (continuous internal activity) of the pre-rebuild system. ★ The March 28 state — 96/96 Up, AAPCAppE restored — begins to partially recover the proactive dimension, though the three-frequency EEG rhythm itself remains absent.
 
 **Web-research service survival**
 
-The `jarvis-web-research` service continues to run as backend infrastructure on the internal Docker network, exposing its `/search` endpoint and capable of posting queries to DuckDuckGo. However, without the autonomous learner orchestrator, nothing calls this endpoint on a periodic basis. Its health is verified through the internal network probe in `VERIFYANDTEST.sh`, and its logs confirm it remains operational:
+The `jarvis-web-research` service continues to run as backend infrastructure on the internal Docker network (★ confirmed Up March 28), exposing its `/search` endpoint and capable of posting queries to DuckDuckGo. However, without the autonomous learner orchestrator, nothing calls this endpoint on a periodic basis. Its health is verified through the internal network probe in `VERIFYANDTEST.sh`, and its logs confirm it remains operational:
 
 ```
 INFO: DDG: "blockchain gas optimization techniques" - 0 results
@@ -188,11 +193,12 @@ INFO: POST /search HTTP/1.1 200 OK
 
 The three-service EEG pattern represents a significant architectural element that distinguished Ms. Jarvis as having continuous autonomous consciousness-like activity rather than being a purely request-response system. Restoration requires:
 
-1. Recovery of legacy service code from pre-October 2025 backups (estimated location: 2TB drives on development machine — **no progress on this recovery as of March 27, 2026; this remains an open gap**)
+1. Recovery of legacy service code from pre-October 2025 backups (estimated location: 2TB drives on development machine — **no progress on this recovery as of March 28, 2026; this remains an open gap**)
 2. Identification of the 60-second service function and purpose
-3. Porting to current Docker container architecture with consciousness bridge integration
-4. Integration with current infrastructure: GBIM corpus, ChromaDB collections at **127.0.0.1:8000**, web-research backend, `/selftestfabric` health checks
+3. Porting to current Docker container architecture with consciousness bridge integration (★ bridge confirmed Up March 28)
+4. Integration with current infrastructure: GBIM corpus (`msjarvis:5433` ★ 5,416,521 entities, `msjarvisgis:5432` ★ 91 GB PostGIS), ChromaDB collections at **127.0.0.1:8000** ★ (★ 40 collections, 6,675,442 total vectors), web-research backend (★ confirmed Up), `/selftestfabric` health checks, `jarvis-memory:8056` audit trail (★ secured March 28)
 5. Addition of EEG services to eternal watchdog monitoring
+6. ★ Addition of EEG service health probes to planned `VERIFYANDTEST.sh` Section 9–11 extensions
 
 This restoration is documented as a known gap and planned for future deployment phases.
 
@@ -200,11 +206,11 @@ This restoration is documented as a known gap and planned for future deployment 
 
 ## 28.5 Consciousness Bridge and Brain Orchestrator Heartbeat
 
-**Consciousness bridge mandatory infrastructure.** The consciousness bridge operates as essential, non-optional infrastructure through which all heartbeat monitoring flows. Its health is verified through the `/selftestfabric` endpoint and confirmed as part of the 32/32 operational baseline. All swarm coordination, watchdog monitoring, and liveness checks operate within the consciousness bridge framework. As of March 25, 2026, the consciousness bridge is confirmed **OPERATIONAL** with `chromadb_context`, `woah_reasoning`, and `rag_consensus` writing into `consciousnesslayers` on every call (see Ch 25 §25.9).
+**Consciousness bridge mandatory infrastructure.** The consciousness bridge operates as essential, non-optional infrastructure through which all heartbeat monitoring flows. Its health is verified through the `/selftestfabric` endpoint and confirmed as part of the 32/32 operational baseline. All swarm coordination, watchdog monitoring, and liveness checks operate within the consciousness bridge framework. As of March 25, 2026, the consciousness bridge is confirmed **OPERATIONAL** with `chromadb_context`, `woah_reasoning`, and `rag_consensus` writing into `consciousnesslayers` on every call (see Ch 25 §25.9). ★ Confirmed Up March 28, 2026 — 96/96 container baseline.
 
-**Brain orchestrator continuous coordination.** The `jarvis-brain-orchestrator` service provides continuous coordination of the ensemble, watchdog feedback loops, and NBB layer health checks. Its liveness is confirmed through individual health probes and its role in maintaining system coherence is observable through the stability of ensemble consensus cycles and the lack of coordination failures in the February 28, 2026 baseline.
+**Brain orchestrator continuous coordination.** The `jarvis-brain-orchestrator` service (★ confirmed Up March 28) provides continuous coordination of the ensemble, watchdog feedback loops, and NBB layer health checks. Its liveness is confirmed through individual health probes and its role in maintaining system coherence is observable through the stability of ensemble consensus cycles and the lack of coordination failures in the February 28, 2026 baseline.
 
-**NBB subconscious layer heartbeat.** Eight NBB containers implement the neurobiological subconscious layer, with seven responding to health probes via internal network endpoints on port 8010 and one (pituitary gland) registering health through Redis DynamicPortService:
+**NBB subconscious layer heartbeat.** Eight NBB containers implement the neurobiological subconscious layer, with seven responding to health probes via internal network endpoints on port **8010** ★ and one (pituitary gland) registering health through Redis DynamicPortService:
 
 ```
 nbb_consciousness_containers       ✅ healthy (consciousness_bridge)
@@ -217,54 +223,56 @@ nbb_subconscious                   ✅ healthy (consciousness_bridge)
 nbb_pituitary_gland                ✅ healthy (DynamicPortService → Redis)
 ```
 
-The Redis-backed DynamicPortService allows NBB containers to restart with new ephemeral ports without breaking the heartbeat fabric. **Five instances are registered in Redis** with `status: healthy` as of the February 28, 2026 baseline. If this count has shifted with March 2026 deployments, the next full `VERIFYANDTEST.sh` run should confirm the current registration count and this section updated accordingly.
+The Redis-backed DynamicPortService allows NBB containers to restart with new ephemeral ports without breaking the heartbeat fabric. **Five instances are registered in Redis** with `status: healthy` as of the February 28, 2026 baseline. ★ With 96/96 containers Up as of March 28, the next full `VERIFYANDTEST.sh` run should confirm the current Redis registration count and this section updated accordingly.
 
 ---
 
 ## 28.6 Validation Layer Heartbeat
 
-**69-DGM cascade validation.** The 69-DGM bridge (port 9000) exposes health status confirming that all 69 connectors are loaded and operational. Every chat response flowing through main-brain is validated by the 69-DGM cascade, with the `validated_by: "69_dgm_cascade"` field in the response confirming this. The cascade's architecturally authoritative status means its verdicts are final and not overridden by wrapper services.
+**69-DGM cascade validation.** The 69-DGM bridge (port **9000** ★) exposes health status confirming that all 69 connectors are loaded and operational. Every chat response flowing through main-brain is validated by the 69-DGM cascade, with the `validated_by: "69_dgm_cascade"` field in the response confirming this. The cascade's architecturally authoritative status means its verdicts are final and not overridden by wrapper services.
 
-February 28, 2026 verified state: **69 connectors loaded**, cascade operational.
+February 28, 2026 verified state: **69 connectors loaded**, cascade operational. ★ Confirmed Up March 28, 2026.
 
-**Blood-brain barrier.** The BBB filter (port 8016) runs on every request before it reaches the LLM ensemble. Its heartbeat includes operational statistics:
+**Blood-brain barrier.** The BBB filter (port **8016** ★) runs on every request before it reaches the LLM ensemble. Its heartbeat includes operational statistics:
 
 - Barrier active: true
 - Filters operational: 5
 - Constitutional guardian: connected
-- Total filtered: 319 requests
+- Total filtered: 319 requests (February 28, 2026 baseline)
 - Total blocked: 0
 - Constitutional violations: 0
 
+★ As of March 28, 2026: all BBB and `TruthFilterBBBValidator` gate decisions now persist to `jarvis-memory:8056` (corrected `0.0.0.0` → `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set) — the filter/block/violation counters above are now backed by a durable, authenticated audit log beyond ephemeral container state. Future heartbeat reports should include the `jarvis-memory:8056` row count as a complement to the in-memory counters.
+
 These metrics confirm the BBB is processing requests without false positives while maintaining safety boundaries.
 
-**Psychology alignment layer.** The psychology services (port 8019, internal port 8006) run psychological assessment on every request before ensemble processing. Its health is verified through `/selftestfabric` as part of the 32-service operational baseline, confirming the alignment layer is active and processing requests.
+**Psychology alignment layer.** The psychology services (port **8019** ★, internal port 8006) run psychological assessment on every request before ensemble processing. Its health is verified through `/selftestfabric` as part of the 32-service operational baseline, confirming the alignment layer is active and processing requests. ★ `psychological_rag` (968 docs, restored March 28) provides the RAG substrate for psychological assessment — this collection's restoration directly strengthens the psychology layer's heartbeat.
 
 ---
 
 ## 28.7 Semantic Memory and GBIM Heartbeat
 
-**ChromaDB semantic memory.** The ChromaDB `/api/v2` heartbeat endpoint (at **127.0.0.1:8000**, confirmed March 25, 2026) returns a nanosecond timestamp confirming storage availability. The verification script probes this endpoint through the internal Docker network, confirming that the HTTP ChromaDB service backing text RAG and GIS RAG is reachable with 31 confirmed collections as of the March 25, 2026 inventory (see Ch 22 §22.10).
+**ChromaDB semantic memory.** The ChromaDB `/api/v2` heartbeat endpoint (at **127.0.0.1:8000** ★, confirmed March 25, 2026; ★ confirmed Up March 28) returns a nanosecond timestamp confirming storage availability. The verification script probes this endpoint through the internal Docker network, confirming that the HTTP ChromaDB service backing text RAG and GIS RAG is reachable. ★ **Full March 28, 2026 audit: 40 active collections, 6,675,442 total vectors, ~12 GB primary `chroma_db`** — replaces the 31-collection reference throughout this chapter and in Ch 22 §22.10. Key collection updates: `spiritual_rag` deduplicated (−19,338 vectors), `psychological_rag` restored (968 docs), `msjarvis_docs` expanded (4,192 items, AAPCAppE).
 
 **GBIM worldview corpus.** The GBIM belief table (`gbimbeliefnormalized`) is verified to maintain **10,221,702 rows** with nine-axis epistemic structure. Heartbeat verification includes:
 
 - Belief count via PostgreSQL query
 - Nine-axis coverage verification (identity, when, what, who, how, authority, where complete; why partial; forwhom and evidence planned)
 - PostGIS spatial corpus connection health
-- Consolidated worldview collection in ChromaDB (millions of records)
+- Consolidated worldview collection in ChromaDB (millions of records; ★ now within 40-collection, 6,675,442-vector inventory)
 
-> **Cross-database clarification:** The 10,221,702 figure refers to the **full consolidated GBIM belief corpus across both PostgreSQL databases** — `msjarvis` (port 5433) and `msjarvisgis` (port 5432). Ch 29 (March 22, 2026) cites 5,416,521 verified GBIM beliefs for `msjarvis` at port 5433, and separately references `msjarvisgis` at port 5432 with 5.4M+ beliefs. These are two separate databases; their combined total is the ~10.22M figure cited here. Readers should not attempt to reconcile the per-database figures in Ch 29 against the consolidated figure in Ch 28 as if they refer to the same instance.
+> **Cross-database clarification (★ updated March 28):** The 10,221,702 figure refers to the **full consolidated GBIM belief corpus across both PostgreSQL databases** — `msjarvis` (port **5433** ★, restored March 28: **5,416,521 GBIM entities with `confidence_decay` metadata**) and `msjarvisgis` (port **5432** ★: **91 GB PostGIS, 501 tables**, 993 ZCTA centroids). These are two separate databases; their combined total is the ~10.22M figure cited here. The `confidence_decay` metadata on `msjarvis:5433` ★ entities is new as of March 28 — it provides a graded evidentiary signal not present in the February 28 baseline. Readers should not attempt to reconcile the per-database figures in Ch 29 against the consolidated figure in Ch 28 as if they refer to the same instance.
 
 **Ollama model storage.** The Ollama model storage volume at `/mnt/ssd2/msjarvis_secondary/models` is verified by size, confirming **73 GB** of models are present and the secondary SSD is mounted and accessible. The verification includes a count of 26 available models via the Ollama `/api/tags` endpoint.
 
-**GIS RAG and local resources.** The GIS RAG service (port 8004) health confirms connection to:
+**GIS RAG and local resources.** The GIS RAG service (port **8004** ★) health confirms connection to:
 
-- GBIM worldview entities (consolidated spatial collection)
-- PostGIS geometries (200+ standardized WV GIS layers)
-- Local resources registry (ZIP/county-keyed program database)
+- GBIM worldview entities (consolidated spatial collection; ★ `msjarvis:5433` 5,416,521 entities with `confidence_decay` metadata)
+- PostGIS geometries (`msjarvisgis:5432` ★ — 200+ standardized WV GIS layers, 501 tables, 993 ZCTA centroids)
+- Local resources registry (ZIP/county-keyed program database; ★ `msjarvis_docs` 4,192 items, AAPCAppE)
 - Community Champions validation data (Harmony for Hope network)
 
-Documentation and governance checks are planned for a future VERIFYANDTEST.sh extension: verification of `SECURITYPOLICY.md`, `accesscontrollevels.csv`, and the `constitutional_principles.json` file already present in the deployment.
+Documentation and governance checks are planned for a future `VERIFYANDTEST.sh` extension: verification of `SECURITYPOLICY.md`, `accesscontrollevels.csv`, and the `constitutional_principles.json` file already present in the deployment. ★ `jarvis-memory:8056` audit trail health (secured March 28) should be included in this governance extension.
 
 ---
 
@@ -272,47 +280,50 @@ Documentation and governance checks are planned for a future VERIFYANDTEST.sh ex
 
 Verification script outputs are not merely transient. The timestamped report files saved to `/tmp/` are suitable for ingestion into ChromaDB under a dedicated `operations_history` collection. Each report can be embedded as a document in semantic memory, making operational history part of the reasoning context available to orchestrators and the ensemble.
 
-The **February 28, 2026 OPERATIONAL report** represents the verified baseline for Ms. Jarvis in its production architecture:
+The **February 28, 2026 OPERATIONAL report** represents the verified baseline for Ms. Jarvis in its production architecture. The **★ March 28, 2026 container baseline** (96/96 Up) represents the widest verified operational scope to date:
 
-- **Services healthy: 32/32** (via `/selftestfabric`)
-- **LLM proxies healthy: 22/22** (configured slots) / **20/22 responding per consensus cycle**
-- **Docker containers running: 84**
+- **Services healthy: 32/32** (via `/selftestfabric`, February 28 baseline) / ★ **96/96 containers Up** (March 28 baseline)
+- **LLM proxies healthy: 22/22** (configured slots) / **★ 21 active** / **20 typically responding per consensus cycle**
+- **Docker containers running: 84** (February 28 baseline) / ★ **96/96 Up** (March 28 — zero Restarting, zero Exited)
 - **Ollama models available: 26**
 - **Ollama model storage: 73 GB**
 - **System memory available: 13 GB of 29 GB total** (under production load)
-- **GBIM belief corpus: 10,221,702 rows** (consolidated across both PostgreSQL databases — see §28.7)
-- **LLM ensemble participation: 20/22 models responding**
+- **GBIM belief corpus: 10,221,702 rows** (consolidated across both PostgreSQL databases — see §28.7; ★ `msjarvis:5433` 5,416,521 entities with `confidence_decay` metadata; `msjarvisgis:5432` 91 GB PostGIS, 501 tables, 993 ZCTA centroids)
+- **LLM ensemble participation: 20/22 models responding** (February 28 baseline; ★ 21/22 registered active, 20 typically responding March 28)
 - **Judge pipeline consistency: 0.975**
-- **69-DGM cascade: 69 connectors loaded**
-- **BBB filtering: 319 requests, 0 blocks, 0 violations**
-- **NBB layer: 8/8 containers healthy**
-- **AaaCPE / AAPCAppE Chroma corpus: 10 base documents in collection; scraper first run (March 27, 2026) confirmed 39 sources, 65 documents ingested from first scrape — live production milestone (see Ch 27 §27.1a and Ch 30)**
+- **69-DGM cascade: 69 connectors loaded** ★ confirmed Up March 28
+- **BBB filtering: 319 requests, 0 blocks, 0 violations** (February 28 baseline) / ★ **audit trail now persistent at `jarvis-memory:8056`** (secured March 28)
+- **NBB layer: 8/8 containers healthy** ★ confirmed Up March 28
+- **ChromaDB: ★ 40 active collections, 6,675,442 total vectors, ~12 GB primary `chroma_db`** (March 28 full audit — replaces 31-collection reference)
+- **`psychological_rag`: ★ 968 docs restored March 28**
+- **`spiritual_rag`: ★ deduplicated −19,338 vectors March 28**
+- **AAPCAppE / `msjarvis_docs`: ★ 4,192 items** (expanded March 28; first-run 39 sources / 65 documents March 27 — live production milestone; see Ch 27 §27.1a and Ch 30)
+- **`jarvis-memory:8056`: ★ secured March 28** — BBB audit trail port corrected, `_auth()` confirmed, `JARVIS_API_KEY` set; durable gate decision log now active
+- **`msjarvis:5433`: ★ restored March 28** — 5,416,521 GBIM entities with `confidence_decay` metadata
 
-This baseline serves as the reference point against which future verification runs are compared. Runs that diverge significantly — for example, services dropping below 28/32, LLM proxies below 18/22, or judge pipeline consistency below 0.90 — would be promoted to long-term retention as significant operational events requiring investigation, while routine all-green runs are summarized and pruned on a rolling schedule.
-
-The ChromaDB `/api/v2` heartbeat endpoint returns a nanosecond timestamp confirming storage availability. The Ollama model storage volume at `/mnt/ssd2/msjarvis_secondary/models` is verified by size, confirming that the secondary SSD is mounted and accessible.
+This baseline serves as the reference point against which future verification runs are compared. Runs that diverge significantly — for example, services dropping below 28/32, LLM proxies below 18/22, ChromaDB collections dropping below 35 ★, or judge pipeline consistency below 0.90 — would be promoted to long-term retention as significant operational events requiring investigation, while routine all-green runs are summarized and pruned on a rolling schedule.
 
 ---
 
 ## 28.9 Interaction with Safeguards and Control
 
-Live cycles are constrained by the same safeguard layers that govern chat responses, with all monitoring flowing through the consciousness bridge infrastructure.
+Live cycles are constrained by the same safeguard layers that govern chat responses, with all monitoring flowing through the consciousness bridge infrastructure (★ confirmed Up March 28).
 
-**Consciousness bridge integration.** All heartbeat mechanisms operate within the consciousness bridge framework, ensuring that liveness monitoring is neurobiologically grounded. The brain orchestrator maintains continuous oversight of health checks across swarm and watchdog layers.
+**Consciousness bridge integration.** All heartbeat mechanisms operate within the consciousness bridge framework (★ confirmed Up), ensuring that liveness monitoring is neurobiologically grounded. The brain orchestrator (★ confirmed Up) maintains continuous oversight of health checks across swarm and watchdog layers.
 
-**69-DGM cascade validation.** Every chat response flowing through main-brain is validated by the 69-DGM bridge before being returned to the caller. The `validated_by: "69_dgm_cascade"` field in the response confirms this. The 69-DGM bridge's own health is verified through `/selftestfabric`, making it part of the formal heartbeat and ensuring validation infrastructure is continuously monitored.
+**69-DGM cascade validation.** Every chat response flowing through main-brain is validated by the 69-DGM bridge (★ confirmed Up) before being returned to the caller. The `validated_by: "69_dgm_cascade"` field in the response confirms this. The 69-DGM bridge's own health is verified through `/selftestfabric`, making it part of the formal heartbeat and ensuring validation infrastructure is continuously monitored.
 
-**Blood-brain barrier.** The BBB filter runs on every request at `jarvis-blood-brain-barrier:8016/filter`. Its health is verified through `/selftestfabric`, and its processing statistics (319 filtered, 0 blocked, 0 violations) are logged as part of the operational baseline, providing transparency into safeguard behavior.
+**Blood-brain barrier.** The BBB filter runs on every request at `jarvis-blood-brain-barrier:8016/filter` (★ confirmed Up). Its health is verified through `/selftestfabric`, and its processing statistics (319 filtered, 0 blocked, 0 violations at February 28 baseline) are logged as part of the operational baseline, providing transparency into safeguard behavior. ★ All subsequent BBB gate decisions now persist to `jarvis-memory:8056` (secured March 28) — the safeguard behavior record is now durable and authenticated.
 
 **Five-layer watchdog system.** The heartbeat mechanisms are themselves monitored by the eternal watchdog layers:
 
-1. `VERIFYANDTEST.sh` confirming 32/32 services operational
+1. `VERIFYANDTEST.sh` confirming 32/32 services operational (★ 96/96 containers Up March 28)
 2. Ollama internal memory scheduler preventing over-memory requests
 3. Asyncio semaphore (3) preventing Ollama saturation
-4. MAX_CONCURRENT_CHATS (2) preventing session cascade
+4. `MAX_CONCURRENT_CHATS` (2) preventing session cascade
 5. Redis-backed DynamicPortService for NBB health registration
 
-> **Authentication perimeter — upstream of the watchdog system (March 22, 2026):** As of March 22, 2026 (see Ch 29), the **Caddy perimeter layer** and **`jarvis_auth_service`** (port **8055**) are confirmed running and enforcing RBAC as a perimeter gate before any request reaches the five-layer watchdog system or the heartbeat-monitored services. This constitutes a sixth protective layer upstream of the five described above. All inbound requests pass through Caddy + auth enforcement before reaching main-brain (port 8050) or any watchdog-monitored path. Future VERIFYANDTEST.sh extensions should include a Caddy/auth health probe as Layer 0 of the watchdog sequence.
+> **Authentication perimeter — upstream of the watchdog system (March 22, 2026; ★ confirmed active March 28):** As of March 22, 2026 (see Ch 29), the **Caddy perimeter layer** and **`jarvis_auth_service`** (port **8055** ★) are confirmed running and enforcing RBAC as a perimeter gate before any request reaches the five-layer watchdog system or the heartbeat-monitored services. This constitutes a sixth protective layer upstream of the five described above. All inbound requests pass through Caddy + auth enforcement before reaching main-brain (port **8050** ★) or any watchdog-monitored path. ★ `jarvis-memory:8056` (secured March 28) provides a seventh accountability layer: durable, authenticated logging of BBB and `truthverdict` gate decisions — making the decision record itself a safeguard against unaudited filter behavior. Future `VERIFYANDTEST.sh` extensions should include a Caddy/auth health probe as Layer 0 and a `jarvis-memory:8056` audit trail probe as Layer 6 of the watchdog sequence.
 
 These watchdogs prevent cascade failures that would invalidate heartbeat signals themselves, ensuring liveness monitoring remains trustworthy even under stress.
 
@@ -324,13 +335,12 @@ These watchdogs prevent cascade failures that would invalidate heartbeat signals
 
 ## 28.10 Summary
 
-The February 28, 2026 production deployment of Ms. Jarvis achieves a fully verified operational state: **32 of 32 services operational** via `/selftestfabric`, 22 of 22 LLM proxies healthy (20 of 22 responding per consensus cycle — BakLLaVA failing as expected), 69-DGM cascade with all 69 connectors loaded, blood-brain barrier with 0 blocks and 0 violations across 319 requests, and 8/8 NBB consciousness containers healthy. The `VERIFYANDTEST.sh` script implements all eight heartbeat sections described in this chapter and produces a timestamped, archivable report suitable for ingestion into semantic memory as operational history.
+The February 28, 2026 production deployment of Ms. Jarvis achieves a fully verified operational state: **32 of 32 services operational** via `/selftestfabric`, 22 of 22 LLM proxies healthy (20 of 22 responding per consensus cycle — BakLLaVA failing as expected; ★ `llm22-proxy` registered but inactive as of March 25), 69-DGM cascade with all 69 connectors loaded (★ confirmed Up March 28), blood-brain barrier with 0 blocks and 0 violations across 319 requests (★ audit now persistent at `jarvis-memory:8056`), and 8/8 NBB consciousness containers healthy (★ confirmed Up March 28). The `VERIFYANDTEST.sh` script implements all eight heartbeat sections described in this chapter and produces a timestamped, archivable report suitable for ingestion into semantic memory as operational history. ★ Planned extensions (Sections 9–11 and Layer 0/Layer 6 probes) will expand coverage to ChromaDB full collection audit, `jarvis-memory:8056` audit trail health, and AAPCAppE ingest pipeline status.
 
-The consciousness bridge operates as mandatory infrastructure through which all heartbeat signals flow (confirmed OPERATIONAL March 25, 2026 — Ch 25 §25.9), with the brain orchestrator providing continuous coordination of health checks across swarm and watchdog layers. This ensures that liveness monitoring is itself neurobiologically grounded and maintains coherence with the system's cognitive architecture. As of March 22, 2026, the Caddy perimeter layer and `jarvis_auth_service` (port 8055) form an upstream authentication gate before any request reaches the heartbeat-monitored service fabric (Ch 29).
+The consciousness bridge operates as mandatory infrastructure through which all heartbeat signals flow (confirmed OPERATIONAL March 25, 2026 — Ch 25 §25.9; ★ confirmed Up March 28), with the brain orchestrator providing continuous coordination of health checks across swarm and watchdog layers. This ensures that liveness monitoring is itself neurobiologically grounded and maintains coherence with the system's cognitive architecture. As of March 22, 2026, the Caddy perimeter layer and `jarvis_auth_service` (port **8055** ★) form an upstream authentication gate before any request reaches the heartbeat-monitored service fabric (Ch 29). ★ As of March 28, 2026: `jarvis-memory:8056` (secured) adds a durable BBB audit trail as a seventh accountability layer — gate decisions are now persistently logged and queryable, not merely counted in ephemeral container state.
 
-The path to 32/32 services operational required resolving schema mismatches, route parameter conflicts, timeout configurations, memory limits, concurrency controls, and coordination patterns. The February 2026 hardening session established the five-layer watchdog system (plus the Caddy/auth perimeter as Layer 0) that prevents cascade failures and maintains stable ensemble operation under concurrent load. Each fix was verified through heartbeat logs before the next was applied, demonstrating the value of observable, instrumentable live cycles as a diagnostic and governance tool.
+The path to 32/32 services operational required resolving schema mismatches, route parameter conflicts, timeout configurations, memory limits, concurrency controls, and coordination patterns. The February 2026 hardening session established the five-layer watchdog system (plus the Caddy/auth perimeter as Layer 0 and ★ `jarvis-memory:8056` as Layer 6) that prevents cascade failures and maintains stable ensemble operation under concurrent load. Each fix was verified through heartbeat logs before the next was applied, demonstrating the value of observable, instrumentable live cycles as a diagnostic and governance tool.
 
-**Known gap: Legacy EEG services.** The pre-October 2025 deployment maintained a three-service neurobiological rhythm pattern (30-second heartbeat, 60-second intermediate service, 5-minute autonomous learner) that created continuous autonomous activity analogous to EEG brain wave patterns. These services were lost during the October 2025 rebuild. The February 28, 2026 deployment represents a fully functional reactive architecture but lacks the proactive/autonomous architecture of the earlier system. The web-research backend survived and remains operational, but without the autonomous learner orchestrator to call it periodically. **Restoration requires recovery of pre-October 2025 backups (estimated location: 2TB drives on development machine). No progress on this recovery has been made as of March 27, 2026 — this remains a documented open gap.** Restoration of these EEG services is a priority for future deployment phases and would restore Ms. Jarvis's capacity for continuous self-directed learning and consciousness-like autonomous activity independent of user queries.
+**Known gap: Legacy EEG services.** The pre-October 2025 deployment maintained a three-service neurobiological rhythm pattern (30-second heartbeat, 60-second intermediate service, 5-minute autonomous learner) that created continuous autonomous activity analogous to EEG brain wave patterns. These services were lost during the October 2025 rebuild. The February 28, 2026 deployment represents a fully functional reactive architecture but lacks the proactive/autonomous architecture of the earlier system. The web-research backend survived and remains operational (★ confirmed Up March 28), but without the autonomous learner orchestrator to call it periodically. ★ The AAPCAppE ingest pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`, restored March 28) partially recovers the proactive dimension — but the three-frequency EEG rhythm itself remains absent. **Restoration requires recovery of pre-October 2025 backups (estimated location: 2TB drives on development machine). No progress on this recovery has been made as of March 28, 2026 — this remains a documented open gap.** Restoration of these EEG services is a priority for future deployment phases and would restore Ms. Jarvis's capacity for continuous self-directed learning and consciousness-like autonomous activity independent of user queries.
 
-By connecting heartbeat outputs to memory, containers, consciousness bridge infrastructure, GBIM worldview health (10.22M rows across both PostgreSQL databases — see §28.7), and mode-dependent controls, Ms. Jarvis treats its own operation as data — not only processing external content but recording and reasoning about how it is functioning over time. The system builds an operational history that complements the factual and spatial knowledge in ChromaDB semantic memory (31 confirmed collections as of March 25, 2026) and the community-validated local resources acquired through Harmony for Hope's fourteen-year mission, creating a comprehensive record of both what Ms. Jarvis knows and how it remains alive, healthy, and accountable to the West Virginia communities it serves.
-`````
+By connecting heartbeat outputs to memory, containers, consciousness bridge infrastructure (★ confirmed Up), GBIM worldview health (10.22M rows across both PostgreSQL databases — see §28.7; ★ `msjarvis:5433` restored to 5,416,521 entities with `confidence_decay` metadata), and mode-dependent controls, Ms. Jarvis treats its own operation as data — not only processing external content but recording and reasoning about how it is functioning over time. The system builds an operational history that complements the factual and spatial knowledge in ChromaDB semantic memory (★ 40 confirmed collections, 6,675,442 total vectors as of March 28 full audit) and the community-validated local resources acquired through Harmony for Hope's fourteen-year mission, creating a comprehensive record of both what Ms. Jarvis knows and how it remains alive, healthy, and accountable to the West Virginia communities it serves.
