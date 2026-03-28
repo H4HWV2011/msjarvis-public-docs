@@ -1,7 +1,7 @@
 # Chapter 19 — Container Architecture and Routing
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: March 25, 2026 — jarvis-rag-server port mapping corrected (8003→8016 internal); env vars documented; orphaned container warning added; qualia-net topology confirmed*
+*Last updated: March 27, 2026 — §19.9 Ch. 30 audit table forward cross-reference added; §19.8.10 ms_jarvis_memory ChromaDB collection row added with UUID; §19.8.8a EMBED_MODEL nomic-embed-text contradiction corrected; §19.11 jarvis-neurobiological-master qualia-net note added; §19.15 OI-05 conversation memory row added*
 
 ---
 
@@ -137,12 +137,12 @@ This section is the authoritative operational state as of March 25, 2026. The to
 
 > **⚠️ Documented March 25, 2026:** Running `docker compose up -d` from the `msjarvis-rebuild` project directory will produce a warning similar to:
 
+```
 WARN Found orphan containers (nbb_woah_algorithms, nbb_i_containers,
 llm1-proxy, llm2-proxy, ... llm22-proxy) for this project.
 If you removed or renamed this service in your compose file, you can run
 this command with the --remove-orphans flag to clean it up.
-
-text
+```
 
 **This is expected behavior.** The `nbb_*` containers and `llm*-proxy` containers are managed by a **separate compose file** in a different project directory. They are not orphans in the true sense — they are intentionally running services from a different compose project that happen to share the same Docker host.
 
@@ -177,24 +177,24 @@ docker ps | grep llm.*proxy | wc -l
 
 The Caddy reverse proxy is the **outermost layer** of the routing stack. See Chapter 16, §16.3 for current status including OI-36-A (auth enforcement gap).
 
+```
 ┌──────────────────────────────────────────────────────────────────┐
-│ Caddy Perimeter Layer — March 25, 2026 │
+│ Caddy Perimeter Layer — March 25, 2026                          │
 ├──────────────────────────────────────────────────────────────────┤
-│ Port: 8443 (public-facing, HTTPS) │
-│ Log path: /var/log/caddy/jarvis_redteam.log │
-│ │
-│ Route: /chat* │
-│ → 127.0.0.1:8050 (unified gateway) │
-│ ⚠ Token enforcement not active at proxy level (OI-36-A) │
-│ │
-│ Route: /auth*, /feedback*, /chat/status* │
-│ → 127.0.0.1:8055 (jarvis_auth_service) │
-│ │
-│ Route: /health*, /systems* │
-│ → 127.0.0.1:8050 (unified gateway) │
+│ Port: 8443 (public-facing, HTTPS)                               │
+│ Log path: /var/log/caddy/jarvis_redteam.log                     │
+│                                                                  │
+│ Route: /chat*                                                    │
+│   → 127.0.0.1:8050 (unified gateway)                            │
+│   ⚠ Token enforcement not active at proxy level (OI-36-A)      │
+│                                                                  │
+│ Route: /auth*, /feedback*, /chat/status*                        │
+│   → 127.0.0.1:8055 (jarvis_auth_service)                        │
+│                                                                  │
+│ Route: /health*, /systems*                                       │
+│   → 127.0.0.1:8050 (unified gateway)                            │
 └──────────────────────────────────────────────────────────────────┘
-
-text
+```
 
 ---
 
@@ -214,20 +214,20 @@ text
 
 ### 19.8.3 Core Orchestration Layer
 
-Container Port Mapping Role
+```
+Container                Port Mapping    Role
 ─────────────────────────────────────────────────────────────────────
-jarvis-main-brain 8051→8050 External API entry point:
-/chat, /chat_async — 30s TTL
-health-check cache, Phase 1.45
-community memory retrieval,
-service orchestration,
-Redis-backed async job mgmt,
-RAG queueing to ChromaDB backed
-by PostgreSQL GBIM; routes
-mode:landowner_gbim queries to
-gbim_query_router
-
-text
+jarvis-main-brain        8051→8050       External API entry point:
+                                         /chat, /chat_async — 30s TTL
+                                         health-check cache, Phase 1.45
+                                         community memory retrieval,
+                                         service orchestration,
+                                         Redis-backed async job mgmt,
+                                         RAG queueing to ChromaDB backed
+                                         by PostgreSQL GBIM; routes
+                                         mode:landowner_gbim queries to
+                                         gbim_query_router
+```
 
 The `jarvis-main-brain` container hosts the Ms. Jarvis ULTIMATE main-brain FastAPI application. It exposes `health`, `/chat`, `/chat_async`, `/chat_status/{job_id}`, `/chat_cancel/{job_id}`, and `/chat_cancel_all` endpoints. Health checks use a 30s TTL cache with 2s per-service timeout. Async job state persists in Redis with 30-minute TTL and survives container restarts.
 
@@ -237,20 +237,20 @@ The `jarvis-main-brain` container hosts the Ms. Jarvis ULTIMATE main-brain FastA
 
 > **⚠️ BBB container architecture — verified March 25, 2026:** There is **one** BBB container: `jarvis-blood-brain-barrier` at **port 8016**. Port 8017 (`bbb-output-filter`) does **not exist**. Both input filtering (Phase 1.4) and output filtering (Phase 4.5) are handled by the single service at port 8016. See Chapter 16 for full specification including Phase 4.5 log+passthrough mode (OI-02) and OI-36-A auth gap.
 
-Container Port Mapping Role
+```
+Container                Port Mapping    Role
 ─────────────────────────────────────────────────────────────────────
-jarvis-blood-brain- 8016→8016 Single BBB container.
-barrier Phase 1.4: constitutional
-input filter (BLOCKING) —
-6 filters stable March 22–25.
-Phase 4.5: output filter
-(LOG+PASSTHROUGH — OI-02).
-Fail-open on HTTP 500.
+jarvis-blood-brain-      8016→8016       Single BBB container.
+barrier                                  Phase 1.4: constitutional
+                                         input filter (BLOCKING) —
+                                         6 filters stable March 22–25.
+                                         Phase 4.5: output filter
+                                         (LOG+PASSTHROUGH — OI-02).
+                                         Fail-open on HTTP 500.
 
-jarvis-bbb-ethics-proxy — Ethics routing shim —
-bbb_ethics_proxy.py
-
-text
+jarvis-bbb-ethics-proxy  —               Ethics routing shim —
+                                         bbb_ethics_proxy.py
+```
 
 *See Chapter 16 for full BBB architecture.*
 
@@ -258,66 +258,66 @@ text
 
 ### 19.8.5 LLM Ensemble and Synthesis
 
-Container Port Mapping Role
+```
+Container                Port Mapping    Role
 ─────────────────────────────────────────────────────────────────────
-jarvis-20llm-production 8008→8008 22-proxy LLM ensemble
-(22 proxies; 21 active;
-StarCoder2 returns 0-char
-on community queries)
+jarvis-20llm-production  8008→8008       22-proxy LLM ensemble
+                                         (22 proxies; 21 active;
+                                         StarCoder2 returns 0-char
+                                         on community queries)
 
-jarvis-llm22-proxy 8030→8030 Semaphore proxy for
-(semaphore) jarvis-20llm-production;
-max_tokens: -1, unlimited output
+jarvis-llm22-proxy       8030→8030       Semaphore proxy for
+(semaphore)                              jarvis-20llm-production;
+                                         max_tokens: -1, unlimited output
 
-jarvis-lm-synthesizer 8001 internal LM Synthesizer — calls
-jarvis-ollama:11434/api/generate
-with llama3.1:latest; Ms. Jarvis
-persona prompt merged; Phase 3.5
-/ 3.75 single pass
+jarvis-lm-synthesizer    8001 internal   LM Synthesizer — calls
+                                         jarvis-ollama:11434/api/generate
+                                         with llama3.1:latest; Ms. Jarvis
+                                         persona prompt merged; Phase 3.5
+                                         / 3.75 single pass
 
-jarvis-web-research 8009→8009 External knowledge retrieval;
-excluded for landowner_gbim mode
-
-text
+jarvis-web-research      8009→8009       External knowledge retrieval;
+                                         excluded for landowner_gbim mode
+```
 
 ---
 
 ### 19.8.6 Judge Pipeline (compose-managed, all ports bound to 127.0.0.1)
 
-Container Internal Port Source File Role
+```
+Container                  Internal Port  Source File                    Role
 ───────────────────────────────────────────────────────────────────────────
-jarvis-judge-pipeline 7239 services/judgepipeline.py Coordinator;
-POST /evaluate;
-asyncio.gather
-aggregation;
-bbb_check_verdict
-live httpx POST
+jarvis-judge-pipeline      7239           services/judgepipeline.py      Coordinator;
+                                                                          POST /evaluate;
+                                                                          asyncio.gather
+                                                                          aggregation;
+                                                                          bbb_check_verdict
+                                                                          live httpx POST
 
-jarvis-judge-truth 7230 services/judgetruthfilter.py Truth eval;
-heuristic_
-contradiction_v1
+jarvis-judge-truth         7230           services/judgetruthfilter.py   Truth eval;
+                                                                          heuristic_
+                                                                          contradiction_v1
 
-jarvis-judge-consistency 7231 services/judgeconsistency Internal
-engine.py coherence;
-contradiction
-detection
+jarvis-judge-consistency   7231           services/judgeconsistency       Internal
+                                          engine.py                       coherence;
+                                                                          contradiction
+                                                                          detection
 
-jarvis-judge-alignment 7232 services/judgealignment Ms. Jarvis
-filter.py identity
-adherence;
-community values
+jarvis-judge-alignment     7232           services/judgealignment         Ms. Jarvis
+                                          filter.py                       identity
+                                                                          adherence;
+                                                                          community values
 
-jarvis-judge-ethics 7233 services/judgeethics Harm screening;
-filter.py spiritual
-appropriateness
+jarvis-judge-ethics        7233           services/judgeethics            Harm screening;
+                                          filter.py                       spiritual
+                                                                          appropriateness
 
-jarvis-69dgm-bridge 9000 — 69-DGM cascade;
-23-connector
-3-stage; validates
-every production
-response
-
-text
+jarvis-69dgm-bridge        9000           —                               69-DGM cascade;
+                                                                          23-connector
+                                                                          3-stage; validates
+                                                                          every production
+                                                                          response
+```
 
 All five judge service containers are compose-managed with `restart: unless-stopped`. Ghost file `COPY lmsynthesizer.py app` line fully removed from `services/Dockerfile.judge` on March 22, 2026; `--no-cache` rebuild completed. ML-DSA-65 signing: **FULLY ACTIVE** — `sprint1_activate_signing.py` ran 19 PASS, 0 FAIL on March 22, 2026.
 
@@ -325,77 +325,77 @@ All five judge service containers are compose-managed with `restart: unless-stop
 
 ### 19.8.7 Memory, Learning, and Optimization Services
 
-Container Port Mapping Role
+```
+Container                  Port Mapping   Role
 ───────────────────────────────────────────────────────────────────
-jarvis-autonomous-learner 8053→8053 Autonomous learning;
-21,181 records growing
-≈288/day from March 14
-baseline
+jarvis-autonomous-learner  8053→8053      Autonomous learning;
+                                          21,181 records growing
+                                          ≈288/day from March 14
+                                          baseline
 
-jarvis-i-containers 8115→8015 Container orchestration;
-storage of curated
-knowledge items
+jarvis-i-containers        8115→8015      Container orchestration;
+                                          storage of curated
+                                          knowledge items
 
-jarvis-fifth-dgm 4002→4002 Darwin-Gödel-style
-optimization and filtering
+jarvis-fifth-dgm           4002→4002      Darwin-Gödel-style
+                                          optimization and filtering
 
-jarvis-neurobiological- 8118→8018 Higher-level coordination
-master among neurobiological modules
-⚠ Unreachable March 25
-sprint — open item
+jarvis-neurobiological-    8118→8018      Higher-level coordination
+master                                    among neurobiological modules
+                                          ⚠ Unreachable March 25
+                                          sprint — open item
 
-jarvis-hippocampus 8011→8011 Hippocampal consolidation;
-GBIM beliefs → ChromaDB
-pipeline; added to compose
-March 17
-
-text
+jarvis-hippocampus         8011→8011      Hippocampal consolidation;
+                                          GBIM beliefs → ChromaDB
+                                          pipeline; added to compose
+                                          March 17
+```
 
 ---
 
 ### 19.8.8 RAG Domain Services
 
-Container Port Mapping Role
+```
+Container                  Port Mapping   Role
 ───────────────────────────────────────────────────────────────────
-jarvis-rag-server 8003→8016 Text RAG — direct_rag path.
-⚠ CORRECTED March 25, 2026:
-host 8003 maps to container-
-internal uvicorn listener on
-port 8016. Mapping is
-127.0.0.1:8003:8016.
-See §19.8.8a for required
-env vars.
+jarvis-rag-server          8003→8016      Text RAG — direct_rag path.
+                                          ⚠ CORRECTED March 25, 2026:
+                                          host 8003 maps to container-
+                                          internal uvicorn listener on
+                                          port 8016. Mapping is
+                                          127.0.0.1:8003:8016.
+                                          See §19.8.8a for required
+                                          env vars.
 
-jarvis-gis-rag 8004→8004 GIS spatial RAG queries;
-geospatialfeatures;
-PostgreSQL GeoDB
+jarvis-gis-rag             8004→8004      GIS spatial RAG queries;
+                                          geospatialfeatures;
+                                          PostgreSQL GeoDB
 
-jarvis-spiritual-rag 8005→8005 Spiritual/cultural RAG;
-spiritualtexts collection
+jarvis-spiritual-rag       8005→8005      Spiritual/cultural RAG;
+                                          spiritualtexts collection
 
-jarvis-psychology-services 8019→8019 Psychological safety
-services; Phase 3
-pre-assessment
+jarvis-psychology-services 8019→8019      Psychological safety
+                                          services; Phase 3
+                                          pre-assessment
 
-psychological-rag-domain 8006→8006 Psychological RAG domain;
-psychological_rag;
-968 records
+psychological-rag-domain   8006→8006      Psychological RAG domain;
+                                          psychological_rag;
+                                          968 records
 
-gbim_query_router 7205→7205 GBIM landowner belief
-query router.
-PostgreSQL-native path ONLY.
-Queries mvw_gbim_landowner_
-spatial in msjarvisgis (port
-5432) via SQL aggregation.
-proposition_codes:
-LANDOWNER_CORPORATE,
-LANDOWNER_GOVERNMENT.
-worldview: eq1.
-20,593 verified landowner
-beliefs. NO ChromaDB —
-bypassed entirely.
-
-text
+gbim_query_router          7205→7205      GBIM landowner belief
+                                          query router.
+                                          PostgreSQL-native path ONLY.
+                                          Queries mvw_gbim_landowner_
+                                          spatial in msjarvisgis (port
+                                          5432) via SQL aggregation.
+                                          proposition_codes:
+                                          LANDOWNER_CORPORATE,
+                                          LANDOWNER_GOVERNMENT.
+                                          worldview: eq1.
+                                          20,593 verified landowner
+                                          beliefs. NO ChromaDB —
+                                          bypassed entirely.
+```
 
 ---
 
@@ -426,8 +426,10 @@ jarvis-rag-server:
 | Variable | Correct value | Default if absent | Consequence of missing |
 |---|---|---|---|
 | `OLLAMA_HOST` | `http://jarvis-ollama:11434` | `http://ollama:11434` | Container attempts to connect to `ollama` (non-existent hostname) — all embedding calls fail with connection error |
-| `EMBED_MODEL` | `nomic-embed-text` | `mxbai-embed-large` | Attempts to use `mxbai-embed-large`, which is not loaded in the Ollama instance — all embedding calls fail with model-not-found error |
+| `EMBED_MODEL` | `all-minilm:latest` | `mxbai-embed-large` | Attempts to use `mxbai-embed-large`, which is not loaded in the Ollama instance — all embedding calls fail with model-not-found error |
 | `CHROMA_HOST` | `http://jarvis-chroma:8000` | varies | ChromaDB connections fail or route to wrong host |
+
+> **⚠️ EMBED_MODEL correction (March 27, 2026):** The compose file currently shows `EMBED_MODEL=nomic-embed-text`. `nomic-embed-text` produces **768-dim** vectors and is **incompatible** with all existing ChromaDB collections (384-dim). **Do not use `nomic-embed-text` with existing collections.** If `nomic-embed-text` is not loaded in Ollama, update `EMBED_MODEL` to `all-minilm:latest`. All existing collections are 384-dim — `all-minilm:latest` is the only supported embedding model.
 
 > **If these env vars are missing or incorrect, `jarvis-rag-server` will silently appear to start but will fail on every embedding request.** The container will be RUNNING but non-functional. Always verify env vars are present after any compose file edit affecting this service.
 
@@ -506,63 +508,64 @@ All 22 proxies route through `jarvis-20llm-production` (port 8008) via the semap
 
 ### 19.8.10 Data Persistence and Semantics
 
-Container Port Mapping Role
+```
+Container                  Port Mapping   Role
 ───────────────────────────────────────────────────────────────────
-jarvis-chroma 8000→8000 Canonical ChromaDB instance;
-chromadata volume; 384-dim
-all-minilm:latest.
-On qualia-net (confirmed
-March 25). v2 API active
-(/api/v2/heartbeat → 200).
-LANDOWNER BELIEFS NOT STORED
-HERE.
+jarvis-chroma              8000→8000      Canonical ChromaDB instance;
+                                          chromadata volume; 384-dim
+                                          all-minilm:latest.
+                                          On qualia-net (confirmed
+                                          March 25). v2 API active
+                                          (/api/v2/heartbeat → 200).
+                                          LANDOWNER BELIEFS NOT STORED
+                                          HERE.
 
-postgresql-msjarvis 5433→5433 PostgreSQL 16; GBIM beliefs;
-5,416,521 entities, normalized
-beliefs, temporal decay
+postgresql-msjarvis        5433→5433      PostgreSQL 16; GBIM beliefs;
+                                          5,416,521 entities, normalized
+                                          beliefs, temporal decay
 
-postgresql-gisdb 5432→5432 PostgreSQL 16 + PostGIS; 91 GB,
-(msjarvisgis) 501 tables; 5,416,522 rows in
-gbim_belief_normalized incl.
-20,593 landowner beliefs;
-mvw_gbim_landowner_spatial live
+postgresql-gisdb           5432→5432      PostgreSQL 16 + PostGIS; 91 GB,
+(msjarvisgis)                             501 tables; 5,416,522 rows in
+                                          gbim_belief_normalized incl.
+                                          20,593 landowner beliefs;
+                                          mvw_gbim_landowner_spatial live
 
-jarvis-local-resources-db 5435→5435 Community resources database;
-building_parcel_county_tax_mv:
-7,354,707 rows
+jarvis-local-resources-db  5435→5435      Community resources database;
+                                          building_parcel_county_tax_mv:
+                                          7,354,707 rows
 
-jarvis-redis 6379→6379 Redis; async job state, 30-min
-TTL; idempotency TTL 1,800s;
-health cache
+jarvis-redis               6379→6379      Redis; async job state, 30-min
+                                          TTL; idempotency TTL 1,800s;
+                                          health cache
 
-jarvis-ollama 11434→11434 Ollama LLM backend;
-all-minilm:latest 384-dim
-embeddings; llama3.1:latest LM
-Synthesizer; all 22 model
-proxies. On qualia-net
-(confirmed March 25).
-
-text
+jarvis-ollama              11434→11434    Ollama LLM backend;
+                                          all-minilm:latest 384-dim
+                                          embeddings; llama3.1:latest LM
+                                          Synthesizer; all 22 model
+                                          proxies. On qualia-net
+                                          (confirmed March 25).
+```
 
 **Canonical ChromaDB collections — March 25, 2026 (all 384-dim via `all-minilm:latest`):**
 
-| Collection | Records | Notes |
-|---|---|---|
-| `gbim_worldview_entities` | 5,416,521 | Complete WV GBIM spatial corpus |
-| `autonomous_learner` | 21,181 | Growing ≈288/day; Phase 1.45 active retrieval on every chat |
-| `psychological_rag` | 968 | Psychological domain RAG |
-| `spiritual_texts` | 23 | Spiritual/cultural domain RAG |
-| `appalachian_cultural_intelligence` | 5 | Appalachian cultural intelligence |
-| `GBIM_sample_rows` | 5,000 | GBIM sample rows |
-| `GBIM_sample` | 3 | GBIM sample |
-| `msjarvis-smoke` | 1 | Smoke test record |
-| `msjarvis_docs` | 0 | Scaffolded — pending ingest |
-| `GBIM_Fayette_sample` | 0 | Scaffolded — pending ingest |
-| `geospatial_features` | 0 | Scaffolded — pending backfill ingest |
+| Collection | UUID | Records | Notes |
+|---|---|---|---|
+| `gbim_worldview_entities` | — | 5,416,521 | Complete WV GBIM spatial corpus |
+| `autonomous_learner` | — | 21,181 | Growing ≈288/day; Phase 1.45 active retrieval on every chat |
+| `ms_jarvis_memory` | `79240788-0828-45f3-b1bc-a9a3593628a6` | — | Consciousness bridge collection — UUID hardcoded in bridge service. **⚠️ UUID preservation risk:** If ChromaDB is rebuilt, this UUID must be re-registered manually or the consciousness bridge will fail to locate the collection. See Ch. 22 §22.10 for full UUID preservation procedures. |
+| `psychological_rag` | — | 968 | Psychological domain RAG |
+| `spiritual_texts` | — | 23 | Spiritual/cultural domain RAG |
+| `appalachian_cultural_intelligence` | — | 5 | Appalachian cultural intelligence |
+| `GBIM_sample_rows` | — | 5,000 | GBIM sample rows |
+| `GBIM_sample` | — | 3 | GBIM sample |
+| `msjarvis-smoke` | — | 1 | Smoke test record |
+| `msjarvis_docs` | — | 0 | Scaffolded — pending ingest |
+| `GBIM_Fayette_sample` | — | 0 | Scaffolded — pending ingest |
+| `geospatial_features` | — | 0 | Scaffolded — pending backfill ingest |
 
 **⚠️ LANDOWNER BELIEFS (`LANDOWNER_CORPORATE`, `LANDOWNER_GOVERNMENT`) are NOT in ChromaDB.** They are served exclusively by `gbim_query_router` (port 7205) via `mvw_gbim_landowner_spatial` in `msjarvisgis`. 20,593 records. PostgreSQL-native path only.
 
-**Critical:** `nomic-embed-text` produces 768-dim vectors and is **incompatible** with all existing collections. Only `all-minilm:latest` (384-dim) may be used for any ChromaDB embedding generation. Note: `jarvis-rag-server` env var `EMBED_MODEL=nomic-embed-text` is a named model that must be loaded in the Ollama instance — verify it resolves to a 384-dim-compatible model in your Ollama configuration, or update `EMBED_MODEL` to `all-minilm:latest` if nomic-embed-text is not loaded.
+**Critical embedding model constraint:** `nomic-embed-text` produces 768-dim vectors and is **incompatible** with all existing collections. **Do not use `nomic-embed-text` with existing collections.** If `nomic-embed-text` is not loaded in Ollama, update `EMBED_MODEL` to `all-minilm:latest`. All existing collections are 384-dim — only `all-minilm:latest` may be used for any ChromaDB embedding generation.
 
 ---
 
@@ -573,10 +576,12 @@ The following three containers have been **removed from the service inventory** 
 | Container | Port | Reason for removal |
 |---|---|---|
 | `jarvis-crypto-policy` | 8099 | Orphaned — crypto policy functionality consolidated into `jarvis_auth_service` and `bbb-input-filter`. Not in compose. Not referenced in any active service path. |
-| `jarvis-ingest-api` | — | Orphaned — ingest API functionality superseded by direct pipeline ingestion via `gbim_query_router` and PostgreSQL-native paths. Not in compose. |
-| `jarvis-ingest-watcher` | — | Orphaned — ingest watcher functionality superseded by scheduled PostgreSQL materialized view refresh and `autonomous_learner` pipeline. Not in compose. |
+| `jarvis-ingest-api` | — | Orphaned — not in compose, not in active service paths as of March 22, 2026 inventory audit. |
+| `jarvis-ingest-watcher` | — | Orphaned — not in compose, not in active service paths as of March 22, 2026 inventory audit. |
 
 If these container names appear in any script, they should be treated as stale references and updated.
+
+> **⚠️ Ch. 30 audit table cross-reference (March 27, 2026):** The Ch. 30 AAPCAppE audit table lists `jarvis-ingest-api` and `jarvis-ingest-watcher` as ⚠️ "Stub only" containers scoped to the AAPCAppE corpus ingestion intent. That status reflects the Ch. 30 AAPCAppE corpus stub tracking context — it is **not** a reference to these containers as active infrastructure in the Ch. 19 service inventory. These containers are not the ingest pathway for any live service in the current stack. See Ch. 30 and OI-30 for AAPCAppE corpus completion tracking.
 
 ---
 
@@ -610,29 +615,37 @@ All consciousness pipeline services are confirmed on `qualia-net`. The following
 | Consciousness Bridge | `jarvis-consciousness-bridge` | 8018 (actual) | ✅ Confirmed — source at `/app/services/msjarvisconsciousnessbridge.py` |
 | RAG server | `jarvis-rag-server` | 8016 (internal) | ✅ Confirmed — host maps as 8003→8016 |
 | Ollama | `jarvis-ollama` | 11434 | ✅ Confirmed — reachable from qualia-net as `http://jarvis-ollama:11434` |
+| Neurobiological Master | `jarvis-neurobiological-master` | 8018 | ⚠️ Targeted for qualia-net confirmation — currently unreachable as of March 25, 2026 sprint |
+
+> **`jarvis-neurobiological-master` (port 8018)** is the higher-level neurobiological coordination service (see §19.8.7). It is targeted for qualia-net confirmation in a future sprint but was unreachable during the March 25, 2026 sprint. Its qualia-net membership and health status remain open items. Do not route consciousness pipeline traffic through this service until connectivity is confirmed.
 
 > **DNS resolution note:** DNS resolution between services on qualia-net uses Docker's embedded DNS. Container names resolve to their qualia-net IPs. If DNS resolution fails for any of the above services, confirm the container is **running** — DNS cannot resolve a stopped or exiting container regardless of network configuration. (This was the root cause of the `jarvis-woah` DNS failure prior to March 25 — the container was exiting, not a network misconfiguration. See Chapter 10.)
 
 **Network topology diagram — qualia-net (March 25, 2026):**
 
+```
 qualia-net (172.18.0.0/16)
 ─────────────────────────────────────────
-│
-┌───────────────────┼───────────────────────┐
-│ │ │
-jarvis-woah jarvis-chroma jarvis-ollama
-:7012 ✅ :8000 ✅ :11434 ✅
-(stdlib stub) (v2 API) (embeddings +
-LLM inference)
-│ │
-jarvis-consciousness- jarvis-rag-server
-bridge :8016 (internal) ✅
-:8018 (actual) ✅ host: 8003→8016
-source: /app/services/ OLLAMA_HOST=http://jarvis-ollama:11434
-msjarvisconsciousness EMBED_MODEL=nomic-embed-text
-bridge.py CHROMA_HOST=http://jarvis-chroma:8000
+                │
+┌───────────────┼───────────────────────┐
+│               │                       │
+jarvis-woah    jarvis-chroma        jarvis-ollama
+:7012 ✅        :8000 ✅              :11434 ✅
+(stdlib stub)   (v2 API)             (embeddings +
+                │                    LLM inference)
+                │
+jarvis-consciousness-   jarvis-rag-server
+bridge                  :8016 (internal) ✅
+:8018 (actual) ✅        host: 8003→8016
+source: /app/services/  OLLAMA_HOST=http://jarvis-ollama:11434
+msjarvisconsciousness   EMBED_MODEL=all-minilm:latest (see §19.8.8a)
+bridge.py               CHROMA_HOST=http://jarvis-chroma:8000
 
-text
+jarvis-neurobiological-master
+:8018 (targeted)
+⚠️ Unreachable March 25, 2026 sprint
+qualia-net confirmation pending
+```
 
 **Services dict in `jarvis-consciousness-bridge` (confirmed March 25, 2026):**
 
@@ -701,7 +714,7 @@ docker exec jarvis-rag-server \
 docker exec jarvis-rag-server env | grep -E "OLLAMA_HOST|EMBED_MODEL|CHROMA_HOST"
 # Expected:
 # OLLAMA_HOST=http://jarvis-ollama:11434
-# EMBED_MODEL=nomic-embed-text
+# EMBED_MODEL=all-minilm:latest  (update if still showing nomic-embed-text — see §19.8.8a)
 # CHROMA_HOST=http://jarvis-chroma:8000
 
 # Step 5: Verify Caddy perimeter is live
@@ -811,8 +824,9 @@ docker compose build --no-cache \
 | Issue | Status |
 |---|---|
 | OI-36-A — Gateway-level auth not enforced | ⚠️ OPEN — see Chapter 16 §16.11 |
+| OI-05 — Conversation memory (`conversation_history` ChromaDB formal wiring) | 🟡 PARTIAL — emergent context passing confirmed March 25, 2026; formal ChromaDB wiring not yet complete — see Ch. 22 §22.9 |
 | OI-02 — Phase 4.5 output BBB log+passthrough | ⚠️ OPEN — ~31% false-positive rate; tuning sprint pending |
-| `jarvis-neurobiological-master` unreachable | ⚠️ OPEN — March 25 sprint; Chroma health check rerouted direct |
+| `jarvis-neurobiological-master` unreachable | ⚠️ OPEN — March 25 sprint; Chroma health check rerouted direct; qualia-net confirmation pending |
 | Hallucination on local community resources | ⚠️ OPEN — Community Champions data entry next priority |
 | StarCoder2 returning 0-char on community queries | ⚠️ KNOWN — 21 of 22 models active |
 | `geospatial_features` ChromaDB collection (0 records) | ⚠️ OPEN — backfill ingest pending |
@@ -820,6 +834,7 @@ docker compose build --no-cache \
 | `gbim_query_router` port 7205 hardening | ⚠️ PENDING — may restrict to internal-only |
 | `mvw_gbim_landowner_spatial` refresh schedule | ⚠️ PENDING — manual `REFRESH MATERIALIZED VIEW` currently |
 | GPU inference | ⚠️ PENDING — WVU partnership; CPU-only currently |
+| `ms_jarvis_memory` UUID preservation risk | ⚠️ OPEN — UUID `79240788-0828-45f3-b1bc-a9a3593628a6` hardcoded in consciousness bridge; ChromaDB rebuild requires manual UUID re-registration — see Ch. 22 §22.10 |
 
 ---
 
@@ -836,25 +851,21 @@ docker compose build --no-cache \
 | BBB Phase 4.5 output | ⚠️ LOG+PASSTHROUGH | OI-02 pending; ~31% false-positive on Appalachian maternal voice |
 | Phase 1.45 community memory injection | ✅ Verified | Top-5 `autonomous_learner` records on every chat |
 | Autonomous learner growth | ✅ Verified | 21,181 records, ≈288/day |
-| ChromaDB canonical collections | ✅ Verified | 5,416,521 GBIM entities; 9 active collections |
+| ChromaDB canonical collections | ✅ Verified | 5,416,521 GBIM entities; 9 active collections; `ms_jarvis_memory` UUID documented |
 | PostgreSQL `msjarvisgis` corpus | ✅ Verified | 91 GB, 501 tables, 5,416,522 beliefs |
 | GBIM landowner query (`gbim_query_router`) | ✅ Verified | 20,593 beliefs, 401 canonical entities, port 7205 |
 | Judge pipeline (6 containers) | ✅ Verified | `jarvis_startup.sh` 6 green health marks |
 | ML-DSA-65 judge signing | ✅ Verified | FULLY ACTIVE March 22, 2026 — 19 PASS, 0 FAIL |
 | 22-model LLM ensemble | ✅ Verified | 21 active; StarCoder2 proxied with caveats |
 | `jarvis-rag-server` port mapping | ✅ CORRECTED | 127.0.0.1:8003:8016 — host 8003 → container 8016 |
-| `jarvis-rag-server` env vars | ✅ DOCUMENTED | OLLAMA_HOST, EMBED_MODEL, CHROMA_HOST required |
+| `jarvis-rag-server` env vars | ✅ DOCUMENTED | OLLAMA_HOST, EMBED_MODEL (all-minilm:latest), CHROMA_HOST required |
 | qualia-net topology | ✅ Confirmed | jarvis-woah, jarvis-chroma, jarvis-consciousness-bridge, jarvis-rag-server, jarvis-ollama all on qualia-net |
+| `jarvis-neurobiological-master` qualia-net | ⚠️ PENDING | Unreachable March 25 sprint — targeted for future qualia-net confirmation |
 | Orphaned container warning | ✅ Documented | nbb_* and llm*-proxy — expected; --remove-orphans prohibited |
 | Orphaned container inventory | ✅ Cleaned | `jarvis-crypto-policy`, `jarvis-ingest-api`, `jarvis-ingest-watcher` removed |
+| OI-05 conversation memory | 🟡 PARTIAL | Emergent context passing confirmed March 25; formal ChromaDB wiring pending — Ch. 22 §22.9 |
 
 ---
 
 *Chapter 19 — Container Architecture and Routing*
-*Carrie Kidd (Mamma Kidd), Mount Hope WV*
-*Caddy perimeter layer (port 8443) and `jarvis_auth_service` (port 8055, systemd) added March 22, 2026*
-*Orphaned containers removed from inventory March 22, 2026*
-*Ghost file `COPY lmsynthesizer.py` fully removed from `Dockerfile.judge` March 22, 2026*
-*`jarvis-rag-server` port mapping corrected (8003:8016), env vars documented, orphaned container warning added, qualia-net topology confirmed March 25, 2026*
-*All sections current as of March 25, 2026*
-
+*Carrie Kidd (Mamma Ki
