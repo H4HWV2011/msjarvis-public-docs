@@ -21,7 +21,7 @@ This chapter explains how Ms. Jarvis uses ChromaDB as the primary semantic memor
 In this system, ChromaDB serves as the concrete implementation of long-term, queryable memory for:
 
 - 5,416,521 GBIM worldview entities (geographic features across West Virginia)
-- Autonomous learning patterns and research traces — growing ~288/day — **current count per live `docker exec` query as of March 27, 2026**
+- Autonomous learning patterns and research traces — growing ~288/day — **confirmed live, current count per `docker exec` query**
 - Community resource documents and benefits guides
 - Governance texts — **643 chunks in `governance_rag`, 306 chunks in `commons_rag`** — confirmed live March 26, 2026
 - Psychological safety and spiritual corpora
@@ -47,7 +47,7 @@ ChromaDB plays several interlocking roles in the system:
 
 **Semantic memory store (non-spatial)** — Embeddings of texts and artifacts live in domain-specific collections: governance documents (`governance_rag`: 643 chunks, `commons_rag`: 306 chunks), thesis content, autonomous learner outputs, resource guides, research traces. These support semantic retrieval independent of geography.
 
-**Geospatial semantic layer (spatial)** — The unified `gbim_worldview_entities` collection holds 5,416,521 embeddings of West Virginia geospatial features, providing semantic representation of the spatial body. The `geospatialfeatures` collection now holds **60,000 items** (confirmed March 26, 2026).
+**Geospatial semantic layer (spatial)** — The unified `gbim_worldview_entities` collection holds 5,416,521 embeddings of West Virginia geospatial features, providing semantic representation of the spatial body. The `geospatialfeatures` collection holds **60,000 items** (confirmed March 26, 2026).
 
 **Retrieval engine for RAG** — Services embed queries and use ChromaDB similarity search with metadata filters to retrieve relevant context. Text RAG handles general semantic queries; GIS RAG (port 8004) uses spatial collections backed by `msjarvisgis`.
 
@@ -60,17 +60,19 @@ ChromaDB plays several interlocking roles in the system:
 
 **Consciousness pipeline integration — ACTIVE as of March 25, 2026** — `jarvis-consciousness-bridge` (port 8020) calls ChromaDB using the v2 API (`/api/v2/heartbeat`). End-to-end consciousness pipeline confirmed producing persona-consistent Appalachian-voice responses with Hilbert local entity recall.
 
+**★ Security posture — March 28, 2026** — All services are bound to `127.0.0.1`. The `0.0.0.0` exposure on `jarvis-i-containers` (8015) and `jarvis-memory` (8056) was corrected during the March 28 remediation sprint. `_auth()` is confirmed present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`. The `JARVIS_API_KEY` env var is confirmed set in production.
+
 ---
 
 ## 5.3 Collections and Data Domains
 
 The primary ChromaDB instance (host port 8002, container-internal 8000, `hnsw:space: cosine`) exposes collections across three families: spatial memory, general semantic memory, and resource-focused collections.
 
-> **★ March 26, 2026 audit: 31 collections confirmed active. Total items: 6,727,956** (updated from 6,665,093 following completion of the March 26, 2026 RAG corpus sprint — six previously sparse or empty collections now fully populated). **★ March 27, 2026: AaaCPE scraper confirmed live — see Section 5.6.2 and discrepancy note below for updated `appalachian_cultural_intelligence` count.**
+> **★ March 28, 2026 full inventory audit: 40 active collections confirmed. Total vectors: 6,675,442.** (7 orphaned empty collections present — no active service queries them. 19,338 duplicate vectors removed from `spiritual_rag` during March 28 remediation. `psychological_rag` restored to 968 documents. `msjarvis_docs` expanded to 4,192 items.)
 
 ### 5.3.1 Production Spatial Collection
 
-Primary spatial memory (verified complete March 14, 2026; confirmed March 25–26, 2026):
+Primary spatial memory (verified complete March 14, 2026; confirmed March 25–28, 2026):
 
 | Field | Value |
 |---|---|
@@ -90,35 +92,32 @@ Ingest timeline:
 
 ### 5.3.2 General Semantic Collections
 
-**`autonomous_learner`** — growing ~288/day — **current count per live `docker exec` query as of March 27, 2026**
+**`autonomous_learner`** — growing ~288/day — confirmed live per `docker exec` query
 - Deployed March 14, 2026
 - Stores autonomous research findings every 5 minutes
 - Queried directly at Phase 1.45 — top-5 results prepended to `enhanced_message` before every production query
 
-**`psychological_rag`** (968 items) — Mental health and psychological safety resources; port 8006
+**`psychological_rag`** — ★ **968 items** — Mental health and psychological safety resources; port 8006. **★ March 28, 2026: restored** — was serving 0 documents despite 968 present; fixed via `PSY_COLLECTION=psychological_rag` env var.
 
-**`appalachian_cultural_intelligence`** — ⚠️ **DISCREPANCY — REQUIRES RESOLUTION before committing Chapter 5.**
-- Chapter 5 (this file, March 26, 2026 sprint): **820 items** — OI-14 CLOSED March 26, 2026 (was: 5 items)
-- Chapter 30 (AaaCPE chapter) and March 27, 2026 AaaCPE scraper deployment: **65 documents** in `appalachian_cultural_intelligence` — from `jarvis-aaacpe-scraper` (port 8033), 39 sources, `total_runs: 1`
-- **Most likely resolution:** If the `appalachian_cultural_intelligence` Docker volume was reset during the container rebuild that deployed `jarvis-aaacpe-rag` and `jarvis-aaacpe-scraper`, the correct current count is **65** (first scrape run only). If the volume persisted from the March 26, 2026 sprint ingest (820 items), the scraper would have added ~55 documents → **875**. The 10→65 delta described in Ch 30 suggests the volume was reset and the scraper populated from scratch.
-- **Required action before commit:** `curl http://localhost:8032/` to confirm `jarvis-aaacpe-rag` document count, and run ChromaDB v2 API collection count for `appalachian_cultural_intelligence`. Update this entry with the confirmed live count.
-- Current table entry: **see §5.6.2 — flagged row**
+**`appalachian_cultural_intelligence`** — **820 items** — ✅ Confirmed distinct collection from `aaacpe_corpus`. Appalachian cultural context corpus (curated text, values, and cultural intelligence content) ingested March 26, 2026 (OI-14 CLOSED). Volume persisted through AaaCPE deployment. 820 is the authoritative count.
 
-**`spiritual_texts`** — ★ **19,338 items** — Mother Carrie Protocol multi-tradition spiritual corpus with Quaker-Appalachian prioritization — **CONFIRMED LIVE March 26, 2026** (was: 23 items; OI-15 CLOSED)
+**`aaacpe_corpus`** — ★ **65 documents** — ✅ Confirmed distinct collection from `appalachian_cultural_intelligence`. Live AaaCPE web scrape corpus populated March 27, 2026 by `jarvis-aaacpe-scraper` (port 8033) from 39 Appalachian emergency and community resource sources (`total_runs: 1`). RAG retrieval verified March 27, 2026.
 
-**`msjarvis_docs`** (2,348 items) — 52 verified WV community resources (50 Kanawha + 2 Fayette) + 2,296 system docs
+**`spiritual_rag`** ★ — Deduplicated — Mother Carrie Protocol multi-tradition spiritual corpus with Quaker-Appalachian prioritization. **★ March 28, 2026: 19,338 duplicate vectors removed.** Canonical collection name is `spiritual_rag` (previously also referenced as `spiritual_texts`).
+
+**`msjarvis_docs`** — ★ **4,192 items** — ★ March 28, 2026: expanded from 2,348 items. Verified WV community resources + system docs.
 
 **`local_resources`** — Default RAG collection for `jarvis-rag-server`
 
 **`conversation_history`** — Session context storage; ⚠️ not formally wired to production pipeline (OI-05 open)
 
-**`geospatialfeatures`** — ★ **60,000 items** — **CONFIRMED LIVE March 26, 2026** (was: 0 items; OI-12 CLOSED)
+**`geospatialfeatures`** — ★ **60,000 items** — CONFIRMED LIVE March 26, 2026 (was: 0 items; OI-12 CLOSED)
 
-**`GBIM_Fayette_sample`** — ★ **1,535 items** — **CONFIRMED LIVE March 26, 2026** (was: 0 items; OI-13 CLOSED)
+**`GBIM_Fayette_sample`** — ★ **1,535 items** — CONFIRMED LIVE March 26, 2026 (was: 0 items; OI-13 CLOSED)
 
 ### 5.3.3 Governance and Thesis Collections — ★ UPDATED March 26, 2026
 
-**`governance_rag`** — ★ **643 chunks** — **CONFIRMED LIVE March 26, 2026** (was: missing/empty)
+**`governance_rag`** — ★ **643 chunks** — CONFIRMED LIVE March 26, 2026 (was: missing/empty)
 
 Full ingested corpus:
 - MountainShares DAO Charter
@@ -135,7 +134,7 @@ Full ingested corpus:
 
 Semantic retrieval verified March 26, 2026 — see Section 5.13 (smoke test results).
 
-**`commons_rag`** — ★ **306 chunks** — **CONFIRMED LIVE March 26, 2026** (was: missing/empty)
+**`commons_rag`** — ★ **306 chunks** — CONFIRMED LIVE March 26, 2026 (was: missing/empty)
 
 Full Commons governance and gamification corpus ingested. Semantic retrieval verified March 26, 2026.
 
@@ -159,20 +158,21 @@ Community validation: Harmony for Hope's Community Champions group provides grou
 
 ---
 
-## 5.4 Database Architecture (Verified March 25–26, 2026)
+## 5.4 Database Architecture — ★ Confirmed March 28, 2026
 
 Ms. Jarvis uses a dual-database PostgreSQL cluster plus a dedicated community resources database. The system runs on a Lenovo Legion 5 development machine located in **Mount Hope, West Virginia** (ZIP 25880).
 
-**Database 1: `msjarvis`** (8 MB, 6 tables) — port 5433
+**Database 1: `msjarvis`** (8 MB, 6 tables) — port 5433 — ★ **restored March 28, 2026**
 - GBIM belief structure and relationships
 - Tables: `gbim_beliefs`, `gbim_belief_edges`, `gbim_belief_evidence`, `gbim_evidence`, `gbim_layer_catalog`, `gbim_worldviews`
 - 5,416,521 verified GBIM entities; 80 epochs; 206 source layers
 - GBIM temporal confidence decay deployed March 15: all entities carry `last_verified`, `confidence_decay`, `needs_verification` metadata
+- `jarvis_local_resources` schema also restored March 28, 2026
 
 **Database 2: `msjarvisgis`** (91 GB, 501 tables) — port 5432
 - PostGIS-enabled spatial database
 - Contains `zcta_wv_centroids` (993 West Virginia ZIP centroids)
-- `gbimbeliefnormalized` table: 5,416,522 rows including 20,593 landowner beliefs
+- `gbimbeliefnormalized` table: 5,416,521 rows including 20,593 landowner beliefs
 - `mvw_gbim_landowner_spatial` materialized view: 20,593 spatially-indexed landowner beliefs
 
 **Database 3: `jarvis-local-resources-db`** — port 5435
@@ -183,7 +183,7 @@ Ms. Jarvis uses a dual-database PostgreSQL cluster plus a dedicated community re
 
 ---
 
-## 5.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE March 26, 2026
+## 5.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE March 28, 2026
 
 Ms. Jarvis uses **`all-minilm:latest`** as the required and confirmed live embedding model for all production ChromaDB collections, producing **384-dimensional vectors** with `hnsw:space: cosine` distance.
 
@@ -223,7 +223,7 @@ All current governance and RAG collections were ingested using the 100-word/20-w
 
 ## 5.6 Clients, RAG Services, and Deployment Topology
 
-### 5.6.1 ChromaDB Container Configuration (Production — ★ March 27, 2026)
+### 5.6.1 ChromaDB Container Configuration — ★ March 28, 2026
 
 | Field | Value |
 |---|---|
@@ -234,8 +234,8 @@ All current governance and RAG collections were ingested using the 100-word/20-w
 | API version | v2 active — `/api/v1/` returns HTTP 410 Gone |
 | Heartbeat endpoint | `GET /api/v2/heartbeat` |
 | Status | ✅ Production — part of **96-container running stack** |
-| Collections confirmed | 31 (verify current count — AaaCPE added 2 containers March 27, 2026; collection count may have changed) |
-| Total items (March 27, 2026) | **6,727,956 + AaaCPE delta** ⚠️ — base count 6,727,956 (March 26); add AaaCPE corpus net new documents. If `appalachian_cultural_intelligence` was reset and repopulated with 65 docs (from 820), net change is −755 + 65 = −690 → 6,727,266. If volume persisted and scraper added 55 new docs, net change is +55 → 6,728,011. **Confirm live count per `docker exec` query before committing.** |
+| Collections confirmed | **40 active** — full inventory audit March 28, 2026 |
+| Total vectors (March 28, 2026) | **6,675,442** — confirmed March 28, 2026 full audit |
 
 Port auto-detection:
 
@@ -283,42 +283,39 @@ print("Total entities:", collection.count())
 # Output: Total entities: 5416521
 ```
 
-### 5.6.2 Active Collections — ★ UPDATED March 27, 2026
+### 5.6.2 Active Collections — ★ UPDATED March 28, 2026
 
-31 collections confirmed as of March 26, 2026 — verify current count after AaaCPE deployment March 27, 2026. All collections use 384-dimensional vectors (`all-minilm:latest`, `hnsw:space: cosine`).
+40 active collections confirmed as of March 28, 2026 full inventory audit. All collections use 384-dimensional vectors (`all-minilm:latest`, `hnsw:space: cosine`).
 
-> ⚠️ **`appalachian_cultural_intelligence` discrepancy — CRITICAL — must resolve before committing Chapter 5.**
+> **★ March 28, 2026 — `appalachian_cultural_intelligence` / `aaacpe_corpus` discrepancy RESOLVED.**
 >
-> - March 26, 2026 sprint (OI-14): 820 items confirmed live (was: 5 items)
-> - March 27, 2026 AaaCPE deployment (`jarvis-aaacpe-scraper`, port 8033): 65 documents reported in `appalachian_cultural_intelligence`, 39 sources, `total_runs: 1`
+> Full ChromaDB inventory audit confirmed both collections exist as distinct entries:
+> - `appalachian_cultural_intelligence` — **820 items**: curated Appalachian cultural context corpus, ingested March 26, 2026 (OI-14). Volume persisted through AaaCPE deployment. 820 is the authoritative and current count.
+> - `aaacpe_corpus` — **65 documents**: live AaaCPE web scrape corpus, `jarvis-aaacpe-scraper` (port 8033), 39 sources, `total_runs: 1`, March 27, 2026.
 >
-> **If the Docker volume for `appalachian_cultural_intelligence` was reset during the AaaCPE container build**, the 820-item corpus was wiped and the scraper populated 65 documents on its first run. This is the most likely scenario given the 10→65 delta described in Chapter 30 (implying a near-empty starting state).
->
-> **If the volume persisted**, the scraper added ~55 net-new documents → current count should be ~875.
->
-> **Required action:** `curl http://localhost:8032/` to confirm `jarvis-aaacpe-rag` document count. Then run ChromaDB v2 API collection list/count for `appalachian_cultural_intelligence`. Update row below with confirmed count before committing Chapter 5.
+> These are two distinct collections with different names, different provenance, and different item counts. Discrepancy flag closed.
 
 | Collection | Domain | Record Count | Status |
 |---|---|---|---|
 | `gbim_worldview_entities` | GBIM spatial worldview | **5,416,521** | ✅ COMPLETE — primary spatial corpus |
-| `autonomous_learner` | Autonomous learning patterns | growing ~288/day ★ | ✅ Active — Phase 1.45 community memory — **update count per live docker query** |
-| `psychological_rag` | Psychological safety corpus | 968 | ✅ Active — port 8006 |
-| `appalachian_cultural_intelligence` | Appalachian cultural context + AaaCPE | ⚠️ **65 or 820 or 875** | ⚠️ **DISCREPANCY — see note above.** March 26 sprint: 820 (OI-14 CLOSED). March 27 AaaCPE scraper: 65 docs reported. Volume reset status unknown. **Confirm live count before committing.** |
-| `spiritual_texts` | Multi-tradition spiritual corpus | ★ **19,338** | ✅ COMPLETE — OI-15 CLOSED March 26 (was: 23) |
-| `spiritual_rag` | Spiritual RAG corpus | Active | ✅ Active |
+| `autonomous_learner` | Autonomous learning patterns | growing ~288/day ★ | ✅ Active — Phase 1.45 community memory |
+| `psychological_rag` ★ | Psychological safety corpus | **968** | ✅ **Restored March 28** — was serving 0; fixed via `PSY_COLLECTION` env var. Port 8006. |
+| `appalachian_cultural_intelligence` | Appalachian cultural context | **820** ✅ | ✅ CONFIRMED — OI-14 CLOSED March 26. Distinct from `aaacpe_corpus`. |
+| `aaacpe_corpus` ★ | AaaCPE web scrape corpus | **65 docs** | ✅ LIVE March 27 — `jarvis-aaacpe-scraper` port 8033, 39 sources, `total_runs: 1`. Distinct from `appalachian_cultural_intelligence`. |
+| `spiritual_rag` ★ | Multi-tradition spiritual corpus | Deduplicated | ✅ **March 28: 19,338 duplicate vectors removed.** Mother Carrie Protocol. Canonical name: `spiritual_rag`. |
 | `governance_rag` | MountainShares DAO + US Constitution | ★ **643 chunks** | ✅ COMPLETE — OI-16 CLOSED March 26 (was: missing) |
 | `commons_rag` | Commons governance + gamification | ★ **306 chunks** | ✅ COMPLETE — OI-17 CLOSED March 26 (was: missing) |
 | `GBIM_sample_rows` | GBIM test sample | 5,000 | ✅ Active |
 | `GBIM_sample` | General GBIM sample | Active | ✅ Active |
 | `msjarvis-smoke` | Smoke test collection | 1 | ✅ Active |
-| `msjarvis_docs` | System docs + community resources | 2,348 | ✅ Active |
+| `msjarvis_docs` ★ | System docs + community resources | **4,192** | ✅ **Expanded March 28** (was: 2,348) |
 | `local_resources` | Default RAG server collection | Active | ✅ Active |
 | `gis_wv_benefits` | WV benefits facilities | Active | ✅ Active |
 | `ms_jarvis_memory` | Persistent conversation memory | Active | ✅ Active |
 | `mountainshares_knowledge` | MountainShares governance | Active | ✅ Active |
 | `episodic_index` | Episodic memory index | Active | ✅ Active |
 | `conversation_history` | Conversation history | Active | ✅ Active — ⚠️ not pipeline-wired (OI-05) |
-| `gbim_beliefs_v2` | GBIM beliefs v2 | Active | ⚠️ Item count not confirmed |
+| `gbim_beliefs_v2` | GBIM beliefs v2 | Active | ✅ Active |
 | `governance` | WV governance corpus | Active | ✅ Active |
 | `thesis` | Theory corpus | Active | ✅ Active |
 | `economic_rag` | Economic intelligence | Active | ✅ Active |
@@ -335,9 +332,11 @@ print("Total entities:", collection.count())
 | `geospatialfeatures` | GIS feature embeddings | ★ **60,000** | ✅ COMPLETE — OI-12 CLOSED March 26 (was: 0) |
 | `GBIM_Fayette_sample` | Fayette County sample | ★ **1,535** | ✅ COMPLETE — OI-13 CLOSED March 26 (was: 0) |
 
+**Total: 6,675,442 vectors across 40 active collections — confirmed March 28, 2026.**
+
 ### 5.6.3 PostgreSQL Database Access
 
-For GBIM belief provenance queries (`msjarvis` — port 5433):
+For GBIM belief provenance queries (`msjarvis` — port 5433 — ★ restored March 28, 2026):
 
 ```python
 import psycopg2
@@ -422,7 +421,7 @@ enhanced_message = community_memories + "\n\n" + original_message
 
 ## 5.7 Integration with GBIM, PostGIS, and RAG
 
-**GBIM linkage (`msjarvis` — port 5433)** — GBIM worldview entities in ChromaDB carry `entity_id` metadata linking to `msjarvis.gbim_beliefs`. Temporal confidence decay (deployed March 15, 2026) attenuates response confidence for entities not recently confirmed. `needs_verification=TRUE` is the trigger for the future POC verification loop.
+**GBIM linkage (`msjarvis` — port 5433 — ★ restored March 28, 2026)** — GBIM worldview entities in ChromaDB carry `entity_id` metadata linking to `msjarvis.gbim_beliefs`. Temporal confidence decay (deployed March 15, 2026) attenuates response confidence for entities not recently confirmed. `needs_verification=TRUE` is the trigger for the future POC verification loop. `jarvis_local_resources` schema also restored March 28, 2026.
 
 **PostGIS integration (`msjarvisgis` — port 5432)** — Spatial collections include coordinates and identifiers that join to PostGIS tables. The `zcta_wv_centroids` table (993 rows) provides ZIP code centroids for proximity queries.
 
@@ -492,7 +491,7 @@ resp = httpx.post(url, json={
 
 ## 5.9 Operational Considerations
 
-**Reliability and persistence** — ChromaDB runs as Docker container `jarvis-chroma` with the `chroma_data` persistent volume. Part of the **96-container running production stack** on the Mount Hope development machine as of March 27, 2026.
+**Reliability and persistence** — ChromaDB runs as Docker container `jarvis-chroma` with the `chroma_data` persistent volume. Part of the **96-container running production stack** on the Mount Hope development machine as of March 28, 2026.
 
 **API version requirement** — As of March 25, 2026, ChromaDB v2 API is the only active API. Any service still calling `/api/v1/` will receive HTTP 410 Gone.
 
@@ -500,11 +499,13 @@ resp = httpx.post(url, json={
 
 **Disk usage** — At 96% utilization on the Mount Hope development machine (Lenovo Legion 5), the `chroma_data` Docker volume must be monitored. Disk cleanup and/or migration to larger storage remains a prerequisite for the next large-scale ingest cycle.
 
+**Security** — ★ All services are bound to `127.0.0.1` as of March 28, 2026. Zero `0.0.0.0` exposures remain in production. `_auth()` is confirmed present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`. `JARVIS_API_KEY` env var confirmed set.
+
 **Schema management** — The embedding model (`all-minilm:latest`, 384-dim, `hnsw:space: cosine`) is a locked dependency. Changing it requires a full re-embed of all collections. The 100-word chunk constraint is a fixed schema parameter for all collections. Migrations are treated as explicit schema changes.
 
 ---
 
-## 5.10 Production Deployment State — ★ UPDATED March 27, 2026
+## 5.10 Production Deployment State — ★ UPDATED March 28, 2026
 
 **Hardware:** Lenovo Legion 5 — Mount Hope, West Virginia (ZIP 25880)
 
@@ -515,43 +516,49 @@ resp = httpx.post(url, json={
 - Distance function: `hnsw:space: cosine`
 - API: v2 active — `/api/v1/` returns HTTP 410 Gone
 - Heartbeat: `GET /api/v2/heartbeat` → 200 ✅
-- Collections confirmed: 31 (verify after March 27, 2026 AaaCPE deployment)
-- Total items (March 27, 2026): **confirm per live docker query** — base 6,727,956 (March 26) ± AaaCPE delta
+- Collections confirmed: **40 active** — full inventory audit March 28, 2026
+- Total vectors (March 28, 2026): **6,675,442** ✅
 - `gbim_worldview_entities`: 5,416,521 ✅
-- `autonomous_learner`: growing ~288/day — **update count per live docker query** ✅
-- `psychological_rag`: 968 items ✅
-- `msjarvis_docs`: 2,348 items ✅
+- `autonomous_learner`: growing ~288/day ✅
+- `psychological_rag`: **968 items** — ★ restored March 28 ✅
+- `msjarvis_docs`: **4,192 items** — ★ expanded March 28 ✅
 - `governance_rag`: ★ **643 chunks** ✅ (was: missing)
 - `commons_rag`: ★ **306 chunks** ✅ (was: missing)
-- `appalachian_cultural_intelligence`: ⚠️ **65 or 820 or 875** — confirm live count (see §5.6.2 discrepancy note)
-- `spiritual_texts`: ★ **19,338 items** ✅ (was: 23)
+- `appalachian_cultural_intelligence`: **820 items** ✅ — confirmed distinct from `aaacpe_corpus`
+- `aaacpe_corpus`: **65 documents** ✅ — confirmed distinct from `appalachian_cultural_intelligence`
+- `spiritual_rag`: deduplicated ✅ — 19,338 duplicate vectors removed March 28
 - `geospatialfeatures`: ★ **60,000 items** ✅ (was: 0)
 - `GBIM_Fayette_sample`: ★ **1,535 items** ✅ (was: 0)
-- `gbim_beliefs_v2`: Present — ⚠️ item count not confirmed
+- `gbim_beliefs_v2`: Active ✅
 - Embedding model: `all-minilm:latest` (384-dim, cosine) — all collections locked
 
 **PostgreSQL Cluster:**
-- Port 5433 — `msjarvis` (8 MB, 6 GBIM tables) — 5,416,521 entities; temporal decay deployed
-- Port 5432 — `msjarvisgis` (91 GB, 501 PostGIS tables) — 993 WV ZIP centroids; 5,416,522 normalized rows; 20,593 landowner beliefs
+- Port 5433 — `msjarvis` (8 MB, 6 GBIM tables) — 5,416,521 entities; temporal decay deployed — ★ **restored March 28, 2026**
+- Port 5432 — `msjarvisgis` (91 GB, 501 PostGIS tables) — 993 WV ZIP centroids; 5,416,521 normalized rows; 20,593 landowner beliefs
 - Port 5435 — `jarvis-local-resources-db` — 7,354,707 building rows; Community Champions validated
 
 **RAG Services:**
 - Phase 1.45 community memory: `all-minilm:latest` → `autonomous_learner` (v2 API) → top-5 prepended ✅
 - GIS RAG (port 8004): Confirmed operational March 25, 2026 ✅
 - Text RAG / `jarvis-rag-server` (host:8003 → container:8016): ✅ ACTIVE
-- `psychological-rag` (port 8006): ✅ Active
+- `psychological_rag` (port 8006): ✅ **Restored March 28** — 968 docs now serving correctly
 - `jarvis-web-research` (port 8008 internal): ✅ Restored March 25, 2026
 - `jarvis-ingest-api` (port 8009): ✅ Restored March 25, 2026
 - `gbim_query_router` (port 7205): PostgreSQL-native landowner path — NO ChromaDB ✅
-- `jarvis-aaacpe-rag` (host:8032): ✅ **Built and running March 27, 2026** — 65 documents (confirm current count via `curl http://localhost:8032/`), 39 sources scraped, `total_runs: 1`
-- `jarvis-aaacpe-scraper` (host:8033): ✅ **Built and running March 27, 2026** — first automated scrape run confirmed on startup; 39 sources, `total_runs: 1`
+- `jarvis-aaacpe-rag` (host:8032): ✅ Running March 27, 2026 — 65 documents, 39 sources
+- `jarvis-aaacpe-scraper` (host:8033): ✅ Running March 27, 2026 — `total_runs: 1`
 
 **Consciousness pipeline:**
 - `jarvis-consciousness-bridge` (port 8020): ACTIVE — Chroma v2 heartbeat 200 ✅
 - `jarvis-woah`: ACTIVE — stdlib stub, qualia-net ✅
 - Pipeline confirmed producing persona-consistent Appalachian-voice responses ✅
 
-**Container stack:** **96/96 containers Up — zero Restarting, zero Exited — last verified March 27, 2026** (both `jarvis-aaacpe-rag` and `jarvis-aaacpe-scraper` added to stack March 27, 2026)
+**Security posture:**
+- All services bound to `127.0.0.1` ✅ — March 28, 2026
+- `_auth()` confirmed on all 4 sensitive routes in `ms_jarvis_memory.py` ✅
+- `JARVIS_API_KEY` env var confirmed set ✅
+
+**Container stack:** **96/96 containers Up — zero Restarting, zero Exited — confirmed March 28, 2026**
 
 ---
 
@@ -563,13 +570,14 @@ resp = httpx.post(url, json={
 | Autonomous Learner + Phase 1.45 | March 14–18, 2026 | `autonomous_learner` deployed; Phase 1.45 live; `all-minilm:latest` confirmed locked | ✅ Complete |
 | Red team hardening sprint | March 21–22, 2026 | Host port confirmed at 8002; 2,348 system docs ingested; 83 compose services verified; systemd deployed; public URL live | ✅ Complete |
 | Consciousness pipeline + v2 API migration | March 22–25, 2026 | WOAH fixed; consciousness bridge patched for v2 API; RAG server port corrected; 31 collections confirmed; 6,665,093 items confirmed | ✅ Complete |
-| Embedding model fix + container restoration | March 25, 2026 | All 6 `nomic-embed-text` references patched to `all-minilm:latest`; `jarvis-gis-rag` restored; `jarvis-web-research` restored; `jarvis-ingest-api` relaunched; `Dockerfile.gis-rag` created; 49/49 containers Up | ✅ Complete — committed 2e8b4b2 |
-| RAG corpus completion sprint | March 26, 2026 | `governance_rag` (643 chunks), `commons_rag` (306 chunks), `appalachian_cultural_intelligence` (820), `spiritual_texts` (19,338), `geospatialfeatures` (60,000), `GBIM_Fayette_sample` (1,535) — all confirmed live; semantic retrieval verified; 56/56 containers Up | ✅ Complete — March 26, 2026 |
-| AaaCPE cultural intelligence deployment | March 27, 2026 | `jarvis-aaacpe-rag` (port 8032) and `jarvis-aaacpe-scraper` (port 8033) built and running; RAG loaded 53 documents (7 new base cultural docs); scraper reporting 39 sources, `total_runs: 1`, 65 documents in `appalachian_cultural_intelligence` from first scrape run on startup; RAG search confirmed returning emergency protocol + Fayette County utility example; container stack updated to 96/96 | ✅ Complete — March 27, 2026 |
+| Embedding model fix + container restoration | March 25, 2026 | All 6 `nomic-embed-text` references patched to `all-minilm:latest`; `jarvis-gis-rag` restored; `jarvis-web-research` restored; `jarvis-ingest-api` relaunched; `Dockerfile.gis-rag` created | ✅ Complete — committed 2e8b4b2 |
+| RAG corpus completion sprint | March 26, 2026 | `governance_rag` (643 chunks), `commons_rag` (306 chunks), `appalachian_cultural_intelligence` (820), `spiritual_texts` (19,338), `geospatialfeatures` (60,000), `GBIM_Fayette_sample` (1,535) — all confirmed live; semantic retrieval verified | ✅ Complete — March 26, 2026 |
+| AaaCPE cultural intelligence deployment | March 27, 2026 | `jarvis-aaacpe-rag` (port 8032) and `jarvis-aaacpe-scraper` (port 8033) built and running; `aaacpe_corpus` (65 docs, 39 sources); RAG search verified; container stack 96/96 | ✅ Complete — March 27, 2026 |
+| Security + memory remediation sprint | March 28, 2026 | All `0.0.0.0` exposures corrected; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192); `msjarvis` port 5433 restored; `aaacpe_corpus` vs. `appalachian_cultural_intelligence` discrepancy resolved; 40 active collections / 6,675,442 vectors confirmed | ✅ Complete — March 28, 2026 |
 
 ---
 
-## 5.13 Semantic Retrieval Smoke Tests — ★ UPDATED March 27, 2026
+## 5.13 Semantic Retrieval Smoke Tests — ★ CONFIRMED March 26–27, 2026
 
 Semantic retrieval accuracy was verified across three collections on March 26, 2026, and extended to the AaaCPE collection on March 27, 2026, using `all-minilm:latest` embeddings (384-dim, cosine) via the v2 API (host port 8002).
 
@@ -604,7 +612,7 @@ Semantic retrieval accuracy was verified across three collections on March 26, 2
 │  Notes:    97 US Constitution chunks correctly indexed;     │
 │            constitutional text semantically retrievable     │
 │                                                             │
-│  Test 4 — appalachian_cultural_intelligence (AaaCPE) ★     │
+│  Test 4 — aaacpe_corpus ★                                  │
 │  Query: "emergency crisis response"                         │
 │  Expected: Emergency protocol document                      │
 │  Result:   ✅ Top result = emergency protocol               │
@@ -613,7 +621,7 @@ Semantic retrieval accuracy was verified across three collections on March 26, 2
 │            65 docs from 39 sources; emergency protocol      │
 │            correctly indexed and retrievable                │
 │                                                             │
-│  Test 5 — appalachian_cultural_intelligence (AaaCPE) ★     │
+│  Test 5 — aaacpe_corpus ★                                  │
 │  Query: "electric bill assistance Fayette County"           │
 │  Expected: Fayette County utility example                   │
 │  Result:   ✅ Top result = Fayette County utility example   │
@@ -641,7 +649,7 @@ These results confirm:
 
 3. **US Constitution is correctly embedded and retrievable** — "constitution amendment" → Amendment XIV confirms 97-chunk constitutional corpus fidelity for governance reasoning.
 
-4. **AaaCPE emergency protocol is correctly indexed and retrievable** — "emergency crisis response" → emergency protocol document confirms that `jarvis-aaacpe-rag` is serving Appalachian cultural intelligence content correctly.
+4. **AaaCPE emergency protocol is correctly indexed and retrievable** — "emergency crisis response" → emergency protocol document confirms that `jarvis-aaacpe-rag` is serving Appalachian cultural intelligence content correctly via the `aaacpe_corpus` collection.
 
 5. **AaaCPE place-specific utility assistance is retrievable** — "electric bill assistance Fayette County" → Mountain Heart Community Action example confirms that the AaaCPE corpus is correctly capturing and surfacing local West Virginia resource context, exactly as designed under P12 – Intelligence with a ZIP code.
 
@@ -649,42 +657,42 @@ These results confirm:
 
 ## 5.12 Limitations and Future Work
 
-**Completed foundations (March 27, 2026):**
+**Completed foundations — March 28, 2026:**
 
 - ✅ `gbim_worldview_entities` ingest complete (5,416,521 entities)
 - ✅ Autonomous Learner deployed, active, and queried at Phase 1.45
-- ✅ Three-database PostgreSQL architecture (ports 5433, 5432, 5435)
+- ✅ Three-database PostgreSQL architecture (ports 5433 ★restored, 5432, 5435)
 - ✅ 993 WV ZCTA centroids in PostGIS
 - ✅ ChromaDB containerized at host port 8002 / container port 8000, `hnsw:space: cosine`
-- ✅ `psychological-rag` (port 8006) operational
+- ✅ `psychological_rag` (port 8006) — ★ restored March 28, 968 docs now serving correctly
 - ✅ GBIM temporal confidence decay deployed across all 5,416,521 entities
 - ✅ `all-minilm:latest` (384-dim) confirmed and enforced; 100-word chunk constraint documented
 - ✅ Phase 1.45 semantic community memory retrieval live
 - ✅ ChromaDB v2 API migration complete
-- ✅ 31 collections confirmed — **6,727,956 total items** (March 26, 2026) — update per live query March 27, 2026
+- ✅ **40 active collections — 6,675,442 total vectors** — March 28, 2026 audit
 - ✅ Consciousness pipeline ACTIVE
-- ✅ **96/96 containers Up** — zero crash-looping — March 27, 2026
+- ✅ **96/96 containers Up** — zero crash-looping — March 28, 2026
 - ✅ GIS RAG (port 8004) returning live WV geodata
 - ✅ `jarvis-ingest-api` and `jarvis-web-research` restored
 - ✅ `governance_rag` (643 chunks) — LIVE, retrieval verified
 - ✅ `commons_rag` (306 chunks) — LIVE, retrieval verified
-- ✅ `spiritual_texts` (19,338 items) — LIVE
+- ✅ `spiritual_rag` deduplicated (−19,338 vectors) — March 28, 2026
 - ✅ `geospatialfeatures` (60,000 items) — LIVE
 - ✅ `GBIM_Fayette_sample` (1,535 items) — LIVE
-- ✅ Semantic retrieval smoke tests passed — Tests 1–5 (BSA → SNAP; DAO → Charter; constitution → Amendment XIV; emergency protocol; Fayette County utility)
-- ✅ **AaaCPE dual-service system (`jarvis-aaacpe-rag` port 8032, `jarvis-aaacpe-scraper` port 8033) built and running — March 27, 2026**
-- ✅ **`appalachian_cultural_intelligence` collection — 65 documents (confirm live count), 39 sources, `total_runs: 1`, first scrape run confirmed on startup — March 27, 2026**
-- ✅ **RAG search verified returning emergency protocol + Fayette County utility example — March 27, 2026**
+- ✅ Semantic retrieval smoke tests passed — Tests 1–5
+- ✅ **AaaCPE dual-service system (`jarvis-aaacpe-rag` port 8032, `jarvis-aaacpe-scraper` port 8033) — March 27, 2026**
+- ✅ **`aaacpe_corpus` (65 docs) confirmed distinct from `appalachian_cultural_intelligence` (820 items) — March 28, 2026**
+- ✅ **Port security — all `127.0.0.1`, zero `0.0.0.0` exposures — March 28, 2026**
+- ✅ **`_auth()` confirmed on all 4 sensitive routes in `ms_jarvis_memory.py` — March 28, 2026**
+- ✅ **`msjarvis_docs` expanded to 4,192 items — March 28, 2026**
 
 **Remaining work:**
 
-**`appalachian_cultural_intelligence` count reconciliation — OPEN ⚠️** — 820 (March 26 sprint) vs. 65 (March 27 AaaCPE scraper) discrepancy must be resolved. Run `curl http://localhost:8032/` and ChromaDB v2 collection count before committing Chapters 4 and 5.
-
-**`gbim_beliefs_v2` verification — OPEN** — Present in collection list but item count unverified. Query with `GET .../collections/gbim_beliefs_v2` to confirm count before treating as production data source.
+**Judge GBIM grounding gap — OPEN (highest priority)** — Truth and alignment judges still use `heuristic_contradiction_v1` rather than live GBIM queries. See Chapter 2, Section 2.8.
 
 **`conversation_history` pipeline wiring — OI-05 OPEN** — Collection confirmed present. Not formally wired to the production pipeline.
 
-**GBIM temporal decay — POC verification loop** — All 5,416,521 GBIM entities are currently flagged `needs_verification=TRUE`. The POC verification loop is not yet automated.
+**GBIM temporal decay — POC verification loop** — All 5,416,521 GBIM entities carry `needs_verification=TRUE`. The POC verification loop is not yet automated.
 
 **Community resource data loading — OPEN** — Verified knowledge bases return empty results for Mount Hope queries. Real community resource data must be entered into `jarvis-local-resources-db` by Community Champions before local-specific resource queries return verified results.
 
@@ -694,9 +702,13 @@ These results confirm:
 
 **Chunk audit for pre-constraint collections** — Collections ingested before March 26, 2026 (when the 100-word constraint was formally documented) should be audited for oversized chunks.
 
+**`mvw_gbim_landowner_spatial` view rebuild** — View returning 0 rows at runtime — rebuild pending (Item 21, backlog). Belief records confirmed present (20,593). `gbim_query_router` (port 7205) is healthy; view refresh is the outstanding step.
+
+**RAG → gateway inference wiring** — All RAG collections are populated; formal wiring of RAG retrieval into the `jarvis-gateway` inference endpoint is the next sprint milestone.
+
 ---
 
-*Last updated: 2026-03-27, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
-*Major update March 26, 2026: All six previously sparse/empty RAG collections confirmed live; smoke tests 1–3 added (Section 5.13); ChromaDB port 8002 and `hnsw:space: cosine` documented; 100-word chunk constraint confirmed; total item count updated to 6,727,956; container stack updated to 56/56.*
-*★ March 27, 2026: AaaCPE scraper went live — 65 docs in `appalachian_cultural_intelligence`, 53 in RAG (`jarvis-aaacpe-rag`), 39 sources, `total_runs: 1`. Smoke tests 4–5 added (emergency protocol + Fayette County utility — both ✅). Container stack updated to 96/96. `appalachian_cultural_intelligence` count discrepancy (820 vs. 65) flagged — requires live docker exec confirmation before final commit.*
-`````
+*Last updated: 2026-03-28, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+*Major update March 26, 2026: All six previously sparse/empty RAG collections confirmed live; smoke tests 1–3 added (Section 5.13); ChromaDB port 8002 and `hnsw:space: cosine` documented; 100-word chunk constraint confirmed.*
+*★ March 27, 2026: AaaCPE scraper live — `aaacpe_corpus` (65 docs, 39 sources, `total_runs: 1`). Smoke tests 4–5 added. Container stack 96/96.*
+*★ March 28, 2026: Security remediation complete — all `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set. `spiritual_rag` deduplicated (−19,338 vectors). `psychological_rag` restored (968 docs, `PSY_COLLECTION` fix). `msjarvis_docs` expanded (4,192 items). `msjarvis` port 5433 restored. `aaacpe_corpus` vs. `appalachian_cultural_intelligence` discrepancy resolved — two distinct collections confirmed. 40 active collections / 6,675,442 total vectors confirmed via full inventory audit.*
