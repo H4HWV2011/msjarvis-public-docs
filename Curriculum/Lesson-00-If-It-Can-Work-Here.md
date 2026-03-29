@@ -100,6 +100,6 @@ Each lesson is grounded in real decisions made in the Ms. Jarvis build — what 
 
 ---
 
-*Carrie Kidd (Mamma Kidd) — Pax, West Virginia*  
+*Carrie Kidd (Mamma Kidd) — Mount Hope, West Virginia*  
 *Harmony for Hope, Inc. | Ms. Jarvis Project*  
 *Last updated: March 29, 2026*
