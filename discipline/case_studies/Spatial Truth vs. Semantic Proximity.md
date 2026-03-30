@@ -591,6 +591,36 @@ Projection variants (ll83, utm83, gcs84, wma84) are consolidated per dataset.
 | `layer_config` / `layer` | Layer configuration |
 | `loader_lookuptables` / `loader_platform` / `loader_variables` | TIGER loader config |
 
+## Appendix C: Reproducible Technical Record — H-10 Diff
+
+**2 files changed, 60 insertions(+), 2 deletions(-)**
+
+### Commit Record
+
+| SHA | Message |
+|---|---|
+| `0bd0b363` | H-10: persist patched judge_pipeline.py — GBIM authority hierarchy + key normalization |
+| `b9c939b6` | H-10: GBIM PostGIS grounding — Phase 1.5 + judge authority hierarchy |
+
+### Reproduction Instructions
+
+```bash
+git clone https://github.com/H4HWV2011/msjarvis-rebuild
+cd msjarvis-rebuild
+git checkout 0bd0b363
+docker compose up -d jarvis-main-brain jarvis-judge-pipeline \
+  jarvis-gbim-query-router jarvis-local-resources-db
+sleep 10
+curl -s -X POST http://localhost:8050/chat \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: internal" \
+  -d '{"message": "what hospitals are near Charleston WV", "user_id": "test"}' \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['response'])"
+```
+
+**Expected output:** Charleston Area Medical Center and St. Mary's Medical Center with verified coordinates. No hallucinated facilities. Explicit acknowledgment of PostGIS data authority.
+APPENDIXC
+
 ---
 
 **Total: 541 tables across 16 thematic categories**
