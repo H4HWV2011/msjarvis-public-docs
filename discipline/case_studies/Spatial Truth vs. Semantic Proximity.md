@@ -619,7 +619,6 @@ curl -s -X POST http://localhost:8050/chat \
 ```
 
 **Expected output:** Charleston Area Medical Center and St. Mary's Medical Center with verified coordinates. No hallucinated facilities. Explicit acknowledgment of PostGIS data authority.
-APPENDIXC
 
 ---
 
