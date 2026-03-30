@@ -1,7 +1,7 @@
 # Case Study: Spatial Truth vs. Semantic Proximity
 ## How Community-Owned PostGIS Infrastructure Corrects LLM Hallucination at Inference Time
 
-**Carrie A. Kidd | Harmony for Hope, Inc. | Mount Hope, West Virginia**
+**Carrie A. Kidd | Kidd's Technical Services, Inc. | Mount Hope, West Virginia**
 **Ms. Jarvis Open-Source AI Infrastructure Project | March 30, 2026**
 
 ---
