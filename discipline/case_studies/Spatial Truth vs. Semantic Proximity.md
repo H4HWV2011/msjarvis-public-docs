@@ -322,30 +322,278 @@ The code is open source. The data is public. The infrastructure is regional. The
 
 Source: `SELECT geodbid, label, ST_Y(geom) as lat, ST_X(geom) as lon, country FROM hospitals ORDER BY label;` — `msjarvisgis` database, `jarvis-local-resources-db` container, March 30, 2026.
 
-## Appendix B: Selected msjarvisgis Spatial Asset Inventory
+## Appendix B: msjarvisgis Spatial Asset Inventory — 541 Tables, Categorized by Theme
 
-540 tables total. Selected tables relevant to community services grounding:
+All tables verified via `\dt` query against `msjarvisgis` database,
+`jarvis-local-resources-db` container, March 30, 2026.
+Projection variants (ll83, utm83, gcs84, wma84) are consolidated per dataset.
+`_attrs_raw` companion tables omitted from display counts for clarity.
 
-| Category | Table | Source | Coverage |
+---
+
+### 1. Health & Emergency Services (8 datasets)
+
+| Dataset | Table | Source | Year |
 |---|---|---|---|
-| Hospitals | `hospitals` | HSIP | WV statewide |
-| Hospitals (detailed) | `hospitals_wvdem_040519_gcs84` | WVDEM | WV statewide |
-| Nursing Homes | `nursinghomes_wvdem_041219_gcs84` | WVDEM | WV statewide |
-| Public Health | `publichealthdepts_hsip_20091229_gcs83` | HSIP | WV statewide |
-| Community Health | `communityhealthproviders_wvhealthcareauthority_200802_utm83` | WVHCA | WV statewide |
-| Rural Health | `healthruralfacilities_manysources_utm83` | Multiple | WV statewide |
-| Fire Departments | `fire_dept_wvdem_092017_utm83` | WVDEM | WV statewide |
-| Police | `policedept_wvdem_012319_gcs84` | WVDEM | WV statewide |
-| 911 Centers | `911centers_wvdem_032819_gcs84` | WVDEM | WV statewide |
-| Buildings | `buildings` | Multiple | Regional |
-| Building Footprints | `wvgistc_building_footprints` | WVGISTC | WV statewide |
-| Building Footprints | `wv_microsoft_20180207_utm17n83` | Microsoft 2018 | WV statewide |
-| Flood Buyouts | `hazardmitigationbuyout_20250929_polygons_utm83` | WVDHSEM | WV statewide |
-| Correctional | `correctionalinstitutions_hsip_20091230_utm83` | HSIP | WV statewide |
-| Libraries | `libraries_manysources_2001_ll27` | Multiple | WV statewide |
-| Places of Worship | `placesofworship_hsip_20080723_utm83` | HSIP | WV statewide |
-| Veterans Affairs | `veteransaffairsfacilities_manysources_200503_utm83` | Multiple | WV statewide |
-| County Seats | `countyseats_usgs_ll83` | USGS | WV statewide |
-| Census 2020 Blocks | `blocks_census_2020_utm83` | US Census | WV statewide |
-| TIGER Geocoding | `tiger.*` (full schema) | US Census TIGER | WV statewide |
-````
+| Hospitals (active) | `hospitals` | HSIP | current |
+| Hospitals (detailed) | `hospitals_wvdem_040519_gcs84` | WVDEM | 2019 |
+| Nursing Homes | `nursinghomes_wvdem_041219_gcs84` | WVDEM | 2019 |
+| Public Health Departments | `publichealthdepts_hsip_20091229_gcs83` | HSIP | 2009 |
+| Community Health Providers | `communityhealthproviders_wvhealthcareauthority_200802_utm83` | WVHCA | 2008 |
+| Rural Health Facilities | `healthruralfacilities_manysources_utm83` | Multiple | varies |
+| Fire Departments | `fire_dept_wvdem_092017_utm83` | WVDEM | 2017 |
+| Police Departments | `policedept_wvdem_012319_gcs84` | WVDEM | 2019 |
+
+---
+
+### 2. Public Safety & Justice (4 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| 911 Centers | `911centers_wvdem_032819_gcs84` | WVDEM | 2019 |
+| Correctional Institutions | `correctionalinstitutions_hsip_20091230_utm83` | HSIP | 2009 |
+| Parole Offices | `paroleoffices_manysources_2008_utm83` | Multiple | 2008 |
+| Fire Departments (active) | `fire_departments` | WVDEM | current |
+
+---
+
+### 3. Buildings & Structures (9 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Buildings (active) | `buildings` | Multiple | current |
+| Building Footprints | `wvgistc_building_footprints` | WVGISTC | current |
+| Building Footprints | `wv_microsoft_20180207_utm17n83` | Microsoft | 2018 |
+| Structure Points North | `structurepointsnorth_samb_2003_utm83` | SAMB | 2003 |
+| Structure Points South | `structurepointssouth_samb_2003_utm83` | SAMB | 2003 |
+| Structure Polygons | `structurepolygons_samb_2003_utm83` | SAMB | 2003 |
+| Building Flood Risk | `building_flood_risk` | derived | current |
+| Building Metric Stage | `building_metric_stage` | derived | current |
+| Flood Plain Structures at Risk | `floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83` | USACE | 2003 |
+
+---
+
+### 4. Infrastructure & Utilities (9 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Bridges | `bridges` | multiple | current |
+| Dams (USACE) | `dams_usarmycorpsofengineers_200010_utm83` | USACE | 2000 |
+| Dams (Non-coal, USGS) | `damsnoncoal_usgs_2002_utm83` | USGS | 2002 |
+| Industrial Buildings | `industrialbuildings_wvdo_200807_utm83` | WVDO | 2008 |
+| Industrial Parks | `industrialparks_wvdo_200078_utm83` | WVDO | 2000 |
+| Industrial Sites | `industrialsites_wvdo_200807_utm83` | WVDO | 2008 |
+| Office Buildings | `officebuildings_wvdo_200807_utm83` | WVDO | 2008 |
+| Manufacturing & Business | `manufacturingandbusiness_wvdo_200803_utm83` | WVDO | 2008 |
+| Sewer Treatment Plants | `sewertreatmentplants_wvdep_200203_utm83` | WVDEP | 2002 |
+
+---
+
+### 5. Transportation & Communications (14 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Rail Network (WV) | `railnetworkwv_usdot_200203_utm83` | USDOT | 2002 |
+| Rail Network (Region) | `railnetworkregion_usdot_200203_utm83` | USDOT | 2002 |
+| Railroads | `railroads_rahalltransportationinstitute_2005_utm83` | RHTI | 2005 |
+| Amtrak Rails | `amtrackrails_federalrailroadadministration_200210_ll83` | FRA | 2002 |
+| Excursion Trains | `excursionpassengertrains_wvdof_200102_utm83` | WVDOF | 2001 |
+| Intermodal Terminals | `intermodalterminalfacilities_usdot_1997_utm83` | USDOT | 1997 |
+| Navigable Waterways | `naviagablewaterways_usarmycropsofengineers_2006_utm83` | USACE | 2006 |
+| Waterway River Miles | `navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83` | USACE | 2006 |
+| Waterway Structures | `navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83` | USACE | 2006 |
+| National Waterway Network | `nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83` | USACE | 2001 |
+| Waterway Ports | `nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83` | USACE | 2001 |
+| FCC Towers (AM, FM, cellular, microwave, pager, private) | `towersam/fm/cellular/microwave/pager/private_fcc_200202` | FCC | 2002 |
+| WV Public Broadcasting Towers | `towers_wvpublicbroadcasting_2002_utm83` | WVPB | 2002 |
+| EPA Facilities | `facilities_epa_200203_utm83` | EPA | 2002 |
+
+---
+
+### 6. Environment, Hazard & Natural Resources (14 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Hazard Mitigation Buyouts | `hazardmitigationbuyout_20250929_polygons_utm83` | WVDHSEM | 2025 |
+| Flood Plain Structures | `floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83` | USACE | 2003 |
+| Mines — Abandoned Lands (line/point/polygon) | `minesabandonedlands*_wvdep_1996` | WVDEP | 1996 |
+| Coal Seams | `coals2_utm83` | WVGES | varies |
+| Mineral Operations | `mineraloperations_usgs_200204_utm83` | USGS | 2002 |
+| Wind Energy Resources | `windenergyresource_nationalrenewableenergylab_200901_utm83` | NREL | 2009 |
+| Timber Removal Volume | `timberremovalvolume_usfs_1996_utm83` | USFS | 1996 |
+| Major Rivers & Lakes (line) | `majorriversandlakesline_nhd_2002_utm83` | NHD | 2002 |
+| Major Rivers & Lakes (polygon) | `majorriversandlakespolygon_nhd_2002_utm83` | NHD | 2002 |
+| National Atlas Streams | `nationalatlasstreams_usgs_199903_utm83` | USGS | 1999 |
+| Realtime Stream Flow Stations | `realtimestreamflowstations_usgs_200012_utm83` | USGS | 2000 |
+| Springs | `springs_wvges_1986_utm83` | WVGES | 1986 |
+| Solid Waste Facilities | `solidwastefacilities_wvdep_200202_utm83` | WVDEP | 2002 |
+| Appalachian Basin Boundary | `boundaryappalachianbasin_wvges_1996_utm83` | WVGES | 1996 |
+
+---
+
+### 7. Geology (8 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Geological Lines | `geolgyl_reg_ll83` | WV Geological Survey | varies |
+| Geological Polygons | `geolgyp_reg_ll83` | WVGES | varies |
+| Geological Text Labels | `geotextl_reg_ll83` | WVGES | varies |
+| Calderas (lines) | `calderl_reg_ll83` | WVGES | varies |
+| Calderas (polygons) | `cvpoly_utm83` | WVGES | varies |
+| Faults | `cvfault_utm83` | WVGES | varies |
+| Fault Lines (regional) | `fault_reg_ll83` | WVGES | varies |
+| Glacial Features | `glacal_reg_ll83` / `glacagl_reg_ll83` | WVGES | varies |
+
+---
+
+### 8. Census & Demographics (12 datasets, spanning 1990–2020)
+
+| Dataset | Table | Vintage |
+|---|---|---|
+| Census Blocks | `blocks_census_2020_utm83` | 2020 |
+| Block Groups | `blockgroups_census_2020_utm83` | 2020 |
+| Block Groups | `blockgroups_census_2000_ll83` | 2000 |
+| Block Groups | `blockgroups_census_201111_gcs83` | 2011 |
+| Population Data Block Groups | `populationdatablockgroups_uscensus_2000_utm83` | 2000 |
+| Populated Places | `populatedplaces_census_2020_utm83` | 2020 |
+| Populated Places | `populatedplaces_uscensus_1990_utm83` | 1990 |
+| Cities >2,500 | `citieswithpopulationsover2500_census_2020_utm83` | 2020 |
+| Cities >10,000 | `citieswithpopulationsover10k_census_2020_utm83` | 2020 |
+| Metro/Micro Statistical Areas | `metropolitanandmicropolitanstatisticalareas_census_2020_utm83` | 2020 |
+| Metro Statistical Areas | `metropolitanstatisticalareas_uscensus_199901_utm83` | 1999 |
+| Empowerment Zones | `empowermentzonesandenterprisecommunities_uscensus_2002_utm83` | 2002 |
+
+---
+
+### 9. Land, Governance & Political Boundaries (12 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Tax Districts | `wv_tax_districts_wma84` | WV State | current |
+| Community Boundaries | `communityboundary_min_att_20250121_utm83` | WV MIN | 2025 |
+| WV State Boundary (24k) | `wvstateboundary24k_usgs_200203_utm83` | USGS | 2002 |
+| WV State Boundary (100k) | `wvstateboundary100k_usgs_200203_ll83` | USGS | 2002 |
+| County Parks | `countycityparkboundaries_20201104_utm83` | WV State | 2020 |
+| County Seats | `countyseats_usgs_ll83` | USGS | varies |
+| County Courthouses | `courthousescounty_manysources_200203_utm83` | Multiple | 2002 |
+| Federal Courthouses | `courthousesfederal_manysources_200203_utm` | Multiple | 2002 |
+| House Districts (2010, 2020) | `stateofwvhousedistricts_wvlegislativeservices_2010` | WVLS | 2010 |
+| Senate Districts (2010, 2020) | `stateofwvsenatedistricts_wvlegislativeservices_2010` | WVLS | 2010 |
+| Voting Districts | `votingdistrictswv_legislativeservices_2002_utm83` | WVLS | 2002 |
+| Regional Planning Councils | `regionalplanninganddevelopmentcouncil_wvdo_1971_utm83` | WVDO | 1971 |
+
+---
+
+### 10. Education, Culture & Community Services (7 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Higher Education | `highered_wvemd_072420_utm83` | WVEMD | 2020 |
+| Libraries | `libraries_manysources_2001_utm83` | Multiple | 2001 |
+| Places of Worship | `placesofworship_hsip_20080723_utm83` | HSIP | 2008 |
+| Places of Worship (WVGISTC) | `pow_wvgistc_062919_utm83` | WVGISTC | 2019 |
+| Veterans Affairs Facilities | `veteransaffairsfacilities_manysources_200503_utm83` | Multiple | 2005 |
+| National Register (Historic) | `nationalregister_point_20200923` | NPS | 2020 |
+| Recreational Whitewater Trails | `recreationalwwtrails_ofwv_20151117_utm83` | OFWV | 2015 |
+
+---
+
+### 11. Geographic Reference & Cartography (7 datasets)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Geographic Names (USGS Topo, current) | `geographicnamesonusgstopomaps_current_usgs_20110801_utm83` | USGS | 2011 |
+| Geographic Names (USGS Topo, historical) | `geographicnamesonusgstopomaps_historical_usgs_20110801_utm83` | USGS | 2011 |
+| Geographic Names (2006) | `geographicalnamesonusgstopomaps_usgs_200601_utm83` | USGS | 2006 |
+| Summits | `summits_gistc_052012_utm83_shp` | WVGISTC | 2012 |
+| Survey Control Points | `surveycontrol_nationalgeodeticsurvey_102011_gcs83` | NGS | 2011 |
+| Index Grid 15-minute Quads | `indexgrid15minutequads_wvgistc_utm83` | WVGISTC | varies |
+| Workforce Investment Areas | `workforceinvestmentareas_wvgistc_200208_ll83` | WVGISTC | 2002 |
+
+---
+
+### 12. Weather & Climate (1 dataset)
+
+| Dataset | Table | Source | Year |
+|---|---|---|---|
+| Weather Stations | `weatherstations_nationalclimatedatacenter_1999_gcs83` | NCDC | 1999 |
+
+---
+
+### 13. GBIM Knowledge Graph (11 tables)
+
+| Table | Purpose |
+|---|---|
+| `gbim_beliefs` | Belief assertions with confidence scores |
+| `gbim_belief_edges` | Relationship graph between beliefs |
+| `gbim_belief_evidence` | Evidence links for belief validation |
+| `gbimbeliefnormalized` | Normalized belief scoring |
+| `gbim_entities` | Named entity registry |
+| `gbim_evidence` | Source evidence documents |
+| `gbim_full_points` | Full spatial point index |
+| `gbim_layer_catalog` | Registered spatial layer metadata |
+| `gbim_layer_config` | Layer configuration parameters |
+| `gbim_layer_manifest` | Layer load manifest |
+| `gbim_source_epochs` | Temporal versioning of source data |
+| `gbim_worldviews` | Community worldview models |
+| `gbim_worldview_entity` | Entity-worldview relationship map |
+
+---
+
+### 14. TIGER Geocoding Schema (18 tables)
+
+| Table | Purpose |
+|---|---|
+| `addr` | Address range geocoding |
+| `addrfeat` | Address features |
+| `bg` | Block groups (TIGER) |
+| `county` / `county_lookup` | County reference |
+| `cousub` / `countysub_lookup` | County subdivision |
+| `edges` / `faces` / `featnames` | Topology edges and features |
+| `place` / `place_lookup` | Place reference |
+| `state` / `state_lookup` | State reference |
+| `tabblock` / `tabblock20` | Tabulation blocks |
+| `tract` | Census tracts |
+| `us_counties` / `us_zips` | National reference tables |
+| `zcta5` / `zcta_polygons` | ZIP code tabulation areas |
+| `zip_lookup` / `zip_state` | ZIP code reference |
+| `pagc_gaz` / `pagc_lex` / `pagc_rules` | PAGC address parser |
+
+---
+
+### 15. Program & Benefits Rules Engine (9 tables)
+
+| Table | Purpose |
+|---|---|
+| `program` / `program_catalog` | Community benefit program registry |
+| `program_authority_links` | Legal authority references |
+| `program_entity_links` | Entity eligibility links |
+| `program_evidence_links` | Evidence for program rules |
+| `program_income_limit_rules` | Income threshold rules |
+| `program_income_source_policy` | Income source treatment policy |
+| `program_target_config` | Target population configuration |
+| `wv_income_manual_*` (5 tables) | Manual income limit overrides |
+
+---
+
+### 16. System & Internal Tables (8 tables)
+
+| Table | Purpose |
+|---|---|
+| `attrs_files_list` | Attribute file registry |
+| `attrs_inventory_detailed` | Detailed attribute inventory |
+| `authority_references` | Data authority citations |
+| `confidence_decay` | Temporal confidence scoring |
+| `evidence_documents` | Source document registry |
+| `geospatial_features` / `geospatial_layers` | Active layer registry |
+| `local_resources` | Local resource index |
+| `spatial_ref_sys` | PostGIS spatial reference system |
+| `layer_config` / `layer` | Layer configuration |
+| `loader_lookuptables` / `loader_platform` / `loader_variables` | TIGER loader config |
+
+---
+
+**Total: 541 tables across 16 thematic categories**
+**Spatial coverage: West Virginia statewide**
+**Temporal range: 1971–2025**
+**Sources: WVDEM, WVGISTC, WVDEP, WVGES, WVDO, WVHCA, WVLS, WVEMD, USGS, USACE, USDOT, EPA, FCC, HSIP, NHD, NREL, USFS, US Census Bureau, NGS, NPS**
