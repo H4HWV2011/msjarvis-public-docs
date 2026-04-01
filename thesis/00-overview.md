@@ -2,13 +2,13 @@
 ## Ms. Jarvis / MountainShares / The Commons
 
 *Authored by Carrie Ann Kidd — Mount Hope, West Virginia*
-*Last verified: March 28, 2026 — remediation sprint complete*
+*Last verified: April 1, 2026 — autonomous learner debug sprint complete*
 
 ---
 
 ## 00.1 What This Document Is
 
-This chapter is the operational narrative overview of the full Ms. Jarvis system. It describes the architecture, mission, infrastructure, and live status of the system as confirmed on March 28, 2026. It is not a design document or a proposal — it is a record of what is built and running.
+This chapter is the operational narrative overview of the full Ms. Jarvis system. It describes the architecture, mission, infrastructure, and live status of the system as confirmed on April 1, 2026. It is not a design document or a proposal — it is a record of what is built and running.
 
 The system is externally accessible at **https://egeria.mountainshares.us**, running **96 confirmed containers** in the `msjarvis-rebuild` namespace, with **6,675,442 verified vectors** across 40 ChromaDB collections, 22 LLM proxies operational, all five judge services healthy with signing keys, and all critical security findings from the March 28 remediation sprint resolved.
 
@@ -137,14 +137,15 @@ All stages confirmed healthy on March 28, 2026 VERIFYANDTEST.sh run.
 | March 26, 2026 | **56 confirmed (msjarvis-rebuild)** | RAG corpus completion sprint — all collections populated; EEG heartbeats confirmed; rebuild namespace active. **Note:** The discrepancy between 83–85 (prior namespace) and 56 (msjarvis-rebuild namespace) reflects a namespace rebuild/rename, not a reduction in services. The `msjarvis-rebuild` namespace is the authoritative production namespace. Full reconciliation pending §19.14 audit. |
 | March 27, 2026 | **96 confirmed (msjarvis-rebuild)** | MountainShares Phase 0 beta launch (5 contracts on Arbitrum One mainnet, chain 42161); AAPCAppE scraper + RAG activated (ports 8032, 8033); 13 NBB neurobiological containers confirmed; IPFS (kubo) confirmed; full `docker ps` count verified. |
 | March 28, 2026 | **96 confirmed (msjarvis-rebuild)** | Remediation sprint complete: port bindings corrected (0.0.0.0 → 127.0.0.1), `crypto_client.py` volume-mounted to all 22 proxies, StarCoder2 routing corrected to `llm7-proxy:8207`, psychological RAG restored to 968 docs, 19,338 duplicate `spiritual_rag` vectors removed. All CRIT/REM findings resolved. |
+| April 1, 2026 | **95 effective → 96 recovered (msjarvis-rebuild)** | Autonomous learner debug sprint: `jarvis-autonomous-learner` entered crash-loop after empty file (1.54 kB) deployed via failed patch attempt (LEARN-03). Effective running count briefly 95. Service recovered by patching source on host, copying into container, and restarting. Post-repair: 4 cycles completed, 4 items stored, 7 entanglement graph nodes, 0 gap failures. Full 96 container count restored. LEARN-01, LEARN-02, LEARN-03 all resolved. |
 
 ---
 
-## 00.8 System Health Snapshot — March 28, 2026
+## 00.8 System Health Snapshot — April 1, 2026
 
 | Metric | Value | Verified |
 |---|---|---|
-| **Total containers (msjarvis-rebuild namespace)** | **96** | **March 28, 2026** |
+| **Total containers (msjarvis-rebuild namespace)** | **96** | **April 1, 2026 — post-recovery** |
 | External systemd services | **3** (Caddy, jarvis-auth, cloudflared) | March 22, 2026 |
 | Public HTTPS URL | **https://egeria.mountainshares.us** | March 28, 2026 |
 | Pipeline speed (single-user, GPU) | **~100–107s** | March 22, 2026 |
@@ -154,7 +155,7 @@ All stages confirmed healthy on March 28, 2026 VERIFYANDTEST.sh run.
 | Port 0.0.0.0 exposures | **0** | March 28, 2026 — remediation |
 | `minds_participated` | **21/21** | March 28, 2026 |
 | EEG eeg-delta | 1 pulse — 30s cadence | March 26, 2026 |
-| EEG eeg-theta | 486 pulses — 60s cadence | March 26, 2026 |
+| EEG eeg-theta | 486 pulses confirmed — 60s cadence; est. ~2,000 by April 1, 2026 | March 26, 2026 (last confirmed) |
 | EEG eeg-beta | 1 pulse — 5-min, topic: Appalachian | March 26, 2026 |
 | `governance_rag` | 643 chunks | March 26, 2026 — OI-19 CLOSED |
 | `commons_rag` | 306 chunks | March 26, 2026 — OI-20 CLOSED |
@@ -164,10 +165,13 @@ All stages confirmed healthy on March 28, 2026 VERIFYANDTEST.sh run.
 | `appalachian_cultural_intelligence` | 820 items | March 26, 2026 — OI-14 CLOSED |
 | `spiritual_rag` | Deduplicated — 19,338 duplicates removed | March 28, 2026 — remediation |
 | `psychological_rag` | **968 documents — restored** | March 28, 2026 — remediation |
-| ChromaDB total vectors | **6,675,442 across 40 active collections** | March 28, 2026 |
+| ChromaDB total vectors | **6,675,442 across 40 active collections** | March 28, 2026 (may be higher — see note below) |
 | GBIM beliefs (`gbim_beliefs`) | **5,416,521** | March 28, 2026 |
 | — of which: landowner beliefs | **20,593** | March 20, 2026 |
-| `autonomous_learner` items | **21,181+** | March 20, 2026 |
+| `autonomous_learner` items (historical) | **21,181** | March 20, 2026 — last stable pre-crash state |
+| `autonomous_learning` collection (post-fix) | **57 items in ChromaDB — 4 new cycles completed** | April 1, 2026 |
+| `autonomous_learner` dedup gate | **Running — 0 duplicates encountered post-fix** | April 1, 2026 |
+| `autonomous_learner` entanglement graph | **7 nodes — 0 gap failures** | April 1, 2026 |
 | `msjarvis_docs` items | **4,192** | March 28, 2026 |
 | Embedding model | **all-minilm:latest (384-dim, cosine)** | Confirmed |
 | Chunk constraint | **100 words max, 20-word overlap** | March 26, 2026 |
@@ -184,6 +188,11 @@ All stages confirmed healthy on March 28, 2026 VERIFYANDTEST.sh run.
 | `mvw_gbim_landowner_spatial` | **⚠️ 0 rows — rebuild pending (Item 21)** | March 28, 2026 |
 | `VERIFYANDTEST.sh` line 190 | **⚠️ Syntax error — script infrastructure open** | March 28, 2026 |
 | `preflight_gate.sh` command stubs | **⚠️ `fail`/`ok` not wired — open** | March 28, 2026 |
+| GBIM Query Router port 7205 | **✅ HTTP 200 OK — stable post-fix** | April 1, 2026 (briefly 422 during repair window — LEARN-02 resolved) |
+| `jarvis-autonomous-learner` | **✅ HEALTHY — post-repair, 4 cycles confirmed** | April 1, 2026 |
+| services-safe mirror | **✅ Synced — `ms_jarvis_rag_server.py` and `ms_jarvis_autonomous_learner_optimized.py`** | April 1, 2026 |
+
+> **⚠️ ChromaDB vector count note:** The 6,675,442 vector count reflects the March 28, 2026 state. The `autonomous_learning` collection and `msjarvis_docs` collection may contain additional unguarded inserts accumulated during the LEARN-01 dedup gate error window (between last stable restart and April 1 fix). A full semantic dedup audit of the `autonomous_learning` collection is recommended once sufficient post-fix cycles have accumulated. See Ch. 05 and Ch. 14.
 
 ---
 
@@ -198,11 +207,13 @@ All stages confirmed healthy on March 28, 2026 VERIFYANDTEST.sh run.
 | MountainShares Phase 0 beta launch | March 26–27, 2026 | All five MountainShares/DAO services (8080–8084) deployed and healthy; five smart contracts deployed to Arbitrum One mainnet (chain ID 42161); `governance_rag` (643 chunks) and `commons_rag` (306 chunks) confirmed as live corpus backing | ✅ Complete |
 | AAPCAppE corpus activation sprint | March 27, 2026 | `jarvis-aaacpe-scraper` (port 8033) and `jarvis-aaacpe-rag` (port 8032) activated; 39 sources; 65 documents ingested; RAG search verified; Chapter 30 upgraded to Active; 96 containers confirmed | ✅ Complete |
 | Remediation sprint | March 28, 2026 | Port bindings corrected (8015, 8056 → 127.0.0.1); `crypto_client.py` mounted to all 22 proxies; StarCoder2 routing corrected; `psychological_rag` restored to 968 docs; 19,338 duplicate vectors removed; CRIT-CRYPTO, REM-06, REM-09, REM-13, REM-16 all closed | ✅ Complete |
+| Autonomous learner debug sprint | April 1, 2026 | LEARN-01: `cosine_similarity` numpy dtype bug fixed — explicit `np.float64` and `float()` casting enforced; LEARN-02: GBIM Query Router 422 schema mismatch resolved — `/route` returning HTTP 200 OK; LEARN-03: learner crash-loop resolved — source patched on host, copied into container, service restarted; `ms_jarvis_rag_server.py` and `ms_jarvis_autonomous_learner_optimized.py` synced to `services-safe`; 4 post-fix cycles confirmed, 4 items stored, 7 entanglement graph nodes, 0 gap failures, `autonomous_learning` collection at 57 items | ✅ Complete |
 
 ---
 
-*Last updated: 2026-03-28, Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-04-01, Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *Public URL: https://egeria.mountainshares.us*
 *Rebuild namespace: msjarvis-rebuild — 96 containers confirmed live*
 *MountainShares Phase 0 beta: LIVE — Arbitrum One (chain 42161), 5 contracts on-chain*
 *All critical audit findings: RESOLVED — March 28, 2026*
+*April 1, 2026 autonomous learner debug sprint: COMPLETE — LEARN-01, LEARN-02, LEARN-03 resolved*
