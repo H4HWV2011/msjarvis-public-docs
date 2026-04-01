@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Chapter 8 — Quantum-Inspired Entanglement and Coupled State
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
