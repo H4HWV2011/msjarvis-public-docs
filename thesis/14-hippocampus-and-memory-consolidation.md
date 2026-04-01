@@ -22,18 +22,32 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 
 This chapter describes how recent activity is turned into durable records in the system's long-term stores. The design borrows the idea of a hippocampal buffer that receives short-lived experiences, decides what matters, and then writes compact, structured traces into more stable memory. In the current implementation, this role is played by two complementary subsystems: (1) the GBIM + beliefs + Chroma hippocampus — GBIM worldview entities in `gbim_worldview_entity`, their 1:1 normalized nine-axis belief rows in `gbim_belief_normalized`, and a ChromaDB collection called `geospatialfeatures` that mirrors centroid-bearing entities together with worldview, dataset, GeoDB IDs, and other provenance; and (2) the `autonomous_learner` ChromaDB collection, which accumulates community interaction records and is queried at Phase 1.45 of every production `/chat` request. The `jarvis-hippocampus` service is deployed and confirmed operational as part of the **96-container production stack** (★ all 96 containers Up — zero Restarting, zero Exited, March 28, 2026), ChromaDB is fully containerized at port 8000 with the `chroma_data` Docker volume, and all ChromaDB collections use **384-dimensional vectors** produced by `all-minilm:latest`. ★ The ChromaDB corpus now spans **40 active collections and 6,675,442 total vectors** (March 28, 2026 full audit). Neurobiological work on hippocampal replay and complementary learning systems provides the conceptual backdrop for this design.
 
-**Production state (★ March 28, 2026):**
+**Production state (★ April 1, 2026 — post autonomous learner debug sprint):**
 
 - `jarvis-hippocampus` service: ✅ Deployed and operational (commit `b90f9ff`)
 - ChromaDB `geospatialfeatures` collection: ✅ Active (port 8000, `chroma_data` volume)
-- ChromaDB `autonomous_learner` collection: ✅ Growing — queried at Phase 1.45 on every `/chat` call (★ see §14.8 for updated March 28 vector counts)
+- ChromaDB `autonomous_learner` collection: ✅ **Healthy and growing** — queried at Phase 1.45 on every `/chat` call. **57 items confirmed post-fix (April 1, 2026).** See §14.8 for full detail.
 - Embedding model: ✅ **`all-minilm:latest` (384-dim)** — canonical embedding model for ★ all 40 ChromaDB collections
 - PostgreSQL `msjarvis` (port **5433** ★ restored): ✅ 5,416,521 GBIM entities, 80 epochs, 206 source layers
 - PostgreSQL `msjarvisgis` (port **5432** ★ confirmed): ✅ 91 GB PostGIS, 501 tables, 993 ZCTA centroids
 - GBIM temporal confidence decay: ✅ Deployed March 15 — all entities carry `last_verified`, `confidence_decay`, `needs_verification`
 - Integration with 9-phase pipeline: ✅ Confirmed in end-to-end benchmark (~436s, March 18, 2026, optimized from 532s baseline)
 - `jarvis-memory` (port **8056**): ✅ ★ Corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set
-- **★ 96/96 containers Up — zero Restarting, zero Exited (March 28, 2026)**
+- **★ 96/96 containers Up — zero Restarting, zero Exited (April 1, 2026 — post-recovery)**
+
+> **📈 April 1, 2026 autonomous learner debug sprint — COMPLETE:** The autonomous learner (`jarvis-autonomous-learner`, port 8020) entered a crash-loop on April 1, 2026 after a failed patch attempt deployed an empty file (1.54 kB), triggering `ERROR: Attribute 'app' not found in module` on Uvicorn startup (LEARN-03). Concurrently, a `cosine_similarity` bug was identified where the dedup gate comparison raised `"The truth value of an array with more than one element is ambiguous"` on every cycle due to a numpy array being returned instead of a scalar (LEARN-01). The GBIM Query Router (port 7205) briefly returned HTTP 422 Unprocessable Entity on mis-shaped learner `route` POST calls (LEARN-02). All three items were resolved on April 1, 2026. Post-repair confirmed metrics (18:14 UTC, April 1, 2026):
+>
+> | Metric | Value |
+> |---|---|
+> | Cycles completed (post-fix) | 4 |
+> | Items stored (post-fix) | 4 |
+> | Items deduplicated | 0 (no duplicates encountered yet) |
+> | Entanglement graph nodes | 7 |
+> | Gap failures | 0 |
+> | `autonomous_learning` collection (ChromaDB) | 57 items |
+> | GBIM router `/route` | HTTP 200 OK — stable |
+>
+> The `autonomous_learning` historical item count of 21,181 (last stable state, March 20, 2026) will resume accumulation from this baseline. A full semantic dedup audit of the `autonomous_learning` collection is recommended once sufficient post-fix cycles have accumulated. See §14.8 and `00-overview.md` §00.9.
 
 > **📈 March 28, 2026 audit update:** ChromaDB full audit complete — **40 active collections, 6,675,442 total vectors**. `spiritual_rag` deduplicated (−19,338 duplicate vectors). `psychological_rag` restored (968 docs). `msjarvis_docs` expanded (4,192 items). `autonomous_learner` continues to grow (first external-source AAPCAppE documents flowing as of March 27). All 40 collections confirmed on `all-minilm:latest` (384-dim). See §14.8 for the updated full collection table.
 
@@ -45,7 +59,7 @@ This chapter describes how recent activity is turned into durable records in the
 
 ## 14.1 Role in the Overall Architecture
 
-The consolidation layer sits between fast-changing streams of requests and the slower, more stable memory and knowledge stores. As shown in Figure 14.1, the GBIM promotion and normalization pipeline feeds a hippocampal vector store that higher-level services query by worldview, dataset, and spatial footprint. The `jarvis-hippocampus` service (deployed March 15, 2026) provides this consolidation function as a dedicated microservice within the **96-container production stack** (★ March 28, 2026).
+The consolidation layer sits between fast-changing streams of requests and the slower, more stable memory and knowledge stores. As shown in Figure 14.1, the GBIM promotion and normalization pipeline feeds a hippocampal vector store that higher-level services query by worldview, dataset, and spatial footprint. The `jarvis-hippocampus` service (deployed March 15, 2026) provides this consolidation function as a dedicated microservice within the **96-container production stack** (★ April 1, 2026 — post-recovery).
 
 As of March 17, 2026, a second active hippocampal pathway operates in parallel: **Phase 1.45 community memory retrieval**. On every `/chat` request, before the LLM ensemble, the main brain queries the `autonomous_learner` ChromaDB collection using `all-minilm:latest` (384-dim) semantic search and prepends the top-5 most semantically similar community interaction records to `enhanced_message`. This makes accumulated community memory an active, prompt-level input to every response — not merely a background store available for optional RAG lookup.
 
@@ -54,7 +68,7 @@ As of March 17, 2026, a second active hippocampal pathway operates in parallel: 
 | Pathway | Collection | Records | Query timing | Mechanism |
 |---|---|---|---|---|
 | GBIM + beliefs consolidation | `geospatialfeatures` | ~5.4M entities mirrored | Phase 4 RAG (on-demand) | Metadata-filtered ChromaDB + PostgreSQL join |
-| Community interaction memory | `autonomous_learner` | Growing — 65 new external-source docs from AAPCAppE scraper (March 27); ★ see §14.8 for March 28 vector count | Phase 1.45 (every request) | `all-minilm:latest` semantic search, top-5 prepended |
+| Community interaction memory | `autonomous_learner` | **57 items confirmed post-fix (April 1, 2026); historical baseline 21,181 as of March 20, 2026 — accumulation resuming** | Phase 1.45 (every request) | `all-minilm:latest` semantic search, top-5 prepended |
 
 A GBIM promotion and normalization pipeline:
 
@@ -85,7 +99,7 @@ The core inputs are rows in `gbim_worldview_entity` and their 1:1 normalized bel
 For features with geometry, the belief `where` axis records centroids and SRIDs derived from underlying WV GIS layers (PostgreSQL `msjarvisgis`, port **5432** ★ confirmed — PostGIS, 91 GB, 501 tables, 993 ZCTA centroids from `zcta_wv_centroids`). These values are streamed into ChromaDB `geospatialfeatures` metadata (`centroid_x`, `centroid_y`, `srid`) so that retrieval can respect spatial context and coordinate systems. All embeddings for `geospatialfeatures` use `all-minilm:latest` (384-dim) to maintain collection compatibility.
 
 **Community interaction records (`autonomous_learner`)**
-The `autonomous_learner` ChromaDB collection accumulates community interaction records produced by the autonomous learning subsystem (★ see §14.8 for current vector count from the March 28, 2026 full audit; baseline was 21,181 records as of March 18, growing ~288/day). These records are written separately from `background_rag_store` and represent a different hippocampal pathway: experiential, interaction-derived memory rather than structured GBIM entity promotion. They are queried at Phase 1.45 via `all-minilm:latest` semantic search on every production request. As of March 27, 2026, the AAPCAppE scraper first run has begun adding external-source documents to the ingest pipeline — see §14.3 and §14.8.
+The `autonomous_learner` ChromaDB collection accumulates community interaction records produced by the autonomous learning subsystem. The historical item count of **21,181 records (last verified stable state: March 20, 2026, growing ~288/day)** represents the pre-crash baseline. Following the April 1, 2026 debug sprint, the learner has resumed accumulation: **57 items confirmed in the `autonomous_learning` collection post-fix**, with 4 completed cycles and 0 gap failures. Accumulation rate is expected to return to ~288/day as the learner continues healthy operation. These records are written separately from `background_rag_store` and represent a different hippocampal pathway: experiential, interaction-derived memory rather than structured GBIM entity promotion. They are queried at Phase 1.45 via `all-minilm:latest` semantic search on every production request.
 
 **Program and institutional entities**
 Benefit programs, governance entities, and institutional structures can also be represented as GBIM entities with beliefs over what, for_whom, why, when, and authority. As those entities are promoted, they join the same hippocampal fabric as geospatial features, allowing queries to traverse both physical and institutional space. Community-validated resource data from `jarvis-local-resources-db` (port 5435) is also eligible for promotion into the GBIM + beliefs + Chroma pipeline.
@@ -100,6 +114,8 @@ Taken together, these inputs supply both the raw material to be stored (entities
 ## 14.3 Criteria for What Is Stored
 
 In the current implementation, the consolidation pipeline is inclusive at the world-model level: every GBIM entity with a centroid has a normalized belief row (including temporal decay metadata as of March 15, 2026) and is mirrored into the `geospatialfeatures` collection. For `autonomous_learner`, every community interaction processed by the autonomous learning subsystem is appended — deduplication in `ms_jarvis_memory` is advisory and handled separately by `background_rag_store`'s near-duplicate check. There is not yet a fine-grained selection mechanism that stores only some entities or beliefs in hippocampal indexes.
+
+**As of April 1, 2026**, the dedup gate within `ms_jarvis_autonomous_learner_optimized.py` is confirmed running without exception following the LEARN-01 fix. The gate has processed 4 post-fix cycles with 0 duplicates encountered — expected behavior at low cycle counts. The `autonomous_learning` collection is at 57 items. A full semantic dedup audit is recommended once sufficient cycles have accumulated to surface potential near-duplicates. During the LEARN-01 error window (between last stable restart and the April 1 fix), the dedup gate was erroring on every cycle, meaning new items may have been stored without dedup checking. The `autonomous_learning` and `msjarvis_docs` collections are most likely affected. See `00-overview.md` §00.8 for the ChromaDB vector count note.
 
 **As of March 28, 2026**, AAPCAppE scraper documents now constitute the first external-source entries in the ingest pipeline — distinct from autonomous-learner interaction records. ★ The `spiritual_rag` collection was deduplicated (−19,338 duplicate vectors) and `psychological_rag` was restored (968 docs) during the March 28 ChromaDB full audit. Deduplication between the two pathways (scraper-ingested documents vs. autonomous-learner interaction records) remains a documented future work item.
 
@@ -150,7 +166,7 @@ Centroid-bearing entities are added to the `geospatialfeatures` collection as si
 This provides a fast hippocampal index for metadata-filtered recall backed by the persistent `chroma_data` Docker volume (restored March 15, 2026). ★ The full ChromaDB corpus now spans 40 active collections and 6,675,442 total vectors as of the March 28, 2026 full audit.
 
 **Community interaction records in ChromaDB `autonomous_learner` (port 8000, `chroma_data` volume)**
-Each community interaction processed by the autonomous learning subsystem is written as a document + metadata record in `autonomous_learner`, embedded via `all-minilm:latest` (384-dim). These records capture the conversational and task-level experience of the system's community engagement — a complementary memory pathway to the structured GBIM entity fabric. At Phase 1.45, the top-5 most semantically relevant records are prepended to every production prompt. ★ See §14.8 for the current vector count from the March 28, 2026 full audit.
+Each community interaction processed by the autonomous learning subsystem is written as a document + metadata record in `autonomous_learner`, embedded via `all-minilm:latest` (384-dim). These records capture the conversational and task-level experience of the system's community engagement — a complementary memory pathway to the structured GBIM entity fabric. At Phase 1.45, the top-5 most semantically relevant records are prepended to every production prompt. **As of April 1, 2026 (post-fix): 57 items confirmed in the `autonomous_learning` collection; 4 cycles completed; dedup gate running cleanly with explicit `np.float64` and `float()` casting enforced on cosine similarity comparisons (LEARN-01 resolved).**
 
 **Implicit belief and routing traces (planned)**
 As Ms. Jarvis's belief graph and routing logic mature, ChromaDB `geospatialfeatures` metadata can be extended to include explicit references to belief nodes, routing decisions, and normative labels, turning each hippocampal entry into a trace of how the system's internal model and policies interacted with that entity.
@@ -164,10 +180,10 @@ These transformations map directly to the central pipeline and hippocampal store
 
 ## 14.5 Temporal Organization and Decay
 
-In many neuro-inspired designs, hippocampal systems maintain a temporal hierarchy of memories and implement decay. As of March 15–28, 2026, Ms. Jarvis has deployed the first phase of temporal organization: the GBIM confidence decay system, the `autonomous_learner` growth curve, and the Phase 1.45 active retrieval pathway.
+In many neuro-inspired designs, hippocampal systems maintain a temporal hierarchy of memories and implement decay. As of March 15–April 1, 2026, Ms. Jarvis has deployed the first phase of temporal organization: the GBIM confidence decay system, the `autonomous_learner` growth curve, and the Phase 1.45 active retrieval pathway.
 
-**Current behavior (★ March 28, 2026)**
-Every GBIM entity in the relevant worldview receives a normalized belief row with `last_verified`, `confidence_decay`, and `needs_verification` fields. The `confidence_decay` multiplier is applied at Phase 5 of every production 9-phase pipeline request (Chapter 17), attenuating response confidence proportionally to how long an entity has gone without verification. At the March 15 launch baseline, 100% of 5,416,521 entities carry `needs_verification=TRUE` — the expected initial state, not a data quality error. The `autonomous_learner` collection provides a complementary temporal signal through its growth curve: records accumulating represent the system's lived engagement history, with older records naturally becoming less semantically prominent as newer interactions are added and the nearest-neighbor retrieval at Phase 1.45 surfaces the most relevant. ★ The `spiritual_rag` deduplication (−19,338 vectors, March 28) is an example of retroactive temporal curation that the temporal organization subsystem should eventually automate.
+**Current behavior (★ April 1, 2026)**
+Every GBIM entity in the relevant worldview receives a normalized belief row with `last_verified`, `confidence_decay`, and `needs_verification` fields. The `confidence_decay` multiplier is applied at Phase 5 of every production 9-phase pipeline request (Chapter 17), attenuating response confidence proportionally to how long an entity has gone without verification. At the March 15 launch baseline, 100% of 5,416,521 entities carry `needs_verification=TRUE` — the expected initial state, not a data quality error. The `autonomous_learner` collection provides a complementary temporal signal through its growth curve: records accumulating represent the system's lived engagement history, with older records naturally becoming less semantically prominent as newer interactions are added and the nearest-neighbor retrieval at Phase 1.45 surfaces the most relevant. The April 1, 2026 crash-loop and recovery is itself a temporal event now documented in the learner's history: the 21,181-item pre-crash baseline (March 20, 2026) represents a confirmed high-water mark; accumulation has resumed from the post-fix state (57 items in the `autonomous_learning` collection as of April 1). ★ The `spiritual_rag` deduplication (−19,338 vectors, March 28) is an example of retroactive temporal curation that the temporal organization subsystem should eventually automate.
 
 **POC verification loop (planned, highest-priority future work)**
 The POC (Point of Contact) verification loop will automate the process of re-contacting a resource's designated point of contact when `needs_verification=TRUE` and resetting `confidence` to 1.0 on confirmation. This is the primary mechanism for clearing the initial 100% flagged state and for maintaining temporal freshness of GBIM-anchored hippocampal memory. Until implemented, the flag-and-attenuate approach via `confidence_decay` serves as the operative temporal decay mechanism.
@@ -200,7 +216,7 @@ When higher-level services (GIS-RAG at port 8004, WV entangled gateway, `jarvis-
 Before Phase 4 RAG, Phase 1.45 performs a distinct and always-on hippocampal retrieval:
 
 1. The incoming query is embedded via `all-minilm:latest` at `jarvis-ollama:11434/api/embeddings` (384-dim).
-2. The vector is used to query `autonomous_learner` (★ see §14.8 for current count from March 28, 2026 full audit).
+2. The vector is used to query `autonomous_learner` (★ 57 items confirmed post-fix, April 1, 2026; resuming accumulation from 21,181-item historical baseline).
 3. The 5 most semantically similar community interaction records are retrieved (documents + metadata + distances).
 4. The retrieved memories are prepended to `enhanced_message` before it enters Phase 2.5 LLM ensemble processing.
 
@@ -229,14 +245,14 @@ By combining spatial identifiers, belief metadata (including `confidence_decay` 
 
 ---
 
-## 14.8 Implementation Status (★ March 28, 2026)
+## 14.8 Implementation Status (★ April 1, 2026 — post autonomous learner debug sprint)
 
-**Confirmed operational (★ March 28, 2026 — 96/96 containers Up):**
+**Confirmed operational (★ April 1, 2026 — 96/96 containers Up, post-recovery):**
 - ✅ `jarvis-hippocampus` service deployed in **96-container production stack** ★ (commit `b90f9ff`)
 - ✅ ChromaDB `geospatialfeatures` collection active (port 8000, `chroma_data` volume)
-- ✅ ChromaDB `autonomous_learner` collection: growing — Phase 1.45 active retrieval every `/chat` call (★ see collection table below for March 28, 2026 vector count)
+- ✅ ChromaDB `autonomous_learner` collection: **HEALTHY — 57 items post-fix, 4 cycles, dedup gate running cleanly, 7 entanglement nodes, 0 gap failures (April 1, 2026)**
 - ✅ **Embedding model: `all-minilm:latest` (384-dim)** — canonical model for ★ all 40 ChromaDB collections; `nomic-embed-text` (768-dim) confirmed incompatible and must not be used
-- ✅ `_DummyCollection` error blocking `autonomous_learner` semantic retrieval: RESOLVED (March 17) — `all-minilm:latest` semantic retrieval is the fix
+- ✅ `_DummyCollection` error blocking `autonomous_learner` semantic retrieval: RESOLVED (March 17)
 - ✅ PostgreSQL `msjarvis` (port **5433** ★ restored): 5,416,521 GBIM entities with normalized `gbim_belief_normalized` rows
 - ✅ PostgreSQL `msjarvisgis` (port **5432** ★ confirmed): 91 GB PostGIS, 501 tables, 993 ZCTA centroids
 - ✅ GBIM temporal decay deployed: all 5,416,521 entities carry `last_verified`, `confidence_decay`, `needs_verification`
@@ -247,14 +263,23 @@ By combining spatial identifiers, belief metadata (including `confidence_decay` 
 - ✅ `jarvis-local-resources-db` (port 5435) community resource data eligible for GBIM promotion
 - ✅ Phase 1.45 community memory retrieval confirmed in ~436s end-to-end benchmark (March 18, 2026)
 - ✅ `jarvis-memory` (port **8056**): ★ corrected from `0.0.0.0` to `127.0.0.1` March 28, 2026; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set
-- ✅ ★ **96/96 containers Up — zero Restarting, zero Exited (March 28, 2026)**
+- ✅ `ms_jarvis_autonomous_learner_optimized.py` synced to `services-safe` mirror directory (April 1, 2026)
+- ✅ **96/96 containers Up — zero Restarting, zero Exited (April 1, 2026 — post-recovery)**
 
-**ChromaDB collections (★ March 28, 2026 full audit — 40 collections, 6,675,442 total vectors):**
+**April 1, 2026 — Autonomous Learner Debug Sprint (LEARN-01 / LEARN-02 / LEARN-03 — all RESOLVED):**
+
+| Item | Description | Resolution |
+|---|---|---|
+| LEARN-01 | `cosine_similarity` in `ms_jarvis_autonomous_learner_optimized.py` returned numpy array instead of scalar — dedup gate raised `"truth value of array with more than one element is ambiguous"` on every cycle | Fixed: explicit `np.float64` dtype enforced on both input vectors; return value cast to `float()` |
+| LEARN-02 | GBIM Query Router (port 7205) returning HTTP 422 on mis-shaped learner `route` POST calls | Fixed: learner request schema corrected; `/route` returning HTTP 200 OK and stable |
+| LEARN-03 | `jarvis-autonomous-learner` crash-loop after empty file (1.54 kB) deployed via failed patch attempt — `ERROR: Attribute 'app' not found in module` on Uvicorn startup | Fixed: source patched on host, copied into container, service restarted; 4 post-fix cycles confirmed |
+
+**ChromaDB collections (★ April 1, 2026 — based on March 28, 2026 full audit + April 1 post-fix confirmation):**
 
 | Collection | Records / Vectors | Notes |
 |---|---|---|
 | `gbim_worldview_entities` | 5,416,521 | Complete WV GBIM spatial corpus |
-| `autonomous_learner` | ★ See March 28 audit count (baseline 21,181 as of March 18, growing ~288/day) | Phase 1.45 active retrieval; first external-source docs (AAPCAppE) flowing as of March 27 |
+| `autonomous_learner` | **57 items confirmed post-fix (April 1, 2026); historical baseline 21,181 as of March 20, growing ~288/day — accumulation resuming** | Phase 1.45 active retrieval; LEARN-01/03 resolved April 1; dedup gate clean; semantic dedup audit pending |
 | `aapcappe_corpus` | 65 | First scrape run complete March 27, 2026 (39 sources, `total_runs: 1`); 53 RAG-loaded, 7 new base cultural docs |
 | `psychological_rag` | **968** ★ restored March 28 | Restored during March 28 ChromaDB full audit |
 | `spiritual_rag` | ★ Deduplicated March 28 (−19,338 duplicate vectors removed) | Deduplication confirmed during March 28 ChromaDB full audit |
@@ -263,16 +288,19 @@ By combining spatial identifiers, belief metadata (including `confidence_decay` 
 | `GBIM_sample_rows` | 5,000 | Confirmed March 18 |
 | `GBIM_sample` | 3 | Confirmed March 18 |
 | `msjarvis-smoke` | 1 | Smoke test record |
-| `msjarvis_docs` | **4,192** ★ expanded March 28 | Expanded during March 28 ChromaDB full audit (previously 53 from March 27 RAG load) |
+| `msjarvis_docs` | **4,192** ★ expanded March 28 | Expanded during March 28 ChromaDB full audit |
 | `ms_jarvis_memory` | ★ See March 28 audit count | Active memory collection; `jarvis-memory` API (port 8056 ★) provides authenticated access |
 | `geospatialfeatures` | 0 | Scaffolded — pending backfill ingest (all backfill embeddings must use `all-minilm:latest` 384-dim) |
 | `GBIM_Fayette_sample` | 0 | Scaffolded — pending ingest |
-| *(additional collections)* | ★ See March 28 audit for full 40-collection enumeration | Total: 40 collections, 6,675,442 vectors |
+| *(additional collections)* | ★ See March 28 audit for full 40-collection enumeration | Total: 40 collections, 6,675,442 vectors (March 28 baseline; may be higher due to unguarded inserts during LEARN-01 error window) |
 
 **Remaining work:**
 
 **POC verification loop (highest-priority future work)**
 The automated POC verification loop — where the system contacts a resource's designated point of contact when `needs_verification=TRUE` and resets `confidence` to 1.0 on confirmation — is not yet automated. Current state: flag-and-attenuate via `confidence_decay` only. This is the primary mechanism for clearing the initial 100% flagged baseline.
+
+**Semantic dedup audit of `autonomous_learning` collection (recommended)**
+The LEARN-01 dedup gate error window means new items may have been stored without dedup checking between the last stable restart and the April 1, 2026 fix. A semantic dedup audit of the `autonomous_learning` collection is recommended once sufficient post-fix cycles have accumulated to surface potential near-duplicates.
 
 **`geospatialfeatures` ingest and metadata backfill**
 The `geospatialfeatures` ChromaDB collection is scaffolded but currently at 0 records pending backfill ingest. Extended metadata fields (`worldview_id`, `bbox`, `dataset`) need population across all 5,416,521 GBIM entities. Backfill pipeline exists but requires execution post-ingest (see Chapter 5 §5.11). All backfill embeddings must use `all-minilm:latest` (384-dim).
@@ -290,18 +318,18 @@ Extending `geospatialfeatures` ChromaDB metadata to include explicit belief node
 
 ## 14.9 Summary
 
-The consolidation layer captures how recent activity and world-modeling are turned into lasting structure across two complementary hippocampal pathways: (1) GBIM entities with normalized beliefs and temporal decay metadata in PostgreSQL `msjarvis` (port **5433** ★ restored), mirrored as centroid-bearing records into the `geospatialfeatures` ChromaDB collection (port 8000, `chroma_data` volume), queried by GIS-RAG and spiritual-RAG during Phase 4; and (2) the `autonomous_learner` ChromaDB collection (★ see §14.8 for the March 28, 2026 vector count from the full audit; first external-source AAPCAppE documents flowing as of March 27, 2026), queried via `all-minilm:latest` (384-dim) semantic search at Phase 1.45 of every production `/chat` request, with top-5 community memories prepended to `enhanced_message`.
+The consolidation layer captures how recent activity and world-modeling are turned into lasting structure across two complementary hippocampal pathways: (1) GBIM entities with normalized beliefs and temporal decay metadata in PostgreSQL `msjarvis` (port **5433** ★ restored), mirrored as centroid-bearing records into the `geospatialfeatures` ChromaDB collection (port 8000, `chroma_data` volume), queried by GIS-RAG and spiritual-RAG during Phase 4; and (2) the `autonomous_learner` ChromaDB collection — **57 items confirmed post-fix (April 1, 2026); historical baseline 21,181 items (March 20, 2026); accumulation resuming at ~288/day** — queried via `all-minilm:latest` (384-dim) semantic search at Phase 1.45 of every production `/chat` request, with top-5 community memories prepended to `enhanced_message`.
 
-The `jarvis-hippocampus` service (deployed March 15, 2026, commit `b90f9ff`) functions as the dedicated hippocampal buffer within the **96-container production stack** (★ all 96 containers Up, March 28, 2026). The **`jarvis-memory` service** (port **8056** ★ corrected from `0.0.0.0` to `127.0.0.1` March 28, `_auth()` confirmed on 4 sensitive routes, `JARVIS_API_KEY` set) operates as a companion container to `jarvis-hippocampus`, confirmed verified in the March 28, 2026 security remediation sprint (see **Chapter 12 §12.12**). The `confidence_decay` multiplier applied at Phase 5 of every production request makes hippocampal temporal state an active, measurable factor in every response — not merely an archival attribute. Phase 1.45 community memory retrieval (deployed March 17, 2026) makes `autonomous_learner` a live, prompt-level input to every response rather than a passive background store. The critical embedding model lock — **`all-minilm:latest` (384-dim) for all 40 ChromaDB collections** (★ 6,675,442 total vectors, March 28, 2026 full audit) — ensures collection compatibility and is a permanent architectural constraint.
+The `jarvis-hippocampus` service (deployed March 15, 2026, commit `b90f9ff`) functions as the dedicated hippocampal buffer within the **96-container production stack** (★ all 96 containers Up, April 1, 2026 — post-recovery). The **`jarvis-memory` service** (port **8056** ★ corrected from `0.0.0.0` to `127.0.0.1` March 28, `_auth()` confirmed on 4 sensitive routes, `JARVIS_API_KEY` set) operates as a companion container to `jarvis-hippocampus`, confirmed verified in the March 28, 2026 security remediation sprint (see **Chapter 12 §12.12**). The `confidence_decay` multiplier applied at Phase 5 of every production request makes hippocampal temporal state an active, measurable factor in every response — not merely an archival attribute. Phase 1.45 community memory retrieval (deployed March 17, 2026) makes `autonomous_learner` a live, prompt-level input to every response rather than a passive background store. The critical embedding model lock — **`all-minilm:latest` (384-dim) for all 40 ChromaDB collections** (★ 6,675,442 total vectors, March 28, 2026 full audit) — ensures collection compatibility and is a permanent architectural constraint.
 
-★ The March 28, 2026 ChromaDB full audit — 40 collections, 6,675,442 total vectors; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items) — is the first comprehensive baseline of the full hippocampal vector corpus and establishes the foundation for all future temporal organization, selective storage, and deduplication work described in this chapter.
+★ The April 1, 2026 autonomous learner debug sprint (LEARN-01, LEARN-02, LEARN-03 — all resolved) established the post-fix operational baseline: 4 completed cycles, 4 items stored, 7 entanglement graph nodes, 0 gap failures, 57 items in the `autonomous_learning` ChromaDB collection, GBIM router HTTP 200 OK stable, and `ms_jarvis_autonomous_learner_optimized.py` synced to `services-safe`. The cosine similarity fix — enforcing explicit `np.float64` dtype on both input vectors and casting the return value to `float()` — is a permanent architectural constraint for all future modifications to the entanglement scoring mechanism in the autonomous learner. See Chapter 8 for the theoretical basis of this fix within the quantum-inspired entanglement scoring framework.
 
-POC verification loop automation, `geospatialfeatures` backfill ingest, selective storage criteria, temporal hierarchy beyond decay, and tighter belief-routing traces are active design directions that build on this foundation. Subsequent chapters describe how global controls, the 69-DGM cascade (Chapter 32), and executive processes (Chapter 17) use these consolidated, place-aware memories as part of broader feedback loops that shape Ms. Jarvis's ongoing evolution. Chapter 5 describes the ChromaDB `chroma_data` volume and collection architecture in detail. Chapter 17 describes how Phase 1.45 community memory retrieval and the `confidence_decay` multiplier are applied in the 9-phase production pipeline.
+POC verification loop automation, `geospatialfeatures` backfill ingest, semantic dedup audit of the `autonomous_learning` collection, selective storage criteria, temporal hierarchy beyond decay, and tighter belief-routing traces are active design directions that build on this foundation. Subsequent chapters describe how global controls, the 69-DGM cascade (Chapter 32), and executive processes (Chapter 17) use these consolidated, place-aware memories as part of broader feedback loops that shape Ms. Jarvis's ongoing evolution. Chapter 5 describes the ChromaDB `chroma_data` volume and collection architecture in detail. Chapter 17 describes how Phase 1.45 community memory retrieval and the `confidence_decay` multiplier are applied in the 9-phase production pipeline.
 
 ---
 
-*Last updated: 2026-03-28 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-04-01 — Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
-*★ March 27, 2026: Production state block updated — AAPCAppE scraper first run confirmed 65 documents in Chroma, RAG loaded 53 documents (7 new base cultural docs), first external-source documents now flowing into autonomous_learner pipeline; §14.3 selective storage note added — AAPCAppE scraper documents are first external-source entries, deduplication between scraper and autonomous-learner pathways is documented future work; §14.8 ChromaDB table updated — msjarvis_docs row updated from 0 to 53 (March 27 RAG load), aapcappe_corpus row added (65 docs, 39 sources, total_runs: 1, first scrape March 27), autonomous_learner row updated with March 27 sprint note; §14.9 jarvis-memory companion container note added — confirmed in March 27 container audit, see Ch. 12 §12.11.*
+*★ April 1, 2026: Autonomous learner debug sprint complete — LEARN-01 (cosine_similarity numpy dtype fix: explicit np.float64 and float() casting enforced), LEARN-02 (GBIM Query Router 422 schema mismatch resolved — HTTP 200 OK stable), LEARN-03 (crash-loop resolved — source patched on host, copied into container, restarted). Post-fix confirmed metrics: 4 cycles, 4 items stored, 0 deduplicated, 7 entanglement graph nodes, 0 gap failures, autonomous_learning collection at 57 items. ms_jarvis_autonomous_learner_optimized.py synced to services-safe. Production state block, §14.1 pathway table, §14.2, §14.3, §14.4, §14.5, §14.6, §14.8 collection table and LEARN item table, §14.9 all updated to reflect post-fix state. Historical baseline of 21,181 items (March 20, 2026) preserved; accumulation rate of ~288/day expected to resume.*
 
-*★ March 28, 2026: Security remediation complete — 96/96 containers Up; `jarvis-memory` (8056) corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` on 4 sensitive routes confirmed; `JARVIS_API_KEY` set confirmed. Container count updated from 79 → 96 throughout. ChromaDB full audit (40 collections, 6,675,442 total vectors) propagated to introduction, production state block, §14.1, §14.2, §14.3, §14.4, §14.6, §14.8 collection table, §14.9. `spiritual_rag` deduplicated (−19,338 vectors) added to §14.3, §14.5, §14.8, §14.9. `psychological_rag` restored (968 docs) added to §14.8. `msjarvis_docs` expanded to 4,192 items in §14.8. `msjarvis` port 5433 restored and `msjarvisgis` port 5432 confirmed (91 GB PostGIS, 501 tables) — replaced all `gisdb` port 5433 / 13 GB / 39 tables references throughout: §14.2, §14.4, §14.6, §14.7, §14.8, §14.9. Ch. 12 §12.11 cross-reference updated to §12.12 to reflect chapter restructuring. §14.9 jarvis-memory security remediation note updated from March 27 container audit to March 28 security remediation sprint.*
+*★ March 28, 2026: Security remediation complete — 96/96 containers Up; `jarvis-memory` (8056) corrected from `0.0.0.0` to `127.0.0.1`; `_auth()` on 4 sensitive routes confirmed; `JARVIS_API_KEY` set confirmed. Container count updated from 79 → 96 throughout. ChromaDB full audit (40 collections, 6,675,442 total vectors) propagated to introduction, production state block, §14.1, §14.2, §14.3, §14.4, §14.6, §14.8 collection table, §14.9. `spiritual_rag` deduplicated (−19,338 vectors) added to §14.3, §14.5, §14.8, §14.9. `psychological_rag` restored (968 docs) added to §14.8. `msjarvis_docs` expanded to 4,192 items in §14.8. `msjarvis` port 5433 restored and `msjarvisgis` port 5432 confirmed (91 GB PostGIS, 501 tables) — replaced all `gisdb` port 5433 / 13 GB / 39 tables references throughout. Ch. 12 §12.11 cross-reference updated to §12.12.*
