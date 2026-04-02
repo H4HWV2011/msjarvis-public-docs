@@ -1,7 +1,7 @@
 # Chapter 41 — Test Harness and Continuous Validation
 
 **Carrie Kidd (Mamma Kidd) — Mount Hope, WV**  
-**Last updated: April 1, 2026 — container count 96; `jarvis-autonomous-learner` and `psychological_rag` gates added; ChromaDB inventory expanded to 41 collections; Gate 28 passed; Chapter 41 officially closed.**
+**Last updated: April 1, 2026 — container count 96; `jarvis-autonomous-learner` and `psychological_rag` gates added; ChromaDB inventory expanded to 41 collections; Gate 28 passed; all open items closed; Chapter 41 officially closed.**
 
 > **★ Updates applied April 1, 2026:**  
 > - GATE 28 — PASS. `psychological_rag` exists, registered, metadata confirmed. ✅  
@@ -10,7 +10,12 @@
 > - `memories` schema with `confidence_decay` confirmed in `msjarvisgis` (Gate 26 prerequisite satisfied).  
 > - `jarvis-ollama` confirmed running.  
 > - `jarvis-chroma` confirmed healthy.  
-> - Full 41-collection ChromaDB manifest documented in §41.9.
+> - Full 41-collection ChromaDB manifest documented in §41.9.  
+> - OI-VERIFYANDTEST-28 closed — gates 25–28 fully scripted and passing.  
+> - OI-30 closed — Gate 30 passing, MountainShares/DAO smoke tests confirmed.  
+> - OI-31 closed — EEG architecture documented (delta/theta/beta pipeline).  
+> - OI-36-A closed — Caddy `forward_auth` live, 401 confirmed on unauthenticated requests.  
+> - OI-CRYPTO-VT closed — Gate 29 passing, `jarvis-crypto-policy` watchdog wired.
 
 > **★ Updates applied March 28, 2026:**  
 > - Stack expanded to 96 containers — MountainShares/Commons/DAO tier (ports 8080–8084) and EEG layer (ports 8073–8075) deployed; `jarvis-memory:8056` durable audit trail active.  
@@ -31,12 +36,12 @@ The Chapter 41 test harness is the operational layer that keeps the polymathmati
 
 | Category | Details |
 |---|---|
-| Chapter status | 🏁 OFFICIALLY CLOSED — all gates passing as of April 1, 2026 |
-| Gate results | memories schema + `confidence_decay` ✅ — `jarvis-ollama` running ✅ — `jarvis-chroma` healthy ✅ — Gate 27 (41 collections) ✅ — Gate 28 (`psychological_rag` registered) ✅ |
+| Chapter status | 🏁 OFFICIALLY CLOSED — all gates passing and all open items closed as of April 1, 2026 |
+| Gate results | memories schema + `confidence_decay` ✅ — `jarvis-ollama` running ✅ — `jarvis-chroma` healthy ✅ — Gate 27 (41 collections) ✅ — Gate 28 (`psychological_rag` registered) ✅ — Gate 29 (`jarvis-crypto-policy` watchdog) ✅ — Gate 30 (MountainShares/DAO smoke tests) ✅ |
 | Stack size | 96 containers (up from 83 at March 28 baseline) |
 | ChromaDB state | 41 collections — full manifest in §41.9 |
 | Durable audit trail | `jarvis-memory:8056` active; Phase 1.4 and Phase 4.5 decisions logged; auth confirmed |
-| OI status | No chapter-local open items remain; remaining open items (PQ, gateway, governance) tracked in Chapters 42, 36, 31 respectively |
+| OI status | All chapter-local open items closed April 1, 2026 — see §41.10 |
 
 ---
 
@@ -62,7 +67,7 @@ Chapter 41 is downstream of build integrity and upstream of security and applica
 | Ch. 30 — Ingest | Ingest containers and IPFS flows exist | Confirms ingest services are running and reachable |
 | Ch. 33 — Judge pipeline | Ports and container topology of judge services | Treats pipeline ports as targets for health checks |
 | Ch. 40 — Sprints | Documented changes to services, gateways, and memory | Incorporates new gates when sprint notes add requirements |
-| Ch. 42 — PQ layer | Preflight gates 25–28, including Chroma targets | Encodes those gates into `VERIFYANDTEST.sh` and manual checks |
+| Ch. 42 — PQ layer | Preflight gates 25–30, including Chroma targets and crypto-policy watchdog | Encodes those gates into `VERIFYANDTEST.sh` and manual checks |
 
 Once a capability appears as "implemented" in another chapter, Chapter 41 is responsible for verifying that capability stays present and healthy in the live stack.
 
@@ -113,9 +118,11 @@ Beyond simple liveness, Chapter 41 tracks small canary checks:
 
 - **Judge pipeline** — test verdict through all four sub-judges; assert 19/19 signing checks still pass (delegated to the sprint scripts referenced in Chapter 42).  
 - **BBB input gate** — send known bad prompts (developer override, DAN, steganography) and assert `approved=False`.  
-- **Caddy/Cloudflare path** — curl the public URL and internal health endpoints, ensuring the documented QUIC/TLS chain remains valid.  
+- **Caddy/Cloudflare path** — curl the public URL and internal health endpoints, ensuring the documented QUIC/TLS chain remains valid; assert HTTP 401 on unauthenticated requests (OI-36-A closed April 1, 2026 — Caddy `forward_auth` live).  
 - **`jarvis-memory:8056`** — authenticated POST test; assert HTTP 200 and record persistence.  
-- **`jarvis-autonomous-learner`** — confirm service running and `autonomous_learner` collection present in ChromaDB.
+- **`jarvis-autonomous-learner`** — confirm service running and `autonomous_learner` collection present in ChromaDB.  
+- **`jarvis-crypto-policy`** — Gate 29 health check via `VERIFYANDTEST.sh` watchdog; assert HTTP 200 on policy endpoint (OI-CRYPTO-VT closed April 1, 2026).  
+- **MountainShares/DAO tier** — Gate 30 smoke tests on ports 8080–8084; endpoint health confirmed (OI-30 closed April 1, 2026).
 
 Failures in these tests generate open items in the relevant chapters, but Chapter 41 is where they are executed.
 
@@ -134,16 +141,16 @@ These checks were intentionally weak while the RAG domains were still fluid. Pre
 
 ## 41.7 Preflight Gates and `VERIFYANDTEST.sh`
 
-By March 28, 2026, the preflight target was 28 PASS / 0 FAIL gates. Four new gates were added for the expanded stack:
+The final preflight gate suite for Chapter 41 targets 30 PASS / 0 FAIL. All gates confirmed passing April 1, 2026.
 
-| Gate | Description | Target |
-|---|---|---|
-| Gate 25 | `jarvis-memory:8056` auth/logging | `_auth()` HTTP 200 with `JARVIS_API_KEY` |
-| Gate 26 | `confidence_decay` presence | Non-null rows in `memories` on `msjarvisgis` (corrected April 1, 2026 from `msjarvis:5433`) |
-| Gate 27 | ChromaDB collections count | ≥ 40 (now 41) |
-| Gate 28 | `psychological_rag` domain | Registered, metadata confirmed |
-
-For Chapter 41's purposes, Gates 27 and 28 are about structure: the harness ensures the right collections exist and the psychological domain is live, regardless of document count fluctuations.
+| Gate | Description | Target | Status |
+|---|---|---|---|
+| Gate 25 | `jarvis-memory:8056` auth/logging | `_auth()` HTTP 200 with `JARVIS_API_KEY` | ✅ |
+| Gate 26 | `confidence_decay` presence | Non-null rows in `memories` on `msjarvisgis` (`jarvis-local-resources-db:5435`) | ✅ |
+| Gate 27 | ChromaDB collections count | ≥ 40 (confirmed 41) | ✅ |
+| Gate 28 | `psychological_rag` domain | Registered, metadata confirmed | ✅ |
+| Gate 29 | `jarvis-crypto-policy` watchdog | HTTP 200 on policy endpoint; wired into `VERIFYANDTEST.sh` | ✅ |
+| Gate 30 | MountainShares/DAO tier smoke tests | Endpoints on ports 8080–8084 confirmed healthy | ✅ |
 
 Example Gate 27 check:
 
@@ -180,7 +187,33 @@ else:
 EOF
 ```
 
-> **OI-VERIFYANDTEST-28:** Full scripting for gates 25–28 in `VERIFYANDTEST.sh` is tracked as OI-VERIFYANDTEST-28 (owner: Chapter 42). Chapter 41 documents the intent and example logic; final wiring into the master script is tracked in Chapter 42 §42.7.
+Example Gate 29 check:
+
+```bash
+echo "[Gate 29] Checking jarvis-crypto-policy health..."
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8099/health)
+if [ "$STATUS" = "200" ]; then
+  echo "[PASS] Gate 29 — jarvis-crypto-policy healthy (HTTP 200)"
+else
+  echo "[FAIL] Gate 29 — jarvis-crypto-policy returned HTTP $STATUS"
+  exit 1
+fi
+```
+
+Example Gate 30 check:
+
+```bash
+echo "[Gate 30] Checking MountainShares/DAO tier endpoints..."
+for PORT in 8080 8081 8082 8083 8084; do
+  STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:$PORT/health)
+  if [ "$STATUS" = "200" ]; then
+    echo "[PASS] Gate 30 — port $PORT healthy"
+  else
+    echo "[FAIL] Gate 30 — port $PORT returned HTTP $STATUS"
+    exit 1
+  fi
+done
+```
 
 ---
 
@@ -188,6 +221,8 @@ EOF
 
 ```
 GATE 28 — PASS. psychological_rag exists, registered, metadata confirmed. ✅
+GATE 29 — PASS. jarvis-crypto-policy healthy, watchdog wired. ✅
+GATE 30 — PASS. MountainShares/DAO smoke tests confirmed. ✅
 
 🏁 CHAPTER 41 — OFFICIALLY CLOSED
 ```
@@ -199,16 +234,18 @@ GATE 28 — PASS. psychological_rag exists, registered, metadata confirmed. ✅
 | `jarvis-chroma` healthy | ✅ |
 | Gate 27 — 41 collections | ✅ |
 | Gate 28 — `psychological_rag` registered | ✅ |
+| Gate 29 — `jarvis-crypto-policy` watchdog | ✅ |
+| Gate 30 — MountainShares/DAO smoke tests | ✅ |
 
 **Notes on each gate:**
 
-- **memories schema + `confidence_decay`:** Schema present in `msjarvisgis` on `jarvis-local-resources-db:5435`; `confidence_decay` column confirmed non-null. This satisfies both the Chapter 41 harness requirement and the Gate 26 prerequisite in Chapter 42.  
-- **`jarvis-ollama` running:** Local LLM engine confirmed up, ensuring all RAG evaluation and inference paths are testable without external dependencies.  
+- **memories schema + `confidence_decay`:** Schema present in `msjarvisgis` on `jarvis-local-resources-db:5435`; `confidence_decay` column confirmed non-null. Satisfies both the Chapter 41 harness requirement and the Gate 26 prerequisite in Chapter 42.  
+- **`jarvis-ollama` running:** Local LLM engine confirmed up; all RAG evaluation and inference paths are testable without external dependencies.  
 - **`jarvis-chroma` healthy:** ChromaDB responds to list and query operations without error; authentication and collection access confirmed.  
 - **Gate 27 — 41 collections:** ChromaDB inventory confirmed at 41 collections, exceeding the original ≥ 40 target. Full manifest in §41.9.  
-- **Gate 28 — `psychological_rag` registered:** Collection exists, registered, and metadata footprint confirmed. This collection is the anchor of the psychological intelligence domain referenced in Chapter 25 and the 5th DGM Subconscious layer.
-
-With all five results passing, Chapter 41's open items for the test harness itself are closed. Remaining open items (PQ scripting, gateway enforcement, MountainShares DAO validation, EEG architecture) are tracked in their respective chapters and are not Chapter 41's responsibility.
+- **Gate 28 — `psychological_rag` registered:** Collection exists, registered, and metadata footprint confirmed. Anchor of the psychological intelligence domain referenced in Chapter 25 and the 5th DGM Subconscious layer.  
+- **Gate 29 — `jarvis-crypto-policy` watchdog:** `jarvis-crypto-policy` (port 8099) health check now wired into `VERIFYANDTEST.sh`; HTTP 200 confirmed. OI-CRYPTO-VT closed April 1, 2026.  
+- **Gate 30 — MountainShares/DAO smoke tests:** Ports 8080–8084 confirmed healthy; endpoint smoke tests passed. OI-30 closed April 1, 2026.
 
 ---
 
@@ -279,15 +316,15 @@ The April 1 inventory reveals the full architecture of the MAALLI knowledge laye
 
 ## 41.10 Open Items for Chapter 41
 
-As of April 1, 2026, **no chapter-local open items remain for the test harness itself.** All gates defined here are passing. Remaining gaps tracked in other chapters:
+As of April 1, 2026, **all chapter-local open items are closed.** No outstanding gaps remain in the Chapter 41 test harness.
 
-| ID | Item | Tracked In |
-|---|---|---|
-| OI-VERIFYANDTEST-28 | Full gate scripting for gates 25–28 in `VERIFYANDTEST.sh` | Chapter 42 §42.7 |
-| OI-30 | MountainShares/DAO endpoint health validation | Chapter 42 §42.10 |
-| OI-31 | EEG layer architecture documentation | Chapter 40 §40-I |
-| OI-36-A | Gateway-level token enforcement at Caddy | Chapter 36 / Chapter 42 |
-| OI-CRYPTO-VT | `jarvis-crypto-policy` health in VERIFYANDTEST watchdog | Chapter 42 §42.10 |
+| ID | Item | Status | Notes |
+|---|---|---|---|
+| OI-VERIFYANDTEST-28 | Full gate scripting for gates 25–28 in `VERIFYANDTEST.sh` | ✅ Closed April 1, 2026 | Gates 25–28 fully scripted and passing |
+| OI-30 | MountainShares/DAO endpoint health validation | ✅ Closed April 1, 2026 | Gate 30 passing; smoke tests confirmed on ports 8080–8084 |
+| OI-31 | EEG layer architecture documentation | ✅ Closed April 1, 2026 | EEG architecture documented — delta/theta/beta pipeline defined on ports 8073–8075 |
+| OI-36-A | Gateway-level token enforcement at Caddy | ✅ Closed April 1, 2026 | Caddy `forward_auth` live; HTTP 401 confirmed on unauthenticated requests |
+| OI-CRYPTO-VT | `jarvis-crypto-policy` health in `VERIFYANDTEST.sh` watchdog | ✅ Closed April 1, 2026 | Gate 29 passing; watchdog wired; HTTP 200 confirmed on port 8099 |
 
 Chapter 41's mandate going forward is to pick up new requirements when other chapters add hard preflight conditions, not to originate them.
 
@@ -295,10 +332,12 @@ Chapter 41's mandate going forward is to pick up new requirements when other cha
 
 ## 41.11 Cross-References
 
-- For the definition of preflight Gates 25–28 (including `confidence_decay` and `psychological_rag`), see Chapter 42 §42.7.  
+- For the definition of preflight Gates 25–30 (including `confidence_decay`, `psychological_rag`, crypto-policy watchdog, and MountainShares/DAO health), see Chapter 42 §42.7.  
 - For Chroma ingestion architecture and how collections are populated, see Chapter 30.  
 - For how judge pipeline, BBB, and PQ signing are validated beyond liveness, see Chapters 33 and 42.  
 - For the March 28 stack expansion to 96 containers and `jarvis-memory:8056` durable logging, see Chapter 40 §40-I and Chapter 42 status tables.  
 - For the psychological intelligence domain and the 5th DGM Subconscious layer referenced by `psychological_rag` and `fifth_dgm_subconscious`, see Chapter 25.  
 - For the GIS/Spatial collections (`geospatialfeatures`, `gis_wv_benefits`, `address_points`, `local_resources`, `wv_resources`), see Chapter 10 and Chapter 12.  
-- For the MountainShares/Commons/DAO tier (ports 8080–8084) and governance collections (`governance_rag`, `commons_rag`, `meeting_minutes`, `contracts`), see Chapter 3 and Chapter 31.
+- For the MountainShares/Commons/DAO tier (ports 8080–8084) and governance collections (`governance_rag`, `commons_rag`, `meeting_minutes`, `contracts`), see Chapter 3 and Chapter 31.  
+- For the EEG layer architecture (delta/theta/beta pipeline, ports 8073–8075), see Chapter 40 §40-I.  
+- For Caddy `forward_auth` configuration and the full external access security architecture, see Chapter 38 §38.8 and §38.9 and Chapter 42 §42.5.5.
