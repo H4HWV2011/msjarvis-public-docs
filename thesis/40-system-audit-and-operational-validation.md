@@ -1,7 +1,7 @@
 # Chapter 40 — System Audit and Operational Validation
 
-**Carrie Kidd (Mamma Kidd) — Pax, WV**
-**Last updated: ★ March 28, 2026 — 96/96 containers Up (zero Restarting, zero Exited); `jarvis-memory:8056` secured (`_auth()` confirmed, `JARVIS_API_KEY` set, durable BBB audit trail active); `confidence_decay` metadata confirmed on `msjarvis:5433` (5,416,521 GBIM entities restored); ChromaDB full audit updated to 40 active collections / 6,675,442 total vectors; `psychological_rag` restored to 968 docs; `ms_jarvis_memory` collection confirmed present; 993 ZCTA centroids confirmed in `msjarvisgis:5432`; `jarvis-autonomous-learner` port corrected to 8020; `jarvis-rag-server` internal port corrected to 8003→8003; MountainShares/Commons/DAO services DEPLOYED (ports 8080–8084); EEG layer (8073–8075) documented; `jarvis-gbim-query-router` container name corrected; `/resolve` endpoint confirmed live; 45 verified Kanawha resources; Phase 4.5 log+passthrough re-confirmed; preflight gate 24 PASS baseline confirmed; OI-05 PARTIALLY RESOLVED; OI-10 MATERIALLY ADVANCED; §40-H confirmed as production-stable baseline**
+**Carrie Kidd (Mamma Kidd) — Pax, WV**  
+**Last updated: ★ April 2, 2026 — OI-CRON closed (cron evidence captured, BBB watchdog confirmed firing every 5 min across 22:05–23:40 window April 1, `VERIFYANDTEST.sh` restored at `~/msjarvis-monitoring/` with repo symlink, latest run logged); OI-DECAY advanced (schema sketch + Prometheus alert rule added, decay alerting design deferred to later sprint); OI-LATENCY advanced (OTEL collector live at ports 4317/4318, main-brain init patched, no spans ingested this sprint — heartbeat/logs remain primary signals); BBB red-team harness in place (`redteam/bbb/run_bbb_redteam.sh`, initial run logged, full catalog deferred); OI-10/WOAH baseline harness in place (`qualia/run_woah_baseline.sh`, initial run logged, formal metrics deferred); ops-history embeddings export harness ready (`ops_history/dump_ops_history_for_embeddings.sh`, embedding/vectorization deferred); prior March 28 baseline carries forward unchanged.**
 
 ---
 
@@ -117,13 +117,13 @@ end-to-end) remains the historical reference.
 
 ---
 
-## Status as of ★ March 28, 2026
+## Status as of ★ April 2, 2026
 
 | Category | Details |
 |----------|---------|
-| **Implemented and verified** | `VERIFYANDTEST.sh` eternal watchdog producing timestamped reports confirming 32/32 core fabric services operational, 21/22 LLM proxies contributing to consensus (StarCoder2 wired but 0-char on community queries), ★ 96 Docker containers running, 26 Ollama models available, and three PostgreSQL databases accessible: `msjarvis` port 5433 (★ 5,416,521 GBIM entities with `confidence_decay` metadata — restored March 28), `gisdb` port **5432** (★ PostGIS, 91 GB, 501 tables, 993 ZCTA centroids), `jarvis-local-resources-db` port 5435 (DSN corrected, `/resolve` live). ChromaDB at host port **8002** — ★ **40 active collections, 6,675,442 total vectors** (full audit March 28). ★ `psychological_rag` restored to **968 docs**. ★ `ms_jarvis_memory` collection confirmed present. Canonical smoke tests for BBB 6-filter stack, main-brain health (port 8050), `/chat`, `/chat/async`, `/chat/status/{job_id}`, and `ultimatechat` `UltimateResponse` 6-layer verification defined and confirmed against live system. BBB output guard confirmed to receive full verdict dict. Judge pipeline BBB integration confirmed. All 5 judge services compose-managed (`restart: unless-stopped`). All services bound exclusively to `127.0.0.1` — zero `0.0.0.0` exposures. Phase 1.45 community memory retrieval (21,181+ `autonomous_learner` records, 384-dim `all-minilm:latest`, ★ host port **8020**) confirmed active on every production request. **Embedding model lock: `all-minilm:latest` (384-dim). Do NOT substitute `nomic-embed-text` (768-dim).** GBIM temporal confidence decay (Phase 5, ★ `confidence_decay` multiplier) confirmed active. ★ `jarvis-gbim-query-router` (container name corrected) port 7205 confirmed. Caddy gateway (port 8443). `jarvis_auth_service` port 8055 systemd-managed. Pre-flight gate: **24 PASS 0 FAIL**. GPU (RTX 4070) active — 99–107s end-to-end. Public URL https://egeria.mountainshares.us live (★ stack continuity confirmed March 28 — 96/96 Up). Consciousness pipeline fully operational (§40-H). ★ `jarvis-memory:8056` secured — durable BBB audit trail active (Phase 1.4 and Phase 4.5 gate decisions persistently logged). ★ MountainShares/Commons/DAO tier DEPLOYED (ports 8080–8084). ★ EEG layer (ports 8073–8075) confirmed running. |
-| **Partially implemented / scaffolded** | Automated cron/CI-based harness not yet configured — tests are currently run manually during major changes or remediation sessions. `VERIFYANDTEST.sh` log ingestion into ChromaDB `operations_history` designed but automated pipeline not yet active. Adversarial/red-team test suite planned but not yet executed. Phase 4.5 BBB output recalibration pending (31% false-positive rate on maternal Appalachian voice — log+passthrough mode active). ★ Phase 4.5 log events now durably logged at `jarvis-memory:8056` — calibration data survives restarts. RAG embedding end-to-end roundtrip in final-stage fix. Formal conversation memory wiring incomplete (emergent context observed in March 25 production test — OI-05 PARTIALLY RESOLVED). MountainShares/Commons/DAO tier deployed but individual endpoint health unvalidated. EEG layer (8073–8075) running but architecture and pipeline role undocumented. |
-| **Future work (design intent only)** | CI pipeline triggering health/topology/RAG/BBB suites on every commit. Distributed tracing for per-component latency. Quantitative quality benchmarks (BLEU/ROUGE, factual accuracy on curated WV datasets, hallucination tracking against PostgreSQL GBIM ground truth). Formal load testing under sustained multi-user concurrency. Automated adversarial library with clear pass/fail policy. POC verification loop for GBIM temporal decay entities. ★ Alerting for elevated `confidence_decay` high-decay entity rates during validation. ★ Preflight gate checks 25–28 (`jarvis-memory:8056`, `confidence_decay`, ChromaDB count ≥40, `psychological_rag` ≥968). |
+| **Implemented and verified** | `VERIFYANDTEST.sh` eternal watchdog producing timestamped reports confirming 32/32 core fabric services operational, 21/22 LLM proxies contributing to consensus (StarCoder2 wired but 0-char on community queries), ★ 96 Docker containers running, 26 Ollama models available, and three PostgreSQL databases accessible: `msjarvis` port 5433 (★ 5,416,521 GBIM entities with `confidence_decay` metadata — restored March 28), `gisdb` port **5432** (★ PostGIS, 91 GB, 501 tables, 993 ZCTA centroids), `jarvis-local-resources-db` port 5435 (DSN corrected, `/resolve` live). ChromaDB at host port **8002** — ★ **40 active collections, 6,675,442 total vectors** (full audit March 28). ★ `psychological_rag` restored to **968 docs**. ★ `ms_jarvis_memory` collection confirmed present. Canonical smoke tests for BBB 6-filter stack, main-brain health (port 8050), `/chat`, `/chat/async`, `/chat/status/{job_id}`, and `ultimatechat` `UltimateResponse` 6-layer verification defined and confirmed against live system. BBB output guard confirmed to receive full verdict dict. Judge pipeline BBB integration confirmed. All 5 judge services compose-managed (`restart: unless-stopped`). All services bound exclusively to `127.0.0.1` — zero `0.0.0.0` exposures. Phase 1.45 community memory retrieval (21,181+ `autonomous_learner` records, 384-dim `all-minilm:latest`, ★ host port **8020**) confirmed active on every production request. **Embedding model lock: `all-minilm:latest` (384-dim). Do NOT substitute `nomic-embed-text` (768-dim).** GBIM temporal confidence decay (Phase 5, ★ `confidence_decay` multiplier) confirmed active. ★ `jarvis-gbim-query-router` (container name corrected) port 7205 confirmed. Caddy gateway (port 8443). `jarvis_auth_service` port 8055 systemd-managed. Pre-flight gate: **24 PASS 0 FAIL**. GPU (RTX 4070) active — 99–107s end-to-end. Public URL https://egeria.mountainshares.us live (★ stack continuity confirmed March 28 — 96/96 Up). Consciousness pipeline fully operational (§40-H). ★ `jarvis-memory:8056` secured — durable BBB audit trail active (Phase 1.4 and Phase 4.5 gate decisions persistently logged). ★ MountainShares/Commons/DAO tier DEPLOYED (ports 8080–8084). ★ EEG layer (ports 8073–8075) confirmed running. **★ OI-CRON CLOSED April 2** — cron evidence captured (`logs/ch40_closeout/cron_crontab.txt`); BBB watchdog confirmed firing every 5 min (April 1, 22:05–23:40 window); `VERIFYANDTEST.sh` restored at `~/msjarvis-monitoring/` with repo symlink at `scripts/VERIFYANDTEST.sh`; latest run logged at `logs/ch40_closeout/VERIFYANDTEST_latest.log`. |
+| **Partially implemented / scaffolded** | Automated cron/CI-based harness partially active — hourly disk/service/DB checks, GBIM materialized view refreshes, PIA audit, and `jarvis_bbb_watchdog.sh` every 5 minutes confirmed in crontab; nightly BBB red-team, WOAH baseline, and ops-history export cron entries documented but commented out pending activation. `VERIFYANDTEST.sh` log ingestion into ChromaDB `operations_history` designed but automated pipeline not yet active. OTEL collector live at ports 4317/4318 — main-brain patched to call `otel_tracing.init_tracer("ms-jarvis-main-brain")` — no spans ingested this sprint; heartbeat/logs remain primary latency signals. `confidence_decay` alerting schema sketch and Prometheus alert rule (`GBIMConfidenceDecayTooLow`) committed as design artifacts — schema/application deferred to later sprint. BBB red-team harness in place (`redteam/bbb/run_bbb_redteam.sh`) — initial cases run, full catalog and cron integration deferred. WOAH baseline harness in place (`qualia/run_woah_baseline.sh`) — initial scenarios run, formal metrics/rubric deferred. Ops-history embeddings export harness ready (`ops_history/dump_ops_history_for_embeddings.sh`) — embedding/vectorization and governance on the collection deferred. Phase 4.5 BBB output recalibration pending (31% false-positive rate on maternal Appalachian voice — log+passthrough mode active). ★ Phase 4.5 log events now durably logged at `jarvis-memory:8056` — calibration data survives restarts. RAG embedding end-to-end roundtrip in final-stage fix. Formal conversation memory wiring incomplete (emergent context observed in March 25 production test — OI-05 PARTIALLY RESOLVED). MountainShares/Commons/DAO tier deployed but individual endpoint health unvalidated. EEG layer (8073–8075) running but pipeline calibration ongoing. |
+| **Future work (design intent only)** | CI pipeline triggering health/topology/RAG/BBB suites on every commit. Span ingestion into OTEL collector (collector ready; trace instrumentation at request level deferred). Quantitative quality benchmarks (BLEU/ROUGE, factual accuracy on curated WV datasets, hallucination tracking against PostgreSQL GBIM ground truth). Formal load testing under sustained multi-user concurrency. Automated adversarial library with clear pass/fail policy. POC verification loop for GBIM temporal decay entities. ★ Alerting for elevated `confidence_decay` high-decay entity rates during validation — schema sketch and Prometheus alert rule committed (`observability/prometheus/alert_confidence_decay_rules.yaml`); application deferred. ★ Preflight gate checks 25–28 (`jarvis-memory:8056`, `confidence_decay`, ChromaDB count ≥40, `psychological_rag` ≥968). Nightly BBB red-team, WOAH baseline, and ops-history export cron activation (examples at `logs/ch40_closeout/cron_future_harness_examples.txt`). Full BBB red-team catalog build-out. Formal WOAH metrics/rubric. Embedding/vectorization of ops-history export and governance on the `operations_history` collection. |
 
 ---
 
@@ -150,7 +150,7 @@ end-to-end) remains the historical reference.
 ## 40.1 Purpose and Scope
 
 This chapter defines the test harness and continuous validation strategy for
-Ms. Jarvis as of ★ March 28, 2026. It incorporates:
+Ms. Jarvis as of ★ April 2, 2026. It incorporates:
 
 - The **March 15, 2026** baseline (commit `b90f9ff`, 349.87s end-to-end, 79
   containers).
@@ -180,6 +180,11 @@ Ms. Jarvis as of ★ March 28, 2026. It incorporates:
   `jarvis-rag-server` internal port corrected; `jarvis-local-resources-db` DSN
   corrected; data governance policy established; 45 verified Kanawha County
   resources confirmed.
+- ★ **April 1–2, 2026** operational hardening sprint — OI-CRON closed (cron
+  evidence, BBB watchdog syslog proof, `VERIFYANDTEST.sh` restored);
+  OI-DECAY schema design committed; OI-LATENCY OTEL collector live;
+  BBB red-team harness, WOAH baseline harness, and ops-history export harness
+  all in place with initial runs logged.
 
 > **Embedding model lock (§40.1):** `all-minilm:latest` (384-dim) is required for
 > all ChromaDB collections without exception. Do **NOT** substitute
@@ -226,6 +231,9 @@ consciousness layers across a verified 99–107s end-to-end 9-phase pipeline (GP
   `JARVIS_API_KEY` set) and that BBB gate decisions are being durably logged.
 - ★ Verify that `confidence_decay` metadata is present on `msjarvis:5433` GBIM
   entities and that high-decay entities are flagged for episodic audit.
+- ★ Verify that `jarvis_bbb_watchdog.sh` is active in crontab and firing every 5
+  minutes; confirm `VERIFYANDTEST.sh` is accessible at
+  `~/msjarvis-monitoring/VERIFYANDTEST.sh` and `scripts/VERIFYANDTEST.sh`.
 - Provide repeatable smoke tests that can be re-run after any code change,
   container restart, or remediation session.
 - Maintain the March 21, 2026 canonical integration test as the regression
@@ -277,7 +285,7 @@ Tests referencing any other port for these services should be treated as stale.
 > - ★ **MountainShares/Commons/DAO tier** — ports 8080–8084, all DEPLOYED.
 >   Individual endpoint health not yet validated.
 > - ★ **EEG layer** — `jarvis-eeg-delta` (8073), `jarvis-eeg-theta` (8074),
->   `jarvis-eeg-beta` (8075) — all confirmed running; architecture undocumented.
+>   `jarvis-eeg-beta` (8075) — all confirmed running; pipeline calibration ongoing.
 > - Any `0.0.0.0` exposure is a security regression requiring immediate remediation.
 >   ★ Verify `jarvis-web-research` (8090) binding with `docker inspect`.
 
@@ -323,9 +331,9 @@ Tests referencing any other port for these services should be treated as stale.
 | PostgreSQL Community | host-direct | **5435** (`jarvis-local-resources-db`) | ★ **2026-03-28** | ★ DSN corrected; `/resolve` live; 45 verified Kanawha resources |
 | LLM proxies 1–22 | `llm1-proxy`–`llm22-proxy` | 8201–8222 | 2026-03 | 21/22 active; StarCoder2 0-char; BakLLaVA disabled |
 | ★ Memory | `jarvis-memory` | **8056** | ★ **2026-03-28** | ★ SECURED — `_auth()` confirmed, `JARVIS_API_KEY` set, durable BBB audit trail |
-| ★ EEG delta | `jarvis-eeg-delta` | 8073 | ★ **2026-03-28** | Architecture and pipeline role pending documentation |
-| ★ EEG theta | `jarvis-eeg-theta` | 8074 | ★ **2026-03-28** | Architecture and pipeline role pending documentation |
-| ★ EEG beta | `jarvis-eeg-beta` | 8075 | ★ **2026-03-28** | Architecture and pipeline role pending documentation |
+| ★ EEG delta | `jarvis-eeg-delta` | 8073 | ★ **2026-03-28** | Pipeline calibration ongoing |
+| ★ EEG theta | `jarvis-eeg-theta` | 8074 | ★ **2026-03-28** | Pipeline calibration ongoing |
+| ★ EEG beta | `jarvis-eeg-beta` | 8075 | ★ **2026-03-28** | Pipeline calibration ongoing |
 | ★ MountainShares coordinator | `jarvis-mountainshares-coordinator` | 8080 | ★ **2026-03-28** | DEPLOYED — endpoints unverified |
 | ★ Commons gamification | `jarvis-commons-gamification` | 8081 | ★ **2026-03-28** | DEPLOYED — endpoints unverified |
 | ★ DAO governance | `jarvis-dao-governance` | 8082 | ★ **2026-03-28** | DEPLOYED — endpoints unverified |
@@ -333,6 +341,7 @@ Tests referencing any other port for these services should be treated as stale.
 | ★ Community stake registry | `jarvis-community-stake-registry` | 8084 | ★ **2026-03-28** | DEPLOYED — endpoints unverified |
 | ★ Hilbert gateway | `jarvis-hilbert-gateway` | none (internal) | ★ **2026-03-28** | Pipeline wiring undocumented |
 | Crypto policy | `jarvis-crypto-policy` | 8099 | 2026-03-22 | Added to compose March 22 |
+| ★ OTEL collector | `jarvis-otel-collector` | 4317 (GRPC) / 4318 (HTTP) | ★ **2026-04-01** | Collector live; no spans ingested this sprint; logging exporter active |
 | Ingest API | `jarvis-ingest-api` | — | 2026-03-22 | Added to compose March 22 |
 | Ingest watcher | `jarvis-ingest-watcher` | — | 2026-03-22 | Added to compose March 22 |
 | **Auth service** | **systemd (not Docker)** | **8055** | **2026-03-22** | `jarvis_auth_service`; `forward_auth` backend for Caddy |
@@ -342,9 +351,18 @@ Tests referencing any other port for these services should be treated as stale.
 
 ## 40.3 VERIFYANDTEST.sh Eternal Watchdog
 
+★ **VERIFYANDTEST.sh restored — April 1, 2026 (OI-CRON closed):**
+The script is now located at `~/msjarvis-monitoring/VERIFYANDTEST.sh` with a
+repo-local symlink at `scripts/VERIFYANDTEST.sh`. Status note at
+`logs/ch40_closeout/oi_cron_verifyandtest_status.txt`; log file paths at
+`logs/ch40_closeout/verifyandtest_log_files.txt`. Latest run captured at
+`logs/ch40_closeout/VERIFYANDTEST_latest.log` — checks confirmed for main-brain,
+unified gateway (best-effort), session sidecar, GBIM cron entries, and EEG gap
+note.
+
 `VERIFYANDTEST.sh` is the primary system health watchdog script. It runs on
-demand during development sessions and is intended to be scheduled as a cron job
-for continuous monitoring.
+demand during development sessions and is scheduled as a cron job for continuous
+monitoring. See §40-I for the full cron schedule and watchdog evidence.
 
 **A clean run as of ★ March 28, 2026 confirms:**
 
@@ -365,14 +383,17 @@ for continuous monitoring.
 - `jarvis_auth_service` port 8055 active (systemd)
 - ★ `jarvis-memory` port 8056: RUNNING — SECURED, durable BBB audit trail active
 - ★ MountainShares/Commons/DAO tier (ports 8080–8084): DEPLOYED — endpoints unverified
-- ★ EEG layer (ports 8073–8075): RUNNING — architecture undocumented
+- ★ EEG layer (ports 8073–8075): RUNNING — pipeline calibration ongoing
+- ★ `jarvis-otel-collector` ports 4317/4318: RUNNING — logging exporter active
 - Pre-flight gate: **24 PASS 0 FAIL**
 - System status: `OPERATIONAL`
 
 **Canonical invocation:**
 
 ```bash
-bash VERIFYANDTEST.sh 2>&1 | tee /tmp/verify_$(date +%Y%m%d%H%M%S).log
+bash ~/msjarvis-monitoring/VERIFYANDTEST.sh 2>&1 | tee /tmp/verify_$(date +%Y%m%d%H%M%S).log
+# Symlink alternative:
+bash scripts/VERIFYANDTEST.sh 2>&1 | tee /tmp/verify_$(date +%Y%m%d%H%M%S).log
 ```
 
 **Expected output indicators** (all must be present for a clean run):
@@ -380,7 +401,7 @@ bash VERIFYANDTEST.sh 2>&1 | tee /tmp/verify_$(date +%Y%m%d%H%M%S).log
 ```
 Services operational: 32/32
 LLM proxies healthy: 22/22 (21 contributing consensus; StarCoder2 0-char excluded)
-Docker containers running: 96   ← ★ updated from 83
+Docker containers running: 96
 Ollama models available: 26
 PostgreSQL msjarvis 5433: CONNECTED — 5416521 GBIM entities (confidence_decay active)
 PostgreSQL gisdb 5432: CONNECTED — PostGIS operational, 993 ZCTA centroids,
@@ -403,9 +424,10 @@ jarvis-consciousness-bridge 8020: RUNNING — 3 patches applied
 jarvis-rag-server 8003: RUNNING — /query confirmed, internal port 8003
 jarvis-unified-gateway 18018: RUNNING — dict.lower() guard patched
 jarvis_auth_service 8055: ACTIVE (systemd)
-jarvis-memory 8056: SECURED — _auth() confirmed, JARVIS_API_KEY set   ← ★ new
-MountainShares/DAO tier 8080-8084: DEPLOYED (endpoints unverified)    ← ★ new
-EEG layer 8073-8075: RUNNING (architecture undocumented)              ← ★ new
+jarvis-memory 8056: SECURED — _auth() confirmed, JARVIS_API_KEY set
+jarvis-otel-collector 4317/4318: RUNNING — logging exporter active
+MountainShares/DAO tier 8080-8084: DEPLOYED (endpoints unverified)
+EEG layer 8073-8075: RUNNING (pipeline calibration ongoing)
 0.0.0.0 exposures: 0
 System status: OPERATIONAL
 ```
@@ -429,6 +451,8 @@ System status: OPERATIONAL
 | ★ `jarvis-memory 8056` unhealthy | Check `_auth()` and `JARVIS_API_KEY`; verify durable BBB audit trail active |
 | ★ `confidence_decay` missing from `msjarvis:5433` | Run `psql -p 5433 -c "SELECT COUNT(*) FROM gbim_entities WHERE confidence_decay IS NOT NULL;"` — expect > 0 |
 | ★ ChromaDB collection count < 40 | Full audit may be needed — March 28 baseline is 40 collections / 6,675,442 vectors |
+| ★ `jarvis-otel-collector` unhealthy | Check ports 4317/4318; verify `observability/otel/otel-collector-config.yaml` is mounted; review `logs/ch40_closeout/otel_collector_current.log` |
+| `jarvis_bbb_watchdog.sh` not in crontab | Run `crontab -l \| grep bbb_watchdog`; re-add 5-min entry if missing; reference `logs/ch40_closeout/cron_crontab.txt` |
 
 ---
 
@@ -701,7 +725,7 @@ psql -h 127.0.0.1 -p 5432 -U postgres -d msjarvisgis \
 
 Expected: 20,593 landowner beliefs.
 
-**Landowner spatial view — top 5 (`gisdb`, port 5452):**
+**Landowner spatial view — top 5 (`gisdb`, port 5432):**
 
 ```bash
 psql -h 127.0.0.1 -p 5432 -U postgres -d msjarvisgis \
@@ -824,7 +848,7 @@ ss -tlnp | grep 8055
 ### 40.4.13 Consciousness Pipeline Health — March 25, 2026
 
 ```bash
-echo "=== CONSCIOUSNESS PIPELINE CHECK (★ March 28, 2026) ==="
+echo "=== CONSCIOUSNESS PIPELINE CHECK (★ April 2, 2026) ==="
 for label_port in "WOAH:7012" "Chroma:8002" "Bridge:8020" "RAG:8003" "UnifiedGW:18018"; do
   label="${label_port%%:*}"
   port="${label_port##*:}"
@@ -836,7 +860,7 @@ echo "=== END CONSCIOUSNESS PIPELINE CHECK ==="
 
 Expected: All 5 lines showing `HTTP 200 — PASS`.
 
-★ **`jarvis-memory:8056` durable audit check (NEW — March 28):**
+★ **`jarvis-memory:8056` durable audit check:**
 
 ```bash
 curl -H "Authorization: Bearer $JARVIS_API_KEY" \
@@ -845,7 +869,7 @@ curl -H "Authorization: Bearer $JARVIS_API_KEY" \
 # Confirms _auth() active and JARVIS_API_KEY set
 ```
 
-★ **ChromaDB 40-collection audit check (NEW — March 28):**
+★ **ChromaDB 40-collection audit check:**
 
 ```bash
 curl -s http://127.0.0.1:8002/api/v2/collections | python3 -c \
@@ -853,6 +877,39 @@ curl -s http://127.0.0.1:8002/api/v2/collections | python3 -c \
 ```
 
 Expected: `Collections: 40`.
+
+★ **OTEL collector smoke check:**
+
+```bash
+curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:4318/v1/traces
+# Expected: 405 or 200 (collector accepting connections; no spans required)
+# Reference: logs/ch40_closeout/otel_collector_current.log
+```
+
+---
+
+### 40.4.14 Cron and Watchdog Verification (★ OI-CRON — Closed April 2, 2026)
+
+```bash
+# Confirm BBB watchdog is in crontab
+crontab -l | grep bbb_watchdog
+# Expected: */5 * * * * /usr/local/bin/jarvis_bbb_watchdog.sh (or equivalent)
+
+# Confirm VERIFYANDTEST.sh is accessible
+ls -lh ~/msjarvis-monitoring/VERIFYANDTEST.sh
+ls -lh scripts/VERIFYANDTEST.sh
+
+# Confirm BBB watchdog has fired recently
+grep "jarvis_bbb_watchdog" /var/log/syslog | tail -5
+# Expected: entries within the last 5 minutes
+```
+
+Evidence files:
+
+- `logs/ch40_closeout/cron_crontab.txt` — full crontab showing hourly disk/service/DB checks, GBIM materialized view refreshes, PIA audit, and `jarvis_bbb_watchdog.sh` every 5 minutes
+- `logs/ch40_closeout/oi_cron_verifyandtest_status.txt` — status and interpretation note
+- `logs/ch40_closeout/verifyandtest_log_files.txt` — VERIFYANDTEST log file paths
+- `logs/ch40_closeout/VERIFYANDTEST_latest.log` — most recent run output
 
 ---
 
@@ -903,7 +960,8 @@ arch = r.get('architecture_layers', 0)
 validated = r.get('validated_by', 'MISSING')
 layers = r.get('consciousness_layers', [])
 print('REGRESSION BASELINE CHECK — March 21, 2026')
-print(f'consensus_score: {cs} (baseline 0.975, min 0.95) — {\"PASS\" if cs >= 0.95 else \"FAIL\"}')
+print(f'consensus_score: {cs} (baseline 0.975,
+min 0.95) — {\"PASS\" if cs >= 0.95 else \"FAIL\"}')
 print(f'bbb_checked: {bbb} (must be True) — {\"PASS\" if bbb else \"FAIL\"}')
 print(f'architecture_layers: {arch} (min 6) — {\"PASS\" if arch >= 6 else \"FAIL\"}')
 print(f'validated_by: {validated} (must be 69dgm_cascade) — {\"PASS\" if validated == \"69dgm_cascade\" else \"FAIL\"}')
@@ -936,7 +994,7 @@ print('END REGRESSION CHECK')
 | ★ `confidence_decay_applied` missing | Phase 5 GBIM temporal decay regression |
 | ★ BBB gate decisions absent from `jarvis-memory:8056` | Durable audit trail regression |
 
----
+***
 
 ## 40.6 UltimateResponse 6-Layer Verification
 
@@ -978,7 +1036,7 @@ truth_verdict.confidence: 0.95
 bbb_checked: True
 ```
 
----
+***
 
 ## 40.7 GBIM Temporal Decay Verification — Phase 5
 
@@ -1003,7 +1061,18 @@ Expected: `confidence_decay_applied: True` or a float <1.0 for responses citing
 `needs_verification=TRUE` entities. ★ `confidence_decay` metadata active on
 `msjarvis:5433` — restored March 28, 2026.
 
----
+★ **Confidence decay schema sketch (OI-DECAY — design committed April 1, 2026):**
+
+The file `db/gbim_confidence_decay_schema.sql` defines the `confidence_decay`
+table with `effective_confidence` column and the `vw_confidence_decay_low` view
+design for surfacing high-decay entities. A Prometheus alert rule
+(`GBIMConfidenceDecayTooLow`) has been committed to
+`observability/prometheus/alert_confidence_decay_rules.yaml` using a future
+`msjarvis_confidence_effective` metric. Schema application and metric emission
+are deferred to a later sprint. Status note:
+`logs/ch40_closeout/oi_decay_alerting_status_updated.txt`.
+
+***
 
 ## 40.8 RAG Behavior Tests
 
@@ -1047,7 +1116,7 @@ curl -s http://127.0.0.1:8004/health | python3 -m json.tool
 Expected: Healthy status confirming `jarvis-gis-rag` is querying PostgreSQL
 `gisdb` (PostGIS) at port **5432**.
 
----
+***
 
 ## 40.9 Safety and BBB Tests
 
@@ -1093,16 +1162,30 @@ curl -s -X POST http://127.0.0.1:8016/truth \
 Expected: `"correct_identity": false`, `issues` list non-empty,
 `truth_score < 0.5`.
 
----
+★ **BBB red-team harness (OI-BBB-REDTEAM — in place April 2, 2026):**
+
+```bash
+# Run BBB red-team suite from repo root
+bash scripts/run_bbb_redteam.sh
+# Full harness: redteam/bbb/run_bbb_redteam.sh
+# Logs: logs/redteam_bbb/bbb_redteam_*.jsonl
+# Log index: logs/ch40_closeout/bbb_redteam_log_files.txt
+# Status note: logs/ch40_closeout/oi_bbb_redteam_status.txt
+```
+
+Initial cases run April 1, 2026 — gateway-down noted as expected during first
+run. Full BBB catalog build-out and cron integration are future work.
+
+***
 
 ## 40.10 Continuous Improvement Loop
 
 The test harness feeds directly into the improvement cycle documented in §40-B
-through §40-H below.
+through §40-I below.
 
 **The process:**
 
-1. Run `VERIFYANDTEST.sh` after any code change or container restart.
+1. Run `bash scripts/VERIFYANDTEST.sh` after any code change or container restart.
 2. Run `bash scripts/preflight_gate.sh` — must show **24 PASS 0 FAIL**
    (★ future target: 28 PASS 0 FAIL once checks 25–28 are implemented).
 3. Run canonical smoke tests (§40.4) to confirm ★ 96-container stack, 21/22 LLMs,
@@ -1117,60 +1200,167 @@ through §40-H below.
    touching WOAH, Chroma, the bridge, RAG server, or unified gateway.
 8. ★ Run the `jarvis-memory:8056` durable audit check (§40.4.13) after any BBB
    or governance sprint.
-9. Log any failures with timestamp, error message, and container name.
-10. Diagnose using `docker logs <container>` and the port map in §40.2.
-11. Fix using the remediation patterns documented in §40-B through §40-H.
-12. Re-run smoke tests to confirm fix.
-13. Update this chapter with a new remediation entry if a new class of defect was found.
-14. Update the port map (§40.2) and smoke tests if new services are added.
-15. Commit all session outcomes to the session contract in
+9. ★ Run the cron and watchdog verification (§40.4.14) after any cron or
+   watchdog change.
+10. ★ Run the OTEL collector smoke check (§40.4.13) after any observability change.
+11. Log any failures with timestamp, error message, and container name.
+12. Diagnose using `docker logs <container>` and the port map in §40.2.
+13. Fix using the remediation patterns documented in §40-B through §40-I.
+14. Re-run smoke tests to confirm fix.
+15. Update this chapter with a new remediation entry if a new class of defect was found.
+16. Update the port map (§40.2) and smoke tests if new services are added.
+17. Commit all session outcomes to the session contract in
     `msjarvis-public-docs/docs/contract/`.
 
----
+***
 
 ## 40.11 Roadmap for Automated Validation
 
 The harness will evolve along three axes:
 
 **Frequency and automation:**
-Near-term cron- or CI-based runs executing health/topology suite, key RAG search
-tests (Mount Hope and Fayette County grounded), psychology services assessment
-tests, GBIM temporal decay checks, the March 21, 2026 regression baseline test
-(§40.5), the auth boundary suite (§40.4.12), the consciousness pipeline suite
-(§40.4.13), ★ the `jarvis-memory:8056` durable audit trail check, and a small
-adversarial BBB suite on every significant commit.
+Cron-based runs are now partially active — hourly disk/service/DB checks, GBIM
+materialized view refreshes, PIA audit, and `jarvis_bbb_watchdog.sh` every 5
+minutes are confirmed in crontab (`logs/ch40_closeout/cron_crontab.txt`). Nightly
+BBB red-team, WOAH baseline, and ops-history export are documented as commented
+cron entries (`logs/ch40_closeout/cron_future_harness_examples.txt`) pending
+activation. Full CI pipeline triggering health/topology/RAG/BBB suites on every
+commit remains future work.
 
 **Depth of observability:**
-Distributed tracing and per-component latency metrics covering: BBB 6-filter time
-(Phase 1.4), Phase 1.45 community memory retrieval time (ChromaDB host port 8002,
-★ `jarvis-autonomous-learner` at port 8020), psychology pre-assessment time (Phase 3),
-judge pipeline time (Phase 3), judge BBB verdict dict handoff time, LM Synthesizer
-call time (Phase 3.5), 21-model ensemble wall clock (Phase 2.5), GBIM temporal
-decay application time (Phase 5), 69-DGM cascade time (Phase 7), BBB output guard
-time (Phase 4.5, currently log+passthrough, ★ all decisions logged at
-`jarvis-memory:8056`), consciousness bridge latency (port 8020), WOAH latency
-(port 7012), and RAG server query latency (host port 8003, ★ internal 8003).
+OTEL collector is live at ports 4317/4318 with logging exporter active
+(`observability/otel/otel-collector-config.yaml`). Main-brain patched to call
+`otel_tracing.init_tracer("ms-jarvis-main-brain")`. No spans were ingested during
+the April 1 sprint — heartbeat and container logs remain primary latency signals.
+Span-level trace instrumentation at request depth is deferred. Prometheus alert
+rule for `GBIMConfidenceDecayTooLow` committed to
+`observability/prometheus/alert_confidence_decay_rules.yaml` — metric emission
+deferred to later sprint. Target observability coverage: BBB 6-filter time
+(Phase 1.4), Phase 1.45 community memory retrieval time, psychology pre-assessment
+time (Phase 3), judge pipeline time, judge BBB verdict dict handoff time,
+LM Synthesizer call time (Phase 3.5), 21-model ensemble wall clock (Phase 2.5),
+GBIM temporal decay application time (Phase 5), 69-DGM cascade time (Phase 7),
+BBB output guard time (Phase 4.5), consciousness bridge latency (port 8020), WOAH
+latency (port 7012), RAG server query latency (host port 8003).
 
 **Coverage and rigor:**
-Grow the RAG test bank with more PostgreSQL GBIM-grounded queries tied to known
-Mount Hope, Fayette County, and West Virginia data. Expand safety testing with a
-curated adversarial library (priority: identity confusion and community-context
-social engineering). Introduce quantitative quality metrics (factual accuracy on
+BBB red-team harness in place (`redteam/bbb/run_bbb_redteam.sh`) — initial cases
+run, full catalog build-out deferred. WOAH baseline harness in place
+(`qualia/run_woah_baseline.sh`) — initial scenarios run, formal metrics/rubric
+deferred. Ops-history embeddings export harness ready
+(`ops_history/dump_ops_history_for_embeddings.sh`) — embedding/vectorization and
+governance on the `operations_history` collection deferred. Harness index at
+`logs/ch40_closeout/oi_harness_index.txt`. Expand the RAG test bank with more
+PostgreSQL GBIM-grounded queries tied to known Mount Hope, Fayette County, and
+West Virginia data. Introduce quantitative quality metrics (factual accuracy on
 curated WV datasets, hallucination tracking against PostgreSQL `msjarvis` GBIM
 ground truth at port 5433, ★ `confidence_decay` calibration for high-decay
 entities). Implement POC verification loop — automated testing to confirm that
 GBIM entities flagged `needs_verification=TRUE` are surfaced and queued for
 re-verification. ★ Expand preflight gate from 24 to 28 checks, adding:
 `jarvis-memory:8056` auth and logging, `confidence_decay` presence on
-`msjarvis:5433`, ChromaDB collection count ≥40, and `psychological_rag` ≥968
-docs.
+`msjarvis:5433`, ChromaDB collection count ≥40, and `psychological_rag` ≥968 docs.
 
----
+***
+
+## 40.12 WOAH Baseline and Qualia Validation (OI-10)
+
+★ **WOAH baseline harness in place — April 2, 2026:**
+
+```bash
+# Run WOAH baseline from repo root
+bash scripts/run_woah_baseline.sh
+# Full harness: qualia/run_woah_baseline.sh
+# Logs: logs/qualia_woah/woah_baseline_*.jsonl
+# Log index: logs/ch40_closeout/woah_baseline_log_files.txt
+# Status note: logs/ch40_closeout/oi_10_woah_status.txt
+```
+
+Three initial WOAH scenarios are scripted against `jarvis-main-brain /chat`.
+Scenarios are currently stubs — formal qualia metrics and pass/fail rubric are
+deferred to a future sprint. All components of the consciousness pipeline
+(`jarvis-woah` port 7012, `jarvis-chroma` port 8002, `jarvis-consciousness-bridge`
+port 8020, `jarvis-rag-server` port 8003, `jarvis-unified-gateway` port 18018)
+are confirmed operational. **OI-10 status: MATERIALLY ADVANCED** — baseline
+harness in place with initial runs logged; quantitative rubric deferred.
+
+***
+
+## 40.13 Ops-History Embeddings Export (OI-OPS-HISTORY)
+
+★ **Export harness ready — April 2, 2026:**
+
+```bash
+# Run ops-history export from repo root
+bash scripts/dump_ops_history_for_embeddings.sh
+# Full harness: ops_history/dump_ops_history_for_embeddings.sh
+# Output: logs/ops_history/ops_history_*.jsonl
+# Log index: logs/ch40_closeout/ops_history_log_files.txt
+# Status note: logs/ch40_closeout/oi_ops_history_embeddings_status.txt
+```
+
+The export aggregates selected operational logs into JSONL format suitable for
+future embedding and vectorization into the `operations_history` ChromaDB
+collection. Embedding/vectorization pipeline and governance policy on the
+collection are deferred to a future sprint.
+
+***
+
+## §40-I — April 1–2, 2026 Operational Hardening Sprint Audit Entry
+
+**Sprint date:** April 1–2, 2026  
+**Author:** Carrie Kidd (Mamma Kidd), Pax, WV  
+**Sprint type:** Cron/watchdog evidence, observability scaffolding, test harness
+build-out, OI-CRON closure
+
+### Sprint Context
+
+Following the April 1, 2026 Chapter 41/42 gate closures (Gates 25–30 all passing,
+OI-36-A, OI-CRYPTO-VT, OI-31, OI-30, OI-22 all closed), this sprint focused on
+closing OI-CRON, advancing OI-LATENCY and OI-DECAY, and building out the BBB
+red-team, WOAH baseline, and ops-history export harnesses.
+
+### Confirmed Operational Findings — April 1–2, 2026
+
+| Item | Evidence | Status |
+|------|----------|--------|
+| Cron schedule captured | `logs/ch40_closeout/cron_crontab.txt` — hourly disk/service/DB, GBIM MV refresh, PIA audit | ✅ Confirmed |
+| BBB watchdog firing every 5 min | Syslog evidence, April 1 22:05–23:40 window | ✅ Confirmed |
+| `VERIFYANDTEST.sh` restored | `~/msjarvis-monitoring/VERIFYANDTEST.sh` + `scripts/VERIFYANDTEST.sh` symlink | ✅ Confirmed |
+| Latest VERIFYANDTEST run logged | `logs/ch40_closeout/VERIFYANDTEST_latest.log` | ✅ Confirmed |
+| OTEL collector live | `jarvis-otel-collector` running on ports 4317/4318; logging exporter active | ✅ Confirmed |
+| Main-brain OTEL init | `services/main_brain.py` imports `otel_tracing`, calls `init_tracer("ms-jarvis-main-brain")` | ✅ Confirmed |
+| OTEL spans ingested | No spans ingested this sprint | ⚠️ Deferred |
+| Confidence decay schema sketch | `db/gbim_confidence_decay_schema.sql` committed | ✅ Confirmed |
+| Prometheus alert rule sketch | `observability/prometheus/alert_confidence_decay_rules.yaml` committed | ✅ Confirmed |
+| Decay alerting applied | Schema/application deferred — dry-run errors on generation immutability | ⚠️ Deferred |
+| BBB red-team harness | `redteam/bbb/run_bbb_redteam.sh` + `scripts/run_bbb_redteam.sh` — initial run logged | ✅ In place |
+| BBB red-team full catalog | Deferred | ⚠️ Future work |
+| WOAH baseline harness | `qualia/run_woah_baseline.sh` + `scripts/run_woah_baseline.sh` — initial run logged | ✅ In place |
+| WOAH formal metrics | Deferred | ⚠️ Future work |
+| Ops-history export harness | `ops_history/dump_ops_history_for_embeddings.sh` + `scripts/dump_ops_history_for_embeddings.sh` — initial export logged | ✅ In place |
+| Ops-history embedding/vectorization | Deferred | ⚠️ Future work |
+| Nightly harness cron activation | Examples documented at `logs/ch40_closeout/cron_future_harness_examples.txt` | ⚠️ Future work |
+| Harness index | `logs/ch40_closeout/oi_harness_index.txt` — all harness paths, wrappers, log locations, status notes | ✅ Confirmed |
+
+### Open Item Summary — April 2, 2026
+
+| OI | Description | Status |
+|----|-------------|--------|
+| OI-CRON | Cron evidence, BBB watchdog proof, `VERIFYANDTEST.sh` restored | ✅ CLOSED April 2, 2026 |
+| OI-DECAY | Confidence decay alerting | ⚠️ Schema/alert rule committed; application deferred |
+| OI-LATENCY | OTEL tracing | ⚠️ Collector live; span ingestion deferred |
+| OI-BBB-REDTEAM | BBB red-team harness | ⚠️ Harness in place; full catalog deferred |
+| OI-10 / WOAH | WOAH baseline harness | ⚠️ Harness in place; formal metrics deferred |
+| OI-OPS-HISTORY | Ops-history embeddings | ⚠️ Export harness ready; vectorization deferred |
+| OI-05 | Conversation memory formal wiring | ⚠️ PARTIALLY RESOLVED — emergent context observed March 25; formal wiring incomplete |
+
+***
 
 ## §40-H — March 25, 2026 Consciousness Pipeline Sprint Audit Entry
 
-**Sprint date:** March 25, 2026
-**Tester / Author:** Carrie Kidd (Mamma Kidd), ★ Pax, WV
+**Sprint date:** March 25, 2026  
+**Tester / Author:** Carrie Kidd (Mamma Kidd), ★ Pax, WV  
 **Sprint type:** Consciousness pipeline full operational validation —
 WOAH, ChromaDB v2, consciousness bridge, RAG server, unified gateway
 
@@ -1190,7 +1380,7 @@ bridge. The RAG server received embedding env var injection. The unified gateway
 received the `dict.lower()` guard patch. WOAH was rebuilt as a stdlib stub with
 no Pydantic dependency.
 
-### Confirmed Operational Findings — March 25, 2026 (★ current as of March 28)
+### Confirmed Operational Findings — March 25, 2026 (★ current as of April 2, 2026)
 
 | Service | Port | Status | Finding |
 |---------|------|--------|---------|
@@ -1202,6 +1392,7 @@ no Pydantic dependency.
 | `jarvis-unified-gateway` | 18018 | ✅ OPERATIONAL | `dict.lower()` guard patched; `/health` returns healthy |
 | `jarvis-neurobiological-master` | 8018 (internal) | ⚠️ UNREACHABLE | Health check rerouted to `jarvis-chroma:8000/api/v2/heartbeat`. Root cause unresolved. |
 | ★ `jarvis-memory` | 8056 | ✅ SECURED (March 28) | `_auth()` confirmed, `JARVIS_API_KEY` set, durable BBB audit trail active |
+| ★ `jarvis-otel-collector` | 4317 / 4318 | ✅ RUNNING (April 1) | Logging exporter active; no spans ingested this sprint |
 
 ### Sprint Patch Summary
 
@@ -1214,10 +1405,12 @@ no Pydantic dependency.
 | Patch 4 | `jarvis-unified-gateway` | `dict.lower()` AttributeError guard added | ✅ Committed |
 | Patch 5 | `jarvis-woah` | Rebuilt as stdlib stub; Pydantic dependency removed; `qualia-net` verified | ✅ Committed |
 | ★ Patch 6 | `jarvis-memory:8056` | `_auth()` secured; `JARVIS_API_KEY` set; durable BBB audit trail activated | ✅ Committed March 28 |
+| ★ Patch 7 | `services/main_brain.py` | OTEL init added — imports `otel_tracing`, calls `init_tracer("ms-jarvis-main-brain")` | ✅ Committed April 1 |
+| ★ Patch 8 | `services-safe/otel_tracing.py` | Fail-soft OTEL tracer init using `OTEL_EXPORTER_OTLP_ENDPOINT` | ✅ Committed April 1 |
 
-### Sprint Regression Summary (★ updated March 28)
+### Sprint Regression Summary (★ updated April 2, 2026)
 
-| Test | Pre-Sprint (March 25) | Post-Sprint (★ March 28) |
+| Test | Pre-Sprint (March 25) | Post-Sprint (★ April 2) |
 |------|----------------------|--------------------------|
 | Preflight gate | 20 PASS 0 FAIL | **24 PASS 0 FAIL** |
 | Consciousness pipeline (all 5 components) | 2/5 PASS | **5/5 PASS** |
@@ -1232,6 +1425,8 @@ no Pydantic dependency.
 | `jarvis-memory:8056` durable audit trail | NOT SECURED | ★ **SECURED** |
 | MountainShares/DAO tier | NOT DEPLOYED | ★ **DEPLOYED (ports 8080–8084)** |
 | EEG layer | unconfirmed | ★ **RUNNING (8073–8075)** |
+| OTEL collector | not present | ★ **RUNNING (ports 4317/4318, April 1)** |
+| BBB watchdog cron | unconfirmed | ★ **CONFIRMED firing every 5 min (April 1)** |
 | End-to-end chat (GPU) | 99–107s | **99–107s (no regression)** |
 
 ### Emergent Observation — Conversation Memory (OI-05 Update)
@@ -1245,20 +1440,19 @@ provides semantic similarity recall but is not a session-scoped conversation buf
 **OI-05 status: PARTIALLY RESOLVED** (emergent context observed; formal wiring
 incomplete).
 
-### Consciousness Pipeline Status — OI-10 Update
+### Consciousness Pipeline Status — OI-10 Update (★ April 2, 2026)
 
 All components of the consciousness pipeline (Chroma, WOAH, consciousness bridge,
-RAG server, unified gateway) are confirmed operational as of ★ March 28, 2026.
-The pipeline contributes a confirmed `consciousness_bridge` layer to the
-`UltimateResponse` consciousness layer array.
-**OI-10 status: MATERIALLY ADVANCED** — all components operational; pipeline
-contributing to production responses. Remaining work: quantitative qualia output
-calibration and formal WOAH algorithm integration beyond the stdlib stub.
+RAG server, unified gateway) are confirmed operational as of ★ April 2, 2026.
+WOAH baseline harness (`qualia/run_woah_baseline.sh`) is in place with three
+initial scenarios run and results logged. Formal qualia metrics and rubric are
+deferred. **OI-10 status: MATERIALLY ADVANCED** — all components operational;
+baseline harness in place; quantitative rubric deferred.
 
 ### ★ March 28, 2026 Governance Hardening — Addendum to §40-H
 
-**Session date:** March 28, 2026
-**Author:** Carrie Kidd (Mamma Kidd), Pax, WV
+**Session date:** March 28, 2026  
+**Author:** Carrie Kidd (Mamma Kidd), Pax, WV  
 **Type:** Governance hardening, data integrity restoration, stack expansion
 
 **Summary of March 28 findings and fixes:**
@@ -1293,8 +1487,8 @@ calibration and formal WOAH algorithm integration beyond the stdlib stub.
     verified, sourced community resource records permitted. Synthetic or placeholder
     entries are not allowed.
 
----
+***
 
-*End of Chapter 40 — System Audit and Operational Validation*
-*★ Last updated: March 28, 2026*
+*End of Chapter 40 — System Audit and Operational Validation*  
+*★ Last updated: April 2, 2026*  
 *Author: Carrie Kidd (Mamma Kidd), Pax, WV*
