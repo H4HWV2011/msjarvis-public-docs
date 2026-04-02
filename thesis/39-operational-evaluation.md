@@ -1,6 +1,6 @@
 # Chapter 39 — Operational Evaluation
 
-*Carrie Kidd (Mamma Kidd) — Pax, WV — Last updated: ★ April 2, 2026 — CHAPTER 39 FULLY CERTIFIED CLOSED: ✅ 22 PASS ❌ 0 FAIL ⚠️ 1 WARN (intentional — `local_resources` 48/55, 7 WV counties, Phase 2 data task, documented and deferred); 101 containers running; all 5 public hostnames live (401 token enforced); Cloudflare tunnel HEALTHY; preflight gate logic (8 bugs) fixed; container threshold updated ≥79 → ≥96 (now 101 running); all 0.0.0.0 exposures eliminated; Caddyfile :8085 self-loop fixed → proxies to 18018; cloudflared config updated from hardcoded 8443 to 8085; chat.mountainshares.us DNS CNAME added; all 5 public hostnames live and token-enforced; jarvis-hilbert-state port conflict remapped to 8092; Cloudflare tunnel warn cleared. Prior March 28, 2026 PM baseline carries forward unchanged below.*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV — Last updated: ★ April 2, 2026 — CHAPTER 39 FULLY CERTIFIED CLOSED: ✅ 22 PASS ❌ 0 FAIL ⚠️ 1 WARN (intentional — `local_resources` 48/55, 7 WV counties, Phase 2 data task, documented and deferred); 101 containers running; all 5 public hostnames live (401 token enforced); Cloudflare tunnel HEALTHY; preflight gate logic (8 bugs) fixed; container threshold updated ≥79 → ≥96 (now 101 running); all 0.0.0.0 exposures eliminated; Caddyfile :8085 self-loop fixed → proxies to 18018; cloudflared config updated from hardcoded 8443 to 8085; chat.mountainshares.us DNS CNAME added; all 5 public hostnames live and token-enforced; jarvis-hilbert-state port conflict remapped to 8092; Cloudflare tunnel warn cleared. Prior March 28, 2026 PM baseline carries forward unchanged below.*
 
 ---
 
@@ -1028,5 +1028,5 @@ All prior session contracts remain authoritative for their respective dates:
 *End of Chapter 39 — Operational Evaluation*
 *★ Last updated: April 2, 2026 — CERTIFIED CLOSED*
 *22 PASS / 0 FAIL / 1 WARN (intentional — local_resources 48/55, Phase 2 data task, deferred)*
-*Author: Carrie Kidd (Mamma Kidd), Pax, WV*
+*Author: Carrie Kidd (Mamma Kidd), Mount Hope, WV*
 *Repo: H4HWV2011/msjarvis-public-docs*
