@@ -1,6 +1,6 @@
 # Chapter 40 — System Audit and Operational Validation
 
-**Carrie Kidd (Mamma Kidd) — Pax, WV**  
+**Carrie Kidd (Mamma Kidd) — Mount Hope, WV**  
 **Last updated: ★ April 2, 2026 — OI-CRON closed (cron evidence captured, BBB watchdog confirmed firing every 5 min across 22:05–23:40 window April 1, `VERIFYANDTEST.sh` restored at `~/msjarvis-monitoring/` with repo symlink, latest run logged); OI-DECAY advanced (schema sketch + Prometheus alert rule added, decay alerting design deferred to later sprint); OI-LATENCY advanced (OTEL collector live at ports 4317/4318, main-brain init patched, no spans ingested this sprint — heartbeat/logs remain primary signals); BBB red-team harness in place (`redteam/bbb/run_bbb_redteam.sh`, initial run logged, full catalog deferred); OI-10/WOAH baseline harness in place (`qualia/run_woah_baseline.sh`, initial run logged, formal metrics deferred); ops-history embeddings export harness ready (`ops_history/dump_ops_history_for_embeddings.sh`, embedding/vectorization deferred); prior March 28 baseline carries forward unchanged.**
 
 ---
