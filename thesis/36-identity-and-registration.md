@@ -1,7 +1,8 @@
 # 36. Identity and Registration
 
 **Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
-**Last updated: ★ April 3, 2026 — Chapter 36 SEALED. 101/101 containers Up (zero Restarting, zero Exited); ALL Chapter 36 and Chapter 37 cross-chapter OIs CLOSED — OI-36-A (Redis token boundary, 5/5 boundary tests pass); OI-36-B (both ROUTE_ROLES tables aligned, carrie_admin consistent); OI-36-C (ALL bypass paths removed: JARVIS_API_KEY env default ×2 locations, constitutional proxy inline auth block, /auth/token env bypass, internal token role downgraded carrie_admin → internal, _check_role internal token_type exemption removed); OI-36-D (gateway wired to jarvis_auth:8055, auth_source: jarvis_auth confirmed in response); OI-37-A (constitutional proxy confirmed active — dead code comment only); OI-37-B (both PostgreSQL connections reachable in /health — msjarvis:5433 and msjarvisgis confirmed); OI-37-C spiritual-rag (SearchRequest body model + volume mount fixed); OI-37-C gis-rag (volume mount + JUDGE_TRUTH_URL env fixed); Dockerfiles written — services/Dockerfile.spiritual_rag and services/Dockerfile.gis_raf both in services/ ready for clean build: context in Ch 38 sprint. EthicalFilter recalibrated April 2 (0% FP); SafetyMonitor recalibrated April 3 (safety_score=1.0 on survivor/victim queries); Phase 4.5 BBB output log+passthrough — blocking re-enablement next-session decision; Git HEAD 6b01ea64 on sprint3-rank-bsa-governance. Legitimately retained: "internal" literal token with role="internal" (blocked from /chat and /memory; proxy routes retain token_type exemption at lines 758/857); Redis direct fallback if jarvis_auth unavailable. Forwarded to Ch 38: add build: stanzas for jarvis-gis-rag and jarvis-spiritual-rag; docker compose build to cut clean images removing volume mount workarounds permanently.**
+**Last updated: ★ April 3, 2026 — Chapter 36 SEALED AND CLOSED.**  
+**101/101 containers Up (zero Restarting, zero Exited). All Chapter 36 OIs and all Ch 37 cross-chapter OIs CLOSED. Ch 38 sprint contract formally opened. Registration roles and audit tables: higher-impact actions tied to real people and institutions via PostgreSQL-backed audit trails, `confidence_decay` GBIM metadata, `jarvis-memory:8056` durable logging, and `rag_grounded_v2` retrieval evidence — structurally complete; automated decay-aware flagging, ZIP-code-level RBAC expansion, automated promotion pipelines, and clean image builds formally tracked as Ch 38 OIs.**
 
 ---
 
@@ -12,7 +13,7 @@
 > - `gisdb` / `msjarvisgis` (PostGIS) at host port **5432** / compose-internal **5452** — ★ 91 GB, 501 tables, 993 ZCTA centroids (confirmed March 28; prior references to 13 GB / 39 tables are superseded)
 > - `jarvis-local-resources-db` at port **5435** — community resources database
 >
-> ★ **`confidence_decay` metadata note (March 28):** `msjarvis:5433` GBIM entities carry `confidence_decay` metadata enabling temporal confidence grading. Identity and registration validation queries against high-decay GBIM entities should flag those entities for episodic audit before treating them as confirmed ground truth.
+> ★ **`confidence_decay` metadata note (March 28):** `msjarvis:5433` GBIM entities carry `confidence_decay` metadata enabling temporal confidence grading. Identity and registration validation queries against high-decay GBIM entities must flag those entities for episodic audit before treating them as confirmed ground truth. Automated decay-aware flagging is a Ch 38 OI (OI-38-A).
 >
 > Redis has **one container** (`jarvis-redis` — ★ Up 101/101) with two port mappings:
 > - Container-internal port: **6379** (used by container-to-container calls inside the Docker network)
@@ -55,10 +56,6 @@
 >
 > **★ Cross-chapter note (updated April 3, 2026):** Chapter 37 BBB filter diagram (Figure 37.1) and §37.4.1 have been corrected to six filters — EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification. Six-filter count is now consistent across Ch 33, Ch 36, and Ch 37. Ch 37 SEALED April 3, 2026.
 >
-> **Forwarded to Chapter 38:**
-> - Add `build:` stanzas to `docker-compose.yml` for `jarvis-gis-rag` and `jarvis-spiritual-rag`.
-> - Run `docker compose build` to produce clean images; volume mount workarounds are no longer needed after that point.
-
 ---
 
 ## Why This Matters for Polymathmatic Geography
@@ -69,9 +66,9 @@ This chapter describes how Ms. Jarvis recognizes, registers, and differentiates 
 - **P3 – Power has a geometry** by locating identity and access decisions within explicit services, tables, and policies rather than opaque prompts or ad-hoc scripts. ★ All BBB gate decisions — including token validation events — are durably logged at `jarvis-memory:8056`. ★ All secret bypass paths (OI-36-C) have been removed; no token class grants elevated role via environment variables or hardcoded literals.
 - **P5 – Design is a geographic act** by grounding registration decisions in place-specific rules — county boundaries, service areas, and partner organizations represented in PostgreSQL `gisdb` (★ 501 tables, 993 ZCTA centroids — ZIP-code-level service area precision). ★ `jarvis-gis-rag:8004` validates identity-adjacent truth claims against live geospatial retrieval context with `JUDGE_TRUTH_URL` env correctly wired.
 - **P12 – Intelligence with a ZIP code** by treating identity and registration as mechanisms for aligning Ms. Jarvis's behavior with the lived realities of Appalachian communities, rather than generic user models. ★ `rag_grounded_v2` means truth verdicts are now grounded in community-specific GIS and spiritual RAG retrieval, not heuristic rules.
-- **P16 – Power accountable to place** by ensuring that higher-impact actions are tied to real people under clear rules with auditable trails in databases and logs. ★ Token validation events now flow through `jarvis_auth:8055` with audit logging. ★ The `"internal"` token class is scoped to inter-container calls only and blocked from community-facing routes. ★ Both PostgreSQL connections are now reachable and reported in `/health` (OI-37-B CLOSED).
+- **P16 – Power accountable to place** by ensuring that higher-impact actions are tied to real people and real institutions under clear rules with auditable trails in PostgreSQL and `jarvis-memory:8056`. ★ Token validation events now flow through `jarvis_auth:8055` with audit logging. ★ The `"internal"` token class is scoped to inter-container calls only and blocked from community-facing routes. ★ Both PostgreSQL connections are now reachable and reported in `/health` (OI-37-B CLOSED).
 
-As such, this chapter belongs to the **Computational Instrument tier**: it specifies concrete identity and registration mechanisms that sit between ordinary chat and higher-impact actions, backed by PostgreSQL schemas and live HTTP services.
+As such, this chapter belongs to the **Computational Instrument tier**: it specifies concrete identity and registration mechanisms that sit between ordinary chat and higher-impact actions, backed by PostgreSQL schemas, live HTTP services, and durable audit trails.
 
 ---
 
@@ -95,7 +92,7 @@ These distinctions matter because they control what information can be shared, w
 
 Registration is the process by which people and institutions move from anonymous interactions to recognized roles with specific authorizations. It is deliberately modeled as a two-part gate:
 
-1. **Identity recognition** — establishing who or what is interacting, with references to PostgreSQL GBIM (`msjarvis` port 5433 — ★ 5,416,521 entities with `confidence_decay` metadata) and `gisdb` (host port 5432 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids) records where possible. ★ `confidence_decay` metadata means identity validation queries should flag high-decay entities for episodic audit. ★ `rag_grounded_v2` further grounds recognition by retrieving live GIS hits during truth assertion checks.
+1. **Identity recognition** — establishing who or what is interacting, with references to PostgreSQL GBIM (`msjarvis` port 5433 — ★ 5,416,521 entities with `confidence_decay` metadata) and `gisdb` (host port 5432 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids) records where possible. ★ `confidence_decay` metadata means identity validation queries must flag high-decay entities for episodic audit. Automated decay-aware flagging is OI-38-B. ★ `rag_grounded_v2` further grounds recognition by retrieving live GIS hits during truth assertion checks.
 2. **Registration and role assignment** — granting specific, scoped capabilities under that identity, enforced through bearer tokens validated at `jarvis_auth:8055` before Redis fallback.
 
 This separation lets Ms. Jarvis answer many questions in an informational mode without registration, while reserving higher-impact actions for registered identities under shared rules. ★ As of April 3, no environment variable or hardcoded literal can bypass this gate. The `"internal"` token type grants only `role="internal"` and is blocked from `/chat` and `/memory`.
@@ -110,6 +107,24 @@ The current deployment uses database tables and metadata structures that align i
 - **Identity-related metadata** — flags, roles, and relationship descriptors stored alongside identifiers.
 - **Audit and provenance fields** — timestamps, sources, and verification status fields. ★ BBB gate decisions and token validation events involving identity enforcement are durably logged at `jarvis-memory:8056` (secured March 28; extended April 3 with token validation events via `jarvis_auth:8055` wiring). ★ `rag_grounded_v2` truth verdicts carry GIS RAG retrieval evidence as provenance — every `truth_verification` decision is grounded in retrieved community context.
 
+### 36.3.1 Registration Roles and Audit Tables — Structural State (★ April 3, 2026)
+
+Higher-impact actions are tied to real people and institutions through the following structural mechanisms, all confirmed active as of April 3:
+
+| Mechanism | Implementation | Audit trail |
+|---|---|---|
+| Bearer token → named owner | `redteam:token:<token>` JSON payload with `"owner"` field | Redis at host port 6380; validated through `jarvis_auth:8055` |
+| Token validation events | Gateway POSTs to `jarvis_auth:8055/validate` on every request | `jarvis-memory:8056` durable log |
+| GBIM entity linkage | `msjarvis:5433` — 5,416,521 entities with `confidence_decay` metadata | PostgreSQL `msjarvis` at port 5433 |
+| Geospatial institution linkage | `gisdb` — 501 tables, 993 ZCTA centroids | PostgreSQL `gisdb` at host port 5432 |
+| Constitutional gate decisions | `jarvis-constitutional-guardian:8091` — all `/constitutional/*` actions logged | `data/constitutional_audit/constitutional_audit.jsonl` + `jarvis-memory:8056` |
+| `rag_grounded_v2` retrieval evidence | Every `truth_verification` decision carries GIS RAG hits as provenance | Embedded in BBB gate decision records at `jarvis-memory:8056` |
+| `confidence_decay` audit flagging | High-decay GBIM entities must be flagged before identity confirmation | Manual April 3; automated flagging is OI-38-B |
+| ZIP-code-level RBAC | 993 ZCTA centroids ready for spatial role scoping | Schema ready; automated enforcement is OI-38-C |
+| Background → identity promotion | Patterns in `ms_jarvis_memory` ChromaDB eligible for identity-level promotion | Manual April 3; automated pipeline is OI-38-D |
+
+The structural connection between higher-impact actions and real people is implemented and auditable. The four automation items (OI-38-A through OI-38-D) are the Ch 38 sprint contract — they extend and operationalize what is already structurally in place.
+
 ---
 
 ## 36.4 Roles, Permissions, and West Virginia Context
@@ -117,7 +132,7 @@ The current deployment uses database tables and metadata structures that align i
 Identity and registration are tightly coupled to roles and permissions that reflect West Virginia's geographic and institutional context:
 
 - **Community member roles** for residents seeking information about benefits, healthcare, or local resources.
-- **Partner roles** for organizations such as clinics, schools, or nonprofits operating within particular counties or service areas documented in PostgreSQL `gisdb` (host port 5432 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids confirmed March 28).
+- **Partner roles** for organizations such as clinics, schools, or nonprofits operating within particular counties or service areas documented in PostgreSQL `gisdb` (host port 5432 — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids confirmed March 28). ZIP-code-level role scoping against these 993 ZCTA centroids is ready for implementation as OI-38-C.
 - **Curator and governance roles** for people responsible for reviewing background patterns, updating identity specifications, and adjudicating difficult cases — gated on `carrie_admin` token class. ★ `carrie_admin` role is no longer grantable via environment variables or hardcoded literals (OI-36-C CLOSED April 3).
 - **Internal service role** — `role="internal"` — for inter-container service calls only. Blocked from `/chat` and `/memory`. Cannot be used for community-facing actions.
 
@@ -129,7 +144,7 @@ Each role is grounded in spatial data and institutional records so that Ms. Jarv
 
 Identity and registration interact with other parts of the system along several dimensions:
 
-- **Background store and memory** — entries in the `ms_jarvis_memory` ChromaDB collection (★ confirmed present in 40-collection / 6,675,442-vector ChromaDB inventory — March 28 full audit; host-facing ChromaDB port: **8002**) accumulate identity-relevant patterns over time.
+- **Background store and memory** — entries in the `ms_jarvis_memory` ChromaDB collection (★ confirmed present in 40-collection / 6,675,442-vector ChromaDB inventory — March 28 full audit; host-facing ChromaDB port: **8002**) accumulate identity-relevant patterns over time. Automated promotion of patterns into identity-level entries is OI-38-D.
 - **Identity-focused retention** — a small subset of identity statements is promoted into the deepest identity layer described in Chapter 22, where canonical statements and `TruthValidator` structures reside.
 - **Global control and policy** — identity signals influence routing and filtering decisions in the main brain, BBB, and registration-specific validators. ★ All BBB identity enforcement decisions are durably logged at `jarvis-memory:8056`.
 - **Constitutional compliance** — `jarvis-constitutional-guardian:8091` is the first gate before the BBB. Identity signals that would violate constitutional principles are blocked before reaching any downstream filters. ★ Both PostgreSQL connections reachable in `/health` (OI-37-B CLOSED). ★ Constitutional proxy confirmed active (OI-37-A CLOSED).
@@ -150,9 +165,9 @@ The registration and access-control structure is anchored to a concrete identity
 
 - **The BBB six-filter pipeline** at port 8016 (★ Up 101/101): EthicalFilter ★ recalibrated April 2 — 0% FP, 9/9 regression pass; SpiritualFilter; SafetyMonitor ★ recalibrated April 3 — `safety_score=1.0` on survivor/victim queries; ThreatDetection; steganography_filter; truth_verification — ★ method now `rag_grounded_v2` (OI-37-C CLOSED April 3; `heuristic_contradiction_v1` is superseded). Phase 4.5 BBB output in **log+passthrough mode** (commit `18b8ddac`, March 22, 2026) — blocking re-enablement is a next-session decision pending red team sign-off. ★ All six-filter gate decisions durably logged at `jarvis-memory:8056`.
 
-- **`jarvis-gis-rag` (port 8004 — ★ Up 101/101 — OI-37-C CLOSED April 3):** Provides geospatial RAG retrieval for `rag_grounded_v2` truth verification. Root causes resolved: volume mount corrected; `JUDGE_TRUTH_URL` env fixed. Confirmed: `truth_score=1.0`, verdict=pass, verified=True, 10 hits. `services/Dockerfile.gis_raf` written from `pip freeze` — ready for clean `build:` context in Ch 38 sprint.
+- **`jarvis-gis-rag` (port 8004 — ★ Up 101/101 — OI-37-C CLOSED April 3):** Provides geospatial RAG retrieval for `rag_grounded_v2` truth verification. Root causes resolved: volume mount corrected; `JUDGE_TRUTH_URL` env fixed. Confirmed: `truth_score=1.0`, verdict=pass, verified=True, 10 hits. `services/Dockerfile.gis_raf` written from `pip freeze` — ready for clean `build:` context in Ch 38 (OI-38-A).
 
-- **`jarvis-spiritual-rag` (port 8005 — ★ Up 101/101 — OI-37-C CLOSED April 3):** Provides spiritual/community values RAG retrieval for `rag_grounded_v2` truth verification. Root causes resolved: `SearchRequest(BaseModel)` body model fixed (bare `str`/`int` on POST = query params, not body); volume mount corrected. Confirmed: `truth_score=1.0`, verdict=pass, verified=True, 3 results. `services/Dockerfile.spiritual_rag` restored from `services-safe/` — ready for clean `build:` context in Ch 38 sprint.
+- **`jarvis-spiritual-rag` (port 8005 — ★ Up 101/101 — OI-37-C CLOSED April 3):** Provides spiritual/community values RAG retrieval for `rag_grounded_v2` truth verification. Root causes resolved: `SearchRequest(BaseModel)` body model fixed (bare `str`/`int` on POST = query params, not body); volume mount corrected. Confirmed: `truth_score=1.0`, verdict=pass, verified=True, 3 results. `services/Dockerfile.spiritual_rag` restored from `services-safe/` — ready for clean `build:` context in Ch 38 (OI-38-A).
 
 - **`jarvis-constitutional-guardian` (port 8091 — ★ Up 101/101):**
   - OI-37-A CLOSED: Constitutional proxy confirmed active — dead code comment only; no functional change required.
@@ -252,22 +267,21 @@ grep -n "model by name\|synthesis occurred\|speak as one" services/lm_synthesize
 grep -n "lm.synthesizer\|lm_synthesizer\|port.*8001\|jarvis-lm-synthesizer" services/judge_pipeline.py
 # Expected: empty output
 
-# ★ Confirm rag_grounded_v2 truth verification active (OI-37-C CLOSED):
-curl -s http://localhost:8004/search -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"query": "West Virginia community identity", "n_results": 5}'
+# Confirm rag_grounded_v2 truth verification active (OI-37-C CLOSED):
+curl -s "http://localhost:8004/search?query=West+Virginia+community+identity&top_k=5"
 # Expected: results array with 10 hits; truth_score=1.0 in downstream TruthValidator
 
-curl -s http://localhost:8005/search -X POST \
+curl -s http://localhost:8005/search \
+  -X POST \
   -H "Content-Type: application/json" \
-  -d '{"query": "community values stewardship", "n_results": 3}'
+  -d '{"query": "community values stewardship", "top_k": 3}'
 # Expected: results array with 3 results; truth_score=1.0 in downstream TruthValidator
 
-# ★ Confirm constitutional guardian /health includes PostgreSQL fields (OI-37-B CLOSED):
+# Confirm constitutional guardian /health includes PostgreSQL fields (OI-37-B CLOSED):
 curl -s http://localhost:8091/health | python3 -m json.tool
 # Expected: postgresql_gbim_connection: "connected", postgresql_geodb_connection: "connected"
 
-# ★ Confirm durable identity audit at jarvis-memory:8056:
+# Confirm durable identity audit at jarvis-memory:8056:
 curl -H "Authorization: Bearer $JARVIS_API_KEY" \
   http://localhost:8056/memories?limit=5
 # Expected: most recent durable BBB/identity gate decision records
@@ -427,17 +441,17 @@ redis-cli -p 6380 SET "redteam:token:<token_value>" \
 # Verify Redis async job status key (must be 'complete' not 'done'):
 redis-cli -p 6380 KEYS "job:*" | head -5
 
-# ★ Verify jarvis-redis is Up:
+# Verify jarvis-redis is Up:
 docker inspect jarvis-redis --format '{{.State.Status}}'
 docker port jarvis-redis 6379/tcp
 # Expected: 127.0.0.1:6380
 
-# ★ Verify rag_grounded_v2 services are Up (OI-37-C CLOSED):
+# Verify rag_grounded_v2 services are Up (OI-37-C CLOSED):
 docker inspect jarvis-gis-rag --format '{{.State.Status}}'
 docker inspect jarvis-spiritual-rag --format '{{.State.Status}}'
 # Expected: running (both)
 
-# ★ Verify constitutional guardian PostgreSQL health (OI-37-B CLOSED):
+# Verify constitutional guardian PostgreSQL health (OI-37-B CLOSED):
 curl -s http://localhost:8091/health | python3 -m json.tool
 # Expected: postgresql_gbim_connection: "connected", postgresql_geodb_connection: "connected"
 ```
@@ -516,13 +530,13 @@ Auth boundary tests executed March 22, 2026. Results committed to `msjarvis-publ
 | `services/Dockerfile.spiritual_rag` | Restored from `services-safe/` | ✅ In `services/` |
 | `services/Dockerfile.gis_raf` | Written from `pip freeze` | ✅ In `services/` |
 
-**Ch 38 path:** Add `build:` stanzas to `docker-compose.yml` for both services; run `docker compose build` to produce clean images; volume mount workarounds are no longer needed after that point.
+**Ch 38 path (OI-38-A):** Add `build:` stanzas to `docker-compose.yml` for both services; run `docker compose build` to produce clean images; volume mount workarounds are no longer needed after that point.
 
 ---
 
-## 36.12 Current Status and Future Work
+## 36.12 Current Status and Chapter 38 Sprint Contract
 
-As of ★ April 3, 2026, identity and registration are fully implemented, tested, and enforced end-to-end. Container baseline is 101/101 Up (zero Restarting, zero Exited). GPU inference active (RTX 4070); end-to-end pipeline: 99–107 seconds (three confirmed runs March 22, 2026: 99.6s, 105.9s, 106.5s). **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us).** This URL must be cross-referenced from `msjarvis-public-docs/README.md` and the thesis overview index.
+As of ★ April 3, 2026, identity and registration are fully implemented, tested, and enforced end-to-end. Container baseline is 101/101 Up (zero Restarting, zero Exited). GPU inference active (RTX 4070); end-to-end pipeline: 99–107 seconds (three confirmed runs March 22, 2026: 99.6s, 105.9s, 106.5s). **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us).**
 
 **Preflight gate ★ April 3:** 22 PASS / 0 FAIL / 1 WARN (intentional — `local_resources 48/55`, Phase 2 data task). Prior baseline: 20 PASS / 0 FAIL (March 22, 2026).
 
@@ -544,14 +558,6 @@ As of ★ April 3, 2026, identity and registration are fully implemented, tested
 - ChromaDB full audit — 40 active collections / 6,675,442 total vectors; `psychological_rag` restored to 968 docs.
 - 96/96 containers Up (superseded by 101/101 April 3).
 
-**Future work — forwarded to Ch 38:**
-
-- Add `build:` stanzas to `docker-compose.yml` for `jarvis-gis-rag` and `jarvis-spiritual-rag`; run `docker compose build` to produce clean images removing volume mount workarounds permanently.
-- Automated decay-aware GBIM audit flagging for identity validation queries.
-- More granular role-based access control tied to spatial and institutional features in PostgreSQL `gisdb` (★ 501 tables, 993 ZCTA centroids — ready for ZIP-code-level role scoping).
-- Automated promotion pipelines for moving patterns from background memory into identity-level entries.
-- Public URL [https://egeria.mountainshares.us](https://egeria.mountainshares.us) added to thesis README and overview index (outstanding documentation task).
-
 ---
 
 ## 36.13 Status Table (★ April 3, 2026 SEALED)
@@ -562,8 +568,8 @@ As of ★ April 3, 2026, identity and registration are fully implemented, tested
 | `TruthValidator` | Encodes canonical facts; produces `truth_verdict` on every `UltimateResponse`. ★ Backed by `rag_grounded_v2` retrieval + `msjarvis:5433` GBIM with `confidence_decay` metadata. | ✅ Implemented. Confirmed live 2026-02-15. ★ `rag_grounded_v2` active April 3. |
 | `jarvis-i-containers` (port 8015) | Produces `root-self` ego entries and ego-boundary records in `identity_layers` and `consciousness_layers`. | ✅ Up 101/101. Confirmed active 2026-02-15. |
 | BBB six-filter pipeline (`jarvis-blood-brain-barrier`, port 8016) | EthicalFilter ★ (0% FP, April 2); SpiritualFilter; SafetyMonitor ★ (`safety_score=1.0`, April 3); ThreatDetection; steganography_filter; truth_verification ★ (`rag_grounded_v2`, OI-37-C CLOSED). Phase 4.5 log+passthrough. ★ All gate decisions → `jarvis-memory:8056`. | ✅ Up 101/101. |
-| `jarvis-gis-rag` (port 8004) | Geospatial RAG for `rag_grounded_v2`. `truth_score=1.0`, 10 hits. Volume mount + `JUDGE_TRUTH_URL` env fixed. `Dockerfile.gis_raf` in `services/`. | ✅ OI-37-C CLOSED. April 3. Ready for clean `build:` in Ch 38. |
-| `jarvis-spiritual-rag` (port 8005) | Spiritual/community values RAG for `rag_grounded_v2`. `truth_score=1.0`, 3 results. `SearchRequest(BaseModel)` + volume mount fixed. `Dockerfile.spiritual_rag` in `services/`. | ✅ OI-37-C CLOSED. April 3. Ready for clean `build:` in Ch 38. |
+| `jarvis-gis-rag` (port 8004) | Geospatial RAG for `rag_grounded_v2`. `truth_score=1.0`, 10 hits. Volume mount + `JUDGE_TRUTH_URL` env fixed. `Dockerfile.gis_raf` in `services/`. | ✅ OI-37-C CLOSED April 3. OI-38-A opens in Ch 38. |
+| `jarvis-spiritual-rag` (port 8005) | Spiritual/community values RAG for `rag_grounded_v2`. `truth_score=1.0`, 3 results. `SearchRequest(BaseModel)` + volume mount fixed. `Dockerfile.spiritual_rag` in `services/`. | ✅ OI-37-C CLOSED April 3. OI-38-A opens in Ch 38. |
 | `jarvis-constitutional-guardian` (port 8091) | Enforces constitutional principles; first gate before BBB and gateway; `/constitutional/*` proxied with `carrie_admin` enforcement; persistent `.jsonl` audit + `jarvis-memory:8056`. OI-37-A: proxy confirmed active. OI-37-B: both PG connections in `/health`. | ✅ Up 101/101. OI-37-A ✅ OI-37-B ✅ CLOSED April 3. |
 | ★ `jarvis-memory:8056` durable audit trail | Persistently logs BBB gate decisions, identity enforcement events, token validation events, `rag_grounded_v2` truth verdicts, and constitutional gate decisions. Survives container restarts. | ★ Secured March 28. Extended April 3. |
 | LM Synthesizer identity guard — Layer 1 (`IDENTITY_GUARD` constant) | Documents ID-03 failure mode. NOT injected into f-string. Retained as permanent failure-mode record. | ✅ Documented. Not functional by design. `jarvis-lm-synthesizer:8001` Up 101/101. |
@@ -576,7 +582,7 @@ As of ★ April 3, 2026, identity and registration are fully implemented, tested
 | `jarvis_auth` audit wiring | Gateway POSTs to `jarvis_auth:8055/validate`; validation events in audit trail. | ✅ OI-36-D CLOSED. April 3. |
 | `"internal"` literal token — retained | `role="internal"` — inter-container proxy calls only. Blocked from `/chat` and `/memory`. Lines 758/857 exemption retained (legitimate design). | ✅ Scoped correctly. Not a bypass. |
 | Redis fallback — retained | Direct Redis `GET` fallback when `jarvis_auth` unavailable. Resilience design. Fallback not in audit log (documented trade-off). | ✅ Retained. Acceptable. |
-| Registration roles and audit tables | Tie higher-impact actions to real people and institutions; PostgreSQL-backed audit trails; `confidence_decay` GBIM metadata; `jarvis-memory:8056` durable logging; `rag_grounded_v2` retrieval evidence. | ⚙️ Conceptually implemented; automated promotion and cross-path analytics are future work. |
+| Registration roles and audit tables | Higher-impact actions tied to real people and institutions via `redteam:token` owner fields, `jarvis_auth:8055` audit trail, `msjarvis:5433` GBIM `confidence_decay` metadata, `gisdb` 993 ZCTA centroids, `jarvis-memory:8056` durable logging, and `rag_grounded_v2` retrieval evidence. | ✅ Structurally complete April 3. Automated extensions OI-38-B/C/D open in Ch 38. |
 
 ---
 
@@ -585,4 +591,4 @@ As of ★ April 3, 2026, identity and registration are fully implemented, tested
 *Mount Hope, West Virginia*  
 *SEALED: ★ April 3, 2026 — All Chapter 36 and Ch 37 cross-chapter OIs Closed*  
 *OI-36-A ✅ OI-36-B ✅ OI-36-C ✅ OI-36-D ✅ OI-37-A ✅ OI-37-B ✅ OI-37-C ✅*  
-*Ch 38: add build: stanzas for jarvis-gis-rag and jarvis-spiritual-rag to cut clean images.*
+*Ch 38 sprint contract opened: OI-38-A (build: stanzas + clean images) · OI-38-B (decay-aware flagging) · OI-38-C (ZIP-code RBAC) · OI-38-D (promotion pipeline) · OI-38-E (README URL)*
