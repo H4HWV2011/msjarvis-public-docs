@@ -1,6 +1,6 @@
 # 36. Identity and Registration
 
-**Carrie Kidd (Mamma Kidd) · Pax, WV**  
+**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
 **Last updated: ★ April 3, 2026 — Chapter 36 SEALED. 101/101 containers Up (zero Restarting, zero Exited); ALL Chapter 36 and Chapter 37 cross-chapter OIs CLOSED — OI-36-A (Redis token boundary, 5/5 boundary tests pass); OI-36-B (both ROUTE_ROLES tables aligned, carrie_admin consistent); OI-36-C (ALL bypass paths removed: JARVIS_API_KEY env default ×2 locations, constitutional proxy inline auth block, /auth/token env bypass, internal token role downgraded carrie_admin → internal, _check_role internal token_type exemption removed); OI-36-D (gateway wired to jarvis_auth:8055, auth_source: jarvis_auth confirmed in response); OI-37-A (constitutional proxy confirmed active — dead code comment only); OI-37-B (both PostgreSQL connections reachable in /health — msjarvis:5433 and msjarvisgis confirmed); OI-37-C spiritual-rag (SearchRequest body model + volume mount fixed); OI-37-C gis-rag (volume mount + JUDGE_TRUTH_URL env fixed); Dockerfiles written — services/Dockerfile.spiritual_rag and services/Dockerfile.gis_raf both in services/ ready for clean build: context in Ch 38 sprint. EthicalFilter recalibrated April 2 (0% FP); SafetyMonitor recalibrated April 3 (safety_score=1.0 on survivor/victim queries); Phase 4.5 BBB output log+passthrough — blocking re-enablement next-session decision; Git HEAD 6b01ea64 on sprint3-rank-bsa-governance. Legitimately retained: "internal" literal token with role="internal" (blocked from /chat and /memory; proxy routes retain token_type exemption at lines 758/857); Redis direct fallback if jarvis_auth unavailable. Forwarded to Ch 38: add build: stanzas for jarvis-gis-rag and jarvis-spiritual-rag; docker compose build to cut clean images removing volume mount workarounds permanently.**
 
 ---
@@ -582,7 +582,7 @@ As of ★ April 3, 2026, identity and registration are fully implemented, tested
 
 *Chapter 36 — Identity and Registration*  
 *Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*  
-*Pax, West Virginia*  
+*Mount Hope, West Virginia*  
 *SEALED: ★ April 3, 2026 — All Chapter 36 and Ch 37 cross-chapter OIs Closed*  
 *OI-36-A ✅ OI-36-B ✅ OI-36-C ✅ OI-36-D ✅ OI-37-A ✅ OI-37-B ✅ OI-37-C ✅*  
 *Ch 38: add build: stanzas for jarvis-gis-rag and jarvis-spiritual-rag to cut clean images.*
