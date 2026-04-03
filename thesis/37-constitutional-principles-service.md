@@ -1,6 +1,6 @@
 # 37. Constitutional Principles Service and Governance Layer
 
-**Carrie Kidd (Mamma Kidd) · Pax, WV**  
+**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
 **Last updated: ★ April 3, 2026 — Chapter 37 SEALED. 101/101 containers Up (zero Restarting, zero Exited); constitutional guardian Up, healthy, `/health` returning PostgreSQL connection fields; audit log writing (6.7K+, `cakidd`-owned); watchdog template fix committed; gateway build context corrected; standalone `msjarvis-pgdata-rescue` wired into compose network; `scripts/post-start.sh` created and in use; OI-37-A CLOSED (gateway exposing `/constitutional/*` correctly with fresh image); OI-37-B CLOSED (`/health` includes PostgreSQL liveness fields); OI-38-A CLOSED (token enforcement active on all public hostnames); preflight gate 22 PASS / 0 FAIL / 1 WARN (intentional); EthicalFilter recalibrated April 2 (0% FP); SafetyMonitor recalibrated April 3 (`safety_score=1.0` on survivor/victim queries); Phase 4.5 BBB output guard in log+passthrough mode — blocking re-enablement is a next-session decision pending red team sign-off.**
 
 ---
