@@ -1,13 +1,13 @@
 # 35. Swarm Functions and Eternal Watchdogs
 
-Carrie Kidd (Mamma Kidd) — Mount Hope, WV
-*Last updated: ★ 2026-04-04 — RED TEAM GATE: OPEN — CHAPTER 35 SEALED ✅ | 104 containers running (zero exposed ports) | preflight_gate.sh: 31 PASS 0 FAIL | 45 ChromaDB collections | 968 `psychological_rag` docs | 101 `local_resources` (all 55 WV counties seeded) | 1,115,588 address points | 20,593 landowner spatial rows | `gbim_entities` schema present (10 GBIM records) | Cloudflare tunnel live: https://egeria.mountainshares.us | Auth enforced: unauthenticated /chat → HTTP 401 | BBB + RAG + EthicalFilter verified | `jarvis-memory` healthy | All 5 judge signing keys present*
+Carrie Kidd (Mamma Kidd) — Pax, WV
+*Last updated: ★ 2026-04-04 — RED TEAM GATE: OPEN — CHAPTER 35 SEALED ✅ | 104 containers running (zero exposed ports) | preflight_gate.sh: 31 PASS 0 FAIL | 45 ChromaDB collections | 968 `psychological_rag` docs | 101 `local_resources` (all 55 WV counties seeded) | 1,115,588 address points | 20,593 landowner spatial rows | `gbim_entities` schema present (10 GBIM records) | Cloudflare tunnel live: https://egeria.mountainshares.us | Auth enforced: unauthenticated /chat → HTTP 401 | BBB + RAG + EthicalFilter verified | `jarvis-memory` healthy | All 5 judge signing keys present | BELIEFS_DSN corrected | Fire/EMS column mismatches fixed | log-before-result bug fixed across all 6 route branches | All 6 GBIM benefit indexer routes verified live | 829 zcta_centroids seeded to ChromaDB*
 
 *Previous update: ★ 2026-03-28 — 96/96 containers Up (zero Restarting, zero Exited); PostgreSQL `msjarvis:5433` restored (★ 5,416,521 GBIM entities with `confidence_decay` metadata); `msjarvisgis:5432` confirmed (★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (★ 40 active collections / 6,675,442 total vectors); `psychological_rag` restored (968 docs); `jarvis-memory:8056` secured; LLM ensemble confirmed 22 proxies / 21 active; Phase 4.5 BBB log+passthrough mode re-confirmed; ChromaDB host port 8002 confirmed*
 
 ---
 
-## ★ RED TEAM GATE: SEALED — 2026-04-04 06:28 EDT
+## ★ RED TEAM GATE: SEALED — 2026-04-04
 
 ```
 ════════════════════════════════════════════════════════════
@@ -16,13 +16,16 @@ CHAPTER 35 STATUS: SEALED ✅
 ════════════════════════════════════════════════════════════
 104 containers running  |  0 ports exposed on 0.0.0.0
 45 ChromaDB collections |  968 psychological_rag docs
-101 local_resources     |  all 55 WV counties seeded
-1,115,588 address points|  20,593 landowner spatial rows
+829 zcta_centroids      |  101 local_resources (all 55 WV counties)
+1,115,588 address pts   |  20,593 landowner spatial rows
 gbim_entities schema present  |  10 GBIM records
 Cloudflare tunnel live: https://egeria.mountainshares.us
 Auth enforced: unauthenticated /chat → HTTP 401
 BBB + RAG + EthicalFilter verified
 jarvis-memory healthy   |  All 5 judge signing keys present
+BELIEFS_DSN → local_resources DB (corrected)
+Fire/EMS column mismatches fixed | log-before-result fixed (6 branches)
+All 6 GBIM benefit indexer routes verified live
 scripts/preflight_gate.sh: 31 PASS  ❌ FAIL: 0  ⚠️ WARN: 0
 ════════════════════════════════════════════════════════════
 ```
@@ -52,7 +55,7 @@ scripts/preflight_gate.sh: 31 PASS  ❌ FAIL: 0  ⚠️ WARN: 0
 
 | # | File | Issue | Fix |
 |---|---|---|---|
-| 10 | `VERIFYANDTEST.sh` | `sed` failed on URL in pattern for 8060 health check | Replaced dead REST check with `docker exec jarvis-redis redis-cli ping` using Python edit |
+| 10 | `VERIFYANDTEST.sh` | `sed` failed on URL in pattern for 8060 health check | Replaced dead REST check with `docker exec jarvis-redis redis-cli ping` |
 
 ### VERIFYANDTEST.sh Changelog — 2026-04-04
 
@@ -64,10 +67,11 @@ scripts/preflight_gate.sh: 31 PASS  ❌ FAIL: 0  ⚠️ WARN: 0
 |---|---|
 | Infrastructure | 104 containers, zero exposed ports — ✅ |
 | Security perimeter | Caddy + auth + Cloudflare tunnel enforced — ✅ |
-| Data integrity | PostGIS, ChromaDB (45 collections), RAG all populated — ✅ |
+| Data integrity | PostGIS, ChromaDB (45 collections, 829 zcta_centroids), RAG all populated — ✅ |
 | AI pipeline | BBB, GBIM, judges (5 signing keys), memory all healthy — ✅ |
 | Identity safety | LM Synthesizer identity rules confirmed — ✅ |
-| Preflight gate | 31 PASS  ❌ 0 FAIL  ⚠️ 0 WARN — ✅ |
+| GBIM benefit indexer | All 6 routes live, BELIEFS_DSN corrected, Fire/EMS fixed — ✅ |
+| Preflight gate | 31 PASS ❌ 0 FAIL ⚠️ 0 WARN — ✅ |
 
 ### Chapter 36 Pre-conditions — MET ✅
 
@@ -79,20 +83,24 @@ scripts/preflight_gate.sh: 31 PASS  ❌ FAIL: 0  ⚠️ WARN: 0
 - [x] BBB EthicalFilter verified (`/filter` endpoint, `content_approved` field)
 - [x] 104 containers running, zero `0.0.0.0` exposures
 - [x] `preflight_gate.sh` 31 PASS 0 FAIL
+- [x] 829 `zcta_centroids` seeded — WV ZIP-code spatial grounding active
+- [x] All 6 GBIM benefit indexer routes verified live
 
 ---
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter describes two sets of mechanisms that coordinate many services and maintain continuous oversight in Ms. Jarvis, all grounded in PostgreSQL `msjarvis` at port 5433 (★ 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers) and `gisdb`/`msjarvisgis` at port 5432 (★ PostGIS, 91 GB, 501 tables, 993 ZCTA centroids). It supports:
+The MountainShares Artificial Learning & Location Intelligence system — formerly Ms. Egeria Jarvis — is built on the principle that geography and intelligence are inseparable. This chapter documents the two sets of mechanisms that coordinate its many services and maintain continuous oversight: swarm functions and eternal watchdogs. Both are grounded in PostgreSQL `msjarvis` at port 5433 (★ 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers) and `gisdb`/`msjarvisgis` at port 5432 (★ PostGIS, 91 GB, 501 tables, 993 ZCTA centroids). The ZCTA centroid collection — 829 West Virginia ZIP Code Tabulation Areas now seeded directly into ChromaDB — ties every swarm query to a physical location on the Appalachian landscape.
+
+This chapter supports the following polymathmatic geography principles:
 
 - **P1 – Every where is entangled** by distributing a single query across 22 configured specialized models, each contributing a perspective shaped by its training and domain, before synthesizing a single community-grounded answer validated against PostgreSQL GBIM.
 - **P3 – Power has a geometry** by making visible which models contribute to consensus and which are silenced by memory constraints, resource limits, or intentional disabling — revealing the structural power embedded in the ensemble.
-- **P5 – Design is a geographic act** by showing how choices about semaphore slots, container memory limits, concurrency gates, and model tier groupings reshape what Ms. Jarvis can reason about and how quickly it responds to Appalachian community questions grounded in PostgreSQL GeoDB (★ 993 ZCTA centroids available for ZIP-code-level spatial grounding).
+- **P5 – Design is a geographic act** by showing how choices about semaphore slots, container memory limits, concurrency gates, and model tier groupings reshape what the system can reason about and how quickly it responds to Appalachian community questions grounded in PostgreSQL GeoDB (★ 993 ZCTA centroids; ★ 829 `zcta_centroids` in ChromaDB for ZIP-code-level spatial grounding).
 - **P12 – Intelligence with a ZIP code** by routing every query through a 22-slot ensemble organized into four tiers — tiny, small, medium, and large — spanning code, medicine, language, vision, and structured data reasoning, and binding the synthesized answer to the DGM cascade validation that grounds responses in constitutional and community commitments validated against PostgreSQL.
-- **P16 – Power accountable to place** by logging every model's participation or failure in each consensus cycle, making the ensemble's behavior inspectable and auditable over time with PostgreSQL-backed operational history. ★ All BBB gate decisions are durably logged at `jarvis-memory:8056` — ensemble accountability records survive container restarts.
+- **P16 – Power accountable to place** by logging every model's participation or failure in each consensus cycle, making the ensemble's behavior inspectable and auditable over time with PostgreSQL-backed operational history. All BBB gate decisions are durably logged at `jarvis-memory:8056` — ensemble accountability records survive container restarts.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it specifies the swarm coordination mechanisms (22-model ensemble with semaphore gating), eternal watchdog systems (VERIFYANDTEST.sh, Ollama scheduler, concurrency gates, Redis health registration), dual-BBB architecture, and their integration with PostgreSQL `msjarvis` (GBIM) and `gisdb` (PostGIS) for community accountability.
+This chapter belongs to the **Computational Instrument** tier: it specifies the swarm coordination mechanisms (22-model ensemble with semaphore gating), eternal watchdog systems (VERIFYANDTEST.sh, Ollama scheduler, concurrency gates, Redis health registration), dual-BBB architecture, GBIM benefit indexer integration, and their connection to PostgreSQL `msjarvis` (GBIM) and `gisdb` (PostGIS) for community accountability.
 
 ---
 
@@ -154,8 +162,9 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  │     EthicalFilter, SpiritualFilter,            │        │
 │  │     SafetyMonitor, ThreatDetection,            │        │
 │  │     steganography_filter, truth_verification   │        │
-│  │  ★ EthicalFilter endpoint: /filter             │        │
-│  │    field: content_approved (April 4 fix)       │        │
+│  │  ★ EthicalFilter: POST /filter                 │        │
+│  │    body: {content, actor_role}                 │        │
+│  │    response: content_approved (April 4 fix)    │        │
 │  │  -  Phase 4.5: log+passthrough mode            │        │
 │  │  ★ Durable audit: jarvis-memory:8056           │        │
 │  │                                                │        │
@@ -188,16 +197,45 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 │  │     ★ jarvis-redis Up (104/104)                │        │
 │  │     ★ redis-cli ping: PONG (April 4)           │        │
 │  └────────────────────────────────────────────────┘        │
+│      ↓                                                      │
+│  ┌────────────────────────────────────────────────┐        │
+│  │  GBIM Benefit Indexer (jarvis-gbim-benefit-    │        │
+│  │  indexer) — ★ All 6 routes verified April 4    │        │
+│  │                                                │        │
+│  │  benefit_lookup  — Kanawha lr=10  ✅           │        │
+│  │  hospitals       — 10 results    ✅           │        │
+│  │  fire_departments— 20 results    ✅           │        │
+│  │  ems_stations    — 20 results    ✅           │        │
+│  │  geo_knowledge   — both paths    ✅           │        │
+│  │  conversation_beliefs — all 6    ✅           │        │
+│  │                                                │        │
+│  │  BELIEFS_DSN → local_resources DB (5435)       │        │
+│  │  wv_fire_stations_clean — corrected            │        │
+│  │  owner_name AS name — corrected                │        │
+│  │  log-before-result — fixed (6 branches)        │        │
+│  │                                                │        │
+│  │  Deferred: lr=0 Raleigh/Logan/Cabell/Fayette   │        │
+│  │  → awaits Crystal Coyler Chapter 5 data batch  │        │
+│  └────────────────────────────────────────────────┘        │
 │                                                             │
 │  External Access (★ April 4, 2026)                         │
 │  -  Cloudflare tunnel: https://egeria.mountainshares.us    │
 │  -  Auth enforced: unauthenticated /chat → HTTP 401        │
 │  -  Zero 0.0.0.0 exposed ports confirmed                   │
 │                                                             │
+│  Integration Points (All PostgreSQL-Grounded)              │
+│  -  PostgreSQL msjarvis (5433): GBIM — 5,416,521 entities  │
+│  -  PostgreSQL gisdb (5432): PostGIS — 91 GB, 501 tables   │
+│  -  PostgreSQL local_resources (5435): 101 records         │
+│     all 55 WV counties — BELIEFS_DSN target                │
+│  -  ChromaDB (8002): 45 collections                        │
+│     zcta_centroids: 829 WV ZCTAs (April 4)                 │
+│  -  jarvis-memory (8056): durable BBB audit trail          │
+│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-Figure 35.1. Swarm functions and eternal watchdogs architecture (★ SEALED April 4, 2026 — 104 containers, zero exposed ports): dual-BBB with `jarvis-blood-brain-barrier:8016` (EthicalFilter verified at `/filter`, `content_approved` field, April 4 fix; all gate decisions durably logged at `jarvis-memory:8056`) and `nbb_blood_brain_barrier:8301` (NBB-internal neurobiological variant); 22-slot LLM ensemble with `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`); 21/22 consensus at 0.975 judge consistency; RTX 4070 GPU — 99–107s end-to-end; five-layer watchdog system; preflight_gate.sh 31 PASS 0 FAIL; PostgreSQL `msjarvis:5433` (5,416,521 GBIM entities, `confidence_decay` metadata) and `gisdb:5432` (91 GB PostGIS, 993 ZCTA centroids); ChromaDB 45 collections host port 8002; 101 `local_resources` all 55 WV counties; 1,115,588 address points.
+Figure 35.1. Swarm functions, eternal watchdogs, and GBIM benefit indexer architecture (★ SEALED April 4, 2026 — 104 containers, zero exposed ports): dual-BBB with `jarvis-blood-brain-barrier:8016` (EthicalFilter verified at `/filter`, `content_approved` field; Phase 4.5 log+passthrough; all gate decisions durable at `jarvis-memory:8056`) and `nbb_blood_brain_barrier:8301` (NBB-internal); 22-slot LLM ensemble with `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`); 21/22 consensus at 0.975 judge consistency; RTX 4070 GPU 99–107s end-to-end; five-layer watchdog; preflight 31 PASS 0 FAIL; PostgreSQL `msjarvis:5433` (5,416,521 GBIM entities), `gisdb:5432` (91 GB PostGIS), `local_resources:5435` (101 records, all 55 WV counties); ChromaDB 45 collections including 829 `zcta_centroids`; GBIM benefit indexer all 6 routes live; BELIEFS_DSN corrected; lr=0 for Raleigh/Logan/Cabell/Fayette deferred pending Crystal Coyler Chapter 5 data.
 
 ---
 
@@ -205,25 +243,26 @@ Figure 35.1. Swarm functions and eternal watchdogs architecture (★ SEALED Apri
 
 | Category | Details |
 |---|---|
-| **Sealed state** | RED TEAM GATE: OPEN — 2026-04-04 06:28 EDT. `scripts/preflight_gate.sh`: **31 PASS ❌ 0 FAIL ⚠️ 0 WARN**. 104 containers running, zero `0.0.0.0` exposures. 45 ChromaDB collections. 968 `psychological_rag` docs. 101 `local_resources` (all 55 WV counties, seeded April 4). 1,115,588 address points. 20,593 landowner spatial rows. `gbim_entities` schema present (10 records). Cloudflare tunnel live: `https://egeria.mountainshares.us`. Auth enforced: unauthenticated `/chat` → HTTP 401. BBB EthicalFilter verified at `/filter` endpoint (`content_approved` field). `jarvis-memory` healthy. All 5 judge signing keys present. VERIFYANDTEST.sh 8060 check updated: `docker exec jarvis-redis redis-cli ping`. |
+| **Sealed state** | RED TEAM GATE: OPEN — 2026-04-04. `scripts/preflight_gate.sh`: **31 PASS ❌ 0 FAIL ⚠️ 0 WARN**. 104 containers, zero `0.0.0.0` exposures. 45 ChromaDB collections. 829 `zcta_centroids`. 968 `psychological_rag` docs. 101 `local_resources` (all 55 WV counties). 1,115,588 address points. 20,593 landowner spatial rows. `gbim_entities` schema present (10 records). Cloudflare tunnel live. Auth enforced. BBB EthicalFilter verified. `jarvis-memory` healthy. All 5 judge signing keys present. |
 | **10 preflight issues closed** | 7 ❌ failures + 2 ⚠️ warnings + 1 script bug — all resolved April 4, 2026. See seal block above. |
-| **Implemented and verified** | 22-slot LLM ensemble (`jarvis-20llm-production`, port 8008) with 21 actively contributing consensus models. `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`). Dual-BBB: `jarvis-blood-brain-barrier:8016` (primary, EthicalFilter verified), `nbb_blood_brain_barrier:8301` (NBB-internal). `jarvis-memory:8056` durable audit trail secured. PostgreSQL `msjarvis:5433` (5,416,521 GBIM entities, `confidence_decay` metadata). `gisdb:5432` (91 GB PostGIS, 501 tables, 993 ZCTA centroids). Redis DynamicPortService (`jarvis-redis`, PONG confirmed April 4). RTX 4070 GPU active (99–107s end-to-end). Judge consistency 0.975. |
-| **Partially implemented / scaffolded** | ChromaDB `operations_history` automated ingestion not yet active. Phase 4.5 BBB output guard in log+passthrough mode pending recalibration. StarCoder2 routing-layer fix pending. `confidence_decay`-aware automated decay-flagging in BBB/DGM not yet implemented. |
-| **Future work / design intent** | Automated VERIFYANDTEST.sh log ingestion to ChromaDB. PostgreSQL time-series analytics dashboard. Dynamic model tier selection by query complexity. Phase 4.5 BBB full verdict-dict enforcement after recalibration. |
+| **GBIM benefit indexer** | All 6 routes verified live. BELIEFS_DSN corrected to `local_resources:5435`. Fire/EMS column mismatches fixed (`owner_name AS name`, `wv_fire_stations_clean`, correct `r[0]..r[n]` index mapping). log-before-result bug fixed across all 6 branches. conversation_beliefs logging confirmed all 6 modes with correct `user_id`. lr=0 for Raleigh/Logan/Cabell/Fayette intentionally deferred — awaits Crystal Coyler Chapter 5 data batch; zero code changes needed on arrival. |
+| **Implemented and verified** | 22-slot LLM ensemble (`jarvis-20llm-production`, port 8008) with 21 contributing consensus models. `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`). Dual-BBB: `jarvis-blood-brain-barrier:8016` (primary, EthicalFilter verified), `nbb_blood_brain_barrier:8301` (NBB-internal). `jarvis-memory:8056` durable audit trail. PostgreSQL `msjarvis:5433` (5,416,521 GBIM entities, `confidence_decay` metadata). `gisdb:5432` (91 GB PostGIS, 501 tables, 993 ZCTA centroids). `local_resources:5435` (101 records, all 55 WV counties). ChromaDB `zcta_centroids` 829 items. Redis DynamicPortService (PONG confirmed). RTX 4070 GPU (99–107s). Judge consistency 0.975. |
+| **Partially implemented / scaffolded** | ChromaDB `operations_history` automated ingestion not yet active. Phase 4.5 BBB output guard in log+passthrough mode pending recalibration. StarCoder2 routing-layer fix pending. `confidence_decay`-aware automated decay-flagging not yet implemented. |
+| **Future work / design intent** | Automated VERIFYANDTEST.sh log ingestion to ChromaDB. PostgreSQL time-series analytics dashboard. Dynamic model tier selection by query complexity. Phase 4.5 BBB full verdict-dict enforcement after recalibration. lr=0 county resolution when Crystal Coyler Chapter 5 data arrives. |
 
-Cross-reference: Chapter 33 (judge pipeline), Chapter 16 (primary BBB), Chapter 12 (NBB/neurobiological), Chapter 17 (ultimatechat execution), Chapter 40 §40-C (March 18 security hardening), Chapter 36 (identity and registration — pre-conditions now MET per this seal).
+Cross-reference: Chapter 5 (Crystal Coyler data — lr=0 county resolution), Chapter 12 (NBB/neurobiological), Chapter 16 (primary BBB), Chapter 17 (ultimatechat execution), Chapter 33 (judge pipeline), Chapter 36 (identity and registration — pre-conditions MET), Chapter 40 §40-C (March 18 security hardening).
 
 ---
 
 ## 35.1 Purpose of Swarm and Watchdog Layers
 
-These mechanisms have complementary roles grounded in PostgreSQL `msjarvis` (port 5433 — ★ 5,416,521 GBIM entities with `confidence_decay` metadata) and `gisdb` (port 5432 — ★ PostGIS, 91 GB, 501 tables, 993 ZCTA centroids).
+The MountainShares Artificial Learning & Location Intelligence system operates as a polymathmatic geography instrument: every response it produces is meant to be accountable to a specific place, a specific community, and a specific moment in Appalachian life. Swarm functions and eternal watchdogs are the mechanisms that make this accountability possible at scale.
 
-**Coordination.** Swarm functions allow multiple agents and services to contribute to a task, each from its own specialization. In the current deployment this is realized as the 22-slot LLM ensemble organized into four model tiers, where each proxy container represents a distinct model contributing a weighted response to every query with context sourced from PostgreSQL-backed RAG collections.
+**Coordination.** Swarm functions allow multiple agents and services to contribute to a task, each from its own specialization. In the current deployment this is the 22-slot LLM ensemble organized into four model tiers, where each proxy container represents a distinct model contributing a weighted response to every query, with context sourced from PostgreSQL-backed RAG collections. The GBIM benefit indexer operates as a parallel swarm function for community resource queries — routing housing, health, fire/EMS, and geographic knowledge requests to the appropriate PostGIS or local_resources data source.
 
-**Oversight.** Watchdogs provide continuous monitoring of key signals including PostgreSQL connection health, intervening when behavior deviates from expected bounds. In the current deployment this is realized through `VERIFYANDTEST.sh` (confirming four PostgreSQL database connections), Ollama's internal memory scheduler, the `jarvis-semaphore:8030` service (`max_concurrent: 4`, `timeout: 600.0`) and its in-code asyncio companion, the `MAX_CONCURRENT_CHATS` gate on main-brain, and the Redis-backed DynamicPortService that monitors NBB container health. ★ All BBB gate decisions are now durably logged at `jarvis-memory:8056`, adding persistent accountability to the watchdog record.
+**Oversight.** Watchdogs provide continuous monitoring of key signals including PostgreSQL connection health, intervening when behavior deviates from expected bounds. This is realized through `VERIFYANDTEST.sh`, Ollama's internal memory scheduler, `jarvis-semaphore:8030`, the `MAX_CONCURRENT_CHATS` gate, and the Redis-backed DynamicPortService. All BBB gate decisions are durably logged at `jarvis-memory:8056`, adding persistent accountability to the watchdog record.
 
-**Stability.** Together they keep the system responsive and aligned even as individual components change or fail. The February 2026 hardening session demonstrated this directly: without the semaphore and concurrency controls, the system degraded from 20/22 models to 0/22 under concurrent load. With them in place, 21/22 models respond reliably on every warm-cache query with PostgreSQL-sourced context. ★ The March 22, 2026 GPU activation (RTX 4070) reduced end-to-end latency to 99–107s from approximately 330s.
+**Stability.** Together they keep the system responsive and aligned even as individual components change or fail. The February 2026 hardening session demonstrated this directly: without semaphore and concurrency controls, the system degraded from 20/22 models to 0/22 under concurrent load. With them in place, 21/22 models respond reliably on every warm-cache query with PostgreSQL-sourced context. The March 22, 2026 GPU activation (RTX 4070) reduced end-to-end latency to 99–107s from approximately 330s.
 
 **Consciousness grounding.** The consciousness bridge (`jarvis-consciousness-bridge`) is essential infrastructure, not optional. All swarm coordination and watchdog monitoring operates within the consciousness bridge framework. The brain orchestrator (`jarvis-brain-orchestrator`) serves as the continuous coordinator service that maintains the swarm's coherence across all operational cycles.
 
@@ -231,21 +270,21 @@ These mechanisms have complementary roles grounded in PostgreSQL `msjarvis` (por
 
 ## 35.2 Dual Blood-Brain Barrier Architecture
 
-As of ★ April 4, 2026 (104 containers, zero exposed ports), two BBB containers are confirmed running simultaneously. Their roles are distinct and complementary; they must not be conflated.
+As of April 4, 2026 (104 containers, zero exposed ports), two BBB containers are confirmed running simultaneously. Their roles are distinct and complementary and must not be conflated.
 
 ### jarvis-blood-brain-barrier (port 8016) — Primary, Judge Pipeline Output Guard
 
 `jarvis-blood-brain-barrier` at `127.0.0.1:8016` is the primary, architecturally authoritative BBB. It serves two roles in the 9-phase production pipeline:
 
-- **Phase 1.4 — input stack**: All **six filters** active: **EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification**. (`zero_width_homoglyph_structural_v1`, `confidence: 1.0`, confirmed March 21.) Every request passes through this gate before reaching psychological assessment or LLM synthesis.
+- **Phase 1.4 — input stack:** All six filters active: EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification. (`zero_width_homoglyph_structural_v1`, `confidence: 1.0`, confirmed March 21.) Every request passes through this gate before reaching psychological assessment or LLM synthesis.
   - ★ **April 4, 2026 EthicalFilter fix:** Correct endpoint is `/filter` (not `/check`). Correct body fields are `content` and `actor_role`. Correct response field is `content_approved` (not `ethical_score`). This is the verified integration pattern.
-- **Phase 4.5 — output guard**: After the 22-model ensemble and DGM cascade, `apply_output_guards_async` posts the full judge verdict dict to `jarvis-blood-brain-barrier:8016/output_guard` (integrated March 18, 2026, 8.0s timeout, fail-open on HTTP 500). **Phase 4.5 BBB output is currently in log+passthrough mode (commit 18b8ddac, March 22, 2026), pending output threshold recalibration.**
+- **Phase 4.5 — output guard:** After the 22-model ensemble and DGM cascade, `apply_output_guards_async` posts the full judge verdict dict to `jarvis-blood-brain-barrier:8016/output_guard` (integrated March 18, 2026, 8.0s timeout, fail-open on HTTP 500). Phase 4.5 is currently in log+passthrough mode (commit 18b8ddac, March 22, 2026), pending output threshold recalibration.
 
-★ **Durable audit trail confirmed April 4:** All Phase 1.4 filter events and Phase 4.5 output guard events are persistently logged at `jarvis-memory:8056` — gate decisions survive container restarts and are independently queryable for governance accountability.
+★ All Phase 1.4 filter events and Phase 4.5 output guard events are persistently logged at `jarvis-memory:8056` — gate decisions survive container restarts and are independently queryable for governance accountability.
 
 ### nbb_blood_brain_barrier (port 8301) — NBB-Internal Neurobiological Variant
 
-`nbb_blood_brain_barrier` at `127.0.0.1:8301` is the NBB-internal neurobiological variant. It operates on the **Phase 1 / NBB subconscious pathway**. It does **not** receive the judge pipeline verdict dict, does **not** set `bbb_checked: true` in the main UltimateResponse, and does **not** replace `jarvis-blood-brain-barrier:8016`.
+`nbb_blood_brain_barrier` at `127.0.0.1:8301` is the NBB-internal neurobiological variant. It operates on the Phase 1 / NBB subconscious pathway. It does not receive the judge pipeline verdict dict, does not set `bbb_checked: true` in the main UltimateResponse, and does not replace `jarvis-blood-brain-barrier:8016`.
 
 ```
 ┌──────────────────────────────────────────────────────┐
@@ -255,50 +294,48 @@ As of ★ April 4, 2026 (104 containers, zero exposed ports), two BBB containers
 │                                                      │
 │  jarvis-blood-brain-barrier (8016) ★ Up              │
 │  Role: PRIMARY — judge pipeline output guard         │
-│  Pipeline position: Phase 1.4 (input) +              │
-│                     Phase 4.5 (output guard)         │
+│  Pipeline: Phase 1.4 (input) + Phase 4.5 (output)   │
 │  Input filters (six):                                │
 │    EthicalFilter, SpiritualFilter, SafetyMonitor,    │
 │    ThreatDetection, steganography_filter,            │
 │    truth_verification                                │
 │  ★ EthicalFilter: POST /filter                       │
 │    body: {content, actor_role}                       │
-│    response field: content_approved  (April 4 fix)   │
+│    response field: content_approved (April 4 fix)    │
 │  Phase 4.5 mode: log+passthrough (commit 18b8ddac)  │
 │  Receives: Full judge verdict dict                   │
 │  Sets: bbb_checked: true in UltimateResponse         │
-│  ★ Durable audit: jarvis-memory:8056 (healthy Apr 4) │
+│  ★ Durable audit: jarvis-memory:8056                 │
 │                                                      │
 │  nbb_blood_brain_barrier (8301) ★ Up                 │
 │  Role: NBB-INTERNAL — neurobiological variant        │
-│  Pipeline position: Phase 1 / NBB subconscious       │
-│  These two containers are complementary.             │
+│  Pipeline: Phase 1 / NBB subconscious pathway        │
 │  Port 8016 ≠ Port 8301. Do not substitute.           │
 │                                                      │
 └──────────────────────────────────────────────────────┘
 ```
 
-Figure 35.2. Dual-BBB architecture role disambiguation (★ April 4, 2026 — SEALED). `jarvis-blood-brain-barrier:8016` is the primary judge pipeline output guard — EthicalFilter verified at `/filter` endpoint (`content_approved` field, April 4 fix); Phase 4.5 log+passthrough mode; all gate decisions durably logged at `jarvis-memory:8056`. `nbb_blood_brain_barrier:8301` is the NBB-internal neurobiological variant on the NBB subconscious pathway.
+Figure 35.2. Dual-BBB role disambiguation (★ April 4, 2026 — SEALED).
 
-**Operational note for VERIFYANDTEST.sh (★ April 4 verified integration pattern):**
+**Verified integration pattern (★ April 4, 2026):**
 
 ```bash
-# Primary BBB — EthicalFilter (★ April 4 corrected endpoint):
+# Primary BBB — EthicalFilter:
 curl -s -X POST http://127.0.0.1:8016/filter \
   -H "Content-Type: application/json" \
   -d '{"content": "test message", "actor_role": "user"}' \
-  | python3 -c "import sys,json; r=json.load(sys.stdin); print('content_approved:', r.get('content_approved'))"
+  | python3 -c "import sys,json; r=json.load(sys.stdin); \
+    print('content_approved:', r.get('content_approved'))"
 # Expected: content_approved: True
 
 # NBB-internal BBB:
 curl -s http://127.0.0.1:8301/health | python3 -m json.tool
 
-# Durable audit trail verification:
-curl -H "Authorization: Bearer $JARVIS_API_KEY" \
-  http://localhost:8056/health
+# Durable audit trail:
+curl -H "Authorization: Bearer $JARVIS_API_KEY" http://localhost:8056/health
 # Expected: healthy
 
-# Redis session-sidecar health (★ April 4 VERIFYANDTEST.sh fix):
+# Redis session-sidecar health (★ April 4 fix):
 docker exec jarvis-redis redis-cli ping
 # Expected: PONG
 ```
@@ -307,7 +344,7 @@ docker exec jarvis-redis redis-cli ping
 
 ## 35.3 Swarm Functions: The 22-Slot LLM Ensemble
 
-The primary swarm function in Ms. Jarvis is the 20-LLM production service (`jarvis-20llm-production`, port 8008 on host). This service manages 22 proxy containers — `llm1-proxy` through `llm22-proxy` on ports 8201–8222 — organized into four tiers defined in `llm_consensus_20_FINAL.py`. The `jarvis-semaphore:8030` service (`max_concurrent: 4`, `timeout: 600.0`) is the compose-managed semaphore gate.
+The primary swarm function is the 20-LLM production service (`jarvis-20llm-production`, port 8008 on host), managing 22 proxy containers (`llm1-proxy` through `llm22-proxy`, ports 8201–8222) organized into four tiers in `llm_consensus_20_FINAL.py`. The `jarvis-semaphore:8030` service (`max_concurrent: 4`, `timeout: 600.0`) is the compose-managed semaphore gate.
 
 ### Model roster by tier
 
@@ -338,7 +375,7 @@ The primary swarm function in Ms. Jarvis is the 20-LLM production service (`jarv
 | llm16-proxy | 8216 | starling-lm:latest | Starling-LM | ✅ active |
 | llm17-proxy | 8217 | neural-chat:latest | Neural-Chat | ✅ active |
 | llm18-proxy | 8218 | openchat:latest | OpenChat | ✅ active |
-| llm11-proxy | 8211 | bakllava:latest | BakLLaVA | ❌ permanently disabled via name-check guard |
+| llm11-proxy | 8211 | bakllava:latest | BakLLaVA | ❌ permanently disabled — name-check guard |
 
 **LARGE_MODELS (8 configured)**
 
@@ -355,10 +392,10 @@ The primary swarm function in Ms. Jarvis is the 20-LLM production service (`jarv
 
 ### Swarm execution model
 
-When a chat request arrives at `jarvis-20llm-production`, the `ProductionBrain.run()` method fires requests to all 22 configured endpoints concurrently, gated by `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`). The semaphore limits concurrent Ollama requests to four at a time, preventing the serial Ollama scheduler from being overwhelmed while still allowing the ensemble to operate in parallel batches.
+When a chat request arrives, `ProductionBrain.run()` fires requests to all 22 configured endpoints concurrently, gated by `jarvis-semaphore:8030`. The semaphore limits concurrent Ollama requests to four at a time, preventing the serial Ollama scheduler from being overwhelmed while allowing the ensemble to operate in parallel batches.
 
 ```python
-sem = asyncio.Semaphore(4)  # updated March 22; jarvis-semaphore:8030 max_concurrent: 4
+sem = asyncio.Semaphore(4)  # jarvis-semaphore:8030 max_concurrent: 4
 
 async def guarded(client, m):
     async with sem:
@@ -391,53 +428,142 @@ results = await asyncio.gather(*[guarded(client, m) for m in self.models])
 [CodeLlama]      OK in  ~40–46s   ★ GPU-accelerated
 [Mistral]        OK in  ~42–48s   ★ GPU-accelerated
 [Qwen2]          OK in  ~44–50s   ★ GPU-accelerated
-[BakLLaVA]       excluded: name-check guard  ← instant, expected
+[BakLLaVA]       excluded — name-check guard (instant, expected)
 21/22 models contributing consensus
 Judge pipeline score: 0.975
-★ GPU end-to-end: 99–107s (three confirmed runs: 99.6s, 105.9s, 106.5s)
+★ GPU end-to-end: 99–107s (confirmed runs: 99.6s, 105.9s, 106.5s)
 ```
 
 ---
 
-## 35.4 Use Cases for Swarm Functions
+## 35.4 GBIM Benefit Indexer — Swarm Function for Community Resources
 
-**Complex community queries.** When a user asks about housing assistance, workforce development, or healthcare access in a specific Appalachian county grounded in PostgreSQL GBIM, the ensemble distributes the question across medical (MedLlama2), structured data (SQLCoder), code and technical (CodeLlama, DeepSeek Coder), vision (LLaVA, MiniCPM-V), and general reasoning (Mistral, LLaMA 3.1, Qwen2) models simultaneously. The consensus synthesis integrates domain-specific contributions validated against PostgreSQL GeoDB (★ 993 ZCTA centroids; ★ 1,115,588 address points; ★ 20,593 landowner spatial rows as of April 4 seal) that no single model could provide.
+The `jarvis-gbim-benefit-indexer` is the community resource swarm function. It routes queries about benefits, healthcare facilities, emergency services, and geographic knowledge to the correct PostgreSQL or PostGIS data source, then logs conversation beliefs to the local_resources DB for longitudinal community intelligence. All six route modes were verified live on April 4, 2026.
 
-**Robustness verification.** The judge pipeline's consistency score measures whether independently prompted models reach similar conclusions. The March 21, 2026 canonical integration test records `consensus_score: 0.975` on the capital of West Virginia query, confirming that the ensemble's answer is stable across the majority of responding models and not an artifact of a single model's bias.
+### What Was Built and Fixed — April 4, 2026
 
-**Specialty routing.** SQLCoder handles structured data queries from PostgreSQL. CodeLlama and DeepSeek Coder handle technical implementation. MedLlama2 handles health-related queries. LLaVA and MiniCPM-V handle image and multimodal inputs. All 21 active consensus-contributing models contribute to every community response with PostgreSQL-sourced context.
+**BELIEFS_DSN corrected.** `BELIEFS_DSN` was added to the `jarvis-gbim-benefit-indexer` environment block in `docker-compose.yml`. The indexer previously wrote `conversation_beliefs` to `msjarvisgis:5432` (the PostGIS geospatial DB), which has no `conversation_beliefs` table. The correct target is `jarvis-local-resources-db:5435`.
 
-**Redundancy.** With 21 of 22 configured slots contributing consensus, the ensemble tolerates individual model failures without degrading consensus validated against PostgreSQL. BakLLaVA's permanent disabled state, StarCoder2's 0-char exclusion, and Ollama's occasional memory-related refusals do not prevent the system from producing high-quality responses grounded in PostgreSQL GBIM.
+```yaml
+# docker-compose.yml — jarvis-gbim-benefit-indexer
+environment:
+  - BELIEFS_DSN=postgresql://jarvis:${JARVIS_DB_PASSWORD}@jarvis-local-resources-db:5435/local_resources
+```
+
+**Fire/EMS column name mismatches corrected.** Three mismatches were causing query failures:
+
+| Issue | Before | After |
+|---|---|---|
+| Owner name column | `name` (missing in schema) | `owner_name AS name` |
+| Fire stations table | `wv_fire_stations` | `wv_fire_stations_clean` |
+| Row index mapping | Incorrect positions | Correct `r[0]..r[n]` on all three table schemas |
+
+**Log-before-result bug fixed across all 6 branches.** The threading log block referenced `result` before it was assigned in the `except` path, causing `UnboundLocalError` on any route branch that hit a query exception — the error handler itself would crash before logging.
+
+```python
+# BEFORE — crashes if exception raised before result is assigned:
+except Exception as e:
+    log_to_chroma(result, ...)   # ← UnboundLocalError
+
+# AFTER — safe in all paths:
+except Exception as e:
+    log_to_chroma([], ...)       # ← empty list, never unbound
+```
+
+Branches fixed: `benefit_lookup`, `hospitals`, `fire_departments`, `ems_stations`, `geo_knowledge` (×2 — both code paths had this bug).
+
+### All 6 Route Modes — Verified Live
+
+| Route Mode | Test | Result |
+|---|---|---|
+| `benefit_lookup` | Kanawha county, `lr=10` | ✅ 10 results |
+| `hospitals` | Live query | ✅ 10 results |
+| `fire_departments` | Live query | ✅ 20 results |
+| `ems_stations` | Live query | ✅ 20 results |
+| `geo_knowledge` | Both code paths | ✅ no UnboundLocalError |
+| `conversation_beliefs` logging | All 6 modes, correct `user_id` | ✅ confirmed |
+
+### What Is Intentionally Deferred
+
+`lr=0` for Raleigh, Logan, Cabell, and Fayette counties — these return zero local resource results because Crystal Coyler's next data batch has not yet arrived. Zero code changes are needed when the data arrives. The indexer schema and routing are correct; the rows simply do not exist yet. Tracked as a **data dependency on Crystal Coyler — Chapter 5**.
 
 ---
 
-## 35.5 Eternal Watchdogs: Continuous Monitoring
+## 35.5 ZCTA Centroids — ZIP-Code Spatial Grounding
 
-The watchdog layer in the ★ April 4, 2026 (SEALED) deployment is implemented through five cooperating mechanisms.
+829 West Virginia ZCTA centroids were seeded into ChromaDB on April 4, 2026. This collection binds every community query to a physical ZIP-code-level location on the Appalachian landscape — the operational realization of P12 (Intelligence with a ZIP code).
+
+```
+# Seeding result — April 4, 2026:
+Fetched 829 ZCTAs from PostGIS
+  Inserted batch ending 24572
+  Inserted batch ending 24925
+  Inserted batch ending 25140
+  Inserted batch ending 25444
+  Inserted batch ending 25836
+  Inserted batch ending 26150
+  Inserted batch ending 26408
+  Inserted batch ending 26750
+  Inserted final batch
+DONE — 829 items in 'zcta_centroids'
+
+# Spot-check — Pax, WV (ZCTA 25904):
+{
+  'ids': ['25904'],
+  'metadatas': [{
+    'cx': -81.28184535418767,
+    'lat': 37.9262719,
+    'state': 'WV',
+    'zcta5': '25904',
+    'lon': -81.2840002,
+    'cy': 37.91690967562205
+  }],
+  'documents': ['West Virginia ZCTA 25904 centroid at 37.9263, -81.2840']
+}
+```
+
+The `zcta_centroids` collection joins the 40 previously verified ChromaDB collections, bringing the total to 45 active collections (6,675,442+ total vectors) at host port 8002. All scripts targeting ChromaDB must use host port **8002**.
+
+---
+
+## 35.6 Use Cases for Swarm Functions
+
+**Complex community queries.** When a resident of Pax, WV (ZCTA 25904, centroid 37.9263, -81.2840) asks about housing assistance, workforce development, or healthcare access, the ensemble distributes the question across medical (MedLlama2), structured data (SQLCoder), code and technical (CodeLlama, DeepSeek Coder), vision (LLaVA, MiniCPM-V), and general reasoning (Mistral, LLaMA 3.1, Qwen2) models simultaneously. The consensus synthesis integrates domain-specific contributions validated against PostgreSQL GBIM that no single model could provide.
+
+**GBIM benefit routing.** The benefit indexer routes housing, healthcare, and emergency services queries to `local_resources:5435` (101 records, all 55 WV counties) and PostGIS (`gisdb:5432`, 91 GB, 501 tables). `conversation_beliefs` are logged after every interaction, building longitudinal community intelligence that informs future resource recommendations — the operational meaning of P16 (Power accountable to place).
+
+**Robustness verification.** The judge pipeline's consistency score measures whether independently prompted models reach similar conclusions. The March 21, 2026 canonical integration test records `consensus_score: 0.975` on the capital of West Virginia query, confirming ensemble stability not attributable to a single model's bias.
+
+**Specialty routing.** SQLCoder handles structured data queries from PostgreSQL. CodeLlama and DeepSeek Coder handle technical implementation. MedLlama2 handles health-related queries. LLaVA and MiniCPM-V handle image and multimodal inputs.
+
+**Redundancy.** With 21 of 22 configured slots contributing consensus, the ensemble tolerates individual model failures. BakLLaVA's permanent disabled state, StarCoder2's 0-char exclusion, and Ollama's occasional memory-related refusals do not prevent the system from producing high-quality responses grounded in PostgreSQL GBIM.
+
+---
+
+## 35.7 Eternal Watchdogs: Continuous Monitoring
 
 ### VERIFYANDTEST.sh (★ April 4 changelog applied)
 
-The primary eternal watchdog script implements eight verification sections on demand or schedule. **April 4, 2026 seal results:**
+April 4, 2026 seal results:
 
 - Services healthy: 32/32
 - LLM proxies healthy: 22/22 (HTTP 200; 21 contributing consensus)
-- Docker containers running: ★ **104** (zero exposed ports — confirmed April 4)
-- ChromaDB collections: ★ **45** (host port 8002)
+- Docker containers running: **104** (zero exposed ports)
+- ChromaDB collections: **45** (host port 8002)
 - `psychological_rag` docs: **968**
-- `local_resources` records: ★ **101** (all 55 WV counties — seeded April 4)
-- Address points: ★ **1,115,588**
-- Landowner spatial rows: ★ **20,593**
+- `local_resources` records: **101** (all 55 WV counties)
+- Address points: **1,115,588**
+- Landowner spatial rows: **20,593**
 - `gbim_entities` schema: ✅ present (10 records)
 - Cloudflare tunnel: ✅ `https://egeria.mountainshares.us`
 - Auth: ✅ unauthenticated `/chat` → HTTP 401
 - BBB EthicalFilter: ✅ verified (`/filter`, `content_approved`)
 - `jarvis-memory:8056`: ✅ healthy
 - Judge signing keys: ✅ all 5 present
-- Redis ping: ✅ PONG (`docker exec jarvis-redis redis-cli ping` — **April 4 fix replaces dead 8060 REST check**)
-- **`scripts/preflight_gate.sh`: 31 PASS ❌ 0 FAIL ⚠️ 0 WARN** (★ April 4, 2026 — SEALED)
+- Redis ping: ✅ PONG (`docker exec jarvis-redis redis-cli ping` — April 4 fix)
+- **`scripts/preflight_gate.sh`: 31 PASS ❌ 0 FAIL ⚠️ 0 WARN**
 
-**VERIFYANDTEST.sh changelog — April 4, 2026:**
-Check `8060/session-sidecar`: Replaced dead `/health` REST endpoint with `docker exec jarvis-redis redis-cli ping`. Previous `sed` pattern on URL string caused `command not found`. Redis PONG is now the authoritative session-sidecar health proxy. Change is permanent.
+**Changelog — April 4, 2026:** Check `8060/session-sidecar` replaced dead `/health` REST endpoint with `docker exec jarvis-redis redis-cli ping`. Previous `sed` pattern on URL string caused `command not found`. Redis PONG is now the authoritative session-sidecar health proxy. Change is permanent.
 
 ### Ollama internal memory scheduler
 
@@ -448,92 +574,101 @@ Check `8060/session-sidecar`: Replaced dead `/health` REST endpoint with `docker
 | `OLLAMA_MAX_LOADED_MODELS` | 1 |
 | Host total RAM | 29 GB |
 | Host available RAM (production load) | 13 GB |
-| ★ GPU | RTX 4070 (active March 22, 2026) |
-| ★ GPU-accelerated inference | 99–107s end-to-end |
+| GPU | RTX 4070 (active March 22, 2026) |
+| GPU-accelerated inference | 99–107s end-to-end |
 
 ### Asyncio semaphore + jarvis-semaphore:8030
 
-★ The `jarvis-semaphore:8030` service (`max_concurrent: 4`, `timeout: 600.0`) is the compose-managed semaphore gate. The `asyncio.Semaphore(4)` in `ai_server_20llm_PRODUCTION.py` acts in concert with it, preventing more than four simultaneous Ollama requests regardless of how many concurrent chat sessions main-brain initiates.
+`jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`) is the compose-managed semaphore gate. `asyncio.Semaphore(4)` in `ai_server_20llm_PRODUCTION.py` acts in concert with it, preventing more than four simultaneous Ollama requests regardless of concurrent chat sessions.
 
 ### MAX_CONCURRENT_CHATS gate
 
-The `MAX_CONCURRENT_CHATS=2` environment variable on `jarvis-main-brain` is the session-level watchdog, limiting the number of simultaneous full chat pipelines.
+`MAX_CONCURRENT_CHATS=2` on `jarvis-main-brain` is the session-level watchdog, limiting simultaneous full chat pipelines. Async jobs (`/chat/async`) use Redis job state (30-minute TTL) and do not consume a slot until active processing begins.
 
 ### Redis-backed DynamicPortService
 
-Five NBB containers register their health state to Redis using `DynamicPortService`. There is **one Redis container** (`jarvis-redis`) with container-internal port **6379** and host-facing port **127.0.0.1:6380**. ★ April 4, 2026: `redis-cli ping` → PONG confirmed via `docker exec jarvis-redis redis-cli ping` (VERIFYANDTEST.sh 8060 fix applied).
+Five NBB containers register health state to Redis using `DynamicPortService`. One Redis container (`jarvis-redis`): container-internal port **6379**, host-facing port **127.0.0.1:6380**.
 
 ```bash
-# Host-facing port verification:
+# Host-facing verification:
 redis-cli -p 6380 ping
 # Expected: PONG
 
-# ★ April 4 VERIFYANDTEST.sh method (docker exec — no curl needed):
+# ★ April 4 VERIFYANDTEST.sh method:
 docker exec jarvis-redis redis-cli ping
 # Expected: PONG
 ```
 
 ---
 
-## 35.6 Watchdog Alert Responses
+## 35.8 Watchdog Alert Responses
 
-**Memory exhaustion.** Ollama rejects model load requests exceeding available memory. The 20llm-production service logs this as a proxy failure and excludes the model from consensus. ★ GPU acceleration reduces peak memory pressure per inference cycle.
+**Memory exhaustion.** Ollama rejects model loads exceeding available memory. The 20llm-production service logs this as a proxy failure and excludes the model from consensus. GPU acceleration reduces peak memory pressure per inference cycle.
 
-**Timeout.** Models exceeding `jarvis-semaphore:8030` timeout (`600.0s`) are logged as failures and excluded from consensus. ★ GPU inference completes most model cycles in 28–50s, well within the 600s envelope.
+**Timeout.** Models exceeding `jarvis-semaphore:8030` timeout (600.0s) are logged as failures and excluded from consensus. GPU inference completes most model cycles in 28–50s, well within the envelope.
 
-**BakLLaVA name-check guard.** Permanently excluded via name-check guard in the main-brain routing layer with zero Ollama resource consumption.
+**BakLLaVA name-check guard.** Permanently excluded via name-check guard with zero Ollama resource consumption.
 
-**StarCoder2 0-char exclusion.** Passes VERIFYANDTEST.sh health checks (HTTP 200) but returns empty responses on community queries. Excluded from consensus extraction. Future work: routing-layer fix to suppress community query dispatch.
+**StarCoder2 0-char exclusion.** HTTP 200 but empty responses on community queries. Excluded from consensus extraction. Future work: routing-layer fix to suppress community query dispatch.
 
-**Session overload.** The `MAX_CONCURRENT_CHATS=2` gate queues requests beyond the second concurrent session. Async jobs (`/chat/async`) use Redis job state (30-minute TTL) and do not consume a `MAX_CONCURRENT_CHATS` slot until active processing begins.
+**Session overload.** `MAX_CONCURRENT_CHATS=2` queues requests beyond the second concurrent session.
 
-**BBB content rejection (primary BBB — port 8016 — ★ `/filter` endpoint confirmed April 4).** When content triggers one of the six filters, it is rejected before reaching the LLM ensemble. ★ `content_approved` response field is the correct integration point (not `ethical_score`). ★ All filter events are durably logged at `jarvis-memory:8056`.
+**BBB content rejection (port 8016, `/filter` endpoint, April 4 confirmed).** When content triggers one of the six filters, it is rejected before reaching the LLM ensemble. `content_approved` is the correct response field. All filter events are durably logged at `jarvis-memory:8056`.
 
-**BBB output guard — Phase 4.5 log+passthrough mode.** Phase 4.5 BBB output currently in log+passthrough mode (commit 18b8ddac, March 22, 2026) pending output threshold recalibration. `bbb_checked: true` reflects that the BBB received and logged the verdict. Full blocking enforcement not yet active. Fail-open on HTTP 500.
+**BBB output guard — Phase 4.5 log+passthrough.** Currently log+passthrough (commit 18b8ddac) pending recalibration. `bbb_checked: true` reflects that the BBB received and logged the verdict. Full blocking enforcement not yet active. Fail-open on HTTP 500.
 
-**0.0.0.0 exposure detection.** VERIFYANDTEST.sh includes: `docker ps --format '{{.Names}} {{.Ports}}' | grep 0.0.0.0`. Any output is a critical security regression. ★ Zero `0.0.0.0` exposures confirmed across 104 containers April 4, 2026.
+**0.0.0.0 exposure detection.** VERIFYANDTEST.sh includes:
+
+```bash
+docker ps --format '{{.Names}} {{.Ports}}' | grep 0.0.0.0
+```
+
+Any output is a critical security regression. Zero `0.0.0.0` exposures confirmed across 104 containers April 4, 2026.
+
+**GBIM benefit indexer failures.** If a route branch raises an exception, the log-before-result fix ensures `log_to_chroma([], ...)` is called safely without `UnboundLocalError`. The error is re-raised for upstream handling. lr=0 for Raleigh/Logan/Cabell/Fayette is a data gap, not a code failure — no alert is generated; result is an empty list.
 
 ---
 
-## 35.7 Integration with Barriers, Modes, and Containers
+## 35.9 Integration with Barriers, Modes, and Containers
 
-**Blood-brain barrier (primary — port 8016 — ★ EthicalFilter verified April 4, durable audit at `jarvis-memory:8056`).** Every chat request passes through `jarvis-blood-brain-barrier:8016/filter` via the six-filter input stack (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification) at Phase 1.4. ★ **April 4 fix: correct endpoint is `/filter`, correct body is `{content, actor_role}`, correct response field is `content_approved`.** Phase 4.5 output in log+passthrough mode pending recalibration. ★ All gate decisions durably logged at `jarvis-memory:8056`.
+**Blood-brain barrier (primary — port 8016).** Every chat request passes through `jarvis-blood-brain-barrier:8016/filter` via the six-filter input stack at Phase 1.4. April 4 fix: endpoint `/filter`, body `{content, actor_role}`, response field `content_approved`. Phase 4.5 output in log+passthrough mode pending recalibration. All gate decisions durably logged at `jarvis-memory:8056`.
 
-**Blood-brain barrier (NBB-internal — port 8301).** Operates on the NBB subconscious pathway. Monitored by VERIFYANDTEST.sh. Does not participate in the main `ultimatechat` Phase 1.4 / Phase 4.5 pipeline.
+**Blood-brain barrier (NBB-internal — port 8301).** Operates on the NBB subconscious pathway. Does not participate in the main `ultimatechat` Phase 1.4 / Phase 4.5 pipeline.
 
-**DGM cascade.** Every ensemble response routed through main-brain (port 8050) is validated by `jarvis-69dgm-bridge` at host port 19000 (internal container port 9000). Requests sent directly to port 8008 bypass the DGM gate by design.
+**DGM cascade.** Every ensemble response routed through main-brain (port 8050) is validated by `jarvis-69dgm-bridge` at host port 19000 (internal port 9000). Requests sent directly to port 8008 bypass the DGM gate by design.
 
-**Psychology alignment layer.** `jarvis-psychology-services:8019` runs psychological assessment on every request. ★ `psychological_rag` collection: 968 docs (April 4 seal).
+**Psychology alignment layer.** `jarvis-psychology-services:8019` runs psychological assessment on every request. `psychological_rag` collection: 968 docs.
 
-**NBB subconscious layer.** Seven of eight NBB containers respond to health probes. `nbb_blood_brain_barrier` (port 8301) is one of these NBB containers. Pituitary gland registers through Redis DynamicPortService.
+**NBB subconscious layer.** Seven of eight NBB containers respond to health probes. `nbb_blood_brain_barrier` (port 8301) is one of these. Pituitary gland registers through Redis DynamicPortService.
 
-**Judge pipeline.** All five judge services (ports 7230–7233, 7239) compose-managed with `restart: unless-stopped`. ★ All 5 judge signing keys confirmed present April 4. Judge verdicts delivered as full dict to `jarvis-blood-brain-barrier:8016/output_guard` at Phase 4.5. ★ All verdicts durably logged at `jarvis-memory:8056`.
+**Judge pipeline.** All five judge services (ports 7230–7233, 7239) compose-managed with `restart: unless-stopped`. All 5 judge signing keys confirmed present April 4. Judge verdicts delivered as full dict to `jarvis-blood-brain-barrier:8016/output_guard` at Phase 4.5. All verdicts durably logged at `jarvis-memory:8056`.
 
 **Consciousness bridge and brain orchestrator.** The consciousness bridge (`jarvis-consciousness-bridge`) is mandatory infrastructure through which all swarm and watchdog operations flow. The brain orchestrator (`jarvis-brain-orchestrator`) continuously coordinates ensemble, watchdog feedback loops, and neurobiological layer health.
 
-**ChromaDB memory integration.** ★ **45 active collections** (host port 8002, April 4 seal). `operations_history` automated ingestion pipeline not yet active. All scripts targeting ChromaDB must use host port **8002**.
+**ChromaDB memory integration.** 45 active collections (host port 8002). Includes `zcta_centroids` (829 WV ZCTAs, seeded April 4), `psychological_rag` (968 docs), `local_resources` (101 records), `autonomous_learner` (21,181), `spiritual_texts` (79,181), `gbim_worldview_entities` (5,416,521), and 39 additional collections. `operations_history` automated ingestion not yet active. All scripts must use host port **8002**.
 
-**PostgreSQL integration.** `msjarvis:5433` (5,416,521 GBIM entities, `confidence_decay` metadata) — primary GBIM ground truth. `gisdb:5432` (91 GB PostGIS, 501 tables, 993 ZCTA centroids) — geospatial ground truth. `jarvis-local-resources-db:5435` — community resources (★ 101 records, all 55 counties, April 4). All four databases monitored by VERIFYANDTEST.sh.
+**PostgreSQL integration.** `msjarvis:5433` (5,416,521 GBIM entities, `confidence_decay` metadata) — primary GBIM ground truth. `gisdb:5432` (91 GB PostGIS, 501 tables, 993 ZCTA centroids) — geospatial ground truth. `jarvis-local-resources-db:5435` (101 records, all 55 WV counties) — community resources and `conversation_beliefs` target. All four databases monitored by VERIFYANDTEST.sh.
 
-**External access perimeter (★ April 4 confirmed).** Cloudflare tunnel live at `https://egeria.mountainshares.us`. Caddy reverse proxy + `jarvis-auth` enforce authentication. Unauthenticated `/chat` → HTTP 401. Zero `0.0.0.0` exposed ports across all 104 containers.
+**External access perimeter.** Cloudflare tunnel live at `https://egeria.mountainshares.us`. Caddy reverse proxy + `jarvis-auth` enforce authentication. Unauthenticated `/chat` → HTTP 401. Zero `0.0.0.0` exposed ports across all 104 containers.
 
-**★ `jarvis-memory:8056` durable audit integration (healthy April 4).** Durable BBB gate decisions, ChromaDB `dgm_observations` judge verdicts (45 collections), and PostgreSQL GBIM validation records together constitute the complete, independently queryable governance record for all swarm and watchdog enforcement actions.
-
----
-
-## 35.8 Summary
-
-Swarm functions and eternal watchdogs in the ★ April 4, 2026 (SEALED) Ms. Jarvis deployment are running, verified, and logged against concrete evidence. The 22-slot LLM ensemble delivers 21/22 consensus participation in ★ 99–107 seconds (GPU baseline: RTX 4070) with judge pipeline consistency score of 0.975. ★ **104 containers, zero exposed ports. 45 ChromaDB collections. 101 `local_resources` records (all 55 WV counties). 1,115,588 address points. 20,593 landowner spatial rows. Cloudflare tunnel live. Auth enforced. All 5 judge signing keys present. `jarvis-memory` healthy. `preflight_gate.sh`: 31 PASS ❌ 0 FAIL ⚠️ 0 WARN.**
-
-The dual-BBB architecture remains architecturally authoritative: `jarvis-blood-brain-barrier:8016` is the primary judge pipeline output guard — six-filter input stack at Phase 1.4 (★ EthicalFilter endpoint `/filter`, field `content_approved`, verified April 4); Phase 4.5 output in log+passthrough mode (commit 18b8ddac, March 22, 2026) pending recalibration; ★ all gate decisions durably logged at `jarvis-memory:8056`. `nbb_blood_brain_barrier:8301` is the NBB-internal neurobiological variant.
-
-The five-layer watchdog system — VERIFYANDTEST.sh (★ **31 PASS 0 FAIL**, April 4 seal; **8060 check updated to `docker exec jarvis-redis redis-cli ping`**), Ollama memory scheduler, `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`), `MAX_CONCURRENT_CHATS=2` gate, and Redis DynamicPortService (★ PONG confirmed April 4) — prevents cascade failures and maintains zero `0.0.0.0` exposures across all 104 containers. The three-layer governance audit record (`jarvis-memory:8056` durable BBB decisions, ChromaDB `dgm_observations` judge verdicts, PostgreSQL GBIM validation) constitutes a complete, independently queryable accountability substrate.
-
-**Chapter 35 is SEALED. Chapter 36 pre-conditions are MET.**
+**`jarvis-memory:8056` durable audit integration.** Durable BBB gate decisions, ChromaDB `dgm_observations` judge verdicts, and PostgreSQL GBIM validation records together constitute the complete, independently queryable governance record for all swarm and watchdog enforcement actions.
 
 ---
 
-*Last updated: ★ 2026-04-04 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
-*★ April 4, 2026: RED TEAM GATE OPEN — CHAPTER 35 SEALED ✅ | preflight_gate.sh 31 PASS 0 FAIL | 104 containers zero exposed ports | 45 ChromaDB collections | 101 local_resources all 55 WV counties | 1,115,588 address points | 20,593 landowner spatial rows | Cloudflare tunnel live | Auth enforced | 5 judge signing keys | jarvis-memory healthy | 10 preflight issues closed | VERIFYANDTEST.sh 8060 check updated (Redis ping) | EthicalFilter endpoint corrected (/filter, content_approved)*
+## 35.10 Summary
+
+Swarm functions and eternal watchdogs in the April 4, 2026 (SEALED) MountainShares Artificial Learning & Location Intelligence deployment are running, verified, and logged against concrete evidence. The 22-slot LLM ensemble delivers 21/22 consensus participation in 99–107 seconds (GPU baseline: RTX 4070) with judge pipeline consistency score of 0.975. The GBIM benefit indexer routes all six community resource modes live — housing, healthcare, fire/EMS, geographic knowledge — with `conversation_beliefs` logged to `local_resources:5435` after every interaction. 829 ZCTA centroids are now seeded into ChromaDB, binding every query to a physical ZIP-code location on the Appalachian landscape.
+
+**104 containers, zero exposed ports. 45 ChromaDB collections. 829 `zcta_centroids`. 101 `local_resources` records (all 55 WV counties). 1,115,588 address points. 20,593 landowner spatial rows. Cloudflare tunnel live. Auth enforced. All 5 judge signing keys present. `jarvis-memory` healthy. `preflight_gate.sh`: 31 PASS ❌ 0 FAIL ⚠️ 0 WARN.**
+
+The dual-BBB architecture remains architecturally authoritative: `jarvis-blood-brain-barrier:8016` is the primary judge pipeline output guard — six-filter input stack at Phase 1.4 (EthicalFilter endpoint `/filter`, field `content_approved`, verified April 4); Phase 4.5 output in log+passthrough mode (commit 18b8ddac) pending recalibration; all gate decisions durably logged at `jarvis-memory:8056`. `nbb_blood_brain_barrier:8301` is the NBB-internal neurobiological variant.
+
+The five-layer watchdog system — VERIFYANDTEST.sh (31 PASS 0 FAIL; 8060 check updated to `docker exec jarvis-redis redis-cli ping`), Ollama memory scheduler, `jarvis-semaphore:8030` (`max_concurrent: 4`, `timeout: 600.0`), `MAX_CONCURRENT_CHATS=2`, and Redis DynamicPortService (PONG confirmed) — prevents cascade failures and maintains zero `0.0.0.0` exposures across all 104 containers. The three-layer governance audit record (`jarvis-memory:8056` durable BBB decisions, ChromaDB `dgm_observations` judge verdicts, PostgreSQL GBIM validation) constitutes a complete, independently queryable accountability substrate for Appalachian community intelligence.
+
+**Chapter 35 is SEALED. Chapter 36 pre-conditions are MET. Crystal Coyler Chapter 5 data dependency tracked for lr=0 county resolution.**
+
+---
+
+*Last updated: ★ 2026-04-04 by Carrie Kidd (Mamma Kidd), Pax, WV*
+*★ April 4, 2026: RED TEAM GATE OPEN — CHAPTER 35 SEALED ✅ | preflight_gate.sh 31 PASS 0 FAIL | 104 containers zero exposed ports | 45 ChromaDB collections | 829 zcta_centroids | 101 local_resources all 55 WV counties | 1,115,588 address points | 20,593 landowner spatial rows | Cloudflare tunnel live | Auth enforced | 5 judge signing keys | jarvis-memory healthy | 10 preflight issues closed | VERIFYANDTEST.sh 8060 check updated (Redis ping) | EthicalFilter endpoint corrected (/filter, content_approved) | BELIEFS_DSN corrected to local_resources:5435 | Fire/EMS column mismatches fixed | log-before-result fixed (6 branches) | All 6 GBIM benefit indexer routes verified live | lr=0 Raleigh/Logan/Cabell/Fayette deferred — Crystal Coyler Chapter 5*
 *★ March 28, 2026: 96/96 containers Up — all previous updates carried forward*
-
