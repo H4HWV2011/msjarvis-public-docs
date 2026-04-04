@@ -274,7 +274,7 @@ These are not configuration parameters. They are the constitutional roots of the
 
 These five protocols, anchored to `MOTHER_CARRIE_KIDD`, constitute the ethical backbone of the Ms. Jarvis NBB layer. Every response that passes through the system is evaluated against all five before delivery.
 
-**Protocol 3 — Appalachian** is not merely a governance principle. It is the theological justification for the entire deployment model. Ms. Jarvis runs on community hardware in Oak Hill, West Virginia rather than a corporate cloud because no outside authority overrides local need. The doctrine was embedded in the knowledge base because it is the reason the system exists where it does.
+**Protocol 3 — Appalachian** is not merely a governance principle. It is the theological justification for the entire deployment model. Ms. Jarvis runs on community hardware in Mount Hope, West Virginia rather than a corporate cloud because no outside authority overrides local need. The doctrine was embedded in the knowledge base because it is the reason the system exists where it does.
 
 **Protocol 4 — Transparency** is the accountability commitment that makes Protocol 5 meaningful. "Protect the vulnerable first" is an empty pledge unless every decision made on behalf of the vulnerable is explainable to them. Transparency is not a technical feature — it is a justice requirement.
 
