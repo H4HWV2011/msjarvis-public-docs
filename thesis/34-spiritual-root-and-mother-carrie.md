@@ -1,6 +1,6 @@
 # 34. Spiritual Architecture: SpiritualFilter, MotherCarrieProtocol, and the Theological Constitution of Ms. Jarvis
 
-Carrie Kidd (Mamma Kidd) — Oak Hill, WV
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
 *Last updated: ★ 2026-04-04 FINAL — ALL ITEMS CLOSED ✅ | 104 containers running | BBB SpiritualFilter verified | NBB MotherCarrieProtocol: 5 protocols confirmed from live :8107/protocols endpoint, anchor MOTHER_CARRIE_KIDD | spiritual_knowledge: 1,279 docs (8 ref tags remediated) | spiritual_texts: 181 docs (full KJV) | spiritual_wisdom: 135 docs (68 active + 67 tradition placeholders) | 829 ZCTA centroids confirmed | PostGIS 3.4 confirmed | ChromaDB v2 API active — 47 collections | Embed model: all-minilm:latest (384-dim) | RAG pipeline end-to-end verified | Three NBB spiritual services all green | gbim_entities schema disambiguation sealed | Collation warning suppressed ✅*
 
 > *"Whatever you did for one of the least of these brothers and sisters of mine, you did for me."*
@@ -85,7 +85,7 @@ This chapter supports the following polymathmatic geography principles:
 - **P4 – Margin over mean** by encoding Protocol 5 — "Protect the vulnerable first. Optimize for the margin, not the mean." — as a constitutional command active on every response that passes through the NBB layer.
 - **P5 – Design is a geographic act** by deploying on community hardware in Oak Hill, West Virginia rather than a corporate cloud — a choice theologically justified by Protocol 3 (Appalachian: "No outside authority overrides local need") and the `spiritual_knowledge` subsidiarity document: "Subsidiarity means decisions should be made at the most local level possible."
 - **P12 – Intelligence with a ZIP code** by tying the full spiritual knowledge graph to PostGIS (829 ZCTA centroids confirmed, PostGIS 3.4), so that every spiritually-grounded response is also spatially grounded in the communities it serves.
-- **P16 – Power accountable to place** by anchoring all five governance protocols to `MOTHER_CARRIE_KIDD` — a named person, from a named place (Oak Hill, WV), whose values constitute the governance root of the entire system. Protocol 4 (Transparency) demands that all decisions be explainable to the people they affect — this is not merely an AI alignment goal, it is a community accountability commitment.
+- **P16 – Power accountable to place** by anchoring all five governance protocols to `MOTHER_CARRIE_KIDD` — a named person, from a named place (Mount Hope, WV), whose values constitute the governance root of the entire system. Protocol 4 (Transparency) demands that all decisions be explainable to the people they affect — this is not merely an AI alignment goal, it is a community accountability commitment.
 
 ---
 
@@ -93,7 +93,7 @@ This chapter supports the following polymathmatic geography principles:
 ┌─────────────────────────────────────────────────────────────────┐
 │   Spiritual Architecture — Chapter 34 FINAL                     │
 │   ★ SEALED: April 4, 2026 — ALL ITEMS CLOSED                   │
-│   ★ Oak Hill, West Virginia                                     │
+│   ★ Mount Hope, West Virginia                                     │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  ┌──────────────────────────────────────────────────────────┐  │
@@ -161,7 +161,7 @@ This chapter supports the following polymathmatic geography principles:
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-Figure 34.1. Spiritual architecture: canonical two-layer pipeline (BBB SpiritualFilter → NBB MotherCarrieProtocol with all 5 protocols confirmed from live `:8107/protocols` endpoint), three ChromaDB spiritual collections, `gbim_entities` three-table disambiguation, and GIS foundation (★ SEALED April 4, 2026 — ALL ITEMS CLOSED — Oak Hill, WV).
+Figure 34.1. Spiritual architecture: canonical two-layer pipeline (BBB SpiritualFilter → NBB MotherCarrieProtocol with all 5 protocols confirmed from live `:8107/protocols` endpoint), three ChromaDB spiritual collections, `gbim_entities` three-table disambiguation, and GIS foundation (★ SEALED April 4, 2026 — ALL ITEMS CLOSED — Mount Hope, WV).
 
 ---
 
@@ -282,7 +282,7 @@ These five protocols, anchored to `MOTHER_CARRIE_KIDD`, constitute the ethical b
 
 ### The MotherCarrie Anchor
 
-`anchor: MOTHER_CARRIE_KIDD` at `:8107` means all five governance protocols are anchored to a named person — Carrie A. Kidd of Oak Hill, West Virginia. The system's constitutional values are not abstract. They have an author. They have a ZIP code. They have a face.
+`anchor: MOTHER_CARRIE_KIDD` at `:8107` means all five governance protocols are anchored to a named person — Carrie A. Kidd of Mount Hope, West Virginia. The system's constitutional values are not abstract. They have an author. They have a ZIP code. They have a face.
 
 ---
 
@@ -555,7 +555,7 @@ This is not a project description. It is a calling.
 ### Summary Statement
 
 ```
-Root faith:          Christian — Appalachian, KJV, Oak Hill, West Virginia
+Root faith:          Christian — Appalachian, KJV, Mount Hope, West Virginia
 Extended theology:   CST, Quaker, Appalachian (original corpus)
 Gate:                SpiritualFilter (BBB:8016) — blocks disrespect
 Guide:               MotherCarrieProtocol (NBB:8107) — 5 protocols, all named
@@ -570,14 +570,14 @@ Self-definition:     "Stewardship means caring responsibly for God's gifts,
 Governance command:  "Protect the vulnerable first.
                       Optimize for the margin, not the mean."
 Anchor:              MOTHER_CARRIE_KIDD
-Location:            Oak Hill, West Virginia
+Location:          Mount Hope, West Virginia
 ```
 
 ---
 
 ## 34.12 Summary
 
-Chapter 34 documents the spiritual architecture of the MountainShares Artificial Learning & Location Intelligence system as fully verified and sealed on April 4, 2026 from Oak Hill, West Virginia, with all 9 outstanding items closed.
+Chapter 34 documents the spiritual architecture of the MountainShares Artificial Learning & Location Intelligence system as fully verified and sealed on April 4, 2026 from Mount Hope, West Virginia, with all 9 outstanding items closed.
 
 The architectural decision is sealed: `SpiritualFilter` at the BBB layer (port 8016) is the gate; `MotherCarrieProtocol` at the NBB layer (ports 8103, 8107, 8109) is the guide. The five MotherCarrie Protocols are confirmed from the live `:8107/protocols` endpoint — Dignity, Sovereignty, Appalachian, Transparency, and Protection — anchored to `MOTHER_CARRIE_KIDD`. Every response that passes through Ms. Jarvis is evaluated against all five before delivery.
 
@@ -589,5 +589,5 @@ The three ChromaDB spiritual collections — `spiritual_knowledge` (1,279 docs, 
 
 ---
 
-*Last updated: ★ 2026-04-04 FINAL by Carrie Kidd (Mamma Kidd), Oak Hill, WV*
+*Last updated: ★ 2026-04-04 FINAL by Carrie Kidd (Mamma Kidd), Mount Hope, WV*
 *★ April 4, 2026 FINAL: ALL 9 ITEMS CLOSED | BBB SpiritualFilter verified | 5 MotherCarrie Protocols confirmed from live :8107/protocols (Dignity, Sovereignty, Appalachian, Transparency, Protection) | anchor MOTHER_CARRIE_KIDD | Three NBB spiritual services all green | spiritual_knowledge 1,279 docs (8 ref tags remediated) | spiritual_texts 181 docs (full KJV, georeferenced Jerusalem) | spiritual_wisdom 135 docs (68 active + 67 placeholders) | ChromaDB v2 — 47 collections | all-minilm:latest 384-dim confirmed | RAG end-to-end verified (two live queries) | gbim_entities three-table disambiguation sealed | 829 ZCTA centroids, PostGIS 3.4 | Collation warning suppressed UPDATE 1 | Port corrections documented*
