@@ -1,7 +1,7 @@
 # 36. Identity and Registration
 
-**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
-**Last updated: ★ April 3, 2026 — Chapter 36 SEALED AND CLOSED.**  
+**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
+**Last updated: ★ April 3, 2026 — Chapter 36 SEALED AND CLOSED.**
 **101/101 containers Up (zero Restarting, zero Exited). All Chapter 36 OIs and all Ch 37 cross-chapter OIs CLOSED. Ch 38 sprint contract formally opened. Registration roles and audit tables: higher-impact actions tied to real people and institutions via PostgreSQL-backed audit trails, `confidence_decay` GBIM metadata, `jarvis-memory:8056` durable logging, and `rag_grounded_v2` retrieval evidence — structurally complete; automated decay-aware flagging, ZIP-code-level RBAC expansion, automated promotion pipelines, and clean image builds formally tracked as Ch 38 OIs.**
 
 ---
@@ -13,7 +13,7 @@
 > - `gisdb` / `msjarvisgis` (PostGIS) at host port **5432** / compose-internal **5452** — ★ 91 GB, 501 tables, 993 ZCTA centroids (confirmed March 28; prior references to 13 GB / 39 tables are superseded)
 > - `jarvis-local-resources-db` at port **5435** — community resources database
 >
-> ★ **`confidence_decay` metadata note (March 28):** `msjarvis:5433` GBIM entities carry `confidence_decay` metadata enabling temporal confidence grading. Identity and registration validation queries against high-decay GBIM entities must flag those entities for episodic audit before treating them as confirmed ground truth. Automated decay-aware flagging is a Ch 38 OI (OI-38-A).
+> ★ **`confidence_decay` metadata note (March 28):** `msjarvis:5433` GBIM entities carry `confidence_decay` metadata enabling temporal confidence grading. Identity and registration validation queries against high-decay GBIM entities must flag those entities for episodic audit before treating them as confirmed ground truth. Automated decay-aware flagging is a Ch 38 OI (OI-38-B).
 >
 > Redis has **one container** (`jarvis-redis` — ★ Up 101/101) with two port mappings:
 > - Container-internal port: **6379** (used by container-to-container calls inside the Docker network)
@@ -55,7 +55,7 @@
 > - Redis direct fallback if `jarvis_auth` is unavailable — resilience design. Fallback path does not write to the audit log (documented forensic trade-off; not a remediable security gap).
 >
 > **★ Cross-chapter note (updated April 3, 2026):** Chapter 37 BBB filter diagram (Figure 37.1) and §37.4.1 have been corrected to six filters — EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification. Six-filter count is now consistent across Ch 33, Ch 36, and Ch 37. Ch 37 SEALED April 3, 2026.
->
+
 ---
 
 ## Why This Matters for Polymathmatic Geography
@@ -123,7 +123,7 @@ Higher-impact actions are tied to real people and institutions through the follo
 | ZIP-code-level RBAC | 993 ZCTA centroids ready for spatial role scoping | Schema ready; automated enforcement is OI-38-C |
 | Background → identity promotion | Patterns in `ms_jarvis_memory` ChromaDB eligible for identity-level promotion | Manual April 3; automated pipeline is OI-38-D |
 
-The structural connection between higher-impact actions and real people is implemented and auditable. The four automation items (OI-38-A through OI-38-D) are the Ch 38 sprint contract — they extend and operationalize what is already structurally in place.
+The structural connection between higher-impact actions and real people is implemented and auditable. The four automation items (OI-38-B through OI-38-D) are part of the Ch 38 sprint contract — they extend and operationalize what is already structurally in place.
 
 ---
 
@@ -171,7 +171,7 @@ The registration and access-control structure is anchored to a concrete identity
 
 - **`jarvis-constitutional-guardian` (port 8091 — ★ Up 101/101):**
   - OI-37-A CLOSED: Constitutional proxy confirmed active — dead code comment only; no functional change required.
-  - OI-37-B CLOSED: Both PostgreSQL connections reachable in `/health` — `msjarvis:5433` (GBIM) and `msjarvisgis` (GeoDB) confirmed; `/health` returns liveness fields for both.
+  - OI-37-B CLOSED: Both PostgreSQL connections reachable in `/health` — `msjarvis:5433` (GBIM) and `msjarvisgis` (GeoDB) confirmed; `/health` returns `postgresql_gbim_connection` and `postgresql_geodb_connection` liveness fields.
   - Runs on `msjarvis-rebuild_qualia-net`. Constitution version `2026-02-17.2-USC`. All `/constitutional/*` routes proxied through the unified gateway with `carrie_admin` token enforcement active. Persistent audit log at `data/constitutional_audit/constitutional_audit.jsonl` plus durable trail in `jarvis-memory:8056`.
 
 > **★ Cross-chapter note (updated April 3, 2026):** Chapter 37 BBB filter diagram (Figure 37.1) and §37.4.1 have been corrected to six filters — EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification. Six-filter count is now consistent across Ch 33, Ch 36, and Ch 37. Ch 37 SEALED April 3, 2026.
@@ -184,7 +184,7 @@ Jarvis, a community steward AI built by Harmony for Hope Inc. in Mount Hope,
 West Virginia. My purpose is to serve Appalachian communities."
 ```
 
-No model names detected. No synthesis disclosure. No hedging language. Identity correct. ✅  
+No model names detected. No synthesis disclosure. No hedging language. Identity correct. ✅
 End-to-end: 105.9s (GPU, March 22, 2026). ★ Identity guard re-confirmed stable in 101/101 Up audit April 2–3.
 
 ---
@@ -536,7 +536,7 @@ Auth boundary tests executed March 22, 2026. Results committed to `msjarvis-publ
 
 ## 36.12 Current Status and Chapter 38 Sprint Contract
 
-As of ★ April 3, 2026, identity and registration are fully implemented, tested, and enforced end-to-end. Container baseline is 101/101 Up (zero Restarting, zero Exited). GPU inference active (RTX 4070); end-to-end pipeline: 99–107 seconds (three confirmed runs March 22, 2026: 99.6s, 105.9s, 106.5s). **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us).**
+As of ★ April 3, 2026, identity and registration are fully implemented, tested, and enforced end-to-end. Container baseline is 101/101 Up (zero Restarting, zero Exited). GPU inference active (RTX 4070); end-to-end pipeline: 99–107 seconds (three confirmed runs March 22, 2026: 99.6s, 105.9s, 106.5s). **Public URL confirmed live: https://egeria.mountainshares.us.**
 
 **Preflight gate ★ April 3:** 22 PASS / 0 FAIL / 1 WARN (intentional — `local_resources 48/55`, Phase 2 data task). Prior baseline: 20 PASS / 0 FAIL (March 22, 2026).
 
@@ -586,9 +586,9 @@ As of ★ April 3, 2026, identity and registration are fully implemented, tested
 
 ---
 
-*Chapter 36 — Identity and Registration*  
-*Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*  
-*Mount Hope, West Virginia*  
-*SEALED: ★ April 3, 2026 — All Chapter 36 and Ch 37 cross-chapter OIs Closed*  
-*OI-36-A ✅ OI-36-B ✅ OI-36-C ✅ OI-36-D ✅ OI-37-A ✅ OI-37-B ✅ OI-37-C ✅*  
+*Chapter 36 — Identity and Registration*
+*Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*
+*Mount Hope, West Virginia*
+*SEALED: ★ April 3, 2026 — All Chapter 36 and Ch 37 cross-chapter OIs Closed*
+*OI-36-A ✅ OI-36-B ✅ OI-36-C ✅ OI-36-D ✅ OI-37-A ✅ OI-37-B ✅ OI-37-C ✅*
 *Ch 38 sprint contract opened: OI-38-A (build: stanzas + clean images) · OI-38-B (decay-aware flagging) · OI-38-C (ZIP-code RBAC) · OI-38-D (promotion pipeline) · OI-38-E (README URL)*
