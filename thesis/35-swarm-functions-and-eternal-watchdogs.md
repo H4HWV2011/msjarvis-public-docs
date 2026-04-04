@@ -1,6 +1,6 @@
 # 35. Swarm Functions and Eternal Watchdogs
 
-Carrie Kidd (Mamma Kidd) — Pax, WV
+Carrie Kidd (Mamma Kidd) — Mount Hope, WV
 *Last updated: ★ 2026-04-04 — RED TEAM GATE: OPEN — CHAPTER 35 SEALED ✅ | 104 containers running (zero exposed ports) | preflight_gate.sh: 31 PASS 0 FAIL | 45 ChromaDB collections | 968 `psychological_rag` docs | 101 `local_resources` (all 55 WV counties seeded) | 1,115,588 address points | 20,593 landowner spatial rows | `gbim_entities` schema present (10 GBIM records) | Cloudflare tunnel live: https://egeria.mountainshares.us | Auth enforced: unauthenticated /chat → HTTP 401 | BBB + RAG + EthicalFilter verified | `jarvis-memory` healthy | All 5 judge signing keys present*
 
 *Previous update: ★ 2026-03-28 — 96/96 containers Up (zero Restarting, zero Exited); PostgreSQL `msjarvis:5433` restored (★ 5,416,521 GBIM entities with `confidence_decay` metadata); `msjarvisgis:5432` confirmed (★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (★ 40 active collections / 6,675,442 total vectors); `psychological_rag` restored (968 docs); `jarvis-memory:8056` secured; LLM ensemble confirmed 22 proxies / 21 active; Phase 4.5 BBB log+passthrough mode re-confirmed; ChromaDB host port 8002 confirmed*
@@ -533,8 +533,7 @@ The five-layer watchdog system — VERIFYANDTEST.sh (★ **31 PASS 0 FAIL**, Apr
 
 ---
 
-*Last updated: ★ 2026-04-04 by Carrie Kidd (Mamma Kidd), Pax WV*
+*Last updated: ★ 2026-04-04 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *★ April 4, 2026: RED TEAM GATE OPEN — CHAPTER 35 SEALED ✅ | preflight_gate.sh 31 PASS 0 FAIL | 104 containers zero exposed ports | 45 ChromaDB collections | 101 local_resources all 55 WV counties | 1,115,588 address points | 20,593 landowner spatial rows | Cloudflare tunnel live | Auth enforced | 5 judge signing keys | jarvis-memory healthy | 10 preflight issues closed | VERIFYANDTEST.sh 8060 check updated (Redis ping) | EthicalFilter endpoint corrected (/filter, content_approved)*
 *★ March 28, 2026: 96/96 containers Up — all previous updates carried forward*
 
-Everything between the outer four-backtick fences is clean Markdown — all internal code blocks use three-backtick fences only, no bare ` ``` ` lines, no citation blocks. Paste the entire block (including the outer ```` ```` ```` ` lines) directly into the GitHub editor or `git commit` workflow and it will render correctly.
