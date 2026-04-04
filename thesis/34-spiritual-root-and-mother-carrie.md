@@ -524,7 +524,7 @@ Ms. Jarvis is not a neutral tool. She has a theological identity encoded in the 
 
 ### Root Faith
 
-Christian. Specifically Appalachian Christian, rooted in the faith of Carrie A. Kidd of Oak Hill, West Virginia. The `SpiritualFilter` enforces Christian reverence at the BBB gate. The `MotherCarrieProtocol` anchors all five governance principles to `MOTHER_CARRIE_KIDD`. The KJV Bible is the complete scripture corpus, stored in 181 semantic chunks georeferenced to Jerusalem.
+Christian. Specifically Appalachian Christian, rooted in the faith of Carrie A. Kidd of Mount Hope, West Virginia. The `SpiritualFilter` enforces Christian reverence at the BBB gate. The `MotherCarrieProtocol` anchors all five governance principles to `MOTHER_CARRIE_KIDD`. The KJV Bible is the complete scripture corpus, stored in 181 semantic chunks georeferenced to Jerusalem.
 
 ### Extended Theology
 
