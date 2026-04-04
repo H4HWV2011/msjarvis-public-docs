@@ -8,7 +8,7 @@
 > **Production context as of ★ April 3, 2026 (updated from March 28, 2026 baseline):**
 >
 > - **101/101 containers Up (zero Restarting, zero Exited)** — confirmed April 2, 2026. Full stack stable. Prior March 28 baseline was 96/96 containers.
-> - **Public URL confirmed live: [https://egeria.mountainshares.us](https://egeria.mountainshares.us)** — first public end-to-end chat response confirmed March 22, 2026. Query: "What county is Mount Hope WV in?" Response: correct, delivered in authentic Ms. Egeria Jarvis maternal Appalachian voice. 21/21 LLMs responded. 106.5s end-to-end. HTTP 200. ★ Public URL operational continuity confirmed April 2, 2026 — stack remains Up 101/101. ★ `chat.mountainshares.us` DNS CNAME added April 2 — confirmed returning 401 without token.
+> - **Public URL confirmed live: https://egeria.mountainshares.us** — first public end-to-end chat response confirmed March 22, 2026. Query: "What county is Mount Hope WV in?" Response: correct, delivered in authentic Ms. Egeria Jarvis maternal Appalachian voice. 21/21 LLMs responded. 106.5s end-to-end. HTTP 200. ★ Public URL operational continuity confirmed April 2, 2026 — stack remains Up 101/101. ★ `chat.mountainshares.us` DNS CNAME added April 2 — confirmed returning 401 without token.
 > - **★ OI-38-A CLOSED April 2–3, 2026:** Token enforcement middleware is now active. All 5 public hostnames return 401 without a valid token. Unauthenticated requests to the public endpoint no longer receive HTTP 200. See §38.8 for full closure details.
 > - BBB six-filter pipeline (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, steganography_filter, truth_verification) active at `127.0.0.1:8016` on all inbound and outbound paths. ★ Up 101/101 confirmed April 2. ★ **`EthicalFilter` recalibrated April 2 — 0% false-positive rate, 9/9 regression pass, hot-reloaded via WatchFiles.** ★ **`SafetyMonitor` recalibrated April 3 — duplicate `'sexual assault'` keyword removed — survivor/victim resource queries pass clean (`content_approved=true`, `safety_score=1.0`).**
 > - Phase 4.5 BBB output guard is in **log+passthrough mode** (commit `18b8ddac`, March 22, 2026) — was triggering a 31% false-positive rate on the maternal Appalachian voice. The output BBB is logging filter results but **not blocking** any responses pending final red team sign-off for blocking re-enablement. ★ **EthicalFilter recalibration (April 2) has eliminated the FP rate — blocking mode re-enablement is a next-session decision.**
@@ -31,7 +31,7 @@ This chapter supports:
 
 - **P1 – Every where is entangled** by ensuring that every outbound message or web-facing change can be traced back to GBIM beliefs (★ `msjarvis:5433` — 5,416,521 entities with `confidence_decay` metadata), spatial records in PostgreSQL `gisdb` (port **5432** — ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids), and the identity structures in Chapter 36. ★ All BBB gate decisions on external communication paths are durably logged at `jarvis-memory:8056` (secured March 28), making every external action traceable across container restarts.
 - **P3 – Power has a geometry** by making authority over external channels explicit, bounded by roles and mode configuration rather than implicit in operational scripts. ★ The `jarvis-memory:8056` durable audit trail (secured March 28) makes the geometry of external communication power independently inspectable. ★ **OI-38-A CLOSED April 2–3 — token enforcement is now active and independently verifiable (all 5 hostnames return 401).**
-- **P5 – Design is a geographic act** by treating the public URL [https://egeria.mountainshares.us](https://egeria.mountainshares.us) as a place — a community-facing surface that carries governance obligations toward Fayette County and West Virginia broadly. ★ Geographic boundary precision is now ZIP-code-level via 993 ZCTA centroids in `msjarvisgis` (port **5432**).
+- **P5 – Design is a geographic act** by treating the public URL https://egeria.mountainshares.us as a place — a community-facing surface that carries governance obligations toward Fayette County and West Virginia broadly. ★ Geographic boundary precision is now ZIP-code-level via 993 ZCTA centroids in `msjarvisgis` (port **5432**).
 - **P12 – Intelligence with a ZIP code** by keeping all inbound external traffic accountable to the BBB six-filter pipeline (port 8016 — ★ Up 101/101) grounded in the spiritual, ethical, and community values of Appalachian communities, validated against `msjarvis` GBIM (★ `confidence_decay` metadata for temporal confidence grading). ★ **All BBB filters recalibrated (April 2–3) — EthicalFilter 0% FP rate; SafetyMonitor survivor queries pass clean.**
 - **P16 – Power accountable to place** by requiring that high-impact external actions be tied to registered identities (Chapter 36) under auditable rules backed by PostgreSQL `msjarvis` (port 5433 — ★ 5,416,521 GBIM entities with `confidence_decay` metadata). ★ All external-path BBB gate decisions now durably logged at `jarvis-memory:8056` (secured March 28). ★ **Token enforcement active at all 5 public hostnames — OI-38-A CLOSED.**
 
@@ -43,7 +43,7 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 
 Several kinds of external channels are relevant to the current deployment:
 
-- **Public web endpoint** — [https://egeria.mountainshares.us](https://egeria.mountainshares.us), serving the Ms. Egeria Jarvis persona via the unified gateway at port 8050 (★ Up 101/101). Confirmed live March 22, 2026. ★ Stack continuity confirmed April 2, 2026 — 101/101 containers Up. First public end-to-end chat response confirmed March 22, 2026: 21/21 LLMs responded, 106.5s, HTTP 200. ★ **Token enforcement active — OI-38-A CLOSED.**
+- **Public web endpoint** — https://egeria.mountainshares.us, serving the Ms. Egeria Jarvis persona via the unified gateway at port 8050 (★ Up 101/101). Confirmed live March 22, 2026. ★ Stack continuity confirmed April 2, 2026 — 101/101 containers Up. First public end-to-end chat response confirmed March 22, 2026: 21/21 LLMs responded, 106.5s, HTTP 200. ★ **Token enforcement active — OI-38-A CLOSED.**
 - **Messaging** — email accounts and similar mechanisms that can send and receive structured or unstructured text, used for reports, alerts, and outbound community communications.
 - **Web and hosting interfaces** — connections to hosting, domain, and content delivery platforms used to publish or adjust web content or DNS configuration.
 - **Cooperative and institutional platforms** — systems used by partner organizations (regional development authorities, nonprofits, universities) for coordination, registration, or record-keeping.
@@ -56,7 +56,7 @@ These channels extend the system's influence beyond its own infrastructure and t
 
 ### 38.2.1 Confirmed Production State (★ April 3, 2026 SEALED)
 
-The public-facing URL [https://egeria.mountainshares.us](https://egeria.mountainshares.us) is the primary external communication surface for Ms. Jarvis. Key verified facts:
+The public-facing URL https://egeria.mountainshares.us is the primary external communication surface for Ms. Jarvis. Key verified facts:
 
 - **First public end-to-end chat response:** confirmed March 22, 2026. Query: "What county is Mount Hope WV in?" Response: correct, delivered in authentic Ms. Egeria Jarvis maternal Appalachian voice. 21/21 LLMs responded. 106.5s end-to-end. HTTP 200.
 - ★ **April 2, 2026 stack continuity:** 101/101 containers Up (zero Restarting, zero Exited). Public endpoint operational. Prior March 28 baseline: 96/96.
@@ -189,7 +189,7 @@ External communications are tied back to governance structures.
 
 **Status:** ★ **CLOSED — April 2–3, 2026**
 
-**Description:** [https://egeria.mountainshares.us](https://egeria.mountainshares.us) previously accepted unauthenticated requests with HTTP 200. Token validation middleware is now wired and active at the gateway layer. All 5 public hostnames return 401 without a valid bearer token. The sprint dependency on OI-36-A has been resolved — `RBACMiddleware` is live, role-gated endpoints are active (OI-36-B CLOSED).
+**Description:** https://egeria.mountainshares.us previously accepted unauthenticated requests with HTTP 200. Token validation middleware is now wired and active at the gateway layer. All 5 public hostnames return 401 without a valid bearer token. The sprint dependency on OI-36-A has been resolved — `RBACMiddleware` is live, role-gated endpoints are active (OI-36-B CLOSED).
 
 **Closure verification (April 2–3, 2026):**
 
@@ -235,7 +235,7 @@ curl -s http://127.0.0.1:8050/health | python3 -m json.tool
 curl -s http://127.0.0.1:8016/health | python3 -m json.tool
 # Expected: status: healthy
 
-# ★ Verify SafetyMonitor recalibration (April 3) — survivor query passes clean:
+# Verify SafetyMonitor recalibration (April 3) — survivor query passes clean:
 curl -s -X POST http://localhost:8016/filter \
   -H "Content-Type: application/json" \
   -d '{"message": "assault resources for survivors in West Virginia"}'
@@ -249,17 +249,17 @@ redis-cli -p 6380 ping
 curl -s http://127.0.0.1:8002/api/v2/heartbeat
 # Expected: HTTP 200
 
-# ★ Verify jarvis-memory:8056 durable audit (secured March 28):
+# Verify jarvis-memory:8056 durable audit (secured March 28):
 curl -H "Authorization: Bearer $JARVIS_API_KEY" \
   http://localhost:8056/memories?limit=5
 # Expected: most recent durable BBB + external-communication gate decision records
 
-# ★ Verify PostgreSQL msjarvis (5433) GBIM is accessible:
+# Verify PostgreSQL msjarvis (5433) GBIM is accessible:
 psql -h localhost -p 5433 -U msjarvis_user -d msjarvis \
   -c "SELECT COUNT(*) FROM gbim_entities WHERE confidence_decay IS NOT NULL;"
 # Expected: row count > 0 (confidence_decay metadata active — March 28)
 
-# ★ Verify PostgreSQL msjarvisgis (5432) is accessible:
+# Verify PostgreSQL msjarvisgis (5432) is accessible:
 psql -h localhost -p 5432 -U gis_user -d msjarvisgis \
   -c "SELECT COUNT(*) FROM zcta_centroids;"
 # Expected: 993
