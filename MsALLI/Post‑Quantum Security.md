@@ -1,7 +1,5 @@
 # Chapter 42 — Post‑Quantum Security
 
-This chapter explains how the post‑quantum security layer protects Appalachian communities, their data, and the AI decisions made in their name, without relying on diagrams or port maps. Instead of focusing on low‑level commands, it focuses on what the cryptographic pieces are for, what they do, and how they reinforce the constitutional commitments already laid out in earlier chapters.
-
 ### 42.1 Why Post‑Quantum Security Matters Here
 
 Post‑quantum cryptography refers to cryptographic methods designed to stay secure even if future attackers gain access to powerful quantum computers. In this system, the core methods are ML‑DSA‑65 for digital signatures and ML‑KEM‑768 combined with a classical curve (X25519) for key exchange, with AES‑256‑GCM and SHA3‑256 as the workhorse tools for encryption and hashing.
