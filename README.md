@@ -189,7 +189,7 @@ This system is a live research project. The questions under active investigation
 
 ## About This Project
 
-**Harmony for Hope, Inc.** is a West Virginia nonprofit headquartered in Mount Hope, Fayette County, West Virginia. It is the institutional home of Ms. Jarvis, MountainShares DAO, and The Commons platform. **Kidd's Technical Services, Inc.** provides the technical development and infrastructure services.
+**Harmony for Hope, Inc.** is a West Virginia nonprofit headquartered in Mount Hope, Fayette County, West Virginia. It is the institutional home of Ms. ALLI, MountainShares DAO, and The Commons platform. **Kidd's Technical Services, Inc.** provides the technical development and infrastructure services.
 
 **Founder and Principal Investigator:** Carrie Ann Kidd (Mamma Kidd) — Mount Hope, West Virginia
 **Contact:** [kiddstechnical@gmail.com](mailto:kiddstechnical@gmail.com)
