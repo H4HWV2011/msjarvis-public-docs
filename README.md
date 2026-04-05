@@ -1,9 +1,9 @@
-# Ms. Jarvis & The Commons
+# Ms. ALLI & The Commons
 ### Community-Safeguarded Intelligence for Appalachian Revitalization
 
 > *"Built in Mount Hope, West Virginia. Governed by the communities it serves."*
 
-**Ms. Egeria Jarvis** is a live, place-based AI steward system running in production in Mount Hope, West Virginia as of January 2026. This repository is its complete public documentation: the intellectual discipline that grounds it, the theoretical framework that shapes it, the governance and economic systems it serves, the 43-chapter computational thesis that argues for it, and the operational records that prove it.
+**Ms. ALLI* is a live, place-based AI steward system running in production in Mount Hope, West Virginia as of January 2026. This repository is its complete public documentation: the intellectual discipline that grounds it, the theoretical framework that shapes it, the governance and economic systems it serves, the 43-chapter computational thesis that argues for it, and the operational records that prove it.
 
 This is not a demo. It is not a proposal. It is a working system — 80 containerized services, more than 51,000 Python modules, a PostGIS spatial database holding 5.4 million verified geospatial beliefs across West Virginia, and a live governance infrastructure governing a closed-loop community economy — running on a Lenovo Legion 5 in Mount Hope, West Virginia.
 
@@ -28,8 +28,8 @@ That is what this project is building.
 
 This project is not just software. It is three systems working together:
 
-### 1. Ms. Jarvis — The AI Steward
-A place-based AI assistant designed to make hidden patterns of power, ownership, and resource flow visible to the community that lives with them. It reasons from 5.4 million georeferenced beliefs about West Virginia — parcels, buildings, roads, census blocks, infrastructure, and public data — not from generic global training data. Every answer is tied to a real place. Every constraint is published. Every step is traceable.
+### 1. Ms. ALLI — The AI Steward
+An artificial learning & location based AI assistant designed to make hidden patterns of power, ownership, and resource flow visible to the community that lives with them. It reasons from 5.4 million georeferenced beliefs about West Virginia — parcels, buildings, roads, census blocks, infrastructure, and public data — not from generic global training data. Every answer is tied to a real place. Every constraint is published. Every step is traceable.
 
 ### 2. MountainShares DAO — The Economic Instrument
 A closed-loop community economy governed by a democratic DAO structure, designed to keep value circulating within Fayette County rather than extracting outward to absentee owners. MountainShares tokens represent community contributions — labor, knowledge, care, participation — and are redeemable within the local economy. The system is explicitly designed to be safe for participants on public benefits (SNAP, SSI, Medicaid).
@@ -41,11 +41,11 @@ The daily-life interface where Mount Hope residents interact with the system, pa
 
 ## The Physical Infrastructure Layer
 
-**Ms. Jarvis is also a tool for comprehensive community planning and building infrastructure.**
+**Ms. ALLI is also a tool for comprehensive community planning and building infrastructure.**
 
 The system has mapped the existing physical assets across West Virginia's 9th District — schools, clinics, arts and community centers, municipal buildings, small business hubs, and annexed corridors around Mount Hope — as an infrastructure network showing concentrations of demand, access, and public expectations for construction, water, power, and permitting.
 
-The anchor building for this work is the **Miner's Academy** in Mount Hope — a historic structure being positioned as the physical home of the Ms. Jarvis infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed for planned coordination with community partners and framed around Mount Hope revitalization and state innovation goals.
+The anchor building for this work is the **Miner's Academy** in Mount Hope — a historic structure being positioned as the physical home of the Ms. ALLI infrastructure node, a community technology center, and a demonstration site for Appalachian AI governance. This work is being developed for planned coordination with community partners and framed around Mount Hope revitalization and state innovation goals.
 
 The physical infrastructure strategy includes:
 
@@ -59,7 +59,7 @@ This is the connection between the digital and physical layers of the project: *
 
 ---
 
-## How Ms. Jarvis Works
+## How Ms. ALLI Works
 
 A question arrives — *"Where is food access most fragile in our county?"* — and the system:
 
@@ -100,7 +100,7 @@ msjarvis-public-docs/
 ├── LICENSE                            ← Licensing terms
 ├── bibliography.md                    ← Complete annotated bibliography
 ├── Definitive Service Inventory.md    ← Authoritative map of all 80 running services
-├── The Ms. Jarvis Steward System.md   ← Plain-language steward system overview
+├── The Ms. ALLI Steward System.md   ← Plain-language steward system overview
 │
 ├── discipline/                        ← Polymathmatic Geography: the foundational field
 │   ├── Polymathmatic Geography: A Manifesto.md
@@ -181,7 +181,7 @@ msjarvis-public-docs/
 
 This system is a live research project. The questions under active investigation are:
 
-1. **Trust and clarity** — Do residents, partners, and auditors find Ms. Jarvis more understandable and trustworthy than black-box AI or opaque government process?
+1. **Trust and clarity** — Do residents, partners, and auditors find Ms. ALLI more understandable and trustworthy than black-box AI or opaque government process?
 2. **Seeing extraction** — Can the system make hidden patterns of absentee ownership and resource extraction visible on the map, so local people can act on them?
 3. **Stronger local safety nets** — Does MountainShares keep more value circulating in the community and make people feel safer, without becoming an unregulated financial institution?
 
@@ -199,4 +199,4 @@ This system is a live research project. The questions under active investigation
 *This repository is a living document. Sections are published as they are completed.*
 *© Carrie Ann Kidd / Harmony for Hope, Inc. See [LICENSE](./LICENSE) for terms.*
 *Polymathmatic Geography, Quantarithmia, and the Ms. Jarvis system are original works authored by Carrie Ann Kidd.*
-*Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
+*Ms. ALLI is an original system designed and built by Carrie Ann Kidd.*
