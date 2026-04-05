@@ -56,7 +56,7 @@ Key management is handled with the caution you would expect for something that c
 
 ### 42.5 The BBB Gate and Its Relationship to Signatures
 
-Between the judges and any user‑facing output stands the Behavioral Boundary and Blocking gate, or BBB. It examines verdicts and candidate responses through six lenses—ethical, spiritual, safety, threat detection, steganography, and truth—and can block, flag, or pass content.
+Between the judges and any user‑facing output stands the Blood-Brain Barrier, or BBB. It examines verdicts and candidate responses through six lenses—ethical, spiritual, safety, threat detection, steganography, and truth—and can block, flag, or pass content.
 
 For input, BBB is fully active and enforced. For the final output layer (Phase 4.5), the system is currently operating in log‑and‑passthrough mode: when the filter is unsure, it permits the content but logs the event for calibration instead of blocking it outright. This mode was chosen after the system misread a significant portion of maternal Appalachian voice as unethical or unsafe, with phrases like “Child, that’s just plain wrong!” wrongly flagged.
 
