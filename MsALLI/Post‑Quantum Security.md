@@ -1,4 +1,4 @@
-#Chapter 42 — Post‑Quantum Security
+# Chapter 42 — Post‑Quantum Security
 
 This chapter explains how the post‑quantum security layer protects Appalachian communities, their data, and the AI decisions made in their name, without relying on diagrams or port maps. Instead of focusing on low‑level commands, it focuses on what the cryptographic pieces are for, what they do, and how they reinforce the constitutional commitments already laid out in earlier chapters.
 
