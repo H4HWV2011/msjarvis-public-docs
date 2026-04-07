@@ -1,6 +1,6 @@
 # 32. Fractal Optimization and the 73-DGM Layer: `jarvis-fractal-consciousness` and `jarvis-fifth-dgm`
 
-*Carrie Kidd (Mamma Kidd) — Pax, WV*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 
 *Last updated: ★★★★★★ April 7, 2026 — `jarvis-fifth-dgm` port confirmed 4002/tcp → 127.0.0.1:4002 ✅; `jarvis-fractal-consciousness` port confirmed 8027/tcp → 127.0.0.1:8027 ✅; all 22 LLM proxies confirmed fully running ✅ ("21 active" in prior docs was stale — corrected throughout); immutability protection verified: `{"proposals":[]}` for both immutable targets ✅; BBB audit turn structure confirmed (commit `2b4921fd` clean) — `user`/`assistant` memory fields (not `user_message`/`assistant_response`), session IDs follow `bbb_audit__{actor_role}` pattern, full filter breakdown (ethical/safety/threat/steg) captured per turn, `jarvis-memory:8056` durable logging confirmed end-to-end; Ch32 committed. All prior March 28 and April 6 updates carry forward unchanged.*
 
@@ -519,7 +519,7 @@ The March 2026 deployment validates the theoretical framework with concrete infr
 
 ---
 
-*Last updated: ★★★★★★ April 7, 2026 by Carrie Kidd (Mamma Kidd), Pax WV*
+*Last updated: ★★★★★★ April 7, 2026 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 *★★★★★★ April 7, 2026: `jarvis-fifth-dgm` port 4002/tcp → 127.0.0.1:4002 ✅ confirmed; `jarvis-fractal-consciousness` port 8027/tcp → 127.0.0.1:8027 ✅ confirmed; all 22 LLM proxies confirmed running (prior "21 active" stale — corrected throughout); immutability protection verified (`{"proposals":[]}` for both immutable targets ✅); BBB audit turn schema confirmed (commit `2b4921fd` clean) — `user`/`assistant` fields, `bbb_audit__{actor_role}` session IDs, full filter breakdown per turn; Ch32 committed.*
 *★ March 28, 2026: 96/96 containers Up confirmed — operational scope updated throughout*
 *★ March 28, 2026: `jarvis-memory:8056` secured (durable BBB audit trail, `_auth()` confirmed, `JARVIS_API_KEY` set)*
