@@ -1,5 +1,3 @@
-Here is the complete updated Chapter 28 with all April 9, 2026 corrections and additions applied:
-
 # Chapter 28 — Heartbeat and Live Cycles
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
