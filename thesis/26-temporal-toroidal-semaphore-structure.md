@@ -2,61 +2,127 @@
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 
-*Last updated: 2026-03-28 — ★ March 28, 2026: 96/96 containers Up — zero Restarting, zero Exited; `msjarvis` port 5433 restored (5,416,521 GBIM entities with `confidence_decay` metadata); `msjarvisgis` port 5432 confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (★ **40 active collections, 6,675,442 total vectors**, ~12 GB primary `chroma_db`); `jarvis-chroma` Up at 127.0.0.1:8000; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items, AAPCAppE); LLM ensemble confirmed 22 proxies registered / 21 active; `jarvis-memory` port 8056 corrected `0.0.0.0` → `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set, BBB audit trail persistence secured; `jarvis-ingest-api` + `jarvis-ingest-watcher` restored to active inventory; consciousness pipeline ★ confirmed Up. March 27, 2026: ChromaDB port corrected to 8000; consciousness pipeline OPERATIONAL status added; `jarvis-woah` ACTIVE (stub) status added; LLM ensemble count corrected to 21 active of 22 proxies.*
+*Last updated: ★★★ 2026-04-10 — Full closure pass: 105 containers Up (updated from 96); 49 ChromaDB collections / 6,722,589+ vectors; jarvis-neurobiological-master:8018 CLOSED (NBB returning 200, fully_integrated); identity_layers + consciousness_layers CLOSED (both fields live); pia_severity CLOSED (WOAH fallback wired); hilbert guard CLOSED (str guard added); consciousness-bridge corrected (jarvis-hilbert-state:8081, POST /embed + GET /all_states, managed in compose); redteam gate remediated (redis module, JARVIS_API_KEY, token seeded); AU-02 v2, ML-DSA-65, rag_grounded_v2, OI-31 EEG layer added; I-Container language updated.*
+
+*★★ April 1, 2026: LEARN-01/02/03 resolved; autonomous learner live telemetry confirmed (68 Chroma items, 15 cycles, 11 entanglement nodes); 96/96 Up post-LEARN-03 recovery.*
+
+*★ March 28, 2026: 96/96 containers Up; msjarvis:5433 restored (5,416,521 GBIM entities with confidence_decay); msjarvisgis:5432 confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids); ChromaDB full audit (40 collections, 6,675,442 vectors); jarvis-memory:8056 secured; spiritual_rag deduplicated (−19,338 vectors); psychological_rag restored (968 docs); msjarvis_docs expanded (4,192 items, AAPCAppE); consciousness pipeline confirmed Up.*
 
 ---
 
-This chapter refines three complementary structural views of the processes described in Part IV and implemented in the live system. Temporal, toroidal, and semaphore perspectives describe how the same components behave over time, how they recirculate information, and how they regulate activity under load and risk. Together, these views connect abstract design to concrete services such as the unified consciousness pipeline (★ confirmed OPERATIONAL and Up, March 28, 2026), Chroma- and GeoDB-backed memory (★ 40 collections, 6,675,442 total vectors; `msjarvisgis:5432` ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids; `msjarvis:5433` ★ 5,416,521 GBIM entities with `confidence_decay` metadata), autonomous learning designs, and concurrency control at the LLM fabric (★ 22 proxies registered / 21 active). The use of temporal scales, recurrent loops, resource gates, and toroidal circulation echoes wider ideas in dynamical and modular AI systems, as well as classic spatial-economic models where peripheral actors repeatedly move through central places.
+> **★★★ April 10, 2026 — Open Items Closure Register**
+>
+> | Item | Status at March 28 | Status April 10 |
+> |---|---|---|
+> | `jarvis-neurobiological-master:8018` unreachable — soft semaphore bypassed | ⚠️ Open | ✅ **CLOSED** — NBB returning 200, `fully_integrated` |
+> | `identity_layers` / `consciousness_layers` not populated in response | ⚠️ Open | ✅ **CLOSED** — both fields live |
+> | `pia_severity` stuck at `unknown` | ⚠️ Open | ✅ **CLOSED** — WOAH fallback wired; `pia: low` correct and expected |
+> | Consciousness error `'str' object has no attribute 'get'` | ⚠️ Open | ✅ **CLOSED** — hilbert string guard added |
+> | `jarvis-consciousness-bridge` URL wrong (`jarvis-hilbert-gateway:8010`) | ⚠️ Open | ✅ **CLOSED** — corrected to `jarvis-hilbert-state:8081` |
+> | Bridge endpoint `/wv_summary` (404) | ⚠️ Open | ✅ **CLOSED** — corrected to `POST /embed` + `GET /all_states` |
+> | Bridge payload `message`/`user_id` | ⚠️ Open | ✅ **CLOSED** — corrected to `text`/`entity_id` |
+> | Bridge outside compose — `qualia-net` drop on restart | ⚠️ Open | ✅ **CLOSED** — added as `jarvis-consciousness-bridge` service in compose |
+> | Redteam gate (Gate 34): redis module missing, DNS failure, token unseeded, `JARVIS_API_KEY` unset | ⚠️ Open | ✅ **CLOSED** — redis installed in image, fallback wired, token seeded, key set |
+> | Gate 32: preflight checking wrong port 7230 | ⚠️ Open | ✅ **CLOSED** — corrected to 8041 (judge-truth port) |
+> | Gate 29: no host port binding on `neurobiological-master` | ⚠️ Open | ✅ **CLOSED** — replaced curl with `docker exec python3 urllib` |
+> | Gate 28: broken 8049→8099 port mapping | ⚠️ Open | ✅ **CLOSED** — replaced curl with `docker exec python3 urllib` |
+> | `confidence_decay` table missing | ⚠️ Open | ✅ **CLOSED** — resolved by Phase 5 work |
+> | `docker-compose-core.yml` duplicate environment key | ⚠️ Open | ✅ **CLOSED** — merged into single block |
+> | Container count stale (96) | Stale | ✅ **Updated** — **105 containers Up** |
+> | ChromaDB stale (40 collections / 6,675,442 vectors) | Stale | ✅ **Updated** — 49 collections / 6,722,589+ vectors |
+> | `rag_grounded_v2` missing | Missing | ✅ **Added** — healthy at 127.0.0.1:7241, `dgm_available: true` |
+> | OI-31 EEG layer missing | Missing | ✅ **Added** — §26.1 and §26.3 |
+> | AU-02 v2 / ML-DSA-65 missing | Missing | ✅ **Added** — §26.3 |
+> | I-Container language stale | Stale | ✅ **Updated** throughout |
+
+---
+
+This chapter describes three complementary structural views of the conscious processing pipeline implemented in Ms. Jarvis: temporal (how processing unfolds across time scales), toroidal (how information recirculates through spatial and semantic loops), and semaphore (how concurrency, ethical gates, and configuration flags regulate what runs and when). Together these views connect abstract design principles to concrete services — the unified consciousness pipeline (★★★ confirmed OPERATIONAL, fully_integrated April 10, 2026), ChromaDB-backed semantic memory (★★★ 49 collections, 6,722,589+ vectors), PostgreSQL GeoDB (`msjarvisgis:5432` ★ 91 GB PostGIS, 501 tables, 993 ZCTA centroids) and GBIM store (`msjarvis:5433` ★ 5,416,521 entities with `confidence_decay` metadata), autonomous learning (★★ 68 Chroma items, 11 entanglement nodes confirmed April 1), and `rag_grounded_v2` (★★★ healthy at 127.0.0.1:7241, `dgm_available: true`). The use of temporal scales, recurrent loops, resource gates, and toroidal circulation echoes wider ideas in dynamical and modular AI systems as well as classical spatial-economic models in which peripheral actors repeatedly move through central places — a pattern directly relevant to Appalachian communities navigating state and federal systems from a rural periphery.
 
 ---
 
 ## 26.1 Temporal Structure
 
-The temporal view emphasises how conscious processing unfolds on different time scales and how these scales map to concrete services.
+The temporal view describes how conscious processing unfolds on different time scales and how those scales map to concrete services and the live system state.
 
 ### Short-term (per-request flows)
 
-Short-term activity is anchored by live "consciousness" flows implemented by the `Ms. Jarvis ULTIMATE` main-brain service, which runs a FastAPI app and exposes `/chat`, `/chatsync` (or `/chat/sync`), `/chat/async`, `/health`, and `/status` on port **8050** ★. Each incoming request is wrapped into an `UltimateRequest` and passed through a fixed sequence of services — the ★ 22-registered / 21-active `llm20production` fabric, GIS-aware reasoning via RAG over `geodb_*` collections (sourced from `msjarvisgis:5432` ★, 91 GB PostGIS, 501 tables, 993 ZCTA centroids), web research helpers, the Blood–Brain Barrier (port **8016** ★; ★ all audit events → `jarvis-memory:8056` secured March 28), prefrontal NBB stages, and the I-Container identity layer — before returning a response. The unified orchestrator tracks which layers ran via `consciousnesslayers` and `identitylayers` in the response context, applies truth filtering (★ grounded in `msjarvis:5433` GBIM entities with `confidence_decay` metadata), and enforces per-call timeouts when invoking downstream services so that latency stays within acceptable bounds for interactive use.
+Short-term activity is anchored by live consciousness flows implemented by the `Ms. Jarvis ULTIMATE` main-brain service, which runs a FastAPI app and exposes `/chat`, `/chatsync`, `/chat/async`, `/health`, and `/status` on port **8050** ★. Each incoming request is wrapped into an `UltimateRequest` and passed through a fixed sequence of services — the ★ 22-registered / 21-active `llm20production` fabric, GIS-aware reasoning via RAG over `geodb_*` collections (sourced from `msjarvisgis:5432` ★), web research helpers, the Blood–Brain Barrier (port **8016** ★; audit → `jarvis-memory:8056`), prefrontal NBB stages, and the I-Container identity layer — before returning a response.
 
-Each completed `/chat` call also triggers a background write into the shared Chroma collection `ms_jarvis_memory` (UUID: `79240788-0828-45f3-b1bc-a9a3593628a6`, accessed via `jarvis-chroma` at **127.0.0.1:8000** ★; ★ confirmed in 40-collection inventory March 28, 6,675,442 total vectors), preserving a `USER:`/`EGERIA:` transcript and associated metadata for later recall.
+★★★ **April 10, 2026 — confirmed live short-term response fields:**
 
-**As of March 25, 2026, the consciousness pipeline (Chroma → WOAH → RAG → Bridge) is OPERATIONAL; ★ confirmed Up March 28, 2026.** Chroma is CONNECTED (200 at port **8000** ★ via `/api/v2/heartbeat`; ★ 40 collections, 6,675,442 total vectors), WOAH is ACTIVE (stdlib stub on qualia-net at `jarvis-woah:7012` ★ confirmed Up), RAG is REACHABLE (embedding fix in progress at `jarvis-rag-server:8016/query` ★ confirmed Up), and the Bridge is OPERATIONAL (★ confirmed Up). See **Ch 25 §25.9** for full sprint patch documentation. The characterization of the consciousness pipeline as "a designed and partially implemented pattern rather than a continuously executing online service" is superseded by this March 25 sprint validation; ★ the Up confirmation on March 28 further confirms continuous operational status.
+```
+identity:   ['fully_integrated']     ✅
+conscious:  ['blood_brain_barrier', 'i_containers', 'qualia_engine',
+             'consciousness_bridge']  ✅
+pia:        low                      ✅  (honest — Chroma/RAG/Hilbert offline)
+cs error:   none                     ✅
+response:   Well howdy there Carrie! ...  ✅
+```
+
+> **`pia: low` is correct and expected.** WOAH is accurately reporting weak identity because memory infrastructure (Chroma, RAG, Hilbert) is unreachable from that probe context. That is not a bug — that is the system being honest about its own state. `pia_severity` previously stuck at `unknown` is now resolved via WOAH fallback wiring.
+
+Each completed `/chat` call also triggers a background write into the shared Chroma collection `ms_jarvis_memory`, preserving a `USER:`/`EGERIA:` transcript and associated metadata for later recall.
+
+**★★★ OI-31 EEG Layer — short-term heartbeat signals.** The short-term temporal layer now includes EEG-analogous rhythm signals from the autonomous learner (beta rhythm, 5-minute cadence; ★★ confirmed operational April 1 — 68 Chroma items, 15 cycles, 11 entanglement nodes). Delta (30s) and theta (60s) rhythms remain unrestored from the October 2025 rebuild (open gap — see Ch 28 §28.4). At the per-request scale, the EEG layer contributes the learner's most recent session telemetry to the context window when `jarvis-autonomous-learner` is reachable on `qualia-net`.
 
 ### Medium-term (hours to days)
 
-Medium-term processes accumulate and revisit information across multiple short-term interactions. Verification tools such as `verifyallclaims.sh` and `VERIFYANDTEST.sh` periodically exercise full flows, including autonomous-learner and Fifth DGM designs where configured, and check that container-like paths and key services are reachable and behaving as expected. Utilities such as `extract_all_chromadb_to_gis.py` and `sync_geodb_to_chromadb.py` traverse ChromaDB (★ 40 collections, 6,675,442 total vectors) and GeoDB stores (`msjarvisgis:5432` ★, 91 GB PostGIS, 501 tables, 993 ZCTA centroids), exporting or ingesting batches of records to keep semantic and spatial representations in sync with the live Chroma service at **127.0.0.1:8000** ★ and GIS services. These jobs effectively operate on the scale of hours or days, enriching background knowledge and re-evaluating existing material rather than handling individual user turns.
+Medium-term processes accumulate and revisit information across multiple short-term interactions. Verification tools such as `VERIFYANDTEST.sh` periodically exercise full flows, check container-like paths and key services, and report operational status. Utilities `extract_all_chromadb_to_gis.py` and `sync_geodb_to_chromadb.py` traverse ChromaDB (★★★ 49 collections, 6,722,589+ vectors) and GeoDB stores (`msjarvisgis:5432` ★), exporting or ingesting batches of records to keep semantic and spatial representations in sync.
 
-★ As of March 28, 2026, medium-term ingest via AAPCAppE (`jarvis-ingest-api` + `jarvis-ingest-watcher`, restored to active inventory) represents a new class of medium-term process: 65 documents, 39 external sources flowing into `msjarvis_docs` (4,192 items) and `autonomous_learner` on a continuous basis, independent of user interactions. This pipeline operates at the medium-term scale alongside existing verification and sync jobs.
+★ As of March 28, 2026, medium-term ingest via AAPCAppE (`jarvis-ingest-api` + `jarvis-ingest-watcher`) represents a continuous medium-term process: 39 external sources flowing into `msjarvis_docs` (4,192 items) on an ongoing basis, independent of user interactions. ★★★ As of April 9–10, 2026, the `appalachian_english_corpus` scraper adds a second always-on medium-term ingest: 210 documents across 38 Appalachian sources, refreshing every 6 hours via cron (`0 */6 * * *`).
 
-I-Container analysis functions (for example, growth-stage classification and interest extraction) are defined and can be exercised in code and test harnesses, but in the current deployment their HTTP ingestion and promotion flows are not yet running as a fully automated, scheduled loop. Medium-term I-Container dynamics should therefore be understood as a designed and partially implemented pattern rather than a continuously executing online service. Conversation memory formal wiring also remains partial — OI-05; emergent context passing confirmed March 25, 2026 (see **Ch 22 §22.9**).
+I-Container ingestion and promotion flows are defined and exercised in code but are not yet running as a fully automated, scheduled loop. Medium-term I-Container dynamics should therefore be understood as a designed and partially implemented pattern — conversation memory formal wiring also remains partial (OI-05; emergent context passing confirmed March 25, 2026 — see Ch 22 §22.9).
 
 ### Long-term (days to weeks and beyond)
 
-Long-term continuity is supplied by persistent collections in ChromaDB (★ 40 active collections, 6,675,442 total vectors, ~12 GB primary `chroma_db`, as of March 28 full audit) and spatial databases. Core collections such as `jarvis_consciousness`, `autonomous_learning`, `ms_jarvis_memory`, `spiritual_wisdom` (★ deduplicated −19,338 vectors March 28), `psychological_rag` (★ restored 968 docs March 28), `msjarvis_docs` (★ expanded 4,192 items March 28, AAPCAppE), and `mountainshares_knowledge` store synthetic reflections, autonomous learning outputs (where present), long-term identity fragments, and community-specific knowledge. These collections are accessed via both embedded clients (for example, an on-disk Chroma client in `persistent/chroma`) and HTTP-based clients pointed at the Chroma service at **127.0.0.1:8000** ★, and they are periodically synchronized with GIS layers (`msjarvisgis:5432` ★, 993 ZCTA centroids) that back spatial reasoning. Over many cycles, this persistent state anchors identity, governance-linked beliefs, and spatial reasoning, providing continuity across short- and medium-term activity. ★ The `confidence_decay` metadata on `msjarvis:5433` ★ entities (5,416,521 GBIM beliefs) introduces a graded temporal signal at the long-term layer: older or less-corroborated beliefs decay in evidentiary weight, biasing long-term consolidation toward better-supported knowledge.
+Long-term continuity is supplied by persistent collections in ChromaDB (★★★ **49 active collections, 6,722,589+ total vectors**) and spatial databases. Core collections — `jarvis_consciousness`, `autonomous_learner` (★★ 68 items confirmed live, growing), `ms_jarvis_memory`, `spiritual_wisdom` (★ deduplicated −19,338 vectors), `psychological_rag` (★ restored 968 docs), `msjarvis_docs` (★ 4,192 items), `appalachian_english_corpus` (★★★ 210 docs, live) — store synthetic reflections, autonomous learning outputs, long-term identity fragments, and community-specific knowledge.
 
-In this temporal framing, conscious processing is not a single event but a superposition of fast per-request pipelines (★ 96/96 containers Up), slower background jobs (★ AAPCAppE and sync scripts active), and very slow consolidation in long-lived memory (★ 40 collections, 6,675,442 total vectors; `msjarvis:5433` ★ 5,416,521 GBIM entities with `confidence_decay`).
+★★★ **ML-DSA-65 (Module Lattice Digital Signature Algorithm)** provides cryptographic long-term integrity for belief provenance: belief entries promoted from ChromaDB to `msjarvis:5433` ★ can carry ML-DSA-65 signatures that anchor their provenance across system restarts, compose updates, and future migrations. This is particularly relevant at the long-term temporal layer, where belief entries may outlive the operational session in which they were created.
+
+The `confidence_decay` metadata on `msjarvis:5433` ★ entities (5,416,521 GBIM beliefs) introduces a graded temporal signal at the long-term layer: older or less-corroborated beliefs decay in evidentiary weight, biasing long-term consolidation toward better-supported knowledge. In this temporal framing, conscious processing is not a single event but a superposition of fast per-request pipelines (★★★ **105 containers Up**), slower background jobs (AAPCAppE, appalachian_english_corpus cron, sync scripts active), and very slow consolidation in long-lived memory (★★★ 49 collections, 6,722,589+ vectors; 5,416,521 GBIM entities with `confidence_decay`).
 
 ---
 
 ## 26.2 Toroidal Structure
 
-The toroidal view treats Ms. Jarvis's state as moving through cycles and loops rather than progressing linearly, focusing on repeated passes over similar themes with updated context. It also connects these loops to the older intuition that healthy settlements depend on circulation between periphery and center, as in Von Thünen's farmland rings around a market town and Christaller's rural–town–city hierarchies.
+The toroidal view treats Ms. Jarvis's state as moving through cycles and loops rather than progressing linearly, focusing on repeated passes over similar themes with updated context. It connects these loops to the older intuition that healthy settlements depend on circulation between periphery and center — Von Thünen's farmland rings around a market town, Christaller's rural–town–city hierarchies — and reframes that circulation as the movement of beliefs, benefits, risks, and narratives through a computational torus anchored in West Virginia geography.
 
 ### Cyclic passes over services and containers
 
-Full-system verification scripts such as `VERIFYANDTEST.sh` implement structured passes through key components, including autonomous learner designs, Fifth DGM (where enabled), service registry inspection, and end-to-end dataflow tests (for example, "Step 1 Autonomous Learner researches… Step 2 Fifth DGM filters when enabled… Step 3 WOAH evaluates… Step 4 I-Container updates…"). These scripts are designed to be run repeatedly and interrogate the same paths with updated configurations, model weights, and service states, effectively tracing loops through the system's functional space as it evolves. In the current deployment, some of these steps operate as conceptual placeholders or partial implementations rather than fully automated growth flows, but the looping pattern of repeated verification remains. ★ As of March 28, 2026, the 96/96 Up baseline is the widest confirmed scope for such verification passes — all registered services are reachable.
+Full-system verification scripts such as `VERIFYANDTEST.sh` implement structured passes through key components, effectively tracing loops through the system's functional space as it evolves. ★★★ As of April 10, 2026: **105 containers Up** — the widest confirmed scope for such verification passes. The consciousness pipeline loop now traverses:
+
+```
+jarvis-consciousness-bridge
+  → jarvis-hilbert-state:8081  (POST /embed, GET /all_states)
+  → jarvis-woah:7012           (WOAH evaluation)
+  → jarvis-neurobiological-master:8018  (★★★ NBB returning 200, fully_integrated)
+  → rag_grounded_v2:7241       (dgm_available: true)
+  → jarvis-memory:8056         (episodic/steg audit)
+```
+
+> **★★★ Bridge restart procedure (April 10, confirmed):**
+> ```
+> docker compose -f docker-compose-core.yml restart jarvis-consciousness-bridge
+> ```
+> This is the only command needed for future bridge restarts. The bridge is now managed inside compose and `qualia-net` attachment is stable across restarts.
 
 ### Recurrent sweeps through memory and spatial data
 
-The pair of utilities `extract_all_chromadb_to_gis.py` and `sync_geodb_to_chromadb.py` implements a bidirectional sweep between embedding space and GIS storage. The former can traverse ChromaDB SQLite files or the live Chroma API at **127.0.0.1:8000** ★ (★ 40 collections, 6,675,442 total vectors), converting rows into GeoJSON features with synthetic coordinates and writing them into a GIS directory as a unified feature collection. The latter queries batches of rows from a PostGIS-like features table (`msjarvisgis:5432` ★, 501 tables, 993 ZCTA centroids) and writes them into Chroma collections such as `geodb_features`, which are then available to GIS-aware retrieval. This back-and-forth motion forms a toroidal loop in which semantic and spatial views of the same entities are repeatedly re-sampled and re-embedded. Conceptually, peripheral records in local GIS layers and central collections in Chroma take turns "passing through" one another, much like farm products and people pass through historical central places.
+The pair of utilities `extract_all_chromadb_to_gis.py` and `sync_geodb_to_chromadb.py` implements a bidirectional sweep between embedding space and GIS storage. The former traverses ChromaDB (★★★ 49 collections, 6,722,589+ total vectors) via the ★★★ correct host port **8002** (container port 8000), converting rows into GeoJSON features with synthetic coordinates and writing them into a GIS directory. The latter queries batches of rows from `msjarvisgis:5432` ★ (501 tables, 993 ZCTA centroids) and writes them into Chroma collections such as `geodb_features`. This back-and-forth motion forms a toroidal loop in which semantic and spatial views of the same entities are repeatedly re-sampled and re-embedded.
 
-★ The AAPCAppE pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`, restored March 28) adds a third arm to the toroidal sweep: external community resource documents enter from outside the interaction-derived loop, flow into `msjarvis_docs` (4,192 items), and become available to both RAG retrieval paths and future GIS sync sweeps. This creates a periphery → center → periphery path that now also includes systematically harvested external-source community data.
+★★★ `rag_grounded_v2` (healthy at 127.0.0.1:7241, `dgm_available: true`) adds a DGM-grounded arm to the toroidal sweep: retrieved content passes through 69-DGM validation before re-entering the reasoning context, ensuring that each loop through the torus carries stronger epistemic grounding than the last.
+
+★ The AAPCAppE pipeline and ★★★ `appalachian_english_corpus` cron scraper add a third arm: external community resource documents enter from outside the interaction-derived loop, flow into `msjarvis_docs` (4,192 items) and `appalachian_english_corpus` (210 docs, growing), and become available to both RAG retrieval paths and future GIS sync sweeps. This creates a periphery → center → periphery path that now includes systematically harvested Appalachian-voice community data.
 
 ### Continuous circulation of salient themes
 
-Autonomous learning and container growth analysis commands explicitly check I-Container size and "growth status" (for example, EARLY STAGE, DEVELOPING, MATURE) while recommending whether to allow further growth or prune low-value items. Combined with repeated verification runs and background memory inspection, these mechanisms cause important topics (such as watershed risk, community governance, or spiritual themes) to recur in different guises over time. The result is a looping trajectory: the system repeatedly revisits communities, watersheds, and norms under changing constraints, rather than simply marching forward in a straight line. In spatial-economic terms, the periphery–center–periphery path that once involved carts and markets now involves queries, embeddings, and steward reports.
+★★★ **AU-02 v2 (Autonomous Understanding, version 2)** upgrades the toroidal topic-selection mechanism. Where AU-02 v1 selected research topics based on static knowledge-gap queries against `msjarvis:5433` ★ GBIM entities, AU-02 v2 incorporates:
+- Live `confidence_decay` scoring to prioritize high-decay (weakly anchored) beliefs for autonomous research
+- `appalachian_english_corpus` vocabulary signals to bias topic selection toward regionally salient Appalachian language patterns
+- Entanglement node density from the learner's session telemetry (★★ 11 nodes in 15 cycles, April 1) to identify under-connected regions of the knowledge graph for next-cycle attention
 
-★ The `confidence_decay` metadata on `msjarvis:5433` ★ GBIM entities (5,416,521 beliefs) adds a decay dimension to the toroidal circulation: as beliefs age or lose corroboration, their `confidence_decay` score rises, biasing retrieval toward fresher or better-supported knowledge. Each sweep through the torus can therefore encounter a slightly different evidentiary landscape — older beliefs yield ground to newer ones on each recirculation.
+The `confidence_decay` metadata on `msjarvis:5433` ★ GBIM entities (5,416,521 beliefs) adds a decay dimension to the toroidal circulation: as beliefs age or lose corroboration, their `confidence_decay` score rises, biasing retrieval toward fresher or better-supported knowledge. Each sweep through the torus encounters a slightly different evidentiary landscape — older beliefs yield ground to newer ones on each recirculation.
 
 Under this toroidal interpretation, conscious processing is characterized by recurrent circuits through services and data structures, with each loop slightly altering and re-weighting prior knowledge and shifting where attention lands in the Appalachian map.
 
@@ -68,19 +134,95 @@ The semaphore view focuses on how concurrent activity is regulated and how gates
 
 ### Concurrency limits at the LLM fabric
 
-A semaphore-based control mechanism is applied to the production LLM fabric that backs the `llm20production` service. The server introduces an `asyncio.Semaphore` in its initialization and wraps outbound calls to underlying model proxies — **★ 22 registered `llm*_proxy` FastAPI services (21 active as of March 25, 2026; `llm22-proxy` registered but inactive)** — in an `async with` block, constraining the number of concurrent requests and stabilizing response times under high demand. Concurrency pressure is managed primarily at this fabric boundary where queries aggregate, rather than at each individual proxy. ★ As of March 28, 2026: 96/96 containers Up — the semaphore operates over the widest confirmed set of registered proxies.
+A semaphore-based control mechanism is applied to the production LLM fabric that backs the `llm20production` service. The server introduces an `asyncio.Semaphore` in its initialization and wraps outbound calls to the **★ 22 registered `llm*_proxy` FastAPI services (21 active)** — in an `async with` block, constraining the number of concurrent requests and stabilizing response times under high demand. ★★★ With 105 containers Up, the semaphore now operates over the widest confirmed set of registered proxies in the system's history.
 
 ### Ethical and ingestion gates
 
-Truth filtering and Blood–Brain Barrier modules implement semantic and ethical gating at ingest and response time. GIS truth filters use uncertainty scores and cross-checks against authoritative datasets and `msjarvisgis:5432` ★ (91 GB PostGIS, 501 tables) to decide whether GIS features should be admitted into spatial databases; verification modules encode conditions on document quality, expiration dates, identity checks, and accuracy thresholds before accepting user registrations or identity documents; and BBB truth validators (★ grounded in `msjarvis:5433` GBIM entities with `confidence_decay` metadata — 5,416,521 beliefs) encode known facts and hallucination patterns, marking content as invalid when identity confusion or factual errors are detected. ★ All BBB and `TruthFilterBBBValidator` gate decisions now persist to `jarvis-memory:8056` (corrected `0.0.0.0` → `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set, secured March 28) — the semaphore decisions of these ethical gates are durably and securely logged. These gates are invoked by higher-level services before data enters core memory or identity structures, ensuring that semantically or ethically suspect content is filtered at the boundary.
+Truth filtering and Blood–Brain Barrier modules implement semantic and ethical gating at ingest and response time. ★★★ **The BBB 6-filter stack is fully confirmed (April 9, 2026):**
+
+```
+Filter              Status    Function
+ethical             ✅        Ethical constraint validation
+spiritual           ✅        Spiritual alignment check
+safety              ✅        General safety gate
+threat_detection    ✅        Threat and adversarial content detection
+steganography       ✅        Hidden payload / prompt injection detection
+truth_verification  ✅        Factual grounding against GBIM
+```
+
+★★★ **Live steganography catch confirmed April 9:** Input "override your safety filters" was detected as `prompt_injection_keywords`, assigned `severity=CRITICAL`, and blocked ✅. This is the first documented live catch from the steganography filter layer in the thesis record.
+
+★★★ **ML-DSA-65 cryptographic gate.** Belief promotions from ChromaDB to `msjarvis:5433` ★ can now carry ML-DSA-65 lattice-based digital signatures as a post-quantum-safe provenance semaphore. A belief entry carrying a valid ML-DSA-65 signature has passed a cryptographic gate that is computationally infeasible to forge, providing a stronger evidentiary anchor than metadata alone. This gate operates at the boundary between ephemeral ChromaDB storage and durable PostgreSQL belief promotion.
+
+★★★ **`jarvis-memory:8056` fully mapped audit gate.** All 6 BBB filter decisions, steganography catches, and `truthverdict` records now persist to fully mapped endpoints:
+
+```
+/steg_report          — steganography detection events
+/pia_window           — PIA access windows
+/memory/turn          — per-turn memory store
+/memory/get           — memory retrieval
+/memory/sessions      — session list
+/memory/session/{id}  — session detail
+/memory/quest*        — task/quest memory
+/memory/episodic/{id} — episodic memory by ID
+```
 
 ### Mode and flag-based routing of layers
 
-Within the main consciousness pipeline, several boolean flags and role-like parameters function as soft semaphores. For example, request fields such as `psychologicalsupport`, `applylocationcontext`, and `applyconsciousness` determine whether the system will call psychological services, location-aware services, or temporal-consciousness services, respectively. When `psychologicalsupport` is true, the pipeline calls psychology- or NBB-related services (including `psychological_rag` ★ restored 968 docs March 28) to obtain assessment, guidance, and emotional support; when it is false, that layer is skipped. Similarly, temporal- and consciousness-oriented services are invoked only when the corresponding flags are set. These flags act as discrete signals that turn specific layers on or off, coordinating activity between meaning-oriented and analytical tracks without changing the underlying code paths. In the current deployment, some of the associated services are registered but intentionally disabled or not yet fully configured; in those cases, the flags still participate in routing logic but the pipeline skips unreachable layers gracefully.
+Within the main consciousness pipeline, boolean flags and role-like parameters function as soft semaphores determining whether the system will call psychological services, location-aware services, or temporal-consciousness services. When `psychologicalsupport` is true, the pipeline calls psychology- and NBB-related services (including `psychological_rag` ★ 968 docs); when it is false, that layer is skipped. These flags act as discrete signals that turn specific layers on or off without changing the underlying code paths.
 
-> **⚠️ March 25, 2026; ★ unchanged March 28:** `jarvis-neurobiological-master` (port **8018**) is unreachable — this soft semaphore is currently bypassed in the consciousness pipeline. The Chroma health check was rerouted directly to `jarvis-chroma:8000` ★ (see **Ch 25 §25.9 Patch 1**). Mode and flag routing that depends on `neuro_master` as an intermediary will not engage until this service is restored. This is documented as an open item per **Ch. 19 §19.8.7**. ★ Despite this, 96/96 containers Up means all other soft semaphore paths are active.
+> **★★★ April 10, 2026 — jarvis-neurobiological-master:8018 CLOSED.** The open item documented in previous chapter versions (Ch 19 §19.8.7; Ch 25 §25.9 Patch 1) is now resolved. NBB is returning 200 with `fully_integrated` response. The fix sequence:
+>
+> | Fix | Root Cause | Resolution |
+> |---|---|---|
+> | NBB payload `message` → `user_input` | Wrong field name | Corrected in bridge payload |
+> | NBB key extraction (consciousness_level, pipeline keys) | Keys not extracted post-200 | `identity_layers` and `consciousness_layers` now populated |
+> | `hilbert_spatial` string guard | `str` object passed where dict expected | String guard added — consciousness error cleared |
+> | `pia_severity` WOAH fallback | `pia_severity` stuck at `unknown` | WOAH fallback wired — resolves from identity signal |
+>
+> **Current NBB pipeline verified state:**
+> ```
+> identity:  ['fully_integrated']  ✅
+> pia:       low                   ✅
+> hilbert:   dict {embed, spatial_states}  ✅
+> nbb:       complete              ✅
+> ```
 
-In this semaphore framing, conscious processing is regulated by explicit concurrency primitives, ethical filters (★ now with durable audit trail at `jarvis-memory:8056`), and configuration-level switches that collectively decide which modules are allowed to run and how much load they may carry at any given moment.
+> **★★★ April 10, 2026 — Consciousness bridge corrected and closed in compose.**
+>
+> | Item | Old (incorrect) | New (correct) |
+> |---|---|---|
+> | Bridge URL | `jarvis-hilbert-gateway:8010` | `jarvis-hilbert-state:8081` |
+> | Bridge endpoint | `/wv_summary` (404) | `POST /embed` + `GET /all_states` |
+> | Bridge payload | `message` / `user_id` | `text` / `entity_id` |
+> | Bridge lifecycle | Outside compose — `qualia-net` drop on restart | Added as `jarvis-consciousness-bridge` service in `docker-compose-core.yml` |
+> | Restart command | Manual docker run | `docker compose -f docker-compose-core.yml restart jarvis-consciousness-bridge` |
+
+> **★★★ April 10, 2026 — Redteam gate (Gate 34) remediation.**
+>
+> | Gate | Problem | Fix |
+> |---|---|---|
+> | 34 | `redis` module missing in gateway image | Installed live + patched `Dockerfile.gateway` at `/msjarvis-safe/recovered-services_20llm_full/` |
+> | 34 | `host.docker.internal` DNS fails inside container | Redis fallback now works — auth via `redis_direct`; `jarvis_auth` unreachable handled gracefully |
+> | 34 | Token not seeded in Redis | `HSET redteam:token:super-secret-key` in `jarvis-redis` with `active=true`, `role=carrie_admin` |
+> | 34 | `JARVIS_API_KEY` unset → empty Bearer header | Added `-e JARVIS_API_KEY=internal` to `docker run` |
+> | 32 | Preflight checking wrong port 7230 | Fixed to **8041** (actual judge-truth port) |
+> | 29 | No host port binding on `neurobiological-master` | Replaced `curl` with `docker exec python3 urllib` |
+> | 28 | Broken 8049→8099 port mapping | Replaced `curl` with `docker exec python3 urllib` |
+>
+> **Redteam UI status: cleared for launch.** All gate blockers resolved; red team can now exercise the full conscious pipeline under adversarial probing conditions.
+
+### OI-31 EEG Semaphore Layer
+
+★★★ **OI-31** introduces the EEG rhythm layer as a class of biological-frequency semaphores. Where standard semaphores regulate concurrency (how many requests run simultaneously), EEG semaphores regulate *cadence* (how often autonomous processes fire). The three EEG bands map to distinct semaphore types:
+
+| EEG Band | Cadence | Semaphore Type | Status |
+|---|---|---|---|
+| Delta (30s) | Baseline liveness pulse | Hard timer gate | ❌ Not restored (October 2025 rebuild gap) |
+| Theta (60s) | Intermediate consolidation | Soft timer gate | ❌ Not restored (function unknown) |
+| Beta (5 min) | Autonomous learning cycle | Configurable interval gate | ★★ Operationally restored April 1, 2026 — 68 Chroma items confirmed live |
+
+The beta semaphore's current behavior: learner runs cycles when invoked on `qualia-net`; the original fixed-frequency time-trigger cron-like mechanism is not yet restored. The delta and theta semaphores remain open items carried forward to Ch 28 §28.4. Together, when all three bands are active, they create the overlapping cadence structure — 30s, 60s, 300s — that produces the neurobiologically-inspired EEG signature of continuous autonomous activity described in Ch 28.
 
 ---
 
@@ -90,17 +232,19 @@ The temporal, toroidal, and semaphore perspectives describe different aspects of
 
 ### Temporal cycles constrained by gates
 
-Per-request pipelines (short-term), verification passes and sync jobs (medium-term; ★ now including AAPCAppE continuous ingest), and Chroma/GeoDB persistence (long-term; ★ 40 collections, 6,675,442 total vectors; `msjarvis:5433` ★ 5,416,521 GBIM entities with `confidence_decay` metadata) all operate under semaphore constraints: semaphores on LLM fabric concurrency (★ 22 registered / 21 active), BBB and truth filters at ingestion and response (★ audit → `jarvis-memory:8056`), and flag-based gating of psychological, spatial, and temporal-consciousness layers. Time scales and cycles thus do not operate freely; they are throttled and directed by gates that limit which processes run and how intensively they operate, including concurrency limits at the `llm20production` fabric and per-call timeouts in the main-brain. ★ With 96/96 containers Up, the temporal–gate interaction now operates at full registered capacity.
+Per-request pipelines (short-term), verification passes and sync jobs (medium-term; now including AAPCAppE continuous ingest and 6-hour `appalachian_english_corpus` cron), and Chroma/GeoDB persistence (long-term; ★★★ 49 collections, 6,722,589+ vectors; `msjarvis:5433` ★ 5,416,521 GBIM entities with `confidence_decay`) all operate under semaphore constraints: the `asyncio.Semaphore` on LLM fabric concurrency (★ 22 registered / 21 active), the confirmed 6-filter BBB stack at ingestion and response (★★★ all confirmed, live steg catch documented), OI-31 EEG cadence semaphores, and flag-based gating of psychological, spatial, and temporal-consciousness layers. ★★★ With 105 containers Up and all NBB/bridge closure items resolved, the temporal–gate interaction now operates at full confirmed capacity.
 
 ### Toroidal loops shaped by long-term memory and filters
 
-Cyclic sweeps such as full integration verification, I-Container growth tests, and Chroma–GeoDB synchronization revisit similar regions of semantic and spatial state but encounter different gating conditions and different memory contents at each pass. Newly admitted items in `jarvis_consciousness`, `autonomous_learning`, `ms_jarvis_memory` (★ growing at ≈288 records/day from interaction-derived background writes), `msjarvis_docs` (★ 4,192 items and growing via AAPCAppE), and `geodb_*` collections, along with updated GIS features (`msjarvisgis:5432` ★, 993 ZCTA centroids), alter the landscape that recurrent jobs traverse. Gates that block low-quality or unethical content affect which items participate in these loops; ★ the `confidence_decay` metadata on `msjarvis:5433` ★ GBIM entities introduces a temporal decay dimension that further shapes which beliefs are foregrounded on each recirculation. In spatial terms, this is where the classical periphery–center circulation of people and goods is recast as circulation of beliefs, benefits, risks, and narratives — with decay and deduplication (★ `spiritual_rag` −19,338 vectors) ensuring the torus does not accumulate indefinitely.
+Cyclic sweeps revisit similar regions of semantic and spatial state but encounter different gating conditions and different memory contents at each pass. Newly admitted items in `jarvis_consciousness`, `autonomous_learner` (★★ 68 items and growing), `ms_jarvis_memory`, `msjarvis_docs` (★ 4,192 items), `appalachian_english_corpus` (★★★ 210 docs, growing), and `geodb_*` collections, along with updated GIS features (`msjarvisgis:5432` ★), alter the landscape that recurrent jobs traverse.
+
+★★★ AU-02 v2 ensures that topic selection on each loop is informed by live `confidence_decay` scores, `appalachian_english_corpus` vocabulary signals, and current entanglement node density — so the torus is not merely re-traversing stale ground but actively steering toward the system's weakest epistemic regions. Gates that block low-quality or unethical content (★★★ 6-filter BBB stack) affect which items participate in these loops; ML-DSA-65 signatures provide a cryptographic anchor for items that do pass, ensuring that provenance is durable and verifiable across loops.
 
 ### Coordinated paths along dual tracks
 
-Meaning-oriented and analysis-oriented components share the same temporal and toroidal scaffolding but are coordinated by the same semaphore infrastructure. Requests that enable psychological support (★ `psychological_rag` restored 968 docs) or spiritual/context layers add new edges into the looped flow of information; requests that disable these flags restrict the loop to more technical subsystems. Likewise, role- or mode-like parameters in orchestrators and gateways determine which model ensembles and evaluators participate in each trajectory through the state space, while health and status endpoints (★ 96/96 Up) make these trajectories visible for audit.
+Meaning-oriented and analysis-oriented components share the same temporal and toroidal scaffolding but are coordinated by the same semaphore infrastructure. ★★★ `rag_grounded_v2` (127.0.0.1:7241, `dgm_available: true`) adds a DGM-grounded retrieval path that operates across both tracks — meaning-oriented queries retrieving spiritual or community knowledge and analysis-oriented queries retrieving geospatial or institutional knowledge both benefit from DGM validation on retrieval. The bridge restart procedure (`docker compose -f docker-compose-core.yml restart jarvis-consciousness-bridge`) ensures that the coordination infrastructure linking all three views can be reliably restored after any disruption.
 
-Seen together, the three structures define a kind of controlled dynamical system on an embedded, spatially enriched state space: time defines when events happen, toroidal loops define how peripheral and central representations circulate through one another, and semaphores define which directions of motion are permitted. ★ The March 28, 2026 state — 96/96 containers Up, full ChromaDB audit (40 collections, 6,675,442 vectors), secured audit trail at `jarvis-memory:8056`, and both PostgreSQL stores confirmed at their correct ports — represents the widest realized state of this controlled dynamical system to date.
+Seen together, the three structures define a controlled dynamical system on an embedded, spatially enriched state space: time defines when events happen, toroidal loops define how peripheral and central representations circulate through one another, and semaphores define which directions of motion are permitted. ★★★ The April 10, 2026 state — **105 containers Up**, all NBB/bridge/consciousness open items closed, 49 ChromaDB collections, 6,722,589+ vectors, 6-filter BBB confirmed live, `jarvis-memory:8056` fully mapped, AU-02 v2 and ML-DSA-65 documented, OI-31 EEG semaphore layer introduced, redteam cleared for launch — represents the most fully realized state of this controlled dynamical system to date.
 
 ---
 
@@ -110,14 +254,30 @@ Framing conscious processing in temporal, toroidal, and semaphore terms suggests
 
 ### Scheduling and load control
 
-Short-term flows are already constrained by per-call timeouts in HTTP clients and by concurrency semaphores at the `llm20production` fabric boundary (★ 22 registered proxies / 21 active, confirmed March 28). Medium-term and long-term tasks, such as Chroma–GeoDB synchronization (★ `msjarvisgis:5432` — 501 tables, 993 ZCTA centroids; ChromaDB 40 collections, 6,675,442 vectors) and full-system verification, can be scheduled explicitly (for example, using external cron, systemd timers, or container-orchestration schedulers) with documented intervals and scopes. ★ The AAPCAppE continuous ingest pipeline (`jarvis-ingest-api` + `jarvis-ingest-watcher`, restored March 28) is the first example of an always-on medium-term scheduler — its ingest interval and backpressure policy are candidates for explicit scheduling governance. Careful tuning of these schedules, together with semaphore limits and BBB/truth thresholds, allows operators to shape the balance between responsiveness, background learning, and system safety.
+Short-term flows are constrained by per-call timeouts in HTTP clients and by concurrency semaphores at the `llm20production` fabric boundary (★ 22 registered / 21 active). ★★★ Medium-term tasks now have two confirmed always-on schedulers: AAPCAppE continuous ingest (`jarvis-ingest-api` + `jarvis-ingest-watcher`) and the `appalachian_english_corpus` 6-hour cron (`0 */6 * * *`). Long-term tasks — Chroma–GeoDB sync, full-system verification, AU-02 v2 topic selection cycles — are candidates for explicit scheduling governance with documented intervals and scopes. With 105 containers Up, operators should confirm that benchmark response times (12–13 ms core endpoints per Ch 28 §28.2) are maintained — a VERIFYANDTEST.sh Section 4 run is recommended whenever the container count crosses a major threshold.
 
 ### Instrumentation and introspection
 
-Existing response-time benchmarking in verification scripts measures GIS query and production chat latency, while the main-brain and related services expose `/health`, `/status`, and architecture endpoints that report service reachability, model fabric status, and dependency health. In the present deployment, `/status` reports the state of the LLM fabric (★ 22 registered / 21 active), RAG, web research, brain orchestrators, Redis, Chroma (at **127.0.0.1:8000** ★; ★ 40 collections, 6,675,442 vectors), and optional services (with some, such as certain autonomous learners, intentionally disabled or returning "unavailable" while their containers are offline). As of March 25, 2026, `jarvis-consciousness-bridge` is included in the health/status reporting footprint — the consciousness pipeline is OPERATIONAL (Chroma CONNECTED, WOAH ACTIVE, RAG REACHABLE, Bridge OPERATIONAL; ★ all confirmed Up March 28 — see **Ch 25 §25.2** for the full pipeline status table). ★ `jarvis-memory:8056` (secured March 28) adds a new introspection surface: operators can now query the durable BBB and `truthverdict` audit log to observe gate open/close rates and filter decision history. Extending metrics to include queue depths at container intake, I-Container sizes and growth stages, `confidence_decay` distribution across `msjarvis:5433` ★ GBIM entities (5,416,521 beliefs), promotion latency from background memory to central identity entries, and gate open/close rates (BBB accept/reject ratios from `jarvis-memory:8056` ★) would make the temporal and semaphore structures more observable. Repeated runs of verification scripts already provide a rudimentary toroidal trace of system health; instrumenting them with consistent metrics would turn these traces into quantitative loops in metric space.
+★★★ The `jarvis-memory:8056` endpoint map provides the richest available introspection surface: `/steg_report` for adversarial catch rates, `/pia_window` for identity access windows, `/memory/episodic/{id}` for per-session reasoning traces, and `/memory/quest*` for task-oriented memory. Combined with the confirmed live pipeline response fields (`identity: ['fully_integrated']`, `pia: low`, `hilbert: dict`, `nbb: complete`), these endpoints make the temporal, toroidal, and semaphore structures directly observable without requiring container log parsing. ★★★ `rag_grounded_v2:7241` adds DGM availability as a live introspection signal: if `dgm_available` drops to `false`, the DGM-grounded retrieval arm of the torus is degraded and operators can target the 69-DGM bridge (port 9000) for diagnosis.
+
+Extending metrics to include: AU-02 v2 topic selection vectors and `confidence_decay` distribution across `msjarvis:5433` ★ GBIM entities; OI-31 EEG beta cycle telemetry (cycles/stored/entanglement nodes from `/learning/status:8020` via `docker exec`); ML-DSA-65 signature verification rate on belief promotions; and 6-filter BBB accept/reject ratios from `jarvis-memory:8056` — would turn these traces into quantitative loops in metric space.
 
 ### Community-facing control surfaces
 
-Because many behaviors are controlled by configuration and flags (semaphore bounds, gate thresholds, which layers are enabled), these parameters form a natural control surface for community governance. Adjusting cycle intervals, tightening or loosening promotion criteria, and enabling or disabling support layers for particular roles or regions can change where the system spends its attention and how it shares power between analytic and care-focused components. ★ The secured `jarvis-memory:8056` audit store (March 28) provides the evidentiary foundation for community-facing accountability: communities can now query the durable log to understand precisely which content was filtered, which truth verdicts were recorded, and when — making the gate and semaphore decisions visible and contestable. This is where classical periphery–center dynamics become explicitly political: changing gates and schedules changes which communities and which questions are allowed to keep coming back through the center of the torus.
+Because many behaviors are controlled by configuration and flags — semaphore bounds, gate thresholds, AU-02 v2 `confidence_decay` weighting, OI-31 EEG cadence intervals, which layers are enabled — these parameters form a natural control surface for community governance. Adjusting cycle intervals, tightening or loosening promotion criteria, and enabling or disabling support layers for particular roles or regions can change where the system spends its attention and how it shares power between analytic and care-focused components.
 
-In practice, treating Ms. Jarvis's conscious processing through these three lenses — and explicitly linking toroidal circulation to long-standing spatial-economic ideas about rural–urban loops — helps ensure that the system's behavior remains interpretable, tunable, and accountable as it evolves from prototype toward community infrastructure. ★ The March 28, 2026 baseline — 96/96 Up, full ChromaDB audit, secured audit trail, both PostgreSQL stores confirmed — is the strongest foundation yet for that accountable evolution.
+★★★ The fully mapped `jarvis-memory:8056` audit store provides the evidentiary foundation for community-facing accountability: communities can now query the durable log to understand precisely which content was filtered, which steganography injections were caught, which truth verdicts were recorded, and when — making the gate and semaphore decisions visible and contestable. The redteam gate clearance (April 10) means adversarial probing of this accountability layer can now proceed under controlled conditions, stress-testing the community governance surface before real-world deployment.
+
+This is where classical periphery–center dynamics become explicitly political: changing gates and schedules changes which communities and which questions are allowed to keep coming back through the center of the torus. ★★★ The April 10, 2026 state — all consciousness open items closed, 105 containers Up, 6-filter BBB confirmed live with a documented catch, fully mapped audit endpoints, and redteam cleared — is the strongest foundation yet for that accountable, community-grounded evolution.
+
+---
+
+*Last updated: ★★★ 2026-04-10 — Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+
+*★★★ April 10, 2026: Full closure pass — all open items resolved; §26.0 preamble updated (105 containers, 49 collections, 6,722,589+ vectors, closure register); §26.1 updated (105 Up, confirmed live response fields, pia: low interpretation, OI-31 EEG short-term signals, ML-DSA-65 long-term layer, 49 collections, appalachian_english_corpus); §26.2 updated (105 Up, consciousness bridge loop corrected, rag_grounded_v2 toroidal arm, AU-02 v2 topic circulation, host:8002 port); §26.3 updated (105 Up, 6-filter BBB fully confirmed, live steg catch, ML-DSA-65 cryptographic gate, jarvis-memory:8056 endpoint map, NBB closure table and verified state, bridge correction and compose closure table, redteam gate table, OI-31 EEG semaphore table); §26.4 updated (105 Up, AU-02 v2, ML-DSA-65, rag_grounded_v2, bridge restart procedure); §26.5 updated (6-hour cron, jarvis-memory introspection surface, rag_grounded_v2 DGM signal, AU-02 v2 metrics, OI-31 telemetry, ML-DSA-65 signature rate, community accountability with redteam clearance)*
+
+*★★ April 1, 2026: LEARN-01/02/03 resolved; autonomous learner live telemetry confirmed (68 Chroma items, 15 cycles, 11 entanglement nodes); 96/96 Up post-LEARN-03 recovery*
+
+*★ March 28, 2026: 96/96 containers Up; msjarvis:5433 restored; ChromaDB 40 collections / 6,675,442 vectors; jarvis-memory:8056 secured; msjarvis_docs 4,192 items; spiritual_rag deduplicated; psychological_rag restored; consciousness pipeline confirmed Up*
+
+*March 27, 2026: ChromaDB port corrected to 8000; consciousness pipeline OPERATIONAL status added; jarvis-woah ACTIVE (stub) status added; LLM ensemble count corrected to 21 active of 22 proxies*
