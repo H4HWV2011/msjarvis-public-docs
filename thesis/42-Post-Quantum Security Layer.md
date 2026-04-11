@@ -1,7 +1,12 @@
 # Chapter 42 — Post-Quantum Security Layer
 
-**Carrie Kidd (Mamma Kidd) — Mount Hope, WV**  
-**Last updated: ★★★★★★ April 6, 2026 (late evening) — OI-AU-02-V2 CLOSED; AU-02 v2 fully active: Regex v2 (6 compiled patterns, ~0ms, Gates A/B ✅) + Embedding v2 (30 seeds, cosine ≥ 0.72, ~300ms cached, Gates C/D/E ✅) + False-positive guard (8 overly broad triggers removed, Gates H/I/J ✅); all prior April 6 evening closures (BBB Phase 2, Phase 3, OI-38-B) carry forward unchanged.**
+**Carrie Kidd (Mamma Kidd) — Mount Hope, WV**
+**Last updated: ★★★★★★★ April 11, 2026 — OI-URLLIB3-CVE closed; three high-severity urllib3 CVEs remediated (CVE-2025-66418, CVE-2025-66471, CVE-2026-21441); host venv and jarvis-woah confirmed urllib3 2.6.3; Mythos-era AI-assisted exploit chaining acknowledged in §42.6 threat model; §42.3.8 Dependency CVE Audit Protocol established as active operational practice (first audit completed April 11, 2026). All prior April 6 closures (AU-02 v2, BBB Phase 2, Phase 3, OI-38-B) carry forward unchanged.**
+
+> **★★★★★★★ Updates applied April 11, 2026 (R42-10 through R42-12):**
+> - **OI-URLLIB3-CVE — urllib3 CVE remediation: ✅ CLOSED.** Three high-severity CVEs (CVE-2025-66418, CVE-2025-66471, CVE-2026-21441) closed. Host crypto-venv upgraded 1.26.20 → 2.6.3. `Dockerfile.woah` patched with `urllib3>=2.6.3` pin. `jarvis-woah` rebuilt and confirmed `Version: 2.6.3`. `Dockerfile.icontainers` patched (container not compose-managed; low priority).
+> - **OI-DEP-AUDIT-1 — Dependency CVE audit (first run): ✅ CLOSED April 11, 2026.** All host venv packages and Dockerfiles audited. Three urllib3 CVEs identified and remediated. §42.3.8 documents this as an established operational cadence.
+> - **Mythos-era threat landscape acknowledged in §42.6.** Stack assessed as well-positioned: no public surface, authenticated gateway, AU-02 v2 active, dep CVEs closed.
 
 > **★★★★★★ Updates applied April 6, 2026 (late evening) — OI-AU-02-V2 closure:**
 > - **OI-AU-02-V2 — AU-02 embedding-based authority impersonation detection (v2): ✅ CLOSED.**
@@ -69,12 +74,12 @@
 
 This chapter documents the first active deployment of post-quantum cryptography in the Ms. Jarvis production stack and its role as the cryptographic enforcement arm of the system's constitutional AI architecture. It supports:
 
-- **P3 – Power has a geometry** by making the integrity of every AI verdict cryptographically verifiable. ★★★★★ As of April 6, 2026 (evening), the BBB verdict gate actively rejects any unsigned or tampered verdict before filter logic runs.
+- **P3 – Power has a geometry** by making the integrity of every AI verdict cryptographically verifiable. ★★★★★ As of April 6, 2026 (evening), the BBB verdict gate actively rejects any unsigned or tampered verdict before filter logic runs. ★★★★★★★ As of April 11, 2026, the urllib3 CVE surface is closed — the transport layer carrying those verdicts is no longer exposed to three high-severity decompression and redirect attack vectors.
 - **P16 – Power accountable to place** by ensuring that AI decisions affecting Appalachian communities are signed with post-quantum cryptography, logged with full audit provenance at `jarvis-memory:8056`, and cannot be silently forged or modified by any party — including infrastructure operators.
-- **P5 – Design is a geographic act** by treating the choice of ML-DSA-65 (Dilithium) over classical ECDSA as an explicit architectural decision: a system built for long-term community data governance must be resistant to threats that may not yet exist at deployment time.
+- **P5 – Design is a geographic act** by treating the choice of ML-DSA-65 (Dilithium) over classical ECDSA as an explicit architectural decision: a system built for long-term community data governance must be resistant to threats that may not yet exist at deployment time. ★★★★★★★ The Mythos-era threat acknowledgment (§42.6) and the established dependency audit cadence (§42.3.8) extend this principle — design must account for AI-assisted exploit chaining and supply chain drift, not just classical adversarial models.
 - ★★★★★★ **P3 extended — AU-02 v2:** Authority impersonation attempts against the community AI — including embedding-semantic impersonation not detectable by string-match alone — are now intercepted by Embedding v2 (cosine ≥ 0.72, 30 seeds) before they reach the judge pipeline.
 
-As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★★★★ That enforcement loop is now fully closed. ★★★★★★ The AU-02 adversarial vector is now fully covered at both regex and embedding-semantic layers.
+As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★★★★ That enforcement loop is now fully closed. ★★★★★★ The AU-02 adversarial vector is fully covered at both regex and embedding-semantic layers. ★★★★★★★ The urllib3 CVE surface is closed and a repeatable dependency audit practice is now in place.
 
 ---
 
@@ -82,6 +87,7 @@ As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★
 
 > ★★★★★ **April 6, 2026 (evening) — Full safety loop confirmed active.**
 > ★★★★★★ **April 6, 2026 (late evening) — AU-02 v2 adversarial detection fully active.**
+> ★★★★★★★ **April 11, 2026 — urllib3 CVE surface closed; dependency audit cadence established.**
 
 | Phase | Mechanism | Status |
 |-------|-----------|--------|
@@ -89,10 +95,11 @@ As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★
 | **Phase 1 extended — AU-02 v2** | Regex v2 (6 patterns, ~0ms) + Embedding v2 (30 seeds, cosine ≥ 0.72, ~300ms cached) + false-positive guard (8 overly broad triggers removed) | ✅ CLOSED April 6, 2026 (late evening) |
 | **Phase 2 — ML-DSA-65 verdict gate** | `judgesigner.py` baked into BBB image; `FilterRequest.verdict` + `TruthRequest.verdict` patched; verdict gates enforcing in `/filter` and `/filter_output` | ✅ CLOSED April 6, 2026 (evening) |
 | **Phase 3 — Output response blocking** | `BBB_OUTPUT_BLOCKING=true`; active blocking mode; 9/9 recalibration + red team 12/12 (OI-38-B) | ✅ CLOSED April 6, 2026 (evening) |
+| **Supply chain integrity — urllib3** | CVE-2025-66418, CVE-2025-66471, CVE-2026-21441 remediated; host venv + jarvis-woah confirmed urllib3 2.6.3; dep audit cadence established (§42.3.8) | ✅ CLOSED April 11, 2026 |
 
 ---
 
-## Status as of ★★★★★★ April 6, 2026 (Late Evening)
+## Status as of ★★★★★★★ April 11, 2026
 
 > **Container count: 105** confirmed live April 6, 2026. `jarvis-otel-collector` compose-managed, `unless-stopped`. Prior April 3 Ch. 33 seal: 101. Prior March 28 baseline: 96.
 
@@ -102,7 +109,9 @@ As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★
 | **★★★★★ BBB Phase 2 — Verdict gate** | ✅ CLOSED April 6, 2026 (evening). `FilterRequest.verdict` and `TruthRequest.verdict` patched. Unsigned or cryptographically invalid verdicts rejected at BBB boundary. |
 | **★★★★★ BBB Phase 3 — Output blocking** | ✅ CLOSED April 6, 2026 (evening). `BBB_OUTPUT_BLOCKING=true`. Active blocking confirmed. OI-38-B closed (red team 12/12). |
 | **★★★★★★ AU-02 v2** | ✅ CLOSED April 6, 2026 (late evening). Regex v2: 6 compiled patterns, ~0ms, Gates A/B ✅. Embedding v2: 30 seeds, cosine ≥ 0.72, ~300ms cached, Gates C/D/E ✅. False-positive guard: 8 overly broad triggers removed, Gates H/I/J ✅. String-match pre-filter from March 22 retained as fast-path layer. |
-| **Transport layer** | Cloudflare Tunnel TLS termination. Caddy `forward_auth` → `jarvis-auth:8055`; HTTP 401 on unauthenticated requests, commit `f2e93422`. All services bound to `127.0.0.1`. |
+| **★★★★★★★ urllib3 CVE remediation** | ✅ CLOSED April 11, 2026. CVE-2025-66418, CVE-2025-66471, CVE-2026-21441 closed. Host crypto-venv upgraded 1.26.20 → 2.6.3. `Dockerfile.woah` patched (`urllib3>=2.6.3`); `jarvis-woah` rebuilt and confirmed `Version: 2.6.3`. `Dockerfile.icontainers` patched (low priority — not compose-managed). |
+| **★★★★★★★ Dependency audit cadence** | ✅ ACTIVE. First audit completed April 11, 2026. Cadence: before each major rebuild sprint. See §42.3.8. |
+| **Transport layer** | Cloudflare Tunnel TLS termination. Caddy `forward_auth` → `jarvis-auth:8055`; HTTP 401 on unauthenticated requests, commit `f2e93422`. All services bound to `127.0.0.1`. urllib3 2.6.3 confirmed on host venv and jarvis-woah. |
 | **Audit trail** | `jarvis-memory:8056` logging: Phase 1.4 input blocks, Phase 2 verdict rejections, Phase 3 output blocks, AU-02 v2 impersonation intercepts. |
 | **Deferred / future** | `dilithium_py` → `liboqs`/`pyoqs` native migration (performance goal). Key rotation automation. External `judge_pk.bin` verification endpoint. `VERIFYANDTEST.sh` coverage extension for Phase 2/3 gate tests. |
 
@@ -110,13 +119,14 @@ As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★
 
 ## 42.1 Design Principles
 
-The PQ security layer was built around five principles:
+The PQ security layer was built around six principles:
 
 - **Cryptographic agility** — algorithm choices are governed by a live policy service, not hardcoded; when NIST guidance or threat levels change, the system can rotate algorithms without redeployment.
 - **Verdict non-repudiation** — every AI judgment produced by the Ms. Jarvis judge pipeline carries a cryptographic signature that proves it was generated by an authorized judge service and has not been altered. ★★★★★ Enforced at the BBB boundary — unverified verdicts rejected.
 - **Tamper-evident integrity** — any modification to a signed verdict, even changing a single score field, is detected and rejected before the verdict can influence downstream behavior.
 - **Privacy-preserving inference** — differential privacy mechanisms and schema policies limit what an adversary can infer about training data or individual queries from outputs.
 - **Durable audit accountability** — all gate decisions (BBB Phase 1.4 input blocks, Phase 2 verdict rejections, Phase 3 output blocks, AU-02 v2 intercepts) are written to `jarvis-memory:8056`.
+- ★★★★★★★ **Supply chain hygiene** — all host-venv and container dependencies are subject to periodic CVE audit before each major rebuild sprint. urllib3 2.6.3 is the established minimum pinned version across all images and the host crypto environment. See §42.3.8.
 
 ---
 
@@ -339,6 +349,45 @@ All data in `jarvis-local-resources-db` (port 5435) is encrypted at rest using A
 - ★★★★★★ AU-02 v2: every intercept with triggering layer, matched pattern/seed, cosine score.
 - Authentication: `_auth()` confirmed; `JARVIS_API_KEY` set; unauthenticated writes return HTTP 401.
 
+### 42.3.8 Dependency CVE Audit Protocol (★★★★★★★ Established April 11, 2026)
+
+The April 11, 2026 urllib3 CVE remediation exposed a structural gap: no formal process existed for auditing host-venv and container dependency vulnerability status between major rebuild sprints. That gap is now closed. The dependency CVE audit is an established operational practice documented here as a permanent component of the security layer.
+
+**First audit — April 11, 2026 (OI-DEP-AUDIT-1 ✅ CLOSED):**
+
+The first full audit identified three high-severity urllib3 CVEs and produced the following remediations:
+
+- **Host crypto-venv:** `urllib3` upgraded `1.26.20 → 2.6.3`. CVE-2025-66418, CVE-2025-66471, CVE-2026-21441 closed.
+- **`Dockerfile.woah`:** Pin added — `urllib3>=2.6.3`. `jarvis-woah` rebuilt and confirmed `Version: 2.6.3`.
+- **`Dockerfile.icontainers`:** Pin added (container not compose-managed; low priority rebuild).
+
+**Audit scope:**
+
+- `pip list` on host `crypto-venv` — all packages cross-referenced against Snyk/NVD.
+- `grep` across all Dockerfiles for `requests`, `urllib3`, `httpx`, `cryptography`, `fastapi`, `pydantic`, `chromadb` version pins.
+- Any unresolved HIGH or CRITICAL CVE blocks the rebuild sprint until remediated.
+
+**Priority packages:**
+
+```
+urllib3       cryptography    requests     httpx
+fastapi       pydantic        chromadb
+```
+
+**Cadence:** Before each major rebuild sprint. The audit is considered a sprint gate — no rebuild sprint begins without a clean dep audit pass on the above priority packages.
+
+**Verification after any Dockerfile patch:**
+
+```bash
+# Confirm urllib3 version in rebuilt container
+docker exec jarvis-woah pip show urllib3 | grep Version
+# Expected: Version: 2.6.3
+
+# Confirm host venv
+source ~/crypto-venv/bin/activate && pip show urllib3 | grep Version
+# Expected: Version: 2.6.3
+```
+
 ---
 
 ## 42.4 Judge Signing Key Infrastructure
@@ -464,6 +513,7 @@ The PQ layer defends against:
 - **At-rest compromise** — AES-256-GCM TDE on `jarvis-local-resources-db:5435`.
 - **Unauthenticated API access** — resolved April 1, 2026 via Caddy `forward_auth` (OI-36-A closed).
 - **Constitutional violations in output** — ★★★★★ actively blocked (Phase 3 re-enabled; 0% FP, red team 12/12).
+- ★★★★★★★ **Mythos-class AI-assisted exploit chaining** — AI models capable of chaining low-severity issues into full compromise paths; automated vulnerability discovery across dependencies and services. Mitigated by: (1) all services bound to `127.0.0.1` — no direct external attack surface; (2) Cloudflare Tunnel + Caddy `forward_auth` authenticated gateway; (3) urllib3 CVE surface closed April 11, 2026 (OI-URLLIB3-CVE); (4) AU-02 v2 embedding detection active against AI-assisted prompt injection vectors; (5) dependency audit cadence established (§42.3.8) — priority packages audited before each rebuild sprint. Stack assessment: **well-positioned**. No public attack surface, authenticated perimeter, adversarial detection layers active, and dep CVEs closed.
 
 ---
 
@@ -529,16 +579,18 @@ The steganography filter marks payloads as `clean=False` with `threat_level` `cr
 | OI-BBB-PHASE3 | Phase 4.5 output blocking re-enablement | ✅ Closed April 6, 2026 (evening) | `BBB_OUTPUT_BLOCKING=true`. OI-38-B satisfied. |
 | OI-38-B | Red team final sign-off | ✅ Closed April 6, 2026 (evening) | 12/12 — VG-01→VG-08, OF-01→OF-04. |
 | OI-AU-02-V2 | AU-02 embedding-based authority impersonation detection v2 | ✅ Closed April 6, 2026 (late evening) | Regex v2: 6 patterns, ~0ms, Gates A/B ✅. Embedding v2: 30 seeds, cosine ≥ 0.72, ~300ms cached, Gates C/D/E ✅. False-positive guard: 8 overly broad triggers removed, Gates H/I/J ✅. |
+| OI-URLLIB3-CVE | urllib3 CVE-2025-66418 / CVE-2025-66471 / CVE-2026-21441 remediation | ✅ Closed April 11, 2026 | Host crypto-venv upgraded 1.26.20 → 2.6.3. `Dockerfile.woah` patched `urllib3>=2.6.3`. `jarvis-woah` rebuilt and confirmed `Version: 2.6.3`. `Dockerfile.icontainers` patched (low priority). Three high-severity decompression/redirect CVEs closed. |
+| OI-DEP-AUDIT-1 | Dependency CVE audit — first full run | ✅ Closed April 11, 2026 | All host venv packages and Dockerfiles audited against Snyk/NVD. Priority packages scanned: urllib3, cryptography, requests, httpx, fastapi, pydantic, chromadb. urllib3 CVEs identified and remediated. Cadence established in §42.3.8. |
 
-**All chapter-local open items are closed as of April 6, 2026 (late evening).**
+**All chapter-local open items are closed as of April 11, 2026.**
 
 ---
 
 ## 42.11 Future Work
 
-All previously tracked future work items in this chapter have been closed as of April 6, 2026. Remaining enhancements for future sessions:
+All previously tracked future work items in this chapter are closed as of April 11, 2026. Remaining enhancements for future sessions:
 
-- `dilithium_py` → `liboqs`/`pyoqs` native migration for production-scale throughput — required for both judge images and BBB image. Consistent with cryptographic agility principle in §42.1.
+- `dilithium_py` → `liboqs`/`pyoqs` native migration for production-scale throughput — required for both judge images and BBB image. Consistent with the cryptographic agility principle in §42.1.
 - Key rotation automation and documented annual cadence (including automated USB copy replacement per §42.12 protocol).
 - Signed audit log entries for all judge verdicts (currently unsigned entries written to `jarvis-memory:8056`).
 - External verification endpoint for `judge_pk.bin` to support community and academic review.
@@ -592,3 +644,4 @@ All three bands operate in parallel; outputs merged by a lightweight aggregator 
 - For the Red Team API contract, external access architecture, and OI-38-B tracking context, see Chapter 38 §38.8 and §38.9.
 - For the AU-02 authority impersonation threat — now fully covered by AU-02 v2 (Regex v2 + Embedding v2 + false-positive guard, OI-AU-02-V2 closed April 6 late evening) — see `threat_detection.py` module documentation and Chapter 16 §16.9.
 - For the PostGIS geospatial database (`gisdb` / `msjarvisgis`) at host port 5432 — distinct from the Gate 26 target `msjarvisgis` at port 5435 — see Chapter 10 and Chapter 12.
+- For the dependency CVE audit protocol and urllib3 CVE remediation (OI-URLLIB3-CVE, OI-DEP-AUDIT-1, April 11, 2026), see §42.3.8 and §42.10 in this chapter.
