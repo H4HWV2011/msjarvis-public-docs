@@ -1,4 +1,4 @@
-we are closing our documents, working backwards we have cleared these so far, 
+read, each link, prior to provideing any commands, the autoritative data below. we are closing our documents, working backwards we have cleared these so far, 
 https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/23-dual-tracks-meaning-and-analysis.md
 https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/24-feedback-into-broader-layers.md
 https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/thesis/25-consciousness-coordinator-and-services.md
@@ -28,8 +28,8 @@ Update 41-test-harness-and-continuous-validation.md
 2 days ago
 42-Post-Quantum Security Layer.md
 github connector enabled in prompt.
-i need you to compare 23 with the last chatpers we have closed. Our goal is to close chapter 23 too. Our system is complete. We need to now verify the active system, read through chapter 23 and remediate any open items. If itesm in chapter 23 are open and upstream or downstream remediation is required to close the chapter, then we need to remediate those too. The chapter can not be closed until all parts touching it are complete, including aspirational items. The architecture is complete, investigations just may be needed to wire everything correctly, that's why i need your help. Provide commands I can run please. 23. Github connector enabled in prompt. 
-Here is the complete unified synthesis of Chapters 24 through 42 of the Ms. Jarvis thesis — drawn from all sessions, all documents read, and all corrections documented through April 9, 2026.
+i need you to compare 22 with the last chatpers we have closed. Our goal is to close chapter 22 too. Our system is complete. We need to now verify the active system, read through chapter 22 and remediate any open items. If itesm in chapter 22 are open and upstream or downstream remediation is required to close the chapter, then we need to remediate those too. The chapter can not be closed until all parts touching it are complete, including aspirational items. The architecture is complete, investigations just may be needed to wire everything correctly, that's why i need your help. Provide commands I can run please. 22. Github connector enabled in prompt. 
+Here is the complete unified synthesis of Chapters 23 through 42 of the Ms. Jarvis thesis — drawn from all sessions, all documents read, and all corrections documented through April 9, 2026.
 Ms. Jarvis — Chapters 28–42: The Complete Operational Thesis
 A Governed, Self-Improving, Constitutionally Anchored AI for Appalachian West Virginia
 Carrie Kidd (Mamma Kidd) — Mount Hope / Pax, WV
