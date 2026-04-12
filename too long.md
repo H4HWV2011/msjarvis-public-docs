@@ -1,1511 +1,517 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ # See the exact startup command and working directory
-docker inspect llm13-proxy | grep -A 5 '"Cmd"\|"WorkingDir"\|"Entrypoint"'
-            "Cmd": [
-                "python",
-                "-m",
-                "uvicorn",
-                "llm13_health_proxy:app",
-                "--host",
---
-            "WorkingDir": "/app",
-            "Entrypoint": null,
-            "Labels": {
-                "com.docker.compose.config-hash": "d8632e88c89882937d61d87e1b22a1025be6bce310d8b0ad15aa22b14738510d",
-                "com.docker.compose.container-number": "1",
-                "com.docker.compose.depends_on": "",
-                "com.docker.compose.image": "sha256:eeb859b104208e75fd2b3673933b969b21b3d5974ff6f40c535bdfc02b79422c",
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ # List ALL Python files in the container
-docker exec llm13-proxy find / -name "*.py" 2>/dev/null | grep -v "__pycache__"
-/usr/share/gcc/python/libstdcxx/__init__.py
-/usr/share/gcc/python/libstdcxx/v6/__init__.py
-/usr/share/gcc/python/libstdcxx/v6/printers.py
-/usr/share/gcc/python/libstdcxx/v6/xmethods.py
-/usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33-gdb.py
-/usr/local/lib/python3.12/ssl.py
-/usr/local/lib/python3.12/weakref.py
-/usr/local/lib/python3.12/lzma.py
-/usr/local/lib/python3.12/opcode.py
-/usr/local/lib/python3.12/lib2to3/patcomp.py
-/usr/local/lib/python3.12/lib2to3/refactor.py
-/usr/local/lib/python3.12/lib2to3/pgen2/driver.py
-/usr/local/lib/python3.12/lib2to3/pgen2/parse.py
-/usr/local/lib/python3.12/lib2to3/pgen2/grammar.py
-/usr/local/lib/python3.12/lib2to3/pgen2/__init__.py
-/usr/local/lib/python3.12/lib2to3/pgen2/conv.py
-/usr/local/lib/python3.12/lib2to3/pgen2/tokenize.py
-/usr/local/lib/python3.12/lib2to3/pgen2/literals.py
-/usr/local/lib/python3.12/lib2to3/pgen2/token.py
-/usr/local/lib/python3.12/lib2to3/pgen2/pgen.py
-/usr/local/lib/python3.12/lib2to3/main.py
-/usr/local/lib/python3.12/lib2to3/__init__.py
-/usr/local/lib/python3.12/lib2to3/pygram.py
-/usr/local/lib/python3.12/lib2to3/btm_matcher.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_renames.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_isinstance.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_tuple_params.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_execfile.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_numliterals.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_itertools.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_funcattrs.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_filter.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_dict.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_imports.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_operator.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_imports2.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_paren.py
-/usr/local/lib/python3.12/lib2to3/fixes/__init__.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_unicode.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_idioms.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_urllib.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_repr.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_throw.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_standarderror.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_print.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_sys_exc.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_getcwdu.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_nonzero.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_map.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_long.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_asserts.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_raise.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_reload.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_reduce.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_apply.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_basestring.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_has_key.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_ne.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_intern.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_xreadlines.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_metaclass.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_except.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_ws_comma.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_zip.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_buffer.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_exec.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_set_literal.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_types.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_future.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_input.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_next.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_raw_input.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_import.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_exitfunc.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_itertools_imports.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_xrange.py
-/usr/local/lib/python3.12/lib2to3/fixes/fix_methodattrs.py
-/usr/local/lib/python3.12/lib2to3/__main__.py
-/usr/local/lib/python3.12/lib2to3/fixer_base.py
-/usr/local/lib/python3.12/lib2to3/fixer_util.py
-/usr/local/lib/python3.12/lib2to3/pytree.py
-/usr/local/lib/python3.12/lib2to3/btm_utils.py
-/usr/local/lib/python3.12/telnetlib.py
-/usr/local/lib/python3.12/code.py
-/usr/local/lib/python3.12/plistlib.py
-/usr/local/lib/python3.12/zipimport.py
-/usr/local/lib/python3.12/difflib.py
-/usr/local/lib/python3.12/wave.py
-/usr/local/lib/python3.12/ftplib.py
-/usr/local/lib/python3.12/site.py
-/usr/local/lib/python3.12/re/_parser.py
-/usr/local/lib/python3.12/re/_casefix.py
-/usr/local/lib/python3.12/re/__init__.py
-/usr/local/lib/python3.12/re/_compiler.py
-/usr/local/lib/python3.12/re/_constants.py
-/usr/local/lib/python3.12/pstats.py
-/usr/local/lib/python3.12/fileinput.py
-/usr/local/lib/python3.12/imghdr.py
-/usr/local/lib/python3.12/keyword.py
-/usr/local/lib/python3.12/multiprocessing/synchronize.py
-/usr/local/lib/python3.12/multiprocessing/popen_spawn_posix.py
-/usr/local/lib/python3.12/multiprocessing/popen_fork.py
-/usr/local/lib/python3.12/multiprocessing/queues.py
-/usr/local/lib/python3.12/multiprocessing/forkserver.py
-/usr/local/lib/python3.12/multiprocessing/shared_memory.py
-/usr/local/lib/python3.12/multiprocessing/popen_spawn_win32.py
-/usr/local/lib/python3.12/multiprocessing/sharedctypes.py
-/usr/local/lib/python3.12/multiprocessing/util.py
-/usr/local/lib/python3.12/multiprocessing/popen_forkserver.py
-/usr/local/lib/python3.12/multiprocessing/resource_sharer.py
-/usr/local/lib/python3.12/multiprocessing/__init__.py
-/usr/local/lib/python3.12/multiprocessing/pool.py
-/usr/local/lib/python3.12/multiprocessing/context.py
-/usr/local/lib/python3.12/multiprocessing/heap.py
-/usr/local/lib/python3.12/multiprocessing/managers.py
-/usr/local/lib/python3.12/multiprocessing/connection.py
-/usr/local/lib/python3.12/multiprocessing/dummy/__init__.py
-/usr/local/lib/python3.12/multiprocessing/dummy/connection.py
-/usr/local/lib/python3.12/multiprocessing/resource_tracker.py
-/usr/local/lib/python3.12/multiprocessing/process.py
-/usr/local/lib/python3.12/multiprocessing/reduction.py
-/usr/local/lib/python3.12/multiprocessing/spawn.py
-/usr/local/lib/python3.12/crypt.py
-/usr/local/lib/python3.12/base64.py
-/usr/local/lib/python3.12/unittest/_log.py
-/usr/local/lib/python3.12/unittest/loader.py
-/usr/local/lib/python3.12/unittest/mock.py
-/usr/local/lib/python3.12/unittest/util.py
-/usr/local/lib/python3.12/unittest/async_case.py
-/usr/local/lib/python3.12/unittest/main.py
-/usr/local/lib/python3.12/unittest/__init__.py
-/usr/local/lib/python3.12/unittest/signals.py
-/usr/local/lib/python3.12/unittest/case.py
-/usr/local/lib/python3.12/unittest/__main__.py
-/usr/local/lib/python3.12/unittest/result.py
-/usr/local/lib/python3.12/unittest/runner.py
-/usr/local/lib/python3.12/unittest/suite.py
-/usr/local/lib/python3.12/timeit.py
-/usr/local/lib/python3.12/getpass.py
-/usr/local/lib/python3.12/zipfile/__init__.py
-/usr/local/lib/python3.12/zipfile/__main__.py
-/usr/local/lib/python3.12/zipfile/_path/__init__.py
-/usr/local/lib/python3.12/zipfile/_path/glob.py
-/usr/local/lib/python3.12/pydoc.py
-/usr/local/lib/python3.12/py_compile.py
-/usr/local/lib/python3.12/sre_constants.py
-/usr/local/lib/python3.12/copy.py
-/usr/local/lib/python3.12/_aix_support.py
-/usr/local/lib/python3.12/struct.py
-/usr/local/lib/python3.12/tarfile.py
-/usr/local/lib/python3.12/reprlib.py
-/usr/local/lib/python3.12/this.py
-/usr/local/lib/python3.12/decimal.py
-/usr/local/lib/python3.12/textwrap.py
-/usr/local/lib/python3.12/io.py
-/usr/local/lib/python3.12/uu.py
-/usr/local/lib/python3.12/shelve.py
-/usr/local/lib/python3.12/contextvars.py
-/usr/local/lib/python3.12/asyncio/queues.py
-/usr/local/lib/python3.12/asyncio/tasks.py
-/usr/local/lib/python3.12/asyncio/selector_events.py
-/usr/local/lib/python3.12/asyncio/constants.py
-/usr/local/lib/python3.12/asyncio/base_futures.py
-/usr/local/lib/python3.12/asyncio/log.py
-/usr/local/lib/python3.12/asyncio/events.py
-/usr/local/lib/python3.12/asyncio/base_tasks.py
-/usr/local/lib/python3.12/asyncio/locks.py
-/usr/local/lib/python3.12/asyncio/taskgroups.py
-/usr/local/lib/python3.12/asyncio/unix_events.py
-/usr/local/lib/python3.12/asyncio/__init__.py
-/usr/local/lib/python3.12/asyncio/futures.py
-/usr/local/lib/python3.12/asyncio/sslproto.py
-/usr/local/lib/python3.12/asyncio/subprocess.py
-/usr/local/lib/python3.12/asyncio/exceptions.py
-/usr/local/lib/python3.12/asyncio/runners.py
-/usr/local/lib/python3.12/asyncio/staggered.py
-/usr/local/lib/python3.12/asyncio/__main__.py
-/usr/local/lib/python3.12/asyncio/mixins.py
-/usr/local/lib/python3.12/asyncio/base_subprocess.py
-/usr/local/lib/python3.12/asyncio/coroutines.py
-/usr/local/lib/python3.12/asyncio/timeouts.py
-/usr/local/lib/python3.12/asyncio/threads.py
-/usr/local/lib/python3.12/asyncio/format_helpers.py
-/usr/local/lib/python3.12/asyncio/streams.py
-/usr/local/lib/python3.12/asyncio/windows_events.py
-/usr/local/lib/python3.12/asyncio/trsock.py
-/usr/local/lib/python3.12/asyncio/proactor_events.py
-/usr/local/lib/python3.12/asyncio/protocols.py
-/usr/local/lib/python3.12/asyncio/transports.py
-/usr/local/lib/python3.12/asyncio/windows_utils.py
-/usr/local/lib/python3.12/asyncio/base_events.py
-/usr/local/lib/python3.12/chunk.py
-/usr/local/lib/python3.12/pathlib.py
-/usr/local/lib/python3.12/pty.py
-/usr/local/lib/python3.12/__future__.py
-/usr/local/lib/python3.12/ipaddress.py
-/usr/local/lib/python3.12/socketserver.py
-/usr/local/lib/python3.12/csv.py
-/usr/local/lib/python3.12/encodings/cp866.py
-/usr/local/lib/python3.12/encodings/koi8_u.py
-/usr/local/lib/python3.12/encodings/idna.py
-/usr/local/lib/python3.12/encodings/rot_13.py
-/usr/local/lib/python3.12/encodings/gb18030.py
-/usr/local/lib/python3.12/encodings/cp037.py
-/usr/local/lib/python3.12/encodings/shift_jis_2004.py
-/usr/local/lib/python3.12/encodings/mac_cyrillic.py
-/usr/local/lib/python3.12/encodings/iso8859_16.py
-/usr/local/lib/python3.12/encodings/iso8859_11.py
-/usr/local/lib/python3.12/encodings/iso2022_jp_1.py
-/usr/local/lib/python3.12/encodings/charmap.py
-/usr/local/lib/python3.12/encodings/mac_greek.py
-/usr/local/lib/python3.12/encodings/iso8859_9.py
-/usr/local/lib/python3.12/encodings/cp860.py
-/usr/local/lib/python3.12/encodings/iso8859_2.py
-/usr/local/lib/python3.12/encodings/ascii.py
-/usr/local/lib/python3.12/encodings/cp775.py
-/usr/local/lib/python3.12/encodings/iso2022_jp_ext.py
-/usr/local/lib/python3.12/encodings/undefined.py
-/usr/local/lib/python3.12/encodings/iso8859_5.py
-/usr/local/lib/python3.12/encodings/bz2_codec.py
-/usr/local/lib/python3.12/encodings/cp1258.py
-/usr/local/lib/python3.12/encodings/gbk.py
-/usr/local/lib/python3.12/encodings/utf_8.py
-/usr/local/lib/python3.12/encodings/cp1255.py
-/usr/local/lib/python3.12/encodings/cp862.py
-/usr/local/lib/python3.12/encodings/palmos.py
-/usr/local/lib/python3.12/encodings/mac_roman.py
-/usr/local/lib/python3.12/encodings/iso8859_7.py
-/usr/local/lib/python3.12/encodings/raw_unicode_escape.py
-/usr/local/lib/python3.12/encodings/hz.py
-/usr/local/lib/python3.12/encodings/cp874.py
-/usr/local/lib/python3.12/encodings/cp1253.py
-/usr/local/lib/python3.12/encodings/cp864.py
-/usr/local/lib/python3.12/encodings/iso8859_8.py
-/usr/local/lib/python3.12/encodings/cp1125.py
-/usr/local/lib/python3.12/encodings/utf_16_be.py
-/usr/local/lib/python3.12/encodings/mac_iceland.py
-/usr/local/lib/python3.12/encodings/cp863.py
-/usr/local/lib/python3.12/encodings/koi8_r.py
-/usr/local/lib/python3.12/encodings/iso2022_jp_3.py
-/usr/local/lib/python3.12/encodings/cp850.py
-/usr/local/lib/python3.12/encodings/euc_jis_2004.py
-/usr/local/lib/python3.12/encodings/mac_turkish.py
-/usr/local/lib/python3.12/encodings/kz1048.py
-/usr/local/lib/python3.12/encodings/cp1254.py
-/usr/local/lib/python3.12/encodings/mac_arabic.py
-/usr/local/lib/python3.12/encodings/hex_codec.py
-/usr/local/lib/python3.12/encodings/cp1140.py
-/usr/local/lib/python3.12/encodings/uu_codec.py
-/usr/local/lib/python3.12/encodings/utf_16_le.py
-/usr/local/lib/python3.12/encodings/cp950.py
-/usr/local/lib/python3.12/encodings/iso2022_jp.py
-/usr/local/lib/python3.12/encodings/cp949.py
-/usr/local/lib/python3.12/encodings/__init__.py
-/usr/local/lib/python3.12/encodings/iso8859_13.py
-/usr/local/lib/python3.12/encodings/cp424.py
-/usr/local/lib/python3.12/encodings/iso8859_6.py
-/usr/local/lib/python3.12/encodings/iso8859_15.py
-/usr/local/lib/python3.12/encodings/koi8_t.py
-/usr/local/lib/python3.12/encodings/big5.py
-/usr/local/lib/python3.12/encodings/cp856.py
-/usr/local/lib/python3.12/encodings/mac_romanian.py
-/usr/local/lib/python3.12/encodings/cp437.py
-/usr/local/lib/python3.12/encodings/cp1026.py
-/usr/local/lib/python3.12/encodings/cp1257.py
-/usr/local/lib/python3.12/encodings/zlib_codec.py
-/usr/local/lib/python3.12/encodings/base64_codec.py
-/usr/local/lib/python3.12/encodings/punycode.py
-/usr/local/lib/python3.12/encodings/oem.py
-/usr/local/lib/python3.12/encodings/iso8859_14.py
-/usr/local/lib/python3.12/encodings/iso2022_jp_2004.py
-/usr/local/lib/python3.12/encodings/cp500.py
-/usr/local/lib/python3.12/encodings/cp861.py
-/usr/local/lib/python3.12/encodings/euc_jp.py
-/usr/local/lib/python3.12/encodings/cp1006.py
-/usr/local/lib/python3.12/encodings/utf_32.py
-/usr/local/lib/python3.12/encodings/quopri_codec.py
-/usr/local/lib/python3.12/encodings/cp875.py
-/usr/local/lib/python3.12/encodings/cp857.py
-/usr/local/lib/python3.12/encodings/cp1256.py
-/usr/local/lib/python3.12/encodings/mac_latin2.py
-/usr/local/lib/python3.12/encodings/mac_farsi.py
-/usr/local/lib/python3.12/encodings/cp1251.py
-/usr/local/lib/python3.12/encodings/shift_jis.py
-/usr/local/lib/python3.12/encodings/tis_620.py
-/usr/local/lib/python3.12/encodings/mac_croatian.py
-/usr/local/lib/python3.12/encodings/aliases.py
-/usr/local/lib/python3.12/encodings/cp737.py
-/usr/local/lib/python3.12/encodings/cp865.py
-/usr/local/lib/python3.12/encodings/latin_1.py
-/usr/local/lib/python3.12/encodings/euc_jisx0213.py
-/usr/local/lib/python3.12/encodings/cp1250.py
-/usr/local/lib/python3.12/encodings/mbcs.py
-/usr/local/lib/python3.12/encodings/iso8859_1.py
-/usr/local/lib/python3.12/encodings/iso8859_10.py
-/usr/local/lib/python3.12/encodings/utf_8_sig.py
-/usr/local/lib/python3.12/encodings/cp720.py
-/usr/local/lib/python3.12/encodings/cp932.py
-/usr/local/lib/python3.12/encodings/iso8859_4.py
-/usr/local/lib/python3.12/encodings/cp858.py
-/usr/local/lib/python3.12/encodings/cp273.py
-/usr/local/lib/python3.12/encodings/johab.py
-/usr/local/lib/python3.12/encodings/cp1252.py
-/usr/local/lib/python3.12/encodings/cp852.py
-/usr/local/lib/python3.12/encodings/utf_32_be.py
-/usr/local/lib/python3.12/encodings/iso8859_3.py
-/usr/local/lib/python3.12/encodings/utf_16.py
-/usr/local/lib/python3.12/encodings/cp855.py
-/usr/local/lib/python3.12/encodings/gb2312.py
-/usr/local/lib/python3.12/encodings/iso2022_kr.py
-/usr/local/lib/python3.12/encodings/big5hkscs.py
-/usr/local/lib/python3.12/encodings/ptcp154.py
-/usr/local/lib/python3.12/encodings/utf_32_le.py
-/usr/local/lib/python3.12/encodings/cp869.py
-/usr/local/lib/python3.12/encodings/unicode_escape.py
-/usr/local/lib/python3.12/encodings/shift_jisx0213.py
-/usr/local/lib/python3.12/encodings/utf_7.py
-/usr/local/lib/python3.12/encodings/hp_roman8.py
-/usr/local/lib/python3.12/encodings/iso2022_jp_2.py
-/usr/local/lib/python3.12/encodings/euc_kr.py
-/usr/local/lib/python3.12/sre_parse.py
-/usr/local/lib/python3.12/cmd.py
-/usr/local/lib/python3.12/getopt.py
-/usr/local/lib/python3.12/pipes.py
-/usr/local/lib/python3.12/idlelib/pyshell.py
-/usr/local/lib/python3.12/idlelib/search.py
-/usr/local/lib/python3.12/idlelib/searchbase.py
-/usr/local/lib/python3.12/idlelib/statusbar.py
-/usr/local/lib/python3.12/idlelib/runscript.py
-/usr/local/lib/python3.12/idlelib/idle.py
-/usr/local/lib/python3.12/idlelib/parenmatch.py
-/usr/local/lib/python3.12/idlelib/autoexpand.py
-/usr/local/lib/python3.12/idlelib/editor.py
-/usr/local/lib/python3.12/idlelib/pathbrowser.py
-/usr/local/lib/python3.12/idlelib/tree.py
-/usr/local/lib/python3.12/idlelib/replace.py
-/usr/local/lib/python3.12/idlelib/util.py
-/usr/local/lib/python3.12/idlelib/zzdummy.py
-/usr/local/lib/python3.12/idlelib/config.py
-/usr/local/lib/python3.12/idlelib/filelist.py
-/usr/local/lib/python3.12/idlelib/calltip.py
-/usr/local/lib/python3.12/idlelib/mainmenu.py
-/usr/local/lib/python3.12/idlelib/debugger.py
-/usr/local/lib/python3.12/idlelib/macosx.py
-/usr/local/lib/python3.12/idlelib/redirector.py
-/usr/local/lib/python3.12/idlelib/window.py
-/usr/local/lib/python3.12/idlelib/browser.py
-/usr/local/lib/python3.12/idlelib/autocomplete.py
-/usr/local/lib/python3.12/idlelib/undo.py
-/usr/local/lib/python3.12/idlelib/debugger_r.py
-/usr/local/lib/python3.12/idlelib/squeezer.py
-/usr/local/lib/python3.12/idlelib/__init__.py
-/usr/local/lib/python3.12/idlelib/delegator.py
-/usr/local/lib/python3.12/idlelib/stackviewer.py
-/usr/local/lib/python3.12/idlelib/debugobj_r.py
-/usr/local/lib/python3.12/idlelib/rpc.py
-/usr/local/lib/python3.12/idlelib/hyperparser.py
-/usr/local/lib/python3.12/idlelib/autocomplete_w.py
-/usr/local/lib/python3.12/idlelib/outwin.py
-/usr/local/lib/python3.12/idlelib/searchengine.py
-/usr/local/lib/python3.12/idlelib/multicall.py
-/usr/local/lib/python3.12/idlelib/configdialog.py
-/usr/local/lib/python3.12/idlelib/dynoption.py
-/usr/local/lib/python3.12/idlelib/help.py
-/usr/local/lib/python3.12/idlelib/tooltip.py
-/usr/local/lib/python3.12/idlelib/__main__.py
-/usr/local/lib/python3.12/idlelib/history.py
-/usr/local/lib/python3.12/idlelib/sidebar.py
-/usr/local/lib/python3.12/idlelib/textview.py
-/usr/local/lib/python3.12/idlelib/debugobj.py
-/usr/local/lib/python3.12/idlelib/iomenu.py
-/usr/local/lib/python3.12/idlelib/help_about.py
-/usr/local/lib/python3.12/idlelib/colorizer.py
-/usr/local/lib/python3.12/idlelib/codecontext.py
-/usr/local/lib/python3.12/idlelib/pyparse.py
-/usr/local/lib/python3.12/idlelib/config_key.py
-/usr/local/lib/python3.12/idlelib/percolator.py
-/usr/local/lib/python3.12/idlelib/query.py
-/usr/local/lib/python3.12/idlelib/calltip_w.py
-/usr/local/lib/python3.12/idlelib/format.py
-/usr/local/lib/python3.12/idlelib/run.py
-/usr/local/lib/python3.12/idlelib/grep.py
-/usr/local/lib/python3.12/idlelib/scrolledlist.py
-/usr/local/lib/python3.12/idlelib/zoomheight.py
-/usr/local/lib/python3.12/hmac.py
-/usr/local/lib/python3.12/zoneinfo/__init__.py
-/usr/local/lib/python3.12/zoneinfo/_common.py
-/usr/local/lib/python3.12/zoneinfo/_tzpath.py
-/usr/local/lib/python3.12/zoneinfo/_zoneinfo.py
-/usr/local/lib/python3.12/signal.py
-/usr/local/lib/python3.12/calendar.py
-/usr/local/lib/python3.12/aifc.py
-/usr/local/lib/python3.12/stat.py
-/usr/local/lib/python3.12/shutil.py
-/usr/local/lib/python3.12/operator.py
-/usr/local/lib/python3.12/inspect.py
-/usr/local/lib/python3.12/tty.py
-/usr/local/lib/python3.12/profile.py
-/usr/local/lib/python3.12/tempfile.py
-/usr/local/lib/python3.12/abc.py
-/usr/local/lib/python3.12/compileall.py
-/usr/local/lib/python3.12/pydoc_data/topics.py
-/usr/local/lib/python3.12/pydoc_data/__init__.py
-/usr/local/lib/python3.12/bisect.py
-/usr/local/lib/python3.12/config-3.12-x86_64-linux-gnu/python-config.py
-/usr/local/lib/python3.12/codecs.py
-/usr/local/lib/python3.12/_weakrefset.py
-/usr/local/lib/python3.12/email/contentmanager.py
-/usr/local/lib/python3.12/email/iterators.py
-/usr/local/lib/python3.12/email/encoders.py
-/usr/local/lib/python3.12/email/parser.py
-/usr/local/lib/python3.12/email/_parseaddr.py
-/usr/local/lib/python3.12/email/message.py
-/usr/local/lib/python3.12/email/utils.py
-/usr/local/lib/python3.12/email/quoprimime.py
-/usr/local/lib/python3.12/email/_header_value_parser.py
-/usr/local/lib/python3.12/email/headerregistry.py
-/usr/local/lib/python3.12/email/__init__.py
-/usr/local/lib/python3.12/email/policy.py
-/usr/local/lib/python3.12/email/_policybase.py
-/usr/local/lib/python3.12/email/generator.py
-/usr/local/lib/python3.12/email/mime/audio.py
-/usr/local/lib/python3.12/email/mime/message.py
-/usr/local/lib/python3.12/email/mime/__init__.py
-/usr/local/lib/python3.12/email/mime/application.py
-/usr/local/lib/python3.12/email/mime/text.py
-/usr/local/lib/python3.12/email/mime/base.py
-/usr/local/lib/python3.12/email/mime/image.py
-/usr/local/lib/python3.12/email/mime/nonmultipart.py
-/usr/local/lib/python3.12/email/mime/multipart.py
-/usr/local/lib/python3.12/email/charset.py
-/usr/local/lib/python3.12/email/_encoded_words.py
-/usr/local/lib/python3.12/email/base64mime.py
-/usr/local/lib/python3.12/email/feedparser.py
-/usr/local/lib/python3.12/email/errors.py
-/usr/local/lib/python3.12/email/header.py
-/usr/local/lib/python3.12/collections/abc.py
-/usr/local/lib/python3.12/collections/__init__.py
-/usr/local/lib/python3.12/ctypes/macholib/framework.py
-/usr/local/lib/python3.12/ctypes/macholib/__init__.py
-/usr/local/lib/python3.12/ctypes/macholib/dylib.py
-/usr/local/lib/python3.12/ctypes/macholib/dyld.py
-/usr/local/lib/python3.12/ctypes/util.py
-/usr/local/lib/python3.12/ctypes/wintypes.py
-/usr/local/lib/python3.12/ctypes/_aix.py
-/usr/local/lib/python3.12/ctypes/__init__.py
-/usr/local/lib/python3.12/ctypes/_endian.py
-/usr/local/lib/python3.12/_strptime.py
-/usr/local/lib/python3.12/pickletools.py
-/usr/local/lib/python3.12/selectors.py
-/usr/local/lib/python3.12/linecache.py
-/usr/local/lib/python3.12/argparse.py
-/usr/local/lib/python3.12/copyreg.py
-/usr/local/lib/python3.12/bz2.py
-/usr/local/lib/python3.12/threading.py
-/usr/local/lib/python3.12/mimetypes.py
-/usr/local/lib/python3.12/_pydatetime.py
-/usr/local/lib/python3.12/cgi.py
-/usr/local/lib/python3.12/filecmp.py
-/usr/local/lib/python3.12/http/server.py
-/usr/local/lib/python3.12/http/__init__.py
-/usr/local/lib/python3.12/http/cookiejar.py
-/usr/local/lib/python3.12/http/client.py
-/usr/local/lib/python3.12/http/cookies.py
-/usr/local/lib/python3.12/logging/config.py
-/usr/local/lib/python3.12/logging/handlers.py
-/usr/local/lib/python3.12/logging/__init__.py
-/usr/local/lib/python3.12/gzip.py
-/usr/local/lib/python3.12/pickle.py
-/usr/local/lib/python3.12/graphlib.py
-/usr/local/lib/python3.12/posixpath.py
-/usr/local/lib/python3.12/sqlite3/__init__.py
-/usr/local/lib/python3.12/sqlite3/__main__.py
-/usr/local/lib/python3.12/sqlite3/dump.py
-/usr/local/lib/python3.12/sqlite3/dbapi2.py
-/usr/local/lib/python3.12/heapq.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/_parser.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/_tokenizer.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/markers.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/_musllinux.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/_elffile.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/licenses/_spdx.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/licenses/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/_structures.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/tags.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/specifiers.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/requirements.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/_manylinux.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/typing_extensions.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/_internal_utils.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/certs.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/packages.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/utils.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/structures.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/sessions.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/adapters.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/compat.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/api.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/exceptions.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/help.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/__version__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/cookies.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/status_codes.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/hooks.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/auth.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/requests/models.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/socks.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/securetransport.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/appengine.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/_appengine_environ.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/retry.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/wait.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/proxy.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/response.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/url.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/timeout.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/request.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/queue.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssltransport.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/util/connection.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/filepost.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/response.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/request.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/exceptions.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/backports/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/backports/weakref_finalize.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/backports/makefile.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/_version.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/poolmanager.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/urllib3/fields.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/adapter.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/heuristics.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/_cmd.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/file_cache.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/redis_cache.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/cache.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/controller.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/filewrapper.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/serialize.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/cachecontrol/wrapper.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/live.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/screen.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/measure.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/color_triplet.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/cells.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_fileno.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/markup.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/style.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/tree.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_extension.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_timer.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/diagnose.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_stack.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/scope.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/abc.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/highlighter.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_replace.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/columns.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/live_render.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_windows_renderer.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/pager.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/table.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/emoji.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/color.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/terminal_theme.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/traceback.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_inspect.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/default_styles.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/logging.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/control.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_cell_widths.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/padding.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_log_render.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/text.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/rule.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/segment.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_pick.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/styled.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/__main__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/themes.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/status.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/jupyter.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_palettes.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/ansi.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/align.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_loop.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/palette.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_export_format.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_ratio.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_null_file.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/spinner.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/json.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/layout.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/progress.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/file_proxy.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/region.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/bar.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_windows.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/protocol.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_spinners.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/theme.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_wrap.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/containers.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/repr.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/filesize.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/errors.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/_win32_console.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/panel.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/box.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/constrain.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/rich/prompt.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/msgpack/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/msgpack/ext.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/msgpack/exceptions.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/msgpack/fallback.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_impl.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distro/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distro/__main__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distro/distro.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/certifi/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/certifi/core.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/certifi/__main__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatter.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/lexer.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/style.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/regexopt.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/util.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/scanner.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/filter.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/styles/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/styles/_mapping.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/__main__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/sphinxext.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/cmdline.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/modeline.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/bbcode.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/pangomarkup.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/other.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/rtf.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/svg.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/irc.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/terminal256.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/latex.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/terminal.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/groff.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/img.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/html.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/formatters/_mapping.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/console.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/token.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/unistring.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/filters/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/pygments/plugin.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/truststore/_ssl_constants.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/truststore/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/truststore/_macos.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/truststore/_openssl.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/truststore/_windows.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/truststore/_api.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/compat/collections_abc.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/compat/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/providers.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/structs.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/reporters.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/tomli/_parser.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/tomli/_re.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/tomli/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/tomli/_types.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/markers.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/util.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/index.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/database.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/scripts.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/manifest.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/version.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/locators.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/resources.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/distlib/metadata.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/intranges.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/idnadata.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/uts46data.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/compat.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/core.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/package_data.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/idna/codec.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/version.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py
-/usr/local/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/wheel_builder.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/parser.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/main.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/index_command.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/autocompletion.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/command_context.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/spinners.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/main_parser.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/status_codes.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/progress_bars.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cli/cmdoptions.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/locations/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/locations/_distutils.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/locations/_sysconfig.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/locations/base.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/configuration.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/main.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/lazy_wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/download.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/utils.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/cache.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/session.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/xmlrpc.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/_json.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/pkg_resources.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/base.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/importlib/_dists.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/importlib/_envs.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/importlib/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/metadata/importlib/_compat.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/index/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/index/sources.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/index/collector.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/pyproject.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/retry.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/_log.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/setuptools_build.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/compatibility_tags.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/entrypoints.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/compat.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/urls.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/datetime.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/_jaraco_text.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/subprocess.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/misc.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/logging.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/egg_link.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/unpacking.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/virtualenv.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/deprecation.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/direct_url_helpers.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/filetypes.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/glibc.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/hashes.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/packaging.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/filesystem.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/temp_dir.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/utils/appdirs.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/cache.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/build_env.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/exceptions.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/search_scope.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/format_control.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/scheme.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/index.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/candidate.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/link.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/installation_report.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/selection_prefs.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/target_python.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/direct_url.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/models/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/install/editable_legacy.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/install/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/install/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/metadata_legacy.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/wheel_editable.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/metadata.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/wheel_legacy.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/build/metadata_editable.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/freeze.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/operations/check.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/distributions/sdist.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/distributions/installed.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/distributions/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/distributions/base.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/distributions/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/legacy/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/legacy/resolver.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/base.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/reporter.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/provider.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/base.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/requirements.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/vcs/bazaar.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/vcs/subversion.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/vcs/mercurial.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/vcs/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/vcs/versioncontrol.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/vcs/git.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/self_outdated_check.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/req/req_set.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/req/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/req/constructors.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/req/req_uninstall.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/req/req_file.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/search.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/debug.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/download.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/completion.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/install.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/index.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/inspect.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/list.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/configuration.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/hash.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/cache.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/uninstall.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/help.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/freeze.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/wheel.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/show.py
-/usr/local/lib/python3.12/site-packages/pip/_internal/commands/check.py
-/usr/local/lib/python3.12/site-packages/pip/__pip-runner__.py
-/usr/local/lib/python3.12/site-packages/pip/__init__.py
-/usr/local/lib/python3.12/site-packages/pip/__main__.py
-/usr/local/lib/python3.12/site-packages/anyio/to_thread.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/stapled.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/buffered.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/file.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/__init__.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/tls.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/memory.py
-/usr/local/lib/python3.12/site-packages/anyio/streams/text.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_tasks.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/__init__.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_eventloop.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_testing.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_subprocesses.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_streams.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_resources.py
-/usr/local/lib/python3.12/site-packages/anyio/abc/_sockets.py
-/usr/local/lib/python3.12/site-packages/anyio/to_process.py
-/usr/local/lib/python3.12/site-packages/anyio/_backends/_trio.py
-/usr/local/lib/python3.12/site-packages/anyio/_backends/__init__.py
-/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/usr/local/lib/python3.12/site-packages/anyio/to_interpreter.py
-/usr/local/lib/python3.12/site-packages/anyio/from_thread.py
-/usr/local/lib/python3.12/site-packages/anyio/__init__.py
-/usr/local/lib/python3.12/site-packages/anyio/pytest_plugin.py
-/usr/local/lib/python3.12/site-packages/anyio/lowlevel.py
-/usr/local/lib/python3.12/site-packages/anyio/functools.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_signals.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_synchronization.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_contextmanagers.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_tasks.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/__init__.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_asyncio_selector_thread.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_eventloop.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_exceptions.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_testing.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_subprocesses.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_typedattr.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_fileio.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_streams.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_resources.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_tempfile.py
-/usr/local/lib/python3.12/site-packages/anyio/_core/_sockets.py
-/usr/local/lib/python3.12/site-packages/annotated_types/__init__.py
-/usr/local/lib/python3.12/site-packages/annotated_types/test_cases.py
-/usr/local/lib/python3.12/site-packages/starlette/responses.py
-/usr/local/lib/python3.12/site-packages/starlette/formparsers.py
-/usr/local/lib/python3.12/site-packages/starlette/schemas.py
-/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py
-/usr/local/lib/python3.12/site-packages/starlette/config.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/httpsredirect.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/cors.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/sessions.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/__init__.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/gzip.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/wsgi.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/exceptions.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/authentication.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/trustedhost.py
-/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py
-/usr/local/lib/python3.12/site-packages/starlette/_utils.py
-/usr/local/lib/python3.12/site-packages/starlette/applications.py
-/usr/local/lib/python3.12/site-packages/starlette/concurrency.py
-/usr/local/lib/python3.12/site-packages/starlette/background.py
-/usr/local/lib/python3.12/site-packages/starlette/convertors.py
-/usr/local/lib/python3.12/site-packages/starlette/__init__.py
-/usr/local/lib/python3.12/site-packages/starlette/routing.py
-/usr/local/lib/python3.12/site-packages/starlette/websockets.py
-/usr/local/lib/python3.12/site-packages/starlette/exceptions.py
-/usr/local/lib/python3.12/site-packages/starlette/testclient.py
-/usr/local/lib/python3.12/site-packages/starlette/templating.py
-/usr/local/lib/python3.12/site-packages/starlette/status.py
-/usr/local/lib/python3.12/site-packages/starlette/requests.py
-/usr/local/lib/python3.12/site-packages/starlette/authentication.py
-/usr/local/lib/python3.12/site-packages/starlette/types.py
-/usr/local/lib/python3.12/site-packages/starlette/staticfiles.py
-/usr/local/lib/python3.12/site-packages/starlette/datastructures.py
-/usr/local/lib/python3.12/site-packages/starlette/endpoints.py
-/usr/local/lib/python3.12/site-packages/pydantic_core/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic_core/core_schema.py
-/usr/local/lib/python3.12/site-packages/typing_extensions.py
-/usr/local/lib/python3.12/site-packages/pydantic/networks.py
-/usr/local/lib/python3.12/site-packages/pydantic/error_wrappers.py
-/usr/local/lib/python3.12/site-packages/pydantic/functional_serializers.py
-/usr/local/lib/python3.12/site-packages/pydantic/datetime_parse.py
-/usr/local/lib/python3.12/site-packages/pydantic/class_validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/utils.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_fields.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_docs_extraction.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_typing_extra.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_internal_dataclass.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_signature.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_generics.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_utils.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_core_metadata.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_serializers.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_namespace_utils.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_repr.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_known_annotated_metadata.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_decorators.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_schema_gather.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_discriminated_union.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_import_utils.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_forward_ref.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_mock_val_ser.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_core_utils.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_validate_call.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_git.py
-/usr/local/lib/python3.12/site-packages/pydantic/_internal/_decorators_v1.py
-/usr/local/lib/python3.12/site-packages/pydantic/config.py
-/usr/local/lib/python3.12/site-packages/pydantic/type_adapter.py
-/usr/local/lib/python3.12/site-packages/pydantic/parse.py
-/usr/local/lib/python3.12/site-packages/pydantic/generics.py
-/usr/local/lib/python3.12/site-packages/pydantic/main.py
-/usr/local/lib/python3.12/site-packages/pydantic/plugin/_schema_validator.py
-/usr/local/lib/python3.12/site-packages/pydantic/plugin/_loader.py
-/usr/local/lib/python3.12/site-packages/pydantic/plugin/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic/env_settings.py
-/usr/local/lib/python3.12/site-packages/pydantic/mypy.py
-/usr/local/lib/python3.12/site-packages/pydantic/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic/experimental/pipeline.py
-/usr/local/lib/python3.12/site-packages/pydantic/experimental/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic/experimental/arguments_schema.py
-/usr/local/lib/python3.12/site-packages/pydantic/experimental/missing_sentinel.py
-/usr/local/lib/python3.12/site-packages/pydantic/annotated_handlers.py
-/usr/local/lib/python3.12/site-packages/pydantic/decorator.py
-/usr/local/lib/python3.12/site-packages/pydantic/version.py
-/usr/local/lib/python3.12/site-packages/pydantic/color.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/copy_internals.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/usr/local/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/networks.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/error_wrappers.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/datetime_parse.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/class_validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/utils.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/config.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/parse.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/generics.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/main.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/mypy.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/__init__.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/decorator.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/version.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/color.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/_hypothesis_plugin.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/types.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/json.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/typing.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/annotated_types.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/tools.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/schema.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/errors.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/dataclasses.py
-/usr/local/lib/python3.12/site-packages/pydantic/v1/fields.py
-/usr/local/lib/python3.12/site-packages/pydantic/aliases.py
-/usr/local/lib/python3.12/site-packages/pydantic/root_model.py
-/usr/local/lib/python3.12/site-packages/pydantic/_migration.py
-/usr/local/lib/python3.12/site-packages/pydantic/types.py
-/usr/local/lib/python3.12/site-packages/pydantic/functional_validators.py
-/usr/local/lib/python3.12/site-packages/pydantic/json.py
-/usr/local/lib/python3.12/site-packages/pydantic/typing.py
-/usr/local/lib/python3.12/site-packages/pydantic/tools.py
-/usr/local/lib/python3.12/site-packages/pydantic/schema.py
-/usr/local/lib/python3.12/site-packages/pydantic/warnings.py
-/usr/local/lib/python3.12/site-packages/pydantic/errors.py
-/usr/local/lib/python3.12/site-packages/pydantic/alias_generators.py
-/usr/local/lib/python3.12/site-packages/pydantic/json_schema.py
-/usr/local/lib/python3.12/site-packages/pydantic/validate_call_decorator.py
-/usr/local/lib/python3.12/site-packages/pydantic/dataclasses.py
-/usr/local/lib/python3.12/site-packages/pydantic/fields.py
-/usr/local/lib/python3.12/site-packages/uvicorn/loops/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/loops/uvloop.py
-/usr/local/lib/python3.12/site-packages/uvicorn/loops/auto.py
-/usr/local/lib/python3.12/site-packages/uvicorn/loops/asyncio.py
-/usr/local/lib/python3.12/site-packages/uvicorn/importer.py
-/usr/local/lib/python3.12/site-packages/uvicorn/config.py
-/usr/local/lib/python3.12/site-packages/uvicorn/middleware/asgi2.py
-/usr/local/lib/python3.12/site-packages/uvicorn/middleware/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/middleware/wsgi.py
-/usr/local/lib/python3.12/site-packages/uvicorn/middleware/message_logger.py
-/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py
-/usr/local/lib/python3.12/site-packages/uvicorn/server.py
-/usr/local/lib/python3.12/site-packages/uvicorn/main.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/utils.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/flow_control.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/auto.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_sansio_impl.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/auto.py
-/usr/local/lib/python3.12/site-packages/uvicorn/protocols/websockets/wsproto_impl.py
-/usr/local/lib/python3.12/site-packages/uvicorn/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/workers.py
-/usr/local/lib/python3.12/site-packages/uvicorn/logging.py
-/usr/local/lib/python3.12/site-packages/uvicorn/__main__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/_types.py
-/usr/local/lib/python3.12/site-packages/uvicorn/supervisors/statreload.py
-/usr/local/lib/python3.12/site-packages/uvicorn/supervisors/basereload.py
-/usr/local/lib/python3.12/site-packages/uvicorn/supervisors/watchfilesreload.py
-/usr/local/lib/python3.12/site-packages/uvicorn/supervisors/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/supervisors/multiprocess.py
-/usr/local/lib/python3.12/site-packages/uvicorn/lifespan/__init__.py
-/usr/local/lib/python3.12/site-packages/uvicorn/lifespan/off.py
-/usr/local/lib/python3.12/site-packages/uvicorn/lifespan/on.py
-/usr/local/lib/python3.12/site-packages/uvicorn/_compat.py
-/usr/local/lib/python3.12/site-packages/uvicorn/_subprocess.py
-/usr/local/lib/python3.12/site-packages/h11/_connection.py
-/usr/local/lib/python3.12/site-packages/h11/_receivebuffer.py
-/usr/local/lib/python3.12/site-packages/h11/_abnf.py
-/usr/local/lib/python3.12/site-packages/h11/__init__.py
-/usr/local/lib/python3.12/site-packages/h11/_headers.py
-/usr/local/lib/python3.12/site-packages/h11/_readers.py
-/usr/local/lib/python3.12/site-packages/h11/_version.py
-/usr/local/lib/python3.12/site-packages/h11/_util.py
-/usr/local/lib/python3.12/site-packages/h11/_state.py
-/usr/local/lib/python3.12/site-packages/h11/_events.py
-/usr/local/lib/python3.12/site-packages/h11/_writers.py
-/usr/local/lib/python3.12/site-packages/httpx/_auth.py
-/usr/local/lib/python3.12/site-packages/httpx/_decoders.py
-/usr/local/lib/python3.12/site-packages/httpx/_content.py
-/usr/local/lib/python3.12/site-packages/httpx/_utils.py
-/usr/local/lib/python3.12/site-packages/httpx/_multipart.py
-/usr/local/lib/python3.12/site-packages/httpx/_transports/mock.py
-/usr/local/lib/python3.12/site-packages/httpx/_transports/__init__.py
-/usr/local/lib/python3.12/site-packages/httpx/_transports/asgi.py
-/usr/local/lib/python3.12/site-packages/httpx/_transports/wsgi.py
-/usr/local/lib/python3.12/site-packages/httpx/_transports/default.py
-/usr/local/lib/python3.12/site-packages/httpx/_transports/base.py
-/usr/local/lib/python3.12/site-packages/httpx/__init__.py
-/usr/local/lib/python3.12/site-packages/httpx/_status_codes.py
-/usr/local/lib/python3.12/site-packages/httpx/_urlparse.py
-/usr/local/lib/python3.12/site-packages/httpx/_exceptions.py
-/usr/local/lib/python3.12/site-packages/httpx/_types.py
-/usr/local/lib/python3.12/site-packages/httpx/__version__.py
-/usr/local/lib/python3.12/site-packages/httpx/_main.py
-/usr/local/lib/python3.12/site-packages/httpx/_client.py
-/usr/local/lib/python3.12/site-packages/httpx/_api.py
-/usr/local/lib/python3.12/site-packages/httpx/_config.py
-/usr/local/lib/python3.12/site-packages/httpx/_models.py
-/usr/local/lib/python3.12/site-packages/httpx/_urls.py
-/usr/local/lib/python3.12/site-packages/click/shell_completion.py
-/usr/local/lib/python3.12/site-packages/click/testing.py
-/usr/local/lib/python3.12/site-packages/click/parser.py
-/usr/local/lib/python3.12/site-packages/click/_termui_impl.py
-/usr/local/lib/python3.12/site-packages/click/decorators.py
-/usr/local/lib/python3.12/site-packages/click/utils.py
-/usr/local/lib/python3.12/site-packages/click/_utils.py
-/usr/local/lib/python3.12/site-packages/click/termui.py
-/usr/local/lib/python3.12/site-packages/click/_winconsole.py
-/usr/local/lib/python3.12/site-packages/click/__init__.py
-/usr/local/lib/python3.12/site-packages/click/core.py
-/usr/local/lib/python3.12/site-packages/click/exceptions.py
-/usr/local/lib/python3.12/site-packages/click/_textwrap.py
-/usr/local/lib/python3.12/site-packages/click/types.py
-/usr/local/lib/python3.12/site-packages/click/formatting.py
-/usr/local/lib/python3.12/site-packages/click/globals.py
-/usr/local/lib/python3.12/site-packages/click/_compat.py
-/usr/local/lib/python3.12/site-packages/fastapi/responses.py
-/usr/local/lib/python3.12/site-packages/fastapi/encoders.py
-/usr/local/lib/python3.12/site-packages/fastapi/_compat/__init__.py
-/usr/local/lib/python3.12/site-packages/fastapi/_compat/v2.py
-/usr/local/lib/python3.12/site-packages/fastapi/_compat/shared.py
-/usr/local/lib/python3.12/site-packages/fastapi/exception_handlers.py
-/usr/local/lib/python3.12/site-packages/fastapi/logger.py
-/usr/local/lib/python3.12/site-packages/fastapi/utils.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/httpsredirect.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/cors.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/__init__.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/gzip.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/wsgi.py
-/usr/local/lib/python3.12/site-packages/fastapi/middleware/trustedhost.py
-/usr/local/lib/python3.12/site-packages/fastapi/applications.py
-/usr/local/lib/python3.12/site-packages/fastapi/concurrency.py
-/usr/local/lib/python3.12/site-packages/fastapi/dependencies/utils.py
-/usr/local/lib/python3.12/site-packages/fastapi/dependencies/__init__.py
-/usr/local/lib/python3.12/site-packages/fastapi/dependencies/models.py
-/usr/local/lib/python3.12/site-packages/fastapi/background.py
-/usr/local/lib/python3.12/site-packages/fastapi/__init__.py
-/usr/local/lib/python3.12/site-packages/fastapi/routing.py
-/usr/local/lib/python3.12/site-packages/fastapi/param_functions.py
-/usr/local/lib/python3.12/site-packages/fastapi/websockets.py
-/usr/local/lib/python3.12/site-packages/fastapi/exceptions.py
-/usr/local/lib/python3.12/site-packages/fastapi/testclient.py
-/usr/local/lib/python3.12/site-packages/fastapi/__main__.py
-/usr/local/lib/python3.12/site-packages/fastapi/templating.py
-/usr/local/lib/python3.12/site-packages/fastapi/openapi/constants.py
-/usr/local/lib/python3.12/site-packages/fastapi/openapi/utils.py
-/usr/local/lib/python3.12/site-packages/fastapi/openapi/docs.py
-/usr/local/lib/python3.12/site-packages/fastapi/openapi/__init__.py
-/usr/local/lib/python3.12/site-packages/fastapi/openapi/models.py
-/usr/local/lib/python3.12/site-packages/fastapi/requests.py
-/usr/local/lib/python3.12/site-packages/fastapi/types.py
-/usr/local/lib/python3.12/site-packages/fastapi/staticfiles.py
-/usr/local/lib/python3.12/site-packages/fastapi/cli.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/open_id_connect_url.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/utils.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/__init__.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/http.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/base.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/api_key.py
-/usr/local/lib/python3.12/site-packages/fastapi/security/oauth2.py
-/usr/local/lib/python3.12/site-packages/fastapi/datastructures.py
-/usr/local/lib/python3.12/site-packages/fastapi/params.py
-/usr/local/lib/python3.12/site-packages/certifi/__init__.py
-/usr/local/lib/python3.12/site-packages/certifi/core.py
-/usr/local/lib/python3.12/site-packages/certifi/__main__.py
-/usr/local/lib/python3.12/site-packages/typing_inspection/__init__.py
-/usr/local/lib/python3.12/site-packages/typing_inspection/introspection.py
-/usr/local/lib/python3.12/site-packages/typing_inspection/typing_objects.py
-/usr/local/lib/python3.12/site-packages/httpcore/_ssl.py
-/usr/local/lib/python3.12/site-packages/httpcore/_synchronization.py
-/usr/local/lib/python3.12/site-packages/httpcore/_utils.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/mock.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/anyio.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/__init__.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/trio.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/sync.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/auto.py
-/usr/local/lib/python3.12/site-packages/httpcore/_backends/base.py
-/usr/local/lib/python3.12/site-packages/httpcore/__init__.py
-/usr/local/lib/python3.12/site-packages/httpcore/_trace.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/connection_pool.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/http_proxy.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/http2.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/socks_proxy.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/interfaces.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/__init__.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/http11.py
-/usr/local/lib/python3.12/site-packages/httpcore/_async/connection.py
-/usr/local/lib/python3.12/site-packages/httpcore/_exceptions.py
-/usr/local/lib/python3.12/site-packages/httpcore/_api.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/http2.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/socks_proxy.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/interfaces.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/__init__.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/http11.py
-/usr/local/lib/python3.12/site-packages/httpcore/_sync/connection.py
-/usr/local/lib/python3.12/site-packages/httpcore/_models.py
-/usr/local/lib/python3.12/site-packages/annotated_doc/main.py
-/usr/local/lib/python3.12/site-packages/annotated_doc/__init__.py
-/usr/local/lib/python3.12/site-packages/idna/intranges.py
-/usr/local/lib/python3.12/site-packages/idna/idnadata.py
-/usr/local/lib/python3.12/site-packages/idna/uts46data.py
-/usr/local/lib/python3.12/site-packages/idna/compat.py
-/usr/local/lib/python3.12/site-packages/idna/__init__.py
-/usr/local/lib/python3.12/site-packages/idna/core.py
-/usr/local/lib/python3.12/site-packages/idna/package_data.py
-/usr/local/lib/python3.12/site-packages/idna/codec.py
-/usr/local/lib/python3.12/datetime.py
-/usr/local/lib/python3.12/subprocess.py
-/usr/local/lib/python3.12/traceback.py
-/usr/local/lib/python3.12/turtledemo/chaos.py
-/usr/local/lib/python3.12/turtledemo/paint.py
-/usr/local/lib/python3.12/turtledemo/colormixer.py
-/usr/local/lib/python3.12/turtledemo/minimal_hanoi.py
-/usr/local/lib/python3.12/turtledemo/lindenmayer.py
-/usr/local/lib/python3.12/turtledemo/tree.py
-/usr/local/lib/python3.12/turtledemo/clock.py
-/usr/local/lib/python3.12/turtledemo/forest.py
-/usr/local/lib/python3.12/turtledemo/nim.py
-/usr/local/lib/python3.12/turtledemo/__init__.py
-/usr/local/lib/python3.12/turtledemo/planet_and_moon.py
-/usr/local/lib/python3.12/turtledemo/sorting_animate.py
-/usr/local/lib/python3.12/turtledemo/two_canvases.py
-/usr/local/lib/python3.12/turtledemo/fractalcurves.py
-/usr/local/lib/python3.12/turtledemo/__main__.py
-/usr/local/lib/python3.12/turtledemo/bytedesign.py
-/usr/local/lib/python3.12/turtledemo/yinyang.py
-/usr/local/lib/python3.12/turtledemo/round_dance.py
-/usr/local/lib/python3.12/turtledemo/rosette.py
-/usr/local/lib/python3.12/turtledemo/peace.py
-/usr/local/lib/python3.12/turtledemo/penrose.py
-/usr/local/lib/python3.12/html/parser.py
-/usr/local/lib/python3.12/html/__init__.py
-/usr/local/lib/python3.12/html/entities.py
-/usr/local/lib/python3.12/tomllib/_parser.py
-/usr/local/lib/python3.12/tomllib/_re.py
-/usr/local/lib/python3.12/tomllib/__init__.py
-/usr/local/lib/python3.12/tomllib/_types.py
-/usr/local/lib/python3.12/pkgutil.py
-/usr/local/lib/python3.12/sndhdr.py
-/usr/local/lib/python3.12/uuid.py
-/usr/local/lib/python3.12/concurrent/__init__.py
-/usr/local/lib/python3.12/concurrent/futures/_base.py
-/usr/local/lib/python3.12/concurrent/futures/__init__.py
-/usr/local/lib/python3.12/concurrent/futures/thread.py
-/usr/local/lib/python3.12/concurrent/futures/process.py
-/usr/local/lib/python3.12/string.py
-/usr/local/lib/python3.12/__phello__/__init__.py
-/usr/local/lib/python3.12/__phello__/spam.py
-/usr/local/lib/python3.12/_threading_local.py
-/usr/local/lib/python3.12/queue.py
-/usr/local/lib/python3.12/cProfile.py
-/usr/local/lib/python3.12/codeop.py
-/usr/local/lib/python3.12/tabnanny.py
-/usr/local/lib/python3.12/mailcap.py
-/usr/local/lib/python3.12/pprint.py
-/usr/local/lib/python3.12/netrc.py
-/usr/local/lib/python3.12/poplib.py
-/usr/local/lib/python3.12/sre_compile.py
-/usr/local/lib/python3.12/os.py
-/usr/local/lib/python3.12/optparse.py
-/usr/local/lib/python3.12/_pydecimal.py
-/usr/local/lib/python3.12/bdb.py
-/usr/local/lib/python3.12/pdb.py
-/usr/local/lib/python3.12/venv/__init__.py
-/usr/local/lib/python3.12/venv/__main__.py
-/usr/local/lib/python3.12/random.py
-/usr/local/lib/python3.12/dbm/gnu.py
-/usr/local/lib/python3.12/dbm/__init__.py
-/usr/local/lib/python3.12/dbm/dumb.py
-/usr/local/lib/python3.12/dbm/ndbm.py
-/usr/local/lib/python3.12/_pyio.py
-/usr/local/lib/python3.12/hashlib.py
-/usr/local/lib/python3.12/__hello__.py
-/usr/local/lib/python3.12/cgitb.py
-/usr/local/lib/python3.12/ntpath.py
-/usr/local/lib/python3.12/_py_abc.py
-/usr/local/lib/python3.12/numbers.py
-/usr/local/lib/python3.12/_sitebuiltins.py
-/usr/local/lib/python3.12/fractions.py
-/usr/local/lib/python3.12/nturl2path.py
-/usr/local/lib/python3.12/turtle.py
-/usr/local/lib/python3.12/contextlib.py
-/usr/local/lib/python3.12/xmlrpc/server.py
-/usr/local/lib/python3.12/xmlrpc/__init__.py
-/usr/local/lib/python3.12/xmlrpc/client.py
-/usr/local/lib/python3.12/fnmatch.py
-/usr/local/lib/python3.12/_sysconfigdata__linux_x86_64-linux-gnu.py
-/usr/local/lib/python3.12/types.py
-/usr/local/lib/python3.12/enum.py
-/usr/local/lib/python3.12/shlex.py
-/usr/local/lib/python3.12/nntplib.py
-/usr/local/lib/python3.12/pyclbr.py
-/usr/local/lib/python3.12/imaplib.py
-/usr/local/lib/python3.12/_pylong.py
-/usr/local/lib/python3.12/trace.py
-/usr/local/lib/python3.12/antigravity.py
-/usr/local/lib/python3.12/statistics.py
-/usr/local/lib/python3.12/functools.py
-/usr/local/lib/python3.12/ensurepip/__init__.py
-/usr/local/lib/python3.12/ensurepip/__main__.py
-/usr/local/lib/python3.12/ensurepip/_uninstall.py
-/usr/local/lib/python3.12/tracemalloc.py
-/usr/local/lib/python3.12/_markupbase.py
-/usr/local/lib/python3.12/_compat_pickle.py
-/usr/local/lib/python3.12/secrets.py
-/usr/local/lib/python3.12/_compression.py
-/usr/local/lib/python3.12/wsgiref/util.py
-/usr/local/lib/python3.12/wsgiref/handlers.py
-/usr/local/lib/python3.12/wsgiref/__init__.py
-/usr/local/lib/python3.12/wsgiref/validate.py
-/usr/local/lib/python3.12/wsgiref/simple_server.py
-/usr/local/lib/python3.12/wsgiref/headers.py
-/usr/local/lib/python3.12/wsgiref/types.py
-/usr/local/lib/python3.12/tokenize.py
-/usr/local/lib/python3.12/glob.py
-/usr/local/lib/python3.12/socket.py
-/usr/local/lib/python3.12/json/encoder.py
-/usr/local/lib/python3.12/json/decoder.py
-/usr/local/lib/python3.12/json/tool.py
-/usr/local/lib/python3.12/json/__init__.py
-/usr/local/lib/python3.12/json/scanner.py
-/usr/local/lib/python3.12/smtplib.py
-/usr/local/lib/python3.12/token.py
-/usr/local/lib/python3.12/genericpath.py
-/usr/local/lib/python3.12/tkinter/constants.py
-/usr/local/lib/python3.12/tkinter/font.py
-/usr/local/lib/python3.12/tkinter/__init__.py
-/usr/local/lib/python3.12/tkinter/filedialog.py
-/usr/local/lib/python3.12/tkinter/scrolledtext.py
-/usr/local/lib/python3.12/tkinter/dnd.py
-/usr/local/lib/python3.12/tkinter/__main__.py
-/usr/local/lib/python3.12/tkinter/commondialog.py
-/usr/local/lib/python3.12/tkinter/messagebox.py
-/usr/local/lib/python3.12/tkinter/colorchooser.py
-/usr/local/lib/python3.12/tkinter/dialog.py
-/usr/local/lib/python3.12/tkinter/ttk.py
-/usr/local/lib/python3.12/tkinter/simpledialog.py
-/usr/local/lib/python3.12/tkinter/tix.py
-/usr/local/lib/python3.12/typing.py
-/usr/local/lib/python3.12/quopri.py
-/usr/local/lib/python3.12/curses/textpad.py
-/usr/local/lib/python3.12/curses/ascii.py
-/usr/local/lib/python3.12/curses/has_key.py
-/usr/local/lib/python3.12/curses/__init__.py
-/usr/local/lib/python3.12/curses/panel.py
-/usr/local/lib/python3.12/warnings.py
-/usr/local/lib/python3.12/mailbox.py
-/usr/local/lib/python3.12/importlib/util.py
-/usr/local/lib/python3.12/importlib/abc.py
-/usr/local/lib/python3.12/importlib/simple.py
-/usr/local/lib/python3.12/importlib/metadata/_functools.py
-/usr/local/lib/python3.12/importlib/metadata/__init__.py
-/usr/local/lib/python3.12/importlib/metadata/_adapters.py
-/usr/local/lib/python3.12/importlib/metadata/_itertools.py
-/usr/local/lib/python3.12/importlib/metadata/_text.py
-/usr/local/lib/python3.12/importlib/metadata/_meta.py
-/usr/local/lib/python3.12/importlib/metadata/_collections.py
-/usr/local/lib/python3.12/importlib/__init__.py
-/usr/local/lib/python3.12/importlib/_bootstrap.py
-/usr/local/lib/python3.12/importlib/_bootstrap_external.py
-/usr/local/lib/python3.12/importlib/machinery.py
-/usr/local/lib/python3.12/importlib/readers.py
-/usr/local/lib/python3.12/importlib/resources/abc.py
-/usr/local/lib/python3.12/importlib/resources/simple.py
-/usr/local/lib/python3.12/importlib/resources/__init__.py
-/usr/local/lib/python3.12/importlib/resources/_common.py
-/usr/local/lib/python3.12/importlib/resources/_adapters.py
-/usr/local/lib/python3.12/importlib/resources/_itertools.py
-/usr/local/lib/python3.12/importlib/resources/readers.py
-/usr/local/lib/python3.12/importlib/resources/_legacy.py
-/usr/local/lib/python3.12/importlib/_abc.py
-/usr/local/lib/python3.12/platform.py
-/usr/local/lib/python3.12/_osx_support.py
-/usr/local/lib/python3.12/urllib/response.py
-/usr/local/lib/python3.12/urllib/parse.py
-/usr/local/lib/python3.12/urllib/__init__.py
-/usr/local/lib/python3.12/urllib/error.py
-/usr/local/lib/python3.12/urllib/request.py
-/usr/local/lib/python3.12/urllib/robotparser.py
-/usr/local/lib/python3.12/xdrlib.py
-/usr/local/lib/python3.12/rlcompleter.py
-/usr/local/lib/python3.12/sched.py
-/usr/local/lib/python3.12/_collections_abc.py
-/usr/local/lib/python3.12/runpy.py
-/usr/local/lib/python3.12/locale.py
-/usr/local/lib/python3.12/stringprep.py
-/usr/local/lib/python3.12/dis.py
-/usr/local/lib/python3.12/symtable.py
-/usr/local/lib/python3.12/doctest.py
-/usr/local/lib/python3.12/colorsys.py
-/usr/local/lib/python3.12/sunau.py
-/usr/local/lib/python3.12/zipapp.py
-/usr/local/lib/python3.12/dataclasses.py
-/usr/local/lib/python3.12/modulefinder.py
-/usr/local/lib/python3.12/gettext.py
-/usr/local/lib/python3.12/sysconfig.py
-/usr/local/lib/python3.12/configparser.py
-/usr/local/lib/python3.12/webbrowser.py
-/usr/local/lib/python3.12/xml/parsers/__init__.py
-/usr/local/lib/python3.12/xml/parsers/expat.py
-/usr/local/lib/python3.12/xml/dom/minicompat.py
-/usr/local/lib/python3.12/xml/dom/xmlbuilder.py
-/usr/local/lib/python3.12/xml/dom/expatbuilder.py
-/usr/local/lib/python3.12/xml/dom/__init__.py
-/usr/local/lib/python3.12/xml/dom/minidom.py
-/usr/local/lib/python3.12/xml/dom/pulldom.py
-/usr/local/lib/python3.12/xml/dom/NodeFilter.py
-/usr/local/lib/python3.12/xml/dom/domreg.py
-/usr/local/lib/python3.12/xml/etree/ElementPath.py
-/usr/local/lib/python3.12/xml/etree/ElementTree.py
-/usr/local/lib/python3.12/xml/etree/cElementTree.py
-/usr/local/lib/python3.12/xml/etree/__init__.py
-/usr/local/lib/python3.12/xml/etree/ElementInclude.py
-/usr/local/lib/python3.12/xml/__init__.py
-/usr/local/lib/python3.12/xml/sax/expatreader.py
-/usr/local/lib/python3.12/xml/sax/__init__.py
-/usr/local/lib/python3.12/xml/sax/handler.py
-/usr/local/lib/python3.12/xml/sax/_exceptions.py
-/usr/local/lib/python3.12/xml/sax/xmlreader.py
-/usr/local/lib/python3.12/xml/sax/saxutils.py
-/usr/local/lib/python3.12/ast.py
-/app/llm13-proxy_llm13_health_proxy.py
-/app/llm13_health_proxy.py
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ # Check what's actually running — the logger name tells us
-docker exec llm13-proxy cat /app/llm13-proxy_llm13_health_proxy.py | grep "MODEL_NAME\|getLogger"
-logger = logging.getLogger("gemma-proxy")
-MODEL_NAME = os.getenv("MODEL_NAME", "tinyllama:latest")
-        "model": MODEL_NAME,
-        "model": MODEL_NAME,
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ time=2026-04-12T20:46:01.603Z level=WARN source=server.go:209 msg="flash attention enabled but not supported by model"
-time=2026-04-12T20:46:01.603Z level=WARN source=server.go:258 msg="quantized kv cache requested but flash attention disabled" type=q8_0
-time=2026-04-12T20:46:01.604Z level=INFO source=server.go:431 msg="starting runner" cmd="/usr/bin/ollama runner --ollama-engine --model /root/.ollama/models/blobs/sha256-797b70c4edf85907fe0a49eb85811256f65fa0f7bf52166b147fd16be2be4662 --port 40327"
-time=2026-04-12T20:46:01.606Z level=INFO source=server.go:757 msg="loading model" "model layers"=7 requested=-1
-time=2026-04-12T20:46:01.640Z level=INFO source=runner.go:1284 msg=load request="{Operation:fit LoraPath:[] Parallel:1 BatchSize:256 FlashAttention:Disabled KvSize:256 KvCacheType: NumThreads:8 GPULayers:7[ID:GPU-207dd05d-d3cf-49ff-631f-e1df9e8913eb Layers:7(0..6)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
-time=2026-04-12T20:46:02.158Z level=INFO source=runner.go:1284 msg=load request="{Operation:alloc LoraPath:[] Parallel:1 BatchSize:256 FlashAttention:Disabled KvSize:256 KvCacheType: NumThreads:8 GPULayers:7[ID:GPU-207dd05d-d3cf-49ff-631f-e1df9e8913eb Layers:7(0..6)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
-time=2026-04-12T20:46:02.172Z level=INFO source=runner.go:1284 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:256 FlashAttention:Disabled KvSize:256 KvCacheType: NumThreads:8 GPULayers:7[ID:GPU-207dd05d-d3cf-49ff-631f-e1df9e8913eb Layers:7(0..6)] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
-time=2026-04-12T20:46:02.173Z level=INFO source=device.go:240 msg="model weights" device=CUDA0 size="42.7 MiB"
-time=2026-04-12T20:46:02.173Z level=INFO source=device.go:245 msg="model weights" device=CPU size="22.7 MiB"
-time=2026-04-12T20:46:02.173Z level=INFO source=server.go:1384 msg="waiting for server to become available" status="llm server loading model"
+   - 127.0.0.1:8221:8221
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ # Commit all the fixed Dockerfiles
+git add services/Dockerfile-llm*
+git commit -m "fix: replace stub Dockerfiles for llm1,4,7,13,21-proxy with real Python proxies
 
+llm13-proxy: was alpine placeholder, now python:3.12-slim + gemma:2b
+llm1,4,7,21-proxy: were alpine sleep stubs, now proper uvicorn proxies
+All ports verified against docker-compose.yml (8201,8204,8207,8213,8221)"
+
+# Now rebuild llm13 (the one we actually need right now)
+docker compose up -d --no-deps --build llm13-proxy
+sleep 10
+docker exec llm13-proxy grep -n "gemma\\|orca" /app/llm13_health_proxy.py
+fatal: pathspec 'services/Dockerfile-llm10-proxy' is beyond a symbolic link
+On branch chore/ch29-closeout-rbac-pia-2026-04-07
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   ../Dockerfile.brain
+	modified:   ../Dockerfile.gateway
+	modified:   ../VERIFYANDTEST.sh
+	modified:   ../config/Caddyfile
+	modified:   ../docker-compose-core.yml
+	deleted:    ../docker-compose.override.yml
+	modified:   ../docker-compose.yml
+	deleted:    ../docker-compose.yml.bak
+	deleted:    ../docker-compose.yml.bak.20260312-002553
+	deleted:    ../docker-compose.yml.bak.20260312-002755
+	deleted:    ../docker-compose.yml.bak.20260312-002852
+	deleted:    ../docker-compose.yml.bak_20260310-184927
+	modified:   ../ms_jarvis_rag_server.py
+	modified:   docker-compose.yml
+	modified:   ../neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+	modified:   ../neurobiological_brain/spiritual_root/service/spiritual_root.py
+	modified:   ../requirements.txt
+	modified:   ../scripts/audit_36.sh
+	modified:   ../scripts/jarvis_auth_service.py
+	modified:   ../scripts/preflight_gate.sh
+	modified:   ../scripts/sprint3_adversarial_tests.py
+	modified:   ../services-safe/docker-compose.yml
+	modified:   ../services-safe/egeria_autonomous_inquiry.py
+	modified:   ../services-safe/ms_jarvis_autonomous_learner_optimized.py
+	modified:   ../services-safe/ms_jarvis_rag_server.py
+	modified:   ../services-safe/requirements.txt
+	modified:   ../services/Dockerfile
+	modified:   ../services/Dockerfile-llm1-proxy
+	modified:   ../services/Dockerfile-llm13-proxy
+	modified:   ../services/Dockerfile-llm21-proxy
+	modified:   ../services/Dockerfile-llm4-proxy
+	modified:   ../services/Dockerfile-llm7-proxy
+	modified:   ../services/Dockerfile.aaacpe_rag
+	modified:   ../services/Dockerfile.aaacpe_scraper
+	modified:   ../services/Dockerfile.crypto-policy
+	modified:   ../services/Dockerfile.hippocampus
+	modified:   ../services/Dockerfile.icontainers
+	modified:   ../services/Dockerfile.judge
+	modified:   ../services/Dockerfile.local-resources
+	deleted:    ../services/Dockerfile.policy
+	modified:   ../services/Dockerfile.spiritual_rag
+	deleted:    ../services/Dockerfile.steward
+	modified:   ../services/Dockerfile.woah
+	modified:   ../services/aaacpe_scraper_service.py
+	modified:   ../services/ai_server_11llm_OPTIMIZED.py
+	modified:   ../services/ai_server_20llm_PRODUCTION.py
+	modified:   ../services/brain_orchestrator.py
+	modified:   ../services/dao_governance.py
+	modified:   ../services/egeria_autonomous_inquiry.py
+	modified:   ../services/jarvis-aaacpe-rag_aaacpe_rag_service.py
+	modified:   ../services/jarvis-constitutional-guardian_constitutional_api.py
+	modified:   ../services/jarvis-gis-rag_gis_rag_service.py
+	modified:   ../services/jarvis-hippocampus_hippocampus_service.py
+	modified:   ../services/jarvis-semaphore_msjarvis_semaphore.py
+	modified:   ../services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+	modified:   ../services/jarvis_eeg_beta_5m.py
+	modified:   ../services/jarvis_eeg_delta_30s.py
+	modified:   ../services/jarvis_eeg_theta_60s.py
+	modified:   ../services/jarviscryptopolicy.py
+	modified:   ../services/judge_pipeline.py
+	modified:   ../services/judgesigner.py
+	modified:   ../services/llm13-proxy_llm13_health_proxy.py
+	modified:   ../services/llm_consensus_20_FINAL.py
+	modified:   ../services/main_brain.py
+	modified:   ../services/ms_jarvis_autonomous_learner_optimized.py
+	modified:   ../services/ms_jarvis_blood_brain_barrier.py
+	modified:   ../services/ms_jarvis_memory.py
+	typechange: ../services/ms_jarvis_qualia_engine.py
+	modified:   ../services/ms_jarvis_rag_server.py
+	modified:   ../services/ms_jarvis_unified_gateway.py
+	modified:   ../services/ms_jarvis_web_research_aggregate.py
+	typechange: ../services/msjarvis_fractal_consciousness.py
+	modified:   ../services/msjarvisconsciousnessbridge_ACTUAL.py
+	modified:   ../services/neurobiological_brain/blood_brain_barrier/safety_monitor.py
+	modified:   ../services/neurobiological_brain/blood_brain_barrier/threat_detection.py
+	modified:   ../services/neurobiological_brain/blood_brain_barrier/truth_verification.py
+	modified:   ../services/requirements.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../.dockerignore
+	../26.0.1
+	../911centers_wvdem_032819_gcs84_attrs.csv
+	../=
+	../Accept:
+	../Dockerfile.neuro
+	../GET
+	../HTTP
+	../Host:
+	../User-Agent:
+	../amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
+	../amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
+	../blockgroups_census_2000_ll83_attrs.csv
+	../blockgroups_census_2000_utm83_attrs.csv
+	../blockgroups_census_201111_gcs83_attrs.csv
+	../blockgroups_census_2020_utm83_attrs.csv
+	../blockgroups_census_2020_wma84_attrs.csv
+	../boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
+	../calderl_reg_ll83_attrs.csv
+	../citieswithpopulation_2500_census_201111_utm83_attrs.csv
+	../citieswithpopulationover10k_census_201111_gcs83_attrs.csv
+	../citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
+	../citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
+	../citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
+	../citieswithpopulationsover10k_census_2020_utm83_attrs.csv
+	../citieswithpopulationsover10k_census_2020_wma84_attrs.csv
+	../citieswithpopulationsover2500_census_2020_utm83_attrs.csv
+	../citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
+	../coals2_ll83_attrs.csv
+	../coals2_utm27_attrs.csv
+	../coals2_utm83_attrs.csv
+	../communityboundary_min_att_20250121_utm83_attrs.csv
+	../correctionalinstitutions_hsip_20091230_utm83_attrs.csv
+	../correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
+	../countycityparkboundaries_20201104_utm83_attrs.csv
+	../countyseats_usgs_ll83_attrs.csv
+	../countyseats_usgs_utm83_attrs.csv
+	../courthousescounty_manysources_200203_utm83_attrs.csv
+	../courthousesfederal_manysources_200203_ll83_attrs.csv
+	../courthousesfederal_manysources_200203_utm_attrs.csv
+	../cvfault_ll83_attrs.csv
+	../cvfault_utm27_attrs.csv
+	../cvpoly_ll83_attrs.csv
+	../cvpoly_utm27_attrs.csv
+	../cvpoly_utm83_attrs.csv
+	../dams_usarmycorpsofengineers_200010_utm83_attrs.csv
+	../dams_usarmycropsofengineers_200010_ll83_attrs.csv
+	../damsnoncoal_usgs_2002_ll27_attrs.csv
+	../db/schema/
+	../deploy-brain.sh
+	../deploy-gbim.sh
+	../deploy-memory.sh
+	../deploy-orchestrator.sh
+	../deploy_gap_aware.sh
+	../docker-compose.override.yml.disabled
+	../docs/confidence_decay_baseline_20260402.txt
+	../docs/mysql_schema.sql
+	../docs/mysql_schema_dump_20260402.sql
+	../docs/sprints/
+	../empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
+	../empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
+	../excursionpassengertrains_wvdof_200102_ll83_attrs.csv
+	../excursionpassengertrains_wvdof_200102_utm83_attrs.csv
+	../facilities_epa_200203_ll83_attrs.csv
+	../facilities_epa_200203_utm83_attrs.csv
+	../fault_reg_ll83_attrs.csv
+	../faultgl_reg_ll83_attrs.csv
+	../features_attrs.csv
+	../fire_departments_attrs.csv
+	../fire_dept_wvdem_092017_utm83_attrs.csv
+	../floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
+	../geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+	../geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+	../geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+	../geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+	../geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+	../geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+	../geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+	../geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+	../geolgyl_reg_ll83_attrs.csv
+	../geolgyp_reg_ll83_attrs.csv
+	../geotextl_reg_ll83_attrs.csv
+	../hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
+	../hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
+	../healthruralfacilities_manysources_utm83_attrs.csv
+	../highered_wvemd_072420_utm83_attrs.csv
+	../highered_wvemd_072420_wgc84_attrs.csv
+	../hospitals_attrs.csv
+	../impact_reg_ll83_attrs.csv
+	../indexgrid15minutequads_wvgistc_ll83_attrs.csv
+	../indexgrid15minutequads_wvgistc_utm83_attrs.csv
+	../indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
+	../indexgrid1minutequads_wvgistc_ll83_attrs.csv
+	../industrialbuildings_wvdo_200807_utm83_attrs.csv
+	../industrialparks_wvdo_200078_utm83_attrs.csv
+	../industrialsites_wvdo_200807_utm83_attrs.csv
+	../inedexgrid1minutequads_wvgistc_utm83_attrs.csv
+	../intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
+	../intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
+	../jarviscryptopolicy.py
+	../libraries_manysources_2001_ll27_attrs.csv
+	../libraries_manysources_2001_utm83_attrs.csv
+	../logs/ops_history/
+	../logs/qualia_woah/
+	../logs/redteam_bbb/
+	../majorriversandlakesline_nhd_2002_ll83_attrs.csv
+	../majorriversandlakesline_nhd_2002_utm83_attrs.csv
+	../majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+	../manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
+	../metfacp_reg_ll83_attrs.csv
+	../metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
+	../metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
+	../metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
+	../metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
+	../mineraloperations_usgs_200204_ll83_attrs.csv
+	../mineraloperations_usgs_200204_utm83_attrs.csv
+	../minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
+	../minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
+	../minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
+	../ms_jarvis_blood_brain_barrier.py
+	Dockerfile.fractal
+	Dockerfile.woah
+	gbim_query_router.py
+	services
+	../nationalatlasstreams_usgs_199903_ll83_attrs.csv
+	../nationalatlasstreams_usgs_199903_utm83_attrs.csv
+	../nationalregister_point_20200923_attrs.csv
+	../nationalregister_point_20200923_utm27_attrs.csv
+	../nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
+	../nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
+	../nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
+	../nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
+	../nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
+	../natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
+	../naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
+	../navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
+	../navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
+	../observability/docker-compose.yml
+	../observability/grafana/
+	../observability/otel/config.yaml
+	../observability/prometheus/prometheus.yml
+	../observability/scripts/
+	../officebuildings_wvdo_200807_utm83_attrs.csv
+	../oi36a-mitigation.sh
+	../output/
+	../paroleoffices_manysources_2008_utm83_attrs.csv
+	../paroleoffices_manysources_2008_wgs84_attrs.csv
+	../patch_gate.py
+	../placesofworship_hsip_20080723_utm83_attrs.csv
+	../placesofworship_hsip_20080723_wgs84_attrs.csv
+	../policedept_wvdem_012319_gcs84_attrs.csv
+	../policedept_wvdem_012319_utm83_attrs.csv
+	../populatedplaces_census_201112_utm83_attrs.csv
+	../populatedplaces_census_20112_gcs83_attrs.csv
+	../populatedplaces_census_2020_utm83_attrs.csv
+	../populatedplaces_census_2020_wma84_attrs.csv
+	../populatedplaces_uscensus_1990_utm83_attrs.csv
+	../populationdatablockgroups_uscensus_2000_ll83_attrs.csv
+	../populationdatablockgroups_uscensus_2000_utm83_attrs.csv
+	../pow_wvgistc_062919_utm83_attrs.csv
+	../pow_wvgistc_062919_wgs84_attrs.csv
+	../publichealthdepts_hsip_20091229_utm83_attrs.csv
+	../railnetworkregion_usdot_200203_ll83_attrs.csv
+	../railnetworkregion_usdot_200203_utm83_attrs.csv
+	../railnetworkwv_usdot_200203_ll83_attrs.csv
+	../railnetworkwv_usdot_200203_utm83_attrs.csv
+	../railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
+	../realtimestreamflowstations_usgs_200012_ll27_attrs.csv
+	../realtimestreamflowstations_usgs_200012_utm27_attrs.csv
+	../realtimestreamflowstations_usgs_200012_utm83_attrs.csv
+	../regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
+	../regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
+	../scripts/aaacpe_scraper.py
+	../scripts/check-constitutional-health.sh
+	../scripts/close_chapter_26.sh
+	../scripts/gbim_axis_loader.sql
+	../scripts/gbim_decay_refresh.sh
+	../scripts/oi38_seed_collections.py
+	../scripts/refresh_gbim_spatial.sh
+	../scripts/run_aaacpe_scraper.sh
+	../scripts/system_audit.sh
+	../scripts/test_session_sidecar.sh
+	../services-576-recovered/
+	../services-nvme1-recovered/
+	../services-safe/auth-proxy/
+	../services-safe/gbim_recovered/
+	../services-safe/session_buffer_minimal.py
+	../services/Dockerfile.bbb
+	../services/archived-dockerfiles/
+	../services/constitutional_principles.json
+	../services/eeg_shared/
+	../services/entityid_to_chromaid.pkl
+	../services/gbim_benefit_indexer/
+	../services/gbim_query_router/
+	../services/gis_dataset_services/
+	../services/identity_promotion.py
+	../services/jarvis_data_ingest.py
+	../services/jarvis_gis_rag/
+	../services/jarvis_pia_status.py
+	../services/jarvis_rag_search/
+	../services/llm13_health_proxy.py
+	../services/llm_judge_v3.py
+	../services/main_brain.py.manualbak
+	../services/main_brain.py.manualbak3
+	../services/main_brain.py.manualbak4
+	../services/main_brain.py.manualbak5
+	../services/main_brain.py.pre_aaacpe_patch
+	../services/otel_tracing.py
+	../services/rag_grounded_v2.py
+	../services/requirements-ingest.txt
+	../services/rotate_judge_keys.sh
+	../services/spiritual_origins.geojson
+	../sewertreatmentplants_wvdep_200203_utm83_attrs.csv
+	../solidwastefacilities_wvdep_200202_ll83_attrs.csv
+	../solidwastefacilities_wvdep_200202_utm83_attrs.csv
+	../springs_wvges_1986_ll83_attrs.csv
+	../springs_wvges_1986_utm83_attrs.csv
+	../stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
+	../stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
+	../states_region_ll83_attrs.csv
+	../structurepolygons_samb_2003_utm83_attrs.csv
+	../summits_gistc_052012_utm83_shp_attrs.csv
+	../summits_gistc_052012_wgs84_shp_attrs.csv
+	../surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
+	../test_query.sh
+	../tmp-aaacpe-patch/
+	../tools/
+	../towers_wvpublicbroadcasting_2002_ll83_attrs.csv
+	../towers_wvpublicbroadcasting_2002_utm83_attrs.csv
+	../towersam_fcc_200202_utm83_attrs.csv
+	../towersasr_fcc_200202_ll83_attrs.csv
+	../towersasr_fcc_200202_utm83_attrs.csv
+	../towerscellular_fcc_200202_ll83_attrs.csv
+	../towerscellular_fcc_200202_utm83_attrs.csv
+	../towersfm_fcc_200202_utm83_attrs.csv
+	../towersmicrowave_fcc_200202_ll83_attrs.csv
+	../towersmicrowave_fcc_200202_utm83_attrs.csv
+	../towerspager_fcc_200202_ll83_attrs.csv
+	../towerspager_fcc_200202_utm83_attrs.csv
+	../veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
+	../veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
+	../votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
+	../votingdistrictswv_uscensus_2000_utm83_attrs.csv
+	../weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
+	../weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
+	../windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
+	../windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
+	../wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+	../wv_microsoft_20180207_utm17n83_attrs.csv
+	../wv_tax_districts_ll83_attrs.csv
+	../wv_tax_districts_wma84_attrs.csv
+	../wvstatebounadary100k_usgs_200203_utm83_attrs.csv
+	../wvstateboundary100k_usgs_200203_ll83_attrs.csv
+	../wvstateboundary24k_usgs_200203_utm83_attrs.csv
+	../wvstatehousedistricts_manysources_1992_ll83_attrs.csv
+	../wvstatehousedistricts_manysources_1992_utm83_attrs.csv
+	../wvstatehousedistricts_manysources_2002_ll83_attrs.csv
+	../wvstatehousedistricts_manysources_2002_utm83_attrs.csv
+	../wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
+	../wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
+	../wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
+	../wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
+	../zipcodetabulationarea_census_2020_utm83_attrs.csv
+	../zipcodetabulationarea_census_2020_wma84_attrs.csv
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[+] Building 0.9s (11/11) FINISHED                                                  
+ => [internal] load local bake definitions                                     0.0s
+ => => reading from stdin 645B                                                 0.0s
+ => [internal] load build definition from Dockerfile-llm13-proxy               0.0s
+ => => transferring dockerfile: 246B                                           0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim            0.7s
+ => [internal] load .dockerignore                                              0.0s
+ => => transferring context: 2B                                                0.0s
+ => [1/4] FROM docker.io/library/python:3.12-slim@sha256:804ddf3251a60bbf9c92  0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:804ddf3251a60bbf9c92  0.0s
+ => [internal] load build context                                              0.0s
+ => => transferring context: 43B                                               0.0s
+ => CACHED [2/4] WORKDIR /app                                                  0.0s
+ => CACHED [3/4] COPY llm13_health_proxy.py .                                  0.0s
+ => CACHED [4/4] RUN pip install fastapi uvicorn httpx                         0.0s
+ => exporting to image                                                         0.0s
+ => => exporting layers                                                        0.0s
+ => => writing image sha256:2beec03cf2b86e3a1f1ab994d9c72d859187f5aab4aa1a73f  0.0s
+ => => naming to docker.io/library/msjarvis-rebuild-llm13-proxy                0.0s
+ => resolving provenance for metadata file                                     0.0s
+WARN[0001] Found orphan containers ([msjarvis-rebuild-jarvis-rag-search-1 jarvis-gis-rag jarvis-hilbert-state jarvis-data-ingest jarvis-redis-local]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
+[+] up 2/2
+ ✔ Image msjarvis-rebuild-llm13-proxy Built                                     1.0s
+ ✔ Container llm13-proxy              Started                                   0.0s
+Error response from daemon: Container a450458e4e3574db121cbeba9893914f38662b6e06f743782ad506a68912fd50 is restarting, wait until the container is running
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ 
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ docker ps --format "table {{.Names}}\\t{{.Status}}\\t{{.Ports}}" | grep llm | sort
+jarvis-20llm-production                                 Up 13 minutes                   127.0.0.1:8008->8008/tcp
+jarvis-llm-judge-v3                                     Up 2 days                       127.0.0.1:7240->7240/tcp
+llm10-proxy                                             Up 2 days                       127.0.0.1:8210->8210/tcp
+llm11-proxy                                             Up 2 days                       127.0.0.1:8211->8211/tcp
+llm12-proxy                                             Up 2 days                       127.0.0.1:8212->8212/tcp
+llm13-proxy                                             Restarting (1) 24 seconds ago   
+llm14-proxy                                             Up 2 days                       127.0.0.1:8214->8214/tcp
+llm15-proxy                                             Up 2 days                       127.0.0.1:8215->8215/tcp
+llm16-proxy                                             Up 2 days                       127.0.0.1:8216->8216/tcp
+llm17-proxy                                             Up 2 days                       127.0.0.1:8217->8217/tcp
+llm18-proxy                                             Up 2 days                       127.0.0.1:8218->8218/tcp
+llm19-proxy                                             Up 2 days                       127.0.0.1:8219->8219/tcp
+llm1-proxy                                              Up 2 days                       127.0.0.1:8201->8201/tcp
+llm20-proxy                                             Up 2 days                       127.0.0.1:8220->8220/tcp
+llm21-proxy                                             Up 2 days                       127.0.0.1:8221->8221/tcp
+llm22-proxy                                             Up 2 days                       127.0.0.1:8222->8222/tcp
+llm2-proxy                                              Up 2 days                       127.0.0.1:8202->8202/tcp
+llm3-proxy                                              Up 2 days                       127.0.0.1:8203->8203/tcp
+llm4-proxy                                              Up 2 days                       127.0.0.1:8204->8204/tcp
+llm5-proxy                                              Up 2 days                       127.0.0.1:8205->8205/tcp
+llm6-proxy                                              Up 2 days                       127.0.0.1:8206->8206/tcp
+llm7-proxy                                              Up 2 days                       127.0.0.1:8207->8207/tcp
+llm8-proxy                                              Up 2 days                       127.0.0.1:8208->8208/tcp
+llm9-proxy                                              Up 2 days                       127.0.0.1:8209->8209/tcp
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ 
+
+    127.0.0.1:8209->8209/tcp
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ docker ps
+CONTAINER ID   IMAGE                                                 COMMAND                  CREATED              STATUS                          PORTS                                                                                                          NAMES
+a450458e4e35   msjarvis-rebuild-llm13-proxy                          "uvicorn llm13_healt…"   About a minute ago   Restarting (1) 38 seconds ago                                                                                                                  llm13-proxy
+8cd24a1b2569   ollama/ollama:latest                                  "/bin/ollama serve"      16 minutes ago       Up 16 minutes                   127.0.0.1:11434->11434/tcp                                                                                     jarvis-ollama
+3408ed865618   msjarvis-rebuild-jarvis-semaphore                     "uvicorn msjarvis_se…"   2 hours ago          Up 2 hours                      127.0.0.1:8030->8030/tcp                                                                                       jarvis-semaphore
+b9ee5e2bc9a1   msjarvis-rebuild-jarvis-main-brain                    "sh -lc 'cd /app/ser…"   3 hours ago          Up 3 hours                      127.0.0.1:8050->8050/tcp                                                                                       jarvis-main-brain
+564fcf722aa8   msjarvis-rebuild-jarvis-memory                        "uvicorn ms_jarvis_m…"   5 hours ago          Up 5 hours                      127.0.0.1:8056->8056/tcp                                                                                       jarvis-memory
+65a37d26268f   python:3.11-slim                                      "sh -c 'pip install …"   6 hours ago          Up 6 hours                      127.0.0.1:8029->8029/tcp                                                                                       jarvis-pia-status
+b745a8580f0f   msjarvis-rebuild_psychological_rag_domain             "python psychologica…"   6 hours ago          Up 6 hours                      9006/tcp, 127.0.0.1:9006->8006/tcp                                                                             psychological_rag_domain
+26b9ca22a972   msjarvis-rebuild-jarvis-psychology-services:latest    "python ms_jarvis_ps…"   6 hours ago          Up 6 hours                      127.0.0.1:8019->8019/tcp                                                                                       jarvis-psychology-services
+4bc748ffff8b   chromadb/chroma:0.5.20                                "/docker_entrypoint.…"   7 hours ago          Up 6 hours                      127.0.0.1:8002->8000/tcp                                                                                       jarvis-chroma
+4301d0e621e8   msjarvis-rebuild-jarvis-rag-server                    "uvicorn ms_jarvis_r…"   17 hours ago         Up 17 hours (healthy)           127.0.0.1:8003->8003/tcp                                                                                       jarvis-rag-server
+ecfa5bcb7f65   services-safe-jarvis-auth-proxy                       "uvicorn main:app --…"   24 hours ago         Up 24 hours                     127.0.0.1:8080->8080/tcp                                                                                       jarvis-auth-proxy
+86c59bc806d0   chromadb/chroma:latest                                "dumb-init -- chroma…"   25 hours ago         Up 25 hours                     127.0.0.1:8001->8000/tcp                                                                                       chromadb
+c2bc04943db9   msjarvis-rebuild-jarvis-rag-search                    "uvicorn main:app --…"   25 hours ago         Up 25 hours                     127.0.0.1:8095->8095/tcp                                                                                       msjarvis-rebuild-jarvis-rag-search-1
+beb2191686a5   grafana/grafana:10.2.3                                "/run.sh"                25 hours ago         Up 25 hours                     127.0.0.1:3000->3000/tcp                                                                                       jarvis-grafana
+f374c61cf1e7   jaegertracing/all-in-one:1.52                         "/go/bin/all-in-one-…"   25 hours ago         Up 25 hours                     4317-4318/tcp, 5775/udp, 5778/tcp, 9411/tcp, 14250/tcp, 14268/tcp, 6831-6832/udp, 127.0.0.1:16686->16686/tcp   jarvis-jaeger
+f87a27c72ae6   prom/prometheus:v2.48.0                               "/bin/prometheus --c…"   25 hours ago         Up 25 hours                     127.0.0.1:9090->9090/tcp                                                                                       jarvis-prometheus
+812c37fa7bd6   otel/opentelemetry-collector-contrib:0.93.0           "/otelcol-contrib --…"   25 hours ago         Up 25 hours                     127.0.0.1:4317-4318->4317-4318/tcp, 127.0.0.1:8888->8888/tcp, 127.0.0.1:13133->13133/tcp, 55678-55679/tcp      jarvis-otel-collector
+829abf189295   msjarvis-rebuild-jarvis-i-containers                  "/opt/nvidia/nvidia_…"   25 hours ago         Up 25 hours                     127.0.0.1:8015->8015/tcp                                                                                       jarvis-i-containers
+99009d894838   msjarvis-rebuild-jarvis-judge-consistency             "python3 judge_consi…"   25 hours ago         Up 25 hours                     127.0.0.1:8042->8042/tcp                                                                                       jarvis-judge-consistency
+3f8c87865eb4   msjarvis-rebuild-jarvis-judge-truth                   "python3 judge_truth…"   25 hours ago         Up 25 hours                     127.0.0.1:8041->8041/tcp                                                                                       jarvis-judge-truth
+727d01bdea37   msjarvis-rebuild-jarvis-judge-alignment               "python3 judge_align…"   25 hours ago         Up 25 hours                     127.0.0.1:8043->8043/tcp                                                                                       jarvis-judge-alignment
+6d47f0e0b874   msjarvis-rebuild-jarvis-judge-ethics                  "python3 judge_ethic…"   25 hours ago         Up 25 hours                     127.0.0.1:8044->8044/tcp                                                                                       jarvis-judge-ethics
+f01d0e7e57be   msjarvis-rebuild-jarvis-judge-pipeline                "python3 judge_pipel…"   25 hours ago         Up 25 hours                     127.0.0.1:8040->8040/tcp                                                                                       jarvis-judge-pipeline
+107a0a630d3c   msjarvis-rebuild-jarvis-gbim-query-router             "python3 gbim_query_…"   25 hours ago         Up 25 hours                     127.0.0.1:7205->7205/tcp                                                                                       jarvis-gbim-query-router
+e9317b62c269   msjarvis-rebuild-jarvis-gis-rag:latest                "uvicorn gis_rag_ser…"   26 hours ago         Up 26 hours                     127.0.0.1:8004->8004/tcp                                                                                       jarvis-gis-rag
+b9b7327ebc3e   msjarvis-crypto-policy:latest                         "uvicorn jarviscrypt…"   26 hours ago         Up 26 hours (healthy)           127.0.0.1:8099->8099/tcp                                                                                       369b2f771ae5_jarvis-crypto-policy
+c5d34cfddca2   python:3.11-slim                                      "sh -c 'pip install …"   26 hours ago         Up 26 hours                     127.0.0.1:18092->8081/tcp                                                                                      jarvis-hilbert-state
+3b65c66bb935   msjarvis-rebuild-jarvis-woah                          "uvicorn woah_servic…"   28 hours ago         Up 28 hours                     7012/tcp                                                                                                       jarvis-woah
+ab1e7a71afb1   msjarvis-rebuild-jarvis-aaacpe-scraper                "uvicorn aaacpe_scra…"   29 hours ago         Up 29 hours                     127.0.0.1:8048->8033/tcp                                                                                       jarvis-aaacpe-scraper
+a4982178f046   msjarvis-rebuild-jarvis-aaacpe-rag                    "uvicorn aaacpe_rag_…"   29 hours ago         Up 29 hours                     127.0.0.1:8047->8032/tcp                                                                                       jarvis-aaacpe-rag
+fd8a1d138e3a   msjarvis-rebuild-jarvis-brain-orchestrator            "python3 services/ma…"   32 hours ago         Up 32 hours (unhealthy)         127.0.0.1:17260->7260/tcp                                                                                      jarvis-brain-orchestrator
+ce08b82a37a0   msjarvis-rebuild-jarvis-unified-gateway               "python3 ms_jarvis_u…"   33 hours ago         Up 33 hours                     127.0.0.1:18018->8001/tcp                                                                                      jarvis-unified-gateway
+542110c0a9d1   msjarvis-rebuild-jarvis-consciousness-bridge          "python3 services/ms…"   41 hours ago         Up 17 hours                                                                                                                                    jarvis-consciousness-bridge
+5e6cdd931abd   redis:7-alpine                                        "docker-entrypoint.s…"   45 hours ago         Up 45 hours                     127.0.0.1:6380->6379/tcp                                                                                       jarvis-redis
+255af9b6f5a6   msjarvis-rebuild-jarvis-20llm-production              "python3 ai_server_2…"   45 hours ago         Up 14 minutes                   127.0.0.1:8008->8008/tcp                                                                                       jarvis-20llm-production
+5560763f8fcf   msjarvis-rebuild-jarvis-blood-brain-barrier           "python3 ms_jarvis_b…"   45 hours ago         Up 6 hours                      127.0.0.1:8016->8016/tcp                                                                                       jarvis-blood-brain-barrier
+966fc10adfb7   python:3.11-slim                                      "sh -c 'pip install …"   45 hours ago         Up 45 hours                     127.0.0.1:8077->8077/tcp                                                                                       jarvis-data-ingest
+f032ac069508   msjarvis-rebuild-jarvis-hippocampus                   "uvicorn hippocampus…"   45 hours ago         Up 45 hours                     127.0.0.1:8045->8045/tcp                                                                                       jarvis-hippocampus
+b177b2f1d3d2   msjarvis-rebuild-jarvis-local-resources               "uvicorn local_resou…"   46 hours ago         Up 46 hours                     127.0.0.1:8058->8055/tcp                                                                                       jarvis-local-resources
+c536f0fd71be   postgis/postgis:15-3.3                                "docker-entrypoint.s…"   47 hours ago         Up 47 hours                     127.0.0.1:5435->5432/tcp                                                                                       jarvis-local-resources-db
+e1756749a660   msjarvis-rebuild-jarvis-spiritual-rag                 "python3 jarvis-spir…"   47 hours ago         Up 47 hours                     8005/tcp, 127.0.0.1:8046->8046/tcp                                                                             jarvis-spiritual-rag
+c82b9d4c5503   redis:7-alpine                                        "docker-entrypoint.s…"   2 days ago           Up 2 days                       127.0.0.1:16380->6379/tcp                                                                                      jarvis-redis-local
+f6e20b8ad945   msjarvis-rebuild-jarvis-llm-judge-v3                  "python judge_pipeli…"   2 days ago           Up 2 days                       127.0.0.1:7240->7240/tcp                                                                                       jarvis-llm-judge-v3
+366c4d4e1c95   msjarvis-rebuild-jarvis-fractal-consciousness         "sh -c 'pip install …"   2 days ago           Up 2 days                       8027/tcp                                                                                                       jarvis-fractal-consciousness
+7cdc995b109a   msjarvis-rebuild-jarvis-qualia-engine                 "python3 /app/ms_jar…"   2 days ago           Up 2 days                       8017/tcp                                                                                                       jarvis-qualia-engine
+e0d3718f0056   msjarvis-rebuild-jarvis-neurobiological-master        "python3 ms_jarvis_n…"   2 days ago           Up 6 hours                      8018/tcp                                                                                                       jarvis-neurobiological-master
+40a4745990bc   msjarvis-rebuild-llm7-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8207->8207/tcp                                                                                       llm7-proxy
+6d1946a88162   msjarvis-rebuild-llm5-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8205->8205/tcp                                                                                       llm5-proxy
+ab7625acb841   msjarvis-rebuild-llm6-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8206->8206/tcp                                                                                       llm6-proxy
+1b939e859ba7   msjarvis-rebuild-llm15-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8215->8215/tcp                                                                                       llm15-proxy
+4ca62b712813   msjarvis-rebuild-llm2-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8202->8202/tcp                                                                                       llm2-proxy
+66301a593a90   msjarvis-rebuild-nbb_darwin_godel_machines            "uvicorn nbb_darwin_…"   2 days ago           Up 2 days                       127.0.0.1:8302->7003/tcp                                                                                       msjarvis-rebuild-nbb_darwin_godel_machines-1
+78969ce82df4   msjarvis-rebuild-llm19-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8219->8219/tcp                                                                                       llm19-proxy
+b59f34c2a811   msjarvis-rebuild-llm17-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8217->8217/tcp                                                                                       llm17-proxy
+9b3609863ab8   msjarvis-rebuild-llm14-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8214->8214/tcp                                                                                       llm14-proxy
+79ec87160f06   msjarvis-rebuild-llm9-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8209->8209/tcp                                                                                       llm9-proxy
+3a391d3827d4   msjarvis-rebuild-llm16-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8216->8216/tcp                                                                                       llm16-proxy
+c07b0d8212cf   msjarvis-rebuild-llm3-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8203->8203/tcp                                                                                       llm3-proxy
+8a94bdf9249b   msjarvis-rebuild-llm1-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8201->8201/tcp                                                                                       llm1-proxy
+8778fe56ac5c   msjarvis-rebuild-jarvis-fifth-dgm                     "python3 /app/ms_jar…"   2 days ago           Up 2 days                       4002/tcp                                                                                                       jarvis-fifth-dgm
+52a034d62fc8   msjarvis-rebuild-llm21-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8221->8221/tcp                                                                                       llm21-proxy
+149929b8e9c2   msjarvis-rebuild-llm20-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8220->8220/tcp                                                                                       llm20-proxy
+dc4cf0732dae   msjarvis-rebuild-llm11-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8211->8211/tcp                                                                                       llm11-proxy
+6f6d5b05caf6   msjarvis-rebuild-jarvis-agents-service                "python3 ms_jarvis_a…"   2 days ago           Up 2 days                       8005/tcp                                                                                                       jarvis-agents-service
+a8fd95cf540f   ipfs/kubo:latest                                      "/sbin/tini -- /usr/…"   2 days ago           Up 2 days (healthy)             4001/tcp, 8080-8081/tcp, 4001/udp, 127.0.0.1:5001->5001/tcp                                                    ipfs
+dc7d52473f2d   msjarvis-rebuild-llm22-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8222->8222/tcp                                                                                       llm22-proxy
+7311ec13e507   msjarvis-rebuild-llm12-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8212->8212/tcp                                                                                       llm12-proxy
+dca36eb7290e   msjarvis-rebuild-llm8-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8208->8208/tcp                                                                                       llm8-proxy
+3d8bdea1a018   msjarvis-rebuild-llm18-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8218->8218/tcp                                                                                       llm18-proxy
+da2b8e9b9486   msjarvis-rebuild-jarvis-autonomous-learner            "uvicorn ms_jarvis_a…"   2 days ago           Up 2 days                       8020/tcp                                                                                                       ab536e7f8e27_jarvis-autonomous-learner
+e76f91d80275   msjarvis-rebuild-llm4-proxy                           "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8204->8204/tcp                                                                                       llm4-proxy
+1b2e67983209   neo4j:5.13-community                                  "tini -g -- /startup…"   2 days ago           Up 2 days                       7473/tcp, 127.0.0.1:7687->7687/tcp, 127.0.0.1:7475->7474/tcp                                                   neo4j
+dd9495ac5962   msjarvis-rebuild-llm10-proxy                          "python -m uvicorn l…"   2 days ago           Up 2 days                       127.0.0.1:8210->8210/tcp                                                                                       llm10-proxy
+e4079d80b9c3   mysql:8.2                                             "docker-entrypoint.s…"   2 days ago           Up 2 days                       33060/tcp, 127.0.0.1:3307->3306/tcp                                                                            mysql
+36a582a9327f   msjarvis-rebuild-jarvis-web-research                  "python ms_jarvis_we…"   2 days ago           Up 2 days                       8008/tcp                                                                                                       jarvis-web-research
+7f25779766f6   msjarvis-rebuild-nbb_pituitary_gland                  "uvicorn pituitary_g…"   2 days ago           Up 6 hours                      127.0.0.1:8108->7008/tcp                                                                                       msjarvis-rebuild-nbb_pituitary_gland-1
+282867d66a03   msjarvis-rebuild-jarvis-69dgm-bridge                  "python3 port_9000_6…"   2 days ago           Up 2 days                       9000/tcp                                                                                                       jarvis-69dgm-bridge
+01908c423693   msjarvis-rebuild-jarvis-temporal-consciousness        "python -m uvicorn t…"   2 days ago           Up 2 days                       7007/tcp                                                                                                       jarvis-temporal-consciousness
+697587e2b9ad   msjarvis-rebuild-jarvis-lm-synthesizer                "python lm_synthesiz…"   2 days ago           Up 2 days                       8001/tcp                                                                                                       jarvis-lm-synthesizer
+fe2057569d92   msjarvis-rebuild-jarvis-swarm-intelligence            "python3 ms_jarvis_s…"   2 days ago           Up 2 days                       8021/tcp                                                                                                       jarvis-swarm-intelligence
+d4937da44329   msjarvis-rebuild-nbb_qualia_engine                    "uvicorn qualia_engi…"   6 days ago           Up 2 days                       127.0.0.1:8303->7008/tcp                                                                                       msjarvis-rebuild-nbb_qualia_engine-1
+8254b8e1b476   alpine:3.18                                           "sh -c 'echo 'nbb_wo…"   6 days ago           Up 40 minutes                                                                                                                                  nbb_woah_algorithms
+59438e1d5868   msjarvis-rebuild-nbb_subconscious                     "uvicorn consciousne…"   6 days ago           Up 2 days                       127.0.0.1:8112->7011/tcp                                                                                       msjarvis-rebuild-nbb_subconscious-1
+aa64d696e557   msjarvis-rebuild-nbb_prefrontal_cortex                "/start.sh"              6 days ago           Up 2 days                       127.0.0.1:8105->7005/tcp                                                                                       msjarvis-rebuild-nbb_prefrontal_cortex-1
+0a7ac1b1617e   msjarvis-rebuild-nbb_mother_carrie_protocols          "uvicorn main:app --…"   6 days ago           Up 2 days                       127.0.0.1:8107->7007/tcp                                                                                       msjarvis-rebuild-nbb_mother_carrie_protocols-1
+066c7920ee64   msjarvis-rebuild-nbb_spiritual_root                   "uvicorn spiritual_r…"   6 days ago           Up 2 days                       127.0.0.1:8103->7003/tcp                                                                                       msjarvis-rebuild-nbb_spiritual_root-1
+062fb67a82f4   msjarvis-rebuild-jarvis-mother-protocols              "python -m uvicorn m…"   6 days ago           Up 2 days                       4000/tcp                                                                                                       jarvis-mother-protocols
+9576658f69a7   msjarvis-rebuild-nbb_blood_brain_barrier              "uvicorn blood_brain…"   6 days ago           Up 2 days                       127.0.0.1:8301->7001/tcp                                                                                       msjarvis-rebuild-nbb_blood_brain_barrier-1
+f12397aedddb   msjarvis-rebuild-nbb_i_containers                     "uvicorn i_container…"   6 days ago           Up 2 days                       127.0.0.1:8101->7005/tcp                                                                                       msjarvis-rebuild-nbb_i_containers-1
+b69b5f51ce3a   msjarvis-rebuild-nbb_heteroglobulin_transport         "uvicorn heteroglobu…"   6 days ago           Up 2 days                       127.0.0.1:8106->7006/tcp                                                                                       msjarvis-rebuild-nbb_heteroglobulin_transport-1
+5f7ac820970d   msjarvis-rebuild-nbb_spiritual_maternal_integration   "uvicorn spiritual_m…"   6 days ago           Up 2 days                       127.0.0.1:8109->7009/tcp                                                                                       msjarvis-rebuild-nbb_spiritual_maternal_integration-1
+5d7927d91519   msjarvis-rebuild-nbb_consciousness_containers         "uvicorn consciousne…"   6 days ago           Up 2 days                       127.0.0.1:8102->7002/tcp                                                                                       msjarvis-rebuild-nbb_consciousness_containers-1
+7cd232c9a08a   postgis/postgis:16-3.4                                "docker-entrypoint.s…"   8 days ago           Up 2 days                       5432/tcp                                                                                                       postgis-forensic
+6d09f3247e66   postgres:16-alpine                                    "docker-entrypoint.s…"   10 days ago          Up 2 days                       127.0.0.1:5433->5432/tcp                                                                                       msjarvis-pgdata-rescue
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild$ 
 
