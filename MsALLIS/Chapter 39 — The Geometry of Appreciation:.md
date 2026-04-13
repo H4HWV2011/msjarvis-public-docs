@@ -88,7 +88,7 @@ automatically and logs durably to the audit memory service.
 |-----------|-------|
 | Trigger | System initialization |
 | Exchange Rate | 1 M$ = $1.00 USD |
-| Reserve Ratio Threshold | Baseline (ρ < 1.25) |
+| Reserve Ratio Threshold | Baseline (ρ < 3.00) |
 
 **Spendability:** Purchased MountainShares (PMS) are immediately spendable to
 provide foundational liquidity. Earned MountainShares (EMS) — those granted for
