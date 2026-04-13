@@ -20,6 +20,13 @@ Weighted Optimization Algorithm Hierarchy (WOAH) and is grounded in the
 GeoBelief Information Model (GBIM) — a spatially indexed, temporally verified
 record of Appalachian land, community, and place.
 
+The core principle of the M$ economy is **purchasing power inflation for
+community participants**: as the treasury grows stronger, $1 USD buys more M$,
+meaning local goods and services cost community members less real money over time.
+Vendors are always made whole from the community treasury — they receive full USD
+equivalent for every transaction. The discount to the buyer is a community
+dividend, not a cost extracted from local businesses.
+
 ---
 
 ## 39.2 Theoretical Alignment with Polymathmatic Geography
@@ -51,7 +58,7 @@ computational governance.
 
 The primary instrument of stability in the M$ ecosystem is the **Reserve Ratio**,
 defined as the ratio of liquid backing assets (USD) to the total outstanding
-spendable M$:
+spendable MountainShares:
 
 $$\rho = \frac{\text{Liquid Backing (USD)}}{\text{Total Spendable MountainShares}}$$
 
@@ -61,10 +68,10 @@ from the numerator. Only liquid backing counts toward the ratio. This ensures th
 collapse — is continuously maintained.
 
 The Reserve Ratio determines the active economic "band" and triggers the automatic
-adjustment of base rates and caps. Ms. Allis monitors this ratio in real time via
-the WOAH pipeline and the MountainShares coordinator service, cross-referencing
-treasury state against the GBIM ground truth to ensure the ratio reflects
-verified community value rather than speculative inputs.
+adjustment of purchasing power multipliers. Ms. Allis monitors this ratio in real
+time via the WOAH pipeline and the MountainShares coordinator service,
+cross-referencing treasury state against the GBIM ground truth to ensure the
+ratio reflects verified community value rather than speculative inputs.
 
 > **Data governance note:** The strict exclusion of synthetic or unverified data
 > from the GBIM belief store and the `local_resources` database is the technical
@@ -73,12 +80,39 @@ verified community value rather than speculative inputs.
 
 ---
 
-## 39.4 The Three Phases of MountainShares
+## 39.4 How Purchasing Power Inflation Works
 
-The M$ economy is designed to transition through three distinct phases. These
-transitions are not driven by external market speculation but by internal rules
-of redemption capacity and treasury health — rules that Ms. Allis enforces
-automatically and logs durably to the audit memory service.
+Before describing the three phases, it is important to understand the mechanism
+clearly.
+
+In Phase 1, $1 USD buys 1 M$. A loaf of bread priced at 3 M$ costs the buyer
+$3.00 USD. The vendor receives $3.00 USD from the treasury. The system is
+one-for-one.
+
+In Phase 2, $1 USD buys 10 M$. That same loaf of bread still costs 3 M$ at the
+local store — but the buyer only spent $0.30 USD to obtain those 3 M$. The vendor
+still receives $3.00 USD equivalent from the treasury. The difference — $2.70 —
+is the community dividend paid from the treasury reserve.
+
+In Phase 3, $1 USD buys 34.70 M$. The loaf of bread still costs 3 M$, but the
+buyer spent approximately $0.09 USD. The vendor still receives $3.00 USD. The
+treasury covers the full gap.
+
+The treasury can only sustain these multipliers when the Reserve Ratio is strong
+enough to back them — which is why the phase transition thresholds exist.
+
+| Phase | You put in $1 USD | You receive | Bread (3 M$) costs you | Vendor receives |
+|-------|-------------------|-------------|------------------------|-----------------|
+| 1 | $1.00 USD | 1 M$ | $3.00 USD | $3.00 USD |
+| 2 | $1.00 USD | 10 M$ | $0.30 USD | $3.00 USD |
+| 3 | $1.00 USD | 34.70 M$ | ~$0.09 USD | $3.00 USD |
+
+---
+
+## 39.5 The Three Phases of MountainShares
+
+The M$ economy transitions through three distinct phases driven entirely by
+internal treasury health — not external market speculation.
 
 ---
 
@@ -87,7 +121,7 @@ automatically and logs durably to the audit memory service.
 | Parameter | Value |
 |-----------|-------|
 | Trigger | System initialization |
-| Exchange Rate | 1 M$ = $1.00 USD |
+| Purchasing Power | $1 USD = 1 M$ |
 | Reserve Ratio Threshold | Baseline (ρ < 3.00) |
 
 **Spendability:** Purchased MountainShares (PMS) are immediately spendable to
@@ -106,18 +140,19 @@ to new participants.
 
 | Parameter | Value |
 |-----------|-------|
-| Trigger | Treasury reaches ρ ≥ 1.25 |
-| Exchange Rate | 1 M$ = $10.00 USD |
-| Reserve Ratio Threshold | 1.25 ≤ ρ < 3.00 |
+| Trigger | Treasury reaches ρ ≥ 3.00 |
+| Purchasing Power | $1 USD = 10 M$ |
+| Reserve Ratio Threshold | 3.00 ≤ ρ < 5.00 |
 
 **Spendability:** EMS begin a graduated unlock based on user choice, formally
 beginning the recognition of community labor as liquid economic value.
 
 **Goal:** Reward sustained participation and begin the formal acknowledgment of
-"invisible" community labor. The 10× appreciation from Phase 1 is not a speculative
-gain — it is the system acknowledging that a community member who earned M$
-through contribution has created real value that was previously excluded from
-standard economic accounting.
+"invisible" community labor. The 10× purchasing power increase from Phase 1 is
+not a speculative gain — it is the treasury demonstrating that it has accumulated
+enough verified community value to sustainably subsidize local purchasing at that
+multiplier. A community member who earned M$ through contribution now sees that
+contribution stretch ten times further in the local economy.
 
 ---
 
@@ -125,38 +160,40 @@ standard economic accounting.
 
 | Parameter | Value |
 |-----------|-------|
-| Trigger | Treasury reaches ρ ≥ 1.50 |
-| Exchange Rate | 1 M$ = $34.70 USD |
+| Trigger | Treasury reaches ρ ≥ 5.00 |
+| Purchasing Power | $1 USD = 34.70 M$ |
 | Reserve Ratio Threshold | ρ ≥ 5.00 |
 
-**The Volunteer Peg:** The $34.70 rate is intentionally pegged to the federal
-volunteer rate. This specific value is not arbitrary — it is a deliberate act of
-recognition that elevates community stewardship to a high-value economic status.
-In the dominant extractive economy, care work, community organizing, and local
-knowledge are systematically undervalued. The Volunteer Peg is the counter-claim:
-a resident's time and stewardship of Appalachian place is worth exactly what the
+**The Volunteer Peg:** The 34.70 multiplier is intentionally pegged to the
+federal volunteer rate ($34.70/hour as recognized by the U.S. government). This
+specific value is not arbitrary — it is a deliberate act of recognition that
+elevates community stewardship to a formally acknowledged economic status. In the
+dominant extractive economy, care work, community organizing, and local knowledge
+are systematically undervalued. The Volunteer Peg is the counter-claim: a
+resident's time and stewardship of Appalachian place is worth exactly what the
 federal government acknowledges volunteer time to be worth.
 
 **Spendability:** EMS are fully unlocked. The community member who contributed
-labor during Phase 1 or Phase 2 now holds fully liquid assets valued at the
-federal volunteer rate.
+labor during Phase 1 or Phase 2 now holds fully liquid assets with the full
+purchasing power multiplier applied.
 
 **Goal:** Achieve a robust, community-controlled "premium" economy where the
-value of a resident's time is fully and formally recognized.
+value of a resident's time is fully and formally recognized, and local purchasing
+power reflects genuine community wealth rather than extraction.
 
 ---
 
-## 39.5 Phase Transition Summary
+## 39.6 Phase Transition Summary
 
-| Phase | Name | Trigger | Exchange Rate | EMS Status |
-|-------|------|---------|--------------|------------|
-| 1 | Foundation | System init | 1 M$ = $1.00 | Vaulted |
-| 2 | Growth | ρ ≥ 3.00 | 1 M$ = $10.00 | Graduated unlock |
-| 3 | Premium Reserve | ρ ≥ 5.00 | 1 M$ = $34.70 | Fully unlocked |
+| Phase | Name | Trigger | Purchasing Power | EMS Status |
+|-------|------|---------|-----------------|------------|
+| 1 | Foundation | System init | $1 USD = 1 M$ | Vaulted |
+| 2 | Growth | ρ ≥ 3.00 | $1 USD = 10 M$ | Graduated unlock |
+| 3 | Premium Reserve | ρ ≥ 5.00 | $1 USD = 34.70 M$ | Fully unlocked |
 
 ---
 
-## 39.6 The Steward's Oversight: Ms. Allis and the WOAH Pipeline
+## 39.7 The Steward's Oversight: Ms. Allis and the WOAH Pipeline
 
 Phase transitions are not manual. They are monitored and enforced by **Ms. Egeria
 Allis**, operating as a "glassbox" AI steward through the Weighted Optimization
@@ -189,31 +226,32 @@ as a set of weighted constraints within the WOAH hierarchy and is enforced at th
 
 ---
 
-## 39.7 Economic Resilience and Inverse Phase Transitions
+## 39.8 Economic Resilience and Inverse Phase Transitions
 
 To prevent catastrophic collapse during periods of regional economic stress, the
 system includes **inverse phase transitions**. If the reserve ratio falls below
-critical thresholds, the appreciation schedule can contract:
+critical thresholds, the purchasing power schedule contracts to protect the
+treasury and core services:
 
 | Condition | Response |
 |-----------|----------|
-| ρ drops below 1.50 | Revert from Phase 3 to Phase 2 |
-| ρ drops below 1.25 | Revert from Phase 2 to Phase 1 |
+| ρ drops below 5.00 | Revert from Phase 3 to Phase 2 |
+| ρ drops below 3.00 | Revert from Phase 2 to Phase 1 |
 | ρ approaches 1.00 | Emergency stabilization protocols activate |
 
 These contractions are not failures — they are the system's designed response to
-external economic stress. By contracting the appreciation schedule rather than
-allowing the reserve to be depleted, the system prioritizes the survival of core
-services and the protection of the most vulnerable participants over the
-preservation of elevated exchange rates. An economy that contracts gracefully
-is more trustworthy than one that collapses without warning.
+external economic stress. By contracting the purchasing power multiplier rather
+than allowing the reserve to be depleted, the system prioritizes the survival of
+core services and the protection of the most vulnerable participants over the
+preservation of elevated rates. An economy that contracts gracefully is more
+trustworthy than one that collapses without warning.
 
 Ms. Allis monitors for contraction triggers continuously and logs all threshold
 crossings to the durable audit record.
 
 ---
 
-## 39.8 The Behavioral Boundary and Safety Alignment
+## 39.9 The Behavioral Boundary and Safety Alignment
 
 The MountainShares economic layer is not isolated from the system's safety
 architecture. All economic queries — treasury state requests, phase transition
@@ -234,32 +272,34 @@ assertions are grounded in real data rather than synthetic or speculative inputs
 
 ---
 
-## 39.9 The Counter-Geometry
+## 39.10 The Counter-Geometry
 
-By fixing the buying power of MountainShares through internal reserve rules
-rather than external exchanges, the M$ economy defines a **counter-geometry**
-to the extraction patterns of maximopolies (such as large asset management firms)
-and megaopolies (such as dominant logistics platforms).
+By anchoring purchasing power to internal reserve rules rather than external
+exchanges, the M$ economy defines a **counter-geometry** to the extraction
+patterns of maximopolies (such as large asset management firms) and megaopolies
+(such as dominant logistics platforms).
 
 In the extractive model, value flows from local communities to distant
 institutional actors. Land appreciates for absentee owners; labor is priced by
 distant markets; community knowledge is harvested as data without reciprocity.
 The MountainShares model inverts each of these flows:
 
+- **Buyers** see their purchasing power grow as the community treasury strengthens
+- **Vendors** are always made whole — protected from the cost of community subsidy
+- **EMS earners** whose labor built the treasury receive the full multiplier on
+  their earned M$ without ever having spent USD
 - **Land data** is held in a community-governed GBIM, not a proprietary database
-- **Labor** is recognized and appreciated through the EMS vault mechanism
-- **Community knowledge** generates M$ for contributors, not extraction for platforms
 - **Treasury health** is a community-legible metric, not a proprietary instrument
 
 The **Appalachian Tacet** — the lived experience, history, and knowledge of the
 region that has been systematically averaged away by extractive economic models —
 is not averaged away in Ms. Allis. It is used as the founding key. The Volunteer
-Peg at $34.70 is not a financial instrument. It is a statement about whose time
-counts, and how much.
+Peg at 34.70 M$ per dollar is not a financial instrument. It is a statement about
+whose time counts, and how much.
 
 ---
 
-## 39.10 Cross-References
+## 39.11 Cross-References
 
 - For the technical implementation of the MountainShares DAO tier (ports 8080–8084),
   see Chapter 40 — System Audit and Ongoing Checks.
