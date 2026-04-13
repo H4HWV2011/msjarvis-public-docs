@@ -127,7 +127,7 @@ standard economic accounting.
 |-----------|-------|
 | Trigger | Treasury reaches ρ ≥ 1.50 |
 | Exchange Rate | 1 M$ = $34.70 USD |
-| Reserve Ratio Threshold | ρ ≥ 1.50 |
+| Reserve Ratio Threshold | ρ ≥ 5.00 |
 
 **The Volunteer Peg:** The $34.70 rate is intentionally pegged to the federal
 volunteer rate. This specific value is not arbitrary — it is a deliberate act of
@@ -151,8 +151,8 @@ value of a resident's time is fully and formally recognized.
 | Phase | Name | Trigger | Exchange Rate | EMS Status |
 |-------|------|---------|--------------|------------|
 | 1 | Foundation | System init | 1 M$ = $1.00 | Vaulted |
-| 2 | Growth | ρ ≥ 1.25 | 1 M$ = $10.00 | Graduated unlock |
-| 3 | Premium Reserve | ρ ≥ 1.50 | 1 M$ = $34.70 | Fully unlocked |
+| 2 | Growth | ρ ≥ 3.00 | 1 M$ = $10.00 | Graduated unlock |
+| 3 | Premium Reserve | ρ ≥ 5.00 | 1 M$ = $34.70 | Fully unlocked |
 
 ---
 
