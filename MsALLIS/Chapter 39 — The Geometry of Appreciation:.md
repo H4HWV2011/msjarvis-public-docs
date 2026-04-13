@@ -108,7 +108,7 @@ to new participants.
 |-----------|-------|
 | Trigger | Treasury reaches ρ ≥ 1.25 |
 | Exchange Rate | 1 M$ = $10.00 USD |
-| Reserve Ratio Threshold | 1.25 ≤ ρ < 1.50 |
+| Reserve Ratio Threshold | 1.25 ≤ ρ < 3.00 |
 
 **Spendability:** EMS begin a graduated unlock based on user choice, formally
 beginning the recognition of community labor as liquid economic value.
