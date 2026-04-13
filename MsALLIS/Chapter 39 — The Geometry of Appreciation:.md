@@ -53,7 +53,7 @@ The primary instrument of stability in the M$ ecosystem is the **Reserve Ratio**
 defined as the ratio of liquid backing assets (USD) to the total outstanding
 spendable M$:
 
-$$\rho = \frac{\text{Liquid Backing Assets (USD)}}{\text{Total Outstanding Spendable M\$}}$$
+$$\rho = \frac{\text{Liquid Backing (USD)}}{\text{Total Spendable MountainShares}}$$
 
 In this model, "future promises" or purely symbolic credits are strictly excluded
 from the numerator. Only liquid backing counts toward the ratio. This ensures the
