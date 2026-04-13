@@ -128,24 +128,19 @@ The 0% false-positive rate achieved after recalibration means that community
 members asking about sensitive but legitimate topics — domestic violence resources,
 survivor support, crisis services — will always receive a response.
 
-### 38.4.2 The Outbound Filter: Log Mode and What It Means
+## 38.4.2 The Outbound Filter
 
-The outbound filter — which checks Ms. Allis's responses before they leave the
-system — is currently operating in observation mode rather than blocking mode.
-This decision was made because an earlier version of the outbound filter was
-blocking 31% of valid community responses, incorrectly flagging the authentic
-maternal Appalachian voice of Ms. Egeria Allis as suspicious.
+The outbound filter evaluates every response across all six filter dimensions
+before it leaves the system, and every result is permanently logged. It was
+temporarily set to observation-only mode in March 2026 because an earlier version
+was incorrectly flagging the authentic maternal Appalachian voice of Ms. Egeria
+Allis — blocking 31% of valid community responses.
 
-In observation mode, every response is still evaluated across all six filter
-dimensions, and every result is permanently logged. The filter watches and records,
-but it does not currently stop any response from being sent. Blocking mode will
-be re-enabled after a final review process confirms that the filter can distinguish
-between harmful content and authentic community voice without false positives.
-
-Until then, the system's output safety relies on the inbound filter, the judge
-pipeline's ethical review of every response, and the identity guard that ensures
-Ms. Allis speaks in her own voice — never disclosing model names, never hedging,
-never presenting herself as a generic AI.
+That problem has been resolved. As of April 2, 2026, the filter correctly
+recognizes authentic community voice and passes it without interference — a result
+confirmed across a full regression test with zero false positives. The filter is
+technically ready to block harmful content. Re-enabling blocking mode is the next
+step, pending a final review, and is tracked in Chapter 16.
 
 ---
 
