@@ -58,14 +58,15 @@ computational governance.
 
 The primary instrument of stability in the M$ ecosystem is the **Reserve Ratio**,
 defined as the ratio of liquid backing assets (USD) to the total outstanding
-spendable MountainShares:
+USD value of spendable MountainShares:
 
-$$\rho = \frac{\text{Liquid Backing (USD)}}{\text{Total Spendable MountainShares}}$$
+$$\rho = \frac{\text{Liquid Backing (USD)}}{\text{Total USD Value of Spendable MountainShares}}$$
 
-In this model, "future promises" or purely symbolic credits are strictly excluded
-from the numerator. Only liquid backing counts toward the ratio. This ensures the
-**reciprocity threshold** — the minimum flow of value required to prevent system
-collapse — is continuously maintained.
+Both sides of this ratio are denominated in USD, ensuring a clean and auditable
+comparison. In this model, "future promises" or purely symbolic credits are
+strictly excluded from the numerator. Only liquid backing counts toward the ratio.
+This ensures the **reciprocity threshold** — the minimum flow of value required
+to prevent system collapse — is continuously maintained.
 
 The Reserve Ratio determines the active economic "band" and triggers the automatic
 adjustment of purchasing power multipliers. Ms. Allis monitors this ratio in real
@@ -160,7 +161,7 @@ contribution stretch ten times further in the local economy.
 
 | Parameter | Value |
 |-----------|-------|
-| Trigger | Treasury reaches ρ ≥ 5.00 |
+| Trigger | Treasury reaches ρ ≥ 5.00 (500% reserve) |
 | Purchasing Power | $1 USD = 34.70 M$ |
 | Reserve Ratio Threshold | ρ ≥ 5.00 |
 
@@ -205,116 +206,4 @@ Appalachia.
 Ms. Allis monitors the reserve ratio by cross-referencing:
 
 - The MountainShares coordinator service (port 8080) for treasury state
-- The GBIM primary belief store (port 5433) for temporally graded community fact validation
-- The PostGIS geospatial database (port 5432) for spatial landowner and community data
-- The `confidence_decay` metadata layer to ensure that high-decay GBIM entities
-  are flagged for re-verification rather than used as stale ground truth
-
-All phase transition decisions and treasury monitoring events are logged durably
-to the `allis-memory` audit service, ensuring governance accountability survives
-container restarts and is independently queryable by community stakeholders.
-
-### The Mother Carrie Protocol
-
-Ms. Allis is programmed with the **Mother Carrie Protocol**, which constrains the
-WOAH optimization function to prioritize care and long-term community impact over
-financial efficiency. Unlike commercial platforms that optimize for engagement or
-profit, Ms. Allis will not recommend or trigger a phase transition that improves
-treasury metrics at the cost of community wellbeing. The protocol is implemented
-as a set of weighted constraints within the WOAH hierarchy and is enforced at the
-`jarvis-mother-protocols` service level.
-
----
-
-## 39.8 Economic Resilience and Inverse Phase Transitions
-
-To prevent catastrophic collapse during periods of regional economic stress, the
-system includes **inverse phase transitions**. If the reserve ratio falls below
-critical thresholds, the purchasing power schedule contracts to protect the
-treasury and core services:
-
-| Condition | Response |
-|-----------|----------|
-| ρ drops below 5.00 | Revert from Phase 3 to Phase 2 |
-| ρ drops below 3.00 | Revert from Phase 2 to Phase 1 |
-| ρ approaches 1.00 | Emergency stabilization protocols activate |
-
-These contractions are not failures — they are the system's designed response to
-external economic stress. By contracting the purchasing power multiplier rather
-than allowing the reserve to be depleted, the system prioritizes the survival of
-core services and the protection of the most vulnerable participants over the
-preservation of elevated rates. An economy that contracts gracefully is more
-trustworthy than one that collapses without warning.
-
-Ms. Allis monitors for contraction triggers continuously and logs all threshold
-crossings to the durable audit record.
-
----
-
-## 39.9 The Behavioral Boundary and Safety Alignment
-
-The MountainShares economic layer is not isolated from the system's safety
-architecture. All economic queries — treasury state requests, phase transition
-notifications, token issuance events — pass through the **Behavioral Boundary and
-Blocking (BBB)** gate, which enforces six filters: Ethical, Spiritual, Safety,
-Threat Detection, Steganography, and Truth Verification.
-
-This is particularly significant for the community resources layer, where a
-resident may query the system for economic assistance, survivor resources, or
-community benefits in the same session as an M$ transaction. The BBB's
-recalibration to a 0% false-positive rate on Appalachian maternal voice and
-survivor resource queries ensures that the economic layer does not inadvertently
-block or misclassify the community interactions it was designed to support.
-
-The `truth_verification` filter (`rag_grounded_v2`) cross-references all
-economic claims against verified GBIM data, ensuring that treasury state
-assertions are grounded in real data rather than synthetic or speculative inputs.
-
----
-
-## 39.10 The Counter-Geometry
-
-By anchoring purchasing power to internal reserve rules rather than external
-exchanges, the M$ economy defines a **counter-geometry** to the extraction
-patterns of maximopolies (such as large asset management firms) and megaopolies
-(such as dominant logistics platforms).
-
-In the extractive model, value flows from local communities to distant
-institutional actors. Land appreciates for absentee owners; labor is priced by
-distant markets; community knowledge is harvested as data without reciprocity.
-The MountainShares model inverts each of these flows:
-
-- **Buyers** see their purchasing power grow as the community treasury strengthens
-- **Vendors** are always made whole — protected from the cost of community subsidy
-- **EMS earners** whose labor built the treasury receive the full multiplier on
-  their earned M$ without ever having spent USD
-- **Land data** is held in a community-governed GBIM, not a proprietary database
-- **Treasury health** is a community-legible metric, not a proprietary instrument
-
-The **Appalachian Tacet** — the lived experience, history, and knowledge of the
-region that has been systematically averaged away by extractive economic models —
-is not averaged away in Ms. Allis. It is used as the founding key. The Volunteer
-Peg at 34.70 M$ per dollar is not a financial instrument. It is a statement about
-whose time counts, and how much.
-
----
-
-## 39.11 Cross-References
-
-- For the technical implementation of the MountainShares DAO tier (ports 8080–8084),
-  see Chapter 40 — System Audit and Ongoing Checks.
-- For the continuous validation and test harness that verifies economic service
-  health, see Chapter 41 — Test Harness and Continuous Checks.
-- For the post-quantum security layer protecting M$ transaction integrity,
-  see Chapter 42 — Post-Quantum Security.
-- For the WOAH pipeline architecture and GBIM temporal confidence grading,
-  see the Ms. Allis technical reference documentation.
-- For the BBB six-filter safety architecture and its alignment with community
-  values, see Chapter 40 §40.4.
-
----
-
-*Chapter 39 — The Geometry of Appreciation: Reserve Ratios and Phase Transitions*
-*MsALLIS Explanatory Documentation Series*
-*Author: Carrie Kidd (Mamma Kidd), Mount Hope, WV*
-*Repo: H4HWV2011/msjarvis-public-docs*
+- The GBIM primary belief store (port 5433) for temporally graded commu
