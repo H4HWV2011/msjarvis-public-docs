@@ -6,7 +6,7 @@
 - **Harmony for Hope, Inc.**, a West Virginia nonprofit corporation ("H4H" or "Client")
 - **Kidd's Technical Services**, a [sole proprietorship / LLC — fill in entity type], owned and operated by Carrie Kidd ("KTS" or "Contractor")
 
-**Effective Date:** ___________________________________
+**Effective Date:** January 16, 2025
 **Governing Law:** State of West Virginia
 
 ---
