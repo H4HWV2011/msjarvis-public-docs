@@ -1,29 +1,31 @@
 # MS.___.ALLIS Corridor Partner Community Governance Agreement
 
-**Program Node:** MS.___.ALLIS (fill in node designation, e.g., MS.NPS.ALLIS)
+**Program Node:** MS.___.ALLIS (fill in node designation, e.g., MS.NPS.ALLIS, MS.MHHWT.ALLIS)
 **Corridor Partner Organization:** ___________________________________
 **Partner Type:** ☐ Federal Agency  ☐ Municipal Government  ☐ Public Safety Agency  ☐ Nonprofit  ☐ Other: ___________
 **Primary Contact Name and Title:** ___________________________________
 **Primary Contact Email:** ___________________________________
 **Effective Date:** ___________________________________
 
-***
+---
 
 ## Recitals
 
-This Agreement is entered into between Harmony for Hope, Inc., a West Virginia nonprofit corporation ("Operator"), and the Corridor Partner Organization named above ("Partner"), for the purpose of establishing the terms of Partner's participation in the MS.___.ALLIS node of the MountainShares Artificial Learning & Location Intelligence System (ALLIS) network.
+This Agreement is entered into between **Kidd's Technical Services**, owner and operator of the Artificial Learning & Location Intelligence System ("ALLIS"), a platform developed and operated independently by Kidd's Technical Services ("Operator"), and the Corridor Partner Organization named above ("Partner").
+
+The MS.___ designation in the node name indicates that this deployment is made available at no cost to the Partner through the **MountainShares Sponsorship Tier** — a community benefit arrangement under which **Harmony for Hope, Inc.** ("H4H"), a West Virginia nonprofit corporation, sponsors ALLIS deployments as part of the MountainShares program. H4H is not a party to this Agreement and does not own or operate ALLIS. H4H's role is limited to sponsoring the no-cost deployment and operating the MountainShares program governance framework that community partners may optionally engage with under separate instruments.
 
 The parties enter this Agreement because they share an interest in providing free, locally owned public connectivity, heritage interpretation, and safety communications support in New River Gorge gateway communities — without cost to the Partner, without altering the visual character of historic places, and without creating financial or governance obligations that either party cannot fulfill.
 
-***
+---
 
 ## Section 1 — What This Agreement Is and Is Not
 
 **1.1 This Agreement is:**
-- A data stewardship and community governance commitment
+- A data stewardship and community governance commitment between the Operator and the Partner
 - A written record of the Partner's in-kind contribution and its scope
-- The complete and exclusive instrument governing NPS or federal agency participation, where applicable (see Section 7)
-- A bilateral agreement between the Operator and this Partner only
+- The complete and exclusive instrument governing participation by any federal agency or instrumentality, where applicable (see Section 7)
+- A bilateral agreement between Kidd's Technical Services and this Partner only
 
 **1.2 This Agreement is not:**
 - An acceptance of or agreement to the MountainShares Rewards Program Terms and Conditions
@@ -31,8 +33,9 @@ The parties enter this Agreement because they share an interest in providing fre
 - A commitment to purchase, fund, or procure any service now or in the future
 - A transfer of any ownership interest, governance standing, or financial interest to either party
 - A DAO membership agreement or voting participation agreement of any kind
+- An agreement with Harmony for Hope, Inc. — H4H is the program sponsor, not a contracting party to this instrument
 
-***
+---
 
 ## Section 2 — Partner's In-Kind Contribution
 
@@ -53,15 +56,15 @@ Willingness to participate in periodic operational check-ins and, at the conclus
 **2.5 No Financial Obligation**
 The Partner's contribution under this Agreement is exclusively in-kind. The Partner has no obligation to provide funding, reimbursement, payment, or procurement of any kind, now or in the future, as a condition of this Agreement or of continued participation in MS.___.ALLIS.
 
-***
+---
 
 ## Section 3 — Operator's Commitments
 
 **3.1 No-Cost Service**
-The Operator provides the MS.___.ALLIS connectivity layer, locally hosted intelligence services, and heritage content delivery to the Partner and to the public at no charge under this Agreement.
+The Operator provides the MS.___.ALLIS connectivity layer, locally hosted intelligence services, and heritage content delivery to the Partner and to the public at no charge under this Agreement. This no-cost provision is made possible by Harmony for Hope, Inc.'s sponsorship of this deployment tier and does not obligate H4H to fund deployments beyond what is specified in the Master Services Agreement between H4H and Kidd's Technical Services.
 
 **3.2 Infrastructure Ownership and Removal**
-All physical infrastructure installed under this Agreement — radios, enclosures, cabling, mounts, satellite terminal, and supporting hardware — remains the property of the Operator or a designated community-benefit owner as specified in the Community Participation Addendum. The Operator is responsible for removing all installed equipment upon termination of this Agreement or upon the Partner's reasonable written request, and for restoring any affected surfaces to their pre-installation condition to the extent practicable.
+All physical infrastructure installed under this Agreement — radios, enclosures, cabling, mounts, satellite terminal, and supporting hardware — remains the property of Kidd's Technical Services or a designated community-benefit owner as specified in the Community Participation Addendum. The Operator is responsible for removing all installed equipment upon termination of this Agreement or upon the Partner's reasonable written request, and for restoring any affected surfaces to their pre-installation condition to the extent practicable.
 
 **3.3 Heritage-Sensitive Installation**
 All installations are conducted in a manner consistent with the Secretary of the Interior's Standards, NPS cultural resource policies, and applicable State Historic Preservation Office requirements. No installation proceeds at any site until required reviews and approvals are complete. Each installation is documented with photographs, diagrams, and written descriptions provided to the Partner and to relevant preservation authorities.
@@ -72,7 +75,7 @@ MS.___.ALLIS operates as an internet data layer only. It does not carry licensed
 **3.5 Liability**
 The Operator accepts responsibility for the proper installation, operation, maintenance, and removal of all MS.___.ALLIS infrastructure. The Partner Organization is not liable for damage to, theft of, or malfunction of any installed equipment, except in cases of gross negligence or willful misconduct by the Partner's personnel.
 
-***
+---
 
 ## Section 4 — Data Stewardship
 
@@ -97,17 +100,20 @@ Retention periods are defined per data category in the MS.___.ALLIS Data Governa
 **4.6 No Sale of Data**
 The Operator does not sell Partner data or visitor data as a standalone commercial product.
 
-***
+---
 
 ## Section 5 — Intellectual Property
 
-**5.1 Partner Content**
+**5.1 ALLIS Is Owned by Kidd's Technical Services**
+ALLIS is an independent platform owned solely by Kidd's Technical Services. The MS.___ designation indicates deployment under the MountainShares Sponsorship Tier; it does not transfer, encumber, or modify ownership of ALLIS or any component thereof. Neither this Agreement nor the Partner's participation creates any ownership interest in ALLIS for the Partner or for Harmony for Hope, Inc.
+
+**5.2 Partner Content**
 The Partner retains full ownership of any heritage materials, interpretive content, maps, institutional records, or other intellectual property it contributes to the MS.___.ALLIS content layer. Contribution of content to the system does not transfer, license, or encumber that ownership except as expressly agreed in writing.
 
-**5.2 System and Software**
-The Operator retains ownership of or appropriate rights to the MS.___.ALLIS software, models, and system architecture. Nothing in this Agreement grants the Partner any ownership interest in those assets.
+**5.3 MountainShares Program Materials**
+The MountainShares program name, branding, and associated governance materials are owned by Harmony for Hope, Inc. Nothing in this Agreement grants the Partner any ownership or license in those assets.
 
-***
+---
 
 ## Section 6 — Governance
 
@@ -118,9 +124,9 @@ The Partner is invited to participate in periodic community governance discussio
 Participation in this Agreement does not constitute membership in the MountainShares DAO. The Partner is not subject to the MountainShares Rewards Program Terms and Conditions by virtue of this Agreement.
 
 **6.3 Amendments**
-Changes to this Agreement require written consent of both parties. The Operator may not unilaterally amend this Agreement by posting updated terms elsewhere.
+Changes to this Agreement require written consent of both parties — Kidd's Technical Services and the Partner. The Operator may not unilaterally amend this Agreement by posting updated terms elsewhere. Harmony for Hope, Inc. does not have authority to amend this Agreement.
 
-***
+---
 
 ## Section 7 — Federal Agency Participation Carve-Out
 
@@ -142,9 +148,9 @@ Any data collected in connection with the federal Partner's participation is gov
 This Agreement does not constitute a federal procurement action, a contract under the Federal Acquisition Regulation, or an obligation of federal appropriated funds. The federal Partner's participation is exclusively in-kind as described in Section 2.
 
 **7.6 No Endorsement**
-Nothing in this Agreement constitutes an endorsement by any federal agency of the MountainShares program, the Operator, or any associated commercial or nonprofit activities.
+Nothing in this Agreement constitutes an endorsement by any federal agency of the MountainShares program, Harmony for Hope, Inc., Kidd's Technical Services, or any associated commercial or nonprofit activities.
 
-***
+---
 
 ## Section 8 — Term and Termination
 
@@ -157,23 +163,29 @@ Either party may terminate this Agreement at any time with thirty (30) days writ
 **8.3 Effect of Termination**
 Upon termination, the Operator will remove all installed equipment and restore affected surfaces as described in Section 3.2 within a reasonable time period agreed with the Partner.
 
-***
+---
 
 ## Section 9 — General Provisions
 
 **9.1 Entire Agreement**
-This Agreement, together with the Community Participation Addendum, constitutes the entire agreement between the parties with respect to Partner's participation in MS.___.ALLIS and supersedes all prior discussions, representations, or understandings.
+This Agreement, together with the Community Participation Addendum, constitutes the entire agreement between Kidd's Technical Services and the Partner with respect to the Partner's participation in MS.___.ALLIS and supersedes all prior discussions, representations, or understandings.
 
 **9.2 No Agency or Partnership**
 Nothing in this Agreement creates an agency, partnership, joint venture, franchise, or employment relationship between the parties.
 
-**9.3 Severability**
+**9.3 No Third-Party Beneficiary**
+Harmony for Hope, Inc. is not a party to this Agreement and has no rights or obligations under it as a result of its sponsorship role. No third party, including H4H, is an intended beneficiary of this Agreement.
+
+**9.4 Governing Law**
+Unless Section 7 applies, this Agreement is governed by the laws of the State of West Virginia, without regard to conflict-of-law principles.
+
+**9.5 Severability**
 If any provision of this Agreement is found invalid or unenforceable, the remaining provisions continue in full force.
 
-**9.4 Counterparts**
+**9.6 Counterparts**
 This Agreement may be executed in counterparts, including by electronic signature, each of which constitutes an original.
 
-***
+---
 
 ## Signatures
 
@@ -187,17 +199,17 @@ Title: ___________________________________
 
 Organization: ___________________________________
 
-***
+---
 
-**Harmony for Hope, Inc. (Operator)**
+**Kidd's Technical Services (Operator)**
 
 Signature: ___________________________________ Date: ___________
 
-Printed Name: ___________________________________
+Printed Name: Carrie Kidd
 
-Title: ___________________________________
+Title: Owner / Operator
 
-***
+---
 
 ## Community Participation Addendum
 
@@ -206,6 +218,8 @@ Title: ___________________________________
 **Node designation:** MS.___.ALLIS
 
 **Participating community:** ___________________________________
+
+**Sponsorship confirmation:** This deployment is sponsored by Harmony for Hope, Inc. under the MountainShares Sponsorship Tier as established in the Master Services Agreement between Harmony for Hope, Inc. and Kidd's Technical Services dated _______________.
 
 **Approved installation locations:**
 
