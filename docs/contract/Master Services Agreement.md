@@ -27,7 +27,7 @@ The parties enter this Agreement to clearly document the nature of their relatio
 
 **"MountainShares"** means the community rewards program, DAO governance structure, and associated instruments owned and operated by H4H.
 
-**"MS. Designation"** means the prefix "MS." applied to an ALLIS node (e.g., MS.NPS.ALLIS, MS.THURMOND.ALLIS), indicating that the node is deployed under the MountainShares Sponsorship Tier made available through H4H's sponsorship of the ALLIS platform.
+**"MS. Designation"** means the prefix "MS." applied to an ALLIS node (e.g., MS.FCCAC.ALLIS, MS.MHHWT.ALLIS), indicating that the node is deployed under the MountainShares Sponsorship Tier made available through H4H's sponsorship of the ALLIS platform.
 
 **"MountainShares Sponsorship Tier"** means the no-cost community deployment tier of ALLIS, made available to eligible community partners because H4H sponsors those deployments as part of its public-benefit mission.
 
