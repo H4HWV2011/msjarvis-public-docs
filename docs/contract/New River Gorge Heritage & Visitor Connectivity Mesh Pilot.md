@@ -277,9 +277,9 @@ The starting configuration uses three core components, with Thurmond as the illu
 | 1× MikroTik SXTsq 5 ac (endpoint radio) | ~$90 |
 | 1× Starlink Business terminal + first year of service | ~$2,500 hardware + ~$3,000 service |
 | Enclosure, PoE switch, surge protection, cabling, UPS | ~$400–600 |
-| Installation labor (Kidd's Technical Services) | ~$500–800 |
-| Siting review and preservation documentation | ~$300–500 |
-| **Estimated total (single community, starting configuration)** | **~$7,000–8,000** |
+| Installation labor (Kidd's Technical Services) | ~$1,500–2,500 |
+| Siting review and preservation documentation | ~$1,200–2,000 |
+| **Estimated total (single community, starting configuration)** | **~$8,700–11,100** |
 | Starlink Business monthly subscription (recurring after year 1) | ~$250/month |
 | Additional endpoint radios or edge compute, if added later | Scoped separately per community decision |
 
