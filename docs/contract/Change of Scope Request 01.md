@@ -76,8 +76,7 @@ KTS and H4H agree that cost implications of this scope change, if any, shall be 
 ## 6. Assumptions and Conditions
 
 1. Access to 706 Main Street for node installation is controlled by H4H and requires no additional permission process.
-2. Access to 708 Main Street is subject to a separate access agreement between H4H and the building owner, to be secured by H4H prior to the October 15, 2026 design milestone.
-3. Access to the trailhead kiosk location on the bank parking lot requires written permission from the property owner and/or the City of Mount Hope, to be secured by H4H no later than October 15, 2026.
+3. Access to the trailhead kiosk location on the bank parking lot requires written permission from the property owner and/or the City of Mount Hope, to be secured by H4H no later than October 15, 2027.
 4. KTS retains ownership of all hardware until full payment has been received, at which point hardware ownership transfers to H4H per the terms of the original MSA.
 5. This COS does not alter the data stewardship, liability, or intellectual property terms of the original agreement.
 
