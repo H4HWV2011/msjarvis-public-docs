@@ -4,7 +4,7 @@
 **Agreement Type:** Master Services Agreement with IP Ownership Clarification and Platform License
 **Parties:**
 - **Harmony for Hope, Inc.**, a West Virginia nonprofit corporation ("H4H" or "Client")
-- **Kidd's Technical Services**, a [sole proprietorship / LLC — fill in entity type], owned and operated by Carrie Kidd ("KTS" or "Contractor")
+- **Kidd's Technical Services**, a limited liability company, owned and operated by Carrie Kidd ("KTS" or "Contractor")
 
 **Effective Date:** July 6, 2025
 **Governing Law:** State of West Virginia
