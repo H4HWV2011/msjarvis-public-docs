@@ -1,670 +1,4134 @@
-^C
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Check how many docs are in that collection
-curl -s "http://127.0.0.1:8000/api/v2/tenants/default_tenant/databases/default_database/collections/e7e83578-973e-474e-a6d4-ea91d5d5289d" \
-  | python3 -m json.tool
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Check what topo/elevation data you already have
+find /mnt/nvme1/ /mnt/spiritual_drive/ ~/msjarvis-rebuild-working/ \
+    \( -iname "*topo*" \
+    -o -iname "*dem*" \
+    -o -iname "*elevation*" \
+    -o -iname "*contour*" \
+    -o -iname "*lidar*" \
+    -o -iname "*nhd*" \
+    -o -iname "*watershed*" \
+    -o -iname "*flowline*" \
+    -o -iname "*ridge*" \
+    -o -iname "*terrain*" \) \
+    2>/dev/null | grep -v ".pyc\|venv\|site-packages" | sort
+/home/cakidd/msjarvis-rebuild-working/itest-69dgm-bridge-logs
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/911centers_wvdem_032819_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/backups/fix-20260411-080124/consciousness_bridge.py.bak
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/backups/fix-20260411-080158/consciousness_bridge.py.bak
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/backups/fix-20260411-080527/consciousness_bridge.py.bak
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/fire_dept_wvdem_092017_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/.git/hooks/sendemail-validate.sample
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/itest-consciousness-bridge-logs
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/jarviscryptopolicy.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_env.20260413-215332
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml.bak.bridge_net.20260413-215213
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/container_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/msjarvisconsciousnessbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/policedept_wvdem_012319_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/policedept_wvdem_012319_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/911centers_wvdem_032819_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/academic_research_gateway_8062.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/academic_research_gateway_8062.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/academic_whitebox_api.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_8136_retry.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_academic_research_gateway_8062_cors_to_academic_whitebox_api.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_academic_research_gateway_8062_to_academic_research_gateway_8062_cors.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_academic_whitebox_api_to_activate_dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_activate_dgm_enhanced_to_activate_egeria_persona.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_activate_dgm_to_activate_dgm_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_auto_store_to_add_background_call.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_background_call_to_add_background_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_background_storage_to_add_conversation_context.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_conversation_context_to_add_conversation_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_conversation_endpoint_to_add_conversation_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_conversation_storage_to_add_dynamic_context.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_dynamic_context_to_add_fast_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_fifth_dgm_to_chat_to_add_full_brain_class.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_full_brain_class_to_add_gpu_cleanup_correct.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_gpu_cleanup_correct_to_add_gpu_cleanup_every_3.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_gpu_cleanup_every_3_to_add_identity_context.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_identity_context_to_ADDITIONAL_SERVICES.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_jarvis_personality_to_add_mamma_greeting_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_mamma_greeting_simple_to_add_messenger_to_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_messenger_to_gateway_to_add_new_consciousness_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_new_consciousness_services_to_add_ready_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_ready_endpoint_to_add_security_to_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_security_to_chat_to_add_semaphore.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_semaphore_to_add_simple_gpu_cleanup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_swagger_to_rag_to_add_to_main_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_to_main_consciousness_to_add_to_main_consciousness.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_user_memory_attribute_to_add_web_research_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_user_memory_to_add_user_memory_attribute.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_web_research_storage_to_add_working_search.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_add_working_search_to_advanced_service_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_advanced_service_dashboard_to_agents_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_11llm_OPTIMIZED_to_ai_server_19llm_CONSCIOUS.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_19llm_CONSCIOUS.backup_20251026_200122_to_ai_server_19llm_CONSCIOUS.backup_20251110_135425.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_19llm_CONSCIOUS.backup_20251110_135425_to_ai_server_19llm_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_19llm_CONSCIOUS_to_ai_server_19llm_CONSCIOUS.backup_20251013_082519.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_19llm_PRODUCTION_to_ai_server_19llm_PRODUCTION_WITH_HEALTH.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_19llm_PRODUCTION_WITH_HEALTH_to_ai_server_20llm_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_20llm_PRODUCTION_to_ai_server_22llm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_22llm_FIXED_to_ai_server_22llm.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_22llm.psychology_patched_FIXED_to_ai_server_22llm_SEQUENTIAL.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER_to_ai_server_22llm_SMALL_TO_LARGE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_22llm_SEQUENTIAL_to_ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_22llm_to_ai_server_22llm_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_4llm_to_ai_server_integrated.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_integrated_to_ai_server_original_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_original_backup_to_ai_server_restored.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_restored_to_ai_teams_config.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_server_to_ai_server_11llm_OPTIMIZED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ai_teams_config_to_apply_ollama_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_apply_ollama_fix_to_async_polling_architecture.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_async_polling_architecture_to_audit_attrs.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_audit_attrs_to_auto_fix_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_auto_fix_gateway_to_autonomous_learner_gisgeodb_wrapper.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched_9665.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_autonomous_to_i_container_dgm_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_autonomous_to_i_container_dgm_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_autonomous_to_i_container_fixed.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10001_4012.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10001_9139.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10001.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10001.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10002_4012.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10002_9844.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10002.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10002.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10003_9443.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10003.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10004_9272.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10004.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10005.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10005.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10006_9551.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10006.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10006.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10007_9484.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10007.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10007.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10008_9236.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10008.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10008.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10009_9282.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10009.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10010.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10010.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10011_9514.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10011.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10012_9861.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10012.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10012.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10013_9128.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10013.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10013.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10014_9420.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10014.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10015_9518.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10015.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10015.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10016_9478.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10016.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10017_9095.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10017.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10017.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10018.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10018.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10019_9288.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10019.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10020_9081.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10020.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10020.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10021_9057.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10022_9254.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10022.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10023_9883.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10023.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10023.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10024_9710.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10024.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10024.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10025_9576.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10025.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10026_9033.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10026.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10026.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10027_9031.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10027.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10027.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10028.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10028.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10029_9433.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10029.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10029.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10030_9692.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10030.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10030.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10031.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10032_9304.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10032.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10033_9815.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10033.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10034_9499.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10034.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10034.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10035.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10035.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10036_9897.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10036.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10036.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10037_9819.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10037.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10038.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10039_9727.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10039.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10039.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10040.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10040.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10041_9413.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10041.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10042_9407.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10042.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10043_9792.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10043.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10044.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10045.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10045.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10046_9737.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10046.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10046.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10047.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10047.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10048.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10049_9332.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10049.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10050_9700.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10050.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10051.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10052_9376.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10052.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10053.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10053.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10054_9870.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10054.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10054.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10055.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10055.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10056.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10056.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10057.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10057.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10058_9926.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10058.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10058.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10059_9153.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10059.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10059.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10060_9266.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10060.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10060.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10061_9455.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10061.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10061.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10062_9393.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10062.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10062.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10063_9529.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10063.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10063.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10064_9692.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10064.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10064.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10065_9180.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10065.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10066.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10067_9733.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10067.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10067.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10068_9110.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10068.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10069_9732.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10069.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_10069.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm_9929.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_cross_dgm.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_facebook_retry.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_batch2.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_core69.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_FULL_BACKUP.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_manifest_services_only.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_batch_patch_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_bbb_ethics_proxy.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_brain_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_brain_orchestrator_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_build_additional_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_bulk_compose_rewrite.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_bulk_load_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_bulk_load_MAXIMUM.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_chromadb_client.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_chromadb_rag_helper.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_chromadb_v2_to_gis_sync.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_clean_compose.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_clean_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_cloudflare_domain_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_complete_system_audit.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_comprehensive_storage_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_comprehensive_url_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ConfigLoader.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_configure_facebook_webhook.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_connection_pooling.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_consciousness_coordinator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_consciousness_with_egeria_voice.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_consciousness_working.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_constitutional_api.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_constitutional_api.PROD_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_constitutional_guardian.PROD_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_contract_generator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_conversation_memory_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_autonomous_learner_tables.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_immutable_security_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_i_statement_feedback_loop.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_create_perpetual_storage_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dedupe_compose.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_disable_aggressive_cleaning.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_Dockerfile.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_domain_service_router.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_download_nltk_data.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dynamic_port_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dynamic_port_service_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_dynamic_port_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry_active.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_code_execution_engine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_facebook_perpetual_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_multi_mode_system.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_safe_self_correction.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_final_biological.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_fixed_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_plain_authentic.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_v3_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_with_execution.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_working.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_email_gis_geolocation_extractor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_embed_and_add.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_enable_22llm_routing.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_enhance_agent_prompts.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_enhance_cleaner.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_enhance_pituitary_warmth.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_enhance_rag_first.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_enhance_rag_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_export_attributes_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_export_metadata_csv.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_extract_all_chromadbs_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_extract_real_knowledge_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_extract_shapefile_features_to_csv.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_chat_unified.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_daemon_polling.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_messenger_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_poster_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_poster_fast.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_poster_working.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_facebook_voice_orchestrator_egeria.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fifth_dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fifth_dgm_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fill_null_coordinates_mount_hope.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_final_model_optimization.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_agent_prompts.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_all_consciousness_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_indent.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_background_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_chat_server.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_chroma_url.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_consciousness_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_creator_recognition.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_fastapi_lifespan.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_indentation.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_judge_and_memory.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_judge_authentic.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_judge_response.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_judge_synthesis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_model_names.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_model_unloading.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_multi_rag_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_new_service_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_init.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_scope.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_persona_hang.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_persona.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_port_8001_clean.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_prompt_leak.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_query_service_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_rag_store.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_response_parsing.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_swagger.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_timeouts_add_22llm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fix_web_research.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fractal_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_fraud_detection_ai.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_gateway_messenger_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_generate_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_geobim_integrated.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_geobim_mysql.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_geobim_mysql_v2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_gis_command_module.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_gisgeodb_learner_hook.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_gisgeodb_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_gpu_accelerated_rag.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_harmony4hope_deployment_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_health_check_cache.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_deep_mode.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_hilbert_spatial_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_i_container_interest_algorithm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_immutable_core_enforcement.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_implement_judge_pituitary_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_index_all_extracted_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_infrastructure_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ingest_csv_to_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ingest_documents_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ingest_gis_features_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ingest_knowledge_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ingest_mrsid_imagery.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_inject_egeria_persona.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_all_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_complete_architecture.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_consciousness_into_swarm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_full_brain.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_full_neural_architecture.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_i_container_to_schedulers.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_orchestrator_flow.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_integrate_spatial_temporal.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_INTEGRATION_IMPLEMENTATION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_jarvisarchiveapi.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10070.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10071.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10073.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10074.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10075.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10076.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10078.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10079.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10080.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10081.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10082.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10083.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10084.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10085.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10086.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10088.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10089.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10092.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10093.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10094.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10095.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10096.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10097.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10098.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10099.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10101.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10102.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10104.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10105.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10107.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10108.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10109.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10110.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10112.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10114.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10115.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10116.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10118.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10123.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10125.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10126.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10131.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10132.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_judge_10134.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_link_gisgeodb_to_files.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_llm_conscious_OPTIMIZED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_llm_consensus_22.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_llm_consensus_22_SMALL_TO_LARGE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_llm_ensemble_router.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_load_complete_knowledge_base.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_load_rag_data.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_load_rag_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_load_shapefile_features_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_load_spiritual_library.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_main_with_rag.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_manifest_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_manual_storage_patch.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v5_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v6_biologics.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v8_spiritual_complete.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_dgm_complete.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_gpu_optimized.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_master_unified_consciousness_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_memory_dgm_engine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_memory_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_mesh_coordinator_interface.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_messenger_service_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_method_tracker_decorator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_metrics_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_migrate_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_migrate_neurobiological_master.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_modify_autonomous_learning_cycle.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_move_huggingface_to_cpu.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_egeria_facebook_autopost.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_agents_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_alerting_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_api_docs.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_sync_continuous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_authentic_multi_llm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_optimized.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_auto_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain_orchestrator_advanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_chromadb_query.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_cleanup_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conscious_collective.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_complete.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_enhancement_production.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consensus_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder_v2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_gateway_4022.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_daily_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_darwin_godel_machine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_dynamic_model_selector.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor_old.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_exclusive_training_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_expiration_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_async.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_autonomous_social.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_brain_integrated.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_DGM.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_8040.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_rag.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_webhook.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fact_filter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_WORKING.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fifth_dgm_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_full_neurobio_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fully_autonomous_coordinator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_v2_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_with_judge_filtering.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_generate_frontend.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_tracker_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_ueid_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_enhanced_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync_FIXED_V2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_with_bbb_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_i_containers_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_integration_hub.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_woah.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_link_reader_scheduled_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_location_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_1762220815.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_test.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.broken_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.error_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.30endpoints_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.full_backup_1762223304.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_messenger_ui_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_metadata_aware_learner.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mother_carrie_protocols.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mountainshares_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_paddleocr_processor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_psychology_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_service_factory.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_showcase_api.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_simple_web_ui.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_spiritual_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swap_memory_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swarm_intelligence.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_sync_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_temporal_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_theological_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_system.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_wallet_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ULTIMATE.py:.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_COMPLETE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_msjarvisunifiedswaggergatewayFIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_PROD.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_SECURED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_deployer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_v2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_multi_model_consensus.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_my_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neuro_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neurobiological_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neuro_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neuro_consciousness_containers.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neuro_prefrontal_cortex.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neuro_qualia_engine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_neuro_subconscious.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_oauth2_callback.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_oauth2_handler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_ollama_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_parallel_processing.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_parse_world_files.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_patch_agent_identity.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_patch_autonomous_learner_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_patch_fractal.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_patch_neuro.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_patch_qualia.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_performance_optimization_analyzer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_phase1_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_phase2_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_phase3_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_phase7_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_polling_client.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_populate_security_layers_test.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9000_academic_extension.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9000_chat_wrapper_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_ARCHITECTURE_CORRECT.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_FINAL_FIX.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_proxy_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_MYSQL_PROD.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WITH_CONVERSATIONS.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WORKING.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_wrapper.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_manager_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_port_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_process_comprehensive_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_process_gis_shapefiles.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_process_statewide_gis_bulk.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_pronoun_fixer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_psychology_integration_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_psychology_loop_closer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_public_form_simplified.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_qualia_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm_ACTIVE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_qualia_unified_write_orchestrator_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_quick_optimizations.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble_fast.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_5100_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_command_module.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_first_workflow.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_server.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_server_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_server.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_to_gis_sync.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_rag_workflow.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_recover_160_queries.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_recover_chromadb_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_recover_chromadb_to_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_redirect_4015_to_4020.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_REFERENCE_windows_swarm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv_strict.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_register_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_registration_biometric_production_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_registration_service_clean.backup_1762220206.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_registration_service_clean.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_reload_all_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_remove_duplicate_inits.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_replace_dolphin_phi.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_response_filter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_response_sanitizer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_restore_pia_wiring.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_run_gateway_with_guards.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_sanctuary_construction_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_search_metadata.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_seed_spatial_identity.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_service_discovery_glassbox.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_silence_memory_errors.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_simple_orchestrator_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_simple_prompt_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_smart_auto_store.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_spiritual_rag_domain.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_stage2_biometric_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_stage2_biometric.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_start_gateway_with_guards.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_substack_rss_reader.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_summarize_docs.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_swagger_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_swarm_intelligence_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_switch_to_small_models.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_system_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_talk_to_jarvis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_temporal_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_ddg_verbose.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_fifth_dgm_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_full_brain_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_gis_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_knowledge_base.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_method_tracking.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_test_spatial_awareness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_truth_filter_bbb_verification.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_unifiedconsciousnessgatewayPRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_unified_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_carrie_keywords.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_gisgeodb_schema.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_production_to_v9.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_services_to_use_port_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_theological_boundaries.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_web_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_update_web_research_package.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_use_existing_models.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_user_auth_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_user_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_use_reliable_models_only.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_vatican_scraper_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_vectorize_gis_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_webhook_notifications.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_web_research_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_website_deployment_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_ms_jarvis_main_gateway_to_wire_layers_into_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/bridge_openapi.json
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/chromadb_rest_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/consciousness_bridge_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/consciousness_bridge_judges.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/consciousnessbridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/dgm_bridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/Dockerfile.69dgm_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/fire_dept_wvdem_092017_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/FIX_CONSCIOUSNESS_BRIDGE.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/integration_layer/container_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/judge_to_pituitary_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/main.py.bak_before_bridge_20251212_232206
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/main.py.bak_before_bridge_20251212_232349
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/main.py.bak_enable_llmbridge_20251212_233118
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/main.py.bak_enable_llmbridge_20251212_233317
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/main.py.fromcontainer.llmbridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_egeria_facebook_autopost.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_9188.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/msjarvisconsciousnessbridge_9819.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_enhanced_9599.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_enhanced.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_parallel_woah_9424.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_parallel_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_parallel_woah.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.backup_1759895250
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.backup_1760220435
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.backup_pre_fixes
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_complete_architecture
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_final_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_judge_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_persona_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_prompt_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.before_small_models
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.phase1_working
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.pre_agent_identity
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.safe_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge.py.working_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_service_9295.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_woah_9042.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_bridge_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_unified_bridge_9924.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_llm_bridge_9908.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_llm_bridge.current.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_llm_bridge.py.broken
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_llm_bridge_simple_9303.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/ms_jarvis_llm_bridge_simple.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/integration_layer/container_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/msjarvisconsciousnessbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/policedept_wvdem_012319_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/policedept_wvdem_012319_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/port_9000_69dgm_bridge_9769.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/port_9000_69dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/port_9000_academic_extension.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/python/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/python/consciousness_bridge.py.broken_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/FIX_CONSCIOUSNESS_BRIDGE.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/fix_llm_bridges.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/llm_bridge_main.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_egeria_facebook_autopost.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_consciousness_bridge_enhanced.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_consciousness_bridge_parallel_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_consciousness_bridge_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_consciousness_bridge_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_llm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_llm_bridge_simple.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/services/ms_jarvis_unified_rag_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/unifiedragbridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/woah_qualia_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/recovered-services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/scripts/check_69dgm_bridge_semantics.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/scripts/check_consciousness_bridge_semantics.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/scripts/ingest_watershed_worldview.sql
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_autonomous_to_i_container_fixed.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10001.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10005.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10008.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10010.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10014.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10017.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10028.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10032.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10038.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10054.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_cross_dgm_10064.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/bridge_manifest_FULL_BACKUP.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_manifest_batch2.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_manifest_core69.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_manifest.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_manifest_FULL_BACKUP.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_manifest_services_only.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_batch_patch_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_bbb_ethics_proxy.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_brain_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_brain_orchestrator_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_build_additional_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_bulk_compose_rewrite.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_bulk_load_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_bulk_load_MAXIMUM.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_chromadb_client.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_chromadb_rag_helper.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_chromadb_v2_to_gis_sync.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_clean_compose.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_clean_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_cloudflare_domain_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_complete_system_audit.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_comprehensive_storage_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_comprehensive_url_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ConfigLoader.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_configure_facebook_webhook.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_connection_pooling.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_consciousness_coordinator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_consciousness_with_egeria_voice.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_consciousness_working.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_constitutional_api.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_constitutional_api.PROD_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_constitutional_guardian.PROD_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_contract_generator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_conversation_memory_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_autonomous_learner_tables.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_immutable_security_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_i_statement_feedback_loop.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_create_perpetual_storage_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dedupe_compose.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_disable_aggressive_cleaning.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_Dockerfile.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_domain_service_router.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_download_nltk_data.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dynamic_port_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dynamic_port_service_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_dynamic_port_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry_active.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_code_execution_engine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_facebook_perpetual_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_multi_mode_system.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_safe_self_correction.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_final_biological.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_fixed_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_plain_authentic.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_v3_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_with_execution.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_working.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_email_gis_geolocation_extractor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_embed_and_add.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_enable_22llm_routing.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_enhance_agent_prompts.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_enhance_cleaner.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_enhance_pituitary_warmth.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_enhance_rag_first.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_enhance_rag_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_export_attributes_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_export_metadata_csv.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_extract_all_chromadbs_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_extract_real_knowledge_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_extract_shapefile_features_to_csv.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_chat_unified.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_daemon_polling.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_messenger_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_poster_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_poster_fast.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_poster_working.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_facebook_voice_orchestrator_egeria.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fifth_dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fifth_dgm_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fill_null_coordinates_mount_hope.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_final_model_optimization.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_agent_prompts.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_all_consciousness_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_indent.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_background_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_chat_server.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_chroma_url.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_consciousness_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_creator_recognition.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_fastapi_lifespan.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_indentation.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_judge_and_memory.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_judge_authentic.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_judge_response.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_judge_synthesis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_model_names.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_model_unloading.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_multi_rag_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_new_service_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_init.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_scope.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_persona_hang.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_persona.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_port_8001_clean.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_prompt_leak.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_query_service_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_rag_store.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_response_parsing.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_swagger.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_timeouts_add_22llm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fix_web_research.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fractal_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_fraud_detection_ai.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_gateway_messenger_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_generate_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_geobim_integrated.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_geobim_mysql.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_geobim_mysql_v2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_gis_command_module.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_gisgeodb_learner_hook.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_gisgeodb_storage.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_gpu_accelerated_rag.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_harmony4hope_deployment_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_health_check_cache.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_deep_mode.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_hilbert_spatial_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_i_container_interest_algorithm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_immutable_core_enforcement.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_implement_judge_pituitary_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_index_all_extracted_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_infrastructure_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ingest_csv_to_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ingest_documents_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ingest_gis_features_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ingest_knowledge_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ingest_mrsid_imagery.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_inject_egeria_persona.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_all_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_complete_architecture.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_consciousness_into_swarm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_full_brain.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_full_neural_architecture.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_i_container_to_schedulers.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_orchestrator_flow.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_integrate_spatial_temporal.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_INTEGRATION_IMPLEMENTATION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_jarvisarchiveapi.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10070.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10071.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10073.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10074.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10075.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10076.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10078.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10079.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10080.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10081.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10082.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10083.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10084.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10085.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10086.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10088.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10089.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10092.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10093.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10094.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10095.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10096.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10097.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10098.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10099.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10101.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10102.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10104.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10105.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10107.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10108.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10109.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10110.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10112.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10114.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10115.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10116.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10118.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10123.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10125.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10126.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10131.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10132.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_judge_10134.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_link_gisgeodb_to_files.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_llm_conscious_OPTIMIZED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_llm_consensus_22.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_llm_consensus_22_SMALL_TO_LARGE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_llm_ensemble_router.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_load_complete_knowledge_base.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_load_rag_data.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_load_rag_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_load_shapefile_features_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_load_spiritual_library.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_main_with_rag.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_manifest_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_manual_storage_patch.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v5_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v6_biologics.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v8_spiritual_complete.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_dgm_complete.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_gpu_optimized.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_master_unified_consciousness_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_memory_dgm_engine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_memory_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_mesh_coordinator_interface.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_messenger_service_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_method_tracker_decorator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_metrics_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_migrate_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_migrate_neurobiological_master.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_modify_autonomous_learning_cycle.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_move_huggingface_to_cpu.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_egeria_facebook_autopost.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_agents_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_alerting_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_api_docs.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_sync_continuous.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_authentic_multi_llm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_optimized.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_auto_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain_orchestrator_advanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_chromadb_query.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_cleanup_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conscious_collective.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_complete.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_enhancement_production.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consensus_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder_v2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_gateway_4022.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_daily_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_darwin_godel_machine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_dynamic_model_selector.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor_old.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_exclusive_training_layer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_expiration_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_async.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_autonomous_social.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_brain_integrated.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_DGM.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_8040.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_rag.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_webhook.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fact_filter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_WORKING.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fifth_dgm_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_full_neurobio_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fully_autonomous_coordinator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_v2_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_with_judge_filtering.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_generate_frontend.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_tracker_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_ueid_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_enhanced_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync_FIXED_V2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_with_bbb_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_i_containers_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_integration_hub.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_woah.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_link_reader_scheduled_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_location_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_1762220815.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_test.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.broken_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.error_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.30endpoints_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.full_backup_1762223304.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_messenger_ui_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_metadata_aware_learner.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mother_carrie_protocols.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mountainshares_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_paddleocr_processor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_psychology_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_service_factory.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_showcase_api.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_simple_web_ui.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_spiritual_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swap_memory_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swarm_intelligence.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_sync_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_temporal_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_theological_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_system.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_wallet_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ULTIMATE.py:.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_COMPLETE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_msjarvisunifiedswaggergatewayFIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_PROD.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_SECURED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_deployer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_v2.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_multi_model_consensus.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_my_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neuro_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neurobiological_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neuro_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neuro_consciousness_containers.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neuro_prefrontal_cortex.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neuro_qualia_engine.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_neuro_subconscious.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_oauth2_callback.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_oauth2_handler.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_ollama_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_parallel_processing.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_parse_world_files.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_patch_agent_identity.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_patch_autonomous_learner_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_patch_fractal.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_patch_neuro.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_patch_qualia.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_performance_optimization_analyzer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_phase1_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_phase2_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_phase3_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_phase7_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_polling_client.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_populate_security_layers_test.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9000_academic_extension.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9000_chat_wrapper_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_ARCHITECTURE_CORRECT.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_FINAL_FIX.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_proxy_simple.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_ui_MYSQL_PROD.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WITH_CONVERSATIONS.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WORKING.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_9001_ui_wrapper.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_manager_fixed.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_port_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_process_comprehensive_gis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_process_gis_shapefiles.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_process_statewide_gis_bulk.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_pronoun_fixer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_psychology_integration_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_psychology_loop_closer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_public_form_simplified.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_qualia_adapter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm_ACTIVE.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_qualia_unified_write_orchestrator_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_quick_optimizations.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble_fast.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_5100_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_command_module.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_first_workflow.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_server.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_server_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_server.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_to_gis_sync.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_rag_workflow.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_recover_160_queries.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_recover_chromadb_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_recover_chromadb_to_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_redirect_4015_to_4020.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_REFERENCE_windows_swarm.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv_strict.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_register_services.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_registration_biometric_production_final.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_registration_service_clean.backup_1762220206.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_registration_service_clean.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_reload_all_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_remove_duplicate_inits.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_replace_dolphin_phi.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_response_filter.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_response_sanitizer.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_restore_pia_wiring.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_run_gateway_with_guards.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_sanctuary_construction_monitor.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_search_metadata.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_seed_spatial_identity.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_service_discovery_glassbox.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_silence_memory_errors.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_simple_orchestrator_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_simple_prompt_fix.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_smart_auto_store.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_spiritual_rag_domain.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_stage2_biometric_backup.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_stage2_biometric.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_start_gateway_with_guards.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_substack_rss_reader.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_summarize_docs.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_swagger_gateway.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_swarm_intelligence_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_switch_to_small_models.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_system_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_talk_to_jarvis.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_temporal_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_ddg_verbose.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_fifth_dgm_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_full_brain_integration.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_gis_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_knowledge_base.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_method_tracking.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_test_spatial_awareness.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_truth_filter_bbb_verification.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_unifiedconsciousnessgatewayPRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_unified_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_carrie_keywords.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_gisgeodb_schema.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_production_to_v9.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_services_to_use_port_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_theological_boundaries.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_web_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_update_web_research_package.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_use_existing_models.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_user_auth_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_user_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_use_reliable_models_only.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_vatican_scraper_service.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_vectorize_gis_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_webhook_notifications.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_web_research_main.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_website_deployment_manager.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/legacy_bridges/bridge_ms_jarvis_main_gateway_to_wire_layers_into_chat.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/ms_jarvis_consciousness_bridge.py.before_judge_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/ms_jarvis_consciousness_bridge_service_9295.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/ms_jarvis_consciousness_unified_bridge_9924.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/port_9000_69dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/port9000_69dgmbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/port900069dgmbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/port_9000_69dgm_bridge.py.bak_8300
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/port_9000_academic_extension.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-576-recovered/woah_qualia_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/Dockerfile.69dgm_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/911centers_wvdem_032819_gcs84_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/911centers_wvdem_032819_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/bridges_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/fire_dept_wvdem_092017_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/geographicalnamesonusgstopomaps_usgs_200601_ll27_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/geographicalnamesonusgstopomaps_usgs_200601_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/geographicnamesonusgstopomaps_usgs_20110801_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/hospitals_wvdem_040519_gcs84_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/hospitals_wvdem_040519_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/majorriversandlakesline_nhd_2002_ll83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/majorriversandlakesline_nhd_2002_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/majorriversandlakespolygon_nhd_2002_poly_ll83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/majorriversandlakespolygon_nhd_2002_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/nursinghomes_wvdem_041219_gcs84_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/nursinghomes_wvdem_041219_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/policedept_wvdem_012319_gcs84_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/gis_dataset_services/policedept_wvdem_012319_utm83_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/integration_layer/container_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/introspective_verdict_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarviscryptopolicy.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge_ACTUAL.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge_ACTUAL.py.bak.20260413-215616
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge_ACTUAL.py.bak.degraded.20260413-220322
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.bak
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.bak2
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.20260413-215633
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak_ch25_closure
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.degraded.20260413-220135
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.degraded.20260413-220302
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.final.20260413-220538
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.hilbert-portfix.20260415-170607
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.literalfix.20260413-220820
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.sedfix.20260413-220856
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.services.20260413-215908
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.telemetry.20260413-220653
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.truthdebug.20260415-165211
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.truthdebug.20260415-165222
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.bak.truthdebug.20260415-165339
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py.bak_gate_v3
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py.bak_gate_v4
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py.bak.hilbert.20260415-172604
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py.bak_refix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/911centers_wvdem_032819_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/911centers_wvdem_032819_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/academic_research_gateway_8062_cors.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/academic_research_gateway_8062.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/academic_research_gateway_8062.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/academic_whitebox_api.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge1.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_69dgm.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_autonomous_to_i_container_dgm_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_autonomous_to_i_container_dgm_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_autonomous_to_i_container_fixed.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10001.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10002.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10003.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10004.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10005.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10006.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10007.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10008.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10009.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10010.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10011.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10012.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10013.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10014.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10015.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10016.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10017.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10018.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10019.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10020.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10021.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10022.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10023.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10024.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10025.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10026.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10027.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10028.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10029.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10030.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10031.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10032.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10033.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10034.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10035.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10036.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10037.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10038.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10039.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10040.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10041.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10042.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10043.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10044.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10045.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10046.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10047.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10048.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10049.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10050.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10051.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10052.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10053.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10054.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10055.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10056.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10057.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10058.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10059.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10060.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10061.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10062.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10063.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10064.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10065.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10066.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10067.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10068.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm_10069.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridgecrossdgm100*.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridgecrossdgm*.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_cross_dgm.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_batch2.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_core69.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_critical_add.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_FULL_BACKUP.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_priority_services.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_services_only.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_manifest_with_utilities_backup.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridge_openapi.json
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/bridges_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/chromadb_rest_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/consciousness_bridge_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/consciousness_bridge_judges.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/consciousnessbridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/dgm_bridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/Dockerfile.69dgm_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/extracted_gis/County_Boundaries_24k_Topo.zip
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/fire_dept_wvdem_092017_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/FIX_CONSCIOUSNESS_BRIDGE.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/fix_llm_bridges.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/gbim_gis_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/health_access_gbim_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/hospitals_wvdem_040519_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/hospitals_wvdem_040519_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/hospitalswvdem040519utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/integration_layer/container_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/judge_to_pituitary_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/launch_all_bridges.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/layer2_port9000_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/llm_bridge_main.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/main.py.bak_before_bridge_20251212_232206
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/main.py.bak_before_bridge_20251212_232349
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/main.py.bak_enable_llmbridge_20251212_233118
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/main.py.bak_enable_llmbridge_20251212_233317
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/main.py.fromcontainer.llmbridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_egeria_facebook_autopost.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_9188.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/msjarvisconsciousnessbridge_9819.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_enhanced_9599.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_enhanced.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_parallel_woah_9424.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_parallel_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_parallel_woah.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/msjarvisconsciousnessbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_1759895250
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_1759895606
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_1760220435
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_before_22llm
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_pre_fixes
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_complete_architecture
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_final_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_full_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_judge_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_persona_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_prompt_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_rag_web
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_small_models
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_theology
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.before_true_woah
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.original
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.phase1_working
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.pre_agent_identity
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.pre_identity_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.safe_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge.py.working_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_service_9295.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_woah_9042.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_woah.psychology_patched.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_bridge_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_unified_bridge_9924.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge_9908.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge.current.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge.py.broken
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge_simple_9303.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_llm_bridge_simple.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_unified_rag_bridge_9600.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/ms_jarvis_unified_rag_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/consciousness_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/nursinghomes_wvdem_041219_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/policedept_wvdem_012319_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/policedept_wvdem_012319_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/port_9000_69dgm_bridge_9769.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/port_9000_69dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/port_9000_academic_extension.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/python/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/python/consciousness_bridge.py.broken_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/unifiedragbridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/woah_qualia_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-nvme1-recovered/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_070432
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072514
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072741
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072757
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services/port_9000_academic_extension.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/911centers_wvdem_032819_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/911centers_wvdem_032819_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/academic_research_gateway_8062_cors.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/academic_research_gateway_8062.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/academic_research_gateway_8062.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/academic_whitebox_api.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge1.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_69dgm.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_autonomous_to_i_container_dgm_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_autonomous_to_i_container_dgm_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_autonomous_to_i_container_fixed.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10001.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10002.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10003.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10004.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10005.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10006.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10007.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10008.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10009.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10010.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10011.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10012.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10013.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10014.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10015.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10016.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10017.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10018.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10019.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10020.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10021.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10022.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10023.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10024.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10025.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10026.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10027.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10028.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10029.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10030.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10031.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10032.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10033.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10034.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10035.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10036.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10037.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10038.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10039.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10040.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10041.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10042.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10043.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10044.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10045.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10046.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10047.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10048.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10049.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10050.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10051.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10052.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10053.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10054.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10055.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10056.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10057.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10058.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10059.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10060.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10061.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10062.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10063.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10064.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10065.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10066.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10067.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10068.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm_10069.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridgecrossdgm100*.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridgecrossdgm*.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_cross_dgm.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_batch2.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_core69.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_critical_add.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_FULL_BACKUP.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_priority_services.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_services_only.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_manifest_with_utilities_backup.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridge_openapi.json
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/bridges_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/chromadb_rest_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/consciousness_bridge_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/consciousness_bridge_judges.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/consciousnessbridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/dgm_bridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/Dockerfile.69dgm_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/extracted_gis/County_Boundaries_24k_Topo.zip
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/fire_dept_wvdem_092017_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/FIX_CONSCIOUSNESS_BRIDGE.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/fix_llm_bridges.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/gbim_gis_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/health_access_gbim_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hospitals_wvdem_040519_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/hospitals_wvdem_040519_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/integration_layer/container_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/judge_to_pituitary_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/launch_all_bridges.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/layer2_port9000_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/llm_bridge_main.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/main.py.bak_before_bridge_20251212_232206
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/main.py.bak_before_bridge_20251212_232349
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/main.py.bak_enable_llmbridge_20251212_233118
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/main.py.bak_enable_llmbridge_20251212_233317
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/main.py.fromcontainer.llmbridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_egeria_facebook_autopost.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_9188.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisconsciousnessbridge_9819.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_enhanced_9599.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_enhanced.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_parallel_woah_9424.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_parallel_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_parallel_woah.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisconsciousnessbridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_1759895250
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_1759895606
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_1760220435
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_before_22llm
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_pre_fixes
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_complete_architecture
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_final_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_full_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_judge_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_persona_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_prompt_fix
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_rag_web
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_small_models
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_theology
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.before_true_woah
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.original
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.phase1_working
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.pre_agent_identity
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.pre_identity_integration
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.safe_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge.py.working_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_service_9295.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_service.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_woah_9042.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_woah.psychology_patched.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_woah.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_bridge_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_unified_bridge_9924.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge_9908.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge.current.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge.py.broken
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge_simple_9303.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_llm_bridge_simple.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_unified_rag_bridge_9600.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/ms_jarvis_unified_rag_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/consciousness_bridge
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/nursinghomes_wvdem_041219_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/policedept_wvdem_012319_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/policedept_wvdem_012319_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/port_9000_69dgm_bridge_9769.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/port_9000_69dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/port_9000_academic_extension.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/python/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/python/consciousness_bridge.py.broken_backup
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/unifiedragbridge.log
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/woah_qualia_bridge.py
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/services-safe/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/test_jarvis_consciousness_bridge.sh
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/911centers_wvdem_032819_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/academic_research_gateway_8062.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/academic_research_gateway_8062.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/academic_whitebox_api.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_8136_retry.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_academic_research_gateway_8062_cors_to_academic_whitebox_api.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_academic_research_gateway_8062_to_academic_research_gateway_8062_cors.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_academic_whitebox_api_to_activate_dgm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_activate_dgm_enhanced_to_activate_egeria_persona.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_activate_dgm_to_activate_dgm_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_auto_store_to_add_background_call.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_background_call_to_add_background_storage.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_background_storage_to_add_conversation_context.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_conversation_context_to_add_conversation_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_conversation_endpoint_to_add_conversation_storage.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_conversation_storage_to_add_dynamic_context.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_dynamic_context_to_add_fast_layer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_fifth_dgm_to_chat_to_add_full_brain_class.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_full_brain_class_to_add_gpu_cleanup_correct.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_gpu_cleanup_correct_to_add_gpu_cleanup_every_3.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_gpu_cleanup_every_3_to_add_identity_context.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_identity_context_to_ADDITIONAL_SERVICES.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_jarvis_personality_to_add_mamma_greeting_simple.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_mamma_greeting_simple_to_add_messenger_to_gateway.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_messenger_to_gateway_to_add_new_consciousness_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_new_consciousness_services_to_add_ready_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_ready_endpoint_to_add_security_to_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_security_to_chat_to_add_semaphore.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_semaphore_to_add_simple_gpu_cleanup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_swagger_to_rag_to_add_to_main_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_to_main_consciousness_to_add_to_main_consciousness.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_user_memory_attribute_to_add_web_research_storage.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_user_memory_to_add_user_memory_attribute.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_web_research_storage_to_add_working_search.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_add_working_search_to_advanced_service_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_advanced_service_dashboard_to_agents_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_11llm_OPTIMIZED_to_ai_server_19llm_CONSCIOUS.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_19llm_CONSCIOUS.backup_20251026_200122_to_ai_server_19llm_CONSCIOUS.backup_20251110_135425.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_19llm_CONSCIOUS.backup_20251110_135425_to_ai_server_19llm_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_19llm_CONSCIOUS_to_ai_server_19llm_CONSCIOUS.backup_20251013_082519.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_19llm_PRODUCTION_to_ai_server_19llm_PRODUCTION_WITH_HEALTH.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_19llm_PRODUCTION_WITH_HEALTH_to_ai_server_20llm_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_20llm_PRODUCTION_to_ai_server_22llm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_22llm_FIXED_to_ai_server_22llm.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_22llm.psychology_patched_FIXED_to_ai_server_22llm_SEQUENTIAL.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER_to_ai_server_22llm_SMALL_TO_LARGE.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_22llm_SEQUENTIAL_to_ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_22llm_to_ai_server_22llm_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_4llm_to_ai_server_integrated.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_integrated_to_ai_server_original_backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_original_backup_to_ai_server_restored.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_restored_to_ai_teams_config.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_server_to_ai_server_11llm_OPTIMIZED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ai_teams_config_to_apply_ollama_fix.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_apply_ollama_fix_to_async_polling_architecture.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_async_polling_architecture_to_audit_attrs.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_audit_attrs_to_auto_fix_gateway.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_auto_fix_gateway_to_autonomous_learner_gisgeodb_wrapper.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched_9665.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_autonomous_to_i_container_dgm_woah.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_autonomous_to_i_container_dgm_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_autonomous_to_i_container_fixed.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10001_4012.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10001_9139.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10001.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10001.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10002_4012.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10002_9844.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10002.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10002.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10003_9443.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10003.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10004_9272.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10004.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10005.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10005.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10006_9551.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10006.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10006.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10007_9484.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10007.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10007.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10008_9236.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10008.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10008.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10009_9282.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10009.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10010.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10010.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10011_9514.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10011.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10012_9861.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10012.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10012.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10013_9128.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10013.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10013.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10014_9420.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10014.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10015_9518.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10015.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10015.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10016_9478.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10016.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10017_9095.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10017.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10017.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10018.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10018.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10019_9288.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10019.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10020_9081.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10020.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10020.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10021_9057.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10022_9254.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10022.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10023_9883.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10023.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10023.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10024_9710.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10024.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10024.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10025_9576.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10025.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10026_9033.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10026.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10026.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10027_9031.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10027.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10027.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10028.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10028.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10029_9433.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10029.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10029.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10030_9692.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10030.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10030.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10031.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10032_9304.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10032.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10033_9815.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10033.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10034_9499.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10034.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10034.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10035.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10035.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10036_9897.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10036.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10036.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10037_9819.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10037.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10038.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10039_9727.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10039.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10039.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10040.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10040.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10041_9413.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10041.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10042_9407.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10042.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10043_9792.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10043.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10044.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10045.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10045.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10046_9737.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10046.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10046.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10047.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10047.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10048.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10049_9332.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10049.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10050_9700.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10050.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10051.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10052_9376.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10052.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10053.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10053.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10054_9870.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10054.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10054.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10055.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10055.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10056.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10056.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10057.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10057.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10058_9926.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10058.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10058.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10059_9153.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10059.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10059.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10060_9266.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10060.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10060.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10061_9455.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10061.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10061.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10062_9393.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10062.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10062.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10063_9529.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10063.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10063.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10064_9692.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10064.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10064.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10065_9180.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10065.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10066.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10067_9733.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10067.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10067.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10068_9110.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10068.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10069_9732.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10069.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_10069.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm_9929.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_cross_dgm.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_facebook_retry.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_batch2.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_core69.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_FULL_BACKUP.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_manifest_services_only.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_batch_patch_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_bbb_ethics_proxy.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_brain_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_brain_orchestrator_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_build_additional_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_bulk_compose_rewrite.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_bulk_load_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_bulk_load_MAXIMUM.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_chromadb_client.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_chromadb_rag_helper.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_chromadb_v2_to_gis_sync.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_clean_compose.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_clean_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_cloudflare_domain_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_complete_system_audit.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_comprehensive_storage_fix.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_comprehensive_url_fix.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ConfigLoader.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_configure_facebook_webhook.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_connection_pooling.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_consciousness_coordinator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_consciousness_with_egeria_voice.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_consciousness_working.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_constitutional_api.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_constitutional_api.PROD_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_constitutional_guardian.PROD_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_contract_generator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_conversation_memory_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_autonomous_learner_tables.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_immutable_security_layer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_i_statement_feedback_loop.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_create_perpetual_storage_layer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dedupe_compose.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah_fixed.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_disable_aggressive_cleaning.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_Dockerfile.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_domain_service_router.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_download_nltk_data.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dynamic_port_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dynamic_port_service_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_dynamic_port_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry_active.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_code_execution_engine.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_facebook_perpetual_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_multi_mode_system.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_safe_self_correction.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_final_biological.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_fixed_simple.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_plain_authentic.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_v3_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_with_execution.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_working.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_email_gis_geolocation_extractor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_embed_and_add.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_enable_22llm_routing.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_enhance_agent_prompts.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_enhance_cleaner.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_enhance_pituitary_warmth.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_enhance_rag_first.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_enhance_rag_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_export_attributes_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_export_metadata_csv.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_extract_all_chromadbs_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_extract_real_knowledge_to_gis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_extract_shapefile_features_to_csv.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_chat_unified.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_daemon_polling.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_messenger_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_poster_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_poster_fast.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_poster_working.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_facebook_voice_orchestrator_egeria.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fifth_dgm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fifth_dgm_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fill_null_coordinates_mount_hope.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_final_model_optimization.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_agent_prompts.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_all_consciousness_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_endpoint.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_indent.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_background_storage.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_chat_server.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_chroma_url.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_consciousness_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_creator_recognition.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_fastapi_lifespan.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_indentation.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_judge_and_memory.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_judge_authentic.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_judge_response.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_judge_synthesis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_model_names.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_model_unloading.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_multi_rag_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_new_service_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_init.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_scope.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_persona_hang.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_persona.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_port_8001_clean.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_prompt_leak.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_query_service_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_rag_store.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_response_parsing.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_storage.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_swagger.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_timeouts_add_22llm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fix_web_research.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fractal_adapter.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_fraud_detection_ai.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_gateway_messenger_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_generate_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_geobim_integrated.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_geobim_mysql.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_geobim_mysql_v2.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_gis_command_module.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_gisgeodb_learner_hook.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_gisgeodb_storage.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_gpu_accelerated_rag.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_harmony4hope_deployment_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_health_check_cache.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_autonomous.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_deep_mode.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_hilbert_spatial_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_i_container_interest_algorithm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_immutable_core_enforcement.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_implement_judge_pituitary_fixed.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_index_all_extracted_gis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_infrastructure_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ingest_csv_to_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ingest_documents_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ingest_gis_features_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ingest_knowledge_simple.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ingest_mrsid_imagery.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_inject_egeria_persona.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_all_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_complete_architecture.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_consciousness_into_swarm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_full_brain.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_full_neural_architecture.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_i_container_to_schedulers.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_orchestrator_flow.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_integrate_spatial_temporal.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_INTEGRATION_IMPLEMENTATION.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_jarvisarchiveapi.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10070.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10071.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10073.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10074.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10075.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10076.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10078.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10079.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10080.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10081.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10082.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10083.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10084.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10085.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10086.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10088.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10089.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10092.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10093.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10094.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10095.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10096.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10097.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10098.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10099.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10101.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10102.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10104.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10105.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10107.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10108.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10109.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10110.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10112.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10114.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10115.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10116.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10118.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10123.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10125.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10126.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10131.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10132.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_judge_10134.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_link_gisgeodb_to_files.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_llm_conscious_OPTIMIZED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_llm_consensus_22.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_llm_consensus_22_SMALL_TO_LARGE.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_llm_ensemble_router.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_load_complete_knowledge_base.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_load_rag_data.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_load_rag_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_load_shapefile_features_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_load_spiritual_library.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_main_with_rag.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_manifest_endpoints.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_manual_storage_patch.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v5_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v6_biologics.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v8_spiritual_complete.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_dgm_complete.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_gpu_optimized.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_master_unified_consciousness_scheduler.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_memory_dgm_engine.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_memory_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_mesh_coordinator_interface.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_messenger_service_fixed.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_method_tracker_decorator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_metrics_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_migrate_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_migrate_neurobiological_master.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_modify_autonomous_learning_cycle.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_move_huggingface_to_cpu.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_egeria_facebook_autopost.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_agents_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_alerting_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_api_docs.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_sync_continuous.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_authentic_multi_llm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_optimized.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_auto_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain_orchestrator_advanced.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_chromadb_query.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_cleanup_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conscious_collective.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_complete.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_enhancement_production.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consensus_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder_v2.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_gateway_4022.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_daily_backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_darwin_godel_machine.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_dynamic_model_selector.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor_old.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_monitor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_exclusive_training_layer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_expiration_monitor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_async.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_autonomous_social.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_brain_integrated.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_DGM.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_8040.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_rag.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_webhook.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fact_filter.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_PRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_WORKING.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fifth_dgm_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_full_neurobio_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fully_autonomous_coordinator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_v2_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_with_judge_filtering.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_generate_frontend.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_tracker_simple.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_ueid_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_enhanced_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync_FIXED_V2.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service_backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_with_bbb_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_i_containers_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_integration_hub.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_dgm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_woah.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_link_reader_scheduled_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_location_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_1762220815.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_test.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.broken_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.error_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.30endpoints_backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.full_backup_1762223304.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_messenger_ui_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_metadata_aware_learner.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mother_carrie_protocols.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mountainshares_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_paddleocr_processor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_psychology_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_service_factory.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_showcase_api.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_simple_web_ui.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_spiritual_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swap_memory_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swarm_intelligence.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_sync_monitor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_temporal_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_theological_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_system.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_wallet_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ULTIMATE.py:.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_COMPLETE.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_msjarvisunifiedswaggergatewayFIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_PROD.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_SECURED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_deployer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_simple.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_v2.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_multi_model_consensus.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_my_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neuro_adapter.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neurobiological_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neuro_blood_brain_barrier.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neuro_consciousness_containers.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neuro_prefrontal_cortex.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neuro_qualia_engine.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_neuro_subconscious.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_oauth2_callback.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_oauth2_handler.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_ollama_fix.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_parallel_processing.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_parse_world_files.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_patch_agent_identity.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_patch_autonomous_learner_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_patch_fractal.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_patch_neuro.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_patch_qualia.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_performance_optimization_analyzer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_phase1_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_phase2_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_phase3_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_phase7_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_polling_client.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_populate_security_layers_test.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9000_academic_extension.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9000_chat_wrapper_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_ARCHITECTURE_CORRECT.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_FINAL_FIX.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_proxy_simple.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_MYSQL_PROD.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WITH_CONVERSATIONS.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WORKING.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_9001_ui_wrapper.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_manager_fixed.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_port_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_process_comprehensive_gis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_process_gis_shapefiles.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_process_statewide_gis_bulk.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_pronoun_fixer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_psychology_integration_adapter.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_psychology_loop_closer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_public_form_simplified.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_qualia_adapter.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm_ACTIVE.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_qualia_unified_write_orchestrator_69dgm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_quick_optimizations.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble_fast.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_5100_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_command_module.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_first_workflow.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_server.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_server_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_server.psychology_patched.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_to_gis_sync.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_rag_workflow.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_recover_160_queries.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_recover_chromadb_FIXED.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_recover_chromadb_to_gisgeodb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_redirect_4015_to_4020.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_REFERENCE_windows_swarm.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv_strict.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_register_services.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_registration_biometric_production_final.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_registration_service_clean.backup_1762220206.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_registration_service_clean.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_reload_all_knowledge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_remove_duplicate_inits.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_replace_dolphin_phi.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_response_filter.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_response_sanitizer.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_restore_pia_wiring.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_run_gateway_with_guards.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_sanctuary_construction_monitor.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_search_metadata.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_seed_spatial_identity.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_service_discovery_glassbox.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_silence_memory_errors.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_simple_orchestrator_fix.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_simple_prompt_fix.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_smart_auto_store.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_spiritual_rag_domain.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_stage2_biometric_backup.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_stage2_biometric.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_start_gateway_with_guards.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_substack_rss_reader.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_summarize_docs.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_swagger_gateway.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_swarm_intelligence_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_switch_to_small_models.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_system_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_talk_to_jarvis.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_temporal_consciousness.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_ddg_verbose.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_fifth_dgm_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_full_brain_integration.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_gis_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_knowledge_base.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_method_tracking.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_test_spatial_awareness.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_truth_filter_bbb_verification.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_unifiedconsciousnessgatewayPRODUCTION.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_unified_orchestrator.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_carrie_keywords.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_gisgeodb_schema.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_production_to_v9.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_services_to_use_port_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_theological_boundaries.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_web_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_update_web_research_package.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_use_existing_models.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_user_auth_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_user_dashboard.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_use_reliable_models_only.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_vatican_scraper_service.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_vectorize_gis_to_chromadb.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_webhook_notifications.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_web_research_main.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_website_deployment_manager.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_ms_jarvis_main_gateway_to_wire_layers_into_chat.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/bridge_openapi.json
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/chromadb_rest_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/consciousness_bridge_enhanced.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/consciousness_bridge_judges.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/consciousnessbridge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/dgm_bridge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/Dockerfile.69dgm_bridge
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/fire_dept_wvdem_092017_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/FIX_CONSCIOUSNESS_BRIDGE.sh
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/judge_to_pituitary_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/main.py.bak_before_bridge_20251212_232206
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/main.py.bak_before_bridge_20251212_232349
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/main.py.bak_enable_llmbridge_20251212_233118
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/main.py.bak_enable_llmbridge_20251212_233317
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/main.py.fromcontainer.llmbridge
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_egeria_facebook_autopost.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_9188.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/msjarvisconsciousnessbridge_9819.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_enhanced_9599.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_enhanced.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_parallel_woah_9424.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_parallel_woah.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_parallel_woah.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.backup_1759895250
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.backup_1760220435
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.backup_pre_fixes
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_complete_architecture
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_final_fix
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_judge_fix
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_persona_fix
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_prompt_fix
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.before_small_models
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.phase1_working
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.pre_agent_identity
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.safe_backup
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge.py.working_backup
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_service_9295.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_service.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_woah_9042.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_woah.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_bridge_woah.py.backup_20251031
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_unified_bridge_9924.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_consciousness_unified_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_llm_bridge_9908.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_llm_bridge.current.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_llm_bridge.py.broken
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_llm_bridge_simple_9303.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/ms_jarvis_llm_bridge_simple.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/policedept_wvdem_012319_gcs84_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/policedept_wvdem_012319_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/port_9000_69dgm_bridge_9769.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/port_9000_69dgm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/port_9000_academic_extension.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/python/consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/python/consciousness_bridge.py.broken_backup
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/FIX_CONSCIOUSNESS_BRIDGE.sh
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/fix_llm_bridges.sh
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/llm_bridge_main.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_egeria_facebook_autopost.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_consciousness_bridge_enhanced.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_consciousness_bridge_parallel_woah.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_consciousness_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_consciousness_bridge_service.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_consciousness_bridge_woah.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_llm_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_llm_bridge_simple.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/services/ms_jarvis_unified_rag_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/unifiedragbridge.log
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/woah_qualia_bridge.py
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/app/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/etc/ssl/certs/Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/etc/ssl/certs/Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/include/linux/cfm_bridge.h
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/include/linux/if_bridge.h
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/include/linux/if_cablemodem.h
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/include/linux/mrp_bridge.h
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/include/linux/netfilter_bridge
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/include/linux/netfilter_bridge.h
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/lib/gcc/x86_64-linux-gnu/14/include/cldemoteintrin.h
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/lib/x86_64-linux-gnu/gconv/GEORGIAN-ACADEMY.so
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/local/lib/python3.10/turtledemo
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/share/ca-certificates/mozilla/Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.crt
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/share/ca-certificates/mozilla/Hellenic_Academic_and_Research_Institutions_RootCA_2015.crt
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/share/perl/5.40.1/Pod/Perldoc/ToPod.pm
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/share/zoneinfo/America/Cambridge_Bay
+/home/cakidd/msjarvis-rebuild-working/safe-rootfs/usr/share/zoneinfo/Australia/Lindeman
+/mnt/nvme1/msjarvis-rebuild/data/attrs/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/bridges_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/attrs/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_911centers_wvdem_032819_gcs84_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_911centers_wvdem_032819_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_bridges_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_fire_dept_wvdem_092017_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicalnamesonusgstopomaps_usgs_200601_ll27_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicalnamesonusgstopomaps_usgs_200601_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_current_usgs_20110801_ll83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_current_usgs_20110801_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_usgs_20110801_ll83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_usgs_20110801_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_hospitals_wvdem_040519_gcs84_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_hospitals_wvdem_040519_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakesline_nhd_2002_ll83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakesline_nhd_2002_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakespolygon_nhd_2002_poly_ll83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakespolygon_nhd_2002_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_nursinghomes_wvdem_041219_gcs84_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_nursinghomes_wvdem_041219_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_policedept_wvdem_012319_gcs84_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_policedept_wvdem_012319_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/h_app_wv_county_boundaries_24k_topo_updated_2022_utm83_features.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_911centers_wvdem_032819_gcs84_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_911centers_wvdem_032819_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_bridges_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_fire_dept_wvdem_092017_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicalnamesonusgstopomaps_usgs_200601_ll27_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicalnamesonusgstopomaps_usgs_200601_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicnamesonusgstopomaps_current_usgs_20110801_ll83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicnamesonusgstopomaps_current_usgs_20110801_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicnamesonusgstopomaps_usgs_20110801_ll83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_geographicnamesonusgstopomaps_usgs_20110801_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_hospitals_wvdem_040519_gcs84_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_hospitals_wvdem_040519_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_majorriversandlakesline_nhd_2002_ll83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_majorriversandlakesline_nhd_2002_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_majorriversandlakespolygon_nhd_2002_poly_ll83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_majorriversandlakespolygon_nhd_2002_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_nursinghomes_wvdem_041219_gcs84_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_nursinghomes_wvdem_041219_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_policedept_wvdem_012319_gcs84_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_policedept_wvdem_012319_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/horn/horn_h_app_wv_county_boundaries_24k_topo_updated_2022_utm83_features_eq1.csv
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/911Centers_WVDEM_032819_GCS84.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/Fire_Dept_WVDEM_092017_GCS84.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/Fire_Dept_WVDEM_092017_UTM83.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/Hospitals_WVDEM_040519_GCS84.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/Hospitals_WVDEM_040519_UTM83.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/hospitals_wvdem.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/NursingHomes_WVDEM_041219_GCS84.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/NursingHomes_WVDEM_041219_UTM83.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/PoliceDept_WVDEM_012319_GCS84.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.CPG
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/911Centers_WVDEM_032819_GCS84.shx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.CPG
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.shx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Fire_Dept_WVDEM_092017_UTM83.zip
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.CPG
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_GCS84.shx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.cpg
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/Hospitals_WVDEM_040519_UTM83.shx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.CPG
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_GCS84.shx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.cpg
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/NursingHomes_WVDEM_041219_UTM83.shx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.CPG
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.dbf
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.prj
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.sbn
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.sbx
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.shp
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.shp.xml
+/mnt/nvme1/msjarvis-rebuild/data/wvgistc_fresh/unzipped/PoliceDept_WVDEM_012319_GCS84.shx
+/mnt/nvme1/msjarvis-rebuild/data/wv/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/debug_consciousness_bridge.md
+/mnt/nvme1/msjarvis-rebuild/demo_msjarvis_ranked.py
+/mnt/nvme1/msjarvis-rebuild/demo_msjarvis_resources.py
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.consciousnessbridge
+/mnt/nvme1/msjarvis-rebuild/.git/hooks/sendemail-validate.sample
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_8136_retry.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_8137_retry.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_aaacpe_scraper_service_to_academic_research_gateway_8062.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_academic_research_gateway_8062_cors_to_academic_whitebox_api.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_academic_research_gateway_8062_to_academic_research_gateway_8062_cors.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_academic_whitebox_api_to_activate_dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_activate_dgm_enhanced_to_activate_egeria_persona.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_activate_dgm_to_activate_dgm_enhanced.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_activate_egeria_persona_to_add_auto_store.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_auto_store_to_add_background_call.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_background_call_to_add_background_storage.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_background_storage_to_add_conversation_context.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_conversation_context_to_add_conversation_endpoint.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_conversation_endpoint_to_add_conversation_storage.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_conversation_storage_to_add_dynamic_context.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_dynamic_context_to_add_fast_layer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_fast_layer_to_add_fifth_dgm_to_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_fifth_dgm_to_chat_to_add_full_brain_class.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_full_brain_class_to_add_gpu_cleanup_correct.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_gpu_cleanup_correct_to_add_gpu_cleanup_every_3.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_gpu_cleanup_every_3_to_add_identity_context.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_identity_context_to_ADDITIONAL_SERVICES.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ADDITIONAL_SERVICES_FINAL_to_add_jarvis_personality.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ADDITIONAL_SERVICES_to_ADDITIONAL_SERVICES_FINAL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_jarvis_personality_to_add_mamma_greeting_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_mamma_greeting_simple_to_add_messenger_to_gateway.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_messenger_to_gateway_to_add_new_consciousness_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_new_consciousness_services_to_add_ready_endpoint.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_ready_endpoint_to_add_security_to_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_security_to_chat_to_add_semaphore.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_semaphore_to_add_simple_gpu_cleanup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_simple_gpu_cleanup_to_add_swagger_to_ports.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_swagger_to_ports_to_add_swagger_to_rag.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_swagger_to_rag_to_add_to_main_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_to_main_consciousness.psychology_patched_to_add_user_memory.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_to_main_consciousness_to_add_to_main_consciousness.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_user_memory_attribute_to_add_web_research_storage.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_user_memory_to_add_user_memory_attribute.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_web_research_storage_to_add_working_search.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_add_working_search_to_advanced_service_dashboard.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_advanced_service_dashboard_to_agents_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_agents_main_to_ai_server.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_11llm_OPTIMIZED_to_ai_server_19llm_CONSCIOUS.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_CONSCIOUS.backup_20251013_082519_to_ai_server_19llm_CONSCIOUS.backup_20251013_083103.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_CONSCIOUS.backup_20251013_083103_to_ai_server_19llm_CONSCIOUS.backup_20251026_200122.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_CONSCIOUS.backup_20251026_200122_to_ai_server_19llm_CONSCIOUS.backup_20251110_135425.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_CONSCIOUS.backup_20251110_135425_to_ai_server_19llm_PRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_CONSCIOUS_to_ai_server_19llm_CONSCIOUS.backup_20251013_082519.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_PRODUCTION_to_ai_server_19llm_PRODUCTION_WITH_HEALTH.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_19llm_PRODUCTION_WITH_HEALTH_to_ai_server_20llm_FINAL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_20llm_FINAL_to_ai_server_20llm_PRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_20llm_PRODUCTION_to_ai_server_22llm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm_FIXED_to_ai_server_22llm.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm.psychology_patched_FIXED_to_ai_server_22llm_SEQUENTIAL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm.psychology_patched_to_ai_server_22llm.psychology_patched_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER_to_ai_server_22llm_SMALL_TO_LARGE.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm_SEQUENTIAL_to_ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm_SMALL_TO_LARGE_to_ai_server_4llm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_22llm_to_ai_server_22llm_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_4llm_to_ai_server_integrated.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_integrated_to_ai_server_original_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_original_backup_to_ai_server_restored.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_restored_to_ai_teams_config.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_server_to_ai_server_11llm_OPTIMIZED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ai_teams_config_to_apply_ollama_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_apply_ollama_fix_to_async_polling_architecture.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_async_polling_architecture_to_audit_attrs.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_audit_attrs_to_auto_fix_gateway.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_auto_fix_gateway_to_autonomous_learner_gisgeodb_wrapper.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_autonomous_learner_gisgeodb_wrapper.psychology_patched_to_autonomous_learner_topic_source.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_autonomous_learner_gisgeodb_wrapper_to_autonomous_learner_gisgeodb_wrapper.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_autonomous_to_i_container_dgm_woah_9511.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_autonomous_to_i_container_dgm_woah.psychology_patched_9665.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10001_4012.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10001_9139.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10001.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10002_4012.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10002_9844.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10002.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10003_9443.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10003.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10004_9272.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10004.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10005_9335.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10005.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10006_9551.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10006.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10007_9484.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10007.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10008_9236.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10008.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10009_9282.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10009.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10010_9339.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10010.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10011_9514.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10011.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10012_9861.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10012.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10013_9128.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10013.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10014_9420.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10014.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10015_9518.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10015.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10016_9478.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10016.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10017_9095.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10017.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10018_9046.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10018.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10019_9288.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10019.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10020_9081.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10020.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10021_9057.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10021.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10022_9254.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10022.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10023_9883.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10023.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10024_9710.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10024.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10025_9576.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10025.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10026_9033.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10026.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10027_9031.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10027.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10028_9292.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10028.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10029_9433.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10029.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10030_9692.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10030.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10031_9555.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10031.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10032_9304.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10032.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10033_9815.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10033.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10034_9499.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10034.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10035_9945.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10035.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10036_9897.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10036.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10037_9819.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10037.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10038_9284.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10038.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10039_9727.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10039.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10040_9429.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10040.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10041_9413.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10041.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10042_9407.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10042.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10043_9792.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10043.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10044_9284.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10044.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10045_9465.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10045.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10046_9737.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10046.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10047_9029.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10047.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10048_9475.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10048.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10049_9332.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10049.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10050_9700.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10050.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10051_9977.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10051.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10052_9376.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10052.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10053_9110.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10053.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10054_9870.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10054.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10055_9516.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10055.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10056_9862.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10056.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10057_9850.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10057.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10058_9926.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10058.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10059_9153.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10059.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10060_9266.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10060.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10061_9455.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10061.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10062_9393.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10062.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10063_9529.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10063.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10064_9692.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10064.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10065_9180.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10065.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10066_9561.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10066.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10067_9733.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10067.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10068_9110.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10068.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10069_9732.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_10069.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_cross_dgm_9929.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_facebook_retry.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_auto_rag_builder.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_batch_patch_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_bbb_ethics_proxy.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_brain_orchestrator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_brain_orchestrator_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_build_additional_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_bulk_compose_rewrite.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_bulk_load_knowledge.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_bulk_load_MAXIMUM.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_chat_endpoint_universal.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_chat_server.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_chromadb_client.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_chromadb_rag_helper.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_chromadb_v2_to_gis_sync.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_clean_compose.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_clean_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_cloudflare_domain_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_complete_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_complete_memory_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_complete_system_audit.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_complete_system_audit_with_swagger.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_comprehensive_gisgeodb_audit.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_comprehensive_storage_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_comprehensive_url_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ConfigLoader.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_configure_facebook_webhook.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_connection_pooling.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_consciousness_coordinator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_consciousness_coordinator.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_consciousness_feed_integration.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_consciousness_with_egeria_voice.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_consciousness_working.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_constitutional_api_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_constitutional_api.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_constitutional_api.PROD_BACKUP.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_constitutional_guardian.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_constitutional_guardian.PROD_BACKUP.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_context_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_contract_generator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_conversation_memory_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_count_collections.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_cpu_optimization.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_autonomous_learner_tables.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_consciousness_data_integration.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_dual_consciousness_i_containers.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_immutable_security_layer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_i_statement_feedback_loop.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_perpetual_storage_layer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_tile_index.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_create_ueid_identity_layer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_data_inventory_endpoint.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dedupe_compose.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dgm_supervisor_woah_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_disable_aggressive_cleaning.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_Dockerfile.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_domain_service_router.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_download_nltk_data.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dynamic_app.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dynamic_port_scheduler.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dynamic_port_service_enhanced.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_dynamic_port_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_active_heartbeat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_api_proxy.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry_active.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_autonomous_inquiry.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_code_execution_engine.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_facebook_perpetual_scheduler.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_multi_mode_system.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_safe_self_correction.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_dynamic.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_final_biological.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_fixed_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_plain_authentic.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_v3_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_with_execution.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_egeria_web_ui_working.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_email_auto_checker.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_email_gis_geolocation_extractor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_email_rag_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_embed_and_add.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_embed_and_query.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enable_22llm_routing.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enhance_agent_prompts.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enhance_cleaner.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enhanced_learner_concept.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enhance_pituitary_warmth.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enhance_rag_first.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_enhance_rag_knowledge.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_export_attributes_to_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_export_metadata_csv.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_extract_all_chromadbs_to_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_extract_all_chromadb_to_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_extract_chroma_sqlite_to_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_extract_real_knowledge_to_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_extract_shapefile_features_to_csv.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_chat_unified.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_consciousness_daemon.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_daemon_polling.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_messenger_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_poster_autonomous.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_poster_fast.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_poster_working.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_facebook_voice_orchestrator_egeria.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fifth_dgm_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fifth_dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fifth_dgm_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_file_metadata_matching_algorithm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fill_null_coordinates_mount_hope.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_final_model_optimization.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_agent_prompts.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_all_consciousness_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_endpoint.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_autonomous_learner_indent.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_autonomous.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_background_storage.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_chat_server.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_chroma_url.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_consciousness_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_context_flow.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_creator_recognition.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_fastapi_lifespan.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_gpu_and_retry.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_import.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_indentation.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_judge_and_memory.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_judge_authentic.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_judge_response.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_judge_synthesis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_main_brain_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_model_names.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_model_unloading.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_multi_rag_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_new_service_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_init.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_orchestrator_scope.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_persona_hang.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_persona.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_port_8001_clean.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_port_8051_handler.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_prompt_leak.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_query_service_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_rag_store.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_response_parsing.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_semaphore.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_storage.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_swagger.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_timeouts_add_22llm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_web_research.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fix_woah_discovery.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fractal_adapter.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_fraud_detection_ai.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gateway_messenger_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gateway_verify_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gdb_integration_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_generate_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_geobim_integrated.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_geobim_mysql.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_geobim_mysql_v2.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gis_chat_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gis_command_module.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gisgeodbdirectaccess.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gisgeodb_learner_hook.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gisgeodb_storage.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gpu_accelerated_rag_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_gpu_accelerated_rag.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_guards_api_module.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_hardware_optimization_analyzer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_harmony4hope_deployment_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_health_check_cache.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_autonomous.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_hierarchical_coordinator_deep_mode.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_hierarchical_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_hilbert_spatial_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_host_bulk_loader.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_i_container_interest_algorithm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_immutable_core_enforcement.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_implement_judge_pituitary_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_implement_safe_optimizations.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_index_all_extracted_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_infrastructure_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ingest_csv_to_gisgeodb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ingest_documents_to_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ingest_full_attributed_docs.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ingest_gis_features_to_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ingest_knowledge_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ingest_mrsid_imagery.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_inject_egeria_persona.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_inject_gisgeodb_into_learner.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_all_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_complete_architecture.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_consciousness_into_swarm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_fifth_dgm_autonomous_learner.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_full_brain.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_full_neural_architecture.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_i_container_interests.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_i_container_to_schedulers.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_orchestrator_flow.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_integrate_spatial_temporal.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_INTEGRATION_IMPLEMENTATION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_interaction_logger.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_internet_tunnel_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_jarvisarchiveapi.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10070.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10071.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10072.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10073.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10074.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10075.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10076.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10077.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10078.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10079.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10080.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10081.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10082.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10083.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10084.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10085.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10086.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10087.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10088.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10089.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10090.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10091.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10092.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10093.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10094.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10095.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10096.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10097.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10098.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10099.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10100.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10101.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10102.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10103.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10104.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10105.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10106.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10107.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10108.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10109.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10110.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10111.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10112.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10113.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10114.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10115.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10116.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10117.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10118.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10119.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10120.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10121.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10122.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10123.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10124.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10125.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10126.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10127.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10128.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10129.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10130.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10131.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10132.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10133.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10134.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_judge_10135.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_link_gisgeodb_to_files.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_conscious_OPTIMIZED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_consensus_19_PRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_consensus_20_FINAL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_consensus_22.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_consensus_22_OPTIMIZED_ORDER.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_consensus_22_SMALL_TO_LARGE.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_llm_ensemble_router.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_complete_knowledge_base.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_feature_geometries_to_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_pdfs_spiritual.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_rag_data.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_rag_knowledge.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_shapefile_features_to_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_load_spiritual_library.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_main_with_rag.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_mamma_kidd_auth.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_manifest_endpoints.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_manual_storage_patch.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_dynamic.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v5_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v6_biologics.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v7_complete.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v7_dynamic.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v8_spiritual_complete.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_dgm_complete.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_gpu_optimized.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_chat_orchestrator_v9_optimized.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_unified_consciousness_scheduler_ENRICHED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_master_unified_consciousness_scheduler.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_memory_dgm_engine.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_memory_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_mesh_coordinator_interface.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_messenger_service_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_method_tracker_decorator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_method_tracking_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_metrics_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_migrate_blood_brain_barrier.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_migrate_neurobiological_master.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_modify_autonomous_learning_cycle.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_move_huggingface_to_cpu.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_egeria_facebook_autopost.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_agents_ollama.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_agents_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_alerting_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_api_docs.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_attribute_table_sync_continuous.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_authentic_multi_llm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_optimized.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_auto_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_blockchain_deployment.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_blood_brain_barrier.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_brain_orchestrator_advanced.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_chromadb_query.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_cleanup_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator_FINAL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator_v5.0_preachy.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_command_orchestrator_v5_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_complete_knowledge_ingestion.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conscious_collective.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_complete.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_enhancement_production.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consciousness_poster.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_consensus_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_contract_builder_v2.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_conversational_gateway_4022.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_daily_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_darwin_godel_machine.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_dynamic_model_selector.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_easyocr_processor_old.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_identity_verifier.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_monitor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_email_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_eternal_watchdog.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_exclusive_training_layer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_expiration_monitor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_async.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_autonomous_social.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_brain_integrated.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_CONSCIOUSNESS.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_DGM.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_dgm_woah.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_full.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_intelligent.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_8040.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_temp.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_poster_v3.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_PRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_rag.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_webhook.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_facebook_webhooks.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fact_filter.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_PRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_feed_reader_WORKING.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fifth_dgm_orchestrator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fifth_dgm_orchestrator.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fractal_consciousness_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fractal_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fractal_dgm_woah.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_full_neurobio_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_fully_autonomous_coordinator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_v2_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_msjarvis_gateway_with_judge_filtering.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_generate_frontend.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_tracker_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_geo_ueid_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_enhanced_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync_FIXED_V2.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_georeferencing_sync.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_with_bbb_gisgeodb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_i_containers_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_i_containers_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_id_ocr_processor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_integration_hub.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_dgm.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_layer2_woah.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_link_reader_scheduled_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_link_reader_scheduled.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_location_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_1762220815.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_error.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.backup_test.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.broken_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.error_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.pre_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.proxy_still_broken.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.30endpoints_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_main_gateway.py.full_backup_1762223304.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_memory_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_messenger_ui_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_messenger_ui_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_messenger_ui.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_metadata_aware_learner.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_microsoft_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mother_carrie_protocols.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_mountainshares_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_neurobiological_master.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_paddleocr_processor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat_BACKUP.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat_BEFORE_GIS.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_production_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_psychology_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_qualia_engine.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ram_watchdog.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_seamless_monitor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_service_factory.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_showcase_api.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_silent_geo_tracker.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_simple_web_ui.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_spiritual_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_substack_reader.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swap_memory_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_swarm_intelligence.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_sync_monitor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_temporal_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_theological_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_toroidal_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_truth_filter_gisgeodb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_system.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ueid_wallet_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_ULTIMATE.py:.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_BACKUP.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_CLEAN.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_COMPLETE.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_msjarvisunifiedswaggergatewayFIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_PROD.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_unified_swagger_gateway_SECURED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_deployer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_deployer_old.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_web_research_v2.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms_enhanced.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ms_jarvis_woah_algorithms.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_multi_model_consensus.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_multi_rag_dgm_system.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_my_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_adapter.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neurobiological_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_blood_brain_barrier.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_consciousness_containers.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_i_containers.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_prefrontal_cortex.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_qualia_engine.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_neuro_subconscious.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_oauth2_callback.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_oauth2_handler.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ollama_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_optimized_timeouts.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_optimize_egeria_complete.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_optimize_models_for_vram.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_parallel_processing.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_parse_world_files.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_agent_identity.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_autonomous_learner_gisgeodb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_fractal.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_learner_clean.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_mother_persona.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_neuro.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_patch_qualia.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_performance_optimization_analyzer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_phase1_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_phase2_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_phase3_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_phase4_5_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_phase6_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_phase7_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_polling_client.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_populate_security_layers_test.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9000_academic_extension.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9000_chat_wrapper_69dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ARCHITECTURE_CORRECT.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_FINAL_FIX.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_FINAL_WORKING.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_proxy_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_DIRECT.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_MYSQL.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_MYSQL_PROD.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WITH_CONVERSATIONS.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_WORKING.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_9001_ui_wrapper.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_manager_fixed.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_port_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_process_comprehensive_gis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_process_gis_shapefiles.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_process_statewide_gis_bulk.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_pronoun_fixer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_proxy_8060.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_psychological_rag_domain.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_psychology_integration_adapter.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_psychology_loop_closer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_public_form_simplified.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_qualia_adapter.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_qualia_email_registration_orchestrator_69dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm_ACTIVE.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_qualia_unified_orchestrator_69dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_qualia_unified_write_orchestrator_69dgm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_quick_optimizations.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble_fast.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_5100_ensemble.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_5100_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_command_module.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_first_workflow.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_server.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_server_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_server.psychology_patched.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_simple.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_to_gis_sync.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rag_workflow.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_rebuild_query_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_recover_160_queries.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_recover_chromadb_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_recover_chromadb_to_gisgeodb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_redirect_4015_to_4020.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_REFERENCE_windows_swarm.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_register_agents_from_csv_strict.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_register_hilbert_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_register_services.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_register_to_hilbert_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_registration_biometric_production_final.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_registration_service_clean.backup_1762220206.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_registration_service_clean.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_reload_all_knowledge.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_remove_duplicate_inits.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_replace_dolphin_phi.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_response_filter.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_response_sanitizer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_restore_pia_wiring.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_run_gateway_with_guards.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_safe_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_sanctuary_construction_monitor.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_search_metadata.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_seed_spatial_identity.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_service_discovery_glassbox.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_service_discovery.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_service_registry_client.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_set_intelligent_accuracy_scores.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_silence_memory_errors.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_simple_orchestrator_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_simple_prompt_fix.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_smart_auto_store.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_spiritual_rag_domain.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_stage2_biometric_backup.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_stage2_biometric.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_start_facebook_4021.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_start_gateway_with_guards.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_substack_rss_reader.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_summarize_docs.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_swagger_chat_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_swagger_gateway_FIXED.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_swagger_gateway.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_swarm_intelligence_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_switch_to_small_models.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_system_dashboard.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_talk_to_jarvis.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_temporal_consciousness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_ddg_verbose.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_fifth_dgm_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_full_brain_integration.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_gis_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_knowledge_base.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_method_tracking.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_rag.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_test_spatial_awareness.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_truth_filter_bbb_verification.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_truth_filter_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_ultimate_web_orchestrator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_unified_consciousness_gateway_PRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_unifiedconsciousnessgatewayPRODUCTION.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_unified_orchestrator.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_carrie_keywords.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_facebook_poster.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_gisgeodb_schema.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_production_to_v9.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_services_to_use_port_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_theological_boundaries.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_web_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_update_web_research_package.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_use_existing_models.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_user_auth_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_user_dashboard.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_use_reliable_models_only.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_vatican_scraper_service.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_vectorize_gis_to_chromadb.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_verify_and_document_system.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_web_chat_server.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_web_connectivity_analyzer.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_webhook_notifications.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_web_research_main.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_website_deployment_manager.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_wire_layers_into_chat.log
+/mnt/nvme1/msjarvis-rebuild/logs-archive/bridge_ms_jarvis_main_gateway_to_wire_learner_to_gisgeodb.log
+/mnt/nvme1/msjarvis-rebuild/logs/neuroprefrontalcortex.bridge.log
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/consciousness_bridge
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/consciousness_bridge/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/darwin_godel_machines/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/i_containers/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/qualia_engine/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/subconscious/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/academic_research_gateway_8062_cors.py
+/mnt/nvme1/msjarvis-rebuild/services/academic_research_gateway_8062.log
+/mnt/nvme1/msjarvis-rebuild/services/academic_research_gateway_8062.py
+/mnt/nvme1/msjarvis-rebuild/services/academic_whitebox_api.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge1.log
+/mnt/nvme1/msjarvis-rebuild/services/bridge_69dgm.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.py.backup_20251031
+/mnt/nvme1/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10001.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10002.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10003.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10004.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10005.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10006.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10007.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10008.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10009.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10010.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10011.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10012.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10013.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10014.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10015.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10016.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10017.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10018.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10019.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10020.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10021.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10022.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10023.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10024.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10025.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10026.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10027.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10028.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10029.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10030.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10031.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10032.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10033.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10034.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10035.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10036.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10037.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10038.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10039.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10040.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10041.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10042.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10043.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10044.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10045.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10046.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10047.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10048.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10049.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10050.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10051.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10052.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10053.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10054.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10055.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10056.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10057.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10058.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10059.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10060.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10061.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10062.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10063.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10064.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10065.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10066.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10067.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10068.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm_10069.py
+/mnt/nvme1/msjarvis-rebuild/services/bridgecrossdgm100*.log
+/mnt/nvme1/msjarvis-rebuild/services/bridgecrossdgm*.log
+/mnt/nvme1/msjarvis-rebuild/services/bridge_cross_dgm.py
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_batch2.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_core69.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_critical_add.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_FULL_BACKUP.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_priority_services.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_services_only.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_manifest_with_utilities_backup.csv
+/mnt/nvme1/msjarvis-rebuild/services/bridge_openapi.json
+/mnt/nvme1/msjarvis-rebuild/services/bridges_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/chromadb_rest_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/consciousness_bridge_enhanced.log
+/mnt/nvme1/msjarvis-rebuild/services/consciousness_bridge_judges.log
+/mnt/nvme1/msjarvis-rebuild/services/consciousnessbridge.log
+/mnt/nvme1/msjarvis-rebuild/services/dgm_bridge.log
+/mnt/nvme1/msjarvis-rebuild/services/dgm_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.69dgm_bridge
+/mnt/nvme1/msjarvis-rebuild/services/extracted_gis/County_Boundaries_24k_Topo.zip
+/mnt/nvme1/msjarvis-rebuild/services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/FIX_CONSCIOUSNESS_BRIDGE.sh
+/mnt/nvme1/msjarvis-rebuild/services/fix_llm_bridges.sh
+/mnt/nvme1/msjarvis-rebuild/services/gbim_gis_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/health_access_gbim_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/integration_layer/container_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/judge_to_pituitary_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/launch_all_bridges.sh
+/mnt/nvme1/msjarvis-rebuild/services/layer2_port9000_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/llm_bridge_main.py
+/mnt/nvme1/msjarvis-rebuild/services/main.py.bak_before_bridge_20251212_232206
+/mnt/nvme1/msjarvis-rebuild/services/main.py.bak_before_bridge_20251212_232349
+/mnt/nvme1/msjarvis-rebuild/services/main.py.bak_enable_llmbridge_20251212_233118
+/mnt/nvme1/msjarvis-rebuild/services/main.py.bak_enable_llmbridge_20251212_233317
+/mnt/nvme1/msjarvis-rebuild/services/main.py.fromcontainer.llmbridge
+/mnt/nvme1/msjarvis-rebuild/services/majorriversandlakesline_nhd_2002_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/majorriversandlakesline_nhd_2002_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/majorriversandlakespolygon_nhd_2002_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/ms_egeria_facebook_autopost.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_9188.log
+/mnt/nvme1/msjarvis-rebuild/services/msjarvisconsciousnessbridge_9819.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced_9599.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_parallel_woah_9424.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_parallel_woah.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_parallel_woah.py.backup_vocabulary_cleanup
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_1759895250
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_1759895606
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_1760220435
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_before_22llm
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_before_22llm_hierarchy
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_before_hierarchy
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_pre_fixes
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.backup_pre_location_integration
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_complete_architecture
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_final_fix
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_full_integration
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_judge_fix
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_mamma_protocol
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_persona_fix
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_prompt_fix
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_rag_web
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_small_models
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_theology
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.before_true_woah
+/mnt/nvme1/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.original
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.phase1_working
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.pre_agent_identity
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.pre_identity_integration
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.safe_backup
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py.working_backup
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_service_9295.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_service.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py.backup_vocabulary_cleanup
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_woah_9042.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_woah.psychology_patched.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_woah.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_woah.py.backup_20251031
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge_9924.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge_9908.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge.current.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py.broken
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py.pre_dynamic_discovery
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple_9303.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_llm_bridge_simple.py
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge_9600.log
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_bridge
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/services/port_9000_69dgm_bridge_9769.log
+/mnt/nvme1/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/port_9000_academic_extension.py
+/mnt/nvme1/msjarvis-rebuild/services/python/consciousness_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/python/consciousness_bridge.py.broken_backup
+/mnt/nvme1/msjarvis-rebuild/services/unifiedragbridge.log
+/mnt/nvme1/msjarvis-rebuild/services/woah_qualia_bridge.py
+/mnt/nvme1/msjarvis-rebuild/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/1jrpgl5gno5ilnh57w246u2f8/diff/app/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/7fbpr43xoe176rt32ijdt7g01/diff/app/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/isdg78tsxywur4jvydfe7jt3o/diff/app/services/recovered-services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/l9le22ydg0fka8s0kgcdio7fv/diff/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/m6vt6b9m9eoaxzvupojep8yyv/diff/app/services/recovered-services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/911centers_wvdem_032819_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/911centers_wvdem_032819_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/fire_dept_wvdem_092017_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/hospitals_wvdem_040519_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/hospitals_wvdem_040519_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/hospitalswvdem040519utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/nursinghomes_wvdem_041219_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/nursinghomes_wvdem_041219_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/policedept_wvdem_012319_gcs84_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/policedept_wvdem_012319_utm83_attrs.csv
+/mnt/nvme1/msjarvis-rebuild/wv_gis_layers/var/lib/docker/overlay2/oihofd15578qog2qgw0y6j95n/diff/services/wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
+/mnt/spiritual_drive/msjarvis-rebuild/chroma_diagnosis_20260307_1159/bridge_assess_test.json
+/mnt/spiritual_drive/msjarvis-rebuild/fayette_dem.tif
+/mnt/spiritual_drive/msjarvis-rebuild/.git/hooks/sendemail-validate.sample
+/mnt/spiritual_drive/msjarvis-rebuild/itest-69dgm-bridge-logs
+/mnt/spiritual_drive/msjarvis-rebuild/reconciliation_20260307_1209/update_bridge_env.sh
+/mnt/spiritual_drive/msjarvis-rebuild/remediation_20260307_1157/bridge_endpoints.txt
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/port_9000_69dgm_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_070432
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072514
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072741
+/mnt/spiritual_drive/msjarvis-rebuild/services.backup_20260308_111532/port_9000_69dgm_bridge.py.backup_20260307_072757
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarviscryptopolicy.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
+/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_070432
+/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072514
+/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072741
+/mnt/spiritual_drive/msjarvis-rebuild/services/port_9000_69dgm_bridge.py.backup_20260307_072757
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Also check what's already in PostGIS
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "
+SELECT table_name,
+       pg_size_pretty(pg_total_relation_size(quote_ident(table_name))) AS size
+FROM information_schema.tables
+WHERE table_schema = 'public'
+  AND (table_name ILIKE '%dem%'
+    OR table_name ILIKE '%elev%'
+    OR table_name ILIKE '%contour%'
+    OR table_name ILIKE '%nhd%'
+    OR table_name ILIKE '%hydro%'
+    OR table_name ILIKE '%terrain%'
+    OR table_name ILIKE '%topo%')
+ORDER BY table_name;"
+ table_name | size 
+------------+------
+(0 rows)
 
-# Also check what main_brain sends to Chroma — find the query builder
-grep -n "n_results\|query_embeddings\|chroma\|corpus" \
-  ~/msjarvis-rebuild-working/msjarvis-rebuild/services/main_brain.py | head -20
-Expecting value: line 1 column 1 (char 0)
-526:    "chroma": "http://jarvis-chroma:8000",
-564:    "chroma": "http://jarvis-chroma:8000/api/v2/heartbeat",
-836:        CHROMA_BASE = "http://jarvis-chroma:8000"
-838:        async with httpx.AsyncClient(timeout=10.0) as chroma_client:
-840:            cols_resp = await chroma_client.get(f"{CHROMA_BASE}{CHROMA_V2}/collections")
-848:                    embed_resp = await chroma_client.post(
-861:                    mem_resp = await chroma_client.post(
-864:                            'query_embeddings': [embedding],
-865:                            'n_results': 5,
-894:    # Decide if corpus is sufficient (we have verified local resources or RAG docs)
-895:    corpus_sufficient = bool(local_resources_context or rag_context)
-896:    logger.info(f"  📚 Corpus sufficiency: {corpus_sufficient}")
-959:    # Only use agents_service when verified corpus is sparse
-960:    if "agents_service" in available_services and not corpus_sufficient:
-979:    # Only use web_research when verified corpus is sparse
-980:    if "web_research" in available_services and not corpus_sufficient:
-1519:async def unified_governance_query(q: str, n_results: int = 5):
-1523:            params={"q": q, "n_results": n_results},
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ grep -n "local resources resolver\|local_resources\|connection attempts" \
-  ~/msjarvis-rebuild-working/msjarvis-rebuild/services/main_brain.py | head -10
-761:    local_resources_context = ""
-790:                    local_resources_context = "\n".join(lr_snippets)
-813:    if local_resources_context:
-815:            f"VERIFIED LOCAL COMMUNITY RESOURCES (status: good, human-validated):\n{local_resources_context}"
-895:    corpus_sufficient = bool(local_resources_context or rag_context)
-1064:            if local_resources_context:
-1065:                first_lines = local_resources_context.split("\n")[:5]
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ INFO:     (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Add to your uvicorn startup or main_brain logging config:ng config:
-# Filter out the /health GET 200 noise
-grep -v '"GET /health HTTP' <(docker logs jarvis-main-brain --follow 2>&1)
-INFO:     Started server process [10]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8050 (Press CTRL+C to quit)
-INFO:main_brain:
-============================================================
-INFO:main_brain:🌟 ULTIMATE MS. JARVIS REQUEST
-INFO:main_brain:   Message: What food pantries are in Fayette County?
-INFO:main_brain:============================================================
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ 
 
-INFO:main_brain:Phase 1: Checking service availability... [+0.0s]
-INFO:httpx:HTTP Request: GET http://jarvis-qualia-engine:8017/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ qualia_engine
-INFO:httpx:HTTP Request: GET http://jarvis-consciousness-bridge:8020/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ consciousness_bridge
-INFO:httpx:HTTP Request: GET http://jarvis-blood-brain-barrier:8016/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-neurobiological-master:8018/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ neurobiological_master
-INFO:httpx:HTTP Request: GET http://jarvis-i-containers:8015/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ i_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_root-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_root
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_maternal_integration-1:7009/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_maternal
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_qualia_engine-1:7008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_qualia_engine
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_darwin_godel_machines-1:7003/health "HTTP/1.1 500 Internal Server Error"
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_subconscious-1:7011/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_subconscious
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_prefrontal_cortex-1:7005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_prefrontal_cortex
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_consciousness_containers-1:7002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_consciousness_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_mother_carrie_protocols-1:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_mother_carrie
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_heteroglobulin_transport-1:7006/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_heteroglobulin
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_blood_brain_barrier-1:7001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-woah:7012/health "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ woah_algorithms
-INFO:httpx:HTTP Request: GET http://jarvis-20llm-production:8008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm_production
-INFO:httpx:HTTP Request: GET http://jarvis-judge-pipeline:7239/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ judge_pipeline
-INFO:httpx:HTTP Request: GET http://jarvis-unified-gateway:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ unified_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-wv-entangled-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ wv_entangled_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-hilbert-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ hilbert_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-lm-synthesizer:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ lm_synthesizer
-INFO:httpx:HTTP Request: GET http://jarvis-69dgm-bridge:9000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ dgm_bridge_69
-INFO:httpx:HTTP Request: GET http://jarvis-semaphore:8030/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ semaphore
-INFO:httpx:HTTP Request: GET http://jarvis-constitutional-guardian:8091/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ constitutional_guardian
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/heartbeat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ chroma
-INFO:httpx:HTTP Request: GET http://jarvis-ollama:11434/api/tags "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ ollama
-INFO:httpx:HTTP Request: GET http://jarvis-main-brain:8050/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ main_brain
-INFO:main_brain:
-✅ 27/21 services available
-
-INFO:main_brain:Phase 1.4: Filtering through Blood-Brain Barrier... [+6.4s]
-INFO:httpx:HTTP Request: POST http://jarvis-blood-brain-barrier:8016/filter "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ BBB: Query approved and filtered
-WARNING:main_brain:  ⚠️  Local resources resolver: All connection attempts failed
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-ollama:11434/api/embed "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections/e7e83578-973e-474e-a6d4-ea91d5d5289d/query "HTTP/1.1 400 Bad Request"
-INFO:main_brain:  📚 Corpus sufficiency: False
-INFO:httpx:HTTP Request: POST http://jarvis-aaacpe-rag:8032/search "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ AaaCPE: Cultural context retrieved
-INFO:main_brain:  ✅ AaaCPE context injected into main pipeline
-INFO:main_brain:Phase 1.75: Activating corporeal consciousness... [+7.1s]
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Corporeal: Dual awareness active, coherence: False
-INFO:main_brain:🌟 Activating ALL consciousness layers... [+7.1s]
-INFO:main_brain:Phase 3: Querying reasoning and knowledge services... [+7.1s]
-INFO:main_brain:Phase 2.5: Gathering 20-LLM consensus... [+7.1s]
-INFO:httpx:HTTP Request: POST http://jarvis-20llm-production:8008/chat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ 20-LLM Production: Consensus achieved
-INFO:httpx:HTTP Request: POST http://jarvis-qualia-engine:8017/communicate "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG qualia_engine appended to services_used
-INFO:main_brain:  ✅ Qualia Engine: Phenomenal processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-neurobiological-master:8018/neural_process?input=What+food+pantries+are+in+Fayette+County%3F&text=What+food+pantries+are+in+Fayette+County%3F&kwargs=%7B%27user_id%27%3A+%27cakidd%27%7D "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG neurobiological_master appended to services_used
-INFO:main_brain:  ✅ Neuro Master: Neural processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-woah:7012/process "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ WOAH Algorithms: Processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process_full "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG i_containers appended to services_used
-INFO:main_brain:  ✅ I-Containers: Identity processing complete
-INFO:main_brain:Phase 3: Calling judge_pipeline... [+8.8s]
-INFO:httpx:HTTP Request: POST http://jarvis-judge-pipeline:7239/evaluate "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Judge Pipeline: Meta-judgment complete
-INFO:main_brain:Phase 3.5: LM Synthesizer voice delivery... [+9.1s]
-INFO:httpx:HTTP Request: POST http://jarvis-lm-synthesizer:8001/chat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ LM Synthesizer voice complete: 255 chars
-INFO:main_brain:
-Phase 4: Synthesizing ultimate response... [+13.7s]
-
-INFO:httpx:HTTP Request: POST http://jarvis-consciousness-bridge:8020/chat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Consciousness Bridge: Host consciousness aligned (with KB context)
-INFO:main_brain:📝 Queued: What food pantries are in Fayette County...
-INFO:     172.18.0.1:42100 - "POST /chat HTTP/1.1" 200 OK
-INFO:main_brain:
-============================================================
-INFO:main_brain:🌟 ULTIMATE MS. JARVIS REQUEST
-INFO:main_brain:   Message: What food pantries are in Fayette County?
-INFO:main_brain:============================================================
-
-INFO:main_brain:Phase 1: Checking service availability... [+0.0s]
-INFO:httpx:HTTP Request: GET http://jarvis-qualia-engine:8017/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ qualia_engine
-INFO:httpx:HTTP Request: GET http://jarvis-consciousness-bridge:8020/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ consciousness_bridge
-INFO:httpx:HTTP Request: GET http://jarvis-blood-brain-barrier:8016/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-neurobiological-master:8018/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ neurobiological_master
-INFO:httpx:HTTP Request: GET http://jarvis-i-containers:8015/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ i_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_root-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_root
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_maternal_integration-1:7009/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_maternal
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_qualia_engine-1:7008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_qualia_engine
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_darwin_godel_machines-1:7003/health "HTTP/1.1 500 Internal Server Error"
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_subconscious-1:7011/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_subconscious
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_prefrontal_cortex-1:7005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_prefrontal_cortex
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_consciousness_containers-1:7002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_consciousness_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_mother_carrie_protocols-1:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_mother_carrie
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_heteroglobulin_transport-1:7006/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_heteroglobulin
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_blood_brain_barrier-1:7001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-woah:7012/health "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ woah_algorithms
-INFO:httpx:HTTP Request: GET http://jarvis-20llm-production:8008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm_production
-INFO:httpx:HTTP Request: GET http://jarvis-judge-pipeline:7239/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ judge_pipeline
-INFO:httpx:HTTP Request: GET http://jarvis-unified-gateway:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ unified_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-wv-entangled-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ wv_entangled_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-hilbert-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ hilbert_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-lm-synthesizer:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ lm_synthesizer
-INFO:httpx:HTTP Request: GET http://jarvis-69dgm-bridge:9000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ dgm_bridge_69
-INFO:httpx:HTTP Request: GET http://jarvis-semaphore:8030/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ semaphore
-INFO:httpx:HTTP Request: GET http://jarvis-constitutional-guardian:8091/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ constitutional_guardian
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/heartbeat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ chroma
-INFO:httpx:HTTP Request: GET http://jarvis-ollama:11434/api/tags "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ ollama
-INFO:httpx:HTTP Request: GET http://jarvis-main-brain:8050/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ main_brain
-INFO:main_brain:
-✅ 27/21 services available
-
-INFO:main_brain:Phase 1.4: Filtering through Blood-Brain Barrier... [+4.6s]
-INFO:httpx:HTTP Request: POST http://jarvis-blood-brain-barrier:8016/filter "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ BBB: Query approved and filtered
-WARNING:main_brain:  ⚠️  Local resources resolver: All connection attempts failed
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-ollama:11434/api/embed "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections/e7e83578-973e-474e-a6d4-ea91d5d5289d/query "HTTP/1.1 400 Bad Request"
-INFO:main_brain:  📚 Corpus sufficiency: False
-INFO:httpx:HTTP Request: POST http://jarvis-aaacpe-rag:8032/search "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ AaaCPE: Cultural context retrieved
-INFO:main_brain:  ✅ AaaCPE context injected into main pipeline
-INFO:main_brain:Phase 1.75: Activating corporeal consciousness... [+5.3s]
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Corporeal: Dual awareness active, coherence: False
-INFO:main_brain:🌟 Activating ALL consciousness layers... [+5.3s]
-INFO:main_brain:Phase 3: Querying reasoning and knowledge services... [+5.3s]
-INFO:main_brain:Phase 2.5: Gathering 20-LLM consensus... [+5.3s]
-INFO:httpx:HTTP Request: POST http://jarvis-20llm-production:8008/chat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ 20-LLM Production: Consensus achieved
-INFO:httpx:HTTP Request: POST http://jarvis-qualia-engine:8017/communicate "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG qualia_engine appended to services_used
-INFO:main_brain:  ✅ Qualia Engine: Phenomenal processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-neurobiological-master:8018/neural_process?input=What+food+pantries+are+in+Fayette+County%3F&text=What+food+pantries+are+in+Fayette+County%3F&kwargs=%7B%27user_id%27%3A+%27cakidd%27%7D "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG neurobiological_master appended to services_used
-INFO:main_brain:  ✅ Neuro Master: Neural processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-woah:7012/process "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ WOAH Algorithms: Processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process_full "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG i_containers appended to services_used
-INFO:main_brain:  ✅ I-Containers: Identity processing complete
-INFO:main_brain:Phase 3: Calling judge_pipeline... [+6.8s]
-INFO:httpx:HTTP Request: POST http://jarvis-judge-pipeline:7239/evaluate "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Judge Pipeline: Meta-judgment complete
-INFO:main_brain:Phase 3.5: LM Synthesizer voice delivery... [+7.0s]
-INFO:httpx:HTTP Request: POST http://jarvis-lm-synthesizer:8001/chat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ LM Synthesizer voice complete: 366 chars
-INFO:main_brain:
-Phase 4: Synthesizing ultimate response... [+9.0s]
-
-INFO:httpx:HTTP Request: POST http://jarvis-consciousness-bridge:8020/chat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Consciousness Bridge: Host consciousness aligned (with KB context)
-INFO:main_brain:📝 Queued: What food pantries are in Fayette County...
-INFO:     172.18.0.1:43544 - "POST /ultimate_chat HTTP/1.1" 200 OK
-INFO:     172.18.0.1:37514 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:39212 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:59658 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:35884 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:46478 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:51366 - "GET / HTTP/1.1" 200 OK
-INFO:main_brain:
-============================================================
-INFO:main_brain:🌟 ULTIMATE MS. JARVIS REQUEST
-INFO:main_brain:   Message: What food resources are available in Fayette County?
-INFO:main_brain:============================================================
-
-INFO:main_brain:Phase 1: Checking service availability... [+0.0s]
-INFO:httpx:HTTP Request: GET http://jarvis-qualia-engine:8017/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ qualia_engine
-INFO:httpx:HTTP Request: GET http://jarvis-consciousness-bridge:8020/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ consciousness_bridge
-INFO:httpx:HTTP Request: GET http://jarvis-blood-brain-barrier:8016/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-neurobiological-master:8018/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ neurobiological_master
-INFO:httpx:HTTP Request: GET http://jarvis-i-containers:8015/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ i_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_root-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_root
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_maternal_integration-1:7009/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_maternal
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_qualia_engine-1:7008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_qualia_engine
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_darwin_godel_machines-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_darwin_godel
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_subconscious-1:7011/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_subconscious
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_prefrontal_cortex-1:7005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_prefrontal_cortex
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_consciousness_containers-1:7002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_consciousness_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_mother_carrie_protocols-1:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_mother_carrie
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_heteroglobulin_transport-1:7006/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_heteroglobulin
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_blood_brain_barrier-1:7001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-woah:7012/health "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ woah_algorithms
-INFO:httpx:HTTP Request: GET http://jarvis-20llm-production:8008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm_production
-INFO:httpx:HTTP Request: GET http://jarvis-judge-pipeline:7239/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ judge_pipeline
-INFO:httpx:HTTP Request: GET http://jarvis-swarm-intelligence:8021/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ swarm_intelligence
-INFO:httpx:HTTP Request: GET http://jarvis-mother-protocols:4000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ mother_protocols
-INFO:httpx:HTTP Request: GET http://jarvis-temporal-consciousness:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ temporal_consciousness
-INFO:httpx:HTTP Request: GET http://jarvis-gis-rag:8004/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ gis_rag
-INFO:httpx:HTTP Request: GET http://jarvis-spiritual-rag:8005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ spiritual_rag
-INFO:httpx:HTTP Request: GET http://jarvis-agents-service:8005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ agents_service
-INFO:httpx:HTTP Request: GET http://jarvis-unified-gateway:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ unified_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-wv-entangled-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ wv_entangled_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-hilbert-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ hilbert_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-lm-synthesizer:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ lm_synthesizer
-INFO:httpx:HTTP Request: GET http://jarvis-fifth-dgm:4002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ fifth_dgm
-INFO:httpx:HTTP Request: GET http://jarvis-69dgm-bridge:9000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ dgm_bridge_69
-INFO:httpx:HTTP Request: GET http://jarvis-semaphore:8030/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ semaphore
-INFO:httpx:HTTP Request: GET http://jarvis-constitutional-guardian:8091/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ constitutional_guardian
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/heartbeat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ chroma
-INFO:httpx:HTTP Request: GET http://jarvis-ollama:11434/api/tags "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ ollama
-INFO:httpx:HTTP Request: GET http://llm1-proxy:8201/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm1
-INFO:httpx:HTTP Request: GET http://llm2-proxy:8202/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm2
-INFO:httpx:HTTP Request: GET http://llm3-proxy:8203/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm3
-INFO:httpx:HTTP Request: GET http://llm4-proxy:8204/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm4
-INFO:httpx:HTTP Request: GET http://llm5-proxy:8205/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm5
-INFO:httpx:HTTP Request: GET http://llm6-proxy:8206/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm6
-INFO:httpx:HTTP Request: GET http://llm7-proxy:8207/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm7
-INFO:httpx:HTTP Request: GET http://llm8-proxy:8208/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm8
-INFO:httpx:HTTP Request: GET http://llm9-proxy:8209/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm9
-INFO:httpx:HTTP Request: GET http://llm10-proxy:8210/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm10
-INFO:httpx:HTTP Request: GET http://llm11-proxy:8211/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm11
-INFO:httpx:HTTP Request: GET http://llm12-proxy:8212/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm12
-INFO:httpx:HTTP Request: GET http://llm13-proxy:8213/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm13
-INFO:httpx:HTTP Request: GET http://llm14-proxy:8214/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm14
-INFO:httpx:HTTP Request: GET http://llm15-proxy:8215/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm15
-INFO:httpx:HTTP Request: GET http://llm16-proxy:8216/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm16
-INFO:httpx:HTTP Request: GET http://llm17-proxy:8217/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm17
-INFO:httpx:HTTP Request: GET http://llm18-proxy:8218/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm18
-INFO:httpx:HTTP Request: GET http://llm19-proxy:8219/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm19
-INFO:httpx:HTTP Request: GET http://llm20-proxy:8220/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm20
-INFO:httpx:HTTP Request: GET http://llm21-proxy:8221/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm21
-INFO:httpx:HTTP Request: GET http://llm22-proxy:8222/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm22
-INFO:httpx:HTTP Request: GET http://jarvis-main-brain:8050/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ main_brain
-INFO:main_brain:
-✅ 57/21 services available
-
-INFO:main_brain:Phase 1.4: Filtering through Blood-Brain Barrier... [+2.5s]
-INFO:httpx:HTTP Request: POST http://jarvis-blood-brain-barrier:8016/filter "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ BBB: Query approved and filtered
-WARNING:main_brain:  ⚠️  Local resources resolver: All connection attempts failed
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-ollama:11434/api/embed "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections/e7e83578-973e-474e-a6d4-ea91d5d5289d/query "HTTP/1.1 400 Bad Request"
-INFO:main_brain:  📚 Corpus sufficiency: False
-WARNING:main_brain:  ⚠️ AaaCPE context failed: 
-INFO:main_brain:  ℹ️ AaaCPE: No context injected
-INFO:main_brain:Phase 1.75: Activating corporeal consciousness... [+12.7s]
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Corporeal: Dual awareness active, coherence: False
-INFO:main_brain:🌟 Activating ALL consciousness layers... [+12.8s]
-INFO:main_brain:Phase 3: Querying reasoning and knowledge services... [+12.8s]
-INFO:httpx:HTTP Request: POST http://jarvis-agents-service:8005/query/enhance "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Agents: Multi-agent reasoning complete
-INFO:httpx:HTTP Request: POST http://jarvis-swarm-intelligence:8021/swarm/query "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Swarm: Collective intelligence processed
-INFO:httpx:HTTP Request: POST http://jarvis-fifth-dgm:4002/analyze "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Fifth DGM: Self-improvement analyzed
-INFO:main_brain:Phase 2.5: Gathering 20-LLM consensus... [+12.8s]
-WARNING:main_brain:  ⚠️  20-LLM Production: 
-INFO:httpx:HTTP Request: POST http://jarvis-qualia-engine:8017/communicate "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG qualia_engine appended to services_used
-INFO:main_brain:  ✅ Qualia Engine: Phenomenal processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-woah:7012/process "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ WOAH Algorithms: Processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process_full "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG i_containers appended to services_used
-INFO:main_brain:  ✅ I-Containers: Identity processing complete
-INFO:main_brain:Phase 3: Calling judge_pipeline... [+63.0s]
-INFO:httpx:HTTP Request: POST http://jarvis-judge-pipeline:7239/evaluate "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Judge Pipeline: Meta-judgment complete
-INFO:main_brain:Phase 3.5: LM Synthesizer voice delivery... [+75.5s]
-WARNING:main_brain:  ⚠️  LM Synthesizer error: 
-INFO:main_brain:
-Phase 4: Synthesizing ultimate response... [+90.6s]
-
-WARNING:main_brain:  ⚠️  Consciousness Bridge error: 
-INFO:main_brain:📝 Queued: What food resources are available in Fay...
-INFO:     172.18.0.1:60326 - "POST /chat HTTP/1.1" 200 OK
-INFO:     172.18.0.1:40288 - "GET /judges/status HTTP/1.1" 404 Not Found
-INFO:     172.18.0.1:40294 - "POST /chat HTTP/1.1" 422 Unprocessable Entity
-INFO:     172.18.0.1:40930 - "GET / HTTP/1.1" 200 OK
-INFO:main_brain:
-============================================================
-INFO:main_brain:🌟 ULTIMATE MS. JARVIS REQUEST
-INFO:main_brain:   Message: What food pantries are available in Fayette County?
-INFO:main_brain:============================================================
-
-INFO:main_brain:Phase 1: Checking service availability... [+0.0s]
-INFO:httpx:HTTP Request: GET http://jarvis-qualia-engine:8017/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ qualia_engine
-INFO:httpx:HTTP Request: GET http://jarvis-consciousness-bridge:8020/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ consciousness_bridge
-INFO:httpx:HTTP Request: GET http://jarvis-blood-brain-barrier:8016/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-neurobiological-master:8018/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ neurobiological_master
-INFO:httpx:HTTP Request: GET http://jarvis-i-containers:8015/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ i_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_root-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_root
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_maternal_integration-1:7009/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_maternal
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_qualia_engine-1:7008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_qualia_engine
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_darwin_godel_machines-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_darwin_godel
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_subconscious-1:7011/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_subconscious
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_prefrontal_cortex-1:7005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_prefrontal_cortex
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_consciousness_containers-1:7002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_consciousness_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_mother_carrie_protocols-1:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_mother_carrie
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_heteroglobulin_transport-1:7006/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_heteroglobulin
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_blood_brain_barrier-1:7001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-woah:7012/health "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ woah_algorithms
-INFO:httpx:HTTP Request: GET http://jarvis-20llm-production:8008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm_production
-INFO:httpx:HTTP Request: GET http://jarvis-judge-pipeline:7239/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ judge_pipeline
-INFO:httpx:HTTP Request: GET http://jarvis-swarm-intelligence:8021/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ swarm_intelligence
-INFO:httpx:HTTP Request: GET http://jarvis-mother-protocols:4000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ mother_protocols
-INFO:httpx:HTTP Request: GET http://jarvis-temporal-consciousness:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ temporal_consciousness
-INFO:httpx:HTTP Request: GET http://jarvis-gis-rag:8004/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ gis_rag
-INFO:httpx:HTTP Request: GET http://jarvis-spiritual-rag:8005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ spiritual_rag
-INFO:httpx:HTTP Request: GET http://jarvis-agents-service:8005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ agents_service
-INFO:httpx:HTTP Request: GET http://jarvis-unified-gateway:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ unified_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-wv-entangled-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ wv_entangled_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-hilbert-gateway:8010/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ hilbert_gateway
-INFO:httpx:HTTP Request: GET http://jarvis-lm-synthesizer:8001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ lm_synthesizer
-INFO:httpx:HTTP Request: GET http://jarvis-fifth-dgm:4002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ fifth_dgm
-INFO:httpx:HTTP Request: GET http://jarvis-69dgm-bridge:9000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ dgm_bridge_69
-INFO:httpx:HTTP Request: GET http://jarvis-semaphore:8030/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ semaphore
-INFO:httpx:HTTP Request: GET http://jarvis-constitutional-guardian:8091/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ constitutional_guardian
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/heartbeat "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ chroma
-INFO:httpx:HTTP Request: GET http://jarvis-ollama:11434/api/tags "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ ollama
-INFO:httpx:HTTP Request: GET http://llm1-proxy:8201/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm1
-INFO:httpx:HTTP Request: GET http://llm2-proxy:8202/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm2
-INFO:httpx:HTTP Request: GET http://llm3-proxy:8203/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm3
-INFO:httpx:HTTP Request: GET http://llm4-proxy:8204/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm4
-INFO:httpx:HTTP Request: GET http://llm5-proxy:8205/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm5
-INFO:httpx:HTTP Request: GET http://llm6-proxy:8206/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm6
-INFO:httpx:HTTP Request: GET http://llm7-proxy:8207/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm7
-INFO:httpx:HTTP Request: GET http://llm8-proxy:8208/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm8
-INFO:httpx:HTTP Request: GET http://llm9-proxy:8209/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm9
-INFO:httpx:HTTP Request: GET http://llm10-proxy:8210/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm10
-INFO:httpx:HTTP Request: GET http://llm11-proxy:8211/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm11
-INFO:httpx:HTTP Request: GET http://llm12-proxy:8212/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm12
-INFO:httpx:HTTP Request: GET http://llm13-proxy:8213/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm13
-INFO:httpx:HTTP Request: GET http://llm14-proxy:8214/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm14
-INFO:httpx:HTTP Request: GET http://llm15-proxy:8215/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm15
-INFO:httpx:HTTP Request: GET http://llm16-proxy:8216/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm16
-INFO:httpx:HTTP Request: GET http://llm17-proxy:8217/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm17
-INFO:httpx:HTTP Request: GET http://llm18-proxy:8218/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm18
-INFO:httpx:HTTP Request: GET http://llm19-proxy:8219/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm19
-INFO:httpx:HTTP Request: GET http://llm20-proxy:8220/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm20
-INFO:httpx:HTTP Request: GET http://llm21-proxy:8221/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm21
-INFO:httpx:HTTP Request: GET http://llm22-proxy:8222/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm22
-INFO:httpx:HTTP Request: GET http://jarvis-main-brain:8050/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ main_brain
-INFO:main_brain:
-✅ 57/21 services available
-
-INFO:main_brain:Phase 1.4: Filtering through Blood-Brain Barrier... [+2.8s]
-INFO:httpx:HTTP Request: POST http://jarvis-blood-brain-barrier:8016/filter "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ BBB: Query approved and filtered
-WARNING:main_brain:  ⚠️  Local resources resolver: All connection attempts failed
-INFO:httpx:HTTP Request: GET http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-ollama:11434/api/embed "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST http://jarvis-chroma:8000/api/v2/tenants/default_tenant/databases/default_database/collections/e7e83578-973e-474e-a6d4-ea91d5d5289d/query "HTTP/1.1 400 Bad Request"
-INFO:main_brain:  📚 Corpus sufficiency: False
-INFO:httpx:HTTP Request: POST http://jarvis-aaacpe-rag:8032/search "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ AaaCPE: Cultural context retrieved
-INFO:main_brain:  ✅ AaaCPE context injected into main pipeline
-INFO:main_brain:Phase 1.75: Activating corporeal consciousness... [+8.0s]
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Corporeal: Dual awareness active, coherence: False
-INFO:main_brain:🌟 Activating ALL consciousness layers... [+8.1s]
-INFO:main_brain:Phase 3: Querying reasoning and knowledge services... [+8.1s]
-INFO:httpx:HTTP Request: POST http://jarvis-agents-service:8005/query/enhance "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Agents: Multi-agent reasoning complete
-INFO:httpx:HTTP Request: POST http://jarvis-swarm-intelligence:8021/swarm/query "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Swarm: Collective intelligence processed
-INFO:httpx:HTTP Request: POST http://jarvis-fifth-dgm:4002/analyze "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Fifth DGM: Self-improvement analyzed
-INFO:main_brain:Phase 2.5: Gathering 20-LLM consensus... [+8.2s]
-WARNING:main_brain:  ⚠️  20-LLM Production: 
-INFO:httpx:HTTP Request: POST http://jarvis-qualia-engine:8017/communicate "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG qualia_engine appended to services_used
-INFO:main_brain:  ✅ Qualia Engine: Phenomenal processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-woah:7012/process "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ WOAH Algorithms: Processing complete
-INFO:httpx:HTTP Request: POST http://jarvis-i-containers:8015/process_full "HTTP/1.1 200 OK"
-INFO:main_brain:DEBUG i_containers appended to services_used
-INFO:main_brain:  ✅ I-Containers: Identity processing complete
-INFO:main_brain:Phase 3: Calling judge_pipeline... [+58.5s]
-INFO:httpx:HTTP Request: POST http://jarvis-judge-pipeline:7239/evaluate "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ Judge Pipeline: Meta-judgment complete
-INFO:main_brain:Phase 3.5: LM Synthesizer voice delivery... [+71.0s]
-WARNING:main_brain:  ⚠️  LM Synthesizer error: 
-INFO:main_brain:
-Phase 4: Synthesizing ultimate response... [+86.0s]
-
-WARNING:main_brain:  ⚠️  Consciousness Bridge error: 
-INFO:main_brain:📝 Queued: What food pantries are available in Faye...
-INFO:     172.18.0.1:42652 - "POST /chat HTTP/1.1" 200 OK
-INFO:     172.18.0.1:32956 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:39488 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:39886 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:48064 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:40060 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:38962 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:56228 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:51658 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:49406 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:60220 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:51220 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:49584 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:60776 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:55990 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:52338 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:42386 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:59760 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:48044 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:43124 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:52828 - "GET / HTTP/1.1" 200 OK
-INFO:     172.18.0.1:34606 - "GET / HTTP/1.1" 200 OK
-INFO:main_brain:
-============================================================
-INFO:main_brain:🌟 ULTIMATE MS. JARVIS REQUEST
-INFO:main_brain:   Message: Where are bridges in Wyoming County WV?
-INFO:main_brain:============================================================
-
-INFO:main_brain:Phase 1: Checking service availability... [+0.0s]
-INFO:httpx:HTTP Request: GET http://jarvis-qualia-engine:8017/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ qualia_engine
-INFO:httpx:HTTP Request: GET http://jarvis-consciousness-bridge:8020/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ consciousness_bridge
-INFO:httpx:HTTP Request: GET http://jarvis-blood-brain-barrier:8016/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-neurobiological-master:8018/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ neurobiological_master
-INFO:httpx:HTTP Request: GET http://jarvis-i-containers:8015/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ i_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_root-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_root
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_spiritual_maternal_integration-1:7009/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_spiritual_maternal
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_qualia_engine-1:7008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_qualia_engine
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_darwin_godel_machines-1:7003/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_darwin_godel
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_subconscious-1:7011/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_subconscious
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_prefrontal_cortex-1:7005/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_prefrontal_cortex
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_consciousness_containers-1:7002/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_consciousness_containers
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_mother_carrie_protocols-1:7007/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_mother_carrie
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_heteroglobulin_transport-1:7006/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_heteroglobulin
-INFO:httpx:HTTP Request: GET http://msjarvis-rebuild-nbb_blood_brain_barrier-1:7001/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ nbb_blood_brain_barrier
-INFO:httpx:HTTP Request: GET http://jarvis-woah:7012/health "HTTP/1.0 200 OK"
-INFO:main_brain:  ✅ woah_algorithms
-INFO:httpx:HTTP Request: GET http://jarvis-20llm-production:8008/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ llm_production
-INFO:httpx:HTTP Request: GET http://jarvis-judge-pipeline:7239/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ judge_pipeline
-INFO:httpx:HTTP Request: GET http://jarvis-swarm-intelligence:8021/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ swarm_intelligence
-INFO:httpx:HTTP Request: GET http://jarvis-mother-protocols:4000/health "HTTP/1.1 200 OK"
-INFO:main_brain:  ✅ mother_protocols
-INFO:httpx:HTTP Request: GET http://jarvis-temporal-consciousness:7007/health "HTTP/1.1 200 OK"
