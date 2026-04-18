@@ -22,7 +22,7 @@ The original scope of work between Kidd's Technical Services and Harmony for Hop
 During the course of the engagement, the operational and geographic conditions in Mount Hope, WV were determined to be sufficient to support a **live, physical deployment** of the Artificial Learning & Location Intelligence System (ALLIS) — the technology layer underlying the MountainShares / The Commons program. Specifically:
 
 - The H4H program office at 706 Main Street provides a KTS-controlled deployment point requiring no third-party negotiation.
-- The existing Mount Hope Historic Walking Trail trailhead kiosk on the adjacent bank parking lot provides a natural public-facing third node location, consistent with the trail's existing Clio app integration and NPS-recognized interpretive infrastructure.
+- The existing Mount Hope Historic Walking Trail trailhead kiosk on the adjacent bank parking lot provides a natural public-facing heritage node location, consistent with the trail's existing Clio app integration and NPS-recognized interpretive infrastructure.
 
 Developing ALLIS as a live system — rather than a documented framework only — materially advances the program's proof-of-concept goals and positions H4H as the operator of the **reference implementation** for all future MS.___.ALLIS corridor nodes. This decision was reached collaboratively between KTS and H4H leadership and reflects program maturation, not a failure of original planning.
 
