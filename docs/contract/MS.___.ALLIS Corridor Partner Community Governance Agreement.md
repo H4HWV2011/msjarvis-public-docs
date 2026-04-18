@@ -133,7 +133,7 @@ Changes to this Agreement require written consent of both parties — Kidd's Tec
 
 ## Section 7 — Federal Agency Participation Carve‑Out
 
-*This section applies when the Partner is a federal agency or instrumentality of the United States, including the National Park Service. It supplements and, where in conflict, supersedes all other sections of this Agreement with respect to federal agency participation.*
+*This section applies when the Partner is a federal agency or instrumentality of the United States. It supplements and, where in conflict, supersedes all other sections of this Agreement with respect to federal agency participation.*
 
 **7.1 Exclusive Governing Instrument**  
 This Agreement is the complete and exclusive instrument governing the federal Partner's participation in MS.___.ALLIS. The federal Partner does not sign, and is not bound by, the MountainShares Rewards Program Terms and Conditions, the MountainShares DAO Governance Charter, or any other MountainShares program document.
