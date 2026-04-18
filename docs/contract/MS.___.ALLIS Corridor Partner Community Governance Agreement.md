@@ -1,6 +1,6 @@
 # MS.___.ALLIS Corridor Partner Community Governance Agreement
 
-**Program Node:** MS.___.ALLIS (fill in node designation, e.g., MS.NPS.ALLIS, MS.MHHWT.ALLIS)  
+**Program Node:** MS.___.ALLIS (fill in node designation, e.g., MS.FCCAC.ALLIS, MS.MHHWT.ALLIS)  
 **Corridor Partner Organization:** ___________________________________  
 **Partner Type:** ☐ Federal Agency  ☐ Municipal Government  ☐ Public Safety Agency  ☐ Nonprofit  ☐ Other: ___________  
 **Primary Contact Name and Title:** ___________________________________  
