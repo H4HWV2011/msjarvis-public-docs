@@ -19,7 +19,7 @@ The original scope of work between Kidd's Technical Services and Harmony for Hop
 
 ## 2. Reason for Change
 
-During the course of the engagement, the operational and geographic conditions in Mount Hope, WV were determined to be sufficient to support a **live, physical deployment** of the Automated Local Location Intelligence System (ALLIS) — the technology layer underlying the MountainShares / The Commons program. Specifically:
+During the course of the engagement, the operational and geographic conditions in Mount Hope, WV were determined to be sufficient to support a **live, physical deployment** of the Artificial Learning & Location Intelligence System (ALLIS) — the technology layer underlying the MountainShares / The Commons program. Specifically:
 
 - The H4H program office at 706 Main Street provides a KTS-controlled deployment point requiring no third-party negotiation.
 - The adjacent 708 Main Street structure (three stories, line-of-sight advantage) presents a viable secondary node location.
