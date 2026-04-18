@@ -139,7 +139,7 @@ Changes to this Agreement require written consent of both parties — Kidd's Tec
 This Agreement is the complete and exclusive instrument governing the federal Partner's participation in MS.___.ALLIS. The federal Partner does not sign, and is not bound by, the MountainShares Rewards Program Terms and Conditions, the MountainShares DAO Governance Charter, or any other MountainShares program document.
 
 **7.2 No DAO Standing**  
-The federal Partner's in‑kind contribution does not create DAO membership, voting eligibility, governance standing, role advancement, or any financial interest under the MountainShares program. No EMS hours are logged against the federal Partner's institutional participation.
+The federal Partner's in‑kind contribution does not create DAO membership, voting eligibility, governance standing, role advancement, or any financial interest under the MountainShares program. No Earned MountainShares hours are logged against the federal Partner's institutional participation.
 
 **7.3 Governing Law and Dispute Resolution**  
 Any dispute involving the federal Partner's participation in MS.___.ALLIS is governed by applicable federal law. No dispute involving a federal agency shall be subject to West Virginia state law or resolved in West Virginia state courts. The parties agree to attempt informal resolution in good faith before initiating any formal proceeding.
