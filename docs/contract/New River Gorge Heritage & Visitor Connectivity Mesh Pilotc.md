@@ -1,8 +1,8 @@
 # New River Gorge Heritage & Visitor Connectivity Mesh Pilot
 
 **A MountainShares Community Initiative**  
-**Platform Operator:** Kidd's Technical Services  
-**Program Sponsor:** Harmony for Hope, Inc.  
+**Intelligence Platform (ALLIS) Operator:** Kidd's Technical Services  
+**Program Sponsor (MountainShares):** Harmony for Hope, Inc.  
 **Service Area:** New River Gorge National Park & Preserve and Gateway Communities  
 **Initial Pilot Communities:** Mount Hope · Thurmond
 
@@ -22,7 +22,7 @@ The New River Gorge Heritage & Visitor Connectivity Mesh Pilot exists to change 
 
 ## What the Mesh Is and What It Does
 
-The MountainShares Artificial Learning & Location Intelligence System — ALLIS — is a locally hosted mesh intelligence platform owned and operated by Kidd's Technical Services. Each node in the system, designated MS.___.ALLIS, is a small but complete local brain: it stores maps, heritage stories, trail data, safety guidance, and AI‑assisted visitor support on‑site, in the community it serves.
+The **Artificial Learning & Location Intelligence System (ALLIS)** is a locally hosted mesh intelligence platform designed, owned, and operated by Kidd's Technical Services. Each node in the system, designated **MS.___.ALLIS**, is a small but complete local brain: it stores maps, heritage stories, trail data, safety guidance, and AI‑assisted visitor support on‑site, in the community it serves.
 
 When a visitor connects to an ALLIS node in the Gorge corridor:
 
@@ -30,7 +30,7 @@ When a visitor connects to an ALLIS node in the Gorge corridor:
 - They can access heritage content created by NPS and local organizations, even when upstream internet is intermittent or overloaded.
 - They can receive context‑specific safety information that respects both the landscape and the realities of rural emergency response.
 
-The `MS.` prefix in each node name signals that the deployment is operating under the MountainShares Sponsorship Tier. Harmony for Hope, Inc. sponsors these nodes as part of its MountainShares program, making them available at no cost to gateway communities and agency partners along the corridor. Community partners do not pay installation or subscription fees. There is no procurement and no grant match. Kidd's Technical Services owns and operates ALLIS. Harmony for Hope sponsors the no‑cost tier. Each community partner enters into a simple governance agreement to host a node and help shape the content it delivers.
+The `MS.` prefix in each node name signals that the deployment is operating under the **MountainShares Sponsorship Tier**, a community benefit program operated by Harmony for Hope, Inc. MountainShares sponsors these nodes so they can be deployed at no cost to gateway communities and agency partners along the corridor. Community partners do not pay installation or subscription fees. There is no procurement and no grant match. Kidd's Technical Services owns and operates ALLIS. Harmony for Hope, through MountainShares, sponsors the no‑cost tier. Each community partner enters into a simple governance agreement with Kidd’s to host a node and help shape the content it delivers.
 
 ---
 
@@ -54,7 +54,7 @@ Mount Hope is not a tourist postcard town. It is a coalfield community that rebu
 
 On one short section of Main Street, the density of institutions is remarkable:
 
-- Harmony for Hope at 706 Main Street, the program sponsor and a community hub for arts and youth programming.
+- Harmony for Hope at 706 Main Street, the MountainShares home and a community hub for arts and youth programming.
 - The trailhead kiosk for the Historic Walking Trail, on the bank parking lot one door north, where visitors already encounter brochures and QR‑linked interpretation.
 - The Fayette County Community Arts Center, anchoring cultural programming for the wider region.
 
@@ -72,7 +72,7 @@ Mount Hope, in this pilot, is the reference implementation — the place where w
 
 Thurmond, by contrast, is almost empty of residents and full of story. Once one of the busiest revenue points on the Chesapeake & Ohio Railway — a classic boomtown where coal, rail, and money moved in staggering quantities — it is now functionally a preserved outdoor museum. NPS restored the Thurmond Depot as a visitor center and maintains other key structures in the townsite. Today, only a handful of residents remain.
 
-Visitors arrive by road, by long‑distance rail, and by special excursion trains that use the Depot as a staging point. They walk through a place whose mission, as NPS articulates it, is to remain a link to our industrial past and to tell the story of the coal and rail economy that once dominated this valley.
+Visitors arrive by road, by long‑distance rail, and by special excursion trains that use the Depot as a staging point. They walk through a place whose mission is to remain a link to our industrial past and to tell the story of the coal and rail economy that once dominated this valley.
 
 In Thurmond, an ALLIS node plays a different but complementary role:
 
@@ -90,9 +90,9 @@ Together, Mount Hope and Thurmond show that the same mesh can serve a living coa
 
 ### Ownership and Sponsorship
 
-- ALLIS is owned and operated by Kidd's Technical Services. It is an independent platform, not a product of Harmony for Hope.
-- MountainShares is owned and operated by Harmony for Hope, Inc., which sponsors the MS.___ deployment tier as a community benefit.
-- Community partners — municipalities, nonprofits like the arts center, and agencies like NPS — host nodes, contribute content, and help define priorities.
+- **ALLIS** is owned and operated by Kidd's Technical Services. It is an independent platform.
+- **MountainShares** is owned and operated by Harmony for Hope, Inc., which sponsors the MS.___ deployment tier as a community benefit.
+- **Community partners** — municipalities, nonprofits, and agencies like NPS — host nodes, contribute content, and help define priorities.
 
 ### Agreements and Responsibilities
 
