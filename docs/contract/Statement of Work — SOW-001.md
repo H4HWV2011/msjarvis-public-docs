@@ -12,6 +12,7 @@
 | **SOW Number** | SOW-001 |
 | **Effective Date** | March 18, 2025 |
 | **Work Commenced** | March 23, 2025 |
+| **Estimated Completion** | November 30, 2027 |
 | **Client** | Harmony for Hope, Inc. ("H4H") |
 | **Contractor** | Kidd's Technical Services ("KTS") |
 | **SOW Status** | Addendum — memorializing work agreed March 18, 2025 and commenced March 23, 2025, predating the MSA executed July 6, 2025, which governs this SOW retroactively |
@@ -103,7 +104,14 @@ Ongoing infrastructure support as part of the development engagement, including:
 | Smart contract proof of concept (D-01) | July 4, 2025 |
 | Full system mesh integration (D-03) | December 25, 2025 |
 | SOW-001 formally executed | April 18, 2026 |
-| Remaining deliverables (D-04 through D-08) | Ongoing — milestones to be agreed by the parties in writing |
+| The Commons platform — core architecture (D-04) | June 30, 2027 |
+| MountainShares DAO governance and rewards platform (D-05) | August 31, 2027 |
+| MS.MHHWT.ALLIS Commons integration (D-06) | September 30, 2027 |
+| MS.FCCAC.ALLIS Commons integration (D-07) | October 31, 2027 |
+| System documentation complete (D-08) | November 30, 2027 |
+| **Estimated completion** | **November 30, 2027** |
+
+*Milestones are estimates. Either party may propose adjustments in writing. Amendments require written consent of both parties per MSA Section 9.2.*
 
 ---
 
@@ -153,7 +161,7 @@ The Commons platform and MountainShares mutual credit system are being developed
 MS.FCCAC.ALLIS and MS.MHHWT.ALLIS appear in this SOW as Commons platform features. Physical hardware deployment for those nodes, site access, and Corridor Partner governance are governed by separate Corridor Partner Community Governance Agreements between KTS and the respective partner organizations.
 
 **6.5 Ongoing Nature**
-This SOW governs a continuous development engagement. Deliverables marked "in progress" shall be completed on a timeline agreed by the parties in writing. Either party may propose amendments to scope, timeline, or deliverables by written notice; amendments require written consent of both parties per MSA Section 9.2.
+This SOW governs a continuous development engagement through the estimated completion date of November 30, 2027. Deliverables marked "in progress" shall be completed on the timeline specified in Section 3. Either party may propose amendments to scope, timeline, or deliverables by written notice; amendments require written consent of both parties per MSA Section 9.2.
 
 ---
 
@@ -179,4 +187,4 @@ Title: Owner / Operator
 
 ---
 
-*This SOW is not effective until signed by authorized representatives of both parties. It is issued under and governed by the Master Services Agreement between Harmony for Hope, Inc. and Kidd's Technical Services, effective July 6, 2025.*
+*This SOW is not effective until signed by authorized representatives of both parties. It is issued under and governed by the Master Services Agreement between Harmony for Hope, Inc. and Kidd's Technical Services, effective July 6, 2025. It is preceded by SOW-000, the initial project agreement effective March 18, 2025.*
