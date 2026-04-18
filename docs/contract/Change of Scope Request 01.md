@@ -34,7 +34,7 @@ Developing ALLIS as a live system â€” rather than a documented framework only â€
 
 | Item | Description |
 |------|-------------|
-| ALLIS Node Cluster Design | Design and specification of the MS.MHHWT.ALLIS three-node cluster (706 Main St, 708 Main St, trailhead kiosk) |
+| ALLIS Node Cluster Design | Design and specification of the MS.MHHWT.ALLIS heritage-node cluster (706 Main St, trailhead kiosk) |
 | Hardware Specification & Procurement Support | Identification of Prism units, SKLink infrastructure, and weatherproof node hardware appropriate to each deployment point |
 | Node Deployment Planning | Site-specific installation plans for each of the three nodes, including power, mounting, and line-of-sight assessment |
 | Local-First Intelligence Configuration | Configuration of locally hosted AI/ML inference layer consistent with ALLIS data stewardship commitments |
