@@ -5,7 +5,7 @@
 
 **From:** Kidd's Technical Services (KTS)
 **To:** Harmony for Hope, Inc. (H4H)
-**Date:**July 5, 2026
+**Date:**July 5, 2025
 **Re:** Expansion of MountainShares / The Commons Engagement to Include ALLIS Development
 **Original Contract / Agreement Reference:** [SOW:000]
 
@@ -13,7 +13,7 @@
 
 ## 1. Background
 
-The original scope of work between Kidd's Technical Services and Harmony for Hope, Inc. established KTS as the technology operator and framework developer for the **MountainShares / The Commons** initiative — a community intelligence and commons-stewardship program anchored at 706 Main Street, Mount Hope, West Virginia. That engagement defined deliverables around the conceptual framework, governance documentation, Corridor Partner agreement instruments, and program architecture, with a contracted end date of **September 25, 2026**.
+The original scope of work between Kidd's Technical Services and Harmony for Hope, Inc. established KTS as the technology operator and framework developer for the **MountainShares / The Commons** initiative — a community intelligence and commons-stewardship program anchored at 706 Main Street, Mount Hope, West Virginia. That engagement defined deliverables around the conceptual framework, governance documentation, Corridor Partner agreement instruments, and program architecture, with a contracted end date of **September 25, 2025**.
 
 ***
 
