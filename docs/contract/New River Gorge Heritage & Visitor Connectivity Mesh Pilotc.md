@@ -1,129 +1,147 @@
 # New River Gorge Heritage & Visitor Connectivity Mesh Pilot
 
-**A MountainShares Community Initiative**
-**Platform Operator:** Kidd's Technical Services
-**Program Sponsor:** Harmony for Hope, Inc.
-**Service Area:** New River Gorge National Park and Preserve — Gateway Communities
-**Pilot Communities:** Mount Hope · Thurmond
+**A MountainShares Community Initiative**  
+**Platform Operator:** Kidd's Technical Services  
+**Program Sponsor:** Harmony for Hope, Inc.  
+**Service Area:** New River Gorge National Park & Preserve and Gateway Communities  
+**Initial Pilot Communities:** Mount Hope · Thurmond
 
 ---
 
-## A Place That Deserves Better
+## A Corridor of Stories, Not Just a Park
 
-The New River Gorge is one of the most significant natural and cultural landscapes in the eastern United States. Its gorge walls hold some of the oldest exposed rock on the continent. Its river towns — Thurmond, Fayetteville, Hinton, Mount Hope — carry the industrial memory of the coal and railroad era that built West Virginia and powered a nation. Its trails, its whitewater, its depot platforms and crumbling company store facades draw more than a million visitors a year.
+The New River Gorge is more than a set of overlooks and whitewater put‑ins. It is a 53‑mile corridor of coal camps, rail towns, and main streets that once powered the industrial United States and now anchor some of West Virginia’s fastest‑growing tourism. Visitors arrive to hike, climb, and raft one of the oldest rivers in the world, and they move through gateway towns like Fayetteville, Oak Hill, Hinton, Ansted, Mount Hope, and rail hamlets like Thurmond along the way.
 
-Most of those visitors arrive without connectivity. They stand at the Thurmond Depot with a phone that shows no signal and a story around them that no app can reach. They pull into Mount Hope looking for the walking trail and find a brochure in a kiosk with no way to go deeper. They drive the gorge corridor between communities that are, in connectivity terms, as isolated from each other as they were in 1910.
+State and local tourism partners already describe these communities as “must‑add” destinations for anyone visiting the Gorge — places to eat, stay, shop, and explore turn‑of‑the‑century depots and coal‑era architecture. The National Park Service highlights preserved railroad towns like Thurmond as links to a past that remains largely untouched by modern development. Harmony for Hope and its partners have built heritage infrastructure in Mount Hope that invites visitors to walk a 1.25‑mile trail through sixteen points of architectural significance and coal company history.
 
-The New River Gorge Heritage & Visitor Connectivity Mesh Pilot exists to change that — quietly, locally, and without altering a single historic roofline.
+Yet in most of these places, visitors arrive with almost no connectivity. Their phones show a bar or two of service, if any. They can’t reliably load trail maps or safety information. They can’t access the deep interpretive work that local organizations and NPS have already created. In a corridor where dozens of abandoned coal towns and multiple historic districts are accessible from roads and trails, much of the story never makes it into the field.
 
----
-
-## What We Are Building
-
-The MountainShares Artificial Learning & Location Intelligence System — ALLIS — is a locally hosted mesh intelligence platform owned and operated by Kidd's Technical Services. Unlike conventional connectivity solutions that route everything through distant cloud infrastructure, each ALLIS node stores its maps, its heritage content, its trail data, its safety protocols, and its AI-assisted interpretation capability on-site, in the community it serves.
-
-When a visitor connects to MS.THURMOND.ALLIS at the Depot, they are not reaching a server in Virginia or Oregon. They are reaching a local intelligence layer — one that knows the C&O freight house, the coal company district, the river access point below the grade crossing, and the safety considerations specific to this stretch of the New River. When a trail walker connects to MS.MHHWT.ALLIS at the kiosk on Main Street in Mount Hope, they are reaching a system that knows the sixteen points of interest on the Historic Walking Trail, the community institutions along the route, and the people who built this town.
-
-That local intelligence does not disappear when the satellite link is slow or the cell tower is congested. It is here, in the community, because it belongs here.
-
-The `MS.` prefix in every node name carries a specific meaning. It indicates that the deployment is operating under the MountainShares Sponsorship Tier — a community benefit arrangement under which Harmony for Hope, Inc. sponsors ALLIS deployments across the New River Gorge corridor as part of its MountainShares program. Community partners, including the National Park Service, receive this infrastructure at no cost. No procurement. No grant match. No ongoing fees. The sponsorship covers it.
+The New River Gorge Heritage & Visitor Connectivity Mesh Pilot exists to change that — at the corridor scale, in partnership with the communities that live here, and without compromising the character of the places visitors come to see.
 
 ---
 
-## The Two Pilot Communities
+## What the Mesh Is and What It Does
 
-### Mount Hope — The Reference Implementation
+The MountainShares Artificial Learning & Location Intelligence System — ALLIS — is a locally hosted mesh intelligence platform owned and operated by Kidd's Technical Services. Each node in the system, designated MS.___.ALLIS, is a small but complete local brain: it stores maps, heritage stories, trail data, safety guidance, and AI‑assisted visitor support on‑site, in the community it serves.
 
-Mount Hope sits at the intersection of WV-211 and the coal-era grid that defines southern Fayette County. It is not a destination town in the conventional tourism sense — it is a living community, a county seat adjunct, a place where people actually work and go to school and run for city council. That is precisely what makes it the right place to start.
+When a visitor connects to an ALLIS node in the Gorge corridor:
 
-Harmony for Hope, Inc. operates at 706 Main Street. The Mount Hope Historic Walking Trail — sixteen points of interest, a Clio app integration, NPS recognition — has its trailhead kiosk on the bank parking lot one door north. The Fayette County Community Arts Center anchors the cultural programming of the broader community. The mayor's building is next door. The institutional density on a single city block of Main Street is, for a town this size, remarkable.
+- They are connecting to local intelligence, not a distant cloud server — a system that knows the depot they are standing in, the trail they are about to hike, the river reach they are looking at.
+- They can access heritage content created by NPS and local organizations, even when upstream internet is intermittent or overloaded.
+- They can receive context‑specific safety information that respects both the landscape and the realities of rural emergency response.
 
-The MS.MHHWT.ALLIS node cluster builds on what is already there. The backbone compute unit lives at 706 Main Street, in a building already committed to the program. A relay node on the rooftop of 708 Main Street — the three-story building immediately north — extends coverage to the trailhead kiosk and, subject to field survey, to the FCCAC. Visitors arriving at the kiosk connect immediately to trail content, community history, and safety information. Visitors entering the FCCAC encounter a cultural programming layer tied directly to the heritage of the walking trail corridor.
-
-This is not a technology pilot in the abstract. It is a demonstration, in a real place with real community partners and real visitors, that the ALLIS architecture works as designed. Every lesson learned at 706 Main Street — every radio placement decision, every governance question, every content calibration — becomes institutional knowledge that travels to Thurmond and beyond.
-
-MS.MHHWT.ALLIS is the reference implementation. It goes first because we can stand it up on infrastructure we control, in a community whose institutions are already aligned, without waiting for anyone's permission that we do not already have.
-
-### Thurmond — The Heritage Imperative
-
-Thurmond is different in almost every way that matters for this program, and that difference is the point.
-
-Where Mount Hope is an active municipal community, Thurmond is a near-ghost town. Its permanent population is fewer than ten people. Its streets — once the site of one of the highest per-capita banking transaction volumes in the United States — are mostly empty. The Depot, the freight house, the coal company district, the surviving commercial facades along the floodplain: these are NPS-managed heritage resources of national significance, maintained not because people live here but because what happened here matters.
-
-Visitors arrive at Thurmond by road and by the New River Gorge Railroad excursion train. They arrive, overwhelmingly, without connectivity. There is no cell signal to speak of. There is no public Wi-Fi. There is the Depot, and an NPS ranger if one is present, and the sound of the river, and a story that most visitors leave only partially understanding because the infrastructure to tell it fully does not exist.
-
-MS.THURMOND.ALLIS puts that infrastructure in place. A backbone node at or adjacent to the Depot — installed in full compliance with Section 106 review requirements, the Secretary of the Interior's Standards, and NPS cultural resource policy — serves the heritage content layer to visitors the moment they step off the train or out of their car. The C&O Railroad era. The coal company hierarchy. The lives of the workers who lived in the company houses above the grade. The geology of the gorge wall visible from the platform. The river safety information that every visitor to this stretch of the New River needs and almost none of them currently receive.
-
-The Thurmond deployment requires more coordination than Mount Hope — NPS informal consultation, Section 106 review, Special Use Permit, visual impact assessment for the satellite terminal. None of that coordination requires NPS to spend money, enter a procurement relationship, or endorse the MountainShares program. The Corridor Partner Community Governance Agreement that governs NPS participation contains an explicit Federal Agency Participation Carve-Out for exactly this reason. NPS participates as a site host and content collaborator. The program sponsor pays for the infrastructure. The platform operator installs and maintains it. The federal agency's role is to say yes — and to help make the content as good as the place deserves.
+The `MS.` prefix in each node name signals that the deployment is operating under the MountainShares Sponsorship Tier. Harmony for Hope, Inc. sponsors these nodes as part of its MountainShares program, making them available at no cost to gateway communities and agency partners along the corridor. Community partners do not pay installation or subscription fees. There is no procurement and no grant match. Kidd's Technical Services owns and operates ALLIS. Harmony for Hope sponsors the no‑cost tier. Each community partner enters into a simple governance agreement to host a node and help shape the content it delivers.
 
 ---
 
-## How the Governance Works
+## Why Gateway Towns Are the Focus
 
-Every MS.___.ALLIS deployment is governed by a Corridor Partner Community Governance Agreement between Kidd's Technical Services, as platform operator, and the community organization or agency that hosts the node.
+When New River Gorge was elevated to national park and preserve status, it accelerated tourism growth across southern West Virginia. Towns like Fayetteville and Oak Hill became adventure hubs — with outfitters, resorts, and a concentration of visitor‑facing businesses. Hinton, at the southern rail end, remains defined by its 1905 depot and a historic downtown district tied to the long‑distance rail line. Ansted and Hawks Nest anchor the northern rim at the junction of the Gorge and the Midland Trail.
 
-Harmony for Hope, Inc. does not appear as a party to that agreement. Its role — sponsoring the no-cost deployment tier — is established in the Master Services Agreement between H4H and Kidd's Technical Services. Community partners do not need to understand or engage with that relationship. They sign with Kidd's Technical Services. The infrastructure appears. The sponsorship is already arranged.
+These gateway towns bear the brunt of park visitation — in traffic, in housing pressure, in emergency calls — and they carry the responsibility of welcoming visitors into the region’s story. They are also the places where connectivity gaps are most visible and most consequential. A visitor trying to find a trailhead in Mount Hope, a family arriving by train in Thurmond, a climber in Fayetteville checking river levels: all are interacting with the park through the lens of these communities.
 
-The governance agreement establishes three things above all:
-
-**First, that no one pays.** The Partner's contribution is exclusively in-kind — site access, a point of contact, a willingness to participate in evaluation. No money changes hands. No procurement is triggered. No financial obligation accrues to the Partner at any point during the pilot.
-
-**Second, that data belongs to the community.** Locally generated operational, visitor, and heritage data is treated as a community resource. The Partner retains ownership of any heritage content it contributes. The platform operator does not sell that data. The local-first architecture means that data lives, first and primarily, in the community that generated it.
-
-**Third, that the Partner can leave.** Thirty days written notice. The Operator removes the equipment, restores the surfaces, and that is the end of the obligation. No penalties. No stranded costs. No complications.
-
-For federal agency partners, the agreement adds a Federal Agency Participation Carve-Out that confirms: this is not a procurement, it does not obligate federal funds, it does not constitute NPS endorsement of the program, and it does not subject NPS to West Virginia state law or MountainShares DAO governance. The federal records and privacy framework — the Federal Records Act, the Privacy Act, FISMA — governs federal participation. Nothing in the MountainShares framework overrides it.
+Investing in local, heritage‑aware connectivity in these towns is not an add‑on to park infrastructure. It is part of making tourism work for the people who live here. It ensures that when the state invites the world to experience the New River Gorge from its gateway towns, those experiences are supported by infrastructure that tells the truth about where they are and keeps them safer while they are here.
 
 ---
 
-## The Corridor Vision
+## Mount Hope & Thurmond — Paired Examples in One Corridor
 
-Mount Hope and Thurmond are the beginning of a conversation about what connectivity infrastructure in the New River Gorge corridor can look like when it is built by and for the communities it serves.
+To show how this works in practice, the pilot begins with two communities that sit in very different places along the corridor — literally and figuratively — but are bound together by coal, rail, and the river they overlook.
 
-The pilot demonstrates two things simultaneously. It demonstrates that the ALLIS architecture functions in the conditions of the gorge corridor — intermittent upstream connectivity, historic preservation constraints, distributed visitor populations, mixed partner types ranging from small nonprofits to federal agencies. And it demonstrates that the governance framework functions — that a community can participate in this infrastructure without legal risk, financial exposure, or loss of control over its own heritage materials.
+### Mount Hope — A Living Coalfield Main Street
 
-When those two demonstrations are complete and documented, the next conversation — Fayetteville, Oak Hill, Ansted, Hinton — begins from a position of evidence rather than promise.
+Mount Hope is not a tourist postcard town. It is a coalfield community that rebuilt itself in brick, stone, and concrete after the Fire of 1910 and earned the name “Phoenix City of the New River Gorge.” Harmony for Hope and local partners established the Mount Hope Historic Walking Trail — a 1.25‑mile route with sixteen points of architectural significance that trace the town’s evolution from Native American pathways to company town to modern coalfield municipality.
 
-The New River Gorge has always been a corridor. The C&O tied these communities together with steel and commerce. The National Park ties them together with protected land and shared heritage. MS.___.ALLIS ties them together with locally owned intelligence that knows each community's story and can tell it to anyone who shows up and wants to listen.
+On one short section of Main Street, the density of institutions is remarkable:
 
-That is what we are building. We are starting on Main Street in Mount Hope. We are taking it to the Thurmond Depot. And we are going from there.
+- Harmony for Hope at 706 Main Street, the program sponsor and a community hub for arts and youth programming.
+- The trailhead kiosk for the Historic Walking Trail, on the bank parking lot one door north, where visitors already encounter brochures and QR‑linked interpretation.
+- The Fayette County Community Arts Center, anchoring cultural programming for the wider region.
 
----
+In Mount Hope, an ALLIS node does three things at once:
 
-## Pilot at a Glance
+1. **Supports an existing trail.** MS.MHHWT.ALLIS extends the Historic Walking Trail into a living, adaptive digital layer. Visitors picking up a brochure at the kiosk connect directly to locally hosted content that can deepen the stories the printed trailhead panels introduce. They can learn why key loans and businesses mattered, where company offices stood, and how residents rebuilt after the fire — in the words and voice the community chooses.
 
-| | MS.MHHWT.ALLIS — Mount Hope | MS.THURMOND.ALLIS — Thurmond |
-|---|---|---|
-| **Primary site** | 706 Main Street (backbone) · 708 Main Street (relay) · Bank lot kiosk | Thurmond Depot |
-| **Partner type** | Municipal / Nonprofit | Federal (NPS) |
-| **Governance instrument** | Corridor Partner Community Governance Agreement | Corridor Partner Community Governance Agreement with Section 7 Federal Carve-Out |
-| **Upstream connectivity** | SKLink / Starlink | Starlink (screened placement, NPS-approved) |
-| **Pre-conditions** | Site access at 708 confirmed · Field radio survey complete | NPS informal consultation · Section 106 review · Special Use Permit |
-| **Heritage content** | MHHWT 16-point trail · FCCAC programming · Main Street history | C&O Railroad era · Coal company district · Gorge geology · River safety |
-| **Phase** | 1 — Reference implementation | 3 — Following Mount Hope evaluation |
+2. **Serves a working main street.** The same node can deliver connectivity and safety information for everyday residents: weather alerts, road closures, heat advisories, and information about events at the arts center. It respects that Mount Hope is first a place where people live, not a set piece for visitors.
 
----
+3. **Shows the model in a town we actually control.** Because Harmony for Hope already occupies 706 Main Street, the backbone hardware can be installed there under the existing H4H–KTS relationship. A relay on the neighboring three‑story building and a small node at the trailhead kiosk complete the mesh. There is no need to negotiate with large agencies for the first deployment. The town’s own nonprofit and municipal partners carry it.
 
-## Who Is Involved
+Mount Hope, in this pilot, is the reference implementation — the place where we learn what it takes to make ALLIS work in a coalfield main street context and how to share stewardship with a municipal government and a local arts institution.
 
-**Kidd's Technical Services** owns and operates the ALLIS platform. Kidd's installs the hardware, maintains the network, holds the infrastructure relationships with satellite and mesh radio providers, and is the contracting party in every Corridor Partner Community Governance Agreement. ALLIS is an independent platform — it is not a product of Harmony for Hope, Inc., and its deployment across the corridor is not contingent on any single community partner or program relationship.
+### Thurmond — A Preserved Rail Boomtown
 
-**Harmony for Hope, Inc.** is a West Virginia nonprofit corporation operating the MountainShares program from 706 Main Street, Mount Hope. H4H sponsors the MS.___ deployment tier, making no-cost ALLIS nodes available to New River Gorge gateway communities as a public benefit commitment. H4H owns and operates MountainShares and The Commons community platform. H4H does not own ALLIS.
+Thurmond, by contrast, is almost empty of residents and full of story. Once one of the busiest revenue points on the Chesapeake & Ohio Railway — a classic boomtown where coal, rail, and money moved in staggering quantities — it is now functionally a preserved outdoor museum. NPS restored the Thurmond Depot as a visitor center and maintains other key structures in the townsite. Today, only a handful of residents remain.
 
-**Community Partners** — the City of Mount Hope, the Mount Hope Historic Walking Trail committee, the Fayette County Community Arts Center, the National Park Service, and others as the corridor expands — contribute site access, local knowledge, heritage content, and community relationships. They receive connectivity infrastructure, heritage interpretation capability, and visitor engagement tools. They pay nothing.
+Visitors arrive by road, by long‑distance rail, and by special excursion trains that use the Depot as a staging point. They walk through a place whose mission, as NPS articulates it, is to remain a link to our industrial past and to tell the story of the coal and rail economy that once dominated this valley.
 
----
+In Thurmond, an ALLIS node plays a different but complementary role:
 
-## Next Steps
+1. **Deepens interpretation where connectivity is absent.** MS.THURMOND.ALLIS gives visitors a locally hosted interpretive layer that works even when there is no cell service. It can tell the railroad story, the company town story, the labor story, and the environmental story in formats that complement ranger‑led walks and existing panels.
 
-Communities and agencies interested in participating in the New River Gorge Heritage & Visitor Connectivity Mesh Pilot are invited to contact Kidd's Technical Services to begin a conversation. There is no application, no competitive process, and no fee. The first step is a site visit and a conversation about what the community needs and what the infrastructure can provide.
+2. **Connects heritage to safety.** The same system can deliver river safety information, trail advisories, and emergency guidance tailored to the immediate context — critical in a landscape where the New River’s flows and the Gorge’s terrain can turn minor misjudgments into serious incidents.
 
-For Mount Hope institutions: the reference implementation is already underway. The governance agreements are ready. The question is when, not whether.
+3. **Respects federal governance.** Because Thurmond is an NPS‑managed site, MS.THURMOND.ALLIS is deployed only after Section 106 review, special use permitting, and visual impact assessment. The federal carve‑out in the governance framework ensures NPS participation does not create procurement obligations or endorsements.
 
-For NPS: the program is designed to meet you where federal participation requirements actually are — not where a vendor wishes they were. The Federal Agency Participation Carve-Out exists because we read the policy before we drafted the agreement. We would welcome the opportunity to walk through it with your staff.
+Together, Mount Hope and Thurmond show that the same mesh can serve a living coalfield main street and a preserved company town in ways that feel right to each place.
 
 ---
 
-*This document is a public-facing program overview. Binding commitments are established only through executed Corridor Partner Community Governance Agreements and associated instruments. All governance documents are available upon request from Kidd's Technical Services.*
+## How the Program Works in Practice
 
-*MountainShares is a program of Harmony for Hope, Inc. ALLIS is a platform of Kidd's Technical Services. The MS.___ node designation indicates deployment under the MountainShares Sponsorship Tier.*
+### Ownership and Sponsorship
+
+- ALLIS is owned and operated by Kidd's Technical Services. It is an independent platform, not a product of Harmony for Hope.
+- MountainShares is owned and operated by Harmony for Hope, Inc., which sponsors the MS.___ deployment tier as a community benefit.
+- Community partners — municipalities, nonprofits like the arts center, and agencies like NPS — host nodes, contribute content, and help define priorities.
+
+### Agreements and Responsibilities
+
+Every node is governed by a simple, written Corridor Partner Community Governance Agreement between Kidd's Technical Services and the host organization. In plain terms:
+
+- The partner’s contribution is in‑kind: site access, a point of contact, and participation in evaluation.
+- The node and its hardware are installed and maintained at no cost to the partner under the MountainShares Sponsorship Tier.
+- Locally generated operational and heritage data are treated as a community resource, and partner‑contributed content remains the partner’s intellectual property.
+- The partner can terminate participation with notice, triggering removal of hardware and restoration of surfaces.
+
+For federal partners, an added Federal Agency Participation Carve‑Out confirms that the agreement is not a procurement, does not obligate federal funds, and does not override federal records or privacy law.
+
+---
+
+## From Two Nodes to a Corridor
+
+Mount Hope and Thurmond are the first two nodes in what is intended to become a corridor‑scale mesh serving the New River Gorge and its gateway towns.
+
+As the pilot matures, the same framework can extend to:
+
+- **Fayetteville** — the high‑visibility adventure gateway at the rim, where visitors already converge on outfitters, restaurants, and trailheads.
+- **Oak Hill** — the resort and rafting hub with large‑scale adventure operations serving overnight guests and day‑trippers.
+- **Hinton** — the southern rail end with its depot and historic downtown district.
+- **Ansted and Hawks Nest** — northern rim communities that tie the Gorge narrative to the Midland Trail and older travel routes.
+
+Each of these towns has its own story. ALLIS does not overwrite those stories with a single script. It provides a scaffold for communities, NPS, and program partners to tell them more fully, in more places, to more people — and to keep residents safer while doing so.
+
+---
+
+## Pilot Outcomes and What Success Looks Like
+
+The New River Gorge Heritage & Visitor Connectivity Mesh Pilot is successful if, at the end of its first phase, three things are true:
+
+1. Visitors understand more of where they are. A family walking the Historic Trail in Mount Hope or standing on the platform in Thurmond leaves with a deeper sense of coal, rail, labor, and landscape than they would have from signs alone.
+
+2. Communities feel more in control, not less. Municipal and nonprofit partners in Mount Hope feel that the infrastructure is serving their priorities, not dictating them. NPS staff at Thurmond feel that ALLIS is aligned with, not parallel to, their interpretive mission.
+
+3. The corridor has a model that can travel. When Fayetteville, Oak Hill, Hinton, or Ansted consider participation, they are not being sold an abstraction. They are being invited into a network that already works, in places they can visit and see.
+
+---
+
+## How to Engage
+
+This pilot is an invitation, not a product pitch. Gateway communities, NPS staff, tourism partners, and local organizations who see a place for their town or their site in this corridor network are encouraged to start with a conversation and a walk:
+
+- Walk Main Street in Mount Hope and the Historic Trail with Harmony for Hope.
+- Walk the Depot platform and the grade crossing in Thurmond with NPS interpretive staff.
+- Walk Fayetteville’s courthouse square, Oak Hill’s outfitter row, Hinton’s depot district and ask: what would a locally hosted, heritage‑aware mesh do here that today’s infrastructure does not?
+
+From there, the next steps are straightforward: identify a site host, complete a site survey, execute the governance agreement, and stand up a node.
+
+The New River Gorge has always been a corridor of stories. This pilot is about giving those stories a way to travel the same routes visitors already take — from trailhead to depot to main street — without ever leaving the communities that own them.
