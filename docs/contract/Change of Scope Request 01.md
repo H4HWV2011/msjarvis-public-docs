@@ -58,12 +58,12 @@ None.
 | Milestone | Original Date | Revised Date |
 |-----------|--------------|--------------|
 | Framework & Governance Deliverables | September 25, 2026 | September 25, 2026 *(unchanged)* |
-| ALLIS Node Cluster Design Complete | — | October 15, 2026 |
-| Hardware Procured / On-Site | — | October 31, 2026 |
-| Node Deployment Complete | — | November 14, 2026 |
-| End-Product Delivery & Handoff | September 25, 2026 | **November 27, 2026** |
+| ALLIS Node Cluster Design Complete | — | October 15, 2027 |
+| Hardware Procured / On-Site | — | October 31, 2027 |
+| Node Deployment Complete | — | November 14, 2027 |
+| End-Product Delivery & Handoff | September 25, 2028 | **November 27, 2028** |
 
-The revised contract end date is **November 27, 2026**.
+The revised contract end date is **November 27, 2028**.
 
 ***
 
