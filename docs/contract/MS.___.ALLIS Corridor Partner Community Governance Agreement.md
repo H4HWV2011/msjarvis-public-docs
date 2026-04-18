@@ -1,8 +1,3 @@
-Here is a consolidated **final draft** of the Corridor Partner Community Governance Agreement with the MountainShares/H4H role made fully explicit, while keeping Kidd’s as the only contracting counterparty.
-
-You can paste or save this as-is:
-
-````markdown
 # MS.___.ALLIS Corridor Partner Community Governance Agreement
 
 **Program Node:** MS.___.ALLIS (fill in node designation, e.g., MS.NPS.ALLIS, MS.MHHWT.ALLIS)  
@@ -252,4 +247,3 @@ ________________________________________________________________________________
 ___________________________________________________________________________________________________
 
 *This Addendum is incorporated into and made part of the MS.___.ALLIS Corridor Partner Community Governance Agreement executed by the parties above.*
-````
