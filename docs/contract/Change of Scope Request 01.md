@@ -69,8 +69,9 @@ The revised contract end date is **November 27, 2028**.
 
 ## 5. Cost Impact
 
-KTS and H4H agree that cost implications of this scope change, if any, shall be documented in a separate Fee Amendment (FA-001) to be executed concurrently with or prior to execution of this Change of Scope Request. Until FA-001 is executed, no additional billable work beyond the original contracted amount shall be incurred by H4H as a result of this COS. Hardware procurement costs are to be addressed in FA-001 and are not included in any existing fixed-fee arrangement unless explicitly stated therein.
+The cost basis for all technical work performed under this engagement — including the expanded scope described in this Change of Scope Request — is documented in the Founder's Technical Investment Statement (FTIS), prepared by Kidd's Technical Services, LLC and dated March 13, 2026, reflecting 5,308 hours of contributed technical labor at a fair market value of $150/hour ($796,200 total) for the period March 23, 2025 through March 13, 2026. The FTIS is incorporated by reference into this agreement as Exhibit A.
 
+No cash payment is due to KTS as a result of this Change of Scope Request. Hardware procurement costs, if any, shall be addressed in a separate Fee Amendment (FA-001) and are not included in any existing fixed-fee or contributed-labor arrangement unless explicitly stated therein.
 ***
 
 ## 6. Assumptions and Conditions
