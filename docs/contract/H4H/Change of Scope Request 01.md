@@ -113,4 +113,4 @@ Date: ___________________________
 
 ***
 
-*COS-001 | KTS → H4H | Issued April 18, 2026*
+*COS-001 | KTS → H4H | Issued July 5, 2025*
