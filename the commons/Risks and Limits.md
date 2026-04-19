@@ -10,7 +10,7 @@ This document summarizes key risks and limits for people and institutions partic
 ### 1.1 Possible Impact on Benefits
 
 - Participation in the MountainShares Program may affect eligibility for **means‑tested benefits** (for example, SNAP, TANF, housing assistance, disability benefits, or similar programs).  
-- Neither Harmony for Hope (H4H), the MountainShares DAO, Kidd’s Technical Services (KTS), nor any node partner can guarantee that MountainShares or related activity will be ignored by benefits agencies.  
+- Neither Harmony for Hope (H4H), the MountainShares DAO, Kidd's Technical Services (KTS), nor any node partner can guarantee that MountainShares or related activity will be ignored by benefits agencies.  
 - Participants are responsible for:
   - understanding how income, assets, or in‑kind support may affect their own benefits; and  
   - seeking advice from caseworkers, legal aid, or other qualified advisors as needed.
@@ -29,7 +29,7 @@ This document summarizes key risks and limits for people and institutions partic
 
 ---
 
-## 2. EMS, Rewards, and Internal “Buying Power”
+## 2. EMS, Rewards, and Internal "Buying Power"
 
 ### 2.1 EMS Are Not Wages or Guaranteed
 
@@ -39,6 +39,8 @@ This document summarizes key risks and limits for people and institutions partic
   - a given activity will earn EMS;  
   - EMS will accrue at a particular rate; or  
   - EMS balances will remain unchanged over time (for example, in the event of program rule changes, caps, or safety measures).
+
+> **Founder's EMS:** Pre-launch founder EMS recorded prior to Phase 0 activation are governed by the Founder's EMS Vesting Schedule and DAO Governance Charter, which establish separate conversion terms and protections. The provisions of this section apply to general participant EMS and do not alter or diminish the rights established under the Founder's EMS Vesting Schedule.
 
 ### 2.2 Not Cash by Default
 
@@ -51,7 +53,7 @@ This document summarizes key risks and limits for people and institutions partic
 
 ### 2.3 Phases and Internal Buying Power
 
-- References to “phases,” “internal buying power,” or similar concepts describe **design intentions**, not fixed legal or financial guarantees.  
+- References to "phases," "internal buying power," or similar concepts describe **design intentions**, not fixed legal or financial guarantees.  
 - Program phases, internal pricing schedules, and conversion curves may:
   - change over time;  
   - be delayed;  
@@ -135,6 +137,6 @@ This document summarizes key risks and limits for people and institutions partic
   - complying with applicable laws, regulations, and institutional policies;  
   - assessing how participation aligns with their own risk tolerance and obligations;  
   - seeking independent legal, tax, or benefits advice where needed.  
-- Participation in The Commons, the MountainShares Program, Champion roles, or node partnerships is voluntary and at each participant’s own risk within the limits of Applicable Law and the governing documents.
+- Participation in The Commons, the MountainShares Program, Champion roles, or node partnerships is voluntary and at each participant's own risk within the limits of Applicable Law and the governing documents.
 
 ---
