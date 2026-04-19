@@ -1,7 +1,6 @@
 # ALLIS Commercial Business Plan
 ### Artificial Learning & Location Intelligence System
 **Kidd's Technical Services | April 2026**
-**Confidential — Do Not Disseminate**
 
 ---
 
