@@ -612,7 +612,5 @@ The ALLIS technical thesis — a 42-chapter documentation of the system's archit
 
 ---
 
-*This document contains confidential and proprietary information belonging to Kidd's Technical Services. It may not be shared, reproduced, or distributed without written consent from the owner.*
-
 *Kidd's Technical Services | Mount Hope, West Virginia | April 19, 2026*
-````
+
