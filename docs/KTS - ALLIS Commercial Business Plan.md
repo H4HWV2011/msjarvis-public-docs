@@ -44,7 +44,7 @@ KTS makes ALLIS available to any paying organization. The community gateway is H
 **Key Highlights:**
 
 - ALLIS is owned solely by Kidd's Technical Services
-- Data contribution to ALLIS is free and open through the MS. ecosystem
+- Data contribution to ALLIS is free and open through the MS. ecosystem made possible by Harmony for Hope, Inc. 
 - A named, front-facing node (`____.ALLIS`) and cluster membership require a paid commercial agreement with KTS
 - Government and nonprofit organizations receive nodes and cluster access at no cost
 - The node cluster is the network — and membership in it is the value
