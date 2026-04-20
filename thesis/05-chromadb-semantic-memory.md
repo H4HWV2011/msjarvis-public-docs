@@ -72,6 +72,8 @@ The primary ChromaDB instance (host port 8002, container-internal 8000, `hnsw:sp
 
 > **★ April 1, 2026 — Autonomous learner debug sprint (LEARN-01/02/03 resolved):** The `autonomous_learning` collection is confirmed healthy at **57 items post-fix** following the LEARN-01 cosine similarity bug fix and LEARN-03 crash-loop recovery. The dedup gate is running cleanly with explicit `np.float64` and `float()` casting enforced. Historical baseline of 21,181 items (March 20, 2026) is preserved; accumulation at ~288/day is expected to resume. A semantic dedup audit of the `autonomous_learning` collection is recommended once sufficient post-fix cycles have accumulated, as the dedup gate was erroring silently during the LEARN-01 error window. The GBIM Query Router (port 7205) briefly returned HTTP 422 during the repair window (LEARN-02) — resolved same day, returning HTTP 200 OK and stable.
 
+> **★ April 19–20, 2026 — OI-05 FULLY CLOSED. `conversation_history` collection now pipeline-wired.** Root causes resolved: (1) `ai_server_20llm_PRODUCTION.py` line 248 — model name injection bug fixed (`f"You are {model_name}. {message}"` removed); (2) `synthesize()` raw-concatenation replaced with weighted synthesis — one bad model no longer poisons the final answer; (3) `main_brain.py` ~1148 — `_full_prompt[:200]` truncation fixed — Phi3 now receives full prompt with complete history; (4) `main_brain.py` ~860 — `conv_history` injection moved outside RAG block — personal Q&A with no RAG hit now receives history; (5) `main_brain.py` ~1128 — system prompt hardened with concrete rules and worked example for small models. Identity verified: *"Carrie, my name is Egeria Jarvis and I was built by Harmony for Hope Inc. here in Mount Hope, West Virginia, where you also call home."* All checks green. `mvw_gbim_landowner_spatial` CONCURRENT REFRESH complete — 20,593 rows. Unique index deployed. Nightly cron at 3 AM active.
+
 ### 5.3.1 Production Spatial Collection
 
 Primary spatial memory (verified complete March 14, 2026; confirmed March 25–28, 2026):
@@ -113,7 +115,7 @@ Ingest timeline:
 
 **`local_resources`** — Default RAG collection for `jarvis-rag-server`
 
-**`conversation_history`** — Session context storage; ⚠️ not formally wired to production pipeline (OI-05 open)
+**`conversation_history`** — Session context storage; ✅ **OI-05 CLOSED April 19–20, 2026 — now fully pipeline-wired.** See §5.3 note above for root cause stack and fix summary.
 
 **`geospatialfeatures`** — ★ **60,000 items** — CONFIRMED LIVE March 26, 2026 (was: 0 items; OI-12 CLOSED)
 
@@ -162,7 +164,7 @@ Community validation: Harmony for Hope's Community Champions group provides grou
 
 ---
 
-## 5.4 Database Architecture — ★ Confirmed March 28, 2026
+## 5.4 Database Architecture — ★ Confirmed April 19–20, 2026
 
 Ms. Jarvis uses a dual-database PostgreSQL cluster plus a dedicated community resources database. The system runs on a Lenovo Legion 5 development machine located in **Mount Hope, West Virginia** (ZIP 25880).
 
@@ -177,7 +179,7 @@ Ms. Jarvis uses a dual-database PostgreSQL cluster plus a dedicated community re
 - PostGIS-enabled spatial database
 - Contains `zcta_wv_centroids` (993 West Virginia ZIP centroids)
 - `gbimbeliefnormalized` table: 5,416,521 rows including 20,593 landowner beliefs
-- `mvw_gbim_landowner_spatial` materialized view: 20,593 spatially-indexed landowner beliefs
+- `mvw_gbim_landowner_spatial` materialized view: ★ **20,593 rows — CONCURRENT REFRESH complete April 19–20, 2026. Unique index deployed. Nightly cron at 3 AM active.**
 
 **Database 3: `jarvis-local-resources-db`** — port 5435
 - Community resources registry keyed by ZIP code and county
@@ -227,7 +229,7 @@ All current governance and RAG collections were ingested using the 100-word/20-w
 
 ## 5.6 Clients, RAG Services, and Deployment Topology
 
-### 5.6.1 ChromaDB Container Configuration — ★ April 1, 2026
+### 5.6.1 ChromaDB Container Configuration — ★ April 19, 2026
 
 | Field | Value |
 |---|---|
@@ -237,9 +239,10 @@ All current governance and RAG collections were ingested using the 100-word/20-w
 | Distance function | `hnsw:space: cosine` |
 | API version | v2 active — `/api/v1/` returns HTTP 410 Gone |
 | Heartbeat endpoint | `GET /api/v2/heartbeat` |
+| Image | `chromadb/chroma@sha256:7605e7b398f96dba833ed1b6272f815b9d33414dde45c68bd246e84447db8591` (Feb 2026 build, schema v10, pinned April 19, 2026) |
 | Status | ✅ Production — part of **96-container running stack** |
-| Collections confirmed | **40 active** — full inventory audit March 28, 2026 |
-| Total vectors (March 28, 2026) | **6,675,442** — confirmed March 28, 2026 full audit (may be higher — see LEARN-01 dedup audit note) |
+| Collections confirmed | **49 active** — confirmed April 19, 2026 |
+| Total vectors (April 19, 2026) | **6,740,000+** — confirmed April 19, 2026 |
 
 Port auto-detection:
 
@@ -287,9 +290,9 @@ print("Total entities:", collection.count())
 # Output: Total entities: 5416521
 ```
 
-### 5.6.2 Active Collections — ★ UPDATED April 1, 2026
+### 5.6.2 Active Collections — ★ UPDATED April 19–20, 2026
 
-40 active collections confirmed as of March 28, 2026 full inventory audit. All collections use 384-dimensional vectors (`all-minilm:latest`, `hnsw:space: cosine`).
+49 active collections confirmed as of April 19, 2026. All collections use 384-dimensional vectors (`all-minilm:latest`, `hnsw:space: cosine`).
 
 > **★ March 28, 2026 — `appalachian_cultural_intelligence` / `aaacpe_corpus` discrepancy RESOLVED.**
 >
@@ -318,7 +321,7 @@ print("Total entities:", collection.count())
 | `ms_jarvis_memory` | Persistent conversation memory | Active | ✅ Active |
 | `mountainshares_knowledge` | MountainShares governance | Active | ✅ Active |
 | `episodic_index` | Episodic memory index | Active | ✅ Active |
-| `conversation_history` | Conversation history | Active | ✅ Active — ⚠️ not pipeline-wired (OI-05) |
+| `conversation_history` | Conversation history | Active | ✅ **OI-05 CLOSED April 19–20, 2026 — fully pipeline-wired** |
 | `gbim_beliefs_v2` | GBIM beliefs v2 | Active | ✅ Active |
 | `governance` | WV governance corpus | Active | ✅ Active |
 | `thesis` | Theory corpus | Active | ✅ Active |
@@ -335,8 +338,25 @@ print("Total entities:", collection.count())
 | `fifth_dgm_subconscious` | 5th DGM subconscious layer | Active | ✅ Active — write path stub |
 | `geospatialfeatures` | GIS feature embeddings | ★ **60,000** | ✅ COMPLETE — OI-12 CLOSED March 26 (was: 0) |
 | `GBIM_Fayette_sample` | Fayette County sample | ★ **1,535** | ✅ COMPLETE — OI-13 CLOSED March 26 (was: 0) |
+| `fayette_county_resources_2026` | Fayette County resource packet | Active | ✅ Live — confirmed April 19, 2026 |
+| `ms_jarvis_identity` | Ms. Jarvis identity corpus | Active | ✅ Live — seeded |
+| `wv_resources` | WV statewide resources | Active | ✅ Live |
+| `gis_data` | GIS data corpus | Active | ✅ Live |
+| `spiritual_knowledge` | Spiritual knowledge base | Active | ✅ Live |
+| `psychological_knowledge` | Psychological knowledge base | Active | ✅ Live |
+| `gbim_entities` | GBIM entity corpus | Active | ✅ Live |
+| `zcta_centroids` | ZCTA centroid embeddings | Active | ✅ Live |
+| `operations_history` | Operations history log | Active | ✅ Live |
+| `spiritual_wisdom` | Spiritual wisdom corpus | Active | ✅ Live |
+| `appalachian_english_corpus` | Appalachian English corpus | Active | ✅ Live |
+| `au02_threat_seeds` | A-U02 threat seed corpus | Active | ✅ Live |
+| `pia_records` | PIA records | Active | ✅ Live |
+| `autonomous_learning` | Autonomous learning (alt name) | Active | ✅ Live |
+| `research_history` | Research history log | Active | ✅ Live |
+| `jarvis` | Jarvis core corpus | Active | ✅ Live |
+| `jarvis_knowledge` | Jarvis knowledge base | Active | ✅ Live |
 
-**Total: 6,675,442 vectors across 40 active collections — confirmed March 28, 2026 (may be slightly higher pending semantic dedup audit of `autonomous_learning` collection — see April 1, 2026 LEARN-01 note).**
+**Total: 6,740,000+ vectors across 49 active collections — confirmed April 19, 2026**
 
 ### 5.6.3 PostgreSQL Database Access
 
@@ -427,7 +447,7 @@ enhanced_message = community_memories + "\n\n" + original_message
 
 **GBIM linkage (`msjarvis` — port 5433 — ★ restored March 28, 2026)** — GBIM worldview entities in ChromaDB carry `entity_id` metadata linking to `msjarvis.gbim_beliefs`. Temporal confidence decay (deployed March 15, 2026) attenuates response confidence for entities not recently confirmed. `needs_verification=TRUE` is the trigger for the future POC verification loop. `jarvis_local_resources` schema also restored March 28, 2026.
 
-**PostGIS integration (`msjarvisgis` — port 5432)** — Spatial collections include coordinates and identifiers that join to PostGIS tables. The `zcta_wv_centroids` table (993 rows) provides ZIP code centroids for proximity queries.
+**PostGIS integration (`msjarvisgis` — port 5432)** — Spatial collections include coordinates and identifiers that join to PostGIS tables. The `zcta_wv_centroids` table (993 rows) provides ZIP code centroids for proximity queries. ★ `mvw_gbim_landowner_spatial` CONCURRENT REFRESH complete April 19–20, 2026 — 20,593 rows, unique index deployed, nightly cron at 3 AM active.
 
 Example spatial query flow:
 
@@ -445,7 +465,7 @@ Example spatial query flow:
 2. Uses `entity_id` to query `msjarvis.gbim_beliefs` for provenance and decay metadata
 3. Uses spatial metadata to query `msjarvisgis` PostGIS tables
 4. Queries `jarvis-local-resources-db` for community resource data
-5. LM Synthesizer (port 8001, Phase 3.5) pre-processes RAG context before 21-model ensemble
+5. LM Synthesizer (port 8001, Phase 3.5) pre-processes RAG context before 21-model ensemble — ★ **fast-path bypass deployed April 19–20, 2026**
 6. Judges evaluate the consensus answer
 7. Applies `confidence_decay` multiplier
 
@@ -509,7 +529,7 @@ resp = httpx.post(url, json={
 
 ---
 
-## 5.10 Production Deployment State — ★ UPDATED April 1, 2026
+## 5.10 Production Deployment State — ★ UPDATED April 19–20, 2026
 
 **Hardware:** Lenovo Legion 5 — Mount Hope, West Virginia (ZIP 25880)
 
@@ -520,8 +540,9 @@ resp = httpx.post(url, json={
 - Distance function: `hnsw:space: cosine`
 - API: v2 active — `/api/v1/` returns HTTP 410 Gone
 - Heartbeat: `GET /api/v2/heartbeat` → 200 ✅
-- Collections confirmed: **40 active** — full inventory audit March 28, 2026
-- Total vectors (March 28, 2026): **6,675,442** ✅ (may be slightly higher pending LEARN-01 dedup audit)
+- Image: `chromadb/chroma@sha256:7605e7b398f96dba833ed1b6272f815b9d33414dde45c68bd246e84447db8591` (Feb 2026 build, schema v10, pinned April 19, 2026)
+- Collections confirmed: **49 active** — confirmed April 19, 2026
+- Total vectors (April 19, 2026): **6,740,000+** ✅
 - `gbim_worldview_entities`: 5,416,521 ✅
 - `autonomous_learner`: **57 items post-fix (April 1, 2026); baseline 21,181; ~288/day resuming** ✅ — LEARN-01/03 resolved; dedup gate clean; semantic dedup audit pending
 - `psychological_rag`: **968 items** — ★ restored March 28 ✅
@@ -533,12 +554,14 @@ resp = httpx.post(url, json={
 - `spiritual_rag`: deduplicated ✅ — 19,338 duplicate vectors removed March 28
 - `geospatialfeatures`: ★ **60,000 items** ✅ (was: 0)
 - `GBIM_Fayette_sample`: ★ **1,535 items** ✅ (was: 0)
+- `conversation_history`: ✅ **OI-05 CLOSED — fully pipeline-wired April 19–20, 2026**
 - `gbim_beliefs_v2`: Active ✅
 - Embedding model: `all-minilm:latest` (384-dim, cosine) — all collections locked
 
 **PostgreSQL Cluster:**
 - Port 5433 — `msjarvis` (8 MB, 6 GBIM tables) — 5,416,521 entities; temporal decay deployed — ★ **restored March 28, 2026**
 - Port 5432 — `msjarvisgis` (91 GB, 501 PostGIS tables) — 993 WV ZIP centroids; 5,416,521 normalized rows; 20,593 landowner beliefs
+  - ★ `mvw_gbim_landowner_spatial` — **20,593 rows — CONCURRENT REFRESH complete April 19–20, 2026. Unique index deployed. Nightly cron at 3 AM active.**
 - Port 5435 — `jarvis-local-resources-db` — 7,354,707 building rows; Community Champions validated
 
 **RAG Services:**
@@ -548,9 +571,22 @@ resp = httpx.post(url, json={
 - `psychological_rag` (port 8006): ✅ **Restored March 28** — 968 docs now serving correctly
 - `jarvis-web-research` (port 8008 internal): ✅ Restored March 25, 2026
 - `jarvis-ingest-api` (port 8009): ✅ Restored March 25, 2026
-- `gbim_query_router` (port 7205): PostgreSQL-native landowner path — **HTTP 200 OK stable (April 1, 2026; briefly 422 during LEARN-02 repair window — resolved)** ✅
+- `gbim_query_router` (port 7205): ✅ HTTP 200 OK stable — confirmed April 19, 2026. All 3 routing branches live: GBIM fan-out, hospital PostGIS proximity, health access PostGIS. Running from `services/gbim_query_router.py` (765-line real implementation, not stub). Container: `jarvis-gbim-query-router` on `qualia-net`.
 - `jarvis-aaacpe-rag` (host:8032): ✅ Running March 27, 2026 — 65 documents, 39 sources
 - `jarvis-aaacpe-scraper` (host:8033): ✅ Running March 27, 2026 — `total_runs: 1`
+- `lm_synthesizer` fast-path bypass: ✅ **Deployed April 19–20, 2026**
+
+**20LLM Production Inference (`ai_server_20llm_PRODUCTION.py`):**
+- ✅ **Running (warm on next query) — April 19–20, 2026**
+- ★ Model name injection bug fixed — `f"You are {model_name}. {message}"` removed from line 248; models no longer see their own name before the prompt
+- ★ `synthesize()` weighted synthesis deployed — raw top-3 concatenation removed; one bad model no longer poisons the final answer
+- Identity verified (T2): *"Carrie, my name is Egeria Jarvis and I was built by Harmony for Hope Inc. here in Mount Hope, West Virginia, where you also call home."*
+- Identity verified (T3): *"I'm Ms. Egeria Jarvis, built by Harmony for Hope Inc., designed to serve Appalachian communities in West Virginia."*
+
+**`main_brain.py` fixes — April 19–20, 2026:**
+- ★ `_full_prompt[:200]` truncation at ~1148 removed — Phi3 and small models now receive full prompt with complete conversation history
+- ★ `conv_history` injection moved outside RAG block (~860) — personal Q&A with no RAG hit now receives history
+- ★ System prompt hardened (~1128) — concrete rules and worked example added; small models now follow identity instructions reliably
 
 **Consciousness pipeline:**
 - `jarvis-consciousness-bridge` (port 8020): ACTIVE — Chroma v2 heartbeat 200 ✅
@@ -579,6 +615,8 @@ resp = httpx.post(url, json={
 | AaaCPE cultural intelligence deployment | March 27, 2026 | `jarvis-aaacpe-rag` (port 8032) and `jarvis-aaacpe-scraper` (port 8033) built and running; `aaacpe_corpus` (65 docs, 39 sources); RAG search verified; container stack 96/96 | ✅ Complete — March 27, 2026 |
 | Security + memory remediation sprint | March 28, 2026 | All `0.0.0.0` exposures corrected; `_auth()` confirmed on 4 sensitive routes; `JARVIS_API_KEY` confirmed set; `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192); `msjarvis` port 5433 restored; `aaacpe_corpus` vs. `appalachian_cultural_intelligence` discrepancy resolved; 40 active collections / 6,675,442 vectors confirmed | ✅ Complete — March 28, 2026 |
 | Autonomous learner debug sprint | April 1, 2026 | LEARN-01: `cosine_similarity` numpy dtype bug fixed — explicit `np.float64` and `float()` casting enforced; LEARN-02: GBIM Query Router (port 7205) HTTP 422 schema mismatch resolved — HTTP 200 OK stable; LEARN-03: learner crash-loop resolved — source patched on host, copied into container, restarted; `ms_jarvis_autonomous_learner_optimized.py` and `ms_jarvis_rag_server.py` synced to `services-safe`; 4 post-fix cycles confirmed; `autonomous_learning` collection at 57 items; 7 entanglement graph nodes; 0 gap failures | ✅ Complete — April 1, 2026 |
+| ChromaDB version recovery + router restoration | April 19, 2026 | ChromaDB 1.0.0 Rust panic diagnosed (schema v10 incompatible with 1.0.0 Rust SQLite driver); restored from `chroma.sqlite3.bak-20260419-1213`; running image pinned to `sha256:7605e7b` (Feb 2026, 0.6.x); 49 collections / 6.74M vectors confirmed live; GBIM router rebuilt from `services/gbim_query_router.py` (765-line real implementation); all 3 routing branches verified (fan-out, hospital PostGIS, health access PostGIS) | ✅ Complete — April 19, 2026 |
+| OI-05 name/identity/history + materialized view sprint | April 19–20, 2026 | OI-05 FULLY CLOSED: `ai_server_20llm_PRODUCTION.py` line 248 model-name injection bug fixed; `synthesize()` weighted synthesis deployed (raw concatenation removed); `main_brain.py` `_full_prompt[:200]` truncation removed (full prompt to all models); `conv_history` injection moved outside RAG block (history now injected on all paths); system prompt hardened with concrete rules + worked example; identity verified T2 + T3. `lm_synthesizer` fast-path bypass deployed. `mvw_gbim_landowner_spatial` CONCURRENT REFRESH complete (20,593 rows); unique index deployed; nightly cron at 3 AM active. 20LLM production container warm. | ✅ Complete — April 20, 2026 |
 
 ---
 
@@ -658,7 +696,7 @@ These results confirm:
 
 ## 5.12 Limitations and Future Work
 
-**Completed foundations — April 1, 2026:**
+**Completed foundations — April 20, 2026:**
 
 - ✅ `gbim_worldview_entities` ingest complete (5,416,521 entities)
 - ✅ Autonomous Learner deployed, active, and queried at Phase 1.45 — **LEARN-01/02/03 resolved April 1, 2026; 57 items post-fix; dedup gate clean**
@@ -670,7 +708,7 @@ These results confirm:
 - ✅ `all-minilm:latest` (384-dim) confirmed and enforced; 100-word chunk constraint documented
 - ✅ Phase 1.45 semantic community memory retrieval live
 - ✅ ChromaDB v2 API migration complete
-- ✅ **40 active collections — 6,675,442 total vectors** — March 28, 2026 audit
+- ✅ **49 active collections — 6,740,000+ total vectors** — confirmed April 19, 2026
 - ✅ Consciousness pipeline ACTIVE
 - ✅ **96/96 containers Up** — zero crash-looping — April 1, 2026 (post-recovery)
 - ✅ GIS RAG (port 8004) returning live WV geodata
@@ -687,13 +725,16 @@ These results confirm:
 - ✅ **`_auth()` confirmed on all 4 sensitive routes in `ms_jarvis_memory.py` — March 28, 2026**
 - ✅ **`msjarvis_docs` expanded to 4,192 items — March 28, 2026**
 - ✅ **`ms_jarvis_autonomous_learner_optimized.py` and `ms_jarvis_rag_server.py` synced to `services-safe` — April 1, 2026**
-- ✅ **GBIM Query Router (port 7205) HTTP 200 OK stable — April 1, 2026 (LEARN-02 resolved)**
+- ✅ **GBIM Query Router (port 7205) HTTP 200 OK stable — all 3 routing branches live (GBIM fan-out, hospital PostGIS, health access PostGIS) — April 19, 2026**
+- ✅ **ChromaDB image pinned to `sha256:7605e7b` (Feb 2026 build, schema v10) — April 19, 2026**
+- ✅ **OI-05 FULLY CLOSED — `conversation_history` pipeline-wired; `ai_server_20llm_PRODUCTION.py` model-name injection fixed; `synthesize()` weighted synthesis deployed; `main_brain.py` prompt truncation removed, `conv_history` injected on all paths, system prompt hardened — April 19–20, 2026**
+- ✅ **`lm_synthesizer` fast-path bypass deployed — April 19–20, 2026**
+- ✅ **`mvw_gbim_landowner_spatial` CONCURRENT REFRESH complete — 20,593 rows; unique index deployed; nightly cron at 3 AM active — April 19–20, 2026**
+- ✅ **20LLM production container running (warm on next query) — April 19–20, 2026**
 
 **Remaining work:**
 
 **Judge GBIM grounding gap — OPEN (highest priority)** — Truth and alignment judges still use `heuristic_contradiction_v1` rather than live GBIM queries. See Chapter 2, Section 2.8.
-
-**`conversation_history` pipeline wiring — OI-05 OPEN** — Collection confirmed present. Not formally wired to the production pipeline.
 
 **GBIM temporal decay — POC verification loop** — All 5,416,521 GBIM entities carry `needs_verification=TRUE`. The POC verification loop is not yet automated.
 
@@ -707,14 +748,14 @@ These results confirm:
 
 **Chunk audit for pre-constraint collections** — Collections ingested before March 26, 2026 (when the 100-word constraint was formally documented) should be audited for oversized chunks.
 
-**`mvw_gbim_landowner_spatial` view rebuild** — View returning 0 rows at runtime — rebuild pending (Item 21, backlog). Belief records confirmed present (20,593). `gbim_query_router` (port 7205) is healthy; view refresh is the outstanding step.
-
 **RAG → gateway inference wiring** — All RAG collections are populated; formal wiring of RAG retrieval into the `jarvis-gateway` inference endpoint is the next sprint milestone.
 
 ---
 
-*Last updated: 2026-04-01, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
+*Last updated: 2026-04-20, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
 *Major update March 26, 2026: All six previously sparse/empty RAG collections confirmed live; smoke tests 1–3 added (Section 5.13); ChromaDB port 8002 and `hnsw:space: cosine` documented; 100-word chunk constraint confirmed.*
 *★ March 27, 2026: AaaCPE scraper live — `aaacpe_corpus` (65 docs, 39 sources, `total_runs: 1`). Smoke tests 4–5 added. Container stack 96/96.*
 *★ March 28, 2026: Security remediation complete — all `127.0.0.1`, `_auth()` confirmed, `JARVIS_API_KEY` set. `spiritual_rag` deduplicated (−19,338 vectors). `psychological_rag` restored (968 docs, `PSY_COLLECTION` fix). `msjarvis_docs` expanded (4,192 items). `msjarvis` port 5433 restored. `aaacpe_corpus` vs. `appalachian_cultural_intelligence` discrepancy resolved — two distinct collections confirmed. 40 active collections / 6,675,442 total vectors confirmed via full inventory audit.*
 *★ April 1, 2026: Autonomous learner debug sprint complete — LEARN-01 (cosine_similarity numpy dtype bug fixed: explicit np.float64 and float() casting enforced), LEARN-02 (GBIM Query Router port 7205 HTTP 422 schema mismatch resolved — HTTP 200 OK stable), LEARN-03 (crash-loop resolved — source patched on host, copied into container, restarted). Post-fix confirmed: 4 cycles, 4 items stored, 0 deduplicated, 7 entanglement graph nodes, 0 gap failures, autonomous_learning collection at 57 items. ms_jarvis_autonomous_learner_optimized.py and ms_jarvis_rag_server.py synced to services-safe. §5.1, §5.3.2 autonomous_learner entry, §5.6.1 container config, §5.6.2 collections table, §5.10 production state block, §5.11 sprint log, §5.12 completed foundations and remaining work — all updated to reflect post-fix state.*
+*★ April 19, 2026: ChromaDB image version recovery — 1.0.0 Rust panic on schema v10 resolved by pinning to Feb 2026 build (sha256:7605e7b). 49 active collections / 6.74M vectors confirmed. GBIM Query Router restored from 765-line real implementation (services/gbim_query_router.py) — all 3 routing branches live. §5.6.1, §5.6.2, §5.10, §5.11, §5.12 updated.*
+*★ April 20, 2026: OI-05 FULLY CLOSED — conversation_history pipeline-wired; ai_server_20llm_PRODUCTION.py model-name injection bug fixed (line 248); synthesize() weighted synthesis deployed; main_brain.py prompt truncation removed (~1148), conv_history injected on all paths (~860), system prompt hardened with worked example (~1128); identity verified (T2 + T3: "Carrie, my name is Egeria Jarvis…"). lm_synthesizer fast-path bypass deployed. mvw_gbim_landowner_spatial CONCURRENT REFRESH complete — 20,593 rows, unique index deployed, nightly cron at 3 AM. 20LLM production container warm. §5.3, §5.3.2, §5.4, §5.6.2, §5.7, §5.10, §5.11, §5.12 updated.*
