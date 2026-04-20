@@ -64,7 +64,7 @@ In Mount Hope, an ALLIS node does three things at once:
 
 2. **Serves a working main street.** The same node can deliver connectivity and safety information for everyday residents: weather alerts, road closures, heat advisories, and information about events at the arts center. It respects that Mount Hope is first a place where people live, not a set piece for visitors.
 
-3. **Shows the model in a town we actually control.** Because Harmony for Hope already occupies 704 & 708 Main Street, the backbone hardware can be installed there under the existing H4H–KTS relationship. A relay on the neighboring three‑story building and a small node at the trailhead kiosk complete the mesh. There is no need to negotiate with large agencies for the first deployment. The town’s own nonprofit and municipal partners carry it.
+3. **Shows the model in a town we actually control.** Because Harmony for Hope already occupies 704 & 708 Main Street, the backbone hardware can be installed there under the existing H4H–KTS relationship. A relay on the building and a small node at the trailhead kiosk complete the mesh. There is no need to negotiate with large agencies for the first deployment. The town’s own nonprofit and municipal partners carry it.
 
 Mount Hope, in this pilot, is the reference implementation — the place where we learn what it takes to make ALLIS work in a coalfield main street context and how to share stewardship with a municipal government and a local arts institution.
 
