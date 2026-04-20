@@ -742,8 +742,6 @@ These results confirm:
 
 **Community resource data loading — OPEN** — Verified knowledge bases return empty results for Mount Hope queries. Real community resource data must be entered into `jarvis-local-resources-db` by Community Champions before local-specific resource queries return verified results.
 
-**Disk capacity** — At 96% utilization on the Mount Hope development machine, the next large-scale ingest cycle requires either cleanup or migration before proceeding.
-
 **WV state constitution ingest** — US Constitution (97 chunks) is live in `governance_rag`; WV state constitution is the next governance document to ingest using the confirmed 100-word chunking rule.
 
 **Chunk audit for pre-constraint collections** — Collections ingested before March 26, 2026 (when the 100-word constraint was formally documented) should be audited for oversized chunks.
