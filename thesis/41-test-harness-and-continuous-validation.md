@@ -37,7 +37,7 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-The Chapter 41 test harness is the operational layer that keeps the polymathmatic geography system provably coherent as it scales. Without it, deployments of new RAG domains (such as `psychological_rag` or `appalachian_cultural_intelligence`) or new spatial layers (such as `gis_wv_benefits`) would be undocumented and unverifiable — which would undermine the thesis claim that the MAALLI system is academically reproducible. Each gate in this chapter maps to one or more geographic or constitutional capabilities of the system: Gate 27 guarantees the full RAG domain inventory is live; Gate 28 guarantees the psychological domain is not merely declared but populated and queryable.
+The Chapter 41 test harness is the operational layer that keeps the polymathmatic geography system provably coherent as it scales. Without it, deployments of new RAG domains (such as `psychological_rag` or `appalachian_cultural_intelligence`) or new spatial layers (such as `gis_wv_benefits`) would be undocumented and unverifiable — which would undermine the thesis claim that the MSALLIS system is academically reproducible. Each gate in this chapter maps to one or more geographic or constitutional capabilities of the system: Gate 27 guarantees the full RAG domain inventory is live; Gate 28 guarantees the psychological domain is not merely declared but populated and queryable.
 
 ---
 
@@ -276,7 +276,7 @@ GATE 30 — PASS. MountainShares/DAO smoke tests confirmed. ✅
 
 ## 41.9 ChromaDB Collection Manifest — 41 Collections (April 1, 2026)
 
-The April 1 inventory reveals the full architecture of the MAALLI knowledge layer in one view. This manifest is the reference target for Gate 27: if the harness sees fewer than these 41 collections, the chapter is out of compliance. See Ch. 41 §41.9 as the authoritative collection manifest; Ch. 40 §40.2 cross-references this section for all ChromaDB collection count assertions.
+The April 1 inventory reveals the full architecture of the MSALLIS knowledge layer in one view. This manifest is the reference target for Gate 27: if the harness sees fewer than these 41 collections, the chapter is out of compliance. See Ch. 41 §41.9 as the authoritative collection manifest; Ch. 40 §40.2 cross-references this section for all ChromaDB collection count assertions.
 
 ### Core GBIM
 
