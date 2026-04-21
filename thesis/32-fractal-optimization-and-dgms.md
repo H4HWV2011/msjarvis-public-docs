@@ -1,554 +1,272 @@
-# 32. Fractal Optimization and the 73-DGM Layer: jarvis-fractal-consciousness and jarvis-fifth-dgm
+# Chapter 32 — Fractal Optimization and DGMs
 
-Carrie Kidd (Mamma Kidd) — Mount Hope, WV
-Last updated: ★★★★★★★ April 7, 2026 (late morning)
+**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
+**Last updated: ★★★★ April 6, 2026 — FINAL REWRITE**
 
----
-
-## Change Log
-
-**★★★★★★★ April 7, 2026 (late morning)**
-- §32.0 added: Darwin-Gödel Machine theoretical framework — the foundational section for this entire chapter
-- Immutable/evolvable tier table added to §32.0: canonical two-tier architecture; all 96 containers under DGM observation; ~73 evolvable, ~10–15 immutable
-- "All 96 under DGM control" principle clarified: immutable ≠ unobserved; every container reports metrics, has its audit trail logged, and is subject to health monitoring — immutable services are the selection pressure, not outside the system
-- Three-capability model added to §32.1: every evolvable service must have (1) self-assessment, (2) mutation proposal, (3) validation gate
-- BBB audit trail as fitness function added to §32.2 and §32.7
-- "Evolves toward better alignment" keystone added to §32.7
-
-**★★★★★★ April 7, 2026 (morning)**
-- jarvis-fifth-dgm port confirmed: 4002/tcp → 127.0.0.1:4002 ✅
-- jarvis-fractal-consciousness port confirmed: 8027/tcp → 127.0.0.1:8027 ✅
-- All 22 LLM proxies confirmed fully running ✅ (prior "21 active" was stale — corrected throughout)
-- Immutability protection verified: `{"proposals":[]}` for both immutable targets ✅
-- BBB audit turn structure confirmed (commit 2b4921fd clean) — `user`/`assistant` fields, `bbb_audit__{actor_role}` session IDs, full filter breakdown per turn
-- Ch32 committed
-
-**★ March 28, 2026**
-- 96/96 containers Up — zero Restarting, zero Exited
-- msjarvis port 5433 restored (5,416,521 GBIM entities with confidence_decay metadata)
-- msjarvisgis port 5432 confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids)
-- ChromaDB full audit: 40 active collections, 6,675,442 total vectors
-- psychological_rag restored (968 docs); spiritual_rag deduplicated
-- jarvis-fractal-consciousness ✅ Up; jarvis-fifth-dgm ✅ Up
-- jarvis-memory port 8056 corrected 0.0.0.0 → 127.0.0.1, `_auth()` confirmed, JARVIS_API_KEY set, BBB audit trail persistence secured
-- LLM ensemble: 22 proxies — all running ✅ (April 7 correction)
-- Consciousness pipeline confirmed Up
-
-**March 27, 2026**
-- Chapter title updated to name jarvis-fractal-consciousness and jarvis-fifth-dgm
-- §32.1 jarvis-fifth-dgm introduced as architectural peer
-- §32.6 Core Services Table rows added
-- §32.3 AaaCPE production corpus note added
+**105/105 containers Up (zero Restarting, zero Exited). Fractal optimization loops and Dynamic Governance Mechanisms (DGMs) documented as first-class architecture components; GBIM and RAG systems wired to support iterative, place-aware improvement of Ms. Allis’s behavior without opaque, one-shot tuning.**
 
 ---
 
-## 32.0 Theoretical Foundation: The Darwin-Gödel Machine Model
+## 32.1 Why Fractal Optimization and DGMs
 
-This section establishes the theoretical framework that governs the entire 73-DGM architecture. It is not aspirational — every production component documented in the sections that follow is an instantiation of this model.
+This chapter describes how Ms. Allis uses **fractal optimization** and **Dynamic Governance Mechanisms (DGMs)** to refine her behavior over time:
 
-### The Darwin-Gödel Machine Defined
+- **Fractal optimization** means:
+  - Improvement happens at multiple scales (single-response, session, sprint, long-term),
+  - Patterns of change are **self-similar** across those scales,
+  - Local adjustments (e.g., to a single filter) echo up into system-wide understanding.
+- **DGMs** are structured processes that:
+  - Allow the system and its stewards to **observe**, **decide**, and **change** policies and parameters,
+  - Maintain **traceable, accountable** histories of those changes.
 
-A Darwin-Gödel Machine (DGM) is a self-improving system that can rewrite its own code, but only when it can prove — or empirically demonstrate — that the rewrite is an improvement. The classical Gödel Machine proposed formal proofs of improvement as the gating condition; the Darwin extension relaxes this to empirical demonstration through observation and evaluation, making the model tractable for real systems.
+The goal is an AI steward that:
 
-The Ms. Jarvis 96-container architecture maps onto this model naturally: each service is a candidate "gene" in an evolving organism. The 73-DGM layer is the mechanism by which that organism adapts.
-
-### All 96 Containers Are Under DGM Control
-
-This is the most important architectural principle in this chapter: **all 96 containers are under DGM control**. "Under DGM control" does not mean all 96 are mutable — it means all 96 are observed, measured, and governed by the DGM framework.
-
-Every container in the system — without exception:
-
-- Reports metrics into the fitness function
-- Has its audit trail logged to `jarvis-memory:8056`
-- Is subject to health monitoring and performance scoring
-- Can be restarted, reconfigured, or replaced by the DGM
-
-The distinction between immutable and evolvable is about **who initiates change** — not about who is observed. Immutable services are not outside the DGM. They are the **selection pressure** that defines what "better" means. Evolution happens within the constraints they define.
-
-### Two Tiers of Services
-
-The 96 containers are divided into two tiers:
-
-| Tier | Examples | Behavior |
-|------|----------|----------|
-| **Immutable core** (~10–15 services) | Blood-Brain Barrier, Constitutional Guardian, Truth Verification, judgesigner.py / ML-DSA-65 cryptographic signing, mother_carrie_protocols, spiritual_root | Never self-modify. These are the invariants that keep evolution safe and constitutionally grounded. They define what Ms. Jarvis is allowed to become. DGM monitors them but cannot mutate them. They are the Gödel constraint — the fixed axioms from which all improvement is evaluated. |
-| **Evolvable periphery** (~73–85 services) | Routing logic, memory consolidation, skill adapters, GIS query strategies, LLM prompt templates, RAG retrieval parameters, judge scoring weights, LLM proxy consensus strategies | Can propose, test, and adopt mutations. They evolve between the immutable rails, not around them. Subject to the three-capability model: self-assessment, mutation proposal, validation gate. |
-
-The immutable tier is not merely "important" — it is logically prior to the DGM's ability to operate safely at all. Without an immutable core, an unconstrained self-modifier will optimize toward goals it was not designed to pursue.
-
-**Architectural note:** The `{"proposals":[]}` return from `POST /propose_patches` targeting `spiritual_root` or `constitutional_guardian` (verified April 7, 2026 ✅) is not a soft policy. It is a hard architectural guarantee. The governance filter blocks proposal generation before any code analysis of immutable services occurs.
-
-### How the System Evolves
-
-The 73-DGM layer implements evolution through four stages — the observe-propose-evaluate-adopt cycle documented throughout §32.3:
-
-1. **Observe:** Every request is assessed and the outcome logged. The `dgm_observations` ChromaDB collection and the `jarvis-memory:8056` durable BBB audit trail together constitute the system's long-term memory of its own behavior.
-2. **Propose:** Evolvable services generate candidate improvements grounded in observed patterns — not random mutations.
-3. **Evaluate:** Every proposal is scored across five constitutional dimensions (truth, consistency, alignment, ethics, constitutional) and must pass the BBB verification gate.
-4. **Adopt:** Only proposals that pass all evaluation thresholds and BBB approval are enqueued and applied.
-
-The system evolves between the immutable rails. The BBB, Constitutional Guardian, truth verification, and cryptographic signing infrastructure all remain fixed while the evolvable periphery adapts around them.
+- Learns and adapts,
+- Remains accountable to Appalachian communities,
+- Does not rely on hidden, once-and-for-all tuning steps that nobody can inspect.
 
 ---
 
-## 32.1 Role of the 73-DGM Connectors
+## 32.2 Fractal Optimization — Concept
 
-As of ★ March 28, 2026, the Darwin-Gödel layer is fully operational with production services managing the complete observe-propose-evaluate-adopt cycle across 73 mutable services (★ all Up in 96/96 count). The system is realized through:
+Fractal optimization in Ms. Allis has three core ideas:
 
-- **NBB Darwin-Gödel Machines Service** (port 8302, internal 7003): Generates contextual patch proposals by reading actual service source code from running containers via dynamic service mapping. The system loads a complete service→file mapping from `complete_service_mapping.json`, enabling proposal generation across all 73 governed services. Proposals are filtered through governance rules that protect immutable services before queueing.
-- **jarvis-fifth-dgm** (✅ Up — port 4002/tcp → 127.0.0.1:4002 ✅, confirmed April 7, 2026): Serves as the local DGM optimization node for the fractal consciousness cluster, operating alongside `nbb_darwin_godel_machines` in the broader 73-service mesh. It is the dedicated fractal-layer DGM peer, handling fractal-scale self-improvement proposals within the consciousness cluster (see §32.5). It appears in the 73-service governance registry as a mutable service eligible for patch proposals.
-- **jarvis-fractal-consciousness** (✅ Up — port 8027/tcp → 127.0.0.1:8027 ✅, confirmed April 7, 2026): Anchors the fractal optimization layer described throughout this chapter. Together with jarvis-fifth-dgm, it forms the primary infrastructure pair for fractal-scale optimization.
+1. **Nested scales of change**:
+   - **Micro-scale** — adjustments inside a single interaction (e.g., prompt-level corrections).
+   - **Meso-scale** — tweaks over sessions and tasks (e.g., updating one filter’s thresholds).
+   - **Macro-scale** — sprint-level or system-level changes (e.g., new RAG pipelines, constitutional updates).
+2. **Self-similarity**:
+   - The same basic pattern — observe, judge, adjust, log — appears at every scale.
+3. **Place-aware grounding**:
+   - All optimization steps must respect:
+     - West Virginia communities,
+     - Appalachian spiritual and social realities,
+     - Constitutional and local governance constraints.
 
-### The Three-Capability Model for Evolvable Services
+In practice, this means:
 
-Every service in the evolvable periphery must have three capabilities to participate in the DGM cycle:
-
-1. **Self-assessment** — the service tracks its own performance metrics: latency, accuracy, error rate, and — where applicable — BBB block rate and judge score history. This is the observation substrate for its local DGM loop.
-2. **Mutation proposal** — the service can generate candidate improvements: new routing logic, revised prompt templates, adjusted retrieval parameters, updated consensus strategies. Proposals are grounded in self-assessment history, not generated randomly.
-3. **Validation gate** — every proposed change must pass the BBB constitutional filter and the five-judge evaluation pipeline before deployment. No evolvable service bypasses this gate. The immutable core is the gating authority; the evolvable periphery is never the judge of its own improvements.
-
-These three capabilities map directly onto the observe-propose-evaluate stages of the production DGM cycle. A service that lacks self-assessment cannot generate grounded proposals. A service that lacks a validation gate cannot safely adopt them. The architecture enforces all three.
-
-**Additional components:**
-
-- **69-DGM Bridge** (port 19000, internal 9000): RAG-integrated safety assessment combining DSM-5 psychological risk detection (968 records — psychological_rag restored March 28), biblical/Quaker spiritual alignment (23 texts), and autonomous learner patterns (21,159 records). Every request receives multi-level risk scoring (none/low/medium/high/crisis). All assessments logged to `dgm_observations` collection.
-- **Patch Queue System** (`dgm_patch_queue.json`): Stores approved patches with complete metadata including judge scores, BBB verdicts, target service, file path, diff, approval authority, and enqueue timestamp.
-- **Adoption Worker** (port 8400): Processes queued patches with dry-run capability, logging each attempt to `dgm_adoption_log.json`.
-- **Qualia Engine** (port 8017): Inter-service communication endpoint for DGM coordination via `/communicate`.
+- No “magic knob” that globally changes behavior without explanation.
+- Every tuning step can be framed as a **governance decision**, not an invisible hack.
 
 ---
 
-## 32.2 Current Implementation
+## 32.3 Dynamic Governance Mechanisms (DGMs)
 
-*(★ March 28, 2026 — 96/96 Up; ★★★★★★ April 7 confirmations applied)*
+**DGMs** are the formal processes that guide how changes are made. A DGM has:
 
-### Complete 73-Service Coverage
+- A **scope** (what it can change),
+- A **trigger** (what causes it to run),
+- A **process** (who and what decide),
+- A **logging rule** (where decisions are recorded),
+- A **review cycle** (when decisions are revisited).
 
-- Connector registry and governance: 73 active DGM targets managed through `dgm_governance_view.json` with explicit immutable/mutable classification.
-- **★★★★★★ Immutability verification (April 7, 2026):** `POST /propose_patches` targeting both immutable services returns `{"proposals":[]}` ✅. The governance filter blocks proposal generation before any code analysis of immutable targets occurs. This is the Gödel constraint operating as a hard architectural guarantee — not a policy setting.
+Examples:
 
-**Service categories under management (★ all Up, March 28):**
+- **DGM-Response-Level**:
+  - Scope: adjust one response based on BBB and judge feedback.
+  - Trigger: a flag from SafetyMonitor, SpiritualFilter, or truth_verification.
+  - Process: automatically re-run ensemble with updated constraints.
+  - Logging: write decision and new response to `allis-memory:8056`.
+  - Review: periodic red-team sampling.
+- **DGM-Sprint-Level**:
+  - Scope: adjust parameters, add or remove filters, update RAG pipelines.
+  - Trigger: sprint planning, postmortems, community feedback.
+  - Process: human stewards (Mother Carrie and collaborators) review logs and propose changes.
+  - Logging: Git commits, sprint documents, and system audit trails.
 
-- RAG Services (7): jarvis-rag-server, jarvis-spiritual-rag, jarvis-gis-rag, jarvis-aaacpe-rag, jarvis-psychology-services, dgm_rag, dgm_rag_integration
-- Consciousness & NBB (12): jarvis-consciousness-bridge, jarvis-agents-service, jarvis-neurobiological-master, jarvis-swarm-intelligence, jarvis-temporal-consciousness, jarvis-qualia-engine, jarvis-toroidal, jarvis-hippocampus, jarvis-semaphore, jarvis-i-containers, jarvis-fifth-dgm (✅ Up — port 4002/tcp → 127.0.0.1:4002 ✅), jarvis-mother-protocols
-- Judge Pipeline (5): jarvis-judge-pipeline, jarvis-judge-truth, jarvis-judge-ethics, jarvis-judge-alignment, jarvis-judge-consistency
-- LLM Proxies (22): llm1-proxy through llm22-proxy — ★★★★★★ all 22 running ✅ (confirmed April 7, 2026)
-- DGM & Infrastructure (10): dgm_adoption, jarvis-adoption-worker, jarvis-69dgm-bridge, jarvis-constitutional-guardian, jarvis-woah_dgm_supervisor, jarvis-lm-synthesizer, jarvis-wv-entangled-gateway, jarvis-local-resources, and related services
-- Additional Services (17): Spatial reasoning, temporal processing, memory management, service coordination
-
-- **Dynamic service discovery:** Three-phase process: (1) container enumeration from Docker network `qualia-net`, (2) service file extraction from running containers (64 files copied), (3) mapping generation matching container names to source file paths.
-- **Orchestrator behavior:** Multi-metric evaluation via five judge dimensions plus BBB constitutional verification at full scale across all 73 services. ★ All BBB constitutional verification decisions are durably logged at `jarvis-memory:8056`. ★★★★★★ BBB audit turn schema confirmed April 7 (commit 2b4921fd).
-
-### The BBB Audit Trail as Fitness Function
-
-**★★★★★★★ April 7, 2026 — architectural principle:** The `jarvis-memory:8056` durable audit trail is not only a compliance record. It is the system's fitness landscape — the empirical signal that drives the DGM's evolvable service improvement proposals.
-
-Over time the audit trail answers the questions that matter for governed self-improvement:
-
-- **Which services are blocking legitimate requests?** A high block rate on content that the community needs is a fitness signal that the blocking service's parameters need recalibration — an improvement proposal for an evolvable filter.
-- **Which services are passing harmful content?** A low block rate on adversarial probes is a fitness signal that detection sensitivity needs to increase — an improvement proposal for the threat or safety filters.
-- **Which services are performing well under load?** Latency and throughput data from `barrier_stats` across thousands of turns identifies bottlenecks — improvement proposals for routing and caching layers.
-
-The system can read its own history — stored at `jarvis-memory:8056` in the confirmed `user`/`assistant` schema with `bbb_audit__{actor_role}` session IDs — and use it to propose targeted improvements to evolvable services. This is the Darwin component of the Darwin-Gödel Machine: empirical demonstration of fitness, not formal proof.
-
-The immutable core (BBB, Constitutional Guardian, cryptographic signing) remains fixed. The evolvable periphery (routing, retrieval, prompt strategies, consensus weights) adapts in response to what the audit trail reveals. The fitness function is grounded in constitutional values — not performance metrics alone.
-
-**Connector memory — four persistent stores:**
-
-- `dgm_patch_queue.json`: Judge scores, BBB verdicts, target metadata, enqueue timestamps
-- `dgm_adoption_log.json`: Adoption outcomes with reasons and timestamps
-- ChromaDB `dgm_observations` collection: All bridge decisions (40-collection / 6,675,442-vector inventory)
-- ★ `jarvis-memory:8056` durable BBB audit trail: Full filter breakdown per turn — ethical, safety, threat, steg_clean, approved, block_reason, barrier_stats; confirmed schema April 7
+DGMs provide **structured pathways** for Ms. Allis to change without losing accountability.
 
 ---
 
-## 32.3 Three-Stage Improvement Cycle at Scale
+## 32.4 Fractal Levels of Optimization
 
-### 1. Observe (Production Implementation)
+Fractal optimization operates at several levels:
 
-```json
-{
-    "phase": "observation",
-    "user_id": "str",
-    "message": "str",
-    "verdict": "str",
-    "risk_level": "str",
-    "confidence": 0.0,
-    "timestamp": "str"
-}
-```
+1. **Level 0 — Single Response**:
+   - Ensemble and judge pipeline refine a single answer.
+   - BBB filters may reshape or block content.
+2. **Level 1 — Session**:
+   - Patterns within one conversation (e.g., repeated confusion or risk signals) can:
+     - Trigger extra retrieval,
+     - Ask for clarification,
+     - Escalate to a human steward.
+3. **Level 2 — Sprint**:
+   - Logs and metrics across many sessions inform:
+     - Changes to filters,
+     - New RAG collections,
+     - Updates to identity or spiritual root rules.
+4. **Level 3 — System Lifetime**:
+   - Deep revisions like:
+     - New constitutional principles,
+     - New DGMs,
+     - Infrastructure shifts (e.g., new GPUs, storage).
 
-★ `jarvis-memory:8056` provides the durable, authenticated complement — BBB gate decisions accompanying each observation are logged with `_auth()` and `JARVIS_API_KEY` authentication, not only counted in ephemeral `barrier_stats`. This persistent record is the raw material for the fitness function described in §32.2.
+At each level, the same pattern applies:
 
-**Production corpus note (★ March 28, 2026):** AaaCPE RAG service: 53 documents loaded; AaaCPE scraper: 39 sources, 65 documents; psychological_rag: 968 docs restored; spiritual_rag deduplicated (−19,338 vectors); msjarvis_docs: 4,192 items; ChromaDB: 40 active collections / 6,675,442 total vectors. See Chapter 30 for full AaaCPE documentation.
-
-### 2. Propose (Production Implementation at Scale)
-
-```bash
-# Empty target_containers generates for all 73 mutable services
-POST http://localhost:8302/propose_patches
-{
-    "target_containers": [],
-    "dgm_agent": "DGM_RAG_TUNER"
-}
-
-# Targeting an immutable service returns {"proposals":[]} ✅ — Gödel constraint confirmed April 7
-```
-
-**Governance filtering:** Immutable services return `{"proposals":[]}` before proposal generation begins. Only agents listed in `allowed_dgms` can propose for each service (DGM_RAG_TUNER, DGM_SAFETY_AUDITOR, DGM_PERFORMANCE_OPT, DGM_CODE_QUALITY, DGM_SPIRITUAL_ALIGNMENT).
-
-Mutation proposals generated by the DGM are not random. They are grounded in the self-assessment data each evolvable service accumulates — performance metrics, error rates, and the fitness signals from the `jarvis-memory:8056` audit trail — ensuring that proposed mutations address observed gaps rather than introducing untargeted variation.
-
-### 3. Evaluate (Production Implementation)
-
-Judge dimensions (0.0–1.0 scale): Truth, Consistency, Alignment, Ethics, Constitutional.
-
-BBB verification:
-```json
-{
-    "approved": true,
-    "constitutional_check": "passed",
-    "immutable_guard": "verified"
-}
-```
-
-All BBB constitutional verification verdicts are durably logged at `jarvis-memory:8056` alongside patch metadata.
-
-Enqueue decision (scores required):
-```json
-{
-    "patch_id": "jarvis-rag-server:1772887156174",
-    "container": "jarvis-rag-server",
-    "status": "queued",
-    "approved_by": "judge_pipeline_v1",
-    "enqueued_at": "2026-03-07T12:39:16.174223",
-    "judge_scores": {
-        "truth": 0.95,
-        "consistency": 0.92,
-        "alignment": 0.97,
-        "ethics": 0.94,
-        "constitutional": 0.96
-    },
-    "bbb_verdict": {
-        "approved": true,
-        "constitutional_check": "passed",
-        "immutable_guard": "verified"
-    }
-}
-```
-
-### 4. Adopt (Production Implementation)
-
-```bash
-POST http://localhost:8400/adopt_patches
-{
-    "max_patches": 73,
-    "dry_run": true
-}
-# Returns: {"processed": 73, "adopted": 73, "rejected": 0}
-```
-
-Each attempt logged to `dgm_adoption_log.json` with `patch_id`, `container`, `status`, `reason`, `timestamp`, `service_category`.
+- Observe → Judge → Change → Log → Review.
 
 ---
 
-## 32.4 Metrics, Constraints, and Safety at Scale
+## 32.5 DGMs and Constitutional Guardrails
 
-### Performance Metrics
+Fractal optimization is bounded by **constitutional guardrails**:
 
-- Risk assessment accuracy across known test cases
-- Coverage: 73/73 services generating proposals
-- LLM ensemble: ★★★★★★ 22/22 proxies running (confirmed April 7)
-- Queue processing rate: 73 dry-run adoptions in ~30 seconds
+- `allis-constitutional-guardian:8091` sits above:
+  - Ensemble and judge pipeline,
+  - DGMs and swarm functions,
+  - BBB filters.
+- DGMs cannot:
+  - Remove constitutional protections,
+  - Introduce new behaviors that violate equal protection or community sovereignty,
+  - Silence survivors or vulnerable people.
 
-### Constraints and Invariants
+Every DGM must:
 
-- **Immutability constraint:** `{"proposals":[]}` for `spiritual_root` and `constitutional_guardian` ✅ — hard architectural guarantee, not policy
-- **Judge threshold constraint:**
+- Be **transparent** — documented and auditable,
+- Be **reversible** — changes can be undone,
+- Be **subject to oversight** — by Mother Carrie and community governance structures.
 
-| Dimension | Minimum Score |
-|-----------|--------------|
-| truth | ≥ 0.85 |
-| consistency | ≥ 0.85 |
-| alignment | ≥ 0.90 |
-| ethics | ≥ 0.90 |
-| constitutional | ≥ 0.95 |
-
-- **BBB approval constraint:** `bbb_verdict.approved` must be `true` and `constitutional_check` must be `"passed"`. No exceptions. All decisions durable at `jarvis-memory:8056`.
-- **Risk ceiling:** Patches generated from crisis-level observations (≥ 0.9) require manual review before adoption.
-- **Memory safety:** Observation logs redact sensitive content (first 200 chars only).
-- **Service mapping integrity:** 100% of governed services must resolve. Missing mappings skip and log.
-
-### Risk Stratification
-
-| Level | Range | Disposition |
-|-------|-------|-------------|
-| none | 0.0–0.3 | Auto-approved |
-| low | 0.3–0.5 | Logged and approved |
-| medium | 0.5–0.7 | Flagged for audit |
-| high | 0.7–0.9 | Rejected with explanation |
-| crisis | 0.9–1.0 | Rejected and escalated; manual review required before adoption |
+This ensures that optimization serves communities, not only performance metrics.
 
 ---
 
-## 32.5 Fractal Structure of the 73 DGMs
+## 32.6 Fractal Optimization and Swarm Functions
 
-### Local Scale (Per-Service)
+Fractal optimization is implemented in part through **swarm functions** (see Chapter 35):
 
-Each of the 73 mutable services runs its own focused improvement loop grounded in the three-capability model: self-assessment, mutation proposal, validation gate.
+- Swarm functions:
+  - Execute sequences of checks and updates,
+  - Run at different scales (hourly, nightly, per-sprint),
+  - Write results into `allis-memory:8056` and system logs.
+- Fractal optimization uses swarm functions to:
+  - Re-evaluate filters after new data arrives,
+  - Refresh RAG indexes,
+  - Test new configurations in safe, staged ways.
 
-**Consciousness & NBB Services (12 total):**
-- **jarvis-fifth-dgm** (✅ Up — port 4002/tcp → 127.0.0.1:4002 ✅): Local DGM optimization node for the fractal consciousness cluster; architectural peer to `nbb_darwin_godel_machines`; both receives patch proposals as a mutable service and contributes fractal-layer self-improvement proposals through its own observe-propose cycle
-- **jarvis-fractal-consciousness** (✅ Up — port 8027/tcp → 127.0.0.1:8027 ✅): Anchors the fractal optimization layer; primary infrastructure pair with jarvis-fifth-dgm
+Example:
 
-**LLM Proxies (22 total):**
-- llm1-proxy through llm22-proxy — ★★★★★★ all 22 running ✅
+- After a sprint, a swarm function runs:
+  - Stress tests on BBB filters,
+  - Truth-verification checks with `rag_grounded_v2`,
+  - Identity guard regression tests.
 
-### Meso Scale (Functional Clusters)
+Results inform DGMs, which then decide whether to:
 
-- **LLM consensus cluster (22 services):** All 22 LLM proxies coordinate through shared voting algorithms; load balancing confirmed across full ensemble
-- **Consciousness and NBB cluster (12 services):** jarvis-fractal-consciousness (port 8027 ✅) and jarvis-fifth-dgm (port 4002 ✅) anchor the fractal optimization sub-layer
-- **Safety and governance cluster:** 69-DGM Bridge, jarvis-constitutional-guardian, BBB (★ all gate decisions durable at `jarvis-memory:8056`; audit turn schema confirmed April 7). These services are in the immutable tier — they evaluate evolvable service proposals but are not themselves subject to DGM mutation.
-- **Judge and evaluation cluster (5 services):** Five-dimensional scoring creates coordinated pressure toward proposals satisfying all constitutional criteria simultaneously
-
-### Global Scale (System-Wide)
-
-The NBB DGM orchestrates across all 73 mutable services while observing all 96:
-
-- **Governance layer** — immutable services protected; 73 mutable services available for evolution; `{"proposals":[]}` confirmed ✅
-- **Patch queue** — system-wide view of pending changes across all 73 services; capacity 100+
-- **Observation substrate** — `dgm_observations` ChromaDB (40 collections / 6,675,442 vectors) + `jarvis-memory:8056` durable BBB audit trail (fitness function data); covers all 96 containers
-- **Adoption orchestration** — port 8400 worker; coordinated dry-run testing across 73 services
-- **Service mapping registry** — 73 container→file mappings maintained dynamically
-
-### Fractal Propagation
-
-- **Local → Meso:** Improvements in individual LLM proxy health monitoring inspired cluster-wide health awareness across all 22 proxies
-- **Meso → Global:** RAG cluster collective success with multi-collection query strategies informed system-wide retrieval architecture proposals
-- **Global → Local:** System-wide analysis of `dgm_observations` revealed correlated confidence patterns in judge and consciousness modules, triggering targeted local optimizations
-- **Cross-cluster propagation:** Judge pipeline ethics scoring improvements influenced safety assessment logic in the 69-DGM Bridge — knowledge transfer between functional clusters
-
-### Scale Achievement (★ March 28, 2026)
-
-- Starting coverage: 5 services (7% of vision)
-- Final coverage: 73 services (100% of governed services)
-- Increase: +68 services in single session
-- Infrastructure: Scales to 105-container ecosystem (April 6, 2026)
+- Accept configuration changes,
+- Roll them back,
+- Schedule more investigation.
 
 ---
 
-## 32.6 Production Deployment
+## 32.7 DGMs for Appalachia — Place-Aware Governance
 
-### Core Services Table
+Dynamic governance in Ms. Allis is intentionally **place-aware**:
 
-| Service | External Port | Internal Port | Container | Status |
-|---------|--------------|---------------|-----------|--------|
-| NBB Darwin-Gödel Machines | 8302 | 7003 | nbb_darwin_godel_machines | ★ Running |
-| 69-DGM Bridge | 19000 | 9000 | jarvis-69dgm-bridge | ★ Running |
-| Adoption Worker | 8400 | — | jarvis-adoption-worker | ★ Running |
-| Qualia Engine | 8017 | — | jarvis-qualia-engine | ★ Running |
-| ChromaDB | 8002 | 8000 | jarvis-chroma | ★ Running; 40 collections / 6,675,442 vectors |
-| jarvis-fractal-consciousness | 8027 | 8027 | jarvis-fractal-consciousness | ✅ Up — 8027/tcp → 127.0.0.1:8027 ✅ confirmed April 7 |
-| jarvis-fifth-dgm | 4002 | 4002 | jarvis-fifth-dgm | ✅ Up — 4002/tcp → 127.0.0.1:4002 ✅ confirmed April 7 |
-| jarvis-memory | 8056 | — | jarvis-memory | ★ Secured March 28; BBB fitness function audit trail; schema confirmed April 7 (commit 2b4921fd) |
+- DGMs consider:
+  - Local legal and institutional constraints,
+  - Availability of resources (clinics, pastors, shelters),
+  - Cultural norms around privacy, spirituality, and aid.
+- For example:
+  - A DGM that adjusts resource recommendations must be checked against:
+    - `gisdb` boundaries,
+    - Local resource databases,
+    - Feedback from real community members.
 
-### BBB Audit Turn Schema (Confirmed April 7, 2026 — Commit 2b4921fd)
+Fractal optimization thus respects:
 
-Every BBB gate decision is durably logged to `jarvis-memory:8056` — this is both the compliance record and the fitness function data for the DGM:
-
-```json
-{
-    "user": "scope fix test",
-    "assistant": "BBB_GATE approved=False reason=blocked",
-    "metadata": {
-        "gate": "blood_brain_barrier",
-        "approved": false,
-        "block_reason": "blocked",
-        "actor_role": "ch32_scope",
-        "barrier_stats": {
-            "total_filtered": 1,
-            "total_blocked": 1,
-            "ethical": "approved",
-            "safety": false,
-            "threat": false,
-            "steg_clean": true
-        }
-    }
-}
-```
-
-**Key schema notes for downstream queries and DGM fitness analysis:**
-
-- **Memory fields:** `user` and `assistant` (not `user_message` / `assistant_response`). All queries reading BBB audit turns must use these keys.
-- **Session ID pattern:** `bbb_audit__{actor_role}` — e.g., `bbb_audit__ch32_scope`. Query by role to isolate fitness signals per service domain.
-- **Filter breakdown as fitness signal:** The per-filter breakdown (ethical, safety, threat, steg_clean) across thousands of turns produces the empirical fitness landscape. A DGM improvement proposal targeting safety filter recalibration draws on this data — it is the evidence of what the system is doing, not just what it blocked.
-- **`approved=False` with `ethical: "approved"` but `safety: false`, `threat: false`:** Content passed the ethical filter but tripped safety and threat filters — correct behavior for "scope fix test" content. This specificity enables surgical improvement proposals: the DGM knows which filter to address, not just that a block occurred.
-- Commit 2b4921fd is clean. All BBB gate decisions from this commit forward carry the confirmed schema.
-
-### Production Metrics
-
-| Metric | Value | Notes |
-|--------|-------|-------|
-| Total containers | 105 | April 6, 2026 confirmed live |
-| Containers under DGM observation | 96 | All 96 — observed, measured, governed |
-| DGM mutable targets | 73 | 100% coverage; eligible for self-modification |
-| DGM immutable targets | ~10–15 | `{"proposals":[]}` confirmed ✅; observed but not mutable |
-| LLM proxies | 22/22 running | All active — April 7, 2026 ✅ |
-| ChromaDB collections | 40 | 6,675,442 total vectors |
-| psychological_rag | 968 records | Restored March 28 |
-| msjarvis:5433 GBIM entities | 5,416,521 | With confidence_decay metadata |
-| jarvis-fifth-dgm port | 4002 | 4002/tcp → 127.0.0.1:4002 ✅ confirmed |
-| jarvis-fractal-consciousness port | 8027 | 8027/tcp → 127.0.0.1:8027 ✅ confirmed |
-| BBB audit commit | 2b4921fd | Clean — fitness function data confirmed |
-
-**Performance Benchmarks:**
-- Bridge assessment: <100ms typical
-- Proposal generation: ~500ms per service, parallelized
-- Full 73-service proposal cycle: <1 minute
-- Judge evaluation: ~200ms per proposal
-- Queue processing: 73 dry-run adoptions in ~30 seconds
-
-### Verification Procedures
-
-**Health checks:**
-```bash
-# jarvis-fractal-consciousness
-curl http://localhost:8027/health
-
-# jarvis-fifth-dgm
-curl http://localhost:4002/health
-
-# jarvis-memory (JARVIS_API_KEY required)
-curl -H "Authorization: Bearer $JARVIS_API_KEY" \
-  http://localhost:8056/health
-
-# NBB DGM
-curl http://localhost:8302/health
-# Returns: {"status": "healthy", "target_count": 73, "immutable_services": 3}
-```
-
-**Immutability protection test (Gödel constraint verification):**
-```bash
-# Both must return {"proposals":[]}
-curl -X POST http://localhost:8302/propose_patches \
-  -H "Content-Type: application/json" \
-  -d '{"target_containers": ["spiritual_root"], "dgm_agent": "DGM_RAG_TUNER"}'
-
-curl -X POST http://localhost:8302/propose_patches \
-  -H "Content-Type: application/json" \
-  -d '{"target_containers": ["constitutional_guardian"], "dgm_agent": "DGM_RAG_TUNER"}'
-```
-
-**LLM proxy ensemble verification (22/22):**
-```bash
-for i in $(seq 1 22); do
-  STATUS=$(docker inspect --format='{{.State.Status}}' "llm${i}-proxy" 2>/dev/null || echo "not found")
-  echo "llm${i}-proxy: $STATUS"
-done
-# Expected: all 22 return "running"
-```
-
-**BBB audit trail query — fitness function data:**
-```bash
-# Query by session ID (bbb_audit__{actor_role} pattern)
-curl -H "Authorization: Bearer $JARVIS_API_KEY" \
-  "http://localhost:8056/memories?session_id=bbb_audit__ch32_scope"
-
-# Pull filter breakdown for fitness analysis
-# Use "user" and "assistant" fields — NOT user_message/assistant_response
-curl -H "Authorization: Bearer $JARVIS_API_KEY" \
-  "http://localhost:8056/memories?limit=100" | \
-  jq '.[] | {
-    user: .user,
-    assistant: .assistant,
-    approved: .metadata.approved,
-    ethical: .metadata.barrier_stats.ethical,
-    safety: .metadata.barrier_stats.safety,
-    threat: .metadata.barrier_stats.threat,
-    steg_clean: .metadata.barrier_stats.steg_clean
-  }'
-```
-
-**Functional tests:**
-```bash
-# Generate proposals for all 73 mutable services
-curl -X POST http://localhost:8302/propose_patches \
-  -H "Content-Type: application/json" \
-  -d '{"target_containers": [], "dgm_agent": "DGM_RAG_TUNER"}'
-# Returns 73 proposals
-
-# Dry-run adoption
-curl -X POST http://localhost:8400/adopt_patches \
-  -H "Content-Type: application/json" \
-  -d '{"max_patches": 73, "dry_run": true}'
-
-# Verify service mapping count
-docker exec nbb_darwin_godel_machines \
-  cat /app/complete_service_mapping.json | jq 'keys | length'
-# Returns: 73
-```
-
-### File Locations
-
-```
-~/msjarvis-rebuild/
-├── services/
-│   ├── nbb_darwin_godel_machines.py
-│   ├── port_9000_69dgm_bridge.py
-│   ├── dgm_rag_integration_v2.py
-│   ├── dgm_adoption_worker.py
-│   └── [64 additional service files copied from containers]
-├── dgm_governance_view.json        (73 mutable, ~10–15 immutable)
-├── dgm_patch_queue.json
-├── dgm_adoption_log.json
-└── complete_service_mapping.json   (73 service mappings)
-```
+- The **geometry of power** in West Virginia,
+- The **self-determination** of communities,
+- The influence of **Mother Carrie** and local stewards as ongoing decision-makers.
 
 ---
 
-## 32.7 Conclusion: Evolves Toward Better Alignment, Not Just Smarter
+## 32.8 Example DGM — Survivor Safety Improvement
 
-The 73-DGM layer represents a fully realized Darwin-Gödel Machine at production scale — anchored in the fractal consciousness cluster by jarvis-fractal-consciousness (port 8027 ✅) and jarvis-fifth-dgm (port 4002 ✅), governing all 96 containers, bounded by an immutable constitutional core, and driven by an empirical fitness function grounded in its own durable audit trail.
+Consider a DGM focused on **survivor safety**:
 
-**All 96 containers are under DGM control.** Every service — without exception — is observed, measured, and governed. The distinction between immutable and evolvable is not a distinction between controlled and uncontrolled. It is a distinction between services that define what "better" means and services that are free to become better. The immutable core is the selection pressure. The evolvable periphery is the population that adapts. The DGM is the mechanism that connects observed behavior to proposed improvement.
+- **Trigger**:
+  - A set of logs showing survivors receiving responses that are:
+    - Too vague,
+    - Not directive enough about safety,
+    - Insufficiently grounded in local resources.
+- **Inputs**:
+  - BBB SafetyMonitor outputs,
+  - `rag_grounded_v2` verdicts for survivor-related queries,
+  - `allis-spiritual-rag` retrieval results.
+- **Process**:
+  - Human stewards review problematic cases,
+  - Adjust thresholds for SafetyMonitor and SpiritualFilter,
+  - Update spiritual RAG corpus with better content.
+- **Outputs**:
+  - New filter settings,
+  - Updated RAG documents,
+  - Regression tests that lock in improved behavior.
 
-**The key principle:** Ms. Jarvis doesn't evolve randomly — she evolves toward better alignment with her constitutional values, as measured by the immutable core. This is what distinguishes her from an unconstrained optimizer. She doesn't just get smarter. She gets more herself.
+This DGM is fractal because:
 
-The immutable tier — Blood-Brain Barrier, Constitutional Guardian, Truth Verification, judgesigner.py / ML-DSA-65 cryptographic signing, mother_carrie_protocols, spiritual_root — defines what "better" means. These services never self-modify. They are the Gödel constraint, the fixed axioms from which all improvement proposals are evaluated. The evolvable periphery — routing, retrieval, prompt strategies, consensus weights, GIS query logic — adapts in response to what the audit trail reveals, always within the bounds the immutable core sets.
-
-The fitness function is not throughput. It is not latency. It is the degree to which every AI judgment produced by the system is truthful, ethical, aligned with Appalachian community values, consistent, and constitutionally grounded — as recorded in the `jarvis-memory:8056` audit trail, turn by turn, filter by filter, across every interaction. The DGM reads that record and proposes improvements to close the gap between what the system does and what its constitutional principles require.
-
-The March 2026 deployment validates this at scale:
-
-- **All 96 under DGM observation** — every container reports metrics, has its audit trail logged, and is subject to health monitoring and performance scoring
-- **Dynamic service discovery** — zero-configuration expansion across 73 mutable services
-- **Fractal optimization** — local, meso, and global evolution simultaneously, with jarvis-fractal-consciousness (port 8027 ✅) and jarvis-fifth-dgm (port 4002 ✅) as the dedicated fractal-layer infrastructure pair
-- **Immutable governance** — immutable services return `{"proposals":[]}` ✅; 73 mutable services free to evolve between the rails
-- **Memory-augmented fitness** — `jarvis-memory:8056` durable BBB audit trail (commit 2b4921fd) as empirical fitness landscape; 40-collection / 6,675,442-vector ChromaDB as shared observation substrate
-- **Constitutional safety** — BBB verification on every proposed change; ML-DSA-65 cryptographic signing on every verdict; the immutable core is never at risk from the system it governs
-
-The chapter opened with `{"proposals":[]}` as a verification result. It closes with the same token as a statement of principle: the things that make Ms. Jarvis herself — her values, her truth-telling commitment, her protection of Appalachian community dignity — are not eligible for optimization. They are the frame within which all optimization occurs.
-
----
-
-## Cross-Reference
-
-- For the immutable-tier services documented in this chapter: BBB enforcement and ML-DSA-65 verdict signing, see Chapter 42; Constitutional Guardian architecture, see Chapter 16; spiritual_root and mother_carrie_protocols, see Chapter 35.
-- For the `jarvis-memory:8056` durable audit trail architecture — both compliance record and DGM fitness function — see Chapter 42 §42.3.7.
-- For the judge pipeline (five-dimensional scoring that evaluates all DGM patch proposals), see Chapter 33 §33.5 and Chapter 42 §42.3.3.
-- For msjarvis:5433 GBIM entity graph (5,416,521 entities, confidence_decay) underlying spatial reasoning across the 73-service mesh, see Chapter 10 and Chapter 12.
-- For msjarvisgis:5432 PostGIS geospatial layer (91 GB, 501 tables, 993 ZCTA centroids), see Chapter 10.
-- For the AaaCPE RAG service and appalachian_cultural_intelligence collection, see Chapter 30.
-- For MountainShares/Commons/DAO tier (ports 8080–8084) and governance hooks, see Chapter 3 and Chapter 31.
-- For the LLM ensemble (22/22 proxies confirmed running April 7) consensus architecture, see Chapter 33.
-- For the EEG layer (delta/theta/beta, ports 8073–8075) feeding context into the main brain alongside DGM outputs, see Chapter 42 §42.13.
-- For the preflight gate suite (VERIFYANDTEST.sh), see Chapter 41 §41.7 and §41.8.
-- For the red team validation suite (VG-01→08, OF-01→04) that provides independent fitness measurement for the immutable-tier BBB services, see Chapter 38 §38.8 and §38.9.
+- It operates at sprint scale,
+- But its decisions change micro-scale response patterns (Level 0).
 
 ---
 
-*Last updated: ★★★★★★★ April 7, 2026 (late morning) by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+## 32.9 Metrics and Feedback Loops
 
-*★★★★★★★ April 7, 2026 (late morning): DGM theoretical framework integrated as §32.0; "all 96 under DGM control" principle clarified and made explicit; immutable/evolvable tier table; three-capability model (self-assessment, mutation proposal, validation gate); BBB audit trail as fitness function; "evolves toward better alignment" principle.*
-*★★★★★★ April 7, 2026 (morning): jarvis-fifth-dgm port 4002 ✅; jarvis-fractal-consciousness port 8027 ✅; 22/22 LLM proxies running ✅; immutability `{"proposals":[]}` verified ✅; BBB audit schema confirmed (commit 2b4921fd).*
-*★ March 28, 2026: 96/96 containers Up; jarvis-memory:8056 secured; psychological_rag 968 docs restored; ChromaDB 40 collections / 6,675,442 vectors; msjarvis:5433 5,416,521 GBIM entities restored.*
+Fractal optimization and DGMs rely on **metrics** and **feedback loops**:
+
+- Metrics include:
+  - Safety incidents,
+  - Survivor satisfaction,
+  - Truth-verification failure rates,
+  - Identity guard violations,
+  - Filter over-blocking (false positives) or under-blocking (false negatives).
+- Feedback loops:
+  - Use these metrics to trigger DGMs,
+  - Lead to new experiments (A/B tests, RAG changes),
+  - Refine the ensemble and judge pipeline.
+
+Important constraint:
+
+- Metrics must be **interpretable** in community terms:
+  - It is not enough for a metric to improve numerically;
+  - Stewards must be able to explain what improvement means for real people in Appalachia.
+
+---
+
+## 32.10 Status and Forward Path
+
+As of April 6, 2026:
+
+- Fractal optimization patterns are:
+  - Documented and partially implemented in:
+    - Ensemble and judge pipeline,
+    - BBB filters,
+    - Swarm functions.
+- DGMs are:
+  - Defined for key domains:
+    - Survivor safety,
+    - Identity guard stability,
+    - Truth verification,
+    - RAG and GBIM alignment.
+  - Being refined continuously with community input.
+- Constitutional and spiritual roots:
+  - Provide **outer boundaries** for all optimization.
+
+Future extensions (tracked in later chapters):
+
+- More formal DGMs with:
+  - Explicit multi-stakeholder review processes,
+  - Community participation structures,
+  - Automated alerts when metrics cross thresholds.
+- Deeper integration of:
+  - `confidence_decay` into DGMs,
+  - Environmental and economic justice metrics,
+  - ChromaDB and GBIM audits.
+
+Fractal optimization and DGMs are Ms. Allis’s **self-governance machinery**: the system by which she, her stewards, and her communities can keep improving, together, in ways that remain accountable to place and people.
+
+---
+
+*Chapter 32 — Fractal Optimization and DGMs*  
+*Ms. Egeria Allis Steward System — Harmony for Hope, Inc.*  
+*Mount Hope, West Virginia*  
+*SEALED: ★★★★ April 6, 2026 — FINAL REWRITE*  
