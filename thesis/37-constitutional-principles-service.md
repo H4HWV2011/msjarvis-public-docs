@@ -1,20 +1,20 @@
 # Chapter 37 — Constitutional Principles Service and Governance Layer
 
-**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**
-**Last updated: ★★★★ April 6, 2026 — FINAL REWRITE**
-**105/105 containers Up (zero Restarting, zero Exited); constitutional guardian Up, healthy, `/health` returning PostgreSQL connection fields; audit log writing (6.7K+, `cakidd`-owned); watchdog template fix committed; gateway build context corrected; standalone `msjarvis-pgdata-rescue` wired into compose network; `scripts/post-start.sh` created and in use; OI-37-A CLOSED (gateway exposing `/constitutional/*` correctly with fresh image); OI-37-B CLOSED (`/health` includes PostgreSQL liveness fields); OI-38-A CLOSED (token enforcement active on all public hostnames); preflight gate 31 PASS / 0 FAIL / 0 WARN; EthicalFilter recalibrated April 2 (0% FP); SafetyMonitor recalibrated April 3 (`safety_score=1.0` on survivor/victim queries); Phase 4.5 BBB output guard in log+passthrough mode — blocking re-enablement is a next-session decision pending red team sign-off. BBB Constitutional Guardian regression tests committed (3b5f11c0). Post-start.sh startup sequence required after every stack restart.**
+**Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
+**Last updated: ★★★★ April 6, 2026 — FINAL REWRITE**  
+**105/105 containers Up (zero Restarting, zero Exited); constitutional guardian Up, healthy, `/health` returning PostgreSQL connection fields; audit log writing (6.7K+, `cakidd`-owned); watchdog template fix committed; gateway build context corrected; standalone `msallis-pgdata-rescue` wired into compose network; `scripts/post-start.sh` created and in use; OI-37-A CLOSED (gateway exposing `/constitutional/*` correctly with fresh image); OI-37-B CLOSED (`/health` includes PostgreSQL liveness fields); OI-38-A CLOSED (token enforcement active on all public hostnames); preflight gate 31 PASS / 0 FAIL / 0 WARN; EthicalFilter recalibrated April 2 (0% FP); SafetyMonitor recalibrated April 3 (`safety_score=1.0` on survivor/victim queries); Phase 4.5 BBB output guard in log+passthrough mode — blocking re-enablement is a next-session decision pending red team sign-off. BBB Constitutional Guardian regression tests committed (3b5f11c0). post-start.sh startup sequence required after every stack restart.**
 
 ---
 
 > **SEALED STATUS BLOCK — WHAT THIS HEADER DOES AND DOES NOT MEAN**
 >
 > - **System baseline:** 105/105 containers Up (zero Restarting, zero Exited) — April 6, 2026 ground truth. This count supersedes all earlier baselines.
-> - **Guardian state:** `jarvis-constitutional-guardian` is Up and healthy; `/health` returns PostgreSQL GBIM and GeoDB connection fields and reports `status: "healthy"`.
+> - **Guardian state:** `allis-constitutional-guardian` is Up and healthy; `/health` returns PostgreSQL GBIM and GeoDB connection fields and reports `status: "healthy"`.
 > - **Constitution version:** `2026-02-17.2-USC` active.
-> - **Audit log:** `data/constitutional_audit/constitutional_audit.jsonl` is actively writing, 6.7K+ entries, `cakidd`-owned; durable audit also in `jarvis-memory:8056`.
+> - **Audit log:** `data/constitutional_audit/constitutional_audit.jsonl` is actively writing, 6.7K+ entries, `cakidd`-owned; durable audit also in `allis-memory:8056`.
 > - **All Chapter 37 Open Items are CLOSED:**
 >   - OI-37-A — gateway now builds from `./services/`, runs current image, and exposes `/constitutional/*` correctly, enforcing `carrie_admin` token requirements.
->   - OI-37-B — `/health` now includes PostgreSQL connection liveness fields for `msjarvis` and `msjarvisgis`.
+>   - OI-37-B — `/health` now includes PostgreSQL connection liveness fields for `msallis` and `msallisgis`.
 >   - OI-38-A — previously open, now CLOSED (token enforcement middleware active at gateway).
 > - **Sprint-3 constitutional guardian log is clean:** final commits for this chapter:
 >   - `30395591` — `fix(constitutional-guardian): close OI-37-B`
@@ -32,19 +32,19 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter describes the Constitutional Guardian service that provides constitutional compliance checking grounded in the United States Constitution and validated against PostgreSQL `msjarvis` (port 5433 — 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers) and `gisdb`/`msjarvisgis` (host port 5432 / compose-internal 5452 — PostGIS, **45 GB, 548 tables** — Ch. 33 April 6, 2026 ground truth) for geospatial community boundary validation. It supports:
+This chapter describes the Constitutional Guardian service that provides constitutional compliance checking grounded in the United States Constitution and validated against PostgreSQL `msallis` (port 5433 — 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers) and `gisdb`/`msallisgis` (host port 5432 / compose-internal 5452 — PostGIS, **45 GB, 548 tables** — Ch. 33 April 6, 2026 ground truth) for geospatial community boundary validation. It supports:
 
 - **P1 – Every where is entangled** by ensuring that constitutional protections propagate through all services and paths, from gateway to barrier to consciousness layers, all grounded in PostgreSQL GBIM community knowledge with temporal confidence grading (`confidence_decay` metadata).
-- **P3 – Power has a geometry** by making constitutional authority the highest architectural layer — explicitly documented, versioned, audited, and queryable — rather than hiding governance rules in opaque code. Constitutional gate decisions are durably logged in both a persistent `.jsonl` file and `jarvis-memory:8056`, making enforcement history independently inspectable.
+- **P3 – Power has a geometry** by making constitutional authority the highest architectural layer — explicitly documented, versioned, audited, and queryable — rather than hiding governance rules in opaque code. Constitutional gate decisions are durably logged in both a persistent `.jsonl` file and `allis-memory:8056`, making enforcement history independently inspectable.
 - **P5 – Design is a geographic act** by treating constitutional principles as designed artifacts that encode community sovereignty (10th Amendment) and anti-extraction protections for Appalachian communities, validated against `gisdb`'s PostGIS boundaries (**45 GB, 548 tables** — Ch. 33 April 6 ground truth) with ZIP-code-level community precision.
-- **P12 – Intelligence with a ZIP code** by grounding equal protection (14th Amendment) and community sovereignty (10th Amendment) principles in West Virginia-specific contexts validated against `msjarvis` GBIM and `msjarvisgis` geodata.
+- **P12 – Intelligence with a ZIP code** by grounding equal protection (14th Amendment) and community sovereignty (10th Amendment) principles in West Virginia-specific contexts validated against `msallis` GBIM and `msallisgis` geodata.
 - **P16 – Power accountable to place** by maintaining a persistent audit log of every constitutional decision, making all blocks, allows, and principle applications queryable and transparent to communities, and by tying enforcement to PostgreSQL-backed identity and geography.
 
 As such, this chapter belongs to the **Computational Instrument tier**: it specifies the Constitutional Guardian as an independently testable, PostgreSQL-grounded, audit-logged authority service.
 
 ---
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │   Constitutional Guardian Architecture                      │
 │   ★★★★ FINAL: April 6, 2026                                │
@@ -68,9 +68,9 @@ As such, this chapter belongs to the **Computational Instrument tier**: it speci
 │  │  6 Principle Groups, 15+ Specific Principles  │        │
 │  │  API version: 2.1.0-USC-Audit (compose label) │        │
 │  │  Constitution version: 2026-02-17.2-USC        │        │
-│  │  GBIM: msjarvis (5433)                         │        │
+│  │  GBIM: msallis (5433)                          │        │
 │  │    - 5,416,521 entities, confidence_decay      │        │
-│  │  GeoDB: msjarvisgis                            │        │
+│  │  GeoDB: msallisgis                             │        │
 │  │    - host:5432 / container-internal:5452       │        │
 │  │    - 45 GB / 548 tables (Ch.33 Apr 6)         │        │
 │  └────────────────────────────────────────────────┘        │
@@ -98,7 +98,7 @@ As such, this chapter belongs to the **Computational Instrument tier**: it speci
 │  │  Phase 4.5 output: log+passthrough             │        │
 │  │  - 31% FP eliminated; blocking re-enable       │        │
 │  │    is next-session/red-team decision           │        │
-│  │  All gate decisions → jarvis-memory:8056       │        │
+│  │  All gate decisions → allis-memory:8056        │        │
 │  └────────────────────────────────────────────────┘        │
 │      ↓                                                      │
 │  Core API Endpoints                                        │
@@ -118,22 +118,22 @@ As such, this chapter belongs to the **Computational Instrument tier**: it speci
 │  -  6.7K+, cakidd-owned, writing                           │
 │  -  JSON Lines; one decision per line                      │
 │  -  Survives restarts (bind mount)                         │
-│  -  All events also → jarvis-memory:8056                   │
+│  -  All events also → allis-memory:8056                    │
 │      ↓                                                      │
 │  Role-Specific Enforcement                                 │
-│  -  external_corporation: STRICTEST (10a-no-extraction)     │
+│  -  external_corporation: STRICTEST (10a-no-extraction)    │
 │  -  community_member: STANDARD                             │
 │  -  user/admin/system: tiered + logged                     │
 │      ↓                                                      │
 │  PostgreSQL Integration                                    │
-│  -  msjarvis (5433): GBIM + confidence_decay               │
-│  -  msjarvisgis: host:5432 / container-internal:5452       │
+│  -  msallis (5433): GBIM + confidence_decay                │
+│  -  msallisgis: host:5432 / container-internal:5452        │
 │    - 45 GB / 548 tables (Ch. 33 April 6 ground truth)      │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Figure 37.1.** Constitutional Guardian architecture (★★★★ FINAL April 6, 2026): constitutional authority as highest layer; gateway and BBB both checking the guardian first; six-filter BBB (EthicalFilter 0% FP April 2; SafetyMonitor survivor-safe April 3; `truth_verification` now `rag_grounded_v2` per OI-37-C); Phase 4.5 log+passthrough; dual PostgreSQL integration (`msjarvis:5433` GBIM 5,416,521 entities with `confidence_decay`; `msjarvisgis` host:5432 / internal:5452 — **45 GB / 548 tables** Ch. 33 April 6 ground truth); persistent `.jsonl` plus durable `jarvis-memory:8056` audit; OI-37-A CLOSED (gateway routing); OI-37-B CLOSED (PostgreSQL `/health` fields). See §37.5.5 for OI closure verification table.
+**Figure 37.1.** Constitutional Guardian architecture (★★★★ FINAL April 6, 2026): constitutional authority as highest layer; gateway and BBB both checking the guardian first; six-filter BBB (EthicalFilter 0% FP April 2; SafetyMonitor survivor-safe April 3; `truth_verification` now `rag_grounded_v2` per OI-37-C); Phase 4.5 log+passthrough; dual PostgreSQL integration (`msallis:5433` GBIM 5,416,521 entities with `confidence_decay`; `msallisgis` host:5432 / internal:5452 — **45 GB / 548 tables** Ch. 33 April 6 ground truth); persistent `.jsonl` plus durable `allis-memory:8056` audit; OI-37-A CLOSED (gateway routing); OI-37-B CLOSED (PostgreSQL `/health` fields). See §37.5.5 for OI closure verification table.
 
 ---
 
@@ -141,7 +141,7 @@ As such, this chapter belongs to the **Computational Instrument tier**: it speci
 
 | Category | Details |
 |:--|:--|
-| **Implemented** | `jarvis-constitutional-guardian` running at `127.0.0.1:8091`, healthy. FastAPI with CORS. WORKDIR `/app` (Dockerfile-set; no `-w` flag needed or allowed). Constitution version `2026-02-17.2-USC` active; API service version `2.1.0-USC-Audit` in compose labels. BBB wired to consult Guardian first; unified gateway wired to Guardian before BBB. All `/constitutional/*` routes proxied through the gateway using the current Guardian image (build context fixed to `./services/`) with token enforcement middleware active — OI-37-A CLOSED. Persistent `.jsonl` audit log on host with `cakidd` ownership, plus durable audit in `jarvis-memory:8056`. `/health` returns PostgreSQL liveness fields — OI-37-B CLOSED. Production startup sequence: `docker compose up -d && bash scripts/post-start.sh`. |
+| **Implemented** | `allis-constitutional-guardian` running at `127.0.0.1:8091`, healthy. FastAPI with CORS. WORKDIR `/app` (Dockerfile-set; no `-w` flag needed or allowed). Constitution version `2026-02-17.2-USC` active; API service version `2.1.0-USC-Audit` in compose labels. BBB wired to consult Guardian first; unified gateway wired to Guardian before BBB. All `/constitutional/*` routes proxied through the gateway using the current Guardian image (build context fixed to `./services/`) with token enforcement middleware active — OI-37-A CLOSED. Persistent `.jsonl` audit log on host with `cakidd` ownership, plus durable audit in `allis-memory:8056`. `/health` returns PostgreSQL liveness fields — OI-37-B CLOSED. Production startup sequence: `docker compose up -d && bash scripts/post-start.sh`. |
 | **Partially implemented / scaffolded** | Multi-signature principle amendment workflow. Community consultation process. Real-time dashboards and external reporting. Automated `confidence_decay`-aware GBIM validation pipeline. Full alert wiring for Exited/Created state detection (pattern documented in this chapter; alert delivery to external systems is future work). Phase 4.5 blocking re-enablement pending red team sign-off. |
 | **Future work / design intent only** | ML-based pattern detection for constitutional violations. Exporting audit traces to partner compliance systems. Time-series constitutional enforcement analytics in PostgreSQL. Governance UI for reviewing and annotating audit records. Formal session contracts tightly binding gateway, BBB, and Guardian changes for cooperative oversight. |
 
@@ -149,7 +149,7 @@ As such, this chapter belongs to the **Computational Instrument tier**: it speci
 
 ## 37.1 Purpose and Constitutional Foundation
 
-The Constitutional Guardian is the highest authority in Ms. Jarvis's governance hierarchy. It is grounded in the United States Constitution and backed by PostgreSQL `msjarvis` (port 5433 — GBIM entities with `confidence_decay` metadata) and `msjarvisgis` (host 5432 / container-internal 5452 — PostGIS, **45 GB, 548 tables** — Ch. 33 April 6, 2026 ground truth) rather than ad-hoc rules.
+The Constitutional Guardian is the highest authority in Ms. Allis's governance hierarchy. It is grounded in the United States Constitution and backed by PostgreSQL `msallis` (port 5433 — GBIM entities with `confidence_decay` metadata) and `msallisgis` (host 5432 / container-internal 5452 — PostGIS, **45 GB, 548 tables** — Ch. 33 April 6, 2026 ground truth) rather than ad-hoc rules.
 
 **Legal foundation:**
 
@@ -175,20 +175,20 @@ The Guardian is a dedicated FastAPI container built from `services/Dockerfile.co
 
 **Key implementation facts:**
 
-- Container name: `jarvis-constitutional-guardian`
+- Container name: `allis-constitutional-guardian`
 - Port: 8091 (bound to `127.0.0.1`)
-- Compose network: `qualia-net` (runtime: `msjarvis-rebuild_qualia-net`)
+- Compose network: `qualia-net` (runtime: `msallis-rebuild_qualia-net`)
 - WORKDIR: `/app` (set in Dockerfile)
 - Principles file: `/app/constitutional_principles.json` (host: `./services/constitutional_principles.json`)
 - Audit directory: `/app/audit` (host: `./data/constitutional_audit`)
 - PostgreSQL integration:
   - GBIM: `postgresql:5433` on the compose network; verified host-side at `localhost:5433`.
-  - GeoDB: `msjarvisgis` — see compose environment and port callout below.
+  - GeoDB: `msallisgis` — see compose environment and port callout below.
 
 **Network root cause and fix (Sprint 3):**
 
-- **Root cause:** `msjarvis-pgdata-rescue` was running standalone, not on the compose network. From inside containers, `172.18.0.1:5433` was unreachable, and `postgresql` DNS resolved to the wrong instance.
-- **Fix:** Use `docker network connect` to attach `msjarvis-pgdata-rescue` to the compose project network. The Guardian now reaches GBIM at `postgresql:5433` on the compose network and verifies via host-side `psql` at `localhost:5433`.
+- **Root cause:** `msallis-pgdata-rescue` was running standalone, not on the compose network. From inside containers, `172.18.0.1:5433` was unreachable, and `postgresql` DNS resolved to the wrong instance.
+- **Fix:** Use `docker network connect` to attach `msallis-pgdata-rescue` to the compose project network. The Guardian now reaches GBIM at `postgresql:5433` on the compose network and verifies via host-side `psql` at `localhost:5433`.
 
 **Gateway build context drift and fix (Sprint 3):**
 
@@ -199,11 +199,11 @@ The Guardian is a dedicated FastAPI container built from `services/Dockerfile.co
 
 > **★ PORT CALLOUT — `POSTGRESQL_PORT=5452` (container-internal) vs. host port 5432**
 >
-> The compose environment sets `POSTGRESQL_PORT=5452`. This is the **container-internal** port mapping for the `msjarvisgis` GeoDB connection inside the Guardian container. It is **not** the host port.
+> The compose environment sets `POSTGRESQL_PORT=5452`. This is the **container-internal** port mapping for the `msallisgis` GeoDB connection inside the Guardian container. It is **not** the host port.
 >
 > | Reference | Port | Context |
 > |:--|:--|:--|
-> | `POSTGRESQL_PORT` in compose env | **5452** | Container-internal — used by the Guardian to reach `msjarvisgis` inside the Docker network |
+> | `POSTGRESQL_PORT` in compose env | **5452** | Container-internal — used by the Guardian to reach `msallisgis` inside the Docker network |
 > | Host-side `psql` / external tools | **5432** | Host port — Ch. 33 April 6 ground truth: `gisdb:5432` = **45 GB / 548 tables** |
 >
 > **Do not change `POSTGRESQL_PORT` from `5452` in the compose file.** Host-side access always uses 5432. The 5452/5432 split is the correct, intentional mapping — not an error.
@@ -213,11 +213,11 @@ The Guardian is a dedicated FastAPI container built from `services/Dockerfile.co
 **Compose configuration (simplified):**
 
 ```yaml
-jarvis-constitutional-guardian:
+allis-constitutional-guardian:
   build:
     context: ./services
     dockerfile: Dockerfile.constitutional_guardian
-  container_name: jarvis-constitutional-guardian
+  container_name: allis-constitutional-guardian
   ports:
     - "127.0.0.1:8091:8091"
   volumes:
@@ -229,9 +229,9 @@ jarvis-constitutional-guardian:
   environment:
     - POSTGRESQL_HOST=postgresql
     - POSTGRESQL_PORT=5452
-    - POSTGRESQL_DB=msjarvisgis
+    - POSTGRESQL_DB=msallisgis
     - GBIM_POSTGRESQL_PORT=5433
-    - GBIM_POSTGRESQL_DB=msjarvis
+    - GBIM_POSTGRESQL_DB=msallis
 ```
 
 ---
@@ -246,7 +246,7 @@ jarvis-constitutional-guardian:
 > bash scripts/post-start.sh
 > ```
 >
-> `scripts/post-start.sh` connects legacy standalone containers (e.g., `msjarvis-pgdata-rescue`) to the compose project network (`msjarvis-rebuild_qualia-net`) and repairs any network drift introduced by bare `docker run` commands. Without this step, the Guardian's `postgresql:5433` DNS will resolve to the wrong instance and `/health` will report `postgresql_gbim_connection: "error"`.
+> `scripts/post-start.sh` connects legacy standalone containers (e.g., `msallis-pgdata-rescue`) to the compose project network (`msallis-rebuild_qualia-net`) and repairs any network drift introduced by bare `docker run` commands. Without this step, the Guardian's `postgresql:5433` DNS will resolve to the wrong instance and `/health` will report `postgresql_gbim_connection: "error"`.
 >
 > Verify the sequence completed successfully:
 >
@@ -283,7 +283,7 @@ Each principle includes:
 - A `status` field (`active`, `experimental`, `deprecated`)
 - An `origin` pointing to specific constitutional text
 - A `scope` describing which actions it applies to
-- A `postgresql_validation` block referencing `msjarvis` and/or `msjarvisgis`
+- A `postgresql_validation` block referencing `msallis` and/or `msallisgis`
 - A `confidence_decay_aware` flag for GBIM-linked principles (e.g., `10a-local-control`)
 
 Changes to principles go through versioned updates to `constitutional_principles.json` and are recorded in `/constitutional/versions`.
@@ -302,12 +302,12 @@ The following is a representative example of how the `postgresql_validation` blo
   "scope": ["data_export", "external_api_call", "commercial_query"],
   "confidence_decay_aware": true,
   "postgresql_validation": {
-    "msjarvis": {
+    "msallis": {
       "check": "SELECT COUNT(*) FROM gbim_entities WHERE entity_type = 'community_asset' AND confidence_decay < 0.5",
       "purpose": "Flag high-decay community asset beliefs before allowing export decisions",
       "action_on_fail": "require_episodic_audit"
     },
-    "msjarvisgis": {
+    "msallisgis": {
       "check": "SELECT COUNT(*) FROM zcta_boundaries WHERE zcta IN (%(zcta_list)s)",
       "purpose": "Validate that requested geographic scope falls within registered WV community boundaries",
       "action_on_fail": "block_with_log"
@@ -333,7 +333,7 @@ The BBB calls the Guardian first. If the Guardian blocks, the BBB skips all six 
 - `steganography_filter`
 - `truth_verification` (now `rag_grounded_v2` — OI-37-C CLOSED April 3)
 
-Phase 4.5 is currently log+passthrough, not blocking. All steps are recorded in both the `.jsonl` audit and `jarvis-memory:8056`.
+Phase 4.5 is currently log+passthrough, not blocking. All steps are recorded in both the `.jsonl` audit and `allis-memory:8056`.
 
 ### 37.4.2 Gateway Integration
 
@@ -363,7 +363,7 @@ Before Sprint 3, `/health` only returned simple service status. After commit `30
 - `postgresql_gbim_connection` — `"connected"` or `"error: ..."`
 - `postgresql_geodb_connection` — `"connected"` or `"error: ..."`
 
-Internally, it performs short-timeout `psycopg2` pings to `msjarvis` and `msjarvisgis`. This closes OI-37-B and makes database connectivity visible in a single command.
+Internally, it performs short-timeout `psycopg2` pings to `msallis` and `msallisgis`. This closes OI-37-B and makes database connectivity visible in a single command.
 
 ### 37.5.2 `/constitutional/status`
 
@@ -384,7 +384,7 @@ Before Sprint 3, the gateway did not expose `/constitutional/audit` at all — c
 | OI | Requirement | Fix commit | Verification command | Expected result |
 |:--|:--|:--|:--|:--|
 | OI-37-A | Gateway exposes `/constitutional/*`; `carrie_admin` enforcement active; current Guardian image in use | `a44267e3`, `af76b479` | `curl -H "Authorization: Bearer $CARRIE_ADMIN_TOKEN" http://localhost:8050/constitutional/audit` | HTTP 200; JSON audit entries returned |
-| OI-37-B | `/health` returns `postgresql_gbim_connection` and `postgresql_geodb_connection` liveness fields | `30395591` | `curl -s http://localhost:8091/health \| python3 -m json.tool` | `postgresql_gbim_connection: "connected"`, `postgresql_geodb_connection: "connected"` |
+| OI-37-B | `/health` returns `postgresql_gbim_connection` and `postgresql_geodb_connection` liveness fields | `30395591` | `curl -s http://localhost:8091/health \\| python3 -m json.tool` | `postgresql_gbim_connection: "connected"`, `postgresql_geodb_connection: "connected"` |
 
 Requests to audit routes are validated by token middleware: `carrie_admin` tokens get access; lower-privilege tokens receive `403`.
 
@@ -405,12 +405,12 @@ mkdir -p data/constitutional_audit
 - Audit entries are written as JSON Lines, one per decision.
 - Each entry includes: timestamp, actor role, context, action type, content hash, decision, principles applied, constitution version, warnings, and PostgreSQL validation metadata.
 
-**★ `jarvis-memory:8056` — durable cross-container audit (secured March 28, 2026):**
+**★ `allis-memory:8056` — durable cross-container audit (secured March 28, 2026):**
 
-In addition to the `.jsonl` file, **every constitutional decision is also written to `jarvis-memory:8056`**. This provides cross-container survivability: constitutional gate decisions persist even if the Guardian container is restarted or rebuilt, and are independently queryable for governance accountability without requiring access to the host filesystem.
+In addition to the `.jsonl` file, **every constitutional decision is also written to `allis-memory:8056`**. This provides cross-container survivability: constitutional gate decisions persist even if the Guardian container is restarted or rebuilt, and are independently queryable for governance accountability without requiring access to the host filesystem.
 
 ```bash
-# Verify jarvis-memory:8056 is receiving constitutional audit events:
+# Verify allis-memory:8056 is receiving constitutional audit events:
 curl -H "Authorization: Bearer $JARVIS_API_KEY" \
   http://localhost:8056/memories?limit=5
 # Expected: most recent gate decision records including constitutional events
@@ -420,7 +420,7 @@ tail -5 data/constitutional_audit/constitutional_audit.jsonl | python3 -m json.t
 # Expected: recent JSON Lines with timestamp, decision, principles_applied fields
 ```
 
-All BBB/Guardian gate decisions flow to `jarvis-memory:8056` as established by Ch. 33 §33.2 addendum (secured March 28, 2026). The `.jsonl` file and `jarvis-memory:8056` are complementary — the file provides host-local forensic recovery; the memory service provides queryable, cross-container durable history.
+All BBB/Guardian gate decisions flow to `allis-memory:8056` as established by Ch. 33 §33.2 addendum (secured March 28, 2026). The `.jsonl` file and `allis-memory:8056` are complementary — the file provides host-local forensic recovery; the memory service provides queryable, cross-container durable history.
 
 ---
 
@@ -428,9 +428,9 @@ All BBB/Guardian gate decisions flow to `jarvis-memory:8056` as established by C
 
 Enforcement is role-aware:
 
-- `external_corporation` — strictest; `10a-no-extraction` checked first; any attempt to commercialize community data triggers GeoDB validation against `msjarvisgis` (45 GB / 548 tables — Ch. 33 April 6 ground truth) and is likely blocked.
+- `external_corporation` — strictest; `10a-no-extraction` checked first; any attempt to commercialize community data triggers GeoDB validation against `msallisgis` (45 GB / 548 tables — Ch. 33 April 6 ground truth) and is likely blocked.
 - `community_member` — standard; constitutional protections apply; context and GBIM data are considered, with `confidence_decay` informing the trust level of community facts used in decisions.
-- `user`, `admin`, `system` — different levels of trust but all actions are logged to both `.jsonl` and `jarvis-memory:8056`.
+- `user`, `admin`, `system` — different levels of trust but all actions are logged to both `.jsonl` and `allis-memory:8056`.
 
 This structure aligns enforcement with power and risk rather than treating all actors identically.
 
@@ -451,7 +451,7 @@ Regression tests committed in `fbb38c5d` (`test: Constitutional Guardian + BBB r
 | 5 | `/health` reports PostgreSQL liveness fields (OI-37-B) | `curl -s http://localhost:8091/health` | `postgresql_gbim_connection: "connected"`, `postgresql_geodb_connection: "connected"` | ✅ Pass |
 | 6 | Gateway routes `/constitutional/audit` (OI-37-A) | `curl -H "Authorization: Bearer $CARRIE_ADMIN_TOKEN" http://localhost:8050/constitutional/audit` | HTTP 200; audit entries returned | ✅ Pass |
 | 7 | Non-admin token on `/constitutional/audit` returns 403 | `curl -H "Authorization: Bearer $HAYDEN_TOKEN" http://localhost:8050/constitutional/audit` | HTTP 403 | ✅ Pass |
-| 8 | Audit log writes after each check | After any `/constitutional/check` call | New JSON Lines entry in `data/constitutional_audit/constitutional_audit.jsonl`; event in `jarvis-memory:8056` | ✅ Pass |
+| 8 | Audit log writes after each check | After any `/constitutional/check` call | New JSON Lines entry in `data/constitutional_audit/constitutional_audit.jsonl`; event in `allis-memory:8056` | ✅ Pass |
 
 **Run all regression checks from host:**
 
@@ -492,7 +492,7 @@ curl -s -o /dev/null -w "%{http_code}" \
   http://localhost:8050/constitutional/audit
 # Expected: 403
 
-# 6. Verify jarvis-memory:8056 received constitutional events:
+# 6. Verify allis-memory:8056 received constitutional events:
 curl -H "Authorization: Bearer $JARVIS_API_KEY" \
   http://localhost:8056/memories?limit=3 | python3 -m json.tool
 # Expected: recent records including constitutional gate decisions
@@ -534,22 +534,22 @@ These patterns are documented and will be wired to alerts in a future sprint.
 
 What Sprint 3 fixed for this chapter:
 
-1. **Network root cause** — `msjarvis-pgdata-rescue` was standalone, off the compose network.
+1. **Network root cause** — `msallis-pgdata-rescue` was standalone, off the compose network.  
    - Fix: Attach to compose network; use service DNS `postgresql:5433` internal, `localhost:5433` for host verification.
 
-2. **Gateway build context drift** — gateway was building from a stale path.
+2. **Gateway build context drift** — gateway was building from a stale path.  
    - Fix: Build from `./services/` — 86 routes confirmed, Guardian wiring current.
 
-3. **Post-start script** — recurring configuration drift between compose and standalone containers.
+3. **Post-start script** — recurring configuration drift between compose and standalone containers.  
    - Fix: `scripts/post-start.sh` created. Run after every stack restart (see §37.2 Production Startup Sequence).
 
-4. **Watchdog cosmetic error** — `.ExitCode` template field unsupported on this Docker version.
+4. **Watchdog cosmetic error** — `.ExitCode` template field unsupported on this Docker version.  
    - Fix: Remove `.ExitCode` from `watchdog-containers.sh` format string — commit `1a28c251`.
 
-5. **Health visibility gap** — `/health` lacked database connectivity information.
+5. **Health visibility gap** — `/health` lacked database connectivity information.  
    - Fix: Add PostgreSQL liveness checks to `/health` — OI-37-B CLOSED, commit `30395591`.
 
-6. **Gateway `/constitutional` routing gap** — Guardian routes not exposed or running under stale image.
+6. **Gateway `/constitutional` routing gap** — Guardian routes not exposed or running under stale image.  
    - Fix: Wire `/constitutional/*` through gateway using current image and enforce token roles — OI-37-A CLOSED, commit `a44267e3`.
 
 With these fixes, **all Chapter 37 OIs are closed** and the sprint log is clean.
@@ -568,19 +568,19 @@ Chapter 37 describes a fully integrated, PostgreSQL-backed Constitutional Guardi
 
 - Running as its own container, built from current code, on the compose network.
 - Exposed through the unified gateway with token enforcement, as the first gate before the BBB.
-- Backed by dual PostgreSQL databases (`msjarvis:5433` GBIM with `confidence_decay`; `msjarvisgis` host:5432 / internal:5452 — **45 GB / 548 tables**, Ch. 33 April 6 ground truth).
-- Logging every decision to both a persistent `.jsonl` file (`cakidd`-owned, 6.7K+ entries) and `jarvis-memory:8056` for durable cross-container survivability.
+- Backed by dual PostgreSQL databases (`msallis:5433` GBIM with `confidence_decay`; `msallisgis` host:5432 / internal:5452 — **45 GB / 548 tables**, Ch. 33 April 6 ground truth).
+- Logging every decision to both a persistent `.jsonl` file (`cakidd`-owned, 6.7K+ entries) and `allis-memory:8056` for durable cross-container survivability.
 - Tested and verified via regression tests committed in `fbb38c5d` and `3b5f11c0`.
 - Production startup sequence documented and required: `docker compose up -d && bash scripts/post-start.sh`.
 - All known gaps — routing, health visibility, watcher noise, network wiring, principle documentation — addressed and recorded in Git.
 
 ---
 
-*Chapter 37 — Constitutional Principles Service and Governance Layer*
-*Ms. Egeria Jarvis Steward System — Harmony for Hope, Inc.*
-*Mount Hope, West Virginia*
-*FINAL: ★★★★ April 6, 2026 — Sprint 3 Constitutional Guardian Complete*
-*OI-37-A ✅ OI-37-B ✅ OI-38-A ✅ — 105/105 containers Up*
-*gisdb:5432 — 45 GB / 548 tables (Ch. 33 April 6 ground truth)*
-*jarvis-memory:8056 — durable constitutional audit active*
-*post-start.sh — required after every stack restart*
+*Chapter 37 — Constitutional Principles Service and Governance Layer*  
+*Ms. Egeria Allis Steward System — Harmony for Hope, Inc.*  
+*Mount Hope, West Virginia*  
+*FINAL: ★★★★ April 6, 2026 — Sprint 3 Constitutional Guardian Complete*  
+*OI-37-A ✅ OI-37-B ✅ OI-38-A ✅ — 105/105 containers Up*  
+*gisdb:5432 — 45 GB / 548 tables (Ch. 33 April 6 ground truth)*  
+*allis-memory:8056 — durable constitutional audit active*  
+*post-start.sh — required after every stack restart*  
