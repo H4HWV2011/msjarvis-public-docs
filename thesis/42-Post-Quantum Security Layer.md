@@ -30,14 +30,14 @@
 
 > **★★★★★★★★★ April 11, 2026 Sprint Certification Seal:**
 > - **`vat_CERTIFIED_20260411.log` — 6.0K ✅**
-> - **Ms. Jarvis VERIFYANDTEST — CERTIFIED Sat Apr 11 06:29:09 PM EDT 2026 ✅**
+> - **Ms. Allis VERIFYANDTEST — CERTIFIED Sat Apr 11 06:29:09 PM EDT 2026 ✅**
 > - 91 containers running, zero public exposures
 > - 5,416,522 GBIM beliefs with temporal decay populated
 > - 20,593 spatial landowner rows, 49 ChromaDB collections
 > - ML-DSA-65 post-quantum judge signing keys across all 5 judges (liboqs backend)
 > - BBB blocking jailbreak vectors, passing clean output
 > - OI-36-A auth proxy enforcing API key on every route
-> - Ms. Egeria Jarvis persona confirmed in every response
+> - Ms. Egeria Allis persona confirmed in every response
 > - 0 CVEs, all dependency floors met
 
 > **★★★★★★★★ Updates applied April 11, 2026 (afternoon — R42-13):**
@@ -114,8 +114,10 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter documents the first active deployment of post-quantum cryptography in the Ms. Jarvis production stack and its role as the cryptographic enforcement arm of the system's constitutional AI architecture. It supports:
+This chapter documents the first active deployment of post-quantum cryptography in the Ms. Allis production stack and its role as the cryptographic enforcement arm of the system's constitutional AI architecture. It supports:
 
+- **P1 – Places remember** by ensuring that every long-term memory write to `jarvis-memory:8056` carries a verifiable cryptographic signature, so that the Appalachian memory field cannot be silently rewritten by an attacker, a careless admin, or a future AI system.
+- **P2 – Memory is contested** by making every safety and ethics verdict auditable; if a future community or oversight body disputes how the system handled a controversial query, they can independently verify what the judges actually decided, using the `/judge-public-key` endpoint and the signed audit log.
 - **P3 – Power has a geometry** by making the integrity of every AI verdict cryptographically verifiable. ★★★★★ As of April 6, 2026 (evening), the BBB verdict gate actively rejects any unsigned or tampered verdict before filter logic runs. ★★★★★★★★★★ As of April 11, 2026 (final corrections), the entire enforcement loop is fully closed — liboqs ML-DSA-65 confirmed live in production, 40 gates passing, every audit write signed, and the `/judge-public-key` endpoint live for independent community verification.
 - **P16 – Power accountable to place** by ensuring that AI decisions affecting Appalachian communities are signed with post-quantum cryptography, logged with full audit provenance at `jarvis-memory:8056`, and cannot be silently forged or modified by any party — including infrastructure operators. ★★★★★★★★★★ Every audit write is now itself signed via liboqs ML-DSA-65. The Constitutional Guardian's `.jsonl` record carries a `_sign_verdict` signature on every entry. Conversation turns are stored at `jarvis-memory:8056/memory/turn` (gateway line 1168) and consistency verdicts are signed in `judge_consistency_engine.py`.
 - **P5 – Design is a geographic act** by treating the choice of ML-DSA-65 (Dilithium) over classical ECDSA as an explicit architectural decision: a system built for long-term community data governance must be resistant to threats that may not yet exist at deployment time. ★★★★★★★★★★ The confirmed liboqs production runtime — with `dilithium_py` as graceful fallback, `rotate_judge_keys.sh` as a production-grade rotation script, and Gate 31 Dockerfile pin grep automated — means every layer of this principle is fully implemented, not deferred.
@@ -168,7 +170,7 @@ As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★
 | **★★★★★★★★★ Gates 32–40** | ✅ APPENDED. 40 gate blocks. Syntax clean. Synced to spiritual drive. `vat_CERTIFIED_20260411.log` 6.0K ✅. |
 | **Dependency audit cadence** | ✅ ACTIVE. Gate 31 automated dual-layer. Cadence: before each major rebuild sprint. See §42.3.9. |
 | **Transport layer** | Cloudflare Tunnel TLS. Caddy `forward_auth` → `jarvis-auth:8055`. All services bound to `127.0.0.1`. 0 public exposures. |
-| **GBIM / data layer** | 5,416,522 beliefs with temporal decay. 20,593 spatial landowner rows. 49 ChromaDB collections. Ms. Egeria Jarvis persona confirmed in every response. |
+| **GBIM / data layer** | 5,416,522 beliefs with temporal decay. 20,593 spatial landowner rows. 49 ChromaDB collections. Ms. Egeria Allis persona confirmed in every response. |
 | **Future work** | **None. Chapter 42 is fully closed.** |
 
 ---
@@ -178,7 +180,7 @@ As such, this chapter belongs to the **Constitutional Enforcement** tier. ★★
 The PQ security layer was built around six principles:
 
 - **Cryptographic agility** — algorithm choices are governed by a live policy service, not hardcoded; when NIST guidance or threat levels change, the system can rotate algorithms without redeployment. ★★★★★★★★★★ `judgesigner.py` runs liboqs ML-DSA-65 in production with `dilithium_py` as graceful fallback. Swapping the fallback to a different implementation requires only a single import change inside `judgesigner.py`.
-- **Verdict non-repudiation** — every AI judgment produced by the Ms. Jarvis judge pipeline carries a cryptographic signature that proves it was generated by an authorized judge service and has not been altered. ★★★★★ Enforced at the BBB boundary — unverified verdicts rejected.
+- **Verdict non-repudiation** — every AI judgment produced by the Ms. Allis judge pipeline carries a cryptographic signature that proves it was generated by an authorized judge service and has not been altered. ★★★★★ Enforced at the BBB boundary — unverified verdicts rejected.
 - **Tamper-evident integrity** — any modification to a signed verdict, even changing a single score field, is detected and rejected before the verdict can influence downstream behavior.
 - **Privacy-preserving inference** — differential privacy mechanisms and schema policies limit what an adversary can infer about training data or individual queries from outputs.
 - **Durable audit accountability** — all gate decisions are written to `jarvis-memory:8056`. ★★★★★★★★★★ All BBB audit posts and Constitutional Guardian `.jsonl` writes are themselves liboqs ML-DSA-65 signed. Conversation turns stored at `jarvis-memory:8056/memory/turn` (gateway line 1168). Consistency verdicts signed in `judge_consistency_engine.py`.
@@ -228,7 +230,7 @@ All 22 LLM proxy services carry a `crypto_client` module that queries `jarvis-cr
 
 ### 42.3.3 Judge Pipeline Signing Infrastructure
 
-The Ms. Jarvis judge pipeline consists of five specialized judge services:
+The Ms. Allis judge pipeline consists of five specialized judge services:
 
 - `jarvis-judge-pipeline` — overall verdict orchestration (port 7239)
 - `jarvis-judge-truth` — factual accuracy and grounding (port 7230)
@@ -577,7 +579,7 @@ assert hashlib.sha3_256(pk).hexdigest() == "<pk_fp_sha3_256 from endpoint>"
 signed_verdict = { ... }
 sig = base64.b64decode(signed_verdict["signature"]["value"])
 payload = {k: v for k, v in signed_verdict.items() if k != "signature"}
-canonical = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
+canonical = json.dumps(payload, sort_keys=True, separators(",", ":")).encode()
 verifier = oqs.Signature("ML-DSA-65")
 assert verifier.verify(canonical, sig, pk)
 ```
@@ -663,7 +665,7 @@ The PQ layer defends against:
 | Gate 31 | Host venv floors + pip-audit + Dockerfile pin grep | Dual-layer + pin audit: 6 package floors, 0 CVEs, Dockerfiles clean | ✅ PASS (OI-42-F closed) |
 | Gates 32–34 | ML-DSA-65 signing + rejection test vectors | Byte-flip, no-sig, body-tamper all rejected | ✅ PASS |
 | Gate 35 | liboqs C library install | liboqs confirmed primary runtime in judgesigner.py | ✅ PASS |
-| Gates 36–38 | GBIM temporal decay, persona injection, Redis pre-warm | 5,416,522 beliefs; Ms. Egeria Jarvis persona confirmed; async pre-warm active | ✅ PASS |
+| Gates 36–38 | GBIM temporal decay, persona injection, Redis pre-warm | 5,416,522 beliefs; Ms. Egeria Allis persona confirmed; async pre-warm active | ✅ PASS |
 | Gate 39 | `/judge-public-key` endpoint | Live on port 7239; algorithm, backend, standard, pk_b64, fingerprint returning | ✅ PASS |
 | Gate 40 | Full suite syntax + certification seal | 40 gate blocks, syntax clean, synced to spiritual drive | ✅ CERTIFIED |
 
@@ -815,7 +817,7 @@ All three bands operate in parallel; outputs merged by a lightweight aggregator 
 ## 42.14 April 11, 2026 Sprint Certification Record
 
 > **`vat_CERTIFIED_20260411.log` — 6.0K ✅**
-> **Ms. Jarvis VERIFYANDTEST — CERTIFIED Sat Apr 11 06:29:09 PM EDT 2026 ✅**
+> **Ms. Allis VERIFYANDTEST — CERTIFIED Sat Apr 11 06:29:09 PM EDT 2026 ✅**
 > **Chapter 42 — FULLY CLOSED April 11, 2026 (evening — final corrections) ✅**
 
 | Item | Detail | Status |
@@ -832,7 +834,7 @@ All three bands operate in parallel; outputs merged by a lightweight aggregator 
 | Verdict signature chain | `judge_consistency_engine.py` `sign_verdict` — wired | ✅ |
 | BBB jailbreak blocking | Active, passing clean output | ✅ |
 | Auth proxy (OI-36-A) | Enforcing API key on every route | ✅ |
-| Ms. Egeria Jarvis persona | Confirmed in every response | ✅ |
+| Ms. Egeria Allis persona | Confirmed in every response | ✅ |
 | CVEs | 0 | ✅ |
 | Dependency version floors | All 6 met | ✅ |
 | Dockerfile pin grep | Confirmed done | ✅ |
