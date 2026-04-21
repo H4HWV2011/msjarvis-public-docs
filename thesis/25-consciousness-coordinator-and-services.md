@@ -3,14 +3,14 @@
 
 **Status: CLOSED ✅**
 **Sealed by:** Carrie Kidd (Mamma Kidd)
-**Environment:** `~/msjarvis-rebuild-working/msjarvis-rebuild/msjarvis-rebuild`
+**Environment:** `~/msallis-rebuild-working/msallis-rebuild/msallis-rebuild`
 **System:** Legion 5-16IRX9, Ubuntu, crypto-venv
 
 ---
 
 ## §25.0 — Seal Summary
 
-All §25.2 open items are resolved. The Ms. Jarvis consciousness pipeline is fully operational end-to-end as of April 12, 2026. The RAG pipeline is live, the neurobiological master is healthy, all cross-container services are reachable, and the bridge container has been patched and committed to image `jarvis-consciousness-bridge:ch25-patched`.
+All §25.2 open items are resolved. The Ms. Allis consciousness pipeline is fully operational end-to-end as of April 12, 2026. The RAG pipeline is live, the neurobiological master is healthy, all cross-container services are reachable, and the bridge container has been patched and committed to image `allis-consciousness-bridge:ch25-patched`.
 
 ---
 
@@ -22,7 +22,7 @@ All §25.2 open items are resolved. The Ms. Jarvis consciousness pipeline is ful
 | ChromaDB collections | 49 | Confirmed via direct Chroma API |
 | Vector embeddings | 6,722,589+ | Appalachian + spiritual + GIS + memory |
 | Embedding model | `all-minilm:latest` (384-dim) | Pulled April 12, 2026 |
-| PostgreSQL gisdb tables | 551 | `msjarvisgis` public schema |
+| PostgreSQL gisdb tables | 551 | `msallisgis` public schema |
 | neuro_master processes | 131 | Was unreachable at chapter open |
 | Network | `qualia-net` | All critical containers confirmed |
 
@@ -34,7 +34,7 @@ All §25.2 open items are resolved. The Ms. Jarvis consciousness pipeline is ful
 |------|-------------|--------|--------|
 | OI-02 | BBB output blocking | ✅ CLOSED | `BBB_OUTPUT_BLOCKING=true` confirmed |
 | OI-05 | `/chat` endpoint HTTP 200 | ✅ CLOSED | Bridge returns HTTP 200 |
-| OI-36-A | jarvis-auth port 8055 | ✅ CLOSED | Auth container healthy |
+| OI-36-A | allis-auth port 8055 | ✅ CLOSED | Auth container healthy |
 | OI-37-C | `rag_grounded_v2` pipeline | ✅ CLOSED | See §25.9 patch detail |
 | OI-NEURO | neuro_master unreachable | ✅ CLOSED | HTTP 200, 131 processes, all services listed |
 | OI-RAG | RAG end-to-end pipeline | ✅ CLOSED | See §25.9 — chroma_raw schema confirmed |
@@ -73,10 +73,10 @@ All §25.2 open items are resolved. The Ms. Jarvis consciousness pipeline is ful
   "integration_active": true,
   "total_processes": 131,
   "services": {
-    "blood_brain_barrier":  "http://jarvis-blood-brain-barrier:8016",
-    "i_containers":         "http://jarvis-i-containers:8015",
-    "qualia_engine":        "http://jarvis-qualia-engine:8017",
-    "consciousness_bridge": "http://jarvis-consciousness-bridge:8020"
+    "blood_brain_barrier":  "http://allis-blood-brain-barrier:8016",
+    "i_containers":         "http://allis-i-containers:8015",
+    "qualia_engine":        "http://allis-qualia-engine:8017",
+    "consciousness_bridge": "http://allis-consciousness-bridge:8020"
   }
 }
 ```
@@ -85,7 +85,7 @@ All §25.2 open items are resolved. The Ms. Jarvis consciousness pipeline is ful
 
 ## §25.5 — RAGQuery Schema (Confirmed)
 
-The `jarvis-rag-server` FastAPI schema for `/query`:
+The `allis-rag-server` FastAPI schema for `/query`:
 
 ```json
 {
@@ -147,22 +147,22 @@ RAG documents contain real grounded Appalachian regional content including:
 
 | Container | Internal Port | Host Binding | Protocol |
 |-----------|---------------|--------------|----------|
-| `jarvis-chroma` | 8000 | 127.0.0.1:8001, 127.0.0.1:8002 | HTTP |
-| `jarvis-rag-server` | 8003 | 127.0.0.1:8003 | HTTP |
-| `jarvis-neurobiological-master` | 8018 | null (internal only) | HTTP |
-| `jarvis-blood-brain-barrier` | 8016 | — | HTTP |
-| `jarvis-i-containers` | 8015 | — | HTTP |
-| `jarvis-qualia-engine` | 8017 | — | HTTP |
-| `jarvis-consciousness-bridge` | 8020 | — | HTTP |
-| `jarvis-woah` | 7012 (internal) / 9003 (compose) | — | HTTP |
+| `allis-chroma` | 8000 | 127.0.0.1:8001, 127.0.0.1:8002 | HTTP |
+| `allis-rag-server` | 8003 | 127.0.0.1:8003 | HTTP |
+| `allis-neurobiological-master` | 8018 | null (internal only) | HTTP |
+| `allis-blood-brain-barrier` | 8016 | — | HTTP |
+| `allis-i-containers` | 8015 | — | HTTP |
+| `allis-qualia-engine` | 8017 | — | HTTP |
+| `allis-consciousness-bridge` | 8020 | — | HTTP |
+| `allis-woah` | 7012 (internal) / 9003 (compose) | — | HTTP |
 
 ---
 
 ## §25.8 — Bridge Container Patch Applied
 
-**File:** `/app/services/msjarvisconsciousnessbridge.py`
-**Backup:** `/app/services/msjarvisconsciousnessbridge.py.bak_ch25_closure`
-**Image committed:** `jarvis-consciousness-bridge:ch25-patched`
+**File:** `/app/services/msallisconsciousnessbridge.py`
+**Backup:** `/app/services/msallisconsciousnessbridge.py.bak_ch25_closure`
+**Image committed:** `allis-consciousness-bridge:ch25-patched`
 **SHA:** `sha256:19fbbf14db2760d1a34282492d4082fda513dcea5d15086ea206e5ac229925e3`
 
 ### Before patch (lines 94–98)
@@ -212,12 +212,12 @@ state["rag_consensus"] = {
 
 ```python
 self.services = {
-    "unified_gateway": "http://jarvis-unified-gateway:8011",
-    "neuro_master":    "http://jarvis-neurobiological-master:8018",
-    "direct_rag":      "http://jarvis-rag-server:8003",
-    "hilbert":         "http://jarvis-hilbert-state:8081",
-    "woah":            "http://jarvis-woah:9003",
-    "chroma":          "http://jarvis-chroma:8000",
+    "unified_gateway": "http://allis-unified-gateway:8011",
+    "neuro_master":    "http://allis-neurobiological-master:8018",
+    "direct_rag":      "http://allis-rag-server:8003",
+    "hilbert":         "http://allis-hilbert-state:8081",
+    "woah":            "http://allis-woah:9003",
+    "chroma":          "http://allis-chroma:8000",
 }
 ```
 
@@ -249,11 +249,11 @@ self.services = {
 - [x] No open items in §25.2 register
 - [x] gisdb at 551 tables (up from 501 at chapter open)
 - [x] GBIM entities database live
-- [x] PostgreSQL msjarvis + msjarvisgis both healthy
+- [x] PostgreSQL msallis + msallisgis both healthy
 
 **Chapter 26 may begin.**
 
 ---
 
-*Sealed: April 12, 2026, 12:08 AM EDT — Oak Hill, West Virginia*
-*Ms. Jarvis Rebuild Sprint — Chapter 25 Complete*
+*Sealed: April 12, 2026, 12:08 AM EDT — Mount Hope, West Virginia*
+*Ms. Allis Rebuild Sprint — Chapter 25 Complete*
