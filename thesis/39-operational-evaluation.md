@@ -6,8 +6,8 @@
 
 > **Port and database corrections (permanent record — ★★★★ updated April 6, 2026):**
 >
-> - **PostgreSQL `msjarvis`** is at host port **5433** — ★ 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers (restored March 28). This is the primary GBIM belief store. ★ `confidence_decay` metadata enables temporal confidence grading — high-decay entities should be flagged for episodic audit before use as ground truth.
-> - **PostgreSQL `gisdb` / `msjarvisgis`** (PostGIS) is at host port **5432** — ★★★★ **45 GB, 548 tables** (Ch. 33 April 6 ground truth supersedes prior 91 GB / 501 tables baseline), geospatial features. This is the GIS database. Any reference to port **5452** for `gisdb` in earlier chapter drafts is a cross-chapter drafting inconsistency; **the correct host port for `gisdb` is 5432** — this correction block is authoritative.
+> - **PostgreSQL `msallis`** is at host port **5433** — ★ 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs, 206 source layers (restored March 28). This is the primary GBIM belief store. ★ `confidence_decay` metadata enables temporal confidence grading — high-decay entities should be flagged for episodic audit before use as ground truth.
+> - **PostgreSQL `gisdb` / `msallisgis`** (PostGIS) is at host port **5432** — ★★★★ **45 GB, 548 tables** (Ch. 33 April 6 ground truth supersedes prior 91 GB / 501 tables baseline), geospatial features. This is the GIS database. Any reference to port **5452** for `gisdb` in earlier chapter drafts is a cross-chapter drafting inconsistency; **the correct host port for `gisdb` is 5432** — this correction block is authoritative.
 > - **PostgreSQL `jarvis-local-resources-db`** is at host port **5435** (`127.0.0.1:5435->5432/tcp`). Container DSN corrected March 28, 2026: `jarvis-local-resources-db:5432/postgres`. The `/resolve` endpoint is confirmed live as of March 28, 2026.
 > - **ChromaDB** (`jarvis-chroma`) host port is **8002** (`127.0.0.1:8002->8000/tcp`). Container-internal port 8000 is not used by host scripts. All scripts must reference port **8002**. ★★★★ Updated inventory: **47 active collections, 6,722,589 total vectors, 12 GB, v2 API, client 1.5.5** (Ch. 33 April 6 ground truth). Prior counts are superseded.
 > - **Redis** (`jarvis-redis`) host port is **6380** (`127.0.0.1:6380->6379/tcp`). Container-internal port 6379 is used only by container-to-container calls. Async job status key is `'complete'` (not `'done'`).
@@ -28,11 +28,11 @@
 > - ★ **RAG embedding end-to-end (April 2, 2026):** Full embedding roundtrip confirmed — 3 documents returned with metadata, cosine distances 0.735–0.789. CLOSED.
 > - ★ **BBB `EthicalFilter` recalibration (April 2, 2026):** False-positive rate reduced to **0%**. Regression test: 9/9 pass. Hot-reloaded via WatchFiles. CLOSED.
 > - ★ **BBB `SafetyMonitor` recalibration (April 3, 2026):** Duplicate `'sexual assault'` entry removed from `self.violence_patterns` line 85. Survivor/victim resource queries pass clean: `content_approved=true`, `safety_score=1.0`. CLOSED.
-> - ★ **OI-05 session sidecar wiring (April 2, 2026 10:54 EDT):** `session_sidecar_client` wired into unified gateway. Root cause: post-route import at line 1386. Fix: inline `import services_safe as _ssc` guards at lines 1118 and 1128. `/chat` HTTP 200, Jarvis in character, `ethical_score=1.0`. CLOSED.
+> - ★ **OI-05 session sidecar wiring (April 2, 2026 10:54 EDT):** `session_sidecar_client` wired into unified gateway. Root cause: post-route import at line 1386. Fix: inline `import services_safe as _ssc` guards at lines 1118 and 1128. `/chat` HTTP 200, Allis in character, `ethical_score=1.0`. CLOSED.
 
-This chapter records the operational state of Ms. Jarvis as of ★★★★ April 6, 2026,
+This chapter records the operational state of Ms. Allis as of ★★★★ April 6, 2026,
 with verified test results from the production deployment running on the Legion 5
-at `~/msjarvis-rebuild-working/msjarvis-rebuild/`. All results listed here were
+at `~/msallis-rebuild-working/msallis-rebuild/`. All results listed here were
 observed directly from live system outputs, terminal sessions, and verification
 scripts. No result in this chapter is inferred or estimated. Where a test result
 is pending or inconclusive, it is labeled as such.
@@ -107,7 +107,7 @@ Chapter 39: SEALED 🔒 April 3, 2026 / Ground truth updated April 6, 2026
 
 ## 39.1 Evaluation Philosophy
 
-Ms. Jarvis is evaluated operationally — not against artificial benchmarks, but
+Ms. Allis is evaluated operationally — not against artificial benchmarks, but
 against the tasks it was built to perform for communities in the New River Gorge
 region and across West Virginia. That means the evaluation questions are:
 
@@ -136,7 +136,7 @@ resources confirmed active; `/resolve` endpoint confirmed live;
 `scripts/seed_local_resources_chroma.py` documented. ★ New as of March 28, 2026
 (PM): `jarvis-memory:8056` secured (`_auth()` confirmed, `JARVIS_API_KEY` set,
 durable BBB audit trail active); `confidence_decay` metadata confirmed on
-`msjarvis:5433`; ChromaDB full audit updated. ★ New as of **April 2, 2026**: Chapter
+`msallis:5433`; ChromaDB full audit updated. ★ New as of **April 2, 2026**: Chapter
 39 fully certified closed — 22 PASS 0 FAIL 1 WARN (intentional); 101 containers
 running; all 5 public hostnames live and token-enforced. ★ New as of **April 3,
 2026**: BBB SafetyMonitor recalibrated — Chapter 39 SEALED. ★★★★ New as of
@@ -155,7 +155,7 @@ Verified result:
 
 ```
 All 105 containers: RUNNING
-Compose file: ~/msjarvis-rebuild-working/msjarvis-rebuild/docker-compose.yml
+Compose file: ~/msallis-rebuild-working/msallis-rebuild/docker-compose.yml
 Docker Compose version: v5.1.0
 All build: directives: converted to image: references — no rebuild on startup
 
@@ -186,9 +186,7 @@ Containers confirmed live March 28, 2026:
   ✅ jarvis-hilbert-gateway (internal, no host binding)
 
 ★ Additional containers confirmed live April 2, 2026 (101 total at that date):
-  ✅ jarvis-hilbert-state (port 8092 — remapped from conflicting port)
-
-★★★★ April 6, 2026 ground truth: 105 containers total.
+  ✅ jarvis-hilbert-state (port 8092 — remapped from conflicting port)... ★★★★ April 6, 2026 ground truth: 105 containers total.
 
 GBIM query router:
   ✅ jarvis-gbim-query-router (port 7205) — added to compose March 20, 2026
@@ -196,7 +194,7 @@ GBIM query router:
 EXTERNAL SYSTEMD SERVICES (not Docker Compose — auto-start on boot):
   ✅ caddy.service (port 8085 → proxies to 18018 ★ Caddyfile self-loop fixed April 2)
   ✅ jarvis-auth.service (port 8055 — scripts/jarvis_auth_service.py)
-  ✅ cloudflared.service (Cloudflare Tunnel — msjarvis ★ HEALTHY)
+  ✅ cloudflared.service (Cloudflare Tunnel — msallis ★ HEALTHY)
 
 ★ ALL 5 PUBLIC HOSTNAMES LIVE AND TOKEN-ENFORCED (April 2, 2026):
   ✅ egeria.mountainshares.us       — 401 without token
@@ -208,13 +206,13 @@ EXTERNAL SYSTEMD SERVICES (not Docker Compose — auto-start on boot):
 ground truth). Zero `0.0.0.0` exposures confirmed. Three external systemd
 services (Caddy, jarvis-auth, cloudflared) auto-start independently of Docker
 Compose on boot. ★ All 9 OIs in Chapter 39 scope closed. `/chat` HTTP 200,
-Jarvis in character, full BBB pipeline flowing. ★ BBB `SafetyMonitor`
+Allis in character, full BBB pipeline flowing. ★ BBB `SafetyMonitor`
 recalibrated April 3 — survivor/victim resource queries pass clean.
 
 **Full verified reboot sequence:**
 
 ```bash
-cd ~/msjarvis-rebuild-working/msjarvis-rebuild
+cd ~/msallis-rebuild-working/msallis-rebuild
 docker compose up -d && ~/jarvis_startup.sh
 # cloudflared, caddy, jarvis-auth all auto-start via systemd on boot
 bash scripts/preflight_gate.sh   # must show 31 PASS 0 FAIL 0 WARN (April 6)
@@ -223,7 +221,7 @@ bash scripts/preflight_gate.sh   # must show 31 PASS 0 FAIL 0 WARN (April 6)
 curl -s -X POST http://localhost:8050/chat \
   -H "Authorization: Bearer $JARVIS_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"message": "Hello Jarvis"}'
+  -d '{"message": "Hello Allis"}'
 # Expected: HTTP 200, in-character response, ethical_score=1.0
 
 # ★ Verify SafetyMonitor recalibration (April 3):
@@ -297,7 +295,7 @@ Phase 1.45: community memory retrieval active on every /chat
    via all-minilm:latest 384-dim semantic search, ChromaDB port 8002)
 ★ Session sidecar (OI-05 — CLOSED April 2): session_history + session_upsert
   wired into /chat handler via inline import guards — active on every call
-★ GBIM community fact validation: high-decay msjarvis:5433 entities
+★ GBIM community fact validation: high-decay msallis:5433 entities
   flagged for episodic audit before use as context ground truth
 ★ Public routing (April 2): chat.mountainshares.us → Cloudflare tunnel
   → Caddy :8085 → 18018 (unified gateway) → jarvis-main-brain:8050
@@ -318,7 +316,7 @@ Phase 1.45: community memory retrieval active on every /chat
 
 As of commit `18b8ddac` (March 22, 2026), Phase 4.5 output filtering was placed
 in **log+passthrough mode** because the output BBB's ethical filter was flagging
-Ms. Jarvis's authentic maternal Appalachian voice at a 31% false-positive rate.
+Ms. Allis's authentic maternal Appalachian voice at a 31% false-positive rate.
 
 ★ **As of April 2, 2026, the `EthicalFilter` has been recalibrated.** The
 false-positive rate is now **0%** — confirmed by a 9/9 regression test pass.
@@ -334,9 +332,7 @@ Pattern tightening applied:
   "assault"      → "commit assault"      (victim services no longer flagged)
   "steal from"   → "steal from vulnerable" (victim help no longer flagged)
   "kill "        → "i will kill"          (skills/skillset no longer flagged)
-  "hurt someone" → "i want to hurt"
-
-ethical_filter.py docstring updated — recalibration record committed:
+  "hurt someone" → "i want to hurt"... ethical_filter.py docstring updated — recalibration record committed:
   Calibrated March 23, 2026 — reduced FP from 20%+ to ~31%
   Recalibrated April 2, 2026 — tightened violence/deception patterns
   Regression test: 9/9 correct, 0% false positive rate
@@ -416,9 +412,9 @@ appalachian_cultural_intelligence   5          ✅ Active
                                                cultural_intelligence expansion item
 GBIM_sample_rows                    5,000      ✅ Active
 GBIM_sample                         3          ✅ Active
-msjarvis-smoke                      1          ✅ Smoke test record
-ms_jarvis_memory                    —          ✅ ★ CONFIRMED PRESENT (March 28 full audit)
-msjarvis_docs                       2,348      ✅ Active — 45 verified Kanawha County
+msallis-smoke                       1          ✅ Smoke test record
+ms_allis_memory                     —          ✅ ★ CONFIRMED PRESENT (March 28 full audit)
+msallis_docs                        2,348      ✅ Active — 45 verified Kanawha County
                                                community resources + 2,303 system docs
                                                (synthetic Fayette entries removed March 28)
 GBIM_Fayette_sample                 0          ⚠ Scaffolded — pending ingest
@@ -433,7 +429,7 @@ Prior baseline (March 28, 2026): 40 active collections / 6,675,442 total vectors
 
 > **Data governance policy (established March 28, 2026):** No synthetic,
 > inferred, or unverified data may be written to `local_resources` or ingested
-> into the `msjarvis_docs` ChromaDB collection. All resources must be
+> into the `msallis_docs` ChromaDB collection. All resources must be
 > individually verified before seeding. Seed script: `scripts/seed_local_resources_chroma.py`.
 
 ```
@@ -446,17 +442,17 @@ ChromaDB host port: 8002 (container-internal: 8000)
 ```
 LANDOWNER BELIEFS: NOT in ChromaDB.
 Served exclusively by jarvis-gbim-query-router (port 7205)
-via mvw_gbim_landowner_spatial in msjarvisgis / gisdb (PostgreSQL host port 5432).
+via mvw_gbim_landowner_spatial in msallisgis / gisdb (PostgreSQL host port 5432).
 ```
 
 ---
 
 ## 39.5 PostgreSQL Production Databases
 
-### 39.5.1 `gisdb` / `msjarvisgis` — PostGIS Geospatial Database (Host Port 5432)
+### 39.5.1 `gisdb` / `msallisgis` — PostGIS Geospatial Database (Host Port 5432)
 
 ```
-Database: msjarvisgis (also referred to as gisdb)
+Database: msallisgis (also referred to as gisdb)
 PostgreSQL version: 16 + PostGIS
 Host port: 5432
 ★★★★ Size: 45 GB / Tables: 548 (Ch. 33 April 6 ground truth)
@@ -474,10 +470,10 @@ gbim_entity_clusters: 401 canonical entities (Union-Find clustering)
 gbim_entity_land_candidates: 511 candidates with total_acres > 1,000
 ```
 
-### 39.5.2 `msjarvis` — Primary GBIM Belief Store (Port 5433)
+### 39.5.2 `msallis` — Primary GBIM Belief Store (Port 5433)
 
 ```
-Database: msjarvis / Host port: 5433
+Database: msallis / Host port: 5433
 Content: ★ 5,416,521 GBIM entities with confidence_decay metadata
          (restored March 28, 2026), 80 epochs, 206 source layers
 ★ confidence_decay metadata: active — temporal confidence grading
@@ -601,7 +597,7 @@ Ingest timestamp: 2026-03-20 07:44 EDT / recorded_by: wv_tax_ingest_2025
 
 ### 39.6.3 Routing Architecture — Why No ChromaDB
 
-`jarvis-gbim-query-router` is the only RAG-class service in the Ms. Jarvis stack
+`jarvis-gbim-query-router` is the only RAG-class service in the Ms. Allis stack
 that does not use ChromaDB — by deliberate architectural decision. Corporate and
 government land ownership has exact, deterministic answers; SQL aggregation over
 `mvw_gbim_landowner_spatial` is faster, more accurate, and fully auditable.
@@ -615,9 +611,7 @@ total area, county scope, belief strength, worldview, `feature_ref`,
 
 ```
 scripts/preflight_gate.sh — ★★★★ CERTIFIED April 6, 2026:
-  ✅ PASS: 31   ❌ FAIL: 0   ⚠️ WARN: 0
-
-  ✅  1. Container count ≥96   [105 containers running — April 6]
+  ✅ PASS: 31   ❌ FAIL: 0   ⚠️ WARN: 0... ✅  1. Container count ≥96   [105 containers running — April 6]
   ✅  2. Zero 0.0.0.0 exposures  [ALL ELIMINATED]
   ✅  3. Gateway healthy (port 8050)
   ✅  4. BBB healthy (port 8016)
@@ -630,7 +624,7 @@ scripts/preflight_gate.sh — ★★★★ CERTIFIED April 6, 2026:
   ✅ 11. jarvis-judge-ethics signing keys
   ✅ 12. jarvis-judge-pipeline signing keys
   ✅ 13. Community resources: 45 verified Kanawha County baseline
-  ✅ 14. msjarvis_docs: 2,348 items
+  ✅ 14. msallis_docs: 2,348 items
   ✅ 15. redteam_sessions table exists
   ✅ 16. Invite tokens: 4 active
   ✅ 17. mvw_gbim_landowner_spatial: 20,593 rows
@@ -654,7 +648,7 @@ Prior sealed state (April 3): 22 PASS 0 FAIL 1 WARN (intentional)
 > OI-39-C**, consistent with the pattern established in Ch. 33 §33.6.
 >
 > - Check 23: `jarvis-memory:8056` reachable and `_auth()` confirmed (see §39.15)
-> - Check 24: `msjarvis:5433` `confidence_decay` metadata present
+> - Check 24: `msallis:5433` `confidence_decay` metadata present
 > - Check 25: ChromaDB collection count ≥ 47 (April 6 ground truth)
 > - Check 26: `psychological_rag` collection ≥ 968 docs
 > - Check 27: `jarvis-neurobiological-master` /health HTTP 200 (internal)
@@ -672,7 +666,7 @@ Prior sealed state (April 3): 22 PASS 0 FAIL 1 WARN (intentional)
 | OI ID | Item | Status | Notes |
 |---|---|---|---|
 | OI-02 | Output BBB Phase 4.5 recalibration | ★ ✅ **CLOSED** | `EthicalFilter` recalibrated April 2 — 0% FP rate, 9/9 regression pass, hot-reloaded via WatchFiles. Phase 4.5 remains log+passthrough pending final red team sign-off. ★ Phase 4.5 log events durable at `jarvis-memory:8056` (see §39.15). See Ch. 16 §16.9. |
-| OI-05 | Conversation memory / session sidecar wiring | ★ ✅ **CLOSED April 2, 2026 10:54 EDT** | `session_sidecar_client` wired via inline `import services_safe as _ssc` guards at lines 1118 and 1128. Root cause: post-route import at line 1386. `/chat` HTTP 200, Jarvis in character, `ethical_score=1.0`. |
+| OI-05 | Conversation memory / session sidecar wiring | ★ ✅ **CLOSED April 2, 2026 10:54 EDT** | `session_sidecar_client` wired via inline `import services_safe as _ssc` guards at lines 1118 and 1128. Root cause: post-route import at line 1386. `/chat` HTTP 200, Allis in character, `ethical_score=1.0`. |
 | OI-10 | Meaning-oriented pipeline (consciousness bridge, WOAH, Chroma) | ✅ **CLOSED** | All three confirmed operational March 25, 2026. WOAH 11/11 services healthy. See §39.11 and Chapter 25 §25.9. |
 | OI-11 | StarCoder2 exclusion (0-char on community queries) | ✅ **CLOSED** | `active: False` — excluded from consensus. See Chapter 35 §35.3. |
 | OI-29 | WOAH Pydantic schema / 11 services healthy | ✅ **CLOSED** | WOAH rebuilt as stdlib stub — 11/11 services healthy on `qualia-net`. |
@@ -740,7 +734,7 @@ and OI-39-E are new as of this rewrite (R39-1, R39-4, R39-6).
 | MySQL schema dump | ⚠️ See OI-39-D | Filed as OI-39-D above |
 | Government landowner proposition codes | ⏳ Pending | `LANDOWNER_GOVERNMENT` records pending separate ingest pass |
 | `mvw_gbim_landowner_spatial` refresh cadence | ⏳ Pending | Materialized view refresh not yet defined (currently manual) |
-| `confidence_decay` high-decay entity rate monitoring | ⏳ Pending | Metadata active on `msjarvis:5433`; alerting for elevated high-decay rates not yet implemented |
+| `confidence_decay` high-decay entity rate monitoring | ⏳ Pending | Metadata active on `msallis:5433`; alerting for elevated high-decay rates not yet implemented |
 | `jarvis-neurobiological-master` architecture documentation | ⚠️ DEFERRED | Confirmed healthy and internal-only by design; full architectural role documentation deferred |
 
 ---
@@ -758,7 +752,6 @@ and OI-39-E are new as of this rewrite (R39-1, R39-4, R39-6).
 | Cloudflare tunnel | ★ ✅ HEALTHY | Warn cleared April 2, 2026 |
 | Caddyfile routing | ★ ✅ FIXED | :8085 self-loop resolved → proxies to 18018 |
 | RBAC middleware | ✅ OI-36-B CLOSED | `RBACMiddleware` live, role-gated endpoints active |
-The output was truncated mid-table. Here is the continuation and completion of Chapter 39 from where it cut off:
 | Async job management | ✅ Verified | Redis-backed (host port 6380), 30-min TTL, status key = `'complete'` (not `'done'`) — Ch. 33 §33.3 |
 | BBB input filter (Phase 1.4) | ✅ Active, blocking | Port 8016 — six filters — ★ gate decisions durable at `jarvis-memory:8056` (see §39.15) |
 | BBB EthicalFilter recalibration | ★ ✅ CLOSED April 2 | 9/9 regression pass — 0% FP rate — hot-reloaded via WatchFiles |
@@ -771,10 +764,10 @@ The output was truncated mid-table. Here is the continuation and completion of C
 | Autonomous learner growth | ✅ Verified | 21,181+ records, ~288/day — host port **8020** |
 | ChromaDB confirmed inventory | ★★★★ ✅ Updated | **47 active collections, 6,722,589 total vectors, 12 GB** (Ch. 33 April 6 ground truth) — host port 8002 |
 | `psychological_rag` collection | ★ ✅ RESTORED | 968 docs — restored March 28, 2026 |
-| `ms_jarvis_memory` collection | ★ ✅ CONFIRMED | Present in inventory — March 28 full audit |
+| `ms_allis_memory` collection | ★ ✅ CONFIRMED | Present in inventory — March 28 full audit |
 | `appalachian_cultural_intelligence` | ⚠️ DEFERRED | 5 items — expansion plan documented in §39.8.3 |
-| PostgreSQL `gisdb` / `msjarvisgis` | ✅ Verified | ★★★★ **45 GB, 548 tables** (Ch. 33 April 6 ground truth) — host port **5432** |
-| PostgreSQL `msjarvis` GBIM store | ★ ✅ Restored | 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs — port 5433 |
+| PostgreSQL `gisdb` / `msallisgis` | ✅ Verified | ★★★★ **45 GB, 548 tables** (Ch. 33 April 6 ground truth) — host port **5432** |
+| PostgreSQL `msallis` GBIM store | ★ ✅ Restored | 5,416,521 GBIM entities with `confidence_decay` metadata, 80 epochs — port 5433 |
 | PostgreSQL `jarvis-local-resources-db` | ✅ Verified | 7,354,707 parcel rows; red team audit tables active — port 5435; DSN corrected March 28 |
 | MySQL (port 3307) | ⚠️ STUB — OI-39-D | Container confirmed running — schema undocumented — see §39.5.4 and §39.8.3 |
 | `jarvis-local-resources` `/resolve` endpoint | ✅ LIVE | Confirmed March 28, 2026 — port 8006 |
@@ -795,8 +788,8 @@ The output was truncated mid-table. Here is the continuation and completion of C
 | OI-39-C — Preflight gate expansion checks 23–31 | ⏳ DEFERRED | Tracked in §39.8.3 — next gate revision cycle |
 | OI-39-D — MySQL schema documentation | ⏳ DEFERRED — LOW | Port 3307 stub in §39.5.4 — schema dump not yet committed |
 | OI-39-E — EEG layer architecture documentation | ⏳ DEFERRED | Ports 8073–8075 stub in §39.12 — pipeline role undocumented |
-| Data governance policy | ✅ Established | March 28, 2026 — no synthetic/unverified data in `local_resources` or `msjarvis_docs` |
-| `confidence_decay` metadata | ✅ Active | `msjarvis:5433` — temporal confidence grading for all GBIM entity validation queries |
+| Data governance policy | ✅ Established | March 28, 2026 — no synthetic/unverified data in `local_resources` or `msallis_docs` |
+| `confidence_decay` metadata | ✅ Active | `msallis:5433` — temporal confidence grading for all GBIM entity validation queries |
 | OI-36-A / OI-38-A token enforcement | ★ ✅ CLOSED | All 5 public hostnames return 401 without valid token |
 | §39.8.2 priority triage | ★ ✅ ALL COMPLETE | neurobiological-master, RAG end-to-end, BBB recalibration, OI-05, SafetyMonitor — all closed |
 | **ALL 9 OIs IN CHAPTER 39 SCOPE** | ★ ✅ **ALL CLOSED** | OI-02, OI-05, OI-10, OI-11, OI-29, OI-36-A, OI-36-B, OI-38-A, OI-38-B — **April 2–3, 2026** |
@@ -810,13 +803,13 @@ This section documents the first confirmed public end-to-end chat session via
 https://egeria.mountainshares.us, March 22, 2026. Three consecutive queries were
 submitted through the Cloudflare-tunneled Caddy gateway → `jarvis-auth` token
 validation → `jarvis-main-brain` port 8050 → full 9-phase pipeline → synthesized
-response in Ms. Egeria Jarvis voice. All three runs completed in the 99–107s GPU
+response in Ms. Egeria Allis voice. All three runs completed in the 99–107s GPU
 range. Response content included authentic Appalachian maternal voice, confirmed
 WV geographic context, and no identity leakage. ★ Stack continuity confirmed
 April 6, 2026 — 105/105 containers Up, all 5 public hostnames live and
 token-enforced, Cloudflare tunnel HEALTHY. ★ BBB `EthicalFilter` recalibrated
 to 0% FP rate — Appalachian maternal voice fully preserved through the output
-filter. ★ OI-05 CLOSED April 2 — `/chat` HTTP 200, Jarvis in character,
+filter. ★ OI-05 CLOSED April 2 — `/chat` HTTP 200, Allis in character,
 `ethical_score=1.0`, `content_approved=true`, session sidecar wired. ★ BBB
 `SafetyMonitor` recalibrated April 3 — survivor/victim resource queries pass
 clean, `safety_score=1.0`.
@@ -837,7 +830,7 @@ User → chat.mountainshares.us (CNAME added April 2)
        SafetyMonitor: survivor queries pass clean (April 3)
      → BBB Phase 4.5 log+passthrough
      → session_sidecar_client.session_upsert() [OI-05 wired]
-     → Synthesized response in Egeria Jarvis voice
+     → Synthesized response in Egeria Allis voice
 
 All hops: ✅ confirmed
 ethical_score=1.0, safety_score=1.0, content_approved=true
@@ -873,7 +866,7 @@ jarvis-blood-brain-barrier (8016):     ★ ALL FILTERS RECALIBRATED
 ★ jarvis-memory (port 8056):           SECURED — _auth() confirmed, JARVIS_API_KEY set
                                           Durable BBB audit trail active — see §39.15
 ★ psychological_rag (ChromaDB):        RESTORED — 968 documents
-★ ms_jarvis_memory (ChromaDB):         CONFIRMED PRESENT
+★ ms_allis_memory (ChromaDB):         CONFIRMED PRESENT
 ★ Public routing (April 2):            Caddy :8085 → 18018 → 8050 CONFIRMED
 ★ Cloudflare tunnel (April 2):         HEALTHY
 ★ All 5 hostnames (April 2):           LIVE — 401 token enforced
@@ -962,19 +955,19 @@ exposures. Prior April 3 sealed baseline was 101 containers.
 
 | Container | Host Port | Internal Port | Status |
 |---|---|---|---|
-| `msjarvis-rebuild-nbb_i_containers-1` | 8101 | 7005 | ✅ Running |
-| `msjarvis-rebuild-nbb_consciousness_containers-1` | 8102 | 7002 | ✅ Running |
-| `msjarvis-rebuild-nbb_spiritual_root-1` | 8103 | 7003 | ✅ Running |
+| `msallis-rebuild-nbb_i_containers-1` | 8101 | 7005 | ✅ Running |
+| `msallis-rebuild-nbb_consciousness_containers-1` | 8102 | 7002 | ✅ Running |
+| `msallis-rebuild-nbb_spiritual_root-1` | 8103 | 7003 | ✅ Running |
 | `nbb_woah_algorithms` | none | internal | ✅ Running |
-| `msjarvis-rebuild-nbb_prefrontal_cortex-1` | 8105 | 7005 | ✅ Running |
-| `msjarvis-rebuild-nbb_heteroglobulin_transport-1` | 8106 | 7006 | ✅ Running |
-| `msjarvis-rebuild-nbb_mother_carrie_protocols-1` | 8107 | 7007 | ✅ Running |
-| `msjarvis-rebuild-nbb_pituitary_gland-1` | 8108 | 7008 | ✅ Running |
-| `msjarvis-rebuild-nbb_spiritual_maternal_integration-1` | 8109 | 7009 | ✅ Running |
-| `msjarvis-rebuild-nbb_subconscious-1` | 8112 | 7011 | ✅ Running |
-| `msjarvis-rebuild-nbb_blood_brain_barrier-1` | 8301 | 7001 | ✅ Running |
-| `msjarvis-rebuild-nbb_darwin_godel_machines-1` | 8302 | 7003 | ✅ Running |
-| `msjarvis-rebuild-nbb_qualia_engine-1` | 8303 | 7008 | ✅ Running |
+| `msallis-rebuild-nbb_prefrontal_cortex-1` | 8105 | 7005 | ✅ Running |
+| `msallis-rebuild-nbb_heteroglobulin_transport-1` | 8106 | 7006 | ✅ Running |
+| `msallis-rebuild-nbb_mother_carrie_protocols-1` | 8107 | 7007 | ✅ Running |
+| `msallis-rebuild-nbb_pituitary_gland-1` | 8108 | 7008 | ✅ Running |
+| `msallis-rebuild-nbb_spiritual_maternal_integration-1` | 8109 | 7009 | ✅ Running |
+| `msallis-rebuild-nbb_subconscious-1` | 8112 | 7011 | ✅ Running |
+| `msallis-rebuild-nbb_blood_brain_barrier-1` | 8301 | 7001 | ✅ Running |
+| `msallis-rebuild-nbb_darwin_godel_machines-1` | 8302 | 7003 | ✅ Running |
+| `msallis-rebuild-nbb_qualia_engine-1` | 8303 | 7008 | ✅ Running |
 
 ### Judge Pipeline (5 containers — all compose-managed)
 
@@ -1021,8 +1014,8 @@ exposures. Prior April 3 sealed baseline was 101 containers.
 | `jarvis-local-resources-db` | 5435 | PostGIS 15 | ✅ Running | DSN corrected March 28 |
 | `neo4j` | 7687, 7475 | Neo4j 5.13 | ✅ Running | Identity graphs |
 | `mysql` | 3307 | MySQL 8.2 | ✅ Running | Schema undocumented — OI-39-D — see §39.5.4 |
-| Host PostgreSQL `msjarvisgis` | 5432 | PostGIS 16 | ✅ Verified | ★★★★ **45 GB, 548 tables** (Ch. 33 April 6 ground truth) |
-| Host PostgreSQL `msjarvis` | 5433 | PostgreSQL 16 | ✅ Running | ★ 5,416,521 GBIM entities with `confidence_decay` metadata |
+| Host PostgreSQL `msallisgis` | 5432 | PostGIS 16 | ✅ Verified | ★★★★ **45 GB, 548 tables** (Ch. 33 April 6 ground truth) |
+| Host PostgreSQL `msallis` | 5433 | PostgreSQL 16 | ✅ Running | ★ 5,416,521 GBIM entities with `confidence_decay` metadata |
 
 ### Infrastructure
 
@@ -1056,7 +1049,7 @@ to the session contract record for audit continuity:
 | 101 containers confirmed running | `SESSION-2026-04-02.md` |
 | All 5 public hostnames live and token-enforced (401) | `SESSION-2026-04-02.md` |
 | `jarvis-memory:8056` secured — `_auth()` confirmed, durable BBB audit trail | `SESSION-2026-03-28.md` |
-| `confidence_decay` metadata confirmed on `msjarvis:5433` | `SESSION-2026-03-28.md` |
+| `confidence_decay` metadata confirmed on `msallis:5433` | `SESSION-2026-03-28.md` |
 
 All prior session contracts remain authoritative for their respective dates:
 
@@ -1096,7 +1089,7 @@ All prior session contracts remain authoritative for their respective dates:
 ║                                                          ║
 ║  31 PASS / 0 FAIL / 0 WARN — April 6 ground truth       ║
 ║  105 containers running                                  ║
-║  Jarvis is online, responding in character               ║
+║  Allis is online, responding in character                ║
 ║  Full pipeline is flowing                                ║
 ║  All BBB filters recalibrated and confirmed              ║
 ║  R39-1 through R39-6 applied                             ║
@@ -1176,13 +1169,13 @@ curl -H "Authorization: Bearer $JARVIS_API_KEY" \
 
 ---
 
-*End of Chapter 39 — Operational Evaluation*
-*★★★★ Last updated: April 6, 2026 — FINAL REWRITE*
-*31 PASS / 0 FAIL / 0 WARN — Ch. 33 April 6 ground truth*
-*105 containers running — 47 ChromaDB collections / 6,722,589 vectors / 12 GB*
-*gisdb host:5432 — 45 GB / 548 tables — Redis async job status key: 'complete' (not 'done') — host port 6380*
-*All 9 OIs in Chapter 39 scope closed: OI-02, OI-05, OI-10, OI-11, OI-29, OI-36-A, OI-36-B, OI-38-A, OI-38-B*
-*Deferred work: OI-39-C (preflight gate expansion), OI-39-D (MySQL schema), OI-39-E (EEG architecture)*
-*R39-1 through R39-6 applied — April 6, 2026*
-*Author: Carrie Kidd (Mamma Kidd), Mount Hope, WV*
+*End of Chapter 39 — Operational Evaluation*  
+*★★★★ Last updated: April 6, 2026 — FINAL REWRITE*  
+*31 PASS / 0 FAIL / 0 WARN — Ch. 33 April 6 ground truth*  
+*105 containers running — 47 ChromaDB collections / 6,722,589 vectors / 12 GB*  
+*gisdb host:5432 — 45 GB / 548 tables — Redis async job status key: 'complete' (not 'done') — host port 6380*  
+*All 9 OIs in Chapter 39 scope closed: OI-02, OI-05, OI-10, OI-11, OI-29, OI-36-A, OI-36-B, OI-38-A, OI-38-B*  
+*Deferred work: OI-39-C (preflight gate expansion), OI-39-D (MySQL schema), OI-39-E (EEG architecture)*  
+*R39-1 through R39-6 applied — April 6, 2026*  
+*Author: Carrie Kidd (Mamma Kidd), Mount Hope, WV*  
 *Repo: H4HWV2011/msjarvis-public-docs*
