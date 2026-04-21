@@ -3,7 +3,7 @@
 **Carrie Kidd (Mamma Kidd) · Mount Hope, WV**  
 **Last updated: ★★★★ April 6, 2026 — FINAL REWRITE**
 
-**105/105 containers Up (zero Restarting, zero Exited). MountainShares (M$) integration points, infrastructure topology, and Ms. Allis’s operational footprint across networks, databases, and services documented as first-class architecture. All references updated from Ms. Jarvis to Ms. Allis; all `jarvis-*` service names corrected to `allis-*` where appropriate.**
+**105/105 containers Up (zero Restarting, zero Exited). MountainShares (M$) integration points, infrastructure topology, and Ms. Allis’s operational footprint across networks, databases, and services documented as first-class architecture. 
 
 ---
 
