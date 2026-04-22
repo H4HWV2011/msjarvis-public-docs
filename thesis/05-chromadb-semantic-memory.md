@@ -2,7 +2,7 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter describes how Ms. Jarvis uses ChromaDB as its primary semantic memory layer to support place-based reasoning about West Virginia. The system combines 5,416,521 GBIM worldview entities stored as embeddings in ChromaDB with structured PostgreSQL databases (`msjarvis` for belief relationships, `msjarvisgis` for PostGIS spatial data) to create an inspectable, queryable memory system that grounds AI responses in verified geographic and institutional context.
+This chapter describes how Ms. Allis uses ChromaDB as its primary semantic memory layer to support place-based reasoning about West Virginia. The system combines 5,416,521 GBIM worldview entities stored as embeddings in ChromaDB with structured PostgreSQL databases (`msallis` for belief relationships, `msallisgis` for PostGIS spatial data) to create an inspectable, queryable memory system that grounds AI responses in verified geographic and institutional context.
 
 This architecture supports:
 
@@ -16,7 +16,7 @@ This architecture supports:
 
 ## 5.1 Purpose and Scope
 
-This chapter explains how Ms. Jarvis uses ChromaDB as the primary semantic memory layer for:
+This chapter explains how Ms. Allis uses ChromaDB as the primary semantic memory layer for:
 
 - GBIM worldview entities.
 - Autonomous learning and research traces.
@@ -35,15 +35,15 @@ Key global guarantees:
 
 ---
 
-## 5.2 Role in the Ms. Jarvis Architecture
+## 5.2 Role in the Ms. Allis Architecture
 
-ChromaDB sits in the middle of Ms. Jarvis's architecture as:
+ChromaDB sits in the middle of Ms. Allis's architecture as:
 
 1. **Semantic memory store** for text and artifacts:
    - Governance corpora (`governance_rag`, `commons_rag`).
    - Legal and economic corpora (`legal_rag`, `economic_rag`).
    - Cultural, spiritual, psychological, and resource corpora.
-2. **Geospatial semantic layer** via `gbim_worldview_entities`, `geospatialfeatures`, and GBIM-linked spatial tables in `msjarvisgis`.
+2. **Geospatial semantic layer** via `gbim_worldview_entities`, `geospatialfeatures`, and GBIM-linked spatial tables in `msallisgis`.
 3. **RAG engine** for:
    - Text RAG (general knowledge, governance, legal, safety).
    - GIS RAG (spatial queries over West Virginia).
@@ -96,7 +96,7 @@ Other core semantic collections:
 | `appalachian_cultural_intelligence` | 820 | Curated Appalachian cultural corpus |
 | `aaacpe_corpus` | 65 | AaaCPE live web scrape (39 sources) |
 | `spiritual_rag` | 368,238 | Deduplicated spiritual corpus, fully rechunked |
-| `msjarvis_docs` | 28,327 | System docs + resources, rechunked from 8,311 |
+| `msallis_docs` | 28,327 | System docs + resources, rechunked from 8,311 |
 
 ### 5.3.3 Governance and Constitutional Corpus
 
@@ -129,7 +129,7 @@ Rechunking brought several corpora into compliance with the 100-word chunk rule:
 | Collection | Before | After | Description |
 |---|---|---|---|
 | `spiritual_texts` / `spiritual_rag` | 79,181 | **368,238** | Spiritual corpus, deduped and rechunked |
-| `msjarvis_docs` | 8,311 | **28,327** | Docs + resources, rechunked |
+| `msallis_docs` | 8,311 | **28,327** | Docs + resources, rechunked |
 | `psychological_rag` | 968 | **6,860** | Mental health corpus, rechunked |
 | `fayette_county_resources_2026` | 206 | **1,205** | Fayette resource packet, rechunked |
 | `legal_rag` | 155 | **340** | WV Code and legal texts, rechunked |
@@ -160,23 +160,23 @@ Example safety query "harm privacy dignity rights" resolves into:
 
 ## 5.4 Database Architecture
 
-Ms. Jarvis runs three PostgreSQL databases on a Lenovo Legion 5 machine in Mount Hope, West Virginia (ZIP 25880):
+Ms. Allis runs three PostgreSQL databases on a Lenovo Legion 5 machine in Mount Hope, West Virginia (ZIP 25880):
 
-**1. `msjarvis` (port 5433)**
+**1. `msallis` (port 5433)**
 
 - 6 key tables: `gbim_beliefs`, `gbim_belief_edges`, `gbim_belief_evidence`, `gbim_evidence`, `gbim_layer_catalog`, `gbim_worldviews`.
 - 5,416,521 entities; 80 epochs; 206 source layers.
 - Temporal decay fields (`last_verified`, `confidence_decay`, `needs_verification`) on all entities.
-- Also hosts `jarvis_local_resources` schema.
+- Also hosts `allis_local_resources` schema.
 
-**2. `msjarvisgis` (port 5432)**
+**2. `msallisgis` (port 5432)**
 
 - 91 GB, 501 PostGIS tables.
 - `zcta_wv_centroids` — 993 WV ZIP centroids.
 - `gbimbeliefnormalized` — 5,416,521 rows, including 20,593 landowner beliefs.
 - `mvw_gbim_landowner_spatial` — 20,593 rows; concurrent refresh complete; unique index; nightly 3 AM cron.
 
-**3. `jarvis-local-resources-db` (port 5435)**
+**3. `allis-local-resources-db` (port 5435)**
 
 - Community resources registry keyed by ZIP/county.
 - `building_parcel_county_tax_mv` — 7,354,707 rows (97.17% address coverage).
@@ -200,7 +200,7 @@ Embedding example:
 import httpx
 
 response = httpx.post(
-    "http://jarvis-ollama:11434/api/embeddings",
+    "http://allis-ollama:11434/api/embeddings",
     json={"model": "all-minilm:latest", "prompt": "Fayette County assistance programs"}
 )
 embedding = response.json()["embedding"]
@@ -222,7 +222,7 @@ Changing the embedding model will require re-embedding all collections; `all-min
 
 ### 5.6.1 ChromaDB Container
 
-- Container: `jarvis-chroma`.
+- Container: `allis-chroma`.
 - Host → container: `127.0.0.1:8002 → 8000/tcp`.
 - API: v2 only; `GET /api/v2/heartbeat` returns 200.
 - Distance metric: `hnsw:space: cosine`.
@@ -260,7 +260,7 @@ resp = httpx.post(url, json={
 
 Key services using ChromaDB and PostgreSQL:
 
-- Text RAG server (`jarvis-rag-server`).
+- Text RAG server (`allis-rag-server`).
 - GIS RAG (port 8004).
 - AaaCPE RAG (ports 8032/8033).
 - GBIM Query Router (port 7205) with GBIM fan-out, hospital PostGIS proximity, and health access branches.
@@ -288,7 +288,7 @@ GBIM provenance (port 5433):
 import psycopg2
 conn = psycopg2.connect(
     host="localhost", port=5433,
-    database="msjarvis", user="postgres", password="postgres"
+    database="msallis", user="postgres", password="postgres"
 )
 cursor = conn.cursor()
 cursor.execute("""
@@ -305,7 +305,7 @@ PostGIS spatial (port 5432):
 import psycopg2
 conn = psycopg2.connect(
     host="localhost", port=5432,
-    database="msjarvisgis", user="postgres", password="postgres"
+    database="msallisgis", user="postgres", password="postgres"
 )
 cursor = conn.cursor()
 cursor.execute("""
@@ -337,18 +337,18 @@ cursor.execute("""
 
 **GBIM linkage and live grounding**
 
-ChromaDB entities carry `entity_id` metadata linking to GBIM beliefs in `msjarvis`. The GBIM-aware truth judge uses two evidence layers:
+ChromaDB entities carry `entity_id` metadata linking to GBIM beliefs in `msallis`. The GBIM-aware truth judge uses two evidence layers:
 
 1. **RAG grounding** from ChromaDB: `safety_rules`, `governance_rag`, `legal_rag`, `economic_rag`.
-   - Example annotation: `[RAG] Grounded: Ms. Jarvis must prioritize West Virginia community needs...`
-2. **GBIM live data grounding** from `msjarvis` and `msjarvisgis`.
+   - Example annotation: `[RAG] Grounded: Ms. Allis must prioritize West Virginia community needs...`
+2. **GBIM live data grounding** from `msallis` and `msallisgis`.
    - Example annotation: `[GBIM] Fayette County — Program: UTILITY20 | Active enrollments: 0...`
 
 These `[RAG]` and `[GBIM]` annotations are correct judge behavior showing its evidence, not failures. They should be preserved in internal logs but stripped from user-facing `issues` arrays in the pipeline output.
 
 **GBIM verifier**
 
-`jarvis-gbim-verifier` monitors GBIM decay:
+`allis-gbim-verifier` monitors GBIM decay:
 
 - Polls every 120 seconds.
 - Reports totals, stale counts, and average decay.
@@ -359,10 +359,10 @@ These `[RAG]` and `[GBIM]` annotations are correct judge behavior showing its ev
 
 The full confidence decay pipeline is live and operational:
 
-- `jarvis-confidence-decay` — running.
-- `jarvis-decay-escalation-consumer` — running.
-- `jarvis-gbim-verifier` — running, polling every 120s.
-- `confidence_decay_loop.py` and `jarvis_decay_escalation_consumer.py` — built and deployed.
+- `allis-confidence-decay` — running.
+- `allis-decay-escalation-consumer` — running.
+- `allis-gbim-verifier` — running, polling every 120s.
+- `confidence_decay_loop.py` and `allis_decay_escalation_consumer.py` — built and deployed.
 - `db/gbim_confidence_decay_schema.sql` — schema deployed.
 - `scripts/gbim_decay_tick.sh` and `gbim_decay_refresh.sh` — operational.
 - `observability/prometheus/alert_confidence_decay_rules.yaml` — alerting configured.
@@ -446,7 +446,7 @@ Ethics calibration — CLOSED:
 
 **Core services:**
 
-- `jarvis-main-brain` on port 8050 — `GET /` returns HTTP 200; consensus gate wired into brain services via `feat(ch29)` commit.
+- `allis-main-brain` on port 8050 — `GET /` returns HTTP 200; consensus gate wired into brain services via `feat(ch29)` commit.
 - `20llm-production` — health check returns `{"service": "20llm-production", "status": "ok", "port": 8008}`.
 - All 25 core containers up; 24 orphan containers removed; restart policies corrected; stale `.pyc` files deleted.
 
@@ -458,9 +458,9 @@ Ethics calibration — CLOSED:
 
 **GBIM decay services:**
 
-- `jarvis-confidence-decay` — running.
-- `jarvis-decay-escalation-consumer` — running.
-- `jarvis-gbim-verifier` — running, polling every 120s; "No stale entities" is correct behavior (nothing has crossed decay threshold yet).
+- `allis-confidence-decay` — running.
+- `allis-decay-escalation-consumer` — running.
+- `allis-gbim-verifier` — running, polling every 120s; "No stale entities" is correct behavior (nothing has crossed decay threshold yet).
 - Prometheus alerting configured via `observability/prometheus/alert_confidence_decay_rules.yaml`.
 
 **Repository state (recent commits):**
@@ -478,7 +478,7 @@ Ethics calibration — CLOSED:
 
 - **Hardware**: Lenovo Legion 5, Mount Hope WV (ZIP 25880); disk ~80%.
 - **ChromaDB**: v2 API, port 8002, 49 collections, 6.74M+ vectors, image pinned.
-- **PostgreSQL**: `msjarvis` (5433), `msjarvisgis` (5432), `jarvis-local-resources-db` (5435) all healthy.
+- **PostgreSQL**: `msallis` (5433), `msallisgis` (5432), `allis-local-resources-db` (5435) all healthy.
 - **Judge pipeline**: four judges, ONNX pre-warmed, ML-DSA-65 signatures, RAG + GBIM grounding, BBB barrier, consensus gate — all operational; 6/6 adversarial tests pass.
 - **GBIM decay**: three-container pipeline, schema, scripts, and Prometheus alerting all live.
 - **Autonomous learning**: two distinct collections (21,181 + 17,685) confirmed distinct and preserved; both serve active temporal roles.
@@ -512,5 +512,5 @@ No blocking issues remain. The following areas continue as iterative Phase 1 wor
 
 ---
 
-*Last updated: 2026‑04‑22, Mount Hope WV — Carrie Kidd (Mamma Kidd).*  
+*Last updated: 2026‑04‑22, Mount Hope WV — Carrie Kidd (Mamma Kidd).*
 *All five previously open items closed. Chapter reflects full production state of ChromaDB semantic memory, GBIM decay automation, four-judge consensus pipeline, and constitutional RAG grounding as of April 22, 2026.*
