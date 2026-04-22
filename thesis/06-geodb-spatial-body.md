@@ -4,18 +4,18 @@
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter specifies how Ms. Jarvis's language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space representation, GBIM structures, ChromaDB‑backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a multi-model consciousness bridge anchored in ChromaDB, GBIM‑derived entities from the PostgreSQL `msjarvis` and `msjarvisgis` databases (both in the `postgis-forensic` container, **port 5432** — confirmed April 17, 2026), GIS‑aware collections, and a WV‑first routing policy. It supports:
+This chapter specifies how Ms. Allis's language models are bound to *place‑aware, collection‑aware, and registry‑aware memory* instead of free‑floating text generation. It makes the Hilbert‑space representation, GBIM structures, ChromaDB‑backed semantic memory, and the verified local resource registry from earlier chapters operational by defining concrete services that retrieve from semantic memory, the spatial body, the web, and structured program tables. In the current deployment, this design is realized as a production RAG stack that delivers West Virginia benefits intelligence through a multi-model consciousness bridge anchored in ChromaDB, GBIM‑derived entities from the PostgreSQL `msallis` and `msallisgis` databases (both in the `postgis-forensic` container, **port 5432** — confirmed April 17, 2026), GIS‑aware collections, and a WV‑first routing policy. It supports:
 
 - **P1 – Every where is entangled** by requiring that answers emerge from an entangled memory of governance texts, spatial layers, research notes, belief structures from PostgreSQL GBIM tables, and local resource registries, rather than from an abstract model prior.
-- **P3 – Power has a geometry** by letting retrieval paths expose which collections—and thus which institutional, spatial, and programmatic perspectives—shape a given answer, including WV‑specific benefits facilities in `gis_wv_benefits`, spatial entities derived from PostgreSQL GBIM and `msjarvisgis`, benefits‑focused resource collections, and the GBIM landowner belief layer (`mvw_gbim_landowner_spatial`) that makes corporate and government land ownership computable and queryable by natural language.
+- **P3 – Power has a geometry** by letting retrieval paths expose which collections—and thus which institutional, spatial, and programmatic perspectives—shape a given answer, including WV‑specific benefits facilities in `gis_wv_benefits`, spatial entities derived from PostgreSQL GBIM and `msallisgis`, benefits‑focused resource collections, and the GBIM landowner belief layer (`mvw_gbim_landowner_spatial`) that makes corporate and government land ownership computable and queryable by natural language.
 - **P5 – Design is a geographic act** by treating routing rules, collection choices, registry lookups, and gateway boundaries as design decisions that change how the system "sees" and acts within a region — including the explicit decision to route landowner queries through a PostgreSQL-native path rather than through vector similarity search.
-- **P12 – Intelligence with a ZIP code** by privileging West Virginia‑specific collections in retrieval, and by coupling text RAG both to a state‑scale PostgreSQL `msjarvisgis` spatial body (port **5432**, `postgis-forensic` container — 95 GB, 742 tables, 9 schemas) and `msjarvis` GBIM application layer (port **5432**, same container — 92 tables, 5,416,521 verified beliefs) for spatial questions and to a ZIP‑ and county‑aware `jarvis-local-resources-db` registry (port 5435) for concrete program referrals, including flows for Mount Hope, Oak Hill, Beckley, and broader Fayette/Raleigh County.
+- **P12 – Intelligence with a ZIP code** by privileging West Virginia‑specific collections in retrieval, and by coupling text RAG both to a state‑scale PostgreSQL `msallisgis` spatial body (port **5432**, `postgis-forensic` container — 95 GB, 742 tables, 9 schemas) and `msallis` GBIM application layer (port **5432**, same container — 92 tables, 5,416,521 verified beliefs) for spatial questions and to a ZIP‑ and county‑aware `allis-local-resources-db` registry (port 5435) for concrete program referrals, including flows for Mount Hope, Oak Hill, Beckley, and broader Fayette/Raleigh County.
 - **P16 – Power accountable to place** by making retrieval calls, filters, scores, registry lookups, and sources visible at the API and logging layer so that communities and researchers can audit what informed a Steward response — and by making the `gbim_query_router` landowner path explicitly inspectable as a structured SQL aggregation over verified GBIM belief records rather than an opaque embedding similarity result.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it defines the retrieval and routing machinery that connects ChromaDB‑backed semantic memory (host port **8002**, container port **8000**), the PostgreSQL GBIM/`msjarvisgis` spatial body (5,416,521 verified beliefs, 742 PostGIS tables, port **5432**), the verified local resource registry (`jarvis-local-resources-db`, port 5435), the GBIM landowner belief layer (`mvw_gbim_landowner_spatial`, routed via `gbim_query_router` port 7205), the live confidence decay and reverification loop, and web research to the live outputs of Ms. Jarvis.
+As such, this chapter belongs to the **Computational Instrument** tier: it defines the retrieval and routing machinery that connects ChromaDB‑backed semantic memory (host port **8002**, container port **8000**), the PostgreSQL GBIM/`msallisgis` spatial body (5,416,521 verified beliefs, 742 PostGIS tables, port **5432**), the verified local resource registry (`allis-local-resources-db`, port 5435), the GBIM landowner belief layer (`mvw_gbim_landowner_spatial`, routed via `gbim_query_router` port 7205), the live confidence decay and reverification loop, and web research to the live outputs of Ms. Allis.
 
 > **⚠️ Port 5452 DEPRECATED — OI-C6-1 CLOSED April 17, 2026**
-> Port **5452** was a stale, never-active reference. It has **never** corresponded to a live container in any production build. Both `msjarvisgis` and `msjarvis` are served from port **5432** (`postgis-forensic` container). Any script, config, or documentation referencing port 5452 must be corrected to **5432**. The "★ restored March 28, 2026" language in prior drafts that framed 5452→5432 as a migration event was incorrect — **no migration occurred; 5432 was always correct.**
+> Port **5452** was a stale, never-active reference. It has **never** corresponded to a live container in any production build. Both `msallisgis` and `msallis` are served from port **5432** (`postgis-forensic` container). Any script, config, or documentation referencing port 5452 must be corrected to **5432**. The "★ restored March 28, 2026" language in prior drafts that framed 5452→5432 as a migration event was incorrect — **no migration occurred; 5432 was always correct.**
 
 ---
 
@@ -23,29 +23,29 @@ As such, this chapter belongs to the **Computational Instrument** tier: it defin
 
 ### 6.0 Overview and Scope
 
-This chapter describes the retrieval‑augmented generation (RAG) infrastructure that binds Ms. Egeria Jarvis's language models to the semantic and spatial memory systems defined in earlier chapters. In the current deployment, language models are no longer queried "from scratch": they are constrained and informed by:
+This chapter describes the retrieval‑augmented generation (RAG) infrastructure that binds Ms. Egeria Allis's language models to the semantic and spatial memory systems defined in earlier chapters. In the current deployment, language models are no longer queried "from scratch": they are constrained and informed by:
 
 - a **Phase 1.45 semantic community memory step** that prepends the top-5 most relevant `autonomous_learner` memories to every query before it reaches the LLM ensemble,
 - a text RAG service backed by a shared HTTP‑exposed ChromaDB instance (host port **8002**, container port **8000**),
-- a `msjarvisgis`‑coupled GIS RAG path for West Virginia features built on GBIM‑derived spatial entities from the PostgreSQL `msjarvis` / `msjarvisgis` databases (port **5432**, `postgis-forensic` container) and `gis_wv_benefits`,
-- a **GBIM landowner query path** routed through `gbim_query_router` (port 7205) directly against `mvw_gbim_landowner_spatial` in `msjarvisgis` — a PostgreSQL-native path that bypasses ChromaDB entirely for structured ownership questions,
-- a **live confidence decay and reverification loop** (`services.confidence_decay_loop`) running as a persistent async scheduled task inside `jarvis-ingest-watcher`, operating against `msjarvisgis.public.gbim_entities` (port **5432**) on a 24-hour cycle,
+- a `msallisgis`‑coupled GIS RAG path for West Virginia features built on GBIM‑derived spatial entities from the PostgreSQL `msallis` / `msallisgis` databases (port **5432**, `postgis-forensic` container) and `gis_wv_benefits`,
+- a **GBIM landowner query path** routed through `gbim_query_router` (port 7205) directly against `mvw_gbim_landowner_spatial` in `msallisgis` — a PostgreSQL-native path that bypasses ChromaDB entirely for structured ownership questions,
+- a **live confidence decay and reverification loop** (`services.confidence_decay_loop`) running as a persistent async scheduled task inside `allis-ingest-watcher`, operating against `msallisgis.public.gbim_entities` (port **5432**) on a 24-hour cycle,
 - a web‑research gateway, and
-- a resolver path into the `jarvis-local-resources-db` registry (port 5435) for programmatic help,
+- a resolver path into the `allis-local-resources-db` registry (port 5435) for programmatic help,
 
-all orchestrated by `jarvis-main-brain` (port **8050**) and the blood-brain-barrier services.
+all orchestrated by `allis-main-brain` (port **8050**) and the blood-brain-barrier services.
 
-At runtime, queries enter through `jarvis-unified-gateway` (host **18018** → container **8001** — ✅ confirmed April 17, 2026) and are routed by the executive coordinator into a RAG layer that spans ChromaDB collections, PostgreSQL GIS features, GBIM landowner beliefs, and verified local‑resource rows. In production as of April 17, 2026, the full pipeline:
+At runtime, queries enter through `allis-unified-gateway` (host **18018** → container **8001** — ✅ confirmed April 17, 2026) and are routed by the executive coordinator into a RAG layer that spans ChromaDB collections, PostgreSQL GIS features, GBIM landowner beliefs, and verified local‑resource rows. In production as of April 17, 2026, the full pipeline:
 
 ```text
-jarvis-unified-gateway (host:18018 → container:8001)
-→ jarvis-main-brain (8050)
-→ BBB Input Filter — Phase 1.4 (jarvis-blood-brain-barrier:8016)
+allis-unified-gateway (host:18018 → container:8001)
+→ allis-main-brain (8050)
+→ BBB Input Filter — Phase 1.4 (allis-blood-brain-barrier:8016)
 → Phase 1.45 — Community Memory (autonomous_learner, top-5)
 → RAG (text + GIS + landowner + WV-entangled + registry, WV-first)
-→ LLM Ensemble (jarvis-ollama:11434)
+→ LLM Ensemble (allis-ollama:11434)
 → Judge Pipeline — judge_pipeline_v2.1-rag-grounded
-→ BBB Output Filter (jarvis-bbb-output-filter — internal:8017)
+→ BBB Output Filter (allis-bbb-output-filter — internal:8017)
 → UltimateResponse (architecture_layers=7, truthverdict.*)
 ```
 
@@ -54,36 +54,36 @@ is live and serving West Virginia benefits, geography, and land ownership questi
 > **⚠️ Embedding Model Lock — Confirmed April 17, 2026:**
 > All ChromaDB collections use **384-dimensional vectors** produced by **`all-minilm:latest`** (`hnsw:space: cosine`). The `nomic-embed-text` model produces **768-dimensional vectors** and is **incompatible** with all existing collections. Any service, script, or migration that generates embeddings for ChromaDB **must** use `all-minilm:latest`. The `gbim_query_router` landowner path does **not** use embeddings — it routes directly to PostgreSQL.
 
-> **★★ Security posture — confirmed April 17, 2026:** All services bound to `127.0.0.1` or internal Docker DNS. Zero `0.0.0.0` exposures. `_auth()` confirmed on all sensitive routes. `JARVIS_API_KEY` env var confirmed set in production.
+> **★★ Security posture — confirmed April 17, 2026:** All services bound to `127.0.0.1` or internal Docker DNS. Zero `0.0.0.0` exposures. `_auth()` confirmed on all sensitive routes. `ALLIS_API_KEY` env var confirmed set in production.
 
 > **★★ ChromaDB API and Port — confirmed April 17, 2026:**
 > ChromaDB is running the **v2 multi-tenant API**. Host port: **8002** (`127.0.0.1:8002→8000/tcp`). Container-internal port: **8000**. The SQLite store is authoritative: **50 collections, 6,740,616 total embedding rows** (April 17, 2026). The `/api/v1/` endpoints are deprecated on this stack.
 
-> **★★ Database architecture — confirmed April 17, 2026:** Both `msjarvisgis` (95 GB, 742 tables, 9 schemas — PostGIS spatial) and `msjarvis` (92 tables — GBIM application layer) are in the **`postgis-forensic`** container on **port 5432**. **There is no port 5433 container.** All prior references to `msjarvis:5433` are superseded. `gbim_entities` is in **`msjarvisgis`** (public schema) — NOT `msjarvis`. See §6.2.7.
+> **★★ Database architecture — confirmed April 17, 2026:** Both `msallisgis` (95 GB, 742 tables, 9 schemas — PostGIS spatial) and `msallis` (92 tables — GBIM application layer) are in the **`postgis-forensic`** container on **port 5432**. **There is no port 5433 container.** All prior references to `msallis:5433` are superseded. `gbim_entities` is in **`msallisgis`** (public schema) — NOT `msallis`. See §6.2.7.
 
 > **★★ gbim_worldview_entity schema disambiguation — confirmed April 17, 2026:** Two separate `gbim_worldview_entity` tables exist — one in each database — with completely different schemas:
 >
 > | Database | Columns | Purpose |
 > |---|---|---|
-> | **`msjarvisgis`** | id, worldview_id, entity_type, source_table, source_pk, label, belief_state, centroid_geom, county_name_tag, confidence_decay, needs_verification, … | **Full spatial GBIM table — authoritative for all spatial and decay operations** |
-> | `msjarvis` | id, entity_type, label, belief_state | Lightweight application mirror — 4 columns only |
+> | **`msallisgis`** | id, worldview_id, entity_type, source_table, source_pk, label, belief_state, centroid_geom, county_name_tag, confidence_decay, needs_verification, … | **Full spatial GBIM table — authoritative for all spatial and decay operations** |
+> | `msallis` | id, entity_type, label, belief_state | Lightweight application mirror — 4 columns only |
 >
-> The decay loop, spatial ingest, and reverification all belong in **`msjarvisgis`**. Any operation targeting `msjarvis.gbim_worldview_entity` for decay or spatial purposes is incorrect.
+> The decay loop, spatial ingest, and reverification all belong in **`msallisgis`**. Any operation targeting `msallis.gbim_worldview_entity` for decay or spatial purposes is incorrect.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│            Ms. Jarvis RAG Pipeline Architecture              │
+│            Ms. Allis RAG Pipeline Architecture               │
 │            ★★ April 17, 2026 — Final Production Baseline    │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  User Query                                                  │
 │      ↓                                                       │
-│  jarvis-unified-gateway (host:18018 → container:8001)       │
+│  allis-unified-gateway (host:18018 → container:8001)        │
 │      ↓                                                       │
-│  jarvis-main-brain (port 8050)                              │
+│  allis-main-brain (port 8050)                               │
 │      ↓                                                       │
 │  BBB Input Filter — Phase 1.4                               │
-│    jarvis-blood-brain-barrier:8016                          │
+│    allis-blood-brain-barrier:8016                           │
 │    [6 filters — barrier_active: true]                       │
 │    BLOCKED → architecture_layers=1, truthverdict=null       │
 │      ↓ (passes)                                              │
@@ -93,7 +93,7 @@ is live and serving West Virginia benefits, geography, and land ownership questi
 │    [21,159 items — April 17, 2026 — ~288/day]               │
 │      ↓                                                       │
 │  Main Brain Orchestration                                   │
-│      ├──→ Text RAG (jarvis-rag-server host:8003→ctr:8003)  │
+│      ├──→ Text RAG (allis-rag-server host:8003→ctr:8003)   │
 │      ├──→ GIS RAG (port 8004)                               │
 │      ├──→ GBIM Landowner Router (port 7205)                 │
 │      │       PostgreSQL-native → mvw_gbim_landowner_spatial │
@@ -101,18 +101,18 @@ is live and serving West Virginia benefits, geography, and land ownership questi
 │      ├──→ WV-Entangled Gateway (port 8010) ✅              │
 │      │       Static WV context injection via /chat_wv       │
 │      ├──→ Web Research (excluded for WV queries)            │
-│      └──→ Registry (jarvis-local-resources-db port 5435)    │
+│      └──→ Registry (allis-local-resources-db port 5435)     │
 │      ↓                                                       │
 │  Context Assembly (WV-first for WV queries)                 │
 │      ↓                                                       │
-│  LLM Ensemble (jarvis-ollama:11434 — 1.0 GiB RAM loaded)   │
+│  LLM Ensemble (allis-ollama:11434 — 1.0 GiB RAM loaded)    │
 │      ↓                                                       │
 │  Judge Pipeline — judge_pipeline_v2.1-rag-grounded ✅       │
 │    nbb_pituitary_gland:8108→80 — mode: elevated             │
-│    jarvis-qualia-engine (internal:8017, DNS only)           │
+│    allis-qualia-engine (internal:8017, DNS only)            │
 │      ↓                                                       │
 │  BBB Output Filter                                          │
-│    jarvis-bbb-output-filter (internal:8017)                 │
+│    allis-bbb-output-filter (internal:8017)                  │
 │    {"status":"ok","service":"bbb-output-filter"} ✅         │
 │      ↓                                                       │
 │  UltimateResponse                                           │
@@ -122,26 +122,26 @@ is live and serving West Virginia benefits, geography, and land ownership questi
 │          "judge_pipeline_v2.1-rag-grounded" } }             │
 │                                                              │
 │  Background (async, 24h cycle):                             │
-│  jarvis-ingest-watcher                                      │
+│  allis-ingest-watcher                                       │
 │    → services.confidence_decay_loop                         │
-│    → msjarvisgis.public.gbim_entities (port 5432)           │
+│    → msallisgis.public.gbim_entities (port 5432)            │
 │    → 461–466 entities / cycle, 0 flagged (April 17, 2026)  │
-│    → Redis escalation consumer (jarvis-redis:6379)          │
+│    → Redis escalation consumer (allis-redis:6379)           │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑1. RAG pipeline overview — April 17, 2026 final production baseline. `jarvis-unified-gateway` (host:**18018** → container:**8001**) is the external entry point. `jarvis-main-brain` (port **8050**) is the primary orchestrator. The confidence decay loop runs as a background async service inside `jarvis-ingest-watcher` on a 24-hour cycle against `msjarvisgis.public.gbim_entities`. 99 containers Up, zero Restarting, zero Exited (April 17, 2026).
+> Figure 6‑1. RAG pipeline overview — April 17, 2026 final production baseline. `allis-unified-gateway` (host:**18018** → container:**8001**) is the external entry point. `allis-main-brain` (port **8050**) is the primary orchestrator. The confidence decay loop runs as a background async service inside `allis-ingest-watcher` on a 24-hour cycle against `msallisgis.public.gbim_entities`. 99 containers Up, zero Restarting, zero Exited (April 17, 2026).
 
 ---
 
 ### 6.1 Alignment with GBIM, Hilbert Space, Semantic Memory, GeoDB, and Registries
 
-The GeoBelief Information Model (GBIM) defines how entities, places, and normative claims are represented across documents and spatial features. The `msjarvisgis` database (port **5432**, `postgis-forensic` container — 95 GB, 742 tables) is the authoritative spatial body. `msjarvis` (port **5432**, same container — 92 tables) is the GBIM application layer. The two `gbim_worldview_entity` tables in these databases have completely different schemas — the `msjarvisgis` version is the full spatial GBIM table with `confidence_decay`, `needs_verification`, and spatial geometry columns; the `msjarvis` version is a lightweight 4-column mirror. All decay, spatial ingest, and reverification operations target `msjarvisgis`.
+The GeoBelief Information Model (GBIM) defines how entities, places, and normative claims are represented across documents and spatial features. The `msallisgis` database (port **5432**, `postgis-forensic` container — 95 GB, 742 tables) is the authoritative spatial body. `msallis` (port **5432**, same container — 92 tables) is the GBIM application layer. The two `gbim_worldview_entity` tables in these databases have completely different schemas — the `msallisgis` version is the full spatial GBIM table with `confidence_decay`, `needs_verification`, and spatial geometry columns; the `msallis` version is a lightweight 4-column mirror. All decay, spatial ingest, and reverification operations target `msallisgis`.
 
-As of March 20, 2026, GBIM beliefs include 20,593 landowner records (`LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` proposition codes) ingested from the WV assessor corpus and materialized in `mvw_gbim_landowner_spatial` in `msjarvisgis`. These landowner beliefs are accessed via a dedicated PostgreSQL-native path through `gbim_query_router` (port 7205). As of April 17, 2026, `gbim_entities` in `msjarvisgis` carries **466 tracked entities** with a confirmed-live decay loop running on a 24-hour cycle.
+As of March 20, 2026, GBIM beliefs include 20,593 landowner records (`LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` proposition codes) ingested from the WV assessor corpus and materialized in `mvw_gbim_landowner_spatial` in `msallisgis`. These landowner beliefs are accessed via a dedicated PostgreSQL-native path through `gbim_query_router` (port 7205). As of April 17, 2026, `gbim_entities` in `msallisgis` carries **466 tracked entities** with a confirmed-live decay loop running on a 24-hour cycle.
 
-The Hilbert‑space state view treats the system's overall knowledge and constraints as a very high‑dimensional state vector. RAG interactions are projections into lower‑dimensional subspaces. For text, those projections use **384-dimensional vectors from `all-minilm:latest`** (`hnsw:space: cosine`). For space, they use centroid‑based spatial filters over PostgreSQL `msjarvisgis`‑derived features. For structured ownership questions, they use SQL aggregations over `mvw_gbim_landowner_spatial`. For belief quality, the decay loop continuously reduces confidence scores and flags entities whose decay crosses a threshold — resetting to 1.0 when a `reverify_*()` function confirms the entity in source.
+The Hilbert‑space state view treats the system's overall knowledge and constraints as a very high‑dimensional state vector. RAG interactions are projections into lower‑dimensional subspaces. For text, those projections use **384-dimensional vectors from `all-minilm:latest`** (`hnsw:space: cosine`). For space, they use centroid‑based spatial filters over PostgreSQL `msallisgis`‑derived features. For structured ownership questions, they use SQL aggregations over `mvw_gbim_landowner_spatial`. For belief quality, the decay loop continuously reduces confidence scores and flags entities whose decay crosses a threshold — resetting to 1.0 when a `reverify_*()` function confirms the entity in source.
 
 **Database Integration — ★★ Confirmed April 17, 2026:**
 
@@ -149,27 +149,27 @@ The Hilbert‑space state view treats the system's overall knowledge and constra
 import psycopg2
 import chromadb
 
-# PostgreSQL msjarvis (GBIM application layer) — port 5432
-# ★★ CONFIRMED April 17, 2026: msjarvis is in postgis-forensic on port 5432
-# ★★ There is NO port 5433 container. All prior msjarvis:5433 references SUPERSEDED.
-# ★★ gbim_entities is in msjarvisgis — NOT msjarvis. Do not run decay queries here.
-pg_conn_msjarvis = psycopg2.connect(
+# PostgreSQL msallis (GBIM application layer) — port 5432
+# ★★ CONFIRMED April 17, 2026: msallis is in postgis-forensic on port 5432
+# ★★ There is NO port 5433 container. All prior msallis:5433 references SUPERSEDED.
+# ★★ gbim_entities is in msallisgis — NOT msallis. Do not run decay queries here.
+pg_conn_msallis = psycopg2.connect(
     host="localhost", port=5432,
-    database="msjarvis", user="postgres", password="postgres"
+    database="msallis", user="postgres", password="postgres"
 )
 
-# PostgreSQL msjarvisgis (PostGIS spatial + GBIM landowner layer + gbim_entities) — port 5432
-# ★★ CONFIRMED April 17, 2026: decay loop targets msjarvisgis.public.gbim_entities
+# PostgreSQL msallisgis (PostGIS spatial + GBIM landowner layer + gbim_entities) — port 5432
+# ★★ CONFIRMED April 17, 2026: decay loop targets msallisgis.public.gbim_entities
 # ★★ Do NOT connect to port 5452 — that port has never existed in production.
-pg_conn_msjarvisgis = psycopg2.connect(
+pg_conn_msallisgis = psycopg2.connect(
     host="localhost", port=5432,
-    database="msjarvisgis", user="postgres", password="postgres"
+    database="msallisgis", user="postgres", password="postgres"
 )
 
-# PostgreSQL jarvis-local-resources-db — port 5435
+# PostgreSQL allis-local-resources-db — port 5435
 # ⚠️ Confirmed: database name is "postgres", not the container name
 # ⚠️ Gate 26 MUST use port 5435 — do NOT substitute port 5432.
-#    The memories table does not exist on msjarvis schema.
+#    The memories table does not exist on msallis schema.
 pg_conn_resources = psycopg2.connect(
     host="localhost", port=5435,
     database="postgres",
@@ -190,36 +190,36 @@ At the implementation level, the retrieval layer consists of Phase 1.45 communit
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│          Core Ms. Jarvis RAG Components                      │
+│          Core Ms. Allis RAG Components                       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Phase 1.45 — Community Memory Retrieval             │  │
 │  │  -  Embedding: all-minilm:latest (384-dim)           │  │
-│  │  -  Source: jarvis-ollama:11434/api/embeddings        │  │
-│  │  -  Collection: autonomous_learner (~288/day)         │  │
+│  │  -  Source: allis-ollama:11434/api/embeddings        │  │
+│  │  -  Collection: autonomous_learner (~288/day)        │  │
 │  │  -  Top-5 results prepended to enhanced_message      │  │
 │  │  -  Fires after BBB input filter, before text RAG    │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Text RAG Service                                    │  │
-│  │  jarvis-rag-server: host:8003 → container:8003       │  │
+│  │  allis-rag-server: host:8003 → container:8003        │  │
 │  │  ★★ Both ports confirmed 8003 — April 17, 2026       │  │
-│  │  -  ChromaDB backend (host port 8002)                 │  │
-│  │  -  Embedding: all-minilm:latest (384-dim, cosine)    │  │
-│  │  -  Collections: local_resources (default),           │  │
-│  │    governance_rag (643 chunks),                       │  │
-│  │    commons_rag (306 chunks), thesis, research,        │  │
-│  │    msjarvis_docs, mountainshares_knowledge,           │  │
-│  │    conversation_history, episodic_index,              │  │
-│  │    ms_jarvis_memory, gbim_beliefs_v2                  │  │
-│  │  -  Metadata filters: county, source, worldview       │  │
+│  │  -  ChromaDB backend (host port 8002)                │  │
+│  │  -  Embedding: all-minilm:latest (384-dim, cosine)   │  │
+│  │  -  Collections: local_resources (default),          │  │
+│  │    governance_rag (643 chunks),                      │  │
+│  │    commons_rag (306 chunks), thesis, research,       │  │
+│  │    msallis_docs, mountainshares_knowledge,           │  │
+│  │    conversation_history, episodic_index,             │  │
+│  │    ms_allis_memory, gbim_beliefs_v2                  │  │
+│  │  -  Metadata filters: county, source, worldview      │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  GIS RAG Service (port 8004)                         │  │
-│  │  -  PostgreSQL msjarvisgis source (port 5432)        │  │
+│  │  -  PostgreSQL msallisgis source (port 5432)         │  │
 │  │  -  ChromaDB spatial collections (host port 8002)    │  │
 │  │  -  Collections: gbim_worldview_entities,            │  │
 │  │    gis_wv_benefits,                                  │  │
@@ -231,11 +231,11 @@ At the implementation level, the retrieval layer consists of Phase 1.45 communit
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  GBIM Landowner Router (port 7205)                   │  │
-│  │  -  PostgreSQL msjarvisgis source (port 5432)        │  │
+│  │  -  PostgreSQL msallisgis source (port 5432)         │  │
 │  │  -  View: mvw_gbim_landowner_spatial                  │  │
 │  │  -  Proposition codes: LANDOWNER_CORPORATE,          │  │
 │  │    LANDOWNER_GOVERNMENT                              │  │
-│  │  -  RBAC-gated: X-Jarvis-Role required               │  │
+│  │  -  RBAC-gated: X-Allis-Role required                │  │
 │  │  -  NO ChromaDB — PostgreSQL-native path only        │  │
 │  │  -  Returns: ranked owner names, parcel counts,      │  │
 │  │    area (km²), county, proposition code              │  │
@@ -244,36 +244,36 @@ At the implementation level, the retrieval layer consists of Phase 1.45 communit
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Confidence Decay Loop (background, 24h cycle)       │  │
 │  │  ★★ LIVE — OI-C6-4 CLOSED April 17, 2026            │  │
-│  │  -  Service: jarvis-ingest-watcher                    │  │
+│  │  -  Service: allis-ingest-watcher                    │  │
 │  │  -  File: /app/services/services/                    │  │
 │  │           confidence_decay_loop.py                   │  │
-│  │  -  Target: msjarvisgis.public.gbim_entities          │  │
-│  │  -  NOT msjarvis (4-column mirror)                   │  │
+│  │  -  Target: msallisgis.public.gbim_entities          │  │
+│  │  -  NOT msallis (4-column mirror)                    │  │
 │  │  -  461–466 entities/cycle, 0 flagged (Apr 17)       │  │
 │  │  -  Reset path: reverify_*() → decay=1.0             │  │
-│  │  -  Escalation: jarvis-redis (redis:7-alpine)        │  │
+│  │  -  Escalation: allis-redis (redis:7-alpine)         │  │
 │  │  -  Consumer: services/                              │  │
-│  │     jarvis_decay_escalation_consumer.py              │  │
+│  │     allis_decay_escalation_consumer.py               │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Web Research Gateway                                │  │
-│  │  -  Rate-limited external search                      │  │
-│  │  -  Excluded for WV-scoped queries                    │  │
+│  │  -  Rate-limited external search                     │  │
+│  │  -  Excluded for WV-scoped queries                   │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                              │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Local Resource Registry Resolver                    │  │
-│  │  -  jarvis-local-resources-db (port 5435)            │  │
+│  │  -  allis-local-resources-db (port 5435)             │  │
 │  │  -  database: "postgres" (NOT the container name)    │  │
 │  │  -  Filters: county, ZIP, resource_type              │  │
-│  │  -  Returns: verified program records                 │  │
+│  │  -  Returns: verified program records                │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑2. Core retrieval components. `jarvis-rag-server` confirmed host:8003→container:8003 (April 17, 2026). Confidence decay loop confirmed live against `msjarvisgis.public.gbim_entities` — NOT `msjarvis`. `geospatialfeatures` (60,000 items) and `GBIM_Fayette_sample` (1,535 items) confirmed live March 26, 2026.
+> Figure 6‑2. Core retrieval components. `allis-rag-server` confirmed host:8003→container:8003 (April 17, 2026). Confidence decay loop confirmed live against `msallisgis.public.gbim_entities` — NOT `msallis`. `geospatialfeatures` (60,000 items) and `GBIM_Fayette_sample` (1,535 items) confirmed live March 26, 2026.
 
 ---
 
@@ -283,7 +283,7 @@ Phase 1.45 fires after the BBB input filter approves the query (Phase 1.4) and b
 
 **How it works:**
 
-1. The main brain calls `jarvis-ollama:11434/api/embeddings` with model `all-minilm:latest` and the user query as the prompt, receiving a 384-dimensional embedding vector.
+1. The main brain calls `allis-ollama:11434/api/embeddings` with model `all-minilm:latest` and the user query as the prompt, receiving a 384-dimensional embedding vector.
 2. The embedding is used to query the `autonomous_learner` ChromaDB collection (growing ~288/day) via the v2 API (host port 8002).
 3. The 5 most semantically similar community interaction records are retrieved (documents + metadata + distances).
 4. The retrieved memories are prepended to `enhanced_message` before it reaches the LLM ensemble.
@@ -298,7 +298,7 @@ import chromadb
 # NOTE: single-string "prompt" field — not a list
 # NOTE: use /api/embeddings not /api/embed — see ghost record warning in Ch 7 §7.0.2
 response = httpx.post(
-    "http://jarvis-ollama:11434/api/embeddings",
+    "http://allis-ollama:11434/api/embeddings",
     json={"model": "all-minilm:latest", "prompt": user_query}
 )
 embedding = response.json()["embedding"]  # must be 384-dim
@@ -329,7 +329,7 @@ enhanced_message = community_memories + "\n\n" + original_message
 
 The text RAG service takes a query string, a `top_k` parameter, optional metadata filters (collection, source, county, dataset, worldview), and optional role and geography hints. It issues similarity searches against one or more ChromaDB collections using **`all-minilm:latest` (384-dimensional embeddings, `hnsw:space: cosine`)**.
 
-> **★★ Port confirmed April 17, 2026:** `jarvis-rag-server` maps **host:8003 → container:8003**. Both host and container ports are **8003**.
+> **★★ Port confirmed April 17, 2026:** `allis-rag-server` maps **host:8003 → container:8003**. Both host and container ports are **8003**.
 
 **Active collections for text RAG — ★★ UPDATED April 17, 2026:**
 
@@ -344,31 +344,31 @@ The text RAG service takes a query string, a `top_k` parameter, optional metadat
 | `commons_rag` | **306 chunks** | Commons governance + gamification — LIVE |
 | `psychological_rag` | **968** | Mental health corpus (port 8006) |
 | `appalachian_cultural_intelligence` | **820** | Appalachian cultural context — confirmed distinct from `aaacpe_corpus` |
-| `aaacpe_corpus` | **65 docs** | AaaCPE live web scrape corpus — `jarvis-aaacpe-scraper` port 8033, 39 sources |
+| `aaacpe_corpus` | **65 docs** | AaaCPE live web scrape corpus — `allis-aaacpe-scraper` port 8033, 39 sources |
 | `spiritual_rag` | Deduplicated | Mother Carrie Protocol corpus — 19,338 duplicate vectors removed March 28, 2026 |
 | `geospatialfeatures` | **60,000** | GIS feature embeddings — LIVE |
 | `GBIM_Fayette_sample` | **1,535** | Fayette County sample — LIVE |
-| `ms_jarvis_memory` | Active | Conversation memory |
+| `ms_allis_memory` | Active | Conversation memory |
 | `mountainshares_knowledge` | Active | MountainShares governance |
 | `episodic_index` | Active | Episodic memory index |
 | `conversation_history` | 567 | Conversation history — wired in production (OI-05 CLOSED April 17, 2026) |
 | `GBIM_sample_rows` | 5,000 | GBIM test sample |
-| `msjarvis_docs` | **4,192** | System docs + verified WV community resources |
+| `msallis_docs` | **4,192** | System docs + verified WV community resources |
 
 > **★★ April 17, 2026 full audit: 50 active collections, 6,740,616 total vectors.** All collections: 384-dim, `all-minilm:latest`, `hnsw:space: cosine`. Do not use `nomic-embed-text`.
 
 ---
 
-### 6.2.2 GIS RAG Service (PostgreSQL `msjarvisgis`/GBIM‑Backed, port 8004)
+### 6.2.2 GIS RAG Service (PostgreSQL `msallisgis`/GBIM‑Backed, port 8004)
 
 The GIS RAG service is a dedicated geospatial retrieval path that serves West Virginia‑focused spatial questions. It queries:
 
-- `gbim_worldview_entities` — 5,416,521 embeddings of West Virginia geospatial features from PostgreSQL `msjarvisgis` / `msjarvis`
+- `gbim_worldview_entities` — 5,416,521 embeddings of West Virginia geospatial features from PostgreSQL `msallisgis` / `msallis`
 - `gis_wv_benefits` — semantic descriptions and metadata for benefits‑related facilities such as Oak Hill hubs and Beckley DHHR offices
 - `geospatialfeatures` — **60,000 items, confirmed live March 26, 2026**
 - `GBIM_Fayette_sample` — **1,535 items, confirmed live March 26, 2026**
 
-Each indexed entity stores a short text description and metadata fields including `worldview_id`, `dataset`, `county`, `gbim_entity`, `centroid_x`, and `centroid_y` (SRID 26917, also transformed to EPSG:4326). Metadata links back to `msjarvisgis.gbim_entities` (port **5432**) and `msjarvisgis.zcta_wv_centroids` (993 WV ZIP centroids).
+Each indexed entity stores a short text description and metadata fields including `worldview_id`, `dataset`, `county`, `gbim_entity`, `centroid_x`, and `centroid_y` (SRID 26917, also transformed to EPSG:4326). Metadata links back to `msallisgis.gbim_entities` (port **5432**) and `msallisgis.zcta_wv_centroids` (993 WV ZIP centroids).
 
 All embeddings use **`all-minilm:latest` (384-dim, `hnsw:space: cosine`)**.
 
@@ -384,12 +384,12 @@ In the WV‑first design, the main brain only admits web context for non‑WV or
 
 ---
 
-### 6.2.4 Local Resource Registry Resolver (`jarvis-local-resources-db`, port 5435)
+### 6.2.4 Local Resource Registry Resolver (`allis-local-resources-db`, port 5435)
 
-The local resource resolver accepts structured hints such as `county`, `zip`, and `resource_type` and queries `jarvis-local-resources-db` (port **5435**, database: `postgres`) for rows matching these constraints.
+The local resource resolver accepts structured hints such as `county`, `zip`, and `resource_type` and queries `allis-local-resources-db` (port **5435**, database: `postgres`) for rows matching these constraints.
 
 > **🔴 Gate 26 Port Warning — OI-C6-2 CLOSED April 17, 2026:**
-> Gate 26 validation queries **MUST** be run against `jarvis-local-resources-db` on port **5435** (database: `postgres`). Running Gate 26 against port **5432** (`msjarvis` GBIM application layer) will produce a **false pass** — the `memories` table does not exist on that schema, so the query returns an error rather than the required non-zero `confidence_decay` count.
+> Gate 26 validation queries **MUST** be run against `allis-local-resources-db` on port **5435** (database: `postgres`). Running Gate 26 against port **5432** (`msallis` GBIM application layer) will produce a **false pass** — the `memories` table does not exist on that schema, so the query returns an error rather than the required non-zero `confidence_decay` count.
 >
 > ```bash
 > psql -h 127.0.0.1 -p 5435 -U postgres -d postgres \
@@ -415,7 +415,7 @@ The main brain routes each job through an orchestration layer that decides wheth
 For WV‑scoped queries, the main brain:
 
 - Fires Phase 1.45 community memory retrieval first (top-5 `autonomous_learner` memories prepended to `enhanced_message`).
-- Treats West Virginia RAG (text + GIS from PostgreSQL `msjarvisgis` + registry) as mandatory input.
+- Treats West Virginia RAG (text + GIS from PostgreSQL `msallisgis` + registry) as mandatory input.
 - Routes ownership/landowner questions to `gbim_query_router` (port 7205) rather than to GIS RAG or ChromaDB.
 - Builds a WV‑first context window from RAG, GIS, landowner, and registry material, excluding `web_context`.
 
@@ -424,7 +424,7 @@ For WV‑scoped queries, the main brain:
 ### 6.2.6 GBIM Landowner Router (`gbim_query_router`, port 7205) — Live since March 20, 2026
 
 > **Field note — March 20, 2026, evening session.**
-> The `gbim_query_router` service is live on port 7205 and verified on both statewide and county-scoped landowner queries. This service routes directly to `mvw_gbim_landowner_spatial` in `msjarvisgis` (PostgreSQL port **5432**) — it does not touch ChromaDB.
+> The `gbim_query_router` service is live on port 7205 and verified on both statewide and county-scoped landowner queries. This service routes directly to `mvw_gbim_landowner_spatial` in `msallisgis` (PostgreSQL port **5432**) — it does not touch ChromaDB.
 >
 > *Verified March 20, 2026, ~19:45 EDT — Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
@@ -434,7 +434,7 @@ The `gbim_query_router` handles structured landowner and parcel ownership querie
 
 #### Landowner Routing Guarantee — OI-C6-3 CLOSED April 17, 2026
 
-> **Architectural guarantee:** Landowner and parcel ownership queries in Ms. Jarvis are **always** resolved through PostgreSQL-native SQL aggregation via `gbim_query_router` (port 7205). They are **never** routed through ChromaDB vector similarity search. This is a structural routing constraint, not a configuration option.
+> **Architectural guarantee:** Landowner and parcel ownership queries in Ms. Allis are **always** resolved through PostgreSQL-native SQL aggregation via `gbim_query_router` (port 7205). They are **never** routed through ChromaDB vector similarity search. This is a structural routing constraint, not a configuration option.
 
 ```python
 LANDOWNER_PATTERNS = [
@@ -455,7 +455,7 @@ def route_query(query: str, mode: str) -> str:
 ```bash
 curl -s http://127.0.0.1:7205/query \
   -H "Content-Type: application/json" \
-  -H "X-Jarvis-Role: researcher" \
+  -H "X-Allis-Role: researcher" \
   -d '{
     "question": "Who are the largest landowners in West Virginia?",
     "mode": "landowner_gbim",
@@ -489,7 +489,7 @@ Verified results:
 ```bash
 curl -s http://127.0.0.1:7205/query \
   -H "Content-Type: application/json" \
-  -H "X-Jarvis-Role: researcher" \
+  -H "X-Allis-Role: researcher" \
   -d '{
     "question": "Who owns the most land in Fayette County?",
     "mode": "landowner_gbim",
@@ -509,9 +509,9 @@ The `gbim_query_router` queries only rows with `proposition_code IN ('LANDOWNER_
 
 > **★★ All prior "aspirational" and "not yet implemented" language in this section is superseded. The confidence decay and reverification loop is a confirmed live production service as of April 17, 2026 at 11:57–12:00 EDT.**
 
-The confidence decay and reverification loop (`services.confidence_decay_loop`) runs as a persistent async scheduled task inside `jarvis-ingest-watcher`, confirmed live April 17, 2026. It operates against **`msjarvisgis.public.gbim_entities`** (`postgis-forensic` container, port **5432**) — **not `msjarvis`** — and processes all tracked GBIM entities per 24-hour cycle.
+The confidence decay and reverification loop (`services.confidence_decay_loop`) runs as a persistent async scheduled task inside `allis-ingest-watcher`, confirmed live April 17, 2026. It operates against **`msallisgis.public.gbim_entities`** (`postgis-forensic` container, port **5432**) — **not `msallis`** — and processes all tracked GBIM entities per 24-hour cycle.
 
-> **★★ Database target confirmed April 17, 2026:** `gbim_entities` is in **`msjarvisgis`** (public schema, `postgis-forensic` container, port **5432**). It is **not** in `msjarvis`. Any script or documentation referencing `msjarvis.gbim_entities` is incorrect.
+> **★★ Database target confirmed April 17, 2026:** `gbim_entities` is in **`msallisgis`** (public schema, `postgis-forensic` container, port **5432**). It is **not** in `msallis`. Any script or documentation referencing `msallis.gbim_entities` is incorrect.
 
 **Confirmed live state — April 17, 2026:**
 
@@ -521,29 +521,29 @@ No entities below flag threshold. Cycle complete.
 Next cycle in 86400s
 
 [+] up 1/1
-✔ Container jarvis-confidence-decay  Started
+✔ Container allis-confidence-decay  Started
 ```
 
 **Service deployment details:**
 
 | Parameter | Value |
 |---|---|
-| Service container | `jarvis-confidence-decay` |
+| Service container | `allis-confidence-decay` |
 | Host file path | `services/confidence_decay_loop.py` |
 | Container file path | `/app/services/services/confidence_decay_loop.py` (**COPY . /app/services** copies the whole repo including `services/` subfolder) |
 | Cycle interval | 86400s (24 hours) |
-| Target database | `msjarvisgis` (port 5432) — NOT `msjarvis` |
-| Target table | `msjarvisgis.public.gbim_entities` |
+| Target database | `msallisgis` (port 5432) — NOT `msallis` |
+| Target table | `msallisgis.public.gbim_entities` |
 | Entities per cycle | 461–466 |
 | Flagged (April 17, 2026) | **0** |
-| Redis container | `jarvis-redis` (image: `redis:7-alpine`) |
-| Escalation consumer | `services/jarvis_decay_escalation_consumer.py` |
+| Redis container | `allis-redis` (image: `redis:7-alpine`) |
+| Escalation consumer | `services/allis_decay_escalation_consumer.py` |
 | Dockerfile fix | `psycopg2-binary` + `redis` added |
 
 **gbim_entities column mapping — confirmed April 17, 2026:**
 
 ```text
-msjarvisgis.public.gbim_entities uses:
+msallisgis.public.gbim_entities uses:
   feature_type  (NOT entity_type)
   name          (NOT label)
 ```
@@ -557,25 +557,25 @@ msjarvisgis.public.gbim_entities uses:
 | ✅ DECAY | Scheduled 24h cycle | `confidence_decay` reduced per entity | All 461–466 entities processed |
 | ✅ FLAG | `confidence_decay` below threshold | Entity marked `needs_reverification = true` | 0 flagged April 17, 2026 |
 | ✅ RESET | `reverify_*()` finds entity in source | `confidence_decay → 1.0`, `reverification_result = confirmed`, `needs_reverification = false` | WEYERHAEUSER + 40 landowners |
-| ✅ ESCALATE | Flagged entity — Redis consumer | `jarvis_decay_escalation_consumer.py` → `jarvis-redis` | Live consumer confirmed |
+| ✅ ESCALATE | Flagged entity — Redis consumer | `allis_decay_escalation_consumer.py` → `allis-redis` | Live consumer confirmed |
 
 **Seed fixtures — confirmed April 17, 2026:**
 
 | Action | Result |
 |---|---|
-| Watershed row inserted into `gbim_worldview_entity` (msjarvisgis) | ✅ |
-| health_facility row inserted into `gbim_worldview_entity` (msjarvisgis) | ✅ |
+| Watershed row inserted into `gbim_worldview_entity` (msallisgis) | ✅ |
+| health_facility row inserted into `gbim_worldview_entity` (msallisgis) | ✅ |
 | Seed fixtures 1/472–475 deleted | ✅ |
 | Decay cycle: 461 entities, 0 flagged | ✅ Clean |
 
-**What is NOT in `msjarvis.gbim_worldview_entity` (4-column mirror):** The lightweight `msjarvis` mirror has only `id`, `entity_type`, `label`, `belief_state`. It does not have `confidence_decay`, `needs_verification`, spatial geometry, or `county_name_tag`. Do not run decay, spatial ingest, or reverification against `msjarvis`. Always target `msjarvisgis`.
+**What is NOT in `msallis.gbim_worldview_entity` (4-column mirror):** The lightweight `msallis` mirror has only `id`, `entity_type`, `label`, `belief_state`. It does not have `confidence_decay`, `needs_verification`, spatial geometry, or `county_name_tag`. Do not run decay, spatial ingest, or reverification against `msallis`. Always target `msallisgis`.
 
 **Decay loop implementation stub — confirmed architecture:**
 
 ```python
 # services/confidence_decay_loop.py
 # Container path: /app/services/services/confidence_decay_loop.py
-# Target: msjarvisgis.public.gbim_entities — NOT msjarvis
+# Target: msallisgis.public.gbim_entities — NOT msallis
 
 import asyncio
 import psycopg2
@@ -588,7 +588,7 @@ CYCLE_INTERVAL = 86400     # 24 hours
 async def run_decay_cycle():
     conn = psycopg2.connect(
         host="localhost", port=5432,
-        database="msjarvisgis",    # ★★ NOT msjarvis
+        database="msallisgis",    # ★★ NOT msallis
         user="postgres", password="postgres"
     )
     cursor = conn.cursor()
@@ -628,7 +628,7 @@ async def reverify_entity(entity_id: str, confirmed: bool):
     """Reset decay when source confirms entity still valid."""
     conn = psycopg2.connect(
         host="localhost", port=5432,
-        database="msjarvisgis",    # ★★ NOT msjarvis
+        database="msallisgis",    # ★★ NOT msallis
         user="postgres", password="postgres"
     )
     cursor = conn.cursor()
@@ -650,7 +650,7 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 
 #### 6.3.1 Non‑Spatial RAG Flow
 
-**Query intake.** A user or upstream component sends a request through `jarvis-unified-gateway` (host:**18018** → container:**8001**) to `jarvis-main-brain` (port **8050**).
+**Query intake.** A user or upstream component sends a request through `allis-unified-gateway` (host:**18018** → container:**8001**) to `allis-main-brain` (port **8050**).
 
 **Phase 1.45 — Community memory retrieval.** Before any other RAG service is invoked, the main brain embeds the query via `all-minilm:latest` (384-dim, `hnsw:space: cosine`) and retrieves the top-5 most similar records from `autonomous_learner` (host port **8002**). These are prepended to `enhanced_message`.
 
@@ -658,7 +658,7 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 
 **Retrieval from ChromaDB.** The text RAG service embeds the query, runs similarity search against selected collections, and returns high‑scoring documents and their metadata.
 
-**Generation and judging.** The LLM ensemble (`jarvis-ollama:11434`) generates the candidate answer. `judge_pipeline_v2.1-rag-grounded` validates it, then the BBB output filter (`jarvis-bbb-output-filter`, internal:8017) applies post-hoc guardrails. A healthy full-stack response returns `architecture_layers = 7`, `truthverdict.consensus_score ≥ 0.95`.
+**Generation and judging.** The LLM ensemble (`allis-ollama:11434`) generates the candidate answer. `judge_pipeline_v2.1-rag-grounded` validates it, then the BBB output filter (`allis-bbb-output-filter`, internal:8017) applies post-hoc guardrails. A healthy full-stack response returns `architecture_layers = 7`, `truthverdict.consensus_score ≥ 0.95`.
 
 ---
 
@@ -671,7 +671,7 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 │                                                              │
 │  Query type determination:                                  │
 │    - Spatial feature question → GIS RAG (ChromaDB +         │
-│        msjarvisgis port 5432)                               │
+│        msallisgis port 5432)                                │
 │    - Ownership/landowner question → gbim_query_router        │
 │      (PostgreSQL-native, bypasses ChromaDB entirely)        │
 │                                                              │
@@ -685,16 +685,16 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 │  │    GBIM_Fayette_sample (1,535 items)            │         │
 │  └────────────────────────────────────────────────┘         │
 │              ↓                                               │
-│  Geographic Filtering (PostgreSQL msjarvisgis port 5432)    │
+│  Geographic Filtering (PostgreSQL msallisgis port 5432)     │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  SELECT zip, lat, lon                          │         │
-│  │    FROM msjarvisgis.zcta_wv_centroids          │         │
+│  │    FROM msallisgis.zcta_wv_centroids           │         │
 │  │    WHERE zip = '25880'  -- Mount Hope          │         │
 │  │  Then: spatial filter within 10-mile radius    │         │
 │  └────────────────────────────────────────────────┘         │
 │              ↓                                               │
-│  GBIM Belief Quality (msjarvisgis.public.gbim_entities)     │
-│  ★★ port 5432 — postgis-forensic — NOT msjarvis             │
+│  GBIM Belief Quality (msallisgis.public.gbim_entities)      │
+│  ★★ port 5432 — postgis-forensic — NOT msallis              │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  Query: SELECT feature_type, name,             │         │
 │  │    confidence_decay, needs_reverification      │         │
@@ -713,7 +713,7 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 │  │  → Route to gbim_query_router (port 7205)      │         │
 │  │  → SQL aggregation over                        │         │
 │  │    mvw_gbim_landowner_spatial                  │         │
-│  │    in msjarvisgis (port 5432)                  │         │
+│  │    in msallisgis (port 5432)                   │         │
 │  │  → proposition_codes: CORPORATE + GOVERNMENT   │         │
 │  │  → decay reset via reverify_*() when confirmed │         │
 │  │  → No embeddings. No ChromaDB. Exact SQL.      │         │
@@ -722,7 +722,7 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑3. Spatial RAG flow. GBIM belief quality now queries `msjarvisgis.public.gbim_entities` on port **5432** using `feature_type`/`name` columns (not `entity_type`/`label`). Decay loop confirmed live — 461 entities, 0 flagged, April 17, 2026. Port 5433 and port 5452 are invalid and must not appear in any connection string.
+> Figure 6‑3. Spatial RAG flow. GBIM belief quality now queries `msallisgis.public.gbim_entities` on port **5432** using `feature_type`/`name` columns (not `entity_type`/`label`). Decay loop confirmed live — 461 entities, 0 flagged, April 17, 2026. Port 5433 and port 5452 are invalid and must not appear in any connection string.
 
 ---
 
@@ -732,11 +732,11 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 
 **Phase 1.45 — Community memory.** Top-5 `autonomous_learner` memories are prepended.
 
-**Interpretation via text and spatial RAG.** Text RAG and/or GIS RAG retrieve resource guides, flyers, benefits facilities, or prior notes. These hits may carry `local_resource_id` and `county` metadata linking them to `jarvis-local-resources-db`.
+**Interpretation via text and spatial RAG.** Text RAG and/or GIS RAG retrieve resource guides, flyers, benefits facilities, or prior notes. These hits may carry `local_resource_id` and `county` metadata linking them to `allis-local-resources-db`.
 
-**Resolution via local resource resolver.** Queries `jarvis-local-resources-db` (port **5435**, database: `postgres`). As of April 17, 2026: 101 embeddings present; Fayette pipeline active.
+**Resolution via local resource resolver.** Queries `allis-local-resources-db` (port **5435**, database: `postgres`). As of April 17, 2026: 101 embeddings present; Fayette pipeline active.
 
-**Context assembly and generation.** The orchestration layer builds a context from unstructured descriptions and structured `jarvis-local-resources-db` fields. The LLM ensemble applies the Ms. Egeria Jarvis persona.
+**Context assembly and generation.** The orchestration layer builds a context from unstructured descriptions and structured `allis-local-resources-db` fields. The LLM ensemble applies the Ms. Egeria Allis persona.
 
 ---
 
@@ -747,52 +747,52 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 | Query type | Primary routing target |
 |---|---|
 | Governance, policy, thesis | Text RAG (ChromaDB — `governance_rag`, `commons_rag`, thesis, GBIM collections) |
-| Spatial features, facilities | GIS RAG (ChromaDB + PostgreSQL `msjarvisgis`, port 5432) |
-| Land ownership, landowners | `gbim_query_router` (PostgreSQL `msjarvisgis`, port 7205) — PostgreSQL-native |
-| Belief quality / decay status | `msjarvisgis.public.gbim_entities` via decay loop (24h cycle) |
-| Resource and referral | Text RAG + `jarvis-local-resources-db` resolver (port 5435) |
+| Spatial features, facilities | GIS RAG (ChromaDB + PostgreSQL `msallisgis`, port 5432) |
+| Land ownership, landowners | `gbim_query_router` (PostgreSQL `msallisgis`, port 7205) — PostgreSQL-native |
+| Belief quality / decay status | `msallisgis.public.gbim_entities` via decay loop (24h cycle) |
+| Resource and referral | Text RAG + `allis-local-resources-db` resolver (port 5435) |
 | System status | Internal orchestration |
 
-**WV‑first behavior.** For West Virginia, whenever a query is WV‑scoped, the system treats WV RAG, PostgreSQL `msjarvisgis` GIS, GBIM landowner beliefs, and registry context as the authoritative sources, and excludes web context. Under `nbb_pituitary_gland` `mode=elevated` (confirmed April 17, 2026), WV exclusion of web context is **mandatory**. See §6.9.
+**WV‑first behavior.** For West Virginia, whenever a query is WV‑scoped, the system treats WV RAG, PostgreSQL `msallisgis` GIS, GBIM landowner beliefs, and registry context as the authoritative sources, and excludes web context. Under `nbb_pituitary_gland` `mode=elevated` (confirmed April 17, 2026), WV exclusion of web context is **mandatory**. See §6.9.
 
 #### 6.4.2 Service Routing Table — ★★ FINAL April 17, 2026
 
 | Service | Host Port | Container Port | Notes |
 |---|---|---|---|
-| `jarvis-unified-gateway` | **18018** | **8001** | ✅ External entry — confirmed April 17, 2026 |
-| `jarvis-main-brain` | 8050 | 8050 | ✅ Primary orchestrator |
-| `jarvis-rag-server` | **8003** | **8003** | ✅ Both ports confirmed 8003 — April 17, 2026 |
+| `allis-unified-gateway` | **18018** | **8001** | ✅ External entry — confirmed April 17, 2026 |
+| `allis-main-brain` | 8050 | 8050 | ✅ Primary orchestrator |
+| `allis-rag-server` | **8003** | **8003** | ✅ Both ports confirmed 8003 — April 17, 2026 |
 | GIS RAG | 8004 | — | ✅ Active — live Fayette County geodata |
-| `jarvis-psychological-rag` | 8006 | — | ✅ 968 docs serving correctly |
-| `jarvis-wv-entangled-gateway` | 8010 | 8010 | ✅ Healthy — static WV injection via `/chat_wv` |
-| `jarvis-web-research` | 8008 (internal) | — | ✅ Restored March 25, 2026 |
-| `jarvis-ingest-api` | 8009 | — | ✅ Restored March 25, 2026 |
-| `jarvis-blood-brain-barrier` | 8016 | 8016 | ✅ 6 filters — `barrier_active: true` |
-| `jarvis-bbb-output-filter` | internal | 8017 | ✅ `{"status":"ok","service":"bbb-output-filter"}` |
-| `jarvis-qualia-engine` | internal (DNS only) | 8017 | ✅ `jarvis-qualia-engine:8017` |
-| `jarvis-consciousness-bridge` | internal | 8020 | ✅ `http://jarvis-consciousness-bridge:8020` |
-| `jarvis-neurobiological-master` | internal | 8018 | ✅ `http://jarvis-neurobiological-master:8018` |
-| `jarvis-i-containers` | internal | 8015 | ✅ `http://jarvis-i-containers:8015` |
-| `jarvis-aaacpe-rag` | 8032 | — | ✅ `aaacpe_corpus` (65 docs, 39 sources) |
-| `jarvis-aaacpe-scraper` | 8033 | — | ✅ Live |
-| `gbim_query_router` | 7205 | 7205 | ✅ RBAC-gated — `X-Jarvis-Role` required |
-| `jarvis-confidence-decay` | internal | — | ✅ **Live** — 24h cycle, 461 entities, 0 flagged |
+| `allis-psychological-rag` | 8006 | — | ✅ 968 docs serving correctly |
+| `allis-wv-entangled-gateway` | 8010 | 8010 | ✅ Healthy — static WV injection via `/chat_wv` |
+| `allis-web-research` | 8008 (internal) | — | ✅ Restored March 25, 2026 |
+| `allis-ingest-api` | 8009 | — | ✅ Restored March 25, 2026 |
+| `allis-blood-brain-barrier` | 8016 | 8016 | ✅ 6 filters — `barrier_active: true` |
+| `allis-bbb-output-filter` | internal | 8017 | ✅ `{"status":"ok","service":"bbb-output-filter"}` |
+| `allis-qualia-engine` | internal (DNS only) | 8017 | ✅ `allis-qualia-engine:8017` |
+| `allis-consciousness-bridge` | internal | 8020 | ✅ `http://allis-consciousness-bridge:8020` |
+| `allis-neurobiological-master` | internal | 8018 | ✅ `http://allis-neurobiological-master:8018` |
+| `allis-i-containers` | internal | 8015 | ✅ `http://allis-i-containers:8015` |
+| `allis-aaacpe-rag` | 8032 | — | ✅ `aaacpe_corpus` (65 docs, 39 sources) |
+| `allis-aaacpe-scraper` | 8033 | — | ✅ Live |
+| `gbim_query_router` | 7205 | 7205 | ✅ RBAC-gated — `X-Allis-Role` required |
+| `allis-confidence-decay` | internal | — | ✅ **Live** — 24h cycle, 461 entities, 0 flagged |
 | ChromaDB | 8002 (host) | 8000 (container) | ✅ 50 collections, 6,740,616 vectors |
 | `nbb_pituitary_gland` | 8108 | 80 | ✅ mode=elevated (protocols: port 8107) |
-| `msjarvisgis` + `msjarvis` | **5432** | **5432** | ✅ `postgis-forensic` — 95 GB, 742 tables. **No port 5433. No port 5452.** |
-| `jarvis-local-resources-db` | 5435 | 5435 | ✅ 101 embeddings; `database="postgres"` |
-| `jarvis-ollama` | 11434 | 11434 | ✅ 1.0 GiB RAM loaded |
-| `jarvis-redis` | internal | 6379 | ✅ `redis:7-alpine` — decay escalation consumer |
+| `msallisgis` + `msallis` | **5432** | **5432** | ✅ `postgis-forensic` — 95 GB, 742 tables. **No port 5433. No port 5452.** |
+| `allis-local-resources-db` | 5435 | 5435 | ✅ 101 embeddings; `database="postgres"` |
+| `allis-ollama` | 11434 | 11434 | ✅ 1.0 GiB RAM loaded |
+| `allis-redis` | internal | 6379 | ✅ `redis:7-alpine` — decay escalation consumer |
 
 ---
 
 ### 6.5 Context Construction and Structure
 
-**Source separation.** The text RAG service returns a `results_by_source` dictionary keyed by collection name. Phase 1.45 community memories are prepended as a distinct block. The GIS RAG service returns dataset names and feature labels traceable to PostgreSQL `msjarvisgis`. The GBIM landowner router returns structured rows from `mvw_gbim_landowner_spatial` labeled with proposition codes. The decay loop provides a continuous quality signal on `gbim_entities` (`confidence_decay`, `needs_reverification`) that is available to any service querying `msjarvisgis.public.gbim_entities`. The local resource resolver returns normalized rows from `jarvis-local-resources-db`.
+**Source separation.** The text RAG service returns a `results_by_source` dictionary keyed by collection name. Phase 1.45 community memories are prepended as a distinct block. The GIS RAG service returns dataset names and feature labels traceable to PostgreSQL `msallisgis`. The GBIM landowner router returns structured rows from `mvw_gbim_landowner_spatial` labeled with proposition codes. The decay loop provides a continuous quality signal on `gbim_entities` (`confidence_decay`, `needs_reverification`) that is available to any service querying `msallisgis.public.gbim_entities`. The local resource resolver returns normalized rows from `allis-local-resources-db`.
 
 **Relevance ordering and bounded size.** Phase 1.45 is hard-capped at top-5 results. `gbim_query_router` landowner results are hard-capped at the `limit` parameter in the request (default 20). Only entities with `confidence_decay` above the flag threshold are treated as fully authoritative; flagged entities (`needs_reverification = true`) surface a provenance note in the assembled context.
 
-**Role‑, geography‑, and WV‑aware scaffolding.** For WV‑scoped queries, the ultimate prompt specifies that WV RAG, PostgreSQL `msjarvisgis` context, GBIM landowner beliefs, and `jarvis-local-resources-db` are authoritative; that web snippets are absent; and that the GBIM landowner layer contains only institutional/government entities. Decay quality metadata from `msjarvisgis.public.gbim_entities` is available to annotate retrieved entities with confidence status.
+**Role‑, geography‑, and WV‑aware scaffolding.** For WV‑scoped queries, the ultimate prompt specifies that WV RAG, PostgreSQL `msallisgis` context, GBIM landowner beliefs, and `allis-local-resources-db` are authoritative; that web snippets are absent; and that the GBIM landowner layer contains only institutional/government entities. Decay quality metadata from `msallisgis.public.gbim_entities` is available to annotate retrieved entities with confidence status.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -808,36 +808,36 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
-│  │  WV RAG Context                                 │         │
+│  │  WV RAG Context                                │         │
 │  │  ├─ governance_rag (643 chunks — LIVE)         │         │
 │  │  ├─ commons_rag (306 chunks — LIVE)            │         │
 │  │  ├─ Thesis fragments                           │         │
-│  │  └─ GBIM beliefs (msjarvisgis port 5432)       │         │
+│  │  └─ GBIM beliefs (msallisgis port 5432)        │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
-│  │  PostgreSQL GIS Context                         │         │
-│  │  ├─ Spatial features (msjarvisgis tables)      │         │
+│  │  PostgreSQL GIS Context                        │         │
+│  │  ├─ Spatial features (msallisgis tables)       │         │
 │  │  ├─ Facilities (gis_wv_benefits)               │         │
 │  │  ├─ geospatialfeatures (60,000 items)          │         │
 │  │  ├─ GBIM_Fayette_sample (1,535 items)          │         │
 │  │  ├─ GBIM worldview entities (5,416,521)        │         │
-│  │  └─ gbim_entities decay quality signal        │         │
+│  │  └─ gbim_entities decay quality signal         │         │
 │  │     (461 entities, 0 flagged — April 17)       │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
 │  │  GBIM Landowner Context (when mode=landowner)  │         │
-│  │  └─ mvw_gbim_landowner_spatial (msjarvisgis)   │         │
-│  │     via gbim_query_router (port 7205)           │         │
-│  │     PostgreSQL-native — no ChromaDB             │         │
+│  │  └─ mvw_gbim_landowner_spatial (msallisgis)    │         │
+│  │     via gbim_query_router (port 7205)          │         │
+│  │     PostgreSQL-native — no ChromaDB            │         │
 │  │     proposition_codes: CORPORATE + GOVERNMENT  │         │
 │  │     decay reset: reverify_*() → decay=1.0      │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
 │  ┌────────────────────────────────────────────────┐         │
-│  │  Registry Context                               │         │
-│  │  └─ Programs (jarvis-local-resources-db,       │         │
+│  │  Registry Context                              │         │
+│  │  └─ Programs (allis-local-resources-db,        │         │
 │  │       port 5435, database: postgres, verified)  │         │
 │  └────────────────────────────────────────────────┘         │
 │      ↓                                                       │
@@ -848,13 +848,13 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑5. Structure of contextual input assembled for language‑model reasoning. All PostgreSQL references use port **5432** (`postgis-forensic` container). `gbim_entities` decay quality signal is from `msjarvisgis.public.gbim_entities` — 461 entities, 0 flagged, April 17, 2026. No port 5433 or 5452 references remain.
+> Figure 6‑5. Structure of contextual input assembled for language‑model reasoning. All PostgreSQL references use port **5432** (`postgis-forensic` container). `gbim_entities` decay quality signal is from `msallisgis.public.gbim_entities` — 461 entities, 0 flagged, April 17, 2026. No port 5433 or 5452 references remain.
 
 ---
 
 ### 6.6 Constraints, Provenance, and Logging (continued)
 
-**Decoding‑time guards.** After retrieval and generation, the main brain routes candidate responses through `judge_pipeline_v2.1-rag-grounded` (supersedes `heuristic_contradiction_v1`), then through the BBB output filter (`jarvis-bbb-output-filter`, internal:8017). The BBB output guard is fail-open on HTTP 500 — content passes through unchanged, failure is logged. Under `nbb_pituitary_gland` `mode=elevated`, the `consensus_score` floor is elevated above the standard threshold. The confirmed live `consensus_score` is **0.95** (April 17, 2026).
+**Decoding‑time guards.** After retrieval and generation, the main brain routes candidate responses through `judge_pipeline_v2.1-rag-grounded` (supersedes `heuristic_contradiction_v1`), then through the BBB output filter (`allis-bbb-output-filter`, internal:8017). The BBB output guard is fail-open on HTTP 500 — content passes through unchanged, failure is logged. Under `nbb_pituitary_gland` `mode=elevated`, the `consensus_score` floor is elevated above the standard threshold. The confirmed live `consensus_score` is **0.95** (April 17, 2026).
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -864,27 +864,27 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 │  Query → Phase 1.45 → Retrieval (all logged)               │
 │    ↓                                                         │
 │  Sources Captured:                                          │
-│    - autonomous_learner top-5 (Phase 1.45)                   │
-│    - ChromaDB collections queried (host port 8002)           │
-│    - PostgreSQL msjarvisgis tables (port 5432)               │
+│    - autonomous_learner top-5 (Phase 1.45)                  │
+│    - ChromaDB collections queried (host port 8002)          │
+│    - PostgreSQL msallisgis tables (port 5432)               │
 │       ★★ postgis-forensic — port 5432 ONLY                  │
-│    - gbim_entities decay quality (msjarvisgis port 5432)     │
+│    - gbim_entities decay quality (msallisgis port 5432)     │
 │       feature_type/name columns — 461 entities tracked      │
-│    - mvw_gbim_landowner_spatial (msjarvisgis port 5432)      │
+│    - mvw_gbim_landowner_spatial (msallisgis port 5432)      │
 │       via gbim_query_router (port 7205)                     │
-│    - jarvis-local-resources-db rows (port 5435)              │
-│    - Metadata filters applied                                │
+│    - allis-local-resources-db rows (port 5435)              │
+│    - Metadata filters applied                               │
 │    ↓                                                         │
 │  Context Assembly (with provenance)                         │
 │    ↓                                                         │
-│  LLM Ensemble (jarvis-ollama:11434 — 1.0 GiB RAM loaded)   │
+│  LLM Ensemble (allis-ollama:11434 — 1.0 GiB RAM loaded)   │
 │    ↓                                                         │
 │  Judge Pipeline — judge_pipeline_v2.1-rag-grounded          │
 │    nbb_pituitary_gland: mode=elevated                        │
 │    consensus_score floor: elevated                           │
 │    ↓                                                         │
 │  Blood-Brain Barrier Output Filter                          │
-│    jarvis-bbb-output-filter (internal:8017)                 │
+│    allis-bbb-output-filter (internal:8017)                  │
 │    fail-open on HTTP 500                                     │
 │    {"status":"ok","service":"bbb-output-filter"} ✅         │
 │    ↓                                                         │
@@ -896,31 +896,29 @@ async def reverify_entity(entity_id: str, confirmed: bool):
 │      "judge_pipeline_v2.1-rag-grounded"                     │
 │                                                              │
 │  Background (async, 24h):                                   │
-│  jarvis-confidence-decay                                    │
-│    → Redis escalation (jarvis-redis:6379)                   │
-│    → jarvis_decay_escalation_consumer.py                    │
+│  allis-confidence-decay                                     │
+│    → Redis escalation (allis-redis:6379)                    │
+│    → allis_decay_escalation_consumer.py                     │
 │    → 0 flagged entities (April 17, 2026)                    │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 6‑6. Provenance and guardrail flow ensuring accountable generation. The confidence decay loop runs as a background process independent of the query path — it provides continuous quality metadata on `msjarvisgis.public.gbim_entities` that the retrieval and context assembly layers can consume.
+> Figure 6‑6. Provenance and guardrail flow ensuring accountable generation. The confidence decay loop runs as a background process independent of the query path — it provides continuous quality metadata on `msallisgis.public.gbim_entities` that the retrieval and context assembly layers can consume.
 
 **Post‑hoc review and logging.** Logs capture which services were called, which collections were queried, which PostgreSQL tables and views were accessed (including `mvw_gbim_landowner_spatial`, `gbim_entities`, and which port/database they were served from), Phase 1.45 community memory results, `gbim_entities` decay status per entity queried, which filters and scores were applied, which registries were accessed, and which documents or features were returned.
 
----
+***
 
-### 6.7 Relation to Long‑Term Memory, GeoDB, Registries, and Entanglement
+### 6.7 Relation to Long‑Term Memory, GeoDB, Registries, and Entanglement**Long‑term memory.** ChromaDB collections hold embedded representations at **384 dimensions (`all-minilm:latest`, `hnsw:space: cosine`)**: `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (21,159 items, growing ~288/day), `gis_wv_benefits`, `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (60,000 items), `GBIM_Fayette_sample` (1,535 items), `appalachian_cultural_intelligence` (820 items), `aaacpe_corpus` (65 documents), `spiritual_rag` (deduplicated — 19,338 duplicate vectors removed March 28, 2026), `psychological_rag` (968 items), `msallis_docs` (4,192 items), and 20+ additional collections. **★★ April 17, 2026 full audit: 50 active collections, 6,740,616 total vectors.**
 
-**Long‑term memory.** ChromaDB collections hold embedded representations at **384 dimensions (`all-minilm:latest`, `hnsw:space: cosine`)**: `gbim_worldview_entities` (5,416,521 entities), `autonomous_learner` (21,159 items, growing ~288/day), `gis_wv_benefits`, `governance_rag` (643 chunks), `commons_rag` (306 chunks), `geospatialfeatures` (60,000 items), `GBIM_Fayette_sample` (1,535 items), `appalachian_cultural_intelligence` (820 items), `aaacpe_corpus` (65 documents), `spiritual_rag` (deduplicated — 19,338 duplicate vectors removed March 28, 2026), `psychological_rag` (968 items), `msjarvis_docs` (4,192 items), and 20+ additional collections. **★★ April 17, 2026 full audit: 50 active collections, 6,740,616 total vectors.**
+Structured tables such as `allis-local-resources-db` (port 5435, database: `postgres`) hold normalized, versioned records addressable via RAG‑inferred keys. The GBIM landowner materialized view `mvw_gbim_landowner_spatial` in `msallisgis` (port 5432) holds 20,593 verified institutional landowner beliefs queryable via `gbim_query_router` (port 7205). The decay loop maintains continuous quality metadata on `msallisgis.public.gbim_entities` — 461–466 entities tracked, decay applied every 24 hours, `reverify_*()` reset path confirmed live (April 17, 2026).
 
-Structured tables such as `jarvis-local-resources-db` (port 5435, database: `postgres`) hold normalized, versioned records addressable via RAG‑inferred keys. The GBIM landowner materialized view `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) holds 20,593 verified institutional landowner beliefs queryable via `gbim_query_router` (port 7205). The decay loop maintains continuous quality metadata on `msjarvisgis.public.gbim_entities` — 461–466 entities tracked, decay applied every 24 hours, `reverify_*()` reset path confirmed live (April 17, 2026).
+**Short‑term context.** Each retrieval call assembles a temporary context window from Phase 1.45 community memories plus retrieved items, sorted by relevance and grouped by collection, layer, registry, and router. For WV‑scoped queries, this window is explicitly WV‑first: assembled from community memories, WV RAG (including live governance and commons RAG), PostgreSQL `msallisgis` GIS (including live spatial feature collections), GBIM landowner beliefs, registry material, and `gbim_entities` decay quality annotations — with web content excluded.
 
-**Short‑term context.** Each retrieval call assembles a temporary context window from Phase 1.45 community memories plus retrieved items, sorted by relevance and grouped by collection, layer, registry, and router. For WV‑scoped queries, this window is explicitly WV‑first: assembled from community memories, WV RAG (including live governance and commons RAG), PostgreSQL `msjarvisgis` GIS (including live spatial feature collections), GBIM landowner beliefs, registry material, and `gbim_entities` decay quality annotations — with web content excluded.
+**Coupled updates and entanglement.** The `autonomous_learner`'s continuous growth (~288/day) represents one axis of the coupled update loop. The confidence decay loop represents a second axis: as WV assessor data is refreshed and `reverify_*()` confirms entities in source, decay resets to 1.0 and the belief layer reflects current ground truth. As watershed, health_facility, and other entity types are seeded into `msallisgis.gbim_worldview_entity` (the full spatial table — not the 4-column `msallis` mirror), those entities enter the decay cycle and become trackable quality signals in every retrieval pass that touches `gbim_entities`.
 
-**Coupled updates and entanglement.** The `autonomous_learner`'s continuous growth (~288/day) represents one axis of the coupled update loop. The confidence decay loop represents a second axis: as WV assessor data is refreshed and `reverify_*()` confirms entities in source, decay resets to 1.0 and the belief layer reflects current ground truth. As watershed, health_facility, and other entity types are seeded into `msjarvisgis.gbim_worldview_entity` (the full spatial table — not the 4-column `msjarvis` mirror), those entities enter the decay cycle and become trackable quality signals in every retrieval pass that touches `gbim_entities`.
-
----
+***
 
 ## 6.8 Production State Summary — ★★ FINAL April 17, 2026
 
@@ -930,9 +928,9 @@ Structured tables such as `jarvis-local-resources-db` (port 5435, database: `pos
 - All services bound to `127.0.0.1` or internal Docker DNS ✅
 - Zero `0.0.0.0` exposures ✅
 - `_auth()` confirmed on all sensitive routes ✅
-- `JARVIS_API_KEY` env var confirmed set ✅
+- `ALLIS_API_KEY` env var confirmed set ✅
 
-**ChromaDB (`jarvis-chroma`) — ★★ April 17, 2026 final audit:**
+**ChromaDB (`allis-chroma`) — ★★ April 17, 2026 final audit:**
 - Host port: **8002** (`127.0.0.1:8002→8000/tcp`) ✅
 - API: v2 active — `/api/v1/` deprecated ✅
 - Active collections: **50** ✅
@@ -941,43 +939,42 @@ Structured tables such as `jarvis-local-resources-db` (port 5435, database: `pos
 
 **PostgreSQL cluster — ★★ April 17, 2026:**
 - Port **5432** — `postgis-forensic` container hosts both:
-  - `msjarvisgis` — 95 GB, 742 tables, 9 schemas, PostGIS spatial ✅
-  - `msjarvis` — 92 tables, GBIM application layer ✅
-- **No port 5433 container exists.** All prior `msjarvis:5433` references superseded ✅
+  - `msallisgis` — 95 GB, 742 tables, 9 schemas, PostGIS spatial ✅
+  - `msallis` — 92 tables, GBIM application layer ✅
+- **No port 5433 container exists.** All prior `msallis:5433` references superseded ✅
 - **No port 5452 container exists.** All prior port 5452 references superseded (OI-C6-1 CLOSED) ✅
-- Port **5435** — `jarvis-local-resources-db` — 101 embeddings; `database="postgres"` ✅
-- `gbim_entities` in `msjarvisgis.public` — 461–466 entities tracked by decay loop ✅
+- Port **5435** — `allis-local-resources-db` — 101 embeddings; `database="postgres"` ✅- `gbim_entities` in `msallisgis.public` — 461–466 entities tracked by decay loop ✅
 
 **gbim_worldview_entity disambiguation — ★★ April 17, 2026:**
-- `msjarvisgis.gbim_worldview_entity` — full spatial table (worldview_id, entity_type, source_table, source_pk, label, belief_state, centroid_geom, county_name_tag, confidence_decay, needs_verification, …) — **authoritative** ✅
-- `msjarvis.gbim_worldview_entity` — 4-column mirror (id, entity_type, label, belief_state) — lightweight only ✅
-- Watershed row inserted into `msjarvisgis.gbim_worldview_entity` ✅
-- health_facility row inserted into `msjarvisgis.gbim_worldview_entity` ✅
+- `msallisgis.gbim_worldview_entity` — full spatial table (worldview_id, entity_type, source_table, source_pk, label, belief_state, centroid_geom, county_name_tag, confidence_decay, needs_verification, …) — **authoritative** ✅
+- `msallis.gbim_worldview_entity` — 4-column mirror (id, entity_type, label, belief_state) — lightweight only ✅
+- Watershed row inserted into `msallisgis.gbim_worldview_entity` ✅
+- health_facility row inserted into `msallisgis.gbim_worldview_entity` ✅
 - Seed fixtures 1/472–475 deleted ✅
 
 **Confidence decay loop — ★★ OI-C6-4 CLOSED April 17, 2026:**
-- Container: `jarvis-confidence-decay` — ✅ UP
-- Target: `msjarvisgis.public.gbim_entities` (port 5432) — NOT `msjarvis` ✅
+- Container: `allis-confidence-decay` — ✅ UP
+- Target: `msallisgis.public.gbim_entities` (port 5432) — NOT `msallis` ✅
 - File path in container: `/app/services/services/confidence_decay_loop.py` ✅
 - Column names confirmed: `feature_type` / `name` (not `entity_type` / `label`) ✅
 - Cycle: 24h (86400s) ✅
 - Result: 461 entities processed, 0 flagged ✅
-- Redis: `jarvis-redis` (`redis:7-alpine`) ✅
-- Escalation consumer: `services/jarvis_decay_escalation_consumer.py` ✅
+- Redis: `allis-redis` (`redis:7-alpine`) ✅
+- Escalation consumer: `services/allis_decay_escalation_consumer.py` ✅
 - Dockerfile: `psycopg2-binary` + `redis` added ✅
 - All 22 `llm*-proxy` YAML `volumes:` keys restored ✅
 
 **RAG and routing:**
 - Phase 1.45 community memory: live — 21,159 items ✅
-- Text RAG (`jarvis-rag-server` host:8003 → container:8003): confirmed ✅
+- Text RAG (`allis-rag-server` host:8003 → container:8003): confirmed ✅
 - GIS RAG (port 8004): operational ✅
 - `psychological_rag` (port 8006): 968 docs ✅
 - `gbim_query_router` (port 7205): RBAC-gated, PostgreSQL-native landowner path live ✅
-- `jarvis-wv-entangled-gateway` (port 8010): static WV injection via `/chat_wv` ✅
-- `jarvis-aaacpe-rag` (port 8032): live ✅
-- `jarvis-aaacpe-scraper` (port 8033): live ✅
-- `jarvis-web-research` (port 8008 internal): live ✅
-- `jarvis-ingest-api` (port 8009): live ✅
+- `allis-wv-entangled-gateway` (port 8010): static WV injection via `/chat_wv` ✅
+- `allis-aaacpe-rag` (port 8032): live ✅
+- `allis-aaacpe-scraper` (port 8033): live ✅
+- `allis-web-research` (port 8008 internal): live ✅
+- `allis-ingest-api` (port 8009): live ✅
 
 **Judge pipeline:**
 - `judge_pipeline_v2.1-rag-grounded` confirmed live ✅
@@ -990,33 +987,32 @@ Structured tables such as `jarvis-local-resources-db` (port 5435, database: `pos
 | ID | Issue | Status |
 |:--|:--|:--|
 | **OI-C6-1** | Port 5452 stale reference in Ch 6 | ✅ CLOSED — never-active port; 5432 always correct |
-| **OI-C6-2** | Gate 26 false-pass on wrong port | ✅ CLOSED — Gate 26 must use port 5435 |
-| **OI-C6-3** | Landowner SQL-only routing guarantee undocumented | ✅ CLOSED — §6.2.6 structural guarantee documented |
+| **OI-C6-2** | Gate 26 false-pass on wrong port | ✅ CLOSED — Gate 26 must use port 5435 || **OI-C6-3** | Landowner SQL-only routing guarantee undocumented | ✅ CLOSED — §6.2.6 structural guarantee documented |
 | **OI-C6-4** | confidence_decay loop aspirational | ✅ CLOSED — **FULLY LIVE** — 461 entities, 0 flagged, 24h cycle |
 | **OI-C6-5** | nbb_pituitary_gland cross-reference missing from Ch 6 | ✅ CLOSED — §6.9 added |
 | **OI-C6-6** | nbb_pituitary_gland routing modulation undocumented in Ch 7 | ✅ CLOSED — Ch 7 §7.2.9 added |
 
 **No open issues remain in Chapter 6 as of April 17, 2026.**
 
----
+***
 
 ## 6.9 nbb_pituitary_gland — Upstream RAG Routing Modulation (OI-C6-5 CLOSED April 17, 2026)
 
 > **Cross-reference:** Full neurobiological architecture of `nbb_pituitary_gland` is documented in **Chapter 13 (Neurobiological Bridge)** and **Chapter 15 (Governance Protocol Stack)**. This section documents only the RAG routing modulation surface relevant to the pipeline described in this chapter.
 
-The `nbb_pituitary_gland` service (`jarvis-neurobiological-master`, container-internal port **8018**, host port **8108** → container port **80** — ✅ `mode=elevated` confirmed April 17, 2026) acts as the **upstream modulator** of RAG routing weights in the Ms. Jarvis pipeline. It is the neurobiological analog of the pituitary gland in human endocrine architecture: it does not perform retrieval itself, but it sets the **operating mode and weighting context** under which all downstream RAG services operate.
+The `nbb_pituitary_gland` service (`allis-neurobiological-master`, container-internal port **8018**, host port **8108** → container port **80** — ✅ `mode=elevated` confirmed April 17, 2026) acts as the **upstream modulator** of RAG routing weights in the Ms. Allis pipeline. It is the neurobiological analog of the pituitary gland in human endocrine architecture: it does not perform retrieval itself, but it sets the **operating mode and weighting context** under which all downstream RAG services operate.
 
 **Confirmed live state — April 17, 2026:**
 
 ```bash
 # Internal-only — must use docker exec; port 8018 is not host-exposed
-docker exec jarvis-neurobiological-master curl -s http://localhost:8018/health
+docker exec allis-neurobiological-master curl -s http://localhost:8018/health
 # Returns:
 # {"status":"healthy","threat_level":"ELEVATED","redis":"ok",
 #  "policy_hash":"5eaa2f31d5d5c7e9fe2f14985d825bc52e39a7c192a93f8082be02cac4a11f06"}
 
 # Five governance protocols active (port 8107 — host-exposed):
-curl -s -H "Authorization: Bearer $JARVIS_API_KEY" http://127.0.0.1:8107/protocols
+curl -s -H "Authorization: Bearer $ALLIS_API_KEY" http://127.0.0.1:8107/protocols
 # Returns:
 # { "protocols": {
 #     "dignity":      "Every person has inherent worth. No action may degrade human dignity.",
@@ -1032,8 +1028,7 @@ curl -s -H "Authorization: Bearer $JARVIS_API_KEY" http://127.0.0.1:8107/protoco
 | Behavior | Normal mode | Elevated mode |
 |---|---|---|
 | WV RAG | Preferred | Mandatory — web context fully excluded |
-| Landowner pattern detection | On explicit `landowner_gbim` flag | Sensitivity increased |
-| BBB input threshold | Standard | Heightened — `threat_level: ELEVATED` |
+| Landowner pattern detection | On explicit `landowner_gbim` flag | Sensitivity increased || BBB input threshold | Standard | Heightened — `threat_level: ELEVATED` |
 | Judge pipeline `consensus_score` floor | Standard | Elevated |
 | WV-entangled context injection | Applied | Amplified via `/chat_wv` |
 | Decay loop quality signal | Available | Surfaced in context assembly |
@@ -1043,7 +1038,7 @@ curl -s -H "Authorization: Bearer $JARVIS_API_KEY" http://127.0.0.1:8107/protoco
 | Endpoint | Result | Status |
 |---|---|---|
 | `GET http://127.0.0.1:8010/debug/weights` | `{"detail":"Not Found"}` | WOAH weight envelope not yet exposed — applied structurally via static WV context injection in `/chat_wv` |
-| `GET http://127.0.0.1:8056/events?event_type=container_lifecycle` | `{"detail":"Method Not Allowed"}` | Pituitary lifecycle events logged to Redis internally — GET filter endpoint not yet implemented on `jarvis-memory:8056` |
+| `GET http://127.0.0.1:8056/events?event_type=container_lifecycle` | `{"detail":"Method Not Allowed"}` | Pituitary lifecycle events logged to Redis internally — GET filter endpoint not yet implemented on `allis-memory:8056` |
 
 Both gaps are future instrumentation tasks. Neither affects current production behavior.
 
@@ -1051,16 +1046,16 @@ Both gaps are future instrumentation tasks. Neither affects current production b
 >
 > **See Chapter 15** for the governance protocol stack and how the five active protocols map to routing weights and judge pipeline thresholds under elevated threat posture.
 
----
+***
 
 *Chapter 6 — FINAL. Last updated: April 17, 2026, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
 
 *OI-C6-1 through OI-C6-6: ALL CLOSED April 17, 2026.*
 
-*Port corrections applied: port 5452 deprecated (never active); port 5433 deprecated (never active); all msjarvis and msjarvisgis connections confirmed on port 5432 (`postgis-forensic` container). `jarvis-rag-server` confirmed host:8003→container:8003. `jarvis-unified-gateway` confirmed host:18018→container:8001.*
+*Port corrections applied: port 5452 deprecated (never active); port 5433 deprecated (never active); all msallis and msallisgis connections confirmed on port 5432 (`postgis-forensic` container). `allis-rag-server` confirmed host:8003→container:8003. `allis-unified-gateway` confirmed host:18018→container:8001.*
 
-*OI-C6-4 CLOSED DEPLOYED: confidence decay loop fully live — `jarvis-confidence-decay` container UP, 461 entities processed, 0 flagged, 24h cycle, target `msjarvisgis.public.gbim_entities` (NOT `msjarvis`), `feature_type`/`name` columns confirmed, Redis escalation consumer live, watershed + health_facility rows inserted into `msjarvisgis.gbim_worldview_entity` (full spatial table), all 22 `llm*-proxy` YAML `volumes:` keys restored.*
+*OI-C6-4 CLOSED DEPLOYED: confidence decay loop fully live — `allis-confidence-decay` container UP, 461 entities processed, 0 flagged, 24h cycle, target `msallisgis.public.gbim_entities` (NOT `msallis`), `feature_type`/`name` columns confirmed, Redis escalation consumer live, watershed + health_facility rows inserted into `msallisgis.gbim_worldview_entity` (full spatial table), all 22 `llm*-proxy` YAML `volumes:` keys restored.*
 
-*gbim_worldview_entity disambiguation confirmed: `msjarvisgis` version is full spatial table (authoritative for decay and spatial ops); `msjarvis` version is 4-column mirror only.*
+*gbim_worldview_entity disambiguation confirmed: `msallisgis` version is full spatial table (authoritative for decay and spatial ops); `msallis` version is 4-column mirror only.*
 
-*Prior update history: March 26, 2026 — `geospatialfeatures` (60,000 items) and `GBIM_Fayette_sample` (1,535 items) confirmed live. March 27, 2026 — all `gisdb` references corrected to `msjarvisgis`; `jarvis-local-resources-db` connection string corrected to `database="postgres"`. March 28, 2026 — security remediation complete; `spiritual_rag` deduplicated; `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items); 40 collections / 6,675,442 vectors audit. April 1, 2026 — LEARN-01, LEARN-02, LEARN-03 resolved; autonomous learner restored; 96/96 containers confirmed. April 17, 2026 — 99/99 containers confirmed; 50 collections / 6,740,616 vectors; all OIs closed; confidence decay loop deployed and live.*
+*Prior update history: March 26, 2026 — `geospatialfeatures` (60,000 items) and `GBIM_Fayette_sample` (1,535 items) confirmed live. March 27, 2026 — all `gisdb` references corrected to `msallisgis`; `allis-local-resources-db` connection string corrected to `database="postgres"`. March 28, 2026 — security remediation complete; `spiritual_rag` deduplicated; `psychological_rag` restored (968 docs); `msallis_docs` expanded (4,192 items); 40 collections / 6,675,442 vectors audit. April 1, 2026 — LEARN-01, LEARN-02, LEARN-03 resolved; autonomous learner restored; 96/96 containers confirmed. April 17, 2026 — 99/99 containers confirmed; 50 collections / 6,740,616 vectors; all OIs closed; confidence decay loop deployed and live.*
