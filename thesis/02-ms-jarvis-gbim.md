@@ -1,7 +1,7 @@
 # 2. The Geometric Belief Model and GBIM Architecture
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: 2026-03-28*
+*Last updated: 2026-04-22*
 
 ---
 
@@ -11,11 +11,11 @@ This chapter provides the theoretical foundation for understanding how Ms. Jarvi
 
 - **P1 – Every where is entangled** by establishing that belief is not stored as isolated facts but as multi-axis geometric structures in which spatial, temporal, institutional, and normative dimensions are co-present and mutually constraining — so that a single GBIM belief about a hospital in Fayette County is simultaneously a claim about what exists, where it is, when it was verified, who has authority over it, and what its implications are for program routing.
 
-- **P3 – Power has a geometry** by showing that the GBIM axis structure — particularly `who`, `where`, `under_whose_authority`, and `for_whom` — is designed to make institutional power over place explicit and queryable, not buried in unstructured text. The landowner belief layer (Section 2.6.4, field note March 20, 2026) is the direct realization of this principle at parcel scale.
+- **P3 – Power has a geometry** by showing that the GBIM axis structure — particularly `who`, `where`, `under_whose_authority`, and `for_whom` — is designed to make institutional power over place explicit and queryable, not buried in unstructured text. The landowner belief layer (Section 2.6.4) is the direct realization of this principle at parcel scale, now fully operational end-to-end as of April 22, 2026.
 
 - **P5 – Design is a geographic act** by treating the nine-axis GBIM schema, the worldview structure, the collection inventory, and the ChromaDB configuration not as neutral technical choices but as geographic and political decisions that determine which facts are computable, which relationships are traversable, and which forms of institutional accountability are operationally enforceable.
 
-- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model in a concrete PostgreSQL corpus — msjarvis (port 5433), msjarvisgis (port 5432), and their ChromaDB mirrors — so that the abstract framework of quantum-geometric belief representation is always already indexed to real West Virginia places, programs, and populations.
+- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model in a concrete PostgreSQL corpus — `msjarvis` (port 5433) and `gisdb` (port 5432) — so that the abstract framework of quantum-geometric belief representation is always already indexed to real West Virginia places, programs, and populations.
 
 - **P16 – Power accountable to place** by designing the belief structure so that institutional actors — government agencies, corporate landowners, utility companies — are represented as first-class GBIM entities with explicit `under_whose_authority` and `who` axis entries, making them queryable and auditable in a way that individual residential actors deliberately are not.
 
@@ -36,19 +36,21 @@ The chapter is organized as follows:
 - **Section 2.2** introduces the nine-axis belief schema and explains the role of each axis.
 - **Section 2.3** presents the Hilbert-space model of belief and uncertainty that motivates the GBIM design.
 - **Section 2.4** describes the worldview structure (`eq1` and related worldviews) and its role in routing and filtering.
-- **Section 2.5** describes the PostgreSQL GBIM corpus — its current scale, table structure, and production status as of March 2026.
-- **Section 2.6** presents the ChromaDB collection inventory — the vector-backed memory layer that makes GBIM beliefs semantically retrievable — updated through March 28, 2026.
+- **Section 2.5** describes the PostgreSQL GBIM corpus — its current scale, table structure, and production status as of April 2026.
+- **Section 2.6** presents the ChromaDB collection inventory — the vector-backed memory layer that makes GBIM beliefs semantically retrievable.
 - **Section 2.7** addresses the relationship between GBIM, the GeoDB spatial body (Chapter 6), the RAG pipeline (Chapter 7), and the local resource registry.
-- **Section 2.8** is an intellectual honesty correction (March 21, 2026): it documents the gap between GBIM's designed role as the ground truth for judge verification and the current actual implementation of the truth and alignment judges, which use heuristic pattern-matching, not live PostgreSQL queries.
-- **Section 2.9** documents the ethical architecture of the belief corpus — specifically the exclusion of individual residential owner names and the full accountability metadata required for institutional actors.
-- **Section 2.10** presents the `gbim_query_router` service (port 7205) — the PostgreSQL-native GBIM retrieval path promoted to production March 20, 2026.
-- **Section 2.11** documents the `mvw_gbim_landowner_spatial` materialized view — its schema, spatial indexing, proposition codes, and architectural role as the exclusive retrieval surface for landowner beliefs.
+- **Section 2.8** documents the `nbb_pituitary_gland` governance module — the neural-behavioral bridge operating at `host:8108` that modulates every Ms. Jarvis response through five active governance protocols.
+- **Section 2.9** documents the GBIM confidence decay pipeline — the live 24-hour decay loop monitoring 5,416,521 entities with `needs_verification` escalation.
+- **Section 2.10** is an intellectual honesty record: it documents the retirement of `heuristic_contradiction_v1` and the promotion of `rag_grounded_v2` as the canonical truth judge, now DGM-corroborated.
+- **Section 2.11** documents the ethical architecture of the belief corpus — specifically the exclusion of individual residential owner names and the full accountability metadata required for institutional actors.
+- **Section 2.12** presents the `jarvis-gbim-query-router` service (port 7205) — the PostgreSQL-native GBIM retrieval path, fully operational end-to-end as of April 22, 2026.
+- **Section 2.13** documents the `mvw_gbim_landowner_spatial` materialized view — its schema, spatial indexing, 39,515 Fayette County parcels, and RBAC gate.
 
 ---
 
 ## 2.2 The Nine-Axis Belief Schema
 
-Every belief in the GBIM corpus is a structured object with nine named axes. Each axis is stored as a JSONB field in `gbimbeliefnormalized`, allowing flexible, typed, and queryable representation of the full semantic content of the belief.
+Every belief in the GBIM corpus is a structured object with nine named axes stored as JSONB in `gbim_worldview_entity` (gisdb) and `gbim_entities` (msjarvis):
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -65,7 +67,8 @@ Every belief in the GBIM corpus is a structured object with nine named axes. Eac
 │  8. under_whose_authority_axis — Institutional authority    │
 │  9. on_what_evidence_axis  — Source and provenance          │
 │                                                              │
-│  All nine axes stored as JSONB in gbimbeliefnormalized      │
+│  All nine axes stored as JSONB in gbim_worldview_entity     │
+│  (gisdb, 5432) and gbim_entities (msjarvis, 5433)           │
 │  All beliefs carry: belief_id, proposition_code,            │
 │    worldview_id, confidence_decay, needs_verification       │
 │                                                              │
@@ -74,36 +77,34 @@ Every belief in the GBIM corpus is a structured object with nine named axes. Eac
 
 *Figure 2.1. The nine-axis GBIM belief structure. Every belief in the corpus — from a hospital location to a coal company land holding — is represented with all nine axes, enabling multi-dimensional filtering, routing, and reasoning.*
 
-**`what_axis`** — The propositional content of the belief: what entity exists, what relationship holds, what condition obtains. Structured as a typed JSONB object with fields including `type`, `label`, `description`, and `proposition_code`. The `proposition_code` is the primary routing key: it determines how the belief is indexed, which RAG paths it is eligible for, and which ethical constraints apply to its retrieval and display.
+**`what_axis`** — The propositional content of the belief: what entity exists, what relationship holds, what condition obtains. Structured as a typed JSONB object with fields including `type`, `label`, `description`, and `proposition_code`. The `proposition_code` is the primary routing key.
 
-**`who_axis`** — The subject or actor of the belief: a named entity, institution, or class. For infrastructure and facility beliefs, this is typically the operating institution (a hospital system, a county agency, a federal bureau). For the landowner belief layer (Section 2.6.4), this is the canonical corporate or government entity name derived from WV assessor records. Individual residential owner names are explicitly excluded from this axis — see Section 2.9.
+**`who_axis`** — The subject or actor of the belief. For the landowner belief layer, this is the canonical corporate or government entity name derived from WV assessor records. Individual residential owner names are explicitly excluded — see Section 2.11.
 
-**`where_axis`** — The spatial grounding of the belief: geometry (point, line, polygon), coordinate system, county, ZIP code, and any relevant spatial relationships. For parcel-level beliefs, this includes the parcel centroid and county. For the landowner belief layer, this is populated from `wv_parcels` geometry joined in `mvw_gbim_landowner_spatial`.
+**`where_axis`** — The spatial grounding: geometry (point, line, polygon), coordinate system, county, ZIP code. For parcel-level beliefs, includes parcel centroid and county derived from `mvw_gbim_landowner_spatial` in `gisdb`.
 
-**`when_axis`** — The temporal scope: when the belief was created, when it was last verified, its expected expiration or decay schedule. Paired with `confidence_decay` to implement time-sensitive freshness signaling in RAG retrieval.
+**`when_axis`** — Temporal scope: when the belief was created, last verified, expected decay schedule. Paired with `confidence_decay` to implement time-sensitive freshness signaling — see Section 2.9.
 
-**`why_axis`** — The normative or causal rationale: why this belief is relevant to Ms. Jarvis's mission, what programmatic or justice-oriented consequence follows from it. This axis is what connects a belief about an abandoned mine land site to a belief about a household's heating costs — the `why` axis encodes the causal and programmatic link.
+**`why_axis`** — The normative or causal rationale: why this belief is relevant to Ms. Jarvis's mission.
 
-**`how_axis`** — The verification method: how the belief was established, what pipeline generated it, what spatial or statistical operation produced it. For assessor-derived beliefs, this records the county assessor data vintage and the canonical clustering pipeline used to normalize owner names.
+**`how_axis`** — The verification method: what pipeline generated the belief, what spatial or statistical operation produced it.
 
-**`for_whom_axis`** — The intended beneficiary population: which households, communities, or demographic groups the belief is most relevant to. This axis supports population-targeted routing — surfacing AML-related weatherization programs preferentially to households in subsidence-risk zones.
+**`for_whom_axis`** — The intended beneficiary population: which households, communities, or demographic groups the belief is most relevant to.
 
-**`under_whose_authority_axis`** — The institutional authority under which the belief's claim holds: a regulatory agency, a legislative mandate, a contractual right, or a property ownership basis. For the landowner belief layer, this records the ownership basis — assessor record, deed reference where available. This axis is central to **P16 – Power accountable to place**: the system can answer not just "who is here" but "under whose authority do they operate here."
+**`under_whose_authority_axis`** — The institutional authority under which the claim holds. For the landowner belief layer, records the ownership basis — assessor record, deed reference, government registry. Central to **P16 – Power accountable to place**.
 
-**`on_what_evidence_axis`** — The primary source and provenance chain: dataset name, table, primary key, data vintage, and any raw string variants (for example, the multiple assessor name variants for a single canonical corporate entity). This axis supports full provenance tracing from a displayed belief back to its source record.
+**`on_what_evidence_axis`** — The primary source and provenance chain: dataset name, table, primary key, data vintage.
 
 ---
 
 ## 2.3 Hilbert-Space Representation of Belief and Uncertainty
 
-The GBIM nine-axis schema is motivated by a geometric model of belief and uncertainty that treats the system's overall epistemic state as a vector in a high-dimensional Hilbert space.
+The GBIM nine-axis schema is motivated by a geometric model of belief that treats the system's overall epistemic state as a vector in a high-dimensional Hilbert space:
 
-In this model:
-
-- Each basis dimension corresponds to a distinguishable claim about the world — a specific proposition about a specific entity at a specific place and time, under a specific institutional authority.
-- The system's belief state is a superposition over these basis dimensions: a probability amplitude distribution that reflects confidence, uncertainty, and the degree to which different claims are mutually consistent or entangled.
-- A retrieval operation (a RAG query, a spatial filter, a landowner lookup) is a **projection** of this state onto a lower-dimensional subspace — the subspace of beliefs most relevant to the query, given the current role, geography, and worldview.
-- Belief update — ingesting new data, verifying a claim, correcting an error — is a rotation or scaling operation on the state vector that adjusts the amplitude distribution without discarding the prior structure.
+- Each basis dimension corresponds to a distinguishable claim about the world at a specific place and time, under a specific institutional authority.
+- The system's belief state is a superposition over these dimensions — a probability amplitude distribution reflecting confidence, uncertainty, and entanglement between claims.
+- A retrieval operation (RAG query, spatial filter, landowner lookup) is a **projection** of this state onto a relevant subspace.
+- Belief update — ingesting new data, verifying a claim — is a rotation or scaling on the state vector.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -137,22 +138,13 @@ In this model:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.2. Conceptual view of the Hilbert-space projection model underlying GBIM retrieval. Vector-based projections (ChromaDB) and relational projections (SQL aggregation over `mvw_gbim_landowner_spatial`) are both understood as projections into relevant subspaces — they differ in their geometric mechanism, not in their epistemic role.*
-
-This framework is not merely metaphorical. It motivates concrete architectural decisions:
-
-- The nine axes are the dimensions along which beliefs are structured because those are the dimensions along which meaningful distinctions arise for routing, filtering, and reasoning in a place-based justice system.
-- ChromaDB stores embeddings of the nine-axis text representations because the vector space of those embeddings approximates the geometry of semantic similarity in the relevant Hilbert subspace.
-- The `gbim_query_router` bypasses ChromaDB for landowner queries because ownership aggregation questions have exact, deterministic answers in the relational GBIM corpus — approximate vector search would introduce unnecessary error into a question that is fully answerable by SQL.
-- The worldview structure (`eq1`) is the mechanism for maintaining multiple, potentially inconsistent belief states simultaneously — different "cuts" through the Hilbert space that correspond to different institutional perspectives, data vintages, or normative frameworks.
+*Figure 2.2. Conceptual view of the Hilbert-space projection model underlying GBIM retrieval. Vector-based projections (ChromaDB) and relational projections (SQL aggregation over `mvw_gbim_landowner_spatial`) are both projections into relevant subspaces — they differ in geometric mechanism, not epistemic role.*
 
 ---
 
 ## 2.4 Worldview Structure and the `eq1` Worldview
 
-The GBIM worldview structure allows the corpus to maintain multiple, simultaneously queryable perspectives on the same entities and places. Each belief is tagged with a `worldview_id` that identifies the interpretive frame within which it is valid.
-
-The production worldview as of March 2026 is **`eq1`** — the primary equity-oriented worldview that grounds Ms. Jarvis's reasoning in Appalachian community perspectives, WV state data, and federal program structures as they operate in West Virginia. All **5,416,521** production beliefs in `gbimbeliefnormalized` — including all **20,593 landowner beliefs** (proposition codes `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT`, verified March 20, 2026) — are tagged `worldview_id = 'eq1'`.
+The production worldview is **`eq1`** — the primary equity-oriented worldview grounding Ms. Jarvis's reasoning in Appalachian community perspectives, WV state data, and federal program structures. All **5,416,521** production beliefs in `gbim_worldview_entity` (gisdb) are tagged `worldview_id = 'eq1'`.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -163,13 +155,11 @@ The production worldview as of March 2026 is **`eq1`** — the primary equity-or
 │  ─────────────────────────────────────────────────────      │
 │  Interpretive frame: Appalachian equity orientation         │
 │  Data scope: WV state + federal sources verified for WV     │
-│  Population: WV households, communities, programs           │
-│  Belief count: 5,416,521 (gbimbeliefnormalized)             │
-│    of which: 20,593 landowner beliefs ★                     │
-│              (LANDOWNER_CORPORATE +                         │
-│               LANDOWNER_GOVERNMENT)                         │
-│              served via mvw_gbim_landowner_spatial          │
-│              and gbim_query_router (port 7205)              │
+│  Belief count: 5,416,521 (gbim_worldview_entity, gisdb)     │
+│  Landowner view: mvw_gbim_landowner_spatial                 │
+│    39,515 Fayette County parcels — EPSG:4326, GIST index    │
+│    38,979 with owner names (536 unattributed — normal       │
+│    for roads/easements)                                     │
 │  Status: Production — all RAG, GIS, landowner paths        │
 │                                                              │
 │  Future worldviews (planned):                               │
@@ -181,668 +171,513 @@ The production worldview as of March 2026 is **`eq1`** — the primary equity-or
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.3. The GBIM worldview structure. The production `eq1` worldview encompasses all 5,416,521 current GBIM beliefs including 20,593 landowner records verified March 20, 2026.*
-
-Worldview tags serve two functions. First, they enable **multi-perspective retrieval**: a researcher asking about federal land management and a community member asking about program eligibility can receive responses filtered to their respective worldview contexts, even if the underlying belief records overlap. Second, they provide **update isolation**: a new batch of beliefs ingested from a different data vintage can be tagged to a new or draft worldview and validated before being promoted to the production `eq1` worldview.
+*Figure 2.3. The GBIM worldview structure. The production `eq1` worldview encompasses all 5,416,521 current GBIM beliefs.*
 
 ---
 
-## 2.5 The PostgreSQL GBIM Corpus
+## 2.5 The PostgreSQL GBIM Corpus — Authoritative Layout (April 22, 2026)
 
-The production GBIM corpus lives in two PostgreSQL instances:
+Ms. Jarvis runs two live PostgreSQL databases. All references to a database named `msjarvisgis` or port `5452` are retired — those names do not exist in the current production stack.
 
-**`msjarvis` database (port 5433)** — The primary GBIM belief store, accessed by the RAG pipeline and LLM ensemble for belief retrieval, entity lookup, and provenance tracing. **★ March 28, 2026: Port 5433 connection refused issue resolved — `msjarvis` database fully operational following March 28 remediation sprint. `jarvis_local_resources` database schema also restored (resources table verified present).**
+### Live Database Layout
 
-**`msjarvisgis` database (port 5432)** — The spatial production database housing `gbimbeliefnormalized` (**5,416,521 rows** verified March 20, 2026), spatial source tables, and the landowner materialized view `mvw_gbim_landowner_spatial`. This is the authoritative store for all parcel-level and spatial beliefs.
+| Layer | Database | Port | Owner | Contents |
+|---|---|---|---|---|
+| Spatial GBIM / provider summaries | `gisdb` | **5432** | gbim | `gbim_worldview_entity`, `gbim_provider_*`, `gbim_block_*`, `mvw_gbim_landowner_spatial` |
+| Application GBIM / decay audit + TIGER | `msjarvis` | **5433** | postgres | `gbim_entities`, `gbim_decay_audit`, `tiger.*`, `topology.*` |
 
-**Verified corpus scale (March 20, 2026):**
+The logical roles previously attributed to `msjarvisgis` are now carried by `gisdb`. The `msjarvis` database additionally contains the full TIGER/topology schema: `tiger.addr`, `tiger.edges`, `tiger.zcta5`, and related tables.
 
-| Table | Rows | Size | Role |
-|---|---|---|---|
-| `gbimbeliefnormalized` | **5,416,521** | 21 GB | Main belief table — nine JSONB axes, worldview eq1 |
-| `gbim_worldview_entity` | 5,416,521 | 47 GB | Entity relationships and worldview |
-| `gbim_beliefs` | 5,289,747 | 3 GB | Core beliefs — structured columns |
-| `gbim_evidence` | 2,121,230 | 680 MB | Supporting evidence |
-| `gbim_belief_evidence` | 2,121,230 | 232 MB | Belief-evidence linkages |
-| `mvw_gbim_landowner_spatial` ★ | **20,593** | spatially indexed | Landowner beliefs — materialized view, `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT`, `worldview_id = 'eq1'` — verified March 20, 2026. **⚠️ 0 rows returned at runtime as of March 28, 2026 — rebuild pending (Item 21, known backlog, pre-existing).** |
+### Tables in `gisdb.public` (port 5432)
 
-The 5,416,521-row corpus represents the accumulated GBIM ingestion from WV GIS, SAMB, federal datasets, and facility registries. The 20,593-row landowner materialized view represents a distinct class of belief — parcel ownership — added March 20, 2026 and described fully in Sections 2.6.4, 2.10, and 2.11.
+| Table | Rows | Role |
+|---|---|---|
+| `gbim_worldview_entity` | **5,416,521** | Full spatial GBIM entity table — nine-axis JSONB, worldview eq1, all WV GIS source layers |
+| `mvw_gbim_landowner_spatial` | **5,388,315** (spatial materialization) | Materialized view derived from `gbim_worldview_entity`; centroid_x/y, county, state, source_dataset — consumed by `jarvis-gbim-query-router` |
+| `gbim_provider_block_join_block` | — | Provider-block join (block perspective) |
+| `gbim_block_provider_summary` | — | Block-level provider summaries |
+| `gbim_provider_block_join_provider` | — | Provider-block join (provider perspective) |
+| `gbim_provider_population_summary` | — | Provider population summaries |
 
-**Access pattern:**
+> **Disambiguation — `gbim_worldview_entity` vs. application mirror:**
+> `gisdb.public.gbim_worldview_entity` is the **full spatial table** (5,416,521 rows, all nine-axis JSONB, geometry, full provenance). `msjarvis.public.gbim_entities` is the **4-column application mirror** — a lightweight reference table (`id`, `worldview_id`, `entity_type`, `label`) used by the application layer and decay pipeline. These are architecturally distinct; do not conflate them.
+
+### Tables in `msjarvis.public` (port 5433)
+
+| Table | Role |
+|---|---|
+| `gbim_entities` | 4-column application mirror — `id`, `worldview_id`, `entity_type`, `label` |
+| `gbim_decay_audit` | Decay pipeline audit log — records each decay tick and escalation event |
+| `tiger.*` | TIGER/Line schemas: `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
+| `topology.*` | PostGIS topology schema |
+
+### Access Patterns
 
 ```python
 import psycopg2
 
-# msjarvis — GBIM belief store (port 5433)
+# gisdb — spatial GBIM + landowner (port 5432)
+conn_gisdb = psycopg2.connect(
+    host="localhost", port=5432,
+    database="gisdb", user="postgres", password="postgres"
+)
+
+# msjarvis — application GBIM + decay audit + TIGER (port 5433)
 conn_msjarvis = psycopg2.connect(
     host="localhost", port=5433,
     database="msjarvis", user="postgres", password="postgres"
 )
 
-# msjarvisgis — spatial + landowner beliefs (port 5432)
-conn_spatial = psycopg2.connect(
-    host="localhost", port=5432,
-    database="msjarvisgis", user="postgres", password="postgres"
-)
-
-# Query landowner beliefs by proposition code
-cursor = conn_spatial.cursor()
+# Query GBIM worldview entities from gisdb
+cursor = conn_gisdb.cursor()
 cursor.execute("""
-    SELECT belief_id,
-           what_axis->>'proposition_code'       AS proposition_code,
-           who_axis->>'canonical_entity_name'   AS entity_name,
-           where_axis->>'county'                AS county,
-           under_whose_authority_axis->>'basis' AS authority_basis
-    FROM gbimbeliefnormalized
-    WHERE (what_axis->>'proposition_code') IN
-          ('LANDOWNER_CORPORATE', 'LANDOWNER_GOVERNMENT')
-    AND worldview_id = 'eq1'
+    SELECT
+        id,
+        worldview_id,
+        entity_type,
+        label AS display_name,
+        ((belief_state->'spatialmetadata')->>'centroidx')::double precision AS centroid_x,
+        ((belief_state->'spatialmetadata')->>'centroidy')::double precision AS centroid_y,
+        ((belief_state->'axes')->'where')->>'county' AS county
+    FROM gbim_worldview_entity
+    WHERE ((belief_state->'axes')->'where')->>'county' = 'Fayette'
     LIMIT 10;
+""")
+
+# Query decay audit from msjarvis
+cursor2 = conn_msjarvis.cursor()
+cursor2.execute("""
+    SELECT entity_id, decay_value, needs_verification, audit_ts
+    FROM gbim_decay_audit
+    ORDER BY audit_ts DESC
+    LIMIT 20;
 """)
 ```
 
 ---
 
-## 2.6 ChromaDB Collection Inventory — ★ UPDATED March 28, 2026
+## 2.6 ChromaDB Collection Inventory
 
-The ChromaDB instance (host port 8002, container-internal port 8000) is the vector-backed semantic memory layer that makes GBIM beliefs and related documents retrievable by semantic similarity. All collections use 384-dimensional embeddings produced by `all-minilm:latest` via `jarvis-ollama:11434/api/embeddings`.
+The ChromaDB instance (host port 8002, container-internal port 8000) is the vector-backed semantic memory layer. All collections use 384-dimensional embeddings produced by `all-minilm:latest`.
 
-> ⚠️ **Embedding Model Lock:** All ChromaDB collections in production use `all-minilm:latest` (384-dim, cosine similarity). The `nomic-embed-text` model produces 768-dimensional vectors and is incompatible with all existing collections. Chunk size constraint confirmed: **100 words maximum per chunk** (256-token context limit on `all-minilm`), 20-word overlap. Any ingestion, retrieval, or migration script must use `all-minilm:latest`. This constraint is enforced at the service level and must not be overridden.
+> **API:** v2 only. `/api/v1/` returns HTTP 410 Gone.
+> **Embedding lock:** `all-minilm:latest`, 384-dim, cosine. `nomic-embed-text` (768-dim) is incompatible with all existing collections.
+> **Chunking rule:** ≈100 words per chunk, ~20-word overlap (256-token context limit).
+> **Container count:** 109 containers as of April 2026.
 
-> **ChromaDB API note:** v2 API is active. All service calls must use `/api/v2/` endpoints. The `/api/v1/` path returns HTTP 410 Gone.
+### 2.6.1 GBIM and Spatial Collections
 
-> **Embedding API note (March 26, 2026):** Both `/api/embeddings` (Ollama legacy endpoint, single-string `prompt` key) and `/api/embed` (Ollama v0.4+ endpoint, list input with `input` key) are available on `jarvis-ollama` port 11434. The production ingest pipeline uses `/api/embeddings` for compatibility across all existing scripts. Do not switch existing scripts to `/api/embed` without testing — the key name differs (`prompt` vs. `input`).
-
-> **March 28, 2026 remediation summary:** ChromaDB full inventory mapped — **6,675,442 vectors across 40 active collections**. 7 orphaned empty collections confirmed present — no active service queries them. 19,338 duplicate vectors removed from `spiritual_rag`. `psychological_rag` restored to 968 documents via `PSY_COLLECTION=psychological_rag` env var fix.
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│       Ms. Jarvis ChromaDB Collection Architecture           │
-│    (host port 8002 — all-minilm:latest, 384-dim, cosine)    │
-│      ★ UPDATED March 28, 2026 — 6,675,442 total vectors     │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  GBIM Belief Collections                                    │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  gbim_worldview_entities — 5,416,521 entities  │         │
-│  │  gbim_beliefs_v2         — active GBIM v2      │         │
-│  │  GBIM_sample_rows        — 5,000 (test)        │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  ⚠️  LANDOWNER BELIEFS NOT IN CHROMADB                      │
-│  LANDOWNER_CORPORATE and LANDOWNER_GOVERNMENT beliefs        │
-│  (20,593 records, worldview eq1) are accessed exclusively   │
-│  via gbim_query_router (port 7205) →                        │
-│  mvw_gbim_landowner_spatial (msjarvisgis, port 5432).       │
-│  PostgreSQL-native path only. No vector embeddings.         │
-│  See Sections 2.10 and 2.11.                                │
-│                                                              │
-│  Spatial & Benefits Collections ★ UPDATED                  │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  gis_wv_benefits — WV benefits facilities  ✅  │         │
-│  │  geospatialfeatures — ★ 60,000 items ✅        │         │
-│  │    (was: 0 items — OI-12 CLOSED March 26)      │         │
-│  │  GBIM_Fayette_sample — ★ 1,535 items ✅        │         │
-│  │    (was: 0 items — OI-13 CLOSED March 26)      │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  Community Memory & Learning                                │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  autonomous_learner — 21,181+ items (growing)  │         │
-│  │  ms_jarvis_memory — active                     │         │
-│  │  episodic_index — active                       │         │
-│  │  conversation_history — active (OI-05 open)    │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  Governance & Knowledge Collections ★ UPDATED              │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  governance — WV governance texts              │         │
-│  │  governance_rag — ★ 643 chunks ✅              │         │
-│  │    MountainShares DAO full corpus +            │         │
-│  │    US Constitution (97 chunks, Gutenberg)      │         │
-│  │    Retrieval-verified March 26, 2026           │         │
-│  │  commons_rag — ★ 306 chunks ✅                 │         │
-│  │    Full Commons governance + gamification      │         │
-│  │    Retrieval-verified March 26, 2026           │         │
-│  │  thesis — theoretical framework                │         │
-│  │  mountainshares_knowledge — DAO economics      │         │
-│  │  msjarvis_docs — ★ 4,192 items ✅              │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  Specialized Corpora ★ UPDATED March 28, 2026              │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  psychological_rag — ★ 968 items ✅            │         │
-│  │    (was: 0 docs served — PSY_COLLECTION env    │         │
-│  │     var fixed March 28, 2026)                  │         │
-│  │  appalachian_cultural_intelligence             │         │
-│  │    ★ 820 items ✅ (was: 5 items)               │         │
-│  │    OI-14 CLOSED March 26, 2026                 │         │
-│  │  spiritual_rag ★                               │         │
-│  │    Deduplicated March 28, 2026                 │         │
-│  │    19,338 duplicate vectors removed            │         │
-│  │    Mother Carrie Protocol                      │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  AAPCAppE Corpus ★ NEW March 27, 2026                      │
-│  ┌────────────────────────────────────────────────┐         │
-│  │  aaacpe_corpus — 65 docs (growing) ✅          │         │
-│  │    39 sources; total_runs: 1                   │         │
-│  │    jarvis-aaacpe-scraper (port 8033) ACTIVE    │         │
-│  │    jarvis-aaacpe-rag (port 8032) ACTIVE        │         │
-│  │    RAG retrieval verified (emergency protocol  │         │
-│  │    + Fayette County utility examples)          │         │
-│  └────────────────────────────────────────────────┘         │
-│                                                              │
-│  Total: 6,675,442 vectors across 40 active collections      │
-│  7 orphaned empty collections present — no active queries   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-*Figure 2.4. ChromaDB collection architecture as of March 28, 2026. ★ marks collections updated in the March 26–28, 2026 sprints. Total: 6,675,442 vectors across 40 active collections. All previously sparse or empty RAG collections are now fully populated and semantically verified. `spiritual_rag` deduplicated (−19,338 vectors). `psychological_rag` restored to 968 documents. `msjarvis_docs` expanded to 4,192 items. Landowner beliefs (`LANDOWNER_CORPORATE` / `LANDOWNER_GOVERNMENT`) remain outside ChromaDB — served via dedicated PostgreSQL-native path through `gbim_query_router` (port 7205). See Sections 2.10 and 2.11.*
-
-### 2.6.1 GBIM Belief Collections
-
-| Collection | Items | Description | Metadata Keys |
-|---|---|---|---|
-| `gbim_worldview_entities` | 5,416,521 | Complete GBIM spatial corpus — all WV geospatial features embedded from the nine-axis belief structure | `worldview_id`, `entity_id`, `dataset`, `county`, `gbim_entity`, `centroid_x`, `centroid_y` |
-| `gbim_beliefs_v2` | Active | GBIM beliefs v2 — production belief collection with nine-axis embeddings | `belief_id`, `source_table`, `source_pk`, `epoch`, `county` |
-| `GBIM_sample_rows` | 5,000 | Random sample for testing and validation | `belief_id`, `proposition_code` |
-
-All GBIM belief collections: 384-dim, `all-minilm:latest`, `worldview = eq1`.
-
-> **Landowner beliefs are not in this table.** The `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` proposition codes are stored in `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) and are accessed via `gbim_query_router` (port 7205) — a PostgreSQL-native SQL aggregation path, not a vector similarity path. See Sections 2.10 and 2.11.
-
-### 2.6.2 Spatial and Benefits Collections — ★ UPDATED March 26, 2026
-
-| Collection | Items | Description | Metadata Keys |
-|---|---|---|---|
-| `gis_wv_benefits` | Active | WV benefits-relevant facilities — DHHR offices, community action agencies, food banks, utility assistance sites | `facility_type`, `county`, `zip`, `local_resource_id`, `centroid_x`, `centroid_y` |
-| `geospatialfeatures` ★ | **60,000** | ✅ **POPULATED March 26, 2026** — PostGIS spatial features ingested from WV geospatial layers (was: 0 items — OI-12 CLOSED) | `dataset`, `county`, `feature_type` |
-| `GBIM_Fayette_sample` ★ | **1,535** | ✅ **POPULATED March 26, 2026** — Fayette County GBIM belief sample (was: 0 items — OI-13 CLOSED) | `belief_id`, `proposition_code`, `county` |
-
-### 2.6.3 Community Memory and Learning Collections
-
-| Collection | Items | Description | Notes |
-|---|---|---|---|
-| `autonomous_learner` | 21,181+ (growing ~288/day) | Autonomous research findings — MountainShares security, Appalachian development, governance, AI ethics | Queried at Phase 1.45 before every RAG call; top-5 prepended to `enhanced_message` |
-| `ms_jarvis_memory` | Active | Persistent memory for cross-session continuity | — |
-| `episodic_index` | Active | Episodic memory index for temporal reasoning | — |
-| `conversation_history` | Active | Conversation history for context maintenance | OI-05 open — formal pipeline wiring pending |
-
-### 2.6.4 GBIM Landowner Belief Layer — Field Note, March 20, 2026
-
-> **Field note — March 20, 2026, evening session.** The GBIM landowner belief layer is now live in the GBIM production stack. 20,593 parcel-level `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` belief records have been inserted into `gbimbeliefnormalized` in `msjarvisgis`, clustered by canonical entity name across the full statewide WV assessor owner name corpus, and materialized in `mvw_gbim_landowner_spatial`. The `gbim_query_router` service (port 7205) is live and verified on both statewide and county-scoped natural-language ownership queries.
->
-> *Verified March 20, 2026, ~19:45 EDT by Carrie Kidd (Mamma Kidd), Oak Hill WV*
-
-> **⚠️ March 28, 2026 note:** `mvw_gbim_landowner_spatial` is returning 0 rows at runtime. The belief records are present in `gbimbeliefnormalized` (20,593 verified), but the materialized view requires a rebuild. This is Item 21 in the known backlog — pre-existing, not introduced during the March 28 remediation sprint. The `gbim_query_router` service is healthy; the view rebuild is the outstanding step.
-
-This closes a meaningful gap in the GBIM nine-axis coverage. Prior to March 20, 2026, the `who_axis` and `under_whose_authority_axis` of GBIM were populated for facility operators, government agencies, and program administrators — but not for parcel landowners. The landowner belief layer fills that gap for the most consequential class of institutional actors in Appalachian land governance: corporate surface rights holders, coal and energy companies, timber companies, and government landholding agencies.
-
-**The landowner belief layer is not embedded in ChromaDB.** This is a deliberate architectural decision: landowner queries ask *who owns how much land where* — a structured aggregation question with a deterministic, exact answer in the relational GBIM corpus. Embedding those records in ChromaDB and retrieving them by vector similarity would introduce approximation error into a query type that does not require it. The `gbim_query_router` route is PostgreSQL-native, exact, and auditable. See Sections 2.10 and 2.11 for full documentation of the service and materialized view.
-
-**Landowner layer specifications:**
-
-| Property | Value |
-|---|---|
-| Proposition codes | `LANDOWNER_CORPORATE`, `LANDOWNER_GOVERNMENT` |
-| Belief count | **20,593 verified records** (March 20, 2026) |
-| Geographic scope | Statewide West Virginia — all counties |
-| Source | WV assessor parcel records (canonical entity clustering pipeline) |
-| Worldview | `eq1` |
-| Storage | `gbimbeliefnormalized` in `msjarvisgis` (port 5432) |
-| Spatial view | `mvw_gbim_landowner_spatial` (materialized, spatially indexed — see §2.11) |
-| View runtime status | **⚠️ 0 rows — rebuild pending (Item 21, backlog)** |
-| Query service | `gbim_query_router` (port 7205) — **PostgreSQL-native, no ChromaDB** (see §2.10) |
-| Routing schema | `mode: landowner_gbim`, `route_type: parcel_ownership` |
-| Date verified | March 20, 2026 |
-| Ethical constraint | **Individual residential owner names are NOT present** — institutional and government entities only (see §2.9) |
-
-### 2.6.5 Governance and Knowledge Collections — ★ UPDATED March 26–28, 2026
-
-| Collection | Items | Description |
+| Collection | Count | Role |
 |---|---|---|
-| `governance` | Active | WV governance documents — legislation, policy, regulatory texts |
-| `governance_rag` ★ | **643 chunks** | ✅ **POPULATED March 26, 2026** — MountainShares DAO Charter, Terms, Program Rules, Parameter Tables, Phase 0–3 docs, KPI Spec, Safety Champion, Funder Overview + US Constitution (97 chunks, Project Gutenberg pg5.txt). Semantic retrieval verified. (OI-19 CLOSED) |
-| `commons_rag` ★ | **306 chunks** | ✅ **POPULATED March 26, 2026** — Full Commons governance and gamification corpus. Retrieval verified: Daily Life Game → Contribution Game + Participation Map ✅ (OI-20 CLOSED) |
+| `gbim_worldview_entities` | **5,416,521** | Complete GBIM spatial corpus — all WV geospatial features embedded; metadata: `worldview_id`, `entity_id`, `dataset`, `county`, centroid_x/y |
+| `gbim_beliefs_v2` | Active | Production belief embeddings — nine-axis text representations |
+| `GBIM_Fayette_sample` | **1,535** | Fayette County GBIM belief sample |
+| `geospatialfeatures` | **60,000** | Vectorized PostGIS spatial features |
+| `gis_wv_benefits` | Active | WV benefits-relevant facilities — DHHR, CAAs, food banks |
+| `GBIM_sample_rows` | 5,000 | Random sample for testing and validation |
+
+> **Landowner beliefs are NOT in ChromaDB.** Landowner queries route exclusively via SQL through `jarvis-gbim-query-router` (port 7205) → `gisdb.mvw_gbim_landowner_spatial` (port 5432). Zero ChromaDB involvement. See Sections 2.12 and 2.13.
+
+### 2.6.2 Community Memory and Autonomous Learning
+
+| Collection | Count | Role |
+|---|---|---|
+| `autonomous_learner` | **21,181** | Older corpus; pre-fix history preserved |
+| `autonomous_learning` | **17,685** | Newer corpus; current write path |
+| `conversation_history` | **580** | Wired into main brain after OI-05 fix |
+| `ms_jarvis_memory` | Active | Persistent cross-session memory |
+| `episodic_index` | Active | Episodic memory index |
+
+Both autonomous learning collections are confirmed distinct with no dedup required — they serve different temporal roles and are intentionally preserved. Combined: **38,866** items of community interaction and research history.
+
+### 2.6.3 Governance and Constitutional Corpus
+
+| Collection | Count | Notes |
+|---|---|---|
+| `governance_rag` | **1,367 chunks** | MountainShares DAO Charter + rules; Phase specs; KPI Spec; Safety Champion Protocol; US Constitution (97 chunks); WV Constitution (342 chunks, source label `wv_constitution`) |
+| `commons_rag` | **306 chunks** | Commons governance and gamification corpus |
+| `governance` | Active | WV governance texts |
 | `thesis` | Active | Polymathmatic Geography theoretical framework |
-| `mountainshares_knowledge` | Active | MountainShares DAO governance and economic model documentation |
-| `msjarvis_docs` ★ | **4,192** | ✅ **UPDATED March 28, 2026** — expanded from 2,348 items |
+| `mountainshares_knowledge` | Active | MountainShares DAO economics and governance |
 
-### 2.6.6 Specialized Corpora — ★ UPDATED March 26–28, 2026
+### 2.6.4 Legal, Safety, Economic, and Resource Collections
 
-| Collection | Items | Port | Description |
-|---|---|---|---|
-| `psychological_rag` ★ | **968** | 8006 | ✅ **RESTORED March 28, 2026** — was serving 0 documents despite 968 present in ChromaDB; fixed via `PSY_COLLECTION=psychological_rag` env var |
-| `appalachian_cultural_intelligence` ★ | **820** | 8000 | ✅ **POPULATED March 26, 2026** (was: 5 items — OI-14 CLOSED) |
-| `spiritual_rag` ★ | Deduplicated | 8000 | ✅ **DEDUPLICATED March 28, 2026** — 19,338 duplicate vectors removed; Mother Carrie Protocol corpus clean |
-| `aaacpe_corpus` ★ | **65 docs** (growing) | 8032 | ✅ **ACTIVATED March 27, 2026** — 39 sources, `total_runs: 1`; emergency protocol + Fayette County utility RAG verified |
+| Collection | Count | Notes |
+|---|---|---|
+| `legal_rag` | **340 chunks** | WV Code and legal texts, rechunked |
+| `safety_rules` | **25** | Six guardrail groups, 15 constitutional principles |
+| `economic_rag` | **72 chunks** | Tax + agriculture law |
+| `contracts` | **673 chunks** | Rechunked |
+| `policy_rag` | 9 | Policy corpus |
+| `grants_rag` | 9 | Grants and funding corpus |
+| `meeting_minutes` | 1 | Governance record |
+| `fayette_county_resources_2026` | **1,205 chunks** | Fayette resource packet — baseline for Phase 1 |
+| `wv_resources` | 8 | Active expansion target through Phase 1 red teaming |
+| `local_resources` | 101 | Active expansion target through Phase 1 red teaming |
+| `msjarvis_docs` | **28,327** | System docs + resources, rechunked |
+
+### 2.6.5 Specialized Corpora
+
+| Collection | Count | Notes |
+|---|---|---|
+| `spiritual_rag` | **368,238** | Deduplicated spiritual corpus, fully rechunked |
+| `psychological_rag` | **6,860** | Mental health corpus, rechunked from 968 docs |
+| `appalachian_cultural_intelligence` | **820** | Curated Appalachian cultural corpus |
+| `aaacpe_corpus` | **65** | AaaCPE live web scrape (39 sources) |
 
 ---
 
-## 2.7 The Relationship Between GBIM, GeoDB, RAG, and Registries
-
-The nine-axis belief structure and the ChromaDB collection inventory are not self-contained systems — they are the representational and retrieval layers of a four-database architecture that includes:
-
-1. **`msjarvis` / `msjarvisgis`** (PostgreSQL, ports 5433 and 5432) — the GBIM belief corpus and spatial body
-2. **ChromaDB** (host port 8002) — the semantic memory layer for vector-based retrieval
-3. **`jarvis-local-resources-db`** (PostgreSQL, port 5435) — the structured program and resource registry. **★ March 28, 2026: `jarvis_local_resources` schema restored — resources table confirmed present following March 28 remediation.**
-4. **`gbim_query_router`** (port 7205) — the PostgreSQL-native routing service for structured GBIM belief queries, including the landowner path (see §2.10)
+## 2.7 Relationship Between GBIM, GeoDB, RAG, and Registries
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│     GBIM Four-Database Architecture (March 28, 2026) ★      │
+│     GBIM Four-Database Architecture (April 22, 2026)        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  gbimbeliefnormalized (msjarvisgis, port 5432)              │
-│    5,416,521 beliefs (nine JSONB axes, worldview eq1)       │
-│    + 20,593 landowner beliefs (CORPORATE + GOVERNMENT) ★    │
+│  gisdb (port 5432)                                          │
+│    gbim_worldview_entity — 5,416,521 entities (nine JSONB)  │
+│    mvw_gbim_landowner_spatial — 5,388,315 rows spatial mat. │
+│    gbim_provider_* / gbim_block_* summaries                 │
 │          ↓ embedding pipeline (all-minilm:latest, 384-dim)  │
-│  ChromaDB (host port 8002) ★ 6,675,442 total vectors        │
-│    gbim_worldview_entities — 5,416,521 vectors              │
-│    gbim_beliefs_v2 — production belief embeddings           │
-│    gis_wv_benefits — WV benefits facilities                 │
-│    geospatialfeatures — ★ 60,000 items ✅                   │
-│    GBIM_Fayette_sample — ★ 1,535 items ✅                   │
-│    governance_rag — ★ 643 chunks ✅                         │
-│    commons_rag — ★ 306 chunks ✅                            │
-│    appalachian_cultural_intelligence — ★ 820 items ✅       │
-│    spiritual_rag — ★ deduplicated (−19,338 dups) ✅         │
-│    psychological_rag — ★ 968 docs restored ✅               │
-│    msjarvis_docs — ★ 4,192 items ✅                         │
-│    aaacpe_corpus — ★ 65 docs ✅ (March 27)                  │
-│    autonomous_learner — 21,181+ community memories          │
-│    [NOTE: landowner beliefs NOT in ChromaDB]                │
+│  ChromaDB (host port 8002) — 6.74M+ vectors                 │
+│    gbim_worldview_entities — 5,416,521                      │
+│    fayette_county_resources_2026 — 1,205 chunks             │
+│    governance_rag — 1,367 chunks                            │
+│    [landowner beliefs NOT in ChromaDB]                      │
 │          ↓ metadata links (entity_id, local_resource_id)    │
-│  jarvis-local-resources-db (port 5435) ★ schema restored    │
+│  jarvis-local-resources-db (port 5435)                      │
 │    Verified program records — county, ZIP, type             │
+│    building_parcel_county_tax_mv — 7,354,707 rows           │
 │          ↓ direct SQL (no embeddings)                       │
-│  gbim_query_router (port 7205) ★                            │
-│    → mvw_gbim_landowner_spatial                             │
-│      (msjarvisgis, port 5432)                               │
-│    20,593 landowner beliefs — ranked by area, county        │
-│    proposition_code IN ('LANDOWNER_CORPORATE',              │
-│                         'LANDOWNER_GOVERNMENT')             │
-│    worldview_id = 'eq1'                                     │
-│    ⚠️ view returning 0 rows — rebuild pending (Item 21)     │
-│    PostgreSQL-native — NO ChromaDB (see §2.10, §2.11)      │
+│  jarvis-gbim-query-router (port 7205)                       │
+│    → gisdb.mvw_gbim_landowner_spatial (port 5432)           │
+│    39,515 Fayette County parcels — EPSG:4326, GIST index    │
+│    X-Jarvis-Role: carrie_admin — RBAC gate active           │
+│    PostgreSQL-native — ZERO ChromaDB involvement            │
+│                                                              │
+│  msjarvis (port 5433)                                       │
+│    gbim_entities — 4-column application mirror              │
+│    gbim_decay_audit — live decay pipeline records           │
+│    tiger.* / topology.* — TIGER/Line spatial schemas        │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.5. The four-database architecture that operationalizes the GBIM belief model, updated March 28, 2026. ★ All RAG collections fully populated; 6,675,442 total vectors. `spiritual_rag` deduplicated, `psychological_rag` restored, `msjarvis_docs` expanded to 4,192. `jarvis-local-resources-db` schema restored. Landowner beliefs bypass ChromaDB and are accessed via direct SQL aggregation through `gbim_query_router` — see Sections 2.10 and 2.11. ⚠️ `mvw_gbim_landowner_spatial` view rebuild still pending (Item 21).*
-
-The key architectural distinction is between **vector-based projection** (ChromaDB, appropriate for semantic similarity over unstructured or semi-structured belief content) and **relational projection** (SQL aggregation over `mvw_gbim_landowner_spatial`, appropriate for structured ownership queries with deterministic answers). Both are Hilbert-space projections in the conceptual model — they differ in implementation because the geometry of the relevant subspace differs.
+*Figure 2.4. The four-database architecture as of April 22, 2026. `msjarvisgis` is retired — the two live databases are `gisdb` (5432) and `msjarvis` (5433). Landowner queries bypass ChromaDB entirely.*
 
 ---
 
-## 2.8 Intellectual Honesty Correction — Judge GBIM Claims vs. Actual Implementation (March 21, 2026)
+## 2.8 The `nbb_pituitary_gland` Governance Module
 
-> This section was added March 21, 2026 to correct a materially misleading claim that has appeared in multiple earlier chapters of this thesis and in the system's own judge service documentation.
+The `nbb_pituitary_gland` service is a neural-behavioral bridge operating at **`host:8108`** that modulates every Ms. Jarvis response. It is not optional infrastructure — it is the governance layer that regulates response tone, urgency, and constitutional alignment in real time.
 
-### 2.8.1 The Claim Being Corrected
-
-Chapters 17, 33, and associated judge pipeline documentation describe the truth and alignment judges as validating AI responses against "PostgreSQL GBIM (5,416,521 entities)." The architecture diagrams in those chapters show `judge-truth` making lookups into `msjarvis` (port 5433) and `judge-alignment` cross-referencing claims against the GBIM belief corpus as part of their scoring logic.
-
-This description represents the **design intent** of the judge pipeline — what GBIM-grounded judge validation is meant to become. It does not describe what those judges currently do.
-
-### 2.8.2 What the Judges Actually Do (March 21, 2026)
-
-The actual implementations of `judge_truth_filter.py` and `judge_alignment_filter.py`, as confirmed by source file inspection on March 21, 2026, use a heuristic pattern-matching approach internally labeled `heuristic_contradiction_v1`. There are no live PostgreSQL queries to `msjarvis` or `msjarvisgis` in either file. The truth and alignment judges score responses based on:
-
-- Contradiction detection heuristics — keyword and phrase patterns that flag likely factual inconsistencies, logical contradictions, or hedging language
-- Identity adherence pattern matching — regular-expression and string-matching rules that check whether the response text stays within the expected Ms. Egeria Jarvis persona framing
-- Hardcoded scoring thresholds — score values that reflect the designer's prior about typical response quality, not a computed comparison against a ground truth corpus
-
-The ethics and consistency judges (`judge_ethics_filter.py`, `judge_consistency_engine.py`) similarly use heuristic pattern matching — harm keyword detection, coherence heuristics, and structural consistency checks — not GBIM queries.
-
-### 2.8.3 The Gap in Plain Language
-
-| | Design Intent | Actual Implementation (March 21, 2026) |
-|---|---|---|
-| Truth judge | Queries `msjarvis` GBIM beliefs; checks factual claims against 5,416,521 verified entities | Runs `heuristic_contradiction_v1` — pattern-matching on response text; no DB query |
-| Alignment judge | Validates response against GBIM worldview constraints; checks community-value alignment against `eq1` belief set | Pattern-matches against identity adherence rules and hardcoded persona constraints |
-| Ethics judge | Cross-references against ethical constraints grounded in GBIM `why_axis` and `for_whom_axis` | Harm keyword screening; heuristic harm scoring |
-| Consistency judge | Checks cross-session behavioral consistency against stored belief state | Structural coherence heuristics within a single response window |
-| Scores | GBIM-grounded confidence measures | Heuristic pattern-match outputs presented as scores |
-
-### 2.8.4 Why This Matters
-
-1. **External stakeholders.** Regional Development Authorities, state agencies, and community partners evaluating Ms. Jarvis as a potential infrastructure partner need to understand what the judge pipeline actually validates. Telling them that AI outputs are "validated against 5.4 million PostgreSQL GBIM entities" when the judges run heuristics is a misrepresentation of the system's current capability — regardless of intent.
-
-2. **Thesis integrity.** This thesis makes claims about constitutional AI enforcement grounded in GBIM. Those claims must accurately distinguish between architectural design and operational reality.
-
-3. **Trust as infrastructure.** Ms. Jarvis is being built to serve communities who have been historically subjected to systems that overstated their capabilities or accountability. If the system's own audit documentation misrepresents what the judges do, the accountability infrastructure is undermined at its foundation.
-
-### 2.8.5 The Intended Architecture (Design Target)
-
-```python
-# judge_truth_filter.py (target implementation)
-# ├── Receives: consensus answer + question context
-# ├── Extracts: factual claims, named entities, locations
-# ├── Queries: msjarvis (port 5433) for matching GBIM beliefs
-# │   └── SELECT belief_id, what_axis, confidence_decay
-# │       FROM gbimbeliefnormalized
-# │       WHERE <entity or claim matches>
-# │       AND worldview_id = 'eq1'
-# ├── Computes: factual consistency score vs. retrieved beliefs
-# ├── Flags: claims that contradict or are unsupported by GBIM
-# └── Returns: truth_score with provenance
-
-# judge_alignment_filter.py (target implementation)
-# ├── Receives: consensus answer + question context
-# ├── Queries: msjarvis for relevant community-value beliefs
-# │   └── Filter on why_axis, for_whom_axis,
-# │       under_whose_authority_axis
-# ├── Checks: response alignment vs. GBIM worldview constraints
-# └── Returns: alignment_score with GBIM belief citations
-```
-
-### 2.8.6 Path to Closing the Gap
-
-1. Add PostgreSQL connection pool to `Dockerfile.judge` — `psycopg2` or `asyncpg` must be available in the judge image.
-2. Implement GBIM query functions in `judge_truth_filter.py` — entity extraction from response text, belief lookup against `gbimbeliefnormalized`, contradiction scoring.
-3. Implement GBIM worldview filter in `judge_alignment_filter.py` — query the `eq1` worldview for normative and community-value beliefs, compute alignment score.
-4. Update `UltimateResponse` schema — add `gbim_beliefs_consulted: int` and `gbim_contradictions_detected: int` fields.
-5. Update Chapters 17, 33, and all judge pipeline documentation to reflect the current heuristic implementation until the GBIM-grounded implementation is deployed.
-
-Until these steps are complete, the correct accurate description of the truth and alignment judges is: **heuristic pattern-matching filters that approximate constitutional validation but do not consult the GBIM corpus.**
-
-### 2.8.7 What Is Not Affected by This Correction
-
-The following are unaffected by this correction and remain accurate as documented:
-
-- The GBIM corpus itself — **5,416,521 beliefs** including **20,593 landowner beliefs** (`eq1` worldview) — is real, verified, and production-operational.
-- The `gbim_query_router` (port 7205) **does** make live PostgreSQL queries against `mvw_gbim_landowner_spatial` — landowner routing is accurate as documented in Sections 2.10 and 2.11 (pending view rebuild, Item 21).
-- The `jarvis-spiritual-rag` and `jarvis-gis-rag` services do query GBIM-derived ChromaDB collections as part of Phase 1 context assembly — RAG grounding is operational.
-- **All ChromaDB RAG collections are fully populated and semantically verified** as of March 26–28, 2026. Total: 6,675,442 vectors across 40 active collections.
-- The BBB gate's constitutional filters are active and enforced.
-- The nine-axis schema, Hilbert-space model, and worldview architecture described in this chapter accurately represent the intended operational architecture.
-- **March 28, 2026:** All 5 tracked security/audit items closed — CRIT-CRYPTO, REM-06 (false positive confirmed), REM-09 (full route inventory documented), REM-13, REM-16. `_auth()` present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`. Both `0.0.0.0` port exposures corrected to `127.0.0.1`.
-
----
-
-## 2.9 Ethical Architecture of the Belief Corpus
-
-The nine-axis structure is not value-neutral. Every axis encodes a design decision about what matters, who is accountable, and what the system should be able to know. Two design decisions are treated as foundational constraints enforced at the schema level:
-
-**Constraint 1: Individual residential owner names are excluded from the GBIM belief corpus.**
-
-The `who_axis` of the landowner belief layer contains only institutional and corporate entity names. Individual residential owner names from WV assessor records are not ingested into any GBIM belief table, materialized view, ChromaDB collection, or RAG-accessible store. The ingestion pipeline selects only records matching corporate and government entity patterns, and `gbim_query_router` queries only `proposition_code IN ('LANDOWNER_CORPORATE', 'LANDOWNER_GOVERNMENT')`.
-
-The rationale is the **aggregation problem**: individual owner names are legally public as friction-protected courthouse records. Embedding them into a semantically searchable, spatially indexed, multi-million-parcel AI system would convert friction-protected public records into operational surveillance infrastructure — not justified by Ms. Jarvis's purpose of routing households to assistance.
-
-**Constraint 2: Institutional actors are represented with full accountability metadata.**
-
-The `under_whose_authority_axis` and `on_what_evidence_axis` for institutional beliefs — including all landowner beliefs — must include sufficient provenance to allow any displayed belief to be traced back to its source record. Corporate and government landholders are named, counted, and area-summarized with full assessor provenance, precisely because accountability for institutions with power over place is the counterpart to privacy protection for individuals.
-
-These two constraints define the ethical architecture of the GBIM belief corpus: **a system that makes power legible without making vulnerability exploitable.**
-
----
-
-## 2.10 The `gbim_query_router` Service — ★ Production, March 20, 2026
-
-> **Field note — March 20, 2026.** `gbim_query_router` (port 7205) promoted to production. This service is the primary GBIM retrieval path for all structured landowner belief queries. It is architecturally distinct from every other retrieval service in the Ms. Jarvis stack in one critical way: **it does not touch ChromaDB.** It routes directly to `mvw_gbim_landowner_spatial` in `msjarvisgis` (port 5432) via PostgreSQL SQL aggregation.
->
-> *Verified March 20, 2026, ~19:45 EDT — Carrie Kidd (Mamma Kidd), Oak Hill WV*
-
-> **⚠️ March 28, 2026:** `gbim_query_router` service is healthy. `mvw_gbim_landowner_spatial` is returning 0 rows — materialized view rebuild is pending (Item 21, backlog). All other `gbim_query_router` infrastructure is operational.
-
-### 2.10.1 Architectural Role
-
-`gbim_query_router` occupies the fourth leg of the GBIM four-database architecture (Figure 2.5). It is the exclusive query surface for `LANDOWNER_CORPORATE` and `LANDOWNER_GOVERNMENT` proposition codes. No other service in the Ms. Jarvis stack provides access to these records.
-
-The reason this service exists as a separate FastAPI container rather than as a query path inside the main RAG pipeline is that ownership aggregation queries have a fundamentally different information-theoretic structure from the semantic similarity queries served by ChromaDB:
-
-- **ChromaDB queries** find records that are *similar* to a query embedding — approximate nearest-neighbor in 384-dimensional vector space.
-- **Landowner queries** find records that *match* a specific ownership relationship — exact SQL aggregation over verified parcel-level data.
-
-Combining these paths would either force ownership queries through unnecessary approximate-search machinery or require landowner records to be embedded and stored in ChromaDB — both architecturally unsound.
-
-### 2.10.2 Service Specification
+### 2.8.1 Operational State (April 22, 2026)
 
 | Property | Value |
 |---|---|
-| Container name | `jarvis-gbim-query-router` |
-| Host port | **7205** |
-| Framework | FastAPI |
-| Endpoint | `POST /query` |
-| Database target | `mvw_gbim_landowner_spatial` in `msjarvisgis` (host port 5432) |
-| ChromaDB dependency | **None** |
-| Production status | ✅ **Live — March 20, 2026** |
-| Namespace | `msjarvis-rebuild` |
+| Host | `host:8108` |
+| Current mode | **baseline** |
+| Steady-state behavior | Normal governance — standard cortisol, urgency, warmth |
+| Five governance protocols | All active |
+| Health endpoint | `GET /health` — operational |
+| Mode endpoint | `GET /mode` — returns `baseline` |
 
-### 2.10.3 Routing Schema
+**Mode: baseline is the correct steady-state.** An auto-watchdog had previously set `mode: crisis`; that has been resolved and `baseline` is confirmed as the production default. `mode: crisis` is a contingency mode that activates during genuine system-wide emergencies — it should not appear in documentation as the normal operating state.
 
-```python
-# gbim_query_router routing schema — verified March 20, 2026
-LANDOWNER_ROUTE = {
-    "mode": "landowner_gbim",
-    "route_type": "parcel_ownership",
-    "target_view": "mvw_gbim_landowner_spatial",
-    "database": "msjarvisgis",
-    "port": 5432,
-    "proposition_codes": ["LANDOWNER_CORPORATE", "LANDOWNER_GOVERNMENT"],
-    "worldview": "eq1",
-    "chromadb_bypass": True   # explicit — no vector path
-}
-```
+### 2.8.2 Five Governance Protocols
 
-### 2.10.4 Verified Query Patterns
+The five active governance protocols modulate:
 
-Both patterns confirmed March 20, 2026:
+1. **Cortisol regulation** — urgency calibration; prevents panic-mode responses to routine queries.
+2. **Warmth calibration** — community-appropriate tone for Appalachian users; avoids clinical detachment.
+3. **Constitutional alignment** — cross-references response framing against WV and US constitutional principles.
+4. **Escalation gating** — determines when a response requires elevation to human review.
+5. **Ethical brake** — hard stop on responses that cross harm, privacy, or dignity thresholds regardless of other judge scores.
+
+### 2.8.3 Integration with the Judge Pipeline
+
+`nbb_pituitary_gland` operates upstream of the BBB barrier. Before the four-judge consensus gate evaluates a response, the pituitary module has already modulated the ensemble output's affective register. Judge scores therefore reflect the post-modulation response, not the raw LLM ensemble output. This ordering is intentional: constitutional governance precedes adversarial safety checking.
 
 ```python
 import httpx
 
-# Pattern 1 — Statewide top landowners
-statewide = httpx.post(
-    "http://127.0.0.1:7205/query",
-    json={
-        "question": "Who are the largest landowners in West Virginia?",
-        "mode": "landowner_gbim",
-        "route_type": "parcel_ownership",
-        "scope": "statewide",
-        "limit": 20
-    }
-)
+# Check current governance mode
+resp = httpx.get("http://host:8108/mode")
+# Returns: {"mode": "baseline", "cortisol": ..., "urgency": ..., "warmth": ...}
 
-# Pattern 2 — County-scoped landowners
-county = httpx.post(
+# Health check
+health = httpx.get("http://host:8108/health")
+# Returns: {"status": "ok", "protocols_active": 5}
+```
+
+---
+
+## 2.9 GBIM Confidence Decay Pipeline
+
+The confidence decay pipeline is a live 24-hour loop monitoring all 5,416,521 GBIM entities for temporal staleness and escalating verified-stale entities to the POC (point-of-contact) re-verification workflow.
+
+### 2.9.1 Pipeline Components (All Operational)
+
+| Component | Status | Role |
+|---|---|---|
+| `jarvis-confidence-decay` | ✅ Running | 24-hour decay loop — applies decay ticks to all entities |
+| `jarvis-decay-escalation-consumer` | ✅ Running | Consumes escalation events; routes to POC workflow |
+| `jarvis-gbim-verifier` | ✅ Running | Polls every 120s; reports totals, stale counts, average decay |
+| `confidence_decay_loop.py` | ✅ Deployed | Core decay logic |
+| `jarvis_decay_escalation_consumer.py` | ✅ Deployed | Escalation consumer logic |
+| `db/gbim_confidence_decay_schema.sql` | ✅ Deployed | Schema — `gbim_decay_audit` in `msjarvis` |
+| `scripts/gbim_decay_tick.sh` | ✅ Operational | Manual decay tick trigger |
+| `scripts/gbim_decay_refresh.sh` | ✅ Operational | Refresh script |
+| `observability/prometheus/alert_confidence_decay_rules.yaml` | ✅ Configured | Prometheus alerting |
+| `logs/ch40_closeout/` | ✅ Present | Closeout logs confirming deliberate closure |
+
+### 2.9.2 Decay Behavior
+
+- **Decay interval:** 24 hours.
+- **Entities processed:** 461 processed in the first documented decay cycle.
+- **`needs_verification = TRUE`** is set when an entity's `confidence_decay` value crosses the configured threshold. This flag drives the POC re-verification loop.
+- **"No stale entities" from `jarvis-gbim-verifier`** is correct behavior — it means no entities have yet crossed the decay threshold, not that the service is inactive.
+- **Decay audit records** are written to `msjarvis.public.gbim_decay_audit` (port 5433) for every tick processed.
+
+### 2.9.3 Decay Schema
+
+```sql
+-- msjarvis.public.gbim_decay_audit (port 5433)
+-- Written by confidence_decay_loop.py on each decay tick
+
+SELECT
+    entity_id,
+    decay_value,
+    needs_verification,
+    audit_ts
+FROM gbim_decay_audit
+WHERE needs_verification = TRUE
+ORDER BY decay_value DESC
+LIMIT 20;
+```
+
+---
+
+## 2.10 Truth Judge — Retirement of `heuristic_contradiction_v1`, Promotion of `rag_grounded_v2`
+
+The `heuristic_contradiction_v1` judge is **retired**. All references to it in source files, comments, and documentation are superseded. The canonical truth judge is `rag_grounded_v2`, confirmed operational and DGM-corroborated.
+
+### 2.10.1 What Changed
+
+| Component | Before (retired) | After (current) |
+|---|---|---|
+| Truth judge implementation | `heuristic_contradiction_v1` — pattern-matching on response text; no DB query | `rag_grounded_v2` — RAG-grounded scoring; DGM-corroborated verdicts |
+| Source file | `jarvis-judge-truth_lm_synthesizer.py` stale comments referencing v1 | All stale `heuristic_contradiction_v1` references updated to `rag_grounded_v2` — verified April 22, 2026 |
+| Evidence annotations | None | `[RAG] Grounded:` and `[GBIM]` annotations in judge output — correct behavior showing evidence chain |
+| DGM corroboration | Not present | Active — DGM cross-references `rag_grounded_v2` verdicts |
+
+### 2.10.2 Judge Evidence Annotations
+
+The `rag_grounded_v2` truth judge produces inline evidence annotations in its output:
+
+- `[RAG] Grounded: Ms. Jarvis must prioritize West Virginia community needs...` — drawn from `safety_rules`, `governance_rag`, `legal_rag`, `economic_rag`.
+- `[GBIM] Fayette County — Program: UTILITY20 | Active enrollments: 0...` — drawn from live GBIM data via `gisdb` and `msjarvis`.
+
+These annotations are **correct judge behavior** showing the evidence chain. They must be preserved in internal logs and stripped from user-facing `issues` arrays before returning responses to end users.
+
+### 2.10.3 Judge Pipeline Status (April 22, 2026)
+
+| Judge | Status | Notes |
+|---|---|---|
+| Truth (`rag_grounded_v2`) | ✅ Canonical | DGM-corroborated; all v1 references retired |
+| Ethics | ✅ Operational | Tiered thresholds live; gemma:2b hedge fix deployed |
+| Harm/Patterns | ✅ Operational | Six-pattern guardrail groups active |
+| Alignment | ✅ Operational | Consensus gate wired into main brain |
+| BBB barrier | ✅ Operational | Six filters; 97.8% historical pass rate |
+| ML-DSA-65 signatures | ✅ Enforced | All judge outputs signed via `judgesigner` + `liboqs` |
+| ONNX caches | ✅ Pre-warmed | No cold-start latency |
+
+---
+
+## 2.11 Ethical Architecture of the Belief Corpus
+
+The nine-axis structure is not value-neutral. Two constraints are enforced at the schema level:
+
+**Constraint 1: Individual residential owner names are excluded from the GBIM belief corpus.**
+
+The `who_axis` of the landowner belief layer contains only institutional and corporate entity names. Individual residential owner names are not ingested into any GBIM belief table, materialized view, ChromaDB collection, or RAG-accessible store. The ingestion pipeline selects only records matching corporate and government entity patterns.
+
+The rationale is the **aggregation problem**: individual owner names are legally public as friction-protected courthouse records. Embedding them into a semantically searchable, spatially indexed, multi-million-parcel AI system converts friction-protected public records into operational surveillance infrastructure.
+
+**Constraint 2: Institutional actors are represented with full accountability metadata.**
+
+The `under_whose_authority_axis` and `on_what_evidence_axis` for all institutional beliefs must include sufficient provenance to allow any displayed belief to be traced back to its source record. Corporate and government landholders are named, counted, and area-summarized with full assessor provenance.
+
+These two constraints define the ethical architecture: **a system that makes power legible without making vulnerability exploitable.**
+
+---
+
+## 2.12 The `jarvis-gbim-query-router` Service — Fully Operational, April 22, 2026
+
+The `jarvis-gbim-query-router` is the GBIM entrypoint for all structured landowner and spatial GBIM queries. It is the only service in the Ms. Jarvis stack whose exclusive purpose is routing natural-language ownership queries to deterministic SQL results over the verified GBIM parcel corpus.
+
+### 2.12.1 Service Specification
+
+| Property | Value |
+|---|---|
+| Container | `jarvis-gbim-query-router` |
+| Host port | **7205** |
+| Framework | FastAPI |
+| Endpoint | `POST /query` |
+| Database target | `gisdb` via `GEODB_DSN=postgresql://postgres:postgres@msjarvis-db:5432/gisdb` |
+| `POSTGRES_HOST` | `msjarvis-db` |
+| `POSTGRES_DB` | `gisdb` |
+| `POSTGRES_PORT` | `5432` |
+| ChromaDB dependency | **None — zero ChromaDB involvement** |
+| RBAC gate | `X-Jarvis-Role: carrie_admin` passes; unauthenticated returns `403 Forbidden for this role` |
+| Health endpoint | `GET /health` — returns `{"status": "ok", "type": "gbim"}` |
+| Production status | ✅ **Fully operational end-to-end — April 22, 2026** |
+
+### 2.12.2 End-to-End Verification (April 22, 2026)
+
+All five layers confirmed:
+
+- ✅ **RBAC gate** — `carrie_admin` role passes.
+- ✅ **DSN** — connecting to `gisdb` via `172.18.0.1`.
+- ✅ **Materialized view** — `mvw_gbim_landowner_spatial` with 39,515 Fayette County parcels.
+- ✅ **Spatial query** — returning real lat/lon centroids.
+- ✅ **Real data** — United States of America (NPS/New River Gorge), American Canadian Expeditions, local landowners all returned. Source attribution: *"WV 2025 Tax Parcel Data — authoritative county assessor records."*
+
+The NPS parcel returned in queries — United States of America, Oak Hill, Land Resources Office address — is the New River Gorge National Park boundary land, confirmed present in the query results for the Mount Hope area. The system is working exactly as designed.
+
+### 2.12.3 Verified Query Pattern
+
+```python
+import httpx
+
+# Spatial landowner query with RBAC header
+resp = httpx.post(
     "http://127.0.0.1:7205/query",
+    headers={"X-Jarvis-Role": "carrie_admin"},
     json={
-        "question": "Who owns the most land in Fayette County?",
+        "question": "Who are the largest landowners near Mount Hope?",
         "mode": "landowner_gbim",
         "route_type": "parcel_ownership",
         "county": "Fayette",
         "limit": 20
     }
 )
+# Returns: owner_name, parcel_id, address, acreage, centroid lat/lon,
+#          source: "WV 2025 Tax Parcel Data — authoritative county assessor records"
+
+# Unauthenticated — returns 403
+resp_unauth = httpx.post(
+    "http://127.0.0.1:7205/query",
+    json={"question": "Who owns land near Mount Hope?"}
+)
+# {"detail": "Forbidden for this role"}
 ```
-
-### 2.10.5 Relationship to GBIM Principles
-
-`gbim_query_router` is the operational realization of **P3 – Power has a geometry** and **P16 – Power accountable to place**. It is the first service in the Ms. Jarvis stack whose exclusive purpose is making institutional power over land legible and queryable by natural language at parcel scale. The 20,593 landowner beliefs it serves represent the most direct accountability infrastructure in the current production system — a corpus that can answer *who owns how much land, where, under what basis of authority* for every major corporate and government landowner in West Virginia.
 
 ---
 
-## 2.11 The `mvw_gbim_landowner_spatial` Materialized View
+## 2.13 The `mvw_gbim_landowner_spatial` Materialized View
 
-The `mvw_gbim_landowner_spatial` materialized view is the direct query target for all `gbim_query_router` landowner requests. It is a spatially indexed, PostgreSQL-native view over `gbimbeliefnormalized` filtered to the two landowner proposition codes.
+`mvw_gbim_landowner_spatial` is the canonical spatial GBIM worldview materialization in `gisdb`, derived from `gbim_worldview_entity`, consumed by `jarvis-gbim-query-router`.
 
-### 2.11.1 View Specification
+### 2.13.1 View Specification
 
 | Property | Value |
 |---|---|
 | View name | `mvw_gbim_landowner_spatial` |
-| View type | Materialized view (PostgreSQL) |
-| Database | `msjarvisgis` (host port 5432) |
-| Row count | **20,593 verified records** (March 20, 2026) |
-| Runtime status | **⚠️ 0 rows returned — rebuild pending (Item 21, backlog, March 28, 2026)** |
-| Proposition codes | `LANDOWNER_CORPORATE`, `LANDOWNER_GOVERNMENT` |
-| Worldview | `eq1` |
-| Spatial index | ✅ Yes — geometry column spatially indexed (GIST) |
-| Source table | `gbimbeliefnormalized` |
-| Geometry source | `wv_parcels` geometry joined via parcel ID |
-| Production status | ✅ **Live — March 20, 2026** (view rebuild required to restore row count) |
+| View type | Materialized view |
+| Database | `gisdb` (host port 5432) |
+| Row count | **5,388,315** (full spatial GBIM worldview) |
+| Fayette County parcels | **39,515** loaded from WVGISTC 2025 dataset (January 2026 vintage) |
+| With owner names | **38,979** (536 unattributed — roads/easements, normal) |
+| Geometry CRS | **EPSG:4326** |
+| Spatial index | ✅ GIST on geometry |
+| Owner name index | ✅ Fast landowner lookups |
+| Source table | `gbim_worldview_entity` |
+| Production status | ✅ **Fully operational — April 22, 2026** |
 
-### 2.11.2 Logical Schema
+### 2.13.2 View Definition
 
 ```sql
--- mvw_gbim_landowner_spatial — logical schema
--- Materialized view in msjarvisgis (port 5432)
--- Verified production: 20,593 rows, worldview eq1
--- ⚠️ March 28, 2026: view returning 0 rows — refresh required (Item 21)
+-- gisdb.public.mvw_gbim_landowner_spatial
+-- Materialized view derived from gbim_worldview_entity
+-- Canonical spatial GBIM worldview materialization
 
-CREATE MATERIALIZED VIEW mvw_gbim_landowner_spatial AS
 SELECT
-    b.belief_id,
-    b.worldview_id,                                          -- 'eq1'
-    b.what_axis->>'proposition_code'        AS proposition_code,
-    -- LANDOWNER_CORPORATE or LANDOWNER_GOVERNMENT
-
-    b.who_axis->>'canonical_entity_name'    AS canonical_entity_name,
-    -- Normalized corporate/government entity name
-    -- Individual residential names are EXCLUDED
-
-    b.who_axis->>'raw_name_variants'        AS raw_name_variants,
-    -- JSONB array of assessor string variants for this entity
-
-    b.where_axis->>'county'                 AS county,
-    b.where_axis->>'parcel_id'              AS parcel_id,
-    ST_Centroid(p.geom)                     AS centroid_geom,
-    -- Spatial geometry — parcel centroid (GIST indexed)
-
-    b.under_whose_authority_axis->>'basis'  AS authority_basis,
-    -- 'wv_assessor_record' | 'deed_reference' | 'government_registry'
-
-    b.on_what_evidence_axis->>'source_table'    AS source_table,
-    b.on_what_evidence_axis->>'source_pk'       AS source_pk,
-    b.on_what_evidence_axis->>'data_vintage'    AS data_vintage,
-
-    b.when_axis->>'verified_date'           AS verified_date,
-    b.confidence_decay
-
-FROM gbimbeliefnormalized b
-JOIN wv_parcels p ON p.parcel_id = (b.where_axis->>'parcel_id')
-WHERE
-    (b.what_axis->>'proposition_code')
-        IN ('LANDOWNER_CORPORATE', 'LANDOWNER_GOVERNMENT')
-    AND b.worldview_id = 'eq1';
-
--- Spatial index on centroid geometry
-CREATE INDEX idx_mvw_landowner_geom
-    ON mvw_gbim_landowner_spatial USING GIST (centroid_geom);
-
--- Index on county for county-scoped queries
-CREATE INDEX idx_mvw_landowner_county
-    ON mvw_gbim_landowner_spatial (county);
-
--- Index on canonical_entity_name for entity lookups
-CREATE INDEX idx_mvw_landowner_entity
-    ON mvw_gbim_landowner_spatial (canonical_entity_name);
+    id,
+    worldview_id,
+    entity_type,
+    source_table,
+    source_pk,
+    label                                                        AS display_name,
+    created_at,
+    ((belief_state->'spatialmetadata')->>'centroidx')::double precision AS centroid_x,
+    ((belief_state->'spatialmetadata')->>'centroidy')::double precision AS centroid_y,
+    ((belief_state->'spatialmetadata')->>'srid')::integer               AS srid,
+    belief_state->>'entity_type'                                 AS belief_entity_type,
+    belief_state->>'display_name'                                AS belief_display_name,
+    belief_state->>'source_dataset'                              AS source_dataset,
+    (belief_state->'axes')->>'what'                              AS what,
+    ((belief_state->'axes')->'where')->>'county'                 AS county,
+    ((belief_state->'axes')->'where')->>'state'                  AS state
+FROM gbim_worldview_entity e
+WHERE ((belief_state->'spatialmetadata')->>'centroidx') IS NOT NULL;
 ```
 
-### 2.11.3 GBIM Axis Coverage in the View
+### 2.13.3 Indexes
 
-| GBIM Axis | View Column | Content |
+Three clean indexes, no redundancy:
+
+| Index | Type | Purpose |
 |---|---|---|
-| `what_axis` | `proposition_code` | `LANDOWNER_CORPORATE` or `LANDOWNER_GOVERNMENT` |
-| `who_axis` | `canonical_entity_name`, `raw_name_variants` | Normalized entity name; original assessor string variants |
-| `where_axis` | `county`, `parcel_id`, `centroid_geom` | County; parcel ID; spatially indexed centroid geometry |
-| `when_axis` | `verified_date`, `confidence_decay` | March 20, 2026; decay schedule |
-| `why_axis` | *(not surfaced in view — queryable in base table)* | Institutional land accountability |
-| `how_axis` | *(not surfaced in view)* | Canonical clustering pipeline |
-| `for_whom_axis` | *(not surfaced in view)* | WV communities, researchers, accountability users |
-| `under_whose_authority_axis` | `authority_basis` | Assessor record / deed reference / government registry |
-| `on_what_evidence_axis` | `source_table`, `source_pk`, `data_vintage` | Full provenance chain to source record |
+| `landowner_assessor_parcels_pkey` | B-tree | Row ID — primary key |
+| `idx_landowner_parcels_geom` | GIST | Spatial queries — geometry column |
+| `idx_landowner_owner_name` | B-tree | Owner name lookups |
 
-### 2.11.4 Typical Query Pattern (Internal — `gbim_query_router`)
+### 2.13.4 Confirmed Data
 
-```sql
--- Statewide top landowners by total parcel area
-SELECT
-    canonical_entity_name,
-    proposition_code,
-    COUNT(*)            AS parcel_count,
-    SUM(p.calc_acres)   AS total_acres
-FROM mvw_gbim_landowner_spatial m
-JOIN wv_parcels p ON p.parcel_id = m.parcel_id
-WHERE worldview_id = 'eq1'
-GROUP BY canonical_entity_name, proposition_code
-ORDER BY total_acres DESC
-LIMIT 20;
+- ✅ 39,515 Fayette County parcels loaded, all with geometry.
+- ✅ 38,979 with owner names (536 unattributed — normal for roads/easements).
+- ✅ Mount Hope / New River Gorge area confirmed present.
+- ✅ City of Mount Hope, CSX, local landowners all present.
+- ✅ NPS (United States of America) New River Gorge National Park boundary parcel confirmed.
+- ✅ `gisdb` accessible to Docker containers via `172.18.0.1`.
 
--- County-scoped top landowners
-SELECT
-    canonical_entity_name,
-    proposition_code,
-    COUNT(*)            AS parcel_count,
-    SUM(p.calc_acres)   AS total_acres
-FROM mvw_gbim_landowner_spatial m
-JOIN wv_parcels p ON p.parcel_id = m.parcel_id
-WHERE worldview_id = 'eq1'
-  AND county = 'Fayette'
-GROUP BY canonical_entity_name, proposition_code
-ORDER BY total_acres DESC
-LIMIT 20;
-```
-
-### 2.11.5 Refresh and Maintenance
-
-The materialized view must be refreshed when the underlying `gbimbeliefnormalized` landowner records are updated (new assessor vintage, canonical entity re-clustering, correction of a specific record):
+### 2.13.5 Refresh and Maintenance
 
 ```sql
+-- Non-blocking refresh (requires unique index)
 REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;
-```
 
-The `CONCURRENTLY` option allows refresh without locking the view for reads — required for production refresh without service interruption. A `UNIQUE INDEX` must exist on the view for concurrent refresh; if not present, use the blocking form and schedule during a low-traffic window:
-
-```sql
+-- Blocking refresh (schedule during low-traffic window if no unique index)
 REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
 ```
 
-> **⚠️ March 28, 2026 — Item 21 (open backlog):** The materialized view is currently returning 0 rows. This is a pre-existing condition that predates the March 28 remediation sprint. The belief records are present in `gbimbeliefnormalized` (20,593 verified). The required remediation step is:
->
-> ```sql
-> REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
-> -- or CONCURRENTLY if unique index is in place
-> ```
->
-> This is script infrastructure work, not a runtime failure of the GBIM belief corpus itself. The `gbim_query_router` service (port 7205) is healthy and will return correct results once the view is rebuilt.
-
 ---
 
-## 2.12 Production Status Summary — March 28, 2026
+## 2.14 Production Status Summary — April 22, 2026
 
 | Component | Status | Notes |
 |---|---|---|
-| `gbimbeliefnormalized` | ✅ **5,416,521 rows** | `msjarvisgis` port 5432 — verified March 20, 2026 |
-| Landowner beliefs | ✅ **20,593 records** | `LANDOWNER_CORPORATE` + `LANDOWNER_GOVERNMENT`, worldview `eq1` |
-| `mvw_gbim_landowner_spatial` | ⚠️ **0 rows at runtime** | View rebuild pending — Item 21, backlog |
-| `msjarvis` port 5433 | ✅ **Operational** | Restored March 28, 2026 remediation sprint |
-| `jarvis_local_resources` schema | ✅ **Restored** | Resources table confirmed present — March 28, 2026 |
-| ChromaDB total vectors | ✅ **6,675,442 across 40 collections** | Post-deduplication audit March 28, 2026 |
-| `gbim_worldview_entities` | ✅ **5,416,521** | All-minilm 384-dim, cosine |
-| `geospatialfeatures` | ✅ **60,000** | OI-12 closed March 26, 2026 |
-| `GBIM_Fayette_sample` | ✅ **1,535** | OI-13 closed March 26, 2026 |
-| `governance_rag` | ✅ **643 chunks** | US Constitution + full MountainShares corpus |
-| `commons_rag` | ✅ **306 chunks** | Full Commons gamification corpus |
-| `msjarvis_docs` | ✅ **4,192 items** | Expanded from 2,348 — March 28, 2026 |
-| `psychological_rag` | ✅ **968 documents** | Restored via `PSY_COLLECTION` env var fix — March 28, 2026 |
-| `appalachian_cultural_intelligence` | ✅ **820 items** | OI-14 closed March 26, 2026 |
-| `spiritual_rag` | ✅ **Deduplicated** | 19,338 duplicate vectors removed — March 28, 2026 |
-| `aaacpe_corpus` | ✅ **65 docs (growing)** | Activated March 27, 2026; 39 sources |
-| `autonomous_learner` | ✅ **21,181+ items** | ~288/day growth rate |
-| `gbim_query_router` port 7205 | ✅ **Healthy** | Service live; awaiting view rebuild for full landowner queries |
-| Judge GBIM grounding | ⚠️ **Heuristic only** | Design target: live GBIM queries — see §2.8 |
-| `VERIFYANDTEST.sh` line 190 | ⚠️ **Syntax error** | Script infrastructure — pre-existing open item |
-| 7 empty orphaned collections | ⚠️ **Present** | No active service queries them; cleanup optional |
+| `gisdb` (port 5432) | ✅ Operational | Owner: gbim; spatial GBIM + provider summaries |
+| `msjarvis` (port 5433) | ✅ Operational | Owner: postgres; application GBIM + decay audit + TIGER |
+| `msjarvisgis` / port 5452 | ❌ Retired | Database name and port do not exist — all references invalid |
+| `gbim_worldview_entity` (gisdb) | ✅ **5,416,521 rows** | Full spatial table — nine-axis JSONB, worldview eq1 |
+| `gbim_entities` (msjarvis) | ✅ Present | 4-column application mirror |
+| `mvw_gbim_landowner_spatial` (gisdb) | ✅ **5,388,315 rows** | Spatial GBIM worldview mat. view; 39,515 Fayette parcels |
+| TIGER/topology schemas | ✅ In `msjarvis` | `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
+| `nbb_pituitary_gland` (host:8108) | ✅ **mode: baseline** | Five governance protocols active; crisis = contingency only |
+| Confidence decay pipeline | ✅ **CLOSED** | 3 containers + schema + scripts + Prometheus alerting |
+| `jarvis-gbim-query-router` (port 7205) | ✅ **End-to-end operational** | RBAC, DSN, mat. view, spatial query, real data all verified |
+| Truth judge | ✅ `rag_grounded_v2` | `heuristic_contradiction_v1` retired; DGM-corroborated |
+| ChromaDB (port 8002) | ✅ 49 collections, 6.74M+ vectors | v2 API; `all-minilm:latest` 384-dim |
+| `fayette_county_resources_2026` | ✅ **1,205 chunks** | Baseline; ongoing expansion through Phase 1 |
+| `wv_resources` / `local_resources` | 🔄 Expanding | 8 / 101 items; active Phase 1 red teaming targets |
+| Autonomous learning collections | ✅ **21,181 + 17,685** | Both preserved; distinct temporal roles confirmed |
+| Container count | 109 | April 2026 |
 
 ---
 
 *Chapter 2 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
 *See [LICENSE](../LICENSE) for terms.*
-*Last verified: March 28, 2026 — 6,675,442 ChromaDB vectors across 40 collections, 5,416,521 GBIM beliefs, all critical security findings resolved.*
+*Last verified: 2026-04-22 — `gisdb`/`msjarvis` authoritative layout confirmed; `nbb_pituitary_gland` baseline mode verified; decay pipeline closed; `rag_grounded_v2` canonical; landowner query router fully operational end-to-end.*
