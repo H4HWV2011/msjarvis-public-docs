@@ -24,7 +24,7 @@ Examples include:
 - Eligibility maps that partition territories into zones of inclusion and exclusion for public programs.
 - Content ranking and recommendation systems that structure attention and narrative circulation.
 - Game engines and virtual environments whose internal rules have real financial and social implications.
-- AI world‑models, such as Ms. Jarvis’s GBIM state space, which aggregate multi‑domain information about regions and expose it through interfaces.
+- AI world‑models, such as Ms. Allis’s GBIM state space, which aggregate multi‑domain information about regions and expose it through interfaces.
 
 These are higher‑order structures whose states and rules are causally relevant to the same entities that inhabit the ground layer.
 
@@ -58,7 +58,7 @@ The emphasis is on visibility, accountability, and the distribution of design au
 
 ## 5. Empirically Salient Meta‑Layer Phenomena
 
-For a system like Ms. Jarvis, several classes of meta‑layer phenomena are of immediate empirical interest:
+For a system like Ms. Allis, several classes of meta‑layer phenomena are of immediate empirical interest:
 
 - **Financial and risk overlays**: credit scores, risk tiers, and investment classifications that correlate with spatial patterns of lending, insurance pricing, and capital allocation.
 - **Programmatic eligibility geometries**: spatial delineations of who qualifies for which benefits, grants, or services, and how those criteria interact with local conditions.
