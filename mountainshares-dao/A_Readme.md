@@ -17,7 +17,7 @@ MountainShares operates as a **community-governed economic commons** — a delib
 - That balance circulates within the local economy according to DAO-defined rules
 - Fees are concentrated at the boundaries (entry and merchant side), making everyday local spending low-friction
 - Governance decisions — including rule changes, resource allocation, and constitutional amendments — are made by community participants, not by a central authority
-- Ms. Jarvis serves as an aligned, glass-box AI advisor to the system, with her own MountainShares wallet, published reward caps, and no independent governance authority
+- Ms. Allis serves as an aligned, glass-box AI advisor to the system, with her own MountainShares wallet, published reward caps, and no independent governance authority
 
 MountainShares does not replace or act as a bank, credit union, or regulated financial institution, and participation is not an opportunity to purchase equity, securities, or investment products of any kind.
 
@@ -32,7 +32,7 @@ MountainShares is the **economic instrument** of Polymathmatic Geography — the
 | **Polymathmatic Geography** | The intellectual discipline — why closed-loop economics matters for entangled Appalachian spaces |
 | **Quantarithmia** | The governance and consciousness framework — how the system reasons about itself and its community |
 | **MountainShares DAO** | The economic instrument — the closed-loop payment and governance system in practice |
-| **Ms. Jarvis** | The AI advisor — glass-box intelligence aligned to system health and community benefit |
+| **Ms. Allis** | The AI advisor — glass-box intelligence aligned to system health and community benefit |
 | **The Commons** | The community platform — where participants interact with the system daily |
 
 For disciplinary foundations, see [`discipline/README.md`](../discipline/README.md).
@@ -45,7 +45,7 @@ For disciplinary foundations, see [`discipline/README.md`](../discipline/README.
 
 | Document | What It Contains |
 |---|---|
-| [mountainshares-dao.md](./mountainshares-dao.md) | The authoritative system overview — purpose, governance structure, Ms. Jarvis's role, legal caveats, and use of program revenues. Start here. |
+| [mountainshares-dao.md](./mountainshares-dao.md) | The authoritative system overview — purpose, governance structure, Ms. Allis's role, legal caveats, and use of program revenues. Start here. |
 | [MountainShares: Complete System Overview and Benefits.md](./MountainShares%3A%20Complete%20System%20Overview%20and%20Benefits.md) | Comprehensive narrative of the full system — how all components work together and what benefits flow to participants, communities, and the region. |
 | [Why Now  Why Here  Why Us.md](./Why%20Now%20%20Why%20Here%20%20Why%20Us.md) | The founding case for MountainShares — the specific conditions in Appalachia that make this the right instrument, in this place, at this moment. |
 | [MountainShares Funder Overview .md](./MountainShares%20Funder%20Overview%20.md) | The funder-facing document — framing, impact case, financial structure, and partnership opportunities for institutional and philanthropic partners. |
@@ -112,7 +112,7 @@ For disciplinary foundations, see [`discipline/README.md`](../discipline/README.
 ## Relationship to the Rest of the Repository
 
 - **Intellectual foundation:** [`discipline/README.md`](../discipline/README.md) — Principles P8 and P9 are the theoretical basis for the closed-loop economic design
-- **AI advisor:** Ms. Jarvis provides analysis, monitoring, and operational support under published constitutional constraints — see [`docs/`](../docs/README.md) for the full AI architecture
+- **AI advisor:** Ms. Allis provides analysis, monitoring, and operational support under published constitutional constraints — see [`docs/`](../docs/README.md) for the full AI architecture
 - **Community platform:** The Commons is where MountainShares participants interact daily — see [`the commons/README.md`](../the%20commons/README.md)
 - **Empirical case:** The Fayette County absentee ownership analysis demonstrates precisely the leakage dynamic MountainShares is designed to counter — see [`discipline/case_studies/Absentee Ownership Concentration in Fayette County, West Virginia.md`](../discipline/case_studies/Absentee%20Ownership%20Concentration%20in%20Fayette%20County%2C%20West%20Virginia.md)
 - **Full thesis:** [`thesis/README.md`](../thesis/README.md) — MountainShares is theorized across multiple chapters of the 43-chapter computational thesis
