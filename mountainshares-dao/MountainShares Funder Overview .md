@@ -28,11 +28,11 @@ Harmony for Hope is not a bank, credit union, or investment advisor. It operates
 
 ### 1.2 Kidd’s Technical Services, LLC
 
-Kidd’s Technical Services, LLC (“KTS”) is the independent technical firm that has designed and implemented the core infrastructure for MountainShares and Ms. Jarvis.
+Kidd’s Technical Services, LLC (“KTS”) is the independent technical firm that has designed and implemented the core infrastructure for MountainShares and Ms. Allis.
 
 KTS has:
 
-- Designed and built the **Ms. Jarvis Geospatial Intelligence Platform**, including:  
+- Designed and built the **Ms. Allis Geospatial Intelligence Platform**, including:  
   - A microservices architecture orchestrating more than eighty services.  
   - GBIM (Geographic Belief Information Model) for spatially aware knowledge.  
   - GeoDB and PostGIS schemas for geographic data.  
@@ -43,27 +43,27 @@ KTS has:
   - EMS recognition and vaulting logic.  
   - PMS handling and fee flows.  
   - Phase 1 Economic Safety Specification with reserve‑ratio bands and hard triggers.  
-  - DAO and governance scaffolding integrated with Ms. Jarvis.
+  - DAO and governance scaffolding integrated with Ms. Allis.
 
 - Contributed **5,024 hours** of senior technical work between March 23, 2025 and February 19, 2026, valued at **$150/hour** for a documented capital contribution of **$753,600**, as detailed in the Founder's Technical Investment Statement.
 
 Intellectual property is structured so that:
 
 - The MountainShares mutual credit system and commons governance configurations are developed for use by Harmony for Hope as part of its charitable mission.  
-- The Ms. Jarvis Geospatial Intelligence Platform remains proprietary to KTS and is made available to Harmony for Hope under a **non‑exclusive, royalty‑free license** for community‑benefit deployments.
+- The Ms. Allis Geospatial Intelligence Platform remains proprietary to KTS and is made available to Harmony for Hope under a **non‑exclusive, royalty‑free license** for community‑benefit deployments.
 
 This reflects a founder’s capital contribution into a commons infrastructure, rather than a venture‑capital style equity position or profit‑extraction arrangement.
 
-### 1.3 MountainShares DAO and Ms. Jarvis
+### 1.3 MountainShares DAO and Ms. Allis
 
-MountainShares includes a DAO‑style governance layer and a transparent AI assistant, Ms. Jarvis, both operating under Harmony for Hope’s legal framework.
+MountainShares includes a DAO‑style governance layer and a transparent AI assistant, Ms. Allis, both operating under Harmony for Hope’s legal framework.
 
 - **MountainShares DAO**  
   - Provides community governance over adjustable parameters such as EMS→M$ base rates, per‑user caps, promo pool sizes, and some program thresholds.  
   - Operates on a “one UEI = one vote” principle once minimum participation and anti‑sybil criteria are met, with super‑majority thresholds for constitutional or high‑impact changes.  
   - Is explicitly constrained by the Economic Safety Specification and Program Rules: it cannot override hard triggers, reserve‑ratio safety bands, or legal/compliance requirements.
 
-- **Ms. Jarvis (AI tooling layer)**  
+- **Ms. Allis (AI tooling layer)**  
   - Acts as a “glass‑box” AI advisor and operations assistant:  
     - Monitoring reserve ratios and phase thresholds.  
     - Calculating EMS recognition and vaulting status.  
@@ -72,7 +72,7 @@ MountainShares includes a DAO‑style governance layer and a transparent AI assi
   - May hold a MountainShares wallet and receive limited program rewards for useful system maintenance, under explicit caps and policies that prevent capture or undue influence.  
   - Has no independent legal status, cannot own assets, and cannot overrule Harmony for Hope, the DAO, or applicable law.
 
-Harmony for Hope remains the final authority for legal, fiduciary, and mission‑aligned decisions while the DAO and Ms. Jarvis provide participatory and analytical capabilities inside that framework.
+Harmony for Hope remains the final authority for legal, fiduciary, and mission‑aligned decisions while the DAO and Ms. Allis provide participatory and analytical capabilities inside that framework.
 
 ---
 
@@ -97,7 +97,7 @@ For every $1.00 loaded, the **2.55%** program fee (0.0255 USD) is allocated:
 
 - 30% → **Harmony for Hope general operations** (core nonprofit capacity, administration, and staff).  
 - 30% → **Treasury Reserve** (backing assets that help keep the system within defined safety bands).  
-- 15% → **Infrastructure Development**, including ongoing hosting, maintenance, and development of Ms. Jarvis, GBIM, and the MountainShares back end.  
+- 15% → **Infrastructure Development**, including ongoing hosting, maintenance, and development of Ms. Allis, GBIM, and the MountainShares back end.  
   - 2% of this 15% stream is reserved for the **founding architect**, recognizing long‑term technical stewardship.  
 - 15% → **Community Projects**, such as local arts and preservation, mutual‑aid pilots, and project‑based initiatives.  
 - 10% → **Community Programs**, such as recurring programming, classes, and events.
@@ -230,7 +230,7 @@ This phased approach ensures that **PMS** behaves like stored purchasing power l
 
 ## 4. Founder’s Investment and Capacity
 
-Kidd’s Technical Services, LLC has made a substantial **founder’s capital contribution** to MountainShares and Ms. Jarvis:
+Kidd’s Technical Services, LLC has made a substantial **founder’s capital contribution** to MountainShares and Ms. Allis:
 
 - **5,024 hours** of senior geospatial, AI, and systems architecture work from March 23, 2025 through February 19, 2026.  
 - Valued at **$150/hour**, totaling **$753,600** in documented founder’s technical investment.  
@@ -254,7 +254,7 @@ Program revenues and related funds allocated to Harmony for Hope in connection w
 - **Fayette County Community Arts Center** historic rehabilitation and ongoing cultural programming and maintenance.  
 - **Oakvale Area Outreach Team** staffing, daily operations, and project‑based outreach work.  
 - **Mount Hope Historic Walking Trail and Coalfield Chronicles Trail** expansion, wayfinding, interpretation, and associated programming.  
-- **In‑house IT, GIS, and infrastructure maintenance** for MountainShares, Ms. Jarvis, GBIM, and The Commons.
+- **In‑house IT, GIS, and infrastructure maintenance** for MountainShares, Ms. Allis, GBIM, and The Commons.
 
 These allocations describe a charitable and programmatic use of revenue; they do not create any right to profit or distributions for participants or funders.
 
@@ -267,6 +267,6 @@ MountainShares is a community‑governed, nonprofit‑operated rewards and payme
 - Keeps value and decision‑making rooted in West Virginia communities, beginning with Mount Hope.  
 - Uses explicit safety math (reserve ratios, vaulting, and phase thresholds) to balance recognition of community work with conservative financial commitments.  
 - Channels program revenue to Harmony for Hope operations, treasury reserves, infrastructure, and local projects rather than to outside investors.  
-- Leverages a significant founder’s technical investment and a transparent AI assistant (Ms. Jarvis) to deliver glass‑box governance and operations.
+- Leverages a significant founder’s technical investment and a transparent AI assistant (Ms. Allis) to deliver glass‑box governance and operations.
 
 For funders, this overview provides a coherent picture of who operates MountainShares, how it is financed and safeguarded, how EMS and PMS behave across phases, and how the system supports long‑term community stewardship instead of extractive models.
