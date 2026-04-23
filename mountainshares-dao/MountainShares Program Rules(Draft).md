@@ -2,7 +2,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**  
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2–7 and 10 treat eligibility, EMS/PMS design, phase mechanics, and regional parameters as one coupled system that shapes how value and obligations move through specific Appalachian places. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2–7 and 10 treat eligibility, EMS/PMS design, phase mechanics, and regional parameters as one coupled system that shapes how value and obligations move through specific Appalachian places. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
 > - **P9 – Transparency and traceability:** Sections 1, 3–6, 9, and 11 define explicit currency types, caps, phase rules, benefits‑sensitive protections, and versioning, so that changes to earning, spending, and risk can be traced across time and regions.  
 > - **P16 – Power accountable to place:** Sections 1.2, 2, 5, 8, 10, and 11 link Harmony for Hope, DAO governance, and regional overrides to documented scopes and conditions, keeping operational power answerable to West Virginia and later regional deployments.  
 > - **Anti‑leakage and closed‑loop spending:** Sections 3–6 and 7 define PMS/EMS distinctions, in‑network usage, phase‑based internal buying power, and cash‑conversion rules that aim to keep value circulating locally rather than leaking immediately to external rails.  
@@ -126,7 +126,7 @@ Phase 1 adopts the following high‑level earning structure, consistent with the
   - Global base rate: starts at 0.2 M$ per EMS hour.  
   - Base rate may be adjusted within the allowed range (0.1–1.0 M$ per EMS hour) when reserve‑ratio conditions and governance criteria are met.
 
-The precise base rate in effect at any time is published via Ms. Jarvis dashboards and API, and may vary over time in response to reserve conditions and governance decisions.
+The precise base rate in effect at any time is published via Ms. Allis dashboards and API, and may vary over time in response to reserve conditions and governance decisions.
 
 ### 4.3 Per‑User Caps and Global Caps
 
@@ -154,7 +154,7 @@ All caps are parameterized and may be adjusted by governance within the safety b
   - User tiers, ranks, or verified roles.  
   - Treasury and reserve conditions.
 
-Vaulting and unlocking rules are applied transparently and are subject to audit through Ms. Jarvis reporting and IPFS‑based records.
+Vaulting and unlocking rules are applied transparently and are subject to audit through Ms. Allis reporting and IPFS‑based records.
 
 ---
 
@@ -197,7 +197,7 @@ For each phase, Program Rules specify:
   - Promo and bonus pool percentages.
 
 - Which parameters may be adjusted by:
-  - Automatic mechanisms (hard triggers enforced by Ms. Jarvis).  
+  - Automatic mechanisms (hard triggers enforced by Ms. Allis).  
   - Governance proposals and DAO votes.  
   - Harmony for Hope risk and compliance overrides (for safety and legal reasons).
 
@@ -254,7 +254,7 @@ Program Rules identify categories that are prohibited or subject to additional r
 - Certain regulated categories (for example, gambling, unlicensed financial services) unless explicitly authorized.  
 - Uses that jeopardize regulatory status or public assistance safety.
 
-Ms. Jarvis and Harmony for Hope may monitor, flag, and restrict transactions in these categories, with logging and review procedures set out in governance documents.
+Ms. Allis and Harmony for Hope may monitor, flag, and restrict transactions in these categories, with logging and review procedures set out in governance documents.
 
 ### 7.3 Internal Transfers
 
