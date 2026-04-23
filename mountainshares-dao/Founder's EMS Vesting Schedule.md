@@ -37,7 +37,7 @@ All pre-launch EMS recorded to the founding UEI prior to Phase 0 activation date
 
 ### 1.2 Treasury Liability Treatment
 
-Founder's Vaulted EMS are **not counted as active treasury liability** for reserve ratio calculation purposes until a conversion event fires under Section 3. Ms. Jarvis maintains the Founder's Vaulted EMS balance as a separate ledger entry that:
+Founder's Vaulted EMS are **not counted as active treasury liability** for reserve ratio calculation purposes until a conversion event fires under Section 3. Ms. Allis maintains the Founder's Vaulted EMS balance as a separate ledger entry that:
 
 - Is visible in the founding UEI's personal dashboard in full
 - Is reported in the annual governance transparency report as a disclosed founder commitment
@@ -71,7 +71,7 @@ Upon Phase 2 activation, the DAO may vote — by 66% super-majority — to autho
 
 - Treasury reserve ratio has held at ≥ 300% for ≥ 180 consecutive days
 - The proposed unlock amount does not reduce the reserve ratio below 300% after conversion at the Phase 2 internal schedule ($10/M$)
-- Ms. Jarvis confirms the unlock is treasury-safe before it fires
+- Ms. Allis confirms the unlock is treasury-safe before it fires
 - The unlock amount is capped at **no more than 10% of the total Founder's Vaulted EMS balance** per Phase 2 unlock event
 - No more than one unlock event per 12-month period during Phase 2
 
@@ -84,7 +84,7 @@ Upon Phase 3 activation and sustained 500% reserve ratio, the founding UEI's ful
 - Standard Phase 3 per-user monthly conversion caps (Tier 1: 120 M$/month maximum; Tier 3 eligibility subject to DAO confirmation of governance leadership status)
 - The $34.70/M$ internal schedule applies to all converted M$ at Phase 3
 - USD cash-out of converted M$ is available subject to the 500% reserve floor remaining intact after conversion
-- Ms. Jarvis enforces the monthly cap automatically — no lump-sum conversion is possible under any circumstances
+- Ms. Allis enforces the monthly cap automatically — no lump-sum conversion is possible under any circumstances
 - If the reserve ratio drops below 500% at any point, conversion of Founder's Vaulted EMS to USD pauses automatically and resumes when the floor is restored for ≥ 180 consecutive days
 
 ---
