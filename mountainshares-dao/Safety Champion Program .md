@@ -1,6 +1,6 @@
 # Safety Champion Program (Draft Overview)
 
-This note describes a two‑step path for involving West Virginians and institutions in the safety and governance of MountainShares, The Commons, and Ms. Jarvis.
+This note describes a two‑step path for involving West Virginians and institutions in the safety and governance of MountainShares, The Commons, and Ms. Allis.
 
 ## 1. Community Champions (Red Team)
 
@@ -12,7 +12,7 @@ This note describes a two‑step path for involving West Virginians and institut
 **What they do**
 
 - Act as a structured “red team” for the system.  
-- Test and review how Ms. Jarvis and MountainShares behave for real families, places, and programs.  
+- Test and review how Ms. Allis and MountainShares behave for real families, places, and programs.  
 - Look for:
   - missing or outdated resources,  
   - confusing or risky advice,  
@@ -38,7 +38,7 @@ This note describes a two‑step path for involving West Virginians and institut
   - treasury and reserve protections;  
   - protocol and administrative controls;  
   - data access and privacy;  
-  - interactions between Ms. Jarvis and on‑chain/platform components.  
+  - interactions between Ms. Allis and on‑chain/platform components.  
 - Help translate local findings into formal safety recommendations, documentation, and design changes.
 
 **How institutions participate**
