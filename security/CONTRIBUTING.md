@@ -1,12 +1,12 @@
-# Contributing to Ms. Egeria Jarvis Documentation
+# Contributing to Ms. Egeria Allis Documentation
 
-Thank you for your interest in contributing to the Ms. Egeria Jarvis AI Consciousness System documentation!
+Thank you for your interest in contributing to the Ms. Egeria Allis AI Consciousness System documentation!
 
 ## 🔒 Important Security Note
 
 **This repository contains DOCUMENTATION ONLY — no source code.**
 
-Ms. Jarvis source code is kept private due to security lessons learned from **three malware attacks** on MountainShares smart contracts through public GitHub repositories.
+Ms. Allis source code is kept private due to security lessons learned from **three malware attacks** on MountainShares smart contracts through public GitHub repositories.
 
 Security is part of the polymathmatic axiom that power must be accountable to place and that systems must remain transparent and traceable; the bounty approach to hardening and improvement is therefore a polymathmatic design choice, not just an engineering one.
 
@@ -42,7 +42,7 @@ We welcome contributions to:
 
 ## Source Code Contributions
 
-To contribute to Ms. Jarvis **source code**:
+To contribute to Ms. Allis **source code**:
 
 1. **Request source access**: see `SOURCE_ACCESS.md` in this repo  
 2. **Email**: [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com) with:
@@ -55,15 +55,15 @@ To contribute to Ms. Jarvis **source code**:
 
 ## Questions & Discussion
 
-- **Documentation questions**: open an [Issue](https://github.com/H4HWV2011/msjarvis-public-docs/issues)  
-- **Architecture discussions**: open an [Issue](https://github.com/H4HWV2011/msjarvis-public-docs/issues) with a `"Discussion:"` prefix in the title  
+- **Documentation questions**: open an [Issue](https://github.com/H4HWV2011/msAllis-public-docs/issues)  
+- **Architecture discussions**: open an [Issue](https://github.com/H4HWV2011/msAllis-public-docs/issues) with a `"Discussion:"` prefix in the title  
 - **Source code questions**: email [h4hwv2011@gmail.com](mailto:h4hwv2011@gmail.com)  
 
 ## Code of Conduct
 
 ### Our Values
 
-Ms. Egeria Jarvis is built on:
+Ms. Egeria Allis is built on:
 
 - **Constitutional governance**: six immutable ethical principles  
 - **Community accountability**: MountainShares + Harmony for Hope  
@@ -89,7 +89,7 @@ Ms. Egeria Jarvis is built on:
 
 By contributing, you agree that your contributions will be licensed under the **GNU Affero General Public License v3.0 (AGPL‑3.0)**.
 
-All documentation contributions become part of the open‑source Ms. Jarvis ecosystem.
+All documentation contributions become part of the open‑source Ms. Allis ecosystem.
 
 ## Recognition
 
