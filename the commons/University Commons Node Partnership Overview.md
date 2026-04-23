@@ -11,7 +11,7 @@ This document describes how a university (the “University Partner”) could re
   A West Virginia nonprofit organization that operates **The Commons** social–economic–digital platform and the **MountainShares** rewards program.
 
 - **Kidd’s Technical Services (“KTS”)**  
-  The technical partner that designs, develops, and maintains the **Ms. Jarvis / GBIM** platform used to manage, analyze, and replicate Commons data.
+  The technical partner that designs, develops, and maintains the **Ms. Allis / GBIM** platform used to manage, analyze, and replicate Commons data.
 
 - **University Partner (“University”)**  
   An institution of higher education that agrees to operate one or more **Commons Nodes** under an agreement with H4H and KTS.
@@ -19,7 +19,7 @@ This document describes how a university (the “University Partner”) could re
 Under this arrangement:
 
 - H4H provides program‑level governance, community partnerships, and overall platform stewardship (The Commons + MountainShares).  
-- KTS provides the Ms. Jarvis / GBIM software components and technical support needed to run a Commons Node.  
+- KTS provides the Ms. Allis / GBIM software components and technical support needed to run a Commons Node.  
 - The University operates the node infrastructure and governs research use of the replicated data under its own policies.
 
 ---
@@ -32,7 +32,7 @@ A University Commons Node partnership has three primary goals:
    Provide long‑term, institutionally backed storage for key Appalachian cultural, economic, and resilience records (historic trail content, commons work logs, governance history, and related datasets).
 
 2. **Decentralized research data management.**  
-   Distribute storage and computation across multiple trusted institutions instead of a single data center, while maintaining coherent schemas and governance through Ms. Jarvis / GBIM.
+   Distribute storage and computation across multiple trusted institutions instead of a single data center, while maintaining coherent schemas and governance through Ms. Allis / GBIM.
 
 3. **Mutual value.**  
    Give the University high‑value, real‑world datasets for research and teaching, while giving The Commons / MountainShares stack a stable, credible partner for data preservation and analysis.
@@ -43,7 +43,7 @@ The partnership is about **data and research infrastructure**, not about the Uni
 
 ## 2. What a University Commons Node Does
 
-A University Commons Node is a combination of storage, services, and governance that runs under University IT and research‑data policies, using Ms. Jarvis / GBIM components provided by KTS in coordination with H4H.
+A University Commons Node is a combination of storage, services, and governance that runs under University IT and research‑data policies, using Ms. Allis / GBIM components provided by KTS in coordination with H4H.
 
 At a high level, the node:
 
@@ -54,7 +54,7 @@ At a high level, the node:
   - Aggregated indicators and KPIs derived from these sources.
 
 - Runs defined **services and tools**, for example:
-  - A containerized Ms. Jarvis / GBIM worker that ingests, validates, and indexes GBIM data for the University’s shard(s).
+  - A containerized Ms. Allis / GBIM worker that ingests, validates, and indexes GBIM data for the University’s shard(s).
   - A pinning or replication service for content‑addressed storage used by The Commons (e.g., an IPFS‑compatible or analogous system).
   - Optional APIs or dashboards that expose public or research‑grade views of the data, in line with data‑use agreements.
 
@@ -99,7 +99,7 @@ To protect participants:
 - GBIM records replicated to University Nodes are **pseudonymous by default**, keyed by UEIs or internal IDs rather than direct personal identifiers (names, SSNs, etc.).  
 - Sensitive fields are either:
   - removed from the replicated dataset, or  
-  - encrypted so that they are not readable without keys controlled by authorized backend services operating Ms. Jarvis / GBIM.
+  - encrypted so that they are not readable without keys controlled by authorized backend services operating Ms. Allis / GBIM.
 
 The University Node should not store raw identity verification documents, payment card data, or other high‑risk PII used in KYC or payment processing. Those remain solely in MountainShares’ secure payment and identity systems.
 
@@ -132,12 +132,12 @@ H4H is responsible for:
   - what data may be shared with research partners, and  
   - under what safeguards and purposes.
 
-### 4.2 KTS and the Ms. Jarvis / GBIM Platform
+### 4.2 KTS and the Ms. Allis / GBIM Platform
 
 KTS and its technical collaborators are responsible for:
 
 - Designing and maintaining the **GBIM data model and schemas**, including field definitions, ontologies, and update procedures.  
-- Developing and operating the **Ms. Jarvis** platform components that:
+- Developing and operating the **Ms. Allis** platform components that:
   - write and update GBIM records,  
   - curate and prepare datasets for replication,  
   - manage indexing, analytics, and node synchronization.  
@@ -237,7 +237,7 @@ Any limited receipt of MountainShares units by the University (if such a mechani
 The partnership should codify a set of minimum expectations:
 
 - **Security**
-  - Encryption in transit for data transfers between The Commons / Ms. Jarvis infrastructure and the University Node.  
+  - Encryption in transit for data transfers between The Commons / Ms. Allis infrastructure and the University Node.  
   - Encryption at rest for any datasets that are not explicitly public.  
   - Role‑based access control for staff and researchers.  
   - Procedures for vulnerability patching and security incident handling.
@@ -258,16 +258,16 @@ The partnership should codify a set of minimum expectations:
 
 During the initial pilot and early expansion phases, H4H and KTS may offer:
 
-- **No‑fee use of the Commons Node software stack** (Ms. Jarvis / GBIM components required to operate a node), for non‑commercial research, teaching, and evaluation.  
+- **No‑fee use of the Commons Node software stack** (Ms. Allis / GBIM components required to operate a node), for non‑commercial research, teaching, and evaluation.  
 - **No charge for access to Commons datasets** covered by the DSA/DUA, subject to the agreed scope and safeguards.
 
 Clarifications:
 
 - The University covers its own **infrastructure and staff costs** (hardware/VMs, storage, networking, local administration).  
-- The no‑fee arrangement applies only to **non‑commercial, academic and public‑interest use** of the node and data. Any commercial or third‑party use of Ms. Jarvis / GBIM or the data requires a separate agreement with KTS and, where relevant, H4H.  
+- The no‑fee arrangement applies only to **non‑commercial, academic and public‑interest use** of the node and data. Any commercial or third‑party use of Ms. Allis / GBIM or the data requires a separate agreement with KTS and, where relevant, H4H.  
 - The no‑fee arrangement may be **time‑limited or scope‑limited** (for example, for an initial term or set of projects) and can be revisited by mutual agreement as the collaboration evolves.
 
-These terms should be reflected explicitly in the Node Operations MOU and any licensing language attached to the Ms. Jarvis / GBIM software components.
+These terms should be reflected explicitly in the Node Operations MOU and any licensing language attached to the Ms. Allis / GBIM software components.
 
 ---
 
@@ -279,10 +279,10 @@ These terms should be reflected explicitly in the Node Operations MOU and any li
 - Better visibility into how value and opportunities move through specific Appalachian places.  
 - Stronger basis for funding, advocacy, and policy work grounded in local data.
 
-### 9.2 For Harmony for Hope / The Commons / MountainShares / Ms. Jarvis Platform
+### 9.2 For Harmony for Hope / The Commons / MountainShares / Ms. Allis Platform
 
 - Long‑term, redundant storage and increased resilience of key datasets.  
-- A real‑world testbed that demonstrates Ms. Jarvis / GBIM capabilities in a live regional setting.  
+- A real‑world testbed that demonstrates Ms. Allis / GBIM capabilities in a live regional setting.  
 - Stronger case for grants and partnerships that require institutionally supported data infrastructure.
 
 ### 9.3 For University Partners
