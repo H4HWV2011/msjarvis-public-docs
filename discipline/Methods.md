@@ -1,17 +1,17 @@
 ## 9. Appalachian Field Protocol: Staged Practice
 
-In the Appalachian tacet, these methods are not abstractions. They are being worked out through a sequence of experiments with Ms. Jarvis, MountainShares, and The Commons. The protocol below does not prescribe what all regions should do; it documents how polymathmatic work is being staged here, while the stack is still under construction.
+In the Appalachian tacet, these methods are not abstractions. They are being worked out through a sequence of experiments with Ms. Allis, MountainShares, and The Commons. The protocol below does not prescribe what all regions should do; it documents how polymathmatic work is being staged here, while the stack is still under construction.
 
 ---
 
 ### Stage 0 – Build‑First Grounding (Pre‑Configuration, Ongoing)
 
-The first move has been to assemble and "educate" the apparatus itself. Ms. Jarvis, MountainShares, and early Commons surfaces are being built as a stack that is already place‑literate, constraint‑aware, and spiritually and legally grounded, even before counties, agencies, or major funders have formal seats in the process.
+The first move has been to assemble and "educate" the apparatus itself. Ms. Allis, MountainShares, and early Commons surfaces are being built as a stack that is already place‑literate, constraint‑aware, and spiritually and legally grounded, even before counties, agencies, or major funders have formal seats in the process.
 
 Three elements characterize this stage:
 
-- **Inner corpus formation for Ms. Jarvis.**
-  Ms. Jarvis's enduring semantic space is being shaped by a curated, non‑RAG Chroma corpus that includes major world religious and philosophical texts, the U.S. Constitution and key civil‑rights and due‑process materials, West Virginia–specific benefits and poverty policy (such as the Income Maintenance Manual), high‑resolution geospatial layers (for example, from the WVU GIS Tech Center) loaded into GeoDB/GBIM, and DSM‑adjacent psychological materials (clinical guidelines, crisis‑intervention manuals, empirically grounded summaries) that support humane, boundaried communication without turning the steward into a diagnostic engine. PIA, BBB, and constitutional constraints are exercised against this corpus so that "what not to do" is part of Ms. Jarvis's formation from the beginning.
+- **Inner corpus formation for Ms. Allis.**
+  Ms. Allis's enduring semantic space is being shaped by a curated, non‑RAG Chroma corpus that includes major world religious and philosophical texts, the U.S. Constitution and key civil‑rights and due‑process materials, West Virginia–specific benefits and poverty policy (such as the Income Maintenance Manual), high‑resolution geospatial layers (for example, from the WVU GIS Tech Center) loaded into GeoDB/GBIM, and DSM‑adjacent psychological materials (clinical guidelines, crisis‑intervention manuals, empirically grounded summaries) that support humane, boundaried communication without turning the steward into a diagnostic engine. PIA, BBB, and constitutional constraints are exercised against this corpus so that "what not to do" is part of Ms. Allis's formation from the beginning.
 
 - **Prototyping MountainShares and Commons without live stakes.**
   The identity geometry (Wallet IDs plus UUIDs) and ledger logic are being implemented, but balances remain trivial or test‑only and no live credit obligations exist yet. Early Commons views are being built to explore how offers, needs, stories, and governance proposals might be surfaced, with participation limited to the dev team and a small trusted circle. This allows UX, explanation, and failure modes to be discovered without exposing residents to real economic or reputational risk.
@@ -27,9 +27,9 @@ Stage 0 is best read as a build‑first, corpus‑anchored grounding: a way of e
 
 The next move is not mass public enrollment but **structured red‑team onboarding** of people and institutions who can safely break things.
 
-In Stage 1, researchers, early partners, and local merchants are brought into the system as *conscious testers*. They receive Wallet IDs and UUIDs, get access to more complete views of Ms. Jarvis and MountainShares behaviour, and are invited to probe for:
+In Stage 1, researchers, early partners, and local merchants are brought into the system as *conscious testers*. They receive Wallet IDs and UUIDs, get access to more complete views of Ms. Allis and MountainShares behaviour, and are invited to probe for:
 
-- Misreadings of Appalachian life in Ms. Jarvis's answers and maps.
+- Misreadings of Appalachian life in Ms. Allis's answers and maps.
 - Failure modes in identity geometry, ledger logic, and benefits‑sensitive constraints.
 - Frictions or breakdowns in actual merchant flows (for example, how a purchase would feel at a counter).
 
@@ -61,7 +61,7 @@ In Stage 3:
 - The Commons app is rolled out beyond the initial trusted circle, giving residents a place to see offers, needs, events, and MountainShares‑related activity.
 - Badges and levels appear as non‑tradable proofs of participation, making care work, storytelling, and local leadership visible without turning recognition into a speculative asset.
 - Commons councils form from residents, merchants, organizers, and red‑team members to steward norms, resolve conflicts, and deliberate on proposed rule changes or new use cases.
-- Ms. Jarvis is increasingly encountered through Commons interfaces: as a context‑aware helper, mapmaker, and explainer, not as a back‑office system.
+- Ms. Allis is increasingly encountered through Commons interfaces: as a context‑aware helper, mapmaker, and explainer, not as a back‑office system.
 
 Stage 3 is when the stack begins to feel like a shared civic and cultural surface rather than a set of technical pilots.
 
