@@ -46,7 +46,7 @@
 ## How to Become a Government Commons Node Partner
 
 - Identify an internal champion within the Agency (for example, program manager, data lead, or CIO designee).  
-- Review the **Government Commons Node & Ms. Jarvis Partnership Overview** and relevant statutes, policies, and data‑governance rules.  
+- Review the **Government Commons Node & Ms. Allis Partnership Overview** and relevant statutes, policies, and data‑governance rules.  
 - Schedule an exploratory consultation with Harmony for Hope and KTS to define 1–2 concrete use‑cases (for example, overdose + resilience, emissions + health).  
 - Select initial data streams and Commons datasets that are legally and operationally feasible.  
 - Coordinate with Agency legal, IT, and data‑governance teams to:
