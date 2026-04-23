@@ -2,9 +2,9 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat recognition, spendable M$, reserve ratios, and phase transitions as a single coupled system, explicitly tying minting and circulation to backing assets and regional program realities. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat recognition, spendable M$, reserve ratios, and phase transitions as a single coupled system, explicitly tying minting and circulation to backing assets and regional program realities. See https://github.com/H4HWV2011/msallis-public-docs/blob/main/docs/Polymathmatical-Geography.md
 > - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve-ratio calculations, dashboards, audits, and governance cadences so that money creation, caps, and emergency actions are observable and reconstructable over time.
-> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Jarvis, and H4H authority inside hard economic and legal constraints, ensuring that decisions about rates, caps, and shutdowns answer to local solvency and community safety rather than abstract speculation.
+> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. allis, and H4H authority inside hard economic and legal constraints, ensuring that decisions about rates, caps, and shutdowns answer to local solvency and community safety rather than abstract speculation.
 > - **Anti-leakage and closed-loop spending:** The separation of the recognition ledger from capped, reserve-backed M$ (Section 1) and the reserve-ratio-driven adjustment table (Section 3) operationalize anti-leakage design and keep the closed loop anchored in real backing assets.
 > - **Bounty and corrective programs:** Promo-pool rules (Section 4) and example governance scenarios (Appendix B) show how targeted bonuses and parameter changes can be treated as bounded "bounties" aligned with safety math rather than unconstrained giveaways.
 
@@ -36,7 +36,7 @@ Phase 1 does not start from zero. It starts from a tested, red-teamed foundation
 - A red-teamed wallet and M$ system with documented security findings and remediations
 - A cohort of Groundbreaker-rank participants who carry founding badges, founding EMS hours, and governance eligibility into Phase 1
 - A Phase 0 Pre-Launch Audit Report that serves as the permanent founding governance record
-- A tested Ms. Jarvis system with reserve ratio enforcement, safety trigger logic, and chatbot integration
+- A tested Ms. allis system with reserve ratio enforcement, safety trigger logic, and chatbot integration
 - Validated data stewardship workflows, including ground-truthing consent processes and initial contact record collection
 
 All EMS hours logged during Phase 0 carry forward permanently. Groundbreaker rank is locked — it cannot be earned after Phase 1 opens. Founding badges are permanent and visible on UEI profiles forever.
@@ -49,7 +49,7 @@ Phase 1 inherits everything Phase 0 built and opens it to the community.
 
 - **Recognition Ledger (Unlimited):** All EMS hours logged on-chain with full UEI, geo, org, and timestamp data. No hard cap; serves as permanent audit trail, rank engine, and identity marker.
 - **Spendable M$ (Capped & Reserve-Backed):** Convertible portion pegged to treasury backing ratio. Starts conservatively; can only increase with DAO vote inside safe thresholds.
-- **Hard Triggers (Automatic, Non-Negotiable):** Ms. Jarvis enforces automatically; no DAO override possible.
+- **Hard Triggers (Automatic, Non-Negotiable):** Ms. allis enforces automatically; no DAO override possible.
 - **Two games, one system:** The Commons daily game and the MountainShares contribution game share the same UEI, the same recognition ledger, and the same EMS hours. Every qualifying Commons activity feeds rank, governance standing, and badge progression in MountainShares automatically.
 - **Three-stage platform arc:** The Commons grows from a barter/trade and Facebook Marketplace feel (Phase 1 early) through TikTok-style discovery (Phase 1 mature) to an Amazon-style full commerce layer (Phase 2+). Economic safety parameters must support each stage. See [The Commons Gamification](../the%20commons/The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md) Section 2 for the full arc.
 
@@ -74,7 +74,7 @@ All current rates and caps are maintained in the [Program Rules – Parameter Ta
 **Tier Assignment Logic:**
 - Tier 1 default for all new UEIs.
 - Tier 2 requires: org co-sign (nonprofit, EMS, mutual aid network) + geo-fence verification + Commons trust signals.
-- Ms. Jarvis flags tier eligibility; final assignment by DAO governance or pre-agreed rules.
+- Ms. allis flags tier eligibility; final assignment by DAO governance or pre-agreed rules.
 
 ### 3.3 Benefits-Sensitive Account Protections
 
@@ -83,7 +83,7 @@ Participants receiving means-tested public benefits (SNAP, Medicaid, SSI, WV WOR
 - **Hard balance cap:** M$ wallet balance may not exceed a threshold set to protect benefits eligibility (DAO-governed, defaults to conservative level at Phase 1 launch; see [Parameter Tables](Program%20Rules%20%E2%80%93%20Parameter%20Tables.md) Section 6)
 - **Throttled earning rate:** EMS-to-M$ conversion throttles automatically if balance approaches cap
 - **No forced disclosure:** Participation in The Commons does not require disclosure of benefit status; protection is opt-in and participant-controlled
-- **Ms. Jarvis proactive notice:** When a Benefits-Sensitive Account participant approaches a threshold, Ms. Jarvis provides a plain-language notice and suggests they consult with a benefits counselor before converting additional EMS
+- **Ms. allis proactive notice:** When a Benefits-Sensitive Account participant approaches a threshold, Ms. allis provides a plain-language notice and suggests they consult with a benefits counselor before converting additional EMS
 - **Non-countable recognition hours:** EMS hours on the recognition ledger are not M$ balances and are not designed to be treated as income or assets for benefits purposes; legal counsel reviews this classification before Phase 1 launch
 
 ### 3.4 Examples at 0.2 Base Rate
@@ -130,7 +130,7 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 > See Parameter Tables Section 4.3 for governance floors, adjustability rules, and the full allocation
 > rationale.
 
-### 4.2 Safety Thresholds (Ms. Jarvis Enforces Automatically)
+### 4.2 Safety Thresholds (Ms. allis Enforces Automatically)
 
 | Reserve Ratio | Global Base Rate | User Cap Adjustment | Bonus Promos | Action |
 |---------------|------------------|-------------------|------------|--------|
@@ -140,10 +140,10 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 | < 0.75 | 0.1 M$/hr (Emergency Floor) | 20–40 M$/mo | Frozen | Auto-tighten; no DAO votes increase anything |
 
 **Automatic Trigger Logic:**
-- Ms. Jarvis recalculates reserve ratio daily.
+- Ms. allis recalculates reserve ratio daily.
 - If ratio crosses a threshold boundary, new rate and caps apply at next epoch (24–48 hour notice to all participants).
 - No human approval required for *downward* adjustments; they fire automatically.
-- Promo pool bonuses pause automatically when reserve ratio < 1.0. Ms. Jarvis notifies participants in plain language.
+- Promo pool bonuses pause automatically when reserve ratio < 1.0. Ms. allis notifies participants in plain language.
 
 ---
 
@@ -174,7 +174,7 @@ The following categories are recognized as qualifying EMS-earning activities in 
 | **Learning and Teaching** | Workshops, skill sessions, mentoring, learning modules | 1 EMS hr per verified hour |
 | **Cultural Preservation** | Clio trail markers, oral history, heritage events, traditions | 1 EMS hr per verified hour |
 | **Land and Mapping** | GIS validation, place record submission, parcel verification | 1 EMS hr per verified hour |
-| **Data Stewardship** | Ground-truthing, contact collection (with consent), Ms. Jarvis verification ping responses, record updates | EMS awarded per verified activity and per ping response; funded per smart contract structure |
+| **Data Stewardship** | Ground-truthing, contact collection (with consent), Ms. allis verification ping responses, record updates | EMS awarded per verified activity and per ping response; funded per smart contract structure |
 | **Community Events** | Commons-hosted events, volunteer hours, local programs | 1 EMS hr per verified hour |
 | **Governance Participation** | DAO votes, proposal review and feedback, governance sessions | 1 EMS hr per session |
 | **Emergency Preparedness** | Prep activities during active NOAA alert periods, resilience drills | Promo bonus when reserve permits |
@@ -192,7 +192,7 @@ Data accuracy is a core commons value and a recognized EMS-earning activity. Rur
 
 1. Community Champions (and eligible participants) collect contact information — email and SMS — for local places, businesses, organizations, and services.
 2. **Explicit opt-in consent** is required and documented at collection time (collector UEI, collection date, consent method, contact type).
-3. Ms. Jarvis runs automated verification pings every **6–12 months** to each consenting record holder.
+3. Ms. allis runs automated verification pings every **6–12 months** to each consenting record holder.
 4. When the record holder **responds and confirms or updates** their data, they earn EMS hours. The record is marked verified with a new timestamp and confidence score.
 5. Verification rewards are funded per the existing smart contract structure, separate from the promo pool.
 
@@ -211,10 +211,10 @@ Champion responsibilities in any given period are defined through governance. EM
 
 ### 7.3 Data Stewardship KPIs
 
-Ms. Jarvis tracks and publishes the following data quality indicators as part of the weekly network snapshot:
+Ms. allis tracks and publishes the following data quality indicators as part of the weekly network snapshot:
 
 - % of active place records verified within the last 12 months
-- Response rate to Ms. Jarvis verification pings (rolling 6-month)
+- Response rate to Ms. allis verification pings (rolling 6-month)
 - Total records collected, verified, and updated in current period
 - Number of active participants with Data Keeper or Living Map badges
 
@@ -246,7 +246,7 @@ Full KPI definitions are in the [KPI Specification](MountainShares%20KPI%20Speci
 ❌ Alter smart-contracted fee rates outside the governance process defined in the Parameter Tables
 ❌ Reduce Treasury Reserve allocation below 20% or H4H Operations below 20% (governance floors per Parameter Tables Section 4.3.3)
 
-### 8.3 Ms. Jarvis Authority (Automatic, No Vote Needed)
+### 8.3 Ms. allis Authority (Automatic, No Vote Needed)
 
 ✅ Enforce reserve ratio checks every 24 hours; apply auto-adjustments if thresholds crossed
 ✅ Flag and freeze EMS/M$ flows tied to illegal content or high-risk patterns
@@ -305,14 +305,14 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 | **Benefits Fraud** | No misrepresentation of benefits status to manipulate account tier or cap | Cross-check + manual review trigger | Account freeze + investigation |
 
 **Enforcement:**
-- Ms. Jarvis auto-flags and freezes.
+- Ms. allis auto-flags and freezes.
 - Human review within 24–48 hours.
 - Clear appeals process for false positives.
 - Transparent logging (anonymized) of all freezes/bans.
 
 ---
 
-## 12. Transparency & Dashboards (Ms. Jarvis Public API)
+## 12. Transparency & Dashboards (Ms. allis Public API)
 
 Every UEI can see (updated daily):
 
@@ -338,11 +338,11 @@ Every UEI can see (updated daily):
 
 ## 13. Audit & Governance Cadence
 
-- **Daily:** Ms. Jarvis publishes reserve ratio, auto-applies threshold-triggered adjustments, runs data confidence scoring
+- **Daily:** Ms. allis publishes reserve ratio, auto-applies threshold-triggered adjustments, runs data confidence scoring
 - **Weekly:** Network snapshot (active users, volume, M$ minted, promo spend, data stewardship KPIs)
 - **Monthly:** Full treasury audit, DAO governance session (proposals + votes)
 - **Quarterly:** External audit by independent WV nonprofit (if funds permit); Champion role scope review through governance
-- **Every 6–12 months:** Ms. Jarvis verification ping cycle for all consenting place records
+- **Every 6–12 months:** Ms. allis verification ping cycle for all consenting place records
 
 ---
 
@@ -355,7 +355,7 @@ Every UEI can see (updated daily):
 - Emergency governance session called within 48 hours
 - Options: (a) shut down gracefully, (b) seek external funding, (c) reset with community consent
 
-### 14.2 If Ms. Jarvis Detects Coordinated Fraud or Attack
+### 14.2 If Ms. allis Detects Coordinated Fraud or Attack
 - Affected accounts frozen pending review
 - Daily public reporting of incident (anonymized)
 - Emergency DAO vote on remediation (clawback, reset, shutdown)
@@ -375,14 +375,14 @@ Every UEI can see (updated daily):
 - **EMS:** Earned Merit Score hour — 1 hour of qualifying community work logged with UEI + geo + timestamp
 - **M$:** MountainShares token (spendable, reserve-backed, convertible)
 - **Backing Assets:** Liquid USD and near-liquid reserves (fees, donations, CLIO revenue)
-- **Reserve Ratio:** Backing Assets / Outstanding M$; Ms. Jarvis enforces thresholds
+- **Reserve Ratio:** Backing Assets / Outstanding M$; Ms. allis enforces thresholds
 - **Tier:** User classification (Tier 1 = general, Tier 2 = verified EMS/caregiving)
-- **Hard Trigger:** Automatic enforcement rule (Ms. Jarvis, no override)
+- **Hard Trigger:** Automatic enforcement rule (Ms. allis, no override)
 - **DAO Vote:** Community governance (1 UEI = 1 vote, super-majority for increases)
 - **Benefits-Sensitive Account:** Account flagged (by participant opt-in) as belonging to a means-tested benefits recipient; subject to additional cap and throttle protections per Parameter Tables Section 6
 - **Ground Truthing:** The activity of collecting, verifying, and updating local place and contact records with documented consent
-- **Verification Ping:** An automated Ms. Jarvis outreach (email or SMS) to a consenting record holder asking them to confirm or update their data; responding earns EMS hours
-- **Confidence Score:** Ms. Jarvis’s per-record quality rating based on verification recency, response history, and cross-source consistency
+- **Verification Ping:** An automated Ms. allis outreach (email or SMS) to a consenting record holder asking them to confirm or update their data; responding earns EMS hours
+- **Confidence Score:** Ms. allis’s per-record quality rating based on verification recency, response history, and cross-source consistency
 - **Three-Stage Platform Arc:** The Commons’ growth path from Stage 1 (Marketplace/barter) → Stage 2 (Discovery/TikTok-feel) → Stage 3 (Full Commerce/Amazon-style)
 - **Fee Revenue Allocation:** The 30/30/15/15/10 split of all collected fee revenue across H4H Operations, Treasury Reserve, Platform Development, Community Programs, and Community Projects, plus the +0.55% supplemental treasury reserve on gross volume; fully defined in Parameter Tables Section 4.3
 
@@ -406,7 +406,7 @@ Every UEI can see (updated daily):
 **Result:** Next epoch (24 hrs), all users get 1.75× their previous earning potential.
 - Tier 1: now capped at 60 M$/mo instead of 40
 - Tier 2: now capped at 100 M$/mo instead of 80
-- Ms. Jarvis recalculates reserve ratio: still 1.18 (healthy)
+- Ms. allis recalculates reserve ratio: still 1.18 (healthy)
 
 **Rinse, repeat monthly.** As volume grows and the reserve ratio strengthens, the community votes its own way up the scale toward 1:1. As the data layer matures and Champion focus shifts, governance updates the Champion role scope. As Phase 2 graduation criteria approach, the community sees it in the dashboard before the vote happens.
 
@@ -425,8 +425,8 @@ Key roles relevant to this specification:
 | **Community Champion** | Primary ground-truthing and data stewardship force in Phase 1 early; role evolves through governance |
 | **Safety Champion** | Ongoing post-Phase 0 safety review; feeds into quarterly audit cycle |
 | **Merchant** | Pays 1.80% transaction fee per Parameter Tables Section 4.1; 30% of that fee routes to Treasury Reserve at settlement per the fee revenue allocation (Parameter Tables Section 4.3); merchant fees are a primary reserve-building mechanism |
-| **Ms. Jarvis** | Enforces all hard triggers; runs verification pings; maintains reserve ratio and confidence scores |
+| **Ms. allis** | Enforces all hard triggers; runs verification pings; maintains reserve ratio and confidence scores |
 
 ---
 
-*“People earn what they do. The commons holds what we decide together. Ms. Jarvis watches so nobody can wreck it.”*
+*“People earn what they do. The commons holds what we decide together. Ms. allis watches so nobody can wreck it.”*
