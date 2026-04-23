@@ -16,7 +16,7 @@ In each case, the commons is treated as an *entangled space* where material flow
 
 ### 1.1 Why these commons matter for Appalachia
 
-This non‑digital survey is not antiquarian; it is a **design toolkit** for contemporary Appalachia. Each case is a lens on questions The Commons, MountainShares, and Ms. Jarvis must answer:
+This non‑digital survey is not antiquarian; it is a **design toolkit** for contemporary Appalachia. Each case is a lens on questions The Commons, MountainShares, and Ms. Allis must answer:
 
 - Who can see and shape the rules of access to shared resources (land, water, code, data)?
 - How are obligations, debts, and harms recorded—in ledgers, stories, or both?
@@ -24,7 +24,7 @@ This non‑digital survey is not antiquarian; it is a **design toolkit** for con
 
 English enclosure shows how quickly shared subsistence geographies can be rewritten into private parcels once legal and surveying instruments align. Quaker Pennsylvania shows a spiritual–legal commons that can admonish powerful members while still participating in settler‑colonial expansion. Mediterranean huertas show how time‑based rights and open tribunals hold a water commons together across generations. Sacred forests show how spiritual meaning and ritual can protect ecological structure as effectively as statute. The Roman Empire meme shows how an unanchored symbolic commons—a shared imaginative inheritance of empire, order, and masculine heroism—can circulate invisibly across millions of minds until a simple question makes it visible as both cultural data and power geometry.
 
-Polymathmatic Geography treats today's digital and financial infrastructures in Appalachia as continuations of these struggles. MountainShares' parameter tables, The Commons' moderation rules, and Ms. Jarvis's geospatial belief model are modern instruments that can either re‑enact enclosure or sustain new, accountable commons.
+Polymathmatic Geography treats today's digital and financial infrastructures in Appalachia as continuations of these struggles. MountainShares' parameter tables, The Commons' moderation rules, and Ms. Allis's geospatial belief model are modern instruments that can either re‑enact enclosure or sustain new, accountable commons.
 
 ### 1.2 Temple Ledgers and Barley Credit in Ancient Mesopotamia
 
@@ -250,7 +250,7 @@ The Roman Empire trend also offers a methodological lesson for commons research.
 
 This is a compressed version of what Polymathmatic Geography does with braided semantics: the meaning-track (what Rome *feels* like to men who think about it) and the analytical-track (what polls measure about frequency and gender) both illuminate the same commons from different angles, and the gap between them is itself a finding. Men who think about Rome daily cannot usually explain what work that thinking is doing—which is exactly what unanchored symbolic commons look like in the semantics framework. The commons circulates; the anchors are missing.
 
-For Ms. Jarvis and MountainShares, this is a cautionary example as much as a playful one: **any commons can develop an invisible symbolic layer** that shapes who participates, who feels at home, and whose imaginative vocabulary sets the default terms. Designing accountable commons means periodically asking the uncomfortable question: what is everyone thinking about but no one has named?
+For Ms. Allis and MountainShares, this is a cautionary example as much as a playful one: **any commons can develop an invisible symbolic layer** that shapes who participates, who feels at home, and whose imaginative vocabulary sets the default terms. Designing accountable commons means periodically asking the uncomfortable question: what is everyone thinking about but no one has named?
 
 ### 6.5 Further reading on the Roman Empire meme and symbolic commons
 
