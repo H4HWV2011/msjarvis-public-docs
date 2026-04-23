@@ -1,296 +1,589 @@
-# 3. MountainShares DAO and Community Economy
+# 3. MountainShares DAO — Governance Architecture, Perimeter, and Live Topology
 
-> **Case Study: Appalachian Economic Commons**
-
-<div align="center">
-  <img width="500" alt="FaiGvpYi" src="https://github.com/user-attachments/assets/ede5051c-b005-4540-81f8-5bb92461e06d" />
-</div>
-
-> Figure 1. MountainShares as Case Study 1 within Polymathmatic Geography, applying Quantarithmia principles to a concrete, place‑bound economic system in Mount Hope, West Virginia.
-
-Within this thesis, MountainShares functions as **Case Study 1** in the emerging catalog of polymathmatic case studies (see https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md). It applies core polymathmatic axioms to a concrete, place‑bound economic system in and around Mount Hope, West Virginia:
-
-- **Leakage and extraction** – tracking how value "leaks" from Appalachian communities through distant financial, data, and platform infrastructures, and designing mechanisms to reduce that leakage.
-- **Commons and shared infrastructure** – treating payment rails, data backbones, and governance tools as shared institutional infrastructure rather than proprietary black boxes.
-- **Accountability to place** – tying rules, flows, and decision rights to specific communities and geographies, so that institutional power is answerable to the places it affects.
-- **Glass‑box instrumentation** – using Ms. Jarvis and GBIM as inspectable instruments whose behaviors, biases, and limits can be studied, calibrated, and contested.
-
-Within **polymathmatic geography** and the **Quantarithmia** framework, MountainShares is a DAO‑based economic and governance system designed to keep value, voice, and decision‑making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It is intentionally positioned as a community‑governed project that operates alongside, not in place of, existing banks, credit unions, or regulated financial institutions. In the current deployment, MountainShares operates on the same production GBIM, GeoDB, Chroma, and `local_resources` stack described in the instrumentation chapters, using those structures for live benefits and governance queries.
-
-Within the thesis, MountainShares serves as the institutional case study where Quantarithmia's spatial‑justice commitments and Ms. Jarvis's GBIM‑powered analysis are translated into concrete rules, roles, and processes. The GBIM corpus — maintained in the PostgreSQL 16 `msjarvisgis` database (port 5432) with **5,416,521 verified beliefs** organized across nine epistemic axes — provides the spatial and institutional grounding for MountainShares governance analysis, risk assessment, and community accountability mechanisms.
-
-> **Governance corpus — ★ CONFIRMED LIVE March 26, 2026.** The complete MountainShares DAO governance documentation is fully ingested into the `governance_rag` ChromaDB collection (**643 chunks, semantically indexed and retrieval-verified**). The ingested corpus includes:
->
-> | Document | Status |
-> |---|---|
-> | MountainShares DAO Charter | ✅ Ingested |
-> | Terms of Use | ✅ Ingested |
-> | Program Rules | ✅ Ingested |
-> | Parameter Tables | ✅ Ingested |
-> | Phase 0 Specification (invite-only beta) | ✅ Ingested |
-> | Phase 1 Specification | ✅ Ingested |
-> | Phase 2 Specification | ✅ Ingested |
-> | Phase 3 Specification | ✅ Ingested |
-> | KPI Specification | ✅ Ingested |
-> | Safety Champion Protocol | ✅ Ingested |
-> | Funder Overview | ✅ Ingested |
-> | Phase 0 Audit Template | ✅ Ingested |
-> | US Constitution (97 chunks, Project Gutenberg) | ✅ Ingested |
->
-> Semantic retrieval verified March 26, 2026. Ms. Jarvis can answer natural-language governance queries against this corpus as of March 26, 2026.
-
-> **★ Phase 0 Beta — LAUNCHED March 26–27, 2026.** All five MountainShares container services (ports 8080–8084) are deployed and live in the `msjarvis-rebuild` namespace. Five smart contracts are confirmed live on **Arbitrum One mainnet (chain ID 42161)**. Contract addresses verified via `/health` endpoint. The commons gamification corpus (`commons_rag`, 306 chunks) and governance corpus (`governance_rag`, 643 chunks) provide the semantic backing for Phase 0 community governance queries. Phase 0 is an invite-only beta — no public members yet, but the full technical stack is operational.
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: 2026-04-22*
 
 ---
 
-## Purpose and Design Goals
+## Why This Matters for Polymathmatic Geography
 
-MountainShares is built to:
+This chapter describes the MountainShares DAO governance layer — the constitutional,
+computational, and perimeter architecture that governs how community proposals, token
+stake, and resource allocation decisions flow through Ms. Jarvis. It supports:
 
-- Encourage more economic activity and value circulation within participating local communities instead of defaulting to distant financial and platform intermediaries.
-- Give residents, nonprofits, and local businesses a documented, auditable role in shaping rules, resource allocation, and priorities.
-- Provide a constitutional and transparent governance layer for the system's rules and technologies, while remaining subject to applicable law and regulation.
+- **P3 – Power has a geometry** by making institutional decision-making pathways explicit,
+  auditable, and spatially grounded — DAO proposals do not float free of geography but are
+  evaluated against a Chroma and PostgreSQL substrate that encodes West Virginia counties,
+  GBIM entities, and verified local resources.
 
-In the production system, MountainShares draws on Ms. Jarvis and the PostgreSQL `msjarvisgis` GBIM corpus, including spatial beliefs from `gbimbeliefnormalized` (5,416,521 verified rows) and GeoDB features across 501 tables, to analyze risk, access, and local circulation patterns. Design decisions are evaluated against questions such as: "Does this change keep value and decision‑making closer to the community?" and "Can community members see, understand, and challenge how the system operates?"
+- **P5 – Design is a geographic act** by treating every governance schema decision —
+  which proposals are valid, which constitutional constraints apply, which token holders
+  have stake — as a deliberate choice about how power is distributed across Appalachian
+  communities rather than concentrated in abstract administrative categories.
 
----
+- **P12 – Intelligence with a ZIP code** by binding DAO deliberations to county-level
+  infrastructure questions grounded in `local_resources` (101 verified items, all 55 WV
+  counties), `address_points` (1,115,588 spatial records), and `gbim_worldview_entities`
+  (5,416,521 eq1 worldview entities), so that governance decisions are answerable to
+  specific places and people rather than to abstract token economics alone.
 
-## Closed‑Loop Economic Model
+- **P16 – Power accountable to place** by requiring that all external DAO traffic pass
+  through a hardened perimeter — Cloudflare tunnel → Caddy (8085) → auth (8055) →
+  main-brain (8050) — so that no governance route is reachable without a valid token and
+  no container is exposed at `0.0.0.0`, making accountability to place a structural
+  property of the network rather than a policy aspiration.
 
-MountainShares uses a closed‑loop wallet model:
-
-- **Funding in** – Participants load funds from external rails (for example, Stripe‑processed card payments) into a MountainShares‑denominated balance.
-- **Circulation** – Within the closed loop, balances move between participants and merchants under DAO‑defined rules, with an emphasis on local spending and community‑aligned transactions.
-- **Funding out** – Conversion back to external money systems follows defined, auditable processes that respect both legal requirements and community priorities.
-
-<div align="center">
-  <img width="90%" alt="1kEQDSux" src="https://github.com/user-attachments/assets/7583a048-fdb9-4a2c-83b6-861336dcbf71" />
-</div>
-
-> Figure 2. MountainShares closed‑loop economic model: participants load funds in, circulate them locally under DAO rules with minimal friction, and can convert back out via defined, auditable processes. Most friction is at system boundaries rather than on local transactions.
-
-Fees are structured so that most friction is at the boundaries (loading in, merchant side) rather than on every small local transaction. This is meant to make everyday community use feel low‑friction, while still supporting system sustainability and compliance. All fee structures are subject to change only through appropriate governance and must remain consistent with applicable laws and payment‑provider terms.
-
----
-
-## Governance Structure and Phases
-
-MountainShares governance is explicitly phased. The Phase 0 through Phase 3 specifications are fully ingested into the `governance_rag` ChromaDB collection (643 chunks, confirmed live March 26, 2026), making governance rules and phase transition criteria queryable by natural language through Ms. Jarvis:
-
-- **Phase 0 — Invite-only beta (★ LAUNCHED March 26–27, 2026)**
-  The Phase 0 spec defines the invite-only beta parameters, participant constraints, and audit requirements. All five MountainShares container services (ports 8080–8084) are deployed and live. Five smart contracts are confirmed live on Arbitrum One mainnet (chain ID 42161). The `governance_rag` (643 chunks) and `commons_rag` (306 chunks) collections provide the semantic backing for Phase 0 governance. No public members yet — invite-only beta is the current operational state.
-
-- **Growth phase**
-  As participation and capacity increase, more decisions move into community proposals, voting, and review processes, supported by Ms. Jarvis's analytical and explanatory tools.
-
-- **Constitutional phase**
-  Once the system reaches sufficient adoption, certain categories of change (for example, constitutional rules or irreversible structural changes) require a supermajority threshold (e.g., 67%) to pass, to prevent small factions from rewriting core commitments.
-
-<div align="center">
-  <img width="600" height="600" alt="Gemini_Generated_Image_23ytfz23ytfz23yt" src="https://github.com/user-attachments/assets/0ca4c125-e44d-4596-b129-fb22cfe1f130" />
-</div>
-
-> Figure 3. MountainShares governance phases: Phase 0 (invite-only beta — ★ LAUNCHED March 26–27, 2026, Arbitrum One mainnet, chain ID 42161) → Growth Phase (community proposals and voting supported by Ms. Jarvis analysis) → Constitutional Phase (core commitments protected by supermajority thresholds).
-
-This phased approach acknowledges that a fully "flat" governance structure is unrealistic at launch, but treats early central roles as temporary scaffolding rather than a permanent power center.
+As such, this chapter belongs to the **Governance and Community Infrastructure** tier:
+it defines the live DAO topology, the Caddy/auth perimeter, the pituitary regulator that
+sits above the DAO layer, the AU-02 impersonation defense, and the DGM governance hooks
+that constrain evolutionary self-modification at the DAO boundary — all as confirmed
+operational on **April 22, 2026**.
 
 ---
 
-## MountainShares Container Services — ★ DEPLOYED March 26–27, 2026
+## 3.1 Purpose and Scope
 
-All five MountainShares container services are live in the `msjarvis-rebuild` namespace as of March 26–27, 2026. This section documents the production service architecture backing Phase 0 beta operations.
+The MountainShares DAO is the community governance layer of the Ms. Jarvis organism.
+It is not a standalone web application. It is a governed edge of a larger distributed
+system — one in which proposals, votes, token stake, and resource allocation decisions
+are evaluated against constitutional constraints, grounded in spatial and semantic memory,
+modulated by a systemic regulator (the `nbb_pituitary_gland`), and protected by a
+hardened external perimeter.
+
+This chapter documents:
+
+- The live MountainShares service topology as confirmed by the April 22, 2026 preflight
+  gate
+- The Caddy/auth perimeter layer that governs all external access including the DAO tier
+- The `nbb_pituitary_gland` as the systemic regulator above the DAO layer
+- The AU-02 v2 three-layer impersonation detection that governs constitutional alignment
+  at the DAO boundary
+- The DGM governance hooks that constrain evolution proposals affecting governance
+  services
+- Port assignments, container count baseline, and open items
+
+**Container baseline — April 22, 2026:** The preflight gate is configured as
+**Containers ≥ 95** and confirmed passing. The full rebuild footprint runs
+**105–110 containers**, with the governance-critical path fully live even though some
+non-essential neurobiological and indexing services remain below their historical maximum.
+The container count is not a static number — it reflects the live rebuild state and
+should be read as a range rather than a fixed figure.
+
+---
+
+## 3.2 Live MountainShares Service Topology
+
+In the April 22, 2026 rebuild, the MountainShares governance tier is fully live on a
+leaner footprint than the April sealed baseline. The three public-facing MountainShares
+endpoints and their confirmed port assignments are:
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│   MountainShares Container Services — Phase 0 Beta          │
-│   ★ DEPLOYED March 26–27, 2026 — msjarvis-rebuild namespace │
-│   Blockchain: Arbitrum One mainnet (chain ID 42161)         │
-│   Total Ms. Jarvis stack: 96 confirmed live containers      │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  jarvis-mountainshares-gateway    port 8080  ✅ LIVE        │
-│    Primary API gateway for MountainShares services          │
-│                                                              │
-│  jarvis-mountainshares-wallet     port 8081  ✅ LIVE        │
-│    Wallet management and balance operations                 │
-│                                                              │
-│  jarvis-mountainshares-governance port 8082  ✅ LIVE        │
-│    DAO governance proposal and voting interface             │
-│    Backed by governance_rag (643 chunks)                    │
-│                                                              │
-│  jarvis-mountainshares-commons    port 8083  ✅ LIVE        │
-│    Commons gamification and participation tracking          │
-│    Backed by commons_rag (306 chunks)                       │
-│                                                              │
-│  jarvis-mountainshares-audit      port 8084  ✅ LIVE        │
-│    Phase 0 audit trail and accountability logging           │
-│    Phase 0 Audit Template: ingested ✅                      │
-│                                                              │
-│  Smart Contracts (Arbitrum One mainnet, chain ID 42161)     │
-│  ────────────────────────────────────────────────────       │
-│  5 smart contracts confirmed live — March 26–27, 2026       │
-│  phase_mgmt | central_cmd | ms_token | backbone |           │
-│  volunteer_hrs                                              │
-│  Contract addresses verified via /health endpoint          │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+jarvis-mountainshares-coordinator   127.0.0.1:8080->8080/tcp
+  Primary community-facing coordinator UI — proposals, votes, stake views
+
+jarvis-dao-governance               127.0.0.1:8082->8082/tcp
+  Governance API — receives, evaluates, and records MountainShares proposals
+  under Appalachian constitutional constraints
+
+jarvis-community-stake-registry     127.0.0.1:8084->8084/tcp
+  Registry — maps MountainShares tokens and community identities to verifiable
+  stake records in PostgreSQL and GBIM substrate
 ```
 
-*Figure 3a. MountainShares Phase 0 container and smart contract architecture. All five services live in `msjarvis-rebuild` namespace alongside 91 other Ms. Jarvis containers (96 total). Five smart contracts live on Arbitrum One mainnet (chain ID 42161): `phase_mgmt`, `central_cmd`, `ms_token`, `backbone`, `volunteer_hrs`. Governance and commons RAG collections provide semantic backing for natural-language governance queries through Ms. Jarvis.*
+A dedicated token service is also live but runs as an internal microservice rather than
+a directly exposed host port:
 
-### Corpus Backing for Phase 0
+```
+jarvis-ms-token-service             127.0.0.1:8088->8083/tcp
+  Token issuance and validation — internal only, behind Caddy/auth perimeter
+  Host port 8083 is reserved; token service is not directly externally accessible
+```
 
-Phase 0 governance and commons operations are backed by two live ChromaDB RAG collections, both confirmed semantically indexed and retrieval-verified March 26, 2026:
+The original "8080–8084 all live" formulation is refined as of this rebuild: ports
+**8080**, **8082**, and **8084** are host-visible governance services; ports **8081** and
+**8083** are reserved for internal orchestration and future expansion. This is a
+deliberate architecture choice, not an omission.
 
-| Collection | Chunks | Content | Retrieval Status |
+> **Gate 30 CLOSED — April 1, 2026.** Ports 8080–8084 were confirmed live and
+> gate-passing as of April 1, 2026. The April 22, 2026 preflight gate re-confirms the
+> three host-visible ports (8080, 8082, 8084) and the internal token service arrangement.
+
+### 3.2.1 Semantic Substrate Reattachment
+
+At the semantic layer, the DAO's decision-making is reattached to the rebuilt Chroma
+substrate as of April 22, 2026:
+
+| Substrate | Status | Relevance to DAO |
+|---|---|---|
+| `jarvis-chroma` port 8002 | ✅ Healthy — 48+ collections | Grounds DAO deliberations in semantic memory |
+| `local_resources` | ✅ 101 items — all 55 WV counties | Resource allocation proposals grounded in verified registry |
+| `address_points` | ✅ 1,115,588 spatial records | County-level infrastructure questions spatially grounded |
+| `gbim_worldview_entities` | ✅ 5,416,521 eq1 records | Appalachian equity worldview applied to proposal evaluation |
+| `msjarvis` PostgreSQL (port 5433) | ✅ Operational | GBIM belief graph — relational backbone |
+
+When MountainShares proposals touch local resource allocation or county-level
+infrastructure questions, the DAO pipeline grounds its deliberations in both Chroma and
+PostgreSQL rather than relying solely on GBIM SQL. The `local_resources` collection was
+reseeded across all 55 West Virginia counties using `scripts/seed_local_resources.py`
+with 101 items confirmed in the preflight gate.
+
+---
+
+## 3.3 Constitutional and Token Architecture
+
+The MountainShares DAO operates under a layered constitutional framework:
+
+- **US Constitution** (97 chunks in `governance_rag`) — federal supremacy layer
+- **WV State Constitution** (342 chunks in `governance_rag`) — state constitutional
+  constraints, ingested and confirmed live April 22, 2026
+- **MountainShares DAO Charter** — community governance rules, encoded in `governance_rag`
+  and enforced at the `jarvis-dao-governance` (port 8082) evaluation layer
+- **GBIM equity worldview (`eq1`)** — 5,416,521 belief vectors encoding Appalachian
+  equity orientation, applied as the semantic grounding for all proposal evaluation
+
+Token stake and community identity are managed through `jarvis-community-stake-registry`
+(port 8084), which maps token holders to verifiable stake records in the PostgreSQL and
+GBIM substrate. Token issuance and validation run through `jarvis-ms-token-service`
+(internal port 8083, host port 8088) behind the Caddy/auth perimeter — no token
+operation is reachable without a valid authentication credential.
+
+---
+
+## 3.4 External Perimeter — Cloudflare, Caddy, and Auth Layer
+
+All external MountainShares traffic — and all external Ms. Jarvis traffic — passes
+through a hardened perimeter before reaching any governance or inference service. No DAO
+route is reachable without a valid token. No container is bound to `0.0.0.0`.
+
+### 3.4.1 Perimeter Architecture
+
+```
+Internet
+   │
+   ▼
+Cloudflare Tunnel
+  Active — running 1 day 7h as of April 22, 2026
+  Reconnect at 22:56 recovered ✅
+  Public endpoints:
+    egeria.mountainshares.us   — HTTP 200 ✅
+    chat.mountainshares.us     — HTTP 200 ✅
+   │
+   ▼
+Caddy Gateway — port 8085 (→ 8443 TLS termination)
+  Token-enforced — unauthenticated /chat returns HTTP 401 ✅
+  All DAO routes pass through Caddy before reaching downstream services
+   │
+   ▼
+jarvis-auth — port 8055
+  Authenticated (200) ✅
+  Unauthenticated protected (404) ✅
+   │
+   ▼
+jarvis-main-brain — port 8050
+  Primary inference and routing layer
+  All DAO traffic enters the governance pipeline here
+   │
+   ▼
+DAO Services:
+  jarvis-mountainshares-coordinator  :8080
+  jarvis-dao-governance              :8082
+  jarvis-community-stake-registry    :8084
+  jarvis-ms-token-service            :8088 (internal)
+```
+
+### 3.4.2 Perimeter Confirmation — April 22, 2026
+
+| Check | Result |
+|---|---|
+| Cloudflare tunnel active | ✅ Running 1d 7h, reconnect recovered |
+| `egeria.mountainshares.us` | ✅ HTTP 200 |
+| `chat.mountainshares.us` | ✅ HTTP 200 |
+| Caddy token enforcement | ✅ Unauthenticated /chat → HTTP 401 |
+| `jarvis-auth` (port 8055) | ✅ Healthy (200 authenticated, 404 unauthenticated) |
+| `jarvis-main-brain` (port 8050) | ✅ Operational |
+| `0.0.0.0` bindings | ✅ Zero — all services bound to `127.0.0.1` |
+
+This architecture makes the DAO's public presence a governed edge of the larger Jarvis
+organism. There is no path from the internet to a governance service that bypasses
+authentication. The Caddy gateway is not a convenience proxy — it is a constitutional
+enforcement point.
+
+---
+
+## 3.5 AU-02 v2 — Three-Layer Impersonation Detection
+
+> **Status as of April 22, 2026:** AU-02 v2 three-layer impersonation detection is the
+> architectural target and is active as the governing standard for constitutional
+> alignment at the DAO boundary. The Blood-Brain Barrier currently enforces a v1
+> string-match AU-02 and a heuristic truth filter for DAO-bound content; point-to-point
+> wiring for the full v2 runtime gate has been designed and is tracked as a post-rebuild
+> task. The v2 standard governs what the BBB is working toward — it is the specification
+> against which DAO-boundary behavior is evaluated.
+
+### 3.5.1 What AU-02 v2 Governs
+
+AU-02 is the impersonation defense protocol that protects the constitutional integrity of
+the DAO boundary. Its function is to detect and block attempts to impersonate:
+
+1. **System identity** — inputs that falsely claim to be internal Ms. Jarvis components,
+   governance services, or constitutional authorities
+2. **Community identity** — inputs that falsely claim to represent MountainShares token
+   holders, community stake, or verified GBIM entities
+3. **Constitutional authority** — inputs that falsely invoke the DAO Charter, WV
+   Constitution, or federal constitutional constraints to bypass governance evaluation
+
+### 3.5.2 Three-Layer Detection Architecture
+
+The v2 three-layer detection stack operates as follows:
+
+```
+Layer 1 — String-match / pattern detection (v1 baseline, currently live)
+  Detects known impersonation signatures at the BBB boundary
+  Applied to all DAO-bound content before governance evaluation
+  Status: ACTIVE in current BBB implementation
+
+Layer 2 — Semantic impersonation detection (v2 target)
+  Uses gbim_worldview_entities and governance_rag embeddings to detect
+  semantic impersonation — inputs that mimic constitutional language without
+  legitimate authority provenance
+  Status: DESIGNED — post-rebuild wiring task
+
+Layer 3 — GBIM identity cross-reference (v2 target)
+  Cross-references claimed identities against the GBIM belief graph (port 5433)
+  and community stake registry (port 8084) to verify that authority claims
+  have verifiable backing in the structured belief substrate
+  Status: DESIGNED — post-rebuild wiring task
+```
+
+### 3.5.3 Constitutional Alignment at the DAO Boundary
+
+AU-02 v2 is the mechanism by which constitutional alignment is enforced as a runtime
+property rather than a policy statement. When fully live:
+
+- No proposal can invoke constitutional authority without that authority being traceable
+  to a verified GBIM entity or registered constitutional document in `governance_rag`
+- No community identity claim can pass the DAO boundary without cross-reference to the
+  `jarvis-community-stake-registry` (port 8084)
+- No system identity claim can pass without matching a confirmed service in the GBIM
+  belief graph
+
+The v1 string-match layer currently active provides meaningful protection. The v2
+semantic and identity cross-reference layers are the target that makes constitutional
+alignment formally verifiable. Both the current state and the target state are
+documented here so that the gap is explicit and tracked.
+
+---
+
+## 3.6 Caddy/Auth Perimeter Layer — Governance of External Access
+
+> **This section documents the Caddy/auth perimeter as a first-class governance
+> component, not merely an infrastructure detail. All external access — including the
+> DAO tier — is governed by this layer.**
+
+The Caddy/auth perimeter layer is the external boundary of the Ms. Jarvis organism.
+It implements the principle that the DAO is not a public web application but a governed
+edge — accessible only through authenticated channels, with no direct container exposure
+to the internet.
+
+### 3.6.1 Component Roles
+
+| Component | Port | Role |
+|---|---|---|
+| Caddy gateway | **8085** (→ 8443 TLS) | TLS termination, token enforcement, routing |
+| `jarvis-auth` | **8055** | Authentication service — validates tokens before any downstream call |
+| `jarvis-main-brain` | **8050** | Primary inference and routing — all DAO traffic enters here |
+| Cloudflare tunnel | — | External DNS and DDoS protection — `egeria.mountainshares.us`, `chat.mountainshares.us` |
+
+### 3.6.2 Enforcement Properties
+
+The perimeter enforces the following properties by construction:
+
+- **No unauthenticated DAO access.** Every request to `/chat`, governance APIs, or
+  MountainShares endpoints must carry a valid token. Caddy rejects unauthenticated
+  requests at the gateway layer before they reach `jarvis-auth` or any downstream service.
+- **No direct container exposure.** All containers are bound to `127.0.0.1`. The
+  Cloudflare tunnel is the only path from the public internet to the Caddy gateway. There
+  is no port forwarding, no `0.0.0.0` binding, and no unmediated access to governance
+  services.
+- **Single entry point.** The path `Cloudflare → Caddy:8085 → auth:8055 →
+  main-brain:8050` is the sole authorized entry path for all external traffic. DAO
+  services (8080, 8082, 8084) are downstream of this path and are not independently
+  reachable from outside.
+- **Auth service health.** `jarvis-auth` at port 8055 is confirmed healthy:
+  authenticated requests return HTTP 200; unauthenticated requests return HTTP 404 rather
+  than leaking service information.
+
+### 3.6.3 Why This Is a Governance Component
+
+The Caddy/auth perimeter is not a deployment convenience. It is the mechanism by which
+**P16 – Power accountable to place** is implemented at the network layer. Without it,
+governance services would be reachable by any actor with network access, and the
+constitutional constraints enforced at the DAO layer could be bypassed by direct API
+calls. With it, every governance interaction is mediated by authentication — making the
+DAO's authority structure a structural property of the system rather than a social
+convention.
+
+---
+
+## 3.7 DGM Governance Hooks — Evolutionary Self-Modification at the DAO Boundary
+
+> **Status as of April 22, 2026:** The DGM → DAO gate operates as a conceptual and
+> logging relationship rather than a strict runtime gate on MountainShares proposals.
+> The Fifth DGM's explicit `/governance_hooks` and `dao_approval_required` endpoints
+> are not exposed in the current `jarvis-fifth-dgm` service. This is a documented
+> deferred integration tracked as a post-rebuild task. The governance hook architecture
+> described here is the target specification. (See Chapter 32 for full DGM specification.)
+
+### 3.7.1 The Principle
+
+The Darwin-Gödel Machines (DGMs) are the self-modification layer of the Ms. Jarvis
+organism. They propose evolutionary changes to system behavior, service configuration,
+and architectural parameters. The governance hook principle establishes that:
+
+> **Any evolution proposal from a DGM that affects governance services must pass DAO
+> approval before adoption.**
+
+This is not a technical constraint on DGM capability — it is a constitutional constraint
+on what the system is permitted to do to itself. The DAO is the community's mechanism for
+approving or rejecting changes to the governance infrastructure. DGMs are not permitted
+to evolve the governance layer unilaterally.
+
+### 3.7.2 Affected Services
+
+Evolution proposals from `jarvis-fifth-dgm` (port 4002) that touch any of the following
+require DAO approval before adoption:
+
+- `jarvis-mountainshares-coordinator` (8080)
+- `jarvis-dao-governance` (8082)
+- `jarvis-community-stake-registry` (8084)
+- `jarvis-ms-token-service` (8088/8083)
+- `jarvis-auth` (8055)
+- Caddy gateway configuration
+- `governance_rag` collection schema or ingestion rules
+- Constitutional document set in `governance_rag`
+- AU-02 impersonation detection rules
+
+### 3.7.3 Current State and Target Architecture
+
+**Current state (April 22, 2026):**
+
+- `jarvis-fifth-dgm` (port 4002) is live
+- Evolution proposals affecting governance services are logged
+- The DGM → DAO gate operates as a logging and conceptual relationship
+- No explicit `/governance_hooks` or `dao_approval_required` runtime endpoint is
+  currently exposed
+- No live DGM proposal has been blocked or approved through the formal gate in this
+  rebuild
+
+**Target architecture (post-rebuild sprint):**
+
+```
+jarvis-fifth-dgm:4002
+  │
+  ├── Evolution proposal affecting non-governance service
+  │     → Proceeds under standard DGM approval rules
+  │
+  └── Evolution proposal affecting governance service
+        │
+        ▼
+        /governance_hooks endpoint
+          │
+          ▼
+        DAO approval required (jarvis-dao-governance:8082)
+          │
+          ├── Approved → DGM adopts proposal
+          └── Rejected → Proposal logged, not adopted; DGM continues on current state
+```
+
+### 3.7.4 Constitutional Basis
+
+The DGM governance hook principle is derived from the DAO Charter's authority over
+governance infrastructure. It implements the constraint that community governance —
+once established — cannot be unilaterally modified by an autonomous subsystem, even one
+operating with the system's own self-modification authority. This is the architectural
+expression of **P16 – Power accountable to place** at the evolutionary layer.
+
+---
+
+## 3.8 `nbb_pituitary_gland` Integration — Systemic Regulator Above the DAO Layer
+
+> **This section is required. The `nbb_pituitary_gland` is not a peripheral service —
+> it is the systemic regulator that sits above the DAO layer and governs the warmth and
+> priority weighting applied to all DAO-touching governance interactions. Its omission
+> from prior Chapter 3 versions was an error. This is authoritative as of April 22,
+> 2026.**
+
+### 3.8.1 Confirmed Live State — April 22, 2026
+
+| Parameter | Value | Meaning for DAO |
+|---|---|---|
+| Service | `nbb_pituitary_gland` | Global mode regulator |
+| Host port | **8108** → container port 80 | Confirmed live |
+| `mode` | `elevated` | Heightened responsiveness — DAO interactions weighted toward care |
+| `cortisol` | `0.6` | Moderate urgency signal — balanced routing |
+| `urgency` | `0.5` | Not crisis, not idle — balanced dispatch |
+| `warmth` | `0.9` | High warmth — community-care weighting active for all DAO interactions |
+| Protocols confirmed | **6 of 6** | crisis, elevated, baseline, consolidation, creative, rest |
+| Source | `auto_watchdog` | Mode maintained by watchdog cycle |
+
+### 3.8.2 What the Pituitary Governs at the DAO Layer
+
+The `nbb_pituitary_gland` is upstream of the DAO layer in the governance pipeline. Its
+mode state acts as a global scaling tensor on the belief-state vector before any
+governance dispatch — including all MountainShares proposal evaluation, stake queries,
+and community resource allocation decisions.
+
+For DAO-touching interactions specifically:
+
+- **`warmth=0.9`** — community-care weighting is applied to all DAO deliberations.
+  Proposals touching food access, housing, health resources, or underserved community
+  infrastructure receive elevated semantic weight in the Chroma retrieval that grounds
+  governance evaluation. This is not a policy preference encoded in a configuration file —
+  it is a mathematical transformation applied to the belief-state before projection.
+
+- **`cortisol=0.6`** — the Blood-Brain Barrier operates at moderate sensitivity for
+  DAO-bound content. AU-02 filtering is neither maximally strict nor permissive. This
+  reflects a deliberate balance between open community participation and constitutional
+  integrity protection.
+
+- **`mode=elevated`** — all five judges (truth, ethics, alignment, consistency, citation)
+  operate at elevated threshold sensitivity when evaluating governance proposals. A
+  governance decision that passes under `mode=baseline` may require stronger evidence
+  under `mode=elevated`.
+
+- **Six protocols confirmed** — the pituitary has confirmed all six mode protocols (crisis,
+  elevated, baseline, consolidation, creative, rest), meaning the system can transition
+  between governance operating states in response to community conditions without losing
+  constitutional alignment.
+
+### 3.8.3 Position in the Governance Stack
+
+```
+nbb_pituitary_gland (port 8108)          ← Systemic regulator — sits ABOVE DAO layer
+   │  mode=elevated, warmth=0.9
+   │  Global scaling tensor T_pit applied to belief-state before all dispatch
+   ▼
+WOAH weighted optimization hierarchy     ← Governance weight vector modulated by pituitary
+   │
+   ▼
+Caddy:8085 → auth:8055 → main-brain:8050 ← External perimeter (§3.6)
+   │
+   ▼
+jarvis-dao-governance:8082               ← Constitutional evaluation
+   │
+   ├── jarvis-mountainshares-coordinator:8080
+   ├── jarvis-community-stake-registry:8084
+   └── jarvis-ms-token-service:8088
+```
+
+The pituitary's position above the DAO layer means that the community-care orientation
+of the system is not contingent on which governance service processes a proposal — it is
+applied at the systemic level before any governance service receives the interaction.
+This is the architectural guarantee that MountainShares governance operates within an
+equity-oriented belief-state by default, not by convention.
+
+### 3.8.4 EEG Coherence Confirmation
+
+The neurobiological coherence of the system during DAO operation is confirmed by the
+EEG services active as of April 22, 2026:
+
+| Service | Pulses | Status |
+|---|---|---|
+| `jarvis-eeg-delta` (port 8073) | 253 | ✅ Active — deep structural processing |
+| `jarvis-eeg-theta` (port 8074) | 127 | ✅ Active — integrative processing |
+| `jarvis-eeg-beta` (port 8075) | 25 | ✅ Active — active reasoning |
+
+EEG delta/theta/beta coherence confirms that the neurobiological substrate supporting
+DAO deliberations is operating across all three processing bands — structural, integrative,
+and active reasoning — simultaneously.
+
+---
+
+## 3.9 Canonical Port Table — MountainShares and Governance Services
+
+> All stale port references are retired. The following is authoritative as of
+> April 22, 2026.
+
+### MountainShares DAO Services
+
+| Service | Container | Host Port | Container Port | Status |
+|---|---|---|---|---|
+| MountainShares Coordinator | `jarvis-mountainshares-coordinator` | **8080** | 8080 | ✅ Live |
+| DAO Governance API | `jarvis-dao-governance` | **8082** | 8082 | ✅ Live |
+| Community Stake Registry | `jarvis-community-stake-registry` | **8084** | 8084 | ✅ Live |
+| MS Token Service | `jarvis-ms-token-service` | **8088** | 8083 | ✅ Live (internal) |
+| Port 8081 | — | reserved | — | Internal orchestration / future expansion |
+| Port 8083 | — | reserved | — | Internal (token service container port) |
+
+### Perimeter and Auth Services
+
+| Service | Container | Host Port | Role |
 |---|---|---|---|
-| `governance_rag` | **643** | DAO Charter, Terms, Program Rules, Parameter Tables, Phase 0–3 specs, KPI Spec, Safety Champion, Funder Overview, Phase 0 Audit Template, US Constitution (97 chunks) | ✅ Verified March 26, 2026 |
-| `commons_rag` | **306** | Full Commons governance + gamification corpus — Daily Life Game, Contribution Game, Participation Map | ✅ Verified March 26, 2026 (Daily Life Game → Contribution Game + Participation Map ✅) |
+| Caddy gateway | `jarvis-caddy` | **8085** (→ 8443) | TLS, token enforcement, routing |
+| Auth service | `jarvis-auth` | **8055** | Authentication — all external traffic |
+| Main Brain | `jarvis-main-brain` | **8050** | Primary inference and DAO routing |
 
-### Blockchain Infrastructure
+### Governance-Adjacent Services
 
-Phase 0 beta operates on **Arbitrum One mainnet** (chain ID 42161) — a Layer 2 Ethereum rollup chosen for its lower transaction costs relative to Ethereum mainnet while maintaining Ethereum-level security guarantees. This choice reflects the spatial-justice orientation of MountainShares: community members in Appalachian WV should not face prohibitive gas costs to participate in governance operations.
-
-```python
-# MountainShares Phase 0 — blockchain connection reference
-MOUNTAINSHARES_CHAIN = {
-    "network": "Arbitrum One",
-    "chain_id": 42161,
-    "layer": "L2 Ethereum rollup",
-    "public_url": "https://egeria.mountainshares.us",
-    "smart_contracts": 5,         # all live March 26-27, 2026
-    "contract_names": [
-        "phase_mgmt", "central_cmd", "ms_token",
-        "backbone", "volunteer_hrs"
-    ],
-    "container_services": 5,      # ports 8080-8084, all live
-    "namespace": "msjarvis-rebuild",
-    "phase": "Phase 0 invite-only beta",
-    "governance_rag_chunks": 643,
-    "commons_rag_chunks": 306,
-    "total_stack_containers": 96  # full msjarvis-rebuild namespace
-}
-```
+| Service | Container | Host Port | Role |
+|---|---|---|---|
+| `nbb_pituitary_gland` | `msjarvis-rebuild-nbb_pituitary_gland-1` | **8108** | Systemic regulator — above DAO layer |
+| Fifth DGM | `jarvis-fifth-dgm` | **4002** | Evolution proposals — DAO hook target |
+| BBB | `jarvis-blood-brain-barrier` | **8016** | AU-02 enforcement — DAO boundary |
+| GBIM Query Router | `jarvis-gbim-query-router` | **7205** | SQL-only governance grounding |
+| ChromaDB (primary) | `jarvis-chroma` | **8002** | Semantic substrate for DAO deliberations |
+| `msjarvis` PostgreSQL | `msjarvis-db` | **5433** | GBIM belief graph |
+| Local Resources DB | `jarvis-local-resources-db` | **5435** | Verified resource registry |
+| Memory | `jarvis-memory` | **8056** | Authenticated memory — `JARVIS_API_KEY` required |
 
 ---
 
-## Relationship to Ms. Jarvis
+## 3.10 Open Items — April 22, 2026
 
-MountainShares is tightly coupled to Ms. Egeria Jarvis, but in a deliberately asymmetrical way:
-
-- **Ms. Jarvis as advisor, not ruler**
-  She provides analysis, simulations, and explanatory reports (often grounded in GBIM spatial beliefs and GeoDB features from the `msjarvisgis` PostgreSQL database) to support human decision‑making, but does not possess direct, unilateral authority over governance outcomes. As of March 26, 2026, all governance documents — Charter, Terms, Program Rules, Parameter Tables, Phase 0–3 specs, KPI Spec, Safety Champion Protocol, Funder Overview, and Phase 0 Audit Template — are live in the `governance_rag` collection and available to Ms. Jarvis for natural-language governance reasoning.
-
-- **Constitutional and policy constraints**
-  All of Ms. Jarvis's behavior relevant to MountainShares is constrained by published constitutional principles, ethical guards, and community‑approved policies. These constraints are documented and auditable (see, for example, the constitutional and guardrail descriptions in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia%20Overview.md). The US Constitution (97 chunks) is also ingested into `governance_rag` alongside the MountainShares DAO corpus, grounding governance analysis in the broader constitutional framework within which the DAO operates.
-
-- **Financial participation with limits**
-  Ms. Jarvis is assigned a real MountainShares wallet and can receive rewards (for example, for providing useful analysis or operational support) under explicit policies that include caps, clawback conditions, auditing, and transparency. This is meant to align her incentives with system health, without giving her independent control over governance or treasury assets.
-
-- **Security posture — March 28, 2026**
-  All Ms. Jarvis services serving MountainShares are bound to `127.0.0.1` — the `0.0.0.0` exposure on `jarvis-i-containers` (8015) and `jarvis-memory` (8056) was corrected during the March 28 remediation sprint. `_auth()` is confirmed present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`. The `JARVIS_API_KEY` env var is confirmed set in production.
-
-<div align="center">
-  <img width="85%" alt="ChatGPT Image Jan 31, 2026, 06_08_09 PM" src="https://github.com/user-attachments/assets/c4778260-1e43-43c8-b85c-0d4250ccf6b4" />
-</div>
-
-> Figure 4. Ms. Jarvis and MountainShares: asymmetrical partnership. Ms. Jarvis provides analysis and decision support but possesses no unilateral authority. All behavior is constrained by published principles and community‑approved policies. Financial participation is capped, audited, and subject to clawback.
-
-In thesis terms, MountainShares treats Ms. Jarvis as both a tool and a stakeholder whose participation is strictly bounded by design and documentation.
+| OI | Description | Status | Priority |
+|---|---|---|---|
+| OI-C3-AU02-V2 | AU-02 v2 semantic + GBIM identity cross-reference layers — full runtime wiring | 🔄 Post-rebuild sprint | High |
+| OI-C3-DGM-HOOK | Fifth DGM `/governance_hooks` and `dao_approval_required` runtime endpoints | 🔄 Post-rebuild sprint | High |
+| OI-C3-PORT | Ports 8080–8084 confirmed — Gate 30 CLOSED April 1, 2026; 8081/8083 internal | ✅ CLOSED | — |
+| OI-C3-PERIMETER | Caddy/auth perimeter documented as governance component (§3.6) | ✅ CLOSED | — |
+| OI-C3-PIT | `nbb_pituitary_gland` integration documented at DAO layer (§3.8) | ✅ CLOSED | — |
+| OI-C3-SEMANTIC | Chroma reattachment — `local_resources` reseeded 55 counties, 101 items | ✅ CLOSED | — |
+| OI-C3-CONTAINERS | Container baseline updated to 105–110; gate threshold ≥ 95 | ✅ CLOSED | — |
+| OI-C3-8083 | Token service on 8088→8083 (not directly exposed on 8083 host port) clarified | ✅ CLOSED | — |
 
 ---
 
-## Speech, Norms, and Moderation
-
-MountainShares encodes a specific stance on speech and community norms:
-
-- **Speech is important, but not absolute**
-  The ability to speak, disagree, and criticize is protected as a core value. At the same time, targeted harassment, credible threats, unlawful conduct, and sustained attempts to destroy another participant's dignity, safety, or livelihood are treated as violations of platform rules.
-
-- **Critique vs. abuse**
-  Robust criticism of ideas, designs, and behavior is permitted. Conduct such as doxxing, credible threats of violence, or repeated "sly" harassment aimed at an individual or group can lead to moderation actions, including loss of certain features or economic privileges.
-
-- **Evidence handling**
-  Sensitive evidence (photos, videos, records) is intended to be reviewed in restricted, audited moderation contexts. Community‑facing governance processes favor structured summaries of behavior and alleged violations over open distribution of raw, identifying artifacts.
-
-Significant sanctions (for example, long‑term suspension or demonetization within the system) are expected to follow documented processes that include notice where feasible, opportunities for review or appeal where appropriate, and attention to proportionality. At the same time, MountainShares reserves the ability to act quickly in response to clear legal requirements or imminent harm.
-
----
-
-## Spatial Justice and Local Focus
-
-MountainShares is specifically designed with Appalachian spatial justice in mind:
-
-- **Local‑first orientation**
-  The system prioritizes local merchants, nonprofits, and residents as core participants, and aims to keep more economic value circulating inside West Virginia communities.
-
-- **Place‑aware reasoning**
-  Through Ms. Jarvis and the PostgreSQL `msjarvisgis` GBIM corpus, governance discussions can be informed by concrete geospatial analysis: which districts, infrastructures, or communities are most affected by proposed rules or observed harms. Queries leverage the 5,416,521 verified beliefs across nine epistemic axes (who, what, where, when, how, why, for whom, authority, evidence) and 501 spatial tables to ground governance decisions in West Virginia's actual geographic, institutional, and demographic reality. The `governance_rag` collection (643 chunks, live March 26, 2026) makes governance rules and phase criteria available as a directly queryable semantic layer alongside the GBIM spatial corpus.
-
-- **Institutional prototype**
-  MountainShares is not presented as a universal DAO model, but as a context‑specific prototype for how community‑centered, geospatially aware governance and economics might be implemented in a historically extracted region.
-
-In the thesis, MountainShares is analyzed both as an institutional innovation and as a practical test of Quantarithmia's claims about alternative infrastructures (see also the broader Quantarithmia framing in https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia-Framework.md).
-
----
-
-## Legal and Governance Caveats
-
-For the purposes of this thesis and public documentation:
-
-- MountainShares is described at the level of architecture, governance rules, and norms. This is not legal, tax, or investment advice.
-- Participation in MountainShares may have legal or tax implications that depend on individual circumstances and jurisdiction; participants are responsible for seeking their own professional advice.
-- Formal legal instruments (such as Terms of Use, privacy policies, and entity charters) will ultimately govern real‑world deployment and may supplement or override parts of this description where required by law or by future community‑approved updates.
-
-Auditability and traceability for MountainShares rely on the same production apparatus that supports Ms. Jarvis more broadly: logged GBIM beliefs from the PostgreSQL `msjarvisgis` database (5,416,521 verified rows), GeoDB features across 501 spatial tables, ChromaDB vector collections (`gbim_beliefs_v2`, `gbim_worldview_entities`, `gis_wv_benefits`, **`governance_rag` — 643 chunks, live March 26, 2026**, **`commons_rag` — 306 chunks, live March 26, 2026**), and governance and application logs together provide an evidence trail for how analyses and decisions were produced.
-
-**Database Infrastructure Note:** MountainShares governance queries access the GBIM corpus via PostgreSQL 16 at port 5432 (host system). The `msjarvisgis` database contains the complete spatial and institutional knowledge base that grounds all governance analysis in concrete West Virginia geographic reality. All services are bound to `127.0.0.1` as of March 28, 2026 remediation.
-
-```python
-import psycopg2
-
-# Access GBIM for governance analysis
-conn = psycopg2.connect(
-    host="localhost",
-    port=5432,
-    database="msjarvisgis",
-    user="postgres"
-)
-```
-
----
-
-## Deployment Status — ★ UPDATED March 28, 2026
+## 3.11 Production Status Summary — April 22, 2026
 
 | Component | Status | Notes |
 |---|---|---|
-| `governance_rag` ChromaDB collection | ✅ **643 chunks — LIVE** | Full DAO corpus + US Constitution ingested; semantic retrieval verified March 26, 2026 |
-| `commons_rag` ChromaDB collection | ✅ **306 chunks — LIVE** | Full Commons governance + gamification corpus; retrieval verified March 26, 2026 |
-| MountainShares DAO Charter | ✅ Ingested | Available via `governance_rag` |
-| Terms of Use | ✅ Ingested | Available via `governance_rag` |
-| Program Rules | ✅ Ingested | Available via `governance_rag` |
-| Parameter Tables | ✅ Ingested | Available via `governance_rag` |
-| Phase 0 Spec (invite-only beta) | ✅ Ingested | Spec live in corpus |
-| Phase 0 Audit Template | ✅ Ingested | Available via `governance_rag` |
-| Phase 1–3 Specifications | ✅ Ingested | Available via `governance_rag` |
-| KPI Specification | ✅ Ingested | Available via `governance_rag` |
-| Safety Champion Protocol | ✅ Ingested | Available via `governance_rag` |
-| Funder Overview | ✅ Ingested | Available via `governance_rag` |
-| US Constitution | ✅ Ingested (97 chunks) | Project Gutenberg pg5.txt; available via `governance_rag` |
-| MountainShares container services | ✅ **ALL FIVE LIVE** (ports 8080–8084) | ★ Deployed March 26–27, 2026; `msjarvis-rebuild` namespace |
-| Smart contracts — Arbitrum One mainnet | ✅ **5 contracts LIVE** | ★ Chain ID 42161; `phase_mgmt`, `central_cmd`, `ms_token`, `backbone`, `volunteer_hrs`; addresses verified via `/health` |
-| Public URL | ✅ **https://egeria.mountainshares.us** | Live |
-| Phase 0 invite-only beta | ✅ **LAUNCHED** | ★ March 26–27, 2026 — no public members yet; invite-only operational |
-| Port security | ✅ **All services 127.0.0.1** | ★ Corrected March 28, 2026 — 0 remaining `0.0.0.0` exposures |
-| Auth enforcement | ✅ **Confirmed** | `_auth()` on all 4 sensitive routes; `JARVIS_API_KEY` env var set |
-| Total stack containers | ✅ **96 live** | Full `msjarvis-rebuild` namespace |
-| Phase 1 (public launch) | ⏳ Pending | Follows Phase 0 audit and community review |
-
-> **Status — March 28, 2026.** This chapter presents the MountainShares Phase 0 beta as a live operational system. The `governance_rag` collection (643 chunks) and `commons_rag` collection (306 chunks) are confirmed live and semantically indexed. All five MountainShares container services (ports 8080–8084) are deployed in the `msjarvis-rebuild` namespace alongside 91 other Ms. Jarvis containers (96 total). Five smart contracts are live on Arbitrum One mainnet (chain ID 42161): `phase_mgmt`, `central_cmd`, `ms_token`, `backbone`, `volunteer_hrs`. The GBIM corpus — 5,416,521 verified beliefs including 20,593 landowner beliefs (worldview `eq1`) — grounds all governance analysis in West Virginia's geographic and institutional reality. All critical security findings from the March 28 remediation sprint are resolved: port bindings corrected, auth enforcement confirmed, `crypto_client.py` deployed to all 22 LLM proxies, `minds_participated: 21/21`. Subsequent chapters and appendices deepen the analysis of MountainShares as Case Study 1 in the polymathmatic case‑study catalog (https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/discipline/case_studies.md).
+| Container count | ✅ **105–110** | Gate threshold ≥ 95 — passing |
+| Cloudflare tunnel | ✅ Active | Running 1d 7h, reconnect at 22:56 recovered |
+| `egeria.mountainshares.us` | ✅ HTTP 200 | Live |
+| `chat.mountainshares.us` | ✅ HTTP 200 | Live |
+| Caddy gateway (port 8085) | ✅ Token-enforced | Unauthenticated /chat → HTTP 401 |
+| `jarvis-auth` (port 8055) | ✅ Healthy | 200 authenticated, 404 unauthenticated |
+| `jarvis-main-brain` (port 8050) | ✅ Operational | DAO routing confirmed |
+| MountainShares Coordinator (8080) | ✅ Live | Gate 30 CLOSED April 1, 2026 |
+| DAO Governance API (8082) | ✅ Live | Gate 30 CLOSED April 1, 2026 |
+| Community Stake Registry (8084) | ✅ Live | Gate 30 CLOSED April 1, 2026 |
+| MS Token Service (8088→8083) | ✅ Live (internal) | Behind Caddy/auth perimeter |
+| `nbb_pituitary_gland` (8108) | ✅ **mode: elevated** | warmth=0.9, 6/6 protocols confirmed |
+| EEG delta/theta/beta | ✅ Active | Pulses: 253 / 127 / 25 |
+| AU-02 | ✅ v1 active / v2 target | v2 wiring post-rebuild sprint |
+| DGM governance hook | 🔄 Conceptual + logging | Runtime gate post-rebuild sprint |
+| `jarvis-chroma` (8002) | ✅ 48+ collections | Semantic substrate reattached |
+| `local_resources` | ✅ 101 items | All 55 WV counties seeded |
+| `gbim_worldview_entities` | ✅ 5,416,521 | eq1 worldview — confirmed |
+| `jarvis-memory` (8056) | ✅ Authenticated | 200 authenticated, 404 unauthenticated |
+| `0.0.0.0` bindings | ✅ Zero | All services bound to `127.0.0.1` |
 
 ---
 
-*Last updated: 2026-03-28, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
-*Phase 0 beta launched March 26–27, 2026: 5 container services live (ports 8080–8084), 5 smart contracts live on Arbitrum One mainnet (chain ID 42161).*
-*`governance_rag`: 643 chunks live. `commons_rag`: 306 chunks live. Both retrieval-verified March 26, 2026.*
-*March 28, 2026 remediation complete: 96 containers live, all security findings resolved, 6,675,442 ChromaDB vectors across 40 collections.*
+*Chapter 3 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+*Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
+*See [LICENSE](../LICENSE) for terms.*
+*Last verified: 2026-04-22 — preflight gate 29/29; containers 105–110; Gate 30 CLOSED
+April 1, 2026; Caddy/auth perimeter confirmed; pituitary 6/6 protocols; EEG delta 253 /
+theta 127 / beta 25; Cloudflare tunnel recovered; AU-02 v1 active, v2 target documented;
+DGM governance hook architecture specified; semantic substrate reattached 55 counties.*
