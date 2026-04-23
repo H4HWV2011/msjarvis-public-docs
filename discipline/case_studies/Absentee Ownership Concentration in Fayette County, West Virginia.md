@@ -3,7 +3,7 @@
 **Date of Analysis:** March 20, 2026
 **Producing Organization:** Kidd's Technical Services, Inc. — Mount Hope, West Virginia
 **Analytical System:** Advanced Location Intelligence Infrastructure
-**Primary Database:** `msjarvisgis` — `public.mvw_gbim_landowner_spatial`
+**Primary Database:** `msallisgis` — `public.mvw_gbim_landowner_spatial`
 **Data Source:** Fayette County, West Virginia Public Property Assessment Records
 **Classification:** Public Research Record
 
@@ -33,7 +33,7 @@ Secondary questions examined include: What is the full ownership lineage of the 
 
 ### 1.3 Methodology
 
-Spatial queries were executed against the `public.mvw_gbim_landowner_spatial` materialized view within the `msjarvisgis` PostgreSQL/PostGIS database, which aggregates publicly available parcel-level land ownership records from West Virginia county assessors. Entity names identified through the spatial analysis were cross-referenced against the West Virginia Secretary of State online business database to establish corporate structure, registered addresses, and management relationships. Corporate identities were further verified through publicly available investor presentations, corporate websites, press releases, federal program databases, and financial news sources. Capital lineage was traced through publicly available biographical records, investment firm histories, and corporate acquisition announcements. All data sources utilized in this analysis are publicly available and independently verifiable by any researcher or member of the public.
+Spatial queries were executed against the `public.mvw_gbim_landowner_spatial` materialized view within the `msallisgis` PostgreSQL/PostGIS database, which aggregates publicly available parcel-level land ownership records from West Virginia county assessors. Entity names identified through the spatial analysis were cross-referenced against the West Virginia Secretary of State online business database to establish corporate structure, registered addresses, and management relationships. Corporate identities were further verified through publicly available investor presentations, corporate websites, press releases, federal program databases, and financial news sources. Capital lineage was traced through publicly available biographical records, investment firm histories, and corporate acquisition announcements. All data sources utilized in this analysis are publicly available and independently verifiable by any researcher or member of the public.
 
 ---
 
@@ -104,7 +104,7 @@ WHERE UPPER(entity_name) ILIKE '%ORBIS%'
 |---|---|---|---|
 | 50,697 | 287 | 4 | 4 |
 
-**Data source:** Fayette County, West Virginia Public Property Assessment Records, accessed via `msjarvisgis` spatial database, March 20, 2026. All parcel records are publicly available through the Fayette County Assessor's office and independently verifiable.
+**Data source:** Fayette County, West Virginia Public Property Assessment Records, accessed via `msallisgis` spatial database, March 20, 2026. All parcel records are publicly available through the Fayette County Assessor's office and independently verifiable.
 
 ---
 
@@ -366,8 +366,8 @@ That infrastructure now exists in Fayette County.
 ---
 
 *Produced by Kidd's Technical Services, Inc. — Mount Hope, West Virginia*
-*Advanced Location Intelligence Infrastructure: Ms. Egeria Jarvis GIS System*
-*Public Documentation Repository: [github.com/H4HWV2011/msjarvis-public-docs](https://github.com/H4HWV2011/msjarvis-public-docs)*
+*Advanced Location Intelligence Infrastructure: Ms. Egeria allis GIS System*
+*Public Documentation Repository: [github.com/H4HWV2011/msallis-public-docs](https://github.com/H4HWV2011/msallis-public-docs)*
 *License: Creative Commons Attribution 4.0 International (CC BY 4.0)*
 *All data sources utilized in this analysis are publicly available and independently verifiable by any researcher or member of the public.*
 *Date of publication: March 20, 2026*
