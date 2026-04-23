@@ -191,11 +191,11 @@ Ms. Allis runs one primary production PostgreSQL database container. All referen
 
 | Layer | Container | Host Port | Container Port | Database | Owner | Contents |
 |---|---|---|---|---|---|---|
-| Production PostGIS / GBIM | `msjarvis-db` | **5433** | **5432** | `msjarvisgis` | postgres | Full spatial GBIM, landowner view, provider summaries, TIGER, topology |
+| Production PostGIS / GBIM | `msallis-db` | **5433** | **5432** | `msallisgis` | postgres | Full spatial GBIM, landowner view, provider summaries, TIGER, topology |
 
-**Production database:** `msjarvis-db` — 16 GB / 294 tables / 11 schemas (April 23, 2026).
+**Production database:** `msallis-db` — 16 GB / 294 tables / 11 schemas (April 23, 2026).
 
-### Key Tables in `msjarvisgis`
+### Key Tables in `msallisgis`
 
 | Table | Role |
 |---|---|
