@@ -214,11 +214,11 @@ AI architectures and systems thinking as tools for probing and reshaping feedbac
 
 **Core readings / artifacts**
 
-- “The Blueprint for Coherent AI” (high‑level description of Ms. Jarvis‑style architecture as a territorial brain)  
+- “The Blueprint for Coherent AI” (high‑level description of Ms. Allis‑style architecture as a territorial brain)  
   https://mammakidd.substack.com/p/the-blueprint-for-coherent-ai  
-- Internal thesis sections on Ms. Jarvis and system architecture:  
-  - `thesis/02-ms-jarvis-gbim.md`  
-  - `thesis/11-llm-fabric-of-ms-jarvis.md`  
+- Internal thesis sections on Ms. Allis and system architecture:  
+  - `thesis/02-ms-Allis-gbim.md`  
+  - `thesis/11-llm-fabric-of-ms-Allis.md`  
 
 ---
 
