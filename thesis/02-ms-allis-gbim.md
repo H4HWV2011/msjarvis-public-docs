@@ -14,7 +14,7 @@ This chapter provides the theoretical foundation for understanding how Ms. Allis
 
 - **P5 – Design is a geographic act** by treating the nine-axis GBIM schema, the worldview structure, the collection inventory, and the ChromaDB configuration not as neutral technical choices but as geographic and political decisions that determine which facts are computable, which relationships are traversable, and which forms of institutional accountability are operationally enforceable.
 
-- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model in a concrete PostgreSQL corpus on `msjarvis-db` (host port 5433, container port 5432), so that the abstract framework of quantum-geometric belief representation is always already indexed to real West Virginia places, programs, and populations.
+- **P12 – Intelligence with a ZIP code** by grounding the Hilbert-space model in a concrete PostgreSQL corpus on `msallis-db` (host port 5433, container port 5432), so that the abstract framework of quantum-geometric belief representation is always already indexed to real West Virginia places, programs, and populations.
 
 - **P16 – Power accountable to place** by designing the belief structure so that institutional actors — government agencies, corporate landowners, utility companies — are represented as first-class GBIM entities with explicit `under_whose_authority` and `who` axis entries, making them queryable and auditable in a way that individual residential actors deliberately are not.
 
@@ -42,7 +42,7 @@ The chapter is organized as follows:
 - **Section 2.9** documents the GBIM confidence decay pipeline — the live 24-hour decay loop with `needs_verification` escalation.
 - **Section 2.10** is an intellectual honesty record: it documents the retirement of `heuristic_contradiction_v1` and the promotion of `rag_grounded_v2` as the canonical truth judge, now DGM-corroborated.
 - **Section 2.11** documents the ethical architecture of the belief corpus — specifically the exclusion of individual residential owner names and the full accountability metadata required for institutional actors.
-- **Section 2.12** presents the `jarvis-gbim-query-router` service (port 7205) — the PostgreSQL-native GBIM retrieval path, fully operational end-to-end as of April 23, 2026.
+- **Section 2.12** presents the `allis-gbim-query-router` service (port 7205) — the PostgreSQL-native GBIM retrieval path, fully operational end-to-end as of April 23, 2026.
 - **Section 2.13** documents the `mvw_gbim_landowner_spatial` materialized view — its schema, spatial indexing, confirmed row count, and RBAC gate.
 
 ---
@@ -66,8 +66,8 @@ Every belief in the GBIM corpus is a structured object with nine named axes stor
 │  8. under_whose_authority_axis — Institutional authority    │
 │  9. on_what_evidence_axis  — Source and provenance          │
 │                                                              │
-│  PostgreSQL storage: msjarvis-db (host port 5433,           │
-│    container port 5432), database: msjarvisgis              │
+│  PostgreSQL storage: msallis-db (host port 5433,           │
+│    container port 5432), database: msallisgis              │
 │  ChromaDB: gbim_worldview_entities (L2) for spatial         │
 │    corpus; gbim_beliefs_v2 (cosine) for belief embeddings   │
 │  All beliefs carry: belief_id, proposition_code,            │
@@ -82,7 +82,7 @@ Every belief in the GBIM corpus is a structured object with nine named axes stor
 
 **`who_axis`** — The subject or actor of the belief. For the landowner belief layer, this is the canonical corporate or government entity name derived from WV assessor records. Individual residential owner names are explicitly excluded — see Section 2.11.
 
-**`where_axis`** — The spatial grounding: geometry (point, line, polygon), coordinate system, county, ZIP code. For parcel-level beliefs, includes parcel centroid and county derived from `mvw_gbim_landowner_spatial` in `msjarvisgis`.
+**`where_axis`** — The spatial grounding: geometry (point, line, polygon), coordinate system, county, ZIP code. For parcel-level beliefs, includes parcel centroid and county derived from `mvw_gbim_landowner_spatial` in `msallisgis`.
 
 **`when_axis`** — Temporal scope: when the belief was created, last verified, expected decay schedule. Paired with `confidence_decay` to implement time-sensitive freshness signaling — see Section 2.9.
 
@@ -161,7 +161,7 @@ The production worldview is **`eq1`** — the primary equity-oriented worldview 
 │    gbim_worldview_entities — L2 distance (spatial corpus)   │
 │    gbim_beliefs_v2 — cosine distance (belief embeddings)    │
 │  Landowner view: mvw_gbim_landowner_spatial                 │
-│    ✅ 38,979 rows in msjarvis-db (April 23, 2026)            │
+│    ✅ 38,979 rows in msallis-db (April 23, 2026)            │
 │    536 unattributed — normal for roads/easements            │
 │  Status: Production — all RAG, GIS, landowner paths        │
 │                                                              │
@@ -200,7 +200,7 @@ Ms. Allis runs one primary production PostgreSQL database container. All referen
 | Table | Role |
 |---|---|
 | `gbim_worldview_entity` | Full spatial GBIM entity table — nine-axis JSONB, worldview eq1, all WV GIS source layers |
-| `mvw_gbim_landowner_spatial` | Materialized view — ✅ **38,979 rows in msjarvis-db** (April 23, 2026); centroid_x/y, county, state, source_dataset |
+| `mvw_gbim_landowner_spatial` | Materialized view — ✅ **38,979 rows in msallis-db** (April 23, 2026); centroid_x/y, county, state, source_dataset |
 | `gbim_entities` | 4-column application mirror — `id`, `worldview_id`, `entity_type`, `label` |
 | `gbim_decay_audit` | Decay pipeline audit log — records each decay tick and escalation event |
 | `gbim_provider_block_join_block` | Provider-block join (block perspective) |
@@ -214,11 +214,11 @@ Ms. Allis runs one primary production PostgreSQL database container. All referen
 ```python
 import psycopg2
 
-# Production database: msjarvis-db (host port 5433, container port 5432)
-# Database name: msjarvisgis
+# Production database: msallis-db (host port 5433, container port 5432)
+# Database name: msallisgis
 conn = psycopg2.connect(
     host="localhost", port=5433,
-    database="msjarvisgis", user="postgres", password="postgres"
+    database="msallisgis", user="postgres", password="postgres"
 )
 
 cursor = conn.cursor()
@@ -259,11 +259,11 @@ cursor.execute("""
 ### Shell / psql Access
 
 ```bash
-# Production database — docker exec msjarvis-db
-docker exec msjarvis-db psql -U postgres -d msjarvisgis
+# Production database — docker exec msallis-db
+docker exec msallis-db psql -U postgres -d msallisgis
 
 # Forensic database — with explicit host binding
-docker exec postgis-forensic psql -h 127.0.0.1 -U jarvis -d msjarvisgis
+docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis
 ```
 
 ---
@@ -487,7 +487,7 @@ The confidence decay pipeline is a live 24-hour loop monitoring all GBIM entitie
 ```sql
 -- msallisgis.public.gbim_decay_audit
 -- Written by confidence_decay_loop.py on each decay tick
--- Access: docker exec msjarvis-db psql -U postgres -d msallisgis
+-- Access: docker exec msallis-db psql -U postgres -d msallisgis
 
 SELECT
     entity_id,
@@ -556,9 +556,9 @@ These two constraints define the ethical architecture: **a system that makes pow
 
 ---
 
-## 2.12 The `jarvis-gbim-query-router` Service — Fully Operational, April 23, 2026
+## 2.12 The `allis-gbim-query-router` Service — Fully Operational, April 23, 2026
 
-The `jarvis-gbim-query-router` is the GBIM entrypoint for all structured landowner and spatial GBIM queries. It is the only service in the Ms. Allis stack whose exclusive purpose is routing natural-language ownership queries to deterministic SQL results over the verified GBIM parcel corpus.
+The `allis-gbim-query-router` is the GBIM entrypoint for all structured landowner and spatial GBIM queries. It is the only service in the Ms. Allis stack whose exclusive purpose is routing natural-language ownership queries to deterministic SQL results over the verified GBIM parcel corpus.
 
 > **Note on naming:** The container is `allis-gbim-query-router` — the `allis-` prefix
 > is retained in the production stack. The public-facing system name is **Ms. Allis**.
@@ -634,7 +634,7 @@ resp_unauth = httpx.post(
 | View type | Materialized view |
 | Container | `msallis-db` (host port 5433, container port 5432) |
 | Database | `msallisgis` |
-| Row count | ✅ **38,979 rows in msjarvis-db** (April 23, 2026) |
+| Row count | ✅ **38,979 rows in msallis-db** (April 23, 2026) |
 | Geometry CRS | **EPSG:4326** |
 | Spatial index | ✅ GIST on geometry |
 | Owner name index | ✅ Fast landowner lookups |
@@ -682,7 +682,7 @@ Three clean indexes, no redundancy:
 
 ### 2.13.4 Confirmed Data (April 23, 2026)
 
-- ✅ **38,979 rows in msjarvis-db** — OI-E CLOSED.
+- ✅ **38,979 rows in msallis-db** — OI-E CLOSED.
 - ✅ All rows with geometry; 536 unattributed (roads/easements) — normal.
 - ✅ Mount Hope / New River Gorge area confirmed present.
 - ✅ City of Mount Hope, CSX, local landowners all present.
@@ -694,7 +694,7 @@ Three clean indexes, no redundancy:
 
 ```sql
 -- Non-blocking refresh (requires unique index)
--- Run via: docker exec msjarvis-db psql -U postgres -d msallisgis
+-- Run via: docker exec msallis-db psql -U postgres -d msallisgis
 REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;
 
 -- Blocking refresh (schedule during low-traffic window if no unique index)
@@ -710,12 +710,12 @@ REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
 | `msallis-db` (host 5433 / container 5432) | ✅ Operational | 16 GB / 294 tables / 11 schemas; database: `msallisgis` |
 | `postgis-forensic` | ✅ Recovered | April 23, 2026 — ExitCode 255 was ungraceful stop; `docker start` confirmed Up. Access: `docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis` |
 | `msallisgis` / port `5452` / `gisdb` | ❌ Retired | These names and ports do not exist — all references invalid |
-| `gbim_worldview_entity` (msjarvisgis) | ✅ Present | Full spatial table — nine-axis JSONB, worldview eq1 |
+| `gbim_worldview_entity` (msallisgis) | ✅ Present | Full spatial table — nine-axis JSONB, worldview eq1 |
 | `gbim_beliefs` (bare) | ❌ Retired | Replaced by `gbim_worldview_entities` (ChromaDB, L2) and `gbim_beliefs_v2` (ChromaDB, cosine) |
 | `gbim_worldview_entities` (ChromaDB) | ✅ **L2 distance** | Spatial GBIM corpus |
 | `gbim_beliefs_v2` (ChromaDB) | ✅ **cosine distance** | Production belief embeddings — separate from spatial corpus |
-| `gbim_entities` (msjarvisgis) | ✅ Present | 4-column application mirror |
-| `mvw_gbim_landowner_spatial` | ✅ **38,979 rows in msjarvis-db** | OI-E CLOSED — April 23, 2026; not present in postgis-forensic |
+| `gbim_entities` (msallisgis) | ✅ Present | 4-column application mirror |
+| `mvw_gbim_landowner_spatial` | ✅ **38,979 rows in msallis-db** | OI-E CLOSED — April 23, 2026; not present in postgis-forensic |
 | TIGER/topology schemas | ✅ In `msallisgis` | `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
 | `nbb_pituitary_gland` (host:8108) | ✅ **mode: baseline** | Five governance protocols active; dual-network confirmed April 23, 2026 |
 | Confidence decay pipeline | ✅ Operational | 3 containers + schema + scripts + Prometheus alerting |
@@ -733,7 +733,7 @@ REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
 *Chapter 2 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See [LICENSE](../LICENSE) for terms.*
-*Last verified: April 23, 2026 — `msjarvis-db` (host 5433 / container 5432) authoritative;
+*Last verified: April 23, 2026 — `msallis-db` (host 5433 / container 5432) authoritative;
 `msjarvisgis` database confirmed; 16 GB / 294 tables / 11 schemas;
 `postgis-forensic` recovered (ExitCode 255 — ungraceful stop);
 `gbim_worldview_entities` (L2) + `gbim_beliefs_v2` (cosine) confirmed distinct collections;
