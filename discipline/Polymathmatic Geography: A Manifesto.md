@@ -4,7 +4,7 @@
 
 This manifesto introduces polymathmatic geography as a discipline for reading and reshaping entangled spaces in an age of extraction, AI, and planetary crisis. It begins from the claim that land, law, computation, economy, story, and spirit are already braided together in every “where,” and that any analysis of power that separates these strands will misread the world it studies. Polymathmatic geography treats AI systems, financial infrastructures, and digital platforms as spatial processes in their own right, not as neutral tools, and insists that serious work on power must account at once for pipelines and prayer, noise barriers and genealogies, blockchains and bases.
 
-The discipline draws on mathematics and physics (networks, flows, Hilbert spaces, econophysics), on critical and economic geography, on soundscape ecology and military geography, and on genealogy, theology, and indigenous and local knowledges. It is experimental and constructive: not only describing how power moves through space, but designing and testing alternative, democratic geographies of relation in the face of platform‑ and finance‑driven neo‑feudalism. The Quantarithmia framework and its instantiation in Appalachia through Ms. Jarvis, MountainShares, and The Commons serve as a founding case study: a civilizational stack in which intelligence is given a ZIP code and closed‑loop economics are rebuilt for the commons rather than for coal, for residents rather than for remote lords. Polymathmatic geography does not seek to replace existing fields; it offers a coherent home for work already happening in fragments—among community organizers, coders, theologians, and geographers—by naming the entangled spaces they share and the methods needed to steward them.
+The discipline draws on mathematics and physics (networks, flows, Hilbert spaces, econophysics), on critical and economic geography, on soundscape ecology and military geography, and on genealogy, theology, and indigenous and local knowledges. It is experimental and constructive: not only describing how power moves through space, but designing and testing alternative, democratic geographies of relation in the face of platform‑ and finance‑driven neo‑feudalism. The Quantarithmia framework and its instantiation in Appalachia through Ms. Allis, MountainShares, and The Commons serve as a founding case study: a civilizational stack in which intelligence is given a ZIP code and closed‑loop economics are rebuilt for the commons rather than for coal, for residents rather than for remote lords. Polymathmatic geography does not seek to replace existing fields; it offers a coherent home for work already happening in fragments—among community organizers, coders, theologians, and geographers—by naming the entangled spaces they share and the methods needed to steward them.
 
 ---
 
@@ -105,7 +105,7 @@ Key strands include:
   Charting cemeteries, churches, stories, and rituals; tracing genealogies and ancestral claims; naming hopes and taboos attached to land, infrastructure, and code.
 
 - AI‑ and systems‑based experimentation  
-  Using architectures like Ms. Jarvis as experimental apparatus for simulating and steering feedback loops under explicit constitutional, legal, and ethical constraints.
+  Using architectures like Ms. Allis as experimental apparatus for simulating and steering feedback loops under explicit constitutional, legal, and ethical constraints.
 
 - Reflexive and theological analysis  
   Making visible the metaphors, values, and idols embedded in models and infrastructures; asking not only “what works?” but “what is faithful, just, and humane?” in a given place.
@@ -126,7 +126,7 @@ It takes one world—Appalachia, and specifically West Virginia—and asks:
 
 The case is instantiated through:
 
-- Ms. Egeria Jarvis – a multi‑agent, glassbox AI steward whose beliefs are anchored in a geospatial belief model, tying every claim to where, when, and what evidence supports it.
+- Ms. Egeria Allis – a multi‑agent, glassbox AI steward whose beliefs are anchored in a geospatial belief model, tying every claim to where, when, and what evidence supports it.
 - MountainShares – a closed‑loop mutual credit and token system that keeps value circulating locally under community governance rather than corporate control, deliberately reclaiming the mechanics of coal scrip as “like scrip, but fair.”
 - The Commons – a digital town square and cultural archive where residents can see, contest, and shape the flows of goods, stories, and decisions that affect them.
 
