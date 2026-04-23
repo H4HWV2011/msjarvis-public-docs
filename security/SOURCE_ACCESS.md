@@ -2,13 +2,13 @@
 
 ## Why Source Code Is Not on GitHub
 
-Ms. Egeria Jarvis was developed **after experiencing 3 malware attacks** on MountainShares smart contracts through public GitHub repositories. These attacks compromised financial infrastructure and taught us that **transparency must be balanced with security**.
+Ms. Egeria Allis was developed **after experiencing 3 malware attacks** on MountainShares smart contracts through public GitHub repositories. These attacks compromised financial infrastructure and taught us that **transparency must be balanced with security**.
 
 ## AGPL-3.0 Compliance
 
 The GNU Affero General Public License v3.0 requires that users who interact with the software over a network have an opportunity to obtain the **corresponding source code of the version they are using**. It does **NOT** require public GitHub hosting, but it does require a standard, no-charge way for those users to access the source.
 
-**Our model:** Source code is provided on request to users and auditors who interact with Ms. Jarvis, via a secure, access-controlled channel, under AGPL-3.0 terms.
+**Our model:** Source code is provided on request to users and auditors who interact with Ms. Allis, via a secure, access-controlled channel, under AGPL-3.0 terms.
 
 ## How to Access Source Code
 
@@ -16,12 +16,12 @@ The GNU Affero General Public License v3.0 requires that users who interact with
 
 Email: **h4hwv2011@gmail.com**
 
-**Subject:** "Ms. Jarvis Source Code Access Request"
+**Subject:** "Ms. Allis Source Code Access Request"
 
 **Include:**
 - Your name and affiliation
 - Intended use (research, audit, contribution, etc.)
-- Brief description of your interest in Ms. Jarvis
+- Brief description of your interest in Ms. Allis
 - Agreement to AGPL-3.0 terms
 
 ### **Step 2: Review & Verification**
@@ -41,7 +41,7 @@ Source code will be provided via:
 ### **Step 4: Usage Requirements**
 
 Under AGPL-3.0, if you:
-- **Deploy modified Ms. Jarvis** → You must share your changes with the users of that deployment
+- **Deploy modified Ms. Allis** → You must share your changes with the users of that deployment
 - **Use it internally without user-facing network access** → No additional network-copyleft obligation is triggered
 - **Distribute or host modifications for external users over a network** → You must make the corresponding source available to those users under AGPL-3.0
 
@@ -67,7 +67,7 @@ Subject to approval and security review, source access may include:
 **Security lessons learned:**
 1. Public GitHub = attack vector for financial systems
 2. Malware infiltrated 3 times through dependencies
-3. Ms. Jarvis integrates with MountainShares blockchain
+3. Ms. Allis integrates with MountainShares blockchain
 4. Quantum-resilient security requires controlled distribution of critical components
 
 Security is part of the polymathmatic axiom that power must be accountable to place and that systems must remain transparent and traceable; the bounty approach to hardening and improvement is therefore a polymathmatic design choice, not just an engineering one.
