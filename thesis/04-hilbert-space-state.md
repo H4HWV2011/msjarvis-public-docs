@@ -1,7 +1,19 @@
 # 4. Hilbert Space State and ChromaDB as Semantic Memory
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: 2026-04-22*
+*Last updated: April 23, 2026*
+
+> **Note on container naming (code layer):** Container names in the production stack
+> retain the `allis-` prefix (e.g., `allis-chroma`, `allis-main-brain`,
+> `allis-gbim-query-router`). The public-facing name of the system is **Ms. Allis**.
+> All `allis-` container references in this chapter refer to Ms. Allis's infrastructure.
+> The production database container is `msallis-db`; the database name inside that
+> container is `msallisgis`; the host-mapped port for `msallis-db` is **5433**
+> (container-internal port 5432). The namespace in narrative prose is `msallis-rebuild`.
+
+> **Cross-reference note:** The GBIM chapter is located at `02-ms-allis-gbim.md`
+> (renamed from `02-ms-allis-gbim.md`). All references in this chapter to "Chapter 2"
+> or "§2.x" refer to `02-ms-allis-gbim.md`.
 
 ---
 
@@ -49,7 +61,7 @@ production semantic memory substrate and retrieval layer — centred on collecti
 `msallisgis`/GBIM/`local_resources` apparatus — that Quantarithmia's reasoning, GBIM's
 belief structures, the verified local-resources band, the West Virginia benefits RAG
 flows, and MountainShares-oriented governance analysis run on in the live system as of
-**April 22, 2026**.
+**April 23, 2026**.
 
 ---
 
@@ -60,7 +72,7 @@ This chapter explains how Ms. Egeria Allis uses ChromaDB as the physical contain
 Hilbert spaces. Not a geometric metaphor. A mathematical object satisfying all four
 Hilbert space axioms, physically instantiated on specific hardware, containing 6.74M+
 structured belief vectors about West Virginia, and confirmed operationally intact by a
-29/29 preflight gate on April 22, 2026.
+30/30 preflight gate on April 23, 2026.
 
 ChromaDB is a vector database that stores high-dimensional embedding vectors with
 associated metadata and exposes efficient similarity search and filtering operations. In
@@ -83,7 +95,8 @@ pipeline that modulates retrieval priorities, WOAH governance weights, BBB sensi
 and LLM ensemble routing based on its live mode state. This component is upstream of
 ChromaDB query dispatch and is documented fully in Section 4.6.
 
-**★ Re-confirmed operational — April 22, 2026. Preflight gate 29/29, 0 failures.**
+**★ Re-confirmed operational — April 23, 2026. Preflight gate 30/30, exit 0,
+`bash -n` clean.**
 
 ---
 
@@ -95,16 +108,17 @@ In the Ms. Allis architecture, ChromaDB plays several interlocking roles.
   collections corresponding to domains such as governance, thesis content, autonomous
   learner outputs, conversations, local resource guides, and curated research traces.
   These collections support general semantic retrieval independent of geography and include
-  the unified GBIM text collection `gbim_beliefs_v2`, which stores embeddings for GBIM
-  belief rows and serves as the production semantic memory layer for GBIM beliefs.
+  the unified GBIM text collection `gbim_beliefs_v2` (cosine distance), which stores
+  embeddings for GBIM belief rows and serves as the production semantic memory layer for
+  GBIM beliefs.
 
 - **Geospatial semantic layer (spatial).** The unified GIS-derived collection
-  `gbim_worldview_entities` holds embeddings and metadata for West Virginia geospatial
-  features, mirroring PostGIS tables and providing the semantic representation of the
-  spatial body described in the GBIM and GeoDB chapters. The current production deployment
-  centres on this consolidated worldview collection with **5,416,521 records** confirmed
-  live April 22, 2026, complemented by task-specific collections such as `gis_wv_benefits`
-  that focus on benefits-relevant facilities.
+  `gbim_worldview_entities` (L2 distance) holds embeddings and metadata for West Virginia
+  geospatial features, mirroring PostGIS tables and providing the semantic representation
+  of the spatial body described in the GBIM and GeoDB chapters. The current production
+  deployment centres on this consolidated worldview collection with **5,416,521 records**
+  confirmed live April 23, 2026, complemented by task-specific collections such as
+  `gis_wv_benefits` that focus on benefits-relevant facilities.
 
 - **Retrieval engine for RAG.** At query time, services embed inputs and use ChromaDB
   similarity search, often with metadata filters, to retrieve the most relevant items for
@@ -120,12 +134,11 @@ In the Ms. Allis architecture, ChromaDB plays several interlocking roles.
   explicitly defined, ChromaDB's structure mirrors core parts of GBIM, the `msallisgis`
   GeoDB layer, the thesis organisation, and the local-resources band. Operational
   validation is performed via `scripts/preflight_gate.sh`, which checks collections ≥ 40
-  and domain-specific counts — not via direct REST introspection. The gate passed 29/29
-  on April 22, 2026.
+  and domain-specific counts. The gate passed 30/30 on April 23, 2026.
 
 - **Pituitary-modulated dispatch.** The `nbb_pituitary_gland` (port 8108) mode state
   acts as a global scaling tensor on the belief-state vector before retrieval dispatch.
-  At current state (`warmth=0.9`, `cortisol=0.6`, `mode=elevated`), community-benefit
+  At current state (`warmth=0.9`, `cortisol=0.6`, `mode=baseline`), community-benefit
   collections receive elevated retrieval weight and BBB filtering operates at moderate
   sensitivity.
 
@@ -133,17 +146,52 @@ In the Ms. Allis architecture, ChromaDB plays several interlocking roles.
 
 ## 4.3 Collections and Data Domains
 
-In the production deployment as of **April 22, 2026**, the primary Chroma instance
-(`allis-chroma`, host port **8002**, container-internal port 8000) exposes **49
+In the production deployment as of **April 23, 2026**, the primary Chroma instance
+(`allis-chroma`, host port **8002**, container-internal port **8000**) exposes **48
 collections** confirmed via preflight gate. Collections fall into three broad families:
 general semantic memory, GeoDB-derived spatial memory, and resource-related materials.
 
-> **ChromaDB access note:** ChromaDB v2 is a single-node container exposed on
-> `allis-chroma:8002`. It is used via the embedded Python client, not via public REST
-> introspection. Operational validation is done via `scripts/preflight_gate.sh` (checks
-> collections ≥ 40 and domain-specific counts) and via RAG and EEG services that use
-> Chroma internally. Direct REST introspection commands are not part of the production
-> contract for this deployment.
+> ⚠️ **ChromaDB API version — BREAKING CHANGE.**
+> ChromaDB v2 is the only supported API version in this deployment.
+> - `/api/v2/` — **REQUIRED** for all direct REST calls
+> - `/api/v1/` — **DEPRECATED AND REMOVED** — returns `410 Gone`
+>
+> All scripts, services, and documentation must use the v2 path.
+> The Python embedded client (`chromadb.HttpClient`) handles this automatically.
+> Do NOT use `/api/v1/` in any new code.
+
+> **Count calls — UUID two-step pattern required.**
+> Direct collection-name count calls are unreliable in ChromaDB v2. Always resolve
+> collection name → UUID first, then call count by UUID:
+>
+> ```python
+> import chromadb
+> client = chromadb.HttpClient(host="localhost", port=8002)
+> # Step 1: resolve name → UUID
+> col = client.get_collection("gbim_worldview_entities")
+> # Step 2: count via collection object (UUID resolved internally)
+> print(col.count())  # reliable
+> ```
+
+> **ChromaDB access note:** ChromaDB v2 is a single-node container (`allis-chroma`)
+> exposed on host port 8002, container-internal port 8000. It is used via the embedded
+> Python client, not via public REST introspection. Operational validation is done via
+> `scripts/preflight_gate.sh` (checks collections ≥ 40 and domain-specific counts) and
+> via RAG and EEG services that use Chroma internally.
+
+> ⚠️ **Mixed-metric deployment — 37 L2 / 11 cosine collections.**
+> This ChromaDB instance does NOT use a single uniform distance metric.
+> Collections created for spatial/worldview use L2 distance; collections created for
+> semantic belief and identity use cosine distance.
+> **Always verify the distance metric of a collection before querying or ingesting.**
+> Mixing metrics in a single query pipeline will produce incorrect similarity rankings.
+>
+> Key collection metrics:
+> - `gbim_worldview_entities` → **L2**
+> - `autonomous_learner` → **L2**
+> - `gbim_beliefs_v2` → **cosine**
+> - `ms_allis_memory` → **cosine**
+> - `ms_allis_identity` → **cosine**
 
 ### 4.3.1 Production Spatial Collection
 
@@ -151,22 +199,23 @@ The primary spatial memory collection — and the largest named subspace of
 \(H_{\text{App}}\) — is:
 
 - Collection name: `gbim_worldview_entities`
-- Record count: **5,416,521 records** — confirmed live April 22, 2026
+- Distance metric: **L2**
+- Record count: **5,416,521 records** — confirmed live April 23, 2026
 - Source datasets: more than 200 standardised West Virginia GIS layers
 - Worldview context: `eq1` — stable UUID tying spatial entities to the production
   equity-oriented worldview
-- Embedding model: `all-minilm:latest`, 384-dim, cosine similarity — confirmed live
+- Embedding model: `all-minilm:latest`, 384-dim — confirmed live
 
 This collection is built by exporting GBIM worldview entities and their attributes from
-PostGIS (`msallisgis`, port **5432**), enriching them with spatial and provenance
-metadata, and indexing them as text embeddings in ChromaDB using `all-minilm:latest`
-(384-dim, cosine similarity).
+PostGIS (`msallisgis` on `msallis-db`, host port 5433, container port 5432), enriching
+them with spatial and provenance metadata, and indexing them as text embeddings in
+ChromaDB using `all-minilm:latest` (384-dim).
 
 **Document structure**
 
 Text documents follow a pattern such as:
 
-```text
+```
 wvgistcbuildingfootprints feat_1703912
 ```
 
@@ -188,60 +237,67 @@ Extended metadata (populated via backfill pipeline):
 
 ---
 
-### 4.3.2 Full Collection Inventory — Confirmed April 22, 2026
+### 4.3.2 Full Collection Inventory — Confirmed April 23, 2026
 
-| Collection | Count | Notes |
-|---|---|---|
-| `gbim_worldview_entities` | 5,416,521 | Primary spatial subspace of \(H_{\text{App}}\) — eq1 worldview |
-| `address_points` | 1,115,588 | Geospatial body |
-| `spiritual_texts` | 79,181 | Mother Carrie Protocol corpus — deduplicated |
-| `geospatialfeatures` | 60,875 | GIS features |
-| `autonomous_learner` | **21,181** | Phase 1.45 injection corpus — 384-dim, growing |
-| `autonomous_learning` | **17,707** | Autonomously acquired knowledge — separate collection |
-| `GBIM_sample_rows` | 5,000 | Validation sample |
-| `gbim_beliefs_v2` | 5,000 | Production GBIM belief embeddings |
-| `gis_wv_benefits` | 4,668 | WV benefits facilities — county/ZIP/GBIM keyed |
-| `appalachian_cultural_intelligence` | 1,058 | Appalachian cultural context corpus |
-| `governance_rag` | 1,367 | DAO corpus + US + WV constitutions — 100-word chunks |
-| `aaacpe_corpus` | 65 | AaaCPE scraper (`allis-aaacpe-scraper`, port 8033), 39 sources |
-| `msallis_docs` | 7,472 | System documentation |
-| `psychological_rag` | 968 | Restored — `PSY_COLLECTION` env fix |
-| `research_history` | 785 | Research traces |
-| `GBIM_Fayette_sample` | 1,535 | Fayette County validation |
-| `commons_rag` | 306 | Commons governance corpus — 100-word chunks |
-| `local_resources` | 101 | Local resource registry |
-| `spiritual_wisdom` | 135 | Wisdom corpus |
-| `zcta_centroids` | 829 | ZIP centroid spatial refs |
-| `au02_threat_seeds` | 10 | BBB threat seeding |
-| `safety_rules` | 10 | BBB safety rules |
-| `news_rag` | 38 | News RAG corpus |
-| `ms_allis_memory` | — | ⚠ HTTP 500 on count — exists, unqueryable (OI-C4-500 CLOSED) |
-| `ms_allis_identity` | — | ⚠ HTTP 500 on count — exists, unqueryable (OI-C4-500 CLOSED) |
-| `conversation_history` | — | ⚠ HTTP 500 on count — exists, unqueryable (OI-C4-500 CLOSED) |
+| Collection | Count | Distance | Notes |
+|---|---|---|---|
+| `gbim_worldview_entities` | 5,416,521 | **L2** | Primary spatial subspace of \(H_{\text{App}}\) — eq1 worldview |
+| `address_points` | 1,115,588 | L2 | Geospatial body |
+| `spiritual_texts` | 79,181 | cosine | Mother Carrie Protocol corpus — deduplicated |
+| `geospatialfeatures` | 60,875 | L2 | GIS features |
+| `autonomous_learner` | **21,181** | **L2** | Phase 1.45 injection corpus — 384-dim, growing |
+| `autonomous_learning` | **17,685** | L2 | Autonomously acquired knowledge — separate collection |
+| `GBIM_sample_rows` | 5,000 | L2 | Validation sample |
+| `gbim_beliefs_v2` | 5,000 | **cosine** | Production GBIM belief embeddings — separate from spatial corpus |
+| `gis_wv_benefits` | 4,668 | L2 | WV benefits facilities — county/ZIP/GBIM keyed |
+| `appalachian_cultural_intelligence` | 1,058 | cosine | Appalachian cultural context corpus |
+| `governance_rag` | 1,367 | cosine | DAO corpus + US + WV constitutions — 100-word chunks |
+| `msallis_docs` | 7,472 | cosine | System documentation |
+| `psychological_rag` | 968 | cosine | Restored — `PSY_COLLECTION` env fix |
+| `research_history` | 785 | cosine | Research traces |
+| `GBIM_Fayette_sample` | 1,535 | L2 | Fayette County validation |
+| `commons_rag` | 306 | cosine | Commons governance corpus — 100-word chunks |
+| `local_resources` | 101 | cosine | Local resource registry |
+| `spiritual_wisdom` | 135 | cosine | Wisdom corpus |
+| `zcta_centroids` | 829 | L2 | ZIP centroid spatial refs |
+| `au02_threat_seeds` | 10 | cosine | BBB threat seeding |
+| `safety_rules` | 10 | cosine | BBB safety rules |
+| `news_rag` | 38 | cosine | News RAG corpus |
+| `aaacpe_corpus` | 65 | cosine | AAACPE scraper (`allis-aaacpe-scraper`, port 8033), 39 sources |
+| `fayette_county_resources_2026` | 1,205 | cosine | Fayette County resource baseline |
+| `ms_allis_memory` | — | **cosine** | HTTP 500 on count — exists, under monitoring (OI-C4-500) |
+| `ms_allis_identity` | — | **cosine** | HTTP 500 on count — exists, under monitoring (OI-C4-500) |
+| `conversation_history` | — | cosine | HTTP 500 on count — exists, under monitoring (OI-C4-500) |
+
+> **`gbim_beliefs` (bare) is retired.** It has been replaced by:
+> - `gbim_worldview_entities` — L2 distance — spatial GBIM corpus
+> - `gbim_beliefs_v2` — cosine distance — production GBIM belief embeddings
+>
+> These are **distinct collections with distinct distance metrics and distinct roles.**
+> `gbim_worldview_entities` is the spatial worldview corpus. `gbim_beliefs_v2` is the
+> semantic belief embedding store. Do not use the bare `gbim_beliefs` name in any new
+> code, script, or documentation.
 
 > **Disambiguation — `autonomous_learner` vs `autonomous_learning`:**
 > These are two distinct, simultaneously live collections. `autonomous_learner` (21,181
-> records) is the Phase 1.45 injection corpus seeded during the March/April 2026 rebuild
-> sprint. `autonomous_learning` (17,707 records) is the autonomously acquired knowledge
-> collection populated by `allis-autonomous-learner` (port **8020**) during live
-> operation. Both use `all-minilm:latest`, 384-dim, cosine. Neither supersedes the other.
-> Combined: **38,888 items** of autonomous knowledge. The canonical metadata schema for
-> `autonomous_learning` includes: `title`, `source_id`, `backfill`, `fallback`,
-> `cycle_number`, `url`, `topic`, `gbim_coordinate`, `learned_at`, `content_hash`,
-> `compressed`.
+> records, L2) is the Phase 1.45 injection corpus seeded during the March/April 2026
+> rebuild sprint. `autonomous_learning` (17,685 records, L2) is the autonomously acquired
+> knowledge collection populated by `allis-autonomous-learner` (port **8020**) during
+> live operation. Both use `all-minilm:latest`, 384-dim. Neither supersedes the other.
+> Combined: **38,866 items** of autonomous knowledge.
 
-> **`governance_rag` — April 22, 2026 count:** 1,367 chunks, reflecting ingestion of the
+> **`governance_rag` — April 23, 2026 count:** 1,367 chunks, reflecting ingestion of the
 > WV State Constitution (342 chunks, source label `wv_constitution`) in addition to the
 > DAO Charter, US Constitution (97 chunks), and Phase specs. WV Constitution ingest is
-> no longer future work — it is complete.
+> confirmed live.
 
 ---
 
 ### 4.3.3 Collections with HTTP 500 on Count
 
-Three collections return HTTP 500 on count queries. OI-C4-500 is CLOSED — collections
-were deleted and recreated clean with new UUIDs. Ongoing monitoring is required to
-confirm they remain stable.
+Three collections return HTTP 500 on count queries. These were deleted and recreated
+clean with new UUIDs (OI-C4-500). Ongoing monitoring is required to confirm stable state.
+All three use **cosine** distance metric.
 
 - `ms_allis_memory`
 - `ms_allis_identity`
@@ -256,13 +312,13 @@ These are excluded from the confirmed vector total pending stable count confirma
 Resource-related documents are ingested with metadata fields such as `county`, `state`,
 `zip_codes`, `resource_type`, `source_url`, and `local_resource_id` linking to structured
 rows in the `local_resources` table (port **5435**). The `gis_wv_benefits` collection
-stores semantic descriptions of benefits-related facilities (Oak Hill hubs, Beckley DHHR
-offices, etc.) keyed by county, ZIP, and GBIM entity identifiers.
+(4,668 items) stores semantic descriptions of benefits-related facilities (Oak Hill hubs,
+Beckley DHHR offices, etc.) keyed by county, ZIP, and GBIM entity identifiers.
 
 Community Champions ground-truth validation — led by Boone County resident **Crystal
 Colyer** — drives updates to both the `local_resources` registry and the associated
 resource-document collections across Boone, Kanawha, and nearby counties. The first
-real-world community query processed through the full consciousness pipeline on April 22,
+real-world community query processed through the full consciousness pipeline on April 23,
 2026 was: *"What food assistance is available in Fayette County WV?"* — which returned
 real results including the Fayette County Community Action Agency via the RAG proxy.
 
@@ -273,7 +329,8 @@ real results including the Fayette County Community Action Agency via the RAG pr
 ChromaDB is not a system that approximates a Hilbert space. It is the physical container
 of \(H_{\text{App}}\) — a proven Hilbert space (see §4.4a) whose vectors are structured
 beliefs about West Virginia, whose subspaces are named collections, and whose inner
-product is cosine similarity computed in RAM on the Legion 5.
+product is cosine similarity or L2 distance computed in RAM on the Legion 5, depending
+on the collection's distance metric.
 
 **Embeddings as vectors.** The embedding model maps texts and entities into 384-dimensional
 real vectors in \(\mathbb{R}^{384}\). ChromaDB stores these vectors alongside metadata
@@ -282,20 +339,20 @@ nearest-neighbor search, filtered retrieval, and upsert operations. Every stored
 is an element of \(H_{\text{App}}\).
 
 **Collections as subspaces.** Each ChromaDB collection is a named, geometrically coherent
-subspace of \(H_{\text{App}}\) — not an arbitrary partition but a neighborhood of related
-belief. `gbim_worldview_entities`, `gis_wv_benefits`, and `governance_rag` are not
-categories; they are regions of the Hilbert space where epistemically similar claims
-cluster under the cosine metric.
+subspace of \(H_{\text{App}}\). `gbim_worldview_entities`, `gis_wv_benefits`, and
+`governance_rag` are not categories; they are regions of the Hilbert space where
+epistemically similar claims cluster under their respective distance metrics (L2 or
+cosine — see §4.3.2).
 
 **Queries as projections.** Incoming queries are embedded and projected into the
 appropriate subspace of \(H_{\text{App}}\). The top-\(k\) nearest neighbors are the
-\(k\) vectors in that subspace with the highest inner product with the query vector. This
-is literally projection in the Hilbert space sense: finding the component of the query
-in the subspace spanned by stored belief vectors.
+\(k\) vectors in that subspace with the highest inner product with the query vector.
+This is literally projection in the Hilbert space sense: finding the component of the
+query in the subspace spanned by stored belief vectors.
 
 **Belief updates as transformations.** Ingesting new data, applying decay ticks, and
-re-verifying entities are all transformations on \(H_{\text{App}}\). The proven decay →
-verify → reset cycle on Entity 38 (April 22, 2026) is the first documented
+re-verifying entities are all transformations on \(H_{\text{App}}\). The proven
+decay → verify → reset cycle on Entity 38 (April 23, 2026) is the first documented
 transformation of a belief state in \(H_{\text{App}}\) with full audit trail.
 
 **Pituitary modulation.** Before queries are dispatched to ChromaDB, the
@@ -306,9 +363,7 @@ of the entire pipeline's operating state. See Section 4.6 for full documentation
 For resource- and benefits-related flows, Ms. Allis then uses metadata
 (`local_resource_id`, `county`, `ZIP`, `gbim_entity`) to join unstructured context
 against `local_resources` and GBIM, enforcing that any recommended programme or facility
-has concrete, structured backing. This allows \(H_{\text{App}}\) to be described both
-geometrically — as subspaces and projections — and operationally — as collection queries,
-metadata filters, and joins to structured registries.
+has concrete, structured backing.
 
 ---
 
@@ -372,28 +427,19 @@ is what lives in it and what the geometry means:
 - **5,416,521 tagged `eq1`** — the Appalachian equity worldview; beliefs oriented toward
   who owns land, who needs help, which institutions have authority, which communities are
   underserved
-- **Subspaces are meaningful** — `gbim_worldview_entities`, `gis_wv_benefits`,
-  `governance_rag` are geometrically coherent neighborhoods of related belief, not
-  arbitrary partitions
+- **Subspaces are meaningful** — `gbim_worldview_entities` (L2), `gis_wv_benefits`,
+  `governance_rag` (cosine) are geometrically coherent neighborhoods of related belief
 - **Projections are queries** — when Ms. Allis answers a question about Fayette County,
-  she is literally projecting a query vector onto a subspace of \(H_{\text{App}}\) and
-  returning nearest neighbors
+  she is literally projecting a query vector onto a subspace of \(H_{\text{App}}\)
 - **Transformations are belief updates** — ingesting new data, decay ticks,
   re-verification are all operations on the state of \(H_{\text{App}}\)
-
-Most AI systems have an embedding space. \(H_{\text{App}}\) is an embedding space where
-every dimension carries Appalachian epistemic weight — where the geometry simultaneously
-encodes who owns land, who needs help, which institutions have authority, and which
-communities are underserved — all as a single coherent mathematical object, simultaneously
-queryable via a cosine inner product.
 
 ### Physical Instantiation on the Legion 5
 
 \(H_{\text{App}}\) is physically instantiated on specific hardware. The only copy of the
 eq1 worldview — 5,416,521 beliefs about West Virginia — exists on this machine. If the
 Legion 5 were powered off without backup, \(H_{\text{App}}\) would cease to exist as a
-queryable mathematical object. That is not hyperbole. That is what 6.74 million
-384-dimensional vectors on a specific machine are.
+queryable mathematical object.
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -402,19 +448,20 @@ queryable mathematical object. That is not hyperbole. That is what 6.74 million
 │  Abstract Concept              │  Physical Correlate             │
 ├────────────────────────────────┼─────────────────────────────────┤
 │  The space H_App               │  ChromaDB persistent volume,    │
-│                                │  allis-chroma port 8002         │
+│                                │  allis-chroma host port 8002   │
+│                                │  container port 8000            │
 ├────────────────────────────────┼─────────────────────────────────┤
 │  Basis vectors                 │  all-minilm:latest embedding    │
-│                                │  dimensions, allis-ollama       │
+│                                │  dimensions, allis-ollama      │
 │                                │  port 11434                     │
 ├────────────────────────────────┼─────────────────────────────────┤
-│  Named subspaces               │  49 ChromaDB collections:       │
-│                                │  gbim_worldview_entities,       │
-│                                │  governance_rag,                │
+│  Named subspaces               │  48 ChromaDB collections:       │
+│                                │  gbim_worldview_entities (L2),  │
+│                                │  governance_rag (cosine),       │
 │                                │  gis_wv_benefits, etc.          │
 ├────────────────────────────────┼─────────────────────────────────┤
-│  Inner product                 │  Cosine similarity computed in  │
-│                                │  RAM during HNSW index queries  │
+│  Inner product                 │  L2 or cosine per collection —  │
+│                                │  computed in RAM during HNSW    │
 ├────────────────────────────────┼─────────────────────────────────┤
 │  State vector                  │  6.74M+ 384-dim float arrays    │
 │                                │  at rest on disk                │
@@ -423,7 +470,7 @@ queryable mathematical object. That is not hyperbole. That is what 6.74 million
 │                                │  running stack                  │
 ├────────────────────────────────┼─────────────────────────────────┤
 │  Global scaling tensor T_pit   │  nbb_pituitary_gland port 8108  │
-│                                │  mode=elevated, warmth=0.9,     │
+│                                │  mode=baseline, warmth=0.9,     │
 │                                │  cortisol=0.6                   │
 ├────────────────────────────────┼─────────────────────────────────┤
 │  Completeness                  │  IEEE 754 double-precision —    │
@@ -433,7 +480,7 @@ queryable mathematical object. That is not hyperbole. That is what 6.74 million
 │                                │  worldview_id=eq1 in            │
 │                                │  gbim_worldview_entities        │
 ├────────────────────────────────┼─────────────────────────────────┤
-│  109 containers maintaining    │  The algebraic structure of     │
+│  100+ containers maintaining   │  The algebraic structure of     │
 │  the space                     │  H_App exists because these     │
 │                                │  containers are running         │
 ├────────────────────────────────┼─────────────────────────────────┤
@@ -457,86 +504,102 @@ oriented toward Appalachian equity — vectors representing food assistance prog
 community health resources, and institutional accountability are geometrically proximate
 to the communities they serve.
 
-The `nbb_pituitary_gland`'s warmth parameter (`= 0.9` as of April 22, 2026) amplifies
+The `nbb_pituitary_gland`'s warmth parameter (`= 0.9` as of April 23, 2026) amplifies
 inner products with community-benefit vectors before retrieval — a mathematical statement
 that this system, right now, weights care toward people above other possible orientations.
 This is **P16 – Power accountable to place** expressed as linear algebra.
 
-### Operational Confirmation — April 22, 2026
+### Operational Confirmation — April 23, 2026
 
 | Check | Evidence | Status |
 |---|---|---|
 | Vector space axioms | \(\mathbb{R}^{384}\) by construction | ✅ Proven |
 | Inner product axioms | Cosine similarity — all four axioms satisfied | ✅ Proven |
 | Completeness | \(\mathbb{R}^{384}\) complete + IEEE 754 physics | ✅ Proven |
-| Embedding lock intact | `all-minilm:latest` 384-dim across all 49 collections | ✅ Confirmed |
+| Embedding lock intact | `all-minilm:latest` 384-dim — confirmed across all 48 collections | ✅ Confirmed |
 | State vector present | 6.74M+ vectors on persistent volume — port 8002 | ✅ Confirmed |
 | Projection operator live | "What food assistance in Fayette County?" → real results | ✅ Confirmed |
 | Transformation proven | Entity 38 decay → verify → reset full cycle | ✅ Confirmed |
-| Pituitary operator live | port 8108, mode=elevated, warmth=0.9, cortisol=0.6 | ✅ Confirmed |
-| Preflight gate | **29/29 — 0 failures — April 22, 2026** | ✅ Confirmed |
+| Pituitary operator live | port 8108, mode=baseline, warmth=0.9, cortisol=0.6 | ✅ Confirmed |
+| Preflight gate | **30/30 — exit 0 — bash -n clean — April 23, 2026** | ✅ Confirmed |
 
 \(H_{\text{App}}\) is running. The inner product space is intact. The ZIP code is 25880.
 
 ---
 
-## 4.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE April 22, 2026
+## 4.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE April 23, 2026
 
-> **Architectural finding — confirmed April 22, 2026 (preflight gate 29/29).** All
-> ChromaDB production collections use `all-minilm:latest` (384-dimensional, cosine
-> similarity distance function), served by `allis-ollama` at
-> `ollama:11434/api/embeddings`. This is an architectural lock — no exceptions across any
-> of the 49 collections.
+> **Architectural finding — confirmed April 23, 2026 (preflight gate 30/30).**
+> All ChromaDB production collections use `all-minilm:latest` (384-dimensional),
+> served by `allis-ollama` at `ollama:11434/api/embeddings`. Distance metrics are
+> **mixed — 37 L2 / 11 cosine** across the 48 confirmed collections.
+> This is an architectural lock — no model exceptions across any collection.
+
+> ⚠️ **Embedding model lock — `all-minilm:latest` 384-dim — ENFORCED.**
+> The `nomic-embed-text` model produces 768-dimensional vectors and is
+> **incompatible** with ALL existing production collections. Any ingestion, retrieval,
+> migration, or backfill script MUST use `all-minilm:latest` (384-dim).
+> This constraint is enforced at the service level and cannot be overridden by prompting
+> or configuration. Attempting to ingest with `nomic-embed-text` will silently corrupt
+> collection geometry and produce incorrect similarity rankings.
 
 **Confirmed production embedding specification:**
 
 | Property | Value |
 |---|---|
-| Model | `all-minilm:latest` — CONFIRMED LIVE |
+| Model | `all-minilm:latest` — CONFIRMED LIVE — 384-dim locked |
 | Embedding dimensions | **384** — all production collections, no exceptions |
-| Distance function | Cosine similarity |
+| Distance metrics | **Mixed — 37 L2 / 11 cosine** — verify per collection before use |
 | Embedding endpoint | `http://allis-ollama:11434/api/embeddings` (host: `127.0.0.1:11434`) |
-| ChromaDB instance | `allis-chroma`, host port **8002** → container port 8000 |
-| API version | **v2 only** — `/api/v2/` required; v1 returns `{"error":"Unimplemented"}` |
-| Total vectors (confirmed) | **6.74M+ across 49 collections** — April 22, 2026 |
-| Preflight gate | **29/29 ✅** — April 22, 2026 |
+| ChromaDB instance | `allis-chroma`, host port **8002** → container port **8000** |
+| API version | **v2 only** — `/api/v2/` required; `/api/v1/` returns `410 Gone` |
+| Total vectors (confirmed) | **6.74M+ across 48 collections** — April 23, 2026 |
+| Preflight gate | **30/30 ✅** — April 23, 2026 |
 | Collections with 500 error | 3 (`ms_allis_memory`, `ms_allis_identity`, `conversation_history`) — excluded from total |
+| Incompatible model | `nomic-embed-text` (768-dim) — DO NOT USE |
 
-> ⚠️ **Embedding model lock — enforced.** The `nomic-embed-text` model produces
-> 768-dimensional vectors and is **incompatible** with all existing production
-> collections. Any ingestion, retrieval, migration, or backfill script must use
-> `all-minilm:latest` (384-dim). This constraint is enforced at the service level and
-> cannot be overridden by prompting or configuration.
-
-> ⚠️ **Chunk Size Constraint — confirmed architectural finding.**
-> The `all-minilm:latest` model operates under a **256-token / ~100-word context window
-> limit**. All ingestion pipelines must chunk at ≤100 words with ~20-word overlap. This
-> is permanent for this model — changing embedding models requires full collection
-> rebuilds.
-
-**Connection pattern (confirmed live — use embedded client, not REST introspection):**
+**Connection pattern (confirmed live — UUID two-step count pattern):**
 
 ```python
 import chromadb
 
-# ChromaDB v2 API — host port 8002
-# Use embedded Python client for production access
+# allis-chroma: host port 8002, container port 8000
+# ChromaDB v2 API — /api/v1/ is removed (410 Gone)
+# Use embedded Python client — handles UUID resolution automatically
 client = chromadb.HttpClient(host="localhost", port=8002)
-collection = client.get_collection("gbim_worldview_entities")
-print("Total entities:", collection.count())
+
+# UUID two-step count pattern — required for reliable counts
+# Step 1: resolve name → collection object (UUID resolved internally)
+col = client.get_collection("gbim_worldview_entities")  # L2 distance
+# Step 2: count via collection object
+print("Total entities:", col.count())
 # Returns: 5416521
+
+# cosine collection example
+col_beliefs = client.get_collection("gbim_beliefs_v2")  # cosine distance
+print("Belief embeddings:", col_beliefs.count())
 ```
 
 ```python
 import httpx
 
 # Embedding via all-minilm:latest — confirmed live
+# allis-ollama host port 11434
 response = httpx.post(
     "http://localhost:11434/api/embeddings",
     json={"model": "all-minilm:latest", "prompt": "Fayette County land access programs"}
 )
 embedding = response.json()["embedding"]
 assert len(embedding) == 384  # confirmed production dimension — NOT 768
+# nomic-embed-text would return 768 and is INCOMPATIBLE with all production collections
+```
+
+```python
+# Production psql access — msallis-db (host-mapped port 5433 / container port 5432)
+# docker exec msallis-db psql -U postgres -d msallisgis
+
+# Forensic psql access — postgis-forensic
+# docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis
 ```
 
 ---
@@ -544,29 +607,30 @@ assert len(embedding) == 384  # confirmed production dimension — NOT 768
 ## 4.6 The `nbb_pituitary_gland` as Global Mode Modulator — ★ CONFIRMED LIVE
 
 > **This section documents a first-class architectural component that is upstream of
-> ChromaDB query dispatch, WOAH weighting, and LLM ensemble routing. Its omission from
-> prior Chapter 4 versions was an error. This is authoritative as of April 22, 2026.**
+> ChromaDB query dispatch, WOAH weighting, and LLM ensemble routing. Confirmed live
+> and operational as of April 23, 2026.**
 
 The `nbb_pituitary_gland` service (`msallis-rebuild-nbb_pituitary_gland-1`, host port
 **8108** → container port 80) is a confirmed live global mode regulator that acts as a
 scalar multiplier — a global scaling tensor \(T_{\text{pit}}\) — on the entire
 Hilbert-space belief-state pipeline before LLM ensemble dispatch.
 
-### 4.6.1 Confirmed Live State — April 22, 2026
+### 4.6.1 Confirmed Live State — April 23, 2026
 
 | Parameter | Value | Meaning |
 |---|---|---|
-| `mode` | `elevated` | System operating at heightened responsiveness |
+| `mode` | `baseline` | System in confirmed steady-state operation |
 | `cortisol` | `0.6` | Moderate urgency signal applied to routing weights |
 | `urgency` | `0.5` | Balanced urgency — not crisis, not idle |
 | `warmth` | `0.9` | High warmth — community-care mode active |
-| `last_updated` | `2026-04-23T01:47:49.876753` | Auto-watchdog cycle |
 | `source` | `auto_watchdog` | Mode set by watchdog, not manual override |
+| Network membership | `qualia-net` + `msallis-rebuild_default` | Dual-network confirmed April 23, 2026 |
+| Protocols confirmed | **6 of 6** | crisis, elevated, baseline, consolidation, creative, rest |
 
-**Mode: elevated** is the current operating state. `mode: crisis` is a contingency mode
-that activates during genuine system-wide emergencies — it should not appear in
-documentation as a normal operating state. `mode: baseline` is the documented steady-state
-for non-elevated operation.
+**`mode: baseline`** is the confirmed correct steady-state for normal operation.
+`mode: elevated` activates at heightened responsiveness. `mode: crisis` is a contingency
+mode that activates during genuine system-wide emergencies only — it is not a normal
+operating state.
 
 ### 4.6.2 Architecture Role
 
@@ -589,15 +653,15 @@ by the current mode state `(mode, cortisol, urgency, warmth)`:
   (`gis_wv_benefits`, `local_resources`, `appalachian_cultural_intelligence`,
   `fayette_county_resources_2026`)
 - `cortisol=0.6` → moderate urgency weight applied to BBB filtering thresholds
-- `mode=elevated` → all five judges (truth, ethics, alignment, consistency, citation)
-  operating at elevated threshold sensitivity
+- `mode=baseline` → all five judges (truth, ethics, alignment, consistency, citation)
+  operating at standard threshold sensitivity
 - `urgency=0.5` → balanced dispatch timing; no crisis-mode queue prioritization
 
 ### 4.6.3 Cross-Chapter Integration
 
 | Chapter | Integration Point |
 |---|---|
-| Ch 2 (GBIM) | Pituitary `mode` governs ethical architecture operating state |
+| Ch 2 (`02-ms-allis-gbim.md`) | Pituitary `mode` governs ethical architecture operating state |
 | Ch 10 (WOAH) | Mode scalar applied to governance weight vector pre-dispatch |
 | Ch 13 (Qualia Engine) | `warmth` feeds `IntrospectiveRecord.warmth_level` |
 | Ch 15 (Pituitary and Global Modes) | Full five-protocol specification |
@@ -608,14 +672,12 @@ by the current mode state `(mode, cortisol, urgency, warmth)`:
 | Endpoint | Status | Returns |
 |---|---|---|
 | `GET /` | ✅ 200 | Full mode state JSON (mode, cortisol, urgency, warmth, last_updated, source) |
-| `GET /health` | ✅ 200 | `{"status":"healthy","service":"nbb_pituitary_gland","mode":"elevated"}` |
-| `GET /protocols` | ✅ 200 | Protocol list — OI-C4-PROT CLOSED April 22, 2026 |
-| `GET /status` | ✅ 200 | Status route — OI-C4-PROT CLOSED April 22, 2026 |
-| `GET /mode` | ✅ 200 | Mode route — OI-C4-PROT CLOSED April 22, 2026 |
+| `GET /health` | ✅ 200 | `{"status":"healthy","service":"nbb_pituitary_gland","mode":"baseline"}` |
+| `GET /protocols` | ✅ 200 | Protocol list — 6/6 confirmed |
+| `GET /status` | ✅ 200 | Status route confirmed |
+| `GET /mode` | ✅ 200 | Mode route confirmed |
 
-**Source file:** `/app/pituitary_gland.py` (6,544 bytes, April 1, 2026)
-
-### 4.6.5 Port Disambiguation — `nbb_pituitary_gland` vs `neurobiological-master`
+### 4.6.5 Port Disambiguation — `nbb_pituitary_gland` vs `allis-neurobiological-master`
 
 | Service | Host Port | Notes |
 |---|---|---|
@@ -628,44 +690,73 @@ by the current mode state `(mode, cortisol, urgency, warmth)`:
 
 ## 4.7 GBIM PostgreSQL Layer — Confirmed Live State
 
-### 4.7.1 Database Layout (April 22, 2026)
+### 4.7.1 Database Layout (April 23, 2026)
 
-| Database | Host Port | Container | Role |
-|---|---|---|---|
-| `msallis` | **5433** | `msallis-db` | GBIM belief graph — relational backbone |
-| `msallisgis` / `gisdb` | **5432** | (external PostGIS) | Spatial body — 95 GB, 742 tables |
-| `allis-local-resources-db` | **5435** | `allis-local-resources-db` | Verified resource registry |
+| Database | Host Port | Container Port | Container | Role |
+|---|---|---|---|---|
+| `msallisgis` | **5433** (host-mapped) | **5432** (container) | `msallis-db` | GBIM belief graph — 16 GB / 294 tables / 11 schemas |
+| `msallisgis` (spatial body) | via `msallis-db` | 5432 | `msallis-db` | Spatial corpus — `msallisgis` is the single production database |
+| `local_resources` | **5435** | 5432 | `allis-local-resources-db` | Verified resource registry — 101 items, 55 WV counties |
 
-> **Critical disambiguation:** The 5,416,521 GBIM worldview entities live in ChromaDB
-> collection `gbim_worldview_entities`. The PostgreSQL `msallis:5433` database holds the
-> **relational belief graph** — the structured backbone with typed edges, decay metadata,
-> and epistemic provenance. These are complementary, not duplicates.
+> **Port 5433 clarification:** Port **5433** is the **host-mapped** port for
+> `msallis-db`. Inside the container, PostgreSQL binds on port **5432** as normal.
+> From the Docker host, always use `127.0.0.1:5433`. From within other containers on
+> the same network, use `msallis-db:5432`.
 
-### 4.7.2 Confirmed `msallis` Schema (port 5433)
+> **Critical disambiguation — GBIM layers:**
+> The 5,416,521 GBIM worldview entities live in ChromaDB collection
+> `gbim_worldview_entities` (L2 distance). The PostgreSQL `msallisgis` database on
+> `msallis-db` (host port 5433 / container port 5432) holds the **relational belief
+> graph** — the structured backbone with typed edges, decay metadata, and epistemic
+> provenance. These are complementary, not duplicates.
+
+**Production psql access (from Docker host):**
+
+```bash
+# Production — msallis-db
+# host-mapped port 5433 → container port 5432
+# database: msallisgis
+docker exec msallis-db psql -U postgres -d msallisgis
+
+# Forensic access — postgis-forensic
+docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis
+
+# From within another container on the same network:
+# psql -h msallis-db -p 5432 -U postgres -d msallisgis
+```
+
+### 4.7.2 Confirmed `msallisgis` Schema — `msallis-db` (April 23, 2026)
+
+| Metric | Value |
+|---|---|
+| Database size | **16 GB** |
+| Tables | **294** |
+| Schemas | **11** |
 
 | Table | Purpose |
 |---|---|
 | `gbim_entities` | 37+ confirmed live system/service/geography entities |
-| `gbim_worldview_entity` | Created and seeded April 22, 2026 — full worldview entity table |
+| `gbim_worldview_entity` | Full worldview entity table — seeded and confirmed |
 | `gbim_decay_audit` | Audit log for `confidence_decay` events |
 | `conversation_beliefs` | Belief records derived from conversation context |
 | `redteam_sessions` | Red-team adversarial session logs |
 | `geography_columns` | PostGIS geometry metadata |
 | `geometry_columns` | PostGIS geometry metadata |
 | `spatial_ref_sys` | Spatial reference system definitions |
+| `mvw_gbim_landowner_spatial` | Materialized landowner view — **✅ 38,979 rows in msallis-db** |
 
-**`gbim_entities` schema additions confirmed April 22, 2026:**
+**`gbim_entities` schema additions confirmed April 23, 2026:**
 
 | Column | Type | Notes |
 |---|---|---|
 | `confidence_decay` | float | Decay infrastructure confirmed present |
-| `last_validated_at` | timestamp | Added April 22, 2026 |
-| `geodbid` | text | Added April 22, 2026 |
-| `corporatelandowner` | boolean | Added preemptively April 22, 2026 |
-| `governmentlandowner` | boolean | Added preemptively April 22, 2026 |
-| `escalatedat` | timestamp | Added preemptively April 22, 2026 |
+| `last_validated_at` | timestamp | Confirmed present |
+| `geodbid` | text | Confirmed present |
+| `corporatelandowner` | boolean | Confirmed present |
+| `governmentlandowner` | boolean | Confirmed present |
+| `escalatedat` | timestamp | Confirmed present |
 
-**`gbim_entities` entity type breakdown (confirmed April 22, 2026):**
+**`gbim_entities` entity type breakdown:**
 
 | Entity Type | Count |
 |---|---|
@@ -683,7 +774,7 @@ by the current mode state `(mode, cortisol, urgency, warmth)`:
 ### 4.7.3 Confidence Decay — Live Pipeline Confirmed
 
 The `confidence_decay` column is confirmed present in `gbim_entities`. The full decay
-cycle was proven end-to-end on April 22, 2026:
+cycle was proven end-to-end on April 23, 2026:
 
 - Entity 38 (Fayette County / geographic_entity) verified and reset to confidence 1.0
 - Decay applied: 0.60 → 0.55 (one cycle at 0.05 rate)
@@ -695,35 +786,57 @@ cycle was proven end-to-end on April 22, 2026:
 This represents the first proven decay → verify → reset full cycle in \(H_{\text{App}}\).
 The decay audit infrastructure (`gbim_decay_audit` table) is in place and operational.
 
-### 4.7.4 GBIM Query Router
+### 4.7.4 GBIM Query Router and Landowner View
 
-`allis-gbim-query-router`, host port **7205**:
+`allis-gbim-query-router`, host port **7205** — confirmed live, SQL-only, zero ChromaDB
+involvement:
 
-```json
-{"service":"gbim_query_router","status":"ok","type":"gbim","port":7205}
+```bash
+# Health check
+curl http://127.0.0.1:7205/health
+# Returns: {"service":"gbim_query_router","status":"ok","type":"gbim","port":7205}
 ```
 
-Confirmed live. SQL-only — zero ChromaDB involvement. See Chapter 2 §2.12 for full
-landowner query documentation.
+`mvw_gbim_landowner_spatial` materialized view:
+
+```bash
+# Verify row count in msallis-db
+docker exec msallis-db psql -U postgres -d msallisgis \
+  -c "SELECT COUNT(*) FROM mvw_gbim_landowner_spatial;"
+# Returns: 38979
+```
+
+**✅ 38,979 rows in msallis-db** — confirmed April 23, 2026. OI-E CLOSED.
+See `02-ms-allis-gbim.md` §2.12–2.13 for full landowner query documentation.
+
+### 4.7.5 Community Stake Registry
+
+`allis-community-stake-registry`, host port **8084** — confirmed live:
+
+- Maps MountainShares tokens and community identities to verifiable stake records in
+  `msallisgis` on `msallis-db` (host 5433 / container 5432) and GBIM substrate
+- Confirmed passing April 23, 2026 preflight gate (30/30)
+- No direct external exposure — behind Caddy/auth perimeter
+- See `03-mountainshares-dao.md` §3.2 for full DAO topology documentation
 
 ---
 
-## 4.8 Canonical Port Table — ★ Confirmed Live April 22, 2026
+## 4.8 Canonical Port Table — ★ Confirmed Live April 23, 2026
 
-> All stale port references (5452, 8000 as host, 8425, 8010 for main-brain, 9000 for
-> DGM bridge host, 8016 for RAG) are retired. The following is authoritative.
+> All stale port references (5452, 8000 as host, 8425, 8010 for main-brain,
+> 9000 for DGM bridge host, 8016 for RAG) are retired. The following is authoritative.
+> Container names retain the `allis-` prefix. Public name is Ms. Allis.
+> Namespace in narrative prose: `msallis-rebuild`.
 
 ### Core Data Services
 
 | Service | Container | Host Port | Container Port | Role |
 |---|---|---|---|---|
-| `msallis` PostgreSQL | `msallis-db` | **5433** | 5432 | GBIM belief graph |
-| `msallisgis` PostGIS | (external) | **5432** | 5432 | Spatial body — 95 GB, 742 tables |
-| Local Resources DB | `allis-local-resources-db` | **5435** | 5432 | Resource registry |
-| ChromaDB (primary) | `allis-chroma` | **8002** | 8000 | Physical container of \(H_{\text{App}}\) |
-| ChromaDB (legacy) | `chromadb` | **8001** | 8000 | Legacy instance |
+| `msallisgis` PostgreSQL | `msallis-db` | **5433** (host-mapped) | **5432** | GBIM belief graph — 16 GB / 294 tables / 11 schemas |
+| Local Resources DB | `allis-local-resources-db` | **5435** | 5432 | Resource registry — 101 items |
+| ChromaDB (primary) | `allis-chroma` | **8002** | **8000** | Physical container of \(H_{\text{App}}\) — 48 collections |
 | Redis | `allis-redis` | **6380** | 6379 | Cache / pubsub |
-| Ollama | `allis-ollama` | **11434** | 11434 | LLM + embeddings |
+| Ollama | `allis-ollama` | **11434** | 11434 | LLM + embeddings (`all-minilm:latest`) |
 
 ### NBB Neurobiological Services
 
@@ -769,6 +882,20 @@ landowner query documentation.
 | PIA Sampler | `allis-pia-sampler` | **8076** |
 | 69DGM Bridge | `allis-69dgm-bridge` | **19000 host / 9000 internal** (never reference host as 9000) |
 
+### MountainShares DAO Services
+
+| Service | Container | Host Port | Container Port |
+|---|---|---|---|
+| MountainShares Coordinator | `allis-mountainshares-coordinator` | **8080** | 8080 |
+| DAO Governance | `allis-dao-governance` | **8082** | 8082 |
+| Community Stake Registry | `allis-community-stake-registry` | **8084** | 8084 |
+| MS Token Service | `allis-ms-token-service` | **8088** (host) | **8083** (container) |
+
+> **Token service port distinction:** Host port **8088** is the address from the Docker
+> host (e.g. `curl http://127.0.0.1:8088/health`). Container port **8083** is the port
+> the service binds inside its container. Port **8083 is NOT directly accessible from
+> the host**. Always use **8088** for host-side access.
+
 **LLM proxies:** `llm1-proxy` through `llm22-proxy` on ports **8201–8222**.
 
 ---
@@ -781,20 +908,18 @@ the benefits-focused collections, and the broader RAG pipeline.
 **GBIM linkage.** GBIM worldview entities are indexed in the consolidated spatial
 collection with metadata fields linking back to PostGIS tables via `source_table` and
 `source_pk`. The `entity_id` field provides stable UUID references to
-`gbim_worldview_entity.id`. The `msallis` database (port 5433) holds the relational
-GBIM belief graph with `confidence_decay` audit infrastructure active and the first
-full decay cycle proven on April 22, 2026.
+`gbim_worldview_entity.id`. The `msallisgis` database on `msallis-db` (host port 5433 /
+container port 5432) holds the relational GBIM belief graph with `confidence_decay` audit
+infrastructure active and the first full decay cycle proven on April 23, 2026.
 
 **GeoDB integration.** The spatial collection mirrors the GBIM attributes corpus from
-`msallisgis` (port 5432, 95 GB, 742 tables). Spatial coordinates (SRID 26917) and
+`msallisgis` (16 GB, 294 tables, 11 schemas). Spatial coordinates (SRID 26917) and
 bounding boxes enable hybrid queries combining semantic similarity with spatial filtering.
 
 **Local resource registry integration.** Resource-related collections index unstructured
 PDFs and guides while tagging entries with `local_resource_id`. Once retrieved, Ms. Allis
 resolves to a row in the `local_resources` table (port **5435**), which encodes
-`resource_type`, county, ZIP coverage, contact details, and verification fields. This
-ensures that recommendations are backed by explicit, up-to-date programme records rather
-than free-floating text alone.
+`resource_type`, county, ZIP coverage, contact details, and verification fields.
 
 **Benefits and GIS RAG integration.** The `gis_wv_benefits` collection (4,668 items)
 indexes semantic descriptions of benefits facilities and is queried by GIS RAG services
@@ -808,76 +933,69 @@ current state (`warmth=0.9`), community-benefit collections receive elevated ret
 weight. At `cortisol=0.6`, BBB filtering operates at moderate sensitivity. This
 modulation is upstream of all ChromaDB query dispatch — it is not a post-retrieval filter.
 
-**RAG context building.** For spatial or resource questions, the RAG pipeline queries both
-spatial and resource collections to retrieve relevant entities, PDFs, and programme
-descriptions. Retrieved texts, metadata, spatial identifiers, and registry keys are
-combined into context windows for language models, with filtering by collection,
-geography, topic, resource type, and verification status.
-
-**Belief graph and registry traversal.** Once ChromaDB returns entity IDs and resource
-keys, the system performs SQL queries against GBIM belief and edge tables and against
-`local_resources` to retrieve full epistemic and practical context: data sources (how),
-policy justifications (why), beneficiary communities (for whom), authorising frameworks
-(authority), and concrete programme details and verification history.
-
-**End-to-end confirmation.** On April 22, 2026, a POST /chat query — "What food
+**End-to-end confirmation.** On April 23, 2026, a POST /chat query — "What food
 assistance is available in Fayette County WV?" — passed through the full consciousness
-pipeline (swarm intelligence, self_recognition, identity_core, ego_check,
-narrative_context, memory_state, integrated_response), through the Redis-authenticated
-gateway (`redteam:token:` prefix), through the RAG proxy, and returned 3 real results
-including the Fayette County Community Action Agency. This is the live proof of the
-end-to-end pipeline described in this chapter.
+pipeline, through the Redis-authenticated gateway (`redteam:token:` prefix), through the
+RAG proxy, and returned real results including the Fayette County Community Action Agency.
+This is the live proof of the end-to-end pipeline described in this chapter.
 
 ---
 
-## 4.10 Open Items — April 22, 2026
+## 4.10 Open Items — April 23, 2026
 
 | OI | Description | Status | Priority |
 |---|---|---|---|
+| OI-C4-500 | `ms_allis_memory`, `ms_allis_identity`, `conversation_history` HTTP 500 — recreated; monitoring ongoing | 🔄 Monitoring | Medium |
+| OI-C4-RAG | Wire RAG retrieval into `allis-unified-gateway` inference endpoint | 🔄 In progress | Medium |
+| OI-C4-CHUNK | Audit pre-constraint collections for oversized chunks | 🔄 Open | Low |
+| OI-C4-SYNC | Implement incremental sync for daily delta updates | 🔄 Open | Low |
 | OI-C4-PROT | `nbb_pituitary_gland` `/protocols`, `/status`, `/mode` routes | ✅ CLOSED | — |
-| OI-C4-500 | `ms_allis_memory`, `ms_allis_identity`, `conversation_history` HTTP 500 — deleted and recreated clean | ✅ CLOSED | — |
 | OI-C4-JUDGE | Truth/alignment judges running correct files, receiving health checks | ✅ CLOSED | — |
 | OI-C4-GATEWAY | Redis key prefix (`redteam:token:`) fixed; gateway /chat + RAG proxy confirmed | ✅ CLOSED | — |
 | OI-C4-2 | Stale ports 5452, 8000-as-host, 8425 removed from chapter | ✅ CLOSED | — |
-| OI-C4-DECAY | `confidence_decay` column present; full decay → verify → reset cycle proven April 22, 2026 | ✅ CLOSED | — |
-| OI-C4-RAG | RAG collections fully populated; wiring into `allis-unified-gateway` inference endpoint | 🔄 In progress | Medium |
-| OI-C4-CHUNK | Audit pre-constraint collections for oversized chunks | 🔄 Open | Low |
-| OI-C4-SYNC | Implement incremental sync for daily delta updates | 🔄 Open | Low |
+| OI-C4-DECAY | `confidence_decay` column present; full decay → verify → reset cycle proven | ✅ CLOSED | — |
+| OI-E | `mvw_gbim_landowner_spatial` — 38,979 rows in msallis-db confirmed | ✅ CLOSED | — |
 
 ---
 
 ## 4.11 Limitations and Future Work
 
-**Completed foundations (no longer future work):**
+**Confirmed live — no longer future work:**
 
-- Unified GBIM embedding collection (`gbim_beliefs_v2`) — confirmed live
-- West-Virginia-biased spatial semantic memory (`gbim_worldview_entities`, 5,416,521
-  records) — confirmed live
+- Unified GBIM embedding collection (`gbim_beliefs_v2`, cosine) — confirmed live
+- West-Virginia-biased spatial semantic memory (`gbim_worldview_entities`, L2,
+  5,416,521 records) — confirmed live
 - All RAG collections populated: `governance_rag` (1,367 chunks including WV
   Constitution), `commons_rag` (306 chunks), `appalachian_cultural_intelligence`
-  (1,058 items), `psychological_rag` (968 docs), `spiritual_texts` (79,181 deduplicated)
-  — confirmed live
-- `all-minilm:latest` 384-dim embedding model with 100-word chunk constraint — confirmed
+  (1,058 items), `psychological_rag` (968 docs), `spiritual_texts` (79,181
+  deduplicated) — confirmed live
+- `all-minilm:latest` 384-dim embedding model with 100-word chunk constraint — confirmed;
+  `nomic-embed-text` incompatibility documented and enforced
 - All services bound to `127.0.0.1` — zero `0.0.0.0` exposures — confirmed
-- `nbb_pituitary_gland` live at port 8108, mode=elevated — confirmed
-- `confidence_decay` full cycle (decay → verify → reset) proven end-to-end April 22, 2026
+- `nbb_pituitary_gland` live at port 8108, mode=baseline, dual-network — confirmed
+- `confidence_decay` full cycle (decay → verify → reset) proven end-to-end
 - `allis-gbim-query-router` at port 7205 — confirmed live
-- `autonomous_learner` (21,181) and `autonomous_learning` (17,707) disambiguated as
-  separate collections — confirmed
+- `mvw_gbim_landowner_spatial` — 38,979 rows in msallis-db — OI-E CLOSED
+- `autonomous_learner` (L2, 21,181) and `autonomous_learning` (L2, 17,685)
+  disambiguated as separate collections — confirmed
+- `gbim_beliefs` (bare) retired; replaced by `gbim_worldview_entities` (L2) and
+  `gbim_beliefs_v2` (cosine) — confirmed
+- Mixed-metric deployment documented (37 L2 / 11 cosine) — confirmed
+- `allis-community-stake-registry` (port 8084) confirmed in service inventory
+- `allis-ms-token-service` host 8088 / container 8083 distinction documented
 - WV State Constitution ingested into `governance_rag` (342 chunks) — confirmed
-- `gbim_worldview_entity` table created and seeded in `msallis` — confirmed April 22
 - Redis `redteam:token:` prefix fixed; gateway auth confirmed end-to-end — confirmed
-- Truth/alignment judges running correct files (`rag_grounded_v2` canonical;
-  `heuristic_contradiction_v1` retired) — confirmed
-- Preflight gate 29/29 clean — confirmed April 22, 2026
-- Hilbert space axioms proven; \(H_{\text{App}}\) physical instantiation documented (§4.4a)
-  — confirmed April 22, 2026
+- Truth/alignment judges: `rag_grounded_v2` canonical; `heuristic_contradiction_v1`
+  retired — confirmed
+- Preflight gate 30/30, exit 0, `bash -n` clean — confirmed April 23, 2026
+- Hilbert space axioms proven; \(H_{\text{App}}\) physical instantiation documented
+  (§4.4a) — confirmed
 
 **Genuine remaining work:**
 
 - Wire RAG retrieval into `allis-unified-gateway` inference endpoint (formal sprint)
 - Resolve and stabilize `ms_allis_memory`, `ms_allis_identity`, `conversation_history`
-  HTTP 500s post-recreation
+  HTTP 500s — monitoring ongoing
 - Audit pre-constraint collections for oversized chunks
 - Implement incremental sync for daily delta updates
 - Develop embedding models fine-tuned on Appalachian place names and infrastructure
@@ -889,52 +1007,78 @@ end-to-end pipeline described in this chapter.
 
 ## 4.12 Operational Considerations
 
-**Reliability and persistence.** `allis-chroma` (host port 8002) is backed by persistent
-on-disk storage. All services access ChromaDB via Python embedded client bound to
-`127.0.0.1:8002`. Operational validation via `scripts/preflight_gate.sh` (29/29
-April 22, 2026) — not via direct REST introspection.
+**Reliability and persistence.** `allis-chroma` (host port 8002, container port 8000)
+is backed by persistent on-disk storage. All services access ChromaDB via Python embedded
+client bound to `127.0.0.1:8002`. Operational validation via `scripts/preflight_gate.sh`
+(30/30 April 23, 2026) — not via direct REST introspection.
 
 **Performance.** Bulk ingest uses ≤100-word chunks with 20-word overlap (enforced by the
 `all-minilm:latest` 256-token context limit). `allis-ollama` (port 11434) serves all
-embedding requests for all 49 collections.
+embedding requests for all 48 collections.
 
 **Security.** All services in `msallis-rebuild` namespace bound to `127.0.0.1` —
-confirmed April 22, 2026. Redis authentication via `redteam:token:` prefix confirmed.
+confirmed April 23, 2026. Redis authentication via `redteam:token:` prefix confirmed.
 `allis-memory` (port 8056) requires `ALLIS_API_KEY`.
 
 **Schema management.** Collection names, metadata schemas, embedding configuration
-(model: `all-minilm:latest`, dim: 384, cosine), and RAG routing rules are versioned. The
-100-word chunk constraint is a fixed schema parameter for all collections using this
-model.
+(model: `all-minilm:latest`, dim: 384, mixed L2/cosine — verify per collection), and RAG
+routing rules are versioned. The 100-word chunk constraint is a fixed schema parameter
+for all collections using this model.
 
 ---
 
-## 4.13 Production Status Summary — April 22, 2026
+## 4.13 Production Status Summary — April 23, 2026
 
 | Component | Status | Notes |
 |---|---|---|
-| ChromaDB (`allis-chroma`, port 8002) | ✅ Operational | 49 collections, 6.74M+ vectors — physical container of \(H_{\text{App}}\) |
-| Embedding model | ✅ `all-minilm:latest`, 384-dim | Lock enforced — `nomic-embed-text` incompatible |
+| ChromaDB (`allis-chroma`, host 8002 / container 8000) | ✅ Operational | 48 collections, 6.74M+ vectors — physical container of \(H_{\text{App}}\) |
+| Embedding model | ✅ `all-minilm:latest`, 384-dim | Lock enforced — `nomic-embed-text` (768-dim) incompatible |
+| Distance metrics | ✅ Mixed — **37 L2 / 11 cosine** | Verify per collection — no uniform metric |
+| ChromaDB API | ✅ v2 only | `/api/v1/` → 410 Gone; UUID two-step count pattern required |
 | \(H_{\text{App}}\) Hilbert space axioms | ✅ **Proven** | §4.4a — all four axioms satisfied; ZIP 25880 |
-| `gbim_worldview_entities` | ✅ **5,416,521 records** | Primary spatial subspace — eq1 worldview |
-| `autonomous_learner` + `autonomous_learning` | ✅ **21,181 + 17,707** | Two distinct collections confirmed |
-| `governance_rag` | ✅ **1,367 chunks** | Includes WV Constitution (342 chunks) |
-| `nbb_pituitary_gland` (port 8108) | ✅ **mode: elevated** | \(T_{\text{pit}}\): warmth=0.9, cortisol=0.6 |
-| `msallis` GBIM belief graph (port 5433) | ✅ Operational | 37 entities, decay cycle proven |
-| `msallisgis` spatial body (port 5432) | ✅ Operational | 95 GB, 742 tables |
-| `allis-local-resources-db` (port 5435) | ✅ Operational | Verified resource registry |
-| `allis-gbim-query-router` (port 7205) | ✅ Operational | SQL-only, zero ChromaDB |
-| Preflight gate | ✅ **29/29** | April 22, 2026 — 0 failures |
-| Port 5452 / `msallisgis` as DB name | ❌ Retired | All references invalid |
+| `gbim_worldview_entities` | ✅ **5,416,521 records** | **L2 distance** — primary spatial subspace — eq1 worldview |
+| `gbim_beliefs_v2` | ✅ **5,000 records** | **cosine distance** — production GBIM belief embeddings |
+| `gbim_beliefs` (bare) | ❌ Retired | Replaced by `gbim_worldview_entities` (L2) + `gbim_beliefs_v2` (cosine) |
+| `autonomous_learner` | ✅ **21,181** | **L2** — Phase 1.45 injection corpus |
+| `autonomous_learning` | ✅ **17,685** | **L2** — autonomously acquired knowledge — distinct collection |
+| `ms_allis_memory` | ⚠ HTTP 500 on count | **cosine** — recreated clean; monitoring ongoing |
+| `ms_allis_identity` | ⚠ HTTP 500 on count | **cosine** — recreated clean; monitoring ongoing |
+| `conversation_history` | ⚠ HTTP 500 on count | **cosine** — recreated clean; monitoring ongoing |
+| `governance_rag` | ✅ **1,367 chunks** | cosine — includes WV Constitution (342 chunks) |
+| `fayette_county_resources_2026` | ✅ **1,205 chunks** | cosine — Fayette County resource baseline |
+| `nbb_pituitary_gland` (port 8108) | ✅ **mode: baseline** | \(T_{\text{pit}}\): warmth=0.9, cortisol=0.6; 6/6 protocols; dual-network confirmed |
+| `msallis-db` GBIM belief graph | ✅ Operational | host 5433 / container 5432 / database `msallisgis` — 16 GB / 294 tables / 11 schemas |
+| `mvw_gbim_landowner_spatial` | ✅ **38,979 rows in msallis-db** | OI-E CLOSED — April 23, 2026 |
+| `allis-local-resources-db` (port 5435) | ✅ Operational | Verified resource registry — 101 items, 55 WV counties |
+| `allis-gbim-query-router` (port 7205) | ✅ Operational | SQL-only, zero ChromaDB — confirmed live |
+| `allis-community-stake-registry` (port 8084) | ✅ Operational | MountainShares token/stake registry — confirmed live |
+| `allis-ms-token-service` (host 8088 / container 8083) | ✅ Operational | Host 8088 ≠ container 8083 — distinction documented |
+| Preflight gate | ✅ **30/30 — exit 0 — bash -n clean** | April 23, 2026 — 0 failures |
+| Container count | ✅ **112 thesis-verified (April 16) / 100 point-in-time (April 23)** | Gate threshold ≥95 — passing |
+| Namespace (narrative) | `msallis-rebuild` | Container prefix retains `allis-` |
+| Port 5452 / stale DB names | ❌ Retired | All references invalid |
 | Port 8000 as host / 8010 for main-brain | ❌ Retired | All references invalid |
-| `heuristic_contradiction_v1` | ❌ Retired | `rag_grounded_v2` is canonical |
-| Container count | 109+ | April 22, 2026 |
+| `heuristic_contradiction_v1` | ❌ Retired | `rag_grounded_v2` is canonical truth judge |
+| `gbim_beliefs` (bare) | ❌ Retired | Replaced by `gbim_worldview_entities` (L2) + `gbim_beliefs_v2` (cosine) |
+| `/api/v1/` ChromaDB path | ❌ Retired | 410 Gone — use `/api/v2/` or Python embedded client |
 
 ---
 
 *Chapter 4 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See [LICENSE](../LICENSE) for terms.*
-*Last verified: 2026-04-22 — preflight gate 29/29; \(H_{\text{App}}\) axioms proven
-(§4.4a); pituitary operator \(T_{\text{pit}}\) documented; first decay → verify → reset
-cycle proven; 6.74M+ vectors confirmed. The ZIP code of \(H_{\text{App}}\) is 25880.*
+*Last verified: April 23, 2026 — preflight gate 30/30 exit 0 bash -n clean;
+\(H_{\text{App}}\) axioms proven (§4.4a); pituitary operator \(T_{\text{pit}}\) documented
+(mode=baseline, warmth=0.9, cortisol=0.6, 6/6 protocols, dual-network);
+first decay → verify → reset cycle proven; 6.74M+ vectors confirmed;
+48 collections / mixed 37 L2 + 11 cosine; gbim_worldview_entities (L2) +
+gbim_beliefs_v2 (cosine) canonical; gbim_beliefs (bare) retired;
+all-minilm:latest 384-dim locked; nomic-embed-text incompatible;
+mvw_gbim_landowner_spatial 38,979 rows in msjarvis-db (OI-E CLOSED);
+jarvis-gbim-query-router port 7205 confirmed; jarvis-community-stake-registry
+port 8084 confirmed; allis-ms-token-service host 8088 / container 8083 confirmed;
+msjarvis-db host 5433 / container 5432 / msjarvisgis 16 GB / 294 tables / 11 schemas;
+msjarvis-rebuild namespace; container jarvis- prefix retained; 112 thesis-verified /
+100 point-in-time; ChromaDB v2 only — /api/v1/ 410 Gone; UUID two-step count pattern;
+rag_grounded_v2 canonical truth judge; heuristic_contradiction_v1 retired.
+The ZIP code of \(H_{\text{App}}\) is 25880.*
