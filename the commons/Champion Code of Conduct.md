@@ -36,7 +36,7 @@ In addition to the Community Guidelines, Champions agree to:
 
 Champions must not:
 
-- Misrepresent their authority, expertise, or relationship to Harmony for Hope, MountainShares, or Ms. Jarvis.  
+- Misrepresent their authority, expertise, or relationship to Harmony for Hope, MountainShares, or Ms. Allis.  
 - Use their role to gain unauthorized access to systems, data, or decision‑making processes.
 
 ---
