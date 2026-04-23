@@ -4,7 +4,7 @@
 
 Anchoring—tying entities, events, and relations to specific wheres and whens—is one of polymathmatic geography’s core moves. It turns lived moments and structures into points in a world‑model that can be traced, compared, and reshaped. But not every where should be pinned precisely, and not every truth belongs in a database or embedding. Some geographies must remain coarse, guarded, or entirely unmapped in technical systems.
 
-This chapter expands the earlier “Limits and non‑goals” into a full methodology for *when not to anchor*, how refusals propagate through models, and how a “right to be unmodeled” can be implemented in code, governance, and practice. It also shows how those ethical decisions connect to Ms. Jarvis’s deletion, promotion, and identity layers.
+This chapter expands the earlier “Limits and non‑goals” into a full methodology for *when not to anchor*, how refusals propagate through models, and how a “right to be unmodeled” can be implemented in code, governance, and practice. It also shows how those ethical decisions connect to Ms. Allis’s deletion, promotion, and identity layers.
 
 ## 2. When Not to Anchor
 
@@ -81,7 +81,7 @@ Refusal flags must be backed by:
 
 ## 4. How Refusal Propagates Through Models
 
-Refusal to anchor is not a local exception; it must propagate through the full modeling stack, including Ms. Jarvis’s architecture.
+Refusal to anchor is not a local exception; it must propagate through the full modeling stack, including Ms. Allis’s architecture.
 
 ### 4.1 First‑stage evaluation
 
@@ -161,9 +161,9 @@ Policy and governance mechanisms should:
 
 DAO votes, commons councils, and elder validation processes are appropriate venues for such decisions in systems like Quantarithmia.
 
-## 6. Deletion, Promotion, and Identity in Ms. Jarvis
+## 6. Deletion, Promotion, and Identity in Ms. Allis
 
-The ethics of non‑representation interlock with Ms. Jarvis’s three retention stages.
+The ethics of non‑representation interlock with Ms. Allis’s three retention stages.
 
 ### 6.1 Deletion and the background store
 
@@ -189,7 +189,7 @@ For identity‑level retention:
 
 ### 6.3 Identity as a constraint on future mapping
 
-Identity in this system is not just a description; it is a constraint. If Ms. Jarvis “knows” that it is bound to community covenants and non‑representation rules, then:
+Identity in this system is not just a description; it is a constraint. If Ms. Allis “knows” that it is bound to community covenants and non‑representation rules, then:
 
 - Map and recommendation APIs must enforce those covenants.  
 - Attempts to override them in code or policy are treated as contradictions with identity, surfaced for governance rather than silently applied.  
@@ -211,6 +211,6 @@ This chapter extends polymathmatic geography’s limits and non‑goals into an 
 
 - **Anchors** are powerful; they let world‑models hold together across physics, law, economy, story, and spirit.  
 - **Gaps**—nulls by design, coarsened zones, deliberate absences—are equally powerful; they protect, honor, and sometimes resist.  
-- **Refusal** travels through schemas, filters, background stores, embeddings, identity layers, and governance, shaping what systems like Ms. Jarvis can and cannot do.
+- **Refusal** travels through schemas, filters, background stores, embeddings, identity layers, and governance, shaping what systems like Ms. Allis can and cannot do.
 
 A disciplined practice of non‑representation ensures that polymathmatic geography remains a field that touches everything it must, without claiming or attempting to pin down everything it could. It keeps the right to be unmodeled as real and enforceable as the right to be mapped.
