@@ -67,9 +67,9 @@ Phase 1 growth is merchant-led, not member-led. The reserve grows fastest when m
 - Local services: repair, childcare, home health, transportation
 - Food and hospitality: restaurants, cafes, food trucks
 - Cultural and heritage: trail merchandise, local crafts, arts venues
-- Technical services: KTS node deployments, Ms. Jarvis licensing, ALLIS installations
+- Technical services: KTS node deployments, Ms. Allis licensing, ALLIS installations
 
-KTS is a Phase 1 merchant. Every ALLIS node deployment, every Ms. Jarvis technical service engagement, and every infrastructure contract that flows through The Commons USD storefront generates merchant fee revenue that builds the reserve. The founder is not exempt from the circulation engine — the founder is the first node in it.
+KTS is a Phase 1 merchant. Every ALLIS node deployment, every Ms. Allis technical service engagement, and every infrastructure contract that flows through The Commons USD storefront generates merchant fee revenue that builds the reserve. The founder is not exempt from the circulation engine — the founder is the first node in it.
 
 **Benefits-sensitive growth:** Fayette County has one of the highest rates of public benefits dependency in West Virginia. Phase 1's Benefits-Sensitive Account architecture is not a compliance feature — it is a growth feature. It makes participation safe for the majority of the community who would otherwise be excluded by fear of benefits loss. Growth that excludes benefits-sensitive participants is not Appalachian commons growth. It is a different project entirely.
 
@@ -110,7 +110,7 @@ MountainShares gives the diaspora a mechanism to participate in the commons econ
 - WV-made artisan and craft goods
 - WV-grown agricultural products
 - WV heritage tourism experiences and trail merchandise
-- KTS ALLIS node deployments and Ms. Jarvis technical services for other commons initiatives
+- KTS ALLIS node deployments and Ms. Allis technical services for other commons initiatives
 - MountainShares participation for family members still in WV (gifted PMS loads)
 
 Every diaspora dollar that enters The Commons USD storefront and stays in the closed loop is a dollar that would otherwise have gone to an extractive platform. The diaspora is not a charity donor. They are a market — one that is genuinely underserved and genuinely motivated by place identity in a way no algorithm can manufacture.
@@ -121,7 +121,7 @@ Every diaspora dollar that enters The Commons USD storefront and stays in the cl
 
 MountainShares has built-in protections against the growth patterns that destroy commons economies. It is worth naming them explicitly.
 
-**Growth that outpaces the reserve** is automatically throttled. Ms. Jarvis recalculates reserve ratios daily and tightens EMS conversion caps, pauses promo pools, and reduces base rates when the treasury needs protection. The system cannot be pushed into insolvency by aggressive onboarding.
+**Growth that outpaces the reserve** is automatically throttled. Ms. Allis recalculates reserve ratios daily and tightens EMS conversion caps, pauses promo pools, and reduces base rates when the treasury needs protection. The system cannot be pushed into insolvency by aggressive onboarding.
 
 **Speculative participation** — joining to accumulate M$ rather than to transact and contribute — generates low circulation velocity and minimal reserve inflow. The cap architecture and vaulting system ensure that speculative accumulation does not create treasury liability faster than fee revenue can support it.
 
