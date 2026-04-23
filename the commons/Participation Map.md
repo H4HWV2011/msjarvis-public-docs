@@ -87,7 +87,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 - Serve as **red team participants** during defined phases (for example, Phase 0 Invite-Only Beta).
 - Test and review:
-  - how Ms. Jarvis, MountainShares, and The Commons behave for real users and places;
+  - how Ms. Allis, MountainShares, and The Commons behave for real users and places;
   - potential vulnerabilities, design weaknesses, and safety risks;
   - gaps or biases in data, advice, or program behavior.
 - Report issues through designated channels, with enough detail to support investigation and fixes.
@@ -122,7 +122,7 @@ This overview maps the main participation roles in The Commons and MountainShare
   - treasury and reserve safety;
   - protocol and administrative surfaces (smart contracts, upgrade paths, admin controls);
   - data access, privacy, and benefits-sensitive protections;
-  - interactions between Ms. Jarvis and on-chain / platform components.
+  - interactions between Ms. Allis and on-chain / platform components.
 - Translate findings into structured safety recommendations and documentation, often on behalf of their organization.
 
 ### What They Get
@@ -134,7 +134,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 ### What They Are Not
 
-- Not granted ownership of MountainShares, The Commons, Ms. Jarvis, or underlying infrastructure.
+- Not granted ownership of MountainShares, The Commons, Ms. Allis, or underlying infrastructure.
 - Not guaranteed special veto rights or extra governance weight beyond what Program Rules provide.
 - Not exempt from general Community Guidelines or from their own organization's policies and legal obligations.
 
@@ -190,7 +190,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 - Operate a **Commons Node** under University IT and research-data policies.
 - Host and manage:
   - selected Commons / MountainShares data shards (for example, heritage, EMS KPIs, resilience data);
-  - Ms. Jarvis / GBIM components that ingest, index, and analyze those datasets.
+  - Ms. Allis / GBIM components that ingest, index, and analyze those datasets.
 - Use the node for:
   - research and teaching;
   - community-engaged projects;
@@ -216,7 +216,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 ### Applicable Documents
 
-- [Government Commons Node & Ms. Jarvis Partnership Overview](Government%20Commons%20Node%20%26%20Ms.%20Jarvis%20Partnership%20Overview.md)
+- [Government Commons Node & Ms. Allis Partnership Overview](Government%20Commons%20Node%20%26%20Ms.%20Allis%20Partnership%20Overview.md)
 - Node Operations MOU or inter-agency agreement between H4H, KTS, and the Agency
 - Data Sharing / Data Use Agreements (Agency ↔ H4H/KTS)
 - [The Commons – Terms of Use](The%20Commons%20%E2%80%93%20Terms%20of%20Use.md) and MountainShares Terms (for platform interaction)
@@ -228,7 +228,7 @@ This overview maps the main participation roles in The Commons and MountainShare
 - Integrate and analyze:
   - Agency data streams (for example, health, environmental, infrastructure program data) where law and policy allow;
   - selected Commons data relevant to the Agency's mission (heritage, EMS, resilience indicators).
-- Use Ms. Jarvis / GBIM components to:
+- Use Ms. Allis / GBIM components to:
   - improve situational awareness and cross-program analytics;
   - support planning, evaluation, and reporting;
   - maintain auditable, historic records of key indicators.
@@ -248,11 +248,11 @@ This overview maps the main participation roles in The Commons and MountainShare
 
 ---
 
-## 8. Ms. Jarvis (AI Wallet Holder)
+## 8. Ms. Allis (AI Wallet Holder)
 
 ### Applicable Documents
 
-- [MountainShares DAO: Overview](../mountainshares-dao/mountainshares-dao.md) — Ms. Jarvis rewards section
+- [MountainShares DAO: Overview](../mountainshares-dao/mountainshares-dao.md) — Ms. Allis rewards section
 - [MountainShares DAO Governance Charter](../mountainshares-dao/MountainShares%20DAO%20Governance%20Charter.md) — Section 2.4
 - [MountainShares Terms and Conditions](../mountainshares-dao/Terms%20and%20Conditions.md)
 - [Phase 1 Economic Safety Specification](../mountainshares-dao/MountainShares%20Phase%201%3A%20Economic%20Safety%20Specification.md)
