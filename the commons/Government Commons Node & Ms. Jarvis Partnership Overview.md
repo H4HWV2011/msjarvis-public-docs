@@ -1,7 +1,7 @@
-# Government Commons Node & Ms. Jarvis Partnership Overview
+# Government Commons Node & Ms. Allis Partnership Overview
 *(Draft for Discussion – Not Legal Advice)*
 
-This document describes how a government agency (the “Agency Partner”) could participate in **The Commons** ecosystem and the **Ms. Jarvis / GBIM** platform as a **Government Commons Node Operator**. It is intended as a technical–policy overview for inclusion in public documentation and as a starting point for formal MOUs, data‑sharing agreements, and procurement/legal review.
+This document describes how a government agency (the “Agency Partner”) could participate in **The Commons** ecosystem and the **Ms. Allis / GBIM** platform as a **Government Commons Node Operator**. It is intended as a technical–policy overview for inclusion in public documentation and as a starting point for formal MOUs, data‑sharing agreements, and procurement/legal review.
 
 ---
 
@@ -11,7 +11,7 @@ This document describes how a government agency (the “Agency Partner”) could
   A West Virginia nonprofit organization that operates **The Commons** social–economic–digital platform and the **MountainShares** rewards program.
 
 - **Kidd’s Technical Services (“KTS”)**  
-  The technical partner that designs, develops, and maintains the **Ms. Jarvis / GBIM** platform used to manage, analyze, and replicate Commons and agency‑integrated data.
+  The technical partner that designs, develops, and maintains the **Ms. Allis / GBIM** platform used to manage, analyze, and replicate Commons and agency‑integrated data.
 
 - **Agency Partner (“Agency”)**  
   A state or local government agency (for example, public health, environmental protection, emergency management, GIS, or economic development) that agrees to operate one or more **Government Commons Nodes** under an agreement with H4H and KTS.
@@ -19,7 +19,7 @@ This document describes how a government agency (the “Agency Partner”) could
 Under this arrangement:
 
 - H4H provides community‑facing programs (The Commons, MountainShares) and governs community data shared into the partnership.  
-- KTS provides Ms. Jarvis / GBIM software components, integration pipelines, and technical support.  
+- KTS provides Ms. Allis / GBIM software components, integration pipelines, and technical support.  
 - The Agency operates node infrastructure, controls its own operational data, and uses node outputs in line with its statutory mission and policies.
 
 ---
@@ -32,7 +32,7 @@ A Government Commons Node partnership has four primary goals:
    Combine Agency‑owned data (for example, prescription monitoring summaries, emissions and environmental monitoring, infrastructure and outage records) with Commons data (heritage, EMS patterns, resilience activity) in a coherent, auditable environment.
 
 2. **Decentralized, resilient analytics.**  
-   Run Ms. Jarvis / GBIM close to key data sources to reduce reliance on a single data center, support resilience and microgrid strategies, and enable cross‑program analysis.
+   Run Ms. Allis / GBIM close to key data sources to reduce reliance on a single data center, support resilience and microgrid strategies, and enable cross‑program analysis.
 
 3. **Historic preservation and transparency.**  
    Treat selected datasets as part of a long‑term public record of health, environment, economic transition, and cultural preservation.
@@ -44,7 +44,7 @@ A Government Commons Node partnership has four primary goals:
 
 ## 2. What a Government Commons Node Does
 
-A Government Commons Node is an Agency‑operated instance of Ms. Jarvis / GBIM and related services that runs under Agency IT, data‑governance, and security policies.
+A Government Commons Node is an Agency‑operated instance of Ms. Allis / GBIM and related services that runs under Agency IT, data‑governance, and security policies.
 
 At a high level, the node:
 
@@ -58,14 +58,14 @@ At a high level, the node:
   - Cultural and heritage records where the Agency has a preservation or tourism role.  
   - Resilience‑related Commons logs (for example, community storm responses, shelter use, local alert patterns).
 
-- Runs defined **Ms. Jarvis / GBIM services**, for example:
+- Runs defined **Ms. Allis / GBIM services**, for example:
   - Containerized workers that ingest, validate, and index Agency and Commons data according to a shared schema.  
   - Analytics pipelines that compute indicators, risk scores, and KPIs needed for Agency operations and reporting.  
   - Optional dashboards, map services, or APIs for internal analysis and controlled external sharing.
 
-- Integrates with **central Commons / Ms. Jarvis infrastructure** via documented protocols:
+- Integrates with **central Commons / Ms. Allis infrastructure** via documented protocols:
   - Secure channels (VPN/SSH/HTTPS) to receive curated Commons data and to coordinate analytics updates.  
-  - Controlled ingress for Agency data streams into the Ms. Jarvis / GBIM ecosystem, under Agency‑approved rules.  
+  - Controlled ingress for Agency data streams into the Ms. Allis / GBIM ecosystem, under Agency‑approved rules.  
   - Health and status reporting for monitoring, auditing, and troubleshooting.
 
 The Government Node does *not* run payment rails, hold user wallets, or set MountainShares token economics. Those functions remain with H4H and its payment and compliance partners.
@@ -144,12 +144,12 @@ H4H is responsible for:
 
 H4H does not control Agency operational data and does not direct Agency use of its own data.
 
-### 4.2 KTS and the Ms. Jarvis / GBIM Platform
+### 4.2 KTS and the Ms. Allis / GBIM Platform
 
 KTS is responsible for:
 
 - Designing and maintaining the **GBIM data model and schemas** used to integrate Agency and Commons data.  
-- Developing and operating the **Ms. Jarvis** platform components that:
+- Developing and operating the **Ms. Allis** platform components that:
   - ingest and index Agency data streams into GBIM where authorized,  
   - curate and prepare Commons datasets for Agency use,  
   - support analytics, dashboards, and APIs.
@@ -181,7 +181,7 @@ The Agency Partner is responsible for:
   - logging, monitoring, and incident response consistent with Agency standards.
 
 - Governing Agency data use:
-  - determining which data streams may be integrated into Ms. Jarvis / GBIM,  
+  - determining which data streams may be integrated into Ms. Allis / GBIM,  
   - ensuring integration and use comply with applicable laws, regulations, and policies,  
   - approving research and evaluation uses of Agency‑controlled data, including IRB or equivalent review where human‑subjects research is involved.
 
@@ -203,7 +203,7 @@ A Government Node collaboration typically relies on several written instruments,
 
 - **Data Sharing / Data Use Agreements (DSA/DUA)**  
   Between H4H, KTS (where applicable), and the Agency, defining:
-  - which Agency data are ingested into Ms. Jarvis / GBIM,  
+  - which Agency data are ingested into Ms. Allis / GBIM,  
   - which Commons datasets are shared with the Agency,  
   - permitted uses (operations, planning, research, evaluation),  
   - prohibited uses (for example, individual targeting outside lawful authority, commercial resale, re‑identification attempts contrary to policy),  
@@ -217,7 +217,7 @@ A Government Node collaboration typically relies on several written instruments,
   - change‑management and upgrade procedures,  
   - points of contact and governance structures (for example, a joint steering or working group).
 
-- **Licensing Terms for Ms. Jarvis / GBIM**  
+- **Licensing Terms for Ms. Allis / GBIM**  
   Between KTS and the Agency, defining:
   - license scope (non‑exclusive, non‑transferable, limited to Agency use for public‑interest purposes),  
   - phase‑one no‑fee terms (if offered),  
@@ -234,19 +234,19 @@ These documents must be reviewed and approved through the Agency’s legal and p
 
 - **MountainShares and The Commons** are operated by H4H as a nonprofit public‑benefit program. Any regulatory treatment of MountainShares (for example, as a rewards program, community credit, or financial instrument) is the responsibility of H4H and its advisors.
 
-- **Ms. Jarvis / GBIM** is a data and analytics platform provided by KTS. It may operate on both Agency data and Commons data, but it does not itself issue or promote financial instruments.
+- **Ms. Allis / GBIM** is a data and analytics platform provided by KTS. It may operate on both Agency data and Commons data, but it does not itself issue or promote financial instruments.
 
 - **The Agency** is a user and operator of the data and analytics platform for public‑interest purposes. It is not an issuer, broker, or promoter of MountainShares. Its role is comparable to using any other analytics or GIS platform, subject to procurement and data‑governance rules.
 
 ### 6.2 Compliance with Existing Statutes and Policies
 
-The use of Ms. Jarvis / GBIM and Commons data must be consistent with:
+The use of Ms. Allis / GBIM and Commons data must be consistent with:
 
 - Laws and regulations governing Agency data (for example, health privacy, PDMP statutes, environmental reporting, public records law).  
 - Agency‑specific policies on data sharing, research, and public communication.  
 - Any relevant statewide IT, cybersecurity, and data‑governance standards.
 
-The Government Node design does not alter the Agency’s statutory obligations. Instead, Ms. Jarvis / GBIM and Commons data are intended to support those obligations by improving data quality, integration, analytics, and historical preservation.
+The Government Node design does not alter the Agency’s statutory obligations. Instead, Ms. Allis / GBIM and Commons data are intended to support those obligations by improving data quality, integration, analytics, and historical preservation.
 
 ---
 
@@ -255,7 +255,7 @@ The Government Node design does not alter the Agency’s statutory obligations. 
 The Government Node arrangement should codify minimum expectations:
 
 - **Security**
-  - Encryption in transit for all data exchanged between Agency systems, the Government Node, and central Ms. Jarvis / Commons services.  
+  - Encryption in transit for all data exchanged between Agency systems, the Government Node, and central Ms. Allis / Commons services.  
   - Encryption at rest for any restricted or sensitive datasets.  
   - Integration with Agency identity and access management for authentication and authorization.  
   - Logging and monitoring sufficient to support audits and incident investigations.
@@ -278,7 +278,7 @@ KTS and H4H may choose to offer a **no‑fee** arrangement for Government Node s
 
 Typical structure:
 
-- **Software license (Ms. Jarvis / GBIM)**  
+- **Software license (Ms. Allis / GBIM)**  
   - Non‑exclusive, non‑transferable license to run Government Node components inside the Agency for public‑interest, non‑commercial purposes.  
   - No license fee during a defined pilot or early‑deployment period.  
   - Agency covers its own infrastructure and staff costs.
@@ -313,7 +313,7 @@ All of this should be specified in the Node Operations MOU and licensing terms, 
 
 ### 9.3 For H4H and KTS
 
-- A real‑world proving ground for The Commons and Ms. Jarvis / GBIM in collaboration with public agencies.  
+- A real‑world proving ground for The Commons and Ms. Allis / GBIM in collaboration with public agencies.  
 - Better alignment between community‑collected data and official metrics, enabling more coherent analysis.  
 - Stronger case for external funding, partnerships, and replication in other regions.
 
@@ -335,7 +335,7 @@ For agencies considering a Government Commons Node partnership, a realistic path
 
 3. **Draft agreements**
    - Develop DSAs/DUAs for Agency and Commons data.  
-   - Draft a Node Operations MOU and Ms. Jarvis / GBIM license terms, including any no‑fee provisions.
+   - Draft a Node Operations MOU and Ms. Allis / GBIM license terms, including any no‑fee provisions.
 
 4. **Pilot deployment**
    - Stand up a pilot Government Node.  
