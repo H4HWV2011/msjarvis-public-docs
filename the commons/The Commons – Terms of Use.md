@@ -100,7 +100,7 @@ These systems are designed for **immutability and durability**, which means that
 To reduce privacy and safety risks:
 
 - The Commons does **not** publish raw contribution logs or personally identifying details to public IPFS or public, fully readable smart‑contract storage.  
-- Instead, sensitive participation data is written, where needed, to a **restricted, system‑controlled immutable layer** (for example, encrypted payloads or hashed references), which is intended to be readable only by authorized system components such as Ms. Jarvis and designated backend services, not by general users or the public blockchain.  
+- Instead, sensitive participation data is written, where needed, to a **restricted, system‑controlled immutable layer** (for example, encrypted payloads or hashed references), which is intended to be readable only by authorized system components such as Ms. Allis and designated backend services, not by general users or the public blockchain.  
 - Where IPFS or similar content‑addressable storage is used, data that could identify individuals is either avoided, minimized, or encrypted before being added, so that the content cannot be understood without decryption keys held by the system.
 
 Even with these design measures, no distributed system can guarantee perfect privacy. You should:
