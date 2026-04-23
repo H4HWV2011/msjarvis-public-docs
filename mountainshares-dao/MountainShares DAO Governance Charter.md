@@ -51,7 +51,7 @@ The DAO is **not** a bank, investment club, or vehicle for distributing profits.
   - Execute technical changes already approved in principle by governance.  
 - Operate under explicit mandates, logging, and reporting requirements; subject to periodic review and eventual sunsetting as the DAO matures.
 
-### 2.4 Ms. Egeria Jarvis (AI Advisor and Enforcer)
+### 2.4 Ms. Egeria Allis (AI Advisor and Enforcer)
 
 - Functions as a “glass‑box” advisory and enforcement layer.  
 - Monitors reserve ratios and other safety indicators, flags anomalies, enforces hard triggers, and surfaces analytics to the DAO.  
@@ -73,7 +73,7 @@ These roles are earned through participation, not purchased. They **do not** giv
   - Surface local issues, bugs, and safety concerns into governance channels.  
 - **Soft powers:**
   - Can help screen proposals for clarity and obvious conflicts before general voting.  
-  - May receive certain Ms. Jarvis alerts (for example, local anomalies) to help coordinate human response.
+  - May receive certain Ms. Allis alerts (for example, local anomalies) to help coordinate human response.
 
 #### 2.5.2 Captains
 
@@ -88,7 +88,7 @@ These roles are earned through participation, not purchased. They **do not** giv
   - Participate in post‑incident reviews when their region is impacted.  
 - **Soft powers:**
   - Can submit regional proposals (for example, parameter tweaks or quests for a specific area).  
-  - Can request localized analytics from Ms. Jarvis within privacy and safety limits.
+  - Can request localized analytics from Ms. Allis within privacy and safety limits.
 
 #### 2.5.3 Elders
 
@@ -102,7 +102,7 @@ These roles are earned through participation, not purchased. They **do not** giv
   - Participate in major post‑incident reviews and advise on corrective actions.  
 - **Soft powers:**
   - Their advisory notes are attached to constitutional‑level proposals before voting, so participants can see elder perspectives.  
-  - May sit on a small Safety and Ethics working group that Ms. Jarvis can flag when patterns raise ethical or legal concerns.
+  - May sit on a small Safety and Ethics working group that Ms. Allis can flag when patterns raise ethical or legal concerns.
 
 #### 2.5.4 Phase 0 Community Champions (Red Team Founders)
 
@@ -112,7 +112,7 @@ These roles are earned through participation, not purchased. They **do not** giv
   - Minimum 10 verified EMS hours of red‑teaming, testing, or feedback work logged in the recognition ledger.  
   - Good standing: no unresolved sanctions for abuse, fraud, or major policy violations.  
 - **Responsibilities:**
-  - Conduct structured red‑team and security testing of treasury logic, protocol surfaces, and Ms. Jarvis enforcement behaviour, consistent with the Audit and Risk Management Plan and Economic Safety Specification.  
+  - Conduct structured red‑team and security testing of treasury logic, protocol surfaces, and Ms. Allis enforcement behaviour, consistent with the Audit and Risk Management Plan and Economic Safety Specification.  
   - Attempt to identify ways to misreport or miscompute reserve ratios, bypass caps or promo rules, abuse EMS logging, or compromise privacy and access controls, and then disclose findings through designated channels.  
   - Participate in post‑incident reviews when incidents involve their testing domains and contribute to improvements in controls and playbooks.  
 - **Relationship to Other Roles:**
@@ -210,7 +210,7 @@ Initial eligibility (subject to refinement):
 ### 4.6 Implementation
 
 - If approved and not blocked for legal or safety reasons:
-  - Ms. Jarvis and designated operators apply the changes at the next epoch or defined activation date.  
+  - Ms. Allis and designated operators apply the changes at the next epoch or defined activation date.  
   - Implementation details (contracts touched, parameters updated) are documented in a public change log.
 
 ---
@@ -275,7 +275,7 @@ If a proposal falls outside scope, it may be declined for implementation, with a
 ### 7.2 Phase 0 (Invite‑Only Beta)
 
 - Before public availability, participation in the MountainShares DAO is limited to invited users (“Phase 0 Participants”).  
-- Phase 0 Participants are issued a wallet, a UEI, and access to the Ms. Jarvis chatbot UI via authenticated links.  
+- Phase 0 Participants are issued a wallet, a UEI, and access to the Ms. Allis chatbot UI via authenticated links.  
 - Interactions that qualify as testing, feedback, or commons work may be logged as EMS in the recognition ledger and count toward voting and role eligibility.  
 - Phase 0 security and red‑team participants may be designated as Community Champions under Section 2.5.4 and can earn founding voting eligibility through logged EMS hours during this period.
 
