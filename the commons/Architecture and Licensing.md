@@ -1,7 +1,7 @@
 # Architecture and Licensing Note
 *(Draft – For Discussion, Not Legal Advice)*
 
-This note explains how the Ms. Jarvis / GBIM stack, The Commons, and MountainShares are structured from an architecture and licensing perspective. It is meant to help partners, reviewers, and implementers understand what is open‑source, what is proprietary, and how patterns may be reused.
+This note explains how the Ms. Allis / GBIM stack, The Commons, and MountainShares are structured from an architecture and licensing perspective. It is meant to help partners, reviewers, and implementers understand what is open‑source, what is proprietary, and how patterns may be reused.
 
 ---
 
@@ -13,7 +13,7 @@ From bottom to top, the overall system can be thought of as four main layers:
    - Databases, object storage, message queues, and related services.
    - May include both cloud and on‑premise components at node partners (universities, agencies, organizations).
 
-2. **Ms. Jarvis / GBIM Platform**
+2. **Ms. Allis / GBIM Platform**
    - Core data schemas (GBIM), ingestion pipelines, indexing and query services, analytics logic, and node orchestration.
    - Runs in multiple contexts:
      - Central Commons / MountainShares services.
@@ -23,7 +23,7 @@ From bottom to top, the overall system can be thought of as four main layers:
 
 3. **The Commons Application Layer**
    - User‑facing social–economic–digital platform: feeds, posts, comments, quests, governance surfaces, and related UI.
-   - Integrates with Ms. Jarvis / GBIM for data, metrics, and moderation surfaces.
+   - Integrates with Ms. Allis / GBIM for data, metrics, and moderation surfaces.
 
 4. **MountainShares Program**
    - Rewards and community‑credit system tied to The Commons.
@@ -41,7 +41,7 @@ The system relies on a number of open‑source tools and libraries, for example:
 
 - Databases and storage engines.
 - Message queues, search indexes, and geospatial tooling.
-- Frameworks and libraries used in Ms. Jarvis, The Commons, and related services.
+- Frameworks and libraries used in Ms. Allis, The Commons, and related services.
 
 Where code in this repository is explicitly marked with an open‑source license (for example, MIT, Apache‑2.0, or similar), it may be:
 
@@ -50,23 +50,23 @@ Where code in this repository is explicitly marked with an open‑source license
 
 Open‑source components remain governed by their respective licenses, regardless of how they are used in the overall system.
 
-### 2.2 Proprietary Components (KTS / Ms. Jarvis / GBIM)
+### 2.2 Proprietary Components (KTS / Ms. Allis / GBIM)
 
 Kidd’s Technical Services (KTS) retains intellectual property rights in:
 
-- The **Ms. Jarvis / GBIM** platform implementation, including:
+- The **Ms. Allis / GBIM** platform implementation, including:
   - proprietary schemas, data models, and ontology glue not released under a separate open‑source license;
-  - ingestion, indexing, and analytics code specific to Jarvis/GBIM;
+  - ingestion, indexing, and analytics code specific to Allis/GBIM;
   - node orchestration, monitoring, and configuration used in supported deployments.
 
-- Integrations, connectors, and configuration bundles that bind Ms. Jarvis / GBIM to specific partners (universities, agencies, organizations).
+- Integrations, connectors, and configuration bundles that bind Ms. Allis / GBIM to specific partners (universities, agencies, organizations).
 
 Where portions of this implementation are made public, they may be:
 
 - Released under open‑source licenses (with explicit license headers); or
 - Published as documentation or examples, without granting a license to copy proprietary code.
 
-Unless otherwise stated in a specific file or repository, Ms. Jarvis / GBIM code and configuration is proprietary to KTS.
+Unless otherwise stated in a specific file or repository, Ms. Allis / GBIM code and configuration is proprietary to KTS.
 
 ### 2.3 The Commons and MountainShares Branding and Content
 
@@ -75,7 +75,7 @@ Harmony for Hope and related entities retain rights in:
 - **Trademarks and branding**, including (without limitation):
   - “The Commons”
   - “MountainShares”
-  - “Ms. Jarvis”
+  - “Ms. Allis”
   - Logos, visual marks, and associated brand assets.
 
 - **Program documentation and content**, including:
@@ -107,20 +107,20 @@ Other projects may:
 
 Without a separate license or agreement, other projects may **not**:
 
-- Use the “Ms. Jarvis”, “MountainShares”, or “The Commons” names, logos, or marks in a way that implies endorsement, sponsorship, or affiliation.
-- Copy proprietary Ms. Jarvis / GBIM code, configuration, or integration bundles that are not explicitly open‑licensed.
+- Use the “Ms. Allis”, “MountainShares”, or “The Commons” names, logos, or marks in a way that implies endorsement, sponsorship, or affiliation.
+- Copy proprietary Ms. Allis / GBIM code, configuration, or integration bundles that are not explicitly open‑licensed.
 - Represent themselves as official nodes or partners in the MountainShares / Commons ecosystem without a documented agreement with Harmony for Hope and KTS.
 
 ---
 
-## 4. Ms. Jarvis / GBIM as a Service
+## 4. Ms. Allis / GBIM as a Service
 
-KTS offers **Ms. Jarvis / GBIM as a service** (“Jarvis/GBIM as a Service”) for organizations that want the architecture without rebuilding it from scratch.
+KTS offers **Ms. Allis / GBIM as a service** (“Allis/GBIM as a Service”) for organizations that want the architecture without rebuilding it from scratch.
 
 At a high level, this means:
 
 - KTS provides:
-  - deployment support for Ms. Jarvis / GBIM components;
+  - deployment support for Ms. Allis / GBIM components;
   - schema design and configuration aligned with partner needs;
   - ongoing updates, maintenance, and monitoring support;
   - integration with The Commons / MountainShares where applicable.
@@ -130,7 +130,7 @@ At a high level, this means:
   - access to their own data sources, subject to their policies;
   - governance and oversight for how outputs are used.
 
-Jarvis/GBIM as a Service can be used:
+Allis/GBIM as a Service can be used:
 
 - Within the MountainShares / Commons ecosystem (for example, as a University or Government Node).
 - Outside that ecosystem, for other data commons, research consortia, or public‑interest projects, under separate agreements.
@@ -143,7 +143,7 @@ Jarvis/GBIM as a Service can be used:
   - Governed by their respective licenses.  
   - Free to reuse under those terms.
 
-- **KTS proprietary components (Ms. Jarvis / GBIM)**  
+- **KTS proprietary components (Ms. Allis / GBIM)**  
   - Owned by KTS.  
   - Licensed to partners under specific agreements (no‑fee or paid, depending on context).  
   - Not automatically open for copying or redistribution.
@@ -154,12 +154,12 @@ Jarvis/GBIM as a Service can be used:
 
 - **Patterns and architecture described in docs**  
   - Shared to inspire and guide similar work.  
-  - May be adapted, but not passed off as “Ms. Jarvis”, “MountainShares”, or “The Commons” without authorization.
+  - May be adapted, but not passed off as “Ms. Allis”, “MountainShares”, or “The Commons” without authorization.
 
 Partners who wish to build on this stack or adapt it to new contexts are encouraged to:
 
 - Reuse open‑source components as permitted;  
 - Treat these documents as architectural and governance patterns;  
-- Contact KTS and Harmony for Hope for branded partnerships, Jarvis/GBIM as a Service, or official node roles.
+- Contact KTS and Harmony for Hope for branded partnerships, Allis/GBIM as a Service, or official node roles.
 
 --- 
