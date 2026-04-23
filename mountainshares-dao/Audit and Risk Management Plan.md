@@ -2,7 +2,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**  
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2.1, 3.1, and 4 treat treasury health, reserve ratios, and risk registers as coupled with community well‑being, making financial flows and misconfiguration risks explicit. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2.1, 3.1, and 4 treat treasury health, reserve ratios, and risk registers as coupled with community well‑being, making financial flows and misconfiguration risks explicit. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
 > - **P9 – Transparency and traceability:** Sections 2, 3, 5, and 6 define regular audits, automated monitoring, incident reports, and recordkeeping so that money, decisions, and failures can be traced over time.  
 > - **P16 – Power accountable to place:** Sections 2.4, 4, 5.3, and 7 link H4H, DAO governance, and incident response to documented cadences and public summaries, making operational power reviewable by community and board.  
 > - **Anti‑leakage and closed‑loop spending:** The emphasis on reserve‑backed operation, fee‑flow auditing (2.1), and reserve‑ratio monitoring (3.1) supports anti‑leakage design by checking that the closed‑loop instrument behaves as documented.  
@@ -50,7 +50,7 @@ The Audit and Risk Management Plan is designed to:
 
 - Smart contracts on Arbitrum and any other deployed chains.  
 - Upgrade mechanisms and admin keys.  
-- Ms. Jarvis–related enforcement logic and integration points.
+- Ms. Allis–related enforcement logic and integration points.
 
 **Cadence**
 
@@ -92,7 +92,7 @@ The Audit and Risk Management Plan is designed to:
 
 ## 3. Monitoring and Early Warning
 
-### 3.1 Automated Monitoring (Ms. Jarvis and Infrastructure)
+### 3.1 Automated Monitoring (Ms. Allis and Infrastructure)
 
 Key automatic checks include:
 
