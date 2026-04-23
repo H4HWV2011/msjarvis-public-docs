@@ -4,7 +4,7 @@
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
 > - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–3 and 7–11 treat regional expansion, statewide reserve architecture, and the 300% treasury band as a single coupled system, explicitly tying minting ceilings and merchant network growth to real backing assets and graduated community trust.
 > - **P9 – Transparency and traceability:** Sections 3, 4, 9, and 10 define public reserve-ratio calculations at the 300% band, statewide dashboards, and governance cadences so that every treasury position is observable and reconstructable over time.
-> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Jarvis, and H4H authority inside hard economic and legal constraints at regional scale, ensuring that decisions about rates, caps, statewide rollout, and new region eligibility answer to local solvency and community safety.
+> - **P16 – Power accountable to place:** Sections 2, 3, 5–7, and 11 bound DAO, Ms. Allis, and H4H authority inside hard economic and legal constraints at regional scale, ensuring that decisions about rates, caps, statewide rollout, and new region eligibility answer to local solvency and community safety.
 > - **Anti-leakage and closed-loop spending:** The reserve-ratio-driven 300% band (Section 3) and the Stage 3 full-commerce unlock (Section 2) operationalize anti-leakage design at expanded geographic scale while keeping the closed loop anchored in verified backing assets.
 > - **Bounty and corrective programs:** Regional promo-pool rules (Section 5) and example governance scenarios (Appendix B) show how expansion bonuses and parameter changes remain bounded by safety math rather than becoming unconstrained growth incentives.
 
@@ -29,7 +29,7 @@
 Phase 2 does not start from zero. It starts from a proven, community-validated foundation built during Phase 1.
 
 **What Phase 1 produced:**
-- A fully operational reserve-backed M$ economy with a tested safety threshold system enforced by Ms. Jarvis
+- A fully operational reserve-backed M$ economy with a tested safety threshold system enforced by Ms. Allis
 - A mature recognition ledger with thousands of verified UEIs, geo-tagged EMS hours, and real merchant transaction history
 - A statewide merchant network capable of supporting Stage 3 full-commerce activity
 - A graduated Champion corps ready to shift from data stewardship to regional governance leadership
@@ -51,7 +51,7 @@ Phase 2 is defined by a new treasury target: the **300% Reserve Band**. This is 
 - **Recognition Ledger (Unlimited):** All EMS hours logged on-chain with full UEI, geo, org, and timestamp data. No hard cap; serves as the permanent audit trail, rank engine, and identity marker at statewide scale.
 - **Spendable M$ (Capped and Reserve-Backed):** Phase 2 allows higher earning ceilings than Phase 1, unlocked incrementally as the reserve ratio climbs through the 300% band.
 - **300% Reserve Band as Expansion Gate:** Statewide rollout, new county activation, and Stage 3 commerce features are gated on the reserve ratio reaching and holding ≥ 3.0 (300%) for 30+ consecutive days.
-- **Hard Triggers (Automatic, Non-Negotiable):** Ms. Jarvis enforces automatically at all Phase 1 thresholds and all new Phase 2 thresholds; no DAO override is possible on downward adjustments.
+- **Hard Triggers (Automatic, Non-Negotiable):** Ms. Allis enforces automatically at all Phase 1 thresholds and all new Phase 2 thresholds; no DAO override is possible on downward adjustments.
 - **Three-Stage Platform Arc Completion:** Phase 2 fully unlocks Stage 3 (Amazon-style full commerce) once the 300% band is confirmed stable. Stage 2 (TikTok-style discovery) was available from Phase 1 mature; Stage 3 requires Phase 2 treasury health. See [The Commons Gamification](../the%20commons/The%20Commons%20Gamification%3A%20The%20Daily%20Life%20Game.md) Section 2 for the full arc.
 - **Legal Operability as a Treasury Priority:** The commons cannot function without H4H maintaining its legal and regulatory standing. Treasury reserve funds are available, through a governed and transparent process defined in Section 7A, to cover verified regulatory compliance costs that are prerequisites to MountainShares operating legally at Phase 2 scale and beyond. This is not discretionary spending — it is infrastructure.
 
@@ -77,17 +77,17 @@ All current rates and caps are maintained in the [Program Rules – Parameter Ta
 | **Tier 2** | Verified EMS, caregiving, high-need community roles (geo+UEI validated) | 160 M$ | 40 hrs | 8 hrs |
 | **Tier 3** | Regional Champion, governance leadership, data stewardship anchor (DAO-confirmed) | 240 M$ | 60 hrs | 12 hrs |
 
-**Tier 3 is new in Phase 2.** It recognizes participants who have transitioned from Phase 1 Champion roles into statewide governance and data quality leadership. Tier 3 assignment requires: Phase 1 Champion history + DAO confirmation vote + Ms. Jarvis geo-activity verification across ≥ 2 counties.
+**Tier 3 is new in Phase 2.** It recognizes participants who have transitioned from Phase 1 Champion roles into statewide governance and data quality leadership. Tier 3 assignment requires: Phase 1 Champion history + DAO confirmation vote + Ms. Allis geo-activity verification across ≥ 2 counties.
 
 ### 3.3 Benefits-Sensitive Account Protections (Phase 2)
 
 All Phase 1 Benefits-Sensitive Account protections carry forward unchanged. Phase 2 adds:
 
 - **Statewide legal review:** Before any new county activates, Benefits-Sensitive Account thresholds are reviewed against that county's predominant benefits mix (SNAP, Medicaid, SSI, WV WORKS, PAAS, PALCO).
-- **County-level cap variation:** Ms. Jarvis may apply county-specific Benefits-Sensitive caps where legal counsel determines the statewide threshold is insufficient for a specific program mix. County-level variations are published in the Parameter Tables and reviewed quarterly.
+- **County-level cap variation:** Ms. Allis may apply county-specific Benefits-Sensitive caps where legal counsel determines the statewide threshold is insufficient for a specific program mix. County-level variations are published in the Parameter Tables and reviewed quarterly.
 - **No forced disclosure:** Participation in The Commons does not require disclosure of benefit status at any tier.
 
-### 3.4 Phase 2 Safety Threshold Table (Ms. Jarvis Enforces Automatically)
+### 3.4 Phase 2 Safety Threshold Table (Ms. Allis Enforces Automatically)
 
 | Reserve Ratio | Global Base Rate | Tier 1 Cap | Tier 2 Cap | Tier 3 Cap | Stage 3 Commerce | Action |
 |---------------|-----------------|------------|------------|------------|-----------------|--------|
@@ -97,7 +97,7 @@ All Phase 1 Benefits-Sensitive Account protections carry forward unchanged. Phas
 | < 1.5 | Phase 1 thresholds reactivate | Phase 1 caps | Phase 1 caps | Tier 3 paused | Stage 2 only | Auto-revert to Phase 1 safety rules; Tier 3 suspended |
 
 **Automatic Trigger Logic:**
-- Ms. Jarvis recalculates reserve ratio daily.
+- Ms. Allis recalculates reserve ratio daily.
 - If ratio drops below 1.5, Phase 2 Tier 3 is suspended automatically; Phase 1 thresholds reactivate.
 - If ratio drops below 0.75, Phase 1 emergency floor fires as in Phase 1 Specification Section 4.
 - Stage 3 commerce features lock automatically if ratio drops below 2.0 for 7 consecutive days.
@@ -141,7 +141,7 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 
 The Treasury Reserve is the commons' primary safety mechanism. It is not a locked vault — it is a governed resource that protects participants, sustains operations, and ensures legal continuity. Draws from the Treasury Reserve are permitted only for purposes explicitly authorized in this document. Two draw categories exist in Phase 2:
 
-**Category A — Automatic Safety Draws:** Ms. Jarvis draws from the Treasury Reserve automatically to maintain reserve ratio thresholds, fund verified EMS conversions within approved caps, and execute approved promo pool disbursements. These are governed by the safety threshold table in Section 3.4 and require no DAO vote.
+**Category A — Automatic Safety Draws:** Ms. Allis draws from the Treasury Reserve automatically to maintain reserve ratio thresholds, fund verified EMS conversions within approved caps, and execute approved promo pool disbursements. These are governed by the safety threshold table in Section 3.4 and require no DAO vote.
 
 **Category B — Regulatory Compliance Reserve Draws:** H4H may draw from the Treasury Reserve for documented, verified regulatory compliance costs that are prerequisites to MountainShares operating legally at Phase 2 scale and beyond. These are governed by Section 7A and require the process defined there. They are never discretionary — they are legal infrastructure.
 
@@ -184,7 +184,7 @@ All Phase 1 EMS categories carry forward unchanged. Phase 2 adds the following:
 
 All Phase 1 DAO authorities carry forward. Phase 2 adds:
 
-✅ **County activation sequence** (add or reorder counties), *subject to Ms. Jarvis pre-conditions*
+✅ **County activation sequence** (add or reorder counties), *subject to Ms. Allis pre-conditions*
 ✅ **Tier 3 assignment criteria** (expand or restrict Regional Champion eligibility)
 ✅ **Stage 3 commerce feature rollout pace** (accelerate or defer), *only if reserve ratio supports it*
 ✅ **Regional promo pool regional targeting** (county-specific allocation rules)
@@ -195,12 +195,12 @@ All Phase 1 DAO authorities carry forward. Phase 2 adds:
 
 All Phase 1 hard trigger rules carry forward unchanged. Phase 2 adds:
 
-❌ Vote to activate a new county without Ms. Jarvis pre-condition verification
+❌ Vote to activate a new county without Ms. Allis pre-condition verification
 ❌ Override Stage 3 commerce lock when reserve ratio < 2.0
 ❌ Suspend Tier 3 rotation requirements (Regional Champions must maintain geo-verified multi-county presence)
 ❌ Override county-specific Benefits-Sensitive Account thresholds set by legal review
 ❌ Authorize Treasury Reserve draws for any purpose not listed in Section 4.2
-❌ Block or delay a Regulatory Compliance Reserve Draw that has met all conditions in Section 7A (the community may comment; it may not veto a legally required compliance expenditure that Ms. Jarvis has verified)
+❌ Block or delay a Regulatory Compliance Reserve Draw that has met all conditions in Section 7A (the community may comment; it may not veto a legally required compliance expenditure that Ms. Allis has verified)
 
 ---
 
@@ -260,12 +260,12 @@ H4H files a Regulatory Compliance Draw Request with the DAO. The request must in
 - Supporting documentation (filing, invoice, regulatory demand, or legislative citation)
 - Attestation that the cost cannot be funded from the current H4H operational allocation without material harm to H4H's ability to maintain the commons infrastructure
 
-**Step 2 — Ms. Jarvis Verification:**
-Ms. Jarvis verifies:
+**Step 2 — Ms. Allis Verification:**
+Ms. Allis verifies:
 - The requested amount does not reduce the reserve ratio below 3.0 (300% floor) after draw
 - The request category matches an eligible expenditure type in Section 7A.2
 - The request is not a duplicate of a previously approved draw for the same obligation
-- Ms. Jarvis publishes the verification result publicly within 24 hours of request submission
+- Ms. Allis publishes the verification result publicly within 24 hours of request submission
 
 **Step 3 — DAO Notification and Comment Window:**
 - For draws ≤ $10,000 USD equivalent: 72-hour community comment window; H4H may proceed if no objection vote passes within the window
@@ -275,7 +275,7 @@ Ms. Jarvis verifies:
 > **Note on the $50,000 threshold:** The full WV Money Transmitter License process — including application fee, first-year surety bond premium, and legal counsel — could approach or exceed $30,000–$40,000 in a single initial engagement. This is expected, not exceptional. The $50,000 super-majority threshold exists as a safeguard for very large draws, not as a barrier to necessary licensing. The DAO community is expected to recognize that a legally required license is not discretionary.
 
 **Step 4 — Draw and Public Record:**
-- Upon approval (or after comment window closes without objection for small draws), Ms. Jarvis executes the draw from the Treasury Reserve
+- Upon approval (or after comment window closes without objection for small draws), Ms. Allis executes the draw from the Treasury Reserve
 - The draw is recorded permanently in the public governance ledger with: amount, category, regulatory requirement, date, and DAO confirmation status
 - H4H must provide proof of payment (receipt, filing confirmation, or legal invoice marked paid) within 30 days of draw; proof is published in the governance ledger
 
@@ -288,7 +288,7 @@ To reduce ad hoc draw requests and provide community visibility, H4H shall submi
 - Includes known recurring costs (annual bond premium, state renewal fees, annual IRS filing support) and projected one-time costs (new licensing triggered by legislation, legal counsel for phase transition compliance)
 - Subject to simple majority DAO approval vote
 
-If the annual budget is approved, individual draws within the approved budget categories and amounts may proceed through the 72-hour comment window regardless of size, provided Ms. Jarvis verification passes. Draws outside the approved annual budget still require the full tiered process in Section 7A.4.
+If the annual budget is approved, individual draws within the approved budget categories and amounts may proceed through the 72-hour comment window regardless of size, provided Ms. Allis verification passes. Draws outside the approved annual budget still require the full tiered process in Section 7A.4.
 
 H4H must flag to the DAO any emerging regulatory requirement — including active state or federal legislation — that is likely to require a draw outside the approved annual budget, as early as possible. Advance notice is not optional; it is a transparency obligation.
 
@@ -296,7 +296,7 @@ H4H must flag to the DAO any emerging regulatory requirement — including activ
 
 The Regulatory Compliance Reserve Draw mechanism is always subordinate to the reserve floor:
 
-- No draw may reduce the reserve ratio below 3.0 (300%). If a draw would breach this floor, Ms. Jarvis automatically defers it until the treasury recovers sufficient surplus above the floor to accommodate the draw.
+- No draw may reduce the reserve ratio below 3.0 (300%). If a draw would breach this floor, Ms. Allis automatically defers it until the treasury recovers sufficient surplus above the floor to accommodate the draw.
 - **Deferral is not denial.** A deferred draw is queued and executes automatically as soon as the treasury can accommodate it without breaching the floor, subject to the original DAO approval remaining valid.
 - DAO approvals for deferred draws expire after 180 days. H4H must resubmit if the draw has not fired within 180 days of approval.
 - If a legally required compliance cost is deferred due to reserve floor constraints, H4H must notify the relevant regulatory body in writing and document that notification in the governance ledger. The commons does not hide regulatory delays — it manages them transparently.
@@ -317,7 +317,7 @@ The DAO community's interest in treasury health and H4H's interest in legal oper
 
 H4H commits to:
 - Publishing all Regulatory Compliance Draw Requests publicly at the time of submission
-- Publishing Ms. Jarvis verification results publicly within 24 hours of submission
+- Publishing Ms. Allis verification results publicly within 24 hours of submission
 - Publishing proof of payment publicly within 30 days of each draw
 - Including a full annual Regulatory Compliance Draw summary in the year-end governance report
 - Flagging all known or anticipated regulatory requirements — including active state and federal legislation — to the DAO as early as possible, and no later than 90 days before a compliance deadline where the timeline permits
@@ -338,7 +338,7 @@ Statewide expansion is not a single launch event. Counties activate in a governe
 
 ### 8.2 New County Activation Requirements
 
-Before a new county activates, Ms. Jarvis verifies:
+Before a new county activates, Ms. Allis verifies:
 
 - ≥ 3 active Merchants in the county OR ≥ 1 active Merchant and ≥ 50 UEIs in the county
 - At least 1 Community Champion with geo-verified presence in the county
@@ -352,7 +352,7 @@ Before a new county activates, Ms. Jarvis verifies:
 Phase 2 expands the data stewardship layer from local to regional:
 
 - Each newly activated county requires a minimum of 25 verified place records before first M$ transactions are enabled in that county.
-- Ms. Jarvis runs county-level data confidence scoring in addition to network-wide scoring.
+- Ms. Allis runs county-level data confidence scoring in addition to network-wide scoring.
 - Regional Champions (Tier 3) are the primary ground-truthing force in newly activated counties.
 - County activation is gated on data quality, not only on financial metrics.
 
@@ -430,7 +430,7 @@ All Phase 1 audit cadences carry forward. Phase 2 adds or adjusts:
 - **Monthly:** Per-county treasury audit included in full treasury audit; county activation pre-condition review; Regulatory Compliance Draw status report
 - **Quarterly:** Statewide external audit (goal: independent WV nonprofit or university partner); Tier 3 multi-county presence verification; county-specific Benefits-Sensitive Account review; review of any active or pending regulatory or legislative developments affecting the commons
 - **Annually:** H4H submits Annual Regulatory Compliance Budget to DAO no later than 60 days before calendar year start
-- **At each county activation:** Pre-activation Ms. Jarvis verification report published publicly before DAO vote
+- **At each county activation:** Pre-activation Ms. Allis verification report published publicly before DAO vote
 
 ---
 
@@ -449,11 +449,11 @@ All Phase 1 emergency powers carry forward. Phase 2 adds:
 - Affected county's transactions freeze pending review
 - Network-wide EMS and M$ activity continues in unaffected counties
 - Affected county's Champion(s) placed on administrative hold pending investigation
-- County reactivation requires DAO vote + Ms. Jarvis pre-condition re-verification
+- County reactivation requires DAO vote + Ms. Allis pre-condition re-verification
 
 ### 14.3 If a Regulatory Compliance Deadline Cannot Be Met Due to Reserve Constraints
 - H4H calls an emergency governance session within 48 hours of identifying the conflict
-- Ms. Jarvis publishes a plain-language explanation to all participants
+- Ms. Allis publishes a plain-language explanation to all participants
 - DAO considers options: temporary minting reduction to accelerate reserve growth; emergency fundraising; phased draw; or governed operational pause in the affected jurisdiction
 - H4H notifies the relevant regulatory body in writing; documentation filed in the governance ledger
 
@@ -471,7 +471,7 @@ All Phase 1 definitions carry forward. Phase 2 adds:
 - **County-Scoped Proposal:** A DAO governance proposal affecting a single county, open only to UEIs with verified presence in that county
 - **Regulatory Compliance Reserve Draw:** A governed, transparent, bounded draw from the Treasury Reserve for documented and verified regulatory compliance costs that are legal prerequisites to MountainShares operating at Phase 2 scale; governed by Section 7A
 - **Annual Regulatory Compliance Budget:** H4H's annual projected compliance cost submission to the DAO; if approved, streamlines the draw process for anticipated costs
-- **Deferral Queue:** The Ms. Jarvis-managed queue of approved but reserve-floor-constrained draws that fire automatically when the treasury can accommodate them without breaching the 3.0 floor
+- **Deferral Queue:** The Ms. Allis-managed queue of approved but reserve-floor-constrained draws that fire automatically when the treasury can accommodate them without breaching the 3.0 floor
 - **WV Money Transmitter License (MTL):** A state license required by the West Virginia Division of Financial Institutions for entities transmitting money or operating payment systems at scale in West Virginia; currently requires $1,000 application fee, $300,000 surety bond, $50,000 minimum net worth, and $250 annual renewal
 - **FinCEN MSB Registration:** Federal Money Services Business registration via Form 107 through BSA E-Filing; no federal fee; required for entities operating as money services businesses under federal law
 
@@ -485,16 +485,16 @@ All Phase 1 definitions carry forward. Phase 2 adds:
 - H4H files a Regulatory Compliance Draw Request for WV MTL initial application: $1,000 application fee + $6,500 first-year surety bond premium + $12,000 legal counsel for application process = **$19,500 total**
 - Category: Payment and Financial Regulation
 - Supporting documentation: WV DFI application form, bond quote, legal engagement letter specifying MTL application scope
-- Ms. Jarvis verifies: $19,500 draw would leave reserve ratio at 2.58 (above 3.0 floor? No — 2.58 < 3.0)
-- **Ms. Jarvis defers the draw to the deferral queue.** Reserve ratio must reach 3.0 before the draw can fire.
-- Ms. Jarvis publishes plain-language notice to all participants: "H4H has an approved regulatory compliance draw of $19,500 for WV Money Transmitter License. The draw is queued and will fire automatically when the reserve ratio reaches 3.0. Current ratio: 2.6. Estimated days to threshold at current growth rate: 38 days."
+- Ms. Allis verifies: $19,500 draw would leave reserve ratio at 2.58 (above 3.0 floor? No — 2.58 < 3.0)
+- **Ms. Allis defers the draw to the deferral queue.** Reserve ratio must reach 3.0 before the draw can fire.
+- Ms. Allis publishes plain-language notice to all participants: "H4H has an approved regulatory compliance draw of $19,500 for WV Money Transmitter License. The draw is queued and will fire automatically when the reserve ratio reaches 3.0. Current ratio: 2.6. Estimated days to threshold at current growth rate: 38 days."
 - H4H notifies WV DFI that the application will be filed within 45 days and documents this in the governance ledger.
-- **Day 39:** Reserve ratio reaches 3.0. Ms. Jarvis fires the draw automatically. MTL application filed. Public governance ledger updated with draw record and filing confirmation.
+- **Day 39:** Reserve ratio reaches 3.0. Ms. Allis fires the draw automatically. MTL application filed. Public governance ledger updated with draw record and filing confirmation.
 
 **Month 6 of Phase 2 — County Activation:**
 
 - Reserve ratio = 3.1 (in 300% band; Stage 3 unlocked)
-- Ms. Jarvis pre-condition verification for Summers County: passed
+- Ms. Allis pre-condition verification for Summers County: passed
 - DAO vote: 74% in favor
 - Summers County activates. New-county activation bonuses drawn from regional promo pool.
 
@@ -515,8 +515,8 @@ Key roles relevant to this specification:
 | **Safety Champion** | Ongoing post-Phase 1 safety review; feeds into quarterly audit cycle at statewide scale |
 | **Merchant** | Stage 3 commerce features expand available transaction types; fee structure unchanged |
 | **Harmony for Hope, Inc. (H4H)** | Maintains all regulatory and legal standing required for commons operation; files Regulatory Compliance Draw Requests per Section 7A; submits Annual Regulatory Compliance Budget; flags emerging legislative and regulatory developments to the DAO |
-| **Ms. Jarvis** | Enforces all hard triggers at statewide scale; runs county activation pre-condition verification; manages deferral queue for Regulatory Compliance Reserve Draws; publishes county-level and compliance dashboards |
+| **Ms. Allis** | Enforces all hard triggers at statewide scale; runs county activation pre-condition verification; manages deferral queue for Regulatory Compliance Reserve Draws; publishes county-level and compliance dashboards |
 
 ---
 
-*"The commons grows county by county, hand by hand. Ms. Jarvis watches the math so the growth stays honest. H4H holds the legal door open so the growth stays possible."*
+*"The commons grows county by county, hand by hand. Ms. Allis watches the math so the growth stays honest. H4H holds the legal door open so the growth stays possible."*
