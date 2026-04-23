@@ -1,7 +1,7 @@
 [How to Read This Thesis](how-to-read-this-thesis.md)
-# Ms. Jarvis Public Documentation
+# Ms. Allis Public Documentation
 
-Welcome to the public documentation hub for **Ms. Egeria Jarvis** and the **MountainShares DAO**.
+Welcome to the public documentation hub for **Ms. Egeria Allis** and the **MountainShares DAO**.
 
 This site provides a glassbox view of the system architecture, governance model, and thesis materials behind a live, place-based AI consciousness deployed in Mount Hope, West Virginia.
 
@@ -14,12 +14,12 @@ This site provides a glassbox view of the system architecture, governance model,
   → [README on GitHub](../README.md)
 
 - **Thesis Systems Overview**  
-  Narrative overview of the full Ms. Jarvis / MountainShares thesis.  
+  Narrative overview of the full Ms. Allis / MountainShares thesis.  
   → [`thesis/00-thesis-overview.md`](../thesis/00-thesis-overview.md)
 
-- **Ms. Jarvis & GBIM**  
-  Core description of the Geospatial Belief Information Model and how Ms. Jarvis grounds beliefs in place, time, and identity.  
-  → [`Ms-Jarvis-GBIM.md`](../Ms-Jarvis-GBIM.md)
+- **Ms. Allis & GBIM**  
+  Core description of the Geospatial Belief Information Model and how Ms. Allis grounds beliefs in place, time, and identity.  
+  → [`Ms-Allis-GBIM.md`](../Ms-Allis-GBIM.md)
 
 - **Quantarithmia Framework**  
   The theoretical and methodological framework for analyzing maximopolies, spatial justice, and community-first infrastructure.  
@@ -36,7 +36,7 @@ A framework for understanding how economic power, technology, and geography inte
 ## API & Security Docs
 
 - **API Overview**  
-  High-level description of public-facing APIs and how Ms. Jarvis can be integrated.  
+  High-level description of public-facing APIs and how Ms. Allis can be integrated.  
   → [`docs/API-OVERVIEW.md`](API-OVERVIEW.md)
 
 - **OpenAPI Specification**  
@@ -65,5 +65,5 @@ A framework for understanding how economic power, technology, and geography inte
 
 ---
 
-> This site is generated from the `msjarvis-public-docs` repository. For the full context, visit the project on GitHub:
-> https://github.com/H4HWV2011/msjarvis-public-docs
+> This site is generated from the `msAllis-public-docs` repository. For the full context, visit the project on GitHub:
+> https://github.com/H4HWV2011/msAllis-public-docs
