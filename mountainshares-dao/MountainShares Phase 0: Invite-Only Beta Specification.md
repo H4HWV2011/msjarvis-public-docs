@@ -2,7 +2,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:
-> - **P1 – Every where is entangled / Leakage and enclosure:** Phase 0 is the first moment the closed-loop system touches real place — real wallets, real UEIs, real EMS hours logged against real people and geographies in West Virginia. Every design choice here shapes leakage and enclosure patterns in Phase 1 and beyond. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md
+> - **P1 – Every where is entangled / Leakage and enclosure:** Phase 0 is the first moment the closed-loop system touches real place — real wallets, real UEIs, real EMS hours logged against real people and geographies in West Virginia. Every design choice here shapes leakage and enclosure patterns in Phase 1 and beyond. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md
 > - **P9 – Transparency and traceability:** All Phase 0 activity — wallets issued, EMS hours logged, red-team findings, security incidents, and parameter changes — is logged in the recognition ledger and auditable. Nothing in Phase 0 is invisible.
 > - **P16 – Power accountable to place:** Phase 0 is governed by Harmony for Hope's board and designated system monitors under documented authority. Community Champions earn governance standing through logged hours, not invitation status alone.
 > - **Anti-leakage and closed-loop spending:** Phase 0 deliberately restricts EMS-to-spendable-M$ conversion and prohibits external cash-out to protect the closed loop before the treasury is sufficiently backed. PMS loads may be enabled for select participants on a case-by-case basis under system monitor approval.
@@ -24,7 +24,7 @@ Phase 0 is the **invite-only beta period** that precedes public launch of Mounta
 - Identify and harden security vulnerabilities, reserve-ratio logic errors, fraud vectors, and UX friction points before public participants are exposed.
 - Build the first cohort of Community Champions who understand the system deeply and can serve as stewards, captains, and red-team elders as the community grows.
 - Accumulate real EMS hours in the recognition ledger that count toward Phase 1 governance eligibility.
-- Validate Ms. Jarvis enforcement behavior — reserve ratio calculations, tier assignments, hard trigger logic, and dashboard accuracy — in a live environment before public launch.
+- Validate Ms. Allis enforcement behavior — reserve ratio calculations, tier assignments, hard trigger logic, and dashboard accuracy — in a live environment before public launch.
 
 Phase 0 does **not** constitute public availability of MountainShares. No public marketing, open registration, or general solicitation occurs during Phase 0.
 
@@ -36,7 +36,7 @@ Phase 0 does **not** constitute public availability of MountainShares. No public
 
 Phase 0 participants are selected by Harmony for Hope and designated system monitors. Invitation categories include:
 
-- **Security and red-team participants** — developers, systems testers, and security researchers invited to probe treasury logic, EMS logging, reserve ratio enforcement, smart contract surfaces, and Ms. Jarvis behavior.
+- **Security and red-team participants** — developers, systems testers, and security researchers invited to probe treasury logic, EMS logging, reserve ratio enforcement, smart contract surfaces, and Ms. Allis behavior.
 - **Community anchor participants** — local trusted community members, nonprofit partners, and local business representatives in the Mount Hope area invited to test real-world UX, onboarding flows, and EMS earning activities.
 - **Internal team participants** — Harmony for Hope staff, KTS technical contributors, and governance document reviewers.
 
@@ -45,7 +45,7 @@ Phase 0 participants are selected by Harmony for Hope and designated system moni
 Upon invitation and acceptance:
 
 - A **MountainShares wallet** tied to a unique **UEI** (Unique Entity Identifier).
-- Authenticated access to The Commons app and the Ms. Jarvis chatbot UI via secure, non-public links.
+- Authenticated access to The Commons app and the Ms. Allis chatbot UI via secure, non-public links.
 - Access to Phase 0 documentation, testing guides, and red-team scope documents.
 - EMS hours logged in the **recognition ledger** for qualifying Phase 0 activities (see Section 4).
 
@@ -80,7 +80,7 @@ All qualifying Phase 0 activity is logged in the **unlimited recognition ledger*
 
 ### 3.3 Hard Triggers — Fully Active
 
-Ms. Jarvis enforces **all hard economic safety triggers** during Phase 0, including reserve ratio monitoring, automatic cap tightening, fraud flagging, and safety prohibitions. These cannot be disabled for testing purposes. Testing of hard trigger behavior is conducted by **observing trigger responses**, not by disabling them.
+Ms. Allis enforces **all hard economic safety triggers** during Phase 0, including reserve ratio monitoring, automatic cap tightening, fraud flagging, and safety prohibitions. These cannot be disabled for testing purposes. Testing of hard trigger behavior is conducted by **observing trigger responses**, not by disabling them.
 
 ### 3.4 No External Cash Value
 
@@ -96,8 +96,8 @@ EMS hours may be logged for the following Phase 0 activities:
 
 | Activity Category | Description | Verification Method |
 |-------------------|-------------|-------------------|
-| **Red-team and security testing** | Structured testing of treasury logic, reserve ratio enforcement, EMS logging, fraud vectors, smart contract surfaces, Ms. Jarvis enforcement behavior | Logged findings submitted via designated channels; system monitor attestation |
-| **UX and onboarding testing** | Testing wallet creation, UEI issuance, Commons app flows, and Ms. Jarvis chatbot interactions | Session logs + tester attestation |
+| **Red-team and security testing** | Structured testing of treasury logic, reserve ratio enforcement, EMS logging, fraud vectors, smart contract surfaces, Ms. Allis enforcement behavior | Logged findings submitted via designated channels; system monitor attestation |
+| **UX and onboarding testing** | Testing wallet creation, UEI issuance, Commons app flows, and Ms. Allis chatbot interactions | Session logs + tester attestation |
 | **Governance document review** | Structured review and feedback on Program Rules, DAO Charter, Phase 1 Spec, Terms and Conditions | Written feedback submitted via designated channels |
 | **Community anchor activities** | Real qualifying commons activities (caregiving, mapping, cultural work, education) performed during Phase 0 by community anchor participants | Standard Phase 1 verification methods (partner attestation, geo-fence, task confirmation) |
 | **Incident response participation** | Participation in post-incident reviews, playbook development, and corrective action documentation | System monitor attestation |
@@ -121,7 +121,7 @@ Red-team participants are authorized to attempt to identify vulnerabilities in:
 - Per-user cap enforcement and bypass vectors.
 - Promo pool logic and bonus rule exploitation.
 - UEI identity and anti-sybil mechanisms.
-- Ms. Jarvis enforcement behavior and hard trigger logic.
+- Ms. Allis enforcement behavior and hard trigger logic.
 - Privacy and access control surfaces.
 - Smart contract logic on Arbitrum One.
 - IPFS record integrity.
@@ -152,7 +152,7 @@ Phase 0 ends and Phase 1 public launch may begin **only when ALL of the followin
 | Criterion | Requirement |
 |-----------|-------------|
 | **Security audit complete** | All critical and high findings resolved or formally accepted with documented mitigation |
-| **Hard trigger validation** | Ms. Jarvis reserve ratio enforcement, cap tightening, and hard trigger logic independently verified across all reserve bands |
+| **Hard trigger validation** | Ms. Allis reserve ratio enforcement, cap tightening, and hard trigger logic independently verified across all reserve bands |
 | **EMS logging integrity** | Recognition ledger accuracy and tamper-resistance confirmed |
 | **Legal review** | Terms and Conditions, Program Rules, and Phase 1 Economic Safety Specification reviewed by qualified legal counsel and approved for production |
 | **Governance documents** | DAO Governance Charter, Phase 1 Spec, Program Rules, KPI Specification, and Parameter Tables finalized and published |
