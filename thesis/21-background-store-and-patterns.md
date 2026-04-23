@@ -1,4 +1,4 @@
- 21. Background Store and Ongoing Review
+# 21. Background Store and Ongoing Review
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 
