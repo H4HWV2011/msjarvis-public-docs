@@ -197,6 +197,6 @@ This system is a live research project. The questions under active investigation
 ---
 
 *This repository is a living document. Sections are published as they are completed.*
-*© Carrie Ann Kidd / Harmony for Hope, Inc. See [LICENSE](./LICENSE) for terms.*
+*© Carrie Ann Kidd / Kidd's Technical Services, Inc. See [LICENSE](./LICENSE) for terms.*
 *Polymathmatic Geography, Quantarithmia, and the Ms. Alliss system are original works authored by Carrie Ann Kidd.*
 *Ms. Allis is an original system designed and built by Carrie Ann Kidd.*
