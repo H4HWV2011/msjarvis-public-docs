@@ -38,7 +38,7 @@ Because it is defined by “where” rather than by a particular scale, polymath
 - **Intimate and spiritual geographies**: bodies, homes, clinics, churches, cemeteries, and dreamscapes as micro‑spaces of trauma, care, covenant, ritual, and revelation.  
 - **Regional and infrastructural geographies**: coalfields, rail corridors, food systems, and digital commons in places like Appalachia, where long histories of extraction, enclosure, and resistance are written into land, law, and infrastructure.  
 
-Projects like Quantarithmia, Ms. Jarvis, MountainShares, and The Commons occupy one tacet within this broader field: they are laboratory‑worlds where questions about extraction, commons‑building, distributed intelligence, and community power are played in a specific key and tested against one region’s lived geographies.
+Projects like Quantarithmia, Ms. Allis, MountainShares, and The Commons occupy one tacet within this broader field: they are laboratory‑worlds where questions about extraction, commons‑building, distributed intelligence, and community power are played in a specific key and tested against one region’s lived geographies.
 
 ### Methods: braiding ways of knowing
 
