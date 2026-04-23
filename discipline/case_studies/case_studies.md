@@ -165,6 +165,6 @@ A polymathmatic research program can now:
 
 1. Treat each case as a **world** to be read with braided methods: network geometry, institutional history, ethnography, spiritual and ethical reflection.  
 2. Develop **comparative concepts** (e.g., credit basins, resilience corridors, narrative centers, governance shells) that travel across cases.  
-3. Place new laboratory worlds—such as Quantarithmia, Ms. Jarvis, and any Appalachian or other regional experiments—explicitly alongside these precedents, as one more tacet in a longer history of attempts to redraw the maps of power, value, and information.
+3. Place new laboratory worlds—such as Quantarithmia, Ms. Allis, and any Appalachian or other regional experiments—explicitly alongside these precedents, as one more tacet in a longer history of attempts to redraw the maps of power, value, and information.
 
 This is the geographic lens: looking at these systems as actual spaces—overlapping maps of “who can do what, with whom, where”—rather than just as financial curiosities.
