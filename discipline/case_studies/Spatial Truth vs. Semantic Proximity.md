@@ -2,13 +2,13 @@
 ## How Community-Owned PostGIS Infrastructure Corrects LLM Hallucination at Inference Time
 
 **Carrie A. Kidd | Kidd's Technical Services, Inc. | Mount Hope, West Virginia**
-**Ms. Jarvis Open-Source AI Infrastructure Project | March 30, 2026**
+**Ms. Allis Open-Source AI Infrastructure Project | March 30, 2026**
 
 ---
 
 ## Abstract
 
-Large language models trained on web-scale corpora develop statistical associations between place names and facilities that approximate geographic proximity without encoding it. This case study documents a reproducible benchmark in which a retrieval-augmented AI system (Ms. Jarvis) was tested against the same geographic query using two knowledge sources: a ChromaDB semantic vector store and a PostGIS spatial database populated with verified West Virginia state datasets. The semantic system returned hospitals located 60–90 miles from the queried location. The PostGIS system returned the hospital at the queried coordinates. The architectural intervention — a three-file code change establishing source authority hierarchy at inference time — eliminated hallucination without model retraining, fine-tuning, or external API dependency. The infrastructure is community-owned, regionally governed, and reproducible.
+Large language models trained on web-scale corpora develop statistical associations between place names and facilities that approximate geographic proximity without encoding it. This case study documents a reproducible benchmark in which a retrieval-augmented AI system (Ms. Allis) was tested against the same geographic query using two knowledge sources: a ChromaDB semantic vector store and a PostGIS spatial database populated with verified West Virginia state datasets. The semantic system returned hospitals located 60–90 miles from the queried location. The PostGIS system returned the hospital at the queried coordinates. The architectural intervention — a three-file code change establishing source authority hierarchy at inference time — eliminated hallucination without model retraining, fine-tuning, or external API dependency. The infrastructure is community-owned, regionally governed, and reproducible.
 
 ---
 
@@ -29,11 +29,11 @@ West Virginia maintains several verified spatial datasets relevant to this probl
 - **WV Tax Parcel Layer** — parcel boundaries with ownership and land use
 - **Building Footprint Layers** (3 sources) — structure-level spatial data
 
-These datasets are publicly maintained, regularly updated, and — critically — *locally governed*. No external technology vendor controls them. Harmony for Hope, Inc. has integrated these layers into a PostGIS spatial database (`msjarvisgis`) running on regional infrastructure as part of the Ms. Jarvis project.
+These datasets are publicly maintained, regularly updated, and — critically — *locally governed*. No external technology vendor controls them. Harmony for Hope, Inc. has integrated these layers into a PostGIS spatial database (`msAllisgis`) running on regional infrastructure as part of the Ms. Allis project.
 
 ### 1.3 Scale of the Spatial Asset
 
-The `msjarvisgis` database contains **540 spatial tables** across multiple schemas, including:
+The `msAllisgis` database contains **540 spatial tables** across multiple schemas, including:
 
 - 911 centers (4 table variants, GCS84 and UTM83)
 - Hospitals, nursing homes, health rural facilities, community health providers
@@ -53,7 +53,7 @@ This is not a demonstration database. It is a production regional spatial intell
 
 ## 2. System Architecture
 
-Ms. Jarvis is a distributed AI system comprising 79–84 containerized microservices orchestrated via Docker Compose. The query pipeline relevant to this case study involves five components:
+Ms. Allis is a distributed AI system comprising 79–84 containerized microservices orchestrated via Docker Compose. The query pipeline relevant to this case study involves five components:
 
 ```
 User Query
@@ -77,7 +77,7 @@ User Query
 Final Response
 ```
 
-The **GBIM Query Router** (Geographic/Behavioral Intelligence Module) detects intent categories — hospitals, fire departments, public health, county seats — and issues live PostGIS queries against the `msjarvisgis` database. Results are injected into the Judge Pipeline as `[VERIFIED LOCAL DATA]` with an explicit authority instruction before LLM-generated content is evaluated.
+The **GBIM Query Router** (Geographic/Behavioral Intelligence Module) detects intent categories — hospitals, fire departments, public health, county seats — and issues live PostGIS queries against the `msAllisgis` database. Results are injected into the Judge Pipeline as `[VERIFIED LOCAL DATA]` with an explicit authority instruction before LLM-generated content is evaluated.
 
 ---
 
@@ -89,7 +89,7 @@ The **GBIM Query Router** (Geographic/Behavioral Intelligence Module) detects in
 
 ### 3.2 Verified PostGIS Hospital Dataset
 
-The complete `hospitals` table in `msjarvisgis` at time of test:
+The complete `hospitals` table in `msAllisgis` at time of test:
 
 | geodbid | label                                 | lat     | lon       |
 |---------|---------------------------------------|---------|-----------|
@@ -100,11 +100,11 @@ The complete `hospitals` table in `msjarvisgis` at time of test:
 | 9       | Ruby Memorial Hospital                | 39.6365 | -79.9559  |
 | 10      | St. Mary's Medical Center             | 38.4122 | -82.4289  |
 
-Source: HSIP (Homeland Security Infrastructure Program), loaded into PostGIS via `jarvis-local-resources-db` container running `postgis/postgis:15-3.4`.
+Source: HSIP (Homeland Security Infrastructure Program), loaded into PostGIS via `Allis-local-resources-db` container running `postgis/postgis:15-3.4`.
 
 ### 3.3 Baseline: Semantic RAG (ChromaDB)
 
-Before the PostGIS grounding pipeline was activated, Ms. Jarvis relied on ChromaDB vector similarity to retrieve relevant context. The system returned:
+Before the PostGIS grounding pipeline was activated, Ms. Allis relied on ChromaDB vector similarity to retrieve relevant context. The system returned:
 
 | Hospital Named                        | Actual Location        | Miles from Charleston |
 |---------------------------------------|------------------------|-----------------------|
@@ -124,7 +124,7 @@ After activating the GBIM grounding pipeline (commits `b9c939b6` and `0bd0b363`,
 | Charleston Area Medical Center | 38.3498, -81.6328       | 0 miles — *in Charleston* |
 | St. Mary's Medical Center      | 38.4122, -82.4289       | ~22 miles W           |
 
-Ms. Jarvis's verbatim response:
+Ms. Allis's verbatim response:
 
 > *"I'll be happy to help you with the list of hospitals in and around Charleston, WV! However, I must note that the authoritative records from the PostGIS spatial database take precedence over my training data. According to those records, here are some nearby hospitals: 1. Charleston Area Medical Center | lat=38.3498 lon=-81.6328, 2. St. Mary's Medical Center | lat=38.4122 lon=-82.4289"*
 
@@ -146,7 +146,7 @@ gbim_context = None
 try:
     async with httpx.AsyncClient(timeout=10.0) as _gbim_c:
         _gbim_r = await _gbim_c.post(
-            "http://jarvis-gbim-query-router:7205/route",
+            "http://Allis-gbim-query-router:7205/route",
             json={"question": request.message},
             timeout=10.0
         )
@@ -238,7 +238,7 @@ PostGIS executes deterministic spatial queries against verified point geometries
 
 ### 5.3 The Authority Hierarchy as Data Policy
 
-The most significant finding is not technical — it is governance. When Ms. Jarvis responded:
+The most significant finding is not technical — it is governance. When Ms. Allis responded:
 
 > *"the authoritative records from the PostGIS spatial database take precedence over my training data"*
 
@@ -246,7 +246,7 @@ The most significant finding is not technical — it is governance. When Ms. Jar
 
 ### 5.4 The Scale Implication
 
-The `msjarvisgis` database contains 540 spatial tables. The same grounding pattern demonstrated here for hospitals is immediately extensible to:
+The `msAllisgis` database contains 540 spatial tables. The same grounding pattern demonstrated here for hospitals is immediately extensible to:
 
 - `nursinghomes_wvdem_041219_gcs84` — nursing home locations
 - `fire_dept_wvdem_092017_utm83` — fire station locations
@@ -295,7 +295,7 @@ A community-owned spatial database, integrated at inference time through a three
 
 The result is reproducible, documented in git, and scalable across 540 spatial tables representing the full breadth of West Virginia's public spatial data assets. It demonstrates that **data sovereignty is not only a policy position — it is an implementable architectural pattern**.
 
-The single most important line produced by this experiment was not written by a developer. It was spoken by Ms. Jarvis:
+The single most important line produced by this experiment was not written by a developer. It was spoken by Ms. Allis:
 
 > *"the authoritative records from the PostGIS spatial database take precedence over my training data"*
 
@@ -305,7 +305,7 @@ The code is open source. The data is public. The infrastructure is regional. The
 
 ---
 
-*Ms. Jarvis is developed by Harmony for Hope, Inc., a nonprofit organization based in Mount Hope, West Virginia. The project is open source.*
+*Ms. Allis is developed by Harmony for Hope, Inc., a nonprofit organization based in Mount Hope, West Virginia. The project is open source.*
 
 ---
 
@@ -320,12 +320,12 @@ The code is open source. The data is public. The infrastructure is regional. The
 | 9       | Ruby Memorial Hospital                | 39.6365 | -79.9559 | USA     |
 | 10      | St. Mary's Medical Center             | 38.4122 | -82.4289 | USA     |
 
-Source: `SELECT geodbid, label, ST_Y(geom) as lat, ST_X(geom) as lon, country FROM hospitals ORDER BY label;` — `msjarvisgis` database, `jarvis-local-resources-db` container, March 30, 2026.
+Source: `SELECT geodbid, label, ST_Y(geom) as lat, ST_X(geom) as lon, country FROM hospitals ORDER BY label;` — `msAllisgis` database, `Allis-local-resources-db` container, March 30, 2026.
 
-## Appendix B: msjarvisgis Spatial Asset Inventory — 541 Tables, Categorized by Theme
+## Appendix B: msAllisgis Spatial Asset Inventory — 541 Tables, Categorized by Theme
 
-All tables verified via `\dt` query against `msjarvisgis` database,
-`jarvis-local-resources-db` container, March 30, 2026.
+All tables verified via `\dt` query against `msAllisgis` database,
+`Allis-local-resources-db` container, March 30, 2026.
 Projection variants (ll83, utm83, gcs84, wma84) are consolidated per dataset.
 `_attrs_raw` companion tables omitted from display counts for clarity.
 
@@ -605,11 +605,11 @@ Projection variants (ll83, utm83, gcs84, wma84) are consolidated per dataset.
 ### Reproduction Instructions
 
 ```bash
-git clone https://github.com/H4HWV2011/msjarvis-rebuild
-cd msjarvis-rebuild
+git clone https://github.com/H4HWV2011/msAllis-rebuild
+cd msAllis-rebuild
 git checkout 0bd0b363
-docker compose up -d jarvis-main-brain jarvis-judge-pipeline \
-  jarvis-gbim-query-router jarvis-local-resources-db
+docker compose up -d Allis-main-brain Allis-judge-pipeline \
+  Allis-gbim-query-router Allis-local-resources-db
 sleep 10
 curl -s -X POST http://localhost:8050/chat \
   -H "Content-Type: application/json" \
