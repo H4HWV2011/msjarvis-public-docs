@@ -2,7 +2,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**
 > This document instantiates Polymathmatic Geography principles P1, P9, and P16:
-> - **P1 – Every where is entangled:** Rank and recognition are earned through specific documented work in specific places and times — not abstract points or purchases. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md
+> - **P1 – Every where is entangled:** Rank and recognition are earned through specific documented work in specific places and times — not abstract points or purchases. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md
 > - **P9 – Transparency and traceability:** Every EMS hour, rank transition, badge, and governance right is logged in the recognition ledger and auditable by any participant.
 > - **P16 – Power accountable to place:** Governance standing — votes, roles, voice — is earned by contributing time to the commons, not by financial stake or invitation status.
 
@@ -43,11 +43,11 @@ Rank is determined solely by accumulated EMS hours and account tenure. It cannot
 
 | Rank | EMS Hours Required | Account Age | What It Unlocks |
 |------|--------------------|-------------|----------------|
-| **Newcomer** | 0 | Any | Wallet, UEI, access to The Commons app, Ms. Jarvis chatbot |
+| **Newcomer** | 0 | Any | Wallet, UEI, access to The Commons app, Ms. Allis chatbot |
 | **Bronze** | 10 hrs | 30 days | Voting eligibility (1 UEI = 1 vote), Tier 1 EMS caps, Steward candidacy path |
 | **Silver** | 100 hrs | — | Steward eligibility, expanded quest access in The Commons, regional proposal co-sponsorship |
-| **Gold** | 300 hrs | — | Captain eligibility, regional proposal rights, localized Ms. Jarvis analytics access |
-| **Champion** | 750 hrs | — | Elder nomination eligibility, full Ms. Jarvis governance analytics, Safety Champion Organization path |
+| **Gold** | 300 hrs | — | Captain eligibility, regional proposal rights, localized Ms. Allis analytics access |
+| **Champion** | 750 hrs | — | Elder nomination eligibility, full Ms. Allis governance analytics, Safety Champion Organization path |
 | **Elder** | 750+ hrs, nominated + confirmed | ≥ 2 years active | Constitutional review role, Safety and Ethics working group, institutional memory |
 | **Groundbreaker** *(Phase 0 only)* | 10 hrs during Phase 0 | 30 days (Phase 0) | Permanent founding cohort status — never available after Phase 1 opens |
 
@@ -129,7 +129,7 @@ Groundbreaker rank holders are named (by UEI handle, with consent) in the Phase 
 
 ### Data Stewardship Badges (NEW)
 
-Data stewardship — ground truthing, contact collection, and verification — is a core commons activity. Ms. Jarvis runs automated verification cycles every 6–12 months; participants who respond and confirm or update their records earn EMS hours for each verified response.
+Data stewardship — ground truthing, contact collection, and verification — is a core commons activity. Ms. Allis runs automated verification cycles every 6–12 months; participants who respond and confirm or update their records earn EMS hours for each verified response.
 
 > **Consent note:** Contact information collected for verification purposes requires explicit opt-in at the time of collection. Champions collecting contact info must document consent as part of the ground-truthing workflow.
 
@@ -138,7 +138,7 @@ Data stewardship — ground truthing, contact collection, and verification — i
 | **Ground Truthing** | Magnifying glass over map pin | Clay/earth | First data verification or contact collection activity |
 | **Data Keeper** | Map pin with checkmark | Earth green | 25 records verified or updated |
 | **Living Map** | Topographic lines, glowing | Earth green + amber | 100 records verified or updated |
-| **Verification Veteran** | Calendar + checkmark | Clay | Responded to 3+ Ms. Jarvis verification ping cycles |
+| **Verification Veteran** | Calendar + checkmark | Clay | Responded to 3+ Ms. Allis verification ping cycles |
 
 ### Governance Badges
 
@@ -203,7 +203,7 @@ Phase 3 badges are aspirational — earned only under high-reserve, mature-econo
 | Elder nomination eligibility | ✗ | ✗ | ✗ | Path open | ✓ | ✓ |
 | Regional proposal rights | ✗ | ✗ | Co-sponsor | ✓ | ✓ | ✓ |
 | Constitutional review advisory | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| Ms. Jarvis governance analytics | Basic | Basic | Standard | Extended | Full | Full + advisory |
+| Ms. Allis governance analytics | Basic | Basic | Standard | Extended | Full | Full + advisory |
 
 ---
 
@@ -218,9 +218,9 @@ Higher rank reflects more hours worked — which naturally produces more EMS in 
 
 ---
 
-## 12. Ms. Jarvis and the Contribution Game
+## 12. Ms. Allis and the Contribution Game
 
-Ms. Jarvis surfaces the contribution game through the chatbot UI and governance dashboards. She can tell any participant:
+Ms. Allis surfaces the contribution game through the chatbot UI and governance dashboards. She can tell any participant:
 
 - Current rank and EMS hours to next rank
 - Which badges they hold and which are in progress
@@ -230,7 +230,7 @@ Ms. Jarvis surfaces the contribution game through the chatbot UI and governance 
 - Network-wide rank distribution (anonymized) for context
 - Data stewardship verification ping schedule and response history
 
-Ms. Jarvis does not control rank assignment — rank is calculated automatically from the recognition ledger. She reports and surfaces; she does not adjudicate.
+Ms. Allis does not control rank assignment — rank is calculated automatically from the recognition ledger. She reports and surfaces; she does not adjudicate.
 
 ---
 
