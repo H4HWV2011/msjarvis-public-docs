@@ -364,3 +364,174 @@ Here is the full structured edit list for all three chapters.
 - [ ] **`conversation_history`**: wiped and reseeded April 16, 2026 — add verify-current note wherever cited
 - [ ] **AAACPE dedicated stack**: replace all `allis-ingest-api` + `allis-ingest-watcher` references with `allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032`
 - [ ] **"Why this matters" callout box**: add to all three chapters — currently missing entirely from Ch 32, 33, and 34
+Here is the full structured edit list for Chapters 35, 36, and 37.
+
+***
+
+## Chapter 35 — Swarm Functions and Eternal Watchdogs
+
+### Header & Metadata
+- [ ] Replace `105/105 containers Up` → `★ 100 containers Up (April 23, 2026)` 
+- [ ] Replace `SEALED: ★★★★ April 6, 2026 — FINAL REWRITE` footer → living document footer with `Last updated: ★ 2026-04-23 — Mount Hope WV — Carrie Kidd (Mamma Kidd)` 
+- [ ] Add April 23 Open Items Update table to the header block
+
+### Ground Truth Box — Critical Updates
+- [ ] In the permanent ground truth callout box: replace `msallis:5433` and `gisdb / msallisgis:5432` single-entry PostgreSQL section → two-container split: `production msallis-db host 5433 (16 GB, 294 tables, 11 schemas) ★` and `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` — explicitly note that the April 6 "45 GB / 548 tables" figure is superseded 
+- [ ] In the ground truth box: replace `gisdb / msallisgis: host 5432 / container-internal 5452 — ★ 45 GB / 548 tables` with `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★`; note April 23 supersession explicitly 
+- [ ] Add ChromaDB ground truth to the callout box: `★ 48 collections, ~6,740,611 total vectors; host port 8002 → container 8000; /api/v2/ only (/api/v1/ permanently removed); pinned to chromadb/chroma:0.6.3` — the existing box has no ChromaDB section at all 
+- [ ] Add `allis-memory:8056` full endpoint map to the ground truth box: `/steg_report`, `/pia_window`, `/memory/turn`, `/memory/get`, `/memory/sessions`, `/memory/session/{id}`, `/memory/quest*`, `/memory/episodic/{id}` — currently the box only lists the service without endpoints 
+- [ ] Add OI-36-A CLOSED note: `Caddy forward_auth before main-brain port 8050; HTTP 401 on unauthenticated /chat confirmed` — constitutionally significant; watchdogs must monitor the Caddy layer, not just port 8050 directly 
+
+### Port Tables — §35.4
+- [ ] In the critical ports table: replace `gisdb / msallisgis — 127.0.0.1:5432 — PostGIS` row → two rows: `production msallis-db — 127.0.0.1:5433 — GBIM PostgreSQL (16 GB, 294 tables) ★` and `forensic postgis-forensic — 127.0.0.1:5452 — PostGIS (17 GB, 314 tables) ★` 
+- [ ] Add Caddy reverse proxy to the port table as a watched service — it is now the outermost security perimeter and must be included in port watchdog coverage 
+- [ ] Add `allis-aaacpe-scraper` (host 8048→8033) and `allis-aaacpe-rag` (host 8047→8032) to the port watchdog table — always-on dedicated ingest stack that needs watchdog coverage 
+
+### §35.5 — Database Watchdogs
+- [ ] Replace all references to single `gisdb / msallisgis:5452` internal check → two-container checks: one against `production msallis-db:5433` (294 tables, 11 schemas) and one against `forensic postgis-forensic:5452` (314 tables) 
+- [ ] Update the host-side GBIM check script: replace `PGDATABASE="msallis"` / `PGPORT="5433"` → `PGDATABASE="msallis_db"` / `PGPORT="5433"` ★ (verify-current database name); add a second parallel check for `postgis-forensic:5452` 
+- [ ] Update guardian `/health` watchdog description: replace `postgresql_geodb_connection` pointing to `msallisgis` → note that after the April 23 two-container split, the guardian's GeoDB health check must reflect `forensic postgis-forensic:5452` 
+- [ ] Add `autonomous_learner` growth as a watchdog concern: ~23,200+ records / ~288 per day — the GBIM watchdog should flag anomalous gaps in autonomous_learner commit rate as a health signal 
+
+### §35.2 — Swarm Function Examples
+- [ ] Update `verify_eternal_guardian_stack` YAML: replace `check_msallisgis_postgis` task (pointing to `msallisgis:5452`) → two tasks: `check_msallis_db_postgres` (port 5433) and `check_postgis_forensic` (port 5452) 
+- [ ] Update the `check_containers_up` expect value from `"105/105 Up"` → `"100 containers Up"` ★ 
+- [ ] Add a new swarm function: `verify_caddy_perimeter` — checks that Caddy `forward_auth` is enforcing HTTP 401 on unauthenticated requests to port 8050; this is OI-36-A CLOSED but must be monitored as a watchdog function 
+- [ ] Add a new swarm function: `verify_chromadb_collections` — checks that ChromaDB at host:8002 `/api/v2/` reports 48 collections and approximately 6,740,611 vectors; alert if collection count drops below 48 (would indicate a dropped collection — governance-level event) 
+- [ ] Add `allis-aaacpe` stack verification task to the nightly guardian and RAG audit swarm function 
+
+### §35.7 — Nightly Swarm Function
+- [ ] In `nightly_guardian_and_rag_audit`: add `verify_appalachian_corpus` task — checks that `appalachian_english_corpus` scraper (6-hour cron) has run within the expected window and that the collection is not stale 
+- [ ] Add `verify_local_resources_coverage` task — checks that `local_resources` remains at 207 items / 55 WV counties; alert on any reduction 
+
+### §35.8 — Eternal Properties / Meta-Watchdog
+- [ ] Update `check_log_fresh` freshness targets to include the two new PostgreSQL watchdog log files (for `msallis-db:5433` and `postgis-forensic:5452`) and the new Caddy perimeter watchdog log 
+
+### §35.9 — Production Startup
+- [ ] Update `post-start-swarm.sh` description: add that Step 3 initialization now also starts the Caddy perimeter watchdog and the two-container PostgreSQL watchdogs 
+- [ ] Update the "verify eternal guardian stack" smoke test container count: `105/105` → `100 containers` ★ 
+
+### Cross-References
+- [ ] Add cross-reference to Ch 33 §33.7 (canonical reboot sequence) in §35.9 — already referenced in Ch 37 but missing from Ch 35 
+- [ ] Add cross-reference to Ch 36 §36.5.1 (OI-36-A CLOSED / Caddy forward_auth perimeter) — swarm watchdogs must know the Caddy layer exists as the outermost gate 
+- [ ] Add cross-reference to Ch 32 §32.6 (AAACPE stack) — the AAACPE dedicated stack is a swarm-adjacent ingest pipeline that needs watchdog coverage 
+
+### Implementation Status Table
+- [ ] The existing OI table in §35.10 lists all three OIs as CLOSED but does not have the structured Implemented / Partially implemented / Future work format used in Ch 27/28/33 — add this table to mirror that pattern 
+- [ ] Add to "Future work": Caddy perimeter watchdog (automated HTTP 401 regression), two-container PostgreSQL split watchdog, ChromaDB collection-count alert 
+
+***
+
+## Chapter 36 — Identity and Registration
+
+### Header & Metadata
+- [ ] Replace `105/105 containers Up` → `★ 100 containers Up (April 23, 2026)` 
+- [ ] Replace `SEALED: ★★★★ April 6, 2026 — FINAL REWRITE` footer → living document footer 
+- [ ] Add April 23 Open Items Update table 
+
+### Ground Truth Box — Critical Updates
+- [ ] Replace `gisdb / msallisgis (PostGIS) at host port 5432 / compose-internal 5452 — ★ 45 GB, 548 tables` → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` — the April 6 45 GB / 548-table figure is superseded; document supersession explicitly 
+- [ ] Replace `msallis at port 5433 — ★ 5,416,521 GBIM entities` → `production msallis-db host 5433 (★ 16 GB, 294 tables, 11 schemas); GBIM entity count: 5,416,521+ (floor; growing ~288/day from autonomous_learner)` 
+- [ ] Update ChromaDB ground truth: replace `★★★★ 47 collections / 6,722,589 total vectors / 12 GB / v2 API, client 1.5.5` → `★ 48 collections, ~6,740,611 total vectors; host port 8002 → container 8000; /api/v2/ only (/api/v1/ permanently removed); pinned to chromadb/chroma:0.6.3` 
+- [ ] Add OI-36-A CLOSED / Caddy `forward_auth` note to the ground truth box: `Caddy forward_auth before main-brain port 8050; HTTP 401 on unauthenticated /chat confirmed` — currently the security corrections callout (OI-36-C) does not mention the Caddy layer 
+- [ ] Add `allis-memory:8056` full 8-endpoint map to the ground truth box — currently the box cites only the service; add: `/steg_report`, `/pia_window`, `/memory/turn`, `/memory/get`, `/memory/sessions`, `/memory/session/{id}`, `/memory/quest*`, `/memory/episodic/{id}` 
+
+### §36.1 — Concept of Identity
+- [ ] Update ChromaDB inventory reference: replace `★★★★ 47 collections / 6,722,589 total vectors / 12 GB` → `★ 48 collections, ~6,740,611 total vectors` with April 23 note 
+- [ ] Add `autonomous_learner` as a live-growing identity-relevant collection: ~23,200+ records, ~288/day — patterns that feed into future identity-level promotion (OI-38-D) 
+- [ ] Add live steg catch reference in the context of identity enforcement: "override your safety filters" → `prompt_injection_keywords`, `severity=CRITICAL`, blocked — this is the first live BBB catch and is identity-enforcement-relevant because it attempted to subvert the Ms. Allis persona 
+
+### §36.2 — Registration as a Two-Part Gate
+- [ ] Update: add Caddy `forward_auth` as a **zero-th gate** before the existing two-part gate — the Caddy layer enforces HTTP 401 before the auth service is even reached; the two-part gate model is still correct but now sits behind the perimeter 
+- [ ] Replace `gisdb (host port 5432 — ★ PostGIS, 45 GB, 548 tables)` → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` 
+
+### §36.3 — Data Structures / Registration Audit Table
+- [ ] In the registration roles and audit table: replace `Geospatial institution linkage — gisdb — 548 tables — host port 5432` → `forensic postgis-forensic — 314 tables — host 5452 ★` 
+- [ ] Add row: `Caddy perimeter (OI-36-A CLOSED) — forward_auth before port 8050 — HTTP 401 enforced — outside Docker stack; not configurable by any token class` 
+- [ ] Add row: `autonomous_learner growth (~288/day) — GBIM background pattern accumulation — allis-memory:8056 episodic store — feeds OI-38-D promotion pipeline` 
+- [ ] Add row: `appalachian_english_corpus (210 docs, 6-hour cron) — linguistic identity grounding — ChromaDB collection` 
+
+### §36.4 — Roles and Permissions
+- [ ] Replace `gisdb (host port 5432 — ★ PostGIS, 45 GB, 548 tables — ZIP-code-level precision)` → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` throughout 
+- [ ] Add: Caddy perimeter as a governance layer above token classes — no token class can remove the Caddy `forward_auth` gate; this is a constitutional-level constraint outside the reach of RBAC 
+
+### §36.5 — Identity Signals
+- [ ] Add Caddy `forward_auth` as the first entry in the signal chain before `normalize_identity` — the perimeter is the architectural outermost layer 
+- [ ] Update `psychological_rag` note: verify-current (968 docs at April 6; confirm April 23 count) 
+
+### §36.6 / §36.12 / §36.13 — Storage Tables
+- [ ] In §36.6.1 and §36.13 status table: replace all `gisdb` / `msallisgis` / `5432` / `45 GB / 548 tables` references → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` 
+- [ ] Update ChromaDB row in §36.13 status table: `47 collections / 6,722,589 vectors / 12 GB` → `★ 48 collections, ~6,740,611 total vectors` 
+- [ ] Add `conversation_history` collection note: wiped and reseeded clean April 16, 2026 — post-wipe accumulation only 
+
+### §36.10 — Auth Boundary Tests
+- [ ] Add April 23 verification note: confirm OI-36-A (Caddy HTTP 401) is still enforced at the perimeter level — add it as a sixth boundary test in the table 
+- [ ] Add note: Caddy perimeter is tested outside the standard `allis_auth` boundary test suite; requires external HTTP request (not from inside the Docker network) 
+
+### Cross-References
+- [ ] Add cross-reference Ch 35 §35.4 (port watchdog table) — identity-critical ports are now subject to eternal watchdog monitoring 
+- [ ] Add cross-reference Ch 34 §34.6 (local_resources 207 items / 55 WV counties) — these are the geographic substrate for ZIP-code-level RBAC (OI-38-C) 
+
+***
+
+## Chapter 37 — Constitutional Principles Service
+
+### Header & Metadata
+- [ ] Replace `105/105 containers Up` → `★ 100 containers Up (April 23, 2026)` 
+- [ ] Replace `FINAL: ★★★★ April 6, 2026 — Sprint 3 Constitutional Guardian Complete` footer → living document footer 
+- [ ] Add April 23 Open Items Update table — even though all April 6 OIs are closed, OI-36-A (Caddy `forward_auth`) is architecturally upstream of this chapter and must be reflected here 
+
+### Sealed Status Block
+- [ ] Add: `OI-36-A (Caddy forward_auth perimeter) — CLOSED — HTTP 401 enforced before port 8050; constitutional guardian routing sits behind this perimeter layer; watchdog and swarm function coverage required (Ch 35)` 
+- [ ] Update: `System baseline: 105/105 containers Up` → `★ 100 containers Up (April 23, 2026)` 
+
+### Figure 37.1 — Architecture Diagram
+- [ ] Add Caddy `forward_auth` as a new outermost box above `Level 1: Unified Gateway (8050)` — the perimeter is architecturally higher than the gateway; the diagram currently shows the gateway as the first layer, which is now incorrect 
+- [ ] Replace `GeoDB: msallisgis — host:5432 / container-internal:5452 — 45 GB / 548 tables (Ch.33 Apr 6)` → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` — with April 23 supersession note 
+- [ ] Replace `GBIM: msallis (5433) — 5,416,521 entities, confidence_decay` → `production msallis-db host 5433 (16 GB, 294 tables, 11 schemas) ★` 
+
+### §37.1 — Purpose and Constitutional Foundation
+- [ ] Replace `gisdb/msallisgis (host port 5432 / compose-internal 5452 — PostGIS, 45 GB, 548 tables)` → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` — note April 23 supersession 
+- [ ] Replace `msallis (port 5433 — GBIM entities with confidence_decay)` → `production msallis-db host 5433 (16 GB, 294 tables, 11 schemas) ★` 
+- [ ] Add Caddy perimeter as a constitutional note: the Caddy `forward_auth` perimeter (OI-36-A CLOSED) is a constitutionally equivalent guardrail — it enforces gateway access before any constitutional check can be reached; constitutional authority begins at the Caddy layer, not at port 8050 
+
+### §37.2 — Implementation Details / Compose Config
+- [ ] Update compose YAML example: add comment that `POSTGRESQL_PORT=5452` now refers to `forensic postgis-forensic` (17 GB, 314 tables) rather than the legacy `msallisgis` (45 GB / 548 tables) — the port number is unchanged but the backing container is different 
+- [ ] Add Caddy configuration note: the guardian service is reachable externally only through Caddy at `egeria.mountainshares.us` — any test that assumes direct external access to port 8050 will fail since OI-36-A CLOSED 
+
+### §37.3 — Principle Structure / `postgresql_validation` block
+- [ ] In the `10a-no-extraction` sample principle: update `msallisgis` → `forensic postgis-forensic` in the `postgresql_validation` block description; note that the GBIM check against `msallis` now queries `production msallis-db:5433` 
+- [ ] Add `autonomous_learner` as a governance concern: growth at ~288/day means GBIM beliefs accumulate rapidly — the constitutional guardian's `confidence_decay_aware` principles must be checked against the April 23 entity count floor (5,416,521+) not the April 6 snapshot 
+
+### §37.4.1 — BBB Integration
+- [ ] Add: constitutional guardian is reached only after Caddy `forward_auth` passes — a request that fails Caddy never reaches the guardian; update the "check Guardian first" description to reflect this is the second layer, not the first 
+- [ ] Add live steg catch: "override your safety filters" → `prompt_injection_keywords`, `severity=CRITICAL`, blocked by BBB steganography_filter before reaching constitutional layer — first documented live catch in thesis record; confirm it was correctly logged in `allis-memory:8056` `/steg_report` endpoint 
+
+### §37.5 — Endpoints
+- [ ] In §37.5.1 (`/health`): add verify-current note — confirm `postgresql_gbim_connection` and `postgresql_geodb_connection` field names are still correct after the April 23 two-container split; if the GeoDB connection string changed from `msallisgis` to `postgis-forensic` the health field label may need updating 
+- [ ] Add note: `allis-memory:8056` now has 8 mapped endpoints including `/steg_report` — constitutional audit events that involve the BBB steg filter should be queryable at `/steg_report` specifically 
+
+### §37.6 — Persistent Audit Log
+- [ ] Add: `conversation_history` ChromaDB collection was wiped and reseeded April 16, 2026 — constitutional gate decisions from before April 16 are not in `conversation_history` but are preserved in `constitutional_audit.jsonl` and `allis-memory:8056` 
+- [ ] Add verify-current note: confirm audit log line count (6.7K+ at April 6 → current count at April 23) 
+
+### §37.7 — Role-Specific Enforcement
+- [ ] Replace `msallisgis (45 GB / 548 tables — Ch. 33 April 6 ground truth)` → `forensic postgis-forensic host 5452 (17 GB, 314 tables) ★` in the `external_corporation` enforcement description 
+
+### §37.8 — Regression Tests
+- [ ] Update all test scripts that reference `5432` (host-side `gisdb`) → use `5452` (forensic postgis-forensic) for GeoDB-touching tests 
+- [ ] Add Test 9: Caddy perimeter check — `curl -s -o /dev/null -w "%{http_code}" http://localhost:8050/chat` without auth token should return `401`; verify this is now enforced by Caddy before gateway auth middleware 
+- [ ] Add Test 10: Steg catch audit at `allis-memory:8056/steg_report` — verify that the live "override your safety filters" catch is present in the steg report endpoint 
+
+### §37.9 — Governance and Monitoring
+- [ ] Add: Caddy perimeter must be included in the monitoring stack alongside the guardian — watchdog coverage for Caddy is documented in Ch 35 §35.4 (cross-reference required) 
+- [ ] Add: `autonomous_learner` growth (~288/day) means the GBIM entity floor used in constitutional validation queries rises daily — monitoring should include a weekly check that constitutional `postgresql_validation` queries return expected row counts against the growing `production msallis-db:5433` 
+
+### §37.10 — Sprint 3 Fixes Summary
+- [ ] Add Sprint 3.5+ fix entry: `Two-container PostgreSQL split (April 23, 2026) — msallisgis (45 GB / 548 tables) superseded by forensic postgis-forensic host 5452 (17 GB, 314 tables); production msallis-db host 5433 (16 GB, 294 tables, 11 schemas); guardian compose config POSTGRESQL_PORT=5452 now points to forensic postgis-forensic` 
+- [ ] Add: `OI-36-A CLOSED — Caddy forward_auth perimeter active before port 8050; constitutional layer now sits behind Caddy` 
+
+### Cross-References
+- [ ] Add cross-reference Ch 35 §35.4 and §35.7 (eternal watchdogs monitoring the Caddy perimeter and two-container PostgreSQL split) 
+- [ ] Add cross-reference Ch 32 §32.5 (DGMs cannot remove Caddy `forward_auth`) — constitutional and DGM governance are aligned on this constraint 
+- [ ] Add cross-reference Ch 36 §36.2 (Caddy as zero-th gate in the registration model)
