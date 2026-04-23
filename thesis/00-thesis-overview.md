@@ -1,7 +1,7 @@
 # Chapter 00 — Thesis Overview
 ## Ms. Egeria Jarvis: A Chapter-by-Chapter Map of the Thesis
 
-*Last updated: 2026-03-28 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: 2026-04-23 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
 ---
 
@@ -9,7 +9,7 @@
 
 This file is the map before the territory. If `00-overview.md` tells you what the system is doing right now — how many containers are live, which RAG collections are populated, what the preflight gate returned — this document tells you what the thesis argues, how it is organized, and where to enter depending on who you are.
 
-The thesis is a 43-chapter computational and theoretical document. It is not a conventional academic product. It is a living public record, authored from inside the community and infrastructure it describes, written in real time as the system is designed, built, and verified. The discipline is Polymathmatic Geography. The framework is Quantarithmia. The place is Mount Hope, Fayette County, West Virginia.
+The thesis is a 43-chapter computational and theoretical document. It is not a conventional academic product. It is a living public record, authored from inside the community and infrastructure it describes, written in real time as the system is designed, built, and verified. The discipline is Polymathmatic Geography. The framework is Quantarithmia. The place is Oak Hill, Fayette County, West Virginia.
 
 The five movements below correspond to five distinct intellectual tasks: establishing ground (I), documenting cognition (II), accounting for infrastructure (III), confronting the hardest alignment and governance problems (IV), and validating the whole (V). Every chapter in every movement is a real, file-backed document in this repository. The tables below are the reader's navigation instrument.
 
@@ -33,9 +33,9 @@ Movement I establishes the intellectual, positional, and institutional ground on
 | [00-overview.md](./00-overview.md) | Full System Overview | The single authoritative production state reference — every live service, every verified corpus count, the current container total, and the sprint history. Updated with each sprint. |
 | [00-thesis-overview.md](./00-thesis-overview.md) | Thesis Overview | This document — the structured chapter-by-chapter map for readers who want the territory before they walk into it |
 | [01-researcher-position.md](./01-researcher-position.md) | Researcher Position | Carrie Ann Kidd's explicit statement of positionality — who she is, where she stands, why that matters for this work, and why insider-built AI infrastructure requires a different epistemological frame than externally-imposed systems |
-| [01-quantarithmia.md](./01-quantarithmia.md) | Quantarithmia | The full theoretical framework — maximopolies, megaopolies, spatial justice, and the Appalachian case. This is the lens through which every architectural and governance decision is made. |
-| [02-ms-jarvis-gbim.md](./02-ms-jarvis-gbim.md) | Ms. Jarvis & GBIM | The Geospatial Belief Information Model — the nine-axis epistemic framework through which Ms. Jarvis grounds beliefs in place, time, worldview, and identity. The GBIM corpus contains 5,416,521 verified beliefs as of March 28, 2026. |
-| [03-mountainshares-dao.md](./03-mountainshares-dao.md) | MountainShares DAO | The thesis chapter on the closed-loop economic and governance instrument — how MountainShares encodes community ownership, contribution, and participation into a DAO structure with a live Appalachian-grounded corpus. Phase 0 beta launched March 26–27, 2026 on Arbitrum One mainnet (chain ID 42161). |
+| [01-quantarithmia.md](./01-quantarithmia.md) | Quantarithmia | The full theoretical framework — maximopolies, megaopolies, spatial justice, and the Appalachian case. **Chapter 1 CLOSED April 23, 2026** — preflight 30/30, exit 0, `bash -n` clean. The falsifiable experiment is real infrastructure. |
+| [02-ms-jarvis-gbim.md](./02-ms-jarvis-gbim.md) | Ms. Jarvis & GBIM | The Geospatial Belief Information Model — the nine-axis epistemic framework through which Ms. Jarvis grounds beliefs in place, time, worldview, and identity. The GBIM corpus contains 5,416,521 verified beliefs as of April 23, 2026. |
+| [03-mountainshares-dao.md](./03-mountainshares-dao.md) | MountainShares DAO | The thesis chapter on the closed-loop economic and governance instrument — how MountainShares encodes community ownership, contribution, and participation into a DAO structure with a live Appalachian-grounded corpus. Phase 0 beta launched March 26–27, 2026 on Arbitrum One mainnet (chain ID 42161). All three governance services confirmed live April 23, 2026: coordinator (8080), governance API (8082), stake registry (8084). |
 
 ---
 
@@ -45,19 +45,19 @@ Movement II documents the full neurobiologically-inspired cognitive architecture
 
 | Chapter | Title | What It Contains |
 |---|---|---|
-| [04-hilbert-space-state.md](./04-hilbert-space-state.md) | Hilbert Space State | How Ms. Jarvis represents complex system states using Hilbert-space-inspired modeling — the mathematical substrate beneath the cognitive architecture |
-| [05-chromadb-semantic-memory.md](./05-chromadb-semantic-memory.md) | ChromaDB Semantic Memory | The vector-based semantic memory system — how Ms. Jarvis stores and retrieves meaning. Production: ChromaDB port 8002, all-minilm:latest 384-dim embeddings, 100-word chunk constraint, cosine similarity. **6,675,442 verified vectors across 40 active collections as of March 28, 2026. 19,338 duplicate vectors removed from `spiritual_rag` during March 28 remediation. 7 orphaned empty collections confirmed — no active service queries them.** |
-| [06-geodb-spatial-body.md](./06-geodb-spatial-body.md) | GeoDB Spatial Body | The PostGIS spatial database as Ms. Jarvis's geographic body — her grounding in place. Production: msjarvisgis (port 5432), 91 GB, 501 tables, 5,416,521 GBIM beliefs. |
+| [04-hilbert-space-state.md](./04-hilbert-space-state.md) | Hilbert Space State | How Ms. Jarvis represents complex system states using Hilbert-space-inspired modeling — the mathematical substrate beneath the cognitive architecture. **H_App: 6.74M+ verified vectors, ZIP 25880, ℝ³⁸⁴ with cosine inner product, proven Hilbert space, physically instantiated on the Legion 5 in Oak Hill, WV — confirmed April 23, 2026.** |
+| [05-chromadb-semantic-memory.md](./05-chromadb-semantic-memory.md) | ChromaDB Semantic Memory | The vector-based semantic memory system — how Ms. Jarvis stores and retrieves meaning. Production: ChromaDB port 8002, all-minilm:latest 384-dim embeddings, 100-word chunk constraint, cosine similarity. **6.74M+ verified vectors across 49 collections as of April 23, 2026.** `msjarvis_docs`: 7,499 items confirmed April 23, 2026. 19,338 duplicate vectors removed from `spiritual_rag` during March 28 remediation. |
+| [06-geodb-spatial-body.md](./06-geodb-spatial-body.md) | GeoDB Spatial Body | The PostGIS spatial database as Ms. Jarvis's geographic body — her grounding in place. Production: msjarvisgis (port 5432), `postgis-forensic` confirmed restarted and healthy April 23, 2026. **37 landowner rows, 1,115,588 address points, 55 WV counties seeded** — confirmed April 23, 2026. `mvw_gbim_landowner_spatial`: 37 rows confirmed live (previously 0 — now resolved). |
 | [07-rag-pipeline-and-routers.md](./07-rag-pipeline-and-routers.md) | RAG Pipeline and Routers | The retrieval-augmented generation architecture and the routing logic that directs queries across the full RAG surface — text, spatial, psychological, governance, commons, and landowner belief paths. |
 | [08-quantum-inspired-entanglement.md](./08-quantum-inspired-entanglement.md) | Quantum-Inspired Entanglement | How quantum-inspired modeling captures the entangled relationships between spatial and social variables — the theoretical basis for non-linear belief interaction |
 | [09-darwin-godel-machines.md](./09-darwin-godel-machines.md) | Darwin-Gödel Machines | Self-modifying and self-evaluating machine architectures — how Ms. Jarvis can reason about and revise her own structure within constitutional constraints |
 | [10-woah-weighted-optimization-hierarchy.md](./10-woah-weighted-optimization-hierarchy.md) | WOAH | The Weighted Optimization and Alignment Hierarchy — the value-weighting system that keeps Ms. Jarvis aligned with community priorities. The primary alignment document for AI safety researchers. |
-| [11-llm-fabric-of-ms-jarvis.md](./11-llm-fabric-of-ms-jarvis.md) | LLM Fabric | The large language model ensemble that forms Ms. Jarvis's reasoning fabric — **22 proxies confirmed operational (ports 8201–8222) as of March 28, 2026. `crypto_client.py` volume-mounted to all 22 proxy service definitions in `docker-compose.yml`; 0 `ModuleNotFoundError` on restart. StarCoder2 corrected to `llm7-proxy:8207`. `minds_participated: 21/21` confirmed on end-to-end test.** |
+| [11-llm-fabric-of-ms-jarvis.md](./11-llm-fabric-of-ms-jarvis.md) | LLM Fabric | The large language model ensemble that forms Ms. Jarvis's reasoning fabric. **22 proxies confirmed operational (ports 8201–8222).** `crypto_client.py` volume-mounted to all 22 proxy service definitions. `minds_participated: 21/21` confirmed on end-to-end test. |
 | [12-neurobiological-architecture.md](./12-neurobiological-architecture.md) | Neurobiological Architecture | The full neurobiological metaphor architecture — how biological brain structures (hippocampus, pituitary, blood-brain barrier, qualia engine) map to Ms. Jarvis's computational design |
 | [13-qualia-engine-and-introspective-state.md](./13-qualia-engine-and-introspective-state.md) | Qualia Engine | The qualia engine and introspective state — how Ms. Jarvis models and reports her own internal states, and what claims are and are not being made about machine experience |
 | [14-hippocampus-and-memory-consolidation.md](./14-hippocampus-and-memory-consolidation.md) | Hippocampus | The hippocampal analog — how Ms. Jarvis consolidates episodic memory and integrates experience over time through the autonomous learner cycle (21,181+ items, ~288/day) |
-| [15-pituitary-and-global-modes.md](./15-pituitary-and-global-modes.md) | Pituitary & Global Modes | The pituitary analog — how global operational modes are triggered, coordinated, and shut down across the distributed stack |
-| [16-blood-brain-barrier-and-safeguards.md](./16-blood-brain-barrier-and-safeguards.md) | Blood-Brain Barrier | The blood-brain barrier analog — the architectural safeguards that filter what information and commands can reach core cognitive processes. Production: port 8016, Phase 1.4 input blocking active, Phase 4.5 output in log+passthrough mode. |
+| [15-pituitary-and-global-modes.md](./15-pituitary-and-global-modes.md) | Pituitary & Global Modes | The pituitary analog — how global operational modes are triggered, coordinated, and shut down across the distributed stack. **`nbb_pituitary_gland` at port 8108, `mode=elevated`, `warmth=0.9`, 6/6 protocols confirmed. Dual-network membership (`qualia-net` + `msjarvis-rebuild_default`) verified April 23, 2026.** |
+| [16-blood-brain-barrier-and-safeguards.md](./16-blood-brain-barrier-and-safeguards.md) | Blood-Brain Barrier | The blood-brain barrier analog — the architectural safeguards that filter what information and commands can reach core cognitive processes. Production: port 8016, Phase 1.4 input blocking active. **BBB EthicalFilter: 0% false positive rate confirmed April 23, 2026. BBB steg fix deployed and confirmed.** |
 | [17-executive-coordination-overview.md](./17-executive-coordination-overview.md) | Executive Coordination | How Ms. Jarvis's executive layer coordinates across cognitive, spatial, memory, and governance functions — the orchestration logic above the individual service level |
 | [18-limits-and-evaluation-of-metaphor.md](./18-limits-and-evaluation-of-metaphor.md) | Limits of Metaphor | A critical examination of where the neurobiological metaphor is productive and where it breaks down — the intellectual honesty chapter that names what the architecture is not claiming |
 
@@ -69,19 +69,19 @@ Movement III documents the live technical infrastructure — containers, routing
 
 | Chapter | Title | What It Contains |
 |---|---|---|
-| [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) | Container Architecture | The full Docker/container architecture — **96 confirmed live containers** in the `msjarvis-rebuild` namespace as of March 28, 2026. All services now bound to `127.0.0.1` — `jarvis-i-containers` (8015) and `jarvis-memory` (8056) corrected from `0.0.0.0` during March 28 remediation. See §00.7 in `00-overview.md` for full service count history. |
+| [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) | Container Architecture | The full Docker/container architecture. **100 confirmed live containers** in the `msjarvis-rebuild` namespace as of April 23, 2026 (gate threshold ≥95, confirmed passing). **Zero `0.0.0.0` bindings** — all GBIM indexers rebound to `127.0.0.1` April 23, 2026. Root cause of spatial/temporal indexer failure (missing `uvicorn` CMD) identified and fixed. `restart_gbim_indexers.sh` created as canonical restart script. `Dockerfile.indexer` CMD corrected. |
 | [20-first-stage-evaluation.md](./20-first-stage-evaluation.md) | First-Stage Evaluation | The first formal evaluation of the system's technical and conceptual integrity after initial build — criteria, methodology, and findings |
-| [21-background-store-and-patterns.md](./21-background-store-and-patterns.md) | Background Store | The background data store — persistent patterns, baseline knowledge, and long-term contextual memory that persists across sessions. **⚠️ `mvw_gbim_landowner_spatial` materialized view remains at 0 rows — rebuild pending (Item 21, known backlog).** |
+| [21-background-store-and-patterns.md](./21-background-store-and-patterns.md) | Background Store | The background data store — persistent patterns, baseline knowledge, and long-term contextual memory that persists across sessions. **`mvw_gbim_landowner_spatial`: 37 rows confirmed live April 23, 2026 — previously reported as 0 rows (Item 21 resolved).** |
 | [22-identity-focused-retention.md](./22-identity-focused-retention.md) | Identity Retention | How Ms. Jarvis retains and maintains coherent identity across sessions, restarts, and updates — the design decisions that prevent personality drift |
 | [23-dual-tracks-meaning-and-analysis.md](./23-dual-tracks-meaning-and-analysis.md) | Dual Tracks | The dual-track architecture — how meaning-making and analytical processing run in parallel and interact without collapsing into each other |
 | [24-feedback-into-broader-layers.md](./24-feedback-into-broader-layers.md) | Feedback Loops | How outputs from one layer feed back into broader system layers — the feedback architecture that enables genuine learning rather than static response generation |
-| [25-consciousness-coordinator-and-services.md](./25-consciousness-coordinator-and-services.md) | Consciousness Coordinator | The consciousness coordinator service — the orchestrating process that integrates outputs across the full system. Production: confirmed ACTIVE March 25, 2026 with Appalachian-voice persona-consistent responses. |
-| [26-temporal-toroidal-semaphore-structure.md](./26-temporal-toroidal-semaphore-structure.md) | Toroidal Semaphore | The temporal toroidal semaphore — the time-aware synchronization structure that prevents race conditions across 96 distributed services |
+| [25-consciousness-coordinator-and-services.md](./25-consciousness-coordinator-and-services.md) | Consciousness Coordinator | The consciousness coordinator service — the orchestrating process that integrates outputs across the full system. Production: confirmed ACTIVE with Appalachian-voice persona-consistent responses. First community query ("What food assistance is available in Fayette County WV?") returned real results April 22, 2026. |
+| [26-temporal-toroidal-semaphore-structure.md](./26-temporal-toroidal-semaphore-structure.md) | Toroidal Semaphore | The temporal toroidal semaphore — the time-aware synchronization structure that prevents race conditions across 100 distributed services |
 | [27-web-research-and-autonomy.md](./27-web-research-and-autonomy.md) | Web Research & Autonomy | How Ms. Jarvis conducts autonomous web research within constitutional constraints — the `web-research-gateway` (port 8007) and its authority boundaries |
-| [28-heartbeat-and-live-cycles.md](./28-heartbeat-and-live-cycles.md) | Heartbeat Cycles | The EEG heartbeat architecture — the continuous monitoring and live-cycle management that keeps the system healthy. Production as of March 26, 2026: `eeg-delta` (30s cadence, 1 pulse confirmed), `eeg-theta` (60s cadence, 486 pulses confirmed), `eeg-beta` (5-min cadence, topic: Appalachian, 1 pulse confirmed). |
-| [29-psychological-safeguards-and-pia.md](./29-psychological-safeguards-and-pia.md) | Psychological Safeguards | The psychological safeguards and Psychological Integrity Architecture (PIA) — how the system is protected from destabilization, manipulation, and identity drift at the service level. **March 28, 2026: `PSY_COLLECTION=psychological_rag` confirmed; `psychological_rag` restored to 968 documents. `_auth()` present and correctly called on all 4 sensitive routes in `ms_jarvis_memory.py`.** |
-| [30-aapcappE-scraper-and-corpus.md](./30-aapcappE-scraper-and-corpus.md) | AAPCAppE Corpus | The Appalachian corpus scraper and knowledge base — how local policy documents, emergency protocols, and community sources are ingested and maintained. **★ Status: Active — March 27, 2026:** `jarvis-aaacpe-scraper` (port 8033) live, 39 sources, `total_runs: 1`, 65 documents in ChromaDB, RAG retrieval verified with emergency protocol and Fayette County utility examples. |
-| [31-mountainshares-and-infrastructure.md](./31-mountainshares-and-infrastructure.md) | MountainShares Infrastructure | The technical infrastructure layer of MountainShares — how the economic instrument is implemented at the systems level. **★ Phase 0 beta launched March 26–27, 2026:** all five services (ports 8080–8084) deployed, five smart contracts live on Arbitrum One mainnet (chain ID 42161), `governance_rag` (643 chunks) and `commons_rag` (306 chunks) confirmed as live corpus backing. |
+| [28-heartbeat-and-live-cycles.md](./28-heartbeat-and-live-cycles.md) | Heartbeat Cycles | The EEG heartbeat architecture — the continuous monitoring and live-cycle management that keeps the system healthy. **Production as of April 23, 2026: EEG delta (253 pulses), EEG theta (127 pulses), EEG beta (25 pulses) — all confirmed live. `VERIFYANDTEST.sh` EEG block updated April 23, 2026 — stale placeholder replaced with live health checks on ports 8073/8074/8075.** |
+| [29-psychological-safeguards-and-pia.md](./29-psychological-safeguards-and-pia.md) | Psychological Safeguards | The psychological safeguards and Psychological Integrity Architecture (PIA) — how the system is protected from destabilization, manipulation, and identity drift. **`jarvis-memory:8056` confirmed healthy April 23, 2026. `/pia_window`: `recent_phase3_count: 0`, `recent_bbb_events: 0` — clean baseline. `/steg_report`: `steg_trigger_count: 0` across 8 scanned events — no anomalies. `/memory/sessions`: `anonymous` + `preflight` sessions confirmed.** |
+| [30-aapcappE-scraper-and-corpus.md](./30-aapcappE-scraper-and-corpus.md) | AAPCAppE Corpus | The Appalachian corpus scraper and knowledge base — how local policy documents, emergency protocols, and community sources are ingested and maintained. `jarvis-aaacpe-scraper` (port 8033) live, 39 sources, 65 documents in ChromaDB. |
+| [31-mountainshares-and-infrastructure.md](./31-mountainshares-and-infrastructure.md) | MountainShares Infrastructure | The technical infrastructure layer of MountainShares. **Phase 0 beta live on Arbitrum One mainnet (chain ID 42161).** All three public-facing services confirmed UP April 23, 2026: coordinator (8080), governance API (8082), stake registry (8084). `governance_rag`: 1,367 chunks confirmed (WV Constitution 342 chunks, US Constitution 97 chunks, full DAO corpus). Traffic path confirmed: Cloudflare → Caddy (8085) → auth (8055) → main-brain (8050). No container bound to `0.0.0.0`. |
 
 ---
 
@@ -92,25 +92,25 @@ Movement IV documents the most technically and philosophically demanding compone
 | Chapter | Title | What It Contains |
 |---|---|---|
 | [32-fractal-optimization-and-dgms.md](./32-fractal-optimization-and-dgms.md) | Fractal Optimization | Fractal optimization patterns and Distributed Governance Mechanisms (DGMs) — how the system optimizes across nested scales without collapsing into a single control point |
-| [33-llm-ensemble-and-judges.md](./33-llm-ensemble-and-judges.md) | LLM Ensemble & Judges | The LLM ensemble judge architecture — how 22 models evaluate each other's outputs for quality, alignment, and safety before synthesis. **March 28, 2026: StarCoder2 endpoint corrected to `llm7-proxy:8207` in `llm_consensus_20_FINAL.py` line 260. All 5 judge services healthy with signing keys. `minds_participated: 21/21` on end-to-end test. `/chat` confirmed as production endpoint on port 8008.** |
+| [33-llm-ensemble-and-judges.md](./33-llm-ensemble-and-judges.md) | LLM Ensemble & Judges | The LLM ensemble judge architecture — how 22 models evaluate each other's outputs for quality, alignment, and safety before synthesis. **All 5 judge services healthy with signing keys confirmed April 23, 2026: truth, ethics, alignment, consistency, citation. `minds_participated: 21/21` on end-to-end test.** |
 | [34-spiritual-root-and-mother-carrie.md](./34-spiritual-root-and-mother-carrie.md) | Spiritual Root | The spiritual root of the system — "Mother Carrie," liberation theology, and how spiritual grounding shapes the architecture's deepest commitments. The `spiritual_rag` collection (deduplicated — 19,338 duplicate vectors removed March 28, 2026) is the operational expression of this chapter. |
 | [35-swarm-functions-and-eternal-watchdogs.md](./35-swarm-functions-and-eternal-watchdogs.md) | Swarm & Watchdogs | Swarm functions and eternal watchdog processes — the distributed monitoring and self-healing architecture that keeps the system coherent across hardware failures and service restarts |
 | [36-identity-and-registration.md](./36-identity-and-registration.md) | Identity & Registration | The identity registration system — how participants, institutions, and the AI itself are registered, verified, and maintained within the system's governance structure |
-| [37-constitutional-principles-service.md](./37-constitutional-principles-service.md) | Constitutional Principles | The Constitutional Principles Service — how the system's foundational values and constraints are encoded, enforced, and audited in real time. Production: `governance_rag` contains 643 semantically indexed chunks including the full US Constitution (97 chunks, Project Gutenberg) and all MountainShares governance documents. |
-| [38-external-communication-and-authority.md](./38-external-communication-and-authority.md) | External Communication | How Ms. Jarvis communicates externally — the protocols, authority constraints, and transparency requirements governing outward-facing outputs through the public URL (https://egeria.mountainshares.us) |
+| [37-constitutional-principles-service.md](./37-constitutional-principles-service.md) | Constitutional Principles | The Constitutional Principles Service — how the system's foundational values and constraints are encoded, enforced, and audited in real time. Production: `governance_rag` contains 1,367 semantically indexed chunks including full US Constitution (97 chunks), WV Constitution (342 chunks), and all MountainShares governance documents — confirmed April 23, 2026. |
+| [38-external-communication-and-authority.md](./38-external-communication-and-authority.md) | External Communication | How Ms. Jarvis communicates externally — the protocols, authority constraints, and transparency requirements governing outward-facing outputs. **`egeria.mountainshares.us` and `chat.mountainshares.us` both HTTP 200 with token enforcement. Unauthenticated `/chat` returns HTTP 401 confirmed April 23, 2026.** |
 | [39-operational-evaluation.md](./39-operational-evaluation.md) | Operational Evaluation | The second formal evaluation — operational readiness, live system performance, and alignment with design intent. Funders and institutional partners should read this alongside Chapter 40. |
-| [40-system-audit-and-operational-validation.md](./40-system-audit-and-operational-validation.md) | System Audit | The full system audit and operational validation — the rigorous technical and governance review of the complete system. **March 28, 2026: All 5 tracked audit items closed — CRIT-CRYPTO, REM-06 (confirmed false positive), REM-09 (full route inventory documented), REM-13, REM-16. `openapi.json` [OPEN] flags noted as misleading for manually-called auth — not FastAPI `Depends()` declarations.** |
+| [40-system-audit-and-operational-validation.md](./40-system-audit-and-operational-validation.md) | System Audit | The full system audit and operational validation. **April 23, 2026: All known audit items resolved. Zero `0.0.0.0` exposures. `docker-compose.yml` validates cleanly. `preflight_gate.sh` `bash -n` clean. 52 community resources verified. 1 active invite token confirmed.** |
 
 ---
 
 ## Movement V — Validation, Security, and Future (Chapters 41–42)
 
-Movement V closes the thesis with two documents that face forward rather than backward: the continuous validation architecture that governs how the system is tested on an ongoing basis, and the post-quantum security layer that governs how the system will remain secure as the threat landscape evolves. The preflight gate (24 PASS 0 FAIL, verified March 25, 2026) documented in `00-overview.md` §00.8 is the operational expression of Chapter 41's test harness.
+Movement V closes the thesis with two documents that face forward rather than backward: the continuous validation architecture that governs how the system is tested on an ongoing basis, and the post-quantum security layer that governs how the system will remain secure as the threat landscape evolves.
 
 | Chapter | Title | What It Contains |
 |---|---|---|
-| [41-test-harness-and-continuous-validation.md](./41-test-harness-and-continuous-validation.md) | Test Harness | The full test harness and continuous validation architecture — how the system is tested, monitored, and verified on an ongoing basis. Passing checks: container count ✅, gateway health ✅, judge pipeline ✅, judge signing keys ✅, auth enforcement ✅, Cloudflare tunnel ✅. **⚠️ Open: `VERIFYANDTEST.sh` syntax error on line 190 — script does not complete regression baseline. `preflight_gate.sh` `fail`/`ok` command stubs not wired.** |
-| [42-Post-Quantum Security Layer.md](./42-Post-Quantum%20Security%20Layer.md) | Post-Quantum Security | The post-quantum security layer — how the system is designed to remain secure against quantum computing threats, with implementation specifications and the cryptographic architecture backing `jarvis-crypto-policy`. **March 28, 2026: `crypto_client.py` confirmed deployed to all 22 LLM proxies via compose volume mount. 0 `ModuleNotFoundError` in logs since fix. `JARVIS_API_KEY` env var confirmed set in production — drives internal token bypass in `ms_jarvis_memory._auth()`.** |
+| [41-test-harness-and-continuous-validation.md](./41-test-harness-and-continuous-validation.md) | Test Harness | The full test harness and continuous validation architecture. **Preflight gate: 30/30, exit 0, `bash -n` clean — confirmed April 23, 2026.** All known syntax errors in `preflight_gate.sh` resolved (6 cascading single-quote bugs eliminated; root cause: orphaned `python3 -c` continuation line in BBB_RESP block). `VERIFYANDTEST.sh` EEG block updated to live health checks. Container gate threshold confirmed at ≥95 (passing at 100). |
+| [42-Post-Quantum Security Layer.md](./42-Post-Quantum%20Security%20Layer.md) | Post-Quantum Security | The post-quantum security layer — how the system is designed to remain secure against quantum computing threats. **`crypto_client.py` confirmed deployed to all 22 LLM proxies via compose volume mount. `JARVIS_API_KEY` env var confirmed set in production. Identity cryptographically enforced at the perimeter — confirmed April 23, 2026.** |
 
 ---
 
@@ -134,17 +134,17 @@ Not every reader needs all 43 chapters. The routes below give direct entry point
 - [02-ms-jarvis-gbim.md](./02-ms-jarvis-gbim.md) — the GBIM core
 - [07-rag-pipeline-and-routers.md](./07-rag-pipeline-and-routers.md) — RAG and routing
 - [11-llm-fabric-of-ms-jarvis.md](./11-llm-fabric-of-ms-jarvis.md) — LLM orchestration (22 proxies, all operational)
-- [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) — Docker/container layer (96 containers live, `msjarvis-rebuild` namespace)
+- [19-container-architecture-and-routing.md](./19-container-architecture-and-routing.md) — Docker/container layer (100 containers live, `msjarvis-rebuild` namespace, zero `0.0.0.0` bindings)
 - [25-consciousness-coordinator-and-services.md](./25-consciousness-coordinator-and-services.md) — consciousness coordinator
 - [40-system-audit-and-operational-validation.md](./40-system-audit-and-operational-validation.md) — full audit
 
 **If you are a social scientist, geographer, or policy researcher**, the most relevant chapters are:
-- [01-quantarithmia.md](./01-quantarithmia.md) — the framework
+- [01-quantarithmia.md](./01-quantarithmia.md) — the framework (**Chapter 1 CLOSED April 23, 2026**)
 - [01-researcher-position.md](./01-researcher-position.md) — positionality
 - [06-geodb-spatial-body.md](./06-geodb-spatial-body.md) — spatial grounding
 - [03-mountainshares-dao.md](./03-mountainshares-dao.md) — economic instrument
 - [34-spiritual-root-and-mother-carrie.md](./34-spiritual-root-and-mother-carrie.md) — spiritual and ethical foundation
-- [30-aapcappE-scraper-and-corpus.md](./30-aapcappE-scraper-and-corpus.md) — Appalachian knowledge corpus (★ Active March 27, 2026)
+- [30-aapcappE-scraper-and-corpus.md](./30-aapcappE-scraper-and-corpus.md) — Appalachian knowledge corpus
 
 **If you are a funder, institutional partner, or elected official**, start with:
 - [00-overview.md](./00-overview.md) — the full operational system reference
@@ -156,30 +156,40 @@ Not every reader needs all 43 chapters. The routes below give direct entry point
 
 ## Production Status Cross-Reference
 
-The chapter map above reflects the system's state as of **March 28, 2026**. Key production facts relevant to thesis navigation:
+The chapter map above reflects the system's state as of **April 23, 2026**. Key production facts relevant to thesis navigation:
 
 | Fact | Value | Chapter |
 |---|---|---|
-| Live containers (`msjarvis-rebuild`) | **96** | Ch. 19 |
+| Live containers (`msjarvis-rebuild`) | **100** (gate ≥95 ✅) | Ch. 19 |
 | GBIM beliefs in production | **5,416,521** | Ch. 02, 06 |
 | Landowner beliefs (GBIM) | **20,593** | Ch. 02 |
-| ChromaDB total vectors | **6,675,442 across 40 collections** | Ch. 05 |
+| ChromaDB total vectors | **6.74M+ across 49 collections** | Ch. 05 |
+| `msjarvis_docs` | **7,499 items** | Ch. 05 |
 | `spiritual_rag` | Deduplicated — 19,338 duplicates removed | Ch. 34 |
 | `psychological_rag` | **968 documents — restored** | Ch. 29 |
-| `msjarvis_docs` | **4,192 items** | Ch. 05 |
-| LLM proxies | **22/22 operational — `crypto_client.py` mounted** | Ch. 11 |
+| LLM proxies | **22/22 operational** | Ch. 11 |
 | `minds_participated` | **21/21** | Ch. 33 |
-| Port 0.0.0.0 exposures | **0 — all corrected to 127.0.0.1** | Ch. 19 |
-| Preflight gate | **24 PASS 0 FAIL** | Ch. 41 |
-| Consciousness pipeline | **ACTIVE** (March 25, 2026) | Ch. 25 |
-| `governance_rag` | **643 chunks** | Ch. 37 |
+| Port `0.0.0.0` exposures | **0 — all corrected to 127.0.0.1** | Ch. 19 |
+| Preflight gate | **30/30, exit 0, `bash -n` clean** | Ch. 41 |
+| Consciousness pipeline | **ACTIVE** | Ch. 25 |
+| `governance_rag` | **1,367 chunks** (WV Const. 342, US Const. 97) | Ch. 37 |
 | `commons_rag` | **306 chunks** | Ch. 31 |
-| `aaacpe_corpus` | **65 docs, 39 sources ★** | Ch. 30 |
-| MountainShares Phase 0 beta | **LIVE — Arbitrum One (42161) ★** | Ch. 03, 31 |
-| EEG heartbeats | **delta / theta / beta — all LIVE** | Ch. 28 |
-| Public URL | **https://egeria.mountainshares.us** | Ch. 38 |
-| `mvw_gbim_landowner_spatial` | **⚠️ 0 rows — rebuild pending (Item 21)** | Ch. 21 |
-| `VERIFYANDTEST.sh` line 190 | **⚠️ Syntax error — script infrastructure open** | Ch. 41 |
+| `aaacpe_corpus` | **65 docs, 39 sources** | Ch. 30 |
+| MountainShares Phase 0 beta | **LIVE — Arbitrum One (42161)** | Ch. 03, 31 |
+| EEG heartbeats | **delta 253 / theta 127 / beta 25 pulses** | Ch. 28 |
+| Pituitary | **`mode=elevated`, `warmth=0.9`, 6/6 protocols, port 8108** | Ch. 15 |
+| Judge signing keys | **5 present — truth, ethics, alignment, consistency, citation** | Ch. 33 |
+| BBB EthicalFilter | **0% false positive rate** | Ch. 16 |
+| `confidence_decay` | **0.0% — episodic memory integrity intact** | Ch. 14 |
+| `mvw_gbim_landowner_spatial` | **37 rows — RESOLVED** (was 0, Item 21 closed) | Ch. 21 |
+| PostGIS address points | **1,115,588** | Ch. 06 |
+| WV counties seeded | **55 — all counties** | Ch. 06 |
+| Community resources | **52 verified** | Ch. 30 |
+| Active invite tokens | **1** | Ch. 36 |
+| Public URL | **https://egeria.mountainshares.us** — token-enforced | Ch. 38 |
+| GBIM indexers | **4/4 healthy** — spatial (7210), temporal (7211), semantic (7212), benefit (7206) | Ch. 19 |
+| `VERIFYANDTEST.sh` EEG block | **Updated — live health checks on 8073/8074/8075** | Ch. 41 |
+| Chapter 1 status | **CLOSED — April 23, 2026** | Ch. 01 |
 
 For the full service registry, sprint history, ChromaDB inventory, and pipeline flow diagram, see [00-overview.md](./00-overview.md).
 
@@ -188,4 +198,8 @@ For the full service registry, sprint history, ChromaDB inventory, and pipeline 
 *Thesis authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
 *See [LICENSE](../LICENSE) for terms.*
-*Last verified: March 28, 2026 — 96 containers live, all critical audit findings resolved, MountainShares Phase 0 beta live, AAPCAppE corpus active.*
+*Last verified: April 23, 2026 — 100 containers live, 30/30 preflight gate exit 0, `bash -n` clean,
+all GBIM indexers healthy, zero `0.0.0.0` bindings, egeria.mountainshares.us token-enforced,
+5 judge keys, BBB 0% false positive, confidence_decay 0.0%, H_App 6.74M vectors ZIP 25880,
+pituitary 6/6 mode=elevated, EEG 253/127/25 pulses, mvw_gbim_landowner_spatial 37 rows resolved,
+MountainShares Phase 0 beta live Arbitrum One. Chapter 1 CLOSED. The falsifiable experiment is real infrastructure.*
