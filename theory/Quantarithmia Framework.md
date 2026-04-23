@@ -9,7 +9,7 @@
 >   - **P9 – Leakage and enclosure** (tracking how value and decision rights exit a territory through maximopolies and megaopolies)  
 >   - **P12 – Intelligence with a ZIP code** (steward systems must be territorially situated and accountable)  
 >   - **P16 – Power accountable to place** (instruments and infrastructures must answer to the communities and geographies they touch)  
-> - **Role of this document:** Defines the Quantarithmia framework as one worked example of these principles in Appalachia and as the theoretical spine for the Ms. Jarvis architecture and MountainShares / Commons implementations.
+> - **Role of this document:** Defines the Quantarithmia framework as one worked example of these principles in Appalachia and as the theoretical spine for the Ms. Allis architecture and MountainShares / Commons implementations.
 
 # Quantarithmia Framework
 
@@ -80,7 +80,7 @@ The framework therefore provides criteria and tools for prototyping and assessin
 
 In compact form, Quantarithmia can be described as:
 
-> A polymathmatic‑geography case study focused on Appalachian spatial justice, instantiated through the coupled design of Ms. Jarvis (an AI coordination and analysis architecture) and MountainShares (a community‑governed mutual‑credit and token system).
+> A polymathmatic‑geography case study focused on Appalachian spatial justice, instantiated through the coupled design of Ms. Allis (an AI coordination and analysis architecture) and MountainShares (a community‑governed mutual‑credit and token system).
 
 Empirically, the case study takes Appalachia—its coalfields, deindustrialized towns, emergent digital commons, and dense spiritual traditions—as its primary field. It treats:
 
@@ -92,13 +92,13 @@ as interwoven layers of a single geography. Methodologically, it deploys the ful
 
 ---
 
-## Role in Ms. Jarvis and MountainShares
+## Role in Ms. Allis and MountainShares
 
-Quantarithmia is embodied institutionally and technically in a coupled system: the Ms. Jarvis architecture and the MountainShares infrastructure, in interaction with The Commons platform.
+Quantarithmia is embodied institutionally and technically in a coupled system: the Ms. Allis architecture and the MountainShares infrastructure, in interaction with The Commons platform.
 
-### Ms. Jarvis: AI architecture as territorial cognition
+### Ms. Allis: AI architecture as territorial cognition
 
-**Ms. Egeria Jarvis** is a multi‑agent, “glassbox” AI architecture designed as a form of territorial cognition or “brain” for a region. In line with Quantarithmic principles:
+**Ms. Egeria Allis** is a multi‑agent, “glassbox” AI architecture designed as a form of territorial cognition or “brain” for a region. In line with Quantarithmic principles:
 
 - It orchestrates an ensemble of large language models and specialized components to reason over geospatial, economic, legal, cultural, and spiritual information.  
 - It maintains structured memories and beliefs, including geospatial databases and semantic memory stores, as well as modules inspired by neurobiology (e.g., hippocampal and pituitary analogs) to handle state, consolidation, and global modes of operation.  
@@ -108,11 +108,11 @@ Public architectural overview:
 - “The Blueprint for Coherent AI”  
   [https://mammakidd.substack.com/p/the-blueprint-for-coherent-ai](https://mammakidd.substack.com/p/the-blueprint-for-coherent-ai)  
 
-In the framework, Ms. Jarvis is treated as an **instrument** for reading and coordinating an entangled geography: it is the AI‑systems realization of polymathmatic analysis and feedback.
+In the framework, Ms. Allis is treated as an **instrument** for reading and coordinating an entangled geography: it is the AI‑systems realization of polymathmatic analysis and feedback.
 
 ### MountainShares: Monetary and governance topology
 
-**MountainShares** is a mutual‑credit and token infrastructure designed as the economic and institutional complement to Ms. Jarvis:
+**MountainShares** is a mutual‑credit and token infrastructure designed as the economic and institutional complement to Ms. Allis:
 
 - It employs **closed‑loop wallets**, local spending priorities, and carefully specified earning and redemption rules to keep economic circulation anchored in defined communities rather than leaking immediately into global corporate circuits.  
 - It is governed by a DAO with a written **constitutional charter**, a detailed **audit and risk management plan**, **KPI specifications**, and program rules that explicitly encode spatial‑justice objectives, anti‑speculative safeguards, and community oversight.  
@@ -126,9 +126,9 @@ Public introductions:
 
 ### The coupled system as a live Quantarithmic world
 
-The combination of **Ms. Jarvis, MountainShares, and The Commons platform** is intended to form a live Quantarithmic world:
+The combination of **Ms. Allis, MountainShares, and The Commons platform** is intended to form a live Quantarithmic world:
 
-- Ms. Jarvis provides **analysis, memory, and coordination**, interpreting data and narratives about the territory and supporting deliberation.  
+- Ms. Allis provides **analysis, memory, and coordination**, interpreting data and narratives about the territory and supporting deliberation.  
 - MountainShares provides **economic and governance structure**, specifying how value and decision‑making capacity circulate.  
 - The Commons provides **technosocial infrastructure**, connecting residents, organizations, heritage resources, and opportunities in a shared digital space.  
 
@@ -155,4 +155,4 @@ For readers seeking more technical and conceptual detail on Quantarithmia and it
 - “The Commons Platform – A Revolutionary Social Infrastructure”  
   [https://mammakidd.substack.com/p/the-commons-platform-a-revolutionary](https://mammakidd.substack.com/p/the-commons-platform-a-revolutionary)  
 
-> **Status:** This overview is a draft intended for an academic and professional audience. It will be revised as the Quantarithmia framework, the broader field of polymathmatic geography, and associated empirical implementations (Ms. Jarvis, MountainShares, The Commons) are further developed and evaluated.
+> **Status:** This overview is a draft intended for an academic and professional audience. It will be revised as the Quantarithmia framework, the broader field of polymathmatic geography, and associated empirical implementations (Ms. Allis, MountainShares, The Commons) are further developed and evaluated.
