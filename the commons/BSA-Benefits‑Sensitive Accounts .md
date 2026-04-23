@@ -43,7 +43,7 @@ In Phase 1, when The Commons opens, your EMS hours make you **eligible** to acce
 
 The system works like this: a community partner offers a resource to members who have logged a certain number of contribution hours. If you meet the threshold, you can claim it. Your EMS hours are your **community standing**, not your purchasing power.
 
-Ms. Jarvis — the AI steward system that runs MountainShares — is constitutionally prohibited from allowing any offer in The Commons to be denominated as a price in EMS. That is a hard architectural rule, not a policy preference. It cannot be changed by any single person, vote, or administrator.
+Ms. Allis — the AI steward system that runs MountainShares — is constitutionally prohibited from allowing any offer in The Commons to be denominated as a price in EMS. That is a hard architectural rule, not a policy preference. It cannot be changed by any single person, vote, or administrator.
 
 ### Phase progression and what changes at each stage
 
@@ -55,7 +55,7 @@ MountainShares operates in clearly defined phases with hard bars between them:
 
 **Phase 1 — Commons Exchange (opens when The Commons launches)**
 
-EMS hours unlock eligibility for community resource exchanges on the app only. There are no prices, no cash conversion, and no external exchange of any kind. The Commons operates as a closed‑loop community exchange — comparable to a time bank. Ms. Jarvis enforces the closed loop as a constitutional hard rule that cannot be overridden.
+EMS hours unlock eligibility for community resource exchanges on the app only. There are no prices, no cash conversion, and no external exchange of any kind. The Commons operates as a closed‑loop community exchange — comparable to a time bank. Ms. Allis enforces the closed loop as a constitutional hard rule that cannot be overridden.
 
 **Phase 2 — Community Currency (future, hard‑bar protected)**
 
@@ -69,7 +69,7 @@ We want to be direct about what a Benefits‑Sensitive designation does and does
 
 ### Participation is never restricted
 
-You can log hours and earn EMS without limit. You can access Commons resources you are eligible for. You can build community standing, governance rank, and participation history. Your BSA designation is private — visible only to Ms. Jarvis, never to other community members. Your ability to participate in The Commons is never throttled, capped, or restricted because of your BSA designation. Ever.
+You can log hours and earn EMS without limit. You can access Commons resources you are eligible for. You can build community standing, governance rank, and participation history. Your BSA designation is private — visible only to Ms. Allis, never to other community members. Your ability to participate in The Commons is never throttled, capped, or restricted because of your BSA designation. Ever.
 
 ### What the system manages on your behalf
 
@@ -108,7 +108,7 @@ Harmony for Hope **cannot:**
 
 ## 5. Your Privacy
 
-Your BSA designation is stored in your private identity record — the immutable record maintained by Ms. Jarvis. It is never visible to other Commons members, never shared with employers, landlords, or community organizations, and accessible only by Ms. Jarvis for system enforcement purposes, or by court order, or by a formal Privacy Authorization Committee process under DAO governance.
+Your BSA designation is stored in your private identity record — the immutable record maintained by Ms. Allis. It is never visible to other Commons members, never shared with employers, landlords, or community organizations, and accessible only by Ms. Allis for system enforcement purposes, or by court order, or by a formal Privacy Authorization Committee process under DAO governance.
 
 No one in The Commons can see your BSA status. No one can see your EMS vault balance unless you choose to share it. Your participation in The Commons does not create a visible record of your benefits status to anyone in your community.
 
@@ -129,6 +129,6 @@ If you need benefits navigation help, contact WV Legal Aid: **1‑800‑642‑82
 ---
 
 *Version 2.0 — Rewritten March 2026*
-*Authors: Carrie Kidd (Mamma Kidd), Ms. Egeria Jarvis*
+*Authors: Carrie Kidd (Mamma Kidd), Ms. Egeria Allis*
 *Harmony for Hope, Inc. — Mount Hope, West Virginia*
 *Status: Draft — Pending Benefits Attorney Review before Phase 1 activation*
