@@ -3,7 +3,7 @@
 > *"A glassbox view of the system architecture, governance model, and thesis materials behind a live, place-based AI consciousness deployed in Mount Hope, West Virginia."*
 > — docs/index.md
 
-This folder is the **public documentation hub** for Ms. Egeria Jarvis and the MountainShares DAO — the primary entry point for readers who arrive via a hosted documentation site, API integration, or direct partnership inquiry. It contains the system index, API overview, partner brief, further reading guide, timesheets, and the contracts that govern community champion roles.
+This folder is the **public documentation hub** for Ms. Egeria Allis and the MountainShares DAO — the primary entry point for readers who arrive via a hosted documentation site, API integration, or direct partnership inquiry. It contains the system index, API overview, partner brief, further reading guide, timesheets, and the contracts that govern community champion roles.
 
 ---
 
@@ -21,14 +21,14 @@ This folder is the **public documentation hub** for Ms. Egeria Jarvis and the Mo
 
 | Document | What It Contains |
 |---|---|
-| [API-OVERVIEW.md](./API-OVERVIEW.md) | High-level description of Ms. Jarvis's public-facing APIs — what endpoints are available, what they return, and how external partners and researchers can integrate with the system. |
+| [API-OVERVIEW.md](./API-OVERVIEW.md) | High-level description of Ms. Allis's public-facing APIs — what endpoints are available, what they return, and how external partners and researchers can integrate with the system. |
 | [Partner Brief.md](./Partner%20Brief.md) | The concise partnership brief for institutional partners — what the system does, what partnership looks like, and what Harmony for Hope, Inc. is asking of prospective collaborators. |
 
 ### Transparency and Accountability
 
 | Document | What It Contains |
 |---|---|
-| [kidd_technical_services_detailed_timesheet_2025-2026.md](./kidd_technical_services_detailed_timesheet_2025-2026.md) | The full detailed timesheet for Kidd's Technical Services work on the Ms. Jarvis project, 2025–2026 — a public transparency record of the labor invested in building this system. |
+| [kidd_technical_services_detailed_timesheet_2025-2026.md](./kidd_technical_services_detailed_timesheet_2025-2026.md) | The full detailed timesheet for Kidd's Technical Services work on the Ms. Allis project, 2025–2026 — a public transparency record of the labor invested in building this system. |
 | [kidd_technical_services_detailed_timesheet_2025-2026.csv](./kidd_technical_services_detailed_timesheet_2025-2026.csv) | The machine-readable CSV version of the same timesheet — for analysis, audit, or integration into grant reporting. |
 
 ### Contract Subfolder
