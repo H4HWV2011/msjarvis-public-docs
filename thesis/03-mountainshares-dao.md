@@ -607,7 +607,6 @@ by design, not by convention.
 **Chapter 3 is CLOSED.**
 Preflight gate 29/29. `docker-compose.yml` clean. All governance services UP.
 Two known non-blocking warnings documented. Two post-rebuild sprint items tracked.
-No blocking issues. Good night.
 
 ---
 
