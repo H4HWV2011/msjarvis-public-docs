@@ -1,9 +1,9 @@
 
-## Partner Brief: Foundational Technical Capital for MountainShares & Ms. Jarvis
+## Partner Brief: Foundational Technical Capital for MountainShares & Ms. Allis
 
 ### Overview
 
-Kidd’s Technical Services, LLC has invested more than 5,300 hours of senior technical labor into building the MountainShares mutual credit system and the Ms. Jarvis Geospatial Intelligence Platform. This work represents a substantial pre-development capital contribution—comparable in value to a multi-person engineering team operating over several years—and establishes a production-grade infrastructure stack for community wealth-building and geospatial governance in Central Appalachia.
+Kidd’s Technical Services, LLC has invested more than 5,300 hours of senior technical labor into building the MountainShares mutual credit system and the Ms. Allis Geospatial Intelligence Platform. This work represents a substantial pre-development capital contribution—comparable in value to a multi-person engineering team operating over several years—and establishes a production-grade infrastructure stack for community wealth-building and geospatial governance in Central Appalachia.
 
 This brief summarizes that investment for potential regional partners, including universities, CDFIs, and public agencies, and frames it as part of the capital stack for future collaborative projects.
 
@@ -28,7 +28,7 @@ The investment to date has produced a coherent, working infrastructure bundle th
   - Governance-oriented database schema tied to real communities and assets.  
   - Integration points for land, housing, and other commons-related data.
 
-- **Ms. Jarvis Geospatial Intelligence Platform**  
+- **Ms. Allis Geospatial Intelligence Platform**  
   - Containerized microservices (Docker, FastAPI, Uvicorn) suitable for modern deployment practices.  
   - Custom GeoDB with PostGIS indexing and geospatial query optimization.  
   - Vector-based semantic search and LLM orchestration for narrative queries over spatial data.  
@@ -87,7 +87,7 @@ In each case, the founder’s prior contribution serves as in-place infrastructu
 The current arrangement is:
 
 - The MountainShares mutual credit system and governance configurations are being developed for use by Harmony for Hope and aligned community partners as part of a broader commons initiative.  
-- The Ms. Jarvis Geospatial Intelligence Platform remains proprietary to Kidd’s Technical Services, LLC, but is made available on a non-exclusive, royalty-free basis for community-benefit projects under mutually agreed terms.  
+- The Ms. Allis Geospatial Intelligence Platform remains proprietary to Kidd’s Technical Services, LLC, but is made available on a non-exclusive, royalty-free basis for community-benefit projects under mutually agreed terms.  
 - The documented founder investment is treated as a form of non-extractive, non-dilutable capital—supporting community governance and long-term stewardship rather than outside profit extraction.
 
 Partners are invited into a shared infrastructure strategy, not asked to underwrite a private, closed system.
