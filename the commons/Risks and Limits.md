@@ -114,7 +114,7 @@ This document summarizes key risks and limits for people and institutions partic
 
 ### 5.1 Open‑Source vs. Service Commitments
 
-- Parts of the system (including some Ms. Jarvis / GBIM components) may be released under open‑source licenses.  
+- Parts of the system (including some Ms. Allis / GBIM components) may be released under open‑source licenses.  
 - Open‑source code availability does **not** guarantee:
   - ongoing hosted service,  
   - support, or  
