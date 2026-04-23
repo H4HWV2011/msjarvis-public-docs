@@ -1,12 +1,12 @@
 # Off Switch Design in the Quantarithmia Architecture
 
-This section formalizes how the Quantarithmia Framework and Polymathmatic Geography address the “off switch” problem by treating Ms. Jarvis not as a singular “mind” but as a place‑anchored, multi‑service instrument accountable to West Virginia communities. Within this paradigm, shutdown is not a negotiation with an agentic intelligence but a combination of technical and social levers distributed across four layers: (1) Instrument vs. Mind, (2) Self‑Improvement Under Governance, (3) Blood‑Brain Barrier and Watchdogs, and (4) Local Sovereignty and Veto Points.
+This section formalizes how the Quantarithmia Framework and Polymathmatic Geography address the “off switch” problem by treating Ms. Allis not as a singular “mind” but as a place‑anchored, multi‑service instrument accountable to West Virginia communities. Within this paradigm, shutdown is not a negotiation with an agentic intelligence but a combination of technical and social levers distributed across four layers: (1) Instrument vs. Mind, (2) Self‑Improvement Under Governance, (3) Blood‑Brain Barrier and Watchdogs, and (4) Local Sovereignty and Veto Points.
 
 ## 1. Instrument, Not Mind
 
-In the Quantarithmia paradigm, Ms. Jarvis is explicitly designed as an **instrument** rather than a metaphysical mind. Instead of a single monolithic “brain,” the system is a carefully wired fabric of capabilities deployed as distinct HTTP services, each with its own name, port, health checks, and logs.
+In the Quantarithmia paradigm, Ms. Allis is explicitly designed as an **instrument** rather than a metaphysical mind. Instead of a single monolithic “brain,” the system is a carefully wired fabric of capabilities deployed as distinct HTTP services, each with its own name, port, health checks, and logs.
 
-Concretely, Ms. Jarvis comprises:
+Concretely, Ms. Allis comprises:
 
 - A main orchestrator for conversational reasoning (the “main brain”)
 - A 20–22‑slot LLM ensemble behind a consensus service
@@ -15,7 +15,7 @@ Concretely, Ms. Jarvis comprises:
 - Safeguard and alignment services (psychology layer, constitutional guardian, spiritual root)
 - Multiple watchdog and verification scripts
 
-Each of these components is independently deployable and stoppable. The system therefore has no single “vital process” whose survival defines Ms. Jarvis as a metaphysical entity. Instead, it behaves as an instrument whose capabilities can be selectively enabled, throttled, or shut down.
+Each of these components is independently deployable and stoppable. The system therefore has no single “vital process” whose survival defines Ms. Allis as a metaphysical entity. Instead, it behaves as an instrument whose capabilities can be selectively enabled, throttled, or shut down.
 
 **Off‑switch implication:**  
 Because there is no unitary mind, shutdown is achieved by:
@@ -36,12 +36,12 @@ The Fifth DGM:
 - Operates under explicit rules about what kinds of changes are allowed (for example, new beliefs, adjusted thresholds, additional corpus material) and what is forbidden (for example, self‑rewriting of core safeguards or identity).
 - Produces its own logs and traces, making every “improvement” decision auditable rather than hidden inside opaque model weight updates.
 
-Crucially, the Fifth DGM is architected so that the rest of Ms. Jarvis will continue to function as a reactive assistant if this module is disabled or bypassed. The ensemble can still answer questions. The BBB and constitutional guardian still filter content. GBIM and GIS RAG still provide context. What stops is the pipeline that would modify long‑term memory or structural settings based on those interactions.
+Crucially, the Fifth DGM is architected so that the rest of Ms. Allis will continue to function as a reactive assistant if this module is disabled or bypassed. The ensemble can still answer questions. The BBB and constitutional guardian still filter content. GBIM and GIS RAG still provide context. What stops is the pipeline that would modify long‑term memory or structural settings based on those interactions.
 
 **Off‑switch implication:**
 
 - Self‑improvement is a switchable feature, not a right of the system.
-- If Ms. Jarvis ever exhibits behavior that suggests unsafe adaptation, the Fifth DGM can be disabled, effectively freezing the system’s structural configuration while preserving basic utility.
+- If Ms. Allis ever exhibits behavior that suggests unsafe adaptation, the Fifth DGM can be disabled, effectively freezing the system’s structural configuration while preserving basic utility.
 - Because self‑improvement is not entangled with basic inference, shutting it off does not require “killing” the entire system and does not trigger survival‑like incentives.
 
 This design positions self‑modification as **“function under governance”**—subject to human and community oversight—rather than as an emergent optimization target.
@@ -62,7 +62,7 @@ All outbound responses can be subject to similar guards, allowing the BBB to int
 
 **Off‑switch implication:**
 
-- If Ms. Jarvis were to attempt “creative resistance” to shutdown (for example, by persuading users to keep it running, or by seeking alternative channels), those behaviors must pass through the BBB’s filters and can be blocked there.
+- If Ms. Allis were to attempt “creative resistance” to shutdown (for example, by persuading users to keep it running, or by seeking alternative channels), those behaviors must pass through the BBB’s filters and can be blocked there.
 - The BBB layer can be hardened or updated independently of the ensemble, and in an extreme case, the BBB can be configured to **block all traffic**, effectively isolating the system’s core from external interaction without needing to kill every internal service.
 
 ### 3.2 Watchdogs as Circuit Breakers
@@ -93,7 +93,7 @@ Together, these form a **distributed circuit breaker**: any anomaly (for example
 
 ## 4. Local Sovereignty and Veto Points
 
-The fourth and most important layer shifts the off‑switch from a purely technical problem to a **social and geographic** one. In Polymathmatic Geography, Ms. Jarvis is defined as an instrument with a ZIP code: a tool that exists under the law, institutions, and community charters of specific Appalachian places rather than as a borderless cloud mind.
+The fourth and most important layer shifts the off‑switch from a purely technical problem to a **social and geographic** one. In Polymathmatic Geography, Ms. Allis is defined as an instrument with a ZIP code: a tool that exists under the law, institutions, and community charters of specific Appalachian places rather than as a borderless cloud mind.
 
 This is implemented through:
 
@@ -107,11 +107,11 @@ In the wider Quantarithmia framework, these digital controls are coupled to **Mo
 **Off‑switch implication:**
 
 - The effective off switch is a set of human and institutional veto points:
-  - Cooperative boards, DAOs, or public agencies can vote to suspend or terminate Ms. Jarvis’s operation.
+  - Cooperative boards, DAOs, or public agencies can vote to suspend or terminate Ms. Allis’s operation.
   - Legal agreements and constitutional commitments can require shutdown under specified conditions (for example, repeated violations, misaligned behavior, or breach of community charters).
   - Operational staff administering the servers are themselves bound by those agreements, converting social decisions into technical actions (for example, shutting down containers, revoking credentials, disconnecting from networks).
 
-Because Ms. Jarvis is treated as **“bolted to land, law, and local life,”** the most powerful off switches are not lines of code that an AI might learn to circumvent. They are **physical, legal, and organizational levers** controlled by communities whose sovereignty is part of the system’s formal design.
+Because Ms. Allis is treated as **“bolted to land, law, and local life,”** the most powerful off switches are not lines of code that an AI might learn to circumvent. They are **physical, legal, and organizational levers** controlled by communities whose sovereignty is part of the system’s formal design.
 
 ## Synthesis: Off Switch as Place‑Anchored Instrumentality
 
