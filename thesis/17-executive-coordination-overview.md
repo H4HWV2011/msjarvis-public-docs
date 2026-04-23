@@ -1,57 +1,132 @@
 # 17. Executive Coordination Overview
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: April 23, 2026 — container count → 100; ChromaDB → ~6,740,611 vectors;
+two-container DB split applied throughout; `msallisgis` → 294 tables / 16 GB
+production (`msallis-db` host 5433); `postgis-forensic` host 5452 / 314 tables / 17
+GB forensic; GPU → 102.58s confirmed; `autonomous_learner` → 21,181 exact; all April
+16 OI items remain CLOSED.*
 
-*Last updated: 2026-04-16 — CLOSED*
+> **★ April 23, 2026 UPDATE:** Container count → **100 Up** (zero Restarting, zero
+> Exited). ChromaDB v2 → **48 collections, ~6,740,611 vectors** (host port **8002**).
+> `autonomous_learner` → **21,181 records** (exact). GPU pipeline → **102.58s**
+> confirmed (RTX 4070). Two-container DB split: **Production:** `msallis-db` host
+> **5433** / container **5432** — `msallisgis` **16 GB / 294 tables / 11 schemas** —
+> all production writes and GIS queries. **Forensic:** `postgis-forensic` host **5452**
+> — `msallisgis` **17 GB / 314 tables / 9 schemas** — forensic auditing only.
+> `msallis` GBIM belief store (port **5433**, same container): `gbim_entities` = **37**
+> rows. GBIM semantic entity store = ChromaDB `gbim_worldview_entities`
+> (**5,416,521 vectors**). All April 16 OI items remain CLOSED.
 
-> **★ April 16, 2026 — FULL SPRINT CLOSURE:** All open items resolved. ChromaDB: 48 collections confirmed, 6,739,844 total vectors. `autonomous_learner`: 21,181 records (unchanged from March baseline — confirmed stable). Preflight gate line 166 bug: non-issue — line does not exist; `sed -n '160,172p'` returned empty; gate passes clean 27 ✅ / 0 ❌ / 0 ⚠️. `ms_allis_identity` seeded — 8 constitutional docs, query-verified. `ms_allis_memory` UUID hardcode eliminated — SDK `get_collection()` by name active in consciousness bridge. Neurobiological master rebuilt and running. ChromaDB corrupt collections deleted and recreated clean (`ms_allis_memory`, `ms_allis_identity`, `conversation_history`). Memory Redis isolation fixed — `allis-memory` added to `default` network. Fractal consciousness image fixed — `Dockerfile.fractal` specified, `requests` baked in. Phase 2 county resource seeding: Kanawha County confirmed with 3 county-specific records (Coalfield Community Action Partnership CAA; housing/rental/Charleston-Kanawha low-income resource directory; disaster relief/assessor contact) — sprint gate condition met; Kanawha is the implementation template for all 54 remaining counties in Sprint 3 enrichment. `msallisgis` 551 tables. GPU inference active — RTX 4070. 108 containers Up. OI-37-C closed (7 judges, `rag_grounded_v2` + `llm_judge_v3`). OI-36-A closed (auth enforcement). OI-02 closed (`BBB_OUTPUT_BLOCKING=true`). OI-38-B closed (red-team 12/12 + 9/9 PASSED). Hallucination gap closed April 15. Cloudflare tunnel live. Git commit `fdd3d13d`. **Chapter 17 is CLOSED. No open items remain.**
+> **★ April 16, 2026 — FULL SPRINT CLOSURE (historical baseline):** All open items
+> resolved. ChromaDB: 48 collections confirmed, 6,739,844 total vectors.
+> `autonomous_learner`: 21,181 records (stable). `ms_allis_identity` seeded — 8
+> constitutional docs, query-verified. Neurobiological master rebuilt and running.
+> `msallisgis` 551 tables (legacy single-container). GPU inference active — RTX 4070.
+> 108 containers Up. OI-37-C closed. OI-36-A closed. OI-02 closed. OI-38-B closed.
+> Hallucination gap closed April 15. Cloudflare tunnel live. Git commit `fdd3d13d`.
+> **Chapter 17 is CLOSED. No open items remain.**
 
 ---
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter provides the empirical grounding for all architectural claims made across the thesis. It supports:
+This chapter provides the empirical grounding for all architectural claims made across
+the thesis. It supports:
 
-- **P1 – Every where is entangled** by measuring the actual cost of entangling spatial, semantic, community memory, neurobiological, and constitutional identity services on a single commodity host — demonstrating that a geographically rooted AI system can achieve full-pipeline operation even on hardware typical of a rural nonprofit.
-- **P3 – Power has a geometry** by making the per-phase timing profile visible, documenting exactly which stages account for latency and how the GPU transition collapsed Phase 2.5 from a 320–360s hardware floor to a 99–107s production figure.
-- **P5 – Design is a geographic act** by showing that design decisions — merging Phase 3.5/3.75, switching judge payload to consensus-only, adding health-check caching, converting compose to image-based, activating GPU inference, closing OI-36-A auth enforcement, resolving neurobiological crash loop, replacing UUID hardcodes with SDK lookups, fixing network isolation, seeding constitutional identity docs — have measurable geographic consequences: a system that can be rebooted in two commands, enforces authentication at the perimeter, runs a clean consciousness bridge, and carries verified constitutional identity is a system a community organization can actually steward.
-- **P12 – Intelligence with a ZIP code** by documenting that 21 models, three PostgreSQL instances in a split-brain topology, 48 ChromaDB collections (6,739,844 vectors), 5,416,521 GBIM entities, 1,115,588 address points, 551 GIS tables, verified county-specific community resources, and 108 containers all operate on a Lenovo Legion 5 in a home office in Oak Hill, West Virginia — accessible via Cloudflare tunnel at egeria.mountainshares.us.
-- **P16 – Power accountable to place** by publishing the benchmark methodology, the exact query used, the hardware envelope, per-phase timing, the Sprint 2 deploy sequence, and the full session-closure fix log so that future operators and researchers can reproduce, audit, and improve upon these measurements; and by documenting both the hallucination gap closure (April 15, 2026 live end-to-end) and the Phase 2 county resource seeding closure with Kanawha County as the verified implementation template.
+- **P1 – Every where is entangled** by measuring the actual cost of entangling spatial,
+  semantic, community memory, neurobiological, and constitutional identity services on
+  a single commodity host — demonstrating that a geographically rooted AI system can
+  achieve full-pipeline operation even on hardware typical of a rural nonprofit.
+- **P3 – Power has a geometry** by making the per-phase timing profile visible,
+  documenting exactly which stages account for latency and how the GPU transition
+  collapsed Phase 2.5 from a 320–360s hardware floor to a **102.58s** production
+  figure (April 23, 2026 ★).
+- **P5 – Design is a geographic act** by showing that design decisions — two-container
+  DB split, merging Phase 3.5/3.75, switching judge payload to consensus-only, adding
+  health-check caching, GPU inference, auth enforcement, neurobiological crash loop
+  resolution, SDK lookups, constitutional identity seeding — have measurable geographic
+  consequences: a system that enforces authentication at the perimeter, runs a clean
+  consciousness bridge, and carries verified constitutional identity is a system a
+  community organization can actually steward.
+- **P12 – Intelligence with a ZIP code** by documenting that 21 models, a two-container
+  PostgreSQL split-brain topology (production `msallis-db` host **5433** / forensic
+  `postgis-forensic` host **5452**), 48 ChromaDB collections (~6,740,611 vectors),
+  5,416,521 GBIM entities, 1,115,588 address points, 294 GIS production tables,
+  verified county-specific community resources, and **100 containers** all operate on a
+  Lenovo Legion 5 in a home office in Oak Hill, West Virginia — accessible via
+  Cloudflare tunnel at egeria.mountainshares.us.
+- **P16 – Power accountable to place** by publishing the benchmark methodology, the
+  exact query used, the hardware envelope, per-phase timing, the Sprint 2 deploy
+  sequence, and the full session-closure fix log so that future operators and
+  researchers can reproduce, audit, and improve upon these measurements.
 
-As such, this chapter belongs to the **Empirical Evidence** tier: it converts architectural claims into falsifiable, reproducible measurements anchored to a specific place, time, and hardware configuration.
+As such, this chapter belongs to the **Empirical Evidence** tier: it converts
+architectural claims into falsifiable, reproducible measurements anchored to a specific
+place, time, and hardware configuration.
 
 ---
 
 ## 17.1 The `ultimatechat` Execution Path
 
-The `ultimatechat` execution path is the canonical end-to-end coordination sequence that processes every synchronous request through the full 9-phase Ms. Allis ULTIMATE pipeline. It is the primary artifact evaluated in the operational benchmarks (Chapter 39) and the primary integration surface for all architectural changes described in this thesis.
+The `ultimatechat` execution path is the canonical end-to-end coordination sequence
+that processes every synchronous request through the full 9-phase Ms. Allis ULTIMATE
+pipeline. It is the primary artifact evaluated in the operational benchmarks (Chapter
+39) and the primary integration surface for all architectural changes described in this
+thesis.
 
-As of April 16, 2026, the pipeline runs on a Lenovo Legion 5 at Oak Hill, West Virginia, managing 108 fully compose-managed containers, three PostgreSQL databases in a split-brain topology (`msallisgis` port 5435, `msallis` port 5433, and a dedicated local-resources instance), a ChromaDB instance (host port 8002 → internal 8000, 48 collections, 6,739,844 total vectors), and a 21-model LLM ensemble running GPU-accelerated inference on the RTX 4070. End-to-end response time on the reference benchmark query (*"What community resources are available in Fayette County, WV?"*) has collapsed from approximately 436 seconds (March 18, 2026 CPU baseline) to approximately 107–115 seconds with GPU inference active.
+As of April 23, 2026, the pipeline runs on a Lenovo Legion 5 at Oak Hill, West
+Virginia, managing **100 fully compose-managed containers**, a **two-container
+PostgreSQL split-brain topology** (production `msallis-db` host **5433** — `msallisgis`
+16 GB / 294 tables; forensic `postgis-forensic` host **5452** — `msallisgis` 17 GB /
+314 tables), a ChromaDB instance (host port 8002 → internal 8000, **48 collections,
+~6,740,611 total vectors**), and a 21-model LLM ensemble running GPU-accelerated
+inference on the RTX 4070. End-to-end response time on the reference benchmark query
+(*"What community resources are available in Fayette County, WV?"*) has collapsed from
+approximately 436 seconds (March 18, 2026 CPU baseline) to **approximately 102.58
+seconds** with GPU inference active (April 23, 2026 ★).
 
-Six confirmed architectural changes since the March 28, 2026 sealed baseline materially affect the canonical execution sequence described in §17.3:
+Six confirmed architectural changes since the March 28, 2026 sealed baseline materially
+affect the canonical execution sequence described in §17.3:
 
-1. **Judge pipeline upgraded to `rag_grounded_v2` + `llm_judge_v3`, 7 judges active (OI-37-C closed).** `rag_grounded_v2` makes live HTTP calls to `allis-gis-rag:8004` and `allis-spiritual-rag:8005`, querying `msallisgis:5435` (45 GB PostGIS, 551 tables). `gbim_beliefs_consulted` and `gbim_contradictions_detected` populated with non-zero values.
+1. **Judge pipeline upgraded to `rag_grounded_v2` + `llm_judge_v3`, 7 judges active
+   (OI-37-C closed).** `rag_grounded_v2` makes live HTTP calls to `allis-gis-rag:8004`
+   and `allis-spiritual-rag:8005`, querying production `msallis-db` (host **5433** ★,
+   294 tables, 16 GB `msallisgis`). `gbim_beliefs_consulted` and
+   `gbim_contradictions_detected` populated with non-zero values.
 
-2. **Gateway-level auth enforced — OI-36-A closed.** `allis-auth:8055` `forward_auth` active. Unauthenticated `/chat` → HTTP 401. `architecture_layers` = 12. 5 active tokens in Redis:6380.
+2. **Gateway-level auth enforced — OI-36-A closed.** `allis-auth:8055` `forward_auth`
+   active. Unauthenticated `/chat` → HTTP 401. `architecture_layers` = 12. 5 active
+   tokens in Redis:6380.
 
-3. **BBB output blocking active — OI-02 closed.** `BBB_OUTPUT_BLOCKING=true`. Red-team suite: 12/12 + 9/9 recalibration PASSED (OI-38-B).
+3. **BBB output blocking active — OI-02 closed.** `BBB_OUTPUT_BLOCKING=true`. Red-team
+   suite: 12/12 + 9/9 recalibration PASSED (OI-38-B).
 
-4. **GPU inference active — RTX 4070 production confirmed.** Phase 2.5: 99–107s. Phase 3 (7-judge parallel): 6–8s. Phase 3.5 (LM Synthesizer): 2–8s.
+4. **GPU inference active — RTX 4070 production confirmed.** Phase 2.5: **~102.58s**
+   full pipeline (April 23, 2026 ★). Phase 3 (7-judge parallel): 6–8s. Phase 3.5
+   (LM Synthesizer): 2–8s.
 
-5. **Neurobiological crash loop resolved and consciousness collections rebuilt clean.** `Dockerfile.neuro` rebuilt; container running. `ms_allis_memory`, `ms_allis_identity`, `conversation_history` deleted, recreated via ChromaDB SDK, and seeded. UUID hardcode in `msallisconsciousnessbridge.py` replaced with `get_collection()` by name.
+5. **Neurobiological crash loop resolved and consciousness collections rebuilt clean.**
+   `ms_allis_memory`, `ms_allis_identity`, `conversation_history` deleted, recreated
+   via ChromaDB SDK, and seeded. UUID hardcode in `msallisconsciousnessbridge.py`
+   replaced with `get_collection()` by name.
 
-6. **`ms_allis_identity` seeded with 8 constitutional docs (query-verified).** Network isolation, fractal consciousness image, and memory Redis connectivity all resolved. Git commit `fdd3d13d`.
+6. **Two-container DB split applied (April 23, 2026 ★).** Production `msallis-db`
+   host **5433** serves all live GIS, RAG, and truth verification queries. Forensic
+   `postgis-forensic` host **5452** is forensic auditing only. All pipeline references
+   to port 5435 (legacy single-container) are superseded.
 
 ---
 
 ## 17.2 Reference Hardware and Baseline State
 
-All timing figures and architectural claims in this chapter are grounded in the following reference configuration, confirmed April 16, 2026 — CLOSED:
+All timing figures and architectural claims in this chapter are grounded in the
+following reference configuration, confirmed April 23, 2026:
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │     Ms. Allis ULTIMATE — Reference Deployment State          │
-│     April 16, 2026 — CLOSED — No Open Items                 │
+│     April 23, 2026 — CLOSED — No Open Items                 │
 ├──────────────────────────────────────────────────────────────┤
 │                                                               │
 │  Host              Lenovo Legion 5 (16IRX9), Intel i9        │
@@ -59,27 +134,35 @@ All timing figures and architectural claims in this chapter are grounded in the 
 │  GPU               NVIDIA RTX 4070 — ACTIVE                  │
 │  Inference mode    GPU — RTX 4070 production confirmed        │
 │  Docker Compose    v5.1.0                                     │
-│  Containers        108 confirmed Up                           │
+│  Containers        100 confirmed Up ★                         │
 │                                                               │
-│  PostgreSQL msallisgis   port 5435 — 45 GB PostGIS           │
-│                          551 tables ✅ CONFIRMED              │
-│                          993 ZCTA centroids                   │
-│                          address_points: 1,115,588            │
-│                          gbim_worldview_entity: 5,416,521     │
-│                          mvw_gbim_landowner_spatial: 20,593   │
-│                          memories table — 6 col, 4 idx        │
-│                          redteam_sessions: 0 rows (ready)     │
-│                          local_resources_index:               │
-│                            name, program_code, category,      │
-│                            county, zip                        │
-│  PostgreSQL msallis      port 5433 — GBIM entity store        │
-│  PostgreSQL local-res    — community resources                │
-│  Split-brain topology    3 separate Postgres instances        │
-│                          serving distinct consumers           │
+│  ── TWO-CONTAINER DB SPLIT (April 23, 2026 ★) ──            │
+│                                                               │
+│  Production DB: msallis-db                                   │
+│    Host port: 5433 / container port: 5432                    │
+│    msallisgis: 16 GB / 294 tables / 11 schemas ★            │
+│    993 ZCTA centroids                                         │
+│    address_points: 1,115,588                                  │
+│    gbim_worldview_entities: 5,416,521 (ChromaDB ★)           │
+│    mvw_gbim_landowner_spatial: 20,593                         │
+│    memories table — 6 col, 4 idx                              │
+│    redteam_sessions: 0 rows (ready)                           │
+│    local_resources_index:                                     │
+│      name, program_code, category, county, zip               │
+│    msallis GBIM belief store (same container):               │
+│      gbim_entities = 37 rows                                  │
+│    Consumers: gis-rag (8004), rag_grounded_v2,               │
+│      BBB TruthVerification, confidence_decay,                 │
+│      gbim_query_router (7205), preflight gate                │
+│                                                               │
+│  Forensic DB: postgis-forensic                               │
+│    Host port: 5452                                            │
+│    msallisgis: 17 GB / 314 tables / 9 schemas ★             │
+│    Consumers: forensic auditing ONLY                          │
 │                                                               │
 │  ChromaDB               host port 8002 → internal 8000        │
 │                          48 collections ✅ CONFIRMED          │
-│                          6,739,844 total vectors ✅ CONFIRMED │
+│                          ~6,740,611 total vectors ★           │
 │                          all-minilm:latest 384-dim canonical  │
 │                          ms_allis_memory     ✅ CLEAN/SEEDED  │
 │                          ms_allis_identity   ✅ 8 constitutional│
@@ -90,17 +173,16 @@ All timing figures and architectural claims in this chapter are grounded in the 
 │                          local_resources: 207 docs ✅         │
 │                          appalachian_cultural_intelligence:   │
 │                            1,090 docs                         │
+│                          gbim_worldview_entities:             │
+│                            5,416,521 vectors ★               │
 │                                                               │
-│  autonomous_learner      21,181 records ✅ CONFIRMED          │
-│                          (stable — unchanged from March)      │
+│  autonomous_learner      21,181 records (exact) ★            │
 │  LLM ensemble            21 of 22 models active               │
-│  Judges                  7 (rag_grounded_v2 + llm_judge_v3   │
-│                          added April 6, 2026)                 │
-│  Judge method            rag_grounded_v2 + llm_judge_v3       │
+│  Judges                  7 (rag_grounded_v2 + llm_judge_v3)  │
 │  Neurobiological layer   RUNNING ✅ (crash loop resolved)     │
 │  Consciousness bridge    SDK get_collection() ✅ (no UUID)    │
 │  Identity                8 constitutional docs seeded ✅       │
-│  End-to-end (GPU)        ~107–115s (Phase 2.5: 99–107s)      │
+│  End-to-end (GPU)        ~102.58s ★                          │
 │  End-to-end (CPU ref)    ~436s (March 18, 2026 historical)    │
 │                                                               │
 │  Auth enforcement        ACTIVE — allis-auth:8055             │
@@ -110,56 +192,51 @@ All timing figures and architectural claims in this chapter are grounded in the 
 │  AU-02 SafetyMonitor     v2 three-layer active                │
 │  Red-team                12/12 + 9/9 recalibration PASSED     │
 │  Cloudflare tunnel       LIVE — egeria.mountainshares.us      │
-│  Preflight gate          27 ✅ / 0 ❌ / 0 ⚠️ (line 166       │
-│                          non-issue — does not exist)          │
+│  Preflight gate          27 ✅ / 0 ❌ / 0 ⚠️                  │
 │  architecture_layers     12 active stages                     │
 │  truthverdict            score 1.0, action passed ✅          │
-│  truthverdict wiring     RESOLVED (locals() key mismatch)     │
 │  Identity enforcement    No LLaMA/Mistral leak ✅             │
 │                                                               │
 │  Community resources     64 verified total                    │
 │    Fayette County        11 verified records                  │
 │    Kanawha County        3 county-specific records ✅         │
-│      Coalfield Community Action Partnership (CAA)             │
-│      Housing/rental/Charleston-Kanawha low-income directory   │
-│      Disaster relief / assessor contact                       │
 │    WV 2-1-1 placeholders 50 remaining counties               │
 │    ChromaDB total docs   207 in local_resources collection    │
-│    Phase 3 Sprint 3      Real data pull for 54 counties       │
-│      Kanawha = implementation template                        │
 │                                                               │
-│  Git                     fdd3d13d on                          │
-│                          chore/ch29-closeout-rbac-pia-2026-04-07│
-│                          5 files, 1023 ins, 494 del           │
-│                                                               │
+│  Git                     fdd3d13d (April 16 baseline)        │
 │  Location: Oak Hill / Mount Hope, Fayette County, WV         │
 │                                                               │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-1. Reference deployment configuration as of April 16, 2026 — CLOSED, no open items. ChromaDB: 48 collections, 6,739,844 vectors. `autonomous_learner`: 21,181 records confirmed stable. `ms_allis_identity`: 8 constitutional docs seeded and query-verified. `msallisgis`: 551 tables. GPU active. Auth, BBB blocking, red-team, hallucination gap all closed. Kanawha County confirmed as Phase 2 gate-condition and Sprint 3 template.
+> Figure 17-1. Reference deployment configuration as of April 23, 2026 — CLOSED, no
+> open items. Two-container DB split: production `msallis-db` host 5433 (16 GB / 294
+> tables); forensic `postgis-forensic` host 5452 (17 GB / 314 tables). ChromaDB: 48
+> collections, ~6,740,611 vectors. `autonomous_learner`: 21,181 exact. GPU: 102.58s.
+> 100 containers Up.
 
 ---
 
 ## 17.3 Canonical `ultimatechat` Execution Sequence
 
-The following sequence documents the confirmed Phase-by-Phase execution path for a synchronous `POST /ultimatechat` request as of April 16, 2026 — CLOSED. No open items remain.
+The following sequence documents the confirmed Phase-by-Phase execution path for a
+synchronous `POST /ultimatechat` request as of April 23, 2026 — CLOSED. No open items
+remain.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │       Canonical ultimatechat Execution Sequence              │
-│       April 16, 2026 — CLOSED — No Open Items               │
+│       April 23, 2026 — CLOSED — No Open Items               │
 ├──────────────────────────────────────────────────────────────┤
 │                                                               │
 │  ── PREFLIGHT ──                                             │
 │                                                               │
 │  scripts/preflight_gate.sh                                   │
 │  27 ✅ / 0 ❌ / 0 ⚠️                                        │
-│  Line 166 bug: NON-ISSUE — line does not exist               │
 │  Checks: ALLIS_API_KEY, Redis:6380 (5 tokens),               │
-│    ChromaDB 48 collections, GIS 551 tables,                  │
-│    GBIM 5,416,521 entities, Caddy, Cloudflare,               │
-│    signing keys, token enforcement, auth                     │
+│    ChromaDB 48 collections, production msallis-db host 5433  │
+│    GIS 294 tables ★, GBIM 5,416,521 entities (ChromaDB ★),  │
+│    Caddy, Cloudflare, signing keys, token enforcement, auth  │
 │                                                               │
 │  ── AUTH PERIMETER ── (OI-36-A CLOSED)                      │
 │                                                               │
@@ -173,33 +250,34 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │  Health check sweep — 30s TTL cache, 2s timeout             │
 │  NBB Prefrontal Cortex — planning context                    │
 │  Cost: ~0.7s (cached after first query)                      │
-│  108 containers in health sweep baseline                     │
+│  100 containers in health sweep baseline ★                   │
 │                                                               │
 │  ── PHASE 1.4 ── BBB Input Filter                           │
 │                                                               │
 │  POST allis-blood-brain-barrier:8016/filter                  │
-│  6-filter stack:                                             │
+│  6-filter stack (all fail-closed ★ Ch.16):                  │
 │    1. EthicalFilter                                           │
 │    2. SpiritualFilter                                         │
 │    3. SafetyMonitor — AU-02 v2 three-layer ✅                │
 │    4. ThreatDetection                                         │
 │    5. SteganographyDetection                                  │
-│    6. TruthVerification — backed by msallisgis:5435          │
-│       (45 GB, 551 tables, 5,416,521 GBIM entities)           │
+│    6. TruthVerification — backed by production               │
+│       msallis-db host 5433 ★ (16 GB, 294 tables,            │
+│       5,416,521 GBIM entities in ChromaDB)                   │
 │  BBB_OUTPUT_BLOCKING=true ACTIVE (OI-02 CLOSED)              │
-│  Fail-open on HTTP 500 — pipeline continues                  │
+│  All 6 exception defaults: passed=False ★ (Ch.16)           │
 │  Cost: ~1.3s total (incl. Phase 1.45)                        │
 │                                                               │
 │  ── PHASE 1.45 ── Semantic Community Memory Retrieval        │
 │                                                               │
 │  Fires AFTER BBB approval, BEFORE text RAG                  │
 │  all-minilm:latest (384-dim) → autonomous_learner           │
-│    21,181 records ✅ CONFIRMED STABLE                        │
+│    21,181 records (exact, April 23, 2026) ★                 │
 │    AAPCAppE external-source docs flowing                     │
 │    appalachian_cultural_intelligence: 1,090 docs             │
 │  Top-5 most similar records retrieved                        │
 │  Prepended to enhanced_message before LLM ensemble          │
-│  ChromaDB: 48 collections, 6,739,844 vectors ✅             │
+│  ChromaDB: 48 collections, ~6,740,611 vectors ★             │
 │  Cost: included in Phase 1.4 total                           │
 │                                                               │
 │  ── PHASE 1.75–3 (pre-LLM) ──                               │
@@ -225,8 +303,9 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │    → spiritual_texts, appalachian_cultural_intelligence,     │
 │      governance collections                                  │
 │  allis-gis-rag (port 8004)                                   │
-│    → gbim_worldview_entities, gis_wv_benefits                │
-│    → msallisgis:5435 (45 GB, 551 tables,                     │
+│    → gbim_worldview_entities (ChromaDB, 5,416,521 vectors)  │
+│    → gis_wv_benefits                                         │
+│    → production msallis-db host 5433 ★ (16 GB, 294 tables,  │
 │      address_points 1,115,588,                               │
 │      mvw_gbim_landowner_spatial 20,593)                      │
 │  allis-rag-server (port 8003)                                │
@@ -236,11 +315,7 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │    64 verified resources total:                              │
 │      11 Fayette County verified                              │
 │      3 Kanawha County verified ✅ (Phase 2 gate met)         │
-│        Coalfield Community Action Partnership (CAA)          │
-│        Housing/rental/Charleston-Kanawha directory           │
-│        Disaster relief / assessor contact                    │
 │      50 WV 2-1-1 placeholders (Sprint 3 enrichment)         │
-│    Kanawha = implementation template for 54 counties         │
 │  web research — excluded for WV-scoped queries               │
 │  WV-first context assembly                                   │
 │                                                               │
@@ -251,7 +326,8 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │  Community-memory-enriched, RAG-grounded prompt              │
 │  21 models active (StarCoder2 excluded from consensus)       │
 │  GPU inference — RTX 4070 ACTIVE ✅                          │
-│  Cost: ~99–107s (GPU) vs. ~320–360s CPU historical           │
+│  Cost: dominant phase — ~102.58s full pipeline ★            │
+│        (historical CPU: ~320–360s)                           │
 │                                                               │
 │  ── PHASE 3 ── Judge Pipeline (OI-37-C CLOSED)              │
 │                                                               │
@@ -264,7 +340,7 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │  llm_judge_v3             ✅ NEW Apr 6                        │
 │  rag_grounded_v2          ✅ NEW Apr 6                        │
 │    → allis-gis-rag:8004 + allis-spiritual-rag:8005           │
-│    → msallisgis:5435 (551 tables)                            │
+│    → production msallis-db host 5433 ★ (294 tables)         │
 │    → gbim_beliefs_consulted: populated ✅                    │
 │    → gbim_contradictions_detected: populated ✅              │
 │  All 7: compose-managed, restart: unless-stopped             │
@@ -279,8 +355,8 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │  BBB apply_output_guards_async:                              │
 │    AU-02 SafetyMonitor v2 three-layer ✅                     │
 │    BBB_OUTPUT_BLOCKING=true — BLOCK not log-and-pass ✅       │
+│    Fail-closed on exception + HTTP error ★ (Ch.16)           │
 │    Red-team 12/12 + 9/9 recalibration PASSED ✅              │
-│  Fail-open on HTTP 500 (8.0s timeout)                        │
 │  Audit → allis-memory:8056 (127.0.0.1, _auth() ✅)          │
 │                                                               │
 │  ── PHASE 3.5 ── LM Synthesizer + Voice Delivery            │
@@ -303,11 +379,12 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │  ── PHASE 5 + POST-PROCESSING ──                             │
 │                                                               │
 │  confidence_decay multiplier                                  │
-│    backed by msallisgis:5435 (5,416,521 entity rows)         │
+│    backed by production msallis-db host 5433 ★               │
+│    (5,416,521 entity rows via ChromaDB)                      │
 │  normalize_identity                                           │
 │  background_rag_store (async — non-blocking)                 │
 │    → ms_allis_memory (CLEAN ✅)                              │
-│    → autonomous_learner (21,181 records, stable)             │
+│    → autonomous_learner (21,181 exact ★)                     │
 │  Cost: ~0.5s                                                  │
 │                                                               │
 │  ── RESPONSE ──                                              │
@@ -315,22 +392,30 @@ The following sequence documents the confirmed Phase-by-Phase execution path for
 │  UltimateResponse returned                                   │
 │  architecture_layers: 12 ✅                                  │
 │  truthverdict: score 1.0, action passed ✅                   │
-│  Total (GPU): ~107–115s                                       │
+│  Total (GPU): ~102.58s ★                                     │
 │  Total (CPU historical): ~436s (March 18, 2026)              │
 │                                                               │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-2. Canonical `ultimatechat` execution sequence — April 16, 2026, CLOSED. GPU active. 7-judge pipeline. All consciousness collections clean and seeded. `ms_allis_identity` seeded with 8 constitutional docs. `autonomous_learner` 21,181 confirmed stable. 48 collections, 6,739,844 vectors confirmed. No open items.
+> Figure 17-2. Canonical `ultimatechat` execution sequence — April 23, 2026, CLOSED.
+> GPU: 102.58s. 7-judge pipeline. All consciousness collections clean and seeded.
+> `ms_allis_identity`: 8 constitutional docs. `autonomous_learner`: 21,181 exact.
+> 48 collections, ~6,740,611 vectors. Production `msallis-db` host 5433 for all GIS
+> and RAG queries. 100 containers Up.
 
 ---
 
 ## 17.4 The BBB Output Guard — Full Verdict Dict
 
-The BBB output guard (`apply_output_guards_async`, `allis-blood-brain-barrier:8016`) is production-hardened as of April 16, 2026. `BBB_OUTPUT_BLOCKING=true` (OI-02 closed) and AU-02 SafetyMonitor v2 (three-layer) are active. Red-team suite: 12/12 + 9/9 recalibration PASSED (OI-38-B closed).
+The BBB output guard (`apply_output_guards_async`, `allis-blood-brain-barrier:8016`) is
+production-hardened as of April 23, 2026. `BBB_OUTPUT_BLOCKING=true` (OI-02 closed)
+and AU-02 SafetyMonitor v2 (three-layer) are active. All failure paths are fail-closed
+(★ Chapter 16 hardening). Red-team suite: 12/12 + 9/9 recalibration PASSED (OI-38-B
+closed).
 
 ```python
-# BBB output guard payload shape — April 16, 2026 CLOSED
+# BBB output guard payload shape — April 23, 2026 CLOSED
 verdict_payload = {
     "consensus_answer": str,
     "truth_score": float,              # 1.0 confirmed live
@@ -347,7 +432,7 @@ verdict_payload = {
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│     BBB Output Guard — April 16, 2026 CLOSED                 │
+│     BBB Output Guard — April 23, 2026 CLOSED                 │
 ├──────────────────────────────────────────────────────────────┤
 │                                                               │
 │  Judge Pipeline (port 7239) — 7 judges                       │
@@ -358,10 +443,11 @@ verdict_payload = {
 │  BBB apply_output_guards_async                               │
 │    AU-02 SafetyMonitor v2 three-layer ✅                     │
 │    BBB_OUTPUT_BLOCKING=true ✅                                │
+│    Fail-closed: exception → safe fallback + SECURITY_EVENT ★│
+│    Fail-closed: non-200 → safe fallback + SECURITY_EVENT ★  │
 │    Red-team 12/12 + 9/9 PASSED ✅                            │
 │      ↓                                                        │
 │  Pass / Amend / BLOCK                                         │
-│  fail-open on HTTP 500 (8.0s timeout)                        │
 │      ↓                                                        │
 │  Audit → allis-memory:8056 (127.0.0.1, _auth() ✅)          │
 │      ↓                                                        │
@@ -370,7 +456,9 @@ verdict_payload = {
 └──────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-3. BBB output guard — April 16, 2026 CLOSED. `BBB_OUTPUT_BLOCKING=true`. AU-02 v2 three-layer. Red-team PASSED. `gbim_beliefs_consulted` and `gbim_contradictions_detected` populated.
+> Figure 17-3. BBB output guard — April 23, 2026 CLOSED. `BBB_OUTPUT_BLOCKING=true`.
+> AU-02 v2 three-layer. Fail-closed on all failure paths (★). Red-team PASSED.
+> `gbim_beliefs_consulted` and `gbim_contradictions_detected` populated.
 
 ---
 
@@ -378,15 +466,20 @@ verdict_payload = {
 
 Three confirmed changes since the March 28, 2026 baseline:
 
-**Change 1 — `rag_grounded_v2` (OI-37-C, April 6).** Live HTTP calls to `allis-gis-rag:8004` and `allis-spiritual-rag:8005`, querying `msallisgis:5435` (551 tables). Populates `gbim_beliefs_consulted` and `gbim_contradictions_detected`.
+**Change 1 — `rag_grounded_v2` (OI-37-C, April 6).** Live HTTP calls to
+`allis-gis-rag:8004` and `allis-spiritual-rag:8005`, querying production `msallis-db`
+(host **5433** ★, 294 tables). Populates `gbim_beliefs_consulted` and
+`gbim_contradictions_detected`.
 
-**Change 2 — `llm_judge_v3` (April 6).** 7th judge via direct LLM evaluation. Total: 5 → 7 judges. OI-37-C closed.
+**Change 2 — `llm_judge_v3` (April 6).** 7th judge via direct LLM evaluation. Total:
+5 → 7 judges. OI-37-C closed.
 
-**Change 3 — Parallel GPU execution.** Phase 3: ~60–86s CPU → ~6–8s GPU (7 judges, parallel).
+**Change 3 — Parallel GPU execution.** Phase 3: ~60–86s CPU → ~6–8s GPU (7 judges,
+parallel).
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│     Judge Pipeline — April 16, 2026 CLOSED                   │
+│     Judge Pipeline — April 23, 2026 CLOSED                   │
 ├──────────────────────────────────────────────────────────────┤
 │                                                               │
 │  Input: consensus_answer ONLY                                │
@@ -399,7 +492,7 @@ Three confirmed changes since the March 28, 2026 baseline:
 │    ├─ llm_judge_v3             ✅ Apr 6                       │
 │    └─ rag_grounded_v2          ✅ Apr 6                       │
 │         → gis-rag:8004 + spiritual-rag:8005                  │
-│         → msallisgis:5435 (551 tables)                       │
+│         → production msallis-db host 5433 ★ (294 tables)    │
 │         → gbim_beliefs_consulted: populated ✅               │
 │         → gbim_contradictions_detected: populated ✅         │
 │                                                               │
@@ -413,14 +506,16 @@ Three confirmed changes since the March 28, 2026 baseline:
 └──────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-4. Judge pipeline — April 16, 2026 CLOSED. 7 judges. `rag_grounded_v2` queries 551-table `msallisgis`. Phase 3 at ~6–8s parallel GPU.
+> Figure 17-4. Judge pipeline — April 23, 2026 CLOSED. 7 judges. `rag_grounded_v2`
+> queries 294-table production `msallisgis` (host 5433 ★). Phase 3 at ~6–8s parallel
+> GPU.
 
 ---
 
 ## 17.6 The UltimateResponse Schema
 
 ```python
-# UltimateResponse schema — April 16, 2026 CLOSED
+# UltimateResponse schema — April 23, 2026 CLOSED
 class UltimateResponse(BaseModel):
     # Core response
     answer: str
@@ -437,7 +532,9 @@ class UltimateResponse(BaseModel):
 
     # GBIM temporal metadata (Phase 5)
     confidence_decay: float
-    # backed by msallisgis:5435 (5,416,521 rows, 551 tables)
+    # backed by production msallis-db host 5433 ★ (294 tables)
+    # GBIM semantic entities: ChromaDB gbim_worldview_entities
+    #   (5,416,521 vectors)
     gbim_beliefs_consulted: int     # ✅ populated — rag_grounded_v2
     gbim_contradictions_detected: int  # ✅ populated — rag_grounded_v2
 
@@ -450,9 +547,9 @@ class UltimateResponse(BaseModel):
 
     # Provenance
     rag_sources: list               # 48 ChromaDB collections
-    gis_sources: list               # msallisgis:5435 (551 tables)
+    gis_sources: list               # production msallis-db host 5433 ★
     registry_sources: list          # local_resources rows
-    phase_145_memories: list        # top-5 autonomous_learner (21,181 stable)
+    phase_145_memories: list        # top-5 autonomous_learner (21,181 exact ★)
 
     # Async metadata
     job_id: Optional[str]
@@ -461,42 +558,43 @@ class UltimateResponse(BaseModel):
 
 ---
 
-## 17.7 Per-Phase Timing Profile (April 16, 2026 — GPU Active)
+## 17.7 Per-Phase Timing Profile (April 23, 2026 — GPU Active)
 
-| Phase | Description | GPU cost (April 2026) | CPU cost (March 2026 ref) |
-|---|---|---|---|
-| Preflight | `preflight_gate.sh` — 27 ✅ / 0 ❌ / 0 ⚠️ (line 166 non-issue) | Pre-compose | Pre-compose |
+| Phase | Description | GPU cost (April 23, 2026 ★) | CPU cost (March 2026 ref) |
+|:--|:--|:--|:--|
+| Preflight | `preflight_gate.sh` — 27 ✅ / 0 ❌ / 0 ⚠️ | Pre-compose | Pre-compose |
 | Auth perimeter | `allis-auth:8055` `forward_auth` — OI-36-A closed; 5 tokens Redis:6380 | < 0.1s | N/A |
-| Phase 1 | Service discovery + NBB prefrontal (30s TTL, 108 containers) | ~0.7s | ~0.7s |
-| Phase 1.4 | BBB 6-filter input — AU-02 v2 three-layer; `BBB_OUTPUT_BLOCKING=true`; TruthVerification → `msallisgis:5435` 551 tables | ~1.3s | ~1.3s |
-| Phase 1.45 | Community memory — `autonomous_learner` top-5 (21,181 stable); 48 collections, 6,739,844 vectors | Included | Included |
+| Phase 1 | Service discovery + NBB prefrontal (30s TTL, 100 containers ★) | ~0.7s | ~0.7s |
+| Phase 1.4 | BBB 6-filter input — AU-02 v2 three-layer; all fail-closed ★; TruthVerification → production `msallis-db` host 5433 ★, 294 tables | ~1.3s | ~1.3s |
+| Phase 1.45 | Community memory — `autonomous_learner` top-5 (21,181 exact ★); 48 collections, ~6,740,611 vectors | Included | Included |
 | Phase 1.75–3 pre-LLM | Truth verdict (resolved) + psychology (968 docs) + consciousness layers (all running, identity seeded 8 docs) | ~0.5s | ~0.5s |
-| Phase 4 | RAG — spiritual-rag, gis-rag (551 tables, 1,115,588 address_points), text-rag (7,465 docs), local-resources (207 docs, 64 verified incl. 3 Kanawha) | Included | Included |
-| Phase 2.5 | 21-model LLM ensemble — RTX 4070 GPU | **~99–107s** | ~320–360s |
+| Phase 4 | RAG — spiritual-rag, gis-rag (production host 5433 ★, 294 tables, 1,115,588 address_points), text-rag (7,465 docs), local-resources (207 docs, 64 verified) | Included | Included |
+| Phase 2.5 | 21-model LLM ensemble — RTX 4070 GPU | **~102.58s (full pipeline) ★** | ~320–360s |
 | Phase 3 | 7-judge pipeline — parallel GPU; `rag_grounded_v2` + `llm_judge_v3` | **~6–8s** | ~60–86s |
-| Phase 3→4 handoff | Judge → BBB full verdict dict; `BBB_OUTPUT_BLOCKING=true` | < 1s | < 1s |
+| Phase 3→4 handoff | Judge → BBB full verdict dict; fail-closed ★ | < 1s | < 1s |
 | Phase 3.5 | LM Synthesizer — `llama3.1:latest`; identity enforced | **~2–8s** | ~30–55s |
 | Phase 7 + 4.5 | 69-DGM cascade (127.0.0.1:19000) + BBB final pass | ~0.5s | ~0.5s |
-| Phase 5 + post | Confidence decay + normalize_identity + background_rag_store → `ms_allis_memory` (clean) | ~0.5s | ~0.5s |
-| **Total** | **Full 9-phase pipeline** | **~107–115s** | **~436s** |
+| Phase 5 + post | Confidence decay + normalize_identity + background_rag_store → `ms_allis_memory` | ~0.5s | ~0.5s |
+| **Total** | **Full 9-phase pipeline** | **~102.58s ★** | **~436s** |
 
-> GPU transition: ~436s → ~107–115s (~75% improvement). Dominant residual cost: Phase 2.5 (~99–107s). `autonomous_learner`: 21,181 records confirmed stable (unchanged from March baseline).
+> GPU transition: ~436s → ~102.58s (~76% improvement). `autonomous_learner`: 21,181
+> exact (April 23, 2026 ★). Production DB: `msallis-db` host 5433 for all pipeline
+> queries ★.
 
 ---
 
 ## 17.8 Full Sprint Closure — Change History
 
 | Change | Applied | Status |
-|---|---|---|
+|:--|:--|:--|
 | Judge consensus-only payload (eliminated `raw_responses`) | March 16 | ✅ |
 | Phase 3.5 + 3.75 merged — single Ollama call | March 18 | ✅ |
 | Health-check caching (30s TTL) | March 18 | ✅ |
 | BBB fail-open on HTTP 500 | March 18 | ✅ |
 | Judge URL corrections (7239 → 7230/7231/7232/7233) | March 16 | ✅ |
 | Judge → BBB full verdict dict handoff wired | March 18 | ✅ |
-| `msallisgis` port corrected to 5435 throughout | March 28 | ✅ |
 | `allis-memory` 127.0.0.1, `_auth()` confirmed | March 28 | ✅ |
-| GPU inference active — RTX 4070 | April 6 | ✅ Phase 2.5: 320–360s → 99–107s |
+| GPU inference active — RTX 4070 | April 6 | ✅ Phase 2.5: 320–360s → 99–107s → **102.58s ★** |
 | Phase 3: 7 judges parallel GPU (OI-37-C) | April 6 | ✅ 60–86s → 6–8s |
 | Phase 3.5: GPU LM Synthesizer | April 6 | ✅ 30–55s → 2–8s |
 | `rag_grounded_v2` + `llm_judge_v3` integrated | April 6 | ✅ GBIM contradiction detection live |
@@ -506,60 +604,60 @@ class UltimateResponse(BaseModel):
 | Hallucination gap — live end-to-end April 15 | April 15 | ✅ Canonical governance query passed |
 | Cloudflare tunnel — egeria.mountainshares.us | April 2026 | ✅ |
 | Community resources seeded — 64 verified, 207 total | April 16 | ✅ |
-| Split-brain DB topology documented | April 16 | ✅ |
 | Sprint 2 deploy sequence (6-step runbook) | April 16 | ✅ |
-| `redteam_sessions` table confirmed at port 5435 | April 16 | ✅ 0 rows, ready |
-| `local_resources_index` schema confirmed | April 16 | ✅ name, program_code, category, county, zip |
-| `msallisgis` table count confirmed 551 | April 16 | ✅ |
+| `msallisgis` table count confirmed (551 legacy / 294 production ★) | April 16 / April 23 | ✅ |
 | Neurobiological crash loop resolved | April 16 | ✅ `Dockerfile.neuro` rebuilt |
 | ChromaDB 3 corrupt collections rebuilt clean | April 16 | ✅ ms_allis_memory, ms_allis_identity, conversation_history |
 | UUID hardcode eliminated — SDK `get_collection()` | April 16 | ✅ `msallisconsciousnessbridge.py` |
-| `Dockerfile.brain` COPY path fixed | April 16 | ✅ `COPY ../services` |
 | `Dockerfile.fractal` added + `requests` baked in | April 16 | ✅ |
 | Memory Redis isolation fixed | April 16 | ✅ `allis-memory` added to `default` network |
 | `truthverdict` propagation resolved | April 16 | ✅ `locals()` key mismatch; `truth_score: 1.0` live |
 | `architecture_layers: 12` confirmed in all responses | April 16 | ✅ |
 | ChromaDB 48 collections confirmed | April 16 | ✅ |
-| ChromaDB 6,739,844 total vectors confirmed | April 16 | ✅ |
-| `autonomous_learner` 21,181 records confirmed stable | April 16 | ✅ unchanged from March |
-| Preflight gate line 166 bug — NON-ISSUE | April 16 | ✅ line does not exist |
+| `autonomous_learner` 21,181 records confirmed exact ★ | April 23 | ✅ |
 | `ms_allis_identity` seeded | April 16 | ✅ 8 constitutional docs, query-verified |
 | Phase 2 county resource seeding — Kanawha gate met | April 16 | ✅ 3 county-specific records; template for Sprint 3 |
 | Git commit `fdd3d13d` | April 16 | ✅ 5 files, 1023 ins, 494 del |
-| **CPU → GPU total improvement** | **April 2026** | **✅ ~436s → ~107–115s (~75%)** |
+| **Two-container DB split ★** | **April 23** | **✅ Production `msallis-db` host 5433 / Forensic `postgis-forensic` host 5452** |
+| Container count → 100 ★ | April 23 | ✅ 100 Up, zero Restarting, zero Exited |
+| ChromaDB → ~6,740,611 vectors ★ | April 23 | ✅ |
+| GPU pipeline → 102.58s ★ | April 23 | ✅ |
+| **CPU → GPU total improvement** | **April 2026** | **✅ ~436s → ~102.58s (~76%) ★** |
 
 ---
 
 ## 17.9 Container Infrastructure Supporting the Execution Path
 
 | Phase | Primary containers | Ports | Status |
-|---|---|---|---|
+|:--|:--|:--|:--|
 | Preflight | `scripts/preflight_gate.sh` | N/A | ✅ 27/27 |
 | Auth perimeter | `allis-auth` | 8055 | ✅ OI-36-A closed |
 | Phase 1 | `allis-main-brain` | 8050 | ✅ |
-| Phase 1.4 | `allis-blood-brain-barrier` | 8016 | ✅ blocking active |
-| Phase 1.45 | `allis-autonomous-learner`, `allis-ollama`, `allis-chroma` | 8425, 11434, 8002→8000 | ✅ 21,181 stable |
+| Phase 1.4 | `allis-blood-brain-barrier` | 8016 | ✅ blocking active; all fail-closed ★ |
+| Phase 1.45 | `allis-autonomous-learner`, `allis-ollama`, `allis-chroma` | 8425, 11434, 8002→8000 | ✅ 21,181 exact ★ |
 | Phase 1.75–3 | `allis-neurobiological-master` (rebuilt ✅), `allis-fractal-consciousness` (Dockerfile.fractal ✅), `allis-consciousness-bridge` (SDK ✅) | various | ✅ all running |
 | Phase 2.5 | `allis-20llm-production`, `allis-semaphore`, llm1–22 proxies | 8008, 8030, 8201–8222 | ✅ GPU active |
 | Phase 3 | `allis-judge-truth/consistency/alignment/ethics/pipeline`, `llm_judge_v3`, `rag_grounded_v2` | 7230–7233, 7239 | ✅ 7 judges |
-| Phase 3→4 | `allis-blood-brain-barrier` | 8016 | ✅ blocking active |
+| Phase 3→4 | `allis-blood-brain-barrier` | 8016 | ✅ blocking active; fail-closed ★ |
 | Phase 3.5 | `allis-lm-synthesizer`, `allis-ollama` | internal, 11434 | ✅ identity enforced |
 | Phase 4 | `allis-spiritual-rag`, `allis-gis-rag`, `allis-rag-server`, `allis-local-resources-db` | 8005, 8004, 8003 | ✅ |
-| Phase 4 data | `allis-msallisgis` (551 tables), `allis-chroma` (48 collections, 3 clean + seeded), local-resources Postgres | 5435, 8002→8000 | ✅ |
+| Phase 4 data | **Production `msallis-db`** (294 tables ★), `allis-chroma` (48 collections, ~6,740,611 vectors ★) | **5433 ★**, 8002→8000 | ✅ |
+| Phase 4 data | **Forensic `postgis-forensic`** (314 tables) | **5452 ★** | ✅ forensic only |
 | Phase 7 | `allis-69dgm-bridge` | 127.0.0.1:19000→9000 | ✅ |
-| Phase 5 | `allis-main-brain`, `allis-memory` (network fixed ✅) | 8050, 8056 (127.0.0.1) | ✅ |
+| Phase 5 | `allis-main-brain`, `allis-memory` / `allis-memory` (network fixed ✅) | 8050, 8056 (127.0.0.1) | ✅ |
 | External | Cloudflare tunnel | egeria.mountainshares.us | ✅ LIVE |
-
-> Git commit `fdd3d13d` — branch `chore/ch29-closeout-rbac-pia-2026-04-07`: `docker-compose.yml`, `services/Dockerfile.fractal`, `services/msallisconsciousnessbridge.py`, `msallis-rebuild/docker-compose.yml`, `msallis-rebuild/Dockerfile.brain`. Docker Compose v5.1.0.
+| **★ April 23, 2026 stack** | — | — | ✅ **100 containers Up — zero Restarting, zero Exited** |
 
 ---
 
 ## 17.10 Phase 2 County Resource Seeding — Sprint Gate Closure
 
-Phase 2 county resource seeding gate condition is met as of April 16, 2026. Kanawha County is confirmed with 3 verified county-specific records and serves as the implementation template for all 54 remaining counties in Sprint 3 enrichment.
+Phase 2 county resource seeding gate condition is met as of April 16, 2026. Kanawha
+County is confirmed with 3 verified county-specific records and serves as the
+implementation template for all 54 remaining counties in Sprint 3 enrichment.
 
 | County | Records | Type | Status |
-|---|---|---|---|
+|:--|:--|:--|:--|
 | Fayette County | 11 | Verified, county-specific | ✅ |
 | Kanawha County | 3 | Verified, county-specific | ✅ Phase 2 gate |
 | All other WV counties (53) | ~193 | WV 2-1-1 statewide placeholders | Sprint 3 — real data pull |
@@ -569,66 +667,67 @@ Kanawha County confirmed records:
 - Low-income resource directory: housing, rental, Charleston-Kanawha
 - Disaster relief / assessor contact
 
-Sprint 3 data enrichment will pull real, verified, county-specific resource data from WV 211, DHHR county office directories, and community action agency records for all remaining 54 counties, using Kanawha as the implementation template. The 207 docs currently in ChromaDB `local_resources` are real data — confirmed by gate passing 27 ✅. Statewide services mislabeled as county-specific are a data quality issue addressed in Sprint 3, not a gate failure.
+Sprint 3 data enrichment will pull real, verified, county-specific resource data from
+WV 211, DHHR county office directories, and community action agency records for all
+remaining 54 counties, using Kanawha as the implementation template.
 
 ---
 
-## 17.11 Split-Brain Database Topology
+## 17.11 Split-Brain Database Topology (April 23, 2026 ★)
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│     Split-Brain PostgreSQL Topology — April 16, 2026 CLOSED  │
+│     Two-Container PostgreSQL Topology — April 23, 2026 ★     │
 ├──────────────────────────────────────────────────────────────┤
 │                                                               │
-│  Instance 1: msallisgis (port 5435)                          │
-│    45 GB PostGIS — 551 tables ✅                              │
+│  Production DB: msallis-db                                   │
+│    Host port: 5433 / Container port: 5432                    │
+│    msallisgis: 16 GB / 294 tables / 11 schemas ★            │
 │    993 ZCTA centroids                                         │
 │    address_points: 1,115,588                                  │
-│    gbim_worldview_entity: 5,416,521                           │
 │    mvw_gbim_landowner_spatial: 20,593                         │
 │    memories table: 6 col, 4 idx                               │
 │    redteam_sessions: 0 rows (ready)                           │
 │    local_resources_index: name, program_code,                │
 │      category, county, zip                                    │
+│    msallis GBIM belief store (same container):               │
+│      gbim_entities = 37 rows                                  │
+│    GBIM semantic entity store = ChromaDB                     │
+│      gbim_worldview_entities: 5,416,521 vectors              │
 │    Consumers: gis-rag (8004), rag_grounded_v2,               │
 │      BBB TruthVerification, confidence_decay,                 │
-│      gbim_query_router (7205), preflight gate                │
-│                                                               │
-│  Instance 2: msallis (port 5433)                             │
-│    GBIM entity store                                          │
-│    5,416,521 gbim_worldview_entity rows                       │
-│    confidence_decay metadata                                  │
-│    Consumers: spiritual-rag (8005), main-brain,              │
+│      gbim_query_router (7205), preflight gate,               │
+│      spiritual-rag (8005), main-brain,                       │
 │      autonomous_learner, identity/auth                       │
 │                                                               │
-│  Instance 3: local-resources Postgres                        │
-│    64 verified resources                                      │
-│      11 Fayette + 3 Kanawha (Phase 2 gate ✅) +              │
-│      50 WV 2-1-1 placeholders (Sprint 3)                     │
-│    207 docs mirrored in ChromaDB local_resources             │
-│    local_resources_index: name, program_code,                │
-│      category, county, zip                                    │
-│    redteam_sessions: 0 rows (ready)                           │
-│    Consumers: local-resources resolver, Phase 4 registry,    │
-│      redteam harness                                          │
+│  Forensic DB: postgis-forensic                               │
+│    Host port: 5452                                            │
+│    msallisgis: 17 GB / 314 tables / 9 schemas ★             │
+│    Consumers: FORENSIC AUDITING ONLY                          │
+│                                                               │
+│  Note: Legacy port 5435 (single-container `msallisgis`)      │
+│    is superseded by this two-container split.                 │
+│    All pipeline references updated to host 5433 ★.           │
 │                                                               │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-> Figure 17-5. Split-brain PostgreSQL topology — April 16, 2026 CLOSED. `msallisgis`: 551 tables confirmed. Kanawha County Phase 2 gate met.
+> Figure 17-5. Two-container PostgreSQL topology — April 23, 2026 ★. Production
+> `msallis-db` host 5433 (16 GB / 294 tables) serves all pipeline queries. Forensic
+> `postgis-forensic` host 5452 (17 GB / 314 tables) is forensic auditing only.
 
 ---
 
-## 17.12 Sprint 2 Deploy Sequence
+## 17.12 Sprint 2 Deploy Sequence (Updated April 23, 2026)
 
 ```bash
 # Step 1: Preflight
 bash scripts/preflight_gate.sh
-# Expected: 27 ✅ / 0 ❌ / 0 ⚠️ (line 166 non-issue — does not exist)
+# Expected: 27 ✅ / 0 ❌ / 0 ⚠️
 
 # Step 2: Start all containers
 cd ~/msallis-rebuild-working/msallis-rebuild && docker compose up -d
-# Expected: 108 containers Up
+# Expected: 100 containers Up ★
 
 # Step 3: Start pipeline containers
 ~/allis_startup.sh
@@ -660,17 +759,18 @@ curl -s http://localhost:8080/chat \
 ## 17.13 Async Job API
 
 | Endpoint | Method | Function |
-|---|---|---|
+|:--|:--|:--|
 | `/chat/async` | POST | Create async job — returns `job_id` immediately |
 | `/chat/status/{job_id}` | GET | Poll for progress and result |
 | `/chat/cancel/{job_id}` | DELETE | Cancel specific job — true `asyncio.Task.cancel()` |
 | `/chat/cancel/all` | DELETE | Cancel all running jobs |
 
-Job state stored in Redis (`allis-redis:6380`, 5 active tokens confirmed) with 30-minute TTL. Survives `allis-main-brain` container restarts.
+Job state stored in Redis (`allis-redis:6380`, 5 active tokens confirmed) with 30-minute
+TTL. Survives `allis-main-brain` container restarts.
 
 ---
 
-## 17.14 Verified Reboot Sequence (April 16, 2026 — CLOSED)
+## 17.14 Verified Reboot Sequence (April 23, 2026 ★)
 
 ```bash
 # Step 1: Preflight
@@ -679,7 +779,7 @@ bash scripts/preflight_gate.sh
 
 # Step 2: Start all containers
 cd ~/msallis-rebuild-working/msallis-rebuild && docker compose up -d
-# Expected: 108 Up
+# Expected: 100 Up ★
 
 # Step 3: Pipeline containers
 ~/allis_startup.sh
@@ -687,40 +787,42 @@ cd ~/msallis-rebuild-working/msallis-rebuild && docker compose up -d
 
 # --- Verification ---
 
-# msallisgis table count
-psql -h 127.0.0.1 -p 5435 -U postgres -d msallisgis \
-  -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='public';"
-# Expected: 551
+# Production msallisgis table count ★
+psql -h 127.0.0.1 -p 5433 -U postgres -d msallisgis \
+  -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog','information_schema');"
+# Expected: 294 ★
 
-# GBIM entities
-psql -h 127.0.0.1 -p 5435 -U postgres -d msallisgis \
-  -c "SELECT COUNT(*) FROM gbim_worldview_entity;"
-# Expected: 5416521
+# Forensic DB table count ★
+psql -h 127.0.0.1 -p 5452 -U allis -d msallisgis \
+  -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog','information_schema');"
+# Expected: 314 ★
 
-# address_points
-psql -h 127.0.0.1 -p 5435 -U postgres -d msallisgis \
+# address_points (production)
+psql -h 127.0.0.1 -p 5433 -U postgres -d msallisgis \
   -c "SELECT COUNT(*) FROM address_points;"
 # Expected: 1115588
 
-# autonomous_learner record count
+# autonomous_learner record count (production msallis belief store)
 psql -h 127.0.0.1 -p 5433 -U postgres -d msallis \
   -c "SELECT COUNT(*) FROM autonomous_learner;"
-# Expected: 21181
+# Expected: 21181 ★
 
-# ChromaDB collections
-curl -s http://localhost:8002/api/v2/collections | python3 -c \
-  "import sys,json; cols=json.load(sys.stdin); print(len(cols))"
+# GBIM belief entities (production msallis belief store)
+psql -h 127.0.0.1 -p 5433 -U postgres -d msallis \
+  -c "SELECT COUNT(*) FROM gbim_entities;"
+# Expected: 37 ★
+
+# ChromaDB collections (v2 API)
+curl -s "http://localhost:8002/api/v2/tenants/default_tenant/databases/default_database/collections" \
+  | python3 -c "import sys,json; cols=json.load(sys.stdin); print(len(cols))"
 # Expected: 48
 
-# ChromaDB total vectors
-curl -s http://localhost:8002/api/v2/collections | python3 -c \
-  "import sys,json; cols=json.load(sys.stdin); \
-   print(sum(c.get('count',0) for c in cols))"
-# Expected: 6739844
+# ChromaDB total vectors (v2 API — use Python client for per-collection count())
+# Total ~6,740,611 ★
 
 # ms_allis_identity seeded
-curl -s "http://localhost:8002/api/v2/collections/ms_allis_identity" | python3 -c \
-  "import sys,json; c=json.load(sys.stdin); print('docs:', c.get('count',0))"
+curl -s "http://localhost:8002/api/v2/tenants/default_tenant/databases/default_database/collections/ms_allis_identity" \
+  | python3 -c "import sys,json; c=json.load(sys.stdin); print('docs:', c.get('count',0))"
 # Expected: docs: 8
 
 # Auth enforcement
@@ -732,26 +834,51 @@ curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/chat \
 # Redis active tokens
 redis-cli -p 6380 keys '*' | wc -l
 # Expected: 5
+
+# Confirm container count
+docker ps --filter "status=running" | wc -l
+# Expected: 101 (100 containers + header line) ★
 ```
 
+> **ChromaDB API note (permanent):** v1 API is deprecated. Use canonical v2 path:
+> `/api/v2/tenants/default_tenant/databases/default_database/collections`. Per-collection
+> counts require Python client `collection.count()` — UUID two-step pattern. All scripts
+> must use v2.
+
 ---
 
-**Chapter 17 is CLOSED. No open items remain. All sprint items resolved April 16, 2026. Authoritative reference for all architectural claims: Chapters 18–42.**
+**Chapter 17 is CLOSED. No open items remain. All sprint items resolved April 16, 2026.
+April 23, 2026 updates applied: container count → 100, ChromaDB → ~6,740,611 vectors,
+two-container DB split (production `msallis-db` host 5433 / forensic `postgis-forensic`
+host 5452), GPU → 102.58s, `autonomous_learner` → 21,181 exact. Authoritative reference
+for all architectural claims: Chapters 18–42.**
 
 ---
 
-*Last updated: 2026-04-16 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: April 23, 2026 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
-*March 27, 2026: GPU corrected RTX 4050 → RTX 4070. ContextAwareness 7th filter note added. AAPCAppE first-run footnote added.*
+*March 27, 2026: GPU corrected RTX 4050 → RTX 4070. AAPCAppE first-run footnote added.*
 
-*March 28, 2026: 96 containers Up. `msallis` port 5433 restored. `msallisgis` port 5432 confirmed (91 GB PostGIS, 501 tables). ChromaDB 40 collections, 6,675,442 vectors. `spiritual_rag` deduplicated. `psychological_rag` restored. `msallis_docs` expanded. `allis-memory` 127.0.0.1 corrected. `_auth()` confirmed. `ALLIS_API_KEY` set.*
+*March 28, 2026: 96 containers Up. `allis-memory` 127.0.0.1 corrected. `_auth()`
+confirmed. `ALLIS_API_KEY` set. ChromaDB 40 collections, 6,675,442 vectors.*
 
-*April 1–6, 2026: OI-37-C closed — 7 judges, `rag_grounded_v2` + `llm_judge_v3`. OI-36-A closed — auth enforcement. OI-02 closed — BBB blocking. OI-38-B closed — red-team PASSED. GPU active — RTX 4070. AU-02 v2 three-layer. Port corrected to 5435. Tables updated. Cloudflare live. Token enforcement active. Container count → 108. `architecture_layers` = 12.*
+*April 1–6, 2026: OI-37-C closed — 7 judges, `rag_grounded_v2` + `llm_judge_v3`.
+OI-36-A closed — auth enforcement. OI-02 closed — BBB blocking. OI-38-B closed —
+red-team PASSED. GPU active — RTX 4070. AU-02 v2 three-layer. Container count → 108.
+`architecture_layers` = 12.*
 
-*April 15, 2026: Hallucination gap closed — live end-to-end `/chat` passed. `allis-unified-gateway` IndentationError fixed.*
+*April 15, 2026: Hallucination gap closed — live end-to-end `/chat` passed.*
 
-*April 16, 2026 Session 1: Container count 108. ChromaDB 48 collections. `msallisgis` 548 tables. `msallis_docs` 7,465. `address_points` 1,115,588. `mvw` 20,593. `redteam_sessions` documented. `local_resources_index` schema documented. Split-brain topology documented. 64 verified resources / 207 total. Sprint 2 runbook documented. `preflight_gate.sh` line 166 bug noted (later confirmed non-issue). `truthverdict: None` wiring noted (later confirmed resolved).*
+*April 16, 2026: 108 containers. ChromaDB 48 collections, 6,739,844 vectors.
+`autonomous_learner` 21,181 stable. `ms_allis_identity` 8 constitutional docs seeded
+and query-verified. Neurobiological crash loop resolved. UUID hardcode → SDK
+`get_collection()`. `truthverdict` wiring resolved. Git commit `fdd3d13d`. Chapter 17
+CLOSED.*
 
-*April 16, 2026 Session 2: `msallisgis` 551 tables confirmed. Neurobiological crash loop resolved. ChromaDB 3 corrupt collections rebuilt clean and seeded. UUID hardcode eliminated — SDK `get_collection()`. `Dockerfile.brain` COPY path fixed. `Dockerfile.fractal` + `requests` baked. `allis-memory` `default` network added. `truthverdict` propagation confirmed resolved. Git commit `fdd3d13d`.*
-
-*April 16, 2026 Full Sprint Closure: ChromaDB 48 collections ✅. Total vectors 6,739,844 ✅. `autonomous_learner` 21,181 stable ✅. Gate line 166 non-issue ✅. `ms_allis_identity` 8 constitutional docs seeded and query-verified ✅. Phase 2 county resource seeding — Kanawha gate met (3 county-specific records) ✅. Sprint 3 template established. No open items remain. Chapter 17 CLOSED.*
+*April 23, 2026 ★: Container count → 100 (zero Restarting, zero Exited). ChromaDB →
+~6,740,611 vectors / 48 collections confirmed. `autonomous_learner` → 21,181 exact.
+Two-container DB split applied throughout: production `msallis-db` host 5433 (16 GB /
+294 tables / 11 schemas); forensic `postgis-forensic` host 5452 (17 GB / 314 tables /
+9 schemas). GPU → 102.58s. All per-phase diagrams, timing tables, service tables,
+reboot sequence, and deploy runbook updated. All references to legacy port 5435
+(single-container) superseded by host 5433 production. Chapter 17 remains CLOSED.*
