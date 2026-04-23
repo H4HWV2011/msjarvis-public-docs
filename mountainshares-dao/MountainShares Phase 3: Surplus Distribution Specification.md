@@ -46,9 +46,9 @@ All EMS hours, ranks, and badges from Phase 0, Phase 1, and Phase 2 carry forwar
 
 Phase 3 is defined by a new and permanent treasury floor: the **500% Reserve Floor**. This is the minimum treasury position the system must maintain at all times from the moment Phase 3 activates forward. The 500% floor is not a target — it is a hard floor below which no distribution may occur, below which the dividend clock pauses, and below which Phase 3 earning ceilings reduce automatically.
 
-- **500% Floor is Permanent and Non-Negotiable:** Once Phase 3 activates, the treasury must hold ≥ 5.0 reserve ratio at all times. The DAO may not vote to lower this floor. Ms. Jarvis enforces it automatically. It cannot be overridden.
+- **500% Floor is Permanent and Non-Negotiable:** Once Phase 3 activates, the treasury must hold ≥ 5.0 reserve ratio at all times. The DAO may not vote to lower this floor. Ms. Allis enforces it automatically. It cannot be overridden.
 - **Surplus is Defined as Excess Above 500%:** Any treasury position above 5.0 reserve ratio is surplus. Surplus accumulates. It does not distribute automatically — it distributes on the 7-year community dividend cycle defined in Section 5.
-- **Nothing Distributes Without Surplus:** A treasury at exactly 500% does not trigger distribution. Distribution requires that the surplus pool is sufficient to fund a meaningful dividend while maintaining ≥ 500% after distribution. Ms. Jarvis calculates this before every distribution event.
+- **Nothing Distributes Without Surplus:** A treasury at exactly 500% does not trigger distribution. Distribution requires that the surplus pool is sufficient to fund a meaningful dividend while maintaining ≥ 500% after distribution. Ms. Allis calculates this before every distribution event.
 - **Legal Operability Remains a Treasury Priority:** The commons cannot function without H4H maintaining its legal and regulatory standing. The Regulatory Compliance Reserve Draw mechanism (Section 7A) carries forward from Phase 2 with updated thresholds appropriate to Phase 3 scale. Regulatory compliance costs are infrastructure. They are funded before surplus accumulates, not from the surplus pool.
 - **Hard Triggers Remain Permanent:** All Phase 1 and Phase 2 hard trigger rules remain in force. They do not soften in Phase 3.
 
@@ -78,11 +78,11 @@ All current rates and caps are maintained in the [Program Rules – Parameter Ta
 
 All Phase 1 and Phase 2 Benefits-Sensitive Account protections carry forward unchanged. Phase 3 adds:
 
-- **Dividend distribution notice:** Ms. Jarvis provides advance plain-language notice to all Benefits-Sensitive Account holders no less than 60 days before a distribution event, with projected allocation amounts and a strong advisement to consult a benefits counselor before choosing a distribution form.
+- **Dividend distribution notice:** Ms. Allis provides advance plain-language notice to all Benefits-Sensitive Account holders no less than 60 days before a distribution event, with projected allocation amounts and a strong advisement to consult a benefits counselor before choosing a distribution form.
 - **Distribution form flexibility:** Benefits-Sensitive Account holders may elect to receive their distribution as EMS Recognition Bonus (permanent recognition hours, not a financial instrument) rather than M$ or USD, specifically to protect benefits eligibility. This election is irrevocable once made for a given distribution event.
 - **No forced disclosure:** Participation in The Commons and receipt of a dividend distribution does not require disclosure of benefit status. Benefits-Sensitive Account protections are participant-controlled and opt-in.
 
-### 3.4 Phase 3 Safety Threshold Table (Ms. Jarvis Enforces Automatically)
+### 3.4 Phase 3 Safety Threshold Table (Ms. Allis Enforces Automatically)
 
 | Reserve Ratio | Global Base Rate | Dividend Clock | Regulatory Compliance Draws | Action |
 |---------------|-----------------|---------------|---------------------------|--------|
@@ -92,8 +92,8 @@ All Phase 1 and Phase 2 Benefits-Sensitive Account protections carry forward unc
 | < 3.0 | Phase 1/2 recovery rules | Paused + emergency | Emergency session required | Full emergency protocol; distribution commitments suspended |
 
 **Automatic Trigger Logic:**
-- Ms. Jarvis recalculates reserve ratio daily.
-- If ratio drops below 5.0, dividend clock pauses immediately; Ms. Jarvis publishes plain-language notice to all eligible UEIs.
+- Ms. Allis recalculates reserve ratio daily.
+- If ratio drops below 5.0, dividend clock pauses immediately; Ms. Allis publishes plain-language notice to all eligible UEIs.
 - Clock resumes when ratio has held ≥ 5.0 for ≥ 180 consecutive days.
 - If ratio drops below 3.0, Phase 2 emergency protocols reactivate in full.
 - Regulatory Compliance Reserve Draws are calculated against the reserve ratio after draw. No draw may fire if it would push the ratio below 5.0. Draws that would breach the floor are automatically queued in the deferral queue per Section 7A.6.
@@ -121,7 +121,7 @@ For generations, the wealth produced in Central Appalachia has left. Coal left. 
 
 ### 5.1 The Dividend Clock
 
-The 7-year community dividend clock starts on the date Phase 3 formally activates — defined as: the DAO adoption vote on the Phase 3 Specification passes AND Ms. Jarvis confirms the reserve ratio has held ≥ 5.0 for 30+ consecutive days. The clock runs continuously from that date forward.
+The 7-year community dividend clock starts on the date Phase 3 formally activates — defined as: the DAO adoption vote on the Phase 3 Specification passes AND Ms. Allis confirms the reserve ratio has held ≥ 5.0 for 30+ consecutive days. The clock runs continuously from that date forward.
 
 **Clock behavior:**
 - If the treasury holds ≥ 5.0 for the full 7-year window: distribution event triggers at Year 7, subject to Section 5.3 conditions.
@@ -132,7 +132,7 @@ The 7-year community dividend clock starts on the date Phase 3 formally activate
 
 ### 5.2 Surplus Pool Definition
 
-The surplus pool available for distribution is calculated by Ms. Jarvis on the day of the distribution event:
+The surplus pool available for distribution is calculated by Ms. Allis on the day of the distribution event:
 
 ```
 Surplus Pool = Total Treasury Backing Assets (USD)
@@ -152,7 +152,7 @@ The surplus pool is the amount the treasury holds above the 500% floor, net of a
 
 ### 5.3 Distribution Conditions (All Must Be Met)
 
-Before any distribution fires, Ms. Jarvis verifies all of the following:
+Before any distribution fires, Ms. Allis verifies all of the following:
 
 1. The treasury has held ≥ 5.0 for ≥ 180 consecutive days immediately before the distribution date.
 2. The surplus pool calculation (Section 5.2) yields a positive surplus net of queued regulatory draws.
@@ -161,7 +161,7 @@ Before any distribution fires, Ms. Jarvis verifies all of the following:
 5. No active emergency governance session, active fraud investigation, or active security incident affecting the treasury.
 6. DAO distribution confirmation vote passes (simple majority). This is a confirmation vote — if conditions 1–5 are met, the DAO confirms timing and distribution mechanics. It is not a vote on whether the distribution occurs; that is determined by the conditions above.
 
-If any of conditions 1–5 are not met, the distribution is automatically deferred. Ms. Jarvis publishes a plain-language explanation to all eligible UEIs within 24 hours of the deferral determination.
+If any of conditions 1–5 are not met, the distribution is automatically deferred. Ms. Allis publishes a plain-language explanation to all eligible UEIs within 24 hours of the deferral determination.
 
 ### 5.4 Distribution Cadence After Phase 3 Activation
 
@@ -190,7 +190,7 @@ The 30-day minimum is a hard floor. A UEI that joined the system 29 days before 
 
 ### 6.2 Participation Weight Calculation
 
-Eligible UEIs receive a share of the surplus pool proportional to their **Participation Weight (PW)**. PW is calculated by Ms. Jarvis as follows:
+Eligible UEIs receive a share of the surplus pool proportional to their **Participation Weight (PW)**. PW is calculated by Ms. Allis as follows:
 
 ```
 Participation Weight (PW) =
@@ -219,11 +219,11 @@ Individual Allocation =
   × Total Surplus Pool
 ```
 
-Ms. Jarvis calculates all PW scores, the total eligible PW pool, and each individual allocation before the distribution event. Preliminary calculations are published at least 30 days before distribution fires:
+Ms. Allis calculates all PW scores, the total eligible PW pool, and each individual allocation before the distribution event. Preliminary calculations are published at least 30 days before distribution fires:
 - Network-wide aggregate view: publicly visible, anonymized
 - Individual view: each UEI sees their own projected allocation and PW breakdown in their personal dashboard
 
-Final calculations run 72 hours before distribution fires. If final calculations differ materially from preliminary calculations (>5% change in total eligible PW), Ms. Jarvis publishes an explanation and the DAO confirmation vote window re-opens for 48 hours.
+Final calculations run 72 hours before distribution fires. If final calculations differ materially from preliminary calculations (>5% change in total eligible PW), Ms. Allis publishes an explanation and the DAO confirmation vote window re-opens for 48 hours.
 
 ### 6.4 Allocation Form
 
@@ -235,7 +235,7 @@ Distributions are issued in one of three forms, elected by the participant:
 
 **Election deadline:** Participants must make their allocation form election within 60 days of the distribution event. After 60 days, unelected distributions default to M$ credit.
 
-**Benefits-Sensitive Accounts:** Ms. Jarvis provides advance notice at least 60 days before distribution with projected allocation amounts. Participants are strongly advised to consult a benefits counselor before electing USD cash-out. The EMS Recognition Bonus election is specifically designed for participants who need to avoid financial instrument receipts for benefits purposes.
+**Benefits-Sensitive Accounts:** Ms. Allis provides advance notice at least 60 days before distribution with projected allocation amounts. Participants are strongly advised to consult a benefits counselor before electing USD cash-out. The EMS Recognition Bonus election is specifically designed for participants who need to avoid financial instrument receipts for benefits purposes.
 
 ---
 
@@ -245,11 +245,11 @@ Distributions are issued in one of three forms, elected by the participant:
 
 All Phase 1 and Phase 2 DAO authorities carry forward. Phase 3 adds:
 
-✅ **Activity multiplier thresholds** (adjust month brackets for Regular, Sustained, Founding Deep), *subject to Ms. Jarvis verification that the change does not reduce the relative share of long-tenured participants below a governance-defined floor*
+✅ **Activity multiplier thresholds** (adjust month brackets for Regular, Sustained, Founding Deep), *subject to Ms. Allis verification that the change does not reduce the relative share of long-tenured participants below a governance-defined floor*
 ✅ **Allocation form options** (add new forms, e.g., community project investment elections), *subject to legal review*
 ✅ **Distribution confirmation timing** (within a 90-day governance window around the Year 7 date), *not the 7-year interval itself*
 ✅ **Benefits-Sensitive Account distribution thresholds and election options** (county-specific adjustments), *subject to legal review*
-✅ **Surplus pool partial retention** (DAO may vote to retain a portion of surplus above 500% for a specific community infrastructure project rather than distributing it — requires 75% super-majority + published project specification + Ms. Jarvis confirmation that floor is maintained after retention)
+✅ **Surplus pool partial retention** (DAO may vote to retain a portion of surplus above 500% for a specific community infrastructure project rather than distributing it — requires 75% super-majority + published project specification + Ms. Allis confirmation that floor is maintained after retention)
 ✅ **Annual Regulatory Compliance Budget** (approve H4H's submitted annual budget per Section 7A.5)
 ✅ **Future phase initiation** (requires 75% super-majority + 90-day community comment period)
 
@@ -261,7 +261,7 @@ All Phase 1 and Phase 2 hard trigger rules carry forward unchanged. Phase 3 adds
 ❌ Shorten the 7-year distribution interval
 ❌ Remove the 30-day minimum eligibility threshold
 ❌ Distribute from the 500% floor itself — only surplus distributes
-❌ Override Ms. Jarvis pre-distribution verification (conditions 1–5 in Section 5.3 are automatic and non-overridable)
+❌ Override Ms. Allis pre-distribution verification (conditions 1–5 in Section 5.3 are automatic and non-overridable)
 ❌ Alter the participation-weight calculation to remove or penalize any class of eligible participant based on tier, rank, county of residence, or benefits status
 ❌ Allow distribution to suspended or frozen accounts
 ❌ Override Benefits-Sensitive Account distribution protections without 75% super-majority + legal review
@@ -298,13 +298,13 @@ All Phase 2 Section 7A.2 categories carry forward. Phase 3 adds:
 
 ### 7A.3 What Is NOT Eligible (Phase 3)
 
-All Phase 2 Section 7A.3 exclusions carry forward unchanged. The surplus pool does not fund regulatory compliance. The Reserve Draw mechanism funds regulatory compliance. The surplus pool funds community dividends. These two pools are structurally separate and Ms. Jarvis enforces that separation automatically.
+All Phase 2 Section 7A.3 exclusions carry forward unchanged. The surplus pool does not fund regulatory compliance. The Reserve Draw mechanism funds regulatory compliance. The surplus pool funds community dividends. These two pools are structurally separate and Ms. Allis enforces that separation automatically.
 
 ### 7A.4 Draw Process and Governance (Phase 3)
 
 All Phase 2 Section 7A.4 process steps carry forward. Phase 3 updates the reserve floor verification:
 
-- Ms. Jarvis verifies that the requested draw does not reduce the reserve ratio below **5.0 (500%)** after draw, not 3.0.
+- Ms. Allis verifies that the requested draw does not reduce the reserve ratio below **5.0 (500%)** after draw, not 3.0.
 - Dollar thresholds for DAO comment windows remain unchanged: ≤ $10,000 (72-hour window), $10,001–$50,000 (7-day window + simple majority), > $50,000 (14-day window + 66% super-majority).
 - All draws are recorded permanently in the public governance ledger.
 
@@ -338,7 +338,7 @@ The Regulatory Compliance Reserve Draw and the community dividend are structural
 All Phase 2 Section 7A.8 transparency commitments carry forward. Phase 3 adds:
 
 - The annual year-end governance report must include a dedicated section on regulatory standing: all licenses and registrations current, all compliance draws made in the year, all regulatory developments being monitored, and H4H's assessment of the regulatory risk landscape for the coming year.
-- Before each distribution event, Ms. Jarvis publishes a Regulatory Compliance Clearance Report confirming that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory investigations or examinations are pending that could affect the distribution.
+- Before each distribution event, Ms. Allis publishes a Regulatory Compliance Clearance Report confirming that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory investigations or examinations are pending that could affect the distribution.
 
 ---
 
@@ -348,7 +348,7 @@ All Phase 2 Section 7A.8 transparency commitments carry forward. Phase 3 adds:
 
 The following require the higher 75% threshold because they affect the fundamental structure of the dividend:
 
-✅ **Surplus pool partial retention for community infrastructure** (retain a portion of surplus for a specific named project rather than distributing it; requires published project specification and Ms. Jarvis floor verification)
+✅ **Surplus pool partial retention for community infrastructure** (retain a portion of surplus for a specific named project rather than distributing it; requires published project specification and Ms. Allis floor verification)
 ✅ **Future phase initiation** (any structural change beyond Phase 3; requires 90-day community comment period)
 ✅ **Distribution interval extension** (for a specific cycle only, in extraordinary circumstances; may not shorten)
 
@@ -399,7 +399,7 @@ All Phase 1 and Phase 2 audit cadences carry forward. Phase 3 adds:
 
 - **Monthly:** Surplus pool calculation published in full; dividend clock status reported; participation weight calculation updated for all active UEIs; regulatory compliance draw status report
 - **Annually:** Full 7-year accumulation audit — independent review of surplus pool math, participation weight calculations, treasury health, and regulatory standing; H4H submits Annual Regulatory Compliance Budget no later than 60 days before calendar year start
-- **30 days before distribution:** Ms. Jarvis publishes full pre-distribution report: surplus pool, eligible UEIs, all PW scores (anonymized network view), individual projections in personal dashboards, Regulatory Compliance Clearance Report, and distribution conditions verification
+- **30 days before distribution:** Ms. Allis publishes full pre-distribution report: surplus pool, eligible UEIs, all PW scores (anonymized network view), individual projections in personal dashboards, Regulatory Compliance Clearance Report, and distribution conditions verification
 - **72 hours before distribution:** Final calculations published; DAO confirmation vote window opens
 - **Within 30 days post-distribution:** Full distribution record published permanently
 
@@ -413,7 +413,7 @@ Phase 3 has no scheduled end. The commons is designed to operate at Phase 3 inde
 
 Any future phase that alters the 500% floor, the 7-year cycle, or the participation-weighted allocation formula requires:
 - 75% super-majority DAO vote
-- Published impact analysis by Ms. Jarvis
+- Published impact analysis by Ms. Allis
 - 90-day community comment period before the vote
 - Legal review of any structural changes affecting participant rights or benefits protections
 
@@ -441,22 +441,22 @@ All Phase 1 and Phase 2 emergency powers carry forward. Phase 3 adds:
 
 ### 13.1 If Reserve Ratio Falls Below 4.0 During a Distribution Year
 - Distribution deferred automatically
-- Ms. Jarvis notifies all eligible UEIs in plain language within 24 hours
+- Ms. Allis notifies all eligible UEIs in plain language within 24 hours
 - Distribution clock pauses; resumes when ≥ 5.0 for ≥ 180 consecutive days
 - No clawback of previous completed distributions — completed distributions are permanent
 
 ### 13.2 If a Distribution Fraud Event Is Detected Before Firing
 - Distribution holds immediately pending investigation
-- Ms. Jarvis publishes anonymized incident notice within 24 hours
+- Ms. Allis publishes anonymized incident notice within 24 hours
 - Emergency DAO session within 48 hours
 - Distribution fires only after investigation is resolved and DAO confirms clearance
 
 ### 13.3 If a Regulatory Compliance Deadline Cannot Be Met Due to Reserve Constraints
 - H4H calls an emergency governance session within 48 hours of identifying the conflict
-- Ms. Jarvis publishes plain-language explanation to all participants
+- Ms. Allis publishes plain-language explanation to all participants
 - DAO considers options: temporary minting reduction to accelerate reserve growth; emergency fundraising; phased draw; or governed operational pause in the affected jurisdiction
 - H4H notifies the relevant regulatory body in writing within 5 business days; documentation filed in the governance ledger
-- If a compliance lapse would affect the dividend, Ms. Jarvis publishes a specific notice to all eligible UEIs explaining the connection and the remediation plan
+- If a compliance lapse would affect the dividend, Ms. Allis publishes a specific notice to all eligible UEIs explaining the connection and the remediation plan
 
 ### 13.4 Graceful Shutdown Protocol
 If the commons ever votes to wind down operations — which requires 75% super-majority + 180-day notice period + legal review — the following sequence governs:
@@ -483,8 +483,8 @@ All Phase 1 and Phase 2 definitions carry forward. Phase 3 adds:
 - **Founding Deep:** The highest participation tier — 61–84 verified active months (≥ 5 years); receives 2.0× activity multiplier
 - **EMS Recognition Bonus:** An optional distribution form in which a participant elects to convert their dividend into permanent EMS recognition hours; irrevocable once elected for a given distribution event; particularly appropriate for Benefits-Sensitive Account holders
 - **Dividend Farming:** Fraudulent activity designed to artificially inflate Participation Weight; treated as a serious violation with permanent PW forfeiture
-- **Regulatory Compliance Clearance Report:** Ms. Jarvis's pre-distribution verification that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution
-- **Deferral Queue:** The Ms. Jarvis-managed queue of approved but reserve-floor-constrained Regulatory Compliance Reserve Draws; draws fire automatically when the treasury can accommodate them without breaching the 5.0 floor; deferred draws are subtracted from the surplus pool before dividend calculation
+- **Regulatory Compliance Clearance Report:** Ms. Allis's pre-distribution verification that all compliance obligations are current, all queued draws are accounted for in the surplus calculation, and no active regulatory matters could affect the distribution
+- **Deferral Queue:** The Ms. Allis-managed queue of approved but reserve-floor-constrained Regulatory Compliance Reserve Draws; draws fire automatically when the treasury can accommodate them without breaching the 5.0 floor; deferred draws are subtracted from the surplus pool before dividend calculation
 - **Graceful Shutdown Protocol:** The governed wind-down sequence (Section 13.4) requiring 75% super-majority + 180-day notice; ensures all obligations are met and all remaining surplus is returned to participants before the commons closes
 
 ---
