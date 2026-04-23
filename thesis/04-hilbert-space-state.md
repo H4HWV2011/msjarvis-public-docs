@@ -3,18 +3,6 @@
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 *Last updated: April 23, 2026*
 
-> **Note on container naming (code layer):** Container names in the production stack
-> retain the `allis-` prefix (e.g., `allis-chroma`, `allis-main-brain`,
-> `allis-gbim-query-router`). The public-facing name of the system is **Ms. Allis**.
-> All `allis-` container references in this chapter refer to Ms. Allis's infrastructure.
-> The production database container is `msallis-db`; the database name inside that
-> container is `msallisgis`; the host-mapped port for `msallis-db` is **5433**
-> (container-internal port 5432). The namespace in narrative prose is `msallis-rebuild`.
-
-> **Cross-reference note:** The GBIM chapter is located at `02-ms-allis-gbim.md`
-> (renamed from `02-ms-allis-gbim.md`). All references in this chapter to "Chapter 2"
-> or "§2.x" refer to `02-ms-allis-gbim.md`.
-
 ---
 
 ## Why This Matters for Polymathmatic Geography
