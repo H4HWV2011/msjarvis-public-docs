@@ -1,986 +1,342 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Check all heritage data files — sizes and real column counts
-echo "=== All data files ==="
-ls -lh /mnt/nvme1/msjarvis-rebuild/data/*.csv 2>/dev/null
-ls -lh /mnt/nvme1/msjarvis-rebuild/data/*.shp 2>/dev/null
-ls -lh /mnt/nvme1/msjarvis-rebuild/data/*.gpkg 2>/dev/null
-ls -lh /mnt/nvme1/msjarvis-rebuild/data/*.geojson 2>/dev/null
+# MS Jarvis / MS Allis — Cross-Chapter Update Analysis
+## April 23, 2026 Authoritative Baseline vs. Last-Closed Chapter State
 
-echo ""
-echo "=== Row counts ==="
-for f in /mnt/nvme1/msjarvis-rebuild/data/*.csv; do
-    echo "$(wc -l < $f) rows — $(basename $f)"
-done
+*Compiled by Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Document generated: April 23, 2026*
 
-echo ""
-echo "=== Full headers (first 200 chars) ==="
-for f in /mnt/nvme1/msjarvis-rebuild/data/*.csv; do
-    echo "--- $(basename $f) ---"
-    head -1 $f | cut -c1-200
-done
-=== All data files ===
--rw-rw-r-- 1 cakidd cakidd   15K Jan 25 18:04 /mnt/nvme1/msjarvis-rebuild/data/attrs_inventory_basic.csv
--rw-rw-r-- 1 cakidd cakidd   33K Jan 25 19:17 /mnt/nvme1/msjarvis-rebuild/data/attrs_inventory_detailed.csv
--rw-rw-r-- 1 cakidd cakidd  1.9K Jan 25 20:13 /mnt/nvme1/msjarvis-rebuild/data/gbim_layer_config.csv
--rw-rw-r-- 1 cakidd cakidd  7.4K Jan 17 23:26 /mnt/nvme1/msjarvis-rebuild/data/geodb_collection_manifest_extended.csv
--rw-rw-r-- 1 cakidd cakidd  3.8K Jan 17 23:26 /mnt/nvme1/msjarvis-rebuild/data/geodb_collection_manifest_v1.csv
--rw-rw-r-- 1 cakidd cakidd   385 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_911centers_wvdem_032819_gcs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   385 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_911centers_wvdem_032819_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd    23 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_amtrackrails_federalrailroadadministration_200210_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    23 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_amtrackrails_federalrailroadadministration_200210_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   15M Jan 25 10:19 /mnt/nvme1/msjarvis-rebuild/data/h_app_block_features.csv
--rw-rw-r-- 1 cakidd cakidd  345K Jan 25 10:23 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroup_features.csv
--rw-rw-r-- 1 cakidd cakidd  448K Jan 25 10:28 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroup_features_with_attrs.csv
--rw-rw-r-- 1 cakidd cakidd   13K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroups_census_2000_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   13K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroups_census_2000_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   13K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroups_census_201111_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd   13K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroups_census_201111_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   14K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroups_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   14K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blockgroups_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd  698K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blocks_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  698K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_blocks_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_boundaryappalachianbasin_wvges_1996_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   64K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_bridges_features.csv
--rw-rw-r-- 1 cakidd cakidd    71 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_calderl_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.5K Jan 25 10:24 /mnt/nvme1/msjarvis-rebuild/data/h_app_cbsa_features.csv
--rw-rw-r-- 1 cakidd cakidd  8.8K Jan 25 10:29 /mnt/nvme1/msjarvis-rebuild/data/h_app_cbsa_features_with_attrs.csv
--rw-rw-r-- 1 cakidd cakidd   462 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulation_2500_census_201111_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd   462 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulation_2500_census_201111_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   112 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationover10k_census_201111_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationover10k_uscensus_1990_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationover10k_uscensus_1990_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationover2500_uscensus_1990_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   105 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationsover10k_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   105 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationsover10k_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd   448 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationsover2500_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   448 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulationsover2500_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_citieswithpopulatoinover2500_uscensus_1990_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   112 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_coals2_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   112 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_coals2_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd   112 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_coals2_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_communityboundary_min_att_20250121_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_communityboundary_min_att_20250121_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_communityhealthproviders_wvhealthcareauthority_200802_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   771 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_correctionalinstitutions_hsip_20091230_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   771 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_correctionalinstitutions_hsip_20091230_wgs84_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_countycityparkboundaries_20201104_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_countyseats_usgs_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_countyseats_usgs_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_courthousescounty_manysources_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_courthousescounty_manysources_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd    77 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_courthousesfederal_manysources_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    77 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_courthousesfederal_manysources_200203_utm_features.csv
--rw-rw-r-- 1 cakidd cakidd    47 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_cvfault_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    47 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_cvfault_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd    47 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_cvfault_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   273 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_cvpoly_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   273 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_cvpoly_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd   273 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_cvpoly_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_damsnoncoal_usgs_2002_ll27_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_damsnoncoal_usgs_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_dams_usarmycorpsofengineers_200010_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_dams_usarmycropsofengineers_200010_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_features.csv
--rw-rw-r-- 1 cakidd cakidd    84 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_empowermentzonesandenterprisecommunities_uscensus_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd    65 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_excursionpassengertrains_wvdof_200102_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    65 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_excursionpassengertrains_wvdof_200102_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   18K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_facilities_epa_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   18K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_facilities_epa_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  410K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_faultgl_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   899 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_fault_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  698K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_features_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_fire_departments_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_fire_dept_wvdem_092017_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  781K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  426K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicalnamesonusgstopomaps_usgs_200601_ll27_features.csv
--rw-rw-r-- 1 cakidd cakidd  426K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicalnamesonusgstopomaps_usgs_200601_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  295K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_current_usgs_20110801_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  295K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_current_usgs_20110801_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   63K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   63K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  366K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_usgs_20110801_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  366K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geographicnamesonusgstopomaps_usgs_20110801_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   15K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geolgyl_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geolgyp_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   779 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_geotextl_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   947 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_glacagl_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    47 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_glacal_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   25K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_hazardmitigationbuyout_20250929_polygons_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   25K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_hazardmitigationbuyout_20250929_polygons_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd   427 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_healthruralfacilities_manysources_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   350 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_highered_wvemd_072420_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   350 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_highered_wvemd_072420_wgc84_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_historicalaerialphotographycountycoverage_wvgistc_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   176 Jan 25 10:34 /mnt/nvme1/msjarvis-rebuild/data/h_app_horn_summary.csv
--rw-rw-r-- 1 cakidd cakidd    53 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_hospitals_features.csv
--rw-rw-r-- 1 cakidd cakidd   476 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_hospitals_wvdem_040519_gcs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   476 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_hospitals_wvdem_040519_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd    29 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_impact_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  6.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_indexgrid15minutequads_wvgistc_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_indexgrid15minutequads_wvgistc_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  6.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_indexgrid15minutewithcounties_wvgistc_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd   385 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_indexgrid1minutequads_wvgistc_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   851 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_industrialbuildings_wvdo_200807_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   763 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_industrialparks_wvdo_200078_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_industrialsites_wvdo_200807_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   385 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_inedexgrid1minutequads_wvgistc_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_intermodalterminalfacilities_usdot_1997_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_intermodalterminalfacilities_usdot_1997_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.0K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_libraries_manysources_2001_ll27_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.0K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_libraries_manysources_2001_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakesline_nhd_2002_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakesline_nhd_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   609 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakespolygon_nhd_2002_poly_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   609 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_majorriversandlakespolygon_nhd_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   73K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_manufacturingandbusiness_wvdo_200803_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd    53 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metfacp_reg_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metropolitanandmicropolitanstatisticalareas_census_201111_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   126 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metropolitanandmicropolitanstatisticalareas_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   126 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metropolitanandmicropolitanstatisticalareas_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd    91 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metropolitanstatisticalareas_uscensus_199901_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    91 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_metropolitanstatisticalareas_uscensus_199901_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   413 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_mineraloperations_usgs_200204_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   413 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_mineraloperations_usgs_200204_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   95K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_minesabandonedlandsline_wvdep_1996_noprojectoin_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.7K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_minesabandonedlandspoint_wvdep_1996_noprojection_features.csv
--rw-rw-r-- 1 cakidd cakidd   18K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_minesabandonedlandspolygon_wvdep_1996_noprojection_features.csv
--rw-rw-r-- 1 cakidd cakidd   11K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalatlasstreams_usgs_199903_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   11K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalatlasstreams_usgs_199903_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.8K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalregister_point_20200923_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.8K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalregister_point_20200923_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd    29 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    29 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   651 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   651 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_features.csv
--rw-rw-r-- 1 cakidd cakidd    59 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_naviagablewaterways_usarmycropsofengineers_2006_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  303K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   795 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nursinghomes_wvdem_041219_gcs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   795 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_nursinghomes_wvdem_041219_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   532 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_officebuildings_wvdo_200807_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   168 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_paroleoffices_manysources_2008_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   168 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_paroleoffices_manysources_2008_wgs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   497 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_placesofworship_hsip_20080723_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   497 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_placesofworship_hsip_20080723_wgs84_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_policedept_wvdem_012319_gcs84_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_policedept_wvdem_012319_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populatedplaces_census_201112_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populatedplaces_census_20112_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populatedplaces_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  3.4K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populatedplaces_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populatedplaces_uscensus_1990_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populatedplaces_uscensus_1990_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   13K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populationdatablockgroups_uscensus_2000_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   13K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_populationdatablockgroups_uscensus_2000_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   49K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_pow_wvgistc_062919_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   49K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_pow_wvgistc_062919_wgs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   357 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_publichealthdepts_hsip_20091229_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd   357 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_publichealthdepts_hsip_20091229_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  109K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_railnetworkregion_usdot_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  109K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_railnetworkregion_usdot_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   21K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_railnetworkwv_usdot_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   21K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_railnetworkwv_usdot_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   23K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_railroads_rahalltransportationinstitute_2005_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   546 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_realtimestreamflowstations_usgs_200012_ll27_features.csv
--rw-rw-r-- 1 cakidd cakidd   546 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_realtimestreamflowstations_usgs_200012_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd   546 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_realtimestreamflowstations_usgs_200012_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_recreationalwwtrails_ofwv_20151117_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   399 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   399 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   11K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_sewertreatmentplants_wvdep_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   553 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_solidwastefacilities_wvdep_200202_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   553 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_solidwastefacilities_wvdep_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.9K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_springs_wvges_1986_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.9K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_springs_wvges_1986_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   476 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_stateofwvhousedistricts_wvlegislativeservices_2010_features.csv
--rw-rw-r-- 1 cakidd cakidd   126 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_stateofwvsenatedistricts_wvlegislativeservices_2010_features.csv
--rw-rw-r-- 1 cakidd cakidd   581 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_states_region_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  6.5M Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_structurepointsnorth_samb_2003_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  7.8M Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_structurepointssouth_samb_2003_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  141K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_structurepolygons_samb_2003_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  7.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_summits_gistc_052012_utm83_shp_features.csv
--rw-rw-r-- 1 cakidd cakidd  7.5K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_summits_gistc_052012_wgs84_shp_features.csv
--rw-rw-r-- 1 cakidd cakidd   75K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_surveycontrol_nationalgeodeticsurvey_102011_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_timberremovalvolume_usfs_1996_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   455 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersam_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  6.3K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersasr_fcc_200202_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  6.3K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersasr_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.8K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towerscellular_fcc_200202_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.8K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towerscellular_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   518 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersfm_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   18K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersmicrowave_fcc_200202_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   18K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersmicrowave_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towerspager_fcc_200202_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  2.1K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towerspager_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   49K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersprivate_fcc_200202_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   49K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towersprivate_fcc_200202_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   105 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towers_wvpublicbroadcasting_2002_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   105 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_towers_wvpublicbroadcasting_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_veteransaffairsfacilities_manysources_200503_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_veteransaffairsfacilities_manysources_200503_wgs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   16K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_votingdistrictswv_legislativeservices_2002_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   16K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_votingdistrictswv_legislativeservices_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   16K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_votingdistrictswv_uscensus_2000_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_weatherstations_nationalclimatedatacenter_1999_gcs83_features.csv
--rw-rw-r-- 1 cakidd cakidd  1.2K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_weatherstations_nationalclimatedatacenter_1999_utm27_features.csv
--rw-rw-r-- 1 cakidd cakidd 1018K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_windenergyresource_nationalrenewableenergylab_200901_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd 1018K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_windenergyresource_nationalrenewableenergylab_200901_wgs84_features.csv
--rw-rw-r-- 1 cakidd cakidd   399 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_workforceinvestmentareas_wvgistc_200208_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   392 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wv_county_boundaries_24k_topo_updated_2022_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   24M Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvgistc_building_footprints_features.csv
--rw-rw-r-- 1 cakidd cakidd   24M Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvgistcbuildingfootprints_features.csv
--rw-rw-r-- 1 cakidd cakidd   11M Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wv_microsoft_20180207_utm17n83_features.csv
--rw-rw-r-- 1 cakidd cakidd    23 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatebounadary100k_usgs_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd    23 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstateboundary100k_usgs_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    23 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstateboundary24k_usgs_200203_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd    23 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstateboundary24k_usgs_200203_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   399 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatehousedistricts_manysources_1992_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   399 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatehousedistricts_manysources_1992_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   413 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatehousedistricts_manysources_2002_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   413 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatehousedistricts_manysources_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   707 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatehousedistricts_wvlegislativeservices_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatesenatedistricts_manysources_1992_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatesenatedistricts_manysources_1992_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatesenatedistricts_manysources_2002_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd   119 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatesenatedistricts_manysources_2002_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd   126 Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wvstatesenatedistricts_wvlegislativeservices_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wv_tax_districts_ll83_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wv_tax_districts_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  4.6K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_wv_tax_districts_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd  152K Jan 25 10:23 /mnt/nvme1/msjarvis-rebuild/data/h_app_zcta_features.csv
--rw-rw-r-- 1 cakidd cakidd  359K Jan 25 10:29 /mnt/nvme1/msjarvis-rebuild/data/h_app_zcta_features_with_attrs.csv
--rw-rw-r-- 1 cakidd cakidd  5.7K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_zipcodetabulationarea_census_2020_utm83_features.csv
--rw-rw-r-- 1 cakidd cakidd  5.7K Jan 25 10:47 /mnt/nvme1/msjarvis-rebuild/data/h_app_zipcodetabulationarea_census_2020_wma84_features.csv
--rw-rw-r-- 1 cakidd cakidd     2 Jan 23 18:20 /mnt/nvme1/msjarvis-rebuild/data/ms_jarvis_attributes_gis.csv
+---
 
-=== Row counts ===
-228 rows — attrs_inventory_basic.csv
-227 rows — attrs_inventory_detailed.csv
-11 rows — gbim_layer_config.csv
-123 rows — geodb_collection_manifest_extended.csv
-123 rows — geodb_collection_manifest_v1.csv
-55 rows — h_app_911centers_wvdem_032819_gcs84_features.csv
-55 rows — h_app_911centers_wvdem_032819_utm83_features.csv
-2 rows — h_app_amtrackrails_federalrailroadadministration_200210_ll83_features.csv
-2 rows — h_app_amtrackrails_federalrailroadadministration_200210_utm83_features.csv
-72559 rows — h_app_block_features.csv
-1640 rows — h_app_blockgroup_features.csv
-1640 rows — h_app_blockgroup_features_with_attrs.csv
-1589 rows — h_app_blockgroups_census_2000_ll83_features.csv
-1589 rows — h_app_blockgroups_census_2000_utm83_features.csv
-1593 rows — h_app_blockgroups_census_201111_gcs83_features.csv
-1593 rows — h_app_blockgroups_census_201111_utm83_features.csv
-1640 rows — h_app_blockgroups_census_2020_utm83_features.csv
-1640 rows — h_app_blockgroups_census_2020_wma84_features.csv
-72559 rows — h_app_blocks_census_2020_utm83_features.csv
-72559 rows — h_app_blocks_census_2020_wma84_features.csv
-314 rows — h_app_boundaryappalachianbasin_wvges_1996_utm83_features.csv
-7358 rows — h_app_bridges_features.csv
-10 rows — h_app_calderl_reg_ll83_features.csv
-18 rows — h_app_cbsa_features.csv
-18 rows — h_app_cbsa_features_with_attrs.csv
-66 rows — h_app_citieswithpopulation_2500_census_201111_gcs83_features.csv
-66 rows — h_app_citieswithpopulation_2500_census_201111_utm83_features.csv
-16 rows — h_app_citieswithpopulationover10k_census_201111_gcs83_features.csv
-17 rows — h_app_citieswithpopulationover10k_uscensus_1990_ll83_features.csv
-17 rows — h_app_citieswithpopulationover10k_uscensus_1990_utm83_features.csv
-278 rows — h_app_citieswithpopulationover2500_uscensus_1990_ll83_features.csv
-15 rows — h_app_citieswithpopulationsover10k_census_2020_utm83_features.csv
-15 rows — h_app_citieswithpopulationsover10k_census_2020_wma84_features.csv
-64 rows — h_app_citieswithpopulationsover2500_census_2020_utm83_features.csv
-64 rows — h_app_citieswithpopulationsover2500_census_2020_wma84_features.csv
-278 rows — h_app_citieswithpopulatoinover2500_uscensus_1990_utm83_features.csv
-16 rows — h_app_coals2_ll83_features.csv
-16 rows — h_app_coals2_utm27_features.csv
-16 rows — h_app_coals2_utm83_features.csv
-293 rows — h_app_communityboundary_min_att_20250121_utm83_features.csv
-293 rows — h_app_communityboundary_min_att_20250121_wma84_features.csv
-151 rows — h_app_communityhealthproviders_wvhealthcareauthority_200802_utm83_features.csv
-109 rows — h_app_correctionalinstitutions_hsip_20091230_utm83_features.csv
-109 rows — h_app_correctionalinstitutions_hsip_20091230_wgs84_features.csv
-597 rows — h_app_countycityparkboundaries_20201104_utm83_features.csv
-56 rows — h_app_countyseats_usgs_ll83_features.csv
-56 rows — h_app_countyseats_usgs_utm83_features.csv
-56 rows — h_app_courthousescounty_manysources_200203_ll83_features.csv
-56 rows — h_app_courthousescounty_manysources_200203_utm83_features.csv
-11 rows — h_app_courthousesfederal_manysources_200203_ll83_features.csv
-11 rows — h_app_courthousesfederal_manysources_200203_utm_features.csv
-6 rows — h_app_cvfault_ll83_features.csv
-6 rows — h_app_cvfault_utm27_features.csv
-6 rows — h_app_cvfault_utm83_features.csv
-39 rows — h_app_cvpoly_ll83_features.csv
-39 rows — h_app_cvpoly_utm27_features.csv
-39 rows — h_app_cvpoly_utm83_features.csv
-469 rows — h_app_damsnoncoal_usgs_2002_ll27_features.csv
-469 rows — h_app_damsnoncoal_usgs_2002_utm83_features.csv
-576 rows — h_app_dams_usarmycorpsofengineers_200010_utm83_features.csv
-576 rows — h_app_dams_usarmycropsofengineers_200010_ll83_features.csv
-460 rows — h_app_empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_features.csv
-12 rows — h_app_empowermentzonesandenterprisecommunities_uscensus_2002_utm83_features.csv
-9 rows — h_app_excursionpassengertrains_wvdof_200102_ll83_features.csv
-9 rows — h_app_excursionpassengertrains_wvdof_200102_utm83_features.csv
-2138 rows — h_app_facilities_epa_200203_ll83_features.csv
-2138 rows — h_app_facilities_epa_200203_utm83_features.csv
-43085 rows — h_app_faultgl_reg_ll83_features.csv
-125 rows — h_app_fault_reg_ll83_features.csv
-72559 rows — h_app_features_features.csv
-549 rows — h_app_fire_departments_features.csv
-549 rows — h_app_fire_dept_wvdem_092017_utm83_features.csv
-81055 rows — h_app_floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_features.csv
-44651 rows — h_app_geographicalnamesonusgstopomaps_usgs_200601_ll27_features.csv
-44651 rows — h_app_geographicalnamesonusgstopomaps_usgs_200601_utm83_features.csv
-31258 rows — h_app_geographicnamesonusgstopomaps_current_usgs_20110801_ll83_features.csv
-31258 rows — h_app_geographicnamesonusgstopomaps_current_usgs_20110801_utm83_features.csv
-7275 rows — h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_features.csv
-7275 rows — h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_features.csv
-38532 rows — h_app_geographicnamesonusgstopomaps_usgs_20110801_ll83_features.csv
-38532 rows — h_app_geographicnamesonusgstopomaps_usgs_20110801_utm83_features.csv
-1797 rows — h_app_geolgyl_reg_ll83_features.csv
-193 rows — h_app_geolgyp_reg_ll83_features.csv
-110 rows — h_app_geotextl_reg_ll83_features.csv
-131 rows — h_app_glacagl_reg_ll83_features.csv
-6 rows — h_app_glacal_reg_ll83_features.csv
-2924 rows — h_app_hazardmitigationbuyout_20250929_polygons_utm83_features.csv
-2924 rows — h_app_hazardmitigationbuyout_20250929_polygons_wma84_features.csv
-61 rows — h_app_healthruralfacilities_manysources_utm83_features.csv
-50 rows — h_app_highered_wvemd_072420_utm83_features.csv
-50 rows — h_app_highered_wvemd_072420_wgc84_features.csv
-56 rows — h_app_historicalaerialphotographycountycoverage_wvgistc_utm83_features.csv
-4 rows — h_app_horn_summary.csv
-7 rows — h_app_hospitals_features.csv
-68 rows — h_app_hospitals_wvdem_040519_gcs84_features.csv
-68 rows — h_app_hospitals_wvdem_040519_utm83_features.csv
-3 rows — h_app_impact_reg_ll83_features.csv
-842 rows — h_app_indexgrid15minutequads_wvgistc_ll83_features.csv
-667 rows — h_app_indexgrid15minutequads_wvgistc_utm83_features.csv
-846 rows — h_app_indexgrid15minutewithcounties_wvgistc_utm27_features.csv
-55 rows — h_app_indexgrid1minutequads_wvgistc_ll83_features.csv
-119 rows — h_app_industrialbuildings_wvdo_200807_utm83_features.csv
-108 rows — h_app_industrialparks_wvdo_200078_utm83_features.csv
-184 rows — h_app_industrialsites_wvdo_200807_utm83_features.csv
-55 rows — h_app_inedexgrid1minutequads_wvgistc_utm83_features.csv
-153 rows — h_app_intermodalterminalfacilities_usdot_1997_ll83_features.csv
-153 rows — h_app_intermodalterminalfacilities_usdot_1997_utm83_features.csv
-257 rows — h_app_libraries_manysources_2001_ll27_features.csv
-257 rows — h_app_libraries_manysources_2001_utm83_features.csv
-56 rows — h_app_majorriversandlakesline_nhd_2002_ll83_features.csv
-56 rows — h_app_majorriversandlakesline_nhd_2002_utm83_features.csv
-87 rows — h_app_majorriversandlakespolygon_nhd_2002_poly_ll83_features.csv
-87 rows — h_app_majorriversandlakespolygon_nhd_2002_utm83_features.csv
-8318 rows — h_app_manufacturingandbusiness_wvdo_200803_utm83_features.csv
-7 rows — h_app_metfacp_reg_ll83_features.csv
-17 rows — h_app_metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_features.csv
-17 rows — h_app_metropolitanandmicropolitanstatisticalareas_census_201111_utm83_features.csv
-18 rows — h_app_metropolitanandmicropolitanstatisticalareas_census_2020_utm83_features.csv
-18 rows — h_app_metropolitanandmicropolitanstatisticalareas_census_2020_wma84_features.csv
-13 rows — h_app_metropolitanstatisticalareas_uscensus_199901_ll83_features.csv
-13 rows — h_app_metropolitanstatisticalareas_uscensus_199901_utm83_features.csv
-59 rows — h_app_mineraloperations_usgs_200204_ll83_features.csv
-59 rows — h_app_mineraloperations_usgs_200204_utm83_features.csv
-10797 rows — h_app_minesabandonedlandsline_wvdep_1996_noprojectoin_features.csv
-220 rows — h_app_minesabandonedlandspoint_wvdep_1996_noprojection_features.csv
-2121 rows — h_app_minesabandonedlandspolygon_wvdep_1996_noprojection_features.csv
-1276 rows — h_app_nationalatlasstreams_usgs_199903_ll83_features.csv
-1276 rows — h_app_nationalatlasstreams_usgs_199903_utm83_features.csv
-663 rows — h_app_nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_features.csv
-662 rows — h_app_nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_features.csv
-196 rows — h_app_nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_features.csv
-753 rows — h_app_nationalregister_point_20200923_features.csv
-753 rows — h_app_nationalregister_point_20200923_utm27_features.csv
-3 rows — h_app_nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_features.csv
-3 rows — h_app_nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_features.csv
-93 rows — h_app_nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_features.csv
-93 rows — h_app_nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_features.csv
-663 rows — h_app_nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_features.csv
-196 rows — h_app_nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_features.csv
-662 rows — h_app_natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_features.csv
-8 rows — h_app_naviagablewaterways_usarmycropsofengineers_2006_utm83_features.csv
-447 rows — h_app_navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_features.csv
-32117 rows — h_app_navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_features.csv
-112 rows — h_app_nursinghomes_wvdem_041219_gcs84_features.csv
-112 rows — h_app_nursinghomes_wvdem_041219_utm83_features.csv
-76 rows — h_app_officebuildings_wvdo_200807_utm83_features.csv
-24 rows — h_app_paroleoffices_manysources_2008_utm83_features.csv
-24 rows — h_app_paroleoffices_manysources_2008_wgs84_features.csv
-71 rows — h_app_placesofworship_hsip_20080723_utm83_features.csv
-71 rows — h_app_placesofworship_hsip_20080723_wgs84_features.csv
-313 rows — h_app_policedept_wvdem_012319_gcs84_features.csv
-313 rows — h_app_policedept_wvdem_012319_utm83_features.csv
-402 rows — h_app_populatedplaces_census_201112_utm83_features.csv
-402 rows — h_app_populatedplaces_census_20112_gcs83_features.csv
-440 rows — h_app_populatedplaces_census_2020_utm83_features.csv
-440 rows — h_app_populatedplaces_census_2020_wma84_features.csv
-278 rows — h_app_populatedplaces_uscensus_1990_ll83_features.csv
-278 rows — h_app_populatedplaces_uscensus_1990_utm83_features.csv
-1589 rows — h_app_populationdatablockgroups_uscensus_2000_ll83_features.csv
-1589 rows — h_app_populationdatablockgroups_uscensus_2000_utm83_features.csv
-5614 rows — h_app_pow_wvgistc_062919_utm83_features.csv
-5614 rows — h_app_pow_wvgistc_062919_wgs84_features.csv
-51 rows — h_app_publichealthdepts_hsip_20091229_gcs83_features.csv
-51 rows — h_app_publichealthdepts_hsip_20091229_utm83_features.csv
-12218 rows — h_app_railnetworkregion_usdot_200203_ll83_features.csv
-12218 rows — h_app_railnetworkregion_usdot_200203_utm83_features.csv
-2429 rows — h_app_railnetworkwv_usdot_200203_ll83_features.csv
-2429 rows — h_app_railnetworkwv_usdot_200203_utm83_features.csv
-2683 rows — h_app_railroads_rahalltransportationinstitute_2005_utm83_features.csv
-78 rows — h_app_realtimestreamflowstations_usgs_200012_ll27_features.csv
-78 rows — h_app_realtimestreamflowstations_usgs_200012_utm27_features.csv
-78 rows — h_app_realtimestreamflowstations_usgs_200012_utm83_features.csv
-277 rows — h_app_recreationalwwtrails_ofwv_20151117_utm83_features.csv
-57 rows — h_app_regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_features.csv
-57 rows — h_app_regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_features.csv
-1270 rows — h_app_sewertreatmentplants_wvdep_200203_utm83_features.csv
-79 rows — h_app_solidwastefacilities_wvdep_200202_ll83_features.csv
-79 rows — h_app_solidwastefacilities_wvdep_200202_utm83_features.csv
-250 rows — h_app_springs_wvges_1986_ll83_features.csv
-250 rows — h_app_springs_wvges_1986_utm83_features.csv
-68 rows — h_app_stateofwvhousedistricts_wvlegislativeservices_2010_features.csv
-18 rows — h_app_stateofwvsenatedistricts_wvlegislativeservices_2010_features.csv
-83 rows — h_app_states_region_ll83_features.csv
-621928 rows — h_app_structurepointsnorth_samb_2003_utm83_features.csv
-745033 rows — h_app_structurepointssouth_samb_2003_utm83_features.csv
-15506 rows — h_app_structurepolygons_samb_2003_utm83_features.csv
-972 rows — h_app_summits_gistc_052012_utm83_shp_features.csv
-972 rows — h_app_summits_gistc_052012_wgs84_shp_features.csv
-8560 rows — h_app_surveycontrol_nationalgeodeticsurvey_102011_gcs83_features.csv
-56 rows — h_app_timberremovalvolume_usfs_1996_utm83_features.csv
-65 rows — h_app_towersam_fcc_200202_utm83_features.csv
-811 rows — h_app_towersasr_fcc_200202_ll83_features.csv
-811 rows — h_app_towersasr_fcc_200202_utm83_features.csv
-241 rows — h_app_towerscellular_fcc_200202_ll83_features.csv
-241 rows — h_app_towerscellular_fcc_200202_utm83_features.csv
-74 rows — h_app_towersfm_fcc_200202_utm83_features.csv
-2090 rows — h_app_towersmicrowave_fcc_200202_ll83_features.csv
-2090 rows — h_app_towersmicrowave_fcc_200202_utm83_features.csv
-273 rows — h_app_towerspager_fcc_200202_ll83_features.csv
-273 rows — h_app_towerspager_fcc_200202_utm83_features.csv
-5688 rows — h_app_towersprivate_fcc_200202_ll83_features.csv
-5688 rows — h_app_towersprivate_fcc_200202_utm83_features.csv
-15 rows — h_app_towers_wvpublicbroadcasting_2002_ll83_features.csv
-15 rows — h_app_towers_wvpublicbroadcasting_2002_utm83_features.csv
-17 rows — h_app_veteransaffairsfacilities_manysources_200503_utm83_features.csv
-17 rows — h_app_veteransaffairsfacilities_manysources_200503_wgs84_features.csv
-1910 rows — h_app_votingdistrictswv_legislativeservices_2002_ll83_features.csv
-1910 rows — h_app_votingdistrictswv_legislativeservices_2002_utm83_features.csv
-1927 rows — h_app_votingdistrictswv_uscensus_2000_utm83_features.csv
-163 rows — h_app_weatherstations_nationalclimatedatacenter_1999_gcs83_features.csv
-163 rows — h_app_weatherstations_nationalclimatedatacenter_1999_utm27_features.csv
-104813 rows — h_app_windenergyresource_nationalrenewableenergylab_200901_utm83_features.csv
-104813 rows — h_app_windenergyresource_nationalrenewableenergylab_200901_wgs84_features.csv
-57 rows — h_app_workforceinvestmentareas_wvgistc_200208_ll83_features.csv
-56 rows — h_app_wv_county_boundaries_24k_topo_updated_2022_utm83_features.csv
-2121131 rows — h_app_wvgistc_building_footprints_features.csv
-2121131 rows — h_app_wvgistcbuildingfootprints_features.csv
-1020049 rows — h_app_wv_microsoft_20180207_utm17n83_features.csv
-2 rows — h_app_wvstatebounadary100k_usgs_200203_utm83_features.csv
-2 rows — h_app_wvstateboundary100k_usgs_200203_ll83_features.csv
-2 rows — h_app_wvstateboundary24k_usgs_200203_ll83_features.csv
-2 rows — h_app_wvstateboundary24k_usgs_200203_utm83_features.csv
-57 rows — h_app_wvstatehousedistricts_manysources_1992_ll83_features.csv
-57 rows — h_app_wvstatehousedistricts_manysources_1992_utm83_features.csv
-59 rows — h_app_wvstatehousedistricts_manysources_2002_ll83_features.csv
-59 rows — h_app_wvstatehousedistricts_manysources_2002_utm83_features.csv
-101 rows — h_app_wvstatehousedistricts_wvlegislativeservices_2020_utm83_features.csv
-17 rows — h_app_wvstatesenatedistricts_manysources_1992_ll83_features.csv
-17 rows — h_app_wvstatesenatedistricts_manysources_1992_utm83_features.csv
-17 rows — h_app_wvstatesenatedistricts_manysources_2002_ll83_features.csv
-17 rows — h_app_wvstatesenatedistricts_manysources_2002_utm83_features.csv
-18 rows — h_app_wvstatesenatedistricts_wvlegislativeservices_2020_utm83_features.csv
-601 rows — h_app_wv_tax_districts_ll83_features.csv
-601 rows — h_app_wv_tax_districts_utm83_features.csv
-601 rows — h_app_wv_tax_districts_wma84_features.csv
-742 rows — h_app_zcta_features.csv
-742 rows — h_app_zcta_features_with_attrs.csv
-742 rows — h_app_zipcodetabulationarea_census_2020_utm83_features.csv
-742 rows — h_app_zipcodetabulationarea_census_2020_wma84_features.csv
-1 rows — ms_jarvis_attributes_gis.csv
+## Universal Corrections — Apply to ALL Chapters
 
-=== Full headers (first 200 chars) ===
---- attrs_inventory_basic.csv ---
-id,file_path
---- attrs_inventory_detailed.csv ---
-id,file_path,can_join_to_buildings,join_strategy,priority,notes
---- gbim_layer_config.csv ---
-sourcetable,geom_table,geom_column,join_mode,search_radius_m,proposition_code,proposition,tags
---- geodb_collection_manifest_extended.csv ---
-collection_name,doc_count,priority,theme,geometry_type,gbim_table,notes
---- geodb_collection_manifest_v1.csv ---
-collection_name,doc_count
---- h_app_911centers_wvdem_032819_gcs84_features.csv ---
-unit_id,pop_2020
---- h_app_911centers_wvdem_032819_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_amtrackrails_federalrailroadadministration_200210_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_amtrackrails_federalrailroadadministration_200210_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_block_features.csv ---
-unit_id,unit_type,geom
---- h_app_blockgroup_features.csv ---
-unit_id,unit_type,geom
---- h_app_blockgroup_features_with_attrs.csv ---
-unit_id,unit_type,geom,label
---- h_app_blockgroups_census_2000_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_blockgroups_census_2000_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_blockgroups_census_201111_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_blockgroups_census_201111_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_blockgroups_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_blockgroups_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_blocks_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_blocks_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_boundaryappalachianbasin_wvges_1996_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_bridges_features.csv ---
-unit_id,pop_2020
---- h_app_calderl_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_cbsa_features.csv ---
-unit_id,unit_type,geom
---- h_app_cbsa_features_with_attrs.csv ---
-unit_id,unit_type,geom,lat,lon,bbox,label,sourcetable,country
---- h_app_citieswithpopulation_2500_census_201111_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulation_2500_census_201111_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationover10k_census_201111_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationover10k_uscensus_1990_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationover10k_uscensus_1990_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationover2500_uscensus_1990_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationsover10k_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationsover10k_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationsover2500_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulationsover2500_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_citieswithpopulatoinover2500_uscensus_1990_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_coals2_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_coals2_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_coals2_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_communityboundary_min_att_20250121_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_communityboundary_min_att_20250121_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_communityhealthproviders_wvhealthcareauthority_200802_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_correctionalinstitutions_hsip_20091230_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_correctionalinstitutions_hsip_20091230_wgs84_features.csv ---
-unit_id,pop_2020
---- h_app_countycityparkboundaries_20201104_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_countyseats_usgs_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_countyseats_usgs_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_courthousescounty_manysources_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_courthousescounty_manysources_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_courthousesfederal_manysources_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_courthousesfederal_manysources_200203_utm_features.csv ---
-unit_id,pop_2020
---- h_app_cvfault_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_cvfault_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_cvfault_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_cvpoly_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_cvpoly_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_cvpoly_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_damsnoncoal_usgs_2002_ll27_features.csv ---
-unit_id,pop_2020
---- h_app_damsnoncoal_usgs_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_dams_usarmycorpsofengineers_200010_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_dams_usarmycropsofengineers_200010_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_features.csv ---
-unit_id,pop_2020
---- h_app_empowermentzonesandenterprisecommunities_uscensus_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_excursionpassengertrains_wvdof_200102_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_excursionpassengertrains_wvdof_200102_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_facilities_epa_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_facilities_epa_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_faultgl_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_fault_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_features_features.csv ---
-unit_id,pop_2020
---- h_app_fire_departments_features.csv ---
-unit_id,pop_2020
---- h_app_fire_dept_wvdem_092017_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicalnamesonusgstopomaps_usgs_200601_ll27_features.csv ---
-unit_id,pop_2020
---- h_app_geographicalnamesonusgstopomaps_usgs_200601_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicnamesonusgstopomaps_current_usgs_20110801_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicnamesonusgstopomaps_current_usgs_20110801_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicnamesonusgstopomaps_usgs_20110801_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_geographicnamesonusgstopomaps_usgs_20110801_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_geolgyl_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_geolgyp_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_geotextl_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_glacagl_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_glacal_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_hazardmitigationbuyout_20250929_polygons_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_hazardmitigationbuyout_20250929_polygons_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_healthruralfacilities_manysources_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_highered_wvemd_072420_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_highered_wvemd_072420_wgc84_features.csv ---
-unit_id,pop_2020
---- h_app_historicalaerialphotographycountycoverage_wvgistc_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_horn_summary.csv ---
-scale,pop_frac,cum_pop_at_frac,cum_k_at_frac,avg_k_per_person_at_frac,total_pop,total_k
---- h_app_hospitals_features.csv ---
-unit_id,pop_2020
---- h_app_hospitals_wvdem_040519_gcs84_features.csv ---
-unit_id,pop_2020
---- h_app_hospitals_wvdem_040519_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_impact_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_indexgrid15minutequads_wvgistc_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_indexgrid15minutequads_wvgistc_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_indexgrid15minutewithcounties_wvgistc_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_indexgrid1minutequads_wvgistc_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_industrialbuildings_wvdo_200807_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_industrialparks_wvdo_200078_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_industrialsites_wvdo_200807_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_inedexgrid1minutequads_wvgistc_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_intermodalterminalfacilities_usdot_1997_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_intermodalterminalfacilities_usdot_1997_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_libraries_manysources_2001_ll27_features.csv ---
-unit_id,pop_2020
---- h_app_libraries_manysources_2001_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_majorriversandlakesline_nhd_2002_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_majorriversandlakesline_nhd_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_majorriversandlakespolygon_nhd_2002_poly_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_majorriversandlakespolygon_nhd_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_manufacturingandbusiness_wvdo_200803_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_metfacp_reg_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_metropolitanandmicropolitanstatisticalareas_census_201111_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_metropolitanandmicropolitanstatisticalareas_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_metropolitanandmicropolitanstatisticalareas_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_metropolitanstatisticalareas_uscensus_199901_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_metropolitanstatisticalareas_uscensus_199901_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_mineraloperations_usgs_200204_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_mineraloperations_usgs_200204_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_minesabandonedlandsline_wvdep_1996_noprojectoin_features.csv ---
-unit_id,pop_2020
---- h_app_minesabandonedlandspoint_wvdep_1996_noprojection_features.csv ---
-unit_id,pop_2020
---- h_app_minesabandonedlandspolygon_wvdep_1996_noprojection_features.csv ---
-unit_id,pop_2020
---- h_app_nationalatlasstreams_usgs_199903_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_nationalatlasstreams_usgs_199903_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_nationalregisterofhistoricplacespoints_nationalparkser_45ec46d0_features.csv ---
-unit_id,pop_2020
---- h_app_nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_features.csv ---
-unit_id,pop_2020
---- h_app_nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_features.csv ---
-unit_id,pop_2020
---- h_app_nationalregister_point_20200923_features.csv ---
-unit_id,pop_2020
---- h_app_nationalregister_point_20200923_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_nationaregisterofhistoricplacespoints_nationalparkserv_ba8eebd5_features.csv ---
-unit_id,pop_2020
---- h_app_nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_features.csv ---
-unit_id,pop_2020
---- h_app_natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_features.csv ---
-unit_id,pop_2020
---- h_app_naviagablewaterways_usarmycropsofengineers_2006_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_nursinghomes_wvdem_041219_gcs84_features.csv ---
-unit_id,pop_2020
---- h_app_nursinghomes_wvdem_041219_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_officebuildings_wvdo_200807_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_paroleoffices_manysources_2008_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_paroleoffices_manysources_2008_wgs84_features.csv ---
-unit_id,pop_2020
---- h_app_placesofworship_hsip_20080723_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_placesofworship_hsip_20080723_wgs84_features.csv ---
-unit_id,pop_2020
---- h_app_policedept_wvdem_012319_gcs84_features.csv ---
-unit_id,pop_2020
---- h_app_policedept_wvdem_012319_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_populatedplaces_census_201112_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_populatedplaces_census_20112_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_populatedplaces_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_populatedplaces_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_populatedplaces_uscensus_1990_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_populatedplaces_uscensus_1990_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_populationdatablockgroups_uscensus_2000_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_populationdatablockgroups_uscensus_2000_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_pow_wvgistc_062919_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_pow_wvgistc_062919_wgs84_features.csv ---
-unit_id,pop_2020
---- h_app_publichealthdepts_hsip_20091229_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_publichealthdepts_hsip_20091229_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_railnetworkregion_usdot_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_railnetworkregion_usdot_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_railnetworkwv_usdot_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_railnetworkwv_usdot_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_railroads_rahalltransportationinstitute_2005_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_realtimestreamflowstations_usgs_200012_ll27_features.csv ---
-unit_id,pop_2020
---- h_app_realtimestreamflowstations_usgs_200012_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_realtimestreamflowstations_usgs_200012_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_recreationalwwtrails_ofwv_20151117_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_sewertreatmentplants_wvdep_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_solidwastefacilities_wvdep_200202_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_solidwastefacilities_wvdep_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_springs_wvges_1986_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_springs_wvges_1986_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_stateofwvhousedistricts_wvlegislativeservices_2010_features.csv ---
-unit_id,pop_2020
---- h_app_stateofwvsenatedistricts_wvlegislativeservices_2010_features.csv ---
-unit_id,pop_2020
---- h_app_states_region_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_structurepointsnorth_samb_2003_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_structurepointssouth_samb_2003_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_structurepolygons_samb_2003_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_summits_gistc_052012_utm83_shp_features.csv ---
-unit_id,pop_2020
---- h_app_summits_gistc_052012_wgs84_shp_features.csv ---
-unit_id,pop_2020
---- h_app_surveycontrol_nationalgeodeticsurvey_102011_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_timberremovalvolume_usfs_1996_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towersam_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towersasr_fcc_200202_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_towersasr_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towerscellular_fcc_200202_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_towerscellular_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towersfm_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towersmicrowave_fcc_200202_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_towersmicrowave_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towerspager_fcc_200202_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_towerspager_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towersprivate_fcc_200202_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_towersprivate_fcc_200202_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_towers_wvpublicbroadcasting_2002_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_towers_wvpublicbroadcasting_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_veteransaffairsfacilities_manysources_200503_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_veteransaffairsfacilities_manysources_200503_wgs84_features.csv ---
-unit_id,pop_2020
---- h_app_votingdistrictswv_legislativeservices_2002_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_votingdistrictswv_legislativeservices_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_votingdistrictswv_uscensus_2000_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_weatherstations_nationalclimatedatacenter_1999_gcs83_features.csv ---
-unit_id,pop_2020
---- h_app_weatherstations_nationalclimatedatacenter_1999_utm27_features.csv ---
-unit_id,pop_2020
---- h_app_windenergyresource_nationalrenewableenergylab_200901_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_windenergyresource_nationalrenewableenergylab_200901_wgs84_features.csv ---
-unit_id,pop_2020
---- h_app_workforceinvestmentareas_wvgistc_200208_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wv_county_boundaries_24k_topo_updated_2022_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvgistc_building_footprints_features.csv ---
-unit_id,pop_2020
---- h_app_wvgistcbuildingfootprints_features.csv ---
-unit_id,pop_2020
---- h_app_wv_microsoft_20180207_utm17n83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatebounadary100k_usgs_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstateboundary100k_usgs_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstateboundary24k_usgs_200203_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstateboundary24k_usgs_200203_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatehousedistricts_manysources_1992_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatehousedistricts_manysources_1992_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatehousedistricts_manysources_2002_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatehousedistricts_manysources_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatehousedistricts_wvlegislativeservices_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatesenatedistricts_manysources_1992_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatesenatedistricts_manysources_1992_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatesenatedistricts_manysources_2002_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatesenatedistricts_manysources_2002_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wvstatesenatedistricts_wvlegislativeservices_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wv_tax_districts_ll83_features.csv ---
-unit_id,pop_2020
---- h_app_wv_tax_districts_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_wv_tax_districts_wma84_features.csv ---
-unit_id,pop_2020
---- h_app_zcta_features.csv ---
-unit_id,unit_type,geom
---- h_app_zcta_features_with_attrs.csv ---
-unit_id,unit_type,geom,lat,lon,bbox,label,sourcetable,country
---- h_app_zipcodetabulationarea_census_2020_utm83_features.csv ---
-unit_id,pop_2020
---- h_app_zipcodetabulationarea_census_2020_wma84_features.csv ---
-unit_id,pop_2020
---- ms_jarvis_attributes_gis.csv ---
+These values are stale across every chapter and must be synchronized to the April 23 baseline (sourced from Chapter 11):
 
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ 
+| Stale Value | Authoritative Value (April 23, 2026) | Chapters Affected |
+|---|---|---|
+| 108–110 containers Up (varies by chapter) | **100 containers Up** | 11 ✅ already correct; 12, 13, 14, 15, 16, 17, 18, 19 |
+| 6,722,589+ / 6,739,844 / 6,740,034 vectors (varies) | **~6,740,611 vectors** | All |
+| autonomous_learner: 21,181+ records | **21,181 records exact** (no `+`) | All |
+| ChromaDB: 49 collections (Ch.14, 18, 19) | **48 collections** | 14, 18, 19 |
+| msallisgis: single container, 45 GB or 91 GB, 551 tables, port 5435 | **Two-container split:** production `msallis-db:5433` (16 GB, 294 tables, 11 schemas) + forensic `postgis-forensic:5432` (17 GB, 314 tables, 9 schemas) | 12, 13, 14, 15, 16, 17, 18, 19 |
+| nbb_pituitary_gland mode: `elevated` | **mode: `baseline`** (April 23 per Ch.11) | 12, 13 (Ch.11 already correct) |
+| End-to-end GPU: 99–115s or 436s | **102.58s confirmed April 23** | 14, 17, 19 |
 
+> ⚠️ **Critical pituitary mode conflict:** Ch.11 (updated April 23) documents `mode: baseline`. Ch.12 and Ch.13 (last closed April 16) still say `mode: elevated`. This is the highest-priority conceptual discrepancy.
+
+> ⚠️ **Critical DB size conflict:** Ch.14 says 45 GB and Ch.15 says 91 GB for the same database. Ch.11 resolves this: the old single-container was split into production (16 GB) + forensic (17 GB). Both chapters need the two-container split applied.
+
+> ⚠️ **ChromaDB collection count conflict:** Ch.17 and Ch.18 conflict (Ch.17 = 48, Ch.18 = 49). Ch.11 confirms 48 is authoritative. Ch.18 was last updated April 15 — before the April 16 corrupt-collection cleanup.
+
+---
+
+## Priority Order — All Nine Chapters
+
+1. **Pituitary mode** (`elevated` → `baseline`) — Ch.12, Ch.13 — one-line change, highest correctness impact
+2. **Container count** (108/109/110/106 → 100) — Ch.12, 13, 14, 15, 16, 17, 18, 19
+3. **Two-container DB split** (replacing `msallisgis:5435 / 45 GB or 91 GB / 551 tables`) — Ch.12 §12.12, Ch.13 §13.7, Ch.14 §14.2/§14.7/§14.8/§14.9, Ch.15 everywhere, Ch.17 §17.11 + every phase box, Ch.18 almost every section, Ch.19 §19.0/§19.3/§19.5/§19.8.8 — **heaviest edit**
+4. **ChromaDB collection count** (49 → 48) — Ch.14, Ch.18, Ch.19
+5. **`rag_grounded_v2` now ACTIVE** (was "FUTURE" in Ch.18 Figure 18.2) — Ch.18 §18.4
+6. **OI-36-A closed** (April 23 per Ch.11) — Ch.19 §19.1, §19.8.1, §19.9
+7. **§19.13 ~95 GB expected value** — remove entirely from Ch.19
+8. **§19.14 container count history** — add April 16 and April 23 rows
+9. **Vector count refinements** (~6,740,611) — all chapters
+10. **gbim-query-router topology** — add to Ch.11 Phase 5 section
+11. **autonomous_learner** exact count (no `+`) — all chapters
+12. **MS Allis → MS Jarvis naming** — audit Ch.11 service hostnames
+
+---
+
+## Chapter 11 — 11-llm-fabric-of-ms-jarvis.md
+
+**Last updated: April 23, 2026 — largely current ✅**
+
+| Item | Status | Action |
+|---|---|---|
+| Container count: 100 | ✅ Correct | None |
+| Vector count: ~6,740,611 | ✅ Correct | None |
+| Naming: `msallis-db`, `allis-chroma`, `allis-ollama` (legacy Allis naming) | ⚠️ Ambiguous | Add note clarifying legacy Allis naming persists in service references within the Jarvis rebuild |
+| `jarvis-gbim-query-router` (port 7205) absent from service topology | ⚠️ Missing | Add to Phase 5 / confidence decay section |
+
+---
+
+## Chapter 12 — 12-neurobiological-architecture.md
+
+**Last closed: April 16, 2026 — 7 days stale**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Intro paragraph, security callout, Fig. 12.1 caption, OI table, final CLOSED statement | 109 containers Up | **100 containers Up** |
+| Throughout | 6,740,034 total vectors | **~6,740,611 vectors** |
+| OI-12-F entry, §12.6 table, operating mode table ★ Current row | `mode: elevated` | **mode: baseline** |
+| §12.12 GBIM table — msallisgis row | 45 GB / 551 tables / port 5432 (old single-DB) | **Two-container split** (see Universal Corrections) |
+| §12.3, §12.4, §12.12 | `autonomous_learner: 21,181+` | **21,181 records (exact)** |
+
+### No Structural Changes Required
+Chapter 12 is architecturally stable. The NBB Service Inventory (§12.0), all 12 NBB containers, ML-DSA-65 signing, BBB_OUTPUT_BLOCKING, and EEG band documentation are current. No sections need rewrites — corrections are numeric substitutions only.
+
+---
+
+## Chapter 13 — 13-qualia-engine-and-introspective-state.md
+
+**Last closed: April 16, 2026 — 7 days stale**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| §13.2, §13.5, §13.8, §13.10, §13.11 sprint log | 109/109 containers Up | **100 containers Up** |
+| Throughout | 6,740,034 vectors | **~6,740,611 vectors** |
+| §13.3, §13.9 production state table, operating modes ★ Current row | `mode: elevated` | **mode: baseline** |
+| §13.3, §13.10 WOAHResult field | `"pituitary_mode": "PituitaryMode.elevated"` | **`PituitaryMode.baseline`** |
+| §13.7 GBIM/DB table | msallis port 5432 / msallisgis port 5432 — single-host model | **Two-container split** (see Universal Corrections) |
+| §13.11 sprint validation log | Ends at April 16 | **Add April 23 row:** 48 collections / ~6,740,611 vectors / SQLite-API parity confirmed / 100 containers Up |
+
+---
+
+## Chapter 14 — 14-hippocampus-and-memory-consolidation.md
+
+**Last updated: April 16, 2026 — 7 days stale**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Intro sprint closure callout, intro paragraph, §14.1, §14.8 (multiple), §14.9, §14.10 table | **110** containers Up | **100 containers Up** |
+| Intro callout, intro paragraph, §14.4, §14.8 table footer, §14.9, §14.10 | **49** ChromaDB collections | **48 collections** |
+| Throughout | 6,722,589+ vectors | **~6,740,611 vectors** |
+| §14.2, §14.4, §14.7, §14.8, §14.9 | msallisgis 45 GB / 551 tables | **Two-container split** (see Universal Corrections) |
+| §14.8 | `autonomous_learner: 21,181+` | **21,181 records (exact)** |
+| §14.8 | geospatialfeatures: 0 records (backfill gap) | **Confirm status — if still 0, add to April 23 open items** |
+| §14.1, §14.8 timing | 99–107s on RTX 4070 | **102.58s confirmed April 23** |
+
+> ⚠️ Ch.14 uniquely says **110 containers** — the highest and most stale figure across all chapters.
+
+---
+
+## Chapter 15 — 15-pituitary-and-global-modes.md
+
+**Last updated: April 16, 2026 — 7 days stale**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Intro closure callout, status table, §15.1, §15.2, §15.10, §15.11 sprint log | **106** containers Up | **100 containers Up** |
+| Throughout | msallisgis **91 GB** / 551 tables | **Two-container split** (see Universal Corrections) — 91 GB is the most stale DB figure across all chapters |
+| Throughout | 6,739,844 vectors | **~6,740,611 vectors** |
+| §15.1 status table (pituitary row), §15.10 summary | Mode not stated | **Add: `mode: baseline`** |
+| §15.7 VERIFY_AND_TEST.sh targets | 106 containers, 6,739,844 vectors | **100 containers, ~6,740,611 vectors** |
+
+> ⚠️ Ch.15 vs. Ch.14 DB conflict: Ch.15 says 91 GB and Ch.14 says 45 GB for the same database. Ch.11 resolves both — the two-container split replaces the stale single-container figures.
+
+> Note: `gbim_entities count = 37` (confirmed April 16 in Ch.15) — verify this count hasn't changed given the DB architecture changes.
+
+---
+
+## Chapter 16 — 16-blood-brain-barrier-and-safeguards.md
+
+**Last updated: ~April 16, 2026 (inferred from Ch.15 BBB documentation patterns)**
+
+*Ch.16 was not retrieved in full — the following are near-certain updates based on cross-chapter patterns:*
+
+| Item | Likely Stale Value | Correct Value |
+|---|---|---|
+| Container count | ~106 | **100 containers Up** |
+| filters_operational | Verify: 6 or 7? | **6** (Ch.15 corrected from 7 → 6 on April 16; confirm Ch.16 also says 6) |
+| msallisgis architecture | If referenced | **Two-container split** |
+| `bbb-output-filter` port 8017 pass_rate | `0.9854`, filtered_at: `2026-04-16` | **Update to April 23 pass_rate and timestamp** |
+| `BBB_OUTPUT_BLOCKING=true` | Set April 6 | **Confirm still active ✅ (likely unchanged)** |
+
+---
+
+## Chapter 17 — 17-executive-coordination-overview.md
+
+**Last closed: April 16, 2026 — 7 days stale**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Figure 17-1, §17.1, §17.2 ref table, §17.3 Phase 1/2.5, §17.7 table, §17.9 table, §17.12 Step 2, §17.14 Step 2 | **108** containers Up | **100 containers Up** |
+| Figure 17-1, §17.1, §17.3 Phase 1.45/Phase 4, §17.14 ChromaDB verify | 6,739,844 total vectors | **~6,740,611 vectors** |
+| Figure 17-1, Figure 17-2 (all phase boxes), §17.3 every phase, §17.4, §17.5, §17.6, §17.7, §17.9, §17.11, §17.14 verify scripts | msallisgis port 5435 / 45 GB / 551 tables | **Two-container split** (see Universal Corrections) |
+| §17.1, §17.2, §17.3 Phase 2.5, §17.7 | End-to-end GPU: ~107–115s / Phase 2.5: ~99–107s | **~102.58s confirmed April 23** |
+| §17.3 Phase 1.45, §17.6, §17.14 verify | autonomous_learner: 21,181 records (stable) | **~23,200+ (grown ~288/day × 7 days)** |
+| Figure 17-1 | gbim_worldview_entity: 5,416,521 rows | **Verify current count — likely grown** |
+| Figure 17-1 | msallis_docs: 7,465 items | **Verify current count** |
+| Figure 17-1, §17.3 Phase 4 | local_resources: 207 docs | **Verify — Sprint 3 may have changed** |
+| Figure 17-1, §17.3 Phase 4, §17.10 | community resources: 64 verified | **Verify — Sprint 3 enrichment may have added** |
+| Figure 17-1 | architecture_layers: 12 | **Verify — should still be 12** |
+
+### Critical Structural Change — §17.11 Split-Brain Topology
+
+**Current (stale) §17.11 shows:**
+- Instance 1: msallisgis port 5435 — 45 GB, 551 tables
+- Instance 2: msallis port 5433 — GBIM entity store
+- Instance 3: local-resources Postgres
+
+**Replace with April 23 confirmed architecture:**
+- `msallis-db` port 5433 — production PostGIS, 16 GB, 294 tables, 11 schemas
+- `postgis-forensic` port 5432 — forensic PostGIS, 17 GB, 314 tables, 9 schemas
+- *(Verify whether local-resources instance is still separate or consolidated)*
+
+This cascades through every section referencing `msallisgis:5435` — Phases 1.4, 2.5, 3, 4, BBB payload, UltimateResponse schema comments, and all psql verify commands in §17.14.
+
+### §17.14 Verify Script Corrections
+
+```bash
+# REMOVE (stale)
+psql -h 127.0.0.1 -p 5435 -U postgres -d msallisgis -c "SELECT COUNT(*) ... WHERE table_schema='public';"
+# Expected: 551
+
+# REPLACE WITH
+psql -h 127.0.0.1 -p 5433 -U postgres -d msallis -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema IN (SELECT schema_name FROM information_schema.schemata);"
+# Expected: 294 tables, 11 schemas
+
+psql -h 127.0.0.1 -p 5432 -U postgres -d postgres -c "SELECT COUNT(*) FROM information_schema.tables;"
+# Expected: 314 tables, 9 schemas
+```
+
+---
+
+## Chapter 18 — 18-limits-and-evaluation-of-metaphor.md
+
+**Last updated: April 15, 2026 — 8 days stale**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Figure 18.1 (hippocampus row), Figure 18.2 BBB row, §18.1–§18.11 (nearly every section) | msallisgis port 5435, 45 GB, 515 public / 742 total tables | **Two-container split** (see Universal Corrections) |
+| Figure 18.1 (prefrontal row), §18.2 (×2), §18.3, §18.6 | **109** containers Up | **100 containers Up** |
+| Figure 18.1 (hippocampus row), §18.1, §18.2 (×2), §18.3 (×2), §18.4, §18.5, §18.6 (multiple), §18.10 | **49** ChromaDB collections | **48 collections** |
+| Figure 18.1, §18.1, §18.2, §18.3, §18.5, §18.6, §18.10 | 6,722,589+ vectors | **~6,740,611 vectors** |
+| §18.1, §18.2, §18.3, §18.5, §18.6, §18.10 | gbim_worldview_entity: 5,415,896 rows | **Verify current count** |
+| §18.10 longitudinal tracking note | autonomous_learner: 21,181 records | **~23,200+** |
+| §18.5, §18.10 | appalachian_cultural_intelligence: 1,090 docs | **Verify current doc count** |
+| §18.9 cross-reference to Ch.17 | main-brain manages 109 containers | **100 containers** |
+
+### Conceptual Updates Required
+
+**§18.4 BBB Case Study — Critical:**
+
+| Figure 18.2 Row | Stale State | Correct State |
+|---|---|---|
+| `heuristic_contradiction_v1` | Listed as current judge method | **RETIRED** |
+| RAG-grounded truth scoring | "→ FUTURE" | **ACTIVE — `rag_grounded_v2`, closed OI-37-C April 6, 2026** |
+| `llm_judge_v3` | Not mentioned / future | **ACTIVE since April 6, 2026** |
+
+> ⚠️ This is the **biggest conceptual staleness in Ch.18** — the judge methodology section describes a past architecture as current.
+
+> ⚠️ Ch.18 uses **49 collections throughout** — contradicts Ch.17's confirmed 48 and Ch.11's April 23 authoritative 48. Ch.18 was last updated April 15, before the April 16 corrupt-collection cleanup. Ch.18 must have 49 → 48 applied at every occurrence.
+
+---
+
+## Chapter 19 — 19-container-architecture-and-routing.md
+
+**Last updated: April 14, 2026 — 9 days stale (most stale chapter)**
+
+### Quantitative Corrections
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| §19.0 table header, §19.1, §19.2, §19.3, §19.5, §19.8 baseline, §19.8.3, §19.14 count history | **109** containers | **100 containers** |
+| §19.0, §19.1, §19.3, §19.4, §19.8.3, §19.8.4, §19.8.8, §19.8.10, §19.11, §19.12, §19.13 | **49** ChromaDB collections | **48 collections** |
+| §19.0, §19.1, §19.3, §19.4, §19.8.3, §19.8.8, §19.8.10, §19.11 | 6,722,589+ vectors | **~6,740,611 vectors** |
+| §19.0 (allis-local-resources-db row), §19.1, §19.3, §19.4, §19.5, §19.6, §19.8.8, §19.8.10, §19.11, §19.13 | msallisgis port 5435, 45 GB, 515 pub / 742 total tables | **Two-container split** (see Universal Corrections) |
+| §19.0, §19.8.8 | gbim_worldview_entity: 5,415,896 rows | **Verify current** |
+| §19.0, §19.8.10 | gbim_graph_edges: 15,226,626 rows | **Verify** |
+| §19.0, §19.8.10 | gbimbeliefnormalized: 6,804,671 rows | **Verify** |
+| §19.0, §19.8.10 | building_parcel_county_tax_mv: 7,354,707 rows | **Verify** |
+| §19.0, §19.2, §19.4, §19.7, §19.8.7 | autonomous_learner: 21,181 records | **~23,200+** |
+| §19.0, §19.8.7, §19.8.10, §19.8.11 | appalachian_cultural_intelligence: 1,090 docs | **Verify current count** |
+| §19.0, §19.8.10 | msallis_docs: 7,465 items | **Verify** |
+| §19.0, §19.8.10 | ms_allis_memory: 296 records | **Verify** |
+| §19.0 table | End-to-end benchmark: 436s | **102.58s confirmed April 23** |
+| §19.13 verify script | Expected: ~95 GB | **REMOVE ENTIRELY** — was never correct |
+| §19.8.10 | conversation_history: 564 records | **Verify — wiped and reseeded clean April 16; count now reflects post-wipe accumulation** |
+| §19.8.10 | research_history: 785 | **Verify** |
+
+> ⚠️ **local_resources conflict:** Ch.19 says 101 docs; Ch.17 says 207 docs. Ch.17 closed April 16 (more recent than Ch.19's April 14). Use **207** as current baseline until live verify. The April 23 count may differ further.
+
+> ⚠️ **§19.13 ~95 GB expected value** — this figure never appeared in any other chapter and is the most stale single data point across the entire thesis. Delete it immediately.
+
+### OI-36-A Closure (High Priority)
+
+| Location | Current State | Correct State |
+|---|---|---|
+| §19.1 | OI-36-A open | **OI-36-A CLOSED — April 23, 2026 (per Ch.11 auth enforcement active)** |
+| §19.8.1 Caddy diagram | ⚠️ Token enforcement not active at proxy level | **✅ Auth enforcement active — OI-36-A closed April 23** |
+| §19.9 | OI-36-A referenced as open | **Mark CLOSED** |
+
+### §19.14 Container Count History — New Rows Required
+
+| Date | Count | Notes |
+|---|---|---|
+| *(last row in Ch.19 — April 14, 2026)* | 109 | — |
+| **April 16, 2026** | **108** | Neurobiological rebuild, ChromaDB corrupt collection cleanup (3 deleted + recreated), UUID hardcode eliminated |
+| **April 23, 2026** | **100** | *(Confirm exact changes — GPU pipeline optimizations, service consolidations)* |
+
+---
+
+## Internal Conflicts Requiring Resolution (Before Pushing)
+
+| Conflict | Chapter A | Chapter B | Resolution |
+|---|---|---|---|
+| msallisgis size: 45 GB (Ch.14) vs. 91 GB (Ch.15) | Ch.14 §14.2 | Ch.15 throughout | Ch.11 resolves: two-container split (16 GB + 17 GB) |
+| ChromaDB: 48 collections (Ch.17) vs. 49 (Ch.18, 19) | Ch.17 | Ch.18, Ch.19 | 48 is authoritative — Ch.18/19 pre-date April 16 cleanup |
+| local_resources: 101 docs (Ch.19) vs. 207 docs (Ch.17) | Ch.17 | Ch.19 | Ch.17 (April 16) is more recent; use 207 until live verify |
+| Pituitary mode: `baseline` (Ch.11) vs. `elevated` (Ch.12, Ch.13) | Ch.11 | Ch.12, Ch.13 | Ch.11 April 23 is authoritative; update Ch.12 + Ch.13 |
+| Container count: 108 (Ch.17) vs. 109 (Ch.12, Ch.13) vs. 110 (Ch.14) vs. 106 (Ch.15) | All | All | 100 is authoritative (Ch.11 April 23) |
+
+---
+
+## Live Verifications Required Before Finalizing
+
+Run these queries against the April 23 production stack before closing the chapters:
+
+```bash
+# ChromaDB v2 — vector and collection counts
+curl -s "http://127.0.0.1:8002/api/v2/tenants/default_tenant/databases/default_database/collections" \
+  | python3 -c "import sys,json; c=json.load(sys.stdin); print(f'{len(c)} collections')"
+
+# Production DB — table and schema count
+psql -h 127.0.0.1 -p 5433 -U postgres -c "\dn" | grep -c "schema"
+psql -h 127.0.0.1 -p 5433 -U postgres -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_type='BASE TABLE';"
+
+# Forensic DB
+psql -h 127.0.0.1 -p 5432 -U postgres -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_type='BASE TABLE';"
+
+# autonomous_learner collection item count
+curl -s "http://127.0.0.1:8002/api/v2/.../collections/autonomous_learner" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('count','?'))"
+
+# Container count
+docker ps --format '{{.Names}}' | wc -l
+```
+
+---
+
+## Recommended Update Order — All Nine Chapters
+
+| Priority | Action | Chapters | Rationale |
+|---|---|---|---|
+| 1 | Pituitary mode: `elevated` → `baseline` | 12, 13 | Highest conceptual correctness impact |
+| 2 | OI-36-A closure + Caddy diagram | 19 §19.8.1, §19.9 | One-line fix, big correctness signal |
+| 3 | Container count (→ 100) | 12, 13, 14, 15, 16, 17, 18, 19 | Numeric, appears in status tables |
+| 4 | ChromaDB 49 → 48 | 14, 18, 19 | Resolves Ch.17/Ch.18 conflict |
+| 5 | Two-container DB split | 12 §12.12, 13 §13.7, 14 §14.2+, 15 throughout, 17 §17.11+, 18 §18.1–11, 19 §19.0+ | Heaviest edit across all chapters |
+| 6 | `rag_grounded_v2` ACTIVE in Figure 18.2 | 18 §18.4 | Conceptual staleness correction |
+| 7 | Remove §19.13 ~95 GB expected value | 19 | Never correct; delete immediately |
+| 8 | §19.14 container count history rows | 19 | Add April 16 and April 23 rows |
+| 9 | Vector count (~6,740,611) | All | Minor numeric refinement |
+| 10 | `autonomous_learner` growth (~23,200+) | 12, 13, 14, 15, 17, 18, 19 | Growth since April 10 baseline |
+| 11 | GPU timing pin (102.58s) | 14, 17, 19 | Confirmed April 23 |
+| 12 | `gbim-query-router` topology | 11 Phase 5 section | New service not yet documented in Ch.11 |
+| 13 | MS Allis → MS Jarvis naming audit | 11 | Legacy naming note |
+
+---
+
+*This document consolidates update analyses for Chapters 11–19 of the MS Jarvis / MS Allis architectural thesis.*
+*All corrections sourced from the Chapter 11 April 23, 2026 authoritative baseline.*
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV — April 23, 2026*
