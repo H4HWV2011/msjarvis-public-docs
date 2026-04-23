@@ -123,11 +123,11 @@ The sequence—viral question → mass informal response → formal analytical f
 4. **Braid the tracks to find the gap.** The most important finding is not the frequency percentage but the disproportion between analytical size and semantic significance—and what that disproportion tells us about how symbolic commons operate below the threshold of measurement.
 5. **Ask the anchor question.** Whose Rome? Which bodies? Which commons was enclosed to make the empire legible? Anchoring the imaginary to specific histories—enslaved aqueduct-builders, Welsh hillforts turned Roman nodes, Gallic commons "pacified"—does not destroy the commons but makes it accountable.
 
-### 3.4 Application to Ms. Jarvis and MountainShares
+### 3.4 Application to Ms. Allis and MountainShares
 
 The Roman Empire case is not merely historical illustration. It raises a direct design question for the Appalachian stack:
 
-**Every commons develops an invisible symbolic layer.** MountainShares, The Commons, and Ms. Jarvis will each accumulate imaginative inheritances: vocabularies of what "serious" governance looks like, aesthetics of who belongs, background assumptions about what counts as a contribution or a harm. Those layers will circulate without formal ledger, shaping participation and exclusion in ways that analytics alone will not detect.
+**Every commons develops an invisible symbolic layer.** MountainShares, The Commons, and Ms. Allis will each accumulate imaginative inheritances: vocabularies of what "serious" governance looks like, aesthetics of who belongs, background assumptions about what counts as a contribution or a harm. Those layers will circulate without formal ledger, shaping participation and exclusion in ways that analytics alone will not detect.
 
 The Roman Empire case suggests three design commitments:
 
