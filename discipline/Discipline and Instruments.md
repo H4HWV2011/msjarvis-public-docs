@@ -1,6 +1,6 @@
 # Discipline and Instruments
 
-This thesis is grounded in a clear hierarchy of concepts and artifacts. At the top level is the **discipline** of Polymathmatic Geography. Within that discipline, **Quantarithmia** is the specific theoretical framework developed and tested here. At the most concrete level, **Ms. Jarvis**, **MountainShares**, and **The Commons** are instruments—experimental apparatus built to apply and evaluate the framework in a single geography.
+This thesis is grounded in a clear hierarchy of concepts and artifacts. At the top level is the **discipline** of Polymathmatic Geography. Within that discipline, **Quantarithmia** is the specific theoretical framework developed and tested here. At the most concrete level, **Ms. Allis**, **MountainShares**, and **The Commons** are instruments—experimental apparatus built to apply and evaluate the framework in a single geography.
 
 ---
 
@@ -130,19 +130,19 @@ Against this backdrop, Quantarithmia’s instruments are designed as **counter�
 - Where Meta/TikTok centralize narrative power in distant algorithms, The Commons aims to center narrative and deliberation in locally governed spaces with visible rules.  
 - Where Amazon routes logistics and commerce through external platforms, MountainShares seeks to thicken local circulation and mutual credit among residents and businesses.  
 - Where BlackRock and Vanguard centralize ownership and capital allocation, the DAO and commons instruments experiment with forms of shared, place‑bound governance over value and obligation.  
-- Where Palantir‑style systems and CBDC debates trend toward total legibility, Ms. Jarvis and MountainShares build in **refusal, partiality, and red lines**—things that must not be mapped, taboos that must be honored, and closed loops that prevent value and data from being endlessly siphoned outward.
+- Where Palantir‑style systems and CBDC debates trend toward total legibility, Ms. Allis and MountainShares build in **refusal, partiality, and red lines**—things that must not be mapped, taboos that must be honored, and closed loops that prevent value and data from being endlessly siphoned outward.
 
-These contrasts provide concrete criteria when evaluating Ms. Jarvis, MountainShares, and The Commons: do they, in practice, bend flows back toward accountable local loops, or do they drift toward becoming small‑scale replicas of the very archetypes they are meant to resist?
+These contrasts provide concrete criteria when evaluating Ms. Allis, MountainShares, and The Commons: do they, in practice, bend flows back toward accountable local loops, or do they drift toward becoming small‑scale replicas of the very archetypes they are meant to resist?
 
 ---
 
-## 3. Instruments: Ms. Jarvis, MountainShares, The Commons
+## 3. Instruments: Ms. Allis, MountainShares, The Commons
 
 To test Quantarithmia in a real geography, the thesis employs three major instruments. Together they form a local stack that can be probed, measured, and revised.
 
-### 3.1 Ms. Jarvis (Steward System Architecture)
+### 3.1 Ms. Allis (Steward System Architecture)
 
-Ms. Egeria Jarvis is a **glassbox AI Steward System** designed to embody Quantarithmia’s commitments in software. It functions as:
+Ms. Egeria Allis is a **glassbox AI Steward System** designed to embody Quantarithmia’s commitments in software. It functions as:
 
 - a multi‑service architecture for geospatially grounded reasoning, in which every belief and recommendation is anchored to specific where/when/what/who metadata;  
 - an explicit testbed for ideas like geospatial belief models, Hilbert‑space semantic memory, constitutional constraints, and capped recall of sensitive information;  
@@ -150,15 +150,15 @@ Ms. Egeria Jarvis is a **glassbox AI Steward System** designed to embody Quantar
 
 Key properties:
 
-- **Place‑bound intelligence** – Ms. Jarvis is configured so that its knowledge, memory, and optimization targets are centered on a specific regional corpus (e.g., Appalachian data, narratives, and laws), rather than on global averages.  
+- **Place‑bound intelligence** – Ms. Allis is configured so that its knowledge, memory, and optimization targets are centered on a specific regional corpus (e.g., Appalachian data, narratives, and laws), rather than on global averages.  
 - **Constitutional and covenantal limits** – it operates under explicit nongoals (not a person, not a regulator, not a bank, not an autonomous decision‑maker) and under constraints derived from local ethical, legal, and spiritual commitments.  
 - **Auditability and participation** – residents, stewards, and partner institutions can inspect why certain recommendations or risk assessments were produced, and can propose corrections or new constraints through governance processes.
 
-In disciplinary terms, Ms. Jarvis is **apparatus**, not the object of study: a tool for probing how an entangled Appalachian space responds when a polymathmatic, place‑bound intelligence is introduced, and for testing how far an AI steward can be opened to public audit without losing usefulness.
+In disciplinary terms, Ms. Allis is **apparatus**, not the object of study: a tool for probing how an entangled Appalachian space responds when a polymathmatic, place‑bound intelligence is introduced, and for testing how far an AI steward can be opened to public audit without losing usefulness.
 
 ### 3.1.1 Identity Anchors and Safety Geometry
 
-A central design choice in Ms. Jarvis and the surrounding stack is how human and institutional participation is anchored and protected across time. The system adopts a two‑layer identity geometry:
+A central design choice in Ms. Allis and the surrounding stack is how human and institutional participation is anchored and protected across time. The system adopts a two‑layer identity geometry:
 
 - a private, immutable **Wallet ID** that serves as the enduring anchor for a person or institution;  
 - a governed, potentially reassignable **UUID** that serves as the public‑facing identity within The Commons and MountainShares.
@@ -167,7 +167,7 @@ The **Wallet ID** is:
 
 - issued once per person or institution under enrollment processes defined by local governance and applicable law;  
 - used to sign actions, hold balances, enforce caps, and detect abuse or bot patterns at the integrity layer;  
-- never exposed in The Commons or to ordinary partners, and accessible in de‑anonymized form only to Ms. Jarvis’s integrity kernel and, in extreme cases, through legally and communally supervised processes (for example, a court order plus council oversight);  
+- never exposed in The Commons or to ordinary partners, and accessible in de‑anonymized form only to Ms. Allis’s integrity kernel and, in extreme cases, through legally and communally supervised processes (for example, a court order plus council oversight);  
 - immutable and non‑duplicable, so that “one real actor = one anchor” remains a hard constraint in the system’s geometry.
 
 The **UUID** is:
@@ -187,13 +187,13 @@ Under this design, someone known in one era of the system as “Mamma Kidd” ca
 
 ### 3.1.2 Refusal, Taboos, and Sacred Mysteries
 
-Ms. Jarvis is explicitly designed with **red lines**—categories of knowledge and mapping that must not be crossed. Stage 0 grounding requires communities to name:
+Ms. Allis is explicitly designed with **red lines**—categories of knowledge and mapping that must not be crossed. Stage 0 grounding requires communities to name:
 
 - relations, rituals, and testimonies that are never to be recorded or modeled;  
 - spaces and practices that may be referenced only in aggregate, or only by trusted human stewards;  
 - conditions under which the steward must refuse to answer, must forget, or must hand a question back to human councils.
 
-In contrast to industrial platforms and state surveillance systems that seek total legibility, Ms. Jarvis treats these refusals as part of the geography itself. Sacred mysteries, taboos, and closed covenants remain **unmapped** on purpose, and any attempt to extend the apparatus into those zones is treated as a design failure, not as progress.
+In contrast to industrial platforms and state surveillance systems that seek total legibility, Ms. Allis treats these refusals as part of the geography itself. Sacred mysteries, taboos, and closed covenants remain **unmapped** on purpose, and any attempt to extend the apparatus into those zones is treated as a design failure, not as progress.
 
 ### 3.2 MountainShares DAO (Economic Governance Instrument)
 
@@ -224,7 +224,7 @@ Key properties:
 
 - **Participatory cartography** – residents can contribute, correct, and contest entries about places, hazards, opportunities, and relationships, with mechanisms for recognition and, where appropriate, material reward.  
 - **Deliberative structures** – councils, assemblies, and forums can be convened within the platform to interpret data, debate proposals, and decide on changes to rules or priorities.  
-- **Bridging interfaces** – The Commons mediates between the lived world and Ms. Jarvis/MountainShares: it structures what data flows into the steward and DAO, under what privacy and consent rules, and what outputs are shown back to residents and institutions.
+- **Bridging interfaces** – The Commons mediates between the lived world and Ms. Allis/MountainShares: it structures what data flows into the steward and DAO, under what privacy and consent rules, and what outputs are shown back to residents and institutions.
 
 In the research design, The Commons is treated as a **measurement and interaction surface**—a way to observe how people in a specific geography engage with the theoretical framework when it is instantiated in tools they can actually use, and to see how incentives, recognition, and conflict shape ongoing participation.
 
@@ -236,9 +236,9 @@ The relationship between these layers can be summarized as:
 
 - **Discipline (Polymathmatic Geography)** – defines what counts as a meaningful question about space, power, reciprocity, and extraction, and sets normative commitments about justice, accountability, and the kinds of worlds worth rehearsing.  
 - **Framework (Quantarithmia)** – proposes one specific answer: a geometry and set of methods for analyzing and redesigning flows and obligations in an entangled space, including explicit contrasts with industrial archetypes of extraction and planetary counter‑geometries.  
-- **Instruments (Ms. Jarvis, MountainShares, The Commons)** – implement that framework in one region so that its claims can be tested against reality, contested by residents, and revised in light of lived experience.
+- **Instruments (Ms. Allis, MountainShares, The Commons)** – implement that framework in one region so that its claims can be tested against reality, contested by residents, and revised in light of lived experience.
 
-The remainder of the thesis should be read through this lens. When technical details of Ms. Jarvis, MountainShares, or The Commons are discussed, they are always in service of evaluating a broader geographic and theoretical claim, not as ends in themselves. Their success or failure is measured by:
+The remainder of the thesis should be read through this lens. When technical details of Ms. Allis, MountainShares, or The Commons are discussed, they are always in service of evaluating a broader geographic and theoretical claim, not as ends in themselves. Their success or failure is measured by:
 
 - how they reshape the geometry of relation in Appalachia (who is more or less exposed, connected, empowered, or silenced);  
 - how communities experience those changes (as safety, dignity, agency, and meaning—or as new harms and exclusions);  
