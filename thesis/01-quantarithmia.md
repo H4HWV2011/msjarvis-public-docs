@@ -1,7 +1,7 @@
 # 1. Quantarithmia: Economic Geographic Theory of Systems Entanglement
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
-*Last updated: 2026-04-23*
+*Last updated: April 23, 2026*
 
 ---
 
@@ -23,14 +23,20 @@
 >   reciprocity, local wealth retention, and anti-extractive circuits as stability
 >   conditions for Appalachian spaces.
 > - **P12 – Intelligence with a ZIP code** and **P16 – Power accountable to place** by
->   defining Ms. Jarvis and MountainShares as territorially situated instruments
+>   defining Ms. Allis and MountainShares as territorially situated instruments
 >   accountable to specific communities, not abstract global users.
 >
 > As such, this chapter belongs to the **Theoretical Foundation** tier: it defines
 > Quantarithmia as the economic geographic theory that provides the justice criteria,
-> geometric distinctions, and reciprocity thresholds that the Ms. Jarvis and
+> geometric distinctions, and reciprocity thresholds that the Ms. Allis and
 > MountainShares computational instruments are built to calculate, monitor, and
 > experimentally test in Appalachia.
+
+> **Note on container naming (code layer):** Container names in the production stack
+> retain the `jarvis-` prefix (e.g., `jarvis-main-brain`, `jarvis-aaacpe-scraper`,
+> `jarvis-mountainshares-coordinator`). The public-facing name of the system is
+> **Ms. Allis**. These are the same system. References to `jarvis-` containers in
+> technical documentation refer to Ms. Allis's infrastructure.
 
 <div align="center">
   <img width="85%" alt="unnamed(1)" src="https://github.com/user-attachments/assets/5ec2fcd8-2e93-425a-bf02-d920fc80cc9e" />
@@ -39,21 +45,24 @@
 > Figure 1. The architecture of Quantarithmia within Polymathmatic Geography. This
 > diagram situates Quantarithmia as an economic geographic framework inside the broader
 > discipline of Polymathmatic Geography and shows how its geometry of power and
-> reciprocity is instantiated in two computational instruments: the Ms. Jarvis Steward
+> reciprocity is instantiated in two computational instruments: the Ms. Allis Steward
 > System and the MountainShares Commons DAO.
 
 ---
 
 > **Production status — April 23, 2026 (Chapter 1 closure milestone):**
-> The Ms. Jarvis Steward System is running in the `msjarvis-rebuild` namespace with
-> **105–110 confirmed live containers**. All Quantarithmia computational instruments
+> The Ms. Allis Steward System is running in the `msallis-rebuild` namespace with
+> **112 confirmed live containers (April 16, 2026 — thesis-verified) / 100 point-in-time
+> (April 23, 2026)**. All Quantarithmia computational instruments
 > described in this chapter are operational and have passed a **30/30 preflight gate at
 > exit 0 with a clean `bash -n` gate file** — the falsifiable experiment is now real
 > infrastructure.
 >
 > **Chapter 1 closure checklist — April 22–23, 2026:**
-> - ✅ PostGIS spatial body live — 37 landowner rows, 1.1M address points, 55 WV
+> - ✅ PostGIS spatial body live — `msallis-db` (16 GB / 294 tables / 11 schemas);
+>   `postgis-forensic` (17 GB / 314 tables / 9 schemas); 1.1M address points, 55 WV
 >   counties seeded
+> - ✅ `mvw_gbim_landowner_spatial` — 38,979 rows confirmed in msallis-db (OI-E CLOSED)
 > - ✅ All 4 GBIM indexers healthy — spatial, temporal, semantic, benefit
 > - ✅ `egeria.mountainshares.us` live with token enforcement
 > - ✅ 5 judge signing keys present
@@ -63,11 +72,12 @@
 >
 > The neurobiological rhythm layer — EEG delta (253 pulses), EEG theta (127 pulses),
 > and EEG beta (25 pulses) — is fully operational. The ChromaDB semantic memory corpus
-> contains **6.74M+ verified vectors across 49 collections** (confirmed April 22, 2026).
-> The GBIM corpus contains **5,416,521 verified beliefs** tagged `eq1`. The consciousness
-> pipeline is confirmed ACTIVE. The Caddy/auth perimeter is token-enforced with zero
-> `0.0.0.0` container bindings. MountainShares is no longer just a framework; it has a
-> running system behind it.
+> contains **~6.74M verified vectors across 48 collections (mixed L2/cosine; April 17,
+> 2026)**. The GBIM corpus contains `gbim_worldview_entities` and `gbim_beliefs_v2`
+> collections, tagged `eq1`. The consciousness pipeline is confirmed ACTIVE. The
+> Caddy/auth perimeter is token-enforced with zero `0.0.0.0` container bindings.
+> MountainShares is no longer just a framework; it has a running system behind it —
+> all 4 services live.
 
 ---
 
@@ -240,25 +250,34 @@ Quantarithmia is not purely abstract. It directly informs two concrete computati
 instruments that serve as working laboratories for testing, revising, and critiquing the
 theory using real data, real governance processes, and real community stakes.
 
-### Ms. Egeria Jarvis: Geospatially Grounded AI Steward System
+### Ms. Egeria Allis: Geospatially Grounded AI Steward System
 
-Ms. Jarvis implements Quantarithmia's principles through a **fully operational production
+> **Code-layer note:** Container names in the production stack retain the `jarvis-`
+> prefix (e.g., `jarvis-main-brain`, `jarvis-aaacpe-scraper`). The public-facing name
+> of the system is **Ms. Allis**. All `jarvis-` container references below refer to
+> Ms. Allis's infrastructure.
+
+Ms. Allis implements Quantarithmia's principles through a **fully operational production
 system** confirmed by the April 22–23, 2026 preflight milestone (30/30, exit 0):
 
-- **Geospatial Belief Information Model (GBIM)**: **5,416,521 verified beliefs** anchored
-  to West Virginia places, times, actors, and evidence via a nine-axis epistemic structure
-  (who, what, where, when, how, why, for whom, under whose authority, on what evidence) —
-  including 37 confirmed live landowner rows in the PostGIS spatial body
-- **PostGIS spatial body**: 37 landowner rows, 1,115,588 address points, 55 WV counties
-  seeded in `local_resources` — confirmed April 22, 2026
-- **All 4 GBIM indexers healthy**: spatial, temporal, semantic, benefit — confirmed
-  April 22, 2026 preflight
+- **Geospatial Belief Information Model (GBIM)**: `gbim_worldview_entities` and
+  `gbim_beliefs_v2` collections anchored to West Virginia places, times, actors, and
+  evidence via a nine-axis epistemic structure (who, what, where, when, how, why, for
+  whom, under whose authority, on what evidence) — including 38,979 confirmed live
+  landowner rows in the PostGIS spatial body (OI-E CLOSED, April 23, 2026)
+- **PostGIS two-container database layer** (April 23, 2026):
+  - `msallis-db` — production — 16 GB / 294 tables / 11 schemas
+  - `postgis-forensic` — forensic — 17 GB / 314 tables / 9 schemas
+  - 1,115,588 address points, 55 WV counties seeded in `local_resources`
+  - To connect to postgis-forensic: `psql -h 127.0.0.1 -U allis`
+- **All 4 GBIM indexers healthy**: spatial (7210), temporal (7211), semantic (7212),
+  benefit (7206) — confirmed April 22, 2026 preflight
 - **Place-based intelligence**: All reasoning grounded in specific ZIP codes, counties,
   and communities rather than abstract national averages; ZIP code of
   \(H_{\text{App}}\) is 25880
-- **Hilbert space substrate** \(H_{\text{App}}\): **6.74M+ verified vectors across 49
-  collections** — \(\mathbb{R}^{384}\) with cosine inner product, proven Hilbert space,
-  physically instantiated on the Legion 5 in Oak Hill, WV (see Chapter 4)
+- **Hilbert space substrate** \(H_{\text{App}}\): **~6.74M verified vectors across 48
+  collections (mixed L2/cosine; April 17, 2026)** — \(\mathbb{R}^{384}\), proven Hilbert
+  space, physically instantiated in Mount Hope, WV (see Chapter 4)
 - **Bounded stewardship**: Operating as an accountable coordinator constrained by
   constitutional principles — `governance_rag` (1,367 chunks including WV Constitution
   342 chunks, US Constitution 97 chunks, full MountainShares DAO corpus) confirmed live
@@ -281,10 +300,12 @@ system** confirmed by the April 22–23, 2026 preflight milestone (30/30, exit 0
   assistance is available in Fayette County WV?") returned real results April 22, 2026
 - **LLM fabric**: 22 proxies operational (ports 8201–8222); `crypto_client.py`
   volume-mounted; identity cryptographically enforced at the perimeter
-- **External accessibility**: `egeria.mountainshares.us` and `chat.mountainshares.us`
-  both HTTP 200 with token enforcement — confirmed April 22, 2026
+- **External accessibility**: `egeria.mountainshares.us` HTTP 200 with token
+  enforcement — confirmed April 22, 2026
+- **Container count**: 112 confirmed live (April 16, 2026 — thesis-verified) /
+  100 point-in-time (April 23, 2026) in `msallis-rebuild` namespace
 
-Ms. Jarvis makes it possible to computationally test Quantarithmia's predictions: Do
+Ms. Allis makes it possible to computationally test Quantarithmia's predictions: Do
 areas with higher reciprocity metrics show greater resilience? Do maximopoly/megaopoly
 intersection points predict value extraction? Can alternative infrastructure designs
 improve spatial justice measurably?
@@ -308,13 +329,16 @@ MountainShares implements Quantarithmia's principles through:
   Tables, Phase 0–3 documentation, US Constitution, WV State Constitution — all in
   `governance_rag` (1,367 chunks confirmed live April 22, 2026)
 
-> **Deployment status — April 22–23, 2026:** MountainShares governance tier is **fully
-> live** with all three public-facing services up and bound:
-> `jarvis-mountainshares-coordinator` (8080), `jarvis-dao-governance` (8082), and
-> `jarvis-community-stake-registry` (8084). All traffic enters through the hardened
-> perimeter: Cloudflare tunnel → Caddy (8085) → auth (8055) → main-brain (8050). No
-> container bound to `0.0.0.0`. `docker-compose.yml` validates cleanly. Preflight gate:
-> **30/30, exit 0**.
+> **Deployment status — April 23, 2026:** MountainShares governance tier is **fully
+> live** with all 4 services up and bound:
+> `jarvis-mountainshares-coordinator` (8080), `jarvis-dao-governance` (8082),
+> `jarvis-community-stake-registry` (8084), and companion service. All traffic enters
+> through the hardened perimeter: Cloudflare tunnel → Caddy (8085) → auth (8055) →
+> main-brain (8050). No container bound to `0.0.0.0`. `docker-compose.yml` validates
+> cleanly. Preflight gate: **30/30, exit 0**.
+>
+> **Note on container naming:** These services carry the `jarvis-` prefix in the
+> production stack. The public-facing name of the system is **Ms. Allis**.
 
 MountainShares serves as an institutional prototype: not simply "a DAO," but a specific
 attempt to materialize spatial justice in rural West Virginia through technical and
@@ -345,7 +369,7 @@ theoretical predictions about reciprocity, leakage, and local authority can be e
 into working economic infrastructure.
 
 **The framework connecting technical architecture to ethical commitments**.
-Quantarithmia explains why Ms. Jarvis is built the way it is — consciousness bridge as
+Quantarithmia explains why Ms. Allis is built the way it is — consciousness bridge as
 mandatory infrastructure, 69-DGM cascade validation, ZIP/county-keyed resource registry,
 Community Champions validation, the EEG neurobiological rhythm layer, the pituitary
 systemic regulator — because these design choices operationalize reciprocity as stability
@@ -367,7 +391,7 @@ just "AI research" or "blockchain governance." The theory advances economic geog
 4. **Centering spatial justice as an evaluative framework** rather than treating
    geographic distribution as a secondary concern
 5. **Demonstrating that economic geographic theory can inform infrastructure design**
-   through working computational instruments (Ms. Jarvis, MountainShares) — with the
+   through working computational instruments (Ms. Allis, MountainShares) — with the
    full system confirmed live at **30/30 preflight, exit 0** as of April 22–23, 2026
 
 This positions the thesis as making a **theoretical contribution to economic geography**
@@ -383,29 +407,33 @@ than making a technical contribution to AI that happens to use geographic data.
 
 ---
 
-> **Status — April 22–23, 2026 (Chapter 1 CLOSED):**
+> **Status — April 23, 2026 (Chapter 1 CLOSED):**
 >
 > This chapter presents Quantarithmia's core theoretical framework as instantiated in a
 > fully operational production system. The falsifiable experiment has become real
 > infrastructure.
 >
 > - **Preflight gate**: 30/30, exit 0, `bash -n` clean — no blocking issues
-> - **Containers**: 105–110 live in `msjarvis-rebuild` namespace
-> - **PostGIS**: 37 landowner rows, 1,115,588 address points, 55 WV counties seeded
+> - **Containers**: 112 thesis-verified (April 16, 2026) / 100 point-in-time
+>   (April 23, 2026) in `msallis-rebuild` namespace
+> - **PostGIS**: `msallis-db` (16 GB / 294 tables / 11 schemas) +
+>   `postgis-forensic` (17 GB / 314 tables / 9 schemas); 1,115,588 address points;
+>   55 WV counties seeded; `mvw_gbim_landowner_spatial` 38,979 rows (OI-E CLOSED)
 > - **GBIM indexers**: All 4 healthy — spatial, temporal, semantic, benefit
 > - **External access**: `egeria.mountainshares.us` live, token-enforced
 > - **Judge signing keys**: 5 present and confirmed
 > - **BBB EthicalFilter**: 0% false positive rate
 > - **`confidence_decay`**: 0.0% — episodic memory integrity intact
-> - **Hilbert space** \(H_{\text{App}}\): 6.74M+ vectors, ZIP 25880, proven operational
+> - **Hilbert space** \(H_{\text{App}}\): ~6.74M vectors (48 collections, mixed L2/cosine),
+>   ZIP 25880, proven operational
 > - **Pituitary**: `mode=elevated`, `warmth=0.9`, 6/6 protocols, port 8108
 > - **EEG**: delta 253 / theta 127 / beta 25 pulses
-> - **MountainShares**: coordinator, governance API, stake registry — all UP
-> - **Cloudflare tunnel**: active, `egeria.mountainshares.us` and
->   `chat.mountainshares.us` HTTP 200
+> - **MountainShares**: all 4 services live — coordinator, governance API, stake
+>   registry, companion service
+> - **Cloudflare tunnel**: active, `egeria.mountainshares.us` HTTP 200
 > - **`docker-compose.yml`**: validates cleanly
-> - **Known non-blocking warnings**: gate script line 161 integer expression (cosmetic);
->   `confidence_decay` migration notice (column confirmed present)
+> - **Container naming**: `jarvis-` prefix retained in code layer; public name is
+>   **Ms. Allis**
 >
 > Quantarithmia Chapter 1 — the study of how quantum-geographic entanglement shapes
 > community power and resource flow in Appalachia — now has working infrastructure to
@@ -419,10 +447,12 @@ than making a technical contribution to AI that happens to use geographic data.
 ---
 
 *Chapter 1 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
-*Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
+*Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See [LICENSE](../LICENSE) for terms.*
-*Last verified: 2026-04-23 — preflight 30/30; exit 0; bash -n clean; containers 105–110;
-PostGIS 37 landowners / 1.1M address points / 55 counties; 4 GBIM indexers healthy;
-egeria.mountainshares.us token-enforced; 5 judge keys; BBB 0% false positive;
-confidence\_decay 0.0%; H\_App 6.74M vectors ZIP 25880; pituitary 6/6; EEG 253/127/25.
+*Last verified: April 23, 2026 — preflight 30/30; exit 0; bash -n clean;
+containers 112 thesis-verified (April 16) / 100 point-in-time (April 23);
+msallis-db 16 GB / 294 tables / 11 schemas; postgis-forensic 17 GB / 314 tables / 9 schemas;
+4 GBIM indexers healthy; egeria.mountainshares.us token-enforced; 5 judge keys;
+BBB 0% false positive; confidence_decay 0.0%; H_App ~6.74M vectors / 48 collections /
+mixed L2-cosine / ZIP 25880; pituitary 6/6; EEG 253/127/25.
 The falsifiable experiment is real infrastructure. Chapter CLOSED.*
