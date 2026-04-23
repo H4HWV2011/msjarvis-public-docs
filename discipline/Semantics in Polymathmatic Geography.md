@@ -21,7 +21,7 @@ The Roman Empire offers a clarifying contrast. For most of the men who reported 
 In many systems, a statement is "about" something because the system declares it so, often by associating it with a token or URI. In polymathmatic geography, *about‑ness* is grounded differently:
 
 - A statement is about a thing when it can be tied to **anchors**: GBIM entities, geometries, time spans, covenant zones, or lived narratives in a specific where/when.
-- A statement that cannot be anchored at all—physically, legally, narratively, or spiritually—is treated as out‑of‑scope or provisional. It might be explored, but it is not allowed to harden into "knowledge" inside Ms. Jarvis or the Commons.
+- A statement that cannot be anchored at all—physically, legally, narratively, or spiritually—is treated as out‑of‑scope or provisional. It might be explored, but it is not allowed to harden into "knowledge" inside Ms. Allis or the Commons.
 
 This does not mean every sentence must carry coordinates. It means that:
 
@@ -91,7 +91,7 @@ The stack's concrete tools implement this semantic stance:
 
 - **GBIM and GeoDB**: define the core semantic atoms—places, entities, flows—with explicit fields for where, when, what, who, and why. They say, in data form, "this is what it means to be a thing in this world."
 - **Tags and taxonomies**: name domains, roles, hazards, programs, covenants, and spiritual or narrative categories. These labels are not decoration; they are part of how meanings are carved.
-- **Embeddings and vectors**: encode neighborhoods in meaning‑space and analytical‑space. Which documents, places, and events lie near each other in Ms. Jarvis's internal world‑model is a semantic fact about the system.
+- **Embeddings and vectors**: encode neighborhoods in meaning‑space and analytical‑space. Which documents, places, and events lie near each other in Ms. Allis's internal world‑model is a semantic fact about the system.
 
 Polymathmatic semantics demands that:
 
@@ -117,7 +117,7 @@ Because meanings are anchored and braided, **semantics is a power question**:
 
 - Who defines the tags, categories, and ontologies?
 - Who decides which similarities matter (for example, "rural," "blighted," "at‑risk," "sacred")?
-- Who can challenge and change the neighborhoods in which a place appears, in maps and in Ms. Jarvis's embeddings?
+- Who can challenge and change the neighborhoods in which a place appears, in maps and in Ms. Allis's embeddings?
 
 Polymathmatic geography treats:
 
