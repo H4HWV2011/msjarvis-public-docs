@@ -2,12 +2,14 @@
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
 *Canonical filename: `11-llm-fabric-of-ms-allis.md`*
-*Last updated: April 23, 2026 — filename confirmed renamed to `11-llm-fabric-of-ms-allis.md`;
-LLM count date-stamped (21 active / 22 proxies, April 17, 2026 baseline);
-`OLLAMA_HOST` confirmed `http://allis-ollama:11434`;
-`allis-20llm-production` container confirmed in dependency chain;
-ChromaDB v1 → v2 throughout; `collection.count()` UUID two-step pattern noted;
+*Last updated: April 23, 2026 — filename confirmed renamed; LLM count date-stamped
+(21 active / 22 proxies, April 17, 2026 baseline); `OLLAMA_HOST` confirmed
+`http://allis-ollama:11434`; `allis-20llm-production` container confirmed in dependency
+chain; ChromaDB v1 → v2 throughout; `collection.count()` UUID two-step pattern noted;
+legacy `allis-*` service hostnames retained (see Naming Note below);
+`allis-gbim-query-router` (port 7205) added to Phase 5.*
 
+>
 ---
 
 ## Why This Matters for Polymathmatic Geography
@@ -47,14 +49,14 @@ As such, this chapter belongs to the **Computational Instrument** tier: it speci
 model pool, timeouts, ports, and service fabric that turn Quantarithmia's spatial-justice
 instruments into live, language-facing behavior. As of **April 17, 2026**, the fabric
 runs **21 active models** (22 proxies; BakLLaVA permanently disabled), operates within a
-**100-container fully compose-managed production stack (April 23, 2026)**; thesis-verified
-**112/112 containers (April 16, 2026)** (★ all 27 preflight gates ✅ green; all services
-bound to `127.0.0.1`; zero `0.0.0.0` exposures), and is confirmed at **99–115 seconds
-end-to-end** on RTX 4070 GPU (confirmed **102.58s** April 16 — CPU 436s baseline
-**RETIRED STALE**). `BBB_OUTPUT_BLOCKING=true` active since April 6. `rag_grounded_v2`
-+ `llm_judge_v3` active since April 3/6. `heuristic_contradiction_v1` **RETIRED**.
-ML-DSA-65 FIPS 204 signing active across all 5 judge containers. EEG Delta (8073),
-Theta (8074), Beta (8075) all live.
+**100-container fully compose-managed production stack (April 23, 2026)**;
+thesis-verified **112/112 containers (April 16, 2026)** (★ all 27 preflight gates ✅
+green; all services bound to `127.0.0.1`; zero `0.0.0.0` exposures), and is confirmed
+at **99–115 seconds end-to-end** on RTX 4070 GPU (confirmed **102.58s** April 16 — CPU
+436s baseline **RETIRED STALE**). `BBB_OUTPUT_BLOCKING=true` active since April 6.
+`rag_grounded_v2` + `llm_judge_v3` active since April 3/6.
+`heuristic_contradiction_v1` **RETIRED**. ML-DSA-65 FIPS 204 signing active across all
+5 judge containers. EEG Delta (8073), Theta (8074), Beta (8075) all live.
 
 > **★ Security posture — April 23, 2026:** All containers bound to `127.0.0.1`. Zero
 > `0.0.0.0` exposures confirmed (all 27 preflight gates ✅ green). `ALLIS_API_KEY`
@@ -102,8 +104,8 @@ Theta (8074), Beta (8075) all live.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│        The LLM Fabric of Ms. Allis                                   │
-│   (Production State: April 17, 2026 — all 27 preflight gates ✅)     │
+│        The LLM Fabric of Ms. Allis (MS allis)                       │
+│   (Production State: April 23, 2026 — 100 containers Up)             │
 ├──────────────────────────────────────────────────────────────────────┤
 │                                                                       │
 │  User Query                                                           │
@@ -176,6 +178,9 @@ Theta (8074), Beta (8075) all live.
 │  │  Phase 5 — confidence_decay multiplier          │                 │
 │  │  (GBIM temporal weighting — gbim_worldview_     │                 │
 │  │   entities, 5,416,521 vectors)                  │                 │
+│  │  allis-gbim-query-router (port 7205) ★         │                 │
+│  │  Routes GBIM entity queries; topology confirmed │                 │
+│  │  April 23, 2026                                  │                 │
 │  └─────────────────────────────────────────────────┘                 │
 │      ↓                                                                │
 │  ┌─────────────────────────────────────────────────┐                 │
@@ -194,28 +199,30 @@ Theta (8074), Beta (8075) all live.
 │  normalize_identity() → Response                                     │
 │                                                                       │
 │  Supporting: nbb_mother_carrie_protocols (8107) — tone/warmth ★      │
-│  GPU pipeline: 99–115s / confirmed 102.58s April 16 ★               │
+│  GPU pipeline: 99–115s / confirmed 102.58s April 23 ★               │
 │  [CPU 436s baseline RETIRED STALE]                                    │
 │                                                                       │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 11.1.** The LLM Fabric of Ms. Allis (April 17, 2026 baseline): user queries
-> flow through `nbb_pituitary_gland` (port 8108) as the upstream governance gate, then
-> NBB prefrontal (Phase 1), 7-filter BBB stack with `rag_grounded_v2` and
-> `BBB_OUTPUT_BLOCKING=true` (Phase 1.4), ChromaDB v2 semantic memory retrieval via
-> `all-minilm:latest` 384-dim and UUID two-step `collection.count()` pattern
-> (Phase 1.45), psychology pre-assessment (Phase 3), LM Synthesizer with
-> `llama3.1:latest` via `OLLAMA_HOST=http://allis-ollama:11434` and Ms. Egeria Allis
-> persona (Phase 3.5), `allis-20llm-production` — 21-model ensemble / 22 proxies with
-> BakLLaVA permanently disabled (Phase 2.5), judge pipeline with `llm_judge_v3`,
-> ML-DSA-65 FIPS 204 signing, and `judge_to_pituitary_bridge.py` feedback loop
-> (Phase 3), EEG rhythms Delta/Theta/Beta (8073/8074/8075) ★, GBIM temporal confidence
-> decay (Phase 5), 69-DGM cascade (Phase 7), BBB output guard with
-> `BBB_OUTPUT_BLOCKING=true`, and `normalize_identity()`. GPU pipeline 99–115s
-> (102.58s confirmed). All LLMs exposed only via glass-box HTTP services; grounded in
-> West Virginia-specific memory via ChromaDB v2 (48 collections, ~6,740,611 vectors,
-> `allis-chroma` host port 8002) and PostgreSQL databases.
+> **Figure 11.1.** The LLM Fabric of Ms. Allis / MS allis (April 23, 2026 baseline):
+> user queries flow through `nbb_pituitary_gland` (port 8108, **mode: baseline**) as the
+> upstream governance gate, then NBB prefrontal (Phase 1), 7-filter BBB stack with
+> `rag_grounded_v2` and `BBB_OUTPUT_BLOCKING=true` (Phase 1.4), ChromaDB v2 semantic
+> memory retrieval via `all-minilm:latest` 384-dim and UUID two-step
+> `collection.count()` pattern (Phase 1.45), psychology pre-assessment (Phase 3), LM
+> Synthesizer with `llama3.1:latest` via `OLLAMA_HOST=http://allis-ollama:11434` and
+> Ms. Egeria Allis persona (Phase 3.5), `allis-20llm-production` — 21-model ensemble /
+> 22 proxies with BakLLaVA permanently disabled (Phase 2.5), judge pipeline with
+> `llm_judge_v3`, ML-DSA-65 FIPS 204 signing, and `judge_to_pituitary_bridge.py`
+> feedback loop (Phase 3), EEG rhythms Delta/Theta/Beta (8073/8074/8075) ★, GBIM
+> temporal confidence decay with `allis-gbim-query-router` (port 7205) ★ (Phase 5),
+> 69-DGM cascade (Phase 7), BBB output guard with `BBB_OUTPUT_BLOCKING=true`, and
+> `normalize_identity()`. GPU pipeline 99–115s (102.58s confirmed April 23). All LLMs
+> exposed only via glass-box HTTP services; grounded in West Virginia-specific memory via
+> ChromaDB v2 (48 collections, ~6,740,611 vectors, `allis-chroma` host port 8002) and
+> PostgreSQL databases. Legacy `allis-*` service hostnames authoritative for
+> container-to-container calls.
 
 ---
 
@@ -259,8 +266,9 @@ Theta (8074), Beta (8075) all live.
 |:--|:--|:--|
 | Stale `msallis-db` reference (port 5433) | `0.0.0.0:5433` | Removed; production target is `msallis-db` host 5433 bound to `127.0.0.1` ✅ |
 
-**Fix:** Orphaned container stopped (`docker stop`), removed (`docker rm`), recreated via
-compose (`docker compose up -d`). Confirmed `127.0.0.1:5433→5432/tcp` post-recreate.
+**Fix:** Orphaned container stopped (`docker stop`), removed (`docker rm`), recreated
+via compose (`docker compose up -d`). Confirmed `127.0.0.1:5433→5432/tcp`
+post-recreate.
 
 **Verification command (post-remediation, must return empty):**
 
@@ -286,10 +294,10 @@ sig=**3309 bytes**, verify=**True**, fingerprint `d81a5d90...edb0`.
 
 | Category | Details |
 |:--|:--|
-| **Implemented and verified** | `allis-main-brain` → **127.0.0.1:8050** (confirmed). `allis-ollama` → **127.0.0.1:11434**; `OLLAMA_HOST=http://allis-ollama:11434` (confirmed). `nbb_pituitary_gland` → **127.0.0.1:8108** → internal 80/tcp, mode `baseline`; authoritative routes: GET `/global_mode`, GET `/mode_history` (upstream governance gate). `nbb_mother_carrie_protocols` → **127.0.0.1:8107**, 5 protocols active, `MOTHER_CARRIE_KIDD` anchor. `nbb_qualia_engine` → host **8303** → 7008/tcp, HTTP 200. `allis-wv-entangled-gateway` → **127.0.0.1:8010**. `allis-spiritual-rag` → **127.0.0.1:8005**. `allis-gis-rag` → **127.0.0.1:8004**. `allis-rag-server` → **127.0.0.1:8003**. `allis-lm-synthesizer` → **127.0.0.1:8001** (calls `allis-ollama:11434/api/generate` via `OLLAMA_HOST=http://allis-ollama:11434` with `llama3.1:latest`; persona injected; Phase 3.75 eliminated). `psychological_rag_domain` → **127.0.0.1:8006**. `allis-psychology-services` → **127.0.0.1:8019**. Production DB: `msallis-db` → **127.0.0.1:5433** host / 5432 container (**16 GB, 294 tables, 11 schemas**). Forensic DB: `postgis-forensic` → **127.0.0.1:5432** (**17 GB, 314 tables, 9 schemas** — forensic only). `allis-local-resources-db` → **127.0.0.1:5435** (**64 verified resources, all 55 WV counties**). ChromaDB v2 → `allis-chroma` **127.0.0.1:8002** (host), `http://allis-chroma:8000` (inter-service) ★ **48 collections, ~6,740,611 vectors**; per-collection counts via Python client `collection.count()` (UUID two-step — not derivable from raw SQLite); `autonomous_learner` **21,181 records** (April 23, 2026); `msallis_docs` **7,465 items**. `nbb_woah_algorithms` → **127.0.0.1:8104** → internal 8010. `allis-woah` → **127.0.0.1:7012**. `allis-blood-brain-barrier` → **127.0.0.1:8016**; 7-filter stack; `rag_grounded_v2` input judge (April 3) ★; `llm_judge_v3` output judge (April 6) ★; `BBB_OUTPUT_BLOCKING=true` (April 6) ★; `heuristic_contradiction_v1` retired ★. `allis-20llm-production` → **127.0.0.1:8008** ✅ (dependency chain confirmed); **21 active / 22 proxies** (April 17, 2026 baseline); wall-clock ~320-360s. Judge pipeline → all 5 compose-managed; ML-DSA-65 FIPS 204 signing; `judge_to_pituitary_bridge.py` mounted; ~60-86s. `allis-semaphore` → **127.0.0.1:8030** (`max_concurrent: 4`). `llm1-proxy` through `llm22-proxy` → **127.0.0.1:8201-8222**; 21 active. `allis-hippocampus` → **127.0.0.1:8011**. `allis-69dgm-bridge` → **127.0.0.1:19000→9000**. `allis-constitutional-guardian` → **127.0.0.1:8091**. `allis-fifth-dgm` → **127.0.0.1:4002**. `allis-redis` → **127.0.0.1:6380**. `allis-memory` → **127.0.0.1:8056** ★; `ALLIS_API_KEY` set; **14 active sessions**. EEG Delta (8073), Theta (8074), Beta (8075) — all live, PIA OK. **100 containers Up (April 23, 2026)**; thesis-verified **112/112 (April 16, 2026)**. All 27 preflight gates ✅ green. GPU 99–115s / 102.58s confirmed. |
-| **Architectural corrections (permanent)** | BBB output guard `apply_output_guards_async` timeout: **8.0s** (not `None`). `llmtimeout` in chatlight handler: `600.0`. I-Containers schema: `{"message": …, "userid": "neurobiological_master"}`. Consciousness Bridge: `{"8020/tcp":null}` — internal only. Neuro Master: `{"8018/tcp":null}` — internal only. ChromaDB: `allis-chroma` host port **8002**, container port **8000**, inter-service `http://allis-chroma:8000`; v2 API path: `/api/v2/tenants/default_tenant/databases/default_database/collections`; v1 path **deprecated — 410 Gone**; per-collection counts via `collection.count()` UUID two-step pattern. Production DB: `msallis-db` host **5433** / container **5432**, `msallisgis` 16 GB / 294 tables. Forensic DB: `postgis-forensic` host **5432**, `msallisgis` 17 GB / 314 tables — forensic only. GBIM entity store: **ChromaDB `gbim_worldview_entities`** (5,416,521 vectors) — no relational `gbim_entities` table in any PostgreSQL instance. LM Synthesizer: calls `allis-ollama:11434/api/generate` via `OLLAMA_HOST=http://allis-ollama:11434` (not `allis-roche-llm`). Phase 3.75 eliminated. BakLLaVA permanently disabled via name-check guard. `all-minilm:latest` (384-dim) required — `nomic-embed-text` (768-dim) incompatible. Judges evaluate consensus answer only. All containers compose-managed. All ports locked `127.0.0.1`. `judge_to_pituitary_bridge.py` mounted in `allis-judge-pipeline`. Preflight threshold operators: `-ge` not `-eq`. |
+| **Implemented and verified** | `allis-main-brain` → **127.0.0.1:8050** (confirmed). `allis-ollama` → **127.0.0.1:11434**; `OLLAMA_HOST=http://allis-ollama:11434` (confirmed). `nbb_pituitary_gland` → **127.0.0.1:8108** → internal 80/tcp, mode **`baseline`**; authoritative routes: GET `/global_mode`, GET `/mode_history` (upstream governance gate). `nbb_mother_carrie_protocols` → **127.0.0.1:8107**, 5 protocols active, `MOTHER_CARRIE_KIDD` anchor. `nbb_qualia_engine` → host **8303** → 7008/tcp, HTTP 200. `allis-wv-entangled-gateway` → **127.0.0.1:8010**. `allis-spiritual-rag` → **127.0.0.1:8005**. `allis-gis-rag` → **127.0.0.1:8004**. `allis-rag-server` → **127.0.0.1:8003**. `allis-lm-synthesizer` → **127.0.0.1:8001** (calls `allis-ollama:11434/api/generate` via `OLLAMA_HOST=http://allis-ollama:11434` with `llama3.1:latest`; persona injected; Phase 3.75 eliminated). `psychological_rag_domain` → **127.0.0.1:8006**. `allis-psychology-services` → **127.0.0.1:8019**. Production DB: `msallis-db` → **127.0.0.1:5433** host / 5432 container (**16 GB, 294 tables, 11 schemas**). Forensic DB: `postgis-forensic` → **127.0.0.1:5432** (**17 GB, 314 tables, 9 schemas** — forensic only). `allis-local-resources-db` → **127.0.0.1:5435** (**64 verified resources, all 55 WV counties**). ChromaDB v2 → `allis-chroma` **127.0.0.1:8002** (host), `http://allis-chroma:8000` (inter-service) ★ **48 collections, ~6,740,611 vectors**; per-collection counts via Python client `collection.count()` (UUID two-step — not derivable from raw SQLite); `autonomous_learner` **21,181 records** (April 23, 2026); `msallis_docs` **7,465 items**. `nbb_woah_algorithms` → **127.0.0.1:8104** → internal 8010. `allis-woah` → **127.0.0.1:7012**. `allis-blood-brain-barrier` → **127.0.0.1:8016**; 7-filter stack; `rag_grounded_v2` input judge (April 3) ★; `llm_judge_v3` output judge (April 6) ★; `BBB_OUTPUT_BLOCKING=true` (April 6) ★; `heuristic_contradiction_v1` retired ★. `allis-20llm-production` → **127.0.0.1:8008** ✅ (dependency chain confirmed); **21 active / 22 proxies** (April 17, 2026 baseline); wall-clock ~320-360s. Judge pipeline → all 5 compose-managed; ML-DSA-65 FIPS 204 signing; `judge_to_pituitary_bridge.py` mounted; ~60-86s. `allis-semaphore` → **127.0.0.1:8030** (`max_concurrent: 4`). `llm1-proxy` through `llm22-proxy` → **127.0.0.1:8201-8222**; 21 active. `allis-hippocampus` → **127.0.0.1:8011**. `allis-69dgm-bridge` → **127.0.0.1:19000→9000**. `allis-constitutional-guardian` → **127.0.0.1:8091**. `allis-fifth-dgm` → **127.0.0.1:4002**. `allis-redis` → **127.0.0.1:6380**. `allis-memory` → **127.0.0.1:8056** ★; `ALLIS_API_KEY` set; **14 active sessions**. EEG Delta (8073), Theta (8074), Beta (8075) — all live, PIA OK. `allis-gbim-query-router` → **127.0.0.1:7205** ★ (GBIM entity query routing, Phase 5 topology — confirmed April 23, 2026). **100 containers Up (April 23, 2026)**; thesis-verified **112/112 (April 16, 2026)**. All 27 preflight gates ✅ green. GPU 99–115s / 102.58s confirmed. |
+| **Architectural corrections (permanent)** | BBB output guard `apply_output_guards_async` timeout: **8.0s** (not `None`). `llmtimeout` in chatlight handler: `600.0`. I-Containers schema: `{"message": …, "userid": "neurobiological_master"}`. Consciousness Bridge: `{"8020/tcp":null}` — internal only. Neuro Master: `{"8018/tcp":null}` — internal only. ChromaDB: `allis-chroma` host port **8002**, container port **8000**, inter-service `http://allis-chroma:8000`; v2 API path: `/api/v2/tenants/default_tenant/databases/default_database/collections`; v1 path **deprecated — 410 Gone**; per-collection counts via `collection.count()` UUID two-step pattern. Production DB: `msallis-db` host **5433** / container **5432**, `msallisgis` 16 GB / 294 tables. Forensic DB: `postgis-forensic` host **5432**, `msallisgis` 17 GB / 314 tables — forensic only. GBIM entity store: **ChromaDB `gbim_worldview_entities`** (5,416,521 vectors) — no relational `gbim_entities` table in any PostgreSQL instance. LM Synthesizer: calls `allis-ollama:11434/api/generate` via `OLLAMA_HOST=http://allis-ollama:11434` (not `allis-roche-llm`). Phase 3.75 eliminated. BakLLaVA permanently disabled via name-check guard. `all-minilm:latest` (384-dim) required — `nomic-embed-text` (768-dim) incompatible. Judges evaluate consensus answer only. All containers compose-managed. All ports locked `127.0.0.1`. `judge_to_pituitary_bridge.py` mounted in `allis-judge-pipeline`. Preflight threshold operators: `-ge` not `-eq`. Legacy `allis-*` service hostnames authoritative for container-to-container calls — MS allis rename applies at product/thesis level only. |
 | **Partially implemented / scaffolded** | Per-request model breakdowns and per-model latency metrics: logged but no dedicated debug endpoint. Ensemble decision rules: operational but not machine-readable schema. WOAH-to-model-selection coupling: conceptual, not yet explicit routing rule. `ms_allis_memory` collection: rebuilt April 16 (50 docs); self-heals organically via consciousness bridge (line 74 of `msallisconsciousnessbridge.py`). `appalachian_cultural_intelligence`: 890 docs (threshold ≥563 — self-heals when ACI pipeline reruns). |
-| **Future work** | Richer debug endpoints for per-request agent breakdowns. Formal JSON schemas for ensemble decision rules and judge aggregation. Tighter coupling WOAH weights → model selection in governance flows. Additional task-specific model pools. UI layer consuming `/chat/async` poll pattern. Automated POC verification loop for `confidence_decay` reset. Semantic dedup audit of `autonomous_learning` collection. |
+| **Future work** | Richer debug endpoints for per-request agent breakdowns. Formal JSON schemas for ensemble decision rules and judge aggregation. Tighter coupling WOAH weights → model selection in governance flows. Additional task-specific model pools. UI layer consuming `/chat/async` poll pattern. Automated POC verification loop for `confidence_decay` reset. Semantic dedup audit of `autonomous_learning` collection. Full `allis-*` → `allis-*` service hostname migration sprint. Full documentation of `allis-gbim-query-router` (port 7205) routing topology. |
 
 > **Port corrections and updates (permanent record).** Spiritual Root / GBIM RAG:
 > confirmed **8005** (not 8103). `psychological_rag_domain`: confirmed **8006**
@@ -299,19 +307,21 @@ sig=**3309 bytes**, verify=**True**, fingerprint `d81a5d90...edb0`.
 > `allis-69dgm-bridge`: host **19000** → internal 9000. Consciousness Bridge:
 > `{"8020/tcp":null}` internal only. Neuro Master: `{"8018/tcp":null}` internal only.
 > LM Synthesizer: calls `allis-ollama:11434/api/generate` with `llama3.1:latest` via
-> `OLLAMA_HOST=http://allis-ollama:11434`.
+> `OLLAMA_HOST=http://allis-ollama:11434`. `allis-gbim-query-router`: **7205** ★ —
+> GBIM entity query routing in Phase 5 topology.
 
 ---
 
-This chapter describes the local language models that form the "LLM fabric" of Ms. Egeria
-Allis (`msallis-rebuild`) and how they are woven into the broader architecture: ChromaDB
-v2 (`allis-chroma` host port **8002**, v2 API, UUID two-step `collection.count()` for
-per-collection counts — ★ **48 collections, ~6,740,611 vectors**), RAG services,
-autonomous learning, spatial databases, and GeoDB infrastructure. Rather than treating
-LLMs as independent agents, the system treats them as constrained tools and judges
-embedded in a larger retrieval and belief stack, all exposed through well-defined HTTP
-services confirmed running as of April 17, 2026. **All services are bound exclusively to
-`127.0.0.1`; no service exposes a port on `0.0.0.0`.**
+This chapter describes the local language models that form the "LLM fabric" of Ms.
+Egeria Allis (`msallis-rebuild`) / **MS allis** and how they are woven into the broader
+architecture: ChromaDB v2 (`allis-chroma` host port **8002**, v2 API, UUID two-step
+`collection.count()` for per-collection counts — ★ **48 collections, ~6,740,611
+vectors**), RAG services, autonomous learning, spatial databases, and GeoDB
+infrastructure. Rather than treating LLMs as independent agents, the system treats them
+as constrained tools and judges embedded in a larger retrieval and belief stack, all
+exposed through well-defined HTTP services confirmed running as of April 17, 2026. **All
+services are bound exclusively to `127.0.0.1`; no service exposes a port on
+`0.0.0.0`.**
 
 ---
 
@@ -394,8 +404,13 @@ disabled.
 
 ## 11.3 Service Topology and Ports
 
-Confirmed April 17, 2026. **All services bound to 127.0.0.1.** ★ **100 containers Up
+Confirmed April 23, 2026. **All services bound to 127.0.0.1.** ★ **100 containers Up
 (April 23, 2026)**; thesis-verified **112/112 (April 16, 2026)**.
+
+> **★ Naming note:** All service hostnames below use legacy `allis-*` Docker Compose
+> service names — these are authoritative for container-to-container DNS resolution
+> within the `msallis-rebuild` stack. MS allis product-level renaming does not change
+> these hostnames until a dedicated naming-migration sprint is completed.
 
 **Main Brain API — 127.0.0.1:8050 (`allis-main-brain`).**
 Primary external-facing interface. Routes: `/chat` (sync), `/chat/async` +
@@ -533,6 +548,13 @@ Judges evaluate consensus answer only — raw_responses dump eliminated. Wall-cl
 
 **Constitutional Guardian — 127.0.0.1:8091.** See Chapter 37.
 
+**`allis-gbim-query-router` — 127.0.0.1:7205 ★.**
+GBIM entity query routing service. Added to Phase 5 / confidence decay topology as of
+April 23, 2026. Routes structured GBIM entity queries from the confidence decay
+multiplier stage to `gbim_worldview_entities` (ChromaDB, 5,416,521 vectors). Full
+topology specification: follow-on to this chapter. Container name uses `allis-*`
+naming — first service in this stack to use the new naming convention.
+
 **Judge Services — all compose-managed (March 18, 2026); ML-DSA-65 FIPS 204
 (April 16, 2026).**
 
@@ -586,10 +608,10 @@ MountainShares economics. **21,181 records (April 23, 2026)**; actively growing.
 ## 11.4 Coordination: 9-Phase Pipeline Integration
 
 The LLM fabric sits at the end of a chain of retrieval, entanglement, and identity
-services. GPU pipeline end-to-end: **99–115s** (confirmed **102.58s** April 16 on RTX
+services. GPU pipeline end-to-end: **99–115s** (confirmed **102.58s** April 23 on RTX
 4070 — CPU 436s baseline **RETIRED STALE**).
 
-**Upstream gate — `nbb_pituitary_gland` (port 8108).**
+**Upstream gate — `nbb_pituitary_gland` (port 8108, mode: `baseline`).**
 Runs before the full pipeline. Sets system-wide operating mode, WOAH weights, and
 constitutional compliance thresholds. Judge verdicts feed back via
 `judge_to_pituitary_bridge.py` to update pituitary state. Authoritative routes:
@@ -678,11 +700,14 @@ Deliver this response directly in your voice: {judge_output}
 Phase 3.75 Final Polish is **permanently eliminated** — this single Ollama call is the
 complete voice delivery step. Time saved: ~40 seconds per query.
 
-**Phase 5 — GBIM temporal confidence decay.**
+**Phase 5 — GBIM temporal confidence decay + `allis-gbim-query-router` (port 7205).**
 `confidence_decay` multiplier applied from `gbim_worldview_entities` (ChromaDB
 `allis-chroma`, 5,416,521 vectors; L2; host 8002, inter-service
 `http://allis-chroma:8000`). Entities with `needs_verification=TRUE` receive attenuated
-confidence scores.
+confidence scores. **`allis-gbim-query-router` (127.0.0.1:7205)** routes structured
+GBIM entity queries within this phase — confirmed April 23, 2026. This is the first
+`allis-*` named service in the production stack; full routing topology to be documented
+in a follow-on sprint.
 
 **Phase 7 — 69-DGM cascade (host 19000 → internal 9000).**
 23 connectors × 3 stages = 69 DGM operations.
@@ -714,8 +739,9 @@ Chapter 12 §12.3 note on consciousness bridge line 74) and `episodic_log`.
 **Consciousness and identity.**
 The Fifth DGM and I-container services use LLM calls (via WOAH) to decide which content
 should shape Ms. Allis's evolving identity narrative. `normalize_identity()` runs as a
-final post-processing step on all chat paths. The `nbb_pituitary_gland` (port 8108)
-modulates governance context that flows through WOAH into identity decisions.
+final post-processing step on all chat paths. The `nbb_pituitary_gland` (port 8108,
+mode: `baseline`) modulates governance context that flows through WOAH into identity
+decisions.
 
 **Autonomous learning and EEG Beta.**
 The autonomous learner (port 8425) writes processed knowledge into `autonomous_learner`
@@ -729,7 +755,8 @@ state.
 
 **Ensemble and judge patterns.**
 21 active models (April 17, 2026) produce independent responses. Phase 5 GBIM temporal
-decay weights attenuate confidence for aged GBIM entities. Phase 7 69-DGM cascade
+decay weights attenuate confidence for aged GBIM entities — `allis-gbim-query-router`
+(port 7205) routes structured entity queries within this phase. Phase 7 69-DGM cascade
 provides post-ensemble validation. Judges evaluate consensus answer only — ML-DSA-65
 FIPS 204 signed. `judge_to_pituitary_bridge.py` closes the feedback loop from judge
 verdicts back to pituitary governance state.
@@ -739,7 +766,7 @@ verdicts back to pituitary governance state.
 ## 11.6 Operational Constraints and Fabric Behavior
 
 **Resource and disk constraints.**
-GPU pipeline active: RTX 4070, 99–115s end-to-end (confirmed 102.58s April 16). CPU
+GPU pipeline active: RTX 4070, 99–115s end-to-end (confirmed 102.58s April 23). CPU
 436s baseline retired. Disk utilization: 661 GB used / 937 GB total (75%).
 
 **Timeouts and free-flow thinking.**
@@ -752,7 +779,8 @@ benchmarking.
 
 **GBIM temporal decay.**
 Phase 5 `confidence_decay` from ChromaDB `gbim_worldview_entities` (5,416,521 vectors).
-POC verification loop (future work) will restore `confidence_decay` to 1.0 for
+`allis-gbim-query-router` (port 7205) routes entity queries in this phase. POC
+verification loop (future work) will restore `confidence_decay` to 1.0 for
 community-confirmed entities.
 
 **BBB output blocking.**
@@ -793,6 +821,11 @@ degrades gracefully to non-modulated governance defaults.
   containers in `docker-compose.yml` with
   `build: context: ./services, dockerfile: Dockerfile.judge` and
   `restart: unless-stopped`. `judge_to_pituitary_bridge.py` must be volume-mounted into
+  `allis-judge-pipeline`. Ghost containers on `container_name:
+  - **Judge pipeline.** Consensus answer only — never raw_responses dump. All 5 judge
+  containers in `docker-compose.yml` with
+  `build: context: ./services, dockerfile: Dockerfile.judge` and
+  `restart: unless-stopped`. `judge_to_pituitary_bridge.py` must be volume-mounted into
   `allis-judge-pipeline`. Ghost containers on `container_name:` slot block volume mounts
   — clear orphans before recreating. ML-DSA-65 keys: back up
   `judge-keys/judge_sk.bin` (4032 bytes) to offline storage.
@@ -815,14 +848,33 @@ degrades gracefully to non-modulated governance defaults.
 - **Autonomous learner.** Port 8425. `autonomous_learner` collection, **21,181 records
   (April 23, 2026)**; L2; actively growing. EEG Beta (8075) drives 5-min learning
   cycles.
+- **`allis-gbim-query-router`.** Port **7205**, bound to `127.0.0.1`. Routes structured
+  GBIM entity queries in Phase 5 confidence decay topology. First `allis-*` named
+  service in the stack — naming migration sprint will align remaining `allis-*` hostnames
+  to `allis-*`. Full routing topology specification deferred to follow-on sprint. Must
+  be included in all future `docker-compose.yml` definitions and preflight gate checks.
 - **EEG stack.** `Dockerfile.eeg` single image for all three EEG services.
   `eeg_shared/pia_state.py` reads `ALLIS_PIA_STATUS_URL` from env. EEG blocks must be
   inserted before `networks:` key in `docker-compose.yml`. Preflight gate includes EEG
   health checks. Backups in `~/msallis-repair-backups/`.
-- **`nbb_pituitary_gland`.** Port 8108, `127.0.0.1`. Authoritative routes:
-  GET `/global_mode`, GET `/mode_history`. Full spec Chapter 15.
+- **`nbb_pituitary_gland`.** Port 8108, `127.0.0.1`, mode **`baseline`**. Authoritative
+  routes: GET `/global_mode`, GET `/mode_history`. Full spec Chapter 15.
 - **`nbb_mother_carrie_protocols`.** Port 8107. 5 protocols active,
   `MOTHER_CARRIE_KIDD` anchor.
 - **Hippocampus.** Port 8011. Must be in all future compose definitions. Locked to
   `127.0.0.1`. Full spec Chapter 14.
-- **69-DGM cascade.** Host port 19000 → internal 9000. Must be `127.0.0.1:19
+- **69-DGM cascade.** Host port 19000 → internal 9000. Must be `127.0.0.1:19000`.
+  Never expose as `0.0.0.0:9000`. Full spec Chapter 9.
+- **Naming convention.** Legacy `allis-*` Docker Compose service names are authoritative
+  for all container-to-container DNS resolution until a dedicated naming-migration sprint
+  is completed. Do not rename service hostnames in `docker-compose.yml` without a full
+  dependency audit. `allis-gbim-query-router` is the sole exception as of April 23,
+  2026.
+- **Preflight gates.** All 27 gates must be ✅ green before production traffic. Threshold
+  operators: `-ge` not `-eq`. ChromaDB threshold: ≥48 collections. EEG health checks
+  included. `appalachian_cultural_intelligence` threshold: ≥563.
+- **Security.** Run
+  `docker ps --format "{{.Names}}\t{{.Ports}}" | grep "0.0.0.0" | grep -v "127.0.0.1"`
+  after every compose recreate — must return empty. `ALLIS_API_KEY` must be exported
+  before starting `allis-memory` (8056). All judge keys stored at `judge-keys/`; offline
+  backup of `judge_sk.bin` is mandatory.
