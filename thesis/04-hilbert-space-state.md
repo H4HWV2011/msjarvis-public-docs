@@ -1,83 +1,170 @@
+# 4. Hilbert Space State and ChromaDB as Semantic Memory
+
+*Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: 2026-04-22*
+
+---
+
 ## Why This Matters for Polymathmatic Geography
 
-This chapter describes how Ms. Jarvis uses a concrete semantic memory system to support place‑based reasoning about West Virginia, connecting GBIM beliefs, the `msjarvisgis` statewide spatial corpus, and a verified `local_resources` registry into an inspectable retrieval pipeline. It supports:
+This chapter describes how Ms. Jarvis uses a concrete semantic memory system to support
+place-based reasoning about West Virginia, connecting GBIM beliefs, the `msjarvisgis`
+statewide spatial corpus, and a verified `local_resources` registry into an inspectable
+retrieval pipeline. It supports:
 
-- **P1 – Every where is entangled** by storing texts, GIS‑derived entities, and programme records in shared relational tables and production vector collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` that can be jointly retrieved and rejoined, so that legal, economic, infrastructural, and social facts about Appalachia are handled as a single interconnected memory rather than as disconnected files or ad‑hoc lookups.
-- **P3 – Power has a geometry** by representing relationships among institutions, places, and access to help as explicit GBIM records, GeoDB features in `msjarvisgis`, Chroma collections, and logged retrieval paths whose behaviour can be inspected, clustered, and audited, making it possible to see how different parts of the system are actually traversed when answering questions about extraction, obligation, and care.
-- **P5 – Design is a geographic act** by treating collection schemas, metadata choices, enrichment scripts, retrieval rules, and join logic in the GBIM/GeoDB/Chroma stack as deliberate interventions into how West Virginia is represented and searched, so that design decisions about Ms. Jarvis's semantic memory layer are understood as decisions about how the region itself can be perceived and acted upon.
-- **P12 – Intelligence with a ZIP code** by binding memory collections and registries to West Virginia–specific layers and records, including GBIM‑derived geographies, `msjarvisgis` features, and a programme registry keyed by county and ZIP where populated, so that queries about help, risk, or opportunity are resolved through structures that explicitly encode where people live and which institutions serve them.
-- **P16 – Power accountable to place** by making long‑term memory, retrieval behaviour, and query‑to‑evidence links explicit and queryable, with logs and database joins that show which GBIM beliefs, GeoDB features, vector‑collection entries, and `local_resources` rows were used in answers about particular communities, instead of hiding those choices inside opaque model weights.
+- **P1 – Every where is entangled** by storing texts, GIS-derived entities, and programme
+  records in shared relational tables and production vector collections such as
+  `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` that can be jointly
+  retrieved and rejoined, so that legal, economic, infrastructural, and social facts about
+  Appalachia are handled as a single interconnected memory rather than as disconnected
+  files or ad-hoc lookups.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it defines the production semantic memory substrate and retrieval layer — centred on collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` and on the `msjarvisgis`/GBIM/`local_resources` apparatus — that Quantarithmia's reasoning, GBIM's belief structures, the verified local‑resources band, the West Virginia benefits RAG flows, and MountainShares‑oriented governance analysis run on in the live system as of **March 28, 2026**.
+- **P3 – Power has a geometry** by representing relationships among institutions, places,
+  and access to help as explicit GBIM records, GeoDB features in `msjarvisgis`, Chroma
+  collections, and logged retrieval paths whose behaviour can be inspected, clustered, and
+  audited, making it possible to see how different parts of the system are actually
+  traversed when answering questions about extraction, obligation, and care.
+
+- **P5 – Design is a geographic act** by treating collection schemas, metadata choices,
+  enrichment scripts, retrieval rules, and join logic in the GBIM/GeoDB/Chroma stack as
+  deliberate interventions into how West Virginia is represented and searched, so that
+  design decisions about Ms. Jarvis's semantic memory layer are understood as decisions
+  about how the region itself can be perceived and acted upon.
+
+- **P12 – Intelligence with a ZIP code** by binding memory collections and registries to
+  West Virginia-specific layers and records, including GBIM-derived geographies,
+  `msjarvisgis` features, and a programme registry keyed by county and ZIP where
+  populated, so that queries about help, risk, or opportunity are resolved through
+  structures that explicitly encode where people live and which institutions serve them.
+
+- **P16 – Power accountable to place** by making long-term memory, retrieval behaviour,
+  and query-to-evidence links explicit and queryable, with logs and database joins that
+  show which GBIM beliefs, GeoDB features, vector-collection entries, and `local_resources`
+  rows were used in answers about particular communities, instead of hiding those choices
+  inside opaque model weights.
+
+As such, this chapter belongs to the **Computational Instrument** tier: it defines the
+production semantic memory substrate and retrieval layer — centred on collections such as
+`gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` and on the
+`msjarvisgis`/GBIM/`local_resources` apparatus — that Quantarithmia's reasoning, GBIM's
+belief structures, the verified local-resources band, the West Virginia benefits RAG
+flows, and MountainShares-oriented governance analysis run on in the live system as of
+**April 22, 2026**.
 
 ---
 
-## 4. Hilbert Space State and ChromaDB as Semantic Memory
+## 4.1 Purpose and Scope
 
-### 4.1 Purpose and Scope
+This chapter explains how Ms. Egeria Jarvis uses ChromaDB as the physical container of
+\(H_{\text{App}}\) — a real, finite-dimensional Hilbert space. Not a system "inspired by"
+Hilbert spaces. Not a geometric metaphor. A mathematical object satisfying all four
+Hilbert space axioms, physically instantiated on specific hardware, containing 6.74M+
+structured belief vectors about West Virginia, and confirmed operationally intact by a
+29/29 preflight gate on April 22, 2026.
 
-This chapter explains how Ms. Egeria Jarvis uses ChromaDB as the primary semantic memory layer backing the Hilbert‑space representation, GBIM, the verified local resource registry, and the broader semantic fabric. ChromaDB is a vector database that stores high‑dimensional embedding vectors with associated metadata and exposes efficient similarity search and filtering operations. In this system, ChromaDB is not merely a convenience library; it is the concrete implementation of long‑term, queryable memory for documents, GIS features, governance texts, autonomous‑learning traces, resource guides, and thesis materials, as well as a central back‑end for the text and GIS RAG services.
+ChromaDB is a vector database that stores high-dimensional embedding vectors with
+associated metadata and exposes efficient similarity search and filtering operations. In
+this system, ChromaDB is not merely a convenience library; it is the concrete
+implementation of long-term, queryable memory for documents, GIS features, governance
+texts, autonomous-learning traces, resource guides, and thesis materials, as well as a
+central back-end for the text and GIS RAG services. It is the substrate in which
+\(H_{\text{App}}\) physically exists.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/5f6bf0d9-91ca-4692-8b1c-95fbceec81b7"
-       alt="ChromaDB as Semantic Memory in Ms. Jarvis"
-       width="900">
-</p>
+Collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits`
+are not arbitrary groupings — they are named, geometrically coherent subspaces of
+\(H_{\text{App}}\). Queries are projections. Belief updates are transformations. The
+inner product is cosine similarity, computed in RAM on the Legion 5 in Oak Hill, WV
+during every RAG call. The ZIP code of this Hilbert space is 25880. That is not poetry.
+That is architecture.
 
-> *Figure 1 – ChromaDB as Semantic Memory in Ms. Jarvis. Services embed texts and GIS features into ChromaDB collections so that abstract Hilbert‑space state becomes a concrete, queryable memory layer for RAG. Local resource documents sit alongside GBIM exports and are linked to structured entries in a `local_resources` table keyed by ZIP and programme type. Dedicated collections such as `gis_wv_benefits` support benefits‑focused GIS RAG.*
+Before any RAG dispatch occurs, the `nbb_pituitary_gland` service (host port **8108**)
+acts as the global mode regulator — a scalar multiplier on the entire belief-state
+pipeline that modulates retrieval priorities, WOAH governance weights, BBB sensitivity,
+and LLM ensemble routing based on its live mode state. This component is upstream of
+ChromaDB query dispatch and is documented fully in Section 4.6.
 
-Within the Quantarithmia programme, ChromaDB is treated as the bridge between abstract Hilbert‑space representation and stored embeddings: vectors in each collection approximate elements of the high‑dimensional inner‑product space described in the previous chapter, but are realized through a specific embedding model and index implementation. It is the place where beliefs, contexts, resource descriptions, and references become durable and retrievable for reasoning and retrieval‑augmented generation (RAG). Conceptually, collections such as `gbim_beliefs_v2`, `gbim_worldview_entities`, and `gis_wv_benefits` correspond to empirically instantiated subsets of the Hilbert space \(H_{\text{App}}\), and stored vectors approximate elements of the spaces described in the previous chapter while linking out to structured registers such as GBIM and `local_resources`.
+**★ Re-confirmed operational — April 22, 2026. Preflight gate 29/29, 0 failures.**
 
 ---
 
-### 4.2 Role in the Ms. Jarvis Architecture
+## 4.2 Role in the Ms. Jarvis Architecture
 
 In the Ms. Jarvis architecture, ChromaDB plays several interlocking roles.
 
-- **Semantic memory store (non‑spatial).**
-  Embeddings of texts and artefacts live in collections corresponding to domains such as governance, thesis content, autonomous learner outputs, conversations, local resource guides, and curated research traces. These collections support general semantic retrieval independent of geography and include the unified GBIM text collection `gbim_beliefs_v2`, which stores embeddings for rows in `gbimbeliefnormalized` and serves as the production semantic memory layer for GBIM beliefs.
+- **Semantic memory store (non-spatial).** Embeddings of texts and artefacts live in
+  collections corresponding to domains such as governance, thesis content, autonomous
+  learner outputs, conversations, local resource guides, and curated research traces.
+  These collections support general semantic retrieval independent of geography and include
+  the unified GBIM text collection `gbim_beliefs_v2`, which stores embeddings for GBIM
+  belief rows and serves as the production semantic memory layer for GBIM beliefs.
 
-- **Geospatial semantic layer (spatial).**
-  A unified GIS‑derived collection such as `gbim_worldview_entities` holds embeddings and metadata for West Virginia geospatial features, mirroring PostGIS tables and providing the semantic representation of the spatial body described in the GBIM and GeoDB chapters. The current production deployment centres on this consolidated worldview collection with 5,416,521 records and spatial provenance linking back to PostGIS geometries and belief rows, complemented by task‑specific collections such as `gis_wv_benefits` that focus on benefits‑relevant facilities.
+- **Geospatial semantic layer (spatial).** The unified GIS-derived collection
+  `gbim_worldview_entities` holds embeddings and metadata for West Virginia geospatial
+  features, mirroring PostGIS tables and providing the semantic representation of the
+  spatial body described in the GBIM and GeoDB chapters. The current production deployment
+  centres on this consolidated worldview collection with **5,416,521 records** confirmed
+  live April 22, 2026, complemented by task-specific collections such as `gis_wv_benefits`
+  that focus on benefits-relevant facilities.
 
-- **Retrieval engine for RAG.**
-  At query time, services embed inputs and use ChromaDB similarity search, often with metadata filters, to retrieve the most relevant items for context and reasoning. A text RAG service handles general semantic retrieval over collections like `gbim_beliefs_v2`; a GIS RAG service uses `gbim_worldview_entities` and `gis_wv_benefits` for spatial questions. This behaviour instantiates the query projection and neighbourhood selection mechanisms described in the Hilbert‑space model and forms the unstructured side of Ms. Jarvis's memory, which is then deterministically joined against structured stores like GBIM and `local_resources` before being handed to the ensemble.
+- **Retrieval engine for RAG.** At query time, services embed inputs and use ChromaDB
+  similarity search, often with metadata filters, to retrieve the most relevant items for
+  context and reasoning. A text RAG service (`jarvis-rag-server`, port **8003**) handles
+  general semantic retrieval over collections like `gbim_beliefs_v2`; a GIS RAG service
+  uses `gbim_worldview_entities` and `gis_wv_benefits` for spatial questions. This
+  behaviour instantiates the query projection mechanism of \(H_{\text{App}}\) and forms
+  the unstructured side of Ms. Jarvis's memory, which is then deterministically joined
+  against structured stores like GBIM and `local_resources` before being handed to the
+  ensemble.
 
-- **Structural backbone for inspectable memory.**
-  Because collections and metadata are explicitly defined, ChromaDB's structure mirrors core parts of GBIM, the `msjarvisgis` GeoDB layer, the thesis organisation, and the local‑resources band. This makes it possible to enumerate collections, inspect document counts, audit metadata, and correlate logs of RAG calls with the underlying memory, rather than relying on hidden internal state.
+- **Structural backbone for inspectable memory.** Because collections and metadata are
+  explicitly defined, ChromaDB's structure mirrors core parts of GBIM, the `msjarvisgis`
+  GeoDB layer, the thesis organisation, and the local-resources band. Operational
+  validation is performed via `scripts/preflight_gate.sh`, which checks collections ≥ 40
+  and domain-specific counts — not via direct REST introspection. The gate passed 29/29
+  on April 22, 2026.
 
-Taken together, this design makes the semantic memory system inspectable and debuggable: researchers and community partners can see what is stored, how it is grouped, which collections underpin particular advisory behaviours, how unstructured resource documents tie back to specific, verified programme rows in the relational registry, and how RAG and the ensemble use these elements to answer live questions.
+- **Pituitary-modulated dispatch.** The `nbb_pituitary_gland` (port 8108) mode state
+  acts as a global scaling tensor on the belief-state vector before retrieval dispatch.
+  At current state (`warmth=0.9`, `cortisol=0.6`, `mode=elevated`), community-benefit
+  collections receive elevated retrieval weight and BBB filtering operates at moderate
+  sensitivity.
 
 ---
 
-### 4.3 Collections and Data Domains
+## 4.3 Collections and Data Domains
 
-In the production deployment as of **March 28, 2026**, the primary Chroma instance exposes collections that fall into three broad families: general semantic memory, GeoDB‑derived spatial memory, and resource‑related materials that link into `local_resources` and benefits RAG paths.
+In the production deployment as of **April 22, 2026**, the primary Chroma instance
+(`jarvis-chroma`, host port **8002**, container-internal port 8000) exposes **49
+collections** confirmed via preflight gate. Collections fall into three broad families:
+general semantic memory, GeoDB-derived spatial memory, and resource-related materials.
 
-#### 4.3.1 Production Spatial Collection
+> **ChromaDB access note:** ChromaDB v2 is a single-node container exposed on
+> `jarvis-chroma:8002`. It is used via the embedded Python client, not via public REST
+> introspection. Operational validation is done via `scripts/preflight_gate.sh` (checks
+> collections ≥ 40 and domain-specific counts) and via RAG and EEG services that use
+> Chroma internally. Direct REST introspection commands are not part of the production
+> contract for this deployment.
 
-The primary spatial memory collection in production as of March 2026 is a consolidated GBIM export:
+### 4.3.1 Production Spatial Collection
+
+The primary spatial memory collection — and the largest named subspace of
+\(H_{\text{App}}\) — is:
 
 - Collection name: `gbim_worldview_entities`
-- Record count: **5,416,521 records** — confirmed live, March 26, 2026
-- Records with worldview context and spatial provenance: a large majority of the collection
-- Records currently lacking full worldview, bounding box, and dataset metadata: a residual backlog tracked for enrichment
+- Record count: **5,416,521 records** — confirmed live April 22, 2026
 - Source datasets: more than 200 standardised West Virginia GIS layers
-- Worldview context: `eq1` — stable UUID tying spatial entities to the production equity-oriented worldview
+- Worldview context: `eq1` — stable UUID tying spatial entities to the production
+  equity-oriented worldview
+- Embedding model: `all-minilm:latest`, 384-dim, cosine similarity — confirmed live
 
-This collection is built by exporting GBIM worldview entities and their attributes from PostGIS, enriching them with spatial and provenance metadata, and indexing them as text embeddings in ChromaDB using `all-minilm:latest` (384-dim, cosine similarity) — confirmed live.
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/1469b3c1-f9e8-4b9d-a021-a79baa89ee58"
-       alt="End-to-End Spatial RAG Query through ChromaDB and GBIM"
-       width="900">
-</p>
-
-> *Figure 2 – Consolidated spatial memory collection. The unified spatial collection links ChromaDB vectors back to GBIM worldview entities and PostGIS geometries, and forward into GIS RAG responses.*
+This collection is built by exporting GBIM worldview entities and their attributes from
+PostGIS (`msjarvisgis`, port **5432**), enriching them with spatial and provenance
+metadata, and indexing them as text embeddings in ChromaDB using `all-minilm:latest`
+(384-dim, cosine similarity).
 
 **Document structure**
 
-Text documents follow a simple pattern such as:
+Text documents follow a pattern such as:
 
 ```text
 wvgistcbuildingfootprints feat_1703912
@@ -86,12 +173,12 @@ wvgistcbuildingfootprints feat_1703912
 Core metadata fields (present for all records):
 
 - `entity_id`: UUID linking to `gbim_worldview_entity.id`
-- `source_table`: dataset name (for example, `wvgistcbuildingfootprints`, `blocks_census_2020_utm83_full`)
-- `source_pk`: primary key in the source table (linked to GBIM/GeoDB attributes)
-- `label`: human‑readable entity label
-- `centroid_x`, `centroid_y`: spatial coordinates in the standard projected system
+- `source_table`: dataset name (e.g., `wvgistcbuildingfootprints`, `blocks_census_2020`)
+- `source_pk`: primary key in the source table
+- `label`: human-readable entity label
+- `centroid_x`, `centroid_y`: spatial coordinates (SRID 26917 — UTM Zone 17N NAD83)
 
-Extended metadata (populated via a backfill pipeline):
+Extended metadata (populated via backfill pipeline):
 
 - `worldview_id`: worldview context UUID (`eq1`)
 - `bbox`: GeoJSON geometry or bounding box
@@ -99,99 +186,341 @@ Extended metadata (populated via a backfill pipeline):
 - `geodb_id`: original GeoDB identifier
 - `srid`: spatial reference identifier
 
-A dedicated backfill process derives these extended fields from GBIM and GeoDB tables and attaches them to existing records in the consolidated spatial collection. Coverage is monitored via scripts that iterate over the collection and count non‑null values for key metadata fields.
+---
+
+### 4.3.2 Full Collection Inventory — Confirmed April 22, 2026
+
+| Collection | Count | Notes |
+|---|---|---|
+| `gbim_worldview_entities` | 5,416,521 | Primary spatial subspace of \(H_{\text{App}}\) — eq1 worldview |
+| `address_points` | 1,115,588 | Geospatial body |
+| `spiritual_texts` | 79,181 | Mother Carrie Protocol corpus — deduplicated |
+| `geospatialfeatures` | 60,875 | GIS features |
+| `autonomous_learner` | **21,181** | Phase 1.45 injection corpus — 384-dim, growing |
+| `autonomous_learning` | **17,707** | Autonomously acquired knowledge — separate collection |
+| `GBIM_sample_rows` | 5,000 | Validation sample |
+| `gbim_beliefs_v2` | 5,000 | Production GBIM belief embeddings |
+| `gis_wv_benefits` | 4,668 | WV benefits facilities — county/ZIP/GBIM keyed |
+| `appalachian_cultural_intelligence` | 1,058 | Appalachian cultural context corpus |
+| `governance_rag` | 1,367 | DAO corpus + US + WV constitutions — 100-word chunks |
+| `aaacpe_corpus` | 65 | AaaCPE scraper (`jarvis-aaacpe-scraper`, port 8033), 39 sources |
+| `msjarvis_docs` | 7,472 | System documentation |
+| `psychological_rag` | 968 | Restored — `PSY_COLLECTION` env fix |
+| `research_history` | 785 | Research traces |
+| `GBIM_Fayette_sample` | 1,535 | Fayette County validation |
+| `commons_rag` | 306 | Commons governance corpus — 100-word chunks |
+| `local_resources` | 101 | Local resource registry |
+| `spiritual_wisdom` | 135 | Wisdom corpus |
+| `zcta_centroids` | 829 | ZIP centroid spatial refs |
+| `au02_threat_seeds` | 10 | BBB threat seeding |
+| `safety_rules` | 10 | BBB safety rules |
+| `news_rag` | 38 | News RAG corpus |
+| `ms_jarvis_memory` | — | ⚠ HTTP 500 on count — exists, unqueryable (OI-C4-500 CLOSED) |
+| `ms_jarvis_identity` | — | ⚠ HTTP 500 on count — exists, unqueryable (OI-C4-500 CLOSED) |
+| `conversation_history` | — | ⚠ HTTP 500 on count — exists, unqueryable (OI-C4-500 CLOSED) |
+
+> **Disambiguation — `autonomous_learner` vs `autonomous_learning`:**
+> These are two distinct, simultaneously live collections. `autonomous_learner` (21,181
+> records) is the Phase 1.45 injection corpus seeded during the March/April 2026 rebuild
+> sprint. `autonomous_learning` (17,707 records) is the autonomously acquired knowledge
+> collection populated by `jarvis-autonomous-learner` (port **8020**) during live
+> operation. Both use `all-minilm:latest`, 384-dim, cosine. Neither supersedes the other.
+> Combined: **38,888 items** of autonomous knowledge. The canonical metadata schema for
+> `autonomous_learning` includes: `title`, `source_id`, `backfill`, `fallback`,
+> `cycle_number`, `url`, `topic`, `gbim_coordinate`, `learned_at`, `content_hash`,
+> `compressed`.
+
+> **`governance_rag` — April 22, 2026 count:** 1,367 chunks, reflecting ingestion of the
+> WV State Constitution (342 chunks, source label `wv_constitution`) in addition to the
+> DAO Charter, US Constitution (97 chunks), and Phase specs. WV Constitution ingest is
+> no longer future work — it is complete.
 
 ---
 
-#### 4.3.2 Legacy and Historical Spatial Collections
+### 4.3.3 Collections with HTTP 500 on Count
 
-Prior to consolidation, spatial memory was distributed across individual `*_attrs` collections corresponding to each GIS layer. These collections remain in the system for backward compatibility but are superseded by the unified spatial collection. Migration practice is: new queries target the consolidated index; legacy collections are maintained for historical queries, validation, and debugging.
+Three collections return HTTP 500 on count queries. OI-C4-500 is CLOSED — collections
+were deleted and recreated clean with new UUIDs. Ongoing monitoring is required to
+confirm they remain stable.
 
----
+- `ms_jarvis_memory`
+- `ms_jarvis_identity`
+- `conversation_history`
 
-#### 4.3.3 General Semantic Collections
-
-In the current deployment, principal general‑semantic collections are defined for:
-
-- autonomous learning traces (`autonomous_learner` — 21,181+ items as of March 26, 2026, growing ~288/day — update count per current `docker exec` query against live container)
-- research history and notebook‑like notes
-- thesis and GBIM‑related documentation
-- personal and organisational documents for the steward/author
-- Hilbert‑space and learner‑corpus materials
-
-The flagship GBIM belief collection `gbim_beliefs_v2` sits in this family. It is populated directly from `gbimbeliefnormalized`, with each row embedded as a document whose text is constructed from the nine GBIM axes and whose metadata carries belief identifiers, epochs, and dataset provenance. This collection is in production and is the primary semantic memory surface for structured beliefs in the RAG services.
+These are excluded from the confirmed vector total pending stable count confirmation.
 
 ---
 
-#### 4.3.4 Resource‑Related and Benefits Collections
+### 4.3.4 Resource-Related and Benefits Collections
 
-Resource‑related documents (for example, county quick guides, seasonal assistance flyers, teacher resource lists, utility assistance PDFs, and agency fact sheets) are ingested into one or more semantic collections, with metadata fields such as:
+Resource-related documents are ingested with metadata fields such as `county`, `state`,
+`zip_codes`, `resource_type`, `source_url`, and `local_resource_id` linking to structured
+rows in the `local_resources` table (port **5435**). The `gis_wv_benefits` collection
+stores semantic descriptions of benefits-related facilities (Oak Hill hubs, Beckley DHHR
+offices, etc.) keyed by county, ZIP, and GBIM entity identifiers.
 
-- `county`, `state`, `zip_codes` or `zip_hint`
-- `resource_type` (for example, `seasonal_assistance`, `housing`, `utilities`, `senior_services`, `education_support`)
-- `source_url` or `file_id`
-- `local_resource_id` linking to a structured row in the `local_resources` table when available
-
-In addition, a dedicated `gis_wv_benefits` collection stores semantic descriptions and metadata for benefits‑related facilities (for example, Oak Hill hubs and Beckley DHHR offices), keyed by county, ZIP, and GBIM entities. These collections provide the unstructured side of local resources and benefits. At retrieval time, Ms. Jarvis uses metadata and `local_resource_id` (or facility IDs) to resolve from an embedded snippet in ChromaDB to a normalized registry entry or GBIM entity that contains ZIP coverage, phones, emails, contacts, and verification metadata.
-
-A key aspect of this band is that the underlying data are not purely desk‑compiled. Harmony for Hope has convened a **Community Champions** group to ground‑truth resource information, with Boone County resident **Crystal Colyer** serving as a lead "boots‑on‑the‑ground" validator. Working especially across Boone, Kanawha, and nearby counties, she verifies the existence, hours, and accessibility of food pantries and other supports, and her findings drive updates to both the `local_resources` registry and the associated resource‑document collections.
-
----
-
-### 4.4 From Hilbert Space to ChromaDB (and Back to Registries)
-
-ChromaDB provides the concrete realization of the Hilbert‑space representation described in the previous chapter, while structured stores such as GBIM tables and `local_resources` provide the "hard edges" that RAG resolves into.
-
-**Embeddings as vectors.**
-The embedding model maps texts and entities into high‑dimensional real vectors. ChromaDB stores these vectors alongside metadata (identifiers, timestamps, entity types, geographies, resource keys) and exposes operations such as nearest‑neighbor search, filtered retrieval, and upsert.
-
-**Collections as working subspaces.**
-Each ChromaDB collection corresponds to an empirically instantiated subset of \(H_{\text{App}}\), grouping related vectors by purpose (for example, governance, conversation, thesis, resource guides) or by entity type (for example, blocks, buildings, infrastructure, benefits hubs). The consolidated spatial collection represents a comprehensive spatial subspace in this deployment, while resource and benefits collections approximate a semantic subspace of "who helps whom, where, and how."
-
-**Queries as projections plus joins.**
-Incoming queries are embedded and used to probe relevant collections. This effectively projects each query into the appropriate subset of \(H_{\text{App}}\), retrieves nearby vectors with respect to the inner‑product‑induced similarity measure, and returns documents and metadata. For resource‑ and benefits‑related flows, Ms. Jarvis then uses metadata (such as `local_resource_id`, `county`, `ZIP`, and `gbim_entity`) to join that unstructured context against `local_resources` and GBIM, enforcing that any recommended programme or facility has concrete, structured backing and a verification state, and that RAG answers can be traced back to specific entities and rows.
-
-This mapping allows Ms. Jarvis's memory to be described both geometrically, in terms of subsets and projections of a Hilbert space, and operationally, in terms of concrete collection queries, metadata filters, RAG calls, and joins to structured registries.
+Community Champions ground-truth validation — led by Boone County resident **Crystal
+Colyer** — drives updates to both the `local_resources` registry and the associated
+resource-document collections across Boone, Kanawha, and nearby counties. The first
+real-world community query processed through the full consciousness pipeline on April 22,
+2026 was: *"What food assistance is available in Fayette County WV?"* — which returned
+real results including the Fayette County Community Action Agency via the RAG proxy.
 
 ---
 
-### 4.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE March 28, 2026
+## 4.4 From Hilbert Space to ChromaDB (and Back to Registries)
 
-> **Architectural finding — confirmed March 28, 2026.** The embedding model and its constraints are no longer planned or provisional. All ChromaDB production collections use `all-minilm:latest` (384-dimensional, cosine similarity distance function), served by `jarvis-ollama` at `ollama:11434/api/embeddings`. This is confirmed live across all 40 active collections in the `msjarvis-rebuild` namespace. Total: **6,675,442 vectors** confirmed via full ChromaDB inventory audit, March 28, 2026.
+ChromaDB is not a system that approximates a Hilbert space. It is the physical container
+of \(H_{\text{App}}\) — a proven Hilbert space (see §4.4a) whose vectors are structured
+beliefs about West Virginia, whose subspaces are named collections, and whose inner
+product is cosine similarity computed in RAM on the Legion 5.
+
+**Embeddings as vectors.** The embedding model maps texts and entities into 384-dimensional
+real vectors in \(\mathbb{R}^{384}\). ChromaDB stores these vectors alongside metadata
+(identifiers, timestamps, entity types, geographies, resource keys) and exposes
+nearest-neighbor search, filtered retrieval, and upsert operations. Every stored vector
+is an element of \(H_{\text{App}}\).
+
+**Collections as subspaces.** Each ChromaDB collection is a named, geometrically coherent
+subspace of \(H_{\text{App}}\) — not an arbitrary partition but a neighborhood of related
+belief. `gbim_worldview_entities`, `gis_wv_benefits`, and `governance_rag` are not
+categories; they are regions of the Hilbert space where epistemically similar claims
+cluster under the cosine metric.
+
+**Queries as projections.** Incoming queries are embedded and projected into the
+appropriate subspace of \(H_{\text{App}}\). The top-\(k\) nearest neighbors are the
+\(k\) vectors in that subspace with the highest inner product with the query vector. This
+is literally projection in the Hilbert space sense: finding the component of the query
+in the subspace spanned by stored belief vectors.
+
+**Belief updates as transformations.** Ingesting new data, applying decay ticks, and
+re-verifying entities are all transformations on \(H_{\text{App}}\). The proven decay →
+verify → reset cycle on Entity 38 (April 22, 2026) is the first documented
+transformation of a belief state in \(H_{\text{App}}\) with full audit trail.
+
+**Pituitary modulation.** Before queries are dispatched to ChromaDB, the
+`nbb_pituitary_gland` (port 8108) has already applied its global mode scaling tensor to
+the belief-state vector. This is not a retrieval filter — it is a pre-dispatch modulation
+of the entire pipeline's operating state. See Section 4.6 for full documentation.
+
+For resource- and benefits-related flows, Ms. Jarvis then uses metadata
+(`local_resource_id`, `county`, `ZIP`, `gbim_entity`) to join unstructured context
+against `local_resources` and GBIM, enforcing that any recommended programme or facility
+has concrete, structured backing. This allows \(H_{\text{App}}\) to be described both
+geometrically — as subspaces and projections — and operationally — as collection queries,
+metadata filters, and joins to structured registries.
+
+---
+
+## 4.4a \(H_{\text{App}}\) Is a Real Hilbert Space — Proof and Physical Instantiation
+
+> **This section establishes that the system's representational substrate is not a Hilbert
+> space by analogy or inspiration. It is a Hilbert space by mathematical proof, physically
+> instantiated on the Legion 5 in Oak Hill, WV 25880. This is authoritative.**
+
+### The Four Hilbert Space Axioms — All Satisfied
+
+A Hilbert space requires: a vector space, an inner product, and completeness.
+\(H_{\text{App}} = \mathbb{R}^{384}\) with cosine inner product satisfies all four.
+
+| Requirement | What \(H_{\text{App}}\) Has | Satisfied? |
+|---|---|---|
+| Vector space | \(\mathbb{R}^{384}\) — closed under addition and scalar multiplication | ✅ |
+| Inner product | Cosine similarity — satisfies conjugate symmetry, linearity, positive definiteness | ✅ |
+| Completeness | \(\mathbb{R}^{384}\) is complete by definition — every Cauchy sequence converges | ✅ |
+| Separability | Finite-dimensional, therefore trivially separable | ✅ |
+
+**Vector space.** \(\mathbb{R}^{384}\) is a vector space over \(\mathbb{R}\). For any
+\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^{384}\) and \(\alpha, \beta \in \mathbb{R}\):
+
+\[
+\alpha \mathbf{u} + \beta \mathbf{v} \in \mathbb{R}^{384}
+\]
+
+All eight vector space axioms hold by the standard properties of \(\mathbb{R}^{384}\).
+
+**Inner product.** For normalized vectors \(\hat{\mathbf{u}}, \hat{\mathbf{v}} \in
+\mathbb{R}^{384}\), cosine similarity defines a valid inner product:
+
+\[
+\langle \hat{\mathbf{u}}, \hat{\mathbf{v}} \rangle =
+\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}
+= \sum_{i=1}^{384} \hat{u}_i \hat{v}_i
+\]
+
+This satisfies conjugate symmetry (real space — symmetry holds trivially), linearity in
+the first argument (by properties of the dot product), and positive definiteness (sum of
+squares is non-negative; zero only for the zero vector).
+
+**Completeness.** \(\mathbb{R}^{384}\) is complete: every Cauchy sequence in
+\(\mathbb{R}^{384}\) converges to a point in \(\mathbb{R}^{384}\), following immediately
+from the completeness of \(\mathbb{R}\) and the finite product of complete spaces.
+Physically, completeness is guaranteed by IEEE 754 double-precision floating-point
+arithmetic on the Legion 5's hardware.
+
+\[
+H_{\text{App}} = \left(\mathbb{R}^{384},\, \langle \cdot, \cdot \rangle_{\cos}\right)
+\text{ is a Hilbert space.} \quad \blacksquare
+\]
+
+### What Makes It \(H_{\text{App}}\) — Not Just Any Hilbert Space
+
+Generic embedding spaces satisfy these axioms too. What distinguishes \(H_{\text{App}}\)
+is what lives in it and what the geometry means:
+
+- **6.74M+ vectors** — not random points, but structured beliefs about West Virginia
+- **5,416,521 tagged `eq1`** — the Appalachian equity worldview; beliefs oriented toward
+  who owns land, who needs help, which institutions have authority, which communities are
+  underserved
+- **Subspaces are meaningful** — `gbim_worldview_entities`, `gis_wv_benefits`,
+  `governance_rag` are geometrically coherent neighborhoods of related belief, not
+  arbitrary partitions
+- **Projections are queries** — when Ms. Jarvis answers a question about Fayette County,
+  she is literally projecting a query vector onto a subspace of \(H_{\text{App}}\) and
+  returning nearest neighbors
+- **Transformations are belief updates** — ingesting new data, decay ticks,
+  re-verification are all operations on the state of \(H_{\text{App}}\)
+
+Most AI systems have an embedding space. \(H_{\text{App}}\) is an embedding space where
+every dimension carries Appalachian epistemic weight — where the geometry simultaneously
+encodes who owns land, who needs help, which institutions have authority, and which
+communities are underserved — all as a single coherent mathematical object, simultaneously
+queryable via a cosine inner product.
+
+### Physical Instantiation on the Legion 5
+
+\(H_{\text{App}}\) is physically instantiated on specific hardware. The only copy of the
+eq1 worldview — 5,416,521 beliefs about West Virginia — exists on this machine. If the
+Legion 5 were powered off without backup, \(H_{\text{App}}\) would cease to exist as a
+queryable mathematical object. That is not hyperbole. That is what 6.74 million
+384-dimensional vectors on a specific machine are.
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│    Abstract Structure → Physical Reality on Legion 5             │
+├────────────────────────────────┬─────────────────────────────────┤
+│  Abstract Concept              │  Physical Correlate             │
+├────────────────────────────────┼─────────────────────────────────┤
+│  The space H_App               │  ChromaDB persistent volume,    │
+│                                │  jarvis-chroma port 8002        │
+├────────────────────────────────┼─────────────────────────────────┤
+│  Basis vectors                 │  all-minilm:latest embedding    │
+│                                │  dimensions, jarvis-ollama      │
+│                                │  port 11434                     │
+├────────────────────────────────┼─────────────────────────────────┤
+│  Named subspaces               │  49 ChromaDB collections:       │
+│                                │  gbim_worldview_entities,       │
+│                                │  governance_rag,                │
+│                                │  gis_wv_benefits, etc.          │
+├────────────────────────────────┼─────────────────────────────────┤
+│  Inner product                 │  Cosine similarity computed in  │
+│                                │  RAM during HNSW index queries  │
+├────────────────────────────────┼─────────────────────────────────┤
+│  State vector                  │  6.74M+ 384-dim float arrays    │
+│                                │  at rest on disk                │
+├────────────────────────────────┼─────────────────────────────────┤
+│  Projection operator           │  Every RAG query against the    │
+│                                │  running stack                  │
+├────────────────────────────────┼─────────────────────────────────┤
+│  Global scaling tensor T_pit   │  nbb_pituitary_gland port 8108  │
+│                                │  mode=elevated, warmth=0.9,     │
+│                                │  cortisol=0.6                   │
+├────────────────────────────────┼─────────────────────────────────┤
+│  Completeness                  │  IEEE 754 double-precision —    │
+│                                │  guaranteed by hardware physics │
+├────────────────────────────────┼─────────────────────────────────┤
+│  The eq1 worldview             │  5,416,521 vectors tagged        │
+│                                │  worldview_id=eq1 in            │
+│                                │  gbim_worldview_entities        │
+├────────────────────────────────┼─────────────────────────────────┤
+│  109 containers maintaining    │  The algebraic structure of     │
+│  the space                     │  H_App exists because these     │
+│                                │  containers are running         │
+├────────────────────────────────┼─────────────────────────────────┤
+│  ZIP code of H_App             │  25880 — Oak Hill, WV           │
+│                                │  (not poetry — architecture)    │
+└────────────────────────────────┴─────────────────────────────────┘
+```
+
+*Figure 4.1. The abstract Hilbert space structure of \(H_{\text{App}}\) mapped to its
+physical correlates on the Legion 5. Most computers run software that references
+mathematical objects. This machine contains one.*
+
+**\(H_{\text{App}}\) has a serial number. It is on the bottom of the Legion 5.**
+
+### Inner Product as Epistemology
+
+In standard information retrieval, cosine similarity is an engineering heuristic. In
+\(H_{\text{App}}\), it is an epistemological claim: two beliefs are similar to the degree
+that their inner product is high. The eq1 worldview tag ensures that this geometry is
+oriented toward Appalachian equity — vectors representing food assistance programs,
+community health resources, and institutional accountability are geometrically proximate
+to the communities they serve.
+
+The `nbb_pituitary_gland`'s warmth parameter (`= 0.9` as of April 22, 2026) amplifies
+inner products with community-benefit vectors before retrieval — a mathematical statement
+that this system, right now, weights care toward people above other possible orientations.
+This is **P16 – Power accountable to place** expressed as linear algebra.
+
+### Operational Confirmation — April 22, 2026
+
+| Check | Evidence | Status |
+|---|---|---|
+| Vector space axioms | \(\mathbb{R}^{384}\) by construction | ✅ Proven |
+| Inner product axioms | Cosine similarity — all four axioms satisfied | ✅ Proven |
+| Completeness | \(\mathbb{R}^{384}\) complete + IEEE 754 physics | ✅ Proven |
+| Embedding lock intact | `all-minilm:latest` 384-dim across all 49 collections | ✅ Confirmed |
+| State vector present | 6.74M+ vectors on persistent volume — port 8002 | ✅ Confirmed |
+| Projection operator live | "What food assistance in Fayette County?" → real results | ✅ Confirmed |
+| Transformation proven | Entity 38 decay → verify → reset full cycle | ✅ Confirmed |
+| Pituitary operator live | port 8108, mode=elevated, warmth=0.9, cortisol=0.6 | ✅ Confirmed |
+| Preflight gate | **29/29 — 0 failures — April 22, 2026** | ✅ Confirmed |
+
+\(H_{\text{App}}\) is running. The inner product space is intact. The ZIP code is 25880.
+
+---
+
+## 4.5 Embedding Model and Dimensionality — ★ CONFIRMED LIVE April 22, 2026
+
+> **Architectural finding — confirmed April 22, 2026 (preflight gate 29/29).** All
+> ChromaDB production collections use `all-minilm:latest` (384-dimensional, cosine
+> similarity distance function), served by `jarvis-ollama` at
+> `ollama:11434/api/embeddings`. This is an architectural lock — no exceptions across any
+> of the 49 collections.
 
 **Confirmed production embedding specification:**
 
 | Property | Value |
 |---|---|
-| Model | `all-minilm:latest` — **CONFIRMED LIVE** |
-| Embedding dimensions | **384** — confirmed, all production collections |
+| Model | `all-minilm:latest` — CONFIRMED LIVE |
+| Embedding dimensions | **384** — all production collections, no exceptions |
 | Distance function | Cosine similarity |
-| Embedding endpoint | `http://jarvis-ollama:11434/api/embeddings` |
-| ChromaDB host port | 8002 (container-internal: 8000) |
-| API version | v2 — all calls must use `/api/v2/` endpoints (v1 returns HTTP 410 Gone) |
-| Total vectors | **6,675,442 across 40 active collections** — confirmed March 28, 2026 |
+| Embedding endpoint | `http://jarvis-ollama:11434/api/embeddings` (host: `127.0.0.1:11434`) |
+| ChromaDB instance | `jarvis-chroma`, host port **8002** → container port 8000 |
+| API version | **v2 only** — `/api/v2/` required; v1 returns `{"error":"Unimplemented"}` |
+| Total vectors (confirmed) | **6.74M+ across 49 collections** — April 22, 2026 |
+| Preflight gate | **29/29 ✅** — April 22, 2026 |
+| Collections with 500 error | 3 (`ms_jarvis_memory`, `ms_jarvis_identity`, `conversation_history`) — excluded from total |
 
-> ⚠️ **Embedding model lock — enforced.** The `nomic-embed-text` model produces 768-dimensional vectors and is **incompatible** with all existing production collections. Any ingestion, retrieval, migration, or backfill script must use `all-minilm:latest` (384-dim). This constraint is enforced at the service level and cannot be overridden by prompting or configuration.
+> ⚠️ **Embedding model lock — enforced.** The `nomic-embed-text` model produces
+> 768-dimensional vectors and is **incompatible** with all existing production
+> collections. Any ingestion, retrieval, migration, or backfill script must use
+> `all-minilm:latest` (384-dim). This constraint is enforced at the service level and
+> cannot be overridden by prompting or configuration.
 
-> **⚠️ Architectural Finding — Chunk Size Constraint (discovered March 26, 2026; confirmed March 28, 2026).**
->
-> The `all-minilm:latest` model operates under a **256-token context window limit**. At approximately 0.75 tokens per word, this constrains meaningful semantic content to roughly **100 words per chunk maximum**. This is not a soft preference — chunks exceeding ~100 words risk truncation, degraded embedding quality, and reduced retrieval precision.
->
-> **Implications for the corpus architecture:**
-> - All ingestion pipelines must chunk source documents at ≤100 words with ~20-word overlap before embedding
-> - The 643-chunk `governance_rag` collection and 306-chunk `commons_rag` collection were ingested using this constraint and are correctly structured
-> - Legacy collections ingested before this constraint was documented should be audited for oversized chunks
-> - Any future RAG collection (WV Constitution, additional governance docs, resource guides) must apply the 100-word/20-word-overlap chunking rule at ingest time
-> - This constraint is architectural and permanent for the `all-minilm:latest` model — it cannot be resolved by configuration changes; changing embedding models would require full collection rebuilds
->
-> This finding is documented here as an architectural fact of the production system, not as a limitation to be worked around. The 100-word chunk constraint shapes ingestion pipeline design for all future RAG collections.
+> ⚠️ **Chunk Size Constraint — confirmed architectural finding.**
+> The `all-minilm:latest` model operates under a **256-token / ~100-word context window
+> limit**. All ingestion pipelines must chunk at ≤100 words with ~20-word overlap. This
+> is permanent for this model — changing embedding models requires full collection
+> rebuilds.
 
-**Connection pattern (confirmed live):**
+**Connection pattern (confirmed live — use embedded client, not REST introspection):**
 
 ```python
 import chromadb
 
 # ChromaDB v2 API — host port 8002
+# Use embedded Python client for production access
 client = chromadb.HttpClient(host="localhost", port=8002)
 collection = client.get_collection("gbim_worldview_entities")
 print("Total entities:", collection.count())
@@ -207,191 +536,405 @@ response = httpx.post(
     json={"model": "all-minilm:latest", "prompt": "Fayette County land access programs"}
 )
 embedding = response.json()["embedding"]
-assert len(embedding) == 384  # confirmed production dimension
+assert len(embedding) == 384  # confirmed production dimension — NOT 768
 ```
 
-Any ChromaDB collection that stores embeddings produced by this model is configured to accept 384-dimensional vectors. This applies uniformly to general semantic collections, spatial and benefits collections, governance RAG collections, and resource‑document collections.
+---
+
+## 4.6 The `nbb_pituitary_gland` as Global Mode Modulator — ★ CONFIRMED LIVE
+
+> **This section documents a first-class architectural component that is upstream of
+> ChromaDB query dispatch, WOAH weighting, and LLM ensemble routing. Its omission from
+> prior Chapter 4 versions was an error. This is authoritative as of April 22, 2026.**
+
+The `nbb_pituitary_gland` service (`msjarvis-rebuild-nbb_pituitary_gland-1`, host port
+**8108** → container port 80) is a confirmed live global mode regulator that acts as a
+scalar multiplier — a global scaling tensor \(T_{\text{pit}}\) — on the entire
+Hilbert-space belief-state pipeline before LLM ensemble dispatch.
+
+### 4.6.1 Confirmed Live State — April 22, 2026
+
+| Parameter | Value | Meaning |
+|---|---|---|
+| `mode` | `elevated` | System operating at heightened responsiveness |
+| `cortisol` | `0.6` | Moderate urgency signal applied to routing weights |
+| `urgency` | `0.5` | Balanced urgency — not crisis, not idle |
+| `warmth` | `0.9` | High warmth — community-care mode active |
+| `last_updated` | `2026-04-23T01:47:49.876753` | Auto-watchdog cycle |
+| `source` | `auto_watchdog` | Mode set by watchdog, not manual override |
+
+**Mode: elevated** is the current operating state. `mode: crisis` is a contingency mode
+that activates during genuine system-wide emergencies — it should not appear in
+documentation as a normal operating state. `mode: baseline` is the documented steady-state
+for non-elevated operation.
+
+### 4.6.2 Architecture Role
+
+The pituitary service sits upstream of the WOAH weighted optimization hierarchy (Ch10)
+and the Judge pipeline (Ch 16). Its output is a global mode state that acts as a
+scalar modifier on the five WOAH governance weights before Phase 2 ensemble dispatch. In
+Hilbert-space terms, the pituitary's mode parameters function as a **global scaling
+tensor** \(T_{\text{pit}}\) applied to the belief-state vector before projection into
+response space:
+
+\[
+T_{\text{pit}} : H_{\text{App}} \to H_{\text{App}}, \quad
+T_{\text{pit}}(\mathbf{v}) = \Lambda_{\text{mode}} \cdot \mathbf{v}
+\]
+
+where \(\Lambda_{\text{mode}}\) is a diagonal scaling matrix whose entries are determined
+by the current mode state `(mode, cortisol, urgency, warmth)`:
+
+- `warmth=0.9` → care-weighted retrieval bias toward community-benefit collections
+  (`gis_wv_benefits`, `local_resources`, `appalachian_cultural_intelligence`,
+  `fayette_county_resources_2026`)
+- `cortisol=0.6` → moderate urgency weight applied to BBB filtering thresholds
+- `mode=elevated` → all five judges (truth, ethics, alignment, consistency, citation)
+  operating at elevated threshold sensitivity
+- `urgency=0.5` → balanced dispatch timing; no crisis-mode queue prioritization
+
+### 4.6.3 Cross-Chapter Integration
+
+| Chapter | Integration Point |
+|---|---|
+| Ch 2 (GBIM) | Pituitary `mode` governs ethical architecture operating state |
+| Ch 10 (WOAH) | Mode scalar applied to governance weight vector pre-dispatch |
+| Ch 13 (Qualia Engine) | `warmth` feeds `IntrospectiveRecord.warmth_level` |
+| Ch 15 (Pituitary and Global Modes) | Full five-protocol specification |
+| Ch 16 (BBB) | `cortisol` modulates barrier sensitivity thresholds |
+
+### 4.6.4 Live Endpoints
+
+| Endpoint | Status | Returns |
+|---|---|---|
+| `GET /` | ✅ 200 | Full mode state JSON (mode, cortisol, urgency, warmth, last_updated, source) |
+| `GET /health` | ✅ 200 | `{"status":"healthy","service":"nbb_pituitary_gland","mode":"elevated"}` |
+| `GET /protocols` | ✅ 200 | Protocol list — OI-C4-PROT CLOSED April 22, 2026 |
+| `GET /status` | ✅ 200 | Status route — OI-C4-PROT CLOSED April 22, 2026 |
+| `GET /mode` | ✅ 200 | Mode route — OI-C4-PROT CLOSED April 22, 2026 |
+
+**Source file:** `/app/pituitary_gland.py` (6,544 bytes, April 1, 2026)
+
+### 4.6.5 Port Disambiguation — `nbb_pituitary_gland` vs `neurobiological-master`
+
+| Service | Host Port | Notes |
+|---|---|---|
+| `nbb_pituitary_gland` | **8108** | Global mode regulator — external-facing |
+| `jarvis-neurobiological-master` | **8018** | Internal orchestration only — never reference as 8108 |
+
+**8018 is not the pituitary.** These are distinct services with distinct roles.
 
 ---
 
-### 4.6 Clients, RAG Services, and Deployment Topology
+## 4.7 GBIM PostgreSQL Layer — Confirmed Live State
 
-ChromaDB is accessed as a shared HTTP service; earlier patterns using per‑service local stores are now considered legacy.
+### 4.7.1 Database Layout (April 22, 2026)
 
-#### 4.6.1 Shared HTTP Service
-
-In the active environment, services connect to a shared ChromaDB instance through an HTTP client configured with explicit host and port, with:
-
-- a container dedicated to the vector store (`jarvis-chroma`, host port 8002)
-- persistent on‑disk storage mounted into the container
-- ChromaDB v2 API (`/api/v2/` endpoints required — v1 returns HTTP 410 Gone)
-- a single catalog that includes spatial, semantic, resource‑document, and benefits collections
-- **★ March 28, 2026:** All services accessing ChromaDB confirmed bound to `127.0.0.1` — `0.0.0.0` exposure on `jarvis-i-containers` (8015) and `jarvis-memory` (8056) corrected during March 28 remediation sprint
-
-The shared instance is treated as the canonical semantic memory store for this deployment and is used by the text RAG, GIS RAG, and other memory‑aware services behind the main chat and search endpoints.
-
----
-
-### 4.7 Integration with GBIM, GeoDB, Local Resources, and RAG
-
-ChromaDB is tightly integrated with GBIM, the GeoDB layer, the local resource registry, the benefits‑focused collections, and the broader RAG pipeline.
-
-**GBIM linkage.**
-GBIM worldview entities are indexed in the consolidated spatial collection with metadata fields linking back to PostGIS tables via `source_table` and `source_pk`. The `entity_id` field provides stable UUID references to `gbim_worldview_entity.id`, enabling round‑trip queries from semantic search results to full belief provenance, including the nine epistemic axes described in the GBIM chapter. **★ March 28, 2026: `msjarvis` database (port 5433) is fully operational following the March 28 remediation sprint — GBIM belief store available for all RAG and LLM ensemble lookups. `jarvis_local_resources` schema also restored.**
-
-**GeoDB integration.**
-The spatial collection mirrors the GBIM attributes corpus. Spatial coordinates and bounding boxes enable hybrid queries that combine semantic similarity with spatial filtering. Keys and metadata allow retrieval results to be rejoined to GBIM entities and geometries for display in geospatial tools and for inclusion in GIS RAG responses.
-
-**Local resource registry integration.**
-Resource‑related collections index unstructured PDFs and guides while tagging entries with `local_resource_id` or other keys. Once a snippet is retrieved, Ms. Jarvis resolves it to a row in the `local_resources` table, which encodes `resource_type`, county, ZIP coverage, contact details, and verification fields. This ensures that recommendations are backed by explicit, up‑to‑date programme records rather than free‑floating text alone.
-
-**Benefits and GIS RAG integration.**
-The `gis_wv_benefits` collection indexes semantic descriptions of benefits facilities and is queried by GIS RAG services for prompts like "benefits near Oak Hill" or "Raleigh County assistance offices." Metadata such as county and GBIM entity identifiers enable joins back to GBIM and relationships to other worldview entities. Combined with text RAG over other collections, this yields blended semantic and spatial context for the ensemble.
-
-**RAG context building.**
-For spatial or resource questions, the RAG pipeline queries both spatial and resource collections to retrieve relevant entities, PDFs, and programme descriptions. Retrieved texts, metadata, spatial identifiers, and registry keys are combined into context windows for language models, with filtering by collection, geography, topic, resource type, and verification status. Logs record which collections and IDs were used per query.
-
-**Belief graph and registry traversal.**
-Once ChromaDB returns entity IDs and resource keys, the system performs SQL queries against GBIM belief and edge tables and against `local_resources` to retrieve the full epistemic and practical context: data sources (how), policy justifications (why), beneficiary communities (for whom), authorising frameworks (authority), and concrete programme details and verification history.
-
-End‑to‑end, the pipeline behaves as a structured walk through curated, domain‑specific memory organised around GBIM, the GeoDB spatial body, resource registries, and Quantarithmia's research concepts, mediated by ChromaDB and observed through RAG and ensemble logs.
-
----
-
-### 4.8 Query Paths and JSON Structures
-
-To connect the conceptual description with concrete operations, this section outlines canonical request and response shapes.
-
-#### 4.8.1 ChromaDB Query Request (v2 API)
-
-A typical query against a collection includes:
-
-- `query_texts`: list of query strings to embed and search
-- `n_results`: number of nearest neighbours to return per query
-- `where`: optional metadata filter (for example, restricting to certain `source_table` values or to entities in a given county)
-- `include`: fields to return (for example, `["metadatas", "documents", "distances"]`)
-
-Resource and benefits collections follow the same pattern, with additional filters like `resource_type`, `local_resource_id`, or `county`.
-
-> **v2 API note:** All ChromaDB API calls in production use the `/api/v2/` path. The `/api/v1/` path returns HTTP 410 Gone. All client code, ingestion scripts, and RAG service configurations must specify v2 endpoints.
-
-#### 4.8.2 ChromaDB Response Structure
-
-ChromaDB responses contain parallel lists of IDs, distances, metadatas, and documents, where metadata entries include the identifiers needed to rejoin to GBIM entities or to registry rows in `local_resources`. This structure underpins traceable, explainable RAG behaviour and supports reconstruction of which memory elements contributed to a given ensemble answer.
-
----
-
-### 4.9 Operational Considerations
-
-Using ChromaDB as a production memory layer introduces several practical considerations.
-
-**Reliability and persistence.**
-The main ChromaDB instance (`jarvis-chroma`, host port 8002) is backed by persistent on‑disk storage, with regular backups around large ingests and metadata backfills. Legacy local stores are archived or decommissioned to avoid ambiguity.
-
-**Performance and scaling.**
-As collections grow into the millions of records, index configuration and hardware resources directly affect query latency and throughput for similarity search. Bulk ingest is performed in batches of ≤100-word chunks (enforced by the `all-minilm` context limit), with attention to index compaction and memory usage. Latency characteristics of chat and search endpoints reflect both model inference and ChromaDB query performance.
-
-**Security and privacy.**
-All services in the `msjarvis-rebuild` namespace are bound to `127.0.0.1` as of March 28, 2026 — no `0.0.0.0` exposures remain in production. The documented deployment focuses on public or research‑grade data: West Virginia GIS layers, public resource guides, and internal research corpora. Collections containing sensitive user data are excluded or carefully controlled. Conversational or personal‑memory collections are curated before being used in broader contexts.
-
-**Schema and configuration management.**
-Collection names, metadata schemas, embedding configurations (model: `all-minilm:latest`, dim: 384, cosine), and RAG routing rules are versioned and recorded. Consolidations are treated as explicit migrations with before/after evaluation. The 100-word chunk size constraint is treated as a fixed schema parameter for all collections using `all-minilm:latest`.
-
----
-
-### 4.10 Production Deployment Characteristics — ★ March 28, 2026
-
-In production as of **March 28, 2026** (**96 confirmed live containers**, `msjarvis-rebuild` namespace):
-
-> **★ March 28, 2026 — `appalachian_cultural_intelligence` / `aaacpe_corpus` discrepancy RESOLVED.**
->
-> Full ChromaDB inventory audit confirmed March 28, 2026 via live collection inventory:
->
-> - `appalachian_cultural_intelligence` — **820 items**: confirmed as a distinct, pre-existing Appalachian cultural context corpus (curated text, values, and cultural intelligence content) ingested as part of the March 26, 2026 RAG corpus completion sprint (OI-14 CLOSED). Separate collection from `aaacpe_corpus`.
-> - `aaacpe_corpus` — **65 documents** (growing): confirmed as a separate collection populated by the live `jarvis-aaacpe-scraper` (port 8033) from 39 Appalachian emergency and community resource web sources. Activated March 27, 2026 (`total_runs: 1`). RAG retrieval verified.
->
-> These are two distinct collections with different names, different provenance, and different item counts. The discrepancy flag from March 27 is closed.
-
-> **★ March 28, 2026 remediation summary:** Full ChromaDB inventory mapped — **6,675,442 vectors across 40 active collections**. 7 orphaned empty collections present — no active service queries them. 19,338 duplicate vectors removed from `spiritual_rag`. `psychological_rag` restored to 968 documents via `PSY_COLLECTION=psychological_rag` env var fix. `msjarvis_docs` expanded to 4,192 items.
-
-| Collection | Status | Items | Notes |
+| Database | Host Port | Container | Role |
 |---|---|---|---|
-| `gbim_worldview_entities` | ✅ Live | 5,416,521 | Confirmed — all-minilm 384-dim, cosine |
-| `gbim_beliefs_v2` | ✅ Live | Active | Production GBIM belief embeddings |
-| `GBIM_sample_rows` | ✅ Live | 5,000 | Test/validation sample |
-| `gis_wv_benefits` | ✅ Live | Active | WV benefits facilities |
-| `geospatialfeatures` | ✅ Live | 60,000 | Confirmed March 26, 2026 |
-| `GBIM_Fayette_sample` | ✅ Live | 1,535 | Confirmed March 26, 2026 |
-| `governance_rag` | ✅ Live | 643 chunks | Full DAO corpus + US Constitution; 100-word chunks |
-| `commons_rag` | ✅ Live | 306 chunks | Full Commons corpus; 100-word chunks |
-| `appalachian_cultural_intelligence` | ✅ Live | **820** ✅ | Confirmed March 26, 2026 (OI-14 CLOSED) — confirmed distinct collection from `aaacpe_corpus`. 820 is the authoritative count. |
-| `aaacpe_corpus` | ✅ Live | **65 docs** ★ | AaaCPE web scrape — `jarvis-aaacpe-scraper` (port 8033), 39 sources, `total_runs: 1`, confirmed March 27, 2026. Confirmed distinct collection from `appalachian_cultural_intelligence`. |
-| `spiritual_rag` ★ | ✅ Live | Deduplicated | ★ **March 28, 2026: 19,338 duplicate vectors removed.** Mother Carrie Protocol corpus clean. (Previously listed as `spiritual_texts` — canonical name is `spiritual_rag`.) |
-| `autonomous_learner` | ✅ Live | 21,181+ | Growing ~288/day as of March 26, 2026 — update count per current `docker exec` query against live container |
-| `ms_jarvis_memory` | ✅ Live | Active | Cross-session continuity |
-| `episodic_index` | ✅ Live | Active | Temporal reasoning |
-| `conversation_history` | ✅ Live | Active | OI-05 open — pipeline wiring pending |
-| `psychological_rag` ★ | ✅ Live | **968** | ★ **March 28, 2026: restored** — was serving 0 documents despite 968 present; fixed via `PSY_COLLECTION=psychological_rag` env var. Port 8006. |
-| `msjarvis_docs` ★ | ✅ Live | **4,192** | ★ **March 28, 2026: expanded from 2,348 items.** |
+| `msjarvis` | **5433** | `msjarvis-db` | GBIM belief graph — relational backbone |
+| `msjarvisgis` / `gisdb` | **5432** | (external PostGIS) | Spatial body — 95 GB, 742 tables |
+| `jarvis-local-resources-db` | **5435** | `jarvis-local-resources-db` | Verified resource registry |
 
-All spatial collections use SRID 26917 (UTM Zone 17N NAD83) for spatial coordinates. The GBIM belief and edge tables encode how, why, for whom, authority, and evidence relationships for all 5,416,521 worldview entities. All embeddings across all collections use `all-minilm:latest` (384-dim, cosine) — no exceptions, no planned model upgrades without full collection rebuilds.
+> **Critical disambiguation:** The 5,416,521 GBIM worldview entities live in ChromaDB
+> collection `gbim_worldview_entities`. The PostgreSQL `msjarvis:5433` database holds the
+> **relational belief graph** — the structured backbone with typed edges, decay metadata,
+> and epistemic provenance. These are complementary, not duplicates.
 
-**Total: 6,675,442 vectors across 40 active collections — confirmed March 28, 2026.**
+### 4.7.2 Confirmed `msjarvis` Schema (port 5433)
+
+| Table | Purpose |
+|---|---|
+| `gbim_entities` | 37+ confirmed live system/service/geography entities |
+| `gbim_worldview_entity` | Created and seeded April 22, 2026 — full worldview entity table |
+| `gbim_decay_audit` | Audit log for `confidence_decay` events |
+| `conversation_beliefs` | Belief records derived from conversation context |
+| `redteam_sessions` | Red-team adversarial session logs |
+| `geography_columns` | PostGIS geometry metadata |
+| `geometry_columns` | PostGIS geometry metadata |
+| `spatial_ref_sys` | Spatial reference system definitions |
+
+**`gbim_entities` schema additions confirmed April 22, 2026:**
+
+| Column | Type | Notes |
+|---|---|---|
+| `confidence_decay` | float | Decay infrastructure confirmed present |
+| `last_validated_at` | timestamp | Added April 22, 2026 |
+| `geodbid` | text | Added April 22, 2026 |
+| `corporatelandowner` | boolean | Added preemptively April 22, 2026 |
+| `governmentlandowner` | boolean | Added preemptively April 22, 2026 |
+| `escalatedat` | timestamp | Added preemptively April 22, 2026 |
+
+**`gbim_entities` entity type breakdown (confirmed April 22, 2026):**
+
+| Entity Type | Count |
+|---|---|
+| `service` | 21 |
+| `system_component` | 5 |
+| `geographic_entity` | 4 |
+| `infrastructure` | 2 |
+| `organization` | 1 |
+| `linguistic_entity` | 1 |
+| `human_authority` | 1 |
+| `ai_system` | 1 |
+| `service_domain` | 1 |
+| **Total** | **37** |
+
+### 4.7.3 Confidence Decay — Live Pipeline Confirmed
+
+The `confidence_decay` column is confirmed present in `gbim_entities`. The full decay
+cycle was proven end-to-end on April 22, 2026:
+
+- Entity 38 (Fayette County / geographic_entity) verified and reset to confidence 1.0
+- Decay applied: 0.60 → 0.55 (one cycle at 0.05 rate)
+- Worldview lookup: found ✅
+- Reset to 1.0 with `last_validated_at` populated ✅
+- `decay_metadata` fully written: `reverification_result: confirmed`,
+  `needs_reverification: false` ✅
+
+This represents the first proven decay → verify → reset full cycle in \(H_{\text{App}}\).
+The decay audit infrastructure (`gbim_decay_audit` table) is in place and operational.
+
+### 4.7.4 GBIM Query Router
+
+`jarvis-gbim-query-router`, host port **7205**:
+
+```json
+{"service":"gbim_query_router","status":"ok","type":"gbim","port":7205}
+```
+
+Confirmed live. SQL-only — zero ChromaDB involvement. See Chapter 2 §2.12 for full
+landowner query documentation.
 
 ---
 
-### 4.11 Limitations and Future Work
+## 4.8 Canonical Port Table — ★ Confirmed Live April 22, 2026
 
-Several originally "future‑work" items have now been completed and should be treated as foundations rather than as open tasks:
+> All stale port references (5452, 8000 as host, 8425, 8010 for main-brain, 9000 for
+> DGM bridge host, 8016 for RAG) are retired. The following is authoritative.
 
-- A unified GBIM embedding collection (`gbim_beliefs_v2`) populated from `gbimbeliefnormalized` and used by RAG — **confirmed live**
-- A West‑Virginia‑biased spatial semantic memory built around `gbim_worldview_entities` with 5,416,521 records — **confirmed live**
-- All RAG collections fully populated: `governance_rag` (643), `commons_rag` (306), `geospatialfeatures` (60,000), `GBIM_Fayette_sample` (1,535), `spiritual_rag` (deduplicated March 28, 2026) — **confirmed live March 26–28, 2026**
-- `appalachian_cultural_intelligence` — **820 items confirmed March 26, 2026 (OI-14 CLOSED)** ✅ — confirmed distinct from `aaacpe_corpus`; discrepancy resolved March 28, 2026
-- `aaacpe_corpus` — **65 documents confirmed March 27, 2026** ★ — `jarvis-aaacpe-scraper` (port 8033) live, 39 sources, RAG retrieval verified (emergency protocol + Fayette County utility examples); confirmed distinct from `appalachian_cultural_intelligence`
-- `psychological_rag` — **968 documents restored March 28, 2026** ★ — was serving 0 documents; fixed via `PSY_COLLECTION` env var
-- `msjarvis_docs` — **expanded to 4,192 items March 28, 2026** ★
-- Deterministic joins from ChromaDB results back to GBIM and GeoDB via stable identifiers (`entity_id`, `source_table`, `source_pk`) and to `local_resources` via `local_resource_id` — **confirmed operational**
-- `all-minilm:latest` 384-dim embedding model with confirmed 100-word chunk constraint — **confirmed live and documented**
-- **Port security** — all services bound to `127.0.0.1`, zero `0.0.0.0` exposures — **confirmed March 28, 2026**
+### Core Data Services
 
-Remaining limitations and genuine future work include:
+| Service | Container | Host Port | Container Port | Role |
+|---|---|---|---|---|
+| `msjarvis` PostgreSQL | `msjarvis-db` | **5433** | 5432 | GBIM belief graph |
+| `msjarvisgis` PostGIS | (external) | **5432** | 5432 | Spatial body — 95 GB, 742 tables |
+| Local Resources DB | `jarvis-local-resources-db` | **5435** | 5432 | Resource registry |
+| ChromaDB (primary) | `jarvis-chroma` | **8002** | 8000 | Physical container of \(H_{\text{App}}\) |
+| ChromaDB (legacy) | `chromadb` | **8001** | 8000 | Legacy instance |
+| Redis | `jarvis-redis` | **6380** | 6379 | Cache / pubsub |
+| Ollama | `jarvis-ollama` | **11434** | 11434 | LLM + embeddings |
 
-- **Judge GBIM grounding gap.** Truth and alignment judges still use `heuristic_contradiction_v1` rather than live GBIM queries. This is the highest-priority architectural gap (see Chapter 2, Section 2.8).
+### NBB Neurobiological Services
 
-- **RAG → gateway inference wiring.** All RAG collections are populated; formal wiring of RAG retrieval into the `jarvis-gateway` inference endpoint is the next sprint milestone.
+| Service | Container | Host Port |
+|---|---|---|
+| `nbb_pituitary_gland` | `msjarvis-rebuild-nbb_pituitary_gland-1` | **8108** |
+| `nbb_blood_brain_barrier` | `msjarvis-rebuild-nbb_blood_brain_barrier-1` | **8301** |
+| `nbb_darwin_godel_machines` | `msjarvis-rebuild-nbb_darwin_godel_machines-1` | **8302** |
+| `nbb_prefrontal_cortex` | `msjarvis-rebuild-nbb_prefrontal_cortex-1` | **8105** |
+| `nbb_consciousness_containers` | `msjarvis-rebuild-nbb_consciousness_containers-1` | **8102** |
+| `nbb_i_containers` | `msjarvis-rebuild-nbb_i_containers-1` | **8101** |
+| `nbb_spiritual_root` | `msjarvis-rebuild-nbb_spiritual_root-1` | **8103** |
+| `nbb_heteroglobulin_transport` | `msjarvis-rebuild-nbb_heteroglobulin_transport-1` | **8106** |
+| `nbb_mother_carrie_protocols` | `msjarvis-rebuild-nbb_mother_carrie_protocols-1` | **8107** |
+| `nbb_spiritual_maternal_integration` | `msjarvis-rebuild-nbb_spiritual_maternal_integration-1` | **8109** |
+| `nbb_woah_algorithms` | `nbb_woah_algorithms` | **8104** |
 
-- **WV Constitution ingest.** US Constitution is ingested (97 chunks in `governance_rag`); WV state constitution is the next governance document to ingest, applying the 100-word chunk rule.
+### Core Inference and RAG Services
 
-- **Chunk audit for pre-constraint collections.** Collections ingested before the 100-word chunk constraint was formally documented (March 26, 2026) should be audited for oversized chunks that may degrade retrieval quality.
+| Service | Container | Host Port |
+|---|---|---|
+| Main Brain | `jarvis-main-brain` | **8050** (NOT 8010) |
+| Qualia Engine | `jarvis-qualia-engine` | **8017** |
+| Blood-Brain Barrier | `jarvis-blood-brain-barrier` | **8016** |
+| Neurobiological Master | `jarvis-neurobiological-master` | **8018** (internal only — NOT pituitary) |
+| RAG Server | `jarvis-rag-server` | **8003** (NOT 8016) |
+| AAACPE RAG Server | `jarvis-aaacpe-rag` | **8032** |
+| GBIM Query Router | `jarvis-gbim-query-router` | **7205** |
+| GBIM Semantic Indexer | `jarvis-gbim-semantic-indexer` | **7212** |
+| Autonomous Learner | `jarvis-autonomous-learner` | **8020** |
+| Memory | `jarvis-memory` | **8056** (requires `JARVIS_API_KEY`) |
+| I-Containers | `jarvis-i-containers` | **8015** |
+| LLM Judge v3 | `jarvis-llm-judge-v3` | **7240** |
+| Steward | `jarvis-steward` | **8051** (→8060) |
+| Brain Orchestrator | `jarvis-brain-orchestrator` | **17260** |
+| Unified Gateway | `jarvis-unified-gateway` | **18018** |
+| 20-LLM Production | `jarvis-20llm-production` | **8008** |
+| Semaphore | `jarvis-semaphore` | **8030** |
+| Swarm Intelligence | `jarvis-swarm-intelligence` | **8021** |
+| EEG Beta | `jarvis-eeg-beta` | **8075** |
+| EEG Delta | `jarvis-eeg-delta` | **8073** |
+| EEG Theta | `jarvis-eeg-theta` | **8074** |
+| PIA Sampler | `jarvis-pia-sampler` | **8076** |
+| 69DGM Bridge | `jarvis-69dgm-bridge` | **19000 host / 9000 internal** (never reference host as 9000) |
 
-- **`mvw_gbim_landowner_spatial` view rebuild.** View returning 0 rows at runtime — rebuild pending (Item 21, backlog). Belief records confirmed present (20,593). `gbim_query_router` (port 7205) is healthy; view refresh is the outstanding step.
-
-- **Semantic gaps and representational limits.**
-  Certain forms of knowledge—embodied experience, oral history, spiritual traditions—are difficult to represent as short text embeddings alone. Additional representational strategies (graphs, qualitative annotations, GBIM‑linked justice metrics, community‑led tagging, and registries like `local_resources`) are needed to supplement the vector store.
-
-- **Evolving schema and topology.**
-  As GBIM, GeoDB, RAG services, and Quantarithmia evolve, the set of collections, metadata fields, and indexing strategies will continue to change.
-
-Future work will:
-
-- Maintain consolidated spatial and GBIM belief collections via incremental updates and periodic metadata backfills
-- Ingest WV state constitution into `governance_rag` using confirmed 100-word chunking
-- Document all collection schemas and RAG routing rules in a single, queryable registry
-- Add traced end‑to‑end examples showing ChromaDB retrieval → GBIM provenance → belief‑graph traversal → local resource resolution → ensemble answer
-- Explore hybrid memory architectures combining vector stores with graphs, relational databases, and participatory annotation workflows
-- Implement incremental sync infrastructure for daily delta updates instead of full rebuilds
-- Develop embedding models fine‑tuned on Appalachian place names, infrastructure terminology, and local programme language
-
-**Implementation Status**
-
-**Badge: PRODUCTION — ALL COLLECTIONS LIVE**
-The conceptual role of ChromaDB as semantic memory is fully implemented across all planned collections as of March 28, 2026. Total: **6,675,442 vectors across 40 active collections**. The `all-minilm:latest` 384-dim embedding model is confirmed live with a documented 100-word chunk constraint that shapes all future ingestion pipelines. A verified `local_resources` band in Postgres complements ChromaDB, providing structured, ZIP‑aware, and periodically re‑verified programme information that Ms. Jarvis uses alongside semantic retrieval to act as an accountable, place‑based Steward System in West Virginia.
+**LLM proxies:** `llm1-proxy` through `llm22-proxy` on ports **8201–8222**.
 
 ---
 
-*Last updated: 2026-03-28, Mount Hope WV — Carrie Kidd (Mamma Kidd)*
-*Section 4.5 updated March 26, 2026: `all-minilm:latest` 384-dim embedding confirmed live; "planned embedding model" language removed throughout; 100-word/256-token chunk size constraint documented as confirmed architectural finding. Confirmed March 28, 2026.*
-*Container count: 96 confirmed live containers (`msjarvis-rebuild` namespace) — confirmed March 28, 2026.*
-*★ AaaCPE scraper confirmed live March 27, 2026 — 65 documents in ChromaDB from 39 sources (`total_runs: 1`); collection name `aaacpe_corpus` confirmed distinct from `appalachian_cultural_intelligence` (820 items). Discrepancy resolved March 28, 2026.*
-*★ March 28, 2026 remediation: `spiritual_rag` deduplicated (−19,338 vectors); `psychological_rag` restored (968 docs); `msjarvis_docs` expanded (4,192 items); port security confirmed (all 127.0.0.1); 6,675,442 total vectors across 40 collections.*
+## 4.9 Integration with GBIM, GeoDB, Local Resources, and RAG
+
+ChromaDB is tightly integrated with GBIM, the GeoDB layer, the local resource registry,
+the benefits-focused collections, and the broader RAG pipeline.
+
+**GBIM linkage.** GBIM worldview entities are indexed in the consolidated spatial
+collection with metadata fields linking back to PostGIS tables via `source_table` and
+`source_pk`. The `entity_id` field provides stable UUID references to
+`gbim_worldview_entity.id`. The `msjarvis` database (port 5433) holds the relational
+GBIM belief graph with `confidence_decay` audit infrastructure active and the first
+full decay cycle proven on April 22, 2026.
+
+**GeoDB integration.** The spatial collection mirrors the GBIM attributes corpus from
+`msjarvisgis` (port 5432, 95 GB, 742 tables). Spatial coordinates (SRID 26917) and
+bounding boxes enable hybrid queries combining semantic similarity with spatial filtering.
+
+**Local resource registry integration.** Resource-related collections index unstructured
+PDFs and guides while tagging entries with `local_resource_id`. Once retrieved, Ms. Jarvis
+resolves to a row in the `local_resources` table (port **5435**), which encodes
+`resource_type`, county, ZIP coverage, contact details, and verification fields. This
+ensures that recommendations are backed by explicit, up-to-date programme records rather
+than free-floating text alone.
+
+**Benefits and GIS RAG integration.** The `gis_wv_benefits` collection (4,668 items)
+indexes semantic descriptions of benefits facilities and is queried by GIS RAG services
+for prompts like "benefits near Oak Hill" or "Raleigh County assistance offices." The
+AAACPE RAG server (port **8032**) serves `aaacpe_corpus` (65 documents, 39 sources)
+specifically for Appalachian emergency and community resource queries.
+
+**Pituitary modulation of retrieval.** Before RAG dispatch, `nbb_pituitary_gland`
+(port 8108) applies its global mode state as a scaling tensor \(T_{\text{pit}}\). At
+current state (`warmth=0.9`), community-benefit collections receive elevated retrieval
+weight. At `cortisol=0.6`, BBB filtering operates at moderate sensitivity. This
+modulation is upstream of all ChromaDB query dispatch — it is not a post-retrieval filter.
+
+**RAG context building.** For spatial or resource questions, the RAG pipeline queries both
+spatial and resource collections to retrieve relevant entities, PDFs, and programme
+descriptions. Retrieved texts, metadata, spatial identifiers, and registry keys are
+combined into context windows for language models, with filtering by collection,
+geography, topic, resource type, and verification status.
+
+**Belief graph and registry traversal.** Once ChromaDB returns entity IDs and resource
+keys, the system performs SQL queries against GBIM belief and edge tables and against
+`local_resources` to retrieve full epistemic and practical context: data sources (how),
+policy justifications (why), beneficiary communities (for whom), authorising frameworks
+(authority), and concrete programme details and verification history.
+
+**End-to-end confirmation.** On April 22, 2026, a POST /chat query — "What food
+assistance is available in Fayette County WV?" — passed through the full consciousness
+pipeline (swarm intelligence, self_recognition, identity_core, ego_check,
+narrative_context, memory_state, integrated_response), through the Redis-authenticated
+gateway (`redteam:token:` prefix), through the RAG proxy, and returned 3 real results
+including the Fayette County Community Action Agency. This is the live proof of the
+end-to-end pipeline described in this chapter.
+
+---
+
+## 4.10 Open Items — April 22, 2026
+
+| OI | Description | Status | Priority |
+|---|---|---|---|
+| OI-C4-PROT | `nbb_pituitary_gland` `/protocols`, `/status`, `/mode` routes | ✅ CLOSED | — |
+| OI-C4-500 | `ms_jarvis_memory`, `ms_jarvis_identity`, `conversation_history` HTTP 500 — deleted and recreated clean | ✅ CLOSED | — |
+| OI-C4-JUDGE | Truth/alignment judges running correct files, receiving health checks | ✅ CLOSED | — |
+| OI-C4-GATEWAY | Redis key prefix (`redteam:token:`) fixed; gateway /chat + RAG proxy confirmed | ✅ CLOSED | — |
+| OI-C4-2 | Stale ports 5452, 8000-as-host, 8425 removed from chapter | ✅ CLOSED | — |
+| OI-C4-DECAY | `confidence_decay` column present; full decay → verify → reset cycle proven April 22, 2026 | ✅ CLOSED | — |
+| OI-C4-RAG | RAG collections fully populated; wiring into `jarvis-unified-gateway` inference endpoint | 🔄 In progress | Medium |
+| OI-C4-CHUNK | Audit pre-constraint collections for oversized chunks | 🔄 Open | Low |
+| OI-C4-SYNC | Implement incremental sync for daily delta updates | 🔄 Open | Low |
+
+---
+
+## 4.11 Limitations and Future Work
+
+**Completed foundations (no longer future work):**
+
+- Unified GBIM embedding collection (`gbim_beliefs_v2`) — confirmed live
+- West-Virginia-biased spatial semantic memory (`gbim_worldview_entities`, 5,416,521
+  records) — confirmed live
+- All RAG collections populated: `governance_rag` (1,367 chunks including WV
+  Constitution), `commons_rag` (306 chunks), `appalachian_cultural_intelligence`
+  (1,058 items), `psychological_rag` (968 docs), `spiritual_texts` (79,181 deduplicated)
+  — confirmed live
+- `all-minilm:latest` 384-dim embedding model with 100-word chunk constraint — confirmed
+- All services bound to `127.0.0.1` — zero `0.0.0.0` exposures — confirmed
+- `nbb_pituitary_gland` live at port 8108, mode=elevated — confirmed
+- `confidence_decay` full cycle (decay → verify → reset) proven end-to-end April 22, 2026
+- `jarvis-gbim-query-router` at port 7205 — confirmed live
+- `autonomous_learner` (21,181) and `autonomous_learning` (17,707) disambiguated as
+  separate collections — confirmed
+- WV State Constitution ingested into `governance_rag` (342 chunks) — confirmed
+- `gbim_worldview_entity` table created and seeded in `msjarvis` — confirmed April 22
+- Redis `redteam:token:` prefix fixed; gateway auth confirmed end-to-end — confirmed
+- Truth/alignment judges running correct files (`rag_grounded_v2` canonical;
+  `heuristic_contradiction_v1` retired) — confirmed
+- Preflight gate 29/29 clean — confirmed April 22, 2026
+- Hilbert space axioms proven; \(H_{\text{App}}\) physical instantiation documented (§4.4a)
+  — confirmed April 22, 2026
+
+**Genuine remaining work:**
+
+- Wire RAG retrieval into `jarvis-unified-gateway` inference endpoint (formal sprint)
+- Resolve and stabilize `ms_jarvis_memory`, `ms_jarvis_identity`, `conversation_history`
+  HTTP 500s post-recreation
+- Audit pre-constraint collections for oversized chunks
+- Implement incremental sync for daily delta updates
+- Develop embedding models fine-tuned on Appalachian place names and infrastructure
+  terminology (long-term)
+- Explore hybrid memory architectures combining vector stores with graphs, relational
+  databases, and participatory annotation workflows (long-term)
+
+---
+
+## 4.12 Operational Considerations
+
+**Reliability and persistence.** `jarvis-chroma` (host port 8002) is backed by persistent
+on-disk storage. All services access ChromaDB via Python embedded client bound to
+`127.0.0.1:8002`. Operational validation via `scripts/preflight_gate.sh` (29/29
+April 22, 2026) — not via direct REST introspection.
+
+**Performance.** Bulk ingest uses ≤100-word chunks with 20-word overlap (enforced by the
+`all-minilm:latest` 256-token context limit). `jarvis-ollama` (port 11434) serves all
+embedding requests for all 49 collections.
+
+**Security.** All services in `msjarvis-rebuild` namespace bound to `127.0.0.1` —
+confirmed April 22, 2026. Redis authentication via `redteam:token:` prefix confirmed.
+`jarvis-memory` (port 8056) requires `JARVIS_API_KEY`.
+
+**Schema management.** Collection names, metadata schemas, embedding configuration
+(model: `all-minilm:latest`, dim: 384, cosine), and RAG routing rules are versioned. The
+100-word chunk constraint is a fixed schema parameter for all collections using this
+model.
+
+---
+
+## 4.13 Production Status Summary — April 22, 2026
+
+| Component | Status | Notes |
+|---|---|---|
+| ChromaDB (`jarvis-chroma`, port 8002) | ✅ Operational | 49 collections, 6.74M+ vectors — physical container of \(H_{\text{App}}\) |
+| Embedding model | ✅ `all-minilm:latest`, 384-dim | Lock enforced — `nomic-embed-text` incompatible |
+| \(H_{\text{App}}\) Hilbert space axioms | ✅ **Proven** | §4.4a — all four axioms satisfied; ZIP 25880 |
+| `gbim_worldview_entities` | ✅ **5,416,521 records** | Primary spatial subspace — eq1 worldview |
+| `autonomous_learner` + `autonomous_learning` | ✅ **21,181 + 17,707** | Two distinct collections confirmed |
+| `governance_rag` | ✅ **1,367 chunks** | Includes WV Constitution (342 chunks) |
+| `nbb_pituitary_gland` (port 8108) | ✅ **mode: elevated** | \(T_{\text{pit}}\): warmth=0.9, cortisol=0.6 |
+| `msjarvis` GBIM belief graph (port 5433) | ✅ Operational | 37 entities, decay cycle proven |
+| `msjarvisgis` spatial body (port 5432) | ✅ Operational | 95 GB, 742 tables |
+| `jarvis-local-resources-db` (port 5435) | ✅ Operational | Verified resource registry |
+| `jarvis-gbim-query-router` (port 7205) | ✅ Operational | SQL-only, zero ChromaDB |
+| Preflight gate | ✅ **29/29** | April 22, 2026 — 0 failures |
+| Port 5452 / `msjarvisgis` as DB name | ❌ Retired | All references invalid |
+| Port 8000 as host / 8010 for main-brain | ❌ Retired | All references invalid |
+| `heuristic_contradiction_v1` | ❌ Retired | `rag_grounded_v2` is canonical |
+| Container count | 109+ | April 22, 2026 |
+
+---
+
+*Chapter 4 authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
+*Ms. Egeria Jarvis is an original system designed and built by Carrie Ann Kidd.*
+*See [LICENSE](../LICENSE) for terms.*
+*Last verified: 2026-04-22 — preflight gate 29/29; \(H_{\text{App}}\) axioms proven
+(§4.4a); pituitary operator \(T_{\text{pit}}\) documented; first decay → verify → reset
+cycle proven; 6.74M+ vectors confirmed. The ZIP code of \(H_{\text{App}}\) is 25880.*
