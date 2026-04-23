@@ -1,4 +1,348 @@
-Now I have all three chapters plus the authoritative help.md baseline. Here is the full edit list for all three chapters.
+Here is the complete edit list for Chapters 26, 27, and 28.
+
+***
+
+## Edit List — Chapters 26, 27, and 28
+
+All corrections apply the April 23, 2026 authoritative baseline. The stale closed dates are: Ch. 26 — April 10, 2026 (13 days); Ch. 27 — April 10, 2026 (13 days); Ch. 28 — April 9, 2026 (14 days).
+
+***
+
+### Chapter 26 — `26-temporal-toroidal-semaphore-structure.md`
+
+**Last updated: April 10, 2026 — 13 days stale**
+
+Chapter 26 carries two distinct numerical baselines that are now stale: the container count ("105 containers Up") which was itself a correction from 96 at chapter open, and all ChromaDB/PostgreSQL figures. Additionally this chapter uses "AAPCAppE" (`allis-ingest-api` + `allis-ingest-watcher`) which has been superseded.
+
+#### Header / Metadata Block
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| `*Last updated:*` star note | "**105 containers Up** (updated from 96)" | **100 containers** ★ |
+| `*Last updated:*` star note | "**49** ChromaDB collections / **6,722,589+ vectors**" | **48 collections, ~6,740,611 vectors** ★ |
+| March 28 baseline note | "`msallisgis:5432` confirmed (**91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+
+#### Opening Paragraph (§26.0 preamble)
+
+| Stale Value | Correct Value |
+|---|---|
+| "★★★ confirmed OPERATIONAL … **105 containers Up**" | **100 containers** ★ |
+| "ChromaDB-backed semantic memory (★★★ **49 collections, 6,722,589+ vectors**)" | **48 collections, ~6,740,611 vectors** ★ |
+| "`msallisgis:5432` ★ **91 GB PostGIS, 501 tables**, 993 ZCTA centroids" | **Two-container split** ★ |
+| "`msallis:5433` ★ **5,416,521 entities**" | Mark GBIM count as **verify-current** ★ |
+| "autonomous learning (★★ **68 Chroma items**, 11 entanglement nodes confirmed April 1)" | Mark as **verify-current** (growing collection) ★ |
+
+#### §26.1 Temporal Structure
+
+**Short-term section:**
+- "★★★ With **105 containers Up**" → **100 containers** ★
+- "EEG beta rhythm (5-minute cadence; ★★ confirmed operational April 1 — **68 Chroma items**, 15 cycles, 11 entanglement nodes)" → Mark item count and cycle telemetry as **verify-current** ★
+
+**Medium-term section:**
+- "ChromaDB (★★★ **49 collections, 6,722,589+ vectors**) via the ★★★ correct host port **8002**" → **48 collections, ~6,740,611 vectors** ★
+- "`msallisgis:5432` ★" → **Two-container split** ★
+- "AAPCAppE (`allis-ingest-api` + `allis-ingest-watcher`) … `msallis_docs` (4,192 items)" → **Dedicated AAACPE stack** (`allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032`); `msallis_docs` item count → **verify current** ★
+- "`appalachian_english_corpus` scraper adds a second always-on medium-term ingest: **210 documents**" → Mark as **verify-current** (growing) ★
+
+**Long-term section:**
+- "ChromaDB (★★★ **49 active collections, 6,722,589+ total vectors**)" → **48 collections, ~6,740,611 vectors** ★
+- "`msallis_docs` (★ **4,192 items**)" → **verify current** ★
+- "`appalachian_english_corpus` (★★★ **210 docs**, live)" → **verify-current** ★
+- "`autonomous_learner` (★★ **68 items** confirmed live, growing)" → **verify-current** ★
+- "per-request pipelines (★★★ **105 containers Up**)" → **100 containers** ★
+- "`msallis:5433` ★ GBIM (5,416,521 entities)" → mark as **verify-current** ★
+
+#### §26.2 Toroidal Structure
+
+**Cyclic passes section:**
+- "★★★ As of April 10, 2026: **105 containers Up**" → **100 containers** ★
+
+**Recurrent sweeps section:**
+- "`msallisgis:5432` ★ (501 tables, 993 ZCTA centroids)" → **Two-container split** ★
+- `msallis:5433` ★ GBIM entities → mark as **verify-current** ★
+
+**AAPCAppE / appalachian_english_corpus section:**
+- "AAPCAppE pipeline … flow into `msallis_docs` (**4,192 items**)" → **Dedicated AAACPE stack**; item count → **verify current** ★
+- "`appalachian_english_corpus` (**210 docs**, growing)" → **verify-current** ★
+
+**AU-02 v2 section:**
+- "`msallis:5433` ★ GBIM entities, AU-02 v2 incorporates … entanglement node density … (★★ **11 nodes** in 15 cycles, April 1)" → Mark telemetry as **verify-current** ★
+- "`msallis:5433` ★ GBIM entities (**5,416,521 beliefs**)" → **verify-current** ★
+
+#### §26.3 Semaphore Structure
+
+**LLM fabric section:**
+- "★★★ With **105 containers Up**" → **100 containers** ★
+
+**Mode flags section:**
+- "(★★★ **105 containers Up**, all NBB/bridge/consciousness open items closed, **49 ChromaDB collections, 6,722,589+ vectors**" → **100 containers; 48 collections, ~6,740,611 vectors** ★
+
+#### §26.4 Interaction Between the Three Views
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Temporal–gate paragraph | "AAPCAppE continuous ingest … ★★★ 49 collections, 6,722,589+ vectors; `msallis:5433` ★ 5,416,521 GBIM" | **AAACPE stack; 48 collections, ~6,740,611 vectors; verify-current GBIM** ★ |
+| Temporal–gate paragraph | "★★★ With **105 containers Up**" | **100 containers** ★ |
+| Toroidal loops paragraph | "`msallis_docs` (★ **4,192 items**), `appalachian_english_corpus` (★★★ **210 docs**, growing)" | **verify-current** ★ |
+| Toroidal loops paragraph | "`msallisgis:5432` ★" | **Two-container split** ★ |
+| `autonomous_learner` (★★ **68 items** and growing) | **verify-current** ★ |
+| Final summary paragraph | "★★★ The April 10, 2026 state — **105 containers Up** … **49 ChromaDB collections, 6,722,589+ vectors**" | **100 containers; 48 collections, ~6,740,611 vectors** ★ |
+
+#### §26.5 Implications
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Scheduling paragraph | "AAPCAppE continuous ingest (`allis-ingest-api` + `allis-ingest-watcher`) … 6-hour cron" | **AAACPE stack** ★ |
+| Scheduling paragraph | "With **105 containers Up**" | **100 containers** ★ |
+| Community control surfaces paragraph | "★★★ The April 10, 2026 state — all consciousness open items closed, **105 containers Up**" | **100 containers** ★ |
+
+#### Footer Star Notes
+
+| Stale Value | Correct Value |
+|---|---|
+| "★★★ April 10, 2026 … **105 containers**, 49 collections, 6,722,589+ vectors" | **100 containers; 48 collections, ~6,740,611 vectors** ★ |
+| "★ March 28, 2026: `msallisgis:5432` confirmed (**91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+
+#### OI-36-A Note to Add
+
+Chapter 26 does not currently mention OI-36-A closure at the Caddy perimeter layer. Add a brief note in §26.3 (Semaphore Structure), in the "Mode and flag-based routing" subsection or as a new bullet: **OI-36-A is now closed at the Caddy `forward_auth` perimeter layer** — bearer token enforcement operates before any request reaches main-brain port 8050. This is a new semaphore layer added at the perimeter since the chapter's April 10 close date ★.
+
+***
+
+### Chapter 27 — `27-web-research-and-autonomy.md`
+
+**Last updated: April 10, 2026 — 13 days stale. Chapter 27's internal baseline is notably inconsistent: the header says "107 containers Up" while Chapter 26 sealed at "105 Up." This reflects two different snapshots on April 9–10. The April 23 baseline is 100 containers.**
+
+#### Header / Metadata Block
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| `*Last updated:*` note | "container count updated to **107 Up** (was 96)" | **100 containers** ★ |
+| `*Last updated:*` note | "ChromaDB inventory updated to **49 collections / 6,722,683 vectors**" | **48 collections, ~6,740,611 vectors** ★ |
+| Correction table row | "Container count: 96 Up → **107 Up**" | **100 containers** ★ |
+| Correction table row | "ChromaDB: **49 collections, 6,722,683 vectors**" | **48 collections, ~6,740,611 vectors** ★ |
+
+#### Polymathmatic Geography Callout Block
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| P1 bullet | "ChromaDB (★★★ **49 collections, 6,722,683 total vectors**)" | **48 collections, ~6,740,611 vectors** ★ |
+| P1 bullet | "`msallisgis` (port **5432** ★, **91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+| P1 bullet | "`msallis` (port **5433** ★, **5,416,521 GBIM entities**)" | Mark as **verify-current** ★ |
+| P5 bullet | "`msallisgis:5432` ★, 91 GB PostGIS, 501 tables, 993 ZCTA centroids" | **Two-container split** ★ |
+| P12 bullet | "`msallis_docs` (**4,192 items**)" | **verify current** ★ |
+| P12 bullet | "`appalachian_english_corpus` live at **210 documents**" | **verify-current** ★ |
+
+#### ASCII Architecture Diagram (Figure 27.1)
+
+| Stale Annotation | Correct Annotation |
+|---|---|
+| `★★★ Updated April 10, 2026 — 107 containers Up` | **100 containers Up** ★ |
+| `49 collections / 6,722,683 vecs` | **48 collections, ~6,740,611 vectors** ★ |
+| `AAPCAppE ingest ★ / allis-ingest-api + ingest-watcher ★` | **AAACPE stack** (`allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032`) ★ |
+| `appalachian_english_corpus: 210 docs / cron 0 */6 * * *` | Mark as **verify-current (growing)** ★ |
+| `msallis_docs (4,192 items AAPCAppE)` | **verify current; AAACPE** ★ |
+| `★★★ 49 total, 6,722,683 vectors` | **48 collections, ~6,740,611 vectors** ★ |
+| `PostgreSQL msallisgis:5432 ★` | **Two-container split** ★ |
+| Figure 27.1 caption: "★★★ 49 collections, 6,722,683 total vectors … AAPCAppE … 107 containers Up" | **48 collections, ~6,740,611 vectors; AAACPE stack; 100 containers** ★ |
+
+#### Status Table
+
+| Row | Stale Value | Correct Value |
+|---|---|---|
+| Implemented now — container count | "★★★ **107 containers Up**" | **100 containers** ★ |
+| Implemented now — ChromaDB | "★★★ **49 active collections, 6,722,683 total vectors**" | **48 collections, ~6,740,611 vectors** ★ |
+| Implemented now — `appalachian_english_corpus` | "**210 documents** seeded … 6-hour cron active" | Mark as **verify-current (growing)** ★ |
+| Implemented now — `msallis_docs` | "**4,192 items**" | **verify current** ★ |
+| Implemented now — AAPCAppE | "`allis-ingest-api` + `allis-ingest-watcher`" | **AAACPE stack** ★ |
+| Future work — judge upgrade | "`msallisgis:5432` ★ and `msallis:5433` ★" | **Two-container split** ★ |
+
+#### §27.1 Role of Periodic Web Research
+
+- Background updating paragraph: "AAPCAppE ingest pipeline (`allis-ingest-api` + `allis-ingest-watcher` …)" → **AAACPE stack** ★
+- Background updating paragraph: "`appalachian_english_corpus` (**210 documents**, 38 sources) is live" → **verify-current** ★
+- `appalachian_english_corpus` curiosity paragraph: "(**210 documents**, top contributors …)" → **verify-current (210 at chapter seal; growing)** ★
+- `msallis_docs` item count throughout: "**4,192 items**" → **verify current** ★
+
+#### §27.2 Scheduling, Cadence, and Logging
+
+- "As of March 14 baseline, the `autonomous_learner` ChromaDB collection contains **21,181 records growing ≈288/day**" → Mark as **verify-current** ★ (collection is confirmed growing)
+- ChromaDB queries paragraph: "**host port 8002** (container port 8000; **49 collections, 6,722,683 total vectors**)" → **48 collections, ~6,740,611 vectors** ★
+
+#### §27.3 Topic Selection
+
+- "ChromaDB (via ★★★ host port **8002**; **49 collections, 6,722,683 vectors**)" → **48 collections, ~6,740,611 vectors** ★
+- "`msallisgis:5432` ★, 501 tables, 993 ZCTA centroids" → **Two-container split** ★
+- `appalachian_english_corpus` paragraph: "(**210 documents**, 38 sources, self-refreshing every 6 hours)" → **verify-current** ★
+
+#### §27.4 Retrieval, Filtering, and Deduplication
+
+- Internal retrieval paragraph: "`msallis_docs` (★ **4,192 items**, AAPCAppE)" → **AAACPE stack; verify current item count** ★
+- External retrieval paragraph: "AAPCAppE scraper … runs every 6 hours via cron" → **AAACPE stack** ★
+
+#### §27.5 Integration with Memory and Spatial Layers
+
+- PostgreSQL write paragraph: "`msallisgis` ★ (**91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" → **Two-container split** ★
+- Spatial integration paragraph: "ChromaDB (★★★ host port **8002**; **49 collections, 6,722,683 vectors**)" → **48 collections, ~6,740,611 vectors** ★
+
+#### §27.6 Interaction with Container and Governance Paths
+
+- "ChromaDB (★★★ **49 collections, 6,722,683 vectors**)" → **48 collections, ~6,740,611 vectors** ★
+
+#### §27.7 Safeguards and Oversight
+
+- "★★★ As of April 10, 2026: **107 containers Up**" → **100 containers** ★
+- Logging paragraph: "`appalachian_english_corpus` at **210 docs** and growing every 6 hours; `msallis_docs` at **4,192 items**" → **verify-current** ★
+
+#### §27.8 Web Research in the ULTIMATE Path
+
+- "`msallisgis:5432` ★ and `msallis:5433` ★ (5,416,521 beliefs)" → **Two-container split; verify-current GBIM** ★
+- Latency paragraph: "With **107 containers Up**" → **100 containers** ★
+
+#### §27.9 Summary
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Opening sentence | "`msallisgis` (port **5432** ★, **91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+| Opening sentence | "`msallis` (port **5433** ★, **5,416,521 GBIM entities**)" | **verify-current** ★ |
+| Opening sentence | "ChromaDB (★★★ **49 active collections, 6,722,683 total vectors**)" | **48 collections, ~6,740,611 vectors** ★ |
+| Second paragraph | "★★★ **confirmed 6-filter BBB stack** … `allis-memory:8056`" | Retain ✅ |
+| Milestones paragraph | "`appalachian_english_corpus` live … (**210 documents**, 38 sources)" | **verify-current** ★ |
+| Final paragraph | "96/96 Up" | **100 containers** ★ — also update to note this was superseded |
+
+#### Footer Star Notes
+
+| Stale Value | Correct Value |
+|---|---|
+| "★★★ April 9–10, 2026 … **107 containers Up**; ChromaDB at host:8002→container:8000 corrected" | **100 containers** ★ |
+| "★ March 28 … 96/96 Up; `msallisgis:5432` ★ confirmed (**91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+
+***
+
+### Chapter 28 — `28-heartbeat-and-live-cycles.md`
+
+**Last updated: April 9, 2026 — 14 days stale. Chapter 28 has the oldest close date of the three and carries multiple stale container counts (96 Up throughout, with "96/96 Up" as the highest confirmed baseline) along with stale ChromaDB and PostgreSQL figures. Additionally, the `msallisgis:5432` single-database references are pervasive.**
+
+#### Header / Metadata Block
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| `*Last updated:*` note | No container update note for April 23 | **Add: April 23, 2026 — 100 containers Up (supersedes 96/96 Apr 1 baseline)** ★ |
+| March 28 note | "`msallisgis` port 5432 confirmed (**91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+
+#### Why This Matters Callout Block
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| P5 bullet | "`msallisgis:5432`, 91 GB PostGIS, 501 tables, 993 ZCTA centroids … `msallis:5433`, 5,416,521 entities" | **Two-container split; GBIM verify-current** ★ |
+| P12 bullet | "`msallis_docs` (**4,192 items**, AAPCAppE)" | **AAACPE stack; verify current item count** ★ |
+| P12 bullet | "`autonomous_learner` collection (**68 items**, April 1, 2026)" | Mark as **verify-current (growing)** ★ |
+
+#### §28.1 Purpose of Heartbeat and Live Signals
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Liveness paragraph | "★★★ As of April 9 … ChromaDB collection count corrected to **49**" | Still accurate ✅ — retain |
+| Liveness paragraph | "★ As of March 28, 2026 … **96/96 containers Up**" | Add note: **superseded by 100 containers (April 23)** ★ |
+| Pinned baseline note | "★★ The **April 1, 2026 state** (96/96 Up re-confirmed … **68 Chroma items** / 15 cycles / 11 entanglement nodes) is the current verified operational milestone" | Add: **Superseded by April 23, 2026 baseline: 100 containers Up** ★ |
+| Monitoring paragraph | "It verifies ChromaDB reachability via **127.0.0.1:8000** (★★★ **49 collections** … **6,732,980** total vectors per `chroma-latest` backup)" | Update vector count to **~6,740,611** ★ |
+
+#### §28.1a Learning Status
+
+- Learner live telemetry block (15 cycles / 68 items / 11 nodes): These are confirmed historical baselines (April 1, 2026). Add a note that these are **floor values** and the collection is growing ★
+- Section 12 probe comment: "Baseline: ≥ **68** as of April 1, 2026" → Update gate to **≥ 68 (floor — verify current count)** ★
+
+#### §28.2 Core Heartbeat Mechanisms
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| `/selftestfabric` list | "★★ **96/96 Up** (April 1, 2026)" | **100 containers Up** ★ |
+| Individual service endpoints | No changes needed — port list is still accurate ✅ |
+| VERIFYANDTEST.sh Section 7 | "ChromaDB at **127.0.0.1:8000** (★★★ **49 collections**, **6,732,980** total vectors)" | Update vector count to **~6,740,611** ★ |
+| VERIFYANDTEST.sh Section 7 | "`msallisgis` — 501 tables, 993 ZCTA centroids" | **Two-container split** ★ |
+| VERIFYANDTEST.sh Section 6 | "★★ **96/96 Up** (April 1, 2026)" | **100 containers** ★ |
+| Section 9 planned extension | "★★★ **49 collections** as of April 9; per-collection counts; zero-count flag check" | Retain — still accurate ✅ |
+| Divergence thresholds | "ChromaDB collections below **45**" | Update to **below 44** (reflecting 48-collection current baseline) ★ |
+
+#### §28.3 LLM Ensemble Heartbeat
+
+- The ensemble table (OLLAMA_NUM_PARALLEL, semaphore slots, etc.) — no changes needed ✅
+- "LLaMA 3.1 confirmed active April 1, 2026" — retain as historical note ✅
+
+#### §28.4 EEG Rhythm Services
+
+- Beta learner restored paragraph: "★★ Operationally restored April 1, 2026" — retain as accurate ✅
+- Telemetry in EEG status table: "**68 Chroma items** confirmed live (April 1, ~3:37 PM EDT); 15 cycles / 15 stored; 0 deduplicated; 11 entanglement nodes" → Add note: **floor values as of April 1 — collection actively growing** ★
+- AAPCAppE row in EEG table: "`allis-ingest-api` + `allis-ingest-watcher`" → **AAACPE stack** ★
+
+#### §28.7 Semantic Memory and GBIM Heartbeat
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| §28.7a collection table — `appalachian_english_corpus` | "⚠️ Zero count — **flagged for reseed in Ch 29**" | **Resolved in Ch 27 (210 docs, AAACPE clean recreate April 9)** ✅ — update status row ★ |
+| §28.7a collection table — `msallis_docs` (second row, unknown count) | "Unknown count — flagged for verification in Ch 29" | **Resolved — 4,192 items as of April 9** ✅ ★ |
+| §28.7b backup inventory table | "`chroma-latest`: **49 collections, 6,732,980**" | Update vector count to **~6,740,611** ★ |
+| GBIM cross-database paragraph | "`msallisgis` (port **5432**, **91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+| GIS RAG health paragraph | "connection to `msallis:5433`, `msallisgis:5432`" | **Two-container split** ★ |
+
+#### §28.8 Integration with Memory and Containers — Operational Baseline Table
+
+This table is a historical log with explicit dates. Add a new `★★★ Apr 23, 2026` column rather than modifying historical values:
+
+| New Column Entry | Value |
+|---|---|
+| Services healthy | **100 containers Up** ★ |
+| LLM proxies | 21/22 (unchanged) |
+| Docker containers | **100 Up** ★ |
+| ChromaDB collections | **48 collections, ~6,740,611 vectors** ★ |
+| `msallisgis` | **Two-container split** ★ |
+| `autonomous_learner` | **≥ 68 items (growing); verify current** ★ |
+| AAPCAppE | **AAACPE stack** ★ |
+| `appalachian_english_corpus` | **Resolved — 210 docs, growing** ★ |
+
+Update the divergence threshold note to reflect:
+- ChromaDB collections gate → **below 44** ★
+- `autonomous_learner` gate → **decreasing from last verified baseline (floor: 68)** ✅ retain
+
+#### §28.9 Interaction with Safeguards
+
+- Seven-layer protection table — **Layer 0** entry: "★★ Up (March 22; confirmed active April 1)" → Note: **OI-36-A now also closed at Caddy `forward_auth` perimeter layer — token enforcement active before main-brain** ★
+- "★★ With **96/96 Up**" → **100 containers** ★ (in narrative referencing container count)
+
+#### §28.10 Summary
+
+| Location | Stale Value | Correct Value |
+|---|---|---|
+| Opening statement | "★★ **April 1, 2026 production deployment … 96/96 containers Up**" | Add: **Superseded by April 23, 2026 baseline: 100 containers Up** ★ |
+| April 9 corrections paragraph | "ChromaDB collection count is **49** … backup `chroma-latest` (**49 collections, 6,732,980 vectors**)" | Update vector count to **~6,740,611** ★ |
+| AAPCAppE reference | "`allis-ingest-api`/`allis-ingest-watcher`" | **AAACPE stack** ★ |
+| EEG status | "beta rhythm … operationally restored" | Retain ✅ |
+
+#### Footer Star Notes
+
+| Stale Value | Correct Value |
+|---|---|
+| "★★★ April 9, 2026: Collection count corrected to 49 … 6,732,980 vectors" | Add new footer star: **April 23, 2026: 100 containers Up; 48 collections, ~6,740,611 vectors; two-container PostgreSQL split; AAACPE stack** ★ |
+| "★ March 28, 2026: `msallisgis` port 5432 confirmed (**91 GB PostGIS, 501 tables**, 993 ZCTA centroids)" | **Two-container split** ★ |
+
+***
+
+### Universal Corrections — Chapters 26, 27, and 28
+
+| Correction | Ch. 26 | Ch. 27 | Ch. 28 |
+|---|---|---|---|
+| Container count → **100** ★ | §26.0–§26.5, header, footer | Header, diagram, status table, §27.7–§27.9, footer | §28.1, §28.2, §28.9, §28.10, new baseline column |
+| ChromaDB → **48 collections** ★ | §26.1–§26.4, header, footer | Header, diagram, table, §27.2–§27.9 | §28.1, §28.2, §28.7b, §28.8, §28.10 |
+| Total vectors → **~6,740,611** ★ | §26.1–§26.4, header | §27.2–§27.9, figure | §28.1, §28.2, §28.7b, §28.8, §28.10 |
+| Two-container DB split ★ | §26.1, §26.2, §26.4, preamble, footer | P1/P5 callout, §27.3, §27.5, §27.8, §27.9 | §28.2, §28.7, §28.8, §28.9, §28.10 |
+| AAPCAppE → AAACPE stack ★ | §26.1, §26.4, §26.5 | §27.1, §27.4, §27.7, diagram, §27.9 | §28.4 EEG table, §28.8, §28.10 |
+| `msallis_docs` → **verify current** ★ | §26.1 medium-term | §27.1, §27.4, §27.7, diagram, table | §28.7a resolved row |
+| `appalachian_english_corpus` → **verify-current (growing)** ★ | §26.1–§26.4 | §27.1, §27.3, §27.7, diagram, §27.9 | §28.7a status update |
+| GBIM entity counts → **verify-current** ★ | §26.1–§26.4 | Callout, §27.3, §27.8, §27.9 | §28.1, §28.7, §28.8 |
+| `autonomous_learner` telemetry → **floor/verify-current** ★ | §26.1 | §27.2 | §28.1a, §28.4 EEG table |
+| OI-36-A Caddy perimeter closure note ★ | New note in §26.3 | N/A | §28.9 Layer 0 table |
+| `appalachian_english_corpus` zero-count resolution ★ | N/A | N/A | §28.7a status row update |
+| Ch. 27 container count inconsistency (107 vs 105) ★ | N/A | All "107" refs → **100** | N/A |Now I have all three chapters plus the authoritative help.md baseline. Here is the full edit list for all three chapters.
 
 ***
 
