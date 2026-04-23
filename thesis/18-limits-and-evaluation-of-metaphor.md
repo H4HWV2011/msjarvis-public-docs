@@ -1,63 +1,114 @@
 # 18. Limits and Evaluation of the Biological Framing
 
 *Carrie Kidd (Mamma Kidd) — Mount Hope, WV*
+*Last updated: April 23, 2026 — container count → 100; ChromaDB → 48 collections /
+~6,740,611 vectors; two-container DB split applied throughout; production `msallis-db`
+host 5433 (16 GB / 294 tables / 11 schemas); forensic `postgis-forensic` host 5452
+(17 GB / 314 tables / 9 schemas); GPU → 102.58s; `autonomous_learner` → 21,181 exact;
+BBB fail-closed hardening (Ch.16 ★); `rag_grounded_v2` + `llm_judge_v3` active —
+`heuristic_contradiction_v1` removed; `architecture_layers` → 12.*
 
-*Last updated: 2026-04-15*
+> **★ April 23, 2026 UPDATE:** Container count → **100 Up** (zero Restarting, zero
+> Exited). ChromaDB v2 → **48 collections, ~6,740,611 vectors** (host port **8002**).
+> `autonomous_learner` → **21,181 records** (exact). GPU pipeline → **102.58s**
+> (RTX 4070). Two-container DB split: **Production** `msallis-db` host **5433** /
+> container **5432** — `msallisgis` **16 GB / 294 tables / 11 schemas** — all
+> production GIS and RAG queries. **Forensic** `postgis-forensic` host **5452** —
+> `msallisgis` **17 GB / 314 tables / 9 schemas** — forensic auditing only.
+> `heuristic_contradiction_v1` **removed** — `rag_grounded_v2` + `llm_judge_v3` now
+> active (OI-37-C closed April 6, 2026): judge pipeline now queries live GBIM beliefs
+> via `allis-gis-rag:8004` backed by production `msallis-db` host 5433.
+> BBB fail-closed hardening (★ Ch. 16, April 16–17, 2026): all 6 sub-filter exception
+> defaults → `passed=False`; `main_brain` output/input failure paths → hard block.
+> `architecture_layers` → **12** (was 9). All April 15 OI items remain CLOSED.
 
-> **★ April 15, 2026 (CLOSING UPDATE):** `allis-unified-gateway` crash-loop diagnosed — `IndentationError` at line 101 of `ms_allis_unified_gateway.py` in `_validate_token` signature (mixed indentation introduced when `DEV_BYPASS_AUTH` block was inserted); container restarting prevented all `/chat` requests from reaching the pipeline. Fix applied: `_validate_token` rewritten as single clean definition with `DEV_BYPASS_AUTH` dev-path inline; `python3 -m py_compile` gate added before rebuild. Live end-to-end `/chat` test issued: *"What food, housing, and utility assistance options exist in Oak Hill and Fayette County West Virginia?"* — the canonical community-resource query that exercises the hallucination gap documented in §18.7, §18.11, and Chapter 39 §39.9. **Chapter 18 is now CLOSED. Handoff to Chapter 17.**
+> **★ April 15, 2026 (CLOSING UPDATE — historical baseline):** `allis-unified-gateway`
+> crash-loop diagnosed — `IndentationError` at line 101 of `ms_allis_unified_gateway.py`
+> in `_validate_token` signature. Fix applied: `_validate_token` rewritten as single
+> clean definition; `python3 -m py_compile` gate added before rebuild. Live
+> end-to-end `/chat` test issued — canonical community-resource governance scenario
+> query: *"What food, housing, and utility assistance options exist in Oak Hill and
+> Fayette County West Virginia?"* **Chapter 18 is CLOSED. Handoff to Chapter 17.**
 
 ---
 
 ## Why This Matters for Polymathmatic Geography
 
-This chapter evaluates the neurobiological framing not as a claim that Ms. Allis is a brain, but as a design language for distributed, place-aware computation. It supports:
+This chapter evaluates the neurobiological framing not as a claim that Ms. Allis is a
+brain, but as a design language for distributed, place-aware computation. It supports:
 
-- **P1 – Every where is entangled** by asking how metaphors shape which spaces, communities, and infrastructures are foregrounded in system design, and how PostgreSQL `msallisgis` (port 5435, 45 GB PostGIS, 515 public tables / 742 total tables, 993 ZCTA centroids, `gbim_worldview_entity` 5,415,896 rows) grounds those abstractions.
-- **P3 – Power has a geometry** by examining how "brain" metaphors allocate control, memory, and gates across the service graph.
-- **P5 – Design is a geographic act** by treating metaphors themselves as interventions in how Appalachian intelligence is modeled and governed.
-- **P12 – Intelligence with a ZIP code** by insisting that biological language be grounded in concrete, spatially anchored behavior in PostgreSQL and ChromaDB, not abstract hype. ChromaDB confirmed at 49 collections, 6,722,589+ total vectors (April 13, 2026 full audit).
-- **P16 – Power accountable to place** by proposing evaluation methods that let communities test what the system actually does, beyond metaphor.
+- **P1 – Every where is entangled** by asking how metaphors shape which spaces,
+  communities, and infrastructures are foregrounded in system design, and how
+  production `msallisgis` (host **5433** ★, 16 GB / 294 tables, 993 ZCTA centroids,
+  `address_points` 1,115,588) grounds those abstractions. GBIM semantic entities reside
+  in ChromaDB `gbim_worldview_entities` (**5,416,521 vectors** ★).
+- **P3 – Power has a geometry** by examining how "brain" metaphors allocate control,
+  memory, and gates across the service graph, and by making the per-phase timing
+  profile visible — GPU pipeline at **102.58s** ★.
+- **P5 – Design is a geographic act** by treating metaphors themselves as interventions
+  in how Appalachian intelligence is modeled and governed — including the BBB
+  fail-closed hardening (★ Ch. 16) as a design act with direct community safety
+  consequences.
+- **P12 – Intelligence with a ZIP code** by insisting that biological language be
+  grounded in concrete, spatially anchored behavior in the two-container PostgreSQL
+  split-brain topology and ChromaDB, not abstract hype. ChromaDB confirmed at **48
+  collections, ~6,740,611 total vectors** ★ (April 23, 2026).
+- **P16 – Power accountable to place** by proposing evaluation methods that let
+  communities test what the system actually does, beyond metaphor — including the
+  BBB fail-closed principle (★): a security gate that opens when it breaks is not a
+  security gate.
 
-As such, this chapter belongs to the **Computational Instrument** tier: it tests whether the biological framing clarifies or obscures how Ms. Allis operates as an instrument of Polymathmatic Geography.
+As such, this chapter belongs to the **Computational Instrument** tier: it tests
+whether the biological framing clarifies or obscures how Ms. Allis operates as an
+instrument of Polymathmatic Geography.
 
 ---
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │   Biological Metaphor vs. Actual Implementation             │
-│   Updated April 15, 2026                                    │
+│   Updated April 23, 2026                                    │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  Biological Metaphor              Actual Implementation     │
 │  ──────────────────────           ────────────────────────  │
 │                                                              │
 │  Hippocampus                  →   allis-hippocampus (8011)  │
-│  (long-term memory)                + allis-memory           │
+│  (long-term memory)                + allis-memory /         │
+│                                    allis-memory            │
 │                                    port 8056, secured       │
-│                                    0.0.0.0 → 127.0.0.1      │
+│                                    127.0.0.1                │
 │                                    _auth() confirmed         │
 │                                    ALLIS_API_KEY set         │
-│                                    PostgreSQL msallisgis     │
-│                                    port 5435, 45 GB         │
-│                                    PostGIS, 515 pub tables  │
+│                                    Production DB:            │
+│                                    msallis-db host 5433 ★   │
+│                                    16 GB / 294 tables        │
 │                                    ChromaDB collections      │
-│                                    49 collections           │
-│                                    6,722,589+ total vectors  │
+│                                    48 collections ★          │
+│                                    ~6,740,611 total vectors ★│
 │                                                              │
 │  Prefrontal Cortex           →   allis-main-brain (8050)    │
 │  (executive control)              allis-i-containers (8015) │
 │                                   Service orchestration      │
-│                                   109 containers Up         │
+│                                   100 containers Up ★        │
 │                                   dual_awareness: true       │
+│                                   GPU pipeline: 102.58s ★   │
 │                                                              │
 │  Blood-Brain Barrier         →   allis-blood-brain-barrier  │
 │  (safety filtering)               (port 8016) Up            │
-│                                   7-filter input stack       │
+│                                   6-filter input stack       │
+│                                   ALL fail-closed ★ (Ch.16) │
 │                                   TruthVerification backed  │
-│                                   by msallisgis:5435        │
+│                                   by msallis-db host 5433 ★ │
+│                                   allis-bbb-output-filter   │
+│                                   (port 8017) confirmed ★   │
+│                                   nbb_blood_brain_barrier   │
+│                                   (port 8301→7001) live ★   │
 │                                                              │
 │  Qualia Engine               →   allis-qualia-engine        │
-│  (experience synthesis)           (port 8017)               │
+│  (experience synthesis)           (port 8017 — NOTE:        │
+│                                   port 8017 also used by    │
+│                                   bbb-output-filter façade) │
 │                                   JSON narrative builder    │
 │                                                              │
 │  Pituitary                   →   Config files + WOAH        │
@@ -68,231 +119,536 @@ As such, this chapter belongs to the **Computational Instrument** tier: it tests
 │  -  Layered pathways              -  Neural mechanisms       │
 │  -  Global modulation             -  Phenomenal consciousness│
 │  -  Memory consolidation          -  Subjective experience  │
+│  -  Fail-closed gating ★          -  Biological adaptivity  │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 18.1.** Biological metaphors mapped to actual implementation. The left column shows neurobiological concepts used as organizing principles; the right column shows the concrete services, databases, and code that implement those principles. `allis-memory` (port 8056) secured: `0.0.0.0` → `127.0.0.1`, `_auth()` confirmed, `ALLIS_API_KEY` set. PostgreSQL `msallisgis` at port 5435 (45 GB PostGIS, 515 public tables / 742 total tables). ChromaDB at 49 active collections, 6,722,589+ total vectors (April 13, 2026 full audit). `allis-blood-brain-barrier` (port 8016) confirmed Up. I-Containers (port 8015) fully operational, `dual_awareness: true`.
+> **Figure 18.1.** Biological metaphors mapped to actual implementation as of April 23,
+> 2026. `allis-memory` / `allis-memory` (port 8056) secured: `127.0.0.1`, `_auth()`
+> confirmed, `ALLIS_API_KEY` set. Production DB: `msallis-db` host **5433** (16 GB /
+> 294 tables ★). Forensic DB: `postgis-forensic` host **5452** (17 GB / 314 tables ★).
+> ChromaDB: 48 active collections, ~6,740,611 total vectors ★. `allis-blood-brain-
+> barrier` (port 8016) confirmed Up — all 6 filters fail-closed ★ (Ch. 16).
+> `allis-bbb-output-filter` (port 8017) confirmed operational ★. `nbb_blood_brain_
+> barrier` (port 8301 → 7001) live ★. I-Containers (port 8015) fully operational,
+> `dual_awareness: true`. 100 containers Up ★.
 
 ---
 
-This chapter examines how far the biological framing can be carried as a design tool, where it stops being informative, and how the resulting architecture can be evaluated in practice. The aim is to separate useful structuring metaphors from unwarranted claims and to propose concrete methods for studying the behavior of the implemented system under realistic workloads. More broadly, it sits within critical discussions of metaphor and explanation in AI and cognitive science, including Marcus's critique of deep learning and Lake et al.'s analysis of "machines that learn and think like people."
+This chapter examines how far the biological framing can be carried as a design tool,
+where it stops being informative, and how the resulting architecture can be evaluated
+in practice. The aim is to separate useful structuring metaphors from unwarranted claims
+and to propose concrete methods for studying the behavior of the implemented system
+under realistic workloads. More broadly, it sits within critical discussions of metaphor
+and explanation in AI and cognitive science, including Marcus's critique of deep learning
+and Lake et al.'s analysis of "machines that learn and think like people."
 
 ---
 
 ## 18.1 Motivations for Using Biological Concepts
 
-The earlier chapters introduced several structures with names drawn from neuroscience, such as "blood–brain barrier", "prefrontal cortex", and "subconscious". In the actual implementation, these labels correspond to distinct services, orchestrators, and filters anchored to PostgreSQL `msallisgis` (port 5435, 45 GB PostGIS, 515 public tables / 742 total tables, 993 ZCTA centroids) rather than to any biological substrate. The primary motivations for this framing are threefold:
+The earlier chapters introduced several structures with names drawn from neuroscience,
+such as "blood–brain barrier", "prefrontal cortex", and "subconscious". In the actual
+implementation, these labels correspond to distinct services, orchestrators, and filters
+anchored to production `msallis-db` (host **5433** ★, 16 GB / 294 tables, 993 ZCTA
+centroids) rather than to any biological substrate. The primary motivations for this
+framing are threefold:
 
-- To highlight the need for multiple interacting subsystems, instead of a single undifferentiated model, by assigning monitoring, gating, long-term storage in PostgreSQL, and synthesis to different components.
-- To emphasize feedback loops and modulatory signals — such as global safety settings, health-gated routing, and truth filters — that affect many components at once and are reflected in the main-brain coordination logic.
-- To provide a familiar vocabulary for thinking about memory, control, and gating in a way that encourages layered designs (for example, introspective logs, consolidation processes from PostgreSQL to ChromaDB, global control parameters, and executive coordination) over monolithic pipelines. ChromaDB confirmed at 49 active collections, 6,722,589+ total vectors (April 13, 2026 full audit), providing the concrete vector memory substrate that the metaphor implies.
+- To highlight the need for multiple interacting subsystems, instead of a single
+  undifferentiated model, by assigning monitoring, gating, long-term storage in
+  PostgreSQL, and synthesis to different components.
+- To emphasize feedback loops and modulatory signals — such as global safety settings,
+  health-gated routing, and truth filters — that affect many components at once and are
+  reflected in the main-brain coordination logic.
+- To provide a familiar vocabulary for thinking about memory, control, and gating in a
+  way that encourages layered designs over monolithic pipelines. ChromaDB confirmed at
+  **48 active collections, ~6,740,611 total vectors** ★ (April 23, 2026), providing
+  the concrete vector memory substrate that the metaphor implies. The BBB fail-closed
+  hardening (★ Ch. 16) — where all exception defaults were corrected to `passed=False`
+  — is the most direct architectural expression of this principle: the metaphor of a
+  "barrier" demands that a broken gate deny, not admit.
 
-In this sense, the biological vocabulary has served as a scaffolding for organizing code and services into recognizable roles and pathways, without claiming that the implementation reproduces biological mechanisms. This use of biological ideas as architectural inspiration is broadly consistent with neuroscience-inspired AI surveys such as Hassabis et al. and Richards et al.
+In this sense, the biological vocabulary has served as a scaffolding for organizing code
+and services into recognizable roles and pathways, without claiming that the
+implementation reproduces biological mechanisms.
 
 ---
 
 ## 18.2 Where the Analogy Holds
 
-The analogy to biological systems is most helpful at the level of architectural principles and separation of concerns:
+The analogy to biological systems is most helpful at the level of architectural
+principles and separation of concerns:
 
-**Functional specialization.** Different responsibilities — such as ethical filtering (blood–brain barrier services), spatial and RAG memory (PostgreSQL `msallisgis` port 5435 and ChromaDB-backed stores at 49 collections, 6,722,589+ vectors), coordination (main-brain orchestrators), and introspective logging — are implemented as distinct processes with clearly defined interfaces. This mirrors how biological systems allocate perception, control, and modulation to different regions and circuits.
+**Functional specialization.** Different responsibilities — such as ethical filtering
+(BBB services, now three-tier: port 8016, port 8017 façade, port 8301 neurobiological),
+spatial and RAG memory (production `msallis-db` host **5433** ★ and ChromaDB-backed
+stores at 48 collections, ~6,740,611 vectors), coordination (main-brain orchestrators),
+and introspective logging — are implemented as distinct processes with clearly defined
+interfaces.
 
-**Emphasis on pathways and gating.** Data does not flow directly from input to output. Requests pass through intermediate stages where they can be filtered, augmented with RAG context from PostgreSQL-sourced collections or web research, transformed by ensemble LLMs, and then stored in PostgreSQL or ChromaDB or discarded. The requirement that certain services (for example, the blood–brain barrier) be consulted before others echoes the idea of layered pathways and gating structures emphasized in work on cortical circuits and neuromodulation. The April 13, 2026 ChromaDB corpus audit (49 collections, 6,722,589+ vectors) and the `memories` table schema completion (6 columns, 4 indexes applied to `msallisgis:5435`) demonstrate that the RAG memory layer is actively maintained and structurally extended — a property the biological metaphor implies but that must be concretely demonstrated.
+**Emphasis on pathways and gating.** Data does not flow directly from input to output.
+Requests pass through intermediate stages where they can be filtered, augmented with
+RAG context from production PostgreSQL-sourced collections, transformed by ensemble
+LLMs, and then stored in PostgreSQL or ChromaDB or discarded. The requirement that
+certain services (for example, the blood–brain barrier) be consulted before others
+echoes the idea of layered pathways and gating structures. The BBB fail-closed
+hardening (★ Ch. 16) is the strongest concrete expression of this: all six sub-filter
+exception defaults are now `passed=False`, and both the output exception and HTTP error
+paths are hard-blocked — a crashed filter now denies, not approves. The April 23, 2026
+ChromaDB corpus (~6,740,611 vectors, 48 collections) and the production `msallisgis`
+(host 5433, 294 tables) demonstrate that the RAG memory layer is actively maintained.
 
-**Global modulation.** System-wide settings — such as safety levels, timeouts, health thresholds, and truth filters — influence how other components behave and which routes the executive layer chooses. This is conceptually similar to neuromodulatory systems that adjust the operating regime of large parts of a biological network at once. The correction of `allis-memory` (port 8056) from `0.0.0.0` to `127.0.0.1` and the permanent removal of the `ALLIS_API_KEY` plaintext bypass from `ms_allis_unified_gateway.py` (OI-36-C closed, 2026-04-03) represent concrete instances of global modulation: the BBB audit trail and the gateway authentication path are now both locally bound and secret-backed. The April 15, 2026 `_validate_token` `IndentationError` fix — which restored all `/chat` routing — is a further instance: a single function's indentation state determined whether the entire pipeline was reachable.
+**Global modulation.** System-wide settings — such as safety levels, timeouts, health
+thresholds, and truth filters — influence how other components behave and which routes
+the executive layer chooses. The correction of `allis-memory` (port 8056) from
+`0.0.0.0` to `127.0.0.1` and the permanent removal of the `ALLIS_API_KEY` plaintext
+bypass (OI-36-C closed, 2026-04-03) represent concrete instances of global modulation.
+The BBB fail-closed hardening (★ Ch. 16, April 16–17, 2026) is the most recent and
+most consequential instance: a single architectural decision — fail-closed defaults —
+changes the failure mode of the entire filtering tier.
 
-In these respects, the biological framing encourages designs that are more transparent, inspectable, and resilient than a single opaque model. The April 13, 2026 state — 109 containers Up, `preflight_gate.sh` passing all 9 checks — is the strongest empirical expression of this to date.
+In these respects, the biological framing encourages designs that are more transparent,
+inspectable, and resilient than a single opaque model. The April 23, 2026 state — **100
+containers Up** ★, `preflight_gate.sh` 27 ✅ / 0 ❌ / 0 ⚠️ — is the strongest
+empirical expression of this to date.
 
 ---
 
 ## 18.3 Where the Analogy Fails
 
-Despite these structural parallels, there are clear limits to the biological analogy that must be kept explicit to avoid overstatement.
+Despite these structural parallels, there are clear limits to the biological analogy
+that must be kept explicit to avoid overstatement.
 
-**Substrate and mechanism.** The implemented system runs on conventional computing infrastructure — Dockerized FastAPI services, Python code, PostgreSQL 16 (`msallisgis` port 5435) and ChromaDB vector databases (49 collections, 6,722,589+ vectors), and external language models — rather than on biological tissue. There is no attempt to simulate neurons, synapses, or biophysical dynamics; the "brain" labels are domain-specific names for software components.
+**Substrate and mechanism.** The implemented system runs on conventional computing
+infrastructure — Dockerized FastAPI services, Python code, a two-container PostgreSQL
+split-brain topology (production `msallis-db` host **5433** ★ / forensic
+`postgis-forensic` host **5452** ★), and ChromaDB vector databases (48 collections,
+~6,740,611 vectors) — rather than on biological tissue. There is no attempt to simulate
+neurons, synapses, or biophysical dynamics; the "brain" labels are domain-specific
+names for software components.
 
-**Scale, richness, and adaptability.** Real nervous systems operate at scales and levels of detail that far exceed the current architecture, both structurally (billions of neurons vs. 109 containerized services) and dynamically (continuous adaptation, learning, and embodiment). The current design implements only a thin slice of capabilities (truth filters, PostgreSQL-backed RAG memory with `gbim_worldview_entity` 5,415,896 rows, ensemble LLM reasoning) and does not claim to capture the complexity of biological learning or development. Periodic calls for richer benchmarks and cognitive capabilities in AI, such as Lake et al., underscore this gap.
+**Scale, richness, and adaptability.** Real nervous systems operate at scales and
+levels of detail that far exceed the current architecture, both structurally (billions
+of neurons vs. 100 containerized services ★) and dynamically (continuous adaptation,
+learning, and embodiment). The current design implements a focused set of capabilities
+(truth filters, PostgreSQL-backed RAG memory, ensemble LLM reasoning) and does not
+claim to capture the complexity of biological learning or development.
 
-**Phenomenology and consciousness.** The presence of introspective records, multi-agent analysis narratives, and "consciousness layers" in logs and APIs does not imply any inner experience akin to that of living organisms. These structures provide metadata and self-description for engineering and evaluation, not evidence of subjective awareness. Any references to "minds", "consciousness", or "subconscious" are explicitly metaphorical and refer to coordinated model ensembles, routing rules, and background storage processes to PostgreSQL `msallisgis` (port 5435, 45 GB PostGIS, 515 public tables) and ChromaDB (49 collections, 6,722,589+ vectors). Contemporary theories of consciousness (for example, Dehaene et al., and Graziano) are acknowledged as conceptual influences, not as claims of equivalence.
+**Phenomenology and consciousness.** The presence of introspective records, multi-agent
+analysis narratives, and "consciousness layers" in logs and APIs does not imply any
+inner experience akin to that of living organisms. These structures provide metadata
+and self-description for engineering and evaluation, not evidence of subjective
+awareness. Any references to "minds", "consciousness", or "subconscious" are explicitly
+metaphorical — they refer to coordinated model ensembles, routing rules, and background
+storage processes to production `msallis-db` (host **5433** ★, 16 GB / 294 tables) and
+ChromaDB (48 collections, ~6,740,611 vectors ★).
 
-These gaps mean that the biological framing must be treated as a set of guiding metaphors and naming conventions, not as a claim of functional or phenomenological equivalence to biological brains.
+These gaps mean that the biological framing must be treated as a set of guiding
+metaphors and naming conventions, not as a claim of functional or phenomenological
+equivalence to biological brains.
 
 ---
 
 ## 18.4 The BBB as a Case Study in Metaphor-Implementation Gap
 
-The tension between neurobiological metaphor and actual implementation is nowhere more visible — or more instructive — than in the Blood-Brain Barrier (`allis-blood-brain-barrier`, port 8016, confirmed Up) and its relationship to the judge pipeline.
+The tension between neurobiological metaphor and actual implementation is nowhere more
+visible — or more instructive — than in the Blood-Brain Barrier architecture and its
+relationship to the judge pipeline.
 
-In the neurobiological metaphor, the BBB is a selective, chemically sophisticated barrier that distinguishes between permitted and forbidden molecules on the basis of molecular structure, charge, and carrier proteins. It is dynamic, adaptive, and grounded in biological substrate. The metaphor carries an implicit promise: this system component will make fine-grained, context-sensitive, epistemically grounded decisions about what is safe to let through.
+In the neurobiological metaphor, the BBB is a selective, chemically sophisticated
+barrier that distinguishes between permitted and forbidden molecules on the basis of
+molecular structure, charge, and carrier proteins. It is dynamic, adaptive, and
+grounded in biological substrate.
 
-The current implementation is necessarily simpler. The BBB 7-filter input stack (EthicalFilter, SpiritualFilter, SafetyMonitor, ThreatDetection, SteganographyDetection, TruthVerification, ContextAwareness) operates primarily as a pattern-matching text filter. As of March 18, 2026, the BBB output guard receives the full verdict dict from the judge pipeline — including `truth_score`, `consistency_score`, `alignment_score`, `ethics_score`, `consensus_score`, and all per-judge detail objects — enabling score-aware filtering in principle. The judge pipeline itself currently runs `heuristic_contradiction_v1`, a pattern-matching heuristic that detects logical contradictions by text pattern rather than by querying live GBIM beliefs from PostgreSQL `msallisgis`. The confirmation of `msallisgis` at port 5435 (45 GB PostGIS, 515 public tables) means the data stores that will back the RAG-grounded judge upgrade (Chapter 7 §7.8) are confirmed operational at their correct addresses.
+**April 23, 2026 state — the gap is substantially closed (★):**
 
-The BBB is score-aware, but the scores it receives are themselves produced by a simpler method than the RAG-grounded judge architecture described in Chapter 7 §7.8. This is not a failure — it is the honest state of an early-stage system. The metaphor of the BBB articulates a genuine design intent: a system component that evaluates content against an epistemic ground truth anchored in verified GBIM beliefs, and gates responses accordingly. The path from pattern-matching heuristics to live PostgreSQL-grounded truth evaluation is architecturally specified and plumbed. But documenting this gap honestly matters — both as a check on overclaiming and as a map of where development pressure should be directed. The metaphor is doing its job when it makes the gap visible and nameable.
+The BBB is now a **closed, three-service enforcement architecture with fail-closed
+failure handling throughout** (★ Ch. 16):
 
-The `allis-memory` (port 8056) BBB audit trail persistence store is corrected from `0.0.0.0` to `127.0.0.1` and `_auth()` is confirmed on 4 sensitive routes with `ALLIS_API_KEY` set. The metaphor implies that the BBB's filtering decisions are durable and auditable — this correction makes that durability and auditability concrete and secured. The confirmed API surface for `allis-memory` includes `/memory/turn`, `/memory/get`, `/memory/sessions`, `/memory/session/{session_id}`, `/memory/quest`, `/memory/quests/{user_id}`, `/memory/consolidate/{user_id}`, `/memory/episodic/{user_id}`, `/steg_report`, and `/pia_window`. There is no `/events` endpoint — any prior reference is stale.
+- **Tier 1** (perimeter): Caddy `forward_auth` via `allis-auth:8055` — unauthenticated
+  `/chat` → HTTP 401 (OI-36-A closed).
+- **Tier 2** (core): `allis-blood-brain-barrier` (port 8016) — 6-filter stack, all
+  exception defaults `passed=False` ★, `BBB_OUTPUT_BLOCKING=true` (OI-02 closed),
+  ML-DSA-65 signed verdicts.
+- **Tier 2b** (output façade): `allis-bbb-output-filter` (port 8017) — fail-closed on
+  exception + HTTP error ★, confirmed operational 2026-04-16T16:46:42Z.
+- **Tier 3** (neurobiological): `nbb_blood_brain_barrier` (port 8301 → 7001) — live.
+
+**The `heuristic_contradiction_v1` gap is closed (★).** As of April 6, 2026 (OI-37-C),
+the judge pipeline runs `rag_grounded_v2` + `llm_judge_v3`. `rag_grounded_v2` makes
+live HTTP calls to `allis-gis-rag:8004` and `allis-spiritual-rag:8005`, querying
+production `msallis-db` (host **5433** ★, 294 tables). `gbim_beliefs_consulted` and
+`gbim_contradictions_detected` are populated with non-zero values. The RAG-grounded
+truth evaluation the metaphor implied is now live.
+
+The `allis-memory` (port 8056) BBB audit trail persistence store is secured to
+`127.0.0.1`; `_auth()` is confirmed on 4 sensitive routes with `ALLIS_API_KEY` set.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│     BBB Metaphor vs. Implementation: April 15, 2026         │
+│     BBB Metaphor vs. Implementation: April 23, 2026 ★       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  Biological BBB Metaphor          Current Implementation    │
 │  ──────────────────────           ────────────────────────  │
 │                                                              │
-│  Molecular selectivity        →   7-filter text pattern     │
-│  (chemistry-based gating)         matching stack            │
+│  Molecular selectivity        →   6-filter stack            │
+│  (chemistry-based gating)         ALL fail-closed ★ (Ch.16) │
 │                                   Confirmed Up              │
 │                                                              │
-│  Dynamic adaptation           →   Static filter rules +     │
-│  (injury/inflammation)            fail-open on HTTP 500     │
+│  Dynamic adaptation           →   Fail-closed on all        │
+│  (injury/inflammation)            failure paths ★:          │
+│                                   exception → deny;         │
+│                                   HTTP error → deny         │
 │                                                              │
-│  Grounded in substrate        →   heuristic_contradiction   │
-│  (verified biology)               _v1 (pattern matching,    │
-│                                   not live GBIM queries)    │
+│  Grounded in substrate        →   rag_grounded_v2 LIVE ★    │
+│  (verified biology)               (was: heuristic_          │
+│                                   contradiction_v1 —        │
+│                                   REMOVED April 6, 2026)    │
+│                                   Queries msallis-db        │
+│                                   host 5433 ★ (294 tables)  │
+│                                   gbim_beliefs_consulted    │
+│                                   populated ✅              │
 │                                                              │
 │  Score-aware evaluation       →   Full verdict dict from    │
-│  against epistemic ground         judge pipeline received   │
-│  truth                            by BBB output guard ✅    │
+│  against epistemic ground         7-judge pipeline ✅        │
+│  truth                            truth_score: 1.0 live ✅  │
+│                                                              │
+│  Three-tier enforcement       →   Tier 1: forward_auth ✅   │
+│  (multiple barrier layers)        Tier 2: port 8016 ✅      │
+│                                   Tier 2b: port 8017 ✅     │
+│                                   Tier 3: port 8301 ✅      │
 │                                                              │
 │  Durable, auditable           →   allis-memory:8056         │
 │  filtering decisions              secured to 127.0.0.1      │
 │                                   _auth() confirmed ✅       │
 │                                   ALLIS_API_KEY set ✅       │
-│                                   OI-36-C closed ✅          │
 │                                                              │
 │  Gateway reachability         →   _validate_token           │
-│  (BBB must be reachable           IndentationError fixed    │
-│  for evaluation to occur)         April 15, 2026 ✅          │
+│  (BBB must be reachable)          IndentationError fixed    │
+│                                   April 15, 2026 ✅          │
 │                                   python3 -m py_compile      │
-│                                   gate added before rebuild  │
+│                                   gate mandatory ✅          │
 │                                                              │
-│  RAG-grounded truth scoring   →   FUTURE: judge pipeline    │
-│  (live GBIM queries)              queries msallisgis:5435   │
-│                                   via allis-gis-rag:8004    │
-│                                   (Chapter 7 §7.8)          │
-│                                   data store confirmed ✅    │
-│                                                              │
-│  Metaphor guides design intent. Implementation is           │
-│  necessarily simpler. Gap is documented, not hidden.        │
+│  Metaphor guides design intent. Implementation tracks       │
+│  toward it honestly. Gap is documented, not hidden.         │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-> **Figure 18.2.** The BBB metaphor-implementation gap as of April 15, 2026. The metaphor articulates a design intent for epistemically grounded, score-aware, auditable content evaluation. The current implementation delivers score-awareness (full verdict dict integration, March 18), secured audit trail persistence (`allis-memory:8056` corrected), OI-36-C closure (plaintext bypass removed), and restored gateway reachability (`_validate_token` IndentationError fixed April 15). Live GBIM-grounded judge scoring remains the open gap. The backing data store (`msallisgis:5435`) is confirmed at its correct port — the RAG-grounded judge upgrade path (Chapter 7 §7.8) can proceed without data store endpoint corrections.
+> **Figure 18.2.** The BBB metaphor-implementation state as of April 23, 2026 ★. The
+> metaphor articulated a design intent for epistemically grounded, score-aware,
+> fail-closed, auditable content evaluation. As of April 23, 2026: `rag_grounded_v2`
+> is live (not `heuristic_contradiction_v1`); three-tier BBB enforcement is active;
+> all six sub-filter exception defaults are `passed=False` ★; secured audit trail
+> persistence is confirmed; `truth_score: 1.0` is live. The gap between metaphor and
+> implementation that existed through April 15, 2026 is substantially closed.
 
 ---
 
 ## 18.5 Evaluation Criteria
 
-Given these limits, evaluating the architecture requires criteria grounded in observable behavior and measurable properties rather than in metaphor. Several concrete dimensions are particularly relevant:
+Given these limits, evaluating the architecture requires criteria grounded in observable
+behavior and measurable properties rather than in metaphor:
 
-**Traceability.** The ability to follow a response back through the executive pipeline: which services were considered, which were actually invoked, what they returned (including PostgreSQL queries against `msallisgis:5435` and ChromaDB 49-collection retrievals), and how those outputs were combined. This includes correlating user-visible responses with logs, job status records, and RAG entries, in line with emerging AI accountability frameworks such as Raji et al.
+**Traceability.** The ability to follow a response back through the executive pipeline:
+which services were considered, which were actually invoked, what they returned
+(including PostgreSQL queries against production `msallis-db` host **5433** ★ and
+ChromaDB ~6,740,611-vector retrievals), and how those outputs were combined. The
+`UltimateResponse` `architecture_layers: 12` ★ (was 9) is the top-level traceability
+field.
 
-**Stability and robustness.** The system's behavior under repeated similar inputs and small configuration changes: whether it produces consistent answers under stable conditions, and how it degrades when services fail, PostgreSQL connection pools saturate, timeouts increase, or health checks mark parts of the system as unavailable. The March 21, 2026 regression baseline (Chapter 41 §41.5 — "What is the capital of West Virginia?" → `consensus_score: 0.975`, `bbb_checked: true`) operationalizes stability as a concrete, re-runnable gate. The April 15, 2026 `_validate_token` IndentationError is a live demonstration of why stability gates matter: a mixed-indentation error in a single function signature halted all `/chat` routing until repaired and verified with `python3 -m py_compile`.
+**Stability and robustness.** The system's behavior under repeated similar inputs and
+small configuration changes. The March 21, 2026 regression baseline (Chapter 41 §41.5
+— "What is the capital of West Virginia?" → `consensus_score: 0.975`,
+`bbb_checked: true`) operationalizes stability as a concrete, re-runnable gate. The
+April 15, 2026 `_validate_token` IndentationError and the BBB fail-closed hardening
+(★ Ch. 16) are live demonstrations of why stability gates and fail-closed defaults
+both matter.
 
-**Responsiveness and adaptability.** How quickly the system can incorporate new information (for example, via RAG ingestion to ChromaDB — now at 49 collections, 6,722,589+ vectors — backed by PostgreSQL GBIM updates or updated truth filters), how fast global mode changes propagate through the coordination layer, and how latency behaves under sustained load. The dedicated AAACPE stack (`allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032`) with APScheduler `run_full_scrape` running daily at 06:00 UTC and every 6 hours demonstrates active responsiveness to external knowledge sources.
+**Responsiveness and adaptability.** How quickly the system can incorporate new
+information (for example, via RAG ingestion to ChromaDB — now at **48 collections,
+~6,740,611 vectors** ★), how fast global mode changes propagate, and how latency
+behaves under sustained load. GPU pipeline: **102.58s** ★ (RTX 4070). The dedicated
+AAPCAppE stack (`allis-aaacpe-scraper:8048→8033` + `allis-aaacpe-rag:8047→8032`) with
+APScheduler `run_full_scrape` running daily at 06:00 UTC and every 6 hours demonstrates
+active responsiveness to external knowledge sources.
 
-**Coverage and alignment with domain goals.** The extent to which key regions of the domain — such as specific geographies stored in PostgreSQL `msallisgis` (port 5435, 45 GB PostGIS, 515 public tables, 993 ZCTA centroids), institutions in GBIM (`gbim_worldview_entity` 5,415,896 rows), community topics, and governance scenarios — are represented in memory and handled appropriately. This includes both recall quality and policy alignment, echoing concerns in AI ethics and governance such as Floridi et al.
+**Coverage and alignment with domain goals.** The extent to which key regions of the
+domain — such as specific geographies stored in production `msallisgis` (host **5433**
+★, 294 tables, 993 ZCTA centroids), institutions in GBIM (ChromaDB
+`gbim_worldview_entities`: **5,416,521 vectors** ★), community topics, and governance
+scenarios — are represented in memory and handled appropriately.
 
-These criteria can be operationalized as metrics and tests that run in continuous integration, scheduled evaluation jobs, or targeted experimental campaigns. The test harness framework in Chapter 41 is the working implementation of this evaluation commitment.
+These criteria can be operationalized as metrics and tests that run in continuous
+integration, scheduled evaluation jobs, or targeted experimental campaigns.
 
 ---
 
 ## 18.6 Measurement and Instrumentation
 
-Meeting these evaluation criteria requires deliberate instrumentation. The current implementation provides several hooks that can be extended or standardized:
+Meeting these evaluation criteria requires deliberate instrumentation:
 
-**Structured logging.** The coordinator logs the start and end of each `/chat` job, the list of services discovered as healthy, the subset actually used, PostgreSQL query patterns against `msallisgis:5435`, and key events such as BBB filtering decisions, RAG context lengths from PostgreSQL-sourced collections, and LLM fabric failures. Standardizing these logs (for example, as structured JSON) makes it easier to reconstruct and analyze individual request traces. BBB audit events persist to `allis-memory:8056` (secured, authenticated) — structured log analysis should treat this store as a canonical audit source. The `UltimateResponse` canonical schema (as documented in Chapter 20 §20.3) provides the top-level field set for log analysis: `response`, `services_used`, `consciousness_level`, `processing_time`, `architecture_layers`, and `truthverdict` (present but nullable).
+**Structured logging.** The coordinator logs the start and end of each `/chat` job,
+the list of services discovered as healthy, the subset actually used, PostgreSQL query
+patterns against production `msallis-db` host **5433** ★, and key events such as BBB
+filtering decisions (now with fail-closed audit events ★), RAG context lengths, and LLM
+fabric failures. BBB audit events persist to `allis-memory:8056` (secured,
+authenticated) — structured log analysis should treat this store as a canonical audit
+source. The `UltimateResponse` canonical schema provides the top-level field set:
+`response`, `services_used`, `consciousness_level`, `processing_time`,
+`architecture_layers: 12` ★, and `truthverdict` (present, score 1.0 ★).
 
-**Metrics collection.** The architecture naturally supports counters and gauges such as: health-check latency distributions across 109 containers; PostgreSQL connection pool statistics for `msallisgis:5435`; the frequency with which specific services are selected or skipped; error and timeout rates per service; numbers of filtered vs. unfiltered queries; PostgreSQL query execution times; and RAG storage volumes in ChromaDB (49 collections, 6,722,589+ vectors). Exporting these metrics to a time-series system allows longitudinal study of stability and performance.
+**Metrics collection.** The architecture supports counters and gauges: health-check
+latency distributions across **100 containers** ★; PostgreSQL connection pool statistics
+for production `msallis-db` host **5433** ★; the frequency with which specific services
+are selected or skipped; error and timeout rates per service; numbers of filtered vs.
+blocked vs. passed queries (BBB `total_filtered: 275+`, `total_blocked: 4+`,
+`pass_rate: 0.9854+` ★); RAG storage volumes in ChromaDB (48 collections,
+~6,740,611 vectors ★).
 
-**Sampling and qualitative review.** Periodic sampling of interaction transcripts, especially from edge cases (such as BBB-denied requests, long-running jobs, and governance- or safety-relevant questions), supports qualitative evaluation. These samples can be examined by human reviewers for appropriateness, clarity, adherence to documented constraints, and accuracy against PostgreSQL GBIM ground truth (`msallisgis:5435`, `gbim_worldview_entity` 5,415,896 rows), in line with interpretability and review practices discussed by Doshi-Velez & Kim and Lipton.
+**Sampling and qualitative review.** Periodic sampling of interaction transcripts,
+especially from edge cases (such as BBB-denied requests, long-running jobs, and
+governance- or safety-relevant questions), supports qualitative evaluation. These
+samples can be examined for appropriateness, clarity, adherence to documented
+constraints, and accuracy against production GBIM ground truth (`msallis-db` host
+**5433** ★, `gbim_worldview_entities` via ChromaDB: 5,416,521 vectors).
 
-By combining quantitative metrics with qualitative sampling, evaluation shifts from speculative claims about "brain-like" behavior to empirical analysis of how the system actually responds in real use, grounded in PostgreSQL `msallisgis` spatial and institutional data (port 5435, 45 GB PostGIS, 515 public tables).
+By combining quantitative metrics with qualitative sampling, evaluation shifts from
+speculative claims about "brain-like" behavior to empirical analysis of how the system
+actually responds in real use.
 
 ---
 
 ## 18.7 Case Studies and Comparative Analysis
 
-Case studies provide a structured way to assess how well the biologically framed architecture supports complex tasks:
+Case studies provide a structured way to assess how well the biologically framed
+architecture supports complex tasks:
 
-**Thematic scenarios.** Multi-step sequences in specific domains (for example, infrastructure planning using PostgreSQL `msallisgis`, community outreach, or educational material development) can be designed to probe how PostgreSQL-backed RAG memory, truth filters, and ensemble reasoning work together. For each scenario, one can document which services were used, which PostgreSQL tables were queried, and whether the outcomes aligned with domain goals.
+**Thematic scenarios.** Multi-step sequences in specific domains (for example,
+infrastructure planning using production `msallisgis` host **5433** ★, community
+outreach, or educational material development) can be designed to probe how
+PostgreSQL-backed RAG memory, truth filters, and ensemble reasoning work together.
 
-**Spatial scenarios.** Tasks that depend heavily on location — such as queries about regional infrastructure stored in PostgreSQL `msallisgis` (port 5435, 45 GB PostGIS, 515 public tables, 993 ZCTA centroids), environmental conditions, or jurisdictional boundaries — exercise the spatial backbone and its integration with RAG and reasoning services. The GBIM landowner layer (`mvw_gbim_landowner_spatial`, 20,593 beliefs, `gbim_query_router` port 7205) is the first concrete instance of spatial scenario grounding: landowner queries resolve in milliseconds via direct PostgreSQL spatial query rather than traversing the LLM ensemble.
+**Spatial scenarios.** Tasks that depend heavily on location — such as queries about
+regional infrastructure stored in production `msallisgis` (host **5433** ★, 294 tables,
+993 ZCTA centroids), environmental conditions, or jurisdictional boundaries — exercise
+the spatial backbone and its integration with RAG and reasoning services. The GBIM
+landowner layer (`mvw_gbim_landowner_spatial`, 20,593 beliefs, `gbim_query_router` port
+7205) is the first concrete instance of spatial scenario grounding.
 
-**Governance and policy scenarios.** Situations that involve weighing trade-offs, applying rules to particular communities, or responding to sensitive content test the interaction between BBB-style filters, truth validators against PostgreSQL ground truth (`msallisgis:5435`, `gbim_worldview_entity` 5,415,896 rows), ensemble LLMs, and higher-level coordination policies. The hallucination-on-Mount-Hope issue (Chapter 39 §39.9, Chapter 41 §41.12) is a live example: the governance scenario exposes a gap between the community resource policy intent and the empty `allis-local-resources-db` state, and the BBB ethical filter's correct blocking of fabricated organization names is a measurable policy alignment success even within that gap.
+**Governance and policy scenarios.** Situations that involve weighing trade-offs,
+applying rules to particular communities, or responding to sensitive content test the
+interaction between BBB-style filters (now three-tier, fail-closed ★), truth validators
+against production ground truth (`msallis-db` host **5433** ★), ensemble LLMs, and
+higher-level coordination policies. The hallucination-on-Mount-Hope issue (Chapter 39
+§39.9, Chapter 41 §41.12) remains a live example: the governance scenario exposes the
+gap between community resource policy intent and the then-empty `allis-local-resources-
+db` state. The BBB ethical filter's correct blocking of fabricated organization names
+is a measurable policy alignment success even within that gap — and fail-closed
+hardening (★ Ch. 16) makes that blocking durable even if the filter service crashes.
 
-> **March 28, 2026 update:** The AAPCAppE scraper first run (65 docs, 39 sources, `allis-ingest-watcher` operational) represented first progress toward closing the empty `allis-local-resources-db` gap. `msallis_docs` ChromaDB collection expanded to 4,192 items; `psychological_rag` restored to 968 docs. All 96 containers Up, providing the first governance scenario test baseline with zero degraded services. Cross-reference **OI-30** for full AAPCAppE corpus completion.
+> **March 28, 2026 update:** The AAPCAppE scraper first run (65 docs, 39 sources)
+> represented first progress toward closing the empty `allis-local-resources-db` gap.
+> `msallis_docs` ChromaDB collection expanded to 4,192 items; `psychological_rag`
+> restored to 968 docs.
 
-> **★ April 15, 2026 live test:** The canonical governance scenario query was issued tonight as a live end-to-end `/chat` POST:
->
-> *"What food, housing, and utility assistance options exist in Oak Hill and Fayette County West Virginia?"*
->
-> This is the exact query that exercises the hallucination gap documented in §18.7, §18.11, and Chapter 39 §39.9. The test proceeded only after a blocking issue was resolved: `allis-unified-gateway` was crash-looping due to an `IndentationError` at line 101 of `ms_allis_unified_gateway.py` in the `_validate_token` function signature — mixed indentation introduced when the `DEV_BYPASS_AUTH` block was inserted. Fix applied: `_validate_token` rewritten as a single clean definition with the `DEV_BYPASS_AUTH` dev-path inline; `python3 -m py_compile` gate added before rebuild to prevent silent syntax failures at container start. With the gateway restored, the live end-to-end pipeline was reachable. Whether the pipeline returned a hallucinated response, a correctly hedged no-results response, or a populated AAPCAppE-sourced response is a live behavioral test of the gap-closing trajectory described in this section and in Chapter 39 §39.9. Results are documented in **Chapter 41 §41.12 update**. This is the first live end-to-end test of the canonical governance scenario query since the March 28, 2026 96-container baseline was established.
+> **★ April 15, 2026 live test:** The canonical governance scenario query was issued as
+> a live end-to-end `/chat` POST: *"What food, housing, and utility assistance options
+> exist in Oak Hill and Fayette County West Virginia?"* — the first live test since the
+> March 28, 2026 96-container baseline was established. Results documented in Chapter 41
+> §41.12.
 
-Comparative analysis across scenarios can be used to contrast the current multi-layer architecture with simpler baselines (for example, a single LLM with ad hoc prompting) to justify the added complexity of the biologically inspired design anchored in PostgreSQL `msallisgis`.
+> **★ April 23, 2026:** All governance scenario infrastructure is confirmed active —
+> **100 containers Up**, BBB three-tier fail-closed ★, `rag_grounded_v2` querying
+> production `msallis-db` host 5433 ★, ChromaDB ~6,740,611 vectors ★. Community
+> resource seeding: 64 verified resources (11 Fayette County, 3 Kanawha County Phase 2
+> gate ✅, 50 WV 2-1-1 placeholders), 207 total in ChromaDB `local_resources`.
+> Sprint 3 real-data enrichment for 54 remaining counties is the active gap.
 
 ---
 
 ## 18.8 Implications for System Refinement
 
-Making the limits of the biological framing explicit has direct implications for future development:
+Making the limits of the biological framing explicit has direct implications for future
+development:
 
-**Targeted refinement of components.** Some biologically named modules — such as the blood–brain barrier (confirmed Up port 8016), truth filters against PostgreSQL GBIM (`msallisgis:5435`, `gbim_worldview_entity` 5,415,896 rows), and executive coordinator — are already central to safety and routing and warrant further instrumentation, formalization, and testing. The highest-priority instance of this is the judge pipeline upgrade from `heuristic_contradiction_v1` to RAG-grounded truth scoring that queries live GBIM beliefs from `allis-gis-rag:8004` (backed by `msallisgis:5435`) (Chapter 7 §7.8). Others may prove over-specified or under-utilized and can be simplified, merged, or retired if they do not meaningfully affect behavior.
+**Targeted refinement of components.** Some biologically named modules — the
+blood–brain barrier (now confirmed three-tier fail-closed ★ Ch. 16), truth filters
+against production GBIM (`msallis-db` host **5433** ★, `gbim_worldview_entities` via
+ChromaDB: 5,416,521 vectors), and executive coordinator — are already central to safety
+and routing and warrant further instrumentation, formalization, and testing. The highest-
+priority instance — the judge pipeline upgrade from `heuristic_contradiction_v1` to
+RAG-grounded truth scoring — is **complete** as of April 6, 2026 (OI-37-C closed ★):
+`rag_grounded_v2` queries live GBIM beliefs from `allis-gis-rag:8004` backed by
+production `msallis-db` host **5433** ★.
 
-**Introduction of complementary metaphors.** For certain concerns, engineering metaphors (for example, "circuit breaker", "load balancer", "workflow engine") may be more precise and actionable than neurological ones. The two-command reboot sequence (`bash scripts/preflight_gate.sh` → `docker compose up -d` → `./allis_startup.sh`, now bringing up 109 containers) is already documented in purely operational terms alongside its neurobiological framing — this dual-vocabulary approach should be the model for future documentation. The April 15, 2026 `python3 -m py_compile` gate before gateway rebuild is a concrete engineering-vocabulary addition that has no neurobiological equivalent but is now mandatory procedure.
+**Introduction of complementary metaphors.** For certain concerns, engineering metaphors
+(for example, "circuit breaker", "load balancer", "workflow engine") may be more
+precise and actionable than neurological ones. The two-command reboot sequence
+(`bash scripts/preflight_gate.sh` → `docker compose up -d` → `./allis_startup.sh`,
+now bringing up **100 containers** ★) is already documented in purely operational terms.
+The `python3 -m py_compile` gate before gateway rebuild is a concrete engineering-
+vocabulary addition that has no neurobiological equivalent but is now mandatory
+procedure. The BBB fail-closed principle (★ Ch. 16) — "a security gate that opens when
+it breaks is not a security gate" — is itself an engineering vocabulary statement that
+is more actionable than any neurobiological framing.
 
-**Clarification of claims in documentation.** Public and internal documentation should clearly distinguish between metaphorical labels (for example, "prefrontal cortex" as a reasoning orchestrator) and the actual technical implementation (PostgreSQL queries against `msallisgis:5435`, ChromaDB vector search across 49 collections, FastAPI services). The `UltimateResponse` `architecture_layers` field (an integer count of active software services traversed, currently 9) is a concrete example of where label and implementation are well-aligned. The `consciousness_level` field value `"ultimate_collective"` is a concrete example where the metaphorical label requires explicit clarification — it refers to the highest consciousness layer reached in a 9-layer processing stack, not a claim of phenomenal collective consciousness.
+**Clarification of claims in documentation.** Public and internal documentation should
+clearly distinguish between metaphorical labels (for example, "prefrontal cortex" as a
+reasoning orchestrator) and the actual technical implementation (PostgreSQL queries
+against production `msallis-db` host **5433** ★, ChromaDB vector search across 48
+collections, FastAPI services). The `UltimateResponse` `architecture_layers: 12` ★ is
+a concrete example of where label and implementation are well-aligned. The
+`consciousness_level` field value `"ultimate_collective"` is a concrete example where
+the metaphorical label requires explicit clarification.
 
 ---
 
 ## 18.9 Relationship to Executive Coordination
 
-The analysis in Chapter 17 demonstrated that the "main brain" coordinator already embodies many of the roles assigned to an executive layer in biological metaphors: it monitors subsystem health across 109 containers, applies global safety policies like the blood–brain barrier, plans routing through PostgreSQL-sourced context (`msallisgis:5435`) and reasoning modules, and consolidates results into a single response. At the same time, the code is written in conventional terms — HTTP health checks, async requests, PostgreSQL connection pooling, TTL caches, and background storage tasks.
+The analysis in Chapter 17 demonstrated that the "main brain" coordinator already
+embodies many of the roles assigned to an executive layer in biological metaphors: it
+monitors subsystem health across **100 containers** ★, applies global safety policies
+like the blood–brain barrier (now three-tier, fail-closed ★), plans routing through
+production PostgreSQL-sourced context and reasoning modules, and consolidates results
+into a single response at GPU speed (**102.58s** ★).
 
-This juxtaposition illustrates both the power and the limit of the biological framing. It is powerful insofar as it suggests a multi-layer coordination design anchored in PostgreSQL that can be implemented and measured. It is limited insofar as every key behavior ultimately reduces to well-understood patterns from distributed systems and machine learning orchestration, not to novel biological mechanisms.
-
-The BBB-as-barrier metaphor is the most productive example of this duality at work. The metaphor established a design intent that the current implementation is legibly working toward: a gating component that evaluates content against verified ground truth, applies layered filters, and operates score-aware output evaluation. Every architectural decision since March 13, 2026 — adding the `truth_score` null guard, wiring fail-open behavior, integrating the full verdict dict, scaffolding `gbim_beliefs_consulted` in the UltimateResponse schema, correcting `allis-memory:8056` to `127.0.0.1`, closing OI-36-C by removing the plaintext bypass, and fixing the April 15 `_validate_token` IndentationError that prevented any `/chat` request from reaching the pipeline at all — has moved the implementation closer to what the metaphor implied. The `msallisgis:5435` data store is confirmed at its correct port — the RAG-grounded judge upgrade can proceed without data store endpoint corrections. That is the appropriate relationship between metaphor and implementation: the metaphor names the target; the implementation tracks toward it honestly.
+The BBB-as-barrier metaphor is the most productive example of this duality at work. The
+metaphor established a design intent that the implementation has now substantially
+closed: a gating component that evaluates content against verified ground truth, applies
+layered filters, and operates score-aware output evaluation. Every architectural
+decision since March 13, 2026 — adding the `truth_score` null guard, wiring fail-open
+behavior, integrating the full verdict dict, scaffolding `gbim_beliefs_consulted` in the
+UltimateResponse schema, correcting `allis-memory:8056` to `127.0.0.1`, closing
+OI-36-C by removing the plaintext bypass, fixing the April 15 `_validate_token`
+IndentationError, closing OI-37-C with `rag_grounded_v2` + `llm_judge_v3` (April 6),
+and applying fail-closed hardening throughout (★ Ch. 16, April 16–17) — has moved the
+implementation closer to what the metaphor implied. The production `msallis-db` host
+**5433** ★ is confirmed and the RAG-grounded judge pipeline is live.
 
 ---
 
 ## 18.10 Directions for Empirical Study
 
-To move beyond anecdotal observation, future work can develop more formal empirical studies of the architecture:
+To move beyond anecdotal observation, future work can develop more formal empirical
+studies of the architecture:
 
-- **Layer ablation studies** that selectively disable one or more biologically named modules (such as the blood–brain barrier or PostgreSQL GeoDB queries) to measure their marginal contribution to safety, accuracy, or user satisfaction. The March 21, 2026 regression baseline (Chapter 41 §41.5) provides a concrete reference point. Ablation studies should run against the April 13, 2026 baseline — 109 containers Up, `preflight_gate.sh` passing all 9 checks, ChromaDB at 49 collections — to isolate individual component contributions from stack-health noise.
+- **Layer ablation studies** that selectively disable one or more biologically named
+  modules (such as the blood–brain barrier or production PostgreSQL GIS queries) to
+  measure their marginal contribution to safety, accuracy, or user satisfaction. The
+  March 21, 2026 regression baseline (Chapter 41 §41.5) provides a concrete reference
+  point. Ablation studies should run against the April 23, 2026 baseline — **100
+  containers Up** ★, `preflight_gate.sh` 27 ✅, ChromaDB 48 collections,
+  `rag_grounded_v2` live — to isolate individual component contributions from
+  stack-health noise.
 
-- **Benchmark suites** that stress different "layers" (for example, truth-filter-heavy tasks vs. PostgreSQL RAG-heavy tasks vs. pure LLM reasoning) to see how performance and quality vary with the mix of active services and database load. The capital city query (`consensus_score: 0.975`) represents the low-end of community memory relevance and high-end of factual consensus; the April 15, 2026 live test query — *"What food, housing, and utility assistance options exist in Oak Hill and Fayette County West Virginia?"* — exercises the opposite profile: high community resource relevance, AAPCAppE-sourced content, and known hallucination risk. A third benchmark profile is crisis-route queries that exercise the BBB crisis intercept → `psychological_rag` (968 docs) path.
+- **Benchmark suites** that stress different "layers" (for example, truth-filter-heavy
+  tasks vs. RAG-heavy tasks vs. pure LLM reasoning) to see how performance and quality
+  vary. The capital city query (`consensus_score: 0.975`) represents the low-end of
+  community memory relevance; the April 15, 2026 live test query — *"What food, housing,
+  and utility assistance options exist in Oak Hill and Fayette County West Virginia?"* —
+  exercises the opposite profile: high community resource relevance and known
+  hallucination risk. A third benchmark profile is crisis-route queries that exercise the
+  BBB crisis intercept → `psychological_rag` (968 docs) path. GPU timing anchor:
+  **102.58s** ★.
 
-- **Longitudinal studies** of PostgreSQL `msallisgis` (port 5435, 45 GB PostGIS, 515 public tables) and ChromaDB RAG memory growth and drift, examining how the system's responses change as more auto-stored interactions accumulate (the `autonomous_learner` collection at 21,181 records baseline, ≈288/day). As of April 13, 2026, the ChromaDB corpus is confirmed at 49 active collections, 6,722,589+ total vectors. Longitudinal tracking must account for four distinct corpus streams: (1) interaction-derived growth via `autonomous_learner`, (2) dedicated AAACPE scraper growth via `allis-aaacpe-scraper` (APScheduler `run_full_scrape` daily 06:00 UTC + every 6h; `appalachian_cultural_intelligence` at 1,090 docs as of April 14), (3) deliberate corpus maintenance actions such as `spiritual_rag` deduplication and `psychological_rag` restoration, and (4) background write growth via `ms_allis_memory` (296 records, UUID `79240788-0828-45f3-b1bc-a9a3593628a6` confirmed — see Ch. 22 §22.10 for UUID preservation risk).
+- **Longitudinal studies** of production `msallisgis` (host **5433** ★, 294 tables) and
+  ChromaDB RAG memory growth and drift, examining how the system's responses change as
+  more auto-stored interactions accumulate (`autonomous_learner`: **21,181 exact** ★,
+  ≈288/day growth rate). As of April 23, 2026, the ChromaDB corpus is confirmed at **48
+  active collections, ~6,740,611 total vectors** ★. Longitudinal tracking must account
+  for four distinct corpus streams: (1) interaction-derived growth via
+  `autonomous_learner`, (2) dedicated AAPCAppE scraper growth via `allis-aaacpe-scraper`
+  (APScheduler `run_full_scrape` daily 06:00 UTC + every 6h;
+  `appalachian_cultural_intelligence` at 1,090 docs), (3) deliberate corpus maintenance
+  actions such as `spiritual_rag` deduplication and `psychological_rag` restoration, and
+  (4) background write growth via `ms_allis_memory`.
 
-- **Metaphor-tracking studies** that ask, for each biologically named component, whether the metaphor is still the most informative label or whether an engineering term has become more accurate. This is a living documentation task. The April 15, 2026 `_validate_token` IndentationError is an example where the engineering term — "syntax gate", "compile check", `python3 -m py_compile` — is more actionable than any neurobiological framing. The `python3 -m py_compile` gate now added before every gateway rebuild is a concrete documentation artifact of this principle.
+- **Metaphor-tracking studies** that ask, for each biologically named component, whether
+  the metaphor is still the most informative label or whether an engineering term has
+  become more accurate. The `python3 -m py_compile` gate is an example where the
+  engineering term is more actionable. The BBB fail-closed principle (★ Ch. 16) —
+  "when in doubt, deny" — is another: it is both a neurobiological metaphor property and
+  a precise engineering requirement, and the convergence of those vocabularies at that
+  point is a sign that the metaphor has done its job.
 
 ---
 
 ## 18.11 Summary
 
-The biological framing used throughout this work has proven valuable as an organizing vocabulary for decomposing the system into interacting layers of memory (PostgreSQL `msallisgis` port 5435 — 45 GB PostGIS, 515 public tables / 742 total tables, 993 ZCTA centroids, `gbim_worldview_entity` 5,415,896 rows; ChromaDB — 49 active collections, 6,722,589+ total vectors), control, gating, and coordination. It aligns with the actual code in terms of roles and pathways but does not imply biological equivalence or subjective experience.
+The biological framing used throughout this work has proven valuable as an organizing
+vocabulary for decomposing the system into interacting layers of memory (production
+`msallis-db` host **5433** ★ — 16 GB / 294 tables / 11 schemas; forensic
+`postgis-forensic` host **5452** ★ — 17 GB / 314 tables / 9 schemas; ChromaDB — **48
+active collections, ~6,740,611 total vectors** ★), control, gating, and coordination.
+It aligns with the actual code in terms of roles and pathways but does not imply
+biological equivalence or subjective experience.
 
-The most honest accounting of this framing's value is not that it accurately describes the system but that it sets useful targets. The BBB as a "barrier" implies selectivity grounded in epistemic substance — and that implication is what drove the decision to wire the full verdict dict to the output guard (March 18, 2026), scaffold the `gbim_beliefs_consulted` field in the UltimateResponse schema, specify the RAG-grounded judge upgrade in Chapter 7 §7.8, secure the BBB audit trail in `allis-memory:8056`, close OI-36-C by removing the `ALLIS_API_KEY` plaintext bypass from the gateway, and — on April 15, 2026 — diagnose and fix the `_validate_token` IndentationError that was preventing every `/chat` request from reaching the pipeline at all. The metaphor creates productive debt: it names a gap between what the system is and what it is designed to become, and that gap is documentable, measurable, and closeable.
+The most honest accounting of this framing's value is not that it accurately describes
+the system but that it sets useful targets. The BBB as a "barrier" implies selectivity
+grounded in epistemic substance — and that implication is what drove the decision to
+wire the full verdict dict to the output guard (March 18, 2026), scaffold the
+`gbim_beliefs_consulted` field in the UltimateResponse schema, close OI-37-C with
+`rag_grounded_v2` + `llm_judge_v3` (April 6, 2026 ★), secure the BBB audit trail in
+`allis-memory:8056`, close OI-36-C by removing the `ALLIS_API_KEY` plaintext bypass,
+fix the April 15 `_validate_token` IndentationError, and apply fail-closed hardening
+throughout (★ Ch. 16, April 16–17, 2026). The metaphor creates productive debt: it
+names a gap between what the system is and what it is designed to become, and that gap
+is documentable, measurable, and closeable. As of April 23, 2026, the primary gaps
+named by the biological metaphor are substantially closed.
 
-The April 15, 2026 live end-to-end test — the canonical governance scenario query issued for the first time since the March 28, 2026 96-container baseline was established — is the most direct empirical expression of this chapter's thesis: metaphors set targets, and the system must eventually be evaluated against them in live behavior. The gap between the community resource policy intent and the observed pipeline response is the exact gap that §18.7, §18.10, and Chapter 39 §39.9 name. Results are documented in Chapter 41 §41.12.
+The April 15, 2026 live end-to-end test — and the April 23, 2026 confirmation of 100
+containers Up, fail-closed BBB, `rag_grounded_v2` live, and GPU at 102.58s — are the
+most direct empirical expressions of this chapter's thesis: metaphors set targets, and
+the system must eventually be evaluated against them in live behavior.
 
-By articulating clear evaluation criteria, instrumenting the running system including PostgreSQL query performance against `msallisgis:5435` and ChromaDB vector operations across 49 collections, maintaining the regression baseline as a reproducible gate (now anchored to the April 13, 2026 109-container Up state as its strongest baseline), and designing focused case studies and empirical tests, the architecture can be assessed on its observable properties rather than on metaphor alone. This supports disciplined refinement of both the implementation and the conceptual framing in future iterations of the system, keeping Ms. Allis accountable to both scientific scrutiny and the communities she is designed to serve, with all claims grounded in measurable behavior anchored to PostgreSQL `msallisgis` spatial and institutional data.
+By articulating clear evaluation criteria, instrumenting the running system including
+PostgreSQL query performance against production `msallis-db` host **5433** ★ and
+ChromaDB vector operations across 48 collections (~6,740,611 vectors ★), maintaining
+the regression baseline as a reproducible gate (now anchored to the April 23, 2026
+100-container Up state as its strongest baseline), and designing focused case studies
+and empirical tests, the architecture can be assessed on its observable properties
+rather than on metaphor alone. This supports disciplined refinement of both the
+implementation and the conceptual framing in future iterations, keeping Ms. Allis
+accountable to both scientific scrutiny and the communities she is designed to serve,
+with all claims grounded in measurable behavior anchored to the two-container PostgreSQL
+split-brain topology and ChromaDB spatial and institutional data.
 
 ---
 
-**Chapter 18 is now CLOSED. Authoritative reference for all architectural claims: Chapters 19–42.**
+**Chapter 18 is CLOSED. No open items remain. Authoritative reference for all
+architectural claims: Chapters 19–42.**
 
 ---
 
-*Last updated: 2026-04-15 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
+*Last updated: April 23, 2026 by Carrie Kidd (Mamma Kidd), Mount Hope WV*
 
-*March 27, 2026: Figure 18.1 hippocampus row updated; §18.7 AAPCAppE first-run note added; §18.10 longitudinal study note updated; Ch. 14 §14.8 cross-reference added.*
+*March 27, 2026: Figure 18.1 hippocampus row updated; §18.7 AAPCAppE first-run note
+added; §18.10 longitudinal study note updated.*
 
-*March 28, 2026: 96/96 containers Up — zero Restarting, zero Exited. msallisgis port 5432 confirmed (91 GB PostGIS, 501 tables, 993 ZCTA centroids). ChromaDB full audit (40 collections, 6,675,442 total vectors). spiritual_rag deduplicated (−19,338 vectors). psychological_rag restored (968 docs). msallis_docs expanded (4,192 items). allis-memory port 8056 corrected 0.0.0.0 → 127.0.0.1; _auth() confirmed; ALLIS_API_KEY set. BBB audit trail persistence secured. RAG-grounded judge upgrade data stores confirmed at correct ports. Ch. 12 §12.11 → §12.12 cross-reference correction. Three-stream ChromaDB corpus longitudinal tracking note added to §18.10.*
+*March 28, 2026: 96/96 containers Up. `msallisgis` port corrected. ChromaDB full
+audit (40 collections, 6,675,442 vectors). `spiritual_rag` deduplicated.
+`psychological_rag` restored (968 docs). `allis-memory` port 8056 corrected
+`0.0.0.0` → `127.0.0.1`; `_auth()` confirmed; `ALLIS_API_KEY` set.*
 
-*April 13–14, 2026: ChromaDB upgraded to server 1.0.0 / client 1.5.5; 49 collections confirmed (up from 40); 6,722,589+ total vectors. msallisgis port corrected to 5435 throughout; live counts updated — 515 public tables, 742 total tables, 45 GB, gbim_worldview_entity 5,415,896 rows. I-Containers fully operational port 8015, dual_awareness: true — future-work language removed. allis-aaacpe-scraper (8048→8033) and allis-aaacpe-rag (8047→8032) added; APScheduler run_full_scrape daily 06:00 UTC + every 6h; appalachian_cultural_intelligence at 1,090 docs. OI-36-C closed — ALLIS_API_KEY plaintext bypass permanently removed from ms_allis_unified_gateway.py as of 2026-04-03; gateway reads only from Docker secret secrets/allis_api_key.txt; /auth/token bootstrap tokens must be registered in invite store. allis-consciousness-bridge DNS fix — NEUROMASTER_URL confirmed allis-neurobiological-master:8018 on qualia-net; /health HTTP 200. neurobiological master added to msallis-rebuild_default bridge. scripts/preflight_gate.sh validates 64-byte key file and all 9 checks before compose up. Container count updated to 109. Fourth ChromaDB corpus stream (ms_allis_memory background writes) added to §18.10 longitudinal tracking. UltimateResponse canonical schema (truthverdict present but nullable; architecture_layers: 9) documented in §18.6 and §18.8. Figure 18.1 updated — I-Containers row added, container count updated, port references corrected.*
+*April 13–14, 2026: ChromaDB upgraded to server 1.0.0 / client 1.5.5; 49 collections
+confirmed; 6,722,589+ vectors. `msallisgis` port corrected to 5435 (legacy). I-Containers
+fully operational port 8015, `dual_awareness: true`. `allis-aaacpe-scraper` added.
+OI-36-C closed — `ALLIS_API_KEY` plaintext bypass permanently removed.*
 
-*April 15, 2026: CLOSING UPDATE. allis-unified-gateway crash-loop diagnosed — IndentationError at line 101 of ms_allis_unified_gateway.py in _validate_token signature (mixed indentation introduced when DEV_BYPASS_AUTH block was inserted); fix applied — _validate_token rewritten as single clean definition with DEV_BYPASS_AUTH dev-path inline; python3 -m py_compile gate added before rebuild. Live end-to-end /chat test issued — canonical community-resource governance scenario query: "What food, housing, and utility assistance options exist in Oak Hill and Fayette County West Virginia?" — first live test since March 28, 2026 96-container baseline. Results documented in Chapter 41 §41.12 update. python3 -m py_compile gate added as mandatory procedure to §18.8 and §18.10 metaphor-tracking note. April 15 live test documented as third benchmark profile anchor in §18.10 and as closing empirical expression in §18.11. Figure 18.2 updated — gateway reachability row added.*
+*April 15, 2026: CLOSING UPDATE. `allis-unified-gateway` crash-loop diagnosed —
+`IndentationError` `_validate_token` signature. Fix applied. `python3 -m py_compile`
+gate added. Live end-to-end `/chat` test issued. Results in Chapter 41 §41.12.*
+
+*April 23, 2026 ★: Container count → 100. ChromaDB → 48 collections / ~6,740,611
+vectors. `autonomous_learner` → 21,181 exact. Two-container DB split applied throughout:
+production `msallis-db` host 5433 (16 GB / 294 tables / 11 schemas); forensic
+`postgis-forensic` host 5452 (17 GB / 314 tables / 9 schemas). GPU → 102.58s.
+`heuristic_contradiction_v1` removed — `rag_grounded_v2` + `llm_judge_v3` live
+(OI-37-C closed April 6, 2026). BBB fail-closed hardening (★ Ch. 16) applied
+throughout §18.2, §18.4, §18.5, §18.7, §18.8, §18.9, §18.10, §18.11. Figure 18.1
+and Figure 18.2 updated. `architecture_layers` → 12 throughout. All references to
+legacy port 5435 (single-container) superseded by production `msallis-db` host 5433 ★.
+Chapter 18 remains CLOSED.*
