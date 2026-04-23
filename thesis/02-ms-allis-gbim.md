@@ -313,11 +313,11 @@ The ChromaDB instance (host port 8002, container-internal port 8000) is the vect
 > geospatial features embedded for proximity-based retrieval. `gbim_beliefs_v2` (cosine)
 > is the production belief embedding corpus — nine-axis text representations optimized
 > for semantic similarity. Do not conflate them. Landowner queries bypass both: they
-> route via SQL through `jarvis-gbim-query-router` (port 7205) → `mvw_gbim_landowner_spatial`.
+> route via SQL through `allis-gbim-query-router` (port 7205) → `mvw_gbim_landowner_spatial`.
 
 > **Landowner beliefs are NOT in ChromaDB.** Landowner queries route exclusively via
-> SQL through `jarvis-gbim-query-router` (port 7205) →
-> `msjarvisgis.mvw_gbim_landowner_spatial` (container port 5432 on `msjarvis-db`).
+> SQL through `allis-gbim-query-router` (port 7205) →
+> `msallisgis.mvw_gbim_landowner_spatial` (container port 5432 on `msallis-db`).
 > Zero ChromaDB involvement. See Sections 2.12 and 2.13.
 
 ### 2.6.2 Community Memory and Autonomous Learning
@@ -378,8 +378,8 @@ Both autonomous learning collections are confirmed distinct with no dedup requir
 │     GBIM Architecture — April 23, 2026                      │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  msjarvis-db (host port 5433, container port 5432)          │
-│    database: msjarvisgis — 16 GB / 294 tables / 11 schemas  │
+│  msallis-db (host port 5433, container port 5432)          │
+│    database: msallisgis — 16 GB / 294 tables / 11 schemas  │
 │    gbim_worldview_entity — nine-axis JSONB, worldview eq1   │
 │    mvw_gbim_landowner_spatial — ✅ 38,979 rows               │
 │    gbim_provider_* / gbim_block_* summaries                 │
@@ -394,11 +394,11 @@ Both autonomous learning collections are confirmed distinct with no dedup requir
 │    governance_rag — 1,367 chunks                            │
 │    [landowner beliefs NOT in ChromaDB]                      │
 │          ↓ metadata links (entity_id, local_resource_id)    │
-│  jarvis-local-resources-db (port 5435)                      │
+│  allis-local-resources-db (port 5435)                      │
 │    Verified program records — county, ZIP, type             │
 │          ↓ direct SQL (no embeddings)                       │
-│  jarvis-gbim-query-router (port 7205)                       │
-│    → msjarvisgis.mvw_gbim_landowner_spatial                 │
+│  allis-gbim-query-router (port 7205)                       │
+│    → msallisgis.mvw_gbim_landowner_spatial                 │
 │    ✅ 38,979 rows — EPSG:4326, GIST index                    │
 │    X-Allis-Role: carrie_admin — RBAC gate active            │
 │    PostgreSQL-native — ZERO ChromaDB involvement            │
@@ -406,7 +406,7 @@ Both autonomous learning collections are confirmed distinct with no dedup requir
 └─────────────────────────────────────────────────────────────┘
 ```
 
-*Figure 2.4. The GBIM architecture as of April 23, 2026. Production database is `msjarvisgis` on `msjarvis-db` (host 5433 / container 5432). Landowner queries bypass ChromaDB entirely and route through `jarvis-gbim-query-router` (port 7205).*
+*Figure 2.4. The GBIM architecture as of April 23, 2026. Production database is `msallisgis` on `msallis-db` (host 5433 / container 5432). Landowner queries bypass ChromaDB entirely and route through `allis-gbim-query-router` (port 7205).*
 
 ---
 
@@ -469,7 +469,7 @@ The confidence decay pipeline is a live 24-hour loop monitoring all GBIM entitie
 | `allis-gbim-verifier` | ✅ Running | Polls every 120s; reports totals, stale counts, average decay |
 | `confidence_decay_loop.py` | ✅ Deployed | Core decay logic |
 | `allis_decay_escalation_consumer.py` | ✅ Deployed | Escalation consumer logic |
-| `db/gbim_confidence_decay_schema.sql` | ✅ Deployed | Schema — `gbim_decay_audit` in `msjarvisgis` |
+| `db/gbim_confidence_decay_schema.sql` | ✅ Deployed | Schema — `gbim_decay_audit` in `msallisgis` |
 | `scripts/gbim_decay_tick.sh` | ✅ Operational | Manual decay tick trigger |
 | `scripts/gbim_decay_refresh.sh` | ✅ Operational | Refresh script |
 | `observability/prometheus/alert_confidence_decay_rules.yaml` | ✅ Configured | Prometheus alerting |
@@ -480,14 +480,14 @@ The confidence decay pipeline is a live 24-hour loop monitoring all GBIM entitie
 - **Entities processed:** 461 processed in the first documented decay cycle.
 - **`needs_verification = TRUE`** is set when an entity's `confidence_decay` value crosses the configured threshold. This flag drives the POC re-verification loop.
 - **"No stale entities" from `allis-gbim-verifier`** is correct behavior — it means no entities have yet crossed the decay threshold, not that the service is inactive.
-- **Decay audit records** are written to `msjarvisgis.public.gbim_decay_audit` on `msjarvis-db` for every tick processed.
+- **Decay audit records** are written to `msallisgis.public.gbim_decay_audit` on `msallis-db` for every tick processed.
 
 ### 2.9.3 Decay Schema
 
 ```sql
--- msjarvisgis.public.gbim_decay_audit
+-- msallisgis.public.gbim_decay_audit
 -- Written by confidence_decay_loop.py on each decay tick
--- Access: docker exec msjarvis-db psql -U postgres -d msjarvisgis
+-- Access: docker exec msjarvis-db psql -U postgres -d msallisgis
 
 SELECT
     entity_id,
@@ -520,7 +520,7 @@ The `heuristic_contradiction_v1` judge is **retired**. All references to it in s
 The `rag_grounded_v2` truth judge produces inline evidence annotations in its output:
 
 - `[RAG] Grounded: Ms. Allis must prioritize West Virginia community needs...` — drawn from `safety_rules`, `governance_rag`, `legal_rag`, `economic_rag`.
-- `[GBIM] Fayette County — Program: UTILITY20 | Active enrollments: 0...` — drawn from live GBIM data via `msjarvisgis`.
+- `[GBIM] Fayette County — Program: UTILITY20 | Active enrollments: 0...` — drawn from live GBIM data via `msallisgis`.
 
 These annotations are **correct judge behavior** showing the evidence chain. They must be preserved in internal logs and stripped from user-facing `issues` arrays before returning responses to end users.
 
@@ -560,20 +560,20 @@ These two constraints define the ethical architecture: **a system that makes pow
 
 The `jarvis-gbim-query-router` is the GBIM entrypoint for all structured landowner and spatial GBIM queries. It is the only service in the Ms. Allis stack whose exclusive purpose is routing natural-language ownership queries to deterministic SQL results over the verified GBIM parcel corpus.
 
-> **Note on naming:** The container is `jarvis-gbim-query-router` — the `jarvis-` prefix
+> **Note on naming:** The container is `allis-gbim-query-router` — the `allis-` prefix
 > is retained in the production stack. The public-facing system name is **Ms. Allis**.
 
 ### 2.12.1 Service Specification
 
 | Property | Value |
 |---|---|
-| Container | `jarvis-gbim-query-router` |
+| Container | `allis-gbim-query-router` |
 | Host port | **7205** |
 | Framework | FastAPI |
 | Endpoint | `POST /query` |
-| Database target | `msjarvisgis` via `msjarvis-db` (container port 5432) |
-| `POSTGRES_HOST` | `msjarvis-db` |
-| `POSTGRES_DB` | `msjarvisgis` |
+| Database target | `msallisgis` via `msallis-db` (container port 5432) |
+| `POSTGRES_HOST` | `msallis-db` |
+| `POSTGRES_DB` | `msallisgis` |
 | `POSTGRES_PORT` | `5432` (container-internal) |
 | ChromaDB dependency | **None — zero ChromaDB involvement** |
 | RBAC gate | `X-Allis-Role: carrie_admin` passes; unauthenticated returns `403 Forbidden for this role` |
@@ -585,8 +585,8 @@ The `jarvis-gbim-query-router` is the GBIM entrypoint for all structured landown
 All five layers confirmed:
 
 - ✅ **RBAC gate** — `carrie_admin` role passes.
-- ✅ **DSN** — connecting to `msjarvisgis` on `msjarvis-db`.
-- ✅ **Materialized view** — `mvw_gbim_landowner_spatial` — ✅ 38,979 rows in msjarvis-db.
+- ✅ **DSN** — connecting to `msallisgis` on `msallis-db`.
+- ✅ **Materialized view** — `mvw_gbim_landowner_spatial` — ✅ 38,979 rows in msallis-db.
 - ✅ **Spatial query** — returning real lat/lon centroids.
 - ✅ **Real data** — United States of America (NPS/New River Gorge), American Canadian Expeditions, local landowners all returned. Source attribution: *"WV 2025 Tax Parcel Data — authoritative county assessor records."*
 
@@ -624,7 +624,7 @@ resp_unauth = httpx.post(
 
 ## 2.13 The `mvw_gbim_landowner_spatial` Materialized View
 
-`mvw_gbim_landowner_spatial` is the canonical spatial GBIM worldview materialization in `msjarvisgis`, derived from `gbim_worldview_entity`, consumed by `jarvis-gbim-query-router`.
+`mvw_gbim_landowner_spatial` is the canonical spatial GBIM worldview materialization in `msallisgis`, derived from `gbim_worldview_entity`, consumed by `allis-gbim-query-router`.
 
 ### 2.13.1 View Specification
 
@@ -632,8 +632,8 @@ resp_unauth = httpx.post(
 |---|---|
 | View name | `mvw_gbim_landowner_spatial` |
 | View type | Materialized view |
-| Container | `msjarvis-db` (host port 5433, container port 5432) |
-| Database | `msjarvisgis` |
+| Container | `msallis-db` (host port 5433, container port 5432) |
+| Database | `msallisgis` |
 | Row count | ✅ **38,979 rows in msjarvis-db** (April 23, 2026) |
 | Geometry CRS | **EPSG:4326** |
 | Spatial index | ✅ GIST on geometry |
@@ -644,10 +644,10 @@ resp_unauth = httpx.post(
 ### 2.13.2 View Definition
 
 ```sql
--- msjarvisgis.public.mvw_gbim_landowner_spatial
+-- msallisgis.public.mvw_gbim_landowner_spatial
 -- Materialized view derived from gbim_worldview_entity
--- Access: docker exec msjarvis-db psql -U postgres -d msjarvisgis
--- Forensic access: docker exec postgis-forensic psql -h 127.0.0.1 -U jarvis -d msjarvisgis
+-- Access: docker exec msallis-db psql -U postgres -d msallisgis
+-- Forensic access: docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis
 
 SELECT
     id,
@@ -687,14 +687,14 @@ Three clean indexes, no redundancy:
 - ✅ Mount Hope / New River Gorge area confirmed present.
 - ✅ City of Mount Hope, CSX, local landowners all present.
 - ✅ NPS (United States of America) New River Gorge National Park boundary parcel confirmed.
-- ✅ `msjarvis-db` accessible to Docker containers via internal network.
+- ✅ `msallis-db` accessible to Docker containers via internal network.
 - ⚠️ `mvw_gbim_landowner_spatial` not present in `postgis-forensic` — production view only.
 
 ### 2.13.5 Refresh and Maintenance
 
 ```sql
 -- Non-blocking refresh (requires unique index)
--- Run via: docker exec msjarvis-db psql -U postgres -d msjarvisgis
+-- Run via: docker exec msjarvis-db psql -U postgres -d msallisgis
 REFRESH MATERIALIZED VIEW CONCURRENTLY mvw_gbim_landowner_spatial;
 
 -- Blocking refresh (schedule during low-traffic window if no unique index)
@@ -707,8 +707,8 @@ REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
 
 | Component | Status | Notes |
 |---|---|---|
-| `msjarvis-db` (host 5433 / container 5432) | ✅ Operational | 16 GB / 294 tables / 11 schemas; database: `msjarvisgis` |
-| `postgis-forensic` | ✅ Recovered | April 23, 2026 — ExitCode 255 was ungraceful stop; `docker start` confirmed Up. Access: `docker exec postgis-forensic psql -h 127.0.0.1 -U jarvis -d msjarvisgis` |
+| `msallis-db` (host 5433 / container 5432) | ✅ Operational | 16 GB / 294 tables / 11 schemas; database: `msallisgis` |
+| `postgis-forensic` | ✅ Recovered | April 23, 2026 — ExitCode 255 was ungraceful stop; `docker start` confirmed Up. Access: `docker exec postgis-forensic psql -h 127.0.0.1 -U allis -d msallisgis` |
 | `msallisgis` / port `5452` / `gisdb` | ❌ Retired | These names and ports do not exist — all references invalid |
 | `gbim_worldview_entity` (msjarvisgis) | ✅ Present | Full spatial table — nine-axis JSONB, worldview eq1 |
 | `gbim_beliefs` (bare) | ❌ Retired | Replaced by `gbim_worldview_entities` (ChromaDB, L2) and `gbim_beliefs_v2` (ChromaDB, cosine) |
@@ -716,10 +716,10 @@ REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
 | `gbim_beliefs_v2` (ChromaDB) | ✅ **cosine distance** | Production belief embeddings — separate from spatial corpus |
 | `gbim_entities` (msjarvisgis) | ✅ Present | 4-column application mirror |
 | `mvw_gbim_landowner_spatial` | ✅ **38,979 rows in msjarvis-db** | OI-E CLOSED — April 23, 2026; not present in postgis-forensic |
-| TIGER/topology schemas | ✅ In `msjarvisgis` | `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
+| TIGER/topology schemas | ✅ In `msallisgis` | `tiger.addr`, `tiger.edges`, `tiger.zcta5`, etc. |
 | `nbb_pituitary_gland` (host:8108) | ✅ **mode: baseline** | Five governance protocols active; dual-network confirmed April 23, 2026 |
 | Confidence decay pipeline | ✅ Operational | 3 containers + schema + scripts + Prometheus alerting |
-| `jarvis-gbim-query-router` (port 7205) | ✅ **End-to-end operational** | RBAC, DSN, mat. view, spatial query, real data all verified April 23, 2026 |
+| `allis-gbim-query-router` (port 7205) | ✅ **End-to-end operational** | RBAC, DSN, mat. view, spatial query, real data all verified April 23, 2026 |
 | Truth judge | ✅ `rag_grounded_v2` | `heuristic_contradiction_v1` retired; DGM-corroborated |
 | ChromaDB (port 8002) | ✅ **48 collections, ~6.74M vectors** | v2 API only (`/api/v1/` → 410 Gone); mixed L2/cosine; April 17, 2026 |
 | ChromaDB count pattern | ✅ UUID two-step | Name → UUID → count; direct name count unreliable in v2 |
@@ -727,7 +727,6 @@ REFRESH MATERIALIZED VIEW mvw_gbim_landowner_spatial;
 | `wv_resources` / `local_resources` | 🔄 Expanding | 8 / 101 items; active Phase 1 red teaming targets |
 | Autonomous learning collections | ✅ **21,181 + 17,685** | Both preserved; distinct temporal roles confirmed |
 | Container count | ✅ **112 thesis-verified (April 16) / 100 point-in-time (April 23)** | `msallis-rebuild` namespace |
-| Container naming | ℹ️ `jarvis-` prefix retained | Public name is Ms. Allis |
 
 ---
 
