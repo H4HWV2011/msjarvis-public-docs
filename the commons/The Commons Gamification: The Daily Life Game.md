@@ -2,7 +2,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**
 > This document instantiates Polymathmatic Geography principles P1, P9, and P16:
-> - **P1 – Every where is entangled:** Every quest, badge, and streak is tied to a specific place, activity, and community in West Virginia — not abstract engagement metrics. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md
+> - **P1 – Every where is entangled:** Every quest, badge, and streak is tied to a specific place, activity, and community in West Virginia — not abstract engagement metrics. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md
 > - **P9 – Transparency and traceability:** All value interactions, quest completions, and streak milestones are logged to the recognition ledger with UEI, geo, and timestamp. The game is visible and auditable.
 > - **P16 – Power accountable to place:** Quest categories, seasonal campaigns, and regional challenges are proposed and governed by community participants — not designed by distant platform teams and imposed on the community.
 
@@ -49,7 +49,7 @@ The basic unit is a **value interaction** — a concrete, verified action that t
 - Map something.
 - Teach someone.
 - Verify a local record.
-- Respond to a Ms. Jarvis data ping.
+- Respond to a Ms. Allis data ping.
 - Show up.
 
 Value interactions stack into quests, streaks, and seasonal campaigns. They log EMS hours to the recognition ledger automatically when they qualify as commons work. They draw from the promo pool for bonus M$ rewards when the reserve ratio permits.
@@ -67,7 +67,7 @@ Quests are structured challenges with defined completion conditions, time window
 | **Learning and Teaching** | Attend a workshop; teach a skill session; complete a learning module; mentor a participant | 1 EMS hr per verified hour |
 | **Cultural Preservation** | Scan a Clio trail marker; contribute an oral history; attend a heritage event; document a tradition | 1 EMS hr per verified hour |
 | **Land and Mapping** | Complete a GIS data validation; map a local asset; submit a place record; verify a parcel | 1 EMS hr per verified hour |
-| **Data Stewardship** | Collect contact information (with consent) for local places and people; respond to a Ms. Jarvis verification ping to confirm data is current; update an outdated record | 1 EMS hr per verified hour; EMS awarded to record-holder for responding to verification ping |
+| **Data Stewardship** | Collect contact information (with consent) for local places and people; respond to a Ms. Allis verification ping to confirm data is current; update an outdated record | 1 EMS hr per verified hour; EMS awarded to record-holder for responding to verification ping |
 | **Community Events** | Attend a Commons-hosted event; volunteer at a community gathering; organize a local program | 1 EMS hr per verified hour |
 | **Governance Participation** | Vote in a DAO proposal; attend a governance session; review a proposal and submit feedback | 1 EMS hr per session |
 | **Emergency Preparedness** | Complete an emergency prep activity during an active NOAA alert period; participate in a resilience drill | 1 EMS hr per verified activity; promo bonus when reserve permits |
@@ -81,10 +81,10 @@ Data stewardship is one of the most important and underrecognized commons activi
 ### How It Works
 
 1. **Collection:** Community Champions (and eventually any participant) collect contact information — email and SMS — for local places, businesses, organizations, and services, with **explicit consent** documented at collection time.
-2. **Verification cycles:** Ms. Jarvis runs automated verification pings every **6–12 months** to each consenting record holder, asking them to confirm or update their record.
+2. **Verification cycles:** Ms. Allis runs automated verification pings every **6–12 months** to each consenting record holder, asking them to confirm or update their record.
 3. **Response = EMS:** When the record holder responds and confirms or updates their data, they earn EMS hours. The record is marked verified with a new timestamp.
-4. **Confidence scoring:** Ms. Jarvis maintains a data confidence score on each record based on verification recency, response history, and cross-source consistency.
-5. **Champion role evolution:** Ground truthing is the primary Champion focus in Phase 1 early. As the data layer matures, Champion focus shifts — but the verification cycle continues automatically through Ms. Jarvis pings.
+4. **Confidence scoring:** Ms. Allis maintains a data confidence score on each record based on verification recency, response history, and cross-source consistency.
+5. **Champion role evolution:** Ground truthing is the primary Champion focus in Phase 1 early. As the data layer matures, Champion focus shifts — but the verification cycle continues automatically through Ms. Allis pings.
 
 ### Consent Requirements
 
@@ -136,7 +136,7 @@ Streaks reward consistent participation over time. They are visible on the parti
 | **Weekly Presence** | At least 1 value interaction per week | Maintained rank stability; weekly streak badge |
 | **Monthly Anchor** | Complete at least 1 quest per month for 6 consecutive months | EMS hour bonus credited to recognition ledger |
 | **Seasonal Champion** | Complete all quests in a seasonal campaign | Seasonal badge + promo M$ bonus from pool (reserve-ratio gated) |
-| **Verification Streak** | Respond to 3 consecutive Ms. Jarvis verification cycles | Verification Veteran badge |
+| **Verification Streak** | Respond to 3 consecutive Ms. Allis verification cycles | Verification Veteran badge |
 
 ---
 
@@ -166,7 +166,7 @@ Badges in The Commons follow the same visual design language as the MountainShar
 | **Ground Truthing** | Magnifying glass over map pin | First data verification or contact collection |
 | **Data Keeper** | Map pin + checkmark | 25 records verified or updated |
 | **Living Map** | Topographic lines, glowing | 100 records verified or updated |
-| **Verification Veteran** | Calendar + checkmark | Responded to 3+ Ms. Jarvis verification cycles |
+| **Verification Veteran** | Calendar + checkmark | Responded to 3+ Ms. Allis verification cycles |
 
 **Commons Life**
 
@@ -232,7 +232,7 @@ Every qualifying Commons activity automatically logs EMS hours to the recognitio
 | Commons Action | MountainShares Effect |
 |---------------|----------------------|
 | Complete a caregiving quest | +EMS hours → recognition ledger → rank progression |
-| Respond to Ms. Jarvis verification ping | +EMS hours → Data Keeper progress |
+| Respond to Ms. Allis verification ping | +EMS hours → Data Keeper progress |
 | Hit a 30-day streak | Commons Regular badge earned; EMS milestone logged |
 | Finish a seasonal campaign | EMS hours logged; promo M$ from pool (reserve-ratio gated) |
 | Reach 100 EMS hours | Silver rank unlocked → Steward eligibility opens |
@@ -244,16 +244,16 @@ Every qualifying Commons activity automatically logs EMS hours to the recognitio
 ## 11. What The Commons Game Does NOT Do
 
 - Quest rewards and streak bonuses **do not bypass per-user spendable M$ caps** — all bonus M$ draws from the promo pool and counts against monthly limits per the Economic Safety Specification.
-- Promo pool bonuses **pause automatically** when the reserve ratio falls below 1.0. Participants are notified by Ms. Jarvis with a plain-language explanation.
+- Promo pool bonuses **pause automatically** when the reserve ratio falls below 1.0. Participants are notified by Ms. Allis with a plain-language explanation.
 - No Commons quest, badge, leaderboard position, or streak changes vote weight or creates financial rights.
 - Discovery badges and seasonal achievements are recognition only — they do not create equity, ownership, or expectation of financial return.
 - Benefits-Sensitive Account participants are protected: Commons participation is fully supported, but EMS earning throttles and balance caps defined in Program Rules apply.
 
 ---
 
-## 12. Ms. Jarvis in The Commons Game
+## 12. Ms. Allis in The Commons Game
 
-Ms. Jarvis is the game layer’s guide and narrator. She is present throughout The Commons app experience.
+Ms. Allis is the game layer’s guide and narrator. She is present throughout The Commons app experience.
 
 - Surfaces available quests, active campaigns, and streak status through the chatbot UI
 - Notifies participants of new badge achievements in plain, warm language
@@ -264,7 +264,7 @@ Ms. Jarvis is the game layer’s guide and narrator. She is present throughout T
 - Connects participants to relevant quests based on their location, history, and interests
 - Reminds Benefits-Sensitive Account holders of relevant protections when approaching thresholds
 
-Ms. Jarvis does not manipulate engagement or maximize time-on-platform. Her role is to help participants find meaningful activities in their community, understand what they’ve earned, and connect their daily actions to the larger commons they’re building.
+Ms. Allis does not manipulate engagement or maximize time-on-platform. Her role is to help participants find meaningful activities in their community, understand what they’ve earned, and connect their daily actions to the larger commons they’re building.
 
 ---
 
@@ -276,7 +276,7 @@ The Commons game layer is not static. Quest categories, seasonal campaigns, stre
 - **Captains** can propose regional quests for their geographic area.
 - **System monitors** screen proposals for conflicts with reserve ratio safety, legal constraints, and benefits-sensitive protections.
 - **DAO votes** approve or reject game layer changes through the standard proposal lifecycle defined in the Governance Charter.
-- **Ms. Jarvis** surfaces the impact of proposed game layer changes on reserve ratio projections and KPI trends to inform governance decisions.
+- **Ms. Allis** surfaces the impact of proposed game layer changes on reserve ratio projections and KPI trends to inform governance decisions.
 
 The game belongs to the community. Its design evolves through the same democratic process as every other parameter in MountainShares.
 
