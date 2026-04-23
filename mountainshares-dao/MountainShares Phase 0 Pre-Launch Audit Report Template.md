@@ -70,7 +70,7 @@
 - [ ] Per-user cap enforcement and bypass vectors
 - [ ] Promo pool logic and bonus rule exploitation
 - [ ] UEI identity and anti-sybil mechanisms
-- [ ] Ms. Jarvis enforcement behavior and hard trigger logic
+- [ ] Ms. Allis enforcement behavior and hard trigger logic
 - [ ] Privacy and access control surfaces
 - [ ] Smart contract logic on Arbitrum One
 - [ ] IPFS record integrity
@@ -88,7 +88,7 @@
 | Bonus/promo pause at ratio < 1.0 | | | |
 | Critical reserve (< 0.5) full pause | | | |
 | Safety prohibition enforcement (drugs, weapons, exploitation, fraud) | | | |
-| Ms. Jarvis daily reserve ratio recalculation | | | |
+| Ms. Allis daily reserve ratio recalculation | | | |
 
 ---
 
