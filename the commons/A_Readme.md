@@ -1,9 +1,9 @@
 # The Commons
 
 > *"The body is not a single institution but a distributed network of people and places, learning to think together about their own entangled space."*
-> — Use Cases, Ms. Jarvis Project
+> — Use Cases, Ms. Allis Project
 
-The Commons is the **community platform** of the Ms. Jarvis system — the place where participants interact daily with MountainShares, with each other, and with the broader infrastructure of community governance. It is built on Principles P6 (Lived experience is non-negotiable evidence), P7 (Stories and symbols are infrastructures), and P8 (Commons are real spatial institutions).
+The Commons is the **community platform** of the Ms. Allis system — the place where participants interact daily with MountainShares, with each other, and with the broader infrastructure of community governance. It is built on Principles P6 (Lived experience is non-negotiable evidence), P7 (Stories and symbols are infrastructures), and P8 (Commons are real spatial institutions).
 
 This folder contains the complete platform documentation: architecture, legal terms, privacy policy, community guidelines, gamification design, participant onboarding, partnership frameworks, and the safety systems that make participation trustworthy for people whose economic circumstances require extra care.
 
@@ -11,7 +11,7 @@ This folder contains the complete platform documentation: architecture, legal te
 
 ## What The Commons Is
 
-The Commons is the daily-life interface of the entire system stack. Where MountainShares is the economic instrument and Ms. Jarvis is the analytical brain, The Commons is the **shared space** — the platform where:
+The Commons is the daily-life interface of the entire system stack. Where MountainShares is the economic instrument and Ms. Allis is the analytical brain, The Commons is the **shared space** — the platform where:
 
 - Community members participate in governance, contribute to commons tasks, and earn recognition
 - Local businesses and organizations engage with the closed-loop economy
@@ -55,7 +55,7 @@ The Commons is not a social media platform. It is a **governed community infrast
 
 | Document | What It Contains |
 |---|---|
-| [Government Commons Node & Ms. Jarvis Partnership Overview.md](./Government%20Commons%20Node%20%26%20Ms.%20Jarvis%20Partnership%20Overview.md) | The framework for government agency partnerships — how county commissions, planning bodies, state agencies, and elected officials connect to The Commons as institutional nodes, sharing data and participating in governance without surrendering community sovereignty. |
+| [Government Commons Node & Ms. Allis Partnership Overview.md](./Government%20Commons%20Node%20%26%20Ms.%20Allis%20Partnership%20Overview.md) | The framework for government agency partnerships — how county commissions, planning bodies, state agencies, and elected officials connect to The Commons as institutional nodes, sharing data and participating in governance without surrendering community sovereignty. |
 | [University Commons Node Partnership Overview.md](./University%20Commons%20Node%20Partnership%20Overview.md) | The framework for university partnerships — how West Virginia University, New River Community and Technical College, and other academic institutions connect research capacity, student engagement, and institutional resources to The Commons and the communities it serves. |
 
 ---
@@ -72,7 +72,7 @@ The Commons is not a social media platform. It is a **governed community infrast
 2. [Risks and Limits.md](./Risks%20and%20Limits.md) — honest limits of the platform's protections
 
 **If you are a government agency or elected official**, start with:
-1. [Government Commons Node & Ms. Jarvis Partnership Overview.md](./Government%20Commons%20Node%20%26%20Ms.%20Jarvis%20Partnership%20Overview.md) — the partnership framework
+1. [Government Commons Node & Ms. Allis Partnership Overview.md](./Government%20Commons%20Node%20%26%20Ms.%20Allis%20Partnership%20Overview.md) — the partnership framework
 2. [Privacy Policy.md](./Privacy%20Policy.md) — data governance architecture
 
 **If you are a university or research partner**, start with:
@@ -90,7 +90,7 @@ The Commons is not a social media platform. It is a **governed community infrast
 
 - **Intellectual foundation:** [`discipline/README.md`](../discipline/README.md) — Principles P6, P7, and P8 are the theoretical basis for The Commons as a lived spatial institution
 - **Economic instrument:** [`mountainshares-dao/README.md`](../mountainshares-dao/README.md) — MountainShares is the closed-loop economic layer that The Commons runs on top of
-- **AI advisor:** Ms. Jarvis provides analysis, monitoring, and operational support to The Commons under published constitutional constraints — see [`docs/README.md`](../docs/README.md)
+- **AI advisor:** Ms. Allis provides analysis, monitoring, and operational support to The Commons under published constitutional constraints — see [`docs/README.md`](../docs/README.md)
 - **Safety architecture:** The PALCO False-Positive Problem case study documents how community-specific language requires locally-grounded safety calibration — see [`discipline/case_studies/The PALCO False-Positive Problem.md`](../discipline/case_studies/The%20PALCO%20False-Positive%20Problem.md)
 - **Full thesis:** [`thesis/README.md`](../thesis/README.md) — The Commons is theorized across multiple chapters of the 43-chapter computational thesis
 
