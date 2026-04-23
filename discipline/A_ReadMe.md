@@ -15,7 +15,7 @@ Most academic fields still treat physical space, digital infrastructure, economi
 
 The discipline draws on mathematics and physics, critical and economic geography, soundscape ecology, military geography, genealogy, theology, and indigenous and local knowledge. It is both descriptive and constructive — not only mapping how extraction works, but designing and testing democratic alternatives to it.
 
-The Appalachian case — instantiated through Ms. Jarvis, MountainShares, and The Commons — is the founding worked example. It demonstrates that the theory can be made operational, audited, and lived by real communities in real places.
+The Appalachian case — instantiated through Ms. Allis, MountainShares, and The Commons — is the founding worked example. It demonstrates that the theory can be made operational, audited, and lived by real communities in real places.
 
 ---
 
@@ -94,9 +94,9 @@ The `case_studies/` subfolder contains grounded empirical and theoretical applic
 | [Entangled Space after Kant and Durkheim](./case_studies/Entangled%20Space%20after%20Kant%20and%20Durkheim%3A%20Toward%20a%20Polymathmatic%20Geography.md) | Philosophical foundations of entangled space — reading Kant's categories and Durkheim's social facts as geographic theory. |
 | [Cooperative Instrument.md](./case_studies/Cooperative%20Instrument.md) | The cooperative as a spatial institution — how cooperative structures reorganize the geography of value and governance. |
 | [The PALCO False-Positive Problem](./case_studies/The%20PALCO%20False-Positive%20Problem.md) | A worked case in BBB filter calibration — how content safety systems can produce geographic injustice through false positives on community language. |
-| [Prefrontal Alignment Episode](./case_studies/Prefrontal%20Alignment%20Episode.md) | A documented AI alignment event in Ms. Jarvis — how prefrontal constitutional constraints resolved a values conflict in real time. |
+| [Prefrontal Alignment Episode](./case_studies/Prefrontal%20Alignment%20Episode.md) | A documented AI alignment event in Ms. Allis — how prefrontal constitutional constraints resolved a values conflict in real time. |
 | [The Roman Empire Meme as Inadvertent Commons Probe](./case_studies/The%20Roman%20Empire%20Meme%20as%20Inadvertent%20Commons%20Probe.md) | How a viral internet meme accidentally revealed the structure of shared cultural commons and collective memory. |
-| [Use Cases.md](./case_studies/Use%20Cases.md) | Concrete use cases for the full system stack — what Ms. Jarvis, MountainShares, and The Commons actually do for real people. |
+| [Use Cases.md](./case_studies/Use%20Cases.md) | Concrete use cases for the full system stack — what Ms. Allis, MountainShares, and The Commons actually do for real people. |
 
 ---
 
@@ -130,7 +130,7 @@ The `case_studies/` subfolder contains grounded empirical and theoretical applic
 The discipline documented here is the intellectual foundation for every other section:
 
 - **The thesis** (`../thesis/`) implements this discipline computationally across 43 chapters.
-- **Ms. Jarvis** is the AI instrument described in Section 4 (Methods) and Section 5 (Quantarithmia) — a Kidd's Technical Services system.
+- **Ms. Allis** is the AI instrument described in Section 4 (Methods) and Section 5 (Quantarithmia) — a Kidd's Technical Services system.
 - **MountainShares DAO** (`../mountainshares-dao/`) is the closed-loop economic instrument theorized in Principles P8 and P9 — a Harmony for Hope, Inc. product.
 - **The Commons** (`../the commons/`) is the community platform built on Principles P6, P7, and P8 — a Harmony for Hope, Inc. product.
 - **The GBIM** (GeoBelief Information Model) operationalizes Principles P1, P3, P12, and P17 in the PostgreSQL database with 5,416,521 entities anchored to West Virginia geography.
