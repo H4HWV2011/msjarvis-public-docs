@@ -2,7 +2,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**  
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–7 treat EMS→M$ rates, caps, fees, reserve bands, and governance thresholds as one integrated instrument that shapes how value circulates and where leakage or enclosure pressures arise. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 1–7 treat EMS→M$ rates, caps, fees, reserve bands, and governance thresholds as one integrated instrument that shapes how value circulates and where leakage or enclosure pressures arise. See https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
 > - **P9 – Transparency and traceability:** The tabular parameters for conversion, reserve bands, internal buying power, fees, and limits make the "knobs" of the system inspectable, so communities can see exactly how rules translate into numeric constraints.  
 > - **P16 – Power accountable to place:** Governance thresholds, band‑based permissions, and benefits‑sensitive limits tie parameter changes and risk controls to explicit conditions in the West Virginia pilot, ensuring that institutional power responds to local reserves, usage, and sensitivity to benefits.  
 > - **Anti‑leakage and closed‑loop spending:** Conversion caps, reserve‑ratio bands, internal phase schedules, and promo‑pool limits collectively aim to keep value recirculating in the closed loop rather than spilling out via over‑minting or unbounded cash‑outs.  
@@ -54,7 +54,7 @@ Reserve Ratio = Liquid Backing Assets (USD) / Total Outstanding Spendable M$
 | C       | 0.75 – 0.99         | 0.20 – 0.40                  | 40 – 80                    | Paused     | May hold steady only                   |
 | D       | < 0.75              | 0.10                         | 20 – 40                    | Frozen     | No increases; automatic tightening     |
 
-Ms. Jarvis recalculates the reserve ratio daily and applies the appropriate band at the next epoch.
+Ms. Allis recalculates the reserve ratio daily and applies the appropriate band at the next epoch.
 
 ---
 
@@ -104,7 +104,7 @@ broader Appalachian economic commons.
 |--------|------------|-----------------------------------------|--------------------------------------------------------------------------------------------------|
 | 1      | 30%        | Harmony for Hope, Inc. (H4H Operations) | Covers nonprofit administration, staffing, compliance, legal, and program delivery costs         |
 | 2      | 30%        | Treasury Reserve                        | Grows the MountainShares backing reserve; supports phase transition thresholds and liquidity     |
-| 3      | 15%        | Platform Development                    | Funds ongoing development of The Commons app, Ms. Jarvis infrastructure, and technical systems  |
+| 3      | 15%        | Platform Development                    | Funds ongoing development of The Commons app, Ms. Allis infrastructure, and technical systems  |
 | 4      | 15%        | Community Programs                      | Supports structured programs: education, mutual aid, time-banking, cultural preservation, etc.  |
 | 5      | 10%        | Community Projects                      | Funds member-initiated or DAO-approved local projects within the West Virginia commons           |
 | —      | +0.55%     | Treasury Reserve (Supplemental)         | An additional 0.55% of gross transaction volume accrues directly to the Treasury Reserve        |
