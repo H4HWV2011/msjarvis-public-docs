@@ -11,7 +11,7 @@
 
 ## Executive Summary
 
-This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Jarvis geospatial intelligence platform. This represents a documented commitment of human capital—now 5,308 hours, equivalent to approximately 2.6 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
+This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Allis geospatial intelligence platform. This represents a documented commitment of human capital—now 5,308 hours, equivalent to approximately 2.6 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
 
 ---
 
@@ -24,13 +24,13 @@ This document establishes the financial and technical scope of infrastructure de
 
 ### Work Model
 - **Daily Commitment:** 16 hours/day, often extending past midnight  
-- **Protected Hours:** 9:00am–1:30pm allocated to Medicaid Waiver care; all other waking hours dedicated to Ms. Jarvis and related infrastructure development  
+- **Protected Hours:** 9:00am–1:30pm allocated to Medicaid Waiver care; all other waking hours dedicated to Ms. Allis and related infrastructure development  
 - **No weekends/weekdays distinction** — continuous infrastructure-critical work supporting 24/7 system availability and rapid-response debugging cycles
 
 ---
 
 ### Intellectual Property Allocation
-The MountainShares mutual credit system and associated commons governance configurations are being developed for use by Harmony for Hope as part of its charitable mission. The Ms. Jarvis Geospatial Intelligence Platform is proprietary software owned by Kidd's Technical Services, LLC and is made available to Harmony for Hope under a non‑exclusive, royalty‑free license for use in support of MountainShares and related community benefit projects.
+The MountainShares mutual credit system and associated commons governance configurations are being developed for use by Harmony for Hope as part of its charitable mission. The Ms. Allis Geospatial Intelligence Platform is proprietary software owned by Kidd's Technical Services, LLC and is made available to Harmony for Hope under a non‑exclusive, royalty‑free license for use in support of MountainShares and related community benefit projects.
 
 ---
 
@@ -42,7 +42,7 @@ The MountainShares mutual credit system and associated commons governance config
 - Commons-based governance database schema  
 - Integration with geographic property data (GBIM)  
 
-### 2. Ms. Jarvis Geospatial Intelligence Platform
+### 2. Ms. Allis Geospatial Intelligence Platform
 - Full system integration achieved (December 25, 2025)  
 - Microservices architecture (Docker, FastAPI, Uvicorn)  
 - GBIM Integration: Geographic Building Information Model spatial data pipeline  
@@ -114,7 +114,7 @@ This $796,200 constitutes founder's equity in MountainShares, not a charitable d
 1. **Governance Authority:** Voting stake in community decision-making regarding mutual credit issuance, land trust acquisition, and resource allocation.  
 2. **Veto Power:** Authority to prevent proposals that dilute commons principles or introduce extractive external capital.  
 3. **Stakeholder Standing:** Legitimate seat at negotiation tables with county commissioners, WVDO, USDA Rural Development, and federal agencies.  
-4. **Intellectual Property Stake:** Ownership interest in Ms. Jarvis platform infrastructure developed for the commons.  
+4. **Intellectual Property Stake:** Ownership interest in Ms. Allis platform infrastructure developed for the commons.  
 
 ### Non-Dilutable Commons Investment
 
@@ -143,7 +143,7 @@ Unlike venture capital, this investment:
 
 ### For AppalachianShares Regional Expansion
 
-- Replicable Architecture: Ms. Jarvis design can scale to regional mutual credit networks across Appalachia.  
+- Replicable Architecture: Ms. Allis design can scale to regional mutual credit networks across Appalachia.  
 - Documented Methodology: Complete development timeline and technical decisions available for knowledge transfer.  
 - Community Precedent: Shows feasibility of member-led technical infrastructure development without dependence on venture capital.  
 
@@ -188,7 +188,7 @@ This is a governance and economic reality issue, not a tax issue.
 | Sept 11, 2025   | 16    | System failure response; 10TB external drive for data recovery  | Infrastructure resilience improvements; capacity expansion             |
 | Oct 8, 2025     | 16    | Hardware retrofit; migrated to Lenovo infrastructure            | Hardware consolidation; system reliability improvements                |
 | Nov 26–28, 2025 | 48    | Base metal rebuild; comprehensive documentation initiated       | Complete system rewrite; documentation foundations established        |
-| Dec 25, 2025    | 16    | Ms. Jarvis full system mesh achieved — all microservices integrated | Full operational integration of GBIM, GeoDB, ChromaDB, LLM layer   |
+| Dec 25, 2025    | 16    | Ms. Allis full system mesh achieved — all microservices integrated | Full operational integration of GBIM, GeoDB, ChromaDB, LLM layer   |
 | Jan 6, 2026     | 16    | GPU/CPU communication bug; OS reinstall and stabilization       | Hardware/software integration resolved; system stability improved      |
 
 ---
@@ -225,7 +225,7 @@ This is a governance and economic reality issue, not a tax issue.
 - Records 5,308 hours with date-specific task descriptions, time blocks, and explicit days off, suitable for audit or grant review.  
 
 **Technical Deliverables:**  
-- Ms. Jarvis repository (microservices architecture, GBIM, GeoDB, ChromaDB, LLM orchestration).  
+- Ms. Allis repository (microservices architecture, GBIM, GeoDB, ChromaDB, LLM orchestration).  
 - MountainShares smart contract and mutual credit ledger backend codebase.  
 - Database schema documentation (PostGIS, ChromaDB, PostgreSQL).  
 - Docker Compose configurations and deployment procedures.  
@@ -258,7 +258,7 @@ Examples of eligible funding sources include:
 ### Scaling to AppalachianShares
 
 This infrastructure can be replicated across the broader Appalachian region with documented methodology and reduced development risk. Future implementations can:  
-- Leverage the existing Ms. Jarvis code base.  
+- Leverage the existing Ms. Allis code base.  
 - Use proven Docker-based microservices deployment procedures.  
 - Adapt geospatial data layers for new regional contexts.  
 - Reduce time-to-implementation for additional communities.  
