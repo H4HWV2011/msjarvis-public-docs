@@ -1,7 +1,7 @@
 # Case Studies in Polymathmatic Geography
 
 > *"The territorial brain only matters if the body knows what to do with it."*
-> — Use Cases, Ms. Jarvis Project
+> — Use Cases, Ms. Allis Project
 
 This folder contains grounded empirical and theoretical applications of Polymathmatic Geography — the worked examples that prove the discipline is not only coherent but operational. These case studies move from philosophical foundations through spatial analysis to documented AI system behavior, demonstrating the full arc from theory to practice.
 
@@ -17,7 +17,7 @@ Taken as a set, the eight documents in this folder establish three things:
 
 2. **The discipline can be operationalized** — from philosophical argument (Kant, Durkheim) to live SQL queries against a PostGIS database, Polymathmatic Geography is not only a theoretical framework but an analytical infrastructure.
 
-3. **The system works in practice** — the Prefrontal Alignment Episode and the PALCO False-Positive Problem document how Ms. Jarvis's constitutional architecture performs under real conditions, including edge cases the designers did not anticipate.
+3. **The system works in practice** — the Prefrontal Alignment Episode and the PALCO False-Positive Problem document how Ms. Allis's constitutional architecture performs under real conditions, including edge cases the designers did not anticipate.
 
 ---
 
@@ -27,9 +27,9 @@ Taken as a set, the eight documents in this folder establish three things:
 
 | Document | What It Demonstrates |
 |---|---|
-| [Absentee Ownership Concentration in Fayette County, WV](./Absentee%20Ownership%20Concentration%20in%20Fayette%20County%2C%20West%20Virginia.md) | The flagship empirical case. A full spatial analysis of 287 parcels totaling 50,697 acres in Fayette County held by four interrelated corporate entities tracing to a single institutional timberland investment organization in Chapel Hill, NC — acquired in part through federal New Markets Tax Credit financing with unresolved community benefit obligations. Capital lineage traced from West Texas oil dynasty through T. Rowe Price to current Fayette County holdings. Produced by Kidd's Technical Services using the Ms. Jarvis GIS system. |
+| [Absentee Ownership Concentration in Fayette County, WV](./Absentee%20Ownership%20Concentration%20in%20Fayette%20County%2C%20West%20Virginia.md) | The flagship empirical case. A full spatial analysis of 287 parcels totaling 50,697 acres in Fayette County held by four interrelated corporate entities tracing to a single institutional timberland investment organization in Chapel Hill, NC — acquired in part through federal New Markets Tax Credit financing with unresolved community benefit obligations. Capital lineage traced from West Texas oil dynasty through T. Rowe Price to current Fayette County holdings. Produced by Kidd's Technical Services using the Ms. Allis GIS system. |
 | [Cooperative Instrument](./Cooperative%20Instrument.md) | How cooperative structures reorganize the geography of value, obligation, and governance — the cooperative as a spatial institution, not merely an economic one. The theoretical basis for MountainShares' closed-loop economic design. |
-| [Use Cases](./Use%20Cases.md) | Concrete, plain-language descriptions of what Ms. Jarvis, MountainShares, and The Commons actually do for real people: commons and local credit, data center infrastructure stress analysis, and peer-to-peer steward hub networks. The entry point for community partners, planners, and elected officials. |
+| [Use Cases](./Use%20Cases.md) | Concrete, plain-language descriptions of what Ms. Allis, MountainShares, and The Commons actually do for real people: commons and local credit, data center infrastructure stress analysis, and peer-to-peer steward hub networks. The entry point for community partners, planners, and elected officials. |
 
 ### Philosophical and Theoretical Foundations
 
@@ -43,7 +43,7 @@ Taken as a set, the eight documents in this folder establish three things:
 | Document | What It Demonstrates |
 |---|---|
 | [The PALCO False-Positive Problem](./The%20PALCO%20False-Positive%20Problem.md) | A worked case in Blood-Brain Barrier (BBB) filter calibration. Documents how content safety systems can produce geographic injustice when community-specific language — place names, occupational terms, cultural references — triggers false positives designed for urban or national corpora. The case for locally-grounded safety calibration in community AI systems. |
-| [Prefrontal Alignment Episode](./Prefrontal%20Alignment%20Episode.md) | A documented real-time AI alignment event in Ms. Jarvis. Records how the prefrontal constitutional constraint architecture resolved a values conflict between competing system objectives without human intervention — and what that resolution reveals about the design requirements for trustworthy AI in community governance contexts. |
+| [Prefrontal Alignment Episode](./Prefrontal%20Alignment%20Episode.md) | A documented real-time AI alignment event in Ms. Allis. Records how the prefrontal constitutional constraint architecture resolved a values conflict between competing system objectives without human intervention — and what that resolution reveals about the design requirements for trustworthy AI in community governance contexts. |
 
 ### Overview and Navigation
 
@@ -78,7 +78,7 @@ Taken as a set, the eight documents in this folder establish three things:
 
 These case studies are not illustrations appended to finished theory. They are **constitutive of the discipline itself** — the empirical and operational tests that determine whether Polymathmatic Geography is rigorous, exportable, and honest about its limits.
 
-- The **Absentee Ownership case** is the primary proof that Ms. Jarvis's spatial intelligence infrastructure surfaces findings that matter to real communities using only public records.
+- The **Absentee Ownership case** is the primary proof that Ms. Allis's spatial intelligence infrastructure surfaces findings that matter to real communities using only public records.
 - The **PALCO and Prefrontal cases** are the primary proof that the system's safety architecture performs as designed under real conditions.
 - The **Use Cases document** is the primary interface between the technical system and the community it serves.
 - The **philosophical and theoretical cases** establish that the discipline's foundations are coherent enough to generate falsifiable claims and testable designs.
