@@ -1,4 +1,4 @@
-# The Ms. Jarvis Steward System  
+# The Ms. Allis Steward System  
 
 **Where:** Mount Hope, West Virginia  
 **What:** A live AI Steward System, not a demo  
@@ -6,9 +6,9 @@
 
 ---
 
-## 1. What is Ms. Jarvis?
+## 1. What is Ms. Allis?
 
-Ms. Jarvis is a **transparent AI helper** for communities.  
+Ms. Allis is a **transparent AI helper** for communities.  
 It does not replace people, leaders, or laws. Instead, it:
 
 - Helps organize local data and stories.  
@@ -17,14 +17,14 @@ It does not replace people, leaders, or laws. Instead, it:
 
 All of this is tied to real locations in West Virginia: parcels, buildings, roads, and public data.
 
-Ms. Jarvis is part of a bigger research project called **Polymathmatic Geography**, which studies places where land, law, computers, money, stories, and faith are already tangled together.
+Ms. Allis is part of a bigger research project called **Polymathmatic Geography**, which studies places where land, law, computers, money, stories, and faith are already tangled together.
 
 ---
 
 ## 2. The three big questions we are testing
 
 **Q1. Trust and clarity**  
-Do residents, partners, and auditors feel that Ms. Jarvis is easier to understand and trust than a black‑box AI or a hard‑to‑follow government process?
+Do residents, partners, and auditors feel that Ms. Allis is easier to understand and trust than a black‑box AI or a hard‑to‑follow government process?
 
 **Q2. Seeing extraction**  
 Can the system make hidden patterns of “taking without giving back” visible on the map, so that local people can act on them?
@@ -38,7 +38,7 @@ These are the questions we are measuring in pilots and ongoing use.
 
 ## 3. How the system works in 8 steps
 
-The picture of the Ms. Jarvis architecture shows this loop. In plain words:
+The picture of the Ms. Allis architecture shows this loop. In plain words:
 
 1. **A question comes in**  
    A resident or partner asks something like:  
@@ -84,7 +84,7 @@ This is a live stack in daily use, not a slide deck.
 
 ---
 
-## 5. What makes Ms. Jarvis different
+## 5. What makes Ms. Allis different
 
 Most AI systems:
 
@@ -92,7 +92,7 @@ Most AI systems:
 - Are trained on global data, with little sense of place.  
 - Ask you to “trust the model” without showing receipts.
 
-Ms. Jarvis is built to be different:
+Ms. Allis is built to be different:
 
 - **Place‑based:** Every answer is tied back to real locations in West Virginia.  
 - **Traceable:** People can see which data, sources, and rules fed into a given response.  
@@ -111,7 +111,7 @@ You can think of the work in three nested layers:
 2. **Quantarithmia (the theory)**  
    A set of ideas and measures for understanding big financial actors (“maximopolies”), big platforms (“megaopolies”), and fairer local alternatives.
 
-3. **Ms. Jarvis and MountainShares (the tools in the world)**  
+3. **Ms. Allis and MountainShares (the tools in the world)**  
    The actual running system and local economic program that put the ideas to the test in West Virginia.
 
 The thesis asks: *Do these ideas still make sense when they touch the ground?*
@@ -122,14 +122,14 @@ The thesis asks: *Do these ideas still make sense when they touch the ground?*
 
 **Main risks:**
 
-- People might treat Ms. Jarvis as if it were a person, a bank, or a government office.  
+- People might treat Ms. Allis as if it were a person, a bank, or a government office.  
 - The models might quietly learn patterns that favor already powerful actors.  
 - Local commons and conversations could be captured by a small group.  
 - Sacred places, cemeteries, or family histories could be treated as “just data.”
 
 **Current guardrails:**
 
-- Written **non‑goals**: Ms. Jarvis is *not* a person, a bank, a regulator, or an investment scheme.  
+- Written **non‑goals**: Ms. Allis is *not* a person, a bank, a regulator, or an investment scheme.  
 - **Glass‑box design**: logs, data sources, and rules are visible and reviewable.  
 - **Charters and policies**: MountainShares and The Commons have clear rules, roles, and audit paths.  
 - **Human review** on sensitive questions and flagged answers.
