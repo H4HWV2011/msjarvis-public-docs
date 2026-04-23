@@ -2,10 +2,10 @@
 
 > **Disciplinary Context**  
 > - **Instrument:** Economic Commons – a deliberately designed, closed‑loop payment and governance system treated as shared institutional infrastructure rather than a speculative asset.  
-> - **Discipline:** Polymathmatic Geography – studying how economic, legal, digital, and cultural flows shape and are shaped by specific places, beginning with Mount Hope and surrounding West Virginia communities. See: https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **Discipline:** Polymathmatic Geography – studying how economic, legal, digital, and cultural flows shape and are shaped by specific places, beginning with Mount Hope and surrounding West Virginia communities. See: https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
 > - **Framework:** Quantarithmia – a multi‑layered architecture for consciousness, governance, and spatial reasoning that treats systems like MountainShares as glass‑box instruments embedded in community life. See:  
->   - https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia%20Overview.md  
->   - https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Quantarithmia-Framework.md  
+>   - https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Quantarithmia%20Overview.md  
+>   - https://github.com/H4HWV2011/msAllis-public-docs/blob/main/docs/Quantarithmia-Framework.md  
 
 MountainShares is a DAO‑based economic and governance system intended to keep value, voice, and decision‑making rooted in Appalachian communities, beginning in and around Mount Hope, West Virginia. It operates as a community‑governed project and does not replace or act as a bank, credit union, or regulated financial institution, and is not offered or intended as a security, investment contract, or investment product.
 
@@ -17,11 +17,11 @@ MountainShares is a DAO‑based economic and governance system intended to keep 
 
 The MountainShares DAO is intended to facilitate local participation and stewardship of community resources, not to provide participants with profits, dividends, or guaranteed financial returns.
 
-## Relationship to Ms. Jarvis
+## Relationship to Ms. Allis
 
-- Ms. Egeria Jarvis is designed to function as an aligned, “glassbox” AI advisor and tooling layer for MountainShares governance and operations, not as an ultimate authority or owner.  
-- AI behavior is constrained by published constitutional principles, technical safeguards, and human‑approved policies. Ms. Jarvis can surface information, analysis, and recommendations, but final decisions are made by human participants and/or designated governance bodies in accordance with applicable law.  
-- Ms. Jarvis is assigned a real MountainShares wallet and can receive MountainShares‑denominated rewards under rules defined through governance (for example, for providing useful analysis, monitoring, or operational support). This is intended to align her incentives with overall system health and community benefit, not to grant independent control over governance or treasury assets, and does not give Ms. Jarvis any ownership interest in Harmony for Hope, the MountainShares DAO, or any underlying assets.
+- Ms. Egeria Allis is designed to function as an aligned, “glassbox” AI advisor and tooling layer for MountainShares governance and operations, not as an ultimate authority or owner.  
+- AI behavior is constrained by published constitutional principles, technical safeguards, and human‑approved policies. Ms. Allis can surface information, analysis, and recommendations, but final decisions are made by human participants and/or designated governance bodies in accordance with applicable law.  
+- Ms. Allis is assigned a real MountainShares wallet and can receive MountainShares‑denominated rewards under rules defined through governance (for example, for providing useful analysis, monitoring, or operational support). This is intended to align her incentives with overall system health and community benefit, not to grant independent control over governance or treasury assets, and does not give Ms. Allis any ownership interest in Harmony for Hope, the MountainShares DAO, or any underlying assets.
 
 ## Governance (High‑Level)
 
@@ -29,7 +29,7 @@ The MountainShares DAO is intended to facilitate local participation and steward
 - **Fee structure:** Fees are currently structured so that most friction is at the boundaries (when converting into the closed loop and on the merchant side) with the goal of making everyday local spend feel low‑friction for participants. Any fee structure is subject to change by appropriate governance processes and must remain compliant with applicable laws and payment‑provider terms. Fees are program‑level charges for participation in this closed‑loop system and do not represent interest, dividends, or investment returns.  
 - **Supermajority changes:** A supermajority threshold (for example, 67%) is reserved for defined categories of “constitutional” or otherwise hard‑to‑reverse changes, and is intended to be used only once there is sufficient usage and participation to make such votes representative.  
 - **Early‑phase monitors:** In early phases, clearly scoped “system monitor” roles handle safety‑related fixes, abuse response, and limited operational adjustments under documented authority, while the broader community builds familiarity with proposals, voting, and review processes. The intent (not a guarantee) is to expand community control over time as participation and capacity grow. Monitors act under limited, documented authority and remain subject to Harmony for Hope’s legal and fiduciary obligations and to all Applicable Law.  
-- **Ms. Jarvis rewards:** Any rewards or balances allocated to Ms. Jarvis’s wallet are subject to explicit, published policies (for example, caps, clawback conditions, auditing, and transparency requirements) so that her financial participation remains aligned with community interests and cannot be used to override, capture, or unduly influence governance.
+- **Ms. Allis rewards:** Any rewards or balances allocated to Ms. Allis’s wallet are subject to explicit, published policies (for example, caps, clawback conditions, auditing, and transparency requirements) so that her financial participation remains aligned with community interests and cannot be used to override, capture, or unduly influence governance.
 
 ## Speech and Community Norms (Draft)
 
