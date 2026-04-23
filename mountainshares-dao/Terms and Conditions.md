@@ -5,7 +5,7 @@
 
 > **Disciplinary Context: Appalachian Economic Commons**  
 > This document instantiates Polymathmatic Geography principles P1, P9, P16, and related axioms for the Appalachian economic commons:  
-> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2–8 and 10 structure PMS/EMS, phases, treasury, and benefits‑sensitive rules as one coupled legal‑economic field that governs how value, rights, and risks move through West Virginia communities. See https://github.com/H4HWV2011/msjarvis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
+> - **P1 – Every where is entangled / Leakage and enclosure:** Sections 2–8 and 10 structure PMS/EMS, phases, treasury, and benefits‑sensitive rules as one coupled legal‑economic field that governs how value, rights, and risks move through West Virginia communities. See https://github.com/H4HWV2011/msallis-public-docs/blob/main/docs/Polymathmatical-Geography.md  
 > - **P9 – Transparency and traceability:** Definitions, risk disclaimers, benefits language, and governance/change clauses make the legal treatment of MountainShares, internal buying power, and program wind‑down legible and auditable to users, regulators, and local institutions.  
 > - **P16 – Power accountable to place:** Sections 1, 3, 4, 5, 8, 10, and 12 bind Harmony for Hope, DAO actors, and partners to West Virginia law, nonprofit duties, treasury constraints, and public‑benefit sensitivities, prioritizing local safety over abstract speculation.  
 > - **Anti‑leakage and closed‑loop spending:** Sections 2–3, 4, 5, 6, and 7 define MountainShares as closed‑loop rewards, restrict external conversion, and limit PMS refunds to original loads, operationalizing legal containment of leakage while keeping in‑network value flows flexible.  
