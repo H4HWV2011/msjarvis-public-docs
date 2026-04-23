@@ -157,18 +157,18 @@ No system can be guaranteed to be perfectly secure. Users should maintain good s
 Some Program data, including contribution records and governance events, may be written to or referenced from immutable or append‑only systems.
 
 - Where possible, we avoid placing raw personally identifiable information directly on public, readable chains or public IPFS.  
-- Sensitive participation data may be stored in encrypted form or referenced by hashes, with decryption keys controlled by system components such as Ms. Jarvis and backend services, not by the general public.  
+- Sensitive participation data may be stored in encrypted form or referenced by hashes, with decryption keys controlled by system components such as Ms. Allis and backend services, not by the general public.  
 - Because of the nature of these systems, certain records, once written, may be difficult or impossible to fully delete.
 
 Participants should avoid uploading sensitive personal content except where explicitly requested and handled under specific procedures.
 
-### 5.4 GBIM Layer and Ms. Jarvis
+### 5.4 GBIM Layer and Ms. Allis
 
 In addition to standard account and log records, the system maintains a separate, append‑only “GBIM” layer that stores certain Program data for analytical and safety purposes.
 
 - GBIM records are written as structured, encrypted payloads to an immutable store and are keyed primarily by internal identifiers or UEIs, rather than by names or direct contact details.  
-- These records are designed to be readable only by authorized system components such as Ms. Jarvis and backend services; they are not intended to be directly accessible to general users or the public.  
-- In normal operation, Ms. Jarvis processes GBIM data in a pseudonymous way and only links it back to specific user accounts where this is necessary and permitted (for example, to protect safety, enforce Program rules, or meet legal obligations).
+- These records are designed to be readable only by authorized system components such as Ms. Allis and backend services; they are not intended to be directly accessible to general users or the public.  
+- In normal operation, Ms. Allis processes GBIM data in a pseudonymous way and only links it back to specific user accounts where this is necessary and permitted (for example, to protect safety, enforce Program rules, or meet legal obligations).
 
 This layered design is intended to preserve a durable history of participation and system state while limiting routine exposure of identifiable information.
 
