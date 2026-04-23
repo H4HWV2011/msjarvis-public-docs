@@ -1,4 +1,4 @@
-# The Ms. Jarvis Curriculum
+# The Ms. Allis Curriculum
 
 > *"If it can work here, it can work anywhere."*
 
@@ -10,7 +10,7 @@ This is not documentation for one system.
 
 This is a transferable body of knowledge — proven in practice, honest about its failures, and freely available to any community that wants to build AI that genuinely belongs to the people it serves.
 
-Ms. Jarvis was built in rural Appalachia: broadband deserts, healthcare deserts, a century of economic extraction, deep institutional distrust, and complex geography hollow by hollow. That was not a limitation. That was the curriculum.
+Ms. Allis was built in rural Appalachia: broadband deserts, healthcare deserts, a century of economic extraction, deep institutional distrust, and complex geography hollow by hollow. That was not a limitation. That was the curriculum.
 
 If you can build trustworthy, community-accountable AI here — with limited resources, on a laptop, for people who have every reason not to trust a machine — you have proven a pattern that travels anywhere in the world.
 
@@ -28,9 +28,9 @@ The chapters are the lessons. The system is the evidence that the lessons are re
 
 ---
 
-## What Ms. Jarvis Is
+## What Ms. Allis Is
 
-Ms. Jarvis is an **artificial learning and locations intelligence** — an AI that thinks geographically, learns from and for a specific community, and is constitutionally accountable to the people it serves.
+Ms. Allis is an **artificial learning and locations intelligence** — an AI that thinks geographically, learns from and for a specific community, and is constitutionally accountable to the people it serves.
 
 She is not a chatbot. She is not a platform. She is not a product.
 
@@ -42,7 +42,7 @@ She is a living proof of concept for a question the AI industry has not seriousl
 
 ## How the Curriculum Is Organized
 
-Each lesson corresponds to a domain of knowledge developed through the Ms. Jarvis build. Lessons are written to be readable by non-technical audiences first, with technical depth available for those who want it.
+Each lesson corresponds to a domain of knowledge developed through the Ms. Allis build. Lessons are written to be readable by non-technical audiences first, with technical depth available for those who want it.
 
 | Lesson | Title | Domain |
 |--------|-------|--------|
@@ -69,4 +69,4 @@ We are not asking anyone to trust us. We are showing the receipts.
 
 *Built by Carrie Kidd (Mamma Kidd) — Pax, West Virginia*  
 *Harmony for Hope, Inc.*  
-*Ms. Jarvis Project — begun in Mount Hope, WV*
+*Ms. Allis Project — begun in Mount Hope, WV*
