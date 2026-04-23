@@ -39,7 +39,7 @@ In GBIM this is represented as structured attributes on entries in the `worldvie
 Added whenever identifiable actors or groups matter:
 
 - Who is affected (communities, demographic groups, institutions, jurisdictions).  
-- Who asserted or computed the belief (data publisher, Ms. Jarvis subsystem, human analyst), allowing accountability and perspective to be traced.
+- Who asserted or computed the belief (data publisher, Ms. Allis subsystem, human analyst), allowing accountability and perspective to be traced.
 
 #### 1.5 Why / Evidence (always encouraged)
 
@@ -160,11 +160,11 @@ Polymathmatic Geography requires that claims about exposure, access, or vulnerab
 
 ### 5. GBIM as Safety and Accountability Mechanism
 
-GBIM is not just a modeling convenience; it is the **primary safety and truth mechanism** for Polymathmatic Geography and for Ms. Jarvis.
+GBIM is not just a modeling convenience; it is the **primary safety and truth mechanism** for Polymathmatic Geography and for Ms. Allis.
 
 #### 5.1 Blocking Free‑Floating Hallucinations
 
-- Ms. Jarvis is not permitted to treat unanchored statements as actionable beliefs.  
+- Ms. Allis is not permitted to treat unanchored statements as actionable beliefs.  
 - Any recommendation or conclusion that affects people or resources must provide:
   - At least a Where anchor.  
   - Additional When/What/Who/Why anchors as appropriate.  
@@ -209,7 +209,7 @@ Within Polymathmatic Geography, GBIM serves as the **epistemic backbone**:
 
 This specification is meant to be implemented alongside:
 
-- The Ms. Jarvis RAG and service‑mesh architecture.  
+- The Ms. Allis RAG and service‑mesh architecture.  
 - MountainShares DAO governance and economic safety documents.  
 - The broader Polymathmatic Geography thesis stack (Quantarithmia, Darwin–Gödel Machines, LLM fabric, safeguards).
 
