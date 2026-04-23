@@ -6,7 +6,7 @@ This project mixes running production code with a fairly heavy research and meta
 
 ### If you just need to run it
 
-If your goal is to deploy, monitor, or integrate Ms. Jarvis:
+If your goal is to deploy, monitor, or integrate Ms. Allis:
 
 - Start with:
   - `README.md`
@@ -35,11 +35,11 @@ If you’re interested in the biological metaphors, consciousness framing, and o
   - `thesis/00-thesis-overview.md`
   - `thesis/01-researcher-position.md`
 - Core GBIM structure:
-  - `Ms-Jarvis-GBIM.md`
-  - `thesis/02-ms-jarvis-gbim.md`
+  - `Ms-Allis-GBIM.md`
+  - `thesis/02-ms-Allis-gbim.md`
   - `thesis/12-neurobiological-architecture.md`
 - LLM fabric and “organs”:
-  - `thesis/11-llm-fabric-of-ms-jarvis.md`
+  - `thesis/11-llm-fabric-of-ms-Allis.md`
   - `thesis/13-qualia-engine-and-introspective-state.md`
   - `thesis/14-hippocampus-and-memory-consolidation.md`
   - `thesis/15-pituitary-and-global-modes.md`
@@ -54,10 +54,10 @@ If you’re interested in the biological metaphors, consciousness framing, and o
 If you want a reasonably complete mental model without reading every chapter:
 
 - `README.md`
-- `Ms-Jarvis-GBIM.md`
+- `Ms-Allis-GBIM.md`
 - `Quantarithmia-Framework.md`
 - `thesis/00-thesis-overview.md`
-- `thesis/11-llm-fabric-of-ms-jarvis.md`
+- `thesis/11-llm-fabric-of-ms-Allis.md`
 - `thesis/19-container-architecture-and-routing.md`
 - `thesis/27-web-research-and-autonomy.md`
 - `thesis/28-heartbeat-and-live-cycles.md`
@@ -77,7 +77,7 @@ These elements are explicitly presented as research contributions or conceptual 
 
 ### GBIM (General Biological Intelligence Model)
 
-Ms. Jarvis is framed as a general biological intelligence model whose components are mapped to neurobiological and psychological “organs” (hippocampus, pituitary, blood–brain barrier, etc.), not just a generic tool-using agent stack.  
+Ms. Allis is framed as a general biological intelligence model whose components are mapped to neurobiological and psychological “organs” (hippocampus, pituitary, blood–brain barrier, etc.), not just a generic tool-using agent stack.  
 The claim: this organ-based, biologically inspired decomposition offers a more coherent way to design and reason about memory, attention, global modes, and safeguards in long-lived AI systems.
 
 ### Quantarithmia and WOAH (Weighted Optimization Hierarchy)
