@@ -3505,3 +3505,532 @@ ORDER BY tablename, indexname;
 
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ 
 
+crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ echo "=== Compare local_resources column schemas ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT column_name, data_type, ordinal_position
+FROM information_schema.columns
+WHERE table_name = 'local_resources' AND table_schema = 'public'
+ORDER BY ordinal_position;
+"
+
+echo ""
+echo "=== Same for jarvis-local-resources-db ==="
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "
+SELECT column_name, data_type, ordinal_position
+FROM information_schema.columns
+WHERE table_name = 'local_resources' AND table_schema = 'public'
+ORDER BY ordinal_position;
+"
+
+echo ""
+echo "=== Row count in each local_resources ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "SELECT count(*) AS recovery_rows FROM local_resources;"
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "SELECT count(*) AS geo_rows FROM local_resources;"
+
+echo ""
+echo "=== Tables ONLY in jarvis-local-resources-db (unique work) ==="
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "
+" 2>/dev/null | head -30_tables WHERE schemaname='public' ORDER BY tablename;"ame=msjarvisgis',
+=== Compare local_resources column schemas ===
+      column_name       |        data_type         | ordinal_position 
+------------------------+--------------------------+------------------
+ id                     | integer                  |                1
+ name                   | text                     |                2
+ resource_type          | text                     |                3
+ county                 | text                     |                4
+ state                  | text                     |                5
+ zip_codes              | text                     |                6
+ phone                  | text                     |                7
+ email                  | text                     |                8
+ url                    | text                     |                9
+ snippet                | text                     |               10
+ contact_name           | text                     |               11
+ contact_email          | text                     |               12
+ contact_phone          | text                     |               13
+ last_verified_at       | timestamp with time zone |               14
+ verification_status    | text                     |               15
+ source_url             | text                     |               16
+ verification_notes     | text                     |               17
+ geom                   | USER-DEFINED             |               18
+ address                | text                     |               19
+ city                   | text                     |               20
+ zip                    | text                     |               21
+ lat                    | double precision         |               22
+ lon                    | double precision         |               23
+ building_id            | bigint                   |               24
+ description            | text                     |               25
+ zip_coverage           | text                     |               26
+ for_whom_program       | text                     |               27
+ for_whom_fpl_pct       | numeric                  |               28
+ for_whom_max_income_1p | numeric                  |               29
+ for_whom_max_income_2p | numeric                  |               30
+ for_whom_max_income_3p | numeric                  |               31
+ for_whom_max_income_4p | numeric                  |               32
+ for_whom_max_income_5p | numeric                  |               33
+ for_whom_max_income_6p | numeric                  |               34
+ for_whom_notes         | text                     |               35
+(35 rows)
+
+
+=== Same for jarvis-local-resources-db ===
+     column_name     |        data_type         | ordinal_position 
+---------------------+--------------------------+------------------
+ id                  | integer                  |                1
+ name                | text                     |                2
+ resource_type       | text                     |                3
+ county              | text                     |                4
+ state               | text                     |                5
+ zip_codes           | text                     |                6
+ phone               | text                     |                7
+ email               | text                     |                8
+ url                 | text                     |                9
+ snippet             | text                     |               10
+ contact_name        | text                     |               11
+ contact_email       | text                     |               12
+ contact_phone       | text                     |               13
+ last_verified_at    | timestamp with time zone |               14
+ verification_status | text                     |               15
+ source_url          | text                     |               16
+ verification_notes  | text                     |               17
+(17 rows)
+
+
+=== Row count in each local_resources ===
+ recovery_rows 
+---------------
+            80
+(1 row)
+
+ geo_rows 
+----------
+       14
+(1 row)
+
+
+=== Tables ONLY in jarvis-local-resources-db (unique work) ===
+            tablename             |  size   
+----------------------------------+---------
+ zcta_polygons                    | 865 MB
+ fayette_parcels                  | 6088 kB
+ samhsa_provider_stage            | 4720 kB
+ samhsa_provider_spatial_grounded | 3312 kB
+ samhsa_provider_building_join    | 3296 kB
+ wv_zip_zcta_raw                  | 480 kB
+ canonical_layers                 | 128 kB
+ memories                         | 80 kB
+ spatial_role_scopes              | 40 kB
+ local_resources_index            | 32 kB
+ confidence_decay                 | 24 kB
+ fayette_fire_stations            | 16 kB
+(12 rows)
+
+
+=== geospatial_features: what's in the 38GB table? ===
+                           layer_name                           | features 
+----------------------------------------------------------------+----------
+ buildings                                                      |  4241650
+ wvgistcbuildingfootprints                                      |  4241650
+ wvgistc_building_footprints                                    |  4241650
+ bldg_join__hospitals                                           |  3865276
+ wv_microsoft_20180207_utm17n83                                 |  2040096
+ structurepointssouth_samb_2003_utm83                           |  1490064
+ structurepointsnorth_samb_2003_utm83                           |  1243854
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83 |   648432
+ building_flood_risk                                            |   486222
+ gbim_full_points                                               |   300000
+ blocks_census_2020_wma84                                       |   290232
+ blocks_census_2020_utm83_full                                  |   290232
+ features                                                       |   290232
+ blocks_census_2020_utm83                                       |   290232
+ windenergyresource_nationalrenewableenergylab_200901_utm83     |   209624
+ windenergyresource_nationalrenewableenergylab_200901_wgs84     |   209624
+ faultgl_reg_ll83                                               |   172336
+ faultgl_reg_ll83_attrs_raw                                     |   172336
+ building_flood_risk__floodpoint                                |   162108
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw     |   133950
+(20 rows)
+
+
+=== Does local database 'local_resources' exist? ===
+           tablename            
+--------------------------------
+ building_parcel_county_tax_mat
+ building_profile
+ building_samb_link
+ building_zip6_to_zip5
+ building_zip6_to_zip6poly
+ conversation_beliefs
+ county_lookup
+ enriched_buildings_with_samb
+ gbim_worldview_entity
+ gbim_zcta_2020
+ imm_binder4_raw
+ local_resources
+ local_resources_index
+ mountainshares_participation
+ ms_governance_log
+ ms_participation
+ ms_reserve_bands
+ ms_treasury
+ ms_user_profile
+ spatial_ref_sys
+ spatial_role_scopes
+ travel_regions
+ us_counties
+ us_zips
+ wv_address_aliases
+ wv_address_dual
+ wv_address_points_raw
+ wv_address_zones
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ echo "=== Row count in application local_resources ==="
+docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c "
+SELECT count(*) FROM local_resources;
+"
+
+echo ""
+echo "=== Schema of application local_resources ==="
+docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c "
+SELECT column_name, data_type, ordinal_position
+FROM information_schema.columns
+WHERE table_name = 'local_resources' AND table_schema = 'public'
+ORDER BY ordinal_position;
+"
+
+echo ""
+echo "=== Sample rows from application local_resources ==="
+docker exec jarvis-local-resources-db psql -U postgres -d local_resources -c "
+SELECT id, name, resource_type, county, zip_codes
+FROM local_resources
+LIMIT 10;
+"
+
+echo ""
+echo "=== Sample rows from AUTHORITATIVE local_resources ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT id, name, resource_type, county, zip_codes, zip, lat, lon, verification_status
+FROM local_resources
+"IMIT 10;id
+=== Row count in application local_resources ===
+ count 
+-------
+    48
+(1 row)
+
+
+=== Schema of application local_resources ===
+      column_name       |        data_type         | ordinal_position 
+------------------------+--------------------------+------------------
+ id                     | integer                  |                1
+ name                   | text                     |                2
+ description            | text                     |                3
+ contact_phone          | text                     |                4
+ contact_email          | text                     |                5
+ url                    | text                     |                6
+ county                 | text                     |                7
+ zip_coverage           | text                     |                8
+ resource_type          | text                     |                9
+ verification_status    | text                     |               10
+ last_verified_at       | timestamp with time zone |               11
+ lat                    | double precision         |               12
+ lon                    | double precision         |               13
+ address                | text                     |               14
+ city                   | text                     |               15
+ state                  | text                     |               16
+ geom                   | USER-DEFINED             |               17
+ for_whom_program       | text                     |               18
+ for_whom_fpl_pct       | numeric                  |               19
+ for_whom_max_income_1p | numeric                  |               20
+ for_whom_max_income_2p | numeric                  |               21
+ for_whom_max_income_3p | numeric                  |               22
+ for_whom_max_income_4p | numeric                  |               23
+ for_whom_max_income_5p | numeric                  |               24
+ for_whom_max_income_6p | numeric                  |               25
+ for_whom_notes         | text                     |               26
+ last_verified          | timestamp with time zone |               27
+(27 rows)
+
+
+=== Sample rows from application local_resources ===
+ERROR:  column "zip_codes" does not exist
+LINE 2: SELECT id, name, resource_type, county, zip_codes
+                                                ^
+
+=== Sample rows from AUTHORITATIVE local_resources ===
+ id |                                     name                                      |    resource_type     | county  |                             zip_codes                             | zip |        lat         |        lon         | verification_status 
+----+-------------------------------------------------------------------------------+----------------------+---------+-------------------------------------------------------------------+-----+--------------------+--------------------+---------------------
+  1 | Kanawha County – Christmas Bureau (Heart + Hand Kanawha)                      | seasonal_assistance  | Kanawha | ["25309","25303","25177","25202","25064","25112","25314"]         |     |  38.30849048855011 | -81.75057299745121 | verified
+  2 | Tyler Mountain / Cross Lanes Community Services - Christmas assistance        | seasonal_assistance  | Kanawha | ["25313","25309","25303","25202"]                                 |     |  38.41680331626562 | -81.75647518728465 | verified
+  3 | The Salvation Army - Charleston Area Command - Christmas assistance           | seasonal_assistance  | Kanawha | ["25301","25302","25303","25304","25306","25387"]                 |     |  38.35103535804813 |  -81.6299865003945 | verified
+  8 | Religious Coalition for Community Renewal (RCCR) – Housing Counseling         | housing              | Kanawha | ["25301","25302","25303","25304","25306","25309"]                 |     |  38.35103535804813 |  -81.6299865003945 | unverified
+  9 | Appalachian Center for Independent Living – Community Living Services Program | housing              | Kanawha | ["25301","25302","25303","25304","25306","25309"]                 |     |  38.35103535804813 |  -81.6299865003945 | unverified
+ 10 | Coalfield Community Action Partnership – Weatherization Assistance            | utilities            | Kanawha | ["25064","25301","25303","25177","25309","25112","25314","25202"] |     | 38.376308414928054 | -81.74851452938866 | unverified
+ 11 | Kanawha Valley Senior Services – Core Programs                                | senior_services      | Kanawha | ["25301","25302","25303","25304","25306","25309","25177"]         |     |  38.35103535804813 |  -81.6299865003945 | unverified
+ 12 | Habitat for Humanity Kanawha Putnam – Home Purchase                           | housing              | Kanawha | ["25301","25302","25303","25304","25306","25309","25177"]         |     |  38.35103535804813 |  -81.6299865003945 | unverified
+ 13 | PRIDE Community Services – Weatherization                                     | utilities            | Logan   | ["25601","25661"]                                                 |     |  37.85909901745767 | -82.00466157238719 | unverified
+ 14 | PRIDE Community Services – Emergency Assistance Program                       | emergency_assistance | Logan   | ["25601","25661"]                                                 |     |  37.85909901745767 | -82.00466157238719 | unverified
+(10 rows)
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ echo "=== Georeferenced resources (have lat/lon) ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT 
+    count(*) AS total,
+    count(lat) AS has_lat,
+    count(lon) AS has_lon,
+    count(geom) AS has_geom,
+    count(building_id) AS linked_to_building,
+    count(zip) AS has_zip,
+    count(zip_coverage) AS has_zip_coverage
+FROM local_resources;
+"
+
+echo ""
+echo "=== Resource types in recovery ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT resource_type, count(*) AS count, 
+       count(lat) AS georef,
+       count(zip_coverage) AS has_zip_coverage
+FROM local_resources
+GROUP BY resource_type
+ORDER BY count DESC;
+"
+
+echo ""
+echo "=== Income eligibility data completeness ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+"ROM local_resources;or_whom_max_income_1p IS NOT NULL THEN 1 END) AS has_income_limits
+=== Georeferenced resources (have lat/lon) ===
+ total | has_lat | has_lon | has_geom | linked_to_building | has_zip | has_zip_coverage 
+-------+---------+---------+----------+--------------------+---------+------------------
+    80 |      14 |      14 |       14 |                  0 |       0 |               80
+(1 row)
+
+
+=== Resource types in recovery ===
+    resource_type     | count | georef | has_zip_coverage 
+----------------------+-------+--------+------------------
+ general_community    |    21 |      0 |               21
+ housing_home_repair  |    12 |      0 |               12
+ crisis_safety        |    10 |      0 |               10
+ aging_disability     |     6 |      0 |                6
+ youth_family         |     5 |      0 |                5
+ disability_services  |     4 |      0 |                4
+ housing              |     4 |      4 |                4
+ legal_aid            |     3 |      0 |                3
+ seasonal_assistance  |     3 |      3 |                3
+ transportation       |     3 |      0 |                3
+ utilities            |     2 |      2 |                2
+ tax_relief           |     1 |      1 |                1
+ senior_services      |     1 |      1 |                1
+ food_security        |     1 |      0 |                1
+ veterans             |     1 |      0 |                1
+ emergency_assistance |     1 |      1 |                1
+ case_management      |     1 |      1 |                1
+ emergency_shelter    |     1 |      1 |                1
+(18 rows)
+
+
+=== Income eligibility data completeness ===
+ has_program | has_fpl | has_income_limits 
+-------------+---------+-------------------
+          14 |      10 |                 6
+(1 row)
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ echo "=== Hospitals tables in recovery — schema and rows ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'wv_hospitals' AND table_schema = 'public'
+ORDER BY ordinal_position;
+"
+
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT count(*) AS wv_hospitals_rows FROM wv_hospitals;
+"
+
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT count(*) AS hospitals_rows FROM hospitals;
+"
+
+echo ""
+echo "=== Sample wv_hospitals — do they have county and zip? ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT * FROM wv_hospitals LIMIT 5;
+"
+
+echo ""
+echo "=== OSM hospitals (from jarvis-local-resources-db) ==="
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "
+SELECT column_name, data_type
+FROM information_schema.columns
+"ELECT * FROM osm_hospitals_wv LIMIT 5;sql -U postgres -d msjarvisgis -c "
+=== Hospitals tables in recovery — schema and rows ===
+ column_name  |    data_type     
+--------------+------------------
+ id           | integer
+ name         | text
+ county       | text
+ county_geoid | text
+ address      | text
+ phone        | text
+ lat          | double precision
+ lon          | double precision
+ geom         | USER-DEFINED
+(9 rows)
+
+ wv_hospitals_rows 
+-------------------
+                79
+(1 row)
+
+ hospitals_rows 
+----------------
+              6
+(1 row)
+
+
+=== Sample wv_hospitals — do they have county and zip? ===
+ id  |            name             | county  | county_geoid |    address    | phone |    lat     |     lon     |                        geom                        
+-----+-----------------------------+---------+--------------+---------------+-------+------------+-------------+----------------------------------------------------
+   1 | Plateau Medical Center      | Fayette | 10           |               |       |    38.0423 |    -81.0928 | 0101000020E61000006744696FF04554C0764F1E166A054340
+ 193 | Allegany Allergy & Asthma   | Mineral |              | Cumberland    |       | 39.6515743 | -78.7703042 | 0101000020E61000002CBEFCA94CB153C001B562C966D34340
+ 194 | Belmont Community Hospital  | Ohio    |              | Bellaire      |       | 40.0307664 |  -80.740785 | 0101000020E610000083177D05692F54C067E84427F0034440
+ 195 | Bonifacio Aranas, MD        | Mingo   |              |               |       | 37.8450467 | -82.4176326 | 0101000020E610000095AF157EBA9A54C0DE0B827D2AEC4240
+ 196 | East Ohio Regional Hospital | Ohio    |              | Martins Ferry |       | 40.0986533 | -80.7201952 | 0101000020E61000001EAF9BAD172E54C03D92DCABA00C4440
+(5 rows)
+
+
+=== OSM hospitals (from jarvis-local-resources-db) ===
+ column_name | data_type 
+-------------+-----------
+(0 rows)
+
+ERROR:  relation "osm_hospitals_wv" does not exist
+LINE 2: SELECT count(*) AS osm_hospital_rows FROM osm_hospitals_wv;
+                                                  ^
+ERROR:  relation "osm_hospitals_wv" does not exist
+LINE 2: SELECT * FROM osm_hospitals_wv LIMIT 5;
+                      ^
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ echo "=== zcta_county_rel in msjarvisgis-recovery (18 cols) ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'zcta_county_rel' AND table_schema = 'public'
+ORDER BY ordinal_position;
+"
+
+echo ""
+echo "=== zcta_county_rel in jarvis-local-resources-db (6 cols) ==="
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'zcta_county_rel' AND table_schema = 'public'
+ORDER BY ordinal_position;
+"
+
+echo ""
+echo "=== Row counts ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "SELECT count(*) FROM zcta_county_rel;"
+docker exec jarvis-local-resources-db psql -U postgres -d msjarvisgis -c "SELECT count(*) FROM zcta_county_rel;"
+
+echo ""
+echo "=== Sample from recovery zcta_county_rel ==="
+docker exec msjarvisgis-recovery psql -U postgres -d msjarvisgis -c "
+SELECT * FROM zcta_county_rel WHERE statefp = '54' LIMIT 5;
+"
+=== zcta_county_rel in msjarvisgis-recovery (18 cols) ===
+   column_name    | data_type 
+------------------+-----------
+ oid_zcta5        | bigint
+ geoid_zcta5      | text
+ namelsad_zcta5   | text
+ arealand_zcta5   | bigint
+ areawater_zcta5  | bigint
+ mtfcc_zcta5      | text
+ classfp_zcta5    | text
+ funcstat_zcta5   | text
+ oid_county       | bigint
+ geoid_county     | text
+ namelsad_county  | text
+ arealand_county  | bigint
+ areawater_county | bigint
+ mtfcc_county     | text
+ classfp_county   | text
+ funcstat_county  | text
+ arealand_part    | bigint
+ areawater_part   | bigint
+(18 rows)
+
+
+=== zcta_county_rel in jarvis-local-resources-db (6 cols) ===
+ column_name  |     data_type     
+--------------+-------------------
+ geoid_zcta5  | character varying
+ statefp      | character varying
+ county_geoid | character varying
+ county_fips  | character varying
+ county_name  | character varying
+ overlap_pct  | double precision
+(6 rows)
+
+
+=== Row counts ===
+ count 
+-------
+ 47863
+(1 row)
+
+ count 
+-------
+ 69934
+(1 row)
+
+
+=== Sample from recovery zcta_county_rel ===
+ERROR:  column "statefp" does not exist
+LINE 2: SELECT * FROM zcta_county_rel WHERE statefp = '54' LIMIT 5;
+                                            ^
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ echo "=== Total size of each database ==="
+docker exec msjarvisgis-recovery psql -U postgres -c "
+SELECT datname, pg_size_pretty(pg_database_size(datname)) AS total_size
+FROM pg_database
+WHERE datname NOT IN ('template0','template1','postgres')
+ORDER BY pg_database_size(datname) DESC;
+"
+
+echo ""
+docker exec jarvis-local-resources-db psql -U postgres -c "
+SELECT datname, pg_size_pretty(pg_database_size(datname)) AS total_size
+FROM pg_database
+WHERE datname NOT IN ('template0','template1','postgres')
+ORDER BY pg_database_size(datname) DESC;
+"
+
+echo ""
+docker exec msjarvis-db psql -U postgres -c "
+SELECT datname, pg_size_pretty(pg_database_size(datname)) AS total_size
+FROM pg_database
+WHERE datname NOT IN ('template0','template1','postgres')
+ORDER BY pg_database_size(datname) DESC;
+"
+=== Total size of each database ===
+   datname   | total_size 
+-------------+------------
+ msjarvisgis | 45 GB
+(1 row)
+
+
+     datname      | total_size 
+------------------+------------
+ msjarvisgis      | 94 GB
+ local_resources  | 13 GB
+ template_postgis | 19 MB
+(3 rows)
+
+
+   datname   | total_size 
+-------------+------------
+ msjarvisgis | 8175 kB
+(1 row)
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ 
+
