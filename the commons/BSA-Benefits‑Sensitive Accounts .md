@@ -116,7 +116,7 @@ MountainShares operates in clearly defined phases with automatic treasury-backed
 - Six months later, you lose the job and reapply for Medicaid → re-enable BSA protections
 
 **Scenario 3: Phase 3 unlocks and you have 200 vaulted EMS hours**
-- That's $6,940 potential value (200 × $36.140)
+- That's $7,228 potential value (200 × $36.140)
 - You enable BSA, consult a benefits counselor
 - Counselor advises staged conversion: 50 EMS now, 50 EMS in 6 months, etc.
 - You execute the plan over 2 years to stay under SSI asset limits
