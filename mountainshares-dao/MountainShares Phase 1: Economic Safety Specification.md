@@ -219,7 +219,7 @@ The **Phase Management Controller** enforces three economic phases driven by tre
 | **0.75 – 0.99** | Phase 1 (Conservative) | Vaulted | **Normal** — monthly loading caps enforced (500/1,000 PMS Tier 1/Tier 2) | **Active** — $2.50 fee, 500 PMS daily limit | N/A | Paused when ratio < 1.0 |
 | **1.0 – 1.24** | Phase 1 (Healthy) | Vaulted | **Increased caps possible** via DAO vote (up to 750/1,500 PMS max) | **Active** | N/A | Enabled |
 | **≥ 1.25** | **Phase 2 Unlocked** | **User choice: cash out OR continue vaulting** | Full circulation | **Active** | **Users choose how much EMS to unlock at 10× appreciation (1 EMS = $10)** | Enabled |
-| **≥ 1.50** | **Phase 3 Unlocked** | **User choice at 34.7× appreciation** | Full circulation | **Active** | **Users choose how much EMS to unlock at 34.7× (1 EMS = $34.70)** | Enabled |
+| **≥ 1.50** | **Phase 3 Unlocked** | **User choice at 36.14× appreciation** | Full circulation | **Active** | **Users choose how much EMS to unlock at 36.14× (1 EMS = $36.14)** | Enabled |
 
 **Automatic Trigger Logic (Phase Management Controller enforces):**
 - Reserve ratio calculated as `Treasury USDC / Outstanding Spendable PMS`
@@ -431,7 +431,7 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 
 - **EMS unlocking**: Each user with vaulted EMS time credits receives a one-time opt-in prompt when Phase 2 activates. Users choose:
   - **Cash out now** at 10× appreciation (1 EMS = $10 USD equivalent)
-  - **Continue vaulting** for potential Phase 3 appreciation (34.7×)
+  - **Continue vaulting** for potential Phase 3 appreciation (36.14×)
   - **Partial conversion** — cash out X EMS hours, leave the rest vaulted
 
 - **No forced conversion**: Phase 2 unlocking does **not** automatically convert all EMS to spendable PMS or force withdrawals
@@ -456,7 +456,7 @@ Phase 0 graduated to Phase 1 when the Pre-Launch Audit Report was finalized, all
 - DAO governance participation ≥ 40% quorum on key votes
 
 **Phase 3 Changes:**
-- **EMS appreciation jumps to 34.7×** (1 EMS = $34.70 USD equivalent)
+- **EMS appreciation jumps to 36.14×** (1 EMS = $36.140 USD equivalent)
 - Users with remaining vaulted EMS receive new opt-in prompt for Phase 3 conversion
 - Stage 3 platform features (Full Commerce/Amazon-style) fully activated
 - Regional expansion beyond West Virginia pilot may begin
@@ -547,7 +547,7 @@ Every UEI can see (updated daily):
 
 - **UEI:** Unique Entity Identifier (per user, including individuals and orgs)
 
-- **EMS (Earned MountainShares) — Time Bank Credits:** Hours of community service logged to the MountainShares time bank recognition ledger. Represent reciprocal non-monetary exchanges where one hour of service = one time credit, regardless of service type. **Non-taxable per IRS time banking precedent** — not wages, not income, not countable assets for benefits purposes. Vaulted in Phase 1 (visible but not convertible to prepaid value). Unlock for user-choice conversion in Phase 2+ at appreciation multipliers (10× Phase 2, 34.7× Phase 3). Do not count toward reserve ratio until user opts to convert.
+- **EMS (Earned MountainShares) — Time Bank Credits:** Hours of community service logged to the MountainShares time bank recognition ledger. Represent reciprocal non-monetary exchanges where one hour of service = one time credit, regardless of service type. **Non-taxable per IRS time banking precedent** — not wages, not income, not countable assets for benefits purposes. Vaulted in Phase 1 (visible but not convertible to prepaid value). Unlock for user-choice conversion in Phase 2+ at appreciation multipliers (10× Phase 2, 36.14× Phase 3). Do not count toward reserve ratio until user opts to convert.
 
 **Result:** Users maintain full control over timing and amount of EMS conversion. Treasury only pays out USDC for EMS that users actively choose to convert. Vaulted EMS continues appreciating if Phase 3 unlocks. Benefits-sensitive participants can defer conversion or convert in small amounts to manage eligibility impact.
 
