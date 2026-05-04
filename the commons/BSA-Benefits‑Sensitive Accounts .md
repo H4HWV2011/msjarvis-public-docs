@@ -256,6 +256,6 @@ If you need benefits navigation help, contact **WV Legal Aid: 1‑800‑642‑82
 ---
 
 *Version 3.0 — Revised May 2026 to reflect time bank framework and user-choice Phase 2/3 conversion model*  
-*Authors: Carrie Kidd (Mamma Kidd), Ms. Egeria Allis*  
+*Authors: Carrie Kidd (Mamma Kidd)
 *Harmony for Hope, Inc. — Mount Hope, West Virginia*  
 *Status: Draft — Pending Benefits Attorney Review before Phase 1 activation*
