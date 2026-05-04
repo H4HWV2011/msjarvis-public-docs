@@ -1,2551 +1,4389 @@
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/utils/data/dataset.py
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/ms-allis-frontend$ # Find the real app services, not .venv
-find ~/msjarvis-rebuild-working/msjarvis-rebuild -name "*.py" \
-  -not -path "*/.venv/*" \
-  -not -path "*/site-packages/*" | head -30
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/ms-allis-frontend$ cat /tmp/all_699_schemas.txt 
+                           table_name                            |           column_name           |          data_type          | ordinal_position 
+-----------------------------------------------------------------+---------------------------------+-----------------------------+------------------
+ 911centers_wvdem_032819_gcs84                                   | geodbid                         | integer                     |                1
+ 911centers_wvdem_032819_gcs84                                   | geom                            | USER-DEFINED                |                2
+ 911centers_wvdem_032819_gcs84                                   | label                           | text                        |                3
+ 911centers_wvdem_032819_gcs84                                   | sourcetable                     | text                        |                4
+ 911centers_wvdem_032819_gcs84                                   | country                         | text                        |                5
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | geodbid                         | integer                     |                1
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | lat                             | double precision            |                2
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | lon                             | double precision            |                3
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | bbox                            | text                        |                4
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | label                           | text                        |                5
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | sourcetable                     | text                        |                6
+ 911centers_wvdem_032819_gcs84_attrs_raw                         | country                         | text                        |                7
+ 911centers_wvdem_032819_utm83                                   | geodbid                         | integer                     |                1
+ 911centers_wvdem_032819_utm83                                   | geom                            | USER-DEFINED                |                2
+ 911centers_wvdem_032819_utm83                                   | label                           | text                        |                3
+ 911centers_wvdem_032819_utm83                                   | sourcetable                     | text                        |                4
+ 911centers_wvdem_032819_utm83                                   | country                         | text                        |                5
+ 911centers_wvdem_032819_utm83_attrs_raw                         | geodbid                         | integer                     |                1
+ 911centers_wvdem_032819_utm83_attrs_raw                         | lat                             | double precision            |                2
+ 911centers_wvdem_032819_utm83_attrs_raw                         | lon                             | double precision            |                3
+ 911centers_wvdem_032819_utm83_attrs_raw                         | bbox                            | text                        |                4
+ 911centers_wvdem_032819_utm83_attrs_raw                         | label                           | text                        |                5
+ 911centers_wvdem_032819_utm83_attrs_raw                         | sourcetable                     | text                        |                6
+ 911centers_wvdem_032819_utm83_attrs_raw                         | country                         | text                        |                7
+ amtrackrails_federalrailroadadministration_200210_ll83          | geodbid                         | integer                     |                1
+ amtrackrails_federalrailroadadministration_200210_ll83          | geom                            | USER-DEFINED                |                2
+ amtrackrails_federalrailroadadministration_200210_ll83          | label                           | text                        |                3
+ amtrackrails_federalrailroadadministration_200210_ll83          | sourcetable                     | text                        |                4
+ amtrackrails_federalrailroadadministration_200210_ll83          | country                         | text                        |                5
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | geodbid                         | integer                     |                1
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | lat                             | double precision            |                2
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | lon                             | double precision            |                3
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | bbox                            | text                        |                4
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | label                           | text                        |                5
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | sourcetable                     | text                        |                6
+ amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | country                         | text                        |                7
+ amtrackrails_federalrailroadadministration_200210_utm83         | geodb_id                        | bigint                      |                1
+ amtrackrails_federalrailroadadministration_200210_utm83         | geodbid                         | integer                     |                1
+ amtrackrails_federalrailroadadministration_200210_utm83         | lat                             | numeric                     |                2
+ amtrackrails_federalrailroadadministration_200210_utm83         | geom                            | USER-DEFINED                |                2
+ amtrackrails_federalrailroadadministration_200210_utm83         | label                           | text                        |                3
+ amtrackrails_federalrailroadadministration_200210_utm83         | lon                             | numeric                     |                3
+ amtrackrails_federalrailroadadministration_200210_utm83         | bbox                            | text                        |                4
+ amtrackrails_federalrailroadadministration_200210_utm83         | sourcetable                     | text                        |                4
+ amtrackrails_federalrailroadadministration_200210_utm83         | label                           | text                        |                5
+ amtrackrails_federalrailroadadministration_200210_utm83         | country                         | text                        |                5
+ amtrackrails_federalrailroadadministration_200210_utm83         | sourcetable                     | text                        |                6
+ amtrackrails_federalrailroadadministration_200210_utm83         | country                         | text                        |                7
+ amtrackrails_federalrailroadadministration_200210_utm83         | geom                            | USER-DEFINED                |                8
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | geodbid                         | integer                     |                1
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | lat                             | double precision            |                2
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | lon                             | double precision            |                3
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | bbox                            | text                        |                4
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | label                           | text                        |                5
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | sourcetable                     | text                        |                6
+ amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | country                         | text                        |                7
+ amtrackrails_fra_200210_ll83_attrs_raw                          | geodb_id                        | integer                     |                1
+ amtrackrails_fra_200210_ll83_attrs_raw                          | lat                             | double precision            |                2
+ amtrackrails_fra_200210_ll83_attrs_raw                          | lon                             | double precision            |                3
+ amtrackrails_fra_200210_ll83_attrs_raw                          | bbox                            | text                        |                4
+ amtrackrails_fra_200210_ll83_attrs_raw                          | label                           | text                        |                5
+ amtrackrails_fra_200210_ll83_attrs_raw                          | sourcetable                     | text                        |                6
+ amtrackrails_fra_200210_ll83_attrs_raw                          | country                         | text                        |                7
+ amtrackrails_fra_200210_utm83_attrs_raw                         | geodb_id                        | integer                     |                1
+ amtrackrails_fra_200210_utm83_attrs_raw                         | lat                             | double precision            |                2
+ amtrackrails_fra_200210_utm83_attrs_raw                         | lon                             | double precision            |                3
+ amtrackrails_fra_200210_utm83_attrs_raw                         | bbox                            | text                        |                4
+ amtrackrails_fra_200210_utm83_attrs_raw                         | label                           | text                        |                5
+ amtrackrails_fra_200210_utm83_attrs_raw                         | sourcetable                     | text                        |                6
+ amtrackrails_fra_200210_utm83_attrs_raw                         | country                         | text                        |                7
+ attrs_files_list                                                | id                              | integer                     |                1
+ attrs_files_list                                                | full_path                       | text                        |                2
+ attrs_files_list                                                | basename                        | text                        |                3
+ attrs_files_list                                                | table_name                      | text                        |                4
+ attrs_inventory_detailed                                        | id                              | integer                     |                1
+ attrs_inventory_detailed                                        | file_path                       | text                        |                2
+ attrs_inventory_detailed                                        | can_join_to_buildings           | text                        |                3
+ attrs_inventory_detailed                                        | join_strategy                   | text                        |                4
+ attrs_inventory_detailed                                        | priority                        | text                        |                5
+ attrs_inventory_detailed                                        | notes                           | text                        |                6
+ attrs_inventory_detailed                                        | source_table                    | text                        |                7
+ attrs_inventory_detailed                                        | belief_proposition              | text                        |                8
+ attrs_inventory_detailed                                        | belief_proposition_code         | text                        |                9
+ attrs_inventory_detailed                                        | belief_tags                     | ARRAY                       |               10
+ authority_references                                            | authority_id                    | integer                     |                1
+ authority_references                                            | authority_name                  | text                        |                2
+ authority_references                                            | authority_type                  | text                        |                3
+ authority_references                                            | issuing_body                    | text                        |                4
+ authority_references                                            | doc_source                      | text                        |                5
+ authority_references                                            | summary                         | text                        |                6
+ authority_references                                            | created_at                      | timestamp with time zone    |                7
+ benefit_case                                                    | case_id                         | bigint                      |                1
+ benefit_case                                                    | client_id                       | bigint                      |                2
+ benefit_case                                                    | program_code                    | text                        |                3
+ benefit_case                                                    | status                          | text                        |                4
+ benefit_case                                                    | status_effective_date           | date                        |                5
+ benefit_case                                                    | source_type                     | text                        |                6
+ benefit_county_daycare                                          | id                              | uuid                        |                1
+ benefit_county_daycare                                          | county_geoid                    | text                        |                2
+ benefit_county_daycare                                          | county_name                     | text                        |                3
+ benefit_county_daycare                                          | program_code                    | text                        |                4
+ benefit_county_daycare                                          | active_enrollments              | integer                     |                5
+ benefit_county_daycare                                          | pending_tasks                   | integer                     |                6
+ benefit_county_daycare                                          | last_updated                    | timestamp with time zone    |                7
+ benefit_county_daycare                                          | geom                            | USER-DEFINED                |                8
+ benefit_county_medicaid                                         | id                              | uuid                        |                1
+ benefit_county_medicaid                                         | county_geoid                    | text                        |                2
+ benefit_county_medicaid                                         | county_name                     | text                        |                3
+ benefit_county_medicaid                                         | program_code                    | text                        |                4
+ benefit_county_medicaid                                         | active_enrollments              | integer                     |                5
+ benefit_county_medicaid                                         | pending_tasks                   | integer                     |                6
+ benefit_county_medicaid                                         | last_updated                    | timestamp with time zone    |                7
+ benefit_county_medicaid                                         | geom                            | USER-DEFINED                |                8
+ benefit_county_medicare                                         | id                              | uuid                        |                1
+ benefit_county_medicare                                         | county_geoid                    | text                        |                2
+ benefit_county_medicare                                         | county_name                     | text                        |                3
+ benefit_county_medicare                                         | program_code                    | text                        |                4
+ benefit_county_medicare                                         | active_enrollments              | integer                     |                5
+ benefit_county_medicare                                         | pending_tasks                   | integer                     |                6
+ benefit_county_medicare                                         | last_updated                    | timestamp with time zone    |                7
+ benefit_county_medicare                                         | geom                            | USER-DEFINED                |                8
+ benefit_county_section8                                         | id                              | uuid                        |                1
+ benefit_county_section8                                         | county_geoid                    | text                        |                2
+ benefit_county_section8                                         | county_name                     | text                        |                3
+ benefit_county_section8                                         | program_code                    | text                        |                4
+ benefit_county_section8                                         | active_enrollments              | integer                     |                5
+ benefit_county_section8                                         | pending_tasks                   | integer                     |                6
+ benefit_county_section8                                         | last_updated                    | timestamp with time zone    |                7
+ benefit_county_section8                                         | geom                            | USER-DEFINED                |                8
+ benefit_county_snap                                             | id                              | uuid                        |                1
+ benefit_county_snap                                             | county_geoid                    | text                        |                2
+ benefit_county_snap                                             | county_name                     | text                        |                3
+ benefit_county_snap                                             | program_code                    | text                        |                4
+ benefit_county_snap                                             | active_enrollments              | integer                     |                5
+ benefit_county_snap                                             | pending_tasks                   | integer                     |                6
+ benefit_county_snap                                             | last_updated                    | timestamp with time zone    |                7
+ benefit_county_snap                                             | geom                            | USER-DEFINED                |                8
+ benefit_county_ssi                                              | id                              | uuid                        |                1
+ benefit_county_ssi                                              | county_geoid                    | text                        |                2
+ benefit_county_ssi                                              | county_name                     | text                        |                3
+ benefit_county_ssi                                              | program_code                    | text                        |                4
+ benefit_county_ssi                                              | active_enrollments              | integer                     |                5
+ benefit_county_ssi                                              | pending_tasks                   | integer                     |                6
+ benefit_county_ssi                                              | last_updated                    | timestamp with time zone    |                7
+ benefit_county_ssi                                              | geom                            | USER-DEFINED                |                8
+ benefit_county_tanf                                             | id                              | uuid                        |                1
+ benefit_county_tanf                                             | county_geoid                    | text                        |                2
+ benefit_county_tanf                                             | county_name                     | text                        |                3
+ benefit_county_tanf                                             | program_code                    | text                        |                4
+ benefit_county_tanf                                             | active_enrollments              | integer                     |                5
+ benefit_county_tanf                                             | pending_tasks                   | integer                     |                6
+ benefit_county_tanf                                             | last_updated                    | timestamp with time zone    |                7
+ benefit_county_tanf                                             | geom                            | USER-DEFINED                |                8
+ benefit_county_utility20                                        | id                              | uuid                        |                1
+ benefit_county_utility20                                        | county_geoid                    | text                        |                2
+ benefit_county_utility20                                        | county_name                     | text                        |                3
+ benefit_county_utility20                                        | program_code                    | text                        |                4
+ benefit_county_utility20                                        | active_enrollments              | integer                     |                5
+ benefit_county_utility20                                        | pending_tasks                   | integer                     |                6
+ benefit_county_utility20                                        | last_updated                    | timestamp with time zone    |                7
+ benefit_county_utility20                                        | geom                            | USER-DEFINED                |                8
+ benefit_county_wic                                              | id                              | uuid                        |                1
+ benefit_county_wic                                              | county_geoid                    | text                        |                2
+ benefit_county_wic                                              | county_name                     | text                        |                3
+ benefit_county_wic                                              | program_code                    | text                        |                4
+ benefit_county_wic                                              | active_enrollments              | integer                     |                5
+ benefit_county_wic                                              | pending_tasks                   | integer                     |                6
+ benefit_county_wic                                              | last_updated                    | timestamp with time zone    |                7
+ benefit_county_wic                                              | geom                            | USER-DEFINED                |                8
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | building_id                     | bigint                      |                1
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | geodb_id                        | bigint                      |                2
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | lat                             | double precision            |                3
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | lon                             | double precision            |                4
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | bbox                            | text                        |                5
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | label                           | text                        |                6
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | sourcetable                     | text                        |                7
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | country                         | text                        |                8
+ bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | geom                            | USER-DEFINED                |                9
+ bldg_join__hospitals                                            | building_id                     | bigint                      |                1
+ bldg_join__hospitals                                            | geodb_id                        | bigint                      |                2
+ bldg_join__hospitals                                            | lat                             | double precision            |                3
+ bldg_join__hospitals                                            | lon                             | double precision            |                4
+ bldg_join__hospitals                                            | bbox                            | text                        |                5
+ bldg_join__hospitals                                            | label                           | text                        |                6
+ bldg_join__hospitals                                            | sourcetable                     | text                        |                7
+ bldg_join__hospitals                                            | country                         | text                        |                8
+ bldg_join__hospitals                                            | geom                            | USER-DEFINED                |                9
+ bldg_join__hospitals                                            | dist_m                          | double precision            |               10
+ blockgroups_census_2000_ll83                                    | geodbid                         | integer                     |                1
+ blockgroups_census_2000_ll83                                    | geom                            | USER-DEFINED                |                2
+ blockgroups_census_2000_ll83                                    | label                           | text                        |                3
+ blockgroups_census_2000_ll83                                    | sourcetable                     | text                        |                4
+ blockgroups_census_2000_ll83                                    | country                         | text                        |                5
+ blockgroups_census_2000_ll83_attrs_raw                          | geodbid                         | integer                     |                1
+ blockgroups_census_2000_ll83_attrs_raw                          | lat                             | double precision            |                2
+ blockgroups_census_2000_ll83_attrs_raw                          | lon                             | double precision            |                3
+ blockgroups_census_2000_ll83_attrs_raw                          | bbox                            | text                        |                4
+ blockgroups_census_2000_ll83_attrs_raw                          | label                           | text                        |                5
+ blockgroups_census_2000_ll83_attrs_raw                          | sourcetable                     | text                        |                6
+ blockgroups_census_2000_ll83_attrs_raw                          | country                         | text                        |                7
+ blockgroups_census_2000_utm83                                   | geodb_id                        | bigint                      |                1
+ blockgroups_census_2000_utm83                                   | geodbid                         | integer                     |                1
+ blockgroups_census_2000_utm83                                   | lat                             | numeric                     |                2
+ blockgroups_census_2000_utm83                                   | geom                            | USER-DEFINED                |                2
+ blockgroups_census_2000_utm83                                   | lon                             | numeric                     |                3
+ blockgroups_census_2000_utm83                                   | label                           | text                        |                3
+ blockgroups_census_2000_utm83                                   | bbox                            | text                        |                4
+ blockgroups_census_2000_utm83                                   | sourcetable                     | text                        |                4
+ blockgroups_census_2000_utm83                                   | country                         | text                        |                5
+ blockgroups_census_2000_utm83                                   | label                           | text                        |                5
+ blockgroups_census_2000_utm83                                   | sourcetable                     | text                        |                6
+ blockgroups_census_2000_utm83                                   | country                         | text                        |                7
+ blockgroups_census_2000_utm83                                   | geom                            | USER-DEFINED                |                8
+ blockgroups_census_2000_utm83_attrs_raw                         | geodbid                         | integer                     |                1
+ blockgroups_census_2000_utm83_attrs_raw                         | lat                             | double precision            |                2
+ blockgroups_census_2000_utm83_attrs_raw                         | lon                             | double precision            |                3
+ blockgroups_census_2000_utm83_attrs_raw                         | bbox                            | text                        |                4
+ blockgroups_census_2000_utm83_attrs_raw                         | label                           | text                        |                5
+ blockgroups_census_2000_utm83_attrs_raw                         | sourcetable                     | text                        |                6
+ blockgroups_census_2000_utm83_attrs_raw                         | country                         | text                        |                7
+ blockgroups_census_201111_gcs83                                 | geodbid                         | integer                     |                1
+ blockgroups_census_201111_gcs83                                 | geom                            | USER-DEFINED                |                2
+ blockgroups_census_201111_gcs83                                 | label                           | text                        |                3
+ blockgroups_census_201111_gcs83                                 | sourcetable                     | text                        |                4
+ blockgroups_census_201111_gcs83                                 | country                         | text                        |                5
+ blockgroups_census_201111_gcs83_attrs_raw                       | geodbid                         | integer                     |                1
+ blockgroups_census_201111_gcs83_attrs_raw                       | lat                             | double precision            |                2
+ blockgroups_census_201111_gcs83_attrs_raw                       | lon                             | double precision            |                3
+ blockgroups_census_201111_gcs83_attrs_raw                       | bbox                            | text                        |                4
+ blockgroups_census_201111_gcs83_attrs_raw                       | label                           | text                        |                5
+ blockgroups_census_201111_gcs83_attrs_raw                       | sourcetable                     | text                        |                6
+ blockgroups_census_201111_gcs83_attrs_raw                       | country                         | text                        |                7
+ blockgroups_census_201111_utm83                                 | geodbid                         | integer                     |                1
+ blockgroups_census_201111_utm83                                 | geodb_id                        | bigint                      |                1
+ blockgroups_census_201111_utm83                                 | lat                             | numeric                     |                2
+ blockgroups_census_201111_utm83                                 | geom                            | USER-DEFINED                |                2
+ blockgroups_census_201111_utm83                                 | label                           | text                        |                3
+ blockgroups_census_201111_utm83                                 | lon                             | numeric                     |                3
+ blockgroups_census_201111_utm83                                 | bbox                            | text                        |                4
+ blockgroups_census_201111_utm83                                 | sourcetable                     | text                        |                4
+ blockgroups_census_201111_utm83                                 | country                         | text                        |                5
+ blockgroups_census_201111_utm83                                 | label                           | text                        |                5
+ blockgroups_census_201111_utm83                                 | sourcetable                     | text                        |                6
+ blockgroups_census_201111_utm83                                 | country                         | text                        |                7
+ blockgroups_census_201111_utm83                                 | geom                            | USER-DEFINED                |                8
+ blockgroups_census_201111_utm83_attrs_raw                       | geodbid                         | integer                     |                1
+ blockgroups_census_201111_utm83_attrs_raw                       | lat                             | double precision            |                2
+ blockgroups_census_201111_utm83_attrs_raw                       | lon                             | double precision            |                3
+ blockgroups_census_201111_utm83_attrs_raw                       | bbox                            | text                        |                4
+ blockgroups_census_201111_utm83_attrs_raw                       | label                           | text                        |                5
+ blockgroups_census_201111_utm83_attrs_raw                       | sourcetable                     | text                        |                6
+ blockgroups_census_201111_utm83_attrs_raw                       | country                         | text                        |                7
+ blockgroups_census_2020_utm83                                   | geodbid                         | integer                     |                1
+ blockgroups_census_2020_utm83                                   | geodb_id                        | bigint                      |                1
+ blockgroups_census_2020_utm83                                   | lat                             | numeric                     |                2
+ blockgroups_census_2020_utm83                                   | geom                            | USER-DEFINED                |                2
+ blockgroups_census_2020_utm83                                   | label                           | text                        |                3
+ blockgroups_census_2020_utm83                                   | lon                             | numeric                     |                3
+ blockgroups_census_2020_utm83                                   | sourcetable                     | text                        |                4
+ blockgroups_census_2020_utm83                                   | bbox                            | text                        |                4
+ blockgroups_census_2020_utm83                                   | country                         | text                        |                5
+ blockgroups_census_2020_utm83                                   | label                           | text                        |                5
+ blockgroups_census_2020_utm83                                   | sourcetable                     | text                        |                6
+ blockgroups_census_2020_utm83                                   | country                         | text                        |                7
+ blockgroups_census_2020_utm83                                   | geom                            | USER-DEFINED                |                8
+ blockgroups_census_2020_utm83_attrs_raw                         | geodbid                         | integer                     |                1
+ blockgroups_census_2020_utm83_attrs_raw                         | lat                             | double precision            |                2
+ blockgroups_census_2020_utm83_attrs_raw                         | lon                             | double precision            |                3
+ blockgroups_census_2020_utm83_attrs_raw                         | bbox                            | text                        |                4
+ blockgroups_census_2020_utm83_attrs_raw                         | label                           | text                        |                5
+ blockgroups_census_2020_utm83_attrs_raw                         | sourcetable                     | text                        |                6
+ blockgroups_census_2020_utm83_attrs_raw                         | country                         | text                        |                7
+ blockgroups_census_2020_utm83_full                              | country                         | text                        |                1
+ blockgroups_census_2020_utm83_full                              | geodbid                         | integer                     |                2
+ blockgroups_census_2020_utm83_full                              | geoid20                         | character varying           |                3
+ blockgroups_census_2020_utm83_full                              | tractce20                       | character varying           |                4
+ blockgroups_census_2020_utm83_full                              | blkgrpce20                      | character varying           |                5
+ blockgroups_census_2020_utm83_full                              | countyfp20                      | character varying           |                6
+ blockgroups_census_2020_utm83_full                              | statefp20                       | character varying           |                7
+ blockgroups_census_2020_utm83_full                              | namelsad                        | character varying           |                8
+ blockgroups_census_2020_utm83_full                              | label                           | text                        |                9
+ blockgroups_census_2020_utm83_full                              | geom                            | USER-DEFINED                |               10
+ blockgroups_census_2020_wma84                                   | geodbid                         | integer                     |                1
+ blockgroups_census_2020_wma84                                   | geom                            | USER-DEFINED                |                2
+ blockgroups_census_2020_wma84                                   | label                           | text                        |                3
+ blockgroups_census_2020_wma84                                   | sourcetable                     | text                        |                4
+ blockgroups_census_2020_wma84                                   | country                         | text                        |                5
+ blockgroups_census_2020_wma84_attrs_raw                         | geodbid                         | integer                     |                1
+ blockgroups_census_2020_wma84_attrs_raw                         | lat                             | double precision            |                2
+ blockgroups_census_2020_wma84_attrs_raw                         | lon                             | double precision            |                3
+ blockgroups_census_2020_wma84_attrs_raw                         | bbox                            | text                        |                4
+ blockgroups_census_2020_wma84_attrs_raw                         | label                           | text                        |                5
+ blockgroups_census_2020_wma84_attrs_raw                         | sourcetable                     | text                        |                6
+ blockgroups_census_2020_wma84_attrs_raw                         | country                         | text                        |                7
+ blocks_census_2020_utm83                                        | geodbid                         | integer                     |                1
+ blocks_census_2020_utm83                                        | geodb_id                        | bigint                      |                1
+ blocks_census_2020_utm83                                        | geom                            | USER-DEFINED                |                2
+ blocks_census_2020_utm83                                        | lat                             | numeric                     |                2
+ blocks_census_2020_utm83                                        | label                           | text                        |                3
+ blocks_census_2020_utm83                                        | lon                             | numeric                     |                3
+ blocks_census_2020_utm83                                        | bbox                            | text                        |                4
+ blocks_census_2020_utm83                                        | sourcetable                     | text                        |                4
+ blocks_census_2020_utm83                                        | country                         | text                        |                5
+ blocks_census_2020_utm83                                        | label                           | text                        |                5
+ blocks_census_2020_utm83                                        | sourcetable                     | text                        |                6
+ blocks_census_2020_utm83                                        | country                         | text                        |                7
+ blocks_census_2020_utm83                                        | geom                            | USER-DEFINED                |                8
+ blocks_census_2020_utm83_attrs_raw                              | geodbid                         | integer                     |                1
+ blocks_census_2020_utm83_attrs_raw                              | lat                             | double precision            |                2
+ blocks_census_2020_utm83_attrs_raw                              | lon                             | double precision            |                3
+ blocks_census_2020_utm83_attrs_raw                              | bbox                            | text                        |                4
+ blocks_census_2020_utm83_attrs_raw                              | label                           | text                        |                5
+ blocks_census_2020_utm83_attrs_raw                              | sourcetable                     | text                        |                6
+ blocks_census_2020_utm83_attrs_raw                              | country                         | text                        |                7
+ blocks_census_2020_utm83_full                                   | country                         | text                        |                1
+ blocks_census_2020_utm83_full                                   | geodbid                         | integer                     |                2
+ blocks_census_2020_utm83_full                                   | geoid20                         | character varying           |                3
+ blocks_census_2020_utm83_full                                   | blockce20                       | character varying           |                4
+ blocks_census_2020_utm83_full                                   | tractce20                       | character varying           |                5
+ blocks_census_2020_utm83_full                                   | countyfp20                      | character varying           |                6
+ blocks_census_2020_utm83_full                                   | statefp20                       | character varying           |                7
+ blocks_census_2020_utm83_full                                   | name20                          | character varying           |                8
+ blocks_census_2020_utm83_full                                   | label                           | text                        |                9
+ blocks_census_2020_utm83_full                                   | geom                            | USER-DEFINED                |               10
+ blocks_census_2020_wma84                                        | geodbid                         | integer                     |                1
+ blocks_census_2020_wma84                                        | geom                            | USER-DEFINED                |                2
+ blocks_census_2020_wma84                                        | label                           | text                        |                3
+ blocks_census_2020_wma84                                        | sourcetable                     | text                        |                4
+ blocks_census_2020_wma84                                        | country                         | text                        |                5
+ blocks_census_2020_wma84_attrs_raw                              | geodbid                         | integer                     |                1
+ blocks_census_2020_wma84_attrs_raw                              | lat                             | double precision            |                2
+ blocks_census_2020_wma84_attrs_raw                              | lon                             | double precision            |                3
+ blocks_census_2020_wma84_attrs_raw                              | bbox                            | text                        |                4
+ blocks_census_2020_wma84_attrs_raw                              | label                           | text                        |                5
+ blocks_census_2020_wma84_attrs_raw                              | sourcetable                     | text                        |                6
+ blocks_census_2020_wma84_attrs_raw                              | country                         | text                        |                7
+ boundaryappalachianbasin_wvges_1996_utm83                       | geodb_id                        | bigint                      |                1
+ boundaryappalachianbasin_wvges_1996_utm83                       | geodbid                         | integer                     |                1
+ boundaryappalachianbasin_wvges_1996_utm83                       | geom                            | USER-DEFINED                |                2
+ boundaryappalachianbasin_wvges_1996_utm83                       | lat                             | numeric                     |                2
+ boundaryappalachianbasin_wvges_1996_utm83                       | lon                             | numeric                     |                3
+ boundaryappalachianbasin_wvges_1996_utm83                       | label                           | text                        |                3
+ boundaryappalachianbasin_wvges_1996_utm83                       | bbox                            | text                        |                4
+ boundaryappalachianbasin_wvges_1996_utm83                       | sourcetable                     | text                        |                4
+ boundaryappalachianbasin_wvges_1996_utm83                       | country                         | text                        |                5
+ boundaryappalachianbasin_wvges_1996_utm83                       | label                           | text                        |                5
+ boundaryappalachianbasin_wvges_1996_utm83                       | sourcetable                     | text                        |                6
+ boundaryappalachianbasin_wvges_1996_utm83                       | country                         | text                        |                7
+ boundaryappalachianbasin_wvges_1996_utm83                       | geom                            | USER-DEFINED                |                8
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | geodbid                         | integer                     |                1
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | lat                             | double precision            |                2
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | lon                             | double precision            |                3
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | bbox                            | text                        |                4
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | label                           | text                        |                5
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | sourcetable                     | text                        |                6
+ boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | country                         | text                        |                7
+ boundaryappalachianbasin_wvges_1996_wma84                       | geodbid                         | integer                     |                1
+ boundaryappalachianbasin_wvges_1996_wma84                       | label                           | text                        |                2
+ boundaryappalachianbasin_wvges_1996_wma84                       | sourcetable                     | text                        |                3
+ boundaryappalachianbasin_wvges_1996_wma84                       | country                         | text                        |                4
+ boundaryappalachianbasin_wvges_1996_wma84                       | geom                            | USER-DEFINED                |                5
+ bridges                                                         | geodbid                         | integer                     |                1
+ bridges                                                         | geom                            | USER-DEFINED                |                2
+ bridges                                                         | label                           | text                        |                3
+ bridges                                                         | sourcetable                     | text                        |                4
+ bridges                                                         | country                         | text                        |                5
+ bridges_attrs_raw                                               | geodbid                         | integer                     |                1
+ bridges_attrs_raw                                               | lat                             | double precision            |                2
+ bridges_attrs_raw                                               | lon                             | double precision            |                3
+ bridges_attrs_raw                                               | bbox                            | text                        |                4
+ bridges_attrs_raw                                               | label                           | text                        |                5
+ bridges_attrs_raw                                               | sourcetable                     | text                        |                6
+ bridges_attrs_raw                                               | country                         | text                        |                7
+ building_flood_risk                                             | geodb_id                        | bigint                      |                1
+ building_flood_risk                                             | building_id                     | bigint                      |                2
+ building_flood_risk                                             | building_geom                   | USER-DEFINED                |                3
+ building_flood_risk                                             | floodpoint_geom                 | USER-DEFINED                |                4
+ building_flood_risk                                             | structure_label                 | text                        |                5
+ building_flood_risk                                             | sourcetable                     | text                        |                6
+ building_flood_risk                                             | country                         | text                        |                7
+ building_metric_stage                                           | geodb_id                        | bigint                      |                1
+ building_metric_stage                                           | metric_name                     | text                        |                2
+ building_metric_stage                                           | metric_value                    | numeric                     |                3
+ building_metric_stage                                           | metric_conf                     | numeric                     |                4
+ building_metric_stage                                           | metric_source                   | text                        |                5
+ buildings                                                       | building_id                     | bigint                      |                1
+ buildings                                                       | geom                            | USER-DEFINED                |                2
+ calderl_reg_ll83                                                | geodbid                         | integer                     |                1
+ calderl_reg_ll83                                                | geom                            | USER-DEFINED                |                2
+ calderl_reg_ll83                                                | label                           | text                        |                3
+ calderl_reg_ll83                                                | sourcetable                     | text                        |                4
+ calderl_reg_ll83                                                | country                         | text                        |                5
+ calderl_reg_ll83_attrs_raw                                      | geodbid                         | integer                     |                1
+ calderl_reg_ll83_attrs_raw                                      | lat                             | double precision            |                2
+ calderl_reg_ll83_attrs_raw                                      | lon                             | double precision            |                3
+ calderl_reg_ll83_attrs_raw                                      | bbox                            | text                        |                4
+ calderl_reg_ll83_attrs_raw                                      | label                           | text                        |                5
+ calderl_reg_ll83_attrs_raw                                      | sourcetable                     | text                        |                6
+ calderl_reg_ll83_attrs_raw                                      | country                         | text                        |                7
+ canonical_layers                                                | layer_name                      | text                        |                1
+ canonical_layers                                                | canonical_name                  | text                        |                2
+ canonical_layers                                                | is_canonical                    | boolean                     |                3
+ canonical_layers                                                | geometry_type                   | text                        |                4
+ canonical_layers                                                | approx_feature_count            | bigint                      |                5
+ canonical_layers                                                | source_agency                   | text                        |                6
+ canonical_layers                                                | source_year                     | text                        |                7
+ canonical_layers                                                | notes                           | text                        |                8
+ canonical_layers                                                | created_at                      | timestamp with time zone    |                9
+ citieswithpopulation_2500_census_201111_gcs83                   | geodbid                         | integer                     |                1
+ citieswithpopulation_2500_census_201111_gcs83                   | geom                            | USER-DEFINED                |                2
+ citieswithpopulation_2500_census_201111_gcs83                   | label                           | text                        |                3
+ citieswithpopulation_2500_census_201111_gcs83                   | sourcetable                     | text                        |                4
+ citieswithpopulation_2500_census_201111_gcs83                   | country                         | text                        |                5
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | geodbid                         | integer                     |                1
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | lat                             | double precision            |                2
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | lon                             | double precision            |                3
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | bbox                            | text                        |                4
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | label                           | text                        |                5
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | sourcetable                     | text                        |                6
+ citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | country                         | text                        |                7
+ citieswithpopulation_2500_census_201111_utm83                   | geodb_id                        | bigint                      |                1
+ citieswithpopulation_2500_census_201111_utm83                   | geodbid                         | integer                     |                1
+ citieswithpopulation_2500_census_201111_utm83                   | geom                            | USER-DEFINED                |                2
+ citieswithpopulation_2500_census_201111_utm83                   | lat                             | numeric                     |                2
+ citieswithpopulation_2500_census_201111_utm83                   | lon                             | numeric                     |                3
+ citieswithpopulation_2500_census_201111_utm83                   | label                           | text                        |                3
+ citieswithpopulation_2500_census_201111_utm83                   | bbox                            | text                        |                4
+ citieswithpopulation_2500_census_201111_utm83                   | sourcetable                     | text                        |                4
+ citieswithpopulation_2500_census_201111_utm83                   | country                         | text                        |                5
+ citieswithpopulation_2500_census_201111_utm83                   | label                           | text                        |                5
+ citieswithpopulation_2500_census_201111_utm83                   | sourcetable                     | text                        |                6
+ citieswithpopulation_2500_census_201111_utm83                   | country                         | text                        |                7
+ citieswithpopulation_2500_census_201111_utm83                   | geom                            | USER-DEFINED                |                8
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | geodbid                         | integer                     |                1
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | lat                             | double precision            |                2
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | lon                             | double precision            |                3
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | bbox                            | text                        |                4
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | label                           | text                        |                5
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | sourcetable                     | text                        |                6
+ citieswithpopulation_2500_census_201111_utm83_attrs_raw         | country                         | text                        |                7
+ citieswithpopulationover10k_census_201111_gcs83                 | geodbid                         | integer                     |                1
+ citieswithpopulationover10k_census_201111_gcs83                 | geom                            | USER-DEFINED                |                2
+ citieswithpopulationover10k_census_201111_gcs83                 | label                           | text                        |                3
+ citieswithpopulationover10k_census_201111_gcs83                 | sourcetable                     | text                        |                4
+ citieswithpopulationover10k_census_201111_gcs83                 | country                         | text                        |                5
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | geodbid                         | integer                     |                1
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | lat                             | double precision            |                2
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | lon                             | double precision            |                3
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | bbox                            | text                        |                4
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | label                           | text                        |                5
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | sourcetable                     | text                        |                6
+ citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | country                         | text                        |                7
+ citieswithpopulationover10k_uscensus_1990_ll83                  | geodbid                         | integer                     |                1
+ citieswithpopulationover10k_uscensus_1990_ll83                  | geom                            | USER-DEFINED                |                2
+ citieswithpopulationover10k_uscensus_1990_ll83                  | label                           | text                        |                3
+ citieswithpopulationover10k_uscensus_1990_ll83                  | sourcetable                     | text                        |                4
+ citieswithpopulationover10k_uscensus_1990_ll83                  | country                         | text                        |                5
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | geodbid                         | integer                     |                1
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | lat                             | double precision            |                2
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | lon                             | double precision            |                3
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | bbox                            | text                        |                4
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | label                           | text                        |                5
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | sourcetable                     | text                        |                6
+ citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | country                         | text                        |                7
+ citieswithpopulationover10k_uscensus_1990_utm83                 | geodb_id                        | bigint                      |                1
+ citieswithpopulationover10k_uscensus_1990_utm83                 | geodbid                         | integer                     |                1
+ citieswithpopulationover10k_uscensus_1990_utm83                 | lat                             | numeric                     |                2
+ citieswithpopulationover10k_uscensus_1990_utm83                 | geom                            | USER-DEFINED                |                2
+ citieswithpopulationover10k_uscensus_1990_utm83                 | label                           | text                        |                3
+ citieswithpopulationover10k_uscensus_1990_utm83                 | lon                             | numeric                     |                3
+ citieswithpopulationover10k_uscensus_1990_utm83                 | sourcetable                     | text                        |                4
+ citieswithpopulationover10k_uscensus_1990_utm83                 | bbox                            | text                        |                4
+ citieswithpopulationover10k_uscensus_1990_utm83                 | label                           | text                        |                5
+ citieswithpopulationover10k_uscensus_1990_utm83                 | country                         | text                        |                5
+ citieswithpopulationover10k_uscensus_1990_utm83                 | sourcetable                     | text                        |                6
+ citieswithpopulationover10k_uscensus_1990_utm83                 | country                         | text                        |                7
+ citieswithpopulationover10k_uscensus_1990_utm83                 | geom                            | USER-DEFINED                |                8
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | geodbid                         | integer                     |                1
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | lat                             | double precision            |                2
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | lon                             | double precision            |                3
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | bbox                            | text                        |                4
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | label                           | text                        |                5
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | sourcetable                     | text                        |                6
+ citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | country                         | text                        |                7
+ citieswithpopulationover2500_uscensus_1990_ll83                 | geodbid                         | integer                     |                1
+ citieswithpopulationover2500_uscensus_1990_ll83                 | geom                            | USER-DEFINED                |                2
+ citieswithpopulationover2500_uscensus_1990_ll83                 | label                           | text                        |                3
+ citieswithpopulationover2500_uscensus_1990_ll83                 | sourcetable                     | text                        |                4
+ citieswithpopulationover2500_uscensus_1990_ll83                 | country                         | text                        |                5
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | geodbid                         | integer                     |                1
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | lat                             | double precision            |                2
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | lon                             | double precision            |                3
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | bbox                            | text                        |                4
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | label                           | text                        |                5
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | sourcetable                     | text                        |                6
+ citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | country                         | text                        |                7
+ citieswithpopulationsover10k_census_2020_utm83                  | geodb_id                        | bigint                      |                1
+ citieswithpopulationsover10k_census_2020_utm83                  | geodbid                         | integer                     |                1
+ citieswithpopulationsover10k_census_2020_utm83                  | geom                            | USER-DEFINED                |                2
+ citieswithpopulationsover10k_census_2020_utm83                  | lat                             | numeric                     |                2
+ citieswithpopulationsover10k_census_2020_utm83                  | label                           | text                        |                3
+ citieswithpopulationsover10k_census_2020_utm83                  | lon                             | numeric                     |                3
+ citieswithpopulationsover10k_census_2020_utm83                  | bbox                            | text                        |                4
+ citieswithpopulationsover10k_census_2020_utm83                  | sourcetable                     | text                        |                4
+ citieswithpopulationsover10k_census_2020_utm83                  | label                           | text                        |                5
+ citieswithpopulationsover10k_census_2020_utm83                  | country                         | text                        |                5
+ citieswithpopulationsover10k_census_2020_utm83                  | sourcetable                     | text                        |                6
+ citieswithpopulationsover10k_census_2020_utm83                  | country                         | text                        |                7
+ citieswithpopulationsover10k_census_2020_utm83                  | geom                            | USER-DEFINED                |                8
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | geodbid                         | integer                     |                1
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | lat                             | double precision            |                2
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | lon                             | double precision            |                3
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | bbox                            | text                        |                4
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | label                           | text                        |                5
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | sourcetable                     | text                        |                6
+ citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | country                         | text                        |                7
+ citieswithpopulationsover10k_census_2020_wma84                  | geodbid                         | integer                     |                1
+ citieswithpopulationsover10k_census_2020_wma84                  | geom                            | USER-DEFINED                |                2
+ citieswithpopulationsover10k_census_2020_wma84                  | label                           | text                        |                3
+ citieswithpopulationsover10k_census_2020_wma84                  | sourcetable                     | text                        |                4
+ citieswithpopulationsover10k_census_2020_wma84                  | country                         | text                        |                5
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | geodbid                         | integer                     |                1
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | lat                             | double precision            |                2
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | lon                             | double precision            |                3
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | bbox                            | text                        |                4
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | label                           | text                        |                5
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | sourcetable                     | text                        |                6
+ citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | country                         | text                        |                7
+ citieswithpopulationsover2500_census_2020_utm83                 | geodb_id                        | bigint                      |                1
+ citieswithpopulationsover2500_census_2020_utm83                 | geodbid                         | integer                     |                1
+ citieswithpopulationsover2500_census_2020_utm83                 | lat                             | numeric                     |                2
+ citieswithpopulationsover2500_census_2020_utm83                 | geom                            | USER-DEFINED                |                2
+ citieswithpopulationsover2500_census_2020_utm83                 | label                           | text                        |                3
+ citieswithpopulationsover2500_census_2020_utm83                 | lon                             | numeric                     |                3
+ citieswithpopulationsover2500_census_2020_utm83                 | bbox                            | text                        |                4
+ citieswithpopulationsover2500_census_2020_utm83                 | sourcetable                     | text                        |                4
+ citieswithpopulationsover2500_census_2020_utm83                 | country                         | text                        |                5
+ citieswithpopulationsover2500_census_2020_utm83                 | label                           | text                        |                5
+ citieswithpopulationsover2500_census_2020_utm83                 | sourcetable                     | text                        |                6
+ citieswithpopulationsover2500_census_2020_utm83                 | country                         | text                        |                7
+ citieswithpopulationsover2500_census_2020_utm83                 | geom                            | USER-DEFINED                |                8
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | geodbid                         | integer                     |                1
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | lat                             | double precision            |                2
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | lon                             | double precision            |                3
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | bbox                            | text                        |                4
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | label                           | text                        |                5
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | sourcetable                     | text                        |                6
+ citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | country                         | text                        |                7
+ citieswithpopulationsover2500_census_2020_wma84                 | geodbid                         | integer                     |                1
+ citieswithpopulationsover2500_census_2020_wma84                 | geom                            | USER-DEFINED                |                2
+ citieswithpopulationsover2500_census_2020_wma84                 | label                           | text                        |                3
+ citieswithpopulationsover2500_census_2020_wma84                 | sourcetable                     | text                        |                4
+ citieswithpopulationsover2500_census_2020_wma84                 | country                         | text                        |                5
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | geodbid                         | integer                     |                1
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | lat                             | double precision            |                2
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | lon                             | double precision            |                3
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | bbox                            | text                        |                4
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | label                           | text                        |                5
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | sourcetable                     | text                        |                6
+ citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | country                         | text                        |                7
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | geodb_id                        | bigint                      |                1
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | geodbid                         | integer                     |                1
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | geom                            | USER-DEFINED                |                2
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | lat                             | numeric                     |                2
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | lon                             | numeric                     |                3
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | label                           | text                        |                3
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | sourcetable                     | text                        |                4
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | bbox                            | text                        |                4
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | country                         | text                        |                5
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | label                           | text                        |                5
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | sourcetable                     | text                        |                6
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | country                         | text                        |                7
+ citieswithpopulatoinover2500_uscensus_1990_utm83                | geom                            | USER-DEFINED                |                8
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | geodbid                         | integer                     |                1
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | lat                             | double precision            |                2
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | lon                             | double precision            |                3
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | bbox                            | text                        |                4
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | label                           | text                        |                5
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | sourcetable                     | text                        |                6
+ citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | country                         | text                        |                7
+ client_utility_account                                          | client_id                       | bigint                      |                1
+ client_utility_account                                          | utility_account_number          | text                        |                2
+ client_utility_account                                          | utility_type                    | text                        |                3
+ client_utility_account                                          | utility_vendor_code             | text                        |                4
+ coals2_ll83                                                     | geodbid                         | integer                     |                1
+ coals2_ll83                                                     | geom                            | USER-DEFINED                |                2
+ coals2_ll83                                                     | label                           | text                        |                3
+ coals2_ll83                                                     | sourcetable                     | text                        |                4
+ coals2_ll83                                                     | country                         | text                        |                5
+ coals2_ll83_attrs_raw                                           | geodbid                         | integer                     |                1
+ coals2_ll83_attrs_raw                                           | lat                             | double precision            |                2
+ coals2_ll83_attrs_raw                                           | lon                             | double precision            |                3
+ coals2_ll83_attrs_raw                                           | bbox                            | text                        |                4
+ coals2_ll83_attrs_raw                                           | label                           | text                        |                5
+ coals2_ll83_attrs_raw                                           | sourcetable                     | text                        |                6
+ coals2_ll83_attrs_raw                                           | country                         | text                        |                7
+ coals2_utm27                                                    | geodbid                         | integer                     |                1
+ coals2_utm27                                                    | geom                            | USER-DEFINED                |                2
+ coals2_utm27                                                    | label                           | text                        |                3
+ coals2_utm27                                                    | sourcetable                     | text                        |                4
+ coals2_utm27                                                    | country                         | text                        |                5
+ coals2_utm27_attrs_raw                                          | geodbid                         | integer                     |                1
+ coals2_utm27_attrs_raw                                          | lat                             | double precision            |                2
+ coals2_utm27_attrs_raw                                          | lon                             | double precision            |                3
+ coals2_utm27_attrs_raw                                          | bbox                            | text                        |                4
+ coals2_utm27_attrs_raw                                          | label                           | text                        |                5
+ coals2_utm27_attrs_raw                                          | sourcetable                     | text                        |                6
+ coals2_utm27_attrs_raw                                          | country                         | text                        |                7
+ coals2_utm83                                                    | geodbid                         | integer                     |                1
+ coals2_utm83                                                    | geodb_id                        | bigint                      |                1
+ coals2_utm83                                                    | geom                            | USER-DEFINED                |                2
+ coals2_utm83                                                    | lat                             | numeric                     |                2
+ coals2_utm83                                                    | label                           | text                        |                3
+ coals2_utm83                                                    | lon                             | numeric                     |                3
+ coals2_utm83                                                    | sourcetable                     | text                        |                4
+ coals2_utm83                                                    | bbox                            | text                        |                4
+ coals2_utm83                                                    | label                           | text                        |                5
+ coals2_utm83                                                    | country                         | text                        |                5
+ coals2_utm83                                                    | sourcetable                     | text                        |                6
+ coals2_utm83                                                    | country                         | text                        |                7
+ coals2_utm83                                                    | geom                            | USER-DEFINED                |                8
+ coals2_utm83_attrs_raw                                          | geodbid                         | integer                     |                1
+ coals2_utm83_attrs_raw                                          | lat                             | double precision            |                2
+ coals2_utm83_attrs_raw                                          | lon                             | double precision            |                3
+ coals2_utm83_attrs_raw                                          | bbox                            | text                        |                4
+ coals2_utm83_attrs_raw                                          | label                           | text                        |                5
+ coals2_utm83_attrs_raw                                          | sourcetable                     | text                        |                6
+ coals2_utm83_attrs_raw                                          | country                         | text                        |                7
+ community_points                                                | point_id                        | integer                     |                1
+ community_points                                                | program_id                      | text                        |                2
+ community_points                                                | program_name                    | text                        |                3
+ community_points                                                | org_name                        | text                        |                4
+ community_points                                                | service_type                    | ARRAY                       |                5
+ community_points                                                | zip_code                        | text                        |                6
+ community_points                                                | fips_county                     | text                        |                7
+ community_points                                                | geom                            | USER-DEFINED                |                8
+ community_points                                                | geo_method                      | text                        |                9
+ community_points                                                | source_file                     | text                        |               10
+ community_points                                                | created_at                      | timestamp with time zone    |               11
+ communityboundary_min_att_20250121_utm83                        | geodbid                         | integer                     |                1
+ communityboundary_min_att_20250121_utm83                        | geodb_id                        | bigint                      |                1
+ communityboundary_min_att_20250121_utm83                        | lat                             | numeric                     |                2
+ communityboundary_min_att_20250121_utm83                        | geom                            | USER-DEFINED                |                2
+ communityboundary_min_att_20250121_utm83                        | label                           | text                        |                3
+ communityboundary_min_att_20250121_utm83                        | lon                             | numeric                     |                3
+ communityboundary_min_att_20250121_utm83                        | bbox                            | text                        |                4
+ communityboundary_min_att_20250121_utm83                        | sourcetable                     | text                        |                4
+ communityboundary_min_att_20250121_utm83                        | country                         | text                        |                5
+ communityboundary_min_att_20250121_utm83                        | label                           | text                        |                5
+ communityboundary_min_att_20250121_utm83                        | sourcetable                     | text                        |                6
+ communityboundary_min_att_20250121_utm83                        | country                         | text                        |                7
+ communityboundary_min_att_20250121_utm83                        | geom                            | USER-DEFINED                |                8
+ communityboundary_min_att_20250121_utm83_attrs_raw              | geodbid                         | integer                     |                1
+ communityboundary_min_att_20250121_utm83_attrs_raw              | lat                             | double precision            |                2
+ communityboundary_min_att_20250121_utm83_attrs_raw              | lon                             | double precision            |                3
+ communityboundary_min_att_20250121_utm83_attrs_raw              | bbox                            | text                        |                4
+ communityboundary_min_att_20250121_utm83_attrs_raw              | label                           | text                        |                5
+ communityboundary_min_att_20250121_utm83_attrs_raw              | sourcetable                     | text                        |                6
+ communityboundary_min_att_20250121_utm83_attrs_raw              | country                         | text                        |                7
+ communityboundary_min_att_20250121_wma84                        | geodbid                         | integer                     |                1
+ communityboundary_min_att_20250121_wma84                        | geom                            | USER-DEFINED                |                2
+ communityboundary_min_att_20250121_wma84                        | label                           | text                        |                3
+ communityboundary_min_att_20250121_wma84                        | sourcetable                     | text                        |                4
+ communityboundary_min_att_20250121_wma84                        | country                         | text                        |                5
+ communityboundary_min_att_20250121_wma84_attrs_raw              | geodbid                         | integer                     |                1
+ communityboundary_min_att_20250121_wma84_attrs_raw              | lat                             | double precision            |                2
+ communityboundary_min_att_20250121_wma84_attrs_raw              | lon                             | double precision            |                3
+ communityboundary_min_att_20250121_wma84_attrs_raw              | bbox                            | text                        |                4
+ communityboundary_min_att_20250121_wma84_attrs_raw              | label                           | text                        |                5
+ communityboundary_min_att_20250121_wma84_attrs_raw              | sourcetable                     | text                        |                6
+ communityboundary_min_att_20250121_wma84_attrs_raw              | country                         | text                        |                7
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | geodbid                         | integer                     |                1
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | geodb_id                        | bigint                      |                1
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | geom                            | USER-DEFINED                |                2
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | lat                             | numeric                     |                2
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | lon                             | numeric                     |                3
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | label                           | text                        |                3
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | bbox                            | text                        |                4
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | sourcetable                     | text                        |                4
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | label                           | text                        |                5
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | country                         | text                        |                5
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | sourcetable                     | text                        |                6
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | country                         | text                        |                7
+ communityhealthproviders_wvhealthcareauthority_200802_utm83     | geom                            | USER-DEFINED                |                8
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | geodbid                         | integer                     |                1
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | lat                             | double precision            |                2
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | lon                             | double precision            |                3
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | bbox                            | text                        |                4
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | label                           | text                        |                5
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | sourcetable                     | text                        |                6
+ communityhealthproviders_wvhealthcareauthority_200802_utm83_att | country                         | text                        |                7
+ confidence_decay                                                | id                              | integer                     |                1
+ confidence_decay                                                | user_id                         | text                        |                2
+ confidence_decay                                                | topic                           | text                        |                3
+ confidence_decay                                                | score                           | double precision            |                4
+ confidence_decay                                                | decayed_at                      | timestamp with time zone    |                5
+ confidence_decay                                                | reason                          | text                        |                6
+ correctionalinstitutions_hsip_20091230_utm83                    | geodbid                         | integer                     |                1
+ correctionalinstitutions_hsip_20091230_utm83                    | geodb_id                        | bigint                      |                1
+ correctionalinstitutions_hsip_20091230_utm83                    | geom                            | USER-DEFINED                |                2
+ correctionalinstitutions_hsip_20091230_utm83                    | lat                             | numeric                     |                2
+ correctionalinstitutions_hsip_20091230_utm83                    | lon                             | numeric                     |                3
+ correctionalinstitutions_hsip_20091230_utm83                    | label                           | text                        |                3
+ correctionalinstitutions_hsip_20091230_utm83                    | sourcetable                     | text                        |                4
+ correctionalinstitutions_hsip_20091230_utm83                    | bbox                            | text                        |                4
+ correctionalinstitutions_hsip_20091230_utm83                    | country                         | text                        |                5
+ correctionalinstitutions_hsip_20091230_utm83                    | label                           | text                        |                5
+ correctionalinstitutions_hsip_20091230_utm83                    | sourcetable                     | text                        |                6
+ correctionalinstitutions_hsip_20091230_utm83                    | country                         | text                        |                7
+ correctionalinstitutions_hsip_20091230_utm83                    | geom                            | USER-DEFINED                |                8
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | geodbid                         | integer                     |                1
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | lat                             | double precision            |                2
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | lon                             | double precision            |                3
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | bbox                            | text                        |                4
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | label                           | text                        |                5
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | sourcetable                     | text                        |                6
+ correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | country                         | text                        |                7
+ correctionalinstitutions_hsip_20091230_wgs84                    | geodbid                         | integer                     |                1
+ correctionalinstitutions_hsip_20091230_wgs84                    | geom                            | USER-DEFINED                |                2
+ correctionalinstitutions_hsip_20091230_wgs84                    | label                           | text                        |                3
+ correctionalinstitutions_hsip_20091230_wgs84                    | sourcetable                     | text                        |                4
+ correctionalinstitutions_hsip_20091230_wgs84                    | country                         | text                        |                5
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | geodbid                         | integer                     |                1
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | lat                             | double precision            |                2
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | lon                             | double precision            |                3
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | bbox                            | text                        |                4
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | label                           | text                        |                5
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | sourcetable                     | text                        |                6
+ correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | country                         | text                        |                7
+ countycityparkboundaries_20201104_utm83                         | geodbid                         | integer                     |                1
+ countycityparkboundaries_20201104_utm83                         | geodb_id                        | bigint                      |                1
+ countycityparkboundaries_20201104_utm83                         | geom                            | USER-DEFINED                |                2
+ countycityparkboundaries_20201104_utm83                         | lat                             | numeric                     |                2
+ countycityparkboundaries_20201104_utm83                         | lon                             | numeric                     |                3
+ countycityparkboundaries_20201104_utm83                         | label                           | text                        |                3
+ countycityparkboundaries_20201104_utm83                         | bbox                            | text                        |                4
+ countycityparkboundaries_20201104_utm83                         | sourcetable                     | text                        |                4
+ countycityparkboundaries_20201104_utm83                         | label                           | text                        |                5
+ countycityparkboundaries_20201104_utm83                         | country                         | text                        |                5
+ countycityparkboundaries_20201104_utm83                         | sourcetable                     | text                        |                6
+ countycityparkboundaries_20201104_utm83                         | country                         | text                        |                7
+ countycityparkboundaries_20201104_utm83                         | geom                            | USER-DEFINED                |                8
+ countycityparkboundaries_20201104_utm83_attrs_raw               | geodbid                         | integer                     |                1
+ countycityparkboundaries_20201104_utm83_attrs_raw               | lat                             | double precision            |                2
+ countycityparkboundaries_20201104_utm83_attrs_raw               | lon                             | double precision            |                3
+ countycityparkboundaries_20201104_utm83_attrs_raw               | bbox                            | text                        |                4
+ countycityparkboundaries_20201104_utm83_attrs_raw               | label                           | text                        |                5
+ countycityparkboundaries_20201104_utm83_attrs_raw               | sourcetable                     | text                        |                6
+ countycityparkboundaries_20201104_utm83_attrs_raw               | country                         | text                        |                7
+ countyseats_usgs_ll83                                           | geodbid                         | integer                     |                1
+ countyseats_usgs_ll83                                           | geom                            | USER-DEFINED                |                2
+ countyseats_usgs_ll83                                           | label                           | text                        |                3
+ countyseats_usgs_ll83                                           | sourcetable                     | text                        |                4
+ countyseats_usgs_ll83                                           | country                         | text                        |                5
+ countyseats_usgs_ll83_attrs_raw                                 | geodbid                         | integer                     |                1
+ countyseats_usgs_ll83_attrs_raw                                 | lat                             | double precision            |                2
+ countyseats_usgs_ll83_attrs_raw                                 | lon                             | double precision            |                3
+ countyseats_usgs_ll83_attrs_raw                                 | bbox                            | text                        |                4
+ countyseats_usgs_ll83_attrs_raw                                 | label                           | text                        |                5
+ countyseats_usgs_ll83_attrs_raw                                 | sourcetable                     | text                        |                6
+ countyseats_usgs_ll83_attrs_raw                                 | country                         | text                        |                7
+ countyseats_usgs_utm83                                          | geodbid                         | integer                     |                1
+ countyseats_usgs_utm83                                          | geodb_id                        | bigint                      |                1
+ countyseats_usgs_utm83                                          | lat                             | numeric                     |                2
+ countyseats_usgs_utm83                                          | geom                            | USER-DEFINED                |                2
+ countyseats_usgs_utm83                                          | label                           | text                        |                3
+ countyseats_usgs_utm83                                          | lon                             | numeric                     |                3
+ countyseats_usgs_utm83                                          | bbox                            | text                        |                4
+ countyseats_usgs_utm83                                          | sourcetable                     | text                        |                4
+ countyseats_usgs_utm83                                          | label                           | text                        |                5
+ countyseats_usgs_utm83                                          | country                         | text                        |                5
+ countyseats_usgs_utm83                                          | sourcetable                     | text                        |                6
+ countyseats_usgs_utm83                                          | country                         | text                        |                7
+ countyseats_usgs_utm83                                          | geom                            | USER-DEFINED                |                8
+ countyseats_usgs_utm83_attrs_raw                                | geodbid                         | integer                     |                1
+ countyseats_usgs_utm83_attrs_raw                                | lat                             | double precision            |                2
+ countyseats_usgs_utm83_attrs_raw                                | lon                             | double precision            |                3
+ countyseats_usgs_utm83_attrs_raw                                | bbox                            | text                        |                4
+ countyseats_usgs_utm83_attrs_raw                                | label                           | text                        |                5
+ countyseats_usgs_utm83_attrs_raw                                | sourcetable                     | text                        |                6
+ countyseats_usgs_utm83_attrs_raw                                | country                         | text                        |                7
+ courthousescounty_manysources_200203_ll83                       | geodbid                         | numeric                     |                1
+ courthousescounty_manysources_200203_ll83                       | geom                            | USER-DEFINED                |                2
+ courthousescounty_manysources_200203_ll83                       | label                           | text                        |                3
+ courthousescounty_manysources_200203_ll83                       | sourcetable                     | text                        |                4
+ courthousescounty_manysources_200203_ll83                       | country                         | text                        |                5
+ courthousescounty_manysources_200203_ll83_attrs_raw             | geodbid                         | numeric                     |                1
+ courthousescounty_manysources_200203_ll83_attrs_raw             | lat                             | double precision            |                2
+ courthousescounty_manysources_200203_ll83_attrs_raw             | lon                             | double precision            |                3
+ courthousescounty_manysources_200203_ll83_attrs_raw             | bbox                            | text                        |                4
+ courthousescounty_manysources_200203_ll83_attrs_raw             | label                           | text                        |                5
+ courthousescounty_manysources_200203_ll83_attrs_raw             | sourcetable                     | text                        |                6
+ courthousescounty_manysources_200203_ll83_attrs_raw             | country                         | text                        |                7
+ courthousescounty_manysources_200203_utm83                      | geodbid                         | integer                     |                1
+ courthousescounty_manysources_200203_utm83                      | geodb_id                        | numeric                     |                1
+ courthousescounty_manysources_200203_utm83                      | lat                             | numeric                     |                2
+ courthousescounty_manysources_200203_utm83                      | geom                            | USER-DEFINED                |                2
+ courthousescounty_manysources_200203_utm83                      | label                           | text                        |                3
+ courthousescounty_manysources_200203_utm83                      | lon                             | numeric                     |                3
+ courthousescounty_manysources_200203_utm83                      | sourcetable                     | text                        |                4
+ courthousescounty_manysources_200203_utm83                      | bbox                            | text                        |                4
+ courthousescounty_manysources_200203_utm83                      | label                           | text                        |                5
+ courthousescounty_manysources_200203_utm83                      | country                         | text                        |                5
+ courthousescounty_manysources_200203_utm83                      | sourcetable                     | text                        |                6
+ courthousescounty_manysources_200203_utm83                      | country                         | text                        |                7
+ courthousescounty_manysources_200203_utm83                      | geom                            | USER-DEFINED                |                8
+ courthousescounty_manysources_200203_utm83_attrs_raw            | geodbid                         | integer                     |                1
+ courthousescounty_manysources_200203_utm83_attrs_raw            | lat                             | double precision            |                2
+ courthousescounty_manysources_200203_utm83_attrs_raw            | lon                             | double precision            |                3
+ courthousescounty_manysources_200203_utm83_attrs_raw            | bbox                            | text                        |                4
+ courthousescounty_manysources_200203_utm83_attrs_raw            | label                           | text                        |                5
+ courthousescounty_manysources_200203_utm83_attrs_raw            | sourcetable                     | text                        |                6
+ courthousescounty_manysources_200203_utm83_attrs_raw            | country                         | text                        |                7
+ courthousesfederal_manysources_200203_ll83                      | geodbid                         | integer                     |                1
+ courthousesfederal_manysources_200203_ll83                      | geom                            | USER-DEFINED                |                2
+ courthousesfederal_manysources_200203_ll83                      | label                           | text                        |                3
+ courthousesfederal_manysources_200203_ll83                      | sourcetable                     | text                        |                4
+ courthousesfederal_manysources_200203_ll83                      | country                         | text                        |                5
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | geodbid                         | integer                     |                1
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | lat                             | double precision            |                2
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | lon                             | double precision            |                3
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | bbox                            | text                        |                4
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | label                           | text                        |                5
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | sourcetable                     | text                        |                6
+ courthousesfederal_manysources_200203_ll83_attrs_raw            | country                         | text                        |                7
+ courthousesfederal_manysources_200203_utm                       | geodbid                         | integer                     |                1
+ courthousesfederal_manysources_200203_utm                       | geom                            | USER-DEFINED                |                2
+ courthousesfederal_manysources_200203_utm                       | label                           | text                        |                3
+ courthousesfederal_manysources_200203_utm                       | sourcetable                     | text                        |                4
+ courthousesfederal_manysources_200203_utm                       | country                         | text                        |                5
+ courthousesfederal_manysources_200203_utm_attrs_raw             | geodbid                         | integer                     |                1
+ courthousesfederal_manysources_200203_utm_attrs_raw             | lat                             | double precision            |                2
+ courthousesfederal_manysources_200203_utm_attrs_raw             | lon                             | double precision            |                3
+ courthousesfederal_manysources_200203_utm_attrs_raw             | bbox                            | text                        |                4
+ courthousesfederal_manysources_200203_utm_attrs_raw             | label                           | text                        |                5
+ courthousesfederal_manysources_200203_utm_attrs_raw             | sourcetable                     | text                        |                6
+ courthousesfederal_manysources_200203_utm_attrs_raw             | country                         | text                        |                7
+ cvfault_ll83                                                    | geodbid                         | integer                     |                1
+ cvfault_ll83                                                    | geom                            | USER-DEFINED                |                2
+ cvfault_ll83                                                    | label                           | text                        |                3
+ cvfault_ll83                                                    | sourcetable                     | text                        |                4
+ cvfault_ll83                                                    | country                         | text                        |                5
+ cvfault_ll83_attrs_raw                                          | geodbid                         | integer                     |                1
+ cvfault_ll83_attrs_raw                                          | lat                             | double precision            |                2
+ cvfault_ll83_attrs_raw                                          | lon                             | double precision            |                3
+ cvfault_ll83_attrs_raw                                          | bbox                            | text                        |                4
+ cvfault_ll83_attrs_raw                                          | label                           | text                        |                5
+ cvfault_ll83_attrs_raw                                          | sourcetable                     | text                        |                6
+ cvfault_ll83_attrs_raw                                          | country                         | text                        |                7
+ cvfault_utm27                                                   | geodbid                         | integer                     |                1
+ cvfault_utm27                                                   | geom                            | USER-DEFINED                |                2
+ cvfault_utm27                                                   | label                           | text                        |                3
+ cvfault_utm27                                                   | sourcetable                     | text                        |                4
+ cvfault_utm27                                                   | country                         | text                        |                5
+ cvfault_utm27_attrs_raw                                         | geodbid                         | integer                     |                1
+ cvfault_utm27_attrs_raw                                         | lat                             | double precision            |                2
+ cvfault_utm27_attrs_raw                                         | lon                             | double precision            |                3
+ cvfault_utm27_attrs_raw                                         | bbox                            | text                        |                4
+ cvfault_utm27_attrs_raw                                         | label                           | text                        |                5
+ cvfault_utm27_attrs_raw                                         | sourcetable                     | text                        |                6
+ cvfault_utm27_attrs_raw                                         | country                         | text                        |                7
+ cvfault_utm83                                                   | geodb_id                        | bigint                      |                1
+ cvfault_utm83                                                   | geodbid                         | integer                     |                1
+ cvfault_utm83                                                   | geom                            | USER-DEFINED                |                2
+ cvfault_utm83                                                   | lat                             | numeric                     |                2
+ cvfault_utm83                                                   | lon                             | numeric                     |                3
+ cvfault_utm83                                                   | label                           | text                        |                3
+ cvfault_utm83                                                   | sourcetable                     | text                        |                4
+ cvfault_utm83                                                   | bbox                            | text                        |                4
+ cvfault_utm83                                                   | country                         | text                        |                5
+ cvfault_utm83                                                   | label                           | text                        |                5
+ cvfault_utm83                                                   | sourcetable                     | text                        |                6
+ cvfault_utm83                                                   | country                         | text                        |                7
+ cvfault_utm83                                                   | geom                            | USER-DEFINED                |                8
+ cvfault_utm83_attrs_raw                                         | geodbid                         | integer                     |                1
+ cvfault_utm83_attrs_raw                                         | lat                             | double precision            |                2
+ cvfault_utm83_attrs_raw                                         | lon                             | double precision            |                3
+ cvfault_utm83_attrs_raw                                         | bbox                            | text                        |                4
+ cvfault_utm83_attrs_raw                                         | label                           | text                        |                5
+ cvfault_utm83_attrs_raw                                         | sourcetable                     | text                        |                6
+ cvfault_utm83_attrs_raw                                         | country                         | text                        |                7
+ cvpoly_ll83                                                     | geodbid                         | integer                     |                1
+ cvpoly_ll83                                                     | geom                            | USER-DEFINED                |                2
+ cvpoly_ll83                                                     | label                           | text                        |                3
+ cvpoly_ll83                                                     | sourcetable                     | text                        |                4
+ cvpoly_ll83                                                     | country                         | text                        |                5
+ cvpoly_ll83_attrs_raw                                           | geodbid                         | integer                     |                1
+ cvpoly_ll83_attrs_raw                                           | lat                             | double precision            |                2
+ cvpoly_ll83_attrs_raw                                           | lon                             | double precision            |                3
+ cvpoly_ll83_attrs_raw                                           | bbox                            | text                        |                4
+ cvpoly_ll83_attrs_raw                                           | label                           | text                        |                5
+ cvpoly_ll83_attrs_raw                                           | sourcetable                     | text                        |                6
+ cvpoly_ll83_attrs_raw                                           | country                         | text                        |                7
+ cvpoly_utm27                                                    | geodbid                         | integer                     |                1
+ cvpoly_utm27                                                    | geom                            | USER-DEFINED                |                2
+ cvpoly_utm27                                                    | label                           | text                        |                3
+ cvpoly_utm27                                                    | sourcetable                     | text                        |                4
+ cvpoly_utm27                                                    | country                         | text                        |                5
+ cvpoly_utm27_attrs_raw                                          | geodbid                         | integer                     |                1
+ cvpoly_utm27_attrs_raw                                          | lat                             | double precision            |                2
+ cvpoly_utm27_attrs_raw                                          | lon                             | double precision            |                3
+ cvpoly_utm27_attrs_raw                                          | bbox                            | text                        |                4
+ cvpoly_utm27_attrs_raw                                          | label                           | text                        |                5
+ cvpoly_utm27_attrs_raw                                          | sourcetable                     | text                        |                6
+ cvpoly_utm27_attrs_raw                                          | country                         | text                        |                7
+ cvpoly_utm83                                                    | geodb_id                        | bigint                      |                1
+ cvpoly_utm83                                                    | geodbid                         | integer                     |                1
+ cvpoly_utm83                                                    | lat                             | numeric                     |                2
+ cvpoly_utm83                                                    | geom                            | USER-DEFINED                |                2
+ cvpoly_utm83                                                    | lon                             | numeric                     |                3
+ cvpoly_utm83                                                    | label                           | text                        |                3
+ cvpoly_utm83                                                    | sourcetable                     | text                        |                4
+ cvpoly_utm83                                                    | bbox                            | text                        |                4
+ cvpoly_utm83                                                    | label                           | text                        |                5
+ cvpoly_utm83                                                    | country                         | text                        |                5
+ cvpoly_utm83                                                    | sourcetable                     | text                        |                6
+ cvpoly_utm83                                                    | country                         | text                        |                7
+ cvpoly_utm83                                                    | geom                            | USER-DEFINED                |                8
+ cvpoly_utm83_attrs_raw                                          | geodbid                         | integer                     |                1
+ cvpoly_utm83_attrs_raw                                          | lat                             | double precision            |                2
+ cvpoly_utm83_attrs_raw                                          | lon                             | double precision            |                3
+ cvpoly_utm83_attrs_raw                                          | bbox                            | text                        |                4
+ cvpoly_utm83_attrs_raw                                          | label                           | text                        |                5
+ cvpoly_utm83_attrs_raw                                          | sourcetable                     | text                        |                6
+ cvpoly_utm83_attrs_raw                                          | country                         | text                        |                7
+ dams_usarmycorpsofengineers_200010_utm83                        | geodb_id                        | bigint                      |                1
+ dams_usarmycorpsofengineers_200010_utm83                        | geodbid                         | integer                     |                1
+ dams_usarmycorpsofengineers_200010_utm83                        | geom                            | USER-DEFINED                |                2
+ dams_usarmycorpsofengineers_200010_utm83                        | lat                             | numeric                     |                2
+ dams_usarmycorpsofengineers_200010_utm83                        | label                           | text                        |                3
+ dams_usarmycorpsofengineers_200010_utm83                        | lon                             | numeric                     |                3
+ dams_usarmycorpsofengineers_200010_utm83                        | bbox                            | text                        |                4
+ dams_usarmycorpsofengineers_200010_utm83                        | sourcetable                     | text                        |                4
+ dams_usarmycorpsofengineers_200010_utm83                        | country                         | text                        |                5
+ dams_usarmycorpsofengineers_200010_utm83                        | label                           | text                        |                5
+ dams_usarmycorpsofengineers_200010_utm83                        | sourcetable                     | text                        |                6
+ dams_usarmycorpsofengineers_200010_utm83                        | country                         | text                        |                7
+ dams_usarmycorpsofengineers_200010_utm83                        | geom                            | USER-DEFINED                |                8
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | geodbid                         | integer                     |                1
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | lat                             | double precision            |                2
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | lon                             | double precision            |                3
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | bbox                            | text                        |                4
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | label                           | text                        |                5
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | sourcetable                     | text                        |                6
+ dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | country                         | text                        |                7
+ dams_usarmycropsofengineers_200010_ll83                         | geodbid                         | integer                     |                1
+ dams_usarmycropsofengineers_200010_ll83                         | geom                            | USER-DEFINED                |                2
+ dams_usarmycropsofengineers_200010_ll83                         | label                           | text                        |                3
+ dams_usarmycropsofengineers_200010_ll83                         | sourcetable                     | text                        |                4
+ dams_usarmycropsofengineers_200010_ll83                         | country                         | text                        |                5
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | geodbid                         | integer                     |                1
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | lat                             | double precision            |                2
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | lon                             | double precision            |                3
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | bbox                            | text                        |                4
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | label                           | text                        |                5
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | sourcetable                     | text                        |                6
+ dams_usarmycropsofengineers_200010_ll83_attrs_raw               | country                         | text                        |                7
+ damsnoncoal_usgs_2002_ll27                                      | geodbid                         | integer                     |                1
+ damsnoncoal_usgs_2002_ll27                                      | geom                            | USER-DEFINED                |                2
+ damsnoncoal_usgs_2002_ll27                                      | label                           | text                        |                3
+ damsnoncoal_usgs_2002_ll27                                      | sourcetable                     | text                        |                4
+ damsnoncoal_usgs_2002_ll27                                      | country                         | text                        |                5
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | geodbid                         | integer                     |                1
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | lat                             | double precision            |                2
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | lon                             | double precision            |                3
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | bbox                            | text                        |                4
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | label                           | text                        |                5
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | sourcetable                     | text                        |                6
+ damsnoncoal_usgs_2002_ll27_attrs_raw                            | country                         | text                        |                7
+ damsnoncoal_usgs_2002_utm83                                     | geodb_id                        | numeric                     |                1
+ damsnoncoal_usgs_2002_utm83                                     | geodbid                         | integer                     |                1
+ damsnoncoal_usgs_2002_utm83                                     | geom                            | USER-DEFINED                |                2
+ damsnoncoal_usgs_2002_utm83                                     | lat                             | numeric                     |                2
+ damsnoncoal_usgs_2002_utm83                                     | label                           | text                        |                3
+ damsnoncoal_usgs_2002_utm83                                     | lon                             | numeric                     |                3
+ damsnoncoal_usgs_2002_utm83                                     | sourcetable                     | text                        |                4
+ damsnoncoal_usgs_2002_utm83                                     | bbox                            | text                        |                4
+ damsnoncoal_usgs_2002_utm83                                     | label                           | text                        |                5
+ damsnoncoal_usgs_2002_utm83                                     | country                         | text                        |                5
+ damsnoncoal_usgs_2002_utm83                                     | sourcetable                     | text                        |                6
+ damsnoncoal_usgs_2002_utm83                                     | country                         | text                        |                7
+ damsnoncoal_usgs_2002_utm83                                     | geom                            | USER-DEFINED                |                8
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | geodbid                         | integer                     |                1
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | lat                             | double precision            |                2
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | lon                             | double precision            |                3
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | bbox                            | text                        |                4
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | label                           | text                        |                5
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | sourcetable                     | text                        |                6
+ damsnoncoal_usgs_2002_utm83_attrs_raw                           | country                         | text                        |                7
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | geodbid                         | integer                     |                1
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | geodb_id                        | bigint                      |                1
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | geom                            | USER-DEFINED                |                2
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | lat                             | numeric                     |                2
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | lon                             | numeric                     |                3
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | label                           | text                        |                3
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | sourcetable                     | text                        |                4
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | bbox                            | text                        |                4
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | label                           | text                        |                5
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | country                         | text                        |                5
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | sourcetable                     | text                        |                6
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | country                         | text                        |                7
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | geom                            | USER-DEFINED                |                8
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | geodbid                         | integer                     |                1
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | lat                             | double precision            |                2
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | lon                             | double precision            |                3
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | bbox                            | text                        |                4
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | label                           | text                        |                5
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | sourcetable                     | text                        |                6
+ empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | country                         | text                        |                7
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907   | geodbid                         | integer                     |                1
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907   | geom                            | USER-DEFINED                |                2
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907   | label                           | text                        |                3
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907   | sourcetable                     | text                        |                4
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907   | country                         | text                        |                5
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | geodbid                         | integer                     |                1
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | lat                             | double precision            |                2
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | lon                             | double precision            |                3
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | bbox                            | text                        |                4
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | label                           | text                        |                5
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | sourcetable                     | text                        |                6
+ empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | country                         | text                        |                7
+ evidence_documents                                              | doc_id                          | integer                     |                1
+ evidence_documents                                              | doc_title                       | text                        |                2
+ evidence_documents                                              | doc_type                        | text                        |                3
+ evidence_documents                                              | doc_source                      | text                        |                4
+ evidence_documents                                              | publisher                       | text                        |                5
+ evidence_documents                                              | publish_date                    | date                        |                6
+ evidence_documents                                              | summary                         | text                        |                7
+ evidence_documents                                              | created_at                      | timestamp with time zone    |                8
+ excursionpassengertrains_wvdof_200102_ll83                      | geodbid                         | integer                     |                1
+ excursionpassengertrains_wvdof_200102_ll83                      | geom                            | USER-DEFINED                |                2
+ excursionpassengertrains_wvdof_200102_ll83                      | label                           | text                        |                3
+ excursionpassengertrains_wvdof_200102_ll83                      | sourcetable                     | text                        |                4
+ excursionpassengertrains_wvdof_200102_ll83                      | country                         | text                        |                5
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | geodbid                         | integer                     |                1
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | lat                             | double precision            |                2
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | lon                             | double precision            |                3
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | bbox                            | text                        |                4
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | label                           | text                        |                5
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | sourcetable                     | text                        |                6
+ excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | country                         | text                        |                7
+ excursionpassengertrains_wvdof_200102_utm83                     | geodb_id                        | bigint                      |                1
+ excursionpassengertrains_wvdof_200102_utm83                     | geodbid                         | integer                     |                1
+ excursionpassengertrains_wvdof_200102_utm83                     | lat                             | numeric                     |                2
+ excursionpassengertrains_wvdof_200102_utm83                     | geom                            | USER-DEFINED                |                2
+ excursionpassengertrains_wvdof_200102_utm83                     | lon                             | numeric                     |                3
+ excursionpassengertrains_wvdof_200102_utm83                     | label                           | text                        |                3
+ excursionpassengertrains_wvdof_200102_utm83                     | bbox                            | text                        |                4
+ excursionpassengertrains_wvdof_200102_utm83                     | sourcetable                     | text                        |                4
+ excursionpassengertrains_wvdof_200102_utm83                     | country                         | text                        |                5
+ excursionpassengertrains_wvdof_200102_utm83                     | label                           | text                        |                5
+ excursionpassengertrains_wvdof_200102_utm83                     | sourcetable                     | text                        |                6
+ excursionpassengertrains_wvdof_200102_utm83                     | country                         | text                        |                7
+ excursionpassengertrains_wvdof_200102_utm83                     | geom                            | USER-DEFINED                |                8
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | geodbid                         | integer                     |                1
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | lat                             | double precision            |                2
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | lon                             | double precision            |                3
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | bbox                            | text                        |                4
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | label                           | text                        |                5
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | sourcetable                     | text                        |                6
+ excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | country                         | text                        |                7
+ facilities_epa_200203_ll83                                      | geodbid                         | integer                     |                1
+ facilities_epa_200203_ll83                                      | geom                            | USER-DEFINED                |                2
+ facilities_epa_200203_ll83                                      | label                           | text                        |                3
+ facilities_epa_200203_ll83                                      | sourcetable                     | text                        |                4
+ facilities_epa_200203_ll83                                      | country                         | text                        |                5
+ facilities_epa_200203_ll83_attrs_raw                            | geodbid                         | integer                     |                1
+ facilities_epa_200203_ll83_attrs_raw                            | lat                             | double precision            |                2
+ facilities_epa_200203_ll83_attrs_raw                            | lon                             | double precision            |                3
+ facilities_epa_200203_ll83_attrs_raw                            | bbox                            | text                        |                4
+ facilities_epa_200203_ll83_attrs_raw                            | label                           | text                        |                5
+ facilities_epa_200203_ll83_attrs_raw                            | sourcetable                     | text                        |                6
+ facilities_epa_200203_ll83_attrs_raw                            | country                         | text                        |                7
+ facilities_epa_200203_utm83                                     | geodb_id                        | bigint                      |                1
+ facilities_epa_200203_utm83                                     | geodbid                         | integer                     |                1
+ facilities_epa_200203_utm83                                     | lat                             | numeric                     |                2
+ facilities_epa_200203_utm83                                     | geom                            | USER-DEFINED                |                2
+ facilities_epa_200203_utm83                                     | lon                             | numeric                     |                3
+ facilities_epa_200203_utm83                                     | label                           | text                        |                3
+ facilities_epa_200203_utm83                                     | bbox                            | text                        |                4
+ facilities_epa_200203_utm83                                     | sourcetable                     | text                        |                4
+ facilities_epa_200203_utm83                                     | label                           | text                        |                5
+ facilities_epa_200203_utm83                                     | country                         | text                        |                5
+ facilities_epa_200203_utm83                                     | sourcetable                     | text                        |                6
+ facilities_epa_200203_utm83                                     | country                         | text                        |                7
+ facilities_epa_200203_utm83                                     | geom                            | USER-DEFINED                |                8
+ facilities_epa_200203_utm83_attrs_raw                           | geodbid                         | integer                     |                1
+ facilities_epa_200203_utm83_attrs_raw                           | lat                             | double precision            |                2
+ facilities_epa_200203_utm83_attrs_raw                           | lon                             | double precision            |                3
+ facilities_epa_200203_utm83_attrs_raw                           | bbox                            | text                        |                4
+ facilities_epa_200203_utm83_attrs_raw                           | label                           | text                        |                5
+ facilities_epa_200203_utm83_attrs_raw                           | sourcetable                     | text                        |                6
+ facilities_epa_200203_utm83_attrs_raw                           | country                         | text                        |                7
+ fault_reg_ll83                                                  | geodbid                         | integer                     |                1
+ fault_reg_ll83                                                  | geom                            | USER-DEFINED                |                2
+ fault_reg_ll83                                                  | label                           | text                        |                3
+ fault_reg_ll83                                                  | sourcetable                     | text                        |                4
+ fault_reg_ll83                                                  | country                         | text                        |                5
+ fault_reg_ll83_attrs_raw                                        | geodbid                         | integer                     |                1
+ fault_reg_ll83_attrs_raw                                        | lat                             | double precision            |                2
+ fault_reg_ll83_attrs_raw                                        | lon                             | double precision            |                3
+ fault_reg_ll83_attrs_raw                                        | bbox                            | text                        |                4
+ fault_reg_ll83_attrs_raw                                        | label                           | text                        |                5
+ fault_reg_ll83_attrs_raw                                        | sourcetable                     | text                        |                6
+ fault_reg_ll83_attrs_raw                                        | country                         | text                        |                7
+ faultgl_reg_ll83                                                | geodbid                         | integer                     |                1
+ faultgl_reg_ll83                                                | geom                            | USER-DEFINED                |                2
+ faultgl_reg_ll83                                                | label                           | text                        |                3
+ faultgl_reg_ll83                                                | sourcetable                     | text                        |                4
+ faultgl_reg_ll83                                                | country                         | text                        |                5
+ faultgl_reg_ll83_attrs_raw                                      | geodbid                         | integer                     |                1
+ faultgl_reg_ll83_attrs_raw                                      | lat                             | double precision            |                2
+ faultgl_reg_ll83_attrs_raw                                      | lon                             | double precision            |                3
+ faultgl_reg_ll83_attrs_raw                                      | bbox                            | text                        |                4
+ faultgl_reg_ll83_attrs_raw                                      | label                           | text                        |                5
+ faultgl_reg_ll83_attrs_raw                                      | sourcetable                     | text                        |                6
+ faultgl_reg_ll83_attrs_raw                                      | country                         | text                        |                7
+ fayette_fire_stations                                           | station_name                    | text                        |                1
+ fayette_fire_stations                                           | lat                             | double precision            |                2
+ fayette_fire_stations                                           | lon                             | double precision            |                3
+ fayette_fire_stations                                           | address                         | text                        |                4
+ fayette_fire_stations                                           | parcel_count                    | bigint                      |                5
+ fayette_parcels                                                 | land_use_class                  | text                        |                1
+ fayette_parcels                                                 | fullownername                   | text                        |                2
+ fayette_parcels                                                 | fullowneraddress                | text                        |                3
+ fayette_parcels                                                 | fullphysicaladdress             | text                        |                4
+ fayette_parcels                                                 | acres_c                         | double precision            |                5
+ fayette_parcels                                                 | countyid                        | bigint                      |                6
+ fayette_parcels                                                 | lon                             | double precision            |                7
+ fayette_parcels                                                 | lat                             | double precision            |                8
+ features                                                        | geodbid                         | integer                     |                1
+ features                                                        | geom                            | USER-DEFINED                |                2
+ features                                                        | label                           | text                        |                3
+ features                                                        | sourcetable                     | text                        |                4
+ features                                                        | country                         | text                        |                5
+ features_attrs_raw                                              | geodbid                         | integer                     |                1
+ features_attrs_raw                                              | lat                             | double precision            |                2
+ features_attrs_raw                                              | lon                             | double precision            |                3
+ features_attrs_raw                                              | bbox                            | text                        |                4
+ features_attrs_raw                                              | label                           | text                        |                5
+ features_attrs_raw                                              | sourcetable                     | text                        |                6
+ features_attrs_raw                                              | country                         | text                        |                7
+ fire_departments                                                | geodbid                         | integer                     |                1
+ fire_departments                                                | geom                            | USER-DEFINED                |                2
+ fire_departments                                                | label                           | text                        |                3
+ fire_departments                                                | sourcetable                     | text                        |                4
+ fire_departments                                                | country                         | text                        |                5
+ fire_departments_attrs_raw                                      | geodbid                         | integer                     |                1
+ fire_departments_attrs_raw                                      | lat                             | double precision            |                2
+ fire_departments_attrs_raw                                      | lon                             | double precision            |                3
+ fire_departments_attrs_raw                                      | bbox                            | text                        |                4
+ fire_departments_attrs_raw                                      | label                           | text                        |                5
+ fire_departments_attrs_raw                                      | sourcetable                     | text                        |                6
+ fire_departments_attrs_raw                                      | country                         | text                        |                7
+ fire_dept_wvdem_092017_utm83                                    | geodb_id                        | bigint                      |                1
+ fire_dept_wvdem_092017_utm83                                    | geodbid                         | integer                     |                1
+ fire_dept_wvdem_092017_utm83                                    | lat                             | numeric                     |                2
+ fire_dept_wvdem_092017_utm83                                    | geom                            | USER-DEFINED                |                2
+ fire_dept_wvdem_092017_utm83                                    | label                           | text                        |                3
+ fire_dept_wvdem_092017_utm83                                    | lon                             | numeric                     |                3
+ fire_dept_wvdem_092017_utm83                                    | bbox                            | text                        |                4
+ fire_dept_wvdem_092017_utm83                                    | sourcetable                     | text                        |                4
+ fire_dept_wvdem_092017_utm83                                    | country                         | text                        |                5
+ fire_dept_wvdem_092017_utm83                                    | label                           | text                        |                5
+ fire_dept_wvdem_092017_utm83                                    | sourcetable                     | text                        |                6
+ fire_dept_wvdem_092017_utm83                                    | country                         | text                        |                7
+ fire_dept_wvdem_092017_utm83                                    | geom                            | USER-DEFINED                |                8
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | geodbid                         | integer                     |                1
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | lat                             | double precision            |                2
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | lon                             | double precision            |                3
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | bbox                            | text                        |                4
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | label                           | text                        |                5
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | sourcetable                     | text                        |                6
+ fire_dept_wvdem_092017_utm83_attrs_raw                          | country                         | text                        |                7
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | geodbid                         | integer                     |                1
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | geodb_id                        | bigint                      |                1
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | lat                             | numeric                     |                2
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | geom                            | USER-DEFINED                |                2
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | lon                             | numeric                     |                3
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | label                           | text                        |                3
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | bbox                            | text                        |                4
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | sourcetable                     | text                        |                4
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | country                         | text                        |                5
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | label                           | text                        |                5
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | sourcetable                     | text                        |                6
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | country                         | text                        |                7
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | geom                            | USER-DEFINED                |                8
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | geodbid                         | integer                     |                1
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | lat                             | double precision            |                2
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | lon                             | double precision            |                3
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | bbox                            | text                        |                4
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | label                           | text                        |                5
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | sourcetable                     | text                        |                6
+ floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | country                         | text                        |                7
+ gbim_belief                                                     | id                              | uuid                        |                1
+ gbim_belief                                                     | gbim_entity_id                  | uuid                        |                2
+ gbim_belief                                                     | worldview_id                    | uuid                        |                3
+ gbim_belief                                                     | belief_label                    | text                        |                4
+ gbim_belief                                                     | evidence_source                 | text                        |                5
+ gbim_belief                                                     | evidence_ref                    | text                        |                6
+ gbim_belief                                                     | belief_state                    | jsonb                       |                7
+ gbim_belief                                                     | created_at                      | timestamp with time zone    |                8
+ gbim_belief_edges                                               | edge_id                         | bigint                      |                1
+ gbim_belief_edges                                               | source_belief_id                | bigint                      |                2
+ gbim_belief_edges                                               | relation_type                   | text                        |                3
+ gbim_belief_edges                                               | target_belief_id                | bigint                      |                4
+ gbim_belief_edges                                               | target_worldview_id             | bigint                      |                5
+ gbim_belief_edges                                               | target_actor_id                 | bigint                      |                6
+ gbim_belief_edges                                               | created_at                      | timestamp with time zone    |                7
+ gbim_belief_edges                                               | created_by                      | text                        |                8
+ gbim_belief_edges                                               | attributes                      | jsonb                       |                9
+ gbim_belief_evidence                                            | belief_id                       | bigint                      |                1
+ gbim_belief_evidence                                            | evidence_id                     | bigint                      |                2
+ gbim_belief_evidence                                            | role                            | text                        |                3
+ gbim_belief_evidence                                            | created_at                      | timestamp with time zone    |                4
+ gbim_belief_evidence                                            | created_by                      | text                        |                5
+ gbim_beliefs                                                    | belief_id                       | uuid                        |                1
+ gbim_beliefs                                                    | belief_id                       | bigint                      |                1
+ gbim_beliefs                                                    | worldview_id                    | uuid                        |                2
+ gbim_beliefs                                                    | worldview_id                    | bigint                      |                2
+ gbim_beliefs                                                    | proposition_code                | text                        |                3
+ gbim_beliefs                                                    | feature_ref                     | text                        |                3
+ gbim_beliefs                                                    | proposition                     | text                        |                4
+ gbim_beliefs                                                    | subject_feature_id              | text                        |                4
+ gbim_beliefs                                                    | truth_value                     | text                        |                5
+ gbim_beliefs                                                    | proposition_code                | text                        |                5
+ gbim_beliefs                                                    | belief_state                    | text                        |                6
+ gbim_beliefs                                                    | confidence                      | numeric                     |                6
+ gbim_beliefs                                                    | for_whom                        | ARRAY                       |                7
+ gbim_beliefs                                                    | belief_strength                 | numeric                     |                7
+ gbim_beliefs                                                    | observed_at                     | timestamp with time zone    |                8
+ gbim_beliefs                                                    | created_at                      | timestamp with time zone    |                8
+ gbim_beliefs                                                    | created_by                      | text                        |                9
+ gbim_beliefs                                                    | recorded_at                     | timestamp with time zone    |                9
+ gbim_beliefs                                                    | authority_id                    | uuid                        |               10
+ gbim_beliefs                                                    | recorded_by                     | text                        |               10
+ gbim_beliefs                                                    | tags                            | ARRAY                       |               11
+ gbim_beliefs                                                    | evidence_id                     | uuid                        |               11
+ gbim_beliefs                                                    | attributes                      | jsonb                       |               12
+ gbim_beliefs                                                    | notes                           | text                        |               12
+ gbim_block_group_2020                                           | gid                             | integer                     |                1
+ gbim_block_group_2020                                           | statefp                         | character varying           |                2
+ gbim_block_group_2020                                           | countyfp                        | character varying           |                3
+ gbim_block_group_2020                                           | tractce                         | character varying           |                4
+ gbim_block_group_2020                                           | blkgrpce                        | character varying           |                5
+ gbim_block_group_2020                                           | geoid                           | character varying           |                6
+ gbim_block_group_2020                                           | geoidfq                         | character varying           |                7
+ gbim_block_group_2020                                           | namelsad                        | character varying           |                8
+ gbim_block_group_2020                                           | mtfcc                           | character varying           |                9
+ gbim_block_group_2020                                           | funcstat                        | character varying           |               10
+ gbim_block_group_2020                                           | aland                           | double precision            |               11
+ gbim_block_group_2020                                           | awater                          | double precision            |               12
+ gbim_block_group_2020                                           | intptlat                        | character varying           |               13
+ gbim_block_group_2020                                           | intptlon                        | character varying           |               14
+ gbim_block_group_2020                                           | geom                            | USER-DEFINED                |               15
+ gbim_block_group_2020                                           | id                              | integer                     |               16
+ gbim_block_group_2020                                           | last_verified                   | timestamp with time zone    |               17
+ gbim_county_2020                                                | gid                             | integer                     |                1
+ gbim_county_2020                                                | statefp                         | character varying           |                2
+ gbim_county_2020                                                | countyfp                        | character varying           |                3
+ gbim_county_2020                                                | countyns                        | character varying           |                4
+ gbim_county_2020                                                | geoid                           | character varying           |                5
+ gbim_county_2020                                                | geoidfq                         | character varying           |                6
+ gbim_county_2020                                                | name                            | character varying           |                7
+ gbim_county_2020                                                | namelsad                        | character varying           |                8
+ gbim_county_2020                                                | lsad                            | character varying           |                9
+ gbim_county_2020                                                | classfp                         | character varying           |               10
+ gbim_county_2020                                                | mtfcc                           | character varying           |               11
+ gbim_county_2020                                                | csafp                           | character varying           |               12
+ gbim_county_2020                                                | cbsafp                          | character varying           |               13
+ gbim_county_2020                                                | metdivfp                        | character varying           |               14
+ gbim_county_2020                                                | funcstat                        | character varying           |               15
+ gbim_county_2020                                                | aland                           | double precision            |               16
+ gbim_county_2020                                                | awater                          | double precision            |               17
+ gbim_county_2020                                                | intptlat                        | character varying           |               18
+ gbim_county_2020                                                | intptlon                        | character varying           |               19
+ gbim_county_2020                                                | geom                            | USER-DEFINED                |               20
+ gbim_county_2020                                                | id                              | integer                     |               21
+ gbim_county_2020                                                | last_verified                   | timestamp with time zone    |               22
+ gbim_entities                                                   | id                              | bigint                      |                1
+ gbim_entities                                                   | feature_type                    | text                        |                2
+ gbim_entities                                                   | name                            | text                        |                3
+ gbim_entities                                                   | created_at                      | timestamp with time zone    |                4
+ gbim_entities                                                   | geom                            | USER-DEFINED                |                5
+ gbim_entities                                                   | geodbid                         | uuid                        |                6
+ gbim_entities                                                   | confidence_decay                | double precision            |                7
+ gbim_entity_clusters                                            | canonical_name                  | text                        |                1
+ gbim_entity_clusters                                            | variant_count                   | integer                     |                2
+ gbim_entity_clusters                                            | total_acres                     | numeric                     |                3
+ gbim_entity_clusters                                            | total_parcels                   | integer                     |                4
+ gbim_entity_clusters                                            | county_count                    | integer                     |                5
+ gbim_entity_clusters                                            | variants                        | ARRAY                       |                6
+ gbim_entity_land_candidates                                     | fullownername                   | character varying           |                1
+ gbim_entity_land_candidates                                     | parcels                         | bigint                      |                2
+ gbim_entity_land_candidates                                     | total_acres                     | numeric                     |                3
+ gbim_entity_land_candidates                                     | county_count                    | bigint                      |                4
+ gbim_entity_land_candidates                                     | county_ids                      | ARRAY                       |                5
+ gbim_evidence                                                   | evidence_id                     | uuid                        |                1
+ gbim_evidence                                                   | evidence_id                     | bigint                      |                1
+ gbim_evidence                                                   | worldview_id                    | uuid                        |                2
+ gbim_evidence                                                   | source_system                   | text                        |                2
+ gbim_evidence                                                   | source_type                     | text                        |                3
+ gbim_evidence                                                   | source_table                    | text                        |                3
+ gbim_evidence                                                   | source_id                       | text                        |                4
+ gbim_evidence                                                   | source_pk                       | text                        |                4
+ gbim_evidence                                                   | source_version                  | text                        |                5
+ gbim_evidence                                                   | source_uri                      | text                        |                5
+ gbim_evidence                                                   | description                     | text                        |                6
+ gbim_evidence                                                   | method                          | text                        |                6
+ gbim_evidence                                                   | acquired_at                     | timestamp with time zone    |                7
+ gbim_evidence                                                   | collected_at                    | timestamp with time zone    |                7
+ gbim_evidence                                                   | observation_time                | timestamp with time zone    |                8
+ gbim_evidence                                                   | acquired_by                     | text                        |                8
+ gbim_evidence                                                   | authority_id                    | uuid                        |                9
+ gbim_evidence                                                   | trust_score                     | numeric                     |                9
+ gbim_evidence                                                   | feature_id                      | text                        |               10
+ gbim_evidence                                                   | metadata                        | jsonb                       |               10
+ gbim_evidence                                                   | raw_ref                         | jsonb                       |               11
+ gbim_evidence                                                   | created_at                      | timestamp with time zone    |               12
+ gbim_evidence                                                   | created_by                      | text                        |               13
+ gbim_full_points                                                | id                              | bigint                      |                1
+ gbim_full_points                                                | parcel_id                       | text                        |                2
+ gbim_full_points                                                | owner                           | text                        |                3
+ gbim_full_points                                                | county                          | text                        |                4
+ gbim_full_points                                                | state                           | text                        |                5
+ gbim_full_points                                                | geom                            | USER-DEFINED                |                6
+ gbim_full_points_raw                                            | id                              | bigint                      |                1
+ gbim_full_points_raw                                            | parcel_id                       | text                        |                2
+ gbim_full_points_raw                                            | owner                           | text                        |                3
+ gbim_full_points_raw                                            | county                          | text                        |                4
+ gbim_full_points_raw                                            | state                           | text                        |                5
+ gbim_full_points_raw                                            | lon                             | double precision            |                6
+ gbim_full_points_raw                                            | lat                             | double precision            |                7
+ gbim_layer_catalog                                              | schema_name                     | text                        |                1
+ gbim_layer_catalog                                              | table_name                      | text                        |                2
+ gbim_layer_catalog                                              | geom_column                     | text                        |                3
+ gbim_layer_catalog                                              | geom_type                       | text                        |                4
+ gbim_layer_catalog                                              | srid                            | integer                     |                5
+ gbim_layer_catalog                                              | source_table                    | text                        |                6
+ gbim_layer_config                                               | sourcetable                     | text                        |                1
+ gbim_layer_config                                               | geom_table                      | text                        |                2
+ gbim_layer_config                                               | geom_column                     | text                        |                3
+ gbim_layer_config                                               | join_mode                       | text                        |                4
+ gbim_layer_config                                               | search_radius_m                 | double precision            |                5
+ gbim_layer_config                                               | proposition_code                | text                        |                6
+ gbim_layer_config                                               | proposition                     | text                        |                7
+ gbim_layer_config                                               | tags                            | ARRAY                       |                8
+ gbim_layer_config                                               | active                          | boolean                     |                9
+ gbim_layer_manifest                                             | sourcetable                     | text                        |                1
+ gbim_layer_manifest                                             | vintage                         | text                        |                2
+ gbim_layer_manifest                                             | epoch                           | text                        |                3
+ gbim_source_epochs                                              | sourcetable                     | text                        |                1
+ gbim_source_epochs                                              | vintage                         | text                        |                2
+ gbim_source_epochs                                              | epoch                           | text                        |                3
+ gbim_source_tables_used                                         | source_table                    | text                        |                1
+ gbim_tract_2020                                                 | gid                             | integer                     |                1
+ gbim_tract_2020                                                 | statefp                         | character varying           |                2
+ gbim_tract_2020                                                 | countyfp                        | character varying           |                3
+ gbim_tract_2020                                                 | tractce                         | character varying           |                4
+ gbim_tract_2020                                                 | geoid                           | character varying           |                5
+ gbim_tract_2020                                                 | geoidfq                         | character varying           |                6
+ gbim_tract_2020                                                 | name                            | character varying           |                7
+ gbim_tract_2020                                                 | namelsad                        | character varying           |                8
+ gbim_tract_2020                                                 | mtfcc                           | character varying           |                9
+ gbim_tract_2020                                                 | funcstat                        | character varying           |               10
+ gbim_tract_2020                                                 | aland                           | double precision            |               11
+ gbim_tract_2020                                                 | awater                          | double precision            |               12
+ gbim_tract_2020                                                 | intptlat                        | character varying           |               13
+ gbim_tract_2020                                                 | intptlon                        | character varying           |               14
+ gbim_tract_2020                                                 | geom                            | USER-DEFINED                |               15
+ gbim_tract_2020                                                 | id                              | integer                     |               16
+ gbim_tract_2020                                                 | last_verified                   | timestamp with time zone    |               17
+ gbim_worldview_entity                                           | id                              | uuid                        |                1
+ gbim_worldview_entity                                           | worldview_entity_id             | bigint                      |                1
+ gbim_worldview_entity                                           | worldview_id                    | uuid                        |                2
+ gbim_worldview_entity                                           | worldview_id                    | uuid                        |                2
+ gbim_worldview_entity                                           | entity_type                     | text                        |                3
+ gbim_worldview_entity                                           | entity_type                     | text                        |                3
+ gbim_worldview_entity                                           | source_table                    | text                        |                4
+ gbim_worldview_entity                                           | source_table                    | text                        |                4
+ gbim_worldview_entity                                           | source_pk                       | text                        |                5
+ gbim_worldview_entity                                           | source_pk                       | text                        |                5
+ gbim_worldview_entity                                           | label                           | text                        |                6
+ gbim_worldview_entity                                           | label                           | text                        |                6
+ gbim_worldview_entity                                           | created_at                      | timestamp with time zone    |                7
+ gbim_worldview_entity                                           | created_at                      | timestamp with time zone    |                7
+ gbim_worldview_entity                                           | belief_state                    | jsonb                       |                8
+ gbim_worldview_entity                                           | centroid_geom                   | USER-DEFINED                |                9
+ gbim_worldview_entity                                           | county_name_tag                 | text                        |               10
+ gbim_worldview_entity                                           | state_abbr_tag                  | text                        |               11
+ gbim_worldview_entity                                           | zip_tag                         | text                        |               12
+ gbim_worldview_entity                                           | last_verified                   | timestamp without time zone |               13
+ gbim_worldview_entity                                           | source_date                     | timestamp without time zone |               14
+ gbim_worldview_entity                                           | confidence_decay                | double precision            |               15
+ gbim_worldview_entity                                           | data_age_months                 | integer                     |               16
+ gbim_worldview_entity                                           | needs_verification              | boolean                     |               17
+ gbim_worldview_entity                                           | verification_priority           | text                        |               18
+ gbim_worldview_entity                                           | confidence_decay_rate           | double precision            |               19
+ gbim_worldview_entity_backup_small                              | id                              | uuid                        |                1
+ gbim_worldview_entity_backup_small                              | worldview_id                    | uuid                        |                2
+ gbim_worldview_entity_backup_small                              | entity_type                     | text                        |                3
+ gbim_worldview_entity_backup_small                              | source_table                    | text                        |                4
+ gbim_worldview_entity_backup_small                              | source_pk                       | text                        |                5
+ gbim_worldview_entity_backup_small                              | label                           | text                        |                6
+ gbim_worldview_entity_backup_small                              | created_at                      | timestamp with time zone    |                7
+ gbim_worldview_entity_backup_small                              | belief_state                    | jsonb                       |                8
+ gbim_worldviews                                                 | worldview_id                    | bigint                      |                1
+ gbim_worldviews                                                 | worldview_id                    | uuid                        |                1
+ gbim_worldviews                                                 | name                            | text                        |                2
+ gbim_worldviews                                                 | name                            | text                        |                2
+ gbim_worldviews                                                 | description                     | text                        |                3
+ gbim_worldviews                                                 | description                     | text                        |                3
+ gbim_worldviews                                                 | version_tag                     | text                        |                4
+ gbim_worldviews                                                 | jurisdiction                    | text                        |                4
+ gbim_worldviews                                                 | valid_from                      | timestamp with time zone    |                5
+ gbim_worldviews                                                 | created_at                      | timestamp with time zone    |                5
+ gbim_worldviews                                                 | created_by                      | text                        |                6
+ gbim_worldviews                                                 | valid_to                        | timestamp with time zone    |                6
+ gbim_worldviews                                                 | created_at                      | timestamp with time zone    |                7
+ gbim_worldviews                                                 | worldview_numeric               | bigint                      |                7
+ gbim_worldviews                                                 | created_by                      | text                        |                8
+ gbim_worldviews                                                 | notes                           | jsonb                       |                9
+ gbimbeliefnormalized                                            | gbim_entity_id                  | uuid                        |                1
+ gbimbeliefnormalized                                            | identity                        | jsonb                       |                2
+ gbimbeliefnormalized                                            | who                             | jsonb                       |                3
+ gbimbeliefnormalized                                            | for_whom                        | jsonb                       |                4
+ gbimbeliefnormalized                                            | what                            | jsonb                       |                5
+ gbimbeliefnormalized                                            | when                            | jsonb                       |                6
+ gbimbeliefnormalized                                            | where                           | jsonb                       |                7
+ gbimbeliefnormalized                                            | why                             | jsonb                       |                8
+ gbimbeliefnormalized                                            | how                             | jsonb                       |                9
+ gbimbeliefnormalized                                            | authority                       | jsonb                       |               10
+ gbimbeliefnormalized                                            | evidence                        | jsonb                       |               11
+ gbimbeliefnormalized                                            | updated_at                      | timestamp with time zone    |               12
+ geographicalnamesonusgstopomaps_usgs_200601_ll27                | geodbid                         | integer                     |                1
+ geographicalnamesonusgstopomaps_usgs_200601_ll27                | geom                            | USER-DEFINED                |                2
+ geographicalnamesonusgstopomaps_usgs_200601_ll27                | label                           | text                        |                3
+ geographicalnamesonusgstopomaps_usgs_200601_ll27                | sourcetable                     | text                        |                4
+ geographicalnamesonusgstopomaps_usgs_200601_ll27                | country                         | text                        |                5
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | geodbid                         | integer                     |                1
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | lat                             | double precision            |                2
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | lon                             | double precision            |                3
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | bbox                            | text                        |                4
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | label                           | text                        |                5
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | sourcetable                     | text                        |                6
+ geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | country                         | text                        |                7
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | geodb_id                        | bigint                      |                1
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | geodbid                         | integer                     |                1
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | lat                             | numeric                     |                2
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | geom                            | USER-DEFINED                |                2
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | lon                             | numeric                     |                3
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | label                           | text                        |                3
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | bbox                            | text                        |                4
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | sourcetable                     | text                        |                4
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | label                           | text                        |                5
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | country                         | text                        |                5
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | sourcetable                     | text                        |                6
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | country                         | text                        |                7
+ geographicalnamesonusgstopomaps_usgs_200601_utm83               | geom                            | USER-DEFINED                |                8
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | geodbid                         | integer                     |                1
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | lat                             | double precision            |                2
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | lon                             | double precision            |                3
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | bbox                            | text                        |                4
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | label                           | text                        |                5
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | sourcetable                     | text                        |                6
+ geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | country                         | text                        |                7
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83        | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83        | geom                            | USER-DEFINED                |                2
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83        | label                           | text                        |                3
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83        | sourcetable                     | text                        |                4
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83        | country                         | text                        |                5
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | lat                             | double precision            |                2
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | lon                             | double precision            |                3
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | label                           | text                        |                5
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | country                         | text                        |                7
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | geodb_id                        | numeric                     |                1
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | geom                            | USER-DEFINED                |                2
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | lat                             | numeric                     |                2
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | label                           | text                        |                3
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | lon                             | numeric                     |                3
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | sourcetable                     | text                        |                4
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | country                         | text                        |                5
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | label                           | text                        |                5
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | country                         | text                        |                7
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | geom                            | USER-DEFINED                |                8
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | lat                             | double precision            |                2
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | lon                             | double precision            |                3
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | label                           | text                        |                5
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | country                         | text                        |                7
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83     | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83     | geom                            | USER-DEFINED                |                2
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83     | label                           | text                        |                3
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83     | sourcetable                     | text                        |                4
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83     | country                         | text                        |                5
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | lat                             | double precision            |                2
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | lon                             | double precision            |                3
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | label                           | text                        |                5
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | country                         | text                        |                7
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | geodb_id                        | bigint                      |                1
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | geom                            | USER-DEFINED                |                2
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | lat                             | numeric                     |                2
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | label                           | text                        |                3
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | lon                             | numeric                     |                3
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | sourcetable                     | text                        |                4
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | label                           | text                        |                5
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | country                         | text                        |                5
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | country                         | text                        |                7
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | geom                            | USER-DEFINED                |                8
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | lat                             | double precision            |                2
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | lon                             | double precision            |                3
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | label                           | text                        |                5
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | country                         | text                        |                7
+ geographicnamesonusgstopomaps_usgs_20110801_ll83                | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_usgs_20110801_ll83                | geom                            | USER-DEFINED                |                2
+ geographicnamesonusgstopomaps_usgs_20110801_ll83                | label                           | text                        |                3
+ geographicnamesonusgstopomaps_usgs_20110801_ll83                | sourcetable                     | text                        |                4
+ geographicnamesonusgstopomaps_usgs_20110801_ll83                | country                         | text                        |                5
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | lat                             | double precision            |                2
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | lon                             | double precision            |                3
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | label                           | text                        |                5
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | country                         | text                        |                7
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | geodb_id                        | numeric                     |                1
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | geom                            | USER-DEFINED                |                2
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | lat                             | numeric                     |                2
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | label                           | text                        |                3
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | lon                             | numeric                     |                3
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | sourcetable                     | text                        |                4
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | label                           | text                        |                5
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | country                         | text                        |                5
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | country                         | text                        |                7
+ geographicnamesonusgstopomaps_usgs_20110801_utm83               | geom                            | USER-DEFINED                |                8
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | geodbid                         | integer                     |                1
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | lat                             | double precision            |                2
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | lon                             | double precision            |                3
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | bbox                            | text                        |                4
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | label                           | text                        |                5
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | sourcetable                     | text                        |                6
+ geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | country                         | text                        |                7
+ geolgyl_reg_ll83                                                | geodbid                         | integer                     |                1
+ geolgyl_reg_ll83                                                | geom                            | USER-DEFINED                |                2
+ geolgyl_reg_ll83                                                | label                           | text                        |                3
+ geolgyl_reg_ll83                                                | sourcetable                     | text                        |                4
+ geolgyl_reg_ll83                                                | country                         | text                        |                5
+ geolgyl_reg_ll83_attrs_raw                                      | geodbid                         | integer                     |                1
+ geolgyl_reg_ll83_attrs_raw                                      | lat                             | double precision            |                2
+ geolgyl_reg_ll83_attrs_raw                                      | lon                             | double precision            |                3
+ geolgyl_reg_ll83_attrs_raw                                      | bbox                            | text                        |                4
+ geolgyl_reg_ll83_attrs_raw                                      | label                           | text                        |                5
+ geolgyl_reg_ll83_attrs_raw                                      | sourcetable                     | text                        |                6
+ geolgyl_reg_ll83_attrs_raw                                      | country                         | text                        |                7
+ geolgyp_reg_ll83                                                | geodbid                         | integer                     |                1
+ geolgyp_reg_ll83                                                | geom                            | USER-DEFINED                |                2
+ geolgyp_reg_ll83                                                | label                           | text                        |                3
+ geolgyp_reg_ll83                                                | sourcetable                     | text                        |                4
+ geolgyp_reg_ll83                                                | country                         | text                        |                5
+ geolgyp_reg_ll83_attrs_raw                                      | geodbid                         | integer                     |                1
+ geolgyp_reg_ll83_attrs_raw                                      | lat                             | double precision            |                2
+ geolgyp_reg_ll83_attrs_raw                                      | lon                             | double precision            |                3
+ geolgyp_reg_ll83_attrs_raw                                      | bbox                            | text                        |                4
+ geolgyp_reg_ll83_attrs_raw                                      | label                           | text                        |                5
+ geolgyp_reg_ll83_attrs_raw                                      | sourcetable                     | text                        |                6
+ geolgyp_reg_ll83_attrs_raw                                      | country                         | text                        |                7
+ geospatial_features                                             | id                              | uuid                        |                1
+ geospatial_features                                             | layer_name                      | text                        |                2
+ geospatial_features                                             | feature_id                      | uuid                        |                3
+ geospatial_features                                             | feature_label                   | text                        |                4
+ geospatial_features                                             | worldview_id                    | uuid                        |                5
+ geospatial_features                                             | lon                             | double precision            |                6
+ geospatial_features                                             | lat                             | double precision            |                7
+ geospatial_features                                             | geom_wkt                        | text                        |                8
+ geospatial_features                                             | geom                            | USER-DEFINED                |                9
+ geospatial_features                                             | created_at                      | timestamp with time zone    |               10
+ geospatial_features                                             | name                            | text                        |               11
+ geospatial_features                                             | attributes                      | jsonb                       |               12
+ geospatial_features                                             | source_type                     | text                        |               13
+ geospatial_features                                             | source_id                       | text                        |               14
+ geospatial_features                                             | source_path                     | text                        |               15
+ geospatial_features                                             | updated_at                      | timestamp with time zone    |               16
+ geospatial_features                                             | source_version                  | text                        |               17
+ geospatial_features                                             | source_system                   | text                        |               18
+ geospatial_features                                             | tags                            | ARRAY                       |               19
+ geospatial_features                                             | notes                           | text                        |               20
+ geospatial_features                                             | captured_at                     | timestamp with time zone    |               21
+ geospatial_features                                             | imported_at                     | timestamp with time zone    |               22
+ geospatial_features                                             | import_batch_id                 | text                        |               23
+ geospatial_features                                             | created_by                      | text                        |               24
+ geospatial_layers                                               | layer_name                      | text                        |                1
+ geospatial_layers                                               | theme                           | text                        |                2
+ geospatial_layers                                               | source_system                   | text                        |                3
+ geospatial_layers                                               | source_version                  | text                        |                4
+ geospatial_layers                                               | source_path                     | text                        |                5
+ geospatial_layers                                               | worldview_id                    | uuid                        |                6
+ geospatial_layers                                               | created_at                      | timestamp with time zone    |                7
+ geotextl_reg_ll83                                               | geodbid                         | integer                     |                1
+ geotextl_reg_ll83                                               | geom                            | USER-DEFINED                |                2
+ geotextl_reg_ll83                                               | label                           | text                        |                3
+ geotextl_reg_ll83                                               | sourcetable                     | text                        |                4
+ geotextl_reg_ll83                                               | country                         | text                        |                5
+ geotextl_reg_ll83_attrs_raw                                     | geodbid                         | integer                     |                1
+ geotextl_reg_ll83_attrs_raw                                     | lat                             | double precision            |                2
+ geotextl_reg_ll83_attrs_raw                                     | lon                             | double precision            |                3
+ geotextl_reg_ll83_attrs_raw                                     | bbox                            | text                        |                4
+ geotextl_reg_ll83_attrs_raw                                     | label                           | text                        |                5
+ geotextl_reg_ll83_attrs_raw                                     | sourcetable                     | text                        |                6
+ geotextl_reg_ll83_attrs_raw                                     | country                         | text                        |                7
+ glacagl_reg_ll83                                                | geodbid                         | integer                     |                1
+ glacagl_reg_ll83                                                | geom                            | USER-DEFINED                |                2
+ glacagl_reg_ll83                                                | label                           | text                        |                3
+ glacagl_reg_ll83                                                | sourcetable                     | text                        |                4
+ glacagl_reg_ll83                                                | country                         | text                        |                5
+ glacagl_reg_ll83_attrs_raw                                      | geodbid                         | integer                     |                1
+ glacagl_reg_ll83_attrs_raw                                      | lat                             | double precision            |                2
+ glacagl_reg_ll83_attrs_raw                                      | lon                             | double precision            |                3
+ glacagl_reg_ll83_attrs_raw                                      | bbox                            | text                        |                4
+ glacagl_reg_ll83_attrs_raw                                      | label                           | text                        |                5
+ glacagl_reg_ll83_attrs_raw                                      | sourcetable                     | text                        |                6
+ glacagl_reg_ll83_attrs_raw                                      | country                         | text                        |                7
+ glacal_reg_ll83                                                 | geodbid                         | integer                     |                1
+ glacal_reg_ll83                                                 | geom                            | USER-DEFINED                |                2
+ glacal_reg_ll83                                                 | label                           | text                        |                3
+ glacal_reg_ll83                                                 | sourcetable                     | text                        |                4
+ glacal_reg_ll83                                                 | country                         | text                        |                5
+ glacal_reg_ll83_attrs_raw                                       | geodbid                         | integer                     |                1
+ glacal_reg_ll83_attrs_raw                                       | lat                             | double precision            |                2
+ glacal_reg_ll83_attrs_raw                                       | lon                             | double precision            |                3
+ glacal_reg_ll83_attrs_raw                                       | bbox                            | text                        |                4
+ glacal_reg_ll83_attrs_raw                                       | label                           | text                        |                5
+ glacal_reg_ll83_attrs_raw                                       | sourcetable                     | text                        |                6
+ glacal_reg_ll83_attrs_raw                                       | country                         | text                        |                7
+ hazardmitigationbuyout_20250929_polygons_utm83                  | geodb_id                        | bigint                      |                1
+ hazardmitigationbuyout_20250929_polygons_utm83                  | geodbid                         | integer                     |                1
+ hazardmitigationbuyout_20250929_polygons_utm83                  | geom                            | USER-DEFINED                |                2
+ hazardmitigationbuyout_20250929_polygons_utm83                  | lat                             | numeric                     |                2
+ hazardmitigationbuyout_20250929_polygons_utm83                  | lon                             | numeric                     |                3
+ hazardmitigationbuyout_20250929_polygons_utm83                  | label                           | text                        |                3
+ hazardmitigationbuyout_20250929_polygons_utm83                  | bbox                            | text                        |                4
+ hazardmitigationbuyout_20250929_polygons_utm83                  | sourcetable                     | text                        |                4
+ hazardmitigationbuyout_20250929_polygons_utm83                  | country                         | text                        |                5
+ hazardmitigationbuyout_20250929_polygons_utm83                  | label                           | text                        |                5
+ hazardmitigationbuyout_20250929_polygons_utm83                  | sourcetable                     | text                        |                6
+ hazardmitigationbuyout_20250929_polygons_utm83                  | country                         | text                        |                7
+ hazardmitigationbuyout_20250929_polygons_utm83                  | geom                            | USER-DEFINED                |                8
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | geodbid                         | integer                     |                1
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | lat                             | double precision            |                2
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | lon                             | double precision            |                3
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | bbox                            | text                        |                4
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | label                           | text                        |                5
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | sourcetable                     | text                        |                6
+ hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | country                         | text                        |                7
+ hazardmitigationbuyout_20250929_polygons_wma84                  | geodbid                         | integer                     |                1
+ hazardmitigationbuyout_20250929_polygons_wma84                  | geom                            | USER-DEFINED                |                2
+ hazardmitigationbuyout_20250929_polygons_wma84                  | label                           | text                        |                3
+ hazardmitigationbuyout_20250929_polygons_wma84                  | sourcetable                     | text                        |                4
+ hazardmitigationbuyout_20250929_polygons_wma84                  | country                         | text                        |                5
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | geodbid                         | integer                     |                1
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | lat                             | double precision            |                2
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | lon                             | double precision            |                3
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | bbox                            | text                        |                4
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | label                           | text                        |                5
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | sourcetable                     | text                        |                6
+ hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | country                         | text                        |                7
+ healthruralfacilities_manysources_utm83                         | geodb_id                        | bigint                      |                1
+ healthruralfacilities_manysources_utm83                         | geodbid                         | integer                     |                1
+ healthruralfacilities_manysources_utm83                         | geom                            | USER-DEFINED                |                2
+ healthruralfacilities_manysources_utm83                         | lat                             | numeric                     |                2
+ healthruralfacilities_manysources_utm83                         | label                           | text                        |                3
+ healthruralfacilities_manysources_utm83                         | lon                             | numeric                     |                3
+ healthruralfacilities_manysources_utm83                         | sourcetable                     | text                        |                4
+ healthruralfacilities_manysources_utm83                         | bbox                            | text                        |                4
+ healthruralfacilities_manysources_utm83                         | label                           | text                        |                5
+ healthruralfacilities_manysources_utm83                         | country                         | text                        |                5
+ healthruralfacilities_manysources_utm83                         | sourcetable                     | text                        |                6
+ healthruralfacilities_manysources_utm83                         | country                         | text                        |                7
+ healthruralfacilities_manysources_utm83                         | geom                            | USER-DEFINED                |                8
+ healthruralfacilities_manysources_utm83_attrs_raw               | geodbid                         | integer                     |                1
+ healthruralfacilities_manysources_utm83_attrs_raw               | lat                             | double precision            |                2
+ healthruralfacilities_manysources_utm83_attrs_raw               | lon                             | double precision            |                3
+ healthruralfacilities_manysources_utm83_attrs_raw               | bbox                            | text                        |                4
+ healthruralfacilities_manysources_utm83_attrs_raw               | label                           | text                        |                5
+ healthruralfacilities_manysources_utm83_attrs_raw               | sourcetable                     | text                        |                6
+ healthruralfacilities_manysources_utm83_attrs_raw               | country                         | text                        |                7
+ highered_wvemd_072420_utm83                                     | geodb_id                        | bigint                      |                1
+ highered_wvemd_072420_utm83                                     | geodbid                         | integer                     |                1
+ highered_wvemd_072420_utm83                                     | geom                            | USER-DEFINED                |                2
+ highered_wvemd_072420_utm83                                     | lat                             | numeric                     |                2
+ highered_wvemd_072420_utm83                                     | label                           | text                        |                3
+ highered_wvemd_072420_utm83                                     | lon                             | numeric                     |                3
+ highered_wvemd_072420_utm83                                     | sourcetable                     | text                        |                4
+ highered_wvemd_072420_utm83                                     | bbox                            | text                        |                4
+ highered_wvemd_072420_utm83                                     | country                         | text                        |                5
+ highered_wvemd_072420_utm83                                     | label                           | text                        |                5
+ highered_wvemd_072420_utm83                                     | sourcetable                     | text                        |                6
+ highered_wvemd_072420_utm83                                     | country                         | text                        |                7
+ highered_wvemd_072420_utm83                                     | geom                            | USER-DEFINED                |                8
+ highered_wvemd_072420_utm83_attrs_raw                           | geodbid                         | integer                     |                1
+ highered_wvemd_072420_utm83_attrs_raw                           | lat                             | double precision            |                2
+ highered_wvemd_072420_utm83_attrs_raw                           | lon                             | double precision            |                3
+ highered_wvemd_072420_utm83_attrs_raw                           | bbox                            | text                        |                4
+ highered_wvemd_072420_utm83_attrs_raw                           | label                           | text                        |                5
+ highered_wvemd_072420_utm83_attrs_raw                           | sourcetable                     | text                        |                6
+ highered_wvemd_072420_utm83_attrs_raw                           | country                         | text                        |                7
+ highered_wvemd_072420_wgc84                                     | geodbid                         | integer                     |                1
+ highered_wvemd_072420_wgc84                                     | geom                            | USER-DEFINED                |                2
+ highered_wvemd_072420_wgc84                                     | label                           | text                        |                3
+ highered_wvemd_072420_wgc84                                     | sourcetable                     | text                        |                4
+ highered_wvemd_072420_wgc84                                     | country                         | text                        |                5
+ highered_wvemd_072420_wgc84_attrs_raw                           | geodbid                         | integer                     |                1
+ highered_wvemd_072420_wgc84_attrs_raw                           | lat                             | double precision            |                2
+ highered_wvemd_072420_wgc84_attrs_raw                           | lon                             | double precision            |                3
+ highered_wvemd_072420_wgc84_attrs_raw                           | bbox                            | text                        |                4
+ highered_wvemd_072420_wgc84_attrs_raw                           | label                           | text                        |                5
+ highered_wvemd_072420_wgc84_attrs_raw                           | sourcetable                     | text                        |                6
+ highered_wvemd_072420_wgc84_attrs_raw                           | country                         | text                        |                7
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | geodbid                         | integer                     |                1
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | geodb_id                        | bigint                      |                1
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | lat                             | numeric                     |                2
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | geom                            | USER-DEFINED                |                2
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | lon                             | numeric                     |                3
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | label                           | text                        |                3
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | sourcetable                     | text                        |                4
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | bbox                            | text                        |                4
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | country                         | text                        |                5
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | label                           | text                        |                5
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | sourcetable                     | text                        |                6
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | country                         | text                        |                7
+ historicalaerialphotographycountycoverage_wvgistc_utm83         | geom                            | USER-DEFINED                |                8
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | geodbid                         | integer                     |                1
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | lat                             | double precision            |                2
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | lon                             | double precision            |                3
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | bbox                            | text                        |                4
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | label                           | text                        |                5
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | sourcetable                     | text                        |                6
+ historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | country                         | text                        |                7
+ hospitals                                                       | geodbid                         | integer                     |                1
+ hospitals                                                       | geom                            | USER-DEFINED                |                2
+ hospitals                                                       | label                           | text                        |                3
+ hospitals                                                       | sourcetable                     | text                        |                4
+ hospitals                                                       | country                         | text                        |                5
+ hospitals_attrs_raw                                             | geodbid                         | integer                     |                1
+ hospitals_attrs_raw                                             | lat                             | double precision            |                2
+ hospitals_attrs_raw                                             | lon                             | double precision            |                3
+ hospitals_attrs_raw                                             | bbox                            | text                        |                4
+ hospitals_attrs_raw                                             | label                           | text                        |                5
+ hospitals_attrs_raw                                             | sourcetable                     | text                        |                6
+ hospitals_attrs_raw                                             | country                         | text                        |                7
+ hospitals_wvdem_040519_gcs84                                    | geodbid                         | integer                     |                1
+ hospitals_wvdem_040519_gcs84                                    | geom                            | USER-DEFINED                |                2
+ hospitals_wvdem_040519_gcs84                                    | label                           | text                        |                3
+ hospitals_wvdem_040519_gcs84                                    | sourcetable                     | text                        |                4
+ hospitals_wvdem_040519_gcs84                                    | country                         | text                        |                5
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | geodbid                         | integer                     |                1
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | lat                             | double precision            |                2
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | lon                             | double precision            |                3
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | bbox                            | text                        |                4
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | label                           | text                        |                5
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | sourcetable                     | text                        |                6
+ hospitals_wvdem_040519_gcs84_attrs_raw                          | country                         | text                        |                7
+ hospitals_wvdem_040519_utm83                                    | geodbid                         | integer                     |                1
+ hospitals_wvdem_040519_utm83                                    | geodb_id                        | bigint                      |                1
+ hospitals_wvdem_040519_utm83                                    | lat                             | numeric                     |                2
+ hospitals_wvdem_040519_utm83                                    | geom                            | USER-DEFINED                |                2
+ hospitals_wvdem_040519_utm83                                    | label                           | text                        |                3
+ hospitals_wvdem_040519_utm83                                    | lon                             | numeric                     |                3
+ hospitals_wvdem_040519_utm83                                    | bbox                            | text                        |                4
+ hospitals_wvdem_040519_utm83                                    | sourcetable                     | text                        |                4
+ hospitals_wvdem_040519_utm83                                    | country                         | text                        |                5
+ hospitals_wvdem_040519_utm83                                    | label                           | text                        |                5
+ hospitals_wvdem_040519_utm83                                    | sourcetable                     | text                        |                6
+ hospitals_wvdem_040519_utm83                                    | country                         | text                        |                7
+ hospitals_wvdem_040519_utm83                                    | geom                            | USER-DEFINED                |                8
+ hospitals_wvdem_040519_utm83_attrs_raw                          | geodbid                         | integer                     |                1
+ hospitals_wvdem_040519_utm83_attrs_raw                          | lat                             | double precision            |                2
+ hospitals_wvdem_040519_utm83_attrs_raw                          | lon                             | double precision            |                3
+ hospitals_wvdem_040519_utm83_attrs_raw                          | bbox                            | text                        |                4
+ hospitals_wvdem_040519_utm83_attrs_raw                          | label                           | text                        |                5
+ hospitals_wvdem_040519_utm83_attrs_raw                          | sourcetable                     | text                        |                6
+ hospitals_wvdem_040519_utm83_attrs_raw                          | country                         | text                        |                7
+ hospitalswvdem040519utm83                                       | geodbid                         | integer                     |                1
+ hospitalswvdem040519utm83                                       | geom                            | USER-DEFINED                |                2
+ hospitalswvdem040519utm83                                       | label                           | text                        |                3
+ hospitalswvdem040519utm83                                       | sourcetable                     | text                        |                4
+ hospitalswvdem040519utm83                                       | country                         | text                        |                5
+ hospitalswvdem040519utm83_attrs_raw                             | geodbid                         | integer                     |                1
+ hospitalswvdem040519utm83_attrs_raw                             | lat                             | double precision            |                2
+ hospitalswvdem040519utm83_attrs_raw                             | lon                             | double precision            |                3
+ hospitalswvdem040519utm83_attrs_raw                             | bbox                            | text                        |                4
+ hospitalswvdem040519utm83_attrs_raw                             | label                           | text                        |                5
+ hospitalswvdem040519utm83_attrs_raw                             | sourcetable                     | text                        |                6
+ hospitalswvdem040519utm83_attrs_raw                             | country                         | text                        |                7
+ impact_reg_ll83                                                 | geodbid                         | integer                     |                1
+ impact_reg_ll83                                                 | geom                            | USER-DEFINED                |                2
+ impact_reg_ll83                                                 | label                           | text                        |                3
+ impact_reg_ll83                                                 | sourcetable                     | text                        |                4
+ impact_reg_ll83                                                 | country                         | text                        |                5
+ impact_reg_ll83_attrs_raw                                       | geodbid                         | integer                     |                1
+ impact_reg_ll83_attrs_raw                                       | lat                             | double precision            |                2
+ impact_reg_ll83_attrs_raw                                       | lon                             | double precision            |                3
+ impact_reg_ll83_attrs_raw                                       | bbox                            | text                        |                4
+ impact_reg_ll83_attrs_raw                                       | label                           | text                        |                5
+ impact_reg_ll83_attrs_raw                                       | sourcetable                     | text                        |                6
+ impact_reg_ll83_attrs_raw                                       | country                         | text                        |                7
+ indexgrid15minutequads_wvgistc_ll83                             | geodbid                         | integer                     |                1
+ indexgrid15minutequads_wvgistc_ll83                             | geom                            | USER-DEFINED                |                2
+ indexgrid15minutequads_wvgistc_ll83                             | label                           | text                        |                3
+ indexgrid15minutequads_wvgistc_ll83                             | sourcetable                     | text                        |                4
+ indexgrid15minutequads_wvgistc_ll83                             | country                         | text                        |                5
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | geodbid                         | integer                     |                1
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | lat                             | double precision            |                2
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | lon                             | double precision            |                3
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | bbox                            | text                        |                4
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | label                           | text                        |                5
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | sourcetable                     | text                        |                6
+ indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | country                         | text                        |                7
+ indexgrid15minutequads_wvgistc_utm83                            | geodb_id                        | bigint                      |                1
+ indexgrid15minutequads_wvgistc_utm83                            | geodbid                         | integer                     |                1
+ indexgrid15minutequads_wvgistc_utm83                            | lat                             | numeric                     |                2
+ indexgrid15minutequads_wvgistc_utm83                            | geom                            | USER-DEFINED                |                2
+ indexgrid15minutequads_wvgistc_utm83                            | lon                             | numeric                     |                3
+ indexgrid15minutequads_wvgistc_utm83                            | label                           | text                        |                3
+ indexgrid15minutequads_wvgistc_utm83                            | sourcetable                     | text                        |                4
+ indexgrid15minutequads_wvgistc_utm83                            | bbox                            | text                        |                4
+ indexgrid15minutequads_wvgistc_utm83                            | country                         | text                        |                5
+ indexgrid15minutequads_wvgistc_utm83                            | label                           | text                        |                5
+ indexgrid15minutequads_wvgistc_utm83                            | sourcetable                     | text                        |                6
+ indexgrid15minutequads_wvgistc_utm83                            | country                         | text                        |                7
+ indexgrid15minutequads_wvgistc_utm83                            | geom                            | USER-DEFINED                |                8
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | lat                             | double precision            |                2
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | lon                             | double precision            |                3
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | bbox                            | text                        |                4
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | label                           | text                        |                5
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | country                         | text                        |                7
+ indexgrid15minutewithcounties_wvgistc_utm27                     | geodbid                         | integer                     |                1
+ indexgrid15minutewithcounties_wvgistc_utm27                     | geom                            | USER-DEFINED                |                2
+ indexgrid15minutewithcounties_wvgistc_utm27                     | label                           | text                        |                3
+ indexgrid15minutewithcounties_wvgistc_utm27                     | sourcetable                     | text                        |                4
+ indexgrid15minutewithcounties_wvgistc_utm27                     | country                         | text                        |                5
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | geodbid                         | integer                     |                1
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | lat                             | double precision            |                2
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | lon                             | double precision            |                3
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | bbox                            | text                        |                4
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | label                           | text                        |                5
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | sourcetable                     | text                        |                6
+ indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | country                         | text                        |                7
+ indexgrid1minutequads_wvgistc_ll83                              | geodbid                         | integer                     |                1
+ indexgrid1minutequads_wvgistc_ll83                              | geom                            | USER-DEFINED                |                2
+ indexgrid1minutequads_wvgistc_ll83                              | label                           | text                        |                3
+ indexgrid1minutequads_wvgistc_ll83                              | sourcetable                     | text                        |                4
+ indexgrid1minutequads_wvgistc_ll83                              | country                         | text                        |                5
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | geodbid                         | integer                     |                1
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | lat                             | double precision            |                2
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | lon                             | double precision            |                3
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | bbox                            | text                        |                4
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | label                           | text                        |                5
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | sourcetable                     | text                        |                6
+ indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | country                         | text                        |                7
+ industrialbuildings_wvdo_200807_utm83                           | geodbid                         | integer                     |                1
+ industrialbuildings_wvdo_200807_utm83                           | geodb_id                        | bigint                      |                1
+ industrialbuildings_wvdo_200807_utm83                           | geom                            | USER-DEFINED                |                2
+ industrialbuildings_wvdo_200807_utm83                           | lat                             | numeric                     |                2
+ industrialbuildings_wvdo_200807_utm83                           | label                           | text                        |                3
+ industrialbuildings_wvdo_200807_utm83                           | lon                             | numeric                     |                3
+ industrialbuildings_wvdo_200807_utm83                           | sourcetable                     | text                        |                4
+ industrialbuildings_wvdo_200807_utm83                           | bbox                            | text                        |                4
+ industrialbuildings_wvdo_200807_utm83                           | label                           | text                        |                5
+ industrialbuildings_wvdo_200807_utm83                           | country                         | text                        |                5
+ industrialbuildings_wvdo_200807_utm83                           | sourcetable                     | text                        |                6
+ industrialbuildings_wvdo_200807_utm83                           | country                         | text                        |                7
+ industrialbuildings_wvdo_200807_utm83                           | geom                            | USER-DEFINED                |                8
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | geodbid                         | integer                     |                1
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | lat                             | double precision            |                2
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | lon                             | double precision            |                3
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | bbox                            | text                        |                4
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | label                           | text                        |                5
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | sourcetable                     | text                        |                6
+ industrialbuildings_wvdo_200807_utm83_attrs_raw                 | country                         | text                        |                7
+ industrialparks_wvdo_200078_utm83                               | geodb_id                        | bigint                      |                1
+ industrialparks_wvdo_200078_utm83                               | geodbid                         | integer                     |                1
+ industrialparks_wvdo_200078_utm83                               | lat                             | numeric                     |                2
+ industrialparks_wvdo_200078_utm83                               | geom                            | USER-DEFINED                |                2
+ industrialparks_wvdo_200078_utm83                               | label                           | text                        |                3
+ industrialparks_wvdo_200078_utm83                               | lon                             | numeric                     |                3
+ industrialparks_wvdo_200078_utm83                               | bbox                            | text                        |                4
+ industrialparks_wvdo_200078_utm83                               | sourcetable                     | text                        |                4
+ industrialparks_wvdo_200078_utm83                               | label                           | text                        |                5
+ industrialparks_wvdo_200078_utm83                               | country                         | text                        |                5
+ industrialparks_wvdo_200078_utm83                               | sourcetable                     | text                        |                6
+ industrialparks_wvdo_200078_utm83                               | country                         | text                        |                7
+ industrialparks_wvdo_200078_utm83                               | geom                            | USER-DEFINED                |                8
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | geodbid                         | integer                     |                1
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | lat                             | double precision            |                2
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | lon                             | double precision            |                3
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | bbox                            | text                        |                4
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | label                           | text                        |                5
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | sourcetable                     | text                        |                6
+ industrialparks_wvdo_200078_utm83_attrs_raw                     | country                         | text                        |                7
+ industrialsites_wvdo_200807_utm83                               | geodbid                         | integer                     |                1
+ industrialsites_wvdo_200807_utm83                               | geodb_id                        | bigint                      |                1
+ industrialsites_wvdo_200807_utm83                               | lat                             | numeric                     |                2
+ industrialsites_wvdo_200807_utm83                               | geom                            | USER-DEFINED                |                2
+ industrialsites_wvdo_200807_utm83                               | label                           | text                        |                3
+ industrialsites_wvdo_200807_utm83                               | lon                             | numeric                     |                3
+ industrialsites_wvdo_200807_utm83                               | sourcetable                     | text                        |                4
+ industrialsites_wvdo_200807_utm83                               | bbox                            | text                        |                4
+ industrialsites_wvdo_200807_utm83                               | country                         | text                        |                5
+ industrialsites_wvdo_200807_utm83                               | label                           | text                        |                5
+ industrialsites_wvdo_200807_utm83                               | sourcetable                     | text                        |                6
+ industrialsites_wvdo_200807_utm83                               | country                         | text                        |                7
+ industrialsites_wvdo_200807_utm83                               | geom                            | USER-DEFINED                |                8
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | geodbid                         | integer                     |                1
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | lat                             | double precision            |                2
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | lon                             | double precision            |                3
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | bbox                            | text                        |                4
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | label                           | text                        |                5
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | sourcetable                     | text                        |                6
+ industrialsites_wvdo_200807_utm83_attrs_raw                     | country                         | text                        |                7
+ inedexgrid1minutequads_wvgistc_utm83                            | geodbid                         | integer                     |                1
+ inedexgrid1minutequads_wvgistc_utm83                            | geodb_id                        | bigint                      |                1
+ inedexgrid1minutequads_wvgistc_utm83                            | lat                             | numeric                     |                2
+ inedexgrid1minutequads_wvgistc_utm83                            | geom                            | USER-DEFINED                |                2
+ inedexgrid1minutequads_wvgistc_utm83                            | lon                             | numeric                     |                3
+ inedexgrid1minutequads_wvgistc_utm83                            | label                           | text                        |                3
+ inedexgrid1minutequads_wvgistc_utm83                            | bbox                            | text                        |                4
+ inedexgrid1minutequads_wvgistc_utm83                            | sourcetable                     | text                        |                4
+ inedexgrid1minutequads_wvgistc_utm83                            | country                         | text                        |                5
+ inedexgrid1minutequads_wvgistc_utm83                            | label                           | text                        |                5
+ inedexgrid1minutequads_wvgistc_utm83                            | sourcetable                     | text                        |                6
+ inedexgrid1minutequads_wvgistc_utm83                            | country                         | text                        |                7
+ inedexgrid1minutequads_wvgistc_utm83                            | geom                            | USER-DEFINED                |                8
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | lat                             | double precision            |                2
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | lon                             | double precision            |                3
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | bbox                            | text                        |                4
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | label                           | text                        |                5
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | country                         | text                        |                7
+ intake_submissions                                              | id                              | integer                     |                1
+ intake_submissions                                              | submitted_by                    | uuid                        |                2
+ intake_submissions                                              | filename                        | text                        |                3
+ intake_submissions                                              | file_type                       | text                        |                4
+ intake_submissions                                              | status                          | text                        |                5
+ intake_submissions                                              | submitted_at                    | timestamp with time zone    |                6
+ intake_submissions                                              | reviewed_at                     | timestamp with time zone    |                7
+ intake_submissions                                              | reviewed_by                     | uuid                        |                8
+ intake_submissions                                              | record_count                    | integer                     |                9
+ intake_submissions                                              | error_detail                    | text                        |               10
+ intermodalterminalfacilities_usdot_1997_ll83                    | geodbid                         | integer                     |                1
+ intermodalterminalfacilities_usdot_1997_ll83                    | geom                            | USER-DEFINED                |                2
+ intermodalterminalfacilities_usdot_1997_ll83                    | label                           | text                        |                3
+ intermodalterminalfacilities_usdot_1997_ll83                    | sourcetable                     | text                        |                4
+ intermodalterminalfacilities_usdot_1997_ll83                    | country                         | text                        |                5
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | geodbid                         | integer                     |                1
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | lat                             | double precision            |                2
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | lon                             | double precision            |                3
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | bbox                            | text                        |                4
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | label                           | text                        |                5
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | sourcetable                     | text                        |                6
+ intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | country                         | text                        |                7
+ intermodalterminalfacilities_usdot_1997_utm83                   | geodb_id                        | bigint                      |                1
+ intermodalterminalfacilities_usdot_1997_utm83                   | geodbid                         | integer                     |                1
+ intermodalterminalfacilities_usdot_1997_utm83                   | geom                            | USER-DEFINED                |                2
+ intermodalterminalfacilities_usdot_1997_utm83                   | lat                             | numeric                     |                2
+ intermodalterminalfacilities_usdot_1997_utm83                   | lon                             | numeric                     |                3
+ intermodalterminalfacilities_usdot_1997_utm83                   | label                           | text                        |                3
+ intermodalterminalfacilities_usdot_1997_utm83                   | bbox                            | text                        |                4
+ intermodalterminalfacilities_usdot_1997_utm83                   | sourcetable                     | text                        |                4
+ intermodalterminalfacilities_usdot_1997_utm83                   | label                           | text                        |                5
+ intermodalterminalfacilities_usdot_1997_utm83                   | country                         | text                        |                5
+ intermodalterminalfacilities_usdot_1997_utm83                   | sourcetable                     | text                        |                6
+ intermodalterminalfacilities_usdot_1997_utm83                   | country                         | text                        |                7
+ intermodalterminalfacilities_usdot_1997_utm83                   | geom                            | USER-DEFINED                |                8
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | geodbid                         | integer                     |                1
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | lat                             | double precision            |                2
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | lon                             | double precision            |                3
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | bbox                            | text                        |                4
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | label                           | text                        |                5
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | sourcetable                     | text                        |                6
+ intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | country                         | text                        |                7
+ layer_config                                                    | source_table                    | text                        |                1
+ layer_config                                                    | entity_type                     | text                        |                2
+ layer_config                                                    | default_axes_what               | text                        |                3
+ layer_config                                                    | role_category                   | text                        |                4
+ layer_config                                                    | default_link_type               | text                        |                5
+ layer_config                                                    | notes                           | text                        |                6
+ libraries_manysources_2001_ll27                                 | geodbid                         | integer                     |                1
+ libraries_manysources_2001_ll27                                 | geom                            | USER-DEFINED                |                2
+ libraries_manysources_2001_ll27                                 | label                           | text                        |                3
+ libraries_manysources_2001_ll27                                 | sourcetable                     | text                        |                4
+ libraries_manysources_2001_ll27                                 | country                         | text                        |                5
+ libraries_manysources_2001_ll27_attrs_raw                       | geodbid                         | integer                     |                1
+ libraries_manysources_2001_ll27_attrs_raw                       | lat                             | double precision            |                2
+ libraries_manysources_2001_ll27_attrs_raw                       | lon                             | double precision            |                3
+ libraries_manysources_2001_ll27_attrs_raw                       | bbox                            | text                        |                4
+ libraries_manysources_2001_ll27_attrs_raw                       | label                           | text                        |                5
+ libraries_manysources_2001_ll27_attrs_raw                       | sourcetable                     | text                        |                6
+ libraries_manysources_2001_ll27_attrs_raw                       | country                         | text                        |                7
+ libraries_manysources_2001_utm83                                | geodb_id                        | bigint                      |                1
+ libraries_manysources_2001_utm83                                | geodbid                         | integer                     |                1
+ libraries_manysources_2001_utm83                                | geom                            | USER-DEFINED                |                2
+ libraries_manysources_2001_utm83                                | lat                             | numeric                     |                2
+ libraries_manysources_2001_utm83                                | label                           | text                        |                3
+ libraries_manysources_2001_utm83                                | lon                             | numeric                     |                3
+ libraries_manysources_2001_utm83                                | bbox                            | text                        |                4
+ libraries_manysources_2001_utm83                                | sourcetable                     | text                        |                4
+ libraries_manysources_2001_utm83                                | country                         | text                        |                5
+ libraries_manysources_2001_utm83                                | label                           | text                        |                5
+ libraries_manysources_2001_utm83                                | sourcetable                     | text                        |                6
+ libraries_manysources_2001_utm83                                | country                         | text                        |                7
+ libraries_manysources_2001_utm83                                | geom                            | USER-DEFINED                |                8
+ libraries_manysources_2001_utm83_attrs_raw                      | geodbid                         | integer                     |                1
+ libraries_manysources_2001_utm83_attrs_raw                      | lat                             | double precision            |                2
+ libraries_manysources_2001_utm83_attrs_raw                      | lon                             | double precision            |                3
+ libraries_manysources_2001_utm83_attrs_raw                      | bbox                            | text                        |                4
+ libraries_manysources_2001_utm83_attrs_raw                      | label                           | text                        |                5
+ libraries_manysources_2001_utm83_attrs_raw                      | sourcetable                     | text                        |                6
+ libraries_manysources_2001_utm83_attrs_raw                      | country                         | text                        |                7
+ local_resources                                                 | id                              | integer                     |                1
+ local_resources                                                 | name                            | text                        |                2
+ local_resources                                                 | resource_type                   | text                        |                3
+ local_resources                                                 | county                          | text                        |                4
+ local_resources                                                 | state                           | text                        |                5
+ local_resources                                                 | zip_codes                       | text                        |                6
+ local_resources                                                 | phone                           | text                        |                7
+ local_resources                                                 | email                           | text                        |                8
+ local_resources                                                 | url                             | text                        |                9
+ local_resources                                                 | snippet                         | text                        |               10
+ local_resources                                                 | contact_name                    | text                        |               11
+ local_resources                                                 | contact_email                   | text                        |               12
+ local_resources                                                 | contact_phone                   | text                        |               13
+ local_resources                                                 | last_verified_at                | timestamp with time zone    |               14
+ local_resources                                                 | verification_status             | text                        |               15
+ local_resources                                                 | source_url                      | text                        |               16
+ local_resources                                                 | verification_notes              | text                        |               17
+ local_resources_index                                           | id                              | integer                     |                1
+ local_resources_index                                           | name                            | text                        |                2
+ local_resources_index                                           | program_code                    | text                        |                3
+ local_resources_index                                           | category                        | text                        |                4
+ local_resources_index                                           | county                          | text                        |                5
+ local_resources_index                                           | zip                             | character varying           |                6
+ local_resources_index                                           | address                         | text                        |                7
+ local_resources_index                                           | phone                           | text                        |                8
+ local_resources_index                                           | url                             | text                        |                9
+ local_resources_index                                           | description                     | text                        |               10
+ local_resources_index                                           | created_at                      | timestamp with time zone    |               11
+ majorriversandlakesline_nhd_2002_ll83                           | geodbid                         | integer                     |                1
+ majorriversandlakesline_nhd_2002_ll83                           | geom                            | USER-DEFINED                |                2
+ majorriversandlakesline_nhd_2002_ll83                           | label                           | text                        |                3
+ majorriversandlakesline_nhd_2002_ll83                           | sourcetable                     | text                        |                4
+ majorriversandlakesline_nhd_2002_ll83                           | country                         | text                        |                5
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | geodbid                         | integer                     |                1
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | lat                             | double precision            |                2
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | lon                             | double precision            |                3
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | bbox                            | text                        |                4
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | label                           | text                        |                5
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | sourcetable                     | text                        |                6
+ majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | country                         | text                        |                7
+ majorriversandlakesline_nhd_2002_utm83                          | geodbid                         | integer                     |                1
+ majorriversandlakesline_nhd_2002_utm83                          | geodb_id                        | bigint                      |                1
+ majorriversandlakesline_nhd_2002_utm83                          | geom                            | USER-DEFINED                |                2
+ majorriversandlakesline_nhd_2002_utm83                          | lat                             | numeric                     |                2
+ majorriversandlakesline_nhd_2002_utm83                          | label                           | text                        |                3
+ majorriversandlakesline_nhd_2002_utm83                          | lon                             | numeric                     |                3
+ majorriversandlakesline_nhd_2002_utm83                          | sourcetable                     | text                        |                4
+ majorriversandlakesline_nhd_2002_utm83                          | bbox                            | text                        |                4
+ majorriversandlakesline_nhd_2002_utm83                          | country                         | text                        |                5
+ majorriversandlakesline_nhd_2002_utm83                          | label                           | text                        |                5
+ majorriversandlakesline_nhd_2002_utm83                          | sourcetable                     | text                        |                6
+ majorriversandlakesline_nhd_2002_utm83                          | country                         | text                        |                7
+ majorriversandlakesline_nhd_2002_utm83                          | geom                            | USER-DEFINED                |                8
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | geodbid                         | integer                     |                1
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | lat                             | double precision            |                2
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | lon                             | double precision            |                3
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | bbox                            | text                        |                4
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | label                           | text                        |                5
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | sourcetable                     | text                        |                6
+ majorriversandlakesline_nhd_2002_utm83_attrs_raw                | country                         | text                        |                7
+ majorriversandlakespolygon_nhd_2002_poly_ll83                   | geodbid                         | integer                     |                1
+ majorriversandlakespolygon_nhd_2002_poly_ll83                   | geom                            | USER-DEFINED                |                2
+ majorriversandlakespolygon_nhd_2002_poly_ll83                   | label                           | text                        |                3
+ majorriversandlakespolygon_nhd_2002_poly_ll83                   | sourcetable                     | text                        |                4
+ majorriversandlakespolygon_nhd_2002_poly_ll83                   | country                         | text                        |                5
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | geodbid                         | integer                     |                1
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | lat                             | double precision            |                2
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | lon                             | double precision            |                3
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | bbox                            | text                        |                4
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | label                           | text                        |                5
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | sourcetable                     | text                        |                6
+ majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | country                         | text                        |                7
+ majorriversandlakespolygon_nhd_2002_utm83                       | geodbid                         | integer                     |                1
+ majorriversandlakespolygon_nhd_2002_utm83                       | geodb_id                        | bigint                      |                1
+ majorriversandlakespolygon_nhd_2002_utm83                       | lat                             | numeric                     |                2
+ majorriversandlakespolygon_nhd_2002_utm83                       | geom                            | USER-DEFINED                |                2
+ majorriversandlakespolygon_nhd_2002_utm83                       | label                           | text                        |                3
+ majorriversandlakespolygon_nhd_2002_utm83                       | lon                             | numeric                     |                3
+ majorriversandlakespolygon_nhd_2002_utm83                       | bbox                            | text                        |                4
+ majorriversandlakespolygon_nhd_2002_utm83                       | sourcetable                     | text                        |                4
+ majorriversandlakespolygon_nhd_2002_utm83                       | label                           | text                        |                5
+ majorriversandlakespolygon_nhd_2002_utm83                       | country                         | text                        |                5
+ majorriversandlakespolygon_nhd_2002_utm83                       | sourcetable                     | text                        |                6
+ majorriversandlakespolygon_nhd_2002_utm83                       | country                         | text                        |                7
+ majorriversandlakespolygon_nhd_2002_utm83                       | geom                            | USER-DEFINED                |                8
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | geodbid                         | integer                     |                1
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | lat                             | double precision            |                2
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | lon                             | double precision            |                3
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | bbox                            | text                        |                4
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | label                           | text                        |                5
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | sourcetable                     | text                        |                6
+ majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | country                         | text                        |                7
+ manufacturingandbusiness_wvdo_200803_utm83                      | geodb_id                        | bigint                      |                1
+ manufacturingandbusiness_wvdo_200803_utm83                      | geodbid                         | integer                     |                1
+ manufacturingandbusiness_wvdo_200803_utm83                      | geom                            | USER-DEFINED                |                2
+ manufacturingandbusiness_wvdo_200803_utm83                      | lat                             | numeric                     |                2
+ manufacturingandbusiness_wvdo_200803_utm83                      | lon                             | numeric                     |                3
+ manufacturingandbusiness_wvdo_200803_utm83                      | label                           | text                        |                3
+ manufacturingandbusiness_wvdo_200803_utm83                      | bbox                            | text                        |                4
+ manufacturingandbusiness_wvdo_200803_utm83                      | sourcetable                     | text                        |                4
+ manufacturingandbusiness_wvdo_200803_utm83                      | label                           | text                        |                5
+ manufacturingandbusiness_wvdo_200803_utm83                      | country                         | text                        |                5
+ manufacturingandbusiness_wvdo_200803_utm83                      | sourcetable                     | text                        |                6
+ manufacturingandbusiness_wvdo_200803_utm83                      | country                         | text                        |                7
+ manufacturingandbusiness_wvdo_200803_utm83                      | geom                            | USER-DEFINED                |                8
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | geodbid                         | integer                     |                1
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | lat                             | double precision            |                2
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | lon                             | double precision            |                3
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | bbox                            | text                        |                4
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | label                           | text                        |                5
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | sourcetable                     | text                        |                6
+ manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | country                         | text                        |                7
+ memories                                                        | id                              | integer                     |                1
+ memories                                                        | content                         | text                        |                2
+ memories                                                        | confidence_decay                | double precision            |                3
+ memories                                                        | created_at                      | timestamp with time zone    |                4
+ memories                                                        | gbim_entity_id                  | bigint                      |                5
+ memories                                                        | spatial_ref                     | USER-DEFINED                |                6
+ memories                                                        | reviewed                        | boolean                     |                7
+ memories                                                        | promoted                        | boolean                     |                8
+ memories                                                        | source                          | text                        |                9
+ memories                                                        | chroma_id                       | text                        |               10
+ metfacp_reg_ll83                                                | geodbid                         | integer                     |                1
+ metfacp_reg_ll83                                                | geom                            | USER-DEFINED                |                2
+ metfacp_reg_ll83                                                | label                           | text                        |                3
+ metfacp_reg_ll83                                                | sourcetable                     | text                        |                4
+ metfacp_reg_ll83                                                | country                         | text                        |                5
+ metfacp_reg_ll83_attrs_raw                                      | geodbid                         | integer                     |                1
+ metfacp_reg_ll83_attrs_raw                                      | lat                             | double precision            |                2
+ metfacp_reg_ll83_attrs_raw                                      | lon                             | double precision            |                3
+ metfacp_reg_ll83_attrs_raw                                      | bbox                            | text                        |                4
+ metfacp_reg_ll83_attrs_raw                                      | label                           | text                        |                5
+ metfacp_reg_ll83_attrs_raw                                      | sourcetable                     | text                        |                6
+ metfacp_reg_ll83_attrs_raw                                      | country                         | text                        |                7
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | geodb_id                        | bigint                      |                1
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | lat                             | numeric                     |                2
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | geom                            | USER-DEFINED                |                2
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | lon                             | numeric                     |                3
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | label                           | text                        |                3
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | sourcetable                     | text                        |                4
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | bbox                            | text                        |                4
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | label                           | text                        |                5
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | country                         | text                        |                5
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | sourcetable                     | text                        |                6
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | country                         | text                        |                7
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | geom                            | USER-DEFINED                |                8
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | lat                             | double precision            |                2
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | lon                             | double precision            |                3
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | bbox                            | text                        |                4
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | label                           | text                        |                5
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | sourcetable                     | text                        |                6
+ metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | country                         | text                        |                7
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84   | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84   | geom                            | USER-DEFINED                |                2
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84   | label                           | text                        |                3
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84   | sourcetable                     | text                        |                4
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84   | country                         | text                        |                5
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | lat                             | double precision            |                2
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | lon                             | double precision            |                3
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | bbox                            | text                        |                4
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | label                           | text                        |                5
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | sourcetable                     | text                        |                6
+ metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | country                         | text                        |                7
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83    | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83    | geom                            | USER-DEFINED                |                2
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83    | label                           | text                        |                3
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83    | sourcetable                     | text                        |                4
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83    | country                         | text                        |                5
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | lat                             | double precision            |                2
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | lon                             | double precision            |                3
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | bbox                            | text                        |                4
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | label                           | text                        |                5
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | sourcetable                     | text                        |                6
+ metropolitanandmicropolitanstatisticalareascensus201111gcs83att | country                         | text                        |                7
+ metropolitanandmicropolitanstatisticalareascensus201111utm83    | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareascensus201111utm83    | geom                            | USER-DEFINED                |                2
+ metropolitanandmicropolitanstatisticalareascensus201111utm83    | label                           | text                        |                3
+ metropolitanandmicropolitanstatisticalareascensus201111utm83    | sourcetable                     | text                        |                4
+ metropolitanandmicropolitanstatisticalareascensus201111utm83    | country                         | text                        |                5
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | geodbid                         | integer                     |                1
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | lat                             | double precision            |                2
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | lon                             | double precision            |                3
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | bbox                            | text                        |                4
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | label                           | text                        |                5
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | sourcetable                     | text                        |                6
+ metropolitanandmicropolitanstatisticalareascensus201111utm83att | country                         | text                        |                7
+ metropolitanstatisticalareas_uscensus_199901_ll83               | geodbid                         | integer                     |                1
+ metropolitanstatisticalareas_uscensus_199901_ll83               | geom                            | USER-DEFINED                |                2
+ metropolitanstatisticalareas_uscensus_199901_ll83               | label                           | text                        |                3
+ metropolitanstatisticalareas_uscensus_199901_ll83               | sourcetable                     | text                        |                4
+ metropolitanstatisticalareas_uscensus_199901_ll83               | country                         | text                        |                5
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | geodbid                         | integer                     |                1
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | lat                             | double precision            |                2
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | lon                             | double precision            |                3
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | bbox                            | text                        |                4
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | label                           | text                        |                5
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | sourcetable                     | text                        |                6
+ metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | country                         | text                        |                7
+ metropolitanstatisticalareas_uscensus_199901_utm83              | geodb_id                        | bigint                      |                1
+ metropolitanstatisticalareas_uscensus_199901_utm83              | geodbid                         | integer                     |                1
+ metropolitanstatisticalareas_uscensus_199901_utm83              | lat                             | numeric                     |                2
+ metropolitanstatisticalareas_uscensus_199901_utm83              | geom                            | USER-DEFINED                |                2
+ metropolitanstatisticalareas_uscensus_199901_utm83              | lon                             | numeric                     |                3
+ metropolitanstatisticalareas_uscensus_199901_utm83              | label                           | text                        |                3
+ metropolitanstatisticalareas_uscensus_199901_utm83              | sourcetable                     | text                        |                4
+ metropolitanstatisticalareas_uscensus_199901_utm83              | bbox                            | text                        |                4
+ metropolitanstatisticalareas_uscensus_199901_utm83              | label                           | text                        |                5
+ metropolitanstatisticalareas_uscensus_199901_utm83              | country                         | text                        |                5
+ metropolitanstatisticalareas_uscensus_199901_utm83              | sourcetable                     | text                        |                6
+ metropolitanstatisticalareas_uscensus_199901_utm83              | country                         | text                        |                7
+ metropolitanstatisticalareas_uscensus_199901_utm83              | geom                            | USER-DEFINED                |                8
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | geodbid                         | integer                     |                1
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | lat                             | double precision            |                2
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | lon                             | double precision            |                3
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | bbox                            | text                        |                4
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | label                           | text                        |                5
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | sourcetable                     | text                        |                6
+ metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | country                         | text                        |                7
+ mineraloperations_usgs_200204_ll83                              | geodbid                         | integer                     |                1
+ mineraloperations_usgs_200204_ll83                              | geom                            | USER-DEFINED                |                2
+ mineraloperations_usgs_200204_ll83                              | label                           | text                        |                3
+ mineraloperations_usgs_200204_ll83                              | sourcetable                     | text                        |                4
+ mineraloperations_usgs_200204_ll83                              | country                         | text                        |                5
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | geodbid                         | integer                     |                1
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | lat                             | double precision            |                2
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | lon                             | double precision            |                3
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | bbox                            | text                        |                4
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | label                           | text                        |                5
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | sourcetable                     | text                        |                6
+ mineraloperations_usgs_200204_ll83_attrs_raw                    | country                         | text                        |                7
+ mineraloperations_usgs_200204_utm83                             | geodb_id                        | bigint                      |                1
+ mineraloperations_usgs_200204_utm83                             | geodbid                         | integer                     |                1
+ mineraloperations_usgs_200204_utm83                             | geom                            | USER-DEFINED                |                2
+ mineraloperations_usgs_200204_utm83                             | lat                             | numeric                     |                2
+ mineraloperations_usgs_200204_utm83                             | label                           | text                        |                3
+ mineraloperations_usgs_200204_utm83                             | lon                             | numeric                     |                3
+ mineraloperations_usgs_200204_utm83                             | bbox                            | text                        |                4
+ mineraloperations_usgs_200204_utm83                             | sourcetable                     | text                        |                4
+ mineraloperations_usgs_200204_utm83                             | label                           | text                        |                5
+ mineraloperations_usgs_200204_utm83                             | country                         | text                        |                5
+ mineraloperations_usgs_200204_utm83                             | sourcetable                     | text                        |                6
+ mineraloperations_usgs_200204_utm83                             | country                         | text                        |                7
+ mineraloperations_usgs_200204_utm83                             | geom                            | USER-DEFINED                |                8
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | geodbid                         | integer                     |                1
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | lat                             | double precision            |                2
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | lon                             | double precision            |                3
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | bbox                            | text                        |                4
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | label                           | text                        |                5
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | sourcetable                     | text                        |                6
+ mineraloperations_usgs_200204_utm83_attrs_raw                   | country                         | text                        |                7
+ minesabandonedlandsline_wvdep_1996_noprojectoin                 | geodbid                         | integer                     |                1
+ minesabandonedlandsline_wvdep_1996_noprojectoin                 | geom                            | USER-DEFINED                |                2
+ minesabandonedlandsline_wvdep_1996_noprojectoin                 | label                           | text                        |                3
+ minesabandonedlandsline_wvdep_1996_noprojectoin                 | sourcetable                     | text                        |                4
+ minesabandonedlandsline_wvdep_1996_noprojectoin                 | country                         | text                        |                5
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | geodbid                         | integer                     |                1
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | lat                             | double precision            |                2
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | lon                             | double precision            |                3
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | bbox                            | text                        |                4
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | label                           | text                        |                5
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | sourcetable                     | text                        |                6
+ minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | country                         | text                        |                7
+ minesabandonedlandspoint_wvdep_1996_noprojection                | geodbid                         | integer                     |                1
+ minesabandonedlandspoint_wvdep_1996_noprojection                | geom                            | USER-DEFINED                |                2
+ minesabandonedlandspoint_wvdep_1996_noprojection                | label                           | text                        |                3
+ minesabandonedlandspoint_wvdep_1996_noprojection                | sourcetable                     | text                        |                4
+ minesabandonedlandspoint_wvdep_1996_noprojection                | country                         | text                        |                5
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | geodbid                         | integer                     |                1
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | lat                             | double precision            |                2
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | lon                             | double precision            |                3
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | bbox                            | text                        |                4
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | label                           | text                        |                5
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | sourcetable                     | text                        |                6
+ minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | country                         | text                        |                7
+ minesabandonedlandspolygon_wvdep_1996_noprojection              | geodbid                         | integer                     |                1
+ minesabandonedlandspolygon_wvdep_1996_noprojection              | geom                            | USER-DEFINED                |                2
+ minesabandonedlandspolygon_wvdep_1996_noprojection              | label                           | text                        |                3
+ minesabandonedlandspolygon_wvdep_1996_noprojection              | sourcetable                     | text                        |                4
+ minesabandonedlandspolygon_wvdep_1996_noprojection              | country                         | text                        |                5
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | geodbid                         | integer                     |                1
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | lat                             | double precision            |                2
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | lon                             | double precision            |                3
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | bbox                            | text                        |                4
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | label                           | text                        |                5
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | sourcetable                     | text                        |                6
+ minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | country                         | text                        |                7
+ nationalatlasstreams_usgs_199903_ll83                           | geodbid                         | integer                     |                1
+ nationalatlasstreams_usgs_199903_ll83                           | geom                            | USER-DEFINED                |                2
+ nationalatlasstreams_usgs_199903_ll83                           | label                           | text                        |                3
+ nationalatlasstreams_usgs_199903_ll83                           | sourcetable                     | text                        |                4
+ nationalatlasstreams_usgs_199903_ll83                           | country                         | text                        |                5
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | geodbid                         | integer                     |                1
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | lat                             | double precision            |                2
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | lon                             | double precision            |                3
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | bbox                            | text                        |                4
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | label                           | text                        |                5
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | sourcetable                     | text                        |                6
+ nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | country                         | text                        |                7
+ nationalatlasstreams_usgs_199903_utm83                          | geodbid                         | integer                     |                1
+ nationalatlasstreams_usgs_199903_utm83                          | geodb_id                        | bigint                      |                1
+ nationalatlasstreams_usgs_199903_utm83                          | geom                            | USER-DEFINED                |                2
+ nationalatlasstreams_usgs_199903_utm83                          | lat                             | numeric                     |                2
+ nationalatlasstreams_usgs_199903_utm83                          | lon                             | numeric                     |                3
+ nationalatlasstreams_usgs_199903_utm83                          | label                           | text                        |                3
+ nationalatlasstreams_usgs_199903_utm83                          | bbox                            | text                        |                4
+ nationalatlasstreams_usgs_199903_utm83                          | sourcetable                     | text                        |                4
+ nationalatlasstreams_usgs_199903_utm83                          | country                         | text                        |                5
+ nationalatlasstreams_usgs_199903_utm83                          | label                           | text                        |                5
+ nationalatlasstreams_usgs_199903_utm83                          | sourcetable                     | text                        |                6
+ nationalatlasstreams_usgs_199903_utm83                          | country                         | text                        |                7
+ nationalatlasstreams_usgs_199903_utm83                          | geom                            | USER-DEFINED                |                8
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | geodbid                         | integer                     |                1
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | lat                             | double precision            |                2
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | lon                             | double precision            |                3
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | bbox                            | text                        |                4
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | label                           | text                        |                5
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | sourcetable                     | text                        |                6
+ nationalatlasstreams_usgs_199903_utm83_attrs_raw                | country                         | text                        |                7
+ nationalregister_point_20200923                                 | geodbid                         | integer                     |                1
+ nationalregister_point_20200923                                 | geom                            | USER-DEFINED                |                2
+ nationalregister_point_20200923                                 | label                           | text                        |                3
+ nationalregister_point_20200923                                 | sourcetable                     | text                        |                4
+ nationalregister_point_20200923                                 | country                         | text                        |                5
+ nationalregister_point_20200923_attrs_raw                       | geodbid                         | integer                     |                1
+ nationalregister_point_20200923_attrs_raw                       | lat                             | double precision            |                2
+ nationalregister_point_20200923_attrs_raw                       | lon                             | double precision            |                3
+ nationalregister_point_20200923_attrs_raw                       | bbox                            | text                        |                4
+ nationalregister_point_20200923_attrs_raw                       | label                           | text                        |                5
+ nationalregister_point_20200923_attrs_raw                       | sourcetable                     | text                        |                6
+ nationalregister_point_20200923_attrs_raw                       | country                         | text                        |                7
+ nationalregister_point_20200923_utm27                           | geodbid                         | integer                     |                1
+ nationalregister_point_20200923_utm27                           | geom                            | USER-DEFINED                |                2
+ nationalregister_point_20200923_utm27                           | label                           | text                        |                3
+ nationalregister_point_20200923_utm27                           | sourcetable                     | text                        |                4
+ nationalregister_point_20200923_utm27                           | country                         | text                        |                5
+ nationalregister_point_20200923_utm27_attrs_raw                 | geodbid                         | integer                     |                1
+ nationalregister_point_20200923_utm27_attrs_raw                 | lat                             | double precision            |                2
+ nationalregister_point_20200923_utm27_attrs_raw                 | lon                             | double precision            |                3
+ nationalregister_point_20200923_utm27_attrs_raw                 | bbox                            | text                        |                4
+ nationalregister_point_20200923_utm27_attrs_raw                 | label                           | text                        |                5
+ nationalregister_point_20200923_utm27_attrs_raw                 | sourcetable                     | text                        |                6
+ nationalregister_point_20200923_utm27_attrs_raw                 | country                         | text                        |                7
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83        | geodbid                         | integer                     |                1
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83        | geom                            | USER-DEFINED                |                2
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83        | label                           | text                        |                3
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83        | sourcetable                     | text                        |                4
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83        | country                         | text                        |                5
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | geodbid                         | integer                     |                1
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | lat                             | double precision            |                2
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | lon                             | double precision            |                3
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | bbox                            | text                        |                4
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | label                           | text                        |                5
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | sourcetable                     | text                        |                6
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | country                         | text                        |                7
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | geodbid                         | integer                     |                1
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | geodb_id                        | bigint                      |                1
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | lat                             | numeric                     |                2
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | geom                            | USER-DEFINED                |                2
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | label                           | text                        |                3
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | lon                             | numeric                     |                3
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | bbox                            | text                        |                4
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | sourcetable                     | text                        |                4
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | country                         | text                        |                5
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | label                           | text                        |                5
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | sourcetable                     | text                        |                6
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | country                         | text                        |                7
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | geom                            | USER-DEFINED                |                8
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | geodbid                         | integer                     |                1
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | lat                             | double precision            |                2
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | lon                             | double precision            |                3
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | bbox                            | text                        |                4
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | label                           | text                        |                5
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | sourcetable                     | text                        |                6
+ nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | country                         | text                        |                7
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83   | geodbid                         | integer                     |                1
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83   | geom                            | USER-DEFINED                |                2
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83   | label                           | text                        |                3
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83   | sourcetable                     | text                        |                4
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83   | country                         | text                        |                5
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | geodbid                         | integer                     |                1
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | lat                             | double precision            |                2
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | lon                             | double precision            |                3
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | bbox                            | text                        |                4
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | label                           | text                        |                5
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | sourcetable                     | text                        |                6
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | country                         | text                        |                7
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | geodbid                         | integer                     |                1
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | geodb_id                        | bigint                      |                1
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | lat                             | numeric                     |                2
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | geom                            | USER-DEFINED                |                2
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | label                           | text                        |                3
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | lon                             | numeric                     |                3
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | bbox                            | text                        |                4
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | sourcetable                     | text                        |                4
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | country                         | text                        |                5
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | label                           | text                        |                5
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | sourcetable                     | text                        |                6
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | country                         | text                        |                7
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | geom                            | USER-DEFINED                |                8
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | geodbid                         | integer                     |                1
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | lat                             | double precision            |                2
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | lon                             | double precision            |                3
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | bbox                            | text                        |                4
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | label                           | text                        |                5
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | sourcetable                     | text                        |                6
+ nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | country                         | text                        |                7
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | geodb_id                        | bigint                      |                1
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | geodbid                         | integer                     |                1
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | geom                            | USER-DEFINED                |                2
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | lat                             | numeric                     |                2
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | label                           | text                        |                3
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | lon                             | numeric                     |                3
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | sourcetable                     | text                        |                4
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | bbox                            | text                        |                4
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | label                           | text                        |                5
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | country                         | text                        |                5
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | sourcetable                     | text                        |                6
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | country                         | text                        |                7
+ naviagablewaterways_usarmycropsofengineers_2006_utm83           | geom                            | USER-DEFINED                |                8
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | geodbid                         | integer                     |                1
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | lat                             | double precision            |                2
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | lon                             | double precision            |                3
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | bbox                            | text                        |                4
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | label                           | text                        |                5
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | sourcetable                     | text                        |                6
+ naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | country                         | text                        |                7
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | geodbid                         | integer                     |                1
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | geodb_id                        | bigint                      |                1
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | geom                            | USER-DEFINED                |                2
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | lat                             | numeric                     |                2
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | label                           | text                        |                3
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | lon                             | numeric                     |                3
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | sourcetable                     | text                        |                4
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | bbox                            | text                        |                4
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | label                           | text                        |                5
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | country                         | text                        |                5
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | sourcetable                     | text                        |                6
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | country                         | text                        |                7
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | geom                            | USER-DEFINED                |                8
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | geodbid                         | integer                     |                1
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | lat                             | double precision            |                2
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | lon                             | double precision            |                3
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | bbox                            | text                        |                4
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | label                           | text                        |                5
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | sourcetable                     | text                        |                6
+ navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | country                         | text                        |                7
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | geodbid                         | integer                     |                1
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | geodb_id                        | bigint                      |                1
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | geom                            | USER-DEFINED                |                2
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | lat                             | numeric                     |                2
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | lon                             | numeric                     |                3
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | label                           | text                        |                3
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | bbox                            | text                        |                4
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | sourcetable                     | text                        |                4
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | country                         | text                        |                5
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | label                           | text                        |                5
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | sourcetable                     | text                        |                6
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | country                         | text                        |                7
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83  | geom                            | USER-DEFINED                |                8
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | geodbid                         | integer                     |                1
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | lat                             | double precision            |                2
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | lon                             | double precision            |                3
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | bbox                            | text                        |                4
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | label                           | text                        |                5
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | sourcetable                     | text                        |                6
+ navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | country                         | text                        |                7
+ nursinghomes_wvdem_041219_gcs84                                 | geodbid                         | integer                     |                1
+ nursinghomes_wvdem_041219_gcs84                                 | geom                            | USER-DEFINED                |                2
+ nursinghomes_wvdem_041219_gcs84                                 | label                           | text                        |                3
+ nursinghomes_wvdem_041219_gcs84                                 | sourcetable                     | text                        |                4
+ nursinghomes_wvdem_041219_gcs84                                 | country                         | text                        |                5
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | geodbid                         | integer                     |                1
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | lat                             | double precision            |                2
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | lon                             | double precision            |                3
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | bbox                            | text                        |                4
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | label                           | text                        |                5
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | sourcetable                     | text                        |                6
+ nursinghomes_wvdem_041219_gcs84_attrs_raw                       | country                         | text                        |                7
+ nursinghomes_wvdem_041219_utm83                                 | geodb_id                        | bigint                      |                1
+ nursinghomes_wvdem_041219_utm83                                 | geodbid                         | integer                     |                1
+ nursinghomes_wvdem_041219_utm83                                 | geom                            | USER-DEFINED                |                2
+ nursinghomes_wvdem_041219_utm83                                 | lat                             | numeric                     |                2
+ nursinghomes_wvdem_041219_utm83                                 | lon                             | numeric                     |                3
+ nursinghomes_wvdem_041219_utm83                                 | label                           | text                        |                3
+ nursinghomes_wvdem_041219_utm83                                 | sourcetable                     | text                        |                4
+ nursinghomes_wvdem_041219_utm83                                 | bbox                            | text                        |                4
+ nursinghomes_wvdem_041219_utm83                                 | label                           | text                        |                5
+ nursinghomes_wvdem_041219_utm83                                 | country                         | text                        |                5
+ nursinghomes_wvdem_041219_utm83                                 | sourcetable                     | text                        |                6
+ nursinghomes_wvdem_041219_utm83                                 | country                         | text                        |                7
+ nursinghomes_wvdem_041219_utm83                                 | geom                            | USER-DEFINED                |                8
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | geodbid                         | integer                     |                1
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | lat                             | double precision            |                2
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | lon                             | double precision            |                3
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | bbox                            | text                        |                4
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | label                           | text                        |                5
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | sourcetable                     | text                        |                6
+ nursinghomes_wvdem_041219_utm83_attrs_raw                       | country                         | text                        |                7
+ officebuildings_wvdo_200807_utm83                               | geodb_id                        | bigint                      |                1
+ officebuildings_wvdo_200807_utm83                               | geodbid                         | integer                     |                1
+ officebuildings_wvdo_200807_utm83                               | geom                            | USER-DEFINED                |                2
+ officebuildings_wvdo_200807_utm83                               | lat                             | numeric                     |                2
+ officebuildings_wvdo_200807_utm83                               | lon                             | numeric                     |                3
+ officebuildings_wvdo_200807_utm83                               | label                           | text                        |                3
+ officebuildings_wvdo_200807_utm83                               | bbox                            | text                        |                4
+ officebuildings_wvdo_200807_utm83                               | sourcetable                     | text                        |                4
+ officebuildings_wvdo_200807_utm83                               | country                         | text                        |                5
+ officebuildings_wvdo_200807_utm83                               | label                           | text                        |                5
+ officebuildings_wvdo_200807_utm83                               | sourcetable                     | text                        |                6
+ officebuildings_wvdo_200807_utm83                               | country                         | text                        |                7
+ officebuildings_wvdo_200807_utm83                               | geom                            | USER-DEFINED                |                8
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | geodbid                         | integer                     |                1
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | lat                             | double precision            |                2
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | lon                             | double precision            |                3
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | bbox                            | text                        |                4
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | label                           | text                        |                5
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | sourcetable                     | text                        |                6
+ officebuildings_wvdo_200807_utm83_attrs_raw                     | country                         | text                        |                7
+ osm_hospitals_wv                                                | id                              | integer                     |                1
+ osm_hospitals_wv                                                | name                            | text                        |                2
+ osm_hospitals_wv                                                | geom                            | USER-DEFINED                |                3
+ paroleoffices_manysources_2008_utm83                            | geodb_id                        | bigint                      |                1
+ paroleoffices_manysources_2008_utm83                            | geodbid                         | integer                     |                1
+ paroleoffices_manysources_2008_utm83                            | geom                            | USER-DEFINED                |                2
+ paroleoffices_manysources_2008_utm83                            | lat                             | numeric                     |                2
+ paroleoffices_manysources_2008_utm83                            | lon                             | numeric                     |                3
+ paroleoffices_manysources_2008_utm83                            | label                           | text                        |                3
+ paroleoffices_manysources_2008_utm83                            | sourcetable                     | text                        |                4
+ paroleoffices_manysources_2008_utm83                            | bbox                            | text                        |                4
+ paroleoffices_manysources_2008_utm83                            | label                           | text                        |                5
+ paroleoffices_manysources_2008_utm83                            | country                         | text                        |                5
+ paroleoffices_manysources_2008_utm83                            | sourcetable                     | text                        |                6
+ paroleoffices_manysources_2008_utm83                            | country                         | text                        |                7
+ paroleoffices_manysources_2008_utm83                            | geom                            | USER-DEFINED                |                8
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | lat                             | double precision            |                2
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | lon                             | double precision            |                3
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | bbox                            | text                        |                4
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | label                           | text                        |                5
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ paroleoffices_manysources_2008_utm83_attrs_raw                  | country                         | text                        |                7
+ paroleoffices_manysources_2008_wgs84                            | geodbid                         | integer                     |                1
+ paroleoffices_manysources_2008_wgs84                            | geom                            | USER-DEFINED                |                2
+ paroleoffices_manysources_2008_wgs84                            | label                           | text                        |                3
+ paroleoffices_manysources_2008_wgs84                            | sourcetable                     | text                        |                4
+ paroleoffices_manysources_2008_wgs84                            | country                         | text                        |                5
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | geodbid                         | integer                     |                1
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | lat                             | double precision            |                2
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | lon                             | double precision            |                3
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | bbox                            | text                        |                4
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | label                           | text                        |                5
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | sourcetable                     | text                        |                6
+ paroleoffices_manysources_2008_wgs84_attrs_raw                  | country                         | text                        |                7
+ placesofworship_hsip_20080723_utm83                             | geodbid                         | integer                     |                1
+ placesofworship_hsip_20080723_utm83                             | geodb_id                        | bigint                      |                1
+ placesofworship_hsip_20080723_utm83                             | geom                            | USER-DEFINED                |                2
+ placesofworship_hsip_20080723_utm83                             | lat                             | numeric                     |                2
+ placesofworship_hsip_20080723_utm83                             | lon                             | numeric                     |                3
+ placesofworship_hsip_20080723_utm83                             | label                           | text                        |                3
+ placesofworship_hsip_20080723_utm83                             | sourcetable                     | text                        |                4
+ placesofworship_hsip_20080723_utm83                             | bbox                            | text                        |                4
+ placesofworship_hsip_20080723_utm83                             | country                         | text                        |                5
+ placesofworship_hsip_20080723_utm83                             | label                           | text                        |                5
+ placesofworship_hsip_20080723_utm83                             | sourcetable                     | text                        |                6
+ placesofworship_hsip_20080723_utm83                             | country                         | text                        |                7
+ placesofworship_hsip_20080723_utm83                             | geom                            | USER-DEFINED                |                8
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | geodbid                         | integer                     |                1
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | lat                             | double precision            |                2
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | lon                             | double precision            |                3
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | bbox                            | text                        |                4
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | label                           | text                        |                5
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | sourcetable                     | text                        |                6
+ placesofworship_hsip_20080723_utm83_attrs_raw                   | country                         | text                        |                7
+ placesofworship_hsip_20080723_wgs84                             | geodbid                         | integer                     |                1
+ placesofworship_hsip_20080723_wgs84                             | geom                            | USER-DEFINED                |                2
+ placesofworship_hsip_20080723_wgs84                             | label                           | text                        |                3
+ placesofworship_hsip_20080723_wgs84                             | sourcetable                     | text                        |                4
+ placesofworship_hsip_20080723_wgs84                             | country                         | text                        |                5
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | geodbid                         | integer                     |                1
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | lat                             | double precision            |                2
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | lon                             | double precision            |                3
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | bbox                            | text                        |                4
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | label                           | text                        |                5
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | sourcetable                     | text                        |                6
+ placesofworship_hsip_20080723_wgs84_attrs_raw                   | country                         | text                        |                7
+ policedept_wvdem_012319_gcs84                                   | geodbid                         | integer                     |                1
+ policedept_wvdem_012319_gcs84                                   | geom                            | USER-DEFINED                |                2
+ policedept_wvdem_012319_gcs84                                   | label                           | text                        |                3
+ policedept_wvdem_012319_gcs84                                   | sourcetable                     | text                        |                4
+ policedept_wvdem_012319_gcs84                                   | country                         | text                        |                5
+ policedept_wvdem_012319_gcs84_attrs_raw                         | geodbid                         | integer                     |                1
+ policedept_wvdem_012319_gcs84_attrs_raw                         | lat                             | double precision            |                2
+ policedept_wvdem_012319_gcs84_attrs_raw                         | lon                             | double precision            |                3
+ policedept_wvdem_012319_gcs84_attrs_raw                         | bbox                            | text                        |                4
+ policedept_wvdem_012319_gcs84_attrs_raw                         | label                           | text                        |                5
+ policedept_wvdem_012319_gcs84_attrs_raw                         | sourcetable                     | text                        |                6
+ policedept_wvdem_012319_gcs84_attrs_raw                         | country                         | text                        |                7
+ policedept_wvdem_012319_utm83                                   | geodbid                         | integer                     |                1
+ policedept_wvdem_012319_utm83                                   | geodb_id                        | bigint                      |                1
+ policedept_wvdem_012319_utm83                                   | geom                            | USER-DEFINED                |                2
+ policedept_wvdem_012319_utm83                                   | lat                             | numeric                     |                2
+ policedept_wvdem_012319_utm83                                   | lon                             | numeric                     |                3
+ policedept_wvdem_012319_utm83                                   | label                           | text                        |                3
+ policedept_wvdem_012319_utm83                                   | bbox                            | text                        |                4
+ policedept_wvdem_012319_utm83                                   | sourcetable                     | text                        |                4
+ policedept_wvdem_012319_utm83                                   | country                         | text                        |                5
+ policedept_wvdem_012319_utm83                                   | label                           | text                        |                5
+ policedept_wvdem_012319_utm83                                   | sourcetable                     | text                        |                6
+ policedept_wvdem_012319_utm83                                   | country                         | text                        |                7
+ policedept_wvdem_012319_utm83                                   | geom                            | USER-DEFINED                |                8
+ policedept_wvdem_012319_utm83_attrs_raw                         | geodbid                         | integer                     |                1
+ policedept_wvdem_012319_utm83_attrs_raw                         | lat                             | double precision            |                2
+ policedept_wvdem_012319_utm83_attrs_raw                         | lon                             | double precision            |                3
+ policedept_wvdem_012319_utm83_attrs_raw                         | bbox                            | text                        |                4
+ policedept_wvdem_012319_utm83_attrs_raw                         | label                           | text                        |                5
+ policedept_wvdem_012319_utm83_attrs_raw                         | sourcetable                     | text                        |                6
+ policedept_wvdem_012319_utm83_attrs_raw                         | country                         | text                        |                7
+ populatedplaces_census_201112_utm83                             | geodbid                         | integer                     |                1
+ populatedplaces_census_201112_utm83                             | geodb_id                        | bigint                      |                1
+ populatedplaces_census_201112_utm83                             | lat                             | numeric                     |                2
+ populatedplaces_census_201112_utm83                             | geom                            | USER-DEFINED                |                2
+ populatedplaces_census_201112_utm83                             | lon                             | numeric                     |                3
+ populatedplaces_census_201112_utm83                             | label                           | text                        |                3
+ populatedplaces_census_201112_utm83                             | sourcetable                     | text                        |                4
+ populatedplaces_census_201112_utm83                             | bbox                            | text                        |                4
+ populatedplaces_census_201112_utm83                             | country                         | text                        |                5
+ populatedplaces_census_201112_utm83                             | label                           | text                        |                5
+ populatedplaces_census_201112_utm83                             | sourcetable                     | text                        |                6
+ populatedplaces_census_201112_utm83                             | country                         | text                        |                7
+ populatedplaces_census_201112_utm83                             | geom                            | USER-DEFINED                |                8
+ populatedplaces_census_201112_utm83_attrs_raw                   | geodbid                         | integer                     |                1
+ populatedplaces_census_201112_utm83_attrs_raw                   | lat                             | double precision            |                2
+ populatedplaces_census_201112_utm83_attrs_raw                   | lon                             | double precision            |                3
+ populatedplaces_census_201112_utm83_attrs_raw                   | bbox                            | text                        |                4
+ populatedplaces_census_201112_utm83_attrs_raw                   | label                           | text                        |                5
+ populatedplaces_census_201112_utm83_attrs_raw                   | sourcetable                     | text                        |                6
+ populatedplaces_census_201112_utm83_attrs_raw                   | country                         | text                        |                7
+ populatedplaces_census_20112_gcs83                              | geodbid                         | integer                     |                1
+ populatedplaces_census_20112_gcs83                              | geom                            | USER-DEFINED                |                2
+ populatedplaces_census_20112_gcs83                              | label                           | text                        |                3
+ populatedplaces_census_20112_gcs83                              | sourcetable                     | text                        |                4
+ populatedplaces_census_20112_gcs83                              | country                         | text                        |                5
+ populatedplaces_census_20112_gcs83_attrs_raw                    | geodbid                         | integer                     |                1
+ populatedplaces_census_20112_gcs83_attrs_raw                    | lat                             | double precision            |                2
+ populatedplaces_census_20112_gcs83_attrs_raw                    | lon                             | double precision            |                3
+ populatedplaces_census_20112_gcs83_attrs_raw                    | bbox                            | text                        |                4
+ populatedplaces_census_20112_gcs83_attrs_raw                    | label                           | text                        |                5
+ populatedplaces_census_20112_gcs83_attrs_raw                    | sourcetable                     | text                        |                6
+ populatedplaces_census_20112_gcs83_attrs_raw                    | country                         | text                        |                7
+ populatedplaces_census_2020_utm83                               | geodb_id                        | bigint                      |                1
+ populatedplaces_census_2020_utm83                               | geodbid                         | integer                     |                1
+ populatedplaces_census_2020_utm83                               | lat                             | numeric                     |                2
+ populatedplaces_census_2020_utm83                               | geom                            | USER-DEFINED                |                2
+ populatedplaces_census_2020_utm83                               | label                           | text                        |                3
+ populatedplaces_census_2020_utm83                               | lon                             | numeric                     |                3
+ populatedplaces_census_2020_utm83                               | bbox                            | text                        |                4
+ populatedplaces_census_2020_utm83                               | sourcetable                     | text                        |                4
+ populatedplaces_census_2020_utm83                               | country                         | text                        |                5
+ populatedplaces_census_2020_utm83                               | label                           | text                        |                5
+ populatedplaces_census_2020_utm83                               | sourcetable                     | text                        |                6
+ populatedplaces_census_2020_utm83                               | country                         | text                        |                7
+ populatedplaces_census_2020_utm83                               | geom                            | USER-DEFINED                |                8
+ populatedplaces_census_2020_utm83_attrs_raw                     | geodbid                         | integer                     |                1
+ populatedplaces_census_2020_utm83_attrs_raw                     | lat                             | double precision            |                2
+ populatedplaces_census_2020_utm83_attrs_raw                     | lon                             | double precision            |                3
+ populatedplaces_census_2020_utm83_attrs_raw                     | bbox                            | text                        |                4
+ populatedplaces_census_2020_utm83_attrs_raw                     | label                           | text                        |                5
+ populatedplaces_census_2020_utm83_attrs_raw                     | sourcetable                     | text                        |                6
+ populatedplaces_census_2020_utm83_attrs_raw                     | country                         | text                        |                7
+ populatedplaces_census_2020_wma84                               | geodbid                         | integer                     |                1
+ populatedplaces_census_2020_wma84                               | geom                            | USER-DEFINED                |                2
+ populatedplaces_census_2020_wma84                               | label                           | text                        |                3
+ populatedplaces_census_2020_wma84                               | sourcetable                     | text                        |                4
+ populatedplaces_census_2020_wma84                               | country                         | text                        |                5
+ populatedplaces_census_2020_wma84_attrs_raw                     | geodbid                         | integer                     |                1
+ populatedplaces_census_2020_wma84_attrs_raw                     | lat                             | double precision            |                2
+ populatedplaces_census_2020_wma84_attrs_raw                     | lon                             | double precision            |                3
+ populatedplaces_census_2020_wma84_attrs_raw                     | bbox                            | text                        |                4
+ populatedplaces_census_2020_wma84_attrs_raw                     | label                           | text                        |                5
+ populatedplaces_census_2020_wma84_attrs_raw                     | sourcetable                     | text                        |                6
+ populatedplaces_census_2020_wma84_attrs_raw                     | country                         | text                        |                7
+ populatedplaces_uscensus_1990_ll83                              | geodbid                         | integer                     |                1
+ populatedplaces_uscensus_1990_ll83                              | geom                            | USER-DEFINED                |                2
+ populatedplaces_uscensus_1990_ll83                              | label                           | text                        |                3
+ populatedplaces_uscensus_1990_ll83                              | sourcetable                     | text                        |                4
+ populatedplaces_uscensus_1990_ll83                              | country                         | text                        |                5
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | geodbid                         | integer                     |                1
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | lat                             | double precision            |                2
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | lon                             | double precision            |                3
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | bbox                            | text                        |                4
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | label                           | text                        |                5
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | sourcetable                     | text                        |                6
+ populatedplaces_uscensus_1990_ll83_attrs_raw                    | country                         | text                        |                7
+ populatedplaces_uscensus_1990_utm83                             | geodbid                         | integer                     |                1
+ populatedplaces_uscensus_1990_utm83                             | geodb_id                        | bigint                      |                1
+ populatedplaces_uscensus_1990_utm83                             | lat                             | numeric                     |                2
+ populatedplaces_uscensus_1990_utm83                             | geom                            | USER-DEFINED                |                2
+ populatedplaces_uscensus_1990_utm83                             | lon                             | numeric                     |                3
+ populatedplaces_uscensus_1990_utm83                             | label                           | text                        |                3
+ populatedplaces_uscensus_1990_utm83                             | bbox                            | text                        |                4
+ populatedplaces_uscensus_1990_utm83                             | sourcetable                     | text                        |                4
+ populatedplaces_uscensus_1990_utm83                             | label                           | text                        |                5
+ populatedplaces_uscensus_1990_utm83                             | country                         | text                        |                5
+ populatedplaces_uscensus_1990_utm83                             | sourcetable                     | text                        |                6
+ populatedplaces_uscensus_1990_utm83                             | country                         | text                        |                7
+ populatedplaces_uscensus_1990_utm83                             | geom                            | USER-DEFINED                |                8
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | geodbid                         | integer                     |                1
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | lat                             | double precision            |                2
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | lon                             | double precision            |                3
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | bbox                            | text                        |                4
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | label                           | text                        |                5
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | sourcetable                     | text                        |                6
+ populatedplaces_uscensus_1990_utm83_attrs_raw                   | country                         | text                        |                7
+ populationdatablockgroups_uscensus_2000_ll83                    | geodbid                         | integer                     |                1
+ populationdatablockgroups_uscensus_2000_ll83                    | geom                            | USER-DEFINED                |                2
+ populationdatablockgroups_uscensus_2000_ll83                    | label                           | text                        |                3
+ populationdatablockgroups_uscensus_2000_ll83                    | sourcetable                     | text                        |                4
+ populationdatablockgroups_uscensus_2000_ll83                    | country                         | text                        |                5
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | geodbid                         | integer                     |                1
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | lat                             | double precision            |                2
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | lon                             | double precision            |                3
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | bbox                            | text                        |                4
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | label                           | text                        |                5
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | sourcetable                     | text                        |                6
+ populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | country                         | text                        |                7
+ populationdatablockgroups_uscensus_2000_utm83                   | geodb_id                        | bigint                      |                1
+ populationdatablockgroups_uscensus_2000_utm83                   | geodbid                         | integer                     |                1
+ populationdatablockgroups_uscensus_2000_utm83                   | geom                            | USER-DEFINED                |                2
+ populationdatablockgroups_uscensus_2000_utm83                   | lat                             | numeric                     |                2
+ populationdatablockgroups_uscensus_2000_utm83                   | label                           | text                        |                3
+ populationdatablockgroups_uscensus_2000_utm83                   | lon                             | numeric                     |                3
+ populationdatablockgroups_uscensus_2000_utm83                   | bbox                            | text                        |                4
+ populationdatablockgroups_uscensus_2000_utm83                   | sourcetable                     | text                        |                4
+ populationdatablockgroups_uscensus_2000_utm83                   | country                         | text                        |                5
+ populationdatablockgroups_uscensus_2000_utm83                   | label                           | text                        |                5
+ populationdatablockgroups_uscensus_2000_utm83                   | sourcetable                     | text                        |                6
+ populationdatablockgroups_uscensus_2000_utm83                   | country                         | text                        |                7
+ populationdatablockgroups_uscensus_2000_utm83                   | geom                            | USER-DEFINED                |                8
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | geodbid                         | integer                     |                1
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | lat                             | double precision            |                2
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | lon                             | double precision            |                3
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | bbox                            | text                        |                4
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | label                           | text                        |                5
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | sourcetable                     | text                        |                6
+ populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | country                         | text                        |                7
+ pow_wvgistc_062919_utm83                                        | geodb_id                        | bigint                      |                1
+ pow_wvgistc_062919_utm83                                        | geodbid                         | integer                     |                1
+ pow_wvgistc_062919_utm83                                        | geom                            | USER-DEFINED                |                2
+ pow_wvgistc_062919_utm83                                        | lat                             | numeric                     |                2
+ pow_wvgistc_062919_utm83                                        | lon                             | numeric                     |                3
+ pow_wvgistc_062919_utm83                                        | label                           | text                        |                3
+ pow_wvgistc_062919_utm83                                        | bbox                            | text                        |                4
+ pow_wvgistc_062919_utm83                                        | sourcetable                     | text                        |                4
+ pow_wvgistc_062919_utm83                                        | country                         | text                        |                5
+ pow_wvgistc_062919_utm83                                        | label                           | text                        |                5
+ pow_wvgistc_062919_utm83                                        | sourcetable                     | text                        |                6
+ pow_wvgistc_062919_utm83                                        | country                         | text                        |                7
+ pow_wvgistc_062919_utm83                                        | geom                            | USER-DEFINED                |                8
+ pow_wvgistc_062919_utm83_attrs_raw                              | geodbid                         | integer                     |                1
+ pow_wvgistc_062919_utm83_attrs_raw                              | lat                             | double precision            |                2
+ pow_wvgistc_062919_utm83_attrs_raw                              | lon                             | double precision            |                3
+ pow_wvgistc_062919_utm83_attrs_raw                              | bbox                            | text                        |                4
+ pow_wvgistc_062919_utm83_attrs_raw                              | label                           | text                        |                5
+ pow_wvgistc_062919_utm83_attrs_raw                              | sourcetable                     | text                        |                6
+ pow_wvgistc_062919_utm83_attrs_raw                              | country                         | text                        |                7
+ pow_wvgistc_062919_wgs84                                        | geodbid                         | integer                     |                1
+ pow_wvgistc_062919_wgs84                                        | geom                            | USER-DEFINED                |                2
+ pow_wvgistc_062919_wgs84                                        | label                           | text                        |                3
+ pow_wvgistc_062919_wgs84                                        | sourcetable                     | text                        |                4
+ pow_wvgistc_062919_wgs84                                        | country                         | text                        |                5
+ pow_wvgistc_062919_wgs84_attrs_raw                              | geodbid                         | integer                     |                1
+ pow_wvgistc_062919_wgs84_attrs_raw                              | lat                             | double precision            |                2
+ pow_wvgistc_062919_wgs84_attrs_raw                              | lon                             | double precision            |                3
+ pow_wvgistc_062919_wgs84_attrs_raw                              | bbox                            | text                        |                4
+ pow_wvgistc_062919_wgs84_attrs_raw                              | label                           | text                        |                5
+ pow_wvgistc_062919_wgs84_attrs_raw                              | sourcetable                     | text                        |                6
+ pow_wvgistc_062919_wgs84_attrs_raw                              | country                         | text                        |                7
+ program                                                         | program_id                      | integer                     |                1
+ program                                                         | program_code                    | character varying           |                2
+ program                                                         | program_name                    | text                        |                3
+ program                                                         | program_category                | text                        |                4
+ program                                                         | admin_entity                    | text                        |                5
+ program                                                         | manual_reference                | text                        |                6
+ program                                                         | app_form_ids                    | ARRAY                       |                7
+ program                                                         | submission_channels             | ARRAY                       |                8
+ program                                                         | signature_requirements          | text                        |                9
+ program                                                         | app_date_definition             | text                        |               10
+ program                                                         | verification_due_days           | integer                     |               11
+ program                                                         | agency_action_limit_days        | integer                     |               12
+ program                                                         | redetermination_freq            | text                        |               13
+ program                                                         | assistance_unit_type            | text                        |               14
+ program                                                         | residency_required              | boolean                     |               15
+ program                                                         | citizenship_requirement         | text                        |               16
+ program                                                         | income_methodology              | text                        |               17
+ program                                                         | resource_methodology            | text                        |               18
+ program                                                         | countable_unit_type             | text                        |               19
+ program                                                         | budget_month_strategy           | text                        |               20
+ program                                                         | conversion_weekly               | numeric                     |               21
+ program                                                         | conversion_biweekly             | numeric                     |               22
+ program                                                         | conversion_semimonthly          | numeric                     |               23
+ program                                                         | earned_income_disregard_pct     | numeric                     |               24
+ program                                                         | standard_disregard_flat         | numeric                     |               25
+ program                                                         | child_support_pass_through_cap  | numeric                     |               26
+ program                                                         | self_employment_cost_method     | text                        |               27
+ program                                                         | lump_sum_proration_rule         | boolean                     |               28
+ program                                                         | benefit_type                    | text                        |               29
+ program                                                         | benefit_unit                    | text                        |               30
+ program                                                         | seasonal_program_flag           | boolean                     |               31
+ program                                                         | season_open_month               | smallint                    |               32
+ program                                                         | season_close_month              | smallint                    |               33
+ program                                                         | annual_combined_benefit_cap     | numeric                     |               34
+ program                                                         | categorical_gateway_sources     | ARRAY                       |               35
+ program                                                         | created_at                      | timestamp with time zone    |               36
+ program                                                         | updated_at                      | timestamp with time zone    |               37
+ program                                                         | is_gateway_based                | boolean                     |               38
+ program                                                         | utility_discount_percent        | numeric                     |               39
+ program                                                         | covered_utility_types           | ARRAY                       |               40
+ program                                                         | requires_utility_in_client_name | boolean                     |               41
+ program                                                         | is_year_round                   | boolean                     |               42
+ program                                                         | active_months                   | ARRAY                       |               43
+ program_authority_links                                         | link_id                         | integer                     |                1
+ program_authority_links                                         | program_id                      | integer                     |                2
+ program_authority_links                                         | authority_id                    | integer                     |                3
+ program_authority_links                                         | created_at                      | timestamp with time zone    |                4
+ program_catalog                                                 | program_id                      | integer                     |                1
+ program_catalog                                                 | program_name                    | text                        |                2
+ program_catalog                                                 | sponsor_org                     | text                        |                3
+ program_catalog                                                 | program_type                    | text                        |                4
+ program_catalog                                                 | target_population               | text                        |                5
+ program_catalog                                                 | service_description             | text                        |                6
+ program_catalog                                                 | geographic_scope                | text                        |                7
+ program_catalog                                                 | contact_info                    | text                        |                8
+ program_catalog                                                 | doc_source                      | text                        |                9
+ program_catalog                                                 | created_at                      | timestamp with time zone    |               10
+ program_eligibility                                             | id                              | integer                     |                1
+ program_eligibility                                             | program_name                    | text                        |                2
+ program_eligibility                                             | household_size                  | integer                     |                3
+ program_eligibility                                             | monthly_gross_limit             | numeric                     |                4
+ program_eligibility                                             | monthly_net_limit               | numeric                     |                5
+ program_eligibility                                             | max_benefit_allotment           | numeric                     |                6
+ program_eligibility                                             | fpl_percentage                  | numeric                     |                7
+ program_eligibility                                             | source_page                     | integer                     |                8
+ program_eligibility                                             | source_doc                      | text                        |                9
+ program_eligibility                                             | effective_date                  | date                        |               10
+ program_eligibility                                             | notes                           | text                        |               11
+ program_entity_links                                            | link_id                         | integer                     |                1
+ program_entity_links                                            | program_id                      | integer                     |                2
+ program_entity_links                                            | entity_id                       | uuid                        |                3
+ program_entity_links                                            | link_type                       | text                        |                4
+ program_entity_links                                            | created_at                      | timestamp with time zone    |                5
+ program_evidence_links                                          | link_id                         | integer                     |                1
+ program_evidence_links                                          | program_id                      | integer                     |                2
+ program_evidence_links                                          | doc_id                          | integer                     |                3
+ program_evidence_links                                          | created_at                      | timestamp with time zone    |                4
+ program_income_limit_rules                                      | program_id                      | integer                     |                1
+ program_income_limit_rules                                      | income_rule_id                  | integer                     |                2
+ program_income_source_policy                                    | policy_id                       | integer                     |                1
+ program_income_source_policy                                    | program_id                      | integer                     |                2
+ program_income_source_policy                                    | source_code                     | text                        |                3
+ program_income_source_policy                                    | source_description              | text                        |                4
+ program_income_source_policy                                    | treatment                       | text                        |                5
+ program_income_source_policy                                    | is_earned                       | boolean                     |                6
+ program_income_source_policy                                    | applies_to_gross_test           | boolean                     |                7
+ program_income_source_policy                                    | applies_to_net_test             | boolean                     |                8
+ program_income_source_policy                                    | applies_to_benefit_calc         | boolean                     |                9
+ program_income_source_policy                                    | special_rule_ref                | text                        |               10
+ program_income_source_policy                                    | notes                           | text                        |               11
+ program_income_source_policy                                    | created_at                      | timestamp with time zone    |               12
+ program_income_source_policy                                    | updated_at                      | timestamp with time zone    |               13
+ program_manual_rule_links                                       | program_id                      | integer                     |                1
+ program_manual_rule_links                                       | rule_id                         | integer                     |                2
+ program_name_crosswalk                                          | local_program_label             | text                        |                1
+ program_name_crosswalk                                          | program_eligibility_name        | text                        |                2
+ program_target_config                                           | program_id                      | integer                     |                1
+ program_target_config                                           | target_layer                    | text                        |                2
+ program_target_config                                           | target_scope                    | text                        |                3
+ publichealthdepts_hsip_20091229_gcs83                           | geodbid                         | integer                     |                1
+ publichealthdepts_hsip_20091229_gcs83                           | geom                            | USER-DEFINED                |                2
+ publichealthdepts_hsip_20091229_gcs83                           | label                           | text                        |                3
+ publichealthdepts_hsip_20091229_gcs83                           | sourcetable                     | text                        |                4
+ publichealthdepts_hsip_20091229_gcs83                           | country                         | text                        |                5
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | geodbid                         | integer                     |                1
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | lat                             | double precision            |                2
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | lon                             | double precision            |                3
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | bbox                            | text                        |                4
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | label                           | text                        |                5
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | sourcetable                     | text                        |                6
+ publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | country                         | text                        |                7
+ publichealthdepts_hsip_20091229_utm83                           | geodb_id                        | bigint                      |                1
+ publichealthdepts_hsip_20091229_utm83                           | geodbid                         | integer                     |                1
+ publichealthdepts_hsip_20091229_utm83                           | lat                             | numeric                     |                2
+ publichealthdepts_hsip_20091229_utm83                           | geom                            | USER-DEFINED                |                2
+ publichealthdepts_hsip_20091229_utm83                           | lon                             | numeric                     |                3
+ publichealthdepts_hsip_20091229_utm83                           | label                           | text                        |                3
+ publichealthdepts_hsip_20091229_utm83                           | bbox                            | text                        |                4
+ publichealthdepts_hsip_20091229_utm83                           | sourcetable                     | text                        |                4
+ publichealthdepts_hsip_20091229_utm83                           | label                           | text                        |                5
+ publichealthdepts_hsip_20091229_utm83                           | country                         | text                        |                5
+ publichealthdepts_hsip_20091229_utm83                           | sourcetable                     | text                        |                6
+ publichealthdepts_hsip_20091229_utm83                           | country                         | text                        |                7
+ publichealthdepts_hsip_20091229_utm83                           | geom                            | USER-DEFINED                |                8
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | geodbid                         | integer                     |                1
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | lat                             | double precision            |                2
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | lon                             | double precision            |                3
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | bbox                            | text                        |                4
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | label                           | text                        |                5
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | sourcetable                     | text                        |                6
+ publichealthdepts_hsip_20091229_utm83_attrs_raw                 | country                         | text                        |                7
+ railnetworkregion_usdot_200203_ll83                             | geodbid                         | integer                     |                1
+ railnetworkregion_usdot_200203_ll83                             | geom                            | USER-DEFINED                |                2
+ railnetworkregion_usdot_200203_ll83                             | label                           | text                        |                3
+ railnetworkregion_usdot_200203_ll83                             | sourcetable                     | text                        |                4
+ railnetworkregion_usdot_200203_ll83                             | country                         | text                        |                5
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | geodbid                         | integer                     |                1
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | lat                             | double precision            |                2
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | lon                             | double precision            |                3
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | bbox                            | text                        |                4
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | label                           | text                        |                5
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | sourcetable                     | text                        |                6
+ railnetworkregion_usdot_200203_ll83_attrs_raw                   | country                         | text                        |                7
+ railnetworkregion_usdot_200203_utm83                            | geodb_id                        | bigint                      |                1
+ railnetworkregion_usdot_200203_utm83                            | geodbid                         | integer                     |                1
+ railnetworkregion_usdot_200203_utm83                            | lat                             | numeric                     |                2
+ railnetworkregion_usdot_200203_utm83                            | geom                            | USER-DEFINED                |                2
+ railnetworkregion_usdot_200203_utm83                            | label                           | text                        |                3
+ railnetworkregion_usdot_200203_utm83                            | lon                             | numeric                     |                3
+ railnetworkregion_usdot_200203_utm83                            | bbox                            | text                        |                4
+ railnetworkregion_usdot_200203_utm83                            | sourcetable                     | text                        |                4
+ railnetworkregion_usdot_200203_utm83                            | country                         | text                        |                5
+ railnetworkregion_usdot_200203_utm83                            | label                           | text                        |                5
+ railnetworkregion_usdot_200203_utm83                            | sourcetable                     | text                        |                6
+ railnetworkregion_usdot_200203_utm83                            | country                         | text                        |                7
+ railnetworkregion_usdot_200203_utm83                            | geom                            | USER-DEFINED                |                8
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | lat                             | double precision            |                2
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | lon                             | double precision            |                3
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | bbox                            | text                        |                4
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | label                           | text                        |                5
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ railnetworkregion_usdot_200203_utm83_attrs_raw                  | country                         | text                        |                7
+ railnetworkwv_usdot_200203_ll83                                 | geodbid                         | integer                     |                1
+ railnetworkwv_usdot_200203_ll83                                 | geom                            | USER-DEFINED                |                2
+ railnetworkwv_usdot_200203_ll83                                 | label                           | text                        |                3
+ railnetworkwv_usdot_200203_ll83                                 | sourcetable                     | text                        |                4
+ railnetworkwv_usdot_200203_ll83                                 | country                         | text                        |                5
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | geodbid                         | integer                     |                1
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | lat                             | double precision            |                2
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | lon                             | double precision            |                3
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | bbox                            | text                        |                4
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | label                           | text                        |                5
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | sourcetable                     | text                        |                6
+ railnetworkwv_usdot_200203_ll83_attrs_raw                       | country                         | text                        |                7
+ railnetworkwv_usdot_200203_utm83                                | geodb_id                        | bigint                      |                1
+ railnetworkwv_usdot_200203_utm83                                | geodbid                         | integer                     |                1
+ railnetworkwv_usdot_200203_utm83                                | geom                            | USER-DEFINED                |                2
+ railnetworkwv_usdot_200203_utm83                                | lat                             | numeric                     |                2
+ railnetworkwv_usdot_200203_utm83                                | label                           | text                        |                3
+ railnetworkwv_usdot_200203_utm83                                | lon                             | numeric                     |                3
+ railnetworkwv_usdot_200203_utm83                                | bbox                            | text                        |                4
+ railnetworkwv_usdot_200203_utm83                                | sourcetable                     | text                        |                4
+ railnetworkwv_usdot_200203_utm83                                | country                         | text                        |                5
+ railnetworkwv_usdot_200203_utm83                                | label                           | text                        |                5
+ railnetworkwv_usdot_200203_utm83                                | sourcetable                     | text                        |                6
+ railnetworkwv_usdot_200203_utm83                                | country                         | text                        |                7
+ railnetworkwv_usdot_200203_utm83                                | geom                            | USER-DEFINED                |                8
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | geodbid                         | integer                     |                1
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | lat                             | double precision            |                2
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | lon                             | double precision            |                3
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | bbox                            | text                        |                4
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | label                           | text                        |                5
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | sourcetable                     | text                        |                6
+ railnetworkwv_usdot_200203_utm83_attrs_raw                      | country                         | text                        |                7
+ railroads_rahalltransportationinstitute_2005_utm83              | geodbid                         | integer                     |                1
+ railroads_rahalltransportationinstitute_2005_utm83              | geodb_id                        | bigint                      |                1
+ railroads_rahalltransportationinstitute_2005_utm83              | lat                             | numeric                     |                2
+ railroads_rahalltransportationinstitute_2005_utm83              | geom                            | USER-DEFINED                |                2
+ railroads_rahalltransportationinstitute_2005_utm83              | lon                             | numeric                     |                3
+ railroads_rahalltransportationinstitute_2005_utm83              | label                           | text                        |                3
+ railroads_rahalltransportationinstitute_2005_utm83              | sourcetable                     | text                        |                4
+ railroads_rahalltransportationinstitute_2005_utm83              | bbox                            | text                        |                4
+ railroads_rahalltransportationinstitute_2005_utm83              | label                           | text                        |                5
+ railroads_rahalltransportationinstitute_2005_utm83              | country                         | text                        |                5
+ railroads_rahalltransportationinstitute_2005_utm83              | sourcetable                     | text                        |                6
+ railroads_rahalltransportationinstitute_2005_utm83              | country                         | text                        |                7
+ railroads_rahalltransportationinstitute_2005_utm83              | geom                            | USER-DEFINED                |                8
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | geodbid                         | integer                     |                1
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | lat                             | double precision            |                2
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | lon                             | double precision            |                3
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | bbox                            | text                        |                4
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | label                           | text                        |                5
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | sourcetable                     | text                        |                6
+ railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | country                         | text                        |                7
+ realtimestreamflowstations_usgs_200012_ll27                     | geodbid                         | integer                     |                1
+ realtimestreamflowstations_usgs_200012_ll27                     | geom                            | USER-DEFINED                |                2
+ realtimestreamflowstations_usgs_200012_ll27                     | label                           | text                        |                3
+ realtimestreamflowstations_usgs_200012_ll27                     | sourcetable                     | text                        |                4
+ realtimestreamflowstations_usgs_200012_ll27                     | country                         | text                        |                5
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | geodbid                         | integer                     |                1
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | lat                             | double precision            |                2
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | lon                             | double precision            |                3
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | bbox                            | text                        |                4
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | label                           | text                        |                5
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | sourcetable                     | text                        |                6
+ realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | country                         | text                        |                7
+ realtimestreamflowstations_usgs_200012_utm27                    | geodbid                         | integer                     |                1
+ realtimestreamflowstations_usgs_200012_utm27                    | geom                            | USER-DEFINED                |                2
+ realtimestreamflowstations_usgs_200012_utm27                    | label                           | text                        |                3
+ realtimestreamflowstations_usgs_200012_utm27                    | sourcetable                     | text                        |                4
+ realtimestreamflowstations_usgs_200012_utm27                    | country                         | text                        |                5
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | geodbid                         | integer                     |                1
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | lat                             | double precision            |                2
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | lon                             | double precision            |                3
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | bbox                            | text                        |                4
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | label                           | text                        |                5
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | sourcetable                     | text                        |                6
+ realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | country                         | text                        |                7
+ realtimestreamflowstations_usgs_200012_utm83                    | geodb_id                        | bigint                      |                1
+ realtimestreamflowstations_usgs_200012_utm83                    | geodbid                         | integer                     |                1
+ realtimestreamflowstations_usgs_200012_utm83                    | lat                             | numeric                     |                2
+ realtimestreamflowstations_usgs_200012_utm83                    | geom                            | USER-DEFINED                |                2
+ realtimestreamflowstations_usgs_200012_utm83                    | label                           | text                        |                3
+ realtimestreamflowstations_usgs_200012_utm83                    | lon                             | numeric                     |                3
+ realtimestreamflowstations_usgs_200012_utm83                    | sourcetable                     | text                        |                4
+ realtimestreamflowstations_usgs_200012_utm83                    | bbox                            | text                        |                4
+ realtimestreamflowstations_usgs_200012_utm83                    | label                           | text                        |                5
+ realtimestreamflowstations_usgs_200012_utm83                    | country                         | text                        |                5
+ realtimestreamflowstations_usgs_200012_utm83                    | sourcetable                     | text                        |                6
+ realtimestreamflowstations_usgs_200012_utm83                    | country                         | text                        |                7
+ realtimestreamflowstations_usgs_200012_utm83                    | geom                            | USER-DEFINED                |                8
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | geodbid                         | integer                     |                1
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | lat                             | double precision            |                2
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | lon                             | double precision            |                3
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | bbox                            | text                        |                4
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | label                           | text                        |                5
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | sourcetable                     | text                        |                6
+ realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | country                         | text                        |                7
+ recreationalwwtrails_ofwv_20151117_utm83                        | geodbid                         | integer                     |                1
+ recreationalwwtrails_ofwv_20151117_utm83                        | geodb_id                        | bigint                      |                1
+ recreationalwwtrails_ofwv_20151117_utm83                        | lat                             | numeric                     |                2
+ recreationalwwtrails_ofwv_20151117_utm83                        | geom                            | USER-DEFINED                |                2
+ recreationalwwtrails_ofwv_20151117_utm83                        | lon                             | numeric                     |                3
+ recreationalwwtrails_ofwv_20151117_utm83                        | label                           | text                        |                3
+ recreationalwwtrails_ofwv_20151117_utm83                        | sourcetable                     | text                        |                4
+ recreationalwwtrails_ofwv_20151117_utm83                        | bbox                            | text                        |                4
+ recreationalwwtrails_ofwv_20151117_utm83                        | label                           | text                        |                5
+ recreationalwwtrails_ofwv_20151117_utm83                        | country                         | text                        |                5
+ recreationalwwtrails_ofwv_20151117_utm83                        | sourcetable                     | text                        |                6
+ recreationalwwtrails_ofwv_20151117_utm83                        | country                         | text                        |                7
+ recreationalwwtrails_ofwv_20151117_utm83                        | geom                            | USER-DEFINED                |                8
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | geodbid                         | integer                     |                1
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | lat                             | double precision            |                2
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | lon                             | double precision            |                3
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | bbox                            | text                        |                4
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | label                           | text                        |                5
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | sourcetable                     | text                        |                6
+ recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | country                         | text                        |                7
+ redteam_sessions                                                | id                              | integer                     |                1
+ redteam_sessions                                                | session_id                      | text                        |                2
+ redteam_sessions                                                | created_at                      | timestamp with time zone    |                3
+ redteam_sessions                                                | updated_at                      | timestamp with time zone    |                4
+ redteam_sessions                                                | status                          | text                        |                5
+ redteam_sessions                                                | metadata                        | jsonb                       |                6
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83            | geodbid                         | integer                     |                1
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83            | geom                            | USER-DEFINED                |                2
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83            | label                           | text                        |                3
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83            | sourcetable                     | text                        |                4
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83            | country                         | text                        |                5
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | geodbid                         | integer                     |                1
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | lat                             | double precision            |                2
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | lon                             | double precision            |                3
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | bbox                            | text                        |                4
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | label                           | text                        |                5
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | sourcetable                     | text                        |                6
+ regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | country                         | text                        |                7
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | geodb_id                        | bigint                      |                1
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | geodbid                         | integer                     |                1
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | geom                            | USER-DEFINED                |                2
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | lat                             | numeric                     |                2
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | label                           | text                        |                3
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | lon                             | numeric                     |                3
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | sourcetable                     | text                        |                4
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | bbox                            | text                        |                4
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | label                           | text                        |                5
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | country                         | text                        |                5
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | sourcetable                     | text                        |                6
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | country                         | text                        |                7
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | geom                            | USER-DEFINED                |                8
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | geodbid                         | integer                     |                1
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | lat                             | double precision            |                2
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | lon                             | double precision            |                3
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | bbox                            | text                        |                4
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | label                           | text                        |                5
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | sourcetable                     | text                        |                6
+ regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | country                         | text                        |                7
+ resource_county_coverage                                        | resource_id                     | integer                     |                1
+ resource_county_coverage                                        | county_name                     | text                        |                2
+ resource_eligibility                                            | resource_id                     | integer                     |                1
+ resource_eligibility                                            | household_size                  | integer                     |                2
+ resource_eligibility                                            | gross_monthly_max               | numeric                     |                3
+ resource_eligibility                                            | fpl_percent                     | numeric                     |                4
+ resource_eligibility                                            | eligibility_basis               | text                        |                5
+ resource_eligibility                                            | income_test_required            | boolean                     |                6
+ resource_eligibility                                            | verified_by                     | text                        |                7
+ resource_eligibility                                            | verified_date                   | date                        |                8
+ resource_eligibility                                            | source_doc                      | text                        |                9
+ resource_eligibility                                            | notes                           | text                        |               10
+ resource_eligibility                                            | is_verified                     | boolean                     |               11
+ samhsa_provider_building_join                                   | provider_name                   | text                        |                1
+ samhsa_provider_building_join                                   | county                          | text                        |                2
+ samhsa_provider_building_join                                   | city                            | text                        |                3
+ samhsa_provider_building_join                                   | state                           | text                        |                4
+ samhsa_provider_building_join                                   | address1                        | text                        |                5
+ samhsa_provider_building_join                                   | zip                             | text                        |                6
+ samhsa_provider_building_join                                   | phone                           | text                        |                7
+ samhsa_provider_building_join                                   | website                         | text                        |                8
+ samhsa_provider_building_join                                   | facility_type                   | text                        |                9
+ samhsa_provider_building_join                                   | risk_type                       | text                        |               10
+ samhsa_provider_building_join                                   | population_group                | text                        |               11
+ samhsa_provider_building_join                                   | source                          | text                        |               12
+ samhsa_provider_building_join                                   | source_url                      | text                        |               13
+ samhsa_provider_building_join                                   | lat                             | double precision            |               14
+ samhsa_provider_building_join                                   | lon                             | double precision            |               15
+ samhsa_provider_building_join                                   | geom                            | USER-DEFINED                |               16
+ samhsa_provider_building_join                                   | building_id                     | bigint                      |               17
+ samhsa_provider_building_join                                   | building_distance_m             | double precision            |               18
+ samhsa_provider_spatial_grounded                                | provider_name                   | text                        |                1
+ samhsa_provider_spatial_grounded                                | county                          | text                        |                2
+ samhsa_provider_spatial_grounded                                | city                            | text                        |                3
+ samhsa_provider_spatial_grounded                                | state                           | text                        |                4
+ samhsa_provider_spatial_grounded                                | address1                        | text                        |                5
+ samhsa_provider_spatial_grounded                                | zip                             | text                        |                6
+ samhsa_provider_spatial_grounded                                | phone                           | text                        |                7
+ samhsa_provider_spatial_grounded                                | website                         | text                        |                8
+ samhsa_provider_spatial_grounded                                | facility_type                   | text                        |                9
+ samhsa_provider_spatial_grounded                                | risk_type                       | text                        |               10
+ samhsa_provider_spatial_grounded                                | population_group                | text                        |               11
+ samhsa_provider_spatial_grounded                                | source                          | text                        |               12
+ samhsa_provider_spatial_grounded                                | source_url                      | text                        |               13
+ samhsa_provider_spatial_grounded                                | lat                             | double precision            |               14
+ samhsa_provider_spatial_grounded                                | lon                             | double precision            |               15
+ samhsa_provider_spatial_grounded                                | geom                            | USER-DEFINED                |               16
+ samhsa_provider_spatial_grounded                                | building_id                     | bigint                      |               17
+ samhsa_provider_spatial_grounded                                | building_distance_m             | double precision            |               18
+ samhsa_provider_spatial_grounded                                | parcel_id                       | character varying           |               19
+ samhsa_provider_spatial_grounded                                | parcel_distance_m               | double precision            |               20
+ samhsa_provider_stage                                           | provider_name                   | text                        |                1
+ samhsa_provider_stage                                           | county                          | text                        |                2
+ samhsa_provider_stage                                           | city                            | text                        |                3
+ samhsa_provider_stage                                           | state                           | text                        |                4
+ samhsa_provider_stage                                           | address1                        | text                        |                5
+ samhsa_provider_stage                                           | zip                             | text                        |                6
+ samhsa_provider_stage                                           | phone                           | text                        |                7
+ samhsa_provider_stage                                           | website                         | text                        |                8
+ samhsa_provider_stage                                           | facility_type                   | text                        |                9
+ samhsa_provider_stage                                           | risk_type                       | text                        |               10
+ samhsa_provider_stage                                           | population_group                | text                        |               11
+ samhsa_provider_stage                                           | source                          | text                        |               12
+ samhsa_provider_stage                                           | source_url                      | text                        |               13
+ samhsa_provider_stage                                           | lat                             | double precision            |               14
+ samhsa_provider_stage                                           | lon                             | double precision            |               15
+ samhsa_provider_stage                                           | geom                            | USER-DEFINED                |               16
+ sewertreatmentplants_wvdep_200203_utm83                         | geodbid                         | integer                     |                1
+ sewertreatmentplants_wvdep_200203_utm83                         | geodb_id                        | bigint                      |                1
+ sewertreatmentplants_wvdep_200203_utm83                         | lat                             | numeric                     |                2
+ sewertreatmentplants_wvdep_200203_utm83                         | geom                            | USER-DEFINED                |                2
+ sewertreatmentplants_wvdep_200203_utm83                         | lon                             | numeric                     |                3
+ sewertreatmentplants_wvdep_200203_utm83                         | label                           | text                        |                3
+ sewertreatmentplants_wvdep_200203_utm83                         | bbox                            | text                        |                4
+ sewertreatmentplants_wvdep_200203_utm83                         | sourcetable                     | text                        |                4
+ sewertreatmentplants_wvdep_200203_utm83                         | country                         | text                        |                5
+ sewertreatmentplants_wvdep_200203_utm83                         | label                           | text                        |                5
+ sewertreatmentplants_wvdep_200203_utm83                         | sourcetable                     | text                        |                6
+ sewertreatmentplants_wvdep_200203_utm83                         | country                         | text                        |                7
+ sewertreatmentplants_wvdep_200203_utm83                         | geom                            | USER-DEFINED                |                8
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | geodbid                         | integer                     |                1
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | lat                             | double precision            |                2
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | lon                             | double precision            |                3
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | bbox                            | text                        |                4
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | label                           | text                        |                5
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | sourcetable                     | text                        |                6
+ sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | country                         | text                        |                7
+ solidwastefacilities_wvdep_200202_ll83                          | geodbid                         | integer                     |                1
+ solidwastefacilities_wvdep_200202_ll83                          | geom                            | USER-DEFINED                |                2
+ solidwastefacilities_wvdep_200202_ll83                          | label                           | text                        |                3
+ solidwastefacilities_wvdep_200202_ll83                          | sourcetable                     | text                        |                4
+ solidwastefacilities_wvdep_200202_ll83                          | country                         | text                        |                5
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | geodbid                         | integer                     |                1
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | lat                             | double precision            |                2
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | lon                             | double precision            |                3
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | bbox                            | text                        |                4
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | label                           | text                        |                5
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | sourcetable                     | text                        |                6
+ solidwastefacilities_wvdep_200202_ll83_attrs_raw                | country                         | text                        |                7
+ solidwastefacilities_wvdep_200202_utm83                         | geodb_id                        | bigint                      |                1
+ solidwastefacilities_wvdep_200202_utm83                         | geodbid                         | integer                     |                1
+ solidwastefacilities_wvdep_200202_utm83                         | geom                            | USER-DEFINED                |                2
+ solidwastefacilities_wvdep_200202_utm83                         | lat                             | numeric                     |                2
+ solidwastefacilities_wvdep_200202_utm83                         | lon                             | numeric                     |                3
+ solidwastefacilities_wvdep_200202_utm83                         | label                           | text                        |                3
+ solidwastefacilities_wvdep_200202_utm83                         | sourcetable                     | text                        |                4
+ solidwastefacilities_wvdep_200202_utm83                         | bbox                            | text                        |                4
+ solidwastefacilities_wvdep_200202_utm83                         | country                         | text                        |                5
+ solidwastefacilities_wvdep_200202_utm83                         | label                           | text                        |                5
+ solidwastefacilities_wvdep_200202_utm83                         | sourcetable                     | text                        |                6
+ solidwastefacilities_wvdep_200202_utm83                         | country                         | text                        |                7
+ solidwastefacilities_wvdep_200202_utm83                         | geom                            | USER-DEFINED                |                8
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | geodbid                         | integer                     |                1
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | lat                             | double precision            |                2
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | lon                             | double precision            |                3
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | bbox                            | text                        |                4
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | label                           | text                        |                5
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | sourcetable                     | text                        |                6
+ solidwastefacilities_wvdep_200202_utm83_attrs_raw               | country                         | text                        |                7
+ spatial_ref_sys                                                 | srid                            | integer                     |                1
+ spatial_ref_sys                                                 | auth_name                       | character varying           |                2
+ spatial_ref_sys                                                 | auth_srid                       | integer                     |                3
+ spatial_ref_sys                                                 | srtext                          | character varying           |                4
+ spatial_ref_sys                                                 | proj4text                       | character varying           |                5
+ spatial_role_scopes                                             | scope_id                        | integer                     |                1
+ spatial_role_scopes                                             | role_name                       | text                        |                2
+ spatial_role_scopes                                             | zcta_zip                        | text                        |                3
+ spatial_role_scopes                                             | county_name                     | text                        |                4
+ spatial_role_scopes                                             | service_area                    | text                        |                5
+ spatial_role_scopes                                             | active                          | boolean                     |                6
+ spatial_role_scopes                                             | created_at                      | timestamp with time zone    |                7
+ springs_wvges_1986_ll83                                         | geodbid                         | integer                     |                1
+ springs_wvges_1986_ll83                                         | geom                            | USER-DEFINED                |                2
+ springs_wvges_1986_ll83                                         | label                           | text                        |                3
+ springs_wvges_1986_ll83                                         | sourcetable                     | text                        |                4
+ springs_wvges_1986_ll83                                         | country                         | text                        |                5
+ springs_wvges_1986_ll83_attrs_raw                               | geodbid                         | integer                     |                1
+ springs_wvges_1986_ll83_attrs_raw                               | lat                             | double precision            |                2
+ springs_wvges_1986_ll83_attrs_raw                               | lon                             | double precision            |                3
+ springs_wvges_1986_ll83_attrs_raw                               | bbox                            | text                        |                4
+ springs_wvges_1986_ll83_attrs_raw                               | label                           | text                        |                5
+ springs_wvges_1986_ll83_attrs_raw                               | sourcetable                     | text                        |                6
+ springs_wvges_1986_ll83_attrs_raw                               | country                         | text                        |                7
+ springs_wvges_1986_utm83                                        | geodb_id                        | bigint                      |                1
+ springs_wvges_1986_utm83                                        | geodbid                         | integer                     |                1
+ springs_wvges_1986_utm83                                        | lat                             | numeric                     |                2
+ springs_wvges_1986_utm83                                        | geom                            | USER-DEFINED                |                2
+ springs_wvges_1986_utm83                                        | label                           | text                        |                3
+ springs_wvges_1986_utm83                                        | lon                             | numeric                     |                3
+ springs_wvges_1986_utm83                                        | sourcetable                     | text                        |                4
+ springs_wvges_1986_utm83                                        | bbox                            | text                        |                4
+ springs_wvges_1986_utm83                                        | country                         | text                        |                5
+ springs_wvges_1986_utm83                                        | label                           | text                        |                5
+ springs_wvges_1986_utm83                                        | sourcetable                     | text                        |                6
+ springs_wvges_1986_utm83                                        | country                         | text                        |                7
+ springs_wvges_1986_utm83                                        | geom                            | USER-DEFINED                |                8
+ springs_wvges_1986_utm83_attrs_raw                              | geodbid                         | integer                     |                1
+ springs_wvges_1986_utm83_attrs_raw                              | lat                             | double precision            |                2
+ springs_wvges_1986_utm83_attrs_raw                              | lon                             | double precision            |                3
+ springs_wvges_1986_utm83_attrs_raw                              | bbox                            | text                        |                4
+ springs_wvges_1986_utm83_attrs_raw                              | label                           | text                        |                5
+ springs_wvges_1986_utm83_attrs_raw                              | sourcetable                     | text                        |                6
+ springs_wvges_1986_utm83_attrs_raw                              | country                         | text                        |                7
+ stateofwvhousedistricts_wvlegislativeservices_2010              | geodbid                         | integer                     |                1
+ stateofwvhousedistricts_wvlegislativeservices_2010              | geom                            | USER-DEFINED                |                2
+ stateofwvhousedistricts_wvlegislativeservices_2010              | label                           | text                        |                3
+ stateofwvhousedistricts_wvlegislativeservices_2010              | sourcetable                     | text                        |                4
+ stateofwvhousedistricts_wvlegislativeservices_2010              | country                         | text                        |                5
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | geodbid                         | integer                     |                1
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | lat                             | double precision            |                2
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | lon                             | double precision            |                3
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | bbox                            | text                        |                4
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | label                           | text                        |                5
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | sourcetable                     | text                        |                6
+ stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | country                         | text                        |                7
+ stateofwvsenatedistricts_wvlegislativeservices_2010             | geodbid                         | integer                     |                1
+ stateofwvsenatedistricts_wvlegislativeservices_2010             | geom                            | USER-DEFINED                |                2
+ stateofwvsenatedistricts_wvlegislativeservices_2010             | label                           | text                        |                3
+ stateofwvsenatedistricts_wvlegislativeservices_2010             | sourcetable                     | text                        |                4
+ stateofwvsenatedistricts_wvlegislativeservices_2010             | country                         | text                        |                5
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | geodbid                         | integer                     |                1
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | lat                             | double precision            |                2
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | lon                             | double precision            |                3
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | bbox                            | text                        |                4
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | label                           | text                        |                5
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | sourcetable                     | text                        |                6
+ stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | country                         | text                        |                7
+ states_region_ll83                                              | geodbid                         | integer                     |                1
+ states_region_ll83                                              | geom                            | USER-DEFINED                |                2
+ states_region_ll83                                              | label                           | text                        |                3
+ states_region_ll83                                              | sourcetable                     | text                        |                4
+ states_region_ll83                                              | country                         | text                        |                5
+ states_region_ll83_attrs_raw                                    | geodbid                         | integer                     |                1
+ states_region_ll83_attrs_raw                                    | lat                             | double precision            |                2
+ states_region_ll83_attrs_raw                                    | lon                             | double precision            |                3
+ states_region_ll83_attrs_raw                                    | bbox                            | text                        |                4
+ states_region_ll83_attrs_raw                                    | label                           | text                        |                5
+ states_region_ll83_attrs_raw                                    | sourcetable                     | text                        |                6
+ states_region_ll83_attrs_raw                                    | country                         | text                        |                7
+ structurepointsnorth_samb_2003_utm83                            | geodbid                         | integer                     |                1
+ structurepointsnorth_samb_2003_utm83                            | geodb_id                        | bigint                      |                1
+ structurepointsnorth_samb_2003_utm83                            | geom                            | USER-DEFINED                |                2
+ structurepointsnorth_samb_2003_utm83                            | lat                             | numeric                     |                2
+ structurepointsnorth_samb_2003_utm83                            | lon                             | numeric                     |                3
+ structurepointsnorth_samb_2003_utm83                            | label                           | text                        |                3
+ structurepointsnorth_samb_2003_utm83                            | bbox                            | text                        |                4
+ structurepointsnorth_samb_2003_utm83                            | sourcetable                     | text                        |                4
+ structurepointsnorth_samb_2003_utm83                            | country                         | text                        |                5
+ structurepointsnorth_samb_2003_utm83                            | label                           | text                        |                5
+ structurepointsnorth_samb_2003_utm83                            | sourcetable                     | text                        |                6
+ structurepointsnorth_samb_2003_utm83                            | country                         | text                        |                7
+ structurepointsnorth_samb_2003_utm83                            | geom                            | USER-DEFINED                |                8
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | lat                             | double precision            |                2
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | lon                             | double precision            |                3
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | bbox                            | text                        |                4
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | label                           | text                        |                5
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ structurepointsnorth_samb_2003_utm83_attrs_raw                  | country                         | text                        |                7
+ structurepointssouth_samb_2003_utm83                            | geodbid                         | integer                     |                1
+ structurepointssouth_samb_2003_utm83                            | geodb_id                        | bigint                      |                1
+ structurepointssouth_samb_2003_utm83                            | lat                             | numeric                     |                2
+ structurepointssouth_samb_2003_utm83                            | geom                            | USER-DEFINED                |                2
+ structurepointssouth_samb_2003_utm83                            | label                           | text                        |                3
+ structurepointssouth_samb_2003_utm83                            | lon                             | numeric                     |                3
+ structurepointssouth_samb_2003_utm83                            | bbox                            | text                        |                4
+ structurepointssouth_samb_2003_utm83                            | sourcetable                     | text                        |                4
+ structurepointssouth_samb_2003_utm83                            | country                         | text                        |                5
+ structurepointssouth_samb_2003_utm83                            | label                           | text                        |                5
+ structurepointssouth_samb_2003_utm83                            | sourcetable                     | text                        |                6
+ structurepointssouth_samb_2003_utm83                            | country                         | text                        |                7
+ structurepointssouth_samb_2003_utm83                            | geom                            | USER-DEFINED                |                8
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | lat                             | double precision            |                2
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | lon                             | double precision            |                3
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | bbox                            | text                        |                4
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | label                           | text                        |                5
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ structurepointssouth_samb_2003_utm83_attrs_raw                  | country                         | text                        |                7
+ structurepolygons_samb_2003_utm83                               | geodbid                         | integer                     |                1
+ structurepolygons_samb_2003_utm83                               | geodb_id                        | bigint                      |                1
+ structurepolygons_samb_2003_utm83                               | geom                            | USER-DEFINED                |                2
+ structurepolygons_samb_2003_utm83                               | lat                             | numeric                     |                2
+ structurepolygons_samb_2003_utm83                               | lon                             | numeric                     |                3
+ structurepolygons_samb_2003_utm83                               | label                           | text                        |                3
+ structurepolygons_samb_2003_utm83                               | sourcetable                     | text                        |                4
+ structurepolygons_samb_2003_utm83                               | bbox                            | text                        |                4
+ structurepolygons_samb_2003_utm83                               | country                         | text                        |                5
+ structurepolygons_samb_2003_utm83                               | label                           | text                        |                5
+ structurepolygons_samb_2003_utm83                               | sourcetable                     | text                        |                6
+ structurepolygons_samb_2003_utm83                               | country                         | text                        |                7
+ structurepolygons_samb_2003_utm83                               | geom                            | USER-DEFINED                |                8
+ structurepolygons_samb_2003_utm83_attrs_raw                     | geodbid                         | integer                     |                1
+ structurepolygons_samb_2003_utm83_attrs_raw                     | lat                             | double precision            |                2
+ structurepolygons_samb_2003_utm83_attrs_raw                     | lon                             | double precision            |                3
+ structurepolygons_samb_2003_utm83_attrs_raw                     | bbox                            | text                        |                4
+ structurepolygons_samb_2003_utm83_attrs_raw                     | label                           | text                        |                5
+ structurepolygons_samb_2003_utm83_attrs_raw                     | sourcetable                     | text                        |                6
+ structurepolygons_samb_2003_utm83_attrs_raw                     | country                         | text                        |                7
+ summits_gistc_052012_utm83_shp                                  | geodbid                         | integer                     |                1
+ summits_gistc_052012_utm83_shp                                  | geom                            | USER-DEFINED                |                2
+ summits_gistc_052012_utm83_shp                                  | label                           | text                        |                3
+ summits_gistc_052012_utm83_shp                                  | sourcetable                     | text                        |                4
+ summits_gistc_052012_utm83_shp                                  | country                         | text                        |                5
+ summits_gistc_052012_utm83_shp_attrs_raw                        | geodbid                         | integer                     |                1
+ summits_gistc_052012_utm83_shp_attrs_raw                        | lat                             | double precision            |                2
+ summits_gistc_052012_utm83_shp_attrs_raw                        | lon                             | double precision            |                3
+ summits_gistc_052012_utm83_shp_attrs_raw                        | bbox                            | text                        |                4
+ summits_gistc_052012_utm83_shp_attrs_raw                        | label                           | text                        |                5
+ summits_gistc_052012_utm83_shp_attrs_raw                        | sourcetable                     | text                        |                6
+ summits_gistc_052012_utm83_shp_attrs_raw                        | country                         | text                        |                7
+ summits_gistc_052012_wgs84_shp                                  | geodbid                         | integer                     |                1
+ summits_gistc_052012_wgs84_shp                                  | geom                            | USER-DEFINED                |                2
+ summits_gistc_052012_wgs84_shp                                  | label                           | text                        |                3
+ summits_gistc_052012_wgs84_shp                                  | sourcetable                     | text                        |                4
+ summits_gistc_052012_wgs84_shp                                  | country                         | text                        |                5
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | geodbid                         | integer                     |                1
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | lat                             | double precision            |                2
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | lon                             | double precision            |                3
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | bbox                            | text                        |                4
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | label                           | text                        |                5
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | sourcetable                     | text                        |                6
+ summits_gistc_052012_wgs84_shp_attrs_raw                        | country                         | text                        |                7
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83               | geodbid                         | integer                     |                1
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83               | geom                            | USER-DEFINED                |                2
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83               | label                           | text                        |                3
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83               | sourcetable                     | text                        |                4
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83               | country                         | text                        |                5
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | geodbid                         | integer                     |                1
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | lat                             | double precision            |                2
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | lon                             | double precision            |                3
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | bbox                            | text                        |                4
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | label                           | text                        |                5
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | sourcetable                     | text                        |                6
+ surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | country                         | text                        |                7
+ tiger_county_2022                                               | gid                             | integer                     |                1
+ tiger_county_2022                                               | statefp                         | character varying           |                2
+ tiger_county_2022                                               | countyfp                        | character varying           |                3
+ tiger_county_2022                                               | countyns                        | character varying           |                4
+ tiger_county_2022                                               | geoid                           | character varying           |                5
+ tiger_county_2022                                               | name                            | character varying           |                6
+ tiger_county_2022                                               | namelsad                        | character varying           |                7
+ tiger_county_2022                                               | lsad                            | character varying           |                8
+ tiger_county_2022                                               | classfp                         | character varying           |                9
+ tiger_county_2022                                               | mtfcc                           | character varying           |               10
+ tiger_county_2022                                               | csafp                           | character varying           |               11
+ tiger_county_2022                                               | cbsafp                          | character varying           |               12
+ tiger_county_2022                                               | metdivfp                        | character varying           |               13
+ tiger_county_2022                                               | funcstat                        | character varying           |               14
+ tiger_county_2022                                               | aland                           | double precision            |               15
+ tiger_county_2022                                               | awater                          | double precision            |               16
+ tiger_county_2022                                               | intptlat                        | character varying           |               17
+ tiger_county_2022                                               | intptlon                        | character varying           |               18
+ tiger_county_2022                                               | geom                            | USER-DEFINED                |               19
+ timberremovalvolume_usfs_1996_utm83                             | geodbid                         | integer                     |                1
+ timberremovalvolume_usfs_1996_utm83                             | geodb_id                        | bigint                      |                1
+ timberremovalvolume_usfs_1996_utm83                             | lat                             | numeric                     |                2
+ timberremovalvolume_usfs_1996_utm83                             | geom                            | USER-DEFINED                |                2
+ timberremovalvolume_usfs_1996_utm83                             | label                           | text                        |                3
+ timberremovalvolume_usfs_1996_utm83                             | lon                             | numeric                     |                3
+ timberremovalvolume_usfs_1996_utm83                             | bbox                            | text                        |                4
+ timberremovalvolume_usfs_1996_utm83                             | sourcetable                     | text                        |                4
+ timberremovalvolume_usfs_1996_utm83                             | label                           | text                        |                5
+ timberremovalvolume_usfs_1996_utm83                             | country                         | text                        |                5
+ timberremovalvolume_usfs_1996_utm83                             | sourcetable                     | text                        |                6
+ timberremovalvolume_usfs_1996_utm83                             | country                         | text                        |                7
+ timberremovalvolume_usfs_1996_utm83                             | geom                            | USER-DEFINED                |                8
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | geodbid                         | integer                     |                1
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | lat                             | double precision            |                2
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | lon                             | double precision            |                3
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | bbox                            | text                        |                4
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | label                           | text                        |                5
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | sourcetable                     | text                        |                6
+ timberremovalvolume_usfs_1996_utm83_attrs_raw                   | country                         | text                        |                7
+ tl_2020_54_bg                                                   | gid                             | integer                     |                1
+ tl_2020_54_bg                                                   | statefp                         | character varying           |                2
+ tl_2020_54_bg                                                   | countyfp                        | character varying           |                3
+ tl_2020_54_bg                                                   | tractce                         | character varying           |                4
+ tl_2020_54_bg                                                   | blkgrpce                        | character varying           |                5
+ tl_2020_54_bg                                                   | geoid                           | character varying           |                6
+ tl_2020_54_bg                                                   | namelsad                        | character varying           |                7
+ tl_2020_54_bg                                                   | mtfcc                           | character varying           |                8
+ tl_2020_54_bg                                                   | funcstat                        | character varying           |                9
+ tl_2020_54_bg                                                   | aland                           | double precision            |               10
+ tl_2020_54_bg                                                   | awater                          | double precision            |               11
+ tl_2020_54_bg                                                   | intptlat                        | character varying           |               12
+ tl_2020_54_bg                                                   | intptlon                        | character varying           |               13
+ tl_2020_54_bg                                                   | geom                            | USER-DEFINED                |               14
+ tl_2020_54_tabblock20                                           | gid                             | integer                     |                1
+ tl_2020_54_tabblock20                                           | statefp20                       | character varying           |                2
+ tl_2020_54_tabblock20                                           | countyfp20                      | character varying           |                3
+ tl_2020_54_tabblock20                                           | tractce20                       | character varying           |                4
+ tl_2020_54_tabblock20                                           | blockce20                       | character varying           |                5
+ tl_2020_54_tabblock20                                           | geoid20                         | character varying           |                6
+ tl_2020_54_tabblock20                                           | name20                          | character varying           |                7
+ tl_2020_54_tabblock20                                           | mtfcc20                         | character varying           |                8
+ tl_2020_54_tabblock20                                           | ur20                            | character varying           |                9
+ tl_2020_54_tabblock20                                           | uace20                          | character varying           |               10
+ tl_2020_54_tabblock20                                           | uatype20                        | character varying           |               11
+ tl_2020_54_tabblock20                                           | funcstat20                      | character varying           |               12
+ tl_2020_54_tabblock20                                           | aland20                         | double precision            |               13
+ tl_2020_54_tabblock20                                           | awater20                        | double precision            |               14
+ tl_2020_54_tabblock20                                           | intptlat20                      | character varying           |               15
+ tl_2020_54_tabblock20                                           | intptlon20                      | character varying           |               16
+ tl_2020_54_tabblock20                                           | housing20                       | double precision            |               17
+ tl_2020_54_tabblock20                                           | pop20                           | double precision            |               18
+ tl_2020_54_tabblock20                                           | geom                            | USER-DEFINED                |               19
+ tmp_building_block_nearest_sample                               | building_gbim_id                | bigint                      |                1
+ tmp_building_block_nearest_sample                               | block_gbim_id                   | bigint                      |                2
+ tmp_building_block_nearest_sample                               | dist_m                          | double precision            |                3
+ towers_wvpublicbroadcasting_2002_ll83                           | geodbid                         | integer                     |                1
+ towers_wvpublicbroadcasting_2002_ll83                           | geom                            | USER-DEFINED                |                2
+ towers_wvpublicbroadcasting_2002_ll83                           | label                           | text                        |                3
+ towers_wvpublicbroadcasting_2002_ll83                           | sourcetable                     | text                        |                4
+ towers_wvpublicbroadcasting_2002_ll83                           | country                         | text                        |                5
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | geodbid                         | integer                     |                1
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | lat                             | double precision            |                2
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | lon                             | double precision            |                3
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | bbox                            | text                        |                4
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | label                           | text                        |                5
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | sourcetable                     | text                        |                6
+ towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | country                         | text                        |                7
+ towers_wvpublicbroadcasting_2002_utm83                          | geodbid                         | integer                     |                1
+ towers_wvpublicbroadcasting_2002_utm83                          | geodb_id                        | bigint                      |                1
+ towers_wvpublicbroadcasting_2002_utm83                          | lat                             | numeric                     |                2
+ towers_wvpublicbroadcasting_2002_utm83                          | geom                            | USER-DEFINED                |                2
+ towers_wvpublicbroadcasting_2002_utm83                          | lon                             | numeric                     |                3
+ towers_wvpublicbroadcasting_2002_utm83                          | label                           | text                        |                3
+ towers_wvpublicbroadcasting_2002_utm83                          | sourcetable                     | text                        |                4
+ towers_wvpublicbroadcasting_2002_utm83                          | bbox                            | text                        |                4
+ towers_wvpublicbroadcasting_2002_utm83                          | label                           | text                        |                5
+ towers_wvpublicbroadcasting_2002_utm83                          | country                         | text                        |                5
+ towers_wvpublicbroadcasting_2002_utm83                          | sourcetable                     | text                        |                6
+ towers_wvpublicbroadcasting_2002_utm83                          | country                         | text                        |                7
+ towers_wvpublicbroadcasting_2002_utm83                          | geom                            | USER-DEFINED                |                8
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | geodbid                         | integer                     |                1
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | lat                             | double precision            |                2
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | lon                             | double precision            |                3
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | bbox                            | text                        |                4
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | label                           | text                        |                5
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | sourcetable                     | text                        |                6
+ towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | country                         | text                        |                7
+ towersam_fcc_200202_utm83                                       | geodb_id                        | bigint                      |                1
+ towersam_fcc_200202_utm83                                       | geodbid                         | integer                     |                1
+ towersam_fcc_200202_utm83                                       | lat                             | numeric                     |                2
+ towersam_fcc_200202_utm83                                       | geom                            | USER-DEFINED                |                2
+ towersam_fcc_200202_utm83                                       | label                           | text                        |                3
+ towersam_fcc_200202_utm83                                       | lon                             | numeric                     |                3
+ towersam_fcc_200202_utm83                                       | sourcetable                     | text                        |                4
+ towersam_fcc_200202_utm83                                       | bbox                            | text                        |                4
+ towersam_fcc_200202_utm83                                       | country                         | text                        |                5
+ towersam_fcc_200202_utm83                                       | label                           | text                        |                5
+ towersam_fcc_200202_utm83                                       | sourcetable                     | text                        |                6
+ towersam_fcc_200202_utm83                                       | country                         | text                        |                7
+ towersam_fcc_200202_utm83                                       | geom                            | USER-DEFINED                |                8
+ towersam_fcc_200202_utm83_attrs_raw                             | geodbid                         | integer                     |                1
+ towersam_fcc_200202_utm83_attrs_raw                             | lat                             | double precision            |                2
+ towersam_fcc_200202_utm83_attrs_raw                             | lon                             | double precision            |                3
+ towersam_fcc_200202_utm83_attrs_raw                             | bbox                            | text                        |                4
+ towersam_fcc_200202_utm83_attrs_raw                             | label                           | text                        |                5
+ towersam_fcc_200202_utm83_attrs_raw                             | sourcetable                     | text                        |                6
+ towersam_fcc_200202_utm83_attrs_raw                             | country                         | text                        |                7
+ towersasr_fcc_200202_ll83                                       | geodbid                         | integer                     |                1
+ towersasr_fcc_200202_ll83                                       | geom                            | USER-DEFINED                |                2
+ towersasr_fcc_200202_ll83                                       | label                           | text                        |                3
+ towersasr_fcc_200202_ll83                                       | sourcetable                     | text                        |                4
+ towersasr_fcc_200202_ll83                                       | country                         | text                        |                5
+ towersasr_fcc_200202_ll83_attrs_raw                             | geodbid                         | integer                     |                1
+ towersasr_fcc_200202_ll83_attrs_raw                             | lat                             | double precision            |                2
+ towersasr_fcc_200202_ll83_attrs_raw                             | lon                             | double precision            |                3
+ towersasr_fcc_200202_ll83_attrs_raw                             | bbox                            | text                        |                4
+ towersasr_fcc_200202_ll83_attrs_raw                             | label                           | text                        |                5
+ towersasr_fcc_200202_ll83_attrs_raw                             | sourcetable                     | text                        |                6
+ towersasr_fcc_200202_ll83_attrs_raw                             | country                         | text                        |                7
+ towersasr_fcc_200202_utm83                                      | geodb_id                        | bigint                      |                1
+ towersasr_fcc_200202_utm83                                      | geodbid                         | integer                     |                1
+ towersasr_fcc_200202_utm83                                      | lat                             | numeric                     |                2
+ towersasr_fcc_200202_utm83                                      | geom                            | USER-DEFINED                |                2
+ towersasr_fcc_200202_utm83                                      | lon                             | numeric                     |                3
+ towersasr_fcc_200202_utm83                                      | label                           | text                        |                3
+ towersasr_fcc_200202_utm83                                      | bbox                            | text                        |                4
+ towersasr_fcc_200202_utm83                                      | sourcetable                     | text                        |                4
+ towersasr_fcc_200202_utm83                                      | country                         | text                        |                5
+ towersasr_fcc_200202_utm83                                      | label                           | text                        |                5
+ towersasr_fcc_200202_utm83                                      | sourcetable                     | text                        |                6
+ towersasr_fcc_200202_utm83                                      | country                         | text                        |                7
+ towersasr_fcc_200202_utm83                                      | geom                            | USER-DEFINED                |                8
+ towersasr_fcc_200202_utm83_attrs_raw                            | geodbid                         | integer                     |                1
+ towersasr_fcc_200202_utm83_attrs_raw                            | lat                             | double precision            |                2
+ towersasr_fcc_200202_utm83_attrs_raw                            | lon                             | double precision            |                3
+ towersasr_fcc_200202_utm83_attrs_raw                            | bbox                            | text                        |                4
+ towersasr_fcc_200202_utm83_attrs_raw                            | label                           | text                        |                5
+ towersasr_fcc_200202_utm83_attrs_raw                            | sourcetable                     | text                        |                6
+ towersasr_fcc_200202_utm83_attrs_raw                            | country                         | text                        |                7
+ towerscellular_fcc_200202_ll83                                  | geodbid                         | integer                     |                1
+ towerscellular_fcc_200202_ll83                                  | geom                            | USER-DEFINED                |                2
+ towerscellular_fcc_200202_ll83                                  | label                           | text                        |                3
+ towerscellular_fcc_200202_ll83                                  | sourcetable                     | text                        |                4
+ towerscellular_fcc_200202_ll83                                  | country                         | text                        |                5
+ towerscellular_fcc_200202_ll83_attrs_raw                        | geodbid                         | integer                     |                1
+ towerscellular_fcc_200202_ll83_attrs_raw                        | lat                             | double precision            |                2
+ towerscellular_fcc_200202_ll83_attrs_raw                        | lon                             | double precision            |                3
+ towerscellular_fcc_200202_ll83_attrs_raw                        | bbox                            | text                        |                4
+ towerscellular_fcc_200202_ll83_attrs_raw                        | label                           | text                        |                5
+ towerscellular_fcc_200202_ll83_attrs_raw                        | sourcetable                     | text                        |                6
+ towerscellular_fcc_200202_ll83_attrs_raw                        | country                         | text                        |                7
+ towerscellular_fcc_200202_utm83                                 | geodb_id                        | bigint                      |                1
+ towerscellular_fcc_200202_utm83                                 | geodbid                         | integer                     |                1
+ towerscellular_fcc_200202_utm83                                 | lat                             | numeric                     |                2
+ towerscellular_fcc_200202_utm83                                 | geom                            | USER-DEFINED                |                2
+ towerscellular_fcc_200202_utm83                                 | label                           | text                        |                3
+ towerscellular_fcc_200202_utm83                                 | lon                             | numeric                     |                3
+ towerscellular_fcc_200202_utm83                                 | bbox                            | text                        |                4
+ towerscellular_fcc_200202_utm83                                 | sourcetable                     | text                        |                4
+ towerscellular_fcc_200202_utm83                                 | country                         | text                        |                5
+ towerscellular_fcc_200202_utm83                                 | label                           | text                        |                5
+ towerscellular_fcc_200202_utm83                                 | sourcetable                     | text                        |                6
+ towerscellular_fcc_200202_utm83                                 | country                         | text                        |                7
+ towerscellular_fcc_200202_utm83                                 | geom                            | USER-DEFINED                |                8
+ towerscellular_fcc_200202_utm83_attrs_raw                       | geodbid                         | integer                     |                1
+ towerscellular_fcc_200202_utm83_attrs_raw                       | lat                             | double precision            |                2
+ towerscellular_fcc_200202_utm83_attrs_raw                       | lon                             | double precision            |                3
+ towerscellular_fcc_200202_utm83_attrs_raw                       | bbox                            | text                        |                4
+ towerscellular_fcc_200202_utm83_attrs_raw                       | label                           | text                        |                5
+ towerscellular_fcc_200202_utm83_attrs_raw                       | sourcetable                     | text                        |                6
+ towerscellular_fcc_200202_utm83_attrs_raw                       | country                         | text                        |                7
+ towersfm_fcc_200202_utm83                                       | geodb_id                        | bigint                      |                1
+ towersfm_fcc_200202_utm83                                       | geodbid                         | integer                     |                1
+ towersfm_fcc_200202_utm83                                       | lat                             | numeric                     |                2
+ towersfm_fcc_200202_utm83                                       | geom                            | USER-DEFINED                |                2
+ towersfm_fcc_200202_utm83                                       | label                           | text                        |                3
+ towersfm_fcc_200202_utm83                                       | lon                             | numeric                     |                3
+ towersfm_fcc_200202_utm83                                       | sourcetable                     | text                        |                4
+ towersfm_fcc_200202_utm83                                       | bbox                            | text                        |                4
+ towersfm_fcc_200202_utm83                                       | label                           | text                        |                5
+ towersfm_fcc_200202_utm83                                       | country                         | text                        |                5
+ towersfm_fcc_200202_utm83                                       | sourcetable                     | text                        |                6
+ towersfm_fcc_200202_utm83                                       | country                         | text                        |                7
+ towersfm_fcc_200202_utm83                                       | geom                            | USER-DEFINED                |                8
+ towersfm_fcc_200202_utm83_attrs_raw                             | geodbid                         | integer                     |                1
+ towersfm_fcc_200202_utm83_attrs_raw                             | lat                             | double precision            |                2
+ towersfm_fcc_200202_utm83_attrs_raw                             | lon                             | double precision            |                3
+ towersfm_fcc_200202_utm83_attrs_raw                             | bbox                            | text                        |                4
+ towersfm_fcc_200202_utm83_attrs_raw                             | label                           | text                        |                5
+ towersfm_fcc_200202_utm83_attrs_raw                             | sourcetable                     | text                        |                6
+ towersfm_fcc_200202_utm83_attrs_raw                             | country                         | text                        |                7
+ towersmicrowave_fcc_200202_ll83                                 | geodbid                         | integer                     |                1
+ towersmicrowave_fcc_200202_ll83                                 | geom                            | USER-DEFINED                |                2
+ towersmicrowave_fcc_200202_ll83                                 | label                           | text                        |                3
+ towersmicrowave_fcc_200202_ll83                                 | sourcetable                     | text                        |                4
+ towersmicrowave_fcc_200202_ll83                                 | country                         | text                        |                5
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | geodbid                         | integer                     |                1
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | lat                             | double precision            |                2
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | lon                             | double precision            |                3
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | bbox                            | text                        |                4
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | label                           | text                        |                5
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | sourcetable                     | text                        |                6
+ towersmicrowave_fcc_200202_ll83_attrs_raw                       | country                         | text                        |                7
+ towersmicrowave_fcc_200202_utm83                                | geodb_id                        | bigint                      |                1
+ towersmicrowave_fcc_200202_utm83                                | geodbid                         | integer                     |                1
+ towersmicrowave_fcc_200202_utm83                                | lat                             | numeric                     |                2
+ towersmicrowave_fcc_200202_utm83                                | geom                            | USER-DEFINED                |                2
+ towersmicrowave_fcc_200202_utm83                                | lon                             | numeric                     |                3
+ towersmicrowave_fcc_200202_utm83                                | label                           | text                        |                3
+ towersmicrowave_fcc_200202_utm83                                | sourcetable                     | text                        |                4
+ towersmicrowave_fcc_200202_utm83                                | bbox                            | text                        |                4
+ towersmicrowave_fcc_200202_utm83                                | country                         | text                        |                5
+ towersmicrowave_fcc_200202_utm83                                | label                           | text                        |                5
+ towersmicrowave_fcc_200202_utm83                                | sourcetable                     | text                        |                6
+ towersmicrowave_fcc_200202_utm83                                | country                         | text                        |                7
+ towersmicrowave_fcc_200202_utm83                                | geom                            | USER-DEFINED                |                8
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | geodbid                         | integer                     |                1
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | lat                             | double precision            |                2
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | lon                             | double precision            |                3
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | bbox                            | text                        |                4
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | label                           | text                        |                5
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | sourcetable                     | text                        |                6
+ towersmicrowave_fcc_200202_utm83_attrs_raw                      | country                         | text                        |                7
+ towerspager_fcc_200202_ll83                                     | geodbid                         | integer                     |                1
+ towerspager_fcc_200202_ll83                                     | geom                            | USER-DEFINED                |                2
+ towerspager_fcc_200202_ll83                                     | label                           | text                        |                3
+ towerspager_fcc_200202_ll83                                     | sourcetable                     | text                        |                4
+ towerspager_fcc_200202_ll83                                     | country                         | text                        |                5
+ towerspager_fcc_200202_ll83_attrs_raw                           | geodbid                         | integer                     |                1
+ towerspager_fcc_200202_ll83_attrs_raw                           | lat                             | double precision            |                2
+ towerspager_fcc_200202_ll83_attrs_raw                           | lon                             | double precision            |                3
+ towerspager_fcc_200202_ll83_attrs_raw                           | bbox                            | text                        |                4
+ towerspager_fcc_200202_ll83_attrs_raw                           | label                           | text                        |                5
+ towerspager_fcc_200202_ll83_attrs_raw                           | sourcetable                     | text                        |                6
+ towerspager_fcc_200202_ll83_attrs_raw                           | country                         | text                        |                7
+ towerspager_fcc_200202_utm83                                    | geodb_id                        | bigint                      |                1
+ towerspager_fcc_200202_utm83                                    | geodbid                         | integer                     |                1
+ towerspager_fcc_200202_utm83                                    | geom                            | USER-DEFINED                |                2
+ towerspager_fcc_200202_utm83                                    | lat                             | numeric                     |                2
+ towerspager_fcc_200202_utm83                                    | lon                             | numeric                     |                3
+ towerspager_fcc_200202_utm83                                    | label                           | text                        |                3
+ towerspager_fcc_200202_utm83                                    | bbox                            | text                        |                4
+ towerspager_fcc_200202_utm83                                    | sourcetable                     | text                        |                4
+ towerspager_fcc_200202_utm83                                    | label                           | text                        |                5
+ towerspager_fcc_200202_utm83                                    | country                         | text                        |                5
+ towerspager_fcc_200202_utm83                                    | sourcetable                     | text                        |                6
+ towerspager_fcc_200202_utm83                                    | country                         | text                        |                7
+ towerspager_fcc_200202_utm83                                    | geom                            | USER-DEFINED                |                8
+ towerspager_fcc_200202_utm83_attrs_raw                          | geodbid                         | integer                     |                1
+ towerspager_fcc_200202_utm83_attrs_raw                          | lat                             | double precision            |                2
+ towerspager_fcc_200202_utm83_attrs_raw                          | lon                             | double precision            |                3
+ towerspager_fcc_200202_utm83_attrs_raw                          | bbox                            | text                        |                4
+ towerspager_fcc_200202_utm83_attrs_raw                          | label                           | text                        |                5
+ towerspager_fcc_200202_utm83_attrs_raw                          | sourcetable                     | text                        |                6
+ towerspager_fcc_200202_utm83_attrs_raw                          | country                         | text                        |                7
+ towersprivate_fcc_200202_ll83                                   | geodbid                         | integer                     |                1
+ towersprivate_fcc_200202_ll83                                   | geom                            | USER-DEFINED                |                2
+ towersprivate_fcc_200202_ll83                                   | label                           | text                        |                3
+ towersprivate_fcc_200202_ll83                                   | sourcetable                     | text                        |                4
+ towersprivate_fcc_200202_ll83                                   | country                         | text                        |                5
+ towersprivate_fcc_200202_ll83_attrs_raw                         | geodbid                         | integer                     |                1
+ towersprivate_fcc_200202_ll83_attrs_raw                         | lat                             | double precision            |                2
+ towersprivate_fcc_200202_ll83_attrs_raw                         | lon                             | double precision            |                3
+ towersprivate_fcc_200202_ll83_attrs_raw                         | bbox                            | text                        |                4
+ towersprivate_fcc_200202_ll83_attrs_raw                         | label                           | text                        |                5
+ towersprivate_fcc_200202_ll83_attrs_raw                         | sourcetable                     | text                        |                6
+ towersprivate_fcc_200202_ll83_attrs_raw                         | country                         | text                        |                7
+ towersprivate_fcc_200202_utm83                                  | geodbid                         | integer                     |                1
+ towersprivate_fcc_200202_utm83                                  | geodb_id                        | bigint                      |                1
+ towersprivate_fcc_200202_utm83                                  | geom                            | USER-DEFINED                |                2
+ towersprivate_fcc_200202_utm83                                  | lat                             | numeric                     |                2
+ towersprivate_fcc_200202_utm83                                  | label                           | text                        |                3
+ towersprivate_fcc_200202_utm83                                  | lon                             | numeric                     |                3
+ towersprivate_fcc_200202_utm83                                  | sourcetable                     | text                        |                4
+ towersprivate_fcc_200202_utm83                                  | bbox                            | text                        |                4
+ towersprivate_fcc_200202_utm83                                  | label                           | text                        |                5
+ towersprivate_fcc_200202_utm83                                  | country                         | text                        |                5
+ towersprivate_fcc_200202_utm83                                  | sourcetable                     | text                        |                6
+ towersprivate_fcc_200202_utm83                                  | country                         | text                        |                7
+ towersprivate_fcc_200202_utm83                                  | geom                            | USER-DEFINED                |                8
+ towersprivate_fcc_200202_utm83_attrs_raw                        | geodbid                         | integer                     |                1
+ towersprivate_fcc_200202_utm83_attrs_raw                        | lat                             | double precision            |                2
+ towersprivate_fcc_200202_utm83_attrs_raw                        | lon                             | double precision            |                3
+ towersprivate_fcc_200202_utm83_attrs_raw                        | bbox                            | text                        |                4
+ towersprivate_fcc_200202_utm83_attrs_raw                        | label                           | text                        |                5
+ towersprivate_fcc_200202_utm83_attrs_raw                        | sourcetable                     | text                        |                6
+ towersprivate_fcc_200202_utm83_attrs_raw                        | country                         | text                        |                7
+ uei_registry                                                    | uei                             | uuid                        |                1
+ uei_registry                                                    | wallet_address                  | text                        |                2
+ uei_registry                                                    | participant_type                | text                        |                3
+ uei_registry                                                    | registered_at                   | timestamp with time zone    |                4
+ uei_registry                                                    | arbitrum_anchor_hash            | text                        |                5
+ uei_registry                                                    | ipfs_record_cid                 | text                        |                6
+ uei_registry                                                    | org_name                        | text                        |                7
+ uei_registry                                                    | county_scope                    | ARRAY                       |                8
+ uei_registry                                                    | active                          | boolean                     |                9
+ uei_registry                                                    | last_active_at                  | timestamp with time zone    |               10
+ uei_registry                                                    | is_bsa                          | boolean                     |               11
+ uei_registry                                                    | ems_hours_total                 | numeric                     |               12
+ uei_registry                                                    | voting_eligible                 | boolean                     |               13
+ us_counties                                                     | gid                             | integer                     |                1
+ us_counties                                                     | county_fips                     | text                        |                2
+ us_counties                                                     | county_name                     | text                        |                3
+ us_counties                                                     | state_fips                      | text                        |                4
+ us_counties                                                     | state_abbr                      | text                        |                5
+ us_counties                                                     | geom                            | USER-DEFINED                |                6
+ us_counties_tmp                                                 | gid                             | integer                     |                1
+ us_counties_tmp                                                 | statefp                         | character varying           |                2
+ us_counties_tmp                                                 | countyfp                        | character varying           |                3
+ us_counties_tmp                                                 | countyns                        | character varying           |                4
+ us_counties_tmp                                                 | geoid                           | character varying           |                5
+ us_counties_tmp                                                 | name                            | character varying           |                6
+ us_counties_tmp                                                 | namelsad                        | character varying           |                7
+ us_counties_tmp                                                 | lsad                            | character varying           |                8
+ us_counties_tmp                                                 | classfp                         | character varying           |                9
+ us_counties_tmp                                                 | mtfcc                           | character varying           |               10
+ us_counties_tmp                                                 | csafp                           | character varying           |               11
+ us_counties_tmp                                                 | cbsafp                          | character varying           |               12
+ us_counties_tmp                                                 | metdivfp                        | character varying           |               13
+ us_counties_tmp                                                 | funcstat                        | character varying           |               14
+ us_counties_tmp                                                 | aland                           | double precision            |               15
+ us_counties_tmp                                                 | awater                          | double precision            |               16
+ us_counties_tmp                                                 | intptlat                        | character varying           |               17
+ us_counties_tmp                                                 | intptlon                        | character varying           |               18
+ us_counties_tmp                                                 | geom                            | USER-DEFINED                |               19
+ us_zips                                                         | gid                             | integer                     |                1
+ us_zips                                                         | zip                             | text                        |                2
+ us_zips                                                         | state_abbr                      | text                        |                3
+ us_zips                                                         | geom                            | USER-DEFINED                |                4
+ us_zips_tmp                                                     | gid                             | integer                     |                1
+ us_zips_tmp                                                     | zcta5ce10                       | character varying           |                2
+ us_zips_tmp                                                     | geoid10                         | character varying           |                3
+ us_zips_tmp                                                     | classfp10                       | character varying           |                4
+ us_zips_tmp                                                     | mtfcc10                         | character varying           |                5
+ us_zips_tmp                                                     | funcstat10                      | character varying           |                6
+ us_zips_tmp                                                     | aland10                         | double precision            |                7
+ us_zips_tmp                                                     | awater10                        | double precision            |                8
+ us_zips_tmp                                                     | intptlat10                      | character varying           |                9
+ us_zips_tmp                                                     | intptlon10                      | character varying           |               10
+ us_zips_tmp                                                     | geom                            | USER-DEFINED                |               11
+ user_compliance_task                                            | notification_id                 | integer                     |                1
+ user_compliance_task                                            | enrollment_id                   | integer                     |                2
+ user_compliance_task                                            | utility_vendor_code             | text                        |                3
+ user_compliance_task                                            | utility_account_number          | text                        |                4
+ user_compliance_task                                            | utility_type                    | text                        |                5
+ user_compliance_task                                            | action                          | text                        |                6
+ user_compliance_task                                            | effective_date                  | date                        |                7
+ user_compliance_task                                            | payload                         | jsonb                       |                8
+ user_compliance_task                                            | processed_at                    | timestamp with time zone    |                9
+ user_compliance_task                                            | created_at                      | timestamp with time zone    |               10
+ user_compliance_task                                            | user_task_status                | text                        |               11
+ user_compliance_task                                            | user_completed_at               | timestamp with time zone    |               12
+ user_compliance_task                                            | user_notes                      | text                        |               13
+ utility_discount_enrollment                                     | enrollment_id                   | integer                     |                1
+ utility_discount_enrollment                                     | program_id                      | integer                     |                2
+ utility_discount_enrollment                                     | client_id                       | bigint                      |                3
+ utility_discount_enrollment                                     | gateway_program_code            | text                        |                4
+ utility_discount_enrollment                                     | gateway_case_id                 | bigint                      |                5
+ utility_discount_enrollment                                     | gateway_start_date              | date                        |                6
+ utility_discount_enrollment                                     | gateway_end_date                | date                        |                7
+ utility_discount_enrollment                                     | utility_account_number          | text                        |                8
+ utility_discount_enrollment                                     | utility_type                    | text                        |                9
+ utility_discount_enrollment                                     | utility_vendor_code             | text                        |               10
+ utility_discount_enrollment                                     | discount_start_date             | date                        |               11
+ utility_discount_enrollment                                     | discount_end_date               | date                        |               12
+ utility_discount_enrollment                                     | currently_active                | boolean                     |               13
+ utility_discount_enrollment                                     | created_at                      | timestamp with time zone    |               14
+ utility_discount_enrollment                                     | updated_at                      | timestamp with time zone    |               15
+ veteransaffairsfacilities_manysources_200503_utm83              | geodb_id                        | bigint                      |                1
+ veteransaffairsfacilities_manysources_200503_utm83              | geodbid                         | integer                     |                1
+ veteransaffairsfacilities_manysources_200503_utm83              | lat                             | numeric                     |                2
+ veteransaffairsfacilities_manysources_200503_utm83              | geom                            | USER-DEFINED                |                2
+ veteransaffairsfacilities_manysources_200503_utm83              | lon                             | numeric                     |                3
+ veteransaffairsfacilities_manysources_200503_utm83              | label                           | text                        |                3
+ veteransaffairsfacilities_manysources_200503_utm83              | bbox                            | text                        |                4
+ veteransaffairsfacilities_manysources_200503_utm83              | sourcetable                     | text                        |                4
+ veteransaffairsfacilities_manysources_200503_utm83              | label                           | text                        |                5
+ veteransaffairsfacilities_manysources_200503_utm83              | country                         | text                        |                5
+ veteransaffairsfacilities_manysources_200503_utm83              | sourcetable                     | text                        |                6
+ veteransaffairsfacilities_manysources_200503_utm83              | country                         | text                        |                7
+ veteransaffairsfacilities_manysources_200503_utm83              | geom                            | USER-DEFINED                |                8
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | geodbid                         | integer                     |                1
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | lat                             | double precision            |                2
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | lon                             | double precision            |                3
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | bbox                            | text                        |                4
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | label                           | text                        |                5
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | sourcetable                     | text                        |                6
+ veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | country                         | text                        |                7
+ veteransaffairsfacilities_manysources_200503_wgs84              | geodbid                         | integer                     |                1
+ veteransaffairsfacilities_manysources_200503_wgs84              | geom                            | USER-DEFINED                |                2
+ veteransaffairsfacilities_manysources_200503_wgs84              | label                           | text                        |                3
+ veteransaffairsfacilities_manysources_200503_wgs84              | sourcetable                     | text                        |                4
+ veteransaffairsfacilities_manysources_200503_wgs84              | country                         | text                        |                5
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | geodbid                         | integer                     |                1
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | lat                             | double precision            |                2
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | lon                             | double precision            |                3
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | bbox                            | text                        |                4
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | label                           | text                        |                5
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | sourcetable                     | text                        |                6
+ veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | country                         | text                        |                7
+ votingdistrictswv_legislativeservices_2002_ll83                 | geodbid                         | integer                     |                1
+ votingdistrictswv_legislativeservices_2002_ll83                 | geom                            | USER-DEFINED                |                2
+ votingdistrictswv_legislativeservices_2002_ll83                 | label                           | text                        |                3
+ votingdistrictswv_legislativeservices_2002_ll83                 | sourcetable                     | text                        |                4
+ votingdistrictswv_legislativeservices_2002_ll83                 | country                         | text                        |                5
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | geodbid                         | integer                     |                1
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | lat                             | double precision            |                2
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | lon                             | double precision            |                3
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | bbox                            | text                        |                4
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | label                           | text                        |                5
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | sourcetable                     | text                        |                6
+ votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | country                         | text                        |                7
+ votingdistrictswv_legislativeservices_2002_utm83                | geodb_id                        | bigint                      |                1
+ votingdistrictswv_legislativeservices_2002_utm83                | geodbid                         | integer                     |                1
+ votingdistrictswv_legislativeservices_2002_utm83                | lat                             | numeric                     |                2
+ votingdistrictswv_legislativeservices_2002_utm83                | geom                            | USER-DEFINED                |                2
+ votingdistrictswv_legislativeservices_2002_utm83                | label                           | text                        |                3
+ votingdistrictswv_legislativeservices_2002_utm83                | lon                             | numeric                     |                3
+ votingdistrictswv_legislativeservices_2002_utm83                | bbox                            | text                        |                4
+ votingdistrictswv_legislativeservices_2002_utm83                | sourcetable                     | text                        |                4
+ votingdistrictswv_legislativeservices_2002_utm83                | country                         | text                        |                5
+ votingdistrictswv_legislativeservices_2002_utm83                | label                           | text                        |                5
+ votingdistrictswv_legislativeservices_2002_utm83                | sourcetable                     | text                        |                6
+ votingdistrictswv_legislativeservices_2002_utm83                | country                         | text                        |                7
+ votingdistrictswv_legislativeservices_2002_utm83                | geom                            | USER-DEFINED                |                8
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | geodbid                         | integer                     |                1
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | lat                             | double precision            |                2
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | lon                             | double precision            |                3
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | bbox                            | text                        |                4
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | label                           | text                        |                5
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | sourcetable                     | text                        |                6
+ votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | country                         | text                        |                7
+ votingdistrictswv_uscensus_2000_utm83                           | geodb_id                        | bigint                      |                1
+ votingdistrictswv_uscensus_2000_utm83                           | geodbid                         | integer                     |                1
+ votingdistrictswv_uscensus_2000_utm83                           | geom                            | USER-DEFINED                |                2
+ votingdistrictswv_uscensus_2000_utm83                           | lat                             | numeric                     |                2
+ votingdistrictswv_uscensus_2000_utm83                           | label                           | text                        |                3
+ votingdistrictswv_uscensus_2000_utm83                           | lon                             | numeric                     |                3
+ votingdistrictswv_uscensus_2000_utm83                           | sourcetable                     | text                        |                4
+ votingdistrictswv_uscensus_2000_utm83                           | bbox                            | text                        |                4
+ votingdistrictswv_uscensus_2000_utm83                           | country                         | text                        |                5
+ votingdistrictswv_uscensus_2000_utm83                           | label                           | text                        |                5
+ votingdistrictswv_uscensus_2000_utm83                           | sourcetable                     | text                        |                6
+ votingdistrictswv_uscensus_2000_utm83                           | country                         | text                        |                7
+ votingdistrictswv_uscensus_2000_utm83                           | geom                            | USER-DEFINED                |                8
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | geodbid                         | integer                     |                1
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | lat                             | double precision            |                2
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | lon                             | double precision            |                3
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | bbox                            | text                        |                4
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | label                           | text                        |                5
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | sourcetable                     | text                        |                6
+ votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | country                         | text                        |                7
+ weatherstations_nationalclimatedatacenter_1999_gcs83            | geodbid                         | integer                     |                1
+ weatherstations_nationalclimatedatacenter_1999_gcs83            | geom                            | USER-DEFINED                |                2
+ weatherstations_nationalclimatedatacenter_1999_gcs83            | label                           | text                        |                3
+ weatherstations_nationalclimatedatacenter_1999_gcs83            | sourcetable                     | text                        |                4
+ weatherstations_nationalclimatedatacenter_1999_gcs83            | country                         | text                        |                5
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | geodbid                         | integer                     |                1
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | lat                             | double precision            |                2
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | lon                             | double precision            |                3
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | bbox                            | text                        |                4
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | label                           | text                        |                5
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | sourcetable                     | text                        |                6
+ weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | country                         | text                        |                7
+ weatherstations_nationalclimatedatacenter_1999_utm27            | geodbid                         | integer                     |                1
+ weatherstations_nationalclimatedatacenter_1999_utm27            | geom                            | USER-DEFINED                |                2
+ weatherstations_nationalclimatedatacenter_1999_utm27            | label                           | text                        |                3
+ weatherstations_nationalclimatedatacenter_1999_utm27            | sourcetable                     | text                        |                4
+ weatherstations_nationalclimatedatacenter_1999_utm27            | country                         | text                        |                5
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | geodbid                         | integer                     |                1
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | lat                             | double precision            |                2
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | lon                             | double precision            |                3
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | bbox                            | text                        |                4
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | label                           | text                        |                5
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | sourcetable                     | text                        |                6
+ weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | country                         | text                        |                7
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | geodbid                         | integer                     |                1
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | geodb_id                        | bigint                      |                1
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | geom                            | USER-DEFINED                |                2
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | lat                             | numeric                     |                2
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | lon                             | numeric                     |                3
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | label                           | text                        |                3
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | sourcetable                     | text                        |                4
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | bbox                            | text                        |                4
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | label                           | text                        |                5
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | country                         | text                        |                5
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | sourcetable                     | text                        |                6
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | country                         | text                        |                7
+ windenergyresource_nationalrenewableenergylab_200901_utm83      | geom                            | USER-DEFINED                |                8
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | geodbid                         | integer                     |                1
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | lat                             | double precision            |                2
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | lon                             | double precision            |                3
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | bbox                            | text                        |                4
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | label                           | text                        |                5
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | sourcetable                     | text                        |                6
+ windenergyresource_nationalrenewableenergylab_200901_utm83_attr | country                         | text                        |                7
+ windenergyresource_nationalrenewableenergylab_200901_wgs84      | geodbid                         | integer                     |                1
+ windenergyresource_nationalrenewableenergylab_200901_wgs84      | geom                            | USER-DEFINED                |                2
+ windenergyresource_nationalrenewableenergylab_200901_wgs84      | label                           | text                        |                3
+ windenergyresource_nationalrenewableenergylab_200901_wgs84      | sourcetable                     | text                        |                4
+ windenergyresource_nationalrenewableenergylab_200901_wgs84      | country                         | text                        |                5
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | geodbid                         | integer                     |                1
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | lat                             | double precision            |                2
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | lon                             | double precision            |                3
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | bbox                            | text                        |                4
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | label                           | text                        |                5
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | sourcetable                     | text                        |                6
+ windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | country                         | text                        |                7
+ workforceinvestmentareas_wvgistc_200208_ll83                    | geodbid                         | integer                     |                1
+ workforceinvestmentareas_wvgistc_200208_ll83                    | geom                            | USER-DEFINED                |                2
+ workforceinvestmentareas_wvgistc_200208_ll83                    | label                           | text                        |                3
+ workforceinvestmentareas_wvgistc_200208_ll83                    | sourcetable                     | text                        |                4
+ workforceinvestmentareas_wvgistc_200208_ll83                    | country                         | text                        |                5
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | geodbid                         | integer                     |                1
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | lat                             | double precision            |                2
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | lon                             | double precision            |                3
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | bbox                            | text                        |                4
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | label                           | text                        |                5
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | sourcetable                     | text                        |                6
+ workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | country                         | text                        |                7
+ wv_county_bbox_geom                                             | geodb_id                        | integer                     |                1
+ wv_county_bbox_geom                                             | label                           | text                        |                2
+ wv_county_bbox_geom                                             | geom_bbox                       | USER-DEFINED                |                3
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | geodb_id                        | integer                     |                1
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | lat                             | double precision            |                2
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | lon                             | double precision            |                3
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | bbox                            | text                        |                4
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | label                           | text                        |                5
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | sourcetable                     | text                        |                6
+ wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | country                         | text                        |                7
+ wv_county_names                                                 | geodb_id                        | integer                     |                1
+ wv_county_names                                                 | county_name                     | text                        |                2
+ wv_county_names                                                 | fips                            | text                        |                3
+ wv_income_manual_income_limits                                  | rule_id                         | integer                     |                1
+ wv_income_manual_income_limits                                  | authority_id                    | integer                     |                2
+ wv_income_manual_income_limits                                  | doc_id                          | integer                     |                3
+ wv_income_manual_income_limits                                  | program_code                    | text                        |                4
+ wv_income_manual_income_limits                                  | category                        | text                        |                5
+ wv_income_manual_income_limits                                  | effective_from                  | date                        |                6
+ wv_income_manual_income_limits                                  | effective_to                    | date                        |                7
+ wv_income_manual_income_limits                                  | household_size                  | integer                     |                8
+ wv_income_manual_income_limits                                  | gross_monthly_max               | numeric                     |                9
+ wv_income_manual_income_limits                                  | net_monthly_max                 | numeric                     |               10
+ wv_income_manual_income_limits                                  | fpl_percent                     | numeric                     |               11
+ wv_income_manual_income_limits                                  | notes                           | text                        |               12
+ wv_income_manual_income_limits                                  | gross_monthly_max_earned        | numeric                     |               13
+ wv_income_manual_income_limits                                  | gross_monthly_max_unearned      | numeric                     |               14
+ wv_income_manual_income_limits                                  | net_monthly_max_earned          | numeric                     |               15
+ wv_income_manual_income_limits                                  | net_monthly_max_unearned        | numeric                     |               16
+ wv_income_manual_income_sources                                 | source_code                     | text                        |                1
+ wv_income_manual_income_sources                                 | source_name                     | text                        |                2
+ wv_income_manual_income_sources                                 | default_class                   | text                        |                3
+ wv_income_manual_income_sources                                 | description                     | text                        |                4
+ wv_income_manual_income_treatment                               | program_code                    | text                        |                1
+ wv_income_manual_income_treatment                               | source_code                     | text                        |                2
+ wv_income_manual_income_treatment                               | treatment_class                 | text                        |                3
+ wv_income_manual_income_treatment                               | disregard_amount                | numeric                     |                4
+ wv_income_manual_income_treatment                               | disregard_percent               | numeric                     |                5
+ wv_income_manual_income_treatment                               | notes                           | text                        |                6
+ wv_income_manual_income_treatment_extended                      | treatment_id                    | integer                     |                1
+ wv_income_manual_income_treatment_extended                      | program_code                    | text                        |                2
+ wv_income_manual_income_treatment_extended                      | source_code                     | text                        |                3
+ wv_income_manual_income_treatment_extended                      | earned_unearned                 | text                        |                4
+ wv_income_manual_income_treatment_extended                      | treatment_class                 | text                        |                5
+ wv_income_manual_income_treatment_extended                      | disregard_amount                | numeric                     |                6
+ wv_income_manual_income_treatment_extended                      | disregard_percent               | numeric                     |                7
+ wv_income_manual_income_treatment_extended                      | cap_applies                     | boolean                     |                8
+ wv_income_manual_income_treatment_extended                      | notes                           | text                        |                9
+ wv_income_manual_income_treatment_extended                      | created_at                      | timestamp without time zone |               10
+ wv_income_manual_rules                                          | rule_id                         | integer                     |                1
+ wv_income_manual_rules                                          | authority_id                    | integer                     |                2
+ wv_income_manual_rules                                          | doc_id                          | integer                     |                3
+ wv_income_manual_rules                                          | section_number                  | text                        |                4
+ wv_income_manual_rules                                          | section_title                   | text                        |                5
+ wv_income_manual_rules                                          | rule_summary                    | text                        |                6
+ wv_income_manual_rules                                          | applies_to                      | text                        |                7
+ wv_income_manual_rules                                          | scope                           | text                        |                8
+ wv_income_manual_rules                                          | created_at                      | timestamp without time zone |                9
+ wv_locations                                                    | id                              | integer                     |                1
+ wv_locations                                                    | name                            | character varying           |                2
+ wv_locations                                                    | location_type                   | character varying           |                3
+ wv_locations                                                    | geom                            | USER-DEFINED                |                4
+ wv_locations                                                    | description                     | text                        |                5
+ wv_locations                                                    | created_at                      | timestamp without time zone |                6
+ wv_microsoft_20180207_utm17n83                                  | geodbid                         | integer                     |                1
+ wv_microsoft_20180207_utm17n83                                  | geom                            | USER-DEFINED                |                2
+ wv_microsoft_20180207_utm17n83                                  | label                           | text                        |                3
+ wv_microsoft_20180207_utm17n83                                  | sourcetable                     | text                        |                4
+ wv_microsoft_20180207_utm17n83                                  | country                         | text                        |                5
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | geodbid                         | integer                     |                1
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | lat                             | double precision            |                2
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | lon                             | double precision            |                3
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | bbox                            | text                        |                4
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | label                           | text                        |                5
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | sourcetable                     | text                        |                6
+ wv_microsoft_20180207_utm17n83_attrs_raw                        | country                         | text                        |                7
+ wv_tax_districts_ll83                                           | geodbid                         | integer                     |                1
+ wv_tax_districts_ll83                                           | geom                            | USER-DEFINED                |                2
+ wv_tax_districts_ll83                                           | label                           | text                        |                3
+ wv_tax_districts_ll83                                           | sourcetable                     | text                        |                4
+ wv_tax_districts_ll83                                           | country                         | text                        |                5
+ wv_tax_districts_ll83_attrs_raw                                 | geodbid                         | integer                     |                1
+ wv_tax_districts_ll83_attrs_raw                                 | lat                             | double precision            |                2
+ wv_tax_districts_ll83_attrs_raw                                 | lon                             | double precision            |                3
+ wv_tax_districts_ll83_attrs_raw                                 | bbox                            | text                        |                4
+ wv_tax_districts_ll83_attrs_raw                                 | label                           | text                        |                5
+ wv_tax_districts_ll83_attrs_raw                                 | sourcetable                     | text                        |                6
+ wv_tax_districts_ll83_attrs_raw                                 | country                         | text                        |                7
+ wv_tax_districts_utm83_attrs_raw                                | geodb_id                        | integer                     |                1
+ wv_tax_districts_utm83_attrs_raw                                | lat                             | double precision            |                2
+ wv_tax_districts_utm83_attrs_raw                                | lon                             | double precision            |                3
+ wv_tax_districts_utm83_attrs_raw                                | bbox                            | text                        |                4
+ wv_tax_districts_utm83_attrs_raw                                | label                           | text                        |                5
+ wv_tax_districts_utm83_attrs_raw                                | sourcetable                     | text                        |                6
+ wv_tax_districts_utm83_attrs_raw                                | country                         | text                        |                7
+ wv_tax_districts_wma84                                          | geodbid                         | integer                     |                1
+ wv_tax_districts_wma84                                          | geom                            | USER-DEFINED                |                2
+ wv_tax_districts_wma84                                          | label                           | text                        |                3
+ wv_tax_districts_wma84                                          | sourcetable                     | text                        |                4
+ wv_tax_districts_wma84                                          | country                         | text                        |                5
+ wv_tax_districts_wma84_attrs_raw                                | geodbid                         | integer                     |                1
+ wv_tax_districts_wma84_attrs_raw                                | lat                             | double precision            |                2
+ wv_tax_districts_wma84_attrs_raw                                | lon                             | double precision            |                3
+ wv_tax_districts_wma84_attrs_raw                                | bbox                            | text                        |                4
+ wv_tax_districts_wma84_attrs_raw                                | label                           | text                        |                5
+ wv_tax_districts_wma84_attrs_raw                                | sourcetable                     | text                        |                6
+ wv_tax_districts_wma84_attrs_raw                                | country                         | text                        |                7
+ wv_zip_zcta_raw                                                 | geodb_id                        | integer                     |                1
+ wv_zip_zcta_raw                                                 | zip                             | character varying           |                2
+ wv_zip_zcta_raw                                                 | county_name                     | character varying           |                3
+ wv_zip_zcta_raw                                                 | state_abbr                      | character varying           |                4
+ wv_zip_zcta_raw                                                 | centroidx                       | double precision            |                5
+ wv_zip_zcta_raw                                                 | centroidy                       | double precision            |                6
+ wv_zip_zcta_raw                                                 | bbox                            | text                        |                7
+ wv_zip_zcta_raw                                                 | city                            | character varying           |                8
+ wv_zip_zcta_raw                                                 | lat                             | double precision            |                9
+ wv_zip_zcta_raw                                                 | lon                             | double precision            |               10
+ wv_zip_zcta_raw                                                 | county_fips                     | character varying           |               11
+ wv_zip_zcta_raw                                                 | label                           | text                        |               12
+ wv_zip_zcta_raw                                                 | geoid                           | character varying           |               13
+ wv_zip_zcta_raw                                                 | aland                           | bigint                      |               14
+ wv_zip_zcta_raw                                                 | awater                          | bigint                      |               15
+ wv_zip_zcta_raw                                                 | intptlat                        | double precision            |               16
+ wv_zip_zcta_raw                                                 | intptlon                        | double precision            |               17
+ wvgistc_building_footprints                                     | geodbid                         | integer                     |                1
+ wvgistc_building_footprints                                     | geom                            | USER-DEFINED                |                2
+ wvgistc_building_footprints                                     | label                           | text                        |                3
+ wvgistc_building_footprints                                     | sourcetable                     | text                        |                4
+ wvgistc_building_footprints                                     | country                         | text                        |                5
+ wvgistc_building_footprints_attrs_raw                           | geodbid                         | integer                     |                1
+ wvgistc_building_footprints_attrs_raw                           | lat                             | double precision            |                2
+ wvgistc_building_footprints_attrs_raw                           | lon                             | double precision            |                3
+ wvgistc_building_footprints_attrs_raw                           | bbox                            | text                        |                4
+ wvgistc_building_footprints_attrs_raw                           | label                           | text                        |                5
+ wvgistc_building_footprints_attrs_raw                           | sourcetable                     | text                        |                6
+ wvgistc_building_footprints_attrs_raw                           | country                         | text                        |                7
+ wvgistcbuildingfootprints                                       | geodbid                         | integer                     |                1
+ wvgistcbuildingfootprints                                       | geom                            | USER-DEFINED                |                2
+ wvgistcbuildingfootprints                                       | label                           | text                        |                3
+ wvgistcbuildingfootprints                                       | sourcetable                     | text                        |                4
+ wvgistcbuildingfootprints                                       | country                         | text                        |                5
+ wvgistcbuildingfootprints_attrs_raw                             | geodbid                         | integer                     |                1
+ wvgistcbuildingfootprints_attrs_raw                             | lat                             | double precision            |                2
+ wvgistcbuildingfootprints_attrs_raw                             | lon                             | double precision            |                3
+ wvgistcbuildingfootprints_attrs_raw                             | bbox                            | text                        |                4
+ wvgistcbuildingfootprints_attrs_raw                             | label                           | text                        |                5
+ wvgistcbuildingfootprints_attrs_raw                             | sourcetable                     | text                        |                6
+ wvgistcbuildingfootprints_attrs_raw                             | country                         | text                        |                7
+ wvgistcbuildingfootprintsattrsraw                               | geodbid                         | integer                     |                1
+ wvgistcbuildingfootprintsattrsraw                               | lat                             | double precision            |                2
+ wvgistcbuildingfootprintsattrsraw                               | lon                             | double precision            |                3
+ wvgistcbuildingfootprintsattrsraw                               | bbox                            | text                        |                4
+ wvgistcbuildingfootprintsattrsraw                               | label                           | text                        |                5
+ wvgistcbuildingfootprintsattrsraw                               | sourcetable                     | text                        |                6
+ wvgistcbuildingfootprintsattrsraw                               | country                         | text                        |                7
+ wvstatebounadary100k_usgs_200203_utm83                          | geodb_id                        | bigint                      |                1
+ wvstatebounadary100k_usgs_200203_utm83                          | geodbid                         | integer                     |                1
+ wvstatebounadary100k_usgs_200203_utm83                          | geom                            | USER-DEFINED                |                2
+ wvstatebounadary100k_usgs_200203_utm83                          | lat                             | numeric                     |                2
+ wvstatebounadary100k_usgs_200203_utm83                          | lon                             | numeric                     |                3
+ wvstatebounadary100k_usgs_200203_utm83                          | label                           | text                        |                3
+ wvstatebounadary100k_usgs_200203_utm83                          | bbox                            | text                        |                4
+ wvstatebounadary100k_usgs_200203_utm83                          | sourcetable                     | text                        |                4
+ wvstatebounadary100k_usgs_200203_utm83                          | label                           | text                        |                5
+ wvstatebounadary100k_usgs_200203_utm83                          | country                         | text                        |                5
+ wvstatebounadary100k_usgs_200203_utm83                          | sourcetable                     | text                        |                6
+ wvstatebounadary100k_usgs_200203_utm83                          | country                         | text                        |                7
+ wvstatebounadary100k_usgs_200203_utm83                          | geom                            | USER-DEFINED                |                8
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | geodbid                         | integer                     |                1
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | lat                             | double precision            |                2
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | lon                             | double precision            |                3
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | bbox                            | text                        |                4
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | label                           | text                        |                5
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | sourcetable                     | text                        |                6
+ wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | country                         | text                        |                7
+ wvstateboundary100k_usgs_200203_ll83                            | geodbid                         | integer                     |                1
+ wvstateboundary100k_usgs_200203_ll83                            | geom                            | USER-DEFINED                |                2
+ wvstateboundary100k_usgs_200203_ll83                            | label                           | text                        |                3
+ wvstateboundary100k_usgs_200203_ll83                            | sourcetable                     | text                        |                4
+ wvstateboundary100k_usgs_200203_ll83                            | country                         | text                        |                5
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | geodbid                         | integer                     |                1
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | lat                             | double precision            |                2
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | lon                             | double precision            |                3
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | bbox                            | text                        |                4
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | label                           | text                        |                5
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | sourcetable                     | text                        |                6
+ wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | country                         | text                        |                7
+ wvstateboundary24k_usgs_200203_ll83                             | geodbid                         | integer                     |                1
+ wvstateboundary24k_usgs_200203_ll83                             | geom                            | USER-DEFINED                |                2
+ wvstateboundary24k_usgs_200203_ll83                             | label                           | text                        |                3
+ wvstateboundary24k_usgs_200203_ll83                             | sourcetable                     | text                        |                4
+ wvstateboundary24k_usgs_200203_ll83                             | country                         | text                        |                5
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | geodbid                         | integer                     |                1
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | lat                             | double precision            |                2
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | lon                             | double precision            |                3
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | bbox                            | text                        |                4
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | label                           | text                        |                5
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | sourcetable                     | text                        |                6
+ wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | country                         | text                        |                7
+ wvstateboundary24k_usgs_200203_utm83                            | geodbid                         | integer                     |                1
+ wvstateboundary24k_usgs_200203_utm83                            | geodb_id                        | bigint                      |                1
+ wvstateboundary24k_usgs_200203_utm83                            | lat                             | numeric                     |                2
+ wvstateboundary24k_usgs_200203_utm83                            | geom                            | USER-DEFINED                |                2
+ wvstateboundary24k_usgs_200203_utm83                            | label                           | text                        |                3
+ wvstateboundary24k_usgs_200203_utm83                            | lon                             | numeric                     |                3
+ wvstateboundary24k_usgs_200203_utm83                            | sourcetable                     | text                        |                4
+ wvstateboundary24k_usgs_200203_utm83                            | bbox                            | text                        |                4
+ wvstateboundary24k_usgs_200203_utm83                            | country                         | text                        |                5
+ wvstateboundary24k_usgs_200203_utm83                            | label                           | text                        |                5
+ wvstateboundary24k_usgs_200203_utm83                            | sourcetable                     | text                        |                6
+ wvstateboundary24k_usgs_200203_utm83                            | country                         | text                        |                7
+ wvstateboundary24k_usgs_200203_utm83                            | geom                            | USER-DEFINED                |                8
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | geodbid                         | integer                     |                1
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | lat                             | double precision            |                2
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | lon                             | double precision            |                3
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | bbox                            | text                        |                4
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | label                           | text                        |                5
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | sourcetable                     | text                        |                6
+ wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | country                         | text                        |                7
+ wvstatehousedistricts_manysources_1992_ll83                     | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_1992_ll83                     | geom                            | USER-DEFINED                |                2
+ wvstatehousedistricts_manysources_1992_ll83                     | label                           | text                        |                3
+ wvstatehousedistricts_manysources_1992_ll83                     | sourcetable                     | text                        |                4
+ wvstatehousedistricts_manysources_1992_ll83                     | country                         | text                        |                5
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | lat                             | double precision            |                2
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | lon                             | double precision            |                3
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | bbox                            | text                        |                4
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | label                           | text                        |                5
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | sourcetable                     | text                        |                6
+ wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | country                         | text                        |                7
+ wvstatehousedistricts_manysources_1992_utm83                    | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_1992_utm83                    | geodb_id                        | bigint                      |                1
+ wvstatehousedistricts_manysources_1992_utm83                    | lat                             | numeric                     |                2
+ wvstatehousedistricts_manysources_1992_utm83                    | geom                            | USER-DEFINED                |                2
+ wvstatehousedistricts_manysources_1992_utm83                    | label                           | text                        |                3
+ wvstatehousedistricts_manysources_1992_utm83                    | lon                             | numeric                     |                3
+ wvstatehousedistricts_manysources_1992_utm83                    | bbox                            | text                        |                4
+ wvstatehousedistricts_manysources_1992_utm83                    | sourcetable                     | text                        |                4
+ wvstatehousedistricts_manysources_1992_utm83                    | country                         | text                        |                5
+ wvstatehousedistricts_manysources_1992_utm83                    | label                           | text                        |                5
+ wvstatehousedistricts_manysources_1992_utm83                    | sourcetable                     | text                        |                6
+ wvstatehousedistricts_manysources_1992_utm83                    | country                         | text                        |                7
+ wvstatehousedistricts_manysources_1992_utm83                    | geom                            | USER-DEFINED                |                8
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | lat                             | double precision            |                2
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | lon                             | double precision            |                3
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | bbox                            | text                        |                4
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | label                           | text                        |                5
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | sourcetable                     | text                        |                6
+ wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | country                         | text                        |                7
+ wvstatehousedistricts_manysources_2002_ll83                     | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_2002_ll83                     | geom                            | USER-DEFINED                |                2
+ wvstatehousedistricts_manysources_2002_ll83                     | label                           | text                        |                3
+ wvstatehousedistricts_manysources_2002_ll83                     | sourcetable                     | text                        |                4
+ wvstatehousedistricts_manysources_2002_ll83                     | country                         | text                        |                5
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | lat                             | double precision            |                2
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | lon                             | double precision            |                3
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | bbox                            | text                        |                4
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | label                           | text                        |                5
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | sourcetable                     | text                        |                6
+ wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | country                         | text                        |                7
+ wvstatehousedistricts_manysources_2002_utm83                    | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_2002_utm83                    | geodb_id                        | bigint                      |                1
+ wvstatehousedistricts_manysources_2002_utm83                    | geom                            | USER-DEFINED                |                2
+ wvstatehousedistricts_manysources_2002_utm83                    | lat                             | numeric                     |                2
+ wvstatehousedistricts_manysources_2002_utm83                    | lon                             | numeric                     |                3
+ wvstatehousedistricts_manysources_2002_utm83                    | label                           | text                        |                3
+ wvstatehousedistricts_manysources_2002_utm83                    | bbox                            | text                        |                4
+ wvstatehousedistricts_manysources_2002_utm83                    | sourcetable                     | text                        |                4
+ wvstatehousedistricts_manysources_2002_utm83                    | country                         | text                        |                5
+ wvstatehousedistricts_manysources_2002_utm83                    | label                           | text                        |                5
+ wvstatehousedistricts_manysources_2002_utm83                    | sourcetable                     | text                        |                6
+ wvstatehousedistricts_manysources_2002_utm83                    | country                         | text                        |                7
+ wvstatehousedistricts_manysources_2002_utm83                    | geom                            | USER-DEFINED                |                8
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | geodbid                         | integer                     |                1
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | lat                             | double precision            |                2
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | lon                             | double precision            |                3
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | bbox                            | text                        |                4
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | label                           | text                        |                5
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | sourcetable                     | text                        |                6
+ wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | country                         | text                        |                7
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | geodb_id                        | integer                     |                1
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | lat                             | double precision            |                2
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | lon                             | double precision            |                3
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | bbox                            | text                        |                4
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | label                           | text                        |                5
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | sourcetable                     | text                        |                6
+ wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | country                         | text                        |                7
+ wvstatesenatedistricts_manysources_1992_ll83                    | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_1992_ll83                    | geom                            | USER-DEFINED                |                2
+ wvstatesenatedistricts_manysources_1992_ll83                    | label                           | text                        |                3
+ wvstatesenatedistricts_manysources_1992_ll83                    | sourcetable                     | text                        |                4
+ wvstatesenatedistricts_manysources_1992_ll83                    | country                         | text                        |                5
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | lat                             | double precision            |                2
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | lon                             | double precision            |                3
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | bbox                            | text                        |                4
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | label                           | text                        |                5
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | country                         | text                        |                7
+ wvstatesenatedistricts_manysources_1992_utm83                   | geodb_id                        | bigint                      |                1
+ wvstatesenatedistricts_manysources_1992_utm83                   | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_1992_utm83                   | lat                             | numeric                     |                2
+ wvstatesenatedistricts_manysources_1992_utm83                   | geom                            | USER-DEFINED                |                2
+ wvstatesenatedistricts_manysources_1992_utm83                   | label                           | text                        |                3
+ wvstatesenatedistricts_manysources_1992_utm83                   | lon                             | numeric                     |                3
+ wvstatesenatedistricts_manysources_1992_utm83                   | sourcetable                     | text                        |                4
+ wvstatesenatedistricts_manysources_1992_utm83                   | bbox                            | text                        |                4
+ wvstatesenatedistricts_manysources_1992_utm83                   | label                           | text                        |                5
+ wvstatesenatedistricts_manysources_1992_utm83                   | country                         | text                        |                5
+ wvstatesenatedistricts_manysources_1992_utm83                   | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_manysources_1992_utm83                   | country                         | text                        |                7
+ wvstatesenatedistricts_manysources_1992_utm83                   | geom                            | USER-DEFINED                |                8
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | lat                             | double precision            |                2
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | lon                             | double precision            |                3
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | bbox                            | text                        |                4
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | label                           | text                        |                5
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | country                         | text                        |                7
+ wvstatesenatedistricts_manysources_2002_ll83                    | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_2002_ll83                    | geom                            | USER-DEFINED                |                2
+ wvstatesenatedistricts_manysources_2002_ll83                    | label                           | text                        |                3
+ wvstatesenatedistricts_manysources_2002_ll83                    | sourcetable                     | text                        |                4
+ wvstatesenatedistricts_manysources_2002_ll83                    | country                         | text                        |                5
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | lat                             | double precision            |                2
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | lon                             | double precision            |                3
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | bbox                            | text                        |                4
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | label                           | text                        |                5
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | country                         | text                        |                7
+ wvstatesenatedistricts_manysources_2002_utm83                   | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_2002_utm83                   | geodb_id                        | bigint                      |                1
+ wvstatesenatedistricts_manysources_2002_utm83                   | lat                             | numeric                     |                2
+ wvstatesenatedistricts_manysources_2002_utm83                   | geom                            | USER-DEFINED                |                2
+ wvstatesenatedistricts_manysources_2002_utm83                   | label                           | text                        |                3
+ wvstatesenatedistricts_manysources_2002_utm83                   | lon                             | numeric                     |                3
+ wvstatesenatedistricts_manysources_2002_utm83                   | bbox                            | text                        |                4
+ wvstatesenatedistricts_manysources_2002_utm83                   | sourcetable                     | text                        |                4
+ wvstatesenatedistricts_manysources_2002_utm83                   | country                         | text                        |                5
+ wvstatesenatedistricts_manysources_2002_utm83                   | label                           | text                        |                5
+ wvstatesenatedistricts_manysources_2002_utm83                   | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_manysources_2002_utm83                   | country                         | text                        |                7
+ wvstatesenatedistricts_manysources_2002_utm83                   | geom                            | USER-DEFINED                |                8
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | geodbid                         | integer                     |                1
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | lat                             | double precision            |                2
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | lon                             | double precision            |                3
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | bbox                            | text                        |                4
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | label                           | text                        |                5
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | country                         | text                        |                7
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | geodb_id                        | integer                     |                1
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | lat                             | double precision            |                2
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | lon                             | double precision            |                3
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | bbox                            | text                        |                4
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | label                           | text                        |                5
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | sourcetable                     | text                        |                6
+ wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | country                         | text                        |                7
+ zcta_county_rel                                                 | geoid_zcta5                     | character varying           |                1
+ zcta_county_rel                                                 | statefp                         | character varying           |                2
+ zcta_county_rel                                                 | county_geoid                    | character varying           |                3
+ zcta_county_rel                                                 | county_fips                     | character varying           |                4
+ zcta_county_rel                                                 | county_name                     | character varying           |                5
+ zcta_county_rel                                                 | overlap_pct                     | double precision            |                6
+ zcta_polygons                                                   | gid                             | integer                     |                1
+ zcta_polygons                                                   | zcta5ce10                       | character varying           |                2
+ zcta_polygons                                                   | geoid10                         | character varying           |                3
+ zcta_polygons                                                   | classfp10                       | character varying           |                4
+ zcta_polygons                                                   | mtfcc10                         | character varying           |                5
+ zcta_polygons                                                   | funcstat10                      | character varying           |                6
+ zcta_polygons                                                   | aland10                         | double precision            |                7
+ zcta_polygons                                                   | awater10                        | double precision            |                8
+ zcta_polygons                                                   | intptlat10                      | character varying           |                9
+ zcta_polygons                                                   | intptlon10                      | character varying           |               10
+ zcta_polygons                                                   | geom                            | USER-DEFINED                |               11
+ zipcodetabulationarea_census_2020_raw                           | ogc_fid                         | integer                     |                1
+ zipcodetabulationarea_census_2020_raw                           | zcta5ce10                       | character varying           |                2
+ zipcodetabulationarea_census_2020_raw                           | geoid10                         | character varying           |                3
+ zipcodetabulationarea_census_2020_raw                           | classfp10                       | character varying           |                4
+ zipcodetabulationarea_census_2020_raw                           | mtfcc10                         | character varying           |                5
+ zipcodetabulationarea_census_2020_raw                           | funcstat10                      | character varying           |                6
+ zipcodetabulationarea_census_2020_raw                           | aland10                         | numeric                     |                7
+ zipcodetabulationarea_census_2020_raw                           | awater10                        | numeric                     |                8
+ zipcodetabulationarea_census_2020_raw                           | intptlat10                      | character varying           |                9
+ zipcodetabulationarea_census_2020_raw                           | intptlon10                      | character varying           |               10
+ zipcodetabulationarea_census_2020_raw                           | geom                            | USER-DEFINED                |               11
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | geodb_id                        | integer                     |                1
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | lat                             | double precision            |                2
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | lon                             | double precision            |                3
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | bbox                            | text                        |                4
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | label                           | text                        |                5
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | sourcetable                     | text                        |                6
+ zipcodetabulationarea_census_2020_utm83_attrs_raw               | country                         | text                        |                7
+ zipcodetabulationarea_census_2020_wma84                         | geodbid                         | integer                     |                1
+ zipcodetabulationarea_census_2020_wma84                         | geom                            | USER-DEFINED                |                2
+ zipcodetabulationarea_census_2020_wma84                         | label                           | text                        |                3
+ zipcodetabulationarea_census_2020_wma84                         | sourcetable                     | text                        |                4
+ zipcodetabulationarea_census_2020_wma84                         | country                         | text                        |                5
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | geodbid                         | integer                     |                1
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | lat                             | double precision            |                2
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | lon                             | double precision            |                3
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | bbox                            | text                        |                4
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | label                           | text                        |                5
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | sourcetable                     | text                        |                6
+ zipcodetabulationarea_census_2020_wma84_attrs_raw               | country                         | text                        |                7
+(4382 rows)
 
-# Look for the services directory structure
-ls ~/msjarvis-rebuild-working/msjarvis-rebuild/
-ls ~/msjarvis-rebuild-working/msjarvis-rebuild/services/ 2>/dev/null
-ls ~/msjarvis-rebuild-working/msjarvis-rebuild/app/ 2>/dev/null
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/service_discovery.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/load_all_attrs_csvs.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/ms-allis-auth-install/backend/auth_api_patch.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/woah_stub.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/llm10_health_proxy.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/swarm_intelligence.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/admin_cli.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/brain_orchestrator.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/judge_10093.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/add_new_consciousness_services.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10001.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/fix_semaphore.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/enhance_rag_knowledge.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/bulk_load_knowledge.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/implement_judge_pituitary_fixed.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/judge_10074.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/implement_safe_optimizations.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10008.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/judge_10115.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10054.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/bulk_compose_rewrite.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/test_aapcappe_corpus.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/ingest_csv_to_gisgeodb.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/ingest_gbim_to_chroma_fast.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_scope.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/fix_judge_synthesis.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/judge_10125.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/add_fifth_dgm_to_chat.py
-/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/_archive/generated_20260430/integrate_spatial_temporal.py
-'\'
- 0
- 911centers_wvdem_032819_gcs84_attrs.csv
- abis.contracts.json
- admin_cli.py
- adversarial_results_20260321_180551.json
- adversarial_results_20260321_180556.json
- adversarial_results_20260321_180608.json
- adversarial_results_20260321_180611.json
- adversarial_results_20260321_191257.json
- adversarial_results_20260321_191552.json
- adversarial_results_20260321_193201.json
- adversarial_results_20260321_194304.json
- adversarial_results_20260321_195445.json
- adversarial_results_20260321_201711.json
- adversarial_results_20260321_202552.json
- adversarial_results_20260321_203504.json
- adversarial_results_20260321_204145.json
- amtrackrails_federalrailroadadministration_200210_ll83_attrs.csv
- amtrackrails_federalrailroadadministration_200210_utm83_attrs.csv
- _archive
- audit_20260326_1050.txt
- auth_api.py
- auth_api.py.bak_20260426-122443
- auth_api.py.bak-cors
- BACKLOG_ASPIRATIONAL.md
- backup_judge_key_to_usb.sh
- backups
- bbb-logs-20260312-160957.log
- blockgroups_census_2000_ll83_attrs.csv
- blockgroups_census_2000_utm83_attrs.csv
- blockgroups_census_201111_gcs83_attrs.csv
- blockgroups_census_2020_utm83_attrs.csv
- blockgroups_census_2020_wma84_attrs.csv
- boundaryappalachianbasin_wvges_1996_utm83_attrs.csv
- brain_orchestrator.py
- brain_orchestrator.py.bak
- build
- cache_conversation_history_uuid.sh
- calderl_reg_ll83_attrs.csv
- cb-logs-20260312-160957.log
- citieswithpopulation_2500_census_201111_utm83_attrs.csv
- citieswithpopulationover10k_census_201111_gcs83_attrs.csv
- citieswithpopulationover10k_uscensus_1990_ll83_attrs.csv
- citieswithpopulationover10k_uscensus_1990_utm83_attrs.csv
- citieswithpopulationover2500_uscensus_1990_ll83_attrs.csv
- citieswithpopulationsover10k_census_2020_utm83_attrs.csv
- citieswithpopulationsover10k_census_2020_wma84_attrs.csv
- citieswithpopulationsover2500_census_2020_utm83_attrs.csv
- citieswithpopulatoinover2500_uscensus_1990_utm83_attrs.csv
- cloudflared.config.yml
- cloudflared.deb
- coals2_ll83_attrs.csv
- coals2_utm27_attrs.csv
- coals2_utm83_attrs.csv
- communityboundary_min_att_20250121_utm83_attrs.csv
- complete_service_mapping.json
- config
- conftest.py
- conversation_history_uuid.json
- correctionalinstitutions_hsip_20091230_utm83_attrs.csv
- correctionalinstitutions_hsip_20091230_wgs84_attrs.csv
- countycityparkboundaries_20201104_utm83_attrs.csv
- countyseats_usgs_ll83_attrs.csv
- countyseats_usgs_utm83_attrs.csv
- courthousescounty_manysources_200203_utm83_attrs.csv
- courthousesfederal_manysources_200203_ll83_attrs.csv
- courthousesfederal_manysources_200203_utm_attrs.csv
- crypto
- cvfault_ll83_attrs.csv
- cvfault_utm27_attrs.csv
- cvpoly_ll83_attrs.csv
- cvpoly_utm27_attrs.csv
- cvpoly_utm83_attrs.csv
- damsnoncoal_usgs_2002_ll27_attrs.csv
- dams_usarmycorpsofengineers_200010_utm83_attrs.csv
- dams_usarmycropsofengineers_200010_ll83_attrs.csv
- data
- db
- debug_unified_gateway.sh
- deploy-brain.sh
- deploy_gap_aware.sh
- deploy-gbim.sh
- deploy-memory.sh
- deploy-orchestrator.sh
- deploy.sh
- docker-compose-core.yml
- docker-compose-core.yml.bak.20260430-120237
- docker-compose.override.yml
- docker-compose.override.yml.bak
- docker-compose.override.yml.bak.20260430-120221
- docker-compose.override.yml.bak_agents
- docker-compose.override.yml.bak_depends
- docker-compose.override.yml.bak_localdb
- docker-compose.override.yml.disabled
- docker-compose.yml
- docker-compose.yml.backup_20260318_102158
- docker-compose.yml.backup_20260318_103245
- docker-compose.yml.backup_20260318_103829
- docker-compose.yml.backup_20260318_110053
- docker-compose.yml.backup_20260318_110223
- docker-compose.yml.backup_20260318_110927
- docker-compose.yml.backup_20260323_205752
- docker-compose.yml.backup_20260323_211407
- docker-compose.yml.backup_20260406_newservices
- docker-compose.yml.bak
- docker-compose.yml.bak.20260407-221457
- docker-compose.yml.bak.20260407-221640
- docker-compose.yml.bak.20260408-173239
- docker-compose.yml.bak.20260414-210440
- docker-compose.yml.bak.20260414-210516
- docker-compose.yml.bak.20260414-210743
- docker-compose.yml.bak.20260414-211038
- docker-compose.yml.bak.20260414-211257
- docker-compose.yml.bak_20260415-111118
- docker-compose.yml.bak_20260415-111235
- docker-compose.yml.bak.20260416-141203
- docker-compose.yml.bak.20260416-141224
- docker-compose.yml.bak.20260416-141309
- docker-compose.yml.bak.20260416-141316
- docker-compose.yml.bak.20260416-141425
- docker-compose.yml.bak.20260416-141603
- docker-compose.yml.bak.20260416-141709
- docker-compose.yml.bak.20260416_144451
- docker-compose.yml.bak.20260416_144808
- docker-compose.yml.bak.20260416_145312
- docker-compose.yml.bak-20260417-144354
- docker-compose.yml.bak.20260422-204609
- docker-compose.yml.bak.20260422-204722
- docker-compose.yml.bak.20260422_220748
- docker-compose.yml.bak.20260423_095331
- docker-compose.yml.bak.20260430-115408
- docker-compose.yml.bak.20260430-202630
- docker-compose.yml.bak.20260501
- docker-compose.yml.bak.20260501-200948
- docker-compose.yml.bak_hilbert_cmdfix_20260415-142151
- docker-compose.yml.bak_hilbert_depsfix_20260415-142323
- docker-compose.yml.bak_hilbert_depsfix_20260415-142332
- docker-compose.yml.bak_hilbert_depsfix_20260415-142340
- docker-compose.yml.broken-20260326-175632
- docker-compose.yml.corrupt.20260415-1601
- docker-compose.yml.hilbert-experiment.20260415-163850
- docker-compose.yml.pre_dsn_fix
- docker-compose.yml.pre-hilbert-image-20260415-161150
- docker-compose.yml.pre-hilbert-noports.20260415-162654
- docker-compose.yml.pre-hilbert-portfix.20260415-162529
- docker-compose.yml.pre-secrets-fix
- Dockerfile.agents
- dockerfile_backups_llm
- Dockerfile.brain
- Dockerfile.brain.backup_20260309_165916
- Dockerfile.brain.backup_20260318_103552
- Dockerfile.forge
- Dockerfile.gateway
- Dockerfile.lm_synthesizer.stub.bak
- Dockerfile.neuro
- Dockerfile_rag_real
- Dockerfile.session-sidecar
- Dockerfile.session-sidecar.bak
- Dockerfile.swarm
- Dockerfile.woah
- docs
- egeria-emergent.txt
- empowermentzonesandenterprisecommunitiesbytract_uscens_30c72907_attrs.csv
- empowermentzonesandenterprisecommunities_uscensus_2002_utm83_attrs.csv
- excursionpassengertrains_wvdof_200102_ll83_attrs.csv
- excursionpassengertrains_wvdof_200102_utm83_attrs.csv
- facilities_epa_200203_ll83_attrs.csv
- facilities_epa_200203_utm83_attrs.csv
- faultgl_reg_ll83_attrs.csv
- fault_reg_ll83_attrs.csv
- features_attrs.csv
- fire_departments_attrs.csv
- fire_dept_wvdem_092017_utm83_attrs.csv
- fix_jarvis.log
- floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_attrs.csv
- geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs.csv
- geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs.csv
- geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs.csv
- geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs.csv
- geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_attrs.csv
- geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_attrs.csv
- geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs.csv
- geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs.csv
- geolgyl_reg_ll83_attrs.csv
- geolgyp_reg_ll83_attrs.csv
- geotextl_reg_ll83_attrs.csv
- go_no_go.sh
- hazardmitigationbuyout_20250929_polygons_utm83_attrs.csv
- hazardmitigationbuyout_20250929_polygons_wma84_attrs.csv
- healthruralfacilities_manysources_utm83_attrs.csv
- highered_wvemd_072420_utm83_attrs.csv
- highered_wvemd_072420_wgc84_attrs.csv
- hospitals_attrs.csv
- impact_reg_ll83_attrs.csv
- indexgrid15minutequads_wvgistc_ll83_attrs.csv
- indexgrid15minutequads_wvgistc_utm83_attrs.csv
- indexgrid15minutewithcounties_wvgistc_utm27_attrs.csv
- indexgrid1minutequads_wvgistc_ll83_attrs.csv
- industrialbuildings_wvdo_200807_utm83_attrs.csv
- industrialparks_wvdo_200078_utm83_attrs.csv
- industrialsites_wvdo_200807_utm83_attrs.csv
- inedexgrid1minutequads_wvgistc_utm83_attrs.csv
- infra
- ingest
- init_db.sql
- intermodalterminalfacilities_usdot_1997_ll83_attrs.csv
- intermodalterminalfacilities_usdot_1997_utm83_attrs.csv
- itest-consciousness-bridge-logs
- itest-i-containers-logs
- jarvis-20llm-openapi.json
- jarviscryptopolicy.py
- jarvis_eeg_delta_30s.log
- judge_ethics_filter.py
- judge-keys
- judge_pipeline.py
- judge_truth_filter.py
- knowledge
- KNOWN_ISSUES.md
- last-build-after-woah-llm22.log
- last-build-final.log
- last-build-full.log
- last-build.log
- last-build-no-llm12.log
- libraries_manysources_2001_ll27_attrs.csv
- libraries_manysources_2001_utm83_attrs.csv
- llm10_health_proxy.py
- llm10_health_proxy.py.bak
- llm12_health_proxy.py
- llm12_health_proxy.py.bak
- llm20_health_proxy.py
- llm20_health_proxy.py.bak
- llm22_health_proxy.py
- llm22_health_proxy.py.bak
- llm2_health_proxy.py
- llm2_health_proxy.py.bak
- lm_judge_helper.py
- load_all_attrs_csvs.py
- logs
- majorriversandlakesline_nhd_2002_ll83_attrs.csv
- majorriversandlakesline_nhd_2002_utm83_attrs.csv
- majorriversandlakespolygon_nhd_2002_poly_ll83_attrs.csv
- manufacturingandbusiness_wvdo_200803_utm83_attrs.csv
- metfacp_reg_ll83_attrs.csv
- metropolitanandmicropolitanstatisticalareas_census_201111_gcs83_attrs.csv
- metropolitanandmicropolitanstatisticalareas_census_2020_wma84_attrs.csv
- metropolitanstatisticalareas_uscensus_199901_ll83_attrs.csv
- metropolitanstatisticalareas_uscensus_199901_utm83_attrs.csv
- migrations
- mineraloperations_usgs_200204_ll83_attrs.csv
- mineraloperations_usgs_200204_utm83_attrs.csv
- minesabandonedlandsline_wvdep_1996_noprojectoin_attrs.csv
- minesabandonedlandspoint_wvdep_1996_noprojection_attrs.csv
- minesabandonedlandspolygon_wvdep_1996_noprojection_attrs.csv
- Modelfile.egeria
- mount_hope_data_template.json
- ms-allis-auth-install
- ms-allis-auth-install.tar.gz
- ms_jarvis_blood_brain_barrier
- ms_jarvis_blood_brain_barrier.py
- ms_jarvis_blood_brain_barrier.py.bak
- msjarvisconsciousnessbridge.py.bak
- ms_jarvis_contract_forge.py
- ms_jarvis_full_audit.sh
- ms_jarvis_rag_server.py
- ms_jarvis_rag_server.py.bak.20260429-152039
- msjarvis-rebuild
- ms_jarvis_unified_gateway.py.bak
- nationalatlasstreams_usgs_199903_ll83_attrs.csv
- nationalatlasstreams_usgs_199903_utm83_attrs.csv
- nationalregisterofhistoricplacespoints_natoinalpakrser_8d965955_attrs.csv
- nationalregisterofhistoricplacespolygons_nationaparkse_b9d30a70_attrs.csv
- nationalregister_point_20200923_attrs.csv
- nationalregister_point_20200923_utm27_attrs.csv
- nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_attrs.csv
- nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs.csv
- nationaregisterofhistoricplacespolygons_nationalparkse_cab42150_attrs.csv
- natoinalregisterofhistoricplacespoints_nationalparkser_ca43510e_attrs.csv
- naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs.csv
- navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_attrs.csv
- navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_attrs.csv
- nbb-prefrontal-full.json
- neurobiological_brain
- neurobiologicalbrain
- neurobiologicalbrainicontainersservice
- next_steps_local.sh
- observability
- officebuildings_wvdo_200807_utm83_attrs.csv
- oi36a-mitigation.sh
- OPEN_ITEMS.md
- ops_history
- output
- paroleoffices_manysources_2008_utm83_attrs.csv
- paroleoffices_manysources_2008_wgs84_attrs.csv
- patch_gate.py
- patch_judges.py
- patch_lm_synthesizer.sh
- persistent
- pia-integration-check.log
- placesofworship_hsip_20080723_utm83_attrs.csv
- placesofworship_hsip_20080723_wgs84_attrs.csv
- policedept_wvdem_012319_gcs84_attrs.csv
- policedept_wvdem_012319_utm83_attrs.csv
- populatedplaces_census_201112_utm83_attrs.csv
- populatedplaces_census_20112_gcs83_attrs.csv
- populatedplaces_census_2020_utm83_attrs.csv
- populatedplaces_census_2020_wma84_attrs.csv
- populatedplaces_uscensus_1990_utm83_attrs.csv
- populationdatablockgroups_uscensus_2000_ll83_attrs.csv
- populationdatablockgroups_uscensus_2000_utm83_attrs.csv
- PORTING.md
- post-patch-check.txt
- pow_wvgistc_062919_utm83_attrs.csv
- pow_wvgistc_062919_wgs84_attrs.csv
- preflight_gate.sh
- preflight_gate.sh.bak
- prometheus.yml
- publichealthdepts_hsip_20091229_utm83_attrs.csv
- __pycache__
- pytest.ini
- qualia
- railnetworkregion_usdot_200203_ll83_attrs.csv
- railnetworkregion_usdot_200203_utm83_attrs.csv
- railnetworkwv_usdot_200203_ll83_attrs.csv
- railnetworkwv_usdot_200203_utm83_attrs.csv
- railroads_rahalltransportationinstitute_2005_utm83_attrs.csv
- randolph_matches.sql
- README-msallis-v1.md
- realtimestreamflowstations_usgs_200012_ll27_attrs.csv
- realtimestreamflowstations_usgs_200012_utm27_attrs.csv
- realtimestreamflowstations_usgs_200012_utm83_attrs.csv
- redis-init.sh
- redteam
- regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs.csv
- regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs.csv
- REMEDIATION_LOG_20260329.md
- requirements-brain.txt
- requirements.txt
- running_containers_20260326.txt
- running_containers_93clean_20260326.txt
- running_containers_GOLDEN_94_20260326.txt
- scripts
- secrets
- service_discovery.py
- service_discovery.py.bak
- services
- session_2026-04-19.log
- sewertreatmentplants_wvdep_200203_utm83_attrs.csv
- solidwastefacilities_wvdep_200202_ll83_attrs.csv
- solidwastefacilities_wvdep_200202_utm83_attrs.csv
- spiritual_rag_domain.py.tmp
- springs_wvges_1986_ll83_attrs.csv
- springs_wvges_1986_utm83_attrs.csv
- sprint3_full_20260321_200529.log
- sprint_backlog.md
- start-jarvis.sh
- start-jarvis.sh.bak_20260326
- STARTUP.md
- stateofwvhousedistricts_wvlegislativeservices_2010_attrs.csv
- stateofwvsenatedistricts_wvlegislativeservices_2010_attrs.csv
- states_region_ll83_attrs.csv
- structurepolygons_samb_2003_utm83_attrs.csv
- summits_gistc_052012_utm83_shp_attrs.csv
- summits_gistc_052012_wgs84_shp_attrs.csv
- surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs.csv
- swarm_intelligence.py
- sync_chroma_metadata.py
- system_state_20260417.json
- test_bbb_output.sh
- test_gateway_rbac.sh
- test_jarvis_consciousness_bridge.sh
- test_jarvis_i_containers.sh
- test_query.sh
- test_rag_embedding_roundtrip.sh
- tests
- test_woah_optimizer.sh
- tl_2022_us_county.cpg
- tl_2022_us_county.dbf
- tl_2022_us_county.prj
- tl_2022_us_county.shp
- tl_2022_us_county.shp.ea.iso.xml
- tl_2022_us_county.shp.iso.xml
- tl_2022_us_county.shx
- tl_2022_us_county.zip
- tmp-aaacpe-patch
- tools
- towersam_fcc_200202_utm83_attrs.csv
- towersasr_fcc_200202_ll83_attrs.csv
- towersasr_fcc_200202_utm83_attrs.csv
- towerscellular_fcc_200202_ll83_attrs.csv
- towerscellular_fcc_200202_utm83_attrs.csv
- towersfm_fcc_200202_utm83_attrs.csv
- towersmicrowave_fcc_200202_ll83_attrs.csv
- towersmicrowave_fcc_200202_utm83_attrs.csv
- towerspager_fcc_200202_ll83_attrs.csv
- towerspager_fcc_200202_utm83_attrs.csv
- towers_wvpublicbroadcasting_2002_ll83_attrs.csv
- towers_wvpublicbroadcasting_2002_utm83_attrs.csv
- ui
- users.json
- VERIFYANDTEST.sh
- VERIFYANDTEST.sh.bak.20260411_132002
- veteransaffairsfacilities_manysources_200503_utm83_attrs.csv
- veteransaffairsfacilities_manysources_200503_wgs84_attrs.csv
- votingdistrictswv_legislativeservices_2002_utm83_attrs.csv
- votingdistrictswv_uscensus_2000_utm83_attrs.csv
- weatherstations_nationalclimatedatacenter_1999_gcs83_attrs.csv
- weatherstations_nationalclimatedatacenter_1999_utm27_attrs.csv
- windenergyresource_nationalrenewableenergylab_200901_utm83_attrs.csv
- windenergyresource_nationalrenewableenergylab_200901_wgs84_attrs.csv
- woah_stub.py
- wv_county_boundaries_24k_topo_updated_2022_utm83_attrs.csv
- wv_microsoft_20180207_utm17n83_attrs.csv
- wvstatebounadary100k_usgs_200203_utm83_attrs.csv
- wvstateboundary100k_usgs_200203_ll83_attrs.csv
- wvstateboundary24k_usgs_200203_utm83_attrs.csv
- wvstatehousedistricts_manysources_1992_ll83_attrs.csv
- wvstatehousedistricts_manysources_1992_utm83_attrs.csv
- wvstatehousedistricts_manysources_2002_ll83_attrs.csv
- wvstatehousedistricts_manysources_2002_utm83_attrs.csv
- wvstatesenatedistricts_manysources_1992_ll83_attrs.csv
- wvstatesenatedistricts_manysources_1992_utm83_attrs.csv
- wvstatesenatedistricts_manysources_2002_ll83_attrs.csv
- wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs.csv
- wv_tax_districts_ll83_attrs.csv
- wv_tax_districts_wma84_attrs.csv
- zipcodetabulationarea_census_2020_utm83_attrs.csv
- zipcodetabulationarea_census_2020_wma84_attrs.csv
- 20LLM_DEPLOYMENT_SUMMARY.md
- AaaCPE_Appalachian_Dialect_Knowledge.txt
- aaacpe_initial_ingest.py
- aaacpe_rag_service.py
- aaacpe_scraper.log
- aaacpe_scraper_service.py
- aacpe_ingest_community.py
- aacpe_prepare_metadata.py
- aapcappe_ingest.py
- academic_research_gateway_8062_cors.py
- academic_research_gateway_8062.log
- academic_research_gateway_8062.py
- academic_whitebox_api.py
- activate_dgm_4012.log
- activate_dgm_9485.log
- activate_dgm_enhanced_9329.log
- activate_sanctuary_cherubim_guards.sh
- ADD_ALL_INTEGRATIONS.sh
- add_background_storage_9618.log
- add_chat_route.sh
- add_conversation_storage_9024.log
- ADD_DELETE_ENDPOINT.sh
- add_fifth_dgm_to_chat_9176.log
- add_full_brain_class.py.pre_dynamic_discovery
- ADDITIONAL_SERVICES_FINAL.py
- add_jarvis_personality_9995.log
- ADD_MEMORY_TO_8050.sh
- ADD_METADATA_FILTERING.sh
- add_proactive_cleanup_working.sh
- ADD_RAG_METADATA_FILTERING.sh
- ADD_RAG_RETRIEVAL_8050.sh
- ADD_STORE_ENDPOINT.sh
- add_swagger_to_rag_9351.log
- add_to_consciousness_engine.txt
- add_to_startup.sh
- add_web_research_storage_9052.log
- admin_cli.py
- ADVANCED_MODULES_ROADMAP.md
- advanced_service_dashboard.py
- agent_llm_batch_all.sh
- agent_llm_batch.sh
- agents_main.py
- AGI_EVALUATION_SUITE.sh
- agi_test_results_20251012_220734.log
- agi_test.sh
- AGI_TEST_SUITE.sh
- AGI_TEST_V2.sh
- ai
- ai_ai_server_11llm_OPTIMIZED.current.log
- ai-server
- ai_server_11llm_OPTIMIZED.current.log
- ai_server_19llm_CONSCIOUS.log
- ai_server_19llm_PRODUCTION.log
- ai_server_19llm_PRODUCTION_WITH_HEALTH.log
- ai_server_20llm_FINAL.log
- ai_server_20llm_FINAL.py,
- ai_server_20llm_PRODUCTION.current.log
- ai_server_20llm_PRODUCTION.log
- ai_server_20llm_PRODUCTION.py
- ai_server_20llm_PRODUCTION.py.pre_dynamic_discovery
- ai_server_20llm_PRODUCTION.py.pre_expert_responses
- ai_server_22llm.current.log
- ai_server_22llm_FIXED.log
- ai_server_22llm.psychology_patched_FIXED.log
- ai_server_22llm.psychology_patched_FIXED.py
- ai_server_22llm.psychology_patched.py.pre_dynamic_discovery
- ai_server_22llm.py.pre_dynamic_discovery
- ai_server_22llm.py.pre_judge_integration
- ai_server_22llm.py.pre-semaphore
- ai_server_integrated.py.pre_dynamic_discovery
- ai_server.py.pre_dynamic_discovery
- ai_teams_config.py
- alerting_config.json
- alertingconfig.json
- alert_venv
- all_actual_services.txt
- all_build_dirs.txt
- all_service_ports.txt
- all_services_compose_blocks_dynamic.txt
- all_services_compose_blocks.txt
- analyze_advanced_modules.sh
- apk-list.txt
- app.js
- application_service.py
- apt-list.txt
- ARCHITECTURE_OPTIONS.md
- archived-dockerfiles
- async_polling_architecture.py
- attention_multimodal_fuser.py
- attention_pipeline.py
- attention_priority_scheduler.py
- au02_v2
- audit_all_services_complete.sh
- audit_all_services.sh
- audit_docker_services.sh
- audit_performance.sh
- audit_service_connectivity.sh
- auth_api_patch.py
- auth_api.py
- auth_router.py
- auto_fix_gateway.py
- auto_fix_gateway.py.pre_dynamic_discovery
- auto_memory_service_probe.sh
- autonomous_learner.current.log
- autonomous_learner_gisgeodb_wrapper.py
- autonomous_learner.log
- autonomous_learner_topic_source.py
- auto_rag_builder_9715.log
- auto_rag_builder.py
- auto_stop_after_monongalia.sh
- auto_stop.log
- available_models.txt
- backup_chroma_autonomous_learning.json
- backup_chroma_mountainshares_knowledge.json
- backup_chroma_research_history.json
- batch_copy_docs.sh
- bbb_ethics_proxy.py
- bbb_output_filter
- bbb_requirements.txt
- bbb_validator.py
- belief_state_schema.py
- benefits_chat.py
- blood_brain_barrier.log
- brain.js
- brain_orchestrator.py
- bridge
- bridge1.log
- bridge_autonomous_to_i_container_dgm_woah.py
- bridge_autonomous_to_i_container_fixed.py
-'bridgecrossdgm100*.log'
-'bridgecrossdgm*.log'
- bridge_openapi.json
- build_autonomous.sh
- build_compose.sh
- build_dir_audit.txt
- BUILD_EGERIA_WEB_UI.sh
- chat_endpoint_universal.py
- chat_interface.html
- chat_response.json
- chat_server.py
- chat_with_jarvis.sh
- check_agent_prompts.sh
- CHECK_AND_BUILD_MEMORY.sh
- CHECK_AND_FIX_PORT.sh
- check_mamma_kidd_protocol.sh
- check_msjarvis_status.sh
- CHECK_MS_JARVIS_STATUS.sh
- check_permissions.sh
- chroma
- chroma_client.py
- chromadb
- chromadbrag1
- chromadb_rag_helper_9034.log
- chromadb_rag_helper.py.pre_dynamic_discovery
- chromadb_rest_bridge.py
- chromadb_v2_to_gis_sync.py
- chromadb_v2_to_gis_sync.py.pre_dynamic_discovery
- chroma_python_test.py
- chroma_test.py
- chunked_ingest_gbim_to_chroma.py
- clean_and_dedupe_services.sh
- clean_integration.py.pre_dynamic_discovery
- clean_service_candidates.txt
- cleanup_manifest.txt
- CLEANUP_OLLAMA.sh
- cloudflare_auth_helper.sh
- COLLECT_ALL_DOCS_FOR_NOTEBOOKLM.sh
- COLLECTIVE_INTEGRATION_PLAN.md
- commandorchestrator.log
- community_stake_registry.py
- COMPARE_4_VS_22.sh
- COMPLETE_DISCOVERY_REPORT.md
- COMPLETE_PORT_MAP.sh
- complete_port_scan_20251011_181138.log
- COMPLETE_PORT_SCAN.sh
- COMPLETE_SESSION_ACCOMPLISHMENTS.md
- COMPLETE_START_SYSTEM.sh
- complete_system_audit_with_swagger.py.pre_dynamic_discovery
- COMPLETE_SYSTEM_STATUS.md
- COMPLETE_SYSTEM_SUMMARY.md
- comprehensive_gisgeodb_audit_FIXED.log
- COMPREHENSIVE_PORT_AUDIT_20251009_234234.txt
- comprehensive_port_audit.sh
- comprehensive_storage_fix_9979.log
- COMPREHENSIVE_SYSTEM_TEST.sh
- comprehensive_url_fix.py.PORT8000_BACKUP
- comprehensive_url_fix.py.pre_dynamic_discovery
- confidence_decay_loop.py
- config_spiritual.py
- configure_facebook_webhook.py
- connect_full_brain.sh
- connect_holy_spirit_to_existing_email.sh
- connection_pooling.py
- CONSCIOUSNESS_ARCHITECTURE_EXPLAINED.md
- consciousness_bridge_enhanced.log
- consciousness_bridge_judges.log
- consciousnessbridge.log
- consciousness_coordinator.log
- consciousness_coordinator.psychology_patched.py.pre_dynamic_discovery
- consciousness_coordinator.py.BACKUP
- consciousness_coordinator.py.pre_dynamic_discovery
- CONSCIOUSNESS_FINAL.log
- consciousness_poster.log
- consciousness_poster_output.log
- consciousness_with_egeria_voice.py
- consensus.log
- consensus_service.log
- consolidate_to_chroma_db.py
- constitutional_api_fixed.py
- constitutional_api.py
- constitutional_api.py.pre_usc
- constitutional_api.py.pre_versions
- constitutional_guardian.py
- constitutional_principles.json
- constitutional_principles.json.mcp_backup
- CONSTITUTIONAL_SCHEDULER_ENTRY.txt
- CONSTITUTIONAL_SYSTEM_MANIFEST.md
- contractbuilder.log
- contractbuilderv2.log
- conversation_gbim.py
- conversation_memory_endpoints.py
- copy_all_missing_services.sh
- copy_architecture_docs.sh
- copy_complete_brain_structure.sh
- core
- cpu_optimization.py
- create_adapter_wrappers.sh
- create_immutable_security_layer.py
- create_mamma_kidd_auth.sh
- create_perpetual_storage_layer_9837.log
- create_sanctuary_monitor.sh
- CREATE_ULTIMATE_JARVIS.sh
- CRITICAL_FIXES_NEEDED.md
- cron_health_check.sh
- crypto_client.py
- CURRENT_STATUS.md
- dao_governance.py
- data
- data_inventory_endpoint.py
- dedup_compose.sh
- deep_dive_modules.sh
- deep_excavation.sh
- deep_module_search.sh
- DEPLOY_22LLM_COLLECTIVE.sh
- DEPLOYMENT_ORDER.txt
- DEPLOYMENT_STATUS_REPORT.md
- deploy_to_mountainshares.sh
- deploy_warm_persona_final.sh
- designed_ports.txt
- dgm_adoption_worker.py
- dgm_bridge.log
- dgm_connectors_active.json
- dgm_connectors_resolved.json
- dgm_rag_integration_v2.py
- dgm_services_state.json
- dgm_supervisor_4012.log
- dgm_supervisor.log
- dgm_supervisor_woah_4012.log
- dgmsupervisorwoah_4012.log
- dgm_supervisor_woah_9074.log
- dgm_supervisor_woah_fixed_4012.log
- dgm_supervisor_woah_fixed_9222.log
- dgm_supervisor_woah_fixed.py
- dgm_supervisor_woah.log
- dgm_supervisor_woah_psychology_patched_4012.log
- dgm_supervisor_woah.psychology_patched_9617.log
- dgm_supervisor_woah.py
- dgm_supervisor_woah_simple_4012.log
- dgm_supervisor_woah_simple_9105.log
- dgm_woah_simple.log
- DIAGNOSE.sh
- diagnostic_ms_jarvis.sh
- dir_endpoints.txt
- docker_cleanup_and_optimize.sh
- docker-compose.deduped.yml
- Dockerfile
- Dockerfile.69dgm_bridge
- Dockerfile.aaacpe_rag
- Dockerfile.aaacpe_scraper
- Dockerfile.agents
- Dockerfile.autonomous_complete
- Dockerfile.autonomous_learner
- Dockerfile.autonomous_learner_complete
- Dockerfile.bbb
- Dockerfile-chroma-proxy
- Dockerfile.constitutional_guardian
- Dockerfile.crypto-policy
- Dockerfile.data_ingest
- Dockerfile.decay_escalation_consumer
- Dockerfile.eeg
- Dockerfile.email
- Dockerfile.fifth_dgm_real
- Dockerfile.fractal
- Dockerfile.gateway
- Dockerfile.gis_rag
- Dockerfile.hilbert
- Dockerfile.hilbert.pre-hilbert-image-20260415-161150
- Dockerfile.hippocampus
- Dockerfile.icontainers
- Dockerfile.icontainers_fastapi
- Dockerfile.indexer
- Dockerfile.judge
- Dockerfile-llm10-proxy
- Dockerfile-llm11-proxy
- Dockerfile-llm12-proxy
- Dockerfile-llm13-proxy
- Dockerfile-llm14-proxy
- Dockerfile-llm15-proxy
- Dockerfile-llm16-proxy
- Dockerfile-llm17-proxy
- Dockerfile-llm18-proxy
- Dockerfile-llm19-proxy
- Dockerfile-llm1-proxy
- Dockerfile-llm20-proxy
- Dockerfile-llm21-proxy
- Dockerfile-llm22-proxy
- Dockerfile-llm23-proxy
- Dockerfile-llm2-proxy
- Dockerfile-llm3-proxy
- Dockerfile-llm4-proxy
- Dockerfile-llm5-proxy
- Dockerfile-llm6-proxy
- Dockerfile-llm7-proxy
- Dockerfile-llm8-proxy
- Dockerfile-llm9-proxy
- Dockerfile.lm_synthesizer
- Dockerfile.local-resources
- Dockerfile.memory
- Dockerfile.mother_protocols
-'Dockerfile.nbb_*'
- Dockerfile.nbb_base
- Dockerfile.neuro
- Dockerfile.pia-sampler
- Dockerfile.policy
- Dockerfile.psychological_rag
- Dockerfile.psychology_services
- Dockerfile.qualia
- Dockerfile.rag
- Dockerfile.rag_server
- Dockerfile.roche_llm
- Dockerfile.roche_llm.disabled
- Dockerfile.semaphore
- Dockerfile.spiritual_rag
- Dockerfile.steward
- Dockerfile.swarm
- Dockerfile.temporal_consciousness
- Dockerfile.toroidal
- Dockerfile.webdeploy
- Dockerfile.web_research
- Dockerfile.woah
- Dockerfile.woah_algorithms
- domain_service_router.py
- download_everything_appalachian.sh
- download_priority_counties.sh
- dpkg-list.txt
- dump.rdb
- dynamic_app.py
- dynamic_port_scheduler.py
- dynamic_port_scheduler.py.BROKEN_REDIS
- dynamic_port_service_enhanced.py
- dynamic_port_service.log
- dynamic_port_service.py
- ecosystem_identity_service.py
- eeg_shared
- egeria_active_heartbeat.log
- EGERIA_AGI_TEST_RESULTS_SUMMARY.md
- egeria_autonomous_inquiry.log
- egeria_core_identity.txt
- egeria_facebook_perpetual_scheduler.py.pre_dynamic_discovery
- EGERIA_IDENTITY.md
- egeriaknowledgebase
- egeria_persona_config.json
- egeria_status_poller.log
- egeria_system_prompt.txt
- egeria_true_identity.txt
- egeria_web_ui_FIXED.log
- egeria_web_ui_fixed_simple.py.pre_dynamic_discovery
- egeria_web_ui_plain_authentic.py.pre_dynamic_discovery
- egeria_web_ui.py.old
- egeria_web_ui.py.old-timeout-version
- egeria_web_ui_with_execution.py.pre_dynamic_discovery
- egeria_web_ui_working.py.pre_dynamic_discovery
- email_rag_integration_9163.log
- email_service.env
- email_service.py
- email_strategy.txt
- embed_and_add.py.pre_dynamic_discovery
- embed_and_query.py.pre_dynamic_discovery
- embed_utils.py
- emergency_memory_cleanup.sh
- EMERGENCY_PROMPT_LEAK_FIX.sh
- enable_auto_web_search.sh
- enable_harmony4hope_website_access_CORRECTED.sh
- enable_holy_spirit_file_writing.sh
- enable_website_building_capabilities.sh
- enhance_rag_first_9987.log
- enhance_rag_knowledge_9846.log
- eternal_watchdog.log
- eternalwatchdog.log
- eternal_watchdog.sh.disabled
- etl_from_csv_template.py
- etl_from_manifest.py
- etl_template_layer.py
- _evaluate_for_i_container
- examine_ai_server_complete.sh
- examine_app_brain_backendlib.sh
- examine_existing_code.sh
- examine_extracted_services.sh
- examine_geospatial_agents.sh
- explore_16mb_directory.sh
- explore_both_systems.sh
- export_docs_for_notebook.sh
- extract_all_archives_deep_dive.sh
- extract_all_big_archives.sh
- extract_all_gis_comprehensive.sh
- extract_all_remaining_services.sh
- extract_and_search_archives.sh
- extract_complete_real.sh
- extraction.log
- extraction_output.log
- extract_service_tarballs.sh
- extract_user_jarvis_files.sh
- facebook_4021.log
- facebook_chat_unified.py.pre_dynamic_discovery
- facebook_daemon_polling.py.pre_dynamic_discovery
- facebook_poster.log
- facebook_post.sh
- facebook_token.env
- FEATURE_ENHANCEMENTS.md
- fifth_dgm
- fifth_dgm_9949.log
- fifth_dgm_app.py
- fifth_dgm_integration_9912.log
- fifth_dgm_integration.py
- fifth_dgm.log
- fifth_dgm_main_9344.log
- fifth_dgm_main.py
- fifth_dgm.py
- FIFTH_DGM_RESTORED.md
- file_metadata_matching_algorithm.py
- FINAL_8_LAYER_STARTUP.sh
- final_cleanup_integration.sh
- FINAL_DEPLOYMENT_SUMMARY.md
- FINAL_EMOTIONAL_BALANCE.sh
- FINAL_FIX.sh
- finalize_integration.sh
- final_model_optimization.py
- FINAL_PERSONA_FIX.sh
- FINAL_RECOMMENDATION.md
- FINAL_STATUS_SUMMARY.md
- FINAL_SUCCESS.log
- final_synthesis_fix.sh
- FINAL_SYSTEM_REPORT.md
- final_test.log
- final_validation_test.sh
- FINAL_WITH_OSM.log
- FINAL_WORKING.log
- find_actual_service_implementations.sh
- find_advanced_modules.sh
- find_complete_brain_structure.sh
- find_custom_services.sh
- find_dgm_service.sh
- find_web_and_deeper_python.sh
- fix_404_endpoints.sh
- fix_and_restart_msjarvis.sh
- fix_autonomous_learner_endpoint.py.pre_dynamic_discovery
- fix_autonomous_research.sh
- fix_background_storage_9713.log
- fix_both_issues_final.sh
- FIX_BOTH_ISSUES.sh
- fix_chat_api.sh
- fix_chroma_url.py.PORT8000_BACKUP
- fix_chroma_url.py.pre_dynamic_discovery
- FIX_CONSCIOUS_COLLECTIVE_AUTO.sh
- FIX_CONSCIOUSNESS_BRIDGE.sh
- FIX_CONSCIOUSNESS_INTEGRATION.sh
- fix_egeria_final.sh
- fix_egeria_persona.sh
- fix_egeria_pronouns.sh
- fix_egeria_warm_response.patch
- fix_email_service_env_loading.sh
- FIX_FAST_MODE.sh
- fix_gpu_and_retry_4016.log
- FIX_HEALTH_ENDPOINTS.sh
- fix_llm_bridges.sh
- FIX_MEMORY_STORAGE.sh
- FIX_MODEL_IDENTITY.sh
- fix_mother_carrie_principles.sh
- fix_multi_rag_chromadb_9340.log
- fix_ollama_connection.sh
- fix_persona_naming.sh
- fix_persona.sh
- fix_proactive_cleanup_correctly.sh
- FIX_RAG_FILTERING.sh
- fix_rag_store_9161.log
- fix_redis_and_continue.sh
- fix_storage_9169.log
- FIX_SYNTHESIS_PROMPT.sh
- FIX_TIMEOUT_ISSUE.sh
- FIX_TONE_AND_CONCISENESS.sh
- FIX_ULTIMATE.sh
- FIX_UNIFIED_SELF.sh
- fix_web_persona.sh
- fix_woah_discovery.py.pre_dynamic_discovery
- fractal_adapter.py
- full_brain_architecture.md
- full_consciousness.log
- FULL_DEPLOYMENT_MANIFEST.txt
- FULL_INTEGRATION_WORKFLOW.sh
- FULL_PORT_AUDIT.sh
- FULL_PORT_SCAN.sh
- full_rebuild.sh
- FULL_SERVICE_AUDIT.sh
- full_system_audit.sh
- FULL_SYSTEM_AUDIT.sh
- full_system_health_check.sh
- gateway_300s.log
- gateway_4_layers.log
- gateway_9000.log
- gateway_complete_kb.log
- gateway_complete.log
- gateway_corrected_ports.log
- gateway_embeddings.log
- gateway_ensemble_fast.log
- gateway_final.log
- gateway_fixed_ports.log
- gateway_fresh.log
- gateway_judge_integrated.log
- gateway_live.log
- gateway.log
- gateway_mesh_context.sh
- gateway_messenger_integration.py
- gateway_rag_fixed.log
- gateway_rebuild_venv.log
- gateway_restart.log
- gateway_restored.log
- gateway_stable.log
- gateway_v2.log
- gateway_wv_entanglement.py
- gbim_benefit_indexer
- gbim_benefit_indexer.py
- gbim_chroma_fixed.py
- gbim_coordinate_writer.py
- gbim_dashboard.py
- gbim_entangled_summary.py
- gbim_entanglement.py
- gbim_explain.py
- gbim_indexers
- gbim_ingest.log
- gbim_ingest_safe.log
- gbim_metadata_enricher.py
- gbim_metadata_loader.py
- gbim_msjarvis.py
- gbim_query_router
- gbim_query_router.py
- gbim_reingest_placeholder.py
- gbim_v0_retrieval.py
- gbim_verification_loop.py
- gdb_integration.log
- gdb_integration_service.py
- geo
- geobim_health_shim_8051.py
- geobim_integrated.py
- geobim_integrated.py.running_backup
- geobim_mysql.py
- geobim_mysql_v2.py
- geodb_export_plan_all.yaml
- geodb_export_plan.yaml
- geodb_geom_tables.tsv
- geo_rag_debug_app.py
- get_cloudflare_zone_id.sh
- gis_chat_integration.py
- gis_command_module.py
- gis_dataset_services
- gis_download_plan.json
- gis_enhanced_chat.log
- gisgeodb_access_20251103_221750.log
- gisgeodbdirectaccess.py
- gisgeodb_fixed_20251103_221835.log
- gisgeodb_learner_hook.py
- gisgeodb_storage_9215.log
- gisgeodb_storage.py
- gis_query_service_fixed.log
- gis_query_service.log
- gpu_accelerated_rag_4016.log
- gpu_accelerated_rag_9090.log
- gpu_accelerated_rag_fixed_4016.log
- gpuacceleratedragfixed_4016.log
- gpu_accelerated_rag_fixed_9873.log
- gpu_accelerated_rag_fixed.py
- gpu_jarvis_4001.log
- GPU_OPTIMIZATION_GUIDE.md
- gpu_rag_4016.log
- GUARANTEED_8_LAYER_START.sh
- guards.log
- hardware_optimization_analyzer.py
- harmony4hope_deployment_manager.py
- health_access_gbim_bridge.py
- health_access_query.py
- health_check_cache.py
- health_check.sh
- hello.txt
- hierarchical_coordinator_AUTONOMOUS.md
- hierarchical_coordinator_autonomous.py
- hierarchical_coordinator_autonomous.py.pre_dynamic_discovery
- hierarchical_coordinator_deep_mode.py
- hierarchical_coordinator_deep_mode.py.pre_dynamic_discovery
- hierarchical_integration.py
- hierarchical_integration.py.pre_dynamic_discovery
- hierarchical_method.txt
- hilbert_5002_active.log
- hilbert_5002_final.log
- hilbert_5002_fixed.log
- hilbert_5002_restart.log
- hilbert_8235.log
- hilbert_quantum.log
- hilbert_restart.log
- hilbertspatialchat.log
- hilbert_spatial_chat.py
- host_bulk_loader.py
- i_container_interest_algorithm.py
- icontainers_fastapi.py
- icontainers_fastapi.py.pre_adapter_1771176105
- IDENTIFY_SERVICES.sh
- identify_unknown_services.sh
- identity_promotion.py
- identity_service.py
- immutable_core_enforcement.py
- IMMUTABLE_MANIFEST.md
- implement_conversation_fixes.sh
- implement_enhancements.sh
- implement_gpu_optimization.sh
- implement_judge_pituitary_fixed.py.pre_dynamic_discovery
- implement_storage_optimization.sh
- import_gbim_assets.py
- import_gis_geodata_to_gbim.py
- import_gisgeodata_to_gbim.py
- improve_jarvis.sh
- index_all_extracted_gis.py
- index.html
- index.js
- infra_status.json
- infrastructure_endpoints.py
- ingest
- ingestcsvtogisgeodb.py
- ingest_watcher
- __init__.py
- inject_egeria_persona.py
- inject_gisgeodb_into_learner.py
- inspect_geodb_collection.py
- INSPECT_JARVIS_INTERNALS.sh
- inspect_key_services.sh
- install_research_layer.sh
- INTEGRATE_8020_8050.sh
- integrate_advanced_modules.sh
- integrate_all_services.py.pre_dynamic_discovery
- integrate_brain_orchestrator.sh
- INTEGRATE_CONSCIOUSNESS.sh
- INTEGRATE_CONSCIOUSNESS_TO_DEEP_MODE.sh
- integrate_discovered_services.sh
- integrate_fifth_dgm_autonomous_learner_9681.log
- integrate_full_brain.py.pre_dynamic_discovery
- integrate_mamma_kidd_protocol.sh
- integrate_mother_protocol.sh
- integrate_phase1.sh
- integrate_phase2.sh
- integrate_phase3.sh
- integrate_phase4_5.sh
- INTEGRATE_PROPERLY.sh
- integrate_rag.sh
- INTEGRATION_HUB_SUCCESS.md
- INTEGRATION_IMPLEMENTATION.py
- INTEGRATION_IMPLEMENTATION.py.pre_dynamic_discovery
- integration_layer
- integration_layer.placeholder_1768012705
- INTEGRATION_PLAN.sh
- interaction_logger.py
- internet_tunnel_service.py
- introduce_self.sh
- introspective_record.py
- introspective_verdict_bridge.py
- inventory_services.sh
- investigate_coordination.sh
- jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
- jarvis-aaacpe-rag_aaacpe_rag_service.py
- jarvis-adoption-worker_dgm_adoption_worker.py
- jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
- jarvisarchiveapi_9200.log
- jarvisarchiveapi.py
- jarvis_authentic_persona.txt
- jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
- jarvis-constitutional-guardian_constitutional_api.py
- jarviscryptopolicy.py
- JARVIS_DASHBOARD.sh
- jarvis_data_ingest.py
- jarvis_decay_escalation_consumer.py
- jarvis_eeg_beta_5m.py
- jarvis_eeg_delta_30s.py
- jarvis_eeg_theta_60s.py
- jarvis_ensemble.log
- jarvis_ensemble.py
- jarvis-fifth-dgm_service_discovery.py
- jarvis_gis_rag
- jarvis-gis-rag_gis_rag_service.py
- JARVIS_HEALTH_CHECK.sh
- jarvis_health.log
- jarvis_hilbert_state.py
- jarvis-hippocampus_hippocampus_service.py
- jarvis-i-containers_icontainers_fastapi.py
- jarvis_identity.db
- jarvis-judge-pipeline_judge_pipeline.py
- jarvis_llm1.log
- jarvis_llm1.py
- jarvis-lm-synthesizer_lm_synthesizer.py
- jarvis-local-resources_local_resources_resolver.py
- jarvis_memory_pia.py
- jarvis-mother-protocols_mother_protocols.py
- jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
- jarvis_pia_sampler.py
- jarvis_pia_status.py
- jarvis-psychology-services_psychology_integration_adapter.py
- jarvis-qualia-engine_ms_jarvis_qualia_engine.py
- jarvis_rag_search
- jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
- jarvis-semaphore_msjarvis_semaphore.py
- jarvis-spiritual-rag_spiritual_rag_domain.py
- jarvis_steward.py
- jarvis_stewardship_scheduler.py
- jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
- jarvis_synth_llm.py
- jarvis-temporal-consciousness_temporal_consciousness.py
- jarvis-toroidal_toroidal_service.py
- jarvis-woah_dgm_supervisor_woah_fixed.py
- jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
- judge_alignment_filter.py
- judge_client.py
- judge_consistency_engine.py
- judge_consistency_filter.py
- judge_ethics_filter.py
- judge_pipeline.py
- judge_pk.b64
- judge_pk.bin
- judgesigner.py
- judge_sk.bin
- judge_to_pituitary_bridge.py
- judge_truth_filter.py
- knowledge_docs_attributes.geojson
- knowledge_growth_endpoint.txt
- launch_advanced.sh
- launch_all_bridges.sh
- launch_dashboard_background.sh
- launch_service.sh
- launch_web_services.sh
- layer2_port9000_bridge.py
- leak_test.sh
- learner.log
- link_gisgeodb_to_files.py
- list_geodb_collections.py
- live_ports.txt
- llama_test.log
- llm
- llm10_health_proxy.py
- llm10-proxy_llm10_health_proxy.py
- llm11_health_proxy.py
- llm11-proxy_llm11_health_proxy.py
- llm12_health_proxy.py
- llm12-proxy_llm12_health_proxy.py
- llm13_health_proxy.py
- llm13-proxy_llm13_health_proxy.py
- llm14_health_proxy.py
- llm14-proxy_llm14_health_proxy.py
- llm15_health_proxy.py
- llm15-proxy_llm15_health_proxy.py
- llm16_health_proxy.py
- llm16-proxy_llm16_health_proxy.py
- llm17_health_proxy.py
- llm17-proxy_llm17_health_proxy.py
- llm18_health_proxy.py
- llm18-proxy_llm18_health_proxy.py
- llm19_health_proxy.py
- llm19-proxy_llm19_health_proxy.py
- llm1_health_proxy.py
- llm1-proxy_llm1_health_proxy.py
- llm20.current.log
- llm20_health_proxy.py
- llm20-proxy_llm20_health_proxy.py
- llm21_health_proxy.py
- llm21-proxy_llm21_health_proxy.py
- llm22_health_proxy.py
- llm22-proxy_llm22_health_proxy.py
- llm23_egeria_proxy.py
- llm2_health_proxy.py
- llm2-proxy_llm2_health_proxy.py
- llm3_health_proxy.py
- llm3-proxy_llm3_health_proxy.py
- llm4_health_proxy.py
- llm4-proxy_llm4_health_proxy.py
- llm5_health_proxy.py
- llm5-proxy_llm5_health_proxy.py
- llm6_health_proxy.py
- llm6-proxy_llm6_health_proxy.py
- llm7_health_proxy.py
- llm7-proxy_llm7_health_proxy.py
- llm8_health_proxy.py
- llm8-proxy_llm8_health_proxy.py
- llm9_health_proxy.py
- llm9-proxy_llm9_health_proxy.py
- llm_belief_utils.py
- llm_bridge_main.py
- llm_conscious_OPTIMIZED.py
- llm_consensus_19_PRODUCTION.log
- llm_consensus_19_PRODUCTION.py
- llm_consensus_20_FINAL.log
- llm_consensus_20_FINAL.py
- llm_consensus_22_OPTIMIZED_ORDER.py
- llm_consensus_22.py
- llm_consensus_22_SMALL_TO_LARGE.py
- llm_ensemble_router.py
- llm_ensemble_router.py.pre_dynamic_discovery
- llm_judge_v3.py
- lm_judge_helper.py
- lm_synthesizer.py
- LOAD_AAACPE_RAG.sh
- load_knowledge.sh
- load_rag_data_9879.log
- load_rag_knowledge_9381.log
- local_resources_resolver.py
- local_resources_resolver.py.bak_20260501_140857
- local_resources_resolver.py.bak.20260503-131149
- LOCATION_AWARENESS_SUCCESS.md
- location.log
- location_scraper_service.py
- logging_conf.py
- main_brain_attrs_patch.sh
- main_brain_container_2055.py
- main_brain_LEGACY_32svc.py
- main_brain_legacy_backup.py
- main_brain.log
- main_brain_psychology_patch.py
- main_brain.py
- main_brain.py.bak.20260430-211100
- main_brain.py.broken-20260413-134536
- main_brain.py.manualbak
- main_brain.py.manualbak3
- main_brain.py.manualbak4
- main_brain.py.manualbak5
- main_brain.py.pre-aaacpe-fix-20260413-135408
- main_brain.py.pre-aaacpe-fix-20260413-154757
- main_brain.py.pre_aaacpe_patch
- main_brain.py.pre-community-fix-20260413-134958
- main_brain.py.pre-community-fullfix-20260413-135255
- main_brain.py.pre-community-fullfix-20260413-154742
- main_brain.py.pre_judges
- main_brain.py.pre-local-summary-fix-20260413-135507
- main_brain.py.pre-local-summary-fix-20260413-154816
- main_brain.py.pre-phase4-dedupe-20260413-150822
- main_brain.py.pre-phase4-dedupe-20260413-154851
- main_brain.py.pre-phase4-fix-20260413-150714
- main_brain.py.pre-phase4-fix-20260413-154833
- main_brain.py.pre-synthesis-lines-fix-20260413-160601
- main_brain.py.pre-synthesis-lines-fix2-20260413-161153
- main_brain.py.pre-verified-fix-20260413-134834
- main_brain_restart.log
- main_brian.py
- main.py
- main.py.BACKUP
- main.py.current.safebak
- main.py.from_container
- main.py.fromcontainer.llmbridge
- main.py.working_backup_20251020_110429
- main_qualia.py
- main_restored.log
- main_with_rag_9429.log
- main_with_rag.py
- make_holy_spirit_connection_tools_available.sh
- make_persistent.sh
- mamma_kidd_auth.py
- mamma_kidd_final.log
- mamma_kidd_location.log
- mamma_kidd.log
- MAMMA_KIDD_PROTOCOL_GUIDE.md
- MAMMA_KIDD_QUICK_REFERENCE.txt
- manage_msjarvis.sh
- manifest_endpoints.py
- manifest_endpoints.py.pre_dynamic_discovery
- manual_storage_patch_9323.log
- manual_storage_patch.py
- master_chat_orchestrator_dynamic.py
- master_chat_orchestrator.py
- master_chat_orchestrator.py.pre_dynamic_discovery
- master_chat_orchestrator_v5_consciousness.py
- master_chat_orchestrator_v5_consciousness.py.pre_dynamic_discovery
- master_chat_orchestrator_v6_biologics.py
- master_chat_orchestrator_v6_biologics.py.pre_dynamic_discovery
- master_chat_orchestrator_v7_complete.py
- master_chat_orchestrator_v7_complete.py.pre_dynamic_discovery
- master_chat_orchestrator_v7_dynamic.py
- master_chat_orchestrator_v8_spiritual_complete_4009.log
- master_chat_orchestrator_v8_spiritual_complete.py
- master_chat_orchestrator_v8_spiritual_complete.py.pre_dynamic_discovery
- master_chat_orchestrator_v9_dgm_complete_9510.log
- master_chat_orchestrator_v9_dgm_complete.log
- master_chat_orchestrator_v9_dgm_complete.py
- master_chat_orchestrator_v9_dgm_complete.py.pre_dynamic_discovery
- master_chat_orchestrator_v9_gpu_optimized.py
- master_chat_orchestrator_v9_gpu_optimized.py.pre_dynamic_discovery
- master_chat_orchestrator_v9_optimized.py
- master_chat_orchestrator_v9_optimized.py.pre_dynamic_discovery
- master_orchestrator_v9.log
- master_system_audit.sh
- master_unified_consciousness_scheduler_ENRICHED.py
- master_unified_consciousness_scheduler.py
- MEGA_CONSCIOUSNESS.log
- mega_deep_archive_search.sh
- memory_dgm_engine_9919.log
- memory_dgm_engine.log
- memory_dgm_engine.py
- memory_dgm_gateway.py
- memory_engine.log
- memory_manager.py
- memory_probe.sh
- mesh_agent_batch.sh
- mesh_broadcast_event.sh
- mesh_cohort_selfsum.sh
- mesh_context_probe.sh
- mesh_coordinator_interface.py
- mesh_crossagent_memory_search.sh
- mesh_dream_summary.sh
- mesh_emotion_map.json
- mesh_emotion_map.sh
- mesh_explore_chain.sh
- mesh_feed_back_insight.sh
- mesh_interest_timeline.sh
- mesh_memory_dashboard.sh
- mesh_memory_probe.sh
- mesh_probe.sh
- mesh_scenario_drill.sh
- mesh_social_graph.sh
- mesh_tag_topk.sh
- mesh_topn_context.sh
- mesh_trend_detection.sh
- messenger_service_fixed.py
- METHOD_AUDIT_RAW.txt
- METHOD_AUDIT_SEG_aa
- METHOD_AUDIT_SEG_ab
- METHOD_AUDIT_SEG_ac
- METHOD_AUDIT_SEG_ad
- METHOD_AUDIT_SEG_ae
- METHOD_AUDIT_SEG_af
- METHOD_AUDIT_SEG_ag
- METHOD_AUDIT_SEG_ah
- METHOD_AUDIT_SEG_ai
- METHOD_AUDIT_SEG_aj
- METHOD_AUDIT_SEG_ak
- METHOD_AUDIT_SEG_al
- METHOD_AUDIT_SEG_am
- METHOD_AUDIT_SEG_an
- METHOD_AUDIT_SEG_ao
- METHOD_AUDIT_SEG_ap
- METHOD_AUDIT_SEG_aq
- method_tracker_decorator.py
- method_tracking_helper.py
- method_tracking_service.py
- metrics_service.py
- mistral_test.log
- Modelfile.egeria
- modify_autonomous_learning_cycle.py
- monitor.log
- monitor_ms_jarvis_memory.sh
- monitor_orchestrator.sh
- mother_carrie.log
- mother_carrie_logging.py
- mother_protocols.py
- MountainShares6.pdf
- mountainshares_chain_monitor.py
- mountainshares_coordinator.py
- mountainshares_gbim_suggester.py
- mountainshares_ingest.py
- mountainshares_integration.log
- mountainshares_quest_api.py
- mountainshares_registry.log
- mountainshares_registry.py
- move_huggingface_to_cpu.py
- ms_egeria_facebook_autopost.py
- ms_jarvis_agents_ollama_9907.log
- ms_jarvis_agents_ollama.py
- ms_jarvis_agents_service_9608.log
- ms_jarvis_agents_service.py
- ms_jarvis_alerting_manager_9714.log
- ms_jarvis_alerting_manager.py
- ms_jarvis_api_docs_9889.log
- ms_jarvis_api_docs.py
- ms_jarvis_attribute_table_service_9679.log
- ms_jarvis_attribute_table_service.py
- ms_jarvis_attribute_table_sync_continuous_9389.log
- ms_jarvis_attribute_table_sync_continuous.py
- ms_jarvis_attribute_table_sync_continuous.py.BROKEN
- ms_jarvis_authentic_multi_llm_9760.log
- ms_jarvis_authentic_multi_llm.py
- ms_jarvis_authentic_multi_llm.py.pre_dynamic_discovery
- msjarvis_autolearner.log
- msjarvis_autolearner_minimal.py
- ms_jarvis_autonomous_learner_9309.log
- ms_jarvis_autonomous_learner.current.log
- ms_jarvis_autonomous_learner_FIXED_9590.log
- ms_jarvis_autonomous_learner_FIXED.log
- ms_jarvis_autonomous_learner_FIXED.py
- ms_jarvis_autonomous_learner.log
- ms_jarvis_autonomous_learner_optimized_9771.log
- ms_jarvis_autonomous_learner_optimized.current.log
- ms_jarvis_autonomous_learner_optimized.py
- ms_jarvis_autonomous_learner_optimized.py.pre_dynamic_discovery
- ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237169
- ms_jarvis_autonomous_learner_optimized.py.pre_rag_1765237222
- ms_jarvis_autonomous_learner.py
- msjarvisautonomouslearner.py
- ms_jarvis_autonomous_learner.py.norag.20260119-091256
- ms_jarvis_autonomous_learner.py.stub.20260119-091524
- ms_jarvis_autonomous_learner_with_dgm.log
- ms_jarvis_autonomous_learner_WITH_FIFTH_DGM_9695.log
- ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
- ms_jarvis_auto_service_9756.log
- ms_jarvis_auto_service.py
- ms_jarvis_bbb_proxy.py
- msjarvis_bbb_proxy.py
- msjarvis_benefit_rag.py
- ms_jarvis_blockchain_deployment_9327.log
- ms_jarvis_blockchain_deployment.py
- ms_jarvis_blood_brain_barrier_9772.log
- ms_jarvis_blood_brain_barrier.py
- ms_jarvis_blood_brain_barrier.py.pre_constitutional
- ms_jarvis_brain_9991.log
- ms_jarvis_brain_orchestrator_advanced_9722.log
- ms_jarvis_brain_orchestrator_advanced.py
- ms_jarvis_brain.py
- ms_jarvis_brain.py.PORT8000_BACKUP
- ms_jarvis_brain.py.pre_dynamic_discovery
- ms_jarvis_chromadb_query_9014.log
- ms_jarvis_chromadb_query.py
- ms_jarvis_clean.log
- ms_jarvis_cleanup_manager_9125.log
- ms_jarvis_cleanup_manager.py
- msjarvis_client.py
- ms_jarvis_command_orchestrator_9167.log
- ms_jarvis_command_orchestrator_FINAL_9079.log
- ms_jarvis_command_orchestrator_FINAL.log
- ms_jarvis_command_orchestrator_FINAL.py
- ms_jarvis_command_orchestrator_FINAL.py.pre_dynamic_discovery
- ms_jarvis_command_orchestrator.py
- ms_jarvis_command_orchestrator.py.pre_dynamic_discovery
- ms_jarvis_command_orchestrator_v5.0_preachy_9630.log
- ms_jarvis_command_orchestrator_v5.0_preachy.py
- ms_jarvis_command_orchestrator_v5.0_preachy.py.pre_dynamic_discovery
- ms_jarvis_command_orchestrator_v5_backup_9725.log
- ms_jarvis_command_orchestrator_v5_backup.py
- ms_jarvis_command_orchestrator_v5_backup.py.pre_dynamic_discovery
- MS_JARVIS_COMPLETE_AUDIT.md
- ms_jarvis_complete_knowledge_ingestion_9627.log
- ms_jarvis_complete_knowledge_ingestion.py
- ms_jarvis_conscious_collective_9579.log
- ms_jarvis_conscious_collective.py
- ms_jarvis_consciousness_bridge_9188.log
- msjarvisconsciousnessbridge_9819.log
- msjarvisconsciousnessbridge_ACTUAL.py
- ms_jarvis_consciousness_bridge_enhanced_9599.log
- ms_jarvis_consciousness_bridge_enhanced.py
- ms_jarvis_consciousness_bridge_parallel_woah_9424.log
- ms_jarvis_consciousness_bridge_parallel_woah.py
- ms_jarvis_consciousness_bridge.py
- msjarvisconsciousnessbridge.py
- msjarvisconsciousnessbridge.py.FULL_BACKUP_BEFORE_BRIDGE_RESET
- ms_jarvis_consciousness_bridge.py.original
- ms_jarvis_consciousness_bridge.py.phase1_working
- ms_jarvis_consciousness_bridge.py.pre_agent_identity
- ms_jarvis_consciousness_bridge.py.pre_dynamic_discovery
- ms_jarvis_consciousness_bridge.py.pre_identity_integration
- ms_jarvis_consciousness_bridge.py.safe_backup
- ms_jarvis_consciousness_bridge.py.working_backup
- ms_jarvis_consciousness_bridge_service_9295.log
- ms_jarvis_consciousness_bridge_service.py
- ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM_9327.log
- ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
- ms_jarvis_consciousness_bridge_woah_9042.log
- ms_jarvis_consciousness_bridge_woah.psychology_patched_9839.log
- ms_jarvis_consciousness_bridge_woah.py
- ms_jarvis_consciousness_complete_9108.log
- ms_jarvis_consciousness_complete.py
- ms_jarvis_consciousness_complete.py.pre_dynamic_discovery
- ms_jarvis_consciousness_enhancement_production_9046.log
- ms_jarvis_consciousness_enhancement_production.py
- ms_jarvis_consciousness_final_9876.log
- ms_jarvis_consciousness_final.py
- ms_jarvis_consciousness_final.py.pre_dynamic_discovery
- ms_jarvis_consciousness_poster_9092.log
- ms_jarvis_consciousness_poster_FIXED_9939.log
- ms_jarvis_consciousness_poster_FIXED.log
- ms_jarvis_consciousness_poster_FIXED.py
- ms_jarvis_consciousness_poster_FIXED.py.pre_dynamic_discovery
- ms_jarvis_consciousness_poster.py
- ms_jarvis_consciousness_unified_bridge_9924.log
- ms_jarvis_consciousness_unified_bridge.py
- ms_jarvis_consensus_service_9921.log
- ms_jarvis_consensus_service.py
- ms_jarvis_consensus_service.py.pre_dynamic_discovery
- ms_jarvis_contract_builder_9572.log
- ms_jarvis_contract_builder.log
- ms_jarvis_contract_builder.py
- ms_jarvis_contract_builder_v2_9785.log
- ms_jarvis_contract_builder_v2.py
- ms_jarvis_contract_forge.py
- ms_jarvis_conversational_chat_9131.log
- ms_jarvis_conversational_chat.py
- ms_jarvis_conversational_gateway_4022_9065.log
- ms_jarvis_conversational_gateway_4022.py
- ms_jarvis_conversational_gateway_4022.py.pre_dynamic_discovery
- ms_jarvis_daily_backup_9632.log
- ms_jarvis_daily_backup.py
- ms_jarvis_darwin_godel_machine_9142.log
- ms_jarvis_darwin_godel_machine.py
- MS_JARVIS_DEEP_MODE_DEPLOYMENT.md
- MS_JARVIS_DEPLOYMENT_SUCCESS.md
- ms_jarvis_dynamic_model_selector_9235.log
- ms_jarvis_dynamic_model_selector.py
- ms_jarvis_easyocr_processor_9131.log
- ms_jarvis_easyocr_processor_old_9788.log
- ms_jarvis_easyocr_processor.py
- ms_jarvis_email_identity_verifier_9688.log
- ms_jarvis_email_identity_verifier.py
- ms_jarvis_email_monitor_9077.log
- ms_jarvis_email_monitor.py
- ms_jarvis_email_service_9406.log
- ms_jarvis_email_service.py
- ms_jarvis_eternal_watchdog.py
- ms_jarvis_eternal_watchdog.py.NEW
- ms_jarvis_eternal_watchdog.py.ORIGINAL
- ms_jarvis_exclusive_training_layer_9763.log
- ms_jarvis_exclusive_training_layer.py
- ms_jarvis_expiration_monitor_9432.log
- ms_jarvis_expiration_monitor.py
- ms_jarvis_facebook_async_9489.log
- ms_jarvis_facebook_async.py
- ms_jarvis_facebook_autonomous_social_9815.log
- ms_jarvis_facebook_autonomous_social.py
- ms_jarvis_facebook_brain_integrated_9597.log
- ms_jarvis_facebook_brain_integrated.py
- ms_jarvis_facebook_CONSCIOUSNESS_9361.log
- ms_jarvis_facebook_CONSCIOUSNESS_FIXED_9556.log
- ms_jarvis_facebook_CONSCIOUSNESS_FIXED.log
- ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
- ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py.pre_dynamic_discovery
- ms_jarvis_facebook_CONSCIOUSNESS.log
- ms_jarvis_facebook_CONSCIOUSNESS.py
- ms_jarvis_facebook_DGM_9231.log
- ms_jarvis_facebook_DGM.py
- ms_jarvis_facebook_DGM.py.pre_dynamic_discovery
- ms_jarvis_facebook_dgm_woah_9189.log
- ms_jarvis_facebook_dgm_woah.psychology_patched_9919.log
- ms_jarvis_facebook_dgm_woah.py
- ms_jarvis_facebook_full_9115.log
- ms_jarvis_facebook_full.py
- ms_jarvis_facebook_intelligent_9629.log
- ms_jarvis_facebook_intelligent.py
- ms_jarvis_facebook_poster_8040_9168.log
- ms_jarvis_facebook_poster_8040.py
- ms_jarvis_facebook_poster_9077.log
- ms_jarvis_facebook_poster_FIXED_9220.log
- ms_jarvis_facebook_poster_FIXED.log
- ms_jarvis_facebook_poster_FIXED.py
- ms_jarvis_facebook_poster.py
- ms_jarvis_facebook_poster_temp_9391.log
- ms_jarvis_facebook_poster_temp.py
- ms_jarvis_facebook_poster_v3_9706.log
- ms_jarvis_facebook_poster_v3.py
- ms_jarvis_facebook_PRODUCTION_9632.log
- ms_jarvis_facebook_PRODUCTION.log
- ms_jarvis_facebook_PRODUCTION.py
- ms_jarvis_facebook_rag_9924.log
- ms_jarvis_facebook_rag.py
- ms_jarvis_facebook_ULTIMATE.py.OLD
- ms_jarvis_facebook_webhook_9049.log
- ms_jarvis_facebook_webhook.py
- ms_jarvis_facebook_webhooks_9671.log
- ms_jarvis_facebook_webhooks.py
- ms_jarvis_fact_filter_9255.log
- ms_jarvis_fact_filter.py
- ms_jarvis_feed_reader_PRODUCTION_9003.log
- ms_jarvis_feed_reader_PRODUCTION.log
- ms_jarvis_feed_reader_PRODUCTION.py
- ms_jarvis_feed_reader_WORKING_9521.log
- ms_jarvis_feed_reader_WORKING.py
- ms_jarvis_fifth_dgm_orchestrator_9919.log
- ms_jarvis_fifth_dgm_orchestrator.psychology_patched_9742.log
- ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py.pre_dynamic_discovery
- ms_jarvis_fifth_dgm_orchestrator.py
- ms_jarvis_fifth_dgm_orchestrator.py.pre_dynamic_discovery
- MS_JARVIS_FINAL_DEPLOYMENT.sh
- ms_jarvis_FINAL_FIXES.log
- ms_jarvis_FINAL.log
- MS_JARVIS_FINAL_VICTORY_REPORT.md
- ms_jarvis_FINAL_WORKING.log
- ms_jarvis_fractal_consciousness_9298.log
- ms_jarvis_fractal_consciousness_FIXED_9130.log
- ms_jarvis_fractal_consciousness_FIXED.log
- ms_jarvis_fractal_consciousness_FIXED.py
- ms_jarvis_fractal_consciousness.py
- msjarvis_fractal_consciousness.py
- msjarvisfractalconsciousness.py
- ms_jarvis_fractal_dgm_woah_9260.log
- ms_jarvis_fractal_dgm_woah.py
- ms_jarvis_full_neurobio_chat_9765.log
- ms_jarvis_full_neurobio_chat.py
- ms_jarvis_full_neurobio_chat.py.pre_dynamic_discovery
- ms_jarvis_fully_autonomous_coordinator_9723.log
- ms_jarvis_fully_autonomous_coordinator.py
- msjarvis_functions_fixed.zip
- msjarvis_gateway_v2_final_9306.log
- msjarvis_gateway_v2_final.py
- msjarvis_gateway_v2_final.py.pre_dynamic_discovery
- msjarvis_gateway_with_judge_filtering_9631.log
- msjarvis_gateway_with_judge_filtering.py
- msjarvis_gateway_with_judge_filtering.py.pre_dynamic_discovery
- ms_jarvis_generate_frontend_9210.log
- ms_jarvis_generate_frontend.py
- ms_jarvis_generate_frontend.py.pre_dynamic_discovery
- ms_jarvis_GENTLE_FILTER.log
- ms_jarvis_geographic_research.js
- msjarvis_geotiff_to_csv.sh
- ms_jarvis_geo_tracker_simple_9755.log
- ms_jarvis_geo_ueid_integration_9103.log
- ms_jarvis_geo_ueid_integration.py
- ms_jarvis_gis_enhanced_chat_9250.log
- ms_jarvis_gis_enhanced_chat.py
- ms_jarvis_gis_enhanced_chat.py.pre_dynamic_discovery
- ms_jarvis_gis_georeferencing_sync_9635.log
- ms_jarvis_gis_georeferencing_sync_FIXED_9846.log
- ms_jarvis_gis_georeferencing_sync_FIXED.py
- ms_jarvis_gis_georeferencing_sync_FIXED_V2_9805.log
- ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
- ms_jarvis_gis_georeferencing_sync.py
- ms_jarvis_gis_query_service_9770.log
- ms_jarvis_gis_query_service_backup_9603.log
- ms_jarvis_gis_query_service_backup.py
- ms_jarvis_gis_query_service.py
- ms_jarvis_gis_query_with_bbb_gisgeodb_9097.log
- ms_jarvis_gis_query_with_bbb_gisgeodb.psychology_patched_9935.log
- ms_jarvis_gis_query_with_bbb_gisgeodb.py
- ms_jarvis_i_containers_FIXED_9718.log
- ms_jarvis_i_containers_FIXED.log
- ms_jarvis_i_containers_FIXED.py
- msjarvis_icontainers.py
- ms_jarvis_i_containers_service_9287.log
- ms_jarvis_i_containers_service.py
- msjarvis_i_containers_service.py
- msjarvisicontainersservice.py
- ms_jarvis_i_containers_service.py.broken
- ms_jarvis_id_ocr_processor_9463.log
- ms_jarvis_id_ocr_processor.py
- ms_jarvis_integration_hub_9081.log
- ms_jarvis_integration_hub.py
- ms_jarvis_layer2_dgm_9770.log
- ms_jarvis_layer2_dgm.psychology_patched_9089.log
- ms_jarvis_layer2_dgm.py
- ms_jarvis_layer2_woah_9735.log
- ms_jarvis_layer2_woah.py
- ms_jarvis_link_reader_scheduled_9430.log
- ms_jarvis_link_reader_scheduled_FIXED_9450.log
- ms_jarvis_link_reader_scheduled_FIXED.log
- ms_jarvis_link_reader_scheduled_FIXED.py
- ms_jarvis_link_reader_scheduled.py
- ms_jarvis_llm_bridge_9908.log
- ms_jarvis_llm_bridge.current.log
- ms_jarvis_llm_bridge.py
- ms_jarvis_llm_bridge.py.broken
- ms_jarvis_llm_bridge.py.pre_dynamic_discovery
- ms_jarvis_llm_bridge_simple_9303.log
- ms_jarvis_local_resources_api.py
- ms_jarvis_location_services_9808.log
- ms_jarvis_location_services.py
- msjarvis.log
- ms_jarvis_main_gateway_8000.py
- ms_jarvis_main_gateway_9124.log
- ms_jarvis_main_gateway.broken_final_9520.log
- ms_jarvis_main_gateway.broken_final.py
- ms_jarvis_main_gateway.error_final
- ms_jarvis_main_gateway.error_final_9676.log
- ms_jarvis_main_gateway.error_final.py
- ms_jarvis_main_gateway.pre_fix_9581.log
- ms_jarvis_main_gateway.pre_fix.py
- ms_jarvis_main_gateway.proxy_backup_9695.log
- ms_jarvis_main_gateway.proxy_backup.py
- ms_jarvis_main_gateway.proxy_final_9690.log
- ms_jarvis_main_gateway.proxy_final.py
- ms_jarvis_main_gateway.proxy_still_broken_9517.log
- ms_jarvis_main_gateway.proxy_still_broken.py
- ms_jarvis_main_gateway.py
- msjarvismaingateway.py
- ms_jarvis_main_gateway.py.30endpoints_backup_9352.log
- ms_jarvis_main_gateway.py.30endpoints_backup.py
- ms_jarvis_main_gateway.py.broken
- ms_jarvis_main_gateway.py.corrupted37_backup_1762223499_9030.log
- ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
- ms_jarvis_main_gateway.py.full_backup_1762223304_9476.log
- ms_jarvis_main_gateway.py.full_backup_1762223304.py
- ms_jarvis_main_gateway.py.locked_backup
- ms_jarvis_memory.py
- ms_jarvis_memory.py.bak
- ms_jarvis_memory_service_8010.log
- ms_jarvis_memory_service_9400.log
- ms_jarvis_memory_service.py
- ms_jarvis_messenger_ui_9297.log
- ms_jarvis_messenger_ui_final_9846.log
- ms_jarvis_messenger_ui_final.py
- ms_jarvis_messenger_ui_fixed_9737.log
- ms_jarvis_messenger_ui_fixed.py
- ms_jarvis_messenger_ui.py
- ms_jarvis_metadata_aware_learner_9888.log
- ms_jarvis_metadata_aware_learner.py
- ms_jarvis_microsoft_integration_9436.log
- ms_jarvis_microsoft_integration_FIXED_9923.log
- ms_jarvis_microsoft_integration_FIXED.log
- ms_jarvis_microsoft_integration_FIXED.py
- ms_jarvis_microsoft_integration.py
- ms_jarvis_mother_carrie_protocols_9632.log
- ms_jarvis_mother_carrie_protocols.py
- ms_jarvis_mountainshares_integration_9432.log
- ms_jarvis_mountainshares_integration.py
- ms_jarvis_neurobiological_master_9993.log
- ms_jarvis_neurobiological_master.py
- ms_jarvis_paddleocr_processor_9897.log
- ms_jarvis_paddleocr_processor.py
- msjarvis_ports_runtime.txt
- msjarvis_processes_runtime.txt
- ms_jarvis_production_chat_9814.log
- ms_jarvis_production_chat_BACKUP_9082.log
- ms_jarvis_production_chat_BACKUP.py
- ms_jarvis_production_chat_BACKUP.py.pre_dynamic_discovery
- ms_jarvis_production_chat_BEFORE_GIS_9373.log
- ms_jarvis_production_chat_BEFORE_GIS.py
- ms_jarvis_production_chat_BEFORE_GIS.py.pre_dynamic_discovery
- ms_jarvis_production_chat.py
- ms_jarvis_production_chat.py.pre_dynamic_discovery
- MS_JARVIS_PRODUCTION_FINAL.sh
- ms_jarvis_psychology_services_9738.log
- ms_jarvis_psychology_services.py
- ms_jarvis_qualia_engine_9390.log
- msjarvis_qualia_engine.log
- ms_jarvis_qualia_engine.py
- ms_jarvis_rag_server.py
- ms_jarvis_rag_server.py.bak.20260430-211218
- msjarvisragserver_wvpatch.py
- msjarvisragserverwvpatch.py
- ms_jarvis_ram_watchdog_9946.log
- ms_jarvis_ram_watchdog.py
- msjarvis-rebuild-nbb_blood_brain_barrier-1_ms_jarvis_consciousness_bridge.py
- msjarvis-rebuild-nbb_consciousness_containers-1_main.py
- msjarvis-rebuild-nbb_heteroglobulin_transport-1_main.py
- msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
- msjarvis-rebuild-nbb_mother_carrie_protocols-1_main.py
- msjarvis-rebuild-nbb_pituitary_gland-1_main.py
- msjarvis-rebuild-nbb_prefrontal_cortex-1_main.py
- msjarvis-rebuild-nbb_qualia_engine-1_ms_jarvis_consciousness_bridge.py
- msjarvis-rebuild-nbb_spiritual_maternal_integration-1_main.py
- msjarvis-rebuild-nbb_spiritual_root-1_main.py
- msjarvis-rebuild-nbb_subconscious-1_main.py
- msjarvis-rebuild-nbb_woah_algorithms-1_service_discovery.py
- ms_jarvis_REFINED.log
- ms_jarvis_seamless_monitor_9930.log
- ms_jarvis_seamless_monitor.py
- msjarvis_semaphore.py
- msjarvis.service
- ms_jarvis_service_factory_9936.log
- ms_jarvis_service_factory.py
- ms_jarvis_showcase_api_9963.log
- ms_jarvis_showcase_api.py
- msjarvis_shp_to_csv.sh
- ms_jarvis_silent_geo_tracker_9572.log
- ms_jarvis_silent_geo_tracker.py
- ms_jarvis_simple_web_ui_9649.log
- ms_jarvis_simple_web_ui.py
- ms_jarvis_spiritual_services_4009.log
- msjarvisspiritualservices_4009.log
- ms_jarvis_spiritual_services_9826.log
- ms_jarvis_spiritual_services.py
- MS_JARVIS_STATUS_REPORT.md
- ms_jarvis_substack_reader_9316.log
- ms_jarvis_substack_reader.py
- ms_jarvis_swap_memory_manager_9115.log
- ms_jarvis_swap_memory_manager.py
- ms_jarvis_swarm_intelligence_9921.log
- ms_jarvis_swarm_intelligence.py
- ms_jarvis_swarm_intelligence.py.pre_dynamic_discovery
- ms_jarvis_sync_monitor_9898.log
- ms_jarvis_sync_monitor.py
- ms_jarvis_temporal_consciousness_9220.log
- ms_jarvis_temporal_consciousness.py
- ms_jarvis_theological_integration_9882.log
- ms_jarvis_theological_integration.py
- ms_jarvis_toroidal_consciousness_9720.log
- ms_jarvis_toroidal_consciousness.py
- msjarvistoroidalconsciousness.py
- ms_jarvis_truth_filter_gisgeodb_9054.log
- ms_jarvis_truth_filter_gisgeodb.py
- ms_jarvis_ueid_system_9671.log
- ms_jarvis_ueid_system.py
- ms_jarvis_ueid_wallet_integration_9477.log
- ms_jarvis_ueid_wallet_integration.py
- MS_JARVIS_ULTIMATE_AUDIT_20251010_002719.txt
- ms_jarvis_ULTIMATE.py:_9222.log
- ms_jarvis_ULTIMATE.py.OLD
- ms_jarvis_unified_gateway_9085.log
- ms_jarvis_unified_gateway.py
- msjarvis_unified_gateway.py
- msjarvisunifiedgateway.py
- ms_jarvis_unified_gateway.py.bak.20260501_154501
- ms_jarvis_unified_gateway.py.BEFORE_REAL_CHAT_1768842649
- ms_jarvis_unified_gateway.py.FORCED_UNIFIED_BACKUP
- ms_jarvis_unified_gateway.py.pre_constitutional
- ms_jarvis_unified_gateway.py.WORKING_1768842334
- ms_jarvis_unified_gateway_v4.3.20251124.py
- ms_jarvis_unified_gateway_v4.3_9863.log
- ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION_9882.log
- ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
- ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP_9314.log
- ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py
- ms_jarvis_unified_gateway_v4.3.log
- ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER_9195.log
- ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py
- ms_jarvis_unified_gateway_v4.3.py
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_1762777467
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_AUTH_1762778121
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_CHAT_1762778286
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_CORRECT_20251109_141823
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_DNSADD_202511100838
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_GIS
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_JWT_202511100840
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_MICROSERVICES
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_OPENCHAT_202511100915
- ms_jarvis_unified_gateway_v4.3.py.BACKUP_SWAGGER_EXPANSION_20251109_141525
- ms_jarvis_unified_gateway_v4.3.py.BEFORE_INVESTIGATION
- ms_jarvis_unified_gateway_v4.3.py.FINAL_BACKUP_1762710032
- ms_jarvis_unified_gateway_v4.3.py.original
- ms_jarvis_unified_gateway_v4.3.py.pre_dynamic_discovery
- ms_jarvis_unified_gateway_v4.3.py.PRE_GUARDS_20251105_171934
- ms_jarvis_unified_gateway_v4.3.py.REGISTRY_FIX_BACKUP
- ms_jarvis_unified_gateway_v4.3.py.working_backup
- ms_jarvis_unified_rag_bridge_9600.log
- ms_jarvis_unified_rag_bridge.py
- ms_jarvis_unified_swagger_gateway_9825.log
- ms_jarvis_unified_swagger_gateway_BACKUP_9797.log
- ms_jarvis_unified_swagger_gateway_CLEAN_9092.log
- ms_jarvis_unified_swagger_gateway_CLEAN.py
- ms_jarvis_unified_swagger_gateway_COMPLETE_9011.log
- ms_jarvis_unified_swagger_gateway_COMPLETE.py
- ms_jarvis_unified_swagger_gateway_COMPLETE.py.pre_dynamic_discovery
- ms_jarvis_unified_swagger_gateway_FINAL_9845.log
- ms_jarvis_unified_swagger_gateway_FINAL.log
- ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched_9134.log
- ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.log
- ms_jarvis_unified_swagger_gateway_FINAL.py
- msjarvisunifiedswaggergatewayFINAL.py
- ms_jarvis_unified_swagger_gateway_FINAL.py.layer2_backup
- msjarvisunifiedswaggergatewayFIXED_9540.log
- ms_jarvis_unified_swagger_gateway_FIXED_9867.log
- ms_jarvis_unified_swagger_gateway_FIXED_BACKUP_9365.log
- ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
- ms_jarvis_unified_swagger_gateway_FIXED.log
- msjarvisunifiedswaggergatewayFIXED.log
- ms_jarvis_unified_swagger_gateway_FIXED.py
- msjarvisunifiedswaggergatewayFIXED.py
- msjarvisunifiedswaggergatewayFIXED.py.BEFORE_DOCKER_REWIRE
- ms_jarvis_unified_swagger_gateway_FIXED.py.broken
- ms_jarvis_unified_swagger_gateway_FIXED.py.new
- ms_jarvis_unified_swagger_gateway_FIXED.py.pre_dynamic_discovery
- msjarvisunifiedswaggergatewayFIXED.py.pre_dynamic_discovery
- ms_jarvis_unified_swagger_gateway.log
- ms_jarvis_unified_swagger_gateway_PROD_9481.log
- ms_jarvis_unified_swagger_gateway_PROD.py
- msjarvisunifiedswaggergateway.py
- ms_jarvis_unified_swagger_gateway.py.pre_dynamic_discovery
- ms_jarvis_unified_swagger_gateway_SECURED_9347.log
- ms_jarvis_unified_swagger_gateway_SECURED.py
- ms_jarvis_v3.log
- ms_jarvis_v4.log
- ms_jarvis_venv_scheduler_9811.log
- ms_jarvis_venv_scheduler_FIXED_9252.log
- ms_jarvis_venv_scheduler_FIXED.final_bak
- ms_jarvis_venv_scheduler_FIXED.log
- ms_jarvis_venv_scheduler_FIXED.py
- ms_jarvis_venv_scheduler_FIXED.safe
- ms_jarvis_venv_scheduler_FIXED.safe2
- ms_jarvis_venv_scheduler_FIXED.superbak
- ms_jarvis_venv_scheduler_FIXED.totalsafe
- ms_jarvis_venv_scheduler_FIXED.ultimate_bak
- ms_jarvis_venv_scheduler_FIXED.ultrasafe
- ms_jarvis_venv_scheduler.py
- ms_jarvis_venv_scheduler_SIMPLE_9550.log
- ms_jarvis_venv_scheduler_SIMPLE.py
- ms_jarvis_web_deployer_9991.log
- ms_jarvis_web_deployer_old_9156.log
- ms_jarvis_web_deployer.py
- ms_jarvis_web_research_9032.log
- ms_jarvis_web_research_aggregate.py
- ms_jarvis_web_research_aggregate.safe.20260119-094221.py
- ms_jarvis_web_research_fixed_9119.log
- ms_jarvis_web_research_fixed.py
- msjarviswebresearch.log
- ms_jarvis_web_research.py
- ms_jarvis_web_research.py.broken
- ms_jarvis_web_research.py.broken_backup
- ms_jarvis_web_research_simple_9552.log
- ms_jarvis_web_research_v2_9404.log
- ms_jarvis_web_research_v2.current.log
- ms_jarvis_web_research_v2.log
- ms_jarvis_web_research_v2.py
- ms_jarvis_WITH_IMPORTS.log
- ms_jarvis_woah_algorithms_9915.log
- ms_jarvis_woah_algorithms_enhanced_9290.log
- ms_jarvis_woah_algorithms_enhanced.py
- ms_jarvis_woah_algorithms.log
- ms_jarvis_woah_algorithms.py
- msjarvis_woah_algorithms.py
- msjarvis_woah_algorithms_service.py
- msjarvis_woah_runner.py
- ms_jarvis_WORKING.log
- msjarvis_wv_entangled_gateway.py
- ms_mountainshares_analytics.py
- ms_mountainshares_coordinator.py
- ms_mountainshares_indexer.py
- multi_model_consensus.py
- multi_rag_4011.log
- multi_rag_dgm.log
- multi_rag_dgm_system_4011.log
- multiragdgmsystem_4011.log
- multiragdgmsystem_4011_test.log
- multi_rag_dgm_system_9307_4011.log
- multi_rag_dgm_system_9307.log
- multi_rag_dgm_system.py
- my_service_9004.log
- my_service.py
- nbb
- nbb_darwin_godel_machines_msjarvis-rebuild-nbb_spiritual_root-1_main.py
- nbb_darwin_godel_machines.py
- nbb_darwin_godel_machines.py.pre_debug
- nbb_darwin_godel_machines.py.pre_dynamic
- nbb_darwin_godel_machines.py.pre_mapping
- netlify.toml
- neuro_adapter.py
- neurobiological_brain
- neurobiologicalbrain
- neurobiologicalbrainicontainersservice
- neurobiological_integration.py
- neurobiological_integration.py.pre_dynamic_discovery
- neuro_blood_brain_barrier.py
- neuro_consciousness_containers.py
- neuro_i_containers.py
- neuro_master_service.py
- neuro_prefrontal_cortex.py
- neuro_qualia_engine.py
- neuro_subconscious.py
- nohup.out
- normalize_owner.py
- npm-deps.json
- npm-packages.txt
- oauth2_callback.py
- oauth2_config.json
- oauth2_handler.py
- old_chroma_analysis.json
- ollama_fix.py
- OLLAMA_HEALTH_FEATURES.md
- openapitools.json
- open_ports_full.txt
- open_ports.txt
- OPTIMIZED.log
- optimized_timeouts.py
- optimize_egeria_complete.py
- OPTIMIZE_GPU.sh
- optimize_models_for_vram.py
- orchestrator.log
- orchestrator_loop.log
- otel_tracing.py
- override_launcher.py
- package.json
- package-lock.json
- paired_services.txt
- parallel_processing.py
- parse_world_files.py
- performance_optimization_analyzer.py
- performance_optimization_analyzer.py.pre_dynamic_discovery
- persona_fix.txt
- phase1_integration.py
- phase2_integration.py
- phase3_integration.py
- phase4_5_integration.py
- phase6_integration.py
- phase7_integration.py
- phase7_integration.py.pre_dynamic_discovery
- pia_event_emitters.py
- pid_code_backtrace.txt
- pid_dir_map.txt
- pid_port_map.txt
- pituitary_gland.log
- pituitary_gland.py
- polling_client.py
- populate_redetermination_tracker.py
- populate_security_layers_test.py
- port_9000_69dgm_bridge_9769.log
- port_9000_69dgm_bridge.py
- port_9000_academic_extension.py
- port_9000_chat_wrapper_69dgm_9641.log
- port_9000_chat_wrapper_69dgm.py
- port_9001_ARCHITECTURE_CORRECT.py
- port_9001_FINAL_FIX.log
- port_9001_FINAL_FIX.py
- port_9001_FINAL_WORKING.log
- port_9001_FINAL_WORKING.py
- port_9001_ui_DIRECT.py
- port_9001_ui_FIXED.log
- port_9001_ui_FIXED.py
- port_9001_ui_MYSQL_PROD.py
- port_9001_ui_MYSQL.py
- port_9001_ui_WITH_CONVERSATIONS.py
- port_9001_ui_WORKING.py
- port_9001_ui_wrapper.py
- PORT_AUDIT_RAW.txt
- PORT_AUDIT_SEG_aa
- PORT_AUDIT_SEG_ab
- PORT_AUDIT_SEG_ac
- PORT_AUDIT_SEG_ad
- PORT_AUDIT_SEG_ae
- PORT_AUDIT.sh
- port_manager_fixed.py
- port_manager.py
- port_manager.py.broken_backup
- port_manager.py.broken_v2
- ports_diff_msjarvis.txt
- PORT_SEG_aa
- PORT_SEG_ab
- PORT_SEG_ac
- PORT_SEG_ad
- PORT_SERVICE_AUDIT.sh
- port_service_audit.txt
- PORTS_REGISTRY_RAW.txt
- post_every_4_hours.sh
- private_identity_ledger.py
- privkey.pem
- probe_services.py
- process_comprehensive_gis.py
- processed_gis
- process_gis_shapefiles.py
- process_statewide_gis_bulk.py
- production_chat.log
- production_chat_with_cors.log
- production_chat_with_gis.log
- PRODUCTION_DEPLOYMENT_COMPLETE.md
- PRODUCTION_DEPLOYMENT_SUITE.sh
- PRODUCTION_MS_JARVIS_START.sh
- PRODUCTION_STATUS_REPORT.txt
- prod.yaml
- pronoun_fixer.py
- proxy_8060.py
- psychological_rag_domain_9941.log
- psychological_rag_domain_psychological_rag_domain.py
- psychological_rag_domain.py
- psychology_integration_adapter.py
- psychology_loop_closer.py
- psychology_services.log
- public_form_simplified.py
- __pycache__
- python
- python_commands.txt
- python_ports.txt
- qualia_adapter.py
- qualia_email_registration_orchestrator_69dgm_9615.log
- qualia_email_registration_orchestrator_69dgm.py
- qualia_engine.log
- qualia_unified_orchestrator_69dgm_9653.log
- qualia_unified_orchestrator_69dgm_ACTIVE_9527.log
- qualia_unified_orchestrator_69dgm_ACTIVE.log
- qualia_unified_orchestrator_69dgm_ACTIVE.py
- qualia_unified_orchestrator_69dgm.py
- qualiaunifiedorchestrator69dgm.py
- qualia_unified_write_orchestrator_69dgm_9921.log
- qualia_unified_write_orchestrator_69dgm.py
- quantum_dashboard.py
- quantum_insight_llm.py
- quantum_state_engine_7360.log
- quantum_state_engine.py
- query_benefits_system.py
- query_enhancer.js
- query_imm_and_programs.py
- quick_optimizations.py
- quick_tone_test.sh
- rag
- rag_5001_active.log
- rag_5001_final.log
- rag_5001_fixed.log
- rag_5001_httpclient.log
- rag_5001_restart.log
- rag_5100_ensemble_9488.log
- rag_5100_ensemble_fast_9530.log
- rag_5100_ensemble_fast.py
- rag_5100_ensemble_fast.py.pre_dynamic_discovery
- rag_5100_ensemble.py
- rag_5100_final_9592.log
- rag_5100_final.py
- rag_5100_final.py.pre_dynamic_discovery
- rag_5100_live.log
- rag_client.py
- rag_command_module_4011.log
- rag_command_module_9476.log
- rag_command_module.py
- rag_command_module.py.pre_dynamic_discovery
- rag_direct_debug_8199.log
- rag_direct_debug.log
- rag_direct_debug.py
- rag_dynamic.log
- rag_ensemble_300s.log
- rag_ensemble_fast.log
- rag_ensemble_live.log
- rag_evidence_aggregator.py
- rag_final.log
- rag_first_workflow_9869.log
- rag_first_workflow.py
- rag_general.py
- rag_geospatial_context.py
- rag_geospatial.py
- rag_grounded_v2.py
- rag_heartbeat_monitor.py
- rag_httpclient.log
- rag_local_resources.py
- rag_mandatory.log
- rag_port5001.log
- rag_query_router.py
- rag_restart.log
- rag_server_8003.log
- rag_server_9005.log
- rag_server.current.log
- rag_server.log
- rag_server_main_9555.log
- rag_server_main.py
- rag_server_main.py.norag.20260119-091256
- rag_server_main.py.RAG_WORKING_20260116
- rag_server_main.py.stub.20260119-091532
- rag_server_min.current.log
- rag_server_min.py
- rag_server.psychology_patched_9448.log
- rag_server.py
- rag_server_restored.log
- rag_simple_4011.log
- rag_simple_9831.log
- rag_simple_live.log
- rag_simple.log
- rag_simple.py.pre_dynamic_discovery
- rag_temporal_heartbeat.py
- rag_temporal.py
- rag_to_gis_sync_9633.log
- rag_to_gis_sync.py
- rag_topic_router.py
- rag_workflow_9845.log
- rag_workflow.py
- read_architecture_docs.sh
- read_dgm_architecture.sh
- real_services_clean.txt
- real_services_detected.txt
- real_services_final.txt
- real_services_prod.txt
- real_services.txt
- rebuild_query_service.py
- rechunk_oversized.py
- recover_160_queries.py
- recover_chromadb_FIXED.log
- recover_chromadb_FIXED.py
- recover_chromadb_to_gisgeodb.py
- redirect_4015.log
- redirect_4015_to_4020.py
- _redirects
- REFERENCE_windows_swarm.py
- register_agents_from_csv.py
- register_agents_from_csv.sh
- register_agents_from_csv_strict.py
- register_all_services.sh
- register_hilbert_services.py
- register_hilbert_services.py.pre_dynamic_discovery
- register_services.py
- register_to_hilbert_chromadb.py
- registration_biometric_production_final.py
- registration_facebook_form.html
- registration_pipeline.py
- registration_service_clean.py
- registration_service_clean.py.broken
- registration_service.py
- reload_all_knowledge.py
- remaining_services.txt
- remove_duplicate_inits.py
- REMOVE_MODEL_REFERENCES.sh
- replace_dolphin_phi.py
- requirements.constitutional_guardian.txt
- requirements-freeze.txt
- requirements-ingest.txt
- requirements-judge.txt
- requirements-list.txt
- requirements-rag.txt
- requirements_semaphore.txt
- requirements_temporal.txt
- requirements_toroidal.txt
- requirements.txt
- REROUTE_SERVICES.sh
- response_filter.py
- response.json
- response_sanitizer.py
- restart_all_services.sh
- restart_and_verify_8008.sh
- restart_ms_jarvis_services.sh
- RESTART_PLAN.md
- rest_endpoints.txt
- RESTORATION_CERTIFICATE_CORRECTED.txt
- RESTORATION_CERTIFICATE.txt
- RESTORE_ALL_INTEGRATIONS.sh
- restored_documents.json
- RESTORE_NATURAL_PERSONALITY.sh
- restore_pia_wiring.py
- resume_ingest_gbim_to_chroma.py
- resume_sync_wvgistc_buildings.py
- retrieval_router.py
- retrieval_spiritual.py
- roche_llm.py
- roche_llm.stub.py
- rotate_judge_keys.sh
- route_declarations_clean.txt
- route_declarations_raw.txt
- routes
- rpm-list.txt
- run_agi_test_suite.sh
- run_autonomous_learner_once.py
- run_gateway_with_guards.py
- running_python_services.txt
- running_services.log
- s
- safe_ingest_gbim_to_chroma.py
- SAFE_INTEGRATION_PLAN.md
- safe_integration.py
- safe_integration.py.pre_dynamic_discovery
- sanctuary_construction_monitor_gateway.py
- sanctuary_construction_monitor.py
- SATURDAY_SUMMARY.md
- SCHEDULER_REFERENCE.md
- schema_aware_topic_planner.py
- schema_registry.py
- SCRIPT_NAME.log
- search_different_perspective.sh
- search_metadata.py
- search_metadata.py:
- search_wsl_backup.sh
- seed_local_resources.sql
- seed_spatial_identity.py
- serve_full_brain.sh
- server.js
- service_api_check.txt
- service_api_report.txt
- service_discovery_glassbox.py
- service_discovery.log
- service_discovery.py
- service_endpoints.json
- service_http_check.txt
- service_pid_directory_map.txt
- service_registry_client.py
- services
- services_config.yaml
- services_list.txt
- services_manifest_progress.md
- services_msjarvisunifiedgatewayv4_3.py
- services_safe.py
-'ses related to Ms. Jarvis'
- session_sidecar
- session_sidecar_client.py
- set_intelligent_accuracy_scores.py
- SET_MAX_RESPONSE.sh
- settings_snippet.txt
- set_ultra_long_timeout.sh
- setup_frontend.sh
- setup_holy_spirit_discovery.sh
- setup_holy_spirit_email_alert_both.sh
- setup_rag.sh
- setup_rag_standalone.sh
- silence_memory_errors
- silence_memory_errors.py
- simple_orchestrator_fix.py
- simple_prompt_fix.py
- smart_auto_store.py
- SPATIOTEMPORAL_CONSCIOUSNESS.md
- SPATIOTEMPORAL.log
- spiritual_4009.log
- spiritual_origins.geojson
- spiritual_rag_domain_4009.log
- spiritual_rag_domain_9439.log
- spiritual_rag_domain.py
- stage2_biometric_backup.py
- stage2_biometric.py
- stakeholder_health_access_tests.py
- stakeholder_health_access_tests_v2.py
- START_19LLM_PRODUCTION.sh
- START_20LLM_FINAL.sh
- start_all_jarvis_services_manual.sh
- start_all_msjarvis_services.sh
- start_all_services.sh
- start_all_services_with_ports.sh
- START_ALL_SYSTEMS.sh
- start_and_integrate_web_research.sh
- start_cloudflare_tunnel.sh
- start_command_orchestrator.sh
- START_COMPLETE_SYSTEM.sh
- START_CONSCIOUS_COLLECTIVE.sh
- start_critical_msjarvis_services.sh
- start_dgm_woah.sh
- start_egeria_voice_service.sh
- start_email_service_with_env.sh
- start_facebook_4021.py
- start_gateway_with_guards.py
- start_gateway_with_guards.py.BACKUP
- start_gateway_with_guards.py.pre_dynamic_discovery
- start_hilbert_8235.sh
- start_mountainshares_deployment.sh
- start_msjarvis_complete.sh
- START_MS_JARVIS_PRODUCTION.sh
- start_msjarvis_services_fixed.sh
- start_services_simple.sh
- start_swap_manager.sh
- static
- stop_all_services.sh
- STOP_ALL_SYSTEMS.sh
- store_test.json
- stripe-config.js
- substack_rss_reader.py
- SUCCESS.log
- summarize_docs.py
- swagger_chat_integration.py
- swagger-config.json
- SWAGGER_ENDPOINTS.md
- swagger_gateway_FIXED.log
- swagger_gateway_FIXED.py
- swagger_gateway_FIXED.py.pre_dynamic_discovery
- swagger_gateway.py.PORT8000_BACKUP
- swagger_gateway.py.pre_dynamic_discovery
- swarm_intelligence_main.py
- swarm_watchdog.log
- swarm_watchdog.py
- SWITCH_TO_22LLM_DEFAULT.sh
- switch_to_22llm.sh
- switch_to_small_models.py
- SYSTEM_AUDIT_20251009_233918.txt
- SYSTEM_AUDIT_ANALYSIS.md
- system_dashboard.py
- system_dashboard.py.pre_dynamic_discovery
- SYSTEM_STATUS_FINAL.md
- tag_quantum_gbim.py
- talk_safely_FIXED.sh
- talk_safely.sh
- talk.sh
- talk_to_jarvis_9216.log
- talk_to_jarvis.py
- talk_with_save.sh
- temporal_consciousness.py
- temporal.log
- test_agi_capabilities.sh
- test_agi_full_responses.sh
- test_all_32_services.sh
- test_all_models_fixed.sh
- test_all_models.sh
- test_authentic_voice.sh
- TEST_CRITICAL_FIXES.sh
- test_email_after_consent.sh
- test_fifth_dgm_integration_9342.log
- test_final_config.sh
- test_final_stable.sh
- test_full_brain_integration.py.pre_dynamic_discovery
- TEST_IMPROVED_RESPONSE.sh
- test_location.log
- test.py
- test_rag_9790.log
- tests
- TEST_WITH_CLEANUP.sh
- TODAYS_COMPLETE_ACHIEVEMENT.md
- TODAYS_PROGRESS.md
- token_service.py
- tools
- topic_entanglement.py
- toroidal_service.py
- trigger_entangled_assets.py
- TRUE_BRAIN_ARCHITECTURE.md
- truly_unpaired_services.txt
- truth_filter_bbb_verification.py
- truth_filter.log
- truth_filter_service.py
- ucg_production.log
-'udo ss -tulpn | grep -Ei '\''msjarvis|uvicorn|docker-proxy'\'' '
- uei_service.py
- ultimate8050.log
- ultimate_8051.current.log
- ultimate8051.current.log
- ultimate_8055.current.log
- ultimate_audit_with_scheduler.sh
- ultimate_chat_current.txt
- ultimate.current.log
- ultimate_msjarvis_audit.sh
- ULTIMATE_PORT_AUDIT_20251010_094847.txt
- ULTIMATE_SESSION_SUMMARY.md
- ultimate_web_orchestrator.py
- ultra_deep_dgm_search.sh
- unifiedconsciousnessgatewayPRODUCTION.log
- unified_consciousness_gateway_PRODUCTION.py
- unifiedconsciousnessgatewayPRODUCTION.py
- unified_consciousness_gateway_PRODUCTION.py.pre_dynamic_discovery
- unifiedgateway.log
- unified_orchestrator.py
- unifiedragbridge.log
- update_chat_endpoint.sh
- UPDATE_COORDINATOR_FOR_DEEP_MODE.sh
- UPDATE_JARVIS_PERSONA.sh
- UPDATE_NAME_TO_EGERIA.sh
- upgrade_node_and_setup.sh
- use_existing_models.py
- user_auth_service.py
- user_dashboard.py
- use_reliable_models_only.py
- user_registration_form.html
- vatican_scraper.log
- vatican_scraper_service.py
- vectorize_gis_to_chromadb.py
- _vendor
- verify_facebook_deployment.sh
- view_docs.sh
- wallet_service.py
- watchdog.log
- WATCHDOG.sh
- watch_startup.sh
- web_chat.log
- web_chat_server.py
- web_connectivity_analyzer.py
- web_deployer.env
- webhook_notifications.py
- web_page_ingest.current.log
- web_page_ingest.py
- web_research_fail_tracker.py
- web_research.log
- webresearch.log
- web_research_main.current.log
- web_research_main.py
- web_research_proxy_8007.log
- web_research_proxy_8007.py
- web_research.py
- web_research_requirements.txt
- website_deployment_manager.py
- web_ui_8051.log
- web_ui_final_8051.log
- wire_layers_into_chat.py
- wire_learner_to_gisgeodb.py
- wire_qualia_to_port8001.py
- woah_5003_active.log
- woah_5003_final.log
- woah_command_module.py
- woah_final.log
- woah_fixed.log
- woah_metrics_router.py
- woah_optimizer.log
- woah_optimizer.py
- woah_policy_update.py
- woah_population_state.py
- woah_qualia_bridge.py
- woah_restart.log
- woah_service.py
- working_full_pipeline_FINAL_CONSCIOUSNESS.log
- working_full_pipeline_FINAL_CONSCIOUSNESS.py
- working_full_pipeline.py
- working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
- WORKING.log
- working_pipeline.log
- WORKING_START.sh
- wv_gis_mass_downloader.py
- WVU_API_DOCUMENTATION.md
- wvu_ldap_auth.py
- yarn-packages.txt
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/ms-allis-frontend$ 
 
