@@ -60,7 +60,7 @@ MountainShares operates in clearly defined phases with automatic treasury-backed
 - **BSA protection:** If you enable BSA, your prepaid balance is capped at a conservative threshold (DAO-set, defaults to protect SSI $2,000 limit)
 - **You control BSA status:** One-click toggle in account settings — enable when you need protection, disable when your situation changes
 
-**Phase 2 — User-Choice EMS Conversion (unlocks when treasury reserve ratio ≥ 1.25 for 60+ days)**
+**Phase 2 — User-Choice EMS Conversion (unlocks when treasury reserve ratio ≥ 3.00 for 60+ days)**
 
 - **You choose** whether to convert vaulted EMS time credits to prepaid value (PMS)
 - Conversion rate: 1 EMS = $10 USD equivalent (10× appreciation)
