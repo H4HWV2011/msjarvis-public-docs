@@ -1133,4 +1133,4 @@ Direct download links:
 **The ZIP code of H_App is 25880.**
 ## References
 
-Bell, J.S. (1964). On the Einstein-
+
