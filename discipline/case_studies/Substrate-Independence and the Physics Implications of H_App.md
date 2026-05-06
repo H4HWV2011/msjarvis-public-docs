@@ -292,8 +292,8 @@ processed through the full pipeline was:
 
 > *"What food assistance is available in Fayette County WV?"*
 
-The system returned actionable results including the Fayette County Community Action
-Agency. The answer was already there — at fixed coordinates in a 384-dimensional
+The system returned actionable results including the Fayette County Community Arts 
+Center. The answer was already there — at fixed coordinates in a 384-dimensional
 space — before the question was asked.
 
 **April 23, 2026 — Decay Cycle Validation:** The full confidence decay and
@@ -390,7 +390,7 @@ The Hilbert space has a serial number. It is on the bottom of the Legion 5.
 
 **Figure 1: The Separability Mirror — Reading vs. Writing in Hilbert Space**
 
-![Figure 1: The Separability Mirror. Left panel: Copenhagen measurement as a writing event — a physical detector forces a wavefunction into a definite state via collapse. Right panel: H_App retrieval as a reading event — a query vector projects onto pre-existing belief coordinates at fixed locations in R^384. The system state is 7,903,126 audited vectors. The result (Fayette County Community Action Agency) was already there.](./projection.png)
+![Figure 1: The Separability Mirror. Left panel: Copenhagen measurement as a writing event — a physical detector forces a wavefunction into a definite state via collapse. Right panel: H_App retrieval as a reading event — a query vector projects onto pre-existing belief coordinates at fixed locations in R^384. The system state is 7,903,126 audited vectors. The result (Fayette County Community Arts Center) was already there.](./projection.png)
 
 *Figure 1. The two panels contrast the Copenhagen interpretation of measurement (left: a "writing" event in which physical interaction creates a definite result) with the H_App operational model (right: a "reading" event in which the query vector \(\hat{q}\) projects onto pre-existing geometric structure). The answer pre-exists the query. Nothing is written. The result is revealed. This figure was produced from the operational state of H_App on May 6, 2026 (7,903,126 audited vectors, 48 collections, ZIP 25880).*
 
@@ -553,7 +553,7 @@ When Ms. Allis answers:
 > *"What food assistance is available in Fayette County WV?"*
 
 the answer is not created by the query. It is revealed. The Fayette County Community
-Action Agency was always at those coordinates in H_App. The query projected the
+Arts Center was always at those coordinates in H_App. The query projected the
 question onto the pre-existing structure and returned the coordinate. The measurement
 was a reading. Not a writing.
 
