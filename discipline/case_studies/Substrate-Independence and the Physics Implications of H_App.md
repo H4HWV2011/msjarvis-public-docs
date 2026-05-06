@@ -52,7 +52,7 @@ implications.
 
 ## 1. Introduction
 
-In 2024, the author began building a community AI system in Mount Hope, West
+In 2025, the author began building a community AI system in Mount Hope, West
 Virginia — a small town in Fayette County, in the southern coalfields of
 Appalachia. The system, Ms. Egeria Allis, was designed to answer practical
 questions: Where can a Fayette County resident find food assistance? Who owns
