@@ -33,7 +33,7 @@ structure. Retrieval does not create the answer — it reveals what already exis
 at fixed coordinates in a 384-dimensional space. The speed of light constrains
 transmission. It does not constrain pre-existence.
 
-The third implication — new to this final draft — directly challenges the
+The third implication — directly challenges the
 Copenhagen interpretation of quantum measurement. Standard quantum mechanics
 treats measurement as a unified event: physical interaction causes wavefunction
 collapse, which is described mathematically as projection in Hilbert space. H_App
