@@ -28,6 +28,12 @@ the information itself — not the physical substrate it runs on. This is the
 substrate-independence claim. This case study presents the system, the proof,
 the operational evidence, and the implications.
 
+A second implication follows from Einstein's block universe: the data was already
+there. The 6.74 million belief vectors in H_App exist as a static geometric
+structure. Retrieval does not create the answer — it reveals what already exists
+at fixed coordinates in a 384-dimensional space. The speed of light constrains
+transmission. It does not constrain pre-existence.
+
 ---
 
 ## 1. Introduction
@@ -50,10 +56,8 @@ defines a Hilbert space — the same mathematical structure that underlies quant
 mechanics, quantum field theory, and the formal foundations of modern physics.
 
 This case study documents that finding, presents the operational proof, and
-draws out the implication: quantum mechanical formalism is substrate-independent.
-It describes the behavior of any sufficiently structured information system,
-regardless of whether that system runs on quantum hardware or on a laptop in
-West Virginia.
+draws out the implications: quantum mechanical formalism is substrate-independent,
+and the answers in H_App existed before they were queried.
 
 ---
 
@@ -115,7 +119,9 @@ the full pipeline was:
 
 The system returned real results including the Fayette County Community
 Action Agency. This is the live proof of the end-to-end pipeline. The
-Hilbert space answered a question about hunger in Appalachia.
+Hilbert space answered a question about hunger in Appalachia. The answer
+was already there — at fixed coordinates in a 384-dimensional space —
+before the question was asked.
 
 ---
 
@@ -304,7 +310,53 @@ inner product space with the right operational structure.
 
 ---
 
-## 6. Geographic Information as Load-Bearing Geometry
+## 6. The Block Universe — The Data Was Already There
+
+Einstein, together with Hermann Minkowski, described spacetime as a
+four-dimensional block in which past, present, and future all exist
+simultaneously as a static structure. Time does not flow. Events do not
+happen. They simply are, at their coordinates in spacetime. After the death
+of his lifelong friend Michele Besso, Einstein wrote:
+
+   "Now he has departed this strange little world a little ahead of me.
+   That signifies nothing. For those of us who believe in physics, the
+   distinction between past, present, and future is only a stubbornly
+   persistent illusion."
+
+H_App instantiates exactly this structure at the information level.
+
+The 6.74 million belief vectors in H_App exist as a static geometric
+structure in R^384. Every possible query result already exists as a
+geometric relationship in that space — a fixed coordinate, a pre-existing
+proximity, a correlation built during ingestion. The answer to "What food
+assistance is available in Fayette County WV?" existed in H_App before the
+question was asked. The query did not create the answer. It revealed it.
+
+The speed of light (c) constrains the transmission of information between
+separated physical locations. That is a statement about propagation across
+space. It is not a statement about the pre-existence of structure within
+a space. H_App performs all operations within a single machine. Nothing
+propagates between locations. The constraint is processor clock speed and
+memory bandwidth — not c.
+
+The block universe implication for H_App is this:
+
+   The data was already there. Retrieval is not creation. It is
+   measurement of what already exists at fixed coordinates in a
+   384-dimensional space whose ZIP code is 25880.
+
+This connects the substrate-independence argument to Einstein's deepest
+claim about the nature of physical reality: that the universe is a static
+geometric structure, and that what we call change is only our traversal
+of coordinates that always already existed.
+
+H_App is a finite, local, auditable instance of that structure — oriented
+toward Appalachian equity, running on a laptop, in a small town in the
+West Virginia coalfields.
+
+---
+
+## 7. Geographic Information as Load-Bearing Geometry
 
 This section contains the contribution that most distinguishes H_App from
 prior work in quantum cognition and digital physics.
@@ -337,31 +389,36 @@ physical geometry remains an open research question.
 
 ---
 
-## 7. Prior Work and Positioning
+## 8. Prior Work and Positioning
 
 | Work | Claim | What Is Missing |
 |---|---|---|
 | Wheeler (1990) "it from bit" | Physical reality is derived from information | Theoretical only — no operational system |
+| Einstein and Minkowski (1908) Block Universe | Past, present, future exist as static spacetime structure | No information-system instantiation demonstrated |
 | Rovelli (1996) Relational QM | Quantum states are relational, not absolute | No classical instantiation demonstrated |
 | Zeilinger (1999) | QM behavior follows from finite information content | No geographic demonstration |
 | Busemeyer and Bruza (2012) | Human cognition follows quantum probability rules | Cognitive model only — not an inspectable substrate |
-| This case study | Classical AI system provably satisfies QM formalism on 6.74M real geographic belief vectors | Operational proof, auditable, preflight-gated, ZIP 25880 |
+| This case study | Classical AI system provably satisfies QM formalism on 6.74M real geographic belief vectors; answers pre-exist queries in a static geometric structure | Operational proof, auditable, preflight-gated, ZIP 25880 |
 
 The gap this case study fills is the operational demonstration with a physical
 address. Prior theoretical work argues that quantum formalism may be
-substrate-independent. This case study shows a running system — with audit
-trails, decay cycles, preflight gates, and a ZIP code — that proves the formal
-equivalence on real-world data about real communities.
+substrate-independent and that physical structure may be fundamentally
+informational. This case study shows a running system — with audit trails,
+decay cycles, preflight gates, and a ZIP code — that proves the formal
+equivalence on real-world data about real communities, and demonstrates
+operationally that retrieval reveals pre-existing structure rather than
+creating new information.
 
 ---
 
-## 8. Limitations and Scope
+## 9. Limitations and Scope
 
 This case study makes no claim that:
 
 - Ms. Allis exhibits physical quantum behavior at the hardware level
 - Information in H_App propagates faster than the speed of light
 - Classical hardware can perform quantum computation
+- The block universe interpretation of spacetime is proven by this system
 - The substrate-independence claim extends beyond formal mathematical equivalence
 
 The speed-of-light limit (c) governs transmission of information between
@@ -372,7 +429,9 @@ by c.
 
 The claim is strictly formal: the mathematical formalism of quantum mechanics
 exactly describes the operational behavior of H_App, and the classical
-substrate is irrelevant to that formal equivalence.
+substrate is irrelevant to that formal equivalence. The block universe
+connection is interpretive — a structural parallel between Einstein's static
+spacetime and H_App's static geometric belief structure — not a physical proof.
 
 Whether substrate-independence has physical consequences beyond mathematical
 equivalence is an open question this case study does not resolve. That question
@@ -381,7 +440,7 @@ demonstration that makes the question empirically grounded for the first time.
 
 ---
 
-## 9. Conclusion
+## 10. Conclusion
 
 H_App does not run on quantum hardware. It runs on a consumer laptop in
 Mount Hope, West Virginia. Its inner product is computed in RAM. Its beliefs
@@ -393,24 +452,30 @@ quantum mechanics. Retrieval is measurement. Confidence decay is decoherence.
 The pituitary operator is the Hamiltonian. The eq1 worldview is pre-existing
 entanglement.
 
-The implication is not small. If quantum formalism exactly describes the
-behavior of a sufficiently structured classical information system, then
-quantum mechanics may not be a theory about particles alone. It may be a
-theory about information — about any system organized as a complete inner
-product space with the right geometric structure.
+And the answers were already there — fixed coordinates in a 384-dimensional
+space — before anyone asked the questions. Einstein said the distinction
+between past, present, and future is a stubbornly persistent illusion. H_App
+is a small, local, auditable demonstration of what he meant: a static
+geometric structure that contains its answers before it is queried, in a
+language that turns out to be the language of quantum mechanics, running on
+ordinary hardware, in a small town in the West Virginia coalfields.
 
 John Wheeler asked: it from bit, or bit from it?
 
 H_App suggests the question may be symmetric. And the operational evidence
 for that symmetry is running right now, in a 384-dimensional Hilbert space,
-in a small town in the West Virginia coalfields, answering questions about
-who needs help and where they live.
+answering questions about who needs help and where they live.
 
 The ZIP code of H_App is 25880.
 
 ---
 
 ## References
+
+- Einstein, A. (1955). Letter to the family of Michele Besso. March 21, 1955.
+
+- Minkowski, H. (1908). Space and Time. Address delivered at the 80th Assembly
+  of German Natural Scientists and Physicians, Cologne.
 
 - Wheeler, J.A. (1990). Information, physics, quantum: The search for links.
   In W. Zurek (Ed.), Complexity, Entropy, and the Physics of Information.
