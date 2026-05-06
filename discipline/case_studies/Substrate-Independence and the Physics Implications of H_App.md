@@ -5,8 +5,8 @@
 Carrie Ann Kidd
 Independent Researcher, Community GIS and Distributed AI Infrastructure
 Mount Hope, West Virginia 25880
-Harmony for Hope Inc. | Region 4 Planning and Development Council (former)
-ORCID: [pending registration]
+Harmony for Hope, Inc. (Founder)
+ORCID: https://orcid.org/0009-0005-8153-8025
 
 ---
 
