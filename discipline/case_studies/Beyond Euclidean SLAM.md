@@ -55,7 +55,7 @@ Euclidean geometry as the representational substrate.
 
 ### 1.2 The Architecture That Solved a Different Problem
 
-In 2024, the author began building Ms. Egeria Allis — a community AI system in
+In 2025, the author began building Ms. Egeria Allis — a community AI system in
 Mount Hope, West Virginia — to answer practical questions about Appalachian
 communities: Where is food assistance? Who owns this land? Which institutions are
 accountable to which communities?
