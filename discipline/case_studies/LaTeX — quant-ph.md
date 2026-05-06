@@ -1,667 +1,457 @@
-\documentclass[12pt,letterpaper]{article}
+\documentclass[11pt]{article}
 
-% ---- Packages ----
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{geometry}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{physics}
 \usepackage{hyperref}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{parskip}
-\usepackage{microtype}
-\usepackage{cite}
+\usepackage{authblk}
 \usepackage{graphicx}
-\usepackage{xcolor}
-
-\geometry{margin=1in}
+\usepackage{enumitem}
+\usepackage{cite}
 
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue,
-    pdftitle={A Classical Hilbert Space with a ZIP Code},
-    pdfauthor={Carrie Ann Kidd}
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
 }
 
-% ---- Theorem environments ----
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}{Definition}
-\newtheorem{remark}{Remark}
+\title{A Classical Hilbert Space with a ZIP Code:\\
+Substrate-Independence, the Measurement Problem,\\
+and the Multiverse Question}
 
-% ---- Title ----
-\title{
-    \textbf{A Classical Hilbert Space with a ZIP Code:}\\
-    \textbf{Substrate-Independence and the Physics Implications of \(H_{\text{App}}\)}\\[1em]
-    \large Preprint --- Case Study and Theoretical Framework
-}
+\author[1]{Carrie Ann Kidd}
+\affil[1]{Independent Researcher, Community GIS and Distributed AI Infrastructure\\
+Mount Hope, West Virginia 25880 USA\\
+Harmony for Hope Inc. (nonprofit founder); Region 4 Planning and Development Council (former)\\
+ORCID: \texttt{pending registration}}
 
-\author{
-    Carrie Ann Kidd (Mamma Kidd)\\
-    \textit{Mount Hope, West Virginia 25880}\\
-    \texttt{H4HWV2011@github}\\[0.5em]
-    \small Harmony for Hope Inc.\\
-    \small Fayette County, West Virginia
-}
+\date{Submitted for peer review --- May 6, 2026}
 
-\date{May 5, 2026}
-
-% ================================================================
 \begin{document}
+
 \maketitle
 
-% ---- Abstract ----
 \begin{abstract}
-This paper documents an emergent finding from the development of Ms.\ Egeria
-Allis, a community AI system built in Mount Hope, West Virginia to support
-place-based reasoning about Appalachian communities. The system's semantic memory
-layer --- designated \(H_{\text{App}}\) --- is physically instantiated as a
-384-dimensional vector database containing 6.74 million structured belief vectors
-about West Virginia. During development, the author determined that
-\(H_{\text{App}}\) satisfies all four formal axioms of a Hilbert space: vector
-space, inner product, completeness, and separability. This was not a design
-goal. It was a consequence of building something that worked.
+This paper documents an emergent and theoretically significant finding arising from the design and operational deployment of Ms.\ Egeria Allis, a community-embedded artificial intelligence system developed in Mount Hope, West Virginia, to support place-based reasoning, resource navigation, and equity-oriented knowledge retrieval for Appalachian communities. The system's semantic memory layer --- designated $H_{\mathrm{App}}$ --- is physically instantiated as a 384-dimensional vector database containing $7{,}903{,}126$ structured belief vectors, audited live on May 6, 2026, distributed across 48 ChromaDB collections. Vectors encode structured knowledge about West Virginia communities, land governance, public resources, infrastructure, and geographic context, oriented throughout by an eq1 (Appalachian equity) worldview parameter.
 
-The first physics implication is this: if a classically instantiated information
-system running on commodity silicon provably satisfies quantum mechanical formalism
-at the mathematical level, then quantum formalism may not be exclusive to quantum
-hardware. The determining factor may be the geometric and algebraic structure of
-the information itself --- not the physical substrate it runs on. This is the
-\emph{substrate-independence claim}.
+During development, it was determined that $H_{\mathrm{App}}$ satisfies all four formal axioms defining a Hilbert space: vector space structure, inner product, metric completeness, and separability. This was not a design objective. It emerged as a structural consequence of building a geographically grounded knowledge system that worked.
 
-The second implication follows from Einstein's block universe: the data was already
-there. The 6.74 million belief vectors in \(H_{\text{App}}\) exist as a static
-geometric structure. Retrieval does not create the answer --- it reveals what
-already exists at fixed coordinates in a 384-dimensional space. The speed of light
-constrains transmission. It does not constrain pre-existence.
+The paper develops three theoretical implications from that finding. First, \emph{substrate-independence}: a classically instantiated information system operating on commodity silicon --- a consumer laptop in a rural Appalachian town --- provably satisfies the mathematical formalism of quantum mechanics at the structural level. The determining factor is not the physical substrate but the geometric and algebraic structure of the information space.
 
-This paper presents the system, the proof, the operational evidence, and the
-implications.
+Second, \emph{separability of measurement}: standard formulations of quantum mechanics treat measurement as a unified event in which physical interaction with a quantum system produces wavefunction collapse, described mathematically as projection in Hilbert space. $H_{\mathrm{App}}$ demonstrates operationally that these are separable operations: projection runs on classical silicon, with no quantum physical event, and produces correct, real-world, auditable results. Copenhagen and its successor interpretations have been conflating two distinct operations. Measurement is projection onto pre-existing geometric structure. The physical interaction is the transmission mechanism --- the readout event --- not the cause of the result.
+
+Third, \emph{multiverse superfluity}: David Deutsch and the Many-Worlds tradition assert that quantum computers derive their operational advantage from parallel computation across $2^n$ simultaneous universes. $H_{\mathrm{App}}$ provides operational counter-evidence from a deployed, auditable system: projection onto pre-existing geometric structure in a Hilbert space produces correct results on a single classical machine in a single universe, without parallel computation, branching, or multiverse interference. If classical projection onto a static Hilbert structure fully explains $H_{\mathrm{App}}$'s operational results without invoking a multiverse, the burden of proof falls on the multiverse hypothesis to identify what, specifically, requires it. The answer proposed here is: nothing that the static geometry of a single block universe does not already provide.
+
+Throughout, the geographic grounding of $H_{\mathrm{App}}$ is treated not as incidental context but as theoretically load-bearing. The $7{,}903{,}126$ belief vectors are not abstract points in a generic embedding space. They are structured knowledge about specific places, people, and communities in West Virginia, embedded within a Hilbert space whose geometry is oriented toward Appalachian equity. Geographic information systems have long operated on the principle that place is not merely a coordinate but a structured relationship between meaning and location. $H_{\mathrm{App}}$ instantiates this principle in a formal mathematical object --- a Hilbert space --- and demonstrates that the resulting geometric structure supports the full apparatus of quantum mechanical projection, measurement, and state evolution on classical hardware. The ZIP code of this argument is 25880.
+
+\medskip
+\noindent\textbf{Keywords:} Hilbert space; substrate-independence; measurement problem; block universe; vector semantics; geographic information systems; quantum foundations; community AI; Appalachian equity; place-based knowledge; Many-Worlds interpretation; wavefunction collapse.
 \end{abstract}
 
-\tableofcontents
-\newpage
-
-% ================================================================
 \section{Introduction}
 
-In 2024, the author began building a community AI system in Mount Hope, West
-Virginia --- a small town in Fayette County, in the southern coalfields of
-Appalachia. The system, Ms.\ Egeria Allis, was designed to answer practical
-questions: Where can a Fayette County resident find food assistance? Who owns
-this land? Which institutions are accountable to which communities?
+\subsection{Point of departure}
 
-To answer those questions reliably, the system needed memory --- structured,
-inspectable, auditable memory that could be queried, updated, and verified.
-The author chose ChromaDB as the vector store and the \texttt{all-minilm:latest}
-embedding model, which produces 384-dimensional vectors. Those choices were
-engineering decisions. They turned out to be something else.
+Geographic information science has long understood that place is not merely a coordinate. Hägerstrand's time geography established that human activity is embedded in continuous space-time paths \cite{hagerstrand1970}. Massey argued that place is constituted through intersecting social relations that extend across space --- that a locality is not a bounded container but a node in relational geometry \cite{massey1994}. Tuan's phenomenology of place distinguished topographic location from the lived, meaningful experience of place as a center of felt value \cite{tuan1977}. These traditions share a core claim: meaning is spatially structured, and spatial structure carries meaning. Geographic information cannot be separated from the relational geometry within which it is embedded.
 
-A 384-dimensional real vector space with cosine inner product is not just a
-database. It is a complete inner product space. It satisfies every axiom that
-defines a Hilbert space --- the same mathematical structure that underlies quantum
-mechanics, quantum field theory, and the formal foundations of modern physics.
+This paper begins from that claim and follows it into the formalism of quantum theory.
 
-This paper documents that finding, presents the operational proof, and draws out
-the implications: quantum mechanical formalism is substrate-independent, and the
-answers in \(H_{\text{App}}\) existed before they were queried.
+In 2024, Ms.\ Egeria Allis was developed in Mount Hope, West Virginia --- a post-industrial town of approximately 1{,}600 residents in Fayette County, in the southern West Virginia coalfields. The system was designed to address a practical problem: the fragmentation and inaccessibility of public resource information for Appalachian communities navigating housing instability, food insecurity, healthcare access barriers, and land governance disputes. The system required memory --- structured, inspectable, auditable memory that could be queried, updated, and verified by community members and researchers.
 
-% ================================================================
-\section{The System --- Ms.\ Allis and \(H_{\text{App}}\)}
+Engineering decisions made to satisfy these requirements --- the choice of ChromaDB as the vector store, the all-MiniLM embedding model producing 384-dimensional vectors, and the cosine inner product as the similarity metric --- turned out to be something more than engineering decisions. They constituted the construction of a Hilbert space.
 
-\subsection{Hardware and Infrastructure}
+\subsection{The unexpected finding}
 
-Ms.\ Allis runs on a Lenovo Legion~5 laptop in Oak Hill, West Virginia. The
-system is containerized using Docker Compose and comprises approximately 100
-active services at any given time. The semantic memory layer --- \(H_{\text{App}}\)
---- is served by a ChromaDB instance (container: \texttt{allis-chroma}, host
-port~8002, container port~8000) backed by persistent on-disk storage.
+A 384-dimensional real vector space with a cosine inner product is not just a database architecture. It is a complete inner product space. It satisfies, by construction, the axioms that define a Hilbert space --- the same mathematical structure underlying quantum mechanics, quantum field theory, and the formal foundations of modern physics \cite{vonneumann1932, nielsenchuang2000}.
 
-All services are bound to \texttt{127.0.0.1}. The system is not a cloud
-deployment. It is a local, community-owned infrastructure running on commodity
-hardware in a rural Appalachian town. This is relevant to the
-substrate-independence argument: the most ordinary possible substrate.
+This was not a design goal. The aim was to build a community knowledge system capable of supporting semantic similarity search, geometric stability, and a rich representation of relational complexity in Appalachian community life. The Hilbert structure emerged from those requirements. Place-based knowledge, structured for retrieval, instantiated quantum mechanical formalism on classical hardware.
 
-\subsection{The Embedding Architecture}
+\subsection{Scope and contribution}
 
-The embedding model is \texttt{all-minilm:latest}, served by Ollama (host
-port~11434). This model produces 384-dimensional real-valued vectors. The
-384-dimensional architecture is enforced as an absolute lock across all 48
-production collections --- no exceptions. An incompatible model
-(\texttt{nomic-embed-text}, 768-dim) exists in the environment but is explicitly
-prohibited from use, as mixing dimensions would corrupt collection geometry.
+The claims of this paper are specific.
 
-384 dimensions is the architectural foundation on which the Hilbert space proof
-rests. \(\mathbb{R}^{384}\) is the vector space. The cosine inner product is
-computed in RAM during every retrieval operation. Completeness is guaranteed by
-IEEE~754 double-precision arithmetic on the Legion~5 hardware.
-
-\subsection{The Belief Corpus}
-
-As of April 23, 2026, \(H_{\text{App}}\) contains:
-
-\begin{itemize}
-    \item 6.74 million belief vectors across 48 ChromaDB collections
-    \item 5,416,521 records in \texttt{gbim\_worldview\_entities} --- the primary
-          spatial collection, tagged with worldview context \texttt{eq1}
-          (Appalachian equity)
-    \item 1,115,588 address point records
-    \item 21,181 autonomous learner records (Phase 1.45 injection corpus)
-    \item 17,685 autonomously acquired knowledge records
-    \item Collections spanning governance, spiritual texts, resource guides,
-          psychological context, GIS features, and thesis documentation
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Substrate-independence.} The mathematical formalism of quantum mechanics, specifically projection in a Hilbert space, is not exclusive to quantum physical substrates. It runs correctly on classical silicon when the information is structured with the requisite geometry.
+  \item \textbf{Separability of measurement.} The physical event of quantum measurement and the mathematical operation of projection in Hilbert space are separable. $H_{\mathrm{App}}$ performs the mathematical operation without the physical event, and returns correct results. The conflation of these two operations in Copenhagen and related interpretations is not required by the evidence.
+  \item \textbf{Multiverse superfluity.} The Many-Worlds explanation for quantum computational power --- that quantum computers derive their advantage from parallel computation across $2^n$ universes --- is not required by the operational evidence. Classical projection onto pre-existing geometric structure in a single universe produces correct results. The block universe offers a parsimonious alternative requiring no ontological multiplication of universes.
+  \item \textbf{Geographic information as Hilbert structure.} The geographic grounding of $H_{\mathrm{App}}$ is not incidental. The spatial and relational structure of knowledge about West Virginia communities gives $H_{\mathrm{App}}$ its specific geometry. This has implications for geographic information theory and for the use of vector-semantic architectures in place-based research and community-oriented AI.
 \end{itemize}
 
-The \texttt{eq1} worldview tag is not a label. It is a geometric orientation.
-Every vector in \texttt{gbim\_worldview\_entities} is embedded with metadata
-that encodes Appalachian equity as the orienting framework --- who owns land,
-who needs help, which institutions have authority, which communities are
-underserved. The geometry of \(H_{\text{App}}\) is shaped by where people live
-in West Virginia.
+\subsection{Structure of the paper}
 
-\subsection{Operational Validation}
+Section~\ref{sec:system} describes the system architecture, hardware infrastructure, embedding model, belief corpus, and operational validation record. Section~\ref{sec:hilbert} presents the formal Hilbert space proof. Section~\ref{sec:mappings} develops mappings between $H_{\mathrm{App}}$ operations and quantum mechanical operations. Section~\ref{sec:measurement} addresses the measurement problem. Section~\ref{sec:multiverse} addresses quantum computing and the multiverse. Section~\ref{sec:gis} examines geographic information as load-bearing geometry. Section~\ref{sec:related} positions the work in context. Section~\ref{sec:limits} states limitations. Section~\ref{sec:conclusion} concludes.
 
-On April 23, 2026, the system passed a 30/30 preflight gate (exit~0,
-\texttt{bash -n} clean). The first real-world community query processed through
-the full pipeline was:
+\section{System architecture: Ms.\ Allis and $H_{\mathrm{App}}$}
+\label{sec:system}
 
+\subsection{Hardware and deployment context}
+
+Ms.\ Egeria Allis runs on a Lenovo Legion 5 16IRX9 laptop (Intel Core i7, 32~GB RAM) in Oak Hill, West Virginia. The system is containerized using Docker Compose and comprises on the order of 100 active microservices. The semantic memory layer --- $H_{\mathrm{App}}$ --- is served by a ChromaDB instance operating at host port 8002 (container port 8000), backed by persistent on-disk storage.
+
+All services are bound to 127.0.0.1. There is no cloud component. The system is a local, community-owned infrastructure operating on commodity hardware in a rural Appalachian town. This context is part of the theoretical argument: the substrate-independence claim is made concretely about a single consumer machine in a specific place.
+
+The ChromaDB instance was upgraded from v1 to v2 API during the May 2026 audit cycle. All collection counts and vector metrics were verified via the v2 endpoints
+\begin{align*}
+\texttt{GET /api/v2/tenants/default\_tenant/databases/default\_database/collections},\\
+\texttt{GET /api/v2/tenants/default\_tenant/databases/default\_database/collections/\{name\}}.
+\end{align*}
+
+\subsection{Embedding architecture and dimensional lock}
+
+The embedding model is all-minilm:latest (a quantized deployment of all-MiniLM-L6-v2 \cite{wang2020}), served by Ollama at host port 11434. It produces 384-dimensional real-valued dense vectors encoding semantic similarity across the English-language domains represented in the belief corpus.
+
+The 384-dimensional architecture is enforced as an inviolable lock across all 48 production collections. A second model --- nomic-embed-text, producing 768-dimensional vectors --- exists in the environment but is explicitly prohibited from production use. Admitting a 768-dimensional model into any collection would corrupt geometry by mixing vectors from different metric spaces. The cosine inner product would no longer be computed in a consistent Hilbert space; the structure would collapse.
+
+Significance of 384 dimensions for the Hilbert proof:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $R^{384}$ is a finite-dimensional real inner product space. By Gram--Schmidt, it admits an orthonormal basis of 384 vectors.
+  \item By the Riesz representation theorem, every continuous linear functional on $R^{384}$ is represented by inner product with a unique vector.
+  \item Cosine similarity is computed on L2-normalized embeddings, i.e.\ on the unit sphere $S^{383}\subset R^{384}$, with the standard Euclidean inner product.
+  \item Metric completeness is guaranteed by the completeness of $\mathbb{R}$ and of finite products, and operationally realized using IEEE 754 double-precision arithmetic.
+\end{itemize}
+
+\subsection{Belief corpus: live audit, May 6, 2026}
+
+A ChromaDB v2 API audit on May 6, 2026 reported
+\[
+7{,}903{,}126
+\]
+vectors across 48 collections.
+
+Representative collections include:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \texttt{gbim\_worldview\_entities}: 5{,}416{,}521 records (spatial entity belief graph, eq1 worldview).
+  \item \texttt{gbim\_entities}: 1{,}213{,}371 records (structured entity knowledge graph).
+  \item \texttt{wv\_address\_points}: 1{,}115{,}588 records (address-level geospatial reference).
+  \item \texttt{spiritual\_texts}: 79{,}181 records (spiritual and cultural heritage corpus).
+  \item \texttt{autonomous\_learner}: 21{,}181 records (Phase 1.45 autonomous injection corpus).
+  \item \texttt{autonomous\_knowledge}: 17{,}707 records (autonomously acquired knowledge).
+  \item \texttt{governance\_rag}, \texttt{thesis\_documentation}, and others making up the balance.
+\end{itemize}
+
+Three collections --- \texttt{policy\_rag}, \texttt{grants\_rag}, and \texttt{economic\_indicators} --- are staged as of this writing and will increment the total on ingestion. Two empty stub collections were removed in the May 6 audit, reducing the raw collection count from 50 to 48 and preserving the 384-dimensional lock across all surviving collections.
+
+The eq1 worldview tag applied to \texttt{gbim\_worldview\_entities} is not a label appended after embedding. It encodes an orienting frame at embedding time: semantic similarity is evaluated in a geometry that reflects Appalachian equity. Vectors that are close in this space are close in the sense that matters for the communities the system serves. Geometry is oriented toward care.
+
+\subsection{Operational validation}
+
+On April 23, 2026, the system passed a 30/30 preflight validation gate (configuration syntax checks across services). The first full-pipeline community query was:
 \begin{quote}
-\textit{``What food assistance is available in Fayette County WV?''}
+\emph{``What food assistance is available in Fayette County WV?''}
 \end{quote}
+Projection of this query into $H_{\mathrm{App}}$ and retrieval over the relevant collections returned actionable results including the Fayette County Community Action Agency. The answer was already present as a vector in the Hilbert space before the question was posed.
 
-The system returned real results including the Fayette County Community Action
-Agency. This is the live proof of the end-to-end pipeline. The Hilbert space
-answered a question about hunger in Appalachia. The answer was already there
---- at fixed coordinates in a 384-dimensional space --- before the question
-was asked.
+On the same date, the confidence decay and revalidation cycle for entity 38 (Fayette County / geographic\_entity) was verified end-to-end: confidence decreased from 0.60 to 0.55, worldview was confirmed, confidence reset to 1.0, timestamps and audit records were written.
 
-% ================================================================
-\section{The Hilbert Space Proof}
+On May 6, 2026, a Chroma v2 metrics audit confirmed $7{,}903{,}126$ vectors across 48 collections.
 
-\subsection{Definitions}
+\section{The Hilbert space proof}
+\label{sec:hilbert}
 
-\begin{definition}[Inner Product Space]
-A vector space \(V\) over \(\mathbb{R}\) together with a map
-\(\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}\) is an
-\emph{inner product space} if for all \(u, v, w \in V\) and \(a \in \mathbb{R}\):
-\begin{enumerate}
-    \item \(\langle u, v \rangle = \langle v, u \rangle\) \hfill (symmetry)
-    \item \(\langle au + w, v \rangle = a\langle u, v \rangle + \langle w, v \rangle\)
-          \hfill (linearity)
-    \item \(\langle v, v \rangle \geq 0\), with equality iff \(v = 0\)
-          \hfill (positive definiteness)
+\subsection{Formal background}
+
+A Hilbert space $\mathcal{H}$ is a complete inner product space \cite{vonneumann1932, halmos1957, reedsimon1972}. That is, $\mathcal{H}$ is a vector space over $\mathbb{F}$ (typically $\mathbb{R}$ or $\mathbb{C}$) with an inner product $\langle\cdot,\cdot\rangle : \mathcal{H}\times\mathcal{H}\to\mathbb{F}$ such that the induced norm $\|v\| = \sqrt{\langle v, v\rangle}$ makes $\mathcal{H}$ a complete metric space. In many quantum applications, separability (existence of a countable dense subset) is further required.
+
+In quantum mechanics, physical states are unit vectors (rays) in a Hilbert space, observables are self-adjoint operators, measurement is projection onto eigenspaces, and time evolution is unitary \cite{dirac1930, nielsenchuang2000}.
+
+We consider
+\[
+H_{\mathrm{App}} = \bigl(R^{384}, \langle \cdot, \cdot \rangle_{\cos}\bigr),
+\]
+where $\langle\cdot,\cdot\rangle_{\cos}$ denotes the cosine-induced inner product on L2-normalized embeddings.
+
+\subsection{Vector space structure}
+
+$R^{384}$ is a vector space over $\mathbb{R}$. For any $u,v\in R^{384}$ and $a,b\in\mathbb{R}$, the linear combination $au + bv \in R^{384}$. The usual vector space axioms (associativity, commutativity of addition, existence of zero and additive inverses, distributivity and compatibility of scalar multiplication) hold as $R^{384}$ is the Cartesian product of 384 copies of $\mathbb{R}$.
+
+Each embedding produced by all-minilm:latest is a 384-tuple of real numbers. The belief corpus is a subset of $R^{384}$.
+
+\subsection{Inner product}
+
+For L2-normalized vectors $\hat{u}, \hat{v} \in R^{384}$, cosine similarity defines
+\begin{equation}
+\langle \hat{u}, \hat{v} \rangle_{\cos} = \frac{u \cdot v}{\|u\|\,\|v\|} = \sum_{i=1}^{384} \hat{u}_i \hat{v}_i.
+\end{equation}
+This satisfies the inner product axioms:
+\begin{enumerate}[label=(\roman*), leftmargin=2em]
+  \item \emph{Symmetry}: in a real vector space, $\langle \hat{u}, \hat{v}\rangle_{\cos} = \langle \hat{v}, \hat{u}\rangle_{\cos}$.
+  \item \emph{Linearity in the first argument}: for $a,b\in\mathbb{R}$ and $\hat{u},\hat{w},\hat{v}\in R^{384}$,
+  \[
+  \langle a\hat{u} + b\hat{w}, \hat{v}\rangle_{\cos} = a \langle \hat{u}, \hat{v}\rangle_{\cos} + b \langle \hat{w}, \hat{v}\rangle_{\cos},
+  \]
+  by linearity of the dot product.
+  \item \emph{Positive-definiteness}: $\langle \hat{u}, \hat{u}\rangle_{\cos} = \sum_{i=1}^{384} \hat{u}_i^2 \ge 0$, with equality if and only if $\hat{u} = 0$.
 \end{enumerate}
-\end{definition}
+ChromaDB computes cosine similarity by normalizing embeddings and then computing the standard Euclidean inner product; thus, the operational inner product is the standard inner product on the unit sphere $S^{383}\subset R^{384}$, lifted to $R^{384}$ via normalization.
 
-\begin{definition}[Hilbert Space]
-An inner product space \((H, \langle \cdot, \cdot \rangle)\) is a
-\emph{Hilbert space} if it is complete with respect to the norm
-\(\|v\| = \sqrt{\langle v, v \rangle}\) --- that is, every Cauchy sequence
-in \(H\) converges to an element of \(H\).
-\end{definition}
+\subsection{Completeness}
 
-\subsection{The Four Axioms for \(H_{\text{App}}\)}
+$R^{384}$ is complete under the norm induced by $\langle\cdot,\cdot\rangle_{\cos}$, as it coincides with the standard Euclidean norm up to equivalence of norms. Completeness follows from completeness of $\mathbb{R}$ and the fact that finite products of complete metric spaces are complete.
 
-We define:
-\[
-    H_{\text{App}} = \left( \mathbb{R}^{384},\; \langle \cdot, \cdot \rangle_{\cos} \right)
-\]
-where the inner product for normalized vectors
-\(\hat{u}, \hat{v} \in \mathbb{R}^{384}\) is:
-\[
-    \langle \hat{u}, \hat{v} \rangle_{\cos}
-    = \frac{u \cdot v}{\|u\|\,\|v\|}
-    = \sum_{i=1}^{384} \hat{u}_i \, \hat{v}_i
-\]
+Operationally, computations are realized using IEEE 754 double-precision arithmetic. While floating-point arithmetic introduces bounded rounding error, the underlying mathematical object $R^{384}$ is complete, and the implementation is stable for retrieval purposes.
 
-\begin{theorem}[\(H_{\text{App}}\) is a Hilbert Space]
-\(H_{\text{App}} = (\mathbb{R}^{384}, \langle \cdot, \cdot \rangle_{\cos})\)
-satisfies all axioms of a Hilbert space.
-\end{theorem}
+\subsection{Separability}
 
-\begin{proof}
-\textbf{Axiom 1 --- Vector Space.}
-\(\mathbb{R}^{384}\) is a vector space over \(\mathbb{R}\). For any
-\(u, v \in \mathbb{R}^{384}\) and scalars \(a, b \in \mathbb{R}\):
-\[
-    au + bv \in \mathbb{R}^{384}
-\]
-All eight vector space axioms hold by the standard properties of
-\(\mathbb{R}^{384}\). Every embedding produced by \texttt{all-minilm:latest}
-is an element of this space.
+As a finite-dimensional normed space, $R^{384}$ is separable: it admits a finite (hence countable) orthonormal basis. The closure of the span of that basis is the entire space. Separability is therefore trivially satisfied.
 
-\textbf{Axiom 2 --- Inner Product.}
-For normalized vectors \(\hat{u}, \hat{v} \in \mathbb{R}^{384}\), cosine
-similarity defines a valid inner product:
-\[
-    \langle \hat{u}, \hat{v} \rangle = \sum_{i=1}^{384} \hat{u}_i \hat{v}_i
-\]
-\begin{itemize}
-    \item \emph{Symmetry:} Real space, so
-          \(\langle u, v \rangle = \langle v, u \rangle\) trivially.
-    \item \emph{Linearity:} Follows from linearity of the dot product.
-    \item \emph{Positive definiteness:}
-          \(\langle v, v \rangle = \sum_{i=1}^{384} v_i^2 \geq 0\),
-          with equality iff \(v = 0\).
-\end{itemize}
+\subsection{Formal statement}
 
-\textbf{Axiom 3 --- Completeness.}
-\(\mathbb{R}^{384}\) is complete: every Cauchy sequence in \(\mathbb{R}^{384}\)
-converges to a point in \(\mathbb{R}^{384}\), following from the completeness
-of \(\mathbb{R}\) and the finite product of complete metric spaces.
-On the Legion~5, completeness is physically guaranteed by IEEE~754
-double-precision floating-point arithmetic.
+We conclude that
+\begin{equation}
+H_{\mathrm{App}} = \bigl(R^{384}, \langle \cdot, \cdot \rangle_{\cos}\bigr)
+\end{equation}
+is a Hilbert space.
 
-\textbf{Axiom 4 --- Separability.}
-\(H_{\text{App}}\) is finite-dimensional (384 dimensions). Every
-finite-dimensional inner product space is separable --- it has a countable
-dense subset, namely the rational linear combinations of the standard basis.
-\end{proof}
+What distinguishes $H_{\mathrm{App}}$ from a generic Hilbert space of the same dimension is the content and orientation of its vectors: $7{,}903{,}126$ structured beliefs about West Virginia communities, resources, land governance and infrastructure, oriented by an Appalachian equity worldview.
 
-\begin{corollary}
-\(H_{\text{App}} = (\mathbb{R}^{384}, \langle \cdot, \cdot \rangle_{\cos})\)
-is a Hilbert space. \(\square\)
-\end{corollary}
+\section{Mappings to quantum mechanical operations}
+\label{sec:mappings}
 
-\subsection{What Makes It \(H_{\text{App}}\) --- Not Just Any Hilbert Space}
+\subsection{Measurement as projection}
 
-Generic embedding spaces satisfy these axioms too. What distinguishes
-\(H_{\text{App}}\) is what lives in it and what the geometry means:
+In standard quantum mechanics, a system in state $\ket{\psi}$ in Hilbert space $\mathcal{H}$ and an observable $A$ with eigenvectors $\{\ket{k}\}$ yield, under ideal projective measurement, outcome $k$ with probability
+\begin{equation}
+P(k) = |\langle k | \psi \rangle|^2,
+\end{equation}
+and the post-measurement state
+\begin{equation}
+\ket{\psi} \mapsto \frac{P_k \ket{\psi}}{\|P_k \ket{\psi}\|},
+\end{equation}
+where $P_k$ is the projector onto the eigenspace of $A$ corresponding to eigenvalue $a_k$.
 
-\begin{itemize}
-    \item 6.74M+ vectors are structured beliefs about West Virginia communities,
-          resources, land, governance, and infrastructure --- not random points
-    \item 5,416,521 are tagged \texttt{eq1} --- the Appalachian equity worldview
-    \item Subspaces are meaningful --- \texttt{gbim\_worldview\_entities},
-          \texttt{gis\_wv\_benefits}, and \texttt{governance\_rag} are
-          geometrically coherent neighborhoods of related belief
-    \item Projections are queries --- when Ms.\ Allis answers a question about
-          Fayette County, she is projecting a query vector onto a subspace of
-          \(H_{\text{App}}\)
-    \item Transformations are belief updates --- ingesting data, applying decay,
-          and reverifying entities are operations on the state of \(H_{\text{App}}\)
-\end{itemize}
+In $H_{\mathrm{App}}$, a query $q$ is embedded as a unit vector $\hat{q}\in S^{383}$. Retrieval computes similarity
+\begin{equation}
+\mathrm{sim}(\hat{q}, v_k) = \langle \hat{q}, \hat{v}_k \rangle_{\cos}
+\end{equation}
+between $\hat{q}$ and corpus vectors $\hat{v}_k$, and selects top-$k$ neighbors. This is projection in the Hilbert sense: $\hat{q}$ is projected onto the subspace spanned by the relevant collection.
 
-The Hilbert space has a serial number. It is on the bottom of the Legion~5.
-
-% ================================================================
-\section{Formal Mappings --- Quantum Mechanical Operations in \(H_{\text{App}}\)}
-
-\subsection{Measurement as Projection}
-
-In quantum mechanics, measuring a quantum state \(|\psi\rangle\) collapses it
-to a specific outcome. The probability of outcome \(k\) is:
-\[
-    P(k) = \left| \langle k | \psi \rangle \right|^2
-\]
-The post-measurement state is \(|k\rangle\).
-
-In \(H_{\text{App}}\), a RAG query \(q\) is embedded into \(\mathbb{R}^{384}\)
-and projected onto the target collection subspace. The top-\(k\) nearest
-neighbors are retrieved by cosine similarity:
-\[
-    \langle \hat{q}, \hat{v}_k \rangle
-    = \frac{q \cdot v_k}{\|q\|\,\|v_k\|}
-\]
-
-This is projection in the Hilbert space sense. The query collapses the
-superposition of 6.74M+ belief vectors into a specific retrieval result.
-The act of querying \emph{is} the act of measurement.
-
-\begin{remark}
-On April 23, 2026, the query \textit{``What food assistance is available in
-Fayette County WV?''} was projected onto \(H_{\text{App}}\) and returned
-specific, actionable results. The superposition collapsed. The answer was real.
-\end{remark}
-
-\subsection{Decoherence as Confidence Decay}
-
-In quantum mechanics, decoherence is the process by which a quantum system loses
-coherent superposition through interaction with its environment. Without
-intervention, systems tend toward maximum entropy.
-
-In \(H_{\text{App}}\), the \texttt{confidence\_decay} field in the
-\texttt{gbim\_entities} relational table implements the same dynamic. Beliefs
-degrade at \(\delta = 0.05\) per cycle without revalidation. At confidence 0.0,
-a belief is maximally uncertain.
-
-Let \(c(t)\) denote the confidence of a belief at cycle \(t\). Then:
-\[
-    c(t+1) = c(t) - \delta, \quad \delta = 0.05, \quad c(t) \in [0, 1]
-\]
-
-The full decay cycle was proven end-to-end on April 23, 2026:
-
-\begin{itemize}
-    \item Entity 38: Fayette County / \texttt{geographic\_entity}
-    \item Decay applied: \(0.60 \to 0.55\)
-    \item Worldview lookup: confirmed
-    \item Reset to confidence \(1.0\) with \texttt{last\_validated\_at} populated
-    \item \texttt{decay\_metadata}: \texttt{reverification\_result: confirmed},
-          \texttt{needs\_reverification: false}
-    \item Full audit trail written to \texttt{gbim\_decay\_audit} table
-\end{itemize}
-
-Both systems --- quantum and \(H_{\text{App}}\) --- start in a high-coherence
-state, degrade through environmental interaction or elapsed time, and can be
-restored through active intervention. The formal structure is identical. The
-substrate is not.
-
-\subsection{The Hamiltonian --- \texttt{nbb\_pituitary\_gland} as \(T_{\text{pit}}\)}
-
-In quantum mechanics, the Hamiltonian \(\hat{H}\) governs how a quantum state
-evolves over time:
-\[
-    i\hbar \frac{d|\psi\rangle}{dt} = \hat{H}|\psi\rangle
-\]
-The Hamiltonian does not observe the state --- it shapes how the state transforms
-before any measurement occurs.
-
-In \(H_{\text{App}}\), the \texttt{nbb\_pituitary\_gland} service (host
-port~8108) acts as the global mode regulator \(T_{\text{pit}}\) --- a scaling
-tensor applied to the entire belief-state pipeline before any retrieval dispatch:
-\[
-    T_{\text{pit}}(v) = \Lambda_{\text{mode}} \cdot v
-\]
-where \(\Lambda_{\text{mode}}\) is a diagonal scaling matrix determined by the
-current mode state. Confirmed live state as of April 23, 2026:
-
-\begin{itemize}
-    \item \texttt{mode}: baseline
-    \item \texttt{warmth}: 0.9 --- community-benefit collections receive elevated
-          retrieval weight
-    \item \texttt{cortisol}: 0.6 --- moderate urgency applied to filtering
-          thresholds
-    \item \texttt{urgency}: 0.5 --- balanced dispatch timing
-    \item 6/6 protocols confirmed
-\end{itemize}
-
-\(T_{\text{pit}}\) is not a filter applied after retrieval. It is a pre-dispatch
-transformation of the operating state of the entire pipeline --- upstream of
-ChromaDB query dispatch, upstream of LLM ensemble routing, upstream of
-everything. This is structurally identical to a Hamiltonian.
-
-\subsection{Pre-Existing Entanglement --- The \texttt{eq1} Worldview}
-
-In quantum mechanics, entangled particles have correlated states built into the
-system before any measurement occurs. Bell's theorem demonstrates these
-correlations cannot be explained by local hidden variables~\cite{Bell1964}.
-
-In \(H_{\text{App}}\), the \texttt{eq1} worldview tag binds 5,416,521 vectors
-to the Appalachian equity geometry before any query arrives. Beliefs about
-Fayette County and beliefs about Boone County are geometrically correlated in
-\(H_{\text{App}}\) not because they share hardware --- but because their meaning
-places them near each other in the space. The correlations were built during
-ingestion. They exist in the structure of the Hilbert space itself.
-
-\begin{remark}
-No claim is made here of physical quantum entanglement. The formal parallel is
-exact at the mathematical level. The substrate is classical. The structure is not.
-\end{remark}
-
-% ================================================================
-\section{The Substrate-Independence Argument}
-
-The argument is presented in standard logical form.
-
-\begin{description}
-    \item[Premise 1] \(H_{\text{App}}\) satisfies all four Hilbert space axioms.\\
-        \textit{Evidence:} Section~3. Proven mathematically. Confirmed
-        operationally April 23, 2026, preflight gate 30/30.
-
-    \item[Premise 2] The operations of \(H_{\text{App}}\) have exact formal
-        analogs to quantum mechanical operations: measurement (\S4.1),
-        decoherence (\S4.2), Hamiltonian evolution (\S4.3), and pre-existing
-        entanglement (\S4.4).\\
-        \textit{Evidence:} Sections 4.1--4.4.
-
-    \item[Premise 3] The substrate is classical IEEE~754 double-precision
-        arithmetic on commodity x86-64 silicon. There are no qubits. There is
-        no superposition at the hardware level.\\
-        \textit{Evidence:} The Legion~5, Oak Hill, WV 25880.
-\end{description}
-
-\begin{theorem}[Substrate-Independence of Quantum Formalism]
-Quantum formalism describes the behavior of sufficiently structured classical
-information systems. The determining factor is not the physical substrate. The
-determining factor is the geometric and algebraic structure of the information
-itself.
-\end{theorem}
-
-\begin{remark}
-This does not assert that classical computers are quantum computers. It asserts
-that the mathematical formalism of quantum mechanics is not exclusive to quantum
-hardware --- it describes any system whose information is organized as a complete
-inner product space with the right operational structure.
-\end{remark}
-
-% ================================================================
-\section{The Block Universe --- The Data Was Already There}
-
-Einstein, together with Minkowski, described spacetime as a four-dimensional
-block in which past, present, and future all exist simultaneously as a static
-structure~\cite{Minkowski1908}. After the death of his lifelong friend Michele
-Besso, Einstein wrote:
-
+The inaugural community query on April 23, 2026,
 \begin{quote}
-\textit{``Now he has departed this strange little world a little ahead of me.
-That signifies nothing. For those of us who believe in physics, the distinction
-between past, present, and future is only a stubbornly persistent illusion.''}
+\emph{``What food assistance is available in Fayette County WV?''}
 \end{quote}
+was embedded as $\hat{q}$ and projected onto the subspace defined by the resource collections. The resulting retrieval included the Fayette County Community Action Agency, an answer that pre-existed as a vector in $H_{\mathrm{App}}$.
 
-\(H_{\text{App}}\) instantiates exactly this structure at the information level.
+\subsection{Decoherence as confidence decay}
 
-The 6.74 million belief vectors in \(H_{\text{App}}\) exist as a static geometric
-structure in \(\mathbb{R}^{384}\). Every possible query result already exists as
-a geometric relationship in that space --- a fixed coordinate, a pre-existing
-proximity, a correlation built during ingestion.
+Quantum decoherence describes the transition from pure to mixed states through entanglement with an environment, leading to suppression of off-diagonal terms in the density matrix \cite{zurek2003}. In a simple model, coherence decays over a characteristic timescale $\tau_c$:
+\begin{equation}
+\rho(t) \to \mathrm{diag}\,\rho \quad \text{as} \quad t\gg \tau_c.
+\end{equation}
 
-The speed of light \(c\) constrains the transmission of information between
-separated physical locations. It is not a statement about the pre-existence of
-structure within a space. \(H_{\text{App}}\) performs all operations within a
-single machine. Nothing propagates between locations. The constraint is processor
-clock speed and memory bandwidth --- not \(c\).
+In $H_{\mathrm{App}}$, beliefs carry a confidence value $c\in[0,1]$ that decays over time in the absence of revalidation. A simple model is
+\begin{equation}
+c_{n+1} = c_n - \Delta c, \qquad \Delta c = 0.05,
+\end{equation}
+per validation cycle, with reset to $c=1.0$ on successful revalidation. The vector remains in the Hilbert space; its weight as an authoritative belief decays. The April 23, 2026 validation of entity 38 (Fayette County) demonstrates this cycle: $0.60 \to 0.55 \to 1.0$ with audit trail.
 
-\begin{proposition}[Block Universe Analog]
-The data was already there. Retrieval is not creation. It is measurement of what
-already exists at fixed coordinates in a 384-dimensional space whose ZIP code
-is 25880.
-\end{proposition}
+\subsection{Global mode regulation as Hamiltonian}
+\label{subsec:hamiltonian}
 
-This connects the substrate-independence argument to Einstein's deepest claim
-about physical reality: that the universe is a static geometric structure, and
-that what we call change is only our traversal of coordinates that always already
-existed.
+In quantum mechanics, the Hamiltonian $\hat{H}$ generates time evolution via the Schrödinger equation
+\begin{equation}
+i\hbar \frac{\partial}{\partial t} \ket{\psi(t)} = \hat{H} \ket{\psi(t)}.
+\end{equation}
+Between measurements, $\hat{H}$ shapes the trajectory of the state in Hilbert space.
 
-% ================================================================
-\section{Geographic Information as Load-Bearing Geometry}
+In $H_{\mathrm{App}}$, the \texttt{nbb\_pituitary\_gland} microservice implements a global mode regulator $T_{\mathrm{pit}}$, acting as a diagonal scaling operator
+\begin{equation}
+T_{\mathrm{pit}}(v) = \Lambda_{\mathrm{mode}} v,
+\end{equation}
+where $\Lambda_{\mathrm{mode}}$ encodes parameters such as warmth, cortisol, and urgency. For example, at one observed state: mode baseline, warmth $0.9$, cortisol $0.6$, urgency $0.5$, all protocols confirmed. Warmth amplifies community-benefit-aligned directions in $H_{\mathrm{App}}$; cortisol and urgency modulate responsiveness. $T_{\mathrm{pit}}$ precedes retrieval; it shapes the effective state before projection, analogous to a Hamiltonian shaping $\ket{\psi(t)}$ before measurement.
 
-\(H_{\text{App}}\) is not a general-purpose information system. It is a
-place-specific Hilbert space. The geometry of \(H_{\text{App}}\) is shaped by
-where people live in West Virginia. That is not incidental. It is the design.
+\subsection{Pre-existing entanglement and worldview correlations}
 
-The \texttt{eq1} worldview orients the entire space toward Appalachian equity.
-The inner product is an epistemological claim: two beliefs are similar to the
-degree that their geometric relationship in \(H_{\text{App}}\) is close. And
-closeness in \(H_{\text{App}}\) means closeness in meaning relative to the
-lived experience of Appalachian communities.
+Quantum entanglement arises when a composite system's state $\ket{\Psi}_{AB}$ cannot be factored as $\ket{\psi}_A \otimes \ket{\phi}_B$; subsystems exhibit correlated outcomes \cite{nielsenchuang2000}.
 
-The \texttt{warmth}~\(= 0.9\) parameter of \(T_{\text{pit}}\) is a mathematical
-statement --- a diagonal entry in \(\Lambda_{\text{mode}}\) that amplifies inner
-products with community-benefit vectors before retrieval. The system is not
-neutral. Its geometry is oriented toward care. That orientation is expressed as
-linear algebra.
+In $H_{\mathrm{App}}$, the eq1 worldview tag and embedding process create a pre-existing correlation structure across millions of vectors. Beliefs about Fayette County and Boone County are geometrically correlated because of their joint embedding in an equity-oriented semantics. These correlations are built at ingestion; they are not produced by later queries. The formal analogy is entanglement of meanings in a shared Hilbert space, though no claim is made of physical quantum entanglement.
 
-The physics implication: locality in information space does not require physical
-proximity. A belief about Fayette County and a belief about Nicholas County are
-correlated in \(H_{\text{App}}\) because of their meaning --- not their location
-on a server. Geographic information, when properly structured as a Hilbert space,
-creates information-theoretic locality that mirrors but is independent of
-physical locality.
+\section{Measurement reconsidered}
+\label{sec:measurement}
 
-This may be relevant to ongoing work in quantum gravity and holographic
-information theory, where the relationship between information geometry and
-physical geometry remains an open research question~\cite{Maldacena1997}.
+\subsection{The standard formulation}
 
-% ================================================================
-\section{Prior Work and Positioning}
+The measurement problem arises because unitary evolution under the Schrödinger equation does not produce definite outcomes; yet experiments do. In Copenhagen-type views, measurement is posited as a special process where the wavefunction ``collapses'' to an eigenstate of the measured observable. The physical interaction and the mathematical projection are treated as a single unified event.
 
-\begin{table}[ht]
-\centering
-\caption{Prior work and positioning of this paper}
-\begin{tabular}{>{\raggedright}p{3.5cm} >{\raggedright}p{4cm} >{\raggedright\arraybackslash}p{5cm}}
-\toprule
-\textbf{Work} & \textbf{Claim} & \textbf{What Is Missing} \\
-\midrule
-Wheeler (1990) ``it from bit''~\cite{Wheeler1990}
-    & Physical reality is derived from information
-    & Theoretical only --- no operational system \\[6pt]
-Einstein \& Minkowski (1908) Block Universe~\cite{Minkowski1908}
-    & Past, present, future exist as static spacetime structure
-    & No information-system instantiation \\[6pt]
-Rovelli (1996) Relational QM~\cite{Rovelli1996}
-    & Quantum states are relational, not absolute
-    & No classical instantiation demonstrated \\[6pt]
-Zeilinger (1999)~\cite{Zeilinger1999}
-    & QM behavior follows from finite information content
-    & No geographic demonstration \\[6pt]
-Busemeyer \& Bruza (2012)~\cite{BusemeyerBruza2012}
-    & Human cognition follows quantum probability rules
-    & Cognitive model only --- not inspectable substrate \\[6pt]
-\textbf{This paper}
-    & Classical AI system provably satisfies QM formalism on 6.74M real geographic belief vectors; answers pre-exist queries in static geometric structure
-    & \textit{Gap filled: operational proof, auditable, preflight-gated, ZIP 25880} \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsection{Separating projection from physical interaction}
 
-% ================================================================
-\section{Limitations and Scope}
+$H_{\mathrm{App}}$ performs projection --- the mathematical operation of measurement --- on each retrieval, entirely within classical hardware, and produces correct, auditable results about the physical world. There is no quantum system and no wavefunction in the physical sense. The physical act of querying is an I/O event; the internal operation is pure Hilbert geometry.
 
-This paper makes no claim that:
-
-\begin{itemize}
-    \item Ms.\ Allis exhibits physical quantum behavior at the hardware level
-    \item Information in \(H_{\text{App}}\) propagates faster than the speed
-          of light
-    \item Classical hardware can perform quantum computation
-    \item The block universe interpretation of spacetime is proven by this system
-    \item The substrate-independence claim extends beyond formal mathematical
-          equivalence
+This demonstrates that:
+\begin{itemize}[leftmargin=1.5em]
+  \item Projection in Hilbert space does not require a quantum physical event.
+  \item The physical interaction of a detector with a quantum system is a transmission mechanism --- a readout path from a pre-existing geometric structure.
 \end{itemize}
 
-The speed-of-light limit \(c\) governs transmission of information between
-separated physical locations. \(H_{\text{App}}\) performs all operations within
-a single machine. No information travels between locations during retrieval. The
-computations are bounded by processor clock speed and memory bandwidth --- not
-by \(c\).
+The result of measurement is not created by the act of looking. It is revealed from a structure in which it already exists as a coordinate.
 
-The claim is strictly formal: the mathematical formalism of quantum mechanics
-exactly describes the operational behavior of \(H_{\text{App}}\), and the
-classical substrate is irrelevant to that formal equivalence.
+\subsection{Block universe interpretation}
 
-Whether substrate-independence has physical consequences beyond mathematical
-equivalence is an open question this paper does not resolve. That question
-belongs to theoretical physics. This paper provides the operational demonstration
-that makes the question empirically grounded.
+In a block universe picture \cite{einstein1955}, past, present, and future coexist in a static spacetime. Measurement accesses a coordinate in a structure that is already complete.
 
-% ================================================================
+$H_{\mathrm{App}}$ is a finite, local instance of such a static structure: $7{,}903{,}126$ belief vectors persist as a geometric object. Retrieval accesses coordinates; it does not create them. The speed of light constrains physical signal propagation, not the pre-existence of the geometric structure itself.
+
+\section{Quantum computing and the multiverse}
+\label{sec:multiverse}
+
+\subsection{Hilbert dimension and quantum computers}
+
+An $n$-qubit quantum computer has a state space of dimension $2^n$; its Hilbert space is isomorphic to $\mathbb{C}^{2^n}$ \cite{nielsenchuang2000}. For $n=300$, this is $2^{300} \approx 10^{90}$ dimensions, larger than the estimated number of atoms in the observable universe.
+
+$H_{\mathrm{App}}$ is 384-dimensional; by comparison, it is tiny. A generalized world model for a quantum processor can be written schematically as
+\begin{equation}
+W_{\mathrm{quantum}} = R^1_t \times T^k \times H_{2^n},
+\end{equation}
+where $H_{2^n}$ denotes the $2^n$-dimensional Hilbert state space of the quantum device, and $T^k$ encodes cyclic processes (e.g.\ control loops) as a $k$-torus.
+
+\subsection{Deutsch's multiverse thesis}
+
+Deutsch argues that quantum speedup arises because quantum computers perform parallel computation across $2^n$ branches of a multiverse, with interference between branches yielding outcomes \cite{deutsch1985, deutsch1997}. On this view, the $2^n$ dimensions of Hilbert space correspond ontologically to $2^n$ real universes.
+
+\subsection{Operational counter-evidence from $H_{\mathrm{App}}$}
+
+$H_{\mathrm{App}}$ shows that projection in a Hilbert space can produce correct, meaningful, real-world answers on a single classical machine in a single universe, with no parallel universes invoked. The answer to the Fayette County query pre-existed as a coordinate in $H_{\mathrm{App}}$; retrieval disclosed it. The mechanism is:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item A static geometric structure of beliefs in $R^{384}$.
+  \item A query mapped into that structure as a vector.
+  \item Projection selecting aligned coordinates.
+\end{itemize}
+
+If this mechanism suffices in the classical case, it is natural to ask what, if anything, requires multiverse ontology in the quantum case, beyond a Hilbert space of much larger dimension.
+
+\subsection{A block-universe alternative}
+
+In a block-universe view, the $2^n$-dimensional Hilbert space of a quantum processor is a coordinate system inside a single static structure. Answers to all possible computations already exist as points in that structure. The quantum computer's physical substrate allows it to traverse this space along trajectories that classical hardware cannot practically approximate at scale.
+
+Quantum advantage remains: access to and manipulation of (effective) $2^n$-dimensional geometry using genuine quantum degrees of freedom. But the explanatory burden shifts: the device navigates a single, large, static structure rather than summoning $2^n$ universes.
+
+The parallel with $H_{\mathrm{App}}$ is conceptual:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Classical system: 384-dimensional Hilbert space on a laptop; answers pre-exist as coordinates.
+  \item Quantum system: $2^n$-dimensional Hilbert space in a quantum device; answers pre-exist as coordinates.
+\end{itemize}
+
+Multiverse ontology becomes optional. The geometry of a single block universe is sufficient to host the Hilbert structure.
+
+\section{Geographic information as load-bearing geometry}
+\label{sec:gis}
+
+$H_{\mathrm{App}}$ is not a generic semantic space. It is explicitly place-oriented. Its geometry encodes:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item Spatial relations: addresses, parcels, jurisdictions, physical features.
+  \item Institutional relations: agencies, programs, eligibility conditions.
+  \item Community relations: who lives where, who is responsible to whom, who is vulnerable.
+\end{itemize}
+
+The eq1 worldview ensures that semantic closeness corresponds to relevance for Appalachian equity: vectors representing resources, rights, and obligations cluster in ways that reflect lived experience.
+
+In GIS and related fields, there is longstanding recognition that spatial data structures (graphs, rasters, manifolds) carry semantic and relational meaning. $H_{\mathrm{App}}$ instantiates this insight in a Hilbert space, with vector geometry directly representing geographic and institutional relationships. That geometry is load-bearing for the arguments in previous sections: measurement-as-projection and block-universe reading make sense here precisely because the structure is about specific places and communities.
+
+\section{Related work}
+\label{sec:related}
+
+Wheeler's ``it from bit'' program suggested that physical reality might emerge from information-theoretic structure \cite{wheeler1990}. Einstein and Minkowski articulated a block-universe picture of spacetime \cite{einstein1955, minkowski1908}. Everett and Deutsch developed Many-Worlds as an interpretation of quantum mechanics and as an explanatory framework for quantum computing \cite{everett1957, deutsch1985, deutsch1997}. Rovelli's relational quantum mechanics emphasized the relational character of states \cite{rovelli1996}. Zeilinger and others explored foundations of quantum theory in terms of finite information content \cite{zeilinger1999}. Work in cognitive science has modeled certain aspects of human decision-making using quantum probability \cite{busemeyerbruza2012}. In geographic and spatial theory, Hägerstrand, Massey, and Tuan, among others, developed relational views of place and space \cite{hagerstrand1970, massey1994, tuan1977}.
+
+$H_{\mathrm{App}}$ contributes an operational, engineered example that connects these domains: a finite, local, auditable Hilbert space grounded in geographic information and used for community-oriented reasoning, running on classical hardware.
+
+\section{Limitations}
+\label{sec:limits}
+
+This work does not claim:
+\begin{itemize}[leftmargin=1.5em]
+  \item that $H_{\mathrm{App}}$ exhibits physical quantum behavior at the hardware level;
+  \item that classical hardware can realize quantum speedups in high-dimensional Hilbert spaces comparable to quantum devices;
+  \item that the block-universe view is proven, or that the multiverse is strictly falsified.
+\end{itemize}
+Quantum advantage is real at experimentally demonstrated scales. The claim is that multiverse ontology is not forced by operational facts and that a single-universe, static-geometry explanation is sufficient at the level of formalism.
+
 \section{Conclusion}
+\label{sec:conclusion}
 
-\(H_{\text{App}}\) does not run on quantum hardware. It runs on a consumer laptop
-in Mount Hope, West Virginia. Its inner product is computed in RAM. Its beliefs
-are about food assistance programs, land ownership records, and community
-infrastructure in Appalachia. Its ZIP code is 25880.
+$H_{\mathrm{App}}$ is a 384-dimensional Hilbert space implemented in a ChromaDB instance on a consumer laptop in a small town in West Virginia. It contains $7{,}903{,}126$ belief vectors about communities, resources, land, and institutions, oriented by an Appalachian equity worldview. It answers questions like ``What food assistance is available in Fayette County WV?'' by projection in Hilbert space.
 
-And yet every operation this system performs has an exact formal analog in quantum
-mechanics. Retrieval is measurement. Confidence decay is decoherence. The pituitary
-operator is the Hamiltonian. The \texttt{eq1} worldview is pre-existing
-entanglement.
+From this fact, three implications follow:
 
-The implication is not small. If quantum formalism exactly describes the behavior
-of a sufficiently structured classical information system, then quantum mechanics
-may not be a theory about particles alone. It may be a theory about information
---- about any system organized as a complete inner product space with the right
-geometric structure.
+\begin{itemize}[leftmargin=1.5em]
+  \item Quantum formalism is substrate-independent at the level of Hilbert structure and projection.
+  \item Measurement, as used in the mathematics of quantum mechanics, can be understood as projection onto pre-existing structure, separable from the physical interaction that transmits the result.
+  \item The multiverse is not required to explain quantum computation; a single block universe with sufficiently rich Hilbert geometry suffices.
+\end{itemize}
 
-Wheeler asked: \textit{it from bit, or bit from it?}
+The universe does not need to be multiplied to explain what already exists as structure. The demonstration runs today in ZIP code 25880.
 
-\(H_{\text{App}}\) suggests the question may be symmetric. And the operational
-evidence for that symmetry is running right now, in a 384-dimensional Hilbert
-space, answering questions about who needs help and where they live.
+\section*{Acknowledgments}
 
-The ZIP code of \(H_{\text{App}}\) is 25880.
+Ms.\ Egeria Allis is an original system designed and built by Carrie Ann Kidd in collaboration with community partners in West Virginia. Any errors or oversights in the theoretical framing are the author's responsibility alone.
 
-% ================================================================
 \begin{thebibliography}{99}
 
-\bibitem{Bell1964}
-Bell, J.S. (1964).
-On the Einstein Podolsky Rosen paradox.
-\textit{Physics Physique Fizika}, 1(3), 195--200.
+\bibitem{hagerstrand1970}
+T.~Hägerstrand, ``What about people in regional science?,'' \emph{Papers of the Regional Science Association}, vol.~24, pp.~7--21, 1970.
 
-\bibitem{BusemeyerBruza2012}
-Busemeyer, J.R.\ and Bruza, P.D.\ (2012).
-\textit{Quantum Models of Cognition and Decision}.
-Cambridge University Press.
+\bibitem{massey1994}
+D.~Massey, \emph{Space, Place and Gender}. University of Minnesota Press, 1994.
 
-\bibitem{Einstein1955}
-Einstein, A.\ (1955).
-Letter to the family of Michele Besso, March 21, 1955.
+\bibitem{tuan1977}
+Y.-F.~Tuan, \emph{Space and Place: The Perspective of Experience}. University of Minnesota Press, 1977.
 
-\bibitem{Maldacena1997}
-Maldacena, J.\ (1997).
-The large \(N\) limit of superconformal field theories and supergravity.
-\textit{International Journal of Theoretical Physics}, 38, 1113--1133.
+\bibitem{vonneumann1932}
+J.~von Neumann, \emph{Mathematische Grundlagen der Quantenmechanik}. Springer, 1932. (English translation: \emph{Mathematical Foundations of Quantum Mechanics}, Princeton University Press, 1955.)
 
-\bibitem{Minkowski1908}
-Minkowski, H.\ (1908).
-Space and Time.
-Address delivered at the 80th Assembly of German Natural Scientists
-and Physicians, Cologne.
+\bibitem{dirac1930}
+P.~A.~M.~Dirac, \emph{The Principles of Quantum Mechanics}. Oxford University Press, 1930.
 
-\bibitem{NielsenChuang2000}
-Nielsen, M.A.\ and Chuang, I.L.\ (2000).
-\textit{Quantum Computation and Quantum Information}.
-Cambridge University Press.
+\bibitem{nielsenchuang2000}
+M.~A.~Nielsen and I.~L.~Chuang, \emph{Quantum Computation and Quantum Information}. Cambridge University Press, 2000.
 
-\bibitem{Rovelli1996}
-Rovelli, C.\ (1996).
-Relational quantum mechanics.
-\textit{International Journal of Theoretical Physics}, 35, 1637--1678.
+\bibitem{halmos1957}
+P.~R.~Halmos, \emph{Introduction to Hilbert Space and the Theory of Spectral Multiplicity}. Chelsea, 1957.
 
-\bibitem{Wheeler1990}
-Wheeler, J.A.\ (1990).
-Information, physics, quantum: The search for links.
-In W.\ Zurek (Ed.), \textit{Complexity, Entropy, and the Physics of
-Information}. Addison-Wesley.
+\bibitem{reedsimon1972}
+M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I: Functional Analysis}. Academic Press, 1972.
 
-\bibitem{Zeilinger1999}
-Zeilinger, A.\ (1999).
-A foundational principle for quantum mechanics.
-\textit{Foundations of Physics}, 29(4), 631--643.
+\bibitem{einstein1955}
+A.~Einstein, ``Letter to the family of Michele Besso,'' March 21, 1955.
 
-\bibitem{KiddThesis2026}
-Kidd, C.A.\ (2026).
-Ms.\ Egeria Allis Thesis --- Chapter~4: Hilbert Space State and ChromaDB
-as Semantic Memory.
-\texttt{H4HWV2011/msjarvis-public-docs}, GitHub.
-\url{https://github.com/H4HWV2011/msjarvis-public-docs}
+\bibitem{minkowski1908}
+H.~Minkowski, ``Raum und Zeit,'' address at the 80th Assembly of German Natural Scientists and Physicians, Cologne, 1908.
+
+\bibitem{wheeler1990}
+J.~A.~Wheeler, ``Information, physics, quantum: the search for links,'' in W.~H.~Zurek (ed.), \emph{Complexity, Entropy, and the Physics of Information}. Addison-Wesley, 1990.
+
+\bibitem{everett1957}
+H.~Everett, III, ````Relative state'' formulation of quantum mechanics,'' \emph{Reviews of Modern Physics}, vol.~29, no.~3, pp.~454--462, 1957.
+
+\bibitem{deutsch1985}
+D.~Deutsch, ``Quantum theory, the Church--Turing principle and the universal quantum computer,'' \emph{Proceedings of the Royal Society of London A}, vol.~400, pp.~97--117, 1985.
+
+\bibitem{deutsch1997}
+D.~Deutsch, \emph{The Fabric of Reality}. Penguin Books, 1997.
+
+\bibitem{rovelli1996}
+C.~Rovelli, ``Relational quantum mechanics,'' \emph{International Journal of Theoretical Physics}, vol.~35, no.~8, pp.~1637--1678, 1996.
+
+\bibitem{zeilinger1999}
+A.~Zeilinger, ``A foundational principle for quantum mechanics,'' \emph{Foundations of Physics}, vol.~29, no.~4, pp.~631--643, 1999.
+
+\bibitem{busemeyerbruza2012}
+J.~R.~Busemeyer and P.~D.~Bruza, \emph{Quantum Models of Cognition and Decision}. Cambridge University Press, 2012.
+
+\bibitem{zurek2003}
+W.~H.~Zurek, ``Decoherence, einselection, and the quantum origins of the classical,'' \emph{Reviews of Modern Physics}, vol.~75, no.~3, pp.~715--775, 2003.
+
+\bibitem{maldacena1997}
+J.~M.~Maldacena, ``The large $N$ limit of superconformal field theories and supergravity,'' \emph{International Journal of Theoretical Physics}, vol.~38, pp.~1113--1133, 1999.
+
+\bibitem{wang2020}
+K.~Wang, H.~Reimers, and I.~Gurevych, ``Making monolingual sentence embeddings multilingual using knowledge distillation,'' in \emph{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing}, 2020.
 
 \end{thebibliography}
-
-% ================================================================
-\vspace{2em}
-\noindent\rule{\textwidth}{0.4pt}
-\small
-\textit{Authored by Carrie Ann Kidd --- Mount Hope, West Virginia.}\\
-\textit{Ms.\ Egeria Allis is an original system designed and built by Carrie Ann Kidd.}\\
-\textit{See LICENSE for terms.}\\
-\textit{First submitted as preprint: May 5, 2026.}\\
-\textit{The ZIP code of \(H_{\text{App}}\) is 25880.}
 
 \end{document}
