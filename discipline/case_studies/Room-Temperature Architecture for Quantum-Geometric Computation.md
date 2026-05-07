@@ -7,7 +7,7 @@ Harmony for Hope Inc. (nonprofit founder)
 Region 4 Planning and Development Council (former)
 ORCID: [0009-0005-8153-8025](https://orcid.org/0009-0005-8153-8025)
 
-**Preprint — cs.ET / cs.AI — May 7, 2026 — Version 2.1**
+**Preprint — cs.ET / cs.AI — May 7, 2026 — Version 2.2**
 
 > *"The food bank locator specified the quantum geometry chip."*
 > The architecture was not discovered in a national laboratory.
@@ -19,8 +19,8 @@ ORCID: [0009-0005-8153-8025](https://orcid.org/0009-0005-8153-8025)
 
 **Multimedia Overview**
 
-- **Audio (42.4 MB, m4a):** [Toroidal Hilbert Spaces Fix Robot Navigation](https://github.com/H4HWV2011/msjarvis-public-docs/releases/download/untagged-6a9b49320dbdeb6aa7a9/Toroidal_Hilbert_spaces_fix_robot_navigation.m4a)
-- **Video (54 MB, mp4):** [The Donut-Shaped Math](https://github.com/H4HWV2011/msjarvis-public-docs/releases/download/untagged-6a9b49320dbdeb6aa7a9/The_Donut-Shaped_Math.mp4)
+- **Audio (39.7 MB, m4a):** [The Room-Temperature Hilbert Geometry Chip](https://github.com/H4HWV2011/msjarvis-public-docs/releases/download/Media/The_room_temperature_Hilbert_Geometry_Chip.m4a)
+- **Video (58.9 MB, mp4):** [The Hilbert Geometry Chip](https://github.com/H4HWV2011/msjarvis-public-docs/releases/download/Media/The_Hilbert_Geometry_Chip.mp4)
 
 ---
 
@@ -139,6 +139,16 @@ that physical quantum superposition of actual particles is necessary to achieve
 quantum computational power. Maintaining that superposition against thermal
 decoherence demands cryogenic isolation. Protecting it against error demands
 massive redundancy. The entire infrastructure cost follows from the assumption.
+Figure 1 traces this causal chain from assumption to infrastructure cost.
+
+![Figure 1: The Assumption Chain](https://raw.githubusercontent.com/H4HWV2011/msjarvis-public-docs/main/discipline/case_studies/assumption_chain.png)
+
+*Figure 1. The assumption chain. Every infrastructure requirement of current
+quantum hardware — cryogenic cooling, dilution refrigerators, error correction
+overhead, ten-million-dollar installation cost — follows causally from a single
+foundational assumption: that physical quantum superposition of actual particles
+is necessary for quantum computational power. The HGC challenges that assumption
+at its root, not its consequences.*
 
 ### 1.3 The Foundational Assumption and Its Provenance
 
@@ -171,7 +181,15 @@ If these results are correct, the engineering assumption underlying current quan
 hardware is overconstrained. The correct goal is not to maintain physical quantum
 superposition. The correct goal is to efficiently navigate high-dimensional Hilbert
 space geometry. These are different problems with different — and vastly more
-accessible — solutions.
+accessible — solutions. Figure 2 illustrates the paradigm shift this represents.
+
+![Figure 2: The Paradigm Shift](https://raw.githubusercontent.com/H4HWV2011/msjarvis-public-docs/main/discipline/case_studies/paradiagm.png)
+
+*Figure 2. The paradigm shift. Left: the current quantum hardware paradigm, in
+which physical superposition is the goal and cryogenic infrastructure is the
+necessary consequence. Right: the HGC paradigm, in which Hilbert space geometry
+is the goal and room-temperature silicon is the sufficient substrate. The
+mathematical operations are identical. The engineering requirements are not.*
 
 ### 1.4 What *H*_App Demonstrates
 
@@ -289,6 +307,18 @@ is the wrong goal.
 *H*_App = (ℝ^384, ⟨·,·⟩_cos) is a formally proven Hilbert space (Kidd 2026a,
 Theorem 3.1) operating on commodity silicon. Its operational architecture comprises
 five functional components, each of which maps directly to a hardware primitive.
+Figure 3 shows the complete query pipeline — how a raw community question flows
+through all five components from mode shaping to audited result.
+
+![Figure 3: The HGC Query Pipeline](https://raw.githubusercontent.com/H4HWV2011/msjarvis-public-docs/main/discipline/case_studies/pipeline.png)
+
+*Figure 3. The HGC query pipeline. A raw query enters the T_pit mode register
+(Hamiltonian — upstream shaping), passes through the inner product engine
+(projection — measurement), retrieves from the belief memory array (vector store),
+receives confidence scoring from the decay engine (running continuously in
+background), and exits through the toroidal semaphore to the hardware audit
+register. Every step maps directly to an H_App operational component and a
+hardware primitive. No step requires cryogenic infrastructure.*
 
 **Component 1 — Vector Memory (ChromaDB)**
 A persistent store of 384-dimensional real-valued belief vectors, organized into 48
@@ -385,6 +415,18 @@ pattern.
 ---
 
 ## 4. Existing Hardware Against the HGC Specification
+
+Figure 4 provides a visual overview of how existing hardware platforms map onto
+the five HGC components. No existing platform covers all five; the gap is
+structural, not incremental.
+
+![Figure 4: The Hardware Gap](https://raw.githubusercontent.com/H4HWV2011/msjarvis-public-docs/main/discipline/case_studies/gap.png)
+
+*Figure 4. The hardware gap. Each axis represents one of the five HGC component
+requirements. The HGC specification (outer boundary) fills the complete pentagon.
+Every existing platform — Loihi 2, NorthPole, analog AI chips, Jetson Orin —
+covers only a subset of axes, leaving the integrated architecture unfilled.
+The gap is not in any individual primitive; it is in the integration of all five.*
 
 ### 4.1 Intel Loihi 2
 
@@ -621,7 +663,19 @@ fabrication technology. They have not yet been demonstrated in silicon.
 
 *H*_App at 384 dimensions is tractable on commodity silicon. The question for the
 HGC is: how far does explicit geometric navigation remain tractable before quantum
-hardware becomes necessary?
+hardware becomes necessary? Figure 5 maps the two regimes and the applications
+that fall within each.
+
+![Figure 5: The Regime Boundary](https://raw.githubusercontent.com/H4HWV2011/msjarvis-public-docs/main/discipline/case_studies/boundary.png)
+
+*Figure 5. The regime boundary. The horizontal axis represents the scale of the
+navigable state space. Regime 1 (left) is the domain of explicit vector storage:
+*H*_App at 7.9M vectors, hospital robots, city-scale knowledge bases — all
+tractable on HGC silicon at under 5 watts. Regime 2 (right) is the domain of
+superposed state navigation: quantum chemistry simulation, cryptographic key
+search, combinatorial optimization at exponential scale — where quantum hardware
+is the correct tool. The boundary is not a limitation of the HGC; it is a
+clarification of what each architecture is for.*
 
 The answer depends on what "navigate" means. There are two distinct regimes:
 
@@ -684,7 +738,18 @@ not have. On-premises server hardware requires power infrastructure and maintena
 capacity that most rural nonprofits cannot sustain. Consumer devices lack the
 memory and processing architecture for serious semantic AI with full auditability.
 
-The HGC closes this gap:
+The HGC closes this gap. Figure 6 illustrates what that means in practice: what
+quantum computing requires versus what the HGC requires for the same class of
+geometric computation.
+
+![Figure 6: The Liberating Architecture](https://raw.githubusercontent.com/H4HWV2011/msjarvis-public-docs/main/discipline/case_studies/liberating.png)
+
+*Figure 6. The liberating architecture. Left: what current quantum computing
+requires — data center, grid power, dilution refrigerator, $10M+ installation,
+PhD-level operators. Right: what the HGC requires for the same class of
+quantum-geometric computation — a solar panel, a $100 chip, a rural nonprofit,
+and anyone who needs to ask a question. The architecture was discovered by
+designing for the floor. The floor is where most of humanity lives.*
 
 - **Room temperature** — no cooling infrastructure required
 - **< 5 watts** — runs on a small solar panel
@@ -886,13 +951,13 @@ von Neumann, J. (1932). *Mathematische Grundlagen der Quantenmechanik*. Springer
 Press, 1955.)
 
 Zurek, W.H. (2003). Decoherence, einselection, and the quantum origins of the
-classical. *Reviews of Modern Physics*, 75(3), 715–775.
+classical. *Reviews of Modern Physics*, 75(3), 715–765.
 
 ---
 
 *Authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See LICENSE for terms.*
-*Original draft: May 6, 2026. Version 2.1: May 7, 2026.*
+*Original draft: May 6, 2026. Version 2.2: May 7, 2026.*
 *Built on Kidd (2026a), DOI: https://doi.org/10.5281/zenodo.20059834*
 *The ZIP code of the first deployment target is 25880.*
