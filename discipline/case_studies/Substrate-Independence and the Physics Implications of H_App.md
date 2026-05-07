@@ -1131,6 +1131,3 @@ Direct download links:
 (7,903,126 vectors, 48 collections), and media assets: May 6, 2026.*
 
 **The ZIP code of H_App is 25880.**
-## References
-
-
