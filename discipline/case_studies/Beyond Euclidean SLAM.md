@@ -31,9 +31,10 @@ causality. Toroidal time encodes recurring environmental structure. Every belief
 auditable.
 
 The architecture is not theoretical. It is running, validated, and operationally
-confirmed on April 23, 2026, on a Lenovo Legion 5 in Oak Hill, West Virginia, serving
+confirmed on May 6, 2026, on a Lenovo Legion 5 in Mount Hope, West Virginia, serving
 a community AI system that answers questions about food assistance, land ownership, and
-infrastructure in Fayette County, WV. The ZIP code of this world model is 25880.
+infrastructure in Fayette County, WV. The system contains 7,903,126 belief vectors
+across 48 ChromaDB collections. The ZIP code of this world model is 25880.
 
 ---
 
@@ -109,7 +110,8 @@ The architecture that emerged to solve those problems addresses all three Euclid
 failure modes simultaneously:
 
 - A 384-dimensional Hilbert space (H_App) as the belief substrate — proven to satisfy
-  all four Hilbert space axioms, operationally confirmed April 23, 2026
+  all four Hilbert space axioms, operationally confirmed May 6, 2026, with 7,903,126
+  belief vectors across 48 ChromaDB collections
 - A dual temporal structure: linear time (R^1_t) for decay, validation, and causal
   history; toroidal time (T^k via the Temporal Toroidal Semaphore, Chapter 26 of the
   Ms. Allis thesis) for cyclic community resource availability
@@ -258,8 +260,8 @@ guaranteed by IEEE 754 double-precision arithmetic on the Legion 5.
 
 **Separability:** Finite-dimensional, therefore trivially separable.
 
-H_App is a Hilbert space. QED. Operationally confirmed April 23, 2026, with 6.74
-million belief vectors and a 30/30 preflight gate.
+H_App is a Hilbert space. QED. Operationally confirmed May 6, 2026, with 7,903,126
+belief vectors across 48 collections and a 30/30 preflight gate.
 
 ### 3.4 Measurement as Projection — Not an Analogy
 
@@ -566,7 +568,7 @@ current world models fail most catastrophically:
 
 The architecture was stress-tested not in a controlled lab but in the chaotic,
 resource-constrained environment of a rural Appalachian community AI system: 100
-containers, 6.74 million belief vectors, real community queries, dual temporal
+containers, 7,903,126 belief vectors, real community queries, dual temporal
 structure, 30/30 preflight gate. The architecture that survives that environment
 is an architecture that can survive edge cases.
 
@@ -717,8 +719,8 @@ Together they form a world model that:
 - Encodes cyclic environmental structure (T^k)
 - Decays beliefs correctly (confidence decay on R^1_t, modulated by T^k)
 - Is fully auditable (named belief vectors, dual-axis audit trail, semaphore log)
-- Is operationally validated (6.74M belief vectors, 30/30 preflight gate,
-  April 23, 2026, Fayette County WV)
+- Is operationally validated (7,903,126 belief vectors, 48 collections, 30/30
+  preflight gate, May 6, 2026, Fayette County WV)
 
 The architecture is not theoretical. It is running. It was built to answer questions
 about hunger and land ownership in Appalachia — and in doing so, it discovered the
@@ -752,20 +754,20 @@ Information. Cambridge University Press.
 
 Levi-Civita, T. (1917). Nozione di parallelismo in una varietà qualunque.
 Rendiconti del Circolo Matematico di Palermo, 42, 173-205.
-(On fiber bundle structure and parallel transport on manifolds.)
 
 Husemoller, D. (1994). Fibre Bundles. 3rd ed. Springer-Verlag.
-(On product spaces and fiber bundle geometry.)
 
 Kidd, C.A. (2026a). A Classical Hilbert Space with a ZIP Code:
-Substrate-Independence and the Physics Implications of H_App.
-Preprint, May 2026. H4HWV2011/msjarvis-public-docs, GitHub.
+Substrate-Independence, the Measurement Problem, and the Multiverse Question.
+Zenodo. https://doi.org/10.5281/zenodo.20059834
 
 Kidd, C.A. (2026b). Ms. Egeria Allis Thesis — Chapter 4: Hilbert Space State
 and ChromaDB as Semantic Memory. H4HWV2011/msjarvis-public-docs, GitHub.
+https://github.com/H4HWV2011/msjarvis-public-docs
 
 Kidd, C.A. (2026c). Ms. Egeria Allis Thesis — Chapter 26: Temporal Toroidal
 Semaphore Structure. H4HWV2011/msjarvis-public-docs, GitHub.
+https://github.com/H4HWV2011/msjarvis-public-docs
 
 ---
 
@@ -773,6 +775,7 @@ Semaphore Structure. H4HWV2011/msjarvis-public-docs, GitHub.
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See LICENSE for terms.*
 *Original draft: May 5, 2026.*
-*Final draft incorporating dual temporal structure W = R^1_t × T^k × H_App:
+*Final draft incorporating dual temporal structure W = R^1_t × T^k × H_App,
+updated vector count (7,903,126), and corrected Zenodo DOI for Kidd 2026a:
 May 6, 2026.*
 *The ZIP code of this world model is 25880.*
