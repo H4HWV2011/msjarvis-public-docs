@@ -68,11 +68,7 @@ full-pipeline community query verified (cosine distance = 0.3099). Confidence de
 audit for entity 38 (Fayette County geographic entity) verified end-to-end:
 *c*: 0.60 → 0.55 → 1.00, full audit trail written to `gbim_decay_audit`.
 
-The deployment target for the first HGC is not a national laboratory.
-It is a rural community in Appalachia running on solar power, off-grid, at ZIP
-code 25880. The hardware specification that emerges from the most resource-
-constrained possible environment is precisely the specification that makes
-quantum-geometric computation accessible everywhere.
+The design constraints for HGC-1 are not derived from a national laboratory environment. They are derived from ZIP code 25880 — a rural Appalachian community running on solar power, off-grid, with no data center infrastructure and no cryogenic capability. This is deliberate. A specification that works under maximum resource constraint is a specification that scales upward to better-resourced environments without modification. The inverse is not true: a chip designed for a national laboratory does not automatically become deployable in a mountain community. By designing for the floor, HGC-1 establishes the geometry of accessible quantum-geometric computation.
 
 **Keywords:** Hilbert space; quantum-geometric computation; neuromorphic hardware;
 room-temperature quantum analog; belief decay; Hamiltonian analog; toroidal
