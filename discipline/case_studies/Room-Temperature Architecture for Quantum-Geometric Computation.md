@@ -7,7 +7,7 @@ Harmony for Hope Inc. (nonprofit founder)
 Region 4 Planning and Development Council (former)
 ORCID: [0009-0005-8153-8025](https://orcid.org/0009-0005-8153-8025)
 
-**Preprint — cs.ET / cs.AI — May 7, 2026 — Version 2.0**
+**Preprint — cs.ET / cs.AI — May 7, 2026 — Version 2.1**
 
 > *"The food bank locator specified the quantum geometry chip."*
 > The architecture was not discovered in a national laboratory.
@@ -68,7 +68,15 @@ full-pipeline community query verified (cosine distance = 0.3099). Confidence de
 audit for entity 38 (Fayette County geographic entity) verified end-to-end:
 *c*: 0.60 → 0.55 → 1.00, full audit trail written to `gbim_decay_audit`.
 
-The design constraints for HGC-1 are not derived from a national laboratory environment. They are derived from ZIP code 25880 — a rural Appalachian community running on solar power, off-grid, with no data center infrastructure and no cryogenic capability. This is deliberate. A specification that works under maximum resource constraint is a specification that scales upward to better-resourced environments without modification. The inverse is not true: a chip designed for a national laboratory does not automatically become deployable in a mountain community. By designing for the floor, HGC-1 establishes the geometry of accessible quantum-geometric computation.
+The design constraints for HGC-1 are not derived from a national laboratory
+environment. They are derived from ZIP code 25880 — a rural Appalachian community
+running on solar power, off-grid, with no data center infrastructure and no
+cryogenic capability. This is deliberate. A specification that works under maximum
+resource constraint is a specification that scales upward to better-resourced
+environments without modification. The inverse is not true: a chip designed for a
+national laboratory does not automatically become deployable in a mountain
+community. By designing for the floor, HGC-1 establishes the geometry of
+accessible quantum-geometric computation.
 
 **Keywords:** Hilbert space; quantum-geometric computation; neuromorphic hardware;
 room-temperature quantum analog; belief decay; Hamiltonian analog; toroidal
@@ -291,9 +299,9 @@ as of May 6, 2026.
 **Component 2 — Inner Product Engine (Cosine Similarity)**
 For every retrieval operation, computes:
 
-```
+~~~
 sim(q̂, v̂_k) = ⟨q̂, v̂_k⟩_cos = Σᵢ₌₁³⁸⁴ q̂ᵢ · v̂_kᵢ
-```
+~~~
 
 for query vector *q̂* against candidate vectors *v̂_k* in *S*^383. This is the
 core computational primitive — a 384-dimensional dot product on L2-normalized
@@ -305,17 +313,17 @@ projection geometry is well-defined (Kidd 2026a, §4.1, Eq. 4).
 Every belief vector carries a confidence value *c* ∈ [0,1] with associated decay
 rate δ_0 per cycle on ℝ^1_t:
 
-```
+~~~
 c(t + Δt) = c(t) − δ₀ · Δt
-```
+~~~
 
 with full audit trail written to `gbim_decay_audit` (Kidd 2026a, §4.2, Eq. 6).
 For the robotics application, the effective decay rate is modulated by the toroidal
 coordinate τ ∈ 𝕋^k (Kidd 2026b, §4.3):
 
-```
+~~~
 δ_eff(τ) = δ₀ · f(τ)
-```
+~~~
 
 where *f*(τ) > 1 during high-activity phases and *f*(τ) ≤ 1 during quiescent
 phases. Operationally verified: entity 38 decay *c*: 0.60 → 0.55 → 1.00,
@@ -325,9 +333,9 @@ April 23, 2026.
 The `nbb_pituitary_gland` service applies a diagonal scaling tensor Λ_mode to the
 belief-state pipeline before any retrieval dispatch (Kidd 2026a, §4.3, Eq. 8):
 
-```
+~~~
 T_pit(v) = Λ_mode · v
-```
+~~~
 
 Parameters as of April 23, 2026: warmth = 0.9 (community-benefit weighting),
 cortisol = 0.6 (hazard sensitivity), urgency = 0.5 (retrieval thoroughness),
@@ -438,15 +446,40 @@ and at very low power. Their analog precision limitation — weight storage degr
 over time — is actually a natural analog of confidence decay rather than a defect,
 if controlled and audited correctly.
 
-### 4.4 The Identified Gap
+### 4.4 NVIDIA Jetson Orin
 
-No existing neuromorphic or analog AI chip implements all five HGC components.
-The gap is not in the computational primitives — inner product, leaky integration,
-and weight storage are all well-represented in existing hardware. The gap is in
-the **integration**: no chip combines high-dimensional associative vector memory,
-fast inner product computation, formal decay-with-audit, programmable Hamiltonian-
-mode regulation, and semaphore-governed state transitions as a unified architecture.
-That integration is the HGC.
+NVIDIA's Jetson Orin is the most capable commercially available edge AI platform,
+designed for autonomous machines and robotics at the network edge. It carries an
+Ampere GPU with CUDA cores, a dedicated deep learning accelerator, and unified
+memory architecture.
+
+Against the HGC specification:
+
+| Component | Jetson Orin Coverage |
+|---|---|
+| Inner product engine | Yes — CUDA cores — **strong match** |
+| Vector memory | Yes — unified memory architecture — **strong match** |
+| Confidence decay | Not implemented in hardware |
+| *T*_pit mode operator | Not implemented in hardware |
+| Toroidal semaphore | Not implemented in hardware |
+| Power draw | 15–60 W — 3–12× over HGC target |
+| Unit cost | $500+ — 5× over HGC target |
+
+### 4.5 The Identified Gap
+
+No existing neuromorphic, analog AI, or edge AI platform implements all five HGC
+components. The gap is not in the computational primitives — inner product, leaky
+integration, and weight storage are all well-represented in existing hardware. The
+gap is in the **integration**: no chip combines high-dimensional associative vector
+memory, fast inner product computation, formal decay-with-audit, programmable
+Hamiltonian-mode regulation, and semaphore-governed state transitions as a unified
+architecture. That integration is the HGC.
+
+NVIDIA's Jetson Orin — the most capable commercially available edge AI platform —
+implements the inner product and vector memory primitives well but does not provide
+hardware confidence decay, mode regulation, or semaphore arbitration, and its
+15–60 W power envelope and $500+ unit cost place it outside the deployment
+constraints of ZIP code 25880.
 
 ---
 
@@ -487,12 +520,12 @@ A high-density associative memory storing *N* belief vectors of dimension *D*, e
 with an associated confidence register *c* ∈ [0,1], a decay rate register δ_0, and
 a cyclic modulation register for *f*(τ). Target parameters for Version 1:
 
-```
+~~~
 N = 1,048,576 (2²⁰) vectors
 D = 384 dimensions
 16-bit fixed-point values
 Total memory footprint: ~805 MB
-```
+~~~
 
 The belief memory array is the Hilbert space instantiated in silicon. Every vector
 is a point in ℝ^384. The geometry of the space is determined by what vectors are
@@ -502,9 +535,9 @@ stored, what their confidence levels are, and what decay rates they carry.
 
 A systolic array of multiply-accumulate units performing:
 
-```
+~~~
 ⟨q̂, v̂_k⟩ = Σᵢ₌₁³⁸⁴ q̂ᵢ · v̂_kᵢ
-```
+~~~
 
 for a query vector *q̂* against all *N* belief vectors in parallel. Target
 throughput: full inner product sweep of 2^20 vectors at *D* = 384 in under
@@ -517,9 +550,9 @@ space sense. It is the core computational primitive of the chip.
 
 A background process running continuously on the belief memory array, applying:
 
-```
+~~~
 c_k(t + Δt) = c_k(t) − δ_eff(τ) · Δt
-```
+~~~
 
 to every belief vector at each clock cycle, with writes to the hardware audit
 register. Beliefs whose confidence falls below threshold are flagged for
@@ -531,9 +564,9 @@ chip is actively querying.
 A programmable diagonal tensor Λ_mode applied to the query vector before
 the inner product engine fires:
 
-```
+~~~
 q̂' = Λ_mode · q̂
-```
+~~~
 
 The *T*_pit register is updated by the mode controller — a small state machine
 translating mode commands (warmth, cortisol, urgency, mode) into specific
@@ -840,6 +873,9 @@ and time. *Science*, 382(6668), 329–335.
 Nielsen, M.A. and Chuang, I.L. (2000). *Quantum Computation and Quantum Information*.
 Cambridge University Press.
 
+NVIDIA Corporation (2023). Jetson Orin Series System-on-Module Data Sheet.
+https://developer.nvidia.com/embedded/jetson-agx-orin
+
 Preskill, J. (2018). Quantum computing in the NISQ era and beyond. *Quantum*, 2, 79.
 
 Reed, M. and Simon, B. (1972). *Methods of Modern Mathematical Physics I: Functional
@@ -857,6 +893,6 @@ classical. *Reviews of Modern Physics*, 75(3), 715–775.
 *Authored by Carrie Ann Kidd — Mount Hope, West Virginia.*
 *Ms. Egeria Allis is an original system designed and built by Carrie Ann Kidd.*
 *See LICENSE for terms.*
-*Original draft: May 6, 2026. Version 2.0: May 7, 2026.*
+*Original draft: May 6, 2026. Version 2.1: May 7, 2026.*
 *Built on Kidd (2026a), DOI: https://doi.org/10.5281/zenodo.20059834*
 *The ZIP code of the first deployment target is 25880.*
