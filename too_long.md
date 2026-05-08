@@ -1,9512 +1,4081 @@
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "cat": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "ref": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "created": "ms-jarvis"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "636dc443-1e42-43f6-aa85-78c8a4d7e8c5",
-    "name": "geospatialfeatures",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "feature_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "lon": {
-          "float": {
-            "float_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "lat": {
-          "float": {
-            "float_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source_table": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "city": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "address": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "name": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "66856dfb-18f6-4dc8-9182-3d4f27ba800b",
-    "name": "spiritual_texts",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "cultural_family": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "tradition": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "origin_lat": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "filename": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "title": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "origin_notes": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "origin_lon": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "wv_tagged": {
-          "bool": {
-            "bool_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chunk_index": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          },
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chunk": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "region": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source_file": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine",
-      "description": "Mother Carrie Protocol — 72 religious traditions corpus"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "6727fb3e-078f-49d5-9df8-e2c82ecf8cf2",
-    "name": "conversation_history",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "session_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "timestamp": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "user_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "role": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "6a39f36c-5da7-45b7-82f2-b2684415ebcd",
-    "name": "appalachian_english_corpus",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "published": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "title": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "ingested_at": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "url": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "subcategory": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "tier": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": null,
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "6acb5634-7ae4-41ae-b487-09da0be84f48",
-    "name": "governance_rag",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "title": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "ingested": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chunk": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "7b85b2be-c1ae-4154-931a-af6a91119b7e",
-    "name": "local_resources",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": null
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "zip": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "verified": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          },
-          "bool": {
-            "bool_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "url": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "phone": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "created": "ms-jarvis"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "84bfcc58-4c4a-43db-85d8-0eff476ae40a",
-    "name": "fayette_county_resources_2026",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "source_file": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "gbim_entity_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "address_count": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "year": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "contributor_role": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "geo_anchor_count": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "contributor": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "ingest_date": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "gbim_lon": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chunk_index": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "doc_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "county_fips": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "gbim_lat": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "extraction_method": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "870f3910-c699-4d47-b616-e51f0fccac85",
-    "name": "jarvis",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": null
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "872f538b-a930-4427-b309-19c1d081537d",
-    "name": "health_rag",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "wv_tagged": {
-          "bool": {
-            "bool_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "wv_tagged": true,
-      "description": "Community health data — WV DHHR, county health depts",
-      "status": "created_empty_2026-03-24"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "9358928c-d503-47e5-b24d-78159edd53ab",
-    "name": "appalachian_cultural_intelligence",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "title": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "ingested_at": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "location": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "query": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "subcategory": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "tier": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "tradition": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "published": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "url": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "cultural_family": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "ac277ccb-e1ec-45b6-b8b4-e40666f49f95",
-    "name": "GBIM_sample",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "location": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "quantum_tag": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "timestamp": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "lat": {
-          "float": {
-            "float_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "lon": {
-          "float": {
-            "float_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": null,
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "b2a59ffc-a3a5-4c06-90c9-8954b33992f1",
-    "name": "conversation_gbim_public",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "immutability_hash": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "created_at": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "session_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "intent": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "place": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "turn_number": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "privacy_tier": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "user_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "belief_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "gbim_axes": "what,where,when,why,for_whom",
-      "privacy_tier": "public",
-      "description": "Public conversation GBIM — anonymized community patterns",
-      "access": "dao_governed"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "c0111c70-db44-4e0a-8a97-f6a7a5c59ec9",
-    "name": "spiritual_wisdom",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "tradition": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": null,
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "c303b088-d3c3-4569-9b7e-5053514c2b32",
-    "name": "wv_resources",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": null
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "cat": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "created": "ms-jarvis"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "cb0e2432-3a8c-44c0-8839-d94beebff42f",
-    "name": "meeting_minutes",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "status": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "wv_tagged": {
-          "bool": {
-            "bool_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "description": "Community meeting minutes — Fayette County and regional",
-      "status": "created_empty_2026-03-24",
-      "wv_tagged": true
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "ddb233d7-1642-4486-bde9-4cd4d96c3f43",
-    "name": "commons_rag",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "chunk": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "title": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "e0caffcd-136e-4ac2-addc-f4c9b1814ac2",
-    "name": "legal_rag",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "wv_tagged": {
-          "bool": {
-            "bool_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "description": "Legal and regulatory documents — WV code and federal",
-      "status": "created_empty_2026-03-24",
-      "wv_tagged": true
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "e666b46d-e04f-4fd6-a0ce-067a06f491b6",
-    "name": "gbim_worldview_entities",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "worldview_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "source_pk": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "created_at": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "entity_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "label": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "parcel_resolution": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "belief_state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "centroid_y": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "centroid_x": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "coord_srid": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "source_table": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "description": "GBIM entities",
-      "worldview_id": "002c2c84-2f18-40b7-8a98-b8d813dd6cc7"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "e7e83578-973e-474e-a6d4-ea91d5d5289d",
-    "name": "autonomous_learner",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "layer_key": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "decision": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "domain": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "cycle": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "feature_count": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "total_pop": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "topic": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chunk_idx": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "index": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "action_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "table_key": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "user_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "timestamp": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "actor_role": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "services": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "collection": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "entity_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "learned_at": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": null,
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "f6d0a9cd-4c76-4b7d-be6a-5249db9ff7ab",
-    "name": "contracts",
-    "configuration_json": {
-      "hnsw": {
-        "space": "cosine",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chain": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "enriched": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "topic": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "contract_name": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "status": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "phase": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "cosine",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "hnsw:space": "cosine"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "f776101b-133d-4b2b-af3b-e30fbe7f456a",
-    "name": "GBIM_Fayette_sample",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "label": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "source_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "source_table": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "entity_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "worldview_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "belief_state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "state": "WV",
-      "county": "Fayette",
-      "description": "GBIM Fayette County WV — home county belief slice",
-      "gbim_source": "msjarvisgis + worldview"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "f9152993-c774-47ef-8760-63f7dc50e747",
-    "name": "msjarvis_docs",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "topic": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "local_resource_id": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "page": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "name": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "zip": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "filename": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "pulse": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "timestamp": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "chunk": {
-          "int": {
-            "int_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "jurisdiction": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "county": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "verified": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "state": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "zip_code": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "resource_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "doc_type": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "category": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "path": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "programs": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": null,
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  },
-  {
-    "id": "ff2f7717-3e21-4e6b-8244-e8da1aa2bb36",
-    "name": "operations_history",
-    "configuration_json": {
-      "hnsw": {
-        "space": "l2",
-        "ef_construction": 100,
-        "ef_search": 100,
-        "max_neighbors": 16,
-        "resize_factor": 1.2,
-        "sync_threshold": 1000
-      },
-      "spann": null,
-      "embedding_function": {
-        "type": "known",
-        "name": "default",
-        "config": {}
-      }
-    },
-    "schema": {
-      "defaults": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float_list": {
-          "vector_index": {
-            "enabled": false,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        },
-        "sparse_vector": {
-          "sparse_vector_index": {
-            "enabled": false,
-            "config": {
-              "embedding_function": {
-                "type": "unknown"
-              },
-              "bm25": false
-            }
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "float": {
-          "float_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "keys": {
-        "#embedding": {
-          "float_list": {
-            "vector_index": {
-              "enabled": true,
-              "config": {
-                "space": "l2",
-                "embedding_function": {
-                  "type": "known",
-                  "name": "default",
-                  "config": {}
-                },
-                "source_key": "#document",
-                "hnsw": {
-                  "ef_construction": 100,
-                  "max_neighbors": 16,
-                  "ef_search": 100,
-                  "num_threads": 32,
-                  "batch_size": 100,
-                  "sync_threshold": 1000,
-                  "resize_factor": 1.2
-                }
-              }
-            }
-          }
-        },
-        "source": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "#document": {
-          "string": {
-            "fts_index": {
-              "enabled": true,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": false,
-              "config": {}
-            }
-          }
-        },
-        "containers": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "result": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        },
-        "logged_at": {
-          "string": {
-            "fts_index": {
-              "enabled": false,
-              "config": {}
-            },
-            "string_inverted_index": {
-              "enabled": true,
-              "config": {}
-            }
-          }
-        }
-      }
-    },
-    "metadata": {
-      "description": "VERIFYANDTEST.sh and preflight_gate.sh run logs"
-    },
-    "dimension": 384,
-    "tenant": "default_tenant",
-    "database": "default_database",
-    "log_position": 0,
-    "version": 0
-  }
-]
-msjarvis-smoke	02715c7c-7676-4cc1-8e9e-9c345bb332fe
-geospatial_features	02bb9e40-c68e-49e5-95f9-ec11186b4b7b
-fifth_dgm_subconscious	0338d961-4f32-43ce-9afa-25ecb4ba0185
-autonomous_learning	03627c99-c66a-4dbc-b42d-4e2052ff51ae
-zcta_centroids	05c59b1f-d0c3-4cbd-bd60-ddf151307315
-safety_rules	062ab0ff-f06a-4beb-ba61-81461f4079c8
-economic_rag	0c88a778-02bf-475f-ba80-64b9f4467e84
-psychological_rag	0ffa3033-630f-4abf-bf16-f6fd5e53dcb9
-wv_facilities	13af61a6-2a62-47da-a14d-aa771bd4c1ef
-jarvis_knowledge	15a7496c-dce4-4f57-a86f-2f6b97665d72
-address_points	17f69cca-d74f-4f93-bb89-774dc339eeab
-conversation_gbim_private	27f9d49b-c2a0-4c5e-91f5-8441105fedc9
-policy_rag	28014347-d398-4f92-b0ca-81a1de7fc4eb
-ms_jarvis_memory	2a8fd74d-5433-4ec9-8d2f-7d56d0843f4b
-grants_rag	2bc09932-0ec4-4883-9abd-bf18f3769eaa
-GBIM_sample_rows	3b4317d9-19e4-495c-b91e-6e02686d67f0
-research_history	3f9c0200-ba98-4a38-8320-7abd2adf1b12
-au02_threat_seeds	415fbdfe-b7e2-44ee-aba0-619566050bfc
-gbim_entities	48a97656-e254-4e44-9294-bbfffd87bf07
-pia_records	4a4ea5e5-cb8a-46dd-97c4-c8f23ce25958
-ms_jarvis_identity	4b1af913-3248-425c-8af1-8ee08df8e226
-gis_wv_benefits	524507db-559b-44e5-80a1-b25896a3c229
-news_rag	5627f6ba-115d-4d7b-898d-a2436e6513ac
-gbim_beliefs_v2	571eebfa-b122-4e91-af3a-a7aa9a188ba1
-spiritual_knowledge	5a103162-2f32-4da5-9456-e0cffbe3d5f9
-geospatialfeatures	636dc443-1e42-43f6-aa85-78c8a4d7e8c5
-spiritual_texts	66856dfb-18f6-4dc8-9182-3d4f27ba800b
-conversation_history	6727fb3e-078f-49d5-9df8-e2c82ecf8cf2
-appalachian_english_corpus	6a39f36c-5da7-45b7-82f2-b2684415ebcd
-governance_rag	6acb5634-7ae4-41ae-b487-09da0be84f48
-local_resources	7b85b2be-c1ae-4154-931a-af6a91119b7e
-fayette_county_resources_2026	84bfcc58-4c4a-43db-85d8-0eff476ae40a
-jarvis	870f3910-c699-4d47-b616-e51f0fccac85
-health_rag	872f538b-a930-4427-b309-19c1d081537d
-appalachian_cultural_intelligence	9358928c-d503-47e5-b24d-78159edd53ab
-GBIM_sample	ac277ccb-e1ec-45b6-b8b4-e40666f49f95
-conversation_gbim_public	b2a59ffc-a3a5-4c06-90c9-8954b33992f1
-spiritual_wisdom	c0111c70-db44-4e0a-8a97-f6a7a5c59ec9
-wv_resources	c303b088-d3c3-4569-9b7e-5053514c2b32
-meeting_minutes	cb0e2432-3a8c-44c0-8839-d94beebff42f
-commons_rag	ddb233d7-1642-4486-bde9-4cd4d96c3f43
-legal_rag	e0caffcd-136e-4ac2-addc-f4c9b1814ac2
-gbim_worldview_entities	e666b46d-e04f-4fd6-a0ce-067a06f491b6
-autonomous_learner	e7e83578-973e-474e-a6d4-ea91d5d5289d
-contracts	f6d0a9cd-4c76-4b7d-be6a-5249db9ff7ab
-GBIM_Fayette_sample	f776101b-133d-4b2b-af3b-e30fbe7f456a
-msjarvis_docs	f9152993-c774-47ef-8760-63f7dc50e747
-operations_history	ff2f7717-3e21-4e6b-8244-e8da1aa2bb36
-===== msjarvis-smoke =====
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Check what the embed endpoint actually returns raw
+curl -s -X POST http://127.0.0.1:18092/embed \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "test"}' | jq '.'
+
+# Check the service source to see what key it returns
+docker exec jarvis-hilbert-state sh -lc 'find /app -name "*.py" | xargs grep -l "embed" 2>/dev/null'
+docker exec jarvis-hilbert-state sh -lc 'cat /app/server.py 2>/dev/null || cat /app/main.py 2>/dev/null || find /app -name "*.py" | head -5 | xargs cat'
 {
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== geospatial_features =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== fifth_dgm_subconscious =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== autonomous_learning =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== zcta_centroids =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== safety_rules =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== economic_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== psychological_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== wv_facilities =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== jarvis_knowledge =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== address_points =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== conversation_gbim_private =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== policy_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== ms_jarvis_memory =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== grants_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== GBIM_sample_rows =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== research_history =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== au02_threat_seeds =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== gbim_entities =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== pia_records =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== ms_jarvis_identity =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== gis_wv_benefits =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== news_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== gbim_beliefs_v2 =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== spiritual_knowledge =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== geospatialfeatures =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== spiritual_texts =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== conversation_history =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== appalachian_english_corpus =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== governance_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== local_resources =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== fayette_county_resources_2026 =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== jarvis =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== health_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== appalachian_cultural_intelligence =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== GBIM_sample =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== conversation_gbim_public =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== spiritual_wisdom =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== wv_resources =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== meeting_minutes =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== commons_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== legal_rag =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== gbim_worldview_entities =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== autonomous_learner =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== contracts =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== GBIM_Fayette_sample =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== msjarvis_docs =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== operations_history =====
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== gbim_worldview_entities =====
-{
-  "id": "e666b46d-e04f-4fd6-a0ce-067a06f491b6",
-  "name": "gbim_worldview_entities",
-  "configuration_json": {
-    "hnsw": {
-      "space": "l2",
-      "ef_construction": 100,
-      "ef_search": 100,
-      "max_neighbors": 16,
-      "resize_factor": 1.2,
-      "sync_threshold": 1000
-    },
-    "spann": null,
-    "embedding_function": {
-      "type": "known",
-      "name": "default",
-      "config": {}
-    }
-  },
-  "schema": {
-    "defaults": {
-      "string": {
-        "fts_index": {
-          "enabled": false,
-          "config": {}
-        },
-        "string_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float_list": {
-        "vector_index": {
-          "enabled": false,
-          "config": {
-            "space": "l2",
-            "embedding_function": {
-              "type": "known",
-              "name": "default",
-              "config": {}
-            },
-            "hnsw": {
-              "ef_construction": 100,
-              "max_neighbors": 16,
-              "ef_search": 100,
-              "num_threads": 32,
-              "batch_size": 100,
-              "sync_threshold": 1000,
-              "resize_factor": 1.2
-            }
-          }
-        }
-      },
-      "sparse_vector": {
-        "sparse_vector_index": {
-          "enabled": false,
-          "config": {
-            "embedding_function": {
-              "type": "unknown"
-            },
-            "bm25": false
-          }
-        }
-      },
-      "int": {
-        "int_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float": {
-        "float_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "bool": {
-        "bool_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      }
-    },
-    "keys": {
-      "worldview_id": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "coord_srid": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "created_at": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "source_pk": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "label": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "centroid_y": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "parcel_resolution": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "belief_state": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "centroid_x": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "id": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "entity_type": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#document": {
-        "string": {
-          "fts_index": {
-            "enabled": true,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": false,
-            "config": {}
-          }
-        }
-      },
-      "source_table": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#embedding": {
-        "float_list": {
-          "vector_index": {
-            "enabled": true,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "source_key": "#document",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "metadata": {
-    "description": "GBIM entities",
-    "worldview_id": "002c2c84-2f18-40b7-8a98-b8d813dd6cc7"
-  },
-  "dimension": 384,
-  "tenant": "default_tenant",
-  "database": "default_database",
-  "log_position": 0,
-  "version": 0
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== eq1_worldview.gbim_entities =====
-{
-  "error": "NotFoundError",
-  "message": "Collection [eq1_worldview.gbim_entities] does not exist"
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== address_points =====
-{
-  "id": "17f69cca-d74f-4f93-bb89-774dc339eeab",
-  "name": "address_points",
-  "configuration_json": {
-    "hnsw": {
-      "space": "l2",
-      "ef_construction": 100,
-      "ef_search": 100,
-      "max_neighbors": 16,
-      "resize_factor": 1.2,
-      "sync_threshold": 1000
-    },
-    "spann": null,
-    "embedding_function": {
-      "type": "known",
-      "name": "default",
-      "config": {}
-    }
-  },
-  "schema": {
-    "defaults": {
-      "string": {
-        "fts_index": {
-          "enabled": false,
-          "config": {}
-        },
-        "string_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float_list": {
-        "vector_index": {
-          "enabled": false,
-          "config": {
-            "space": "l2",
-            "embedding_function": {
-              "type": "known",
-              "name": "default",
-              "config": {}
-            },
-            "hnsw": {
-              "ef_construction": 100,
-              "max_neighbors": 16,
-              "ef_search": 100,
-              "num_threads": 32,
-              "batch_size": 100,
-              "sync_threshold": 1000,
-              "resize_factor": 1.2
-            }
-          }
-        }
-      },
-      "sparse_vector": {
-        "sparse_vector_index": {
-          "enabled": false,
-          "config": {
-            "embedding_function": {
-              "type": "unknown"
-            },
-            "bm25": false
-          }
-        }
-      },
-      "int": {
-        "int_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float": {
-        "float_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "bool": {
-        "bool_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      }
-    },
-    "keys": {
-      "backfill": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "evidence": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "where": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "who": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#embedding": {
-        "float_list": {
-          "vector_index": {
-            "enabled": true,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "source_key": "#document",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        }
-      },
-      "esn": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "why": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "lat": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "how": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "zip": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "state": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "for_whom": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#document": {
-        "string": {
-          "fts_index": {
-            "enabled": true,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": false,
-            "config": {}
-          }
-        }
-      },
-      "lon": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "what": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "source": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "county": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "when": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "authority": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      }
-    }
-  },
-  "metadata": null,
-  "dimension": 384,
-  "tenant": "default_tenant",
-  "database": "default_database",
-  "log_position": 0,
-  "version": 0
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== spiritual_texts =====
-{
-  "id": "66856dfb-18f6-4dc8-9182-3d4f27ba800b",
-  "name": "spiritual_texts",
-  "configuration_json": {
-    "hnsw": {
-      "space": "cosine",
-      "ef_construction": 100,
-      "ef_search": 100,
-      "max_neighbors": 16,
-      "resize_factor": 1.2,
-      "sync_threshold": 1000
-    },
-    "spann": null,
-    "embedding_function": {
-      "type": "known",
-      "name": "default",
-      "config": {}
-    }
-  },
-  "schema": {
-    "defaults": {
-      "string": {
-        "fts_index": {
-          "enabled": false,
-          "config": {}
-        },
-        "string_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float_list": {
-        "vector_index": {
-          "enabled": false,
-          "config": {
-            "space": "cosine",
-            "embedding_function": {
-              "type": "known",
-              "name": "default",
-              "config": {}
-            },
-            "hnsw": {
-              "ef_construction": 100,
-              "max_neighbors": 16,
-              "ef_search": 100,
-              "num_threads": 32,
-              "batch_size": 100,
-              "sync_threshold": 1000,
-              "resize_factor": 1.2
-            }
-          }
-        }
-      },
-      "sparse_vector": {
-        "sparse_vector_index": {
-          "enabled": false,
-          "config": {
-            "embedding_function": {
-              "type": "unknown"
-            },
-            "bm25": false
-          }
-        }
-      },
-      "int": {
-        "int_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float": {
-        "float_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "bool": {
-        "bool_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      }
-    },
-    "keys": {
-      "chunk_index": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "origin_notes": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "wv_tagged": {
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "category": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "origin_lon": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "cultural_family": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "chunk": {
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "region": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "source_file": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#embedding": {
-        "float_list": {
-          "vector_index": {
-            "enabled": true,
-            "config": {
-              "space": "cosine",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "source_key": "#document",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        }
-      },
-      "source": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#document": {
-        "string": {
-          "fts_index": {
-            "enabled": true,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": false,
-            "config": {}
-          }
-        }
-      },
-      "tradition": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "origin_lat": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "filename": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "title": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      }
-    }
-  },
-  "metadata": {
-    "hnsw:space": "cosine",
-    "description": "Mother Carrie Protocol — 72 religious traditions corpus"
-  },
-  "dimension": 384,
-  "tenant": "default_tenant",
-  "database": "default_database",
-  "log_position": 0,
-  "version": 0
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== autonomous_learner =====
-{
-  "id": "e7e83578-973e-474e-a6d4-ea91d5d5289d",
-  "name": "autonomous_learner",
-  "configuration_json": {
-    "hnsw": {
-      "space": "l2",
-      "ef_construction": 100,
-      "ef_search": 100,
-      "max_neighbors": 16,
-      "resize_factor": 1.2,
-      "sync_threshold": 1000
-    },
-    "spann": null,
-    "embedding_function": {
-      "type": "known",
-      "name": "default",
-      "config": {}
-    }
-  },
-  "schema": {
-    "defaults": {
-      "string": {
-        "fts_index": {
-          "enabled": false,
-          "config": {}
-        },
-        "string_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float_list": {
-        "vector_index": {
-          "enabled": false,
-          "config": {
-            "space": "l2",
-            "embedding_function": {
-              "type": "known",
-              "name": "default",
-              "config": {}
-            },
-            "hnsw": {
-              "ef_construction": 100,
-              "max_neighbors": 16,
-              "ef_search": 100,
-              "num_threads": 32,
-              "batch_size": 100,
-              "sync_threshold": 1000,
-              "resize_factor": 1.2
-            }
-          }
-        }
-      },
-      "sparse_vector": {
-        "sparse_vector_index": {
-          "enabled": false,
-          "config": {
-            "embedding_function": {
-              "type": "unknown"
-            },
-            "bm25": false
-          }
-        }
-      },
-      "int": {
-        "int_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float": {
-        "float_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "bool": {
-        "bool_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      }
-    },
-    "keys": {
-      "#embedding": {
-        "float_list": {
-          "vector_index": {
-            "enabled": true,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "source_key": "#document",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        }
-      },
-      "user_id": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "learned_at": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "total_pop": {
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "actor_role": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "domain": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "timestamp": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "category": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "table_key": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "index": {
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "collection": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "entity_type": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "layer_key": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#document": {
-        "string": {
-          "fts_index": {
-            "enabled": true,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": false,
-            "config": {}
-          }
-        }
-      },
-      "type": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "decision": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "services": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "topic": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "action_type": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "chunk_idx": {
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "feature_count": {
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "cycle": {
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "source": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      }
-    }
-  },
-  "metadata": null,
-  "dimension": 384,
-  "tenant": "default_tenant",
-  "database": "default_database",
-  "log_position": 0,
-  "version": 0
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== autonomous_learning =====
-{
-  "id": "03627c99-c66a-4dbc-b42d-4e2052ff51ae",
-  "name": "autonomous_learning",
-  "configuration_json": {
-    "hnsw": {
-      "space": "l2",
-      "ef_construction": 100,
-      "ef_search": 100,
-      "max_neighbors": 16,
-      "resize_factor": 1.2,
-      "sync_threshold": 1000
-    },
-    "spann": null,
-    "embedding_function": {
-      "type": "known",
-      "name": "default",
-      "config": {}
-    }
-  },
-  "schema": {
-    "defaults": {
-      "string": {
-        "fts_index": {
-          "enabled": false,
-          "config": {}
-        },
-        "string_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float_list": {
-        "vector_index": {
-          "enabled": false,
-          "config": {
-            "space": "l2",
-            "embedding_function": {
-              "type": "known",
-              "name": "default",
-              "config": {}
-            },
-            "hnsw": {
-              "ef_construction": 100,
-              "max_neighbors": 16,
-              "ef_search": 100,
-              "num_threads": 32,
-              "batch_size": 100,
-              "sync_threshold": 1000,
-              "resize_factor": 1.2
-            }
-          }
-        }
-      },
-      "sparse_vector": {
-        "sparse_vector_index": {
-          "enabled": false,
-          "config": {
-            "embedding_function": {
-              "type": "unknown"
-            },
-            "bm25": false
-          }
-        }
-      },
-      "int": {
-        "int_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "float": {
-        "float_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      },
-      "bool": {
-        "bool_inverted_index": {
-          "enabled": true,
-          "config": {}
-        }
-      }
-    },
-    "keys": {
-      "#embedding": {
-        "float_list": {
-          "vector_index": {
-            "enabled": true,
-            "config": {
-              "space": "l2",
-              "embedding_function": {
-                "type": "known",
-                "name": "default",
-                "config": {}
-              },
-              "source_key": "#document",
-              "hnsw": {
-                "ef_construction": 100,
-                "max_neighbors": 16,
-                "ef_search": 100,
-                "num_threads": 32,
-                "batch_size": 100,
-                "sync_threshold": 1000,
-                "resize_factor": 1.2
-              }
-            }
-          }
-        }
-      },
-      "topic": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "content_hash": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "backfill": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "what": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "source_id": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "compressed": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "learned_at": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "fallback": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "bool": {
-          "bool_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "why": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "for_whom": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "evidence": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "url": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "gbim_coordinate": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "when": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "title": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "cycle_number": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        },
-        "int": {
-          "int_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "where": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "#document": {
-        "string": {
-          "fts_index": {
-            "enabled": true,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": false,
-            "config": {}
-          }
-        }
-      },
-      "who": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      },
-      "authority": {
-        "string": {
-          "fts_index": {
-            "enabled": false,
-            "config": {}
-          },
-          "string_inverted_index": {
-            "enabled": true,
-            "config": {}
-          }
-        }
-      }
-    }
-  },
-  "metadata": {
-    "description": "Autonomously acquired knowledge"
-  },
-  "dimension": 384,
-  "tenant": "default_tenant",
-  "database": "default_database",
-  "log_position": 0,
-  "version": 0
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-===== fayettecounty_resources_2026 =====
-{
-  "error": "NotFoundError",
-  "message": "Collection [fayettecounty_resources_2026] does not exist"
-}
-{
-  "error": "InvalidArgumentError",
-  "message": "Collection ID is not a valid UUIDv4"
-}
-{
-  "models": [
+  "detail": [
     {
-      "name": "egeria:latest",
-      "model": "egeria:latest",
-      "modified_at": "2026-05-04T15:42:11.519728366Z",
-      "size": 4372824887,
-      "digest": "06f147ff9e59378e9a68605458862b083473450bc2ee371da5f898d775650379",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7.2B",
-        "quantization_level": "Q4_K_M"
-      }
-    },
-    {
-      "name": "phi3.5:latest",
-      "model": "phi3.5:latest",
-      "modified_at": "2026-04-12T20:35:47.354166236Z",
-      "size": 2176178843,
-      "digest": "61819fb370a3c1a9be6694869331e5f85f867a079e9271d66cb223acb81d04ba",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "phi3",
-        "families": [
-          "phi3"
-        ],
-        "parameter_size": "3.8B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "orca-mini:3b",
-      "model": "orca-mini:3b",
-      "modified_at": "2026-04-12T20:17:38.332112401Z",
-      "size": 1979947443,
-      "digest": "2dbd9f439647093cf773c325b0b3081a11f1b1426d61dee8b946f8f6555a1755",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "3B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "orca-mini:latest",
-      "model": "orca-mini:latest",
-      "modified_at": "2026-04-12T20:16:04.090263215Z",
-      "size": 1979947443,
-      "digest": "2dbd9f439647093cf773c325b0b3081a11f1b1426d61dee8b946f8f6555a1755",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "3B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "all-minilm:latest",
-      "model": "all-minilm:latest",
-      "modified_at": "2026-04-12T03:10:02.270756106Z",
-      "size": 45960996,
-      "digest": "1b226e2802dbb772b5fc32a58f103ca1804ef7501331012de126ab22f67475ef",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "bert",
-        "families": [
-          "bert"
-        ],
-        "parameter_size": "23M",
-        "quantization_level": "F16"
-      }
-    },
-    {
-      "name": "nomic-embed-text:latest",
-      "model": "nomic-embed-text:latest",
-      "modified_at": "2026-04-11T04:15:03.46833539Z",
-      "size": 274302450,
-      "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "nomic-bert",
-        "families": [
-          "nomic-bert"
-        ],
-        "parameter_size": "137M",
-        "quantization_level": "F16"
-      }
-    },
-    {
-      "name": "starcoder2:latest",
-      "model": "starcoder2:latest",
-      "modified_at": "2026-02-03T04:14:06.721592206Z",
-      "size": 1709901728,
-      "digest": "9f4ae0aff61ee24fe4b7d9714c9382b5172551fa8e95aa064452ec2e62610835",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "starcoder2",
-        "families": [
-          "starcoder2"
-        ],
-        "parameter_size": "3B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "medllama2:latest",
-      "model": "medllama2:latest",
-      "modified_at": "2026-02-03T04:08:58.668380862Z",
-      "size": 3825807497,
-      "digest": "a53737ec0c72e31e16968f232cad6a13d79b979d7c0cb13404dcd4405214c8f2",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "sqlcoder:latest",
-      "model": "sqlcoder:latest",
-      "modified_at": "2026-02-03T04:01:43.261978875Z",
-      "size": 4108916695,
-      "digest": "77ac143483877b043ed3da36ce3e00a8f707645a2f1b769e9827313e5f8f0015",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "dolphin-phi:latest",
-      "model": "dolphin-phi:latest",
-      "modified_at": "2026-02-03T03:52:52.031862946Z",
-      "size": 1602473850,
-      "digest": "c5761fc772409945787240af89a5cce01dd39dc52f1b7b80d080a1163e8dbe10",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "phi2",
-        "families": [
-          "phi2"
-        ],
-        "parameter_size": "3B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "llama2:latest",
-      "model": "llama2:latest",
-      "modified_at": "2026-02-03T02:49:20.676271273Z",
-      "size": 3826793677,
-      "digest": "78e26419b4469263f75331927a00a0284ef6544c1975b826b15abdaef17bb962",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "deepseek-coder:latest",
-      "model": "deepseek-coder:latest",
-      "modified_at": "2026-02-03T02:40:12.60584115Z",
-      "size": 776080839,
-      "digest": "3ddd2d3fc8d2b5fe039d18f859271132fd9c7960ef0be1864984442dc2a915d3",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "1B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "codellama:latest",
-      "model": "codellama:latest",
-      "modified_at": "2026-02-03T02:38:13.923973354Z",
-      "size": 3825910662,
-      "digest": "8fdf8f752f6e80de33e82f381aba784c025982752cd1ae9377add66449d2225f",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "qwen2:latest",
-      "model": "qwen2:latest",
-      "modified_at": "2026-02-03T02:27:01.016809737Z",
-      "size": 4431401491,
-      "digest": "dd314f039b9d54d5553002c906ce50c9fe7242f73f0680abd04f01c8ecbd2755",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "qwen2",
-        "families": [
-          "qwen2"
-        ],
-        "parameter_size": "7.6B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "llama3.1:latest",
-      "model": "llama3.1:latest",
-      "modified_at": "2026-02-03T02:27:00.360787079Z",
-      "size": 4920753328,
-      "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "8.0B",
-        "quantization_level": "Q4_K_M"
-      }
-    },
-    {
-      "name": "mistral:latest",
-      "model": "mistral:latest",
-      "modified_at": "2026-02-03T02:14:36.779364334Z",
-      "size": 4372824384,
-      "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7.2B",
-        "quantization_level": "Q4_K_M"
-      }
-    },
-    {
-      "name": "starling-lm:latest",
-      "model": "starling-lm:latest",
-      "modified_at": "2026-01-22T15:06:56.13615103Z",
-      "size": 4108940286,
-      "digest": "39153f619be614bf1b8b91cf31afe53ec107d70b6b7bb4118aa52bccc107ca7e",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "openchat:latest",
-      "model": "openchat:latest",
-      "modified_at": "2026-01-22T14:56:57.425457222Z",
-      "size": 4109876386,
-      "digest": "537a4e03b649d93bf57381199a85f412bfc35912e46db197407740230968e71f",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "neural-chat:latest",
-      "model": "neural-chat:latest",
-      "modified_at": "2026-01-22T14:50:33.742259474Z",
-      "size": 4109853239,
-      "digest": "89fa737d3b85d5e037c2b699b2a735a365cf9e57fd01c62b3378ec1e95694694",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "zephyr:latest",
-      "model": "zephyr:latest",
-      "modified_at": "2026-01-22T14:43:59.351422262Z",
-      "size": 4109854934,
-      "digest": "bbe38b81adec6be8ff951d148864ed15a368aa2e8534a5092d444f184a56e354",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "vicuna:latest",
-      "model": "vicuna:latest",
-      "modified_at": "2026-01-22T14:28:31.831177247Z",
-      "size": 3825807726,
-      "digest": "370739dc897bba0188d390bb7659e48d926cacc320875136d0115228023b1590",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "qwen2:7b",
-      "model": "qwen2:7b",
-      "modified_at": "2026-01-22T13:57:15.682886171Z",
-      "size": 4431401491,
-      "digest": "dd314f039b9d54d5553002c906ce50c9fe7242f73f0680abd04f01c8ecbd2755",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "qwen2",
-        "families": [
-          "qwen2"
-        ],
-        "parameter_size": "7.6B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "gemma:2b",
-      "model": "gemma:2b",
-      "modified_at": "2026-01-22T13:41:23.721948307Z",
-      "size": 1678456656,
-      "digest": "b50d6c999e592ae4f79acae23b4feaefbdfceaa7cd366df2610e3072c052a160",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "gemma",
-        "families": [
-          "gemma"
-        ],
-        "parameter_size": "3B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "tinyllama:latest",
-      "model": "tinyllama:latest",
-      "modified_at": "2026-01-22T13:35:10.37070479Z",
-      "size": 637700138,
-      "digest": "2644915ede352ea7bdfaff0bfac0be74c719d5d5202acb63a6fb095b52f394a4",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "1B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "phi3:mini",
-      "model": "phi3:mini",
-      "modified_at": "2026-01-22T13:32:33.451580236Z",
-      "size": 2176178913,
-      "digest": "4f222292793889a9a40a020799cfd28d53f3e01af25d48e06c5e708610fc47e9",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "phi3",
-        "families": [
-          "phi3"
-        ],
-        "parameter_size": "3.8B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "minicpm-v:latest",
-      "model": "minicpm-v:latest",
-      "modified_at": "2026-01-22T13:04:09.160951814Z",
-      "size": 5473838466,
-      "digest": "c92bfad0120556eda311984f1ac2f0d0a589b8d68c4053c13486b526276aa205",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "qwen2",
-        "families": [
-          "qwen2",
-          "clip"
-        ],
-        "parameter_size": "7.6B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "llama3:latest",
-      "model": "llama3:latest",
-      "modified_at": "2026-01-22T03:28:01.402621937Z",
-      "size": 4661224676,
-      "digest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama"
-        ],
-        "parameter_size": "8.0B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "llava:latest",
-      "model": "llava:latest",
-      "modified_at": "2026-01-22T03:27:39.796602943Z",
-      "size": 4733363377,
-      "digest": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": [
-          "llama",
-          "clip"
-        ],
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "stablelm-zephyr:latest",
-      "model": "stablelm-zephyr:latest",
-      "modified_at": "2026-01-22T03:25:13.525712124Z",
-      "size": 1608579394,
-      "digest": "0a108dbd846e2b0ee264a71a28e50ac18e7f1601eeb2d677217602d32644bf24",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "stablelm",
-        "families": [
-          "stablelm"
-        ],
-        "parameter_size": "3B",
-        "quantization_level": "Q4_0"
-      }
-    },
-    {
-      "name": "qwen2.5:1.5b",
-      "model": "qwen2.5:1.5b",
-      "modified_at": "2026-01-22T03:00:19.182334501Z",
-      "size": 986061892,
-      "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "qwen2",
-        "families": [
-          "qwen2"
-        ],
-        "parameter_size": "1.5B",
-        "quantization_level": "Q4_K_M"
+      "type": "missing",
+      "loc": [
+        "body",
+        "entity_id"
+      ],
+      "msg": "Field required",
+      "input": {
+        "text": "test"
       }
     }
   ]
 }
-{
-  "license": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n",
-  "modelfile": "# Modelfile generated by \"ollama show\"\n# To build a new Modelfile based on this, replace FROM with:\n# FROM all-minilm:latest\n\nFROM /root/.ollama/models/blobs/sha256-797b70c4edf85907fe0a49eb85811256f65fa0f7bf52166b147fd16be2be4662\nTEMPLATE {{ .Prompt }}\nPARAMETER num_ctx 256\nLICENSE \"\"\"                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\"\"\"\n",
-  "parameters": "num_ctx                        256",
-  "template": "{{ .Prompt }}",
-  "details": {
-    "parent_model": "",
-    "format": "gguf",
-    "family": "bert",
-    "families": [
-      "bert"
-    ],
-    "parameter_size": "23M",
-    "quantization_level": "F16"
-  },
-  "model_info": {
-    "bert.attention.causal": false,
-    "bert.attention.head_count": 12,
-    "bert.attention.layer_norm_epsilon": 1E-12,
-    "bert.block_count": 6,
-    "bert.context_length": 512,
-    "bert.embedding_length": 384,
-    "bert.feed_forward_length": 1536,
-    "bert.pooling_type": 1,
-    "general.architecture": "bert",
-    "general.file_type": 1,
-    "general.parameter_count": 22565376,
-    "tokenizer.ggml.bos_token_id": 101,
-    "tokenizer.ggml.cls_token_id": 101,
-    "tokenizer.ggml.eos_token_id": 102,
-    "tokenizer.ggml.mask_token_id": 103,
-    "tokenizer.ggml.model": "bert",
-    "tokenizer.ggml.padding_token_id": 0,
-    "tokenizer.ggml.scores": null,
-    "tokenizer.ggml.seperator_token_id": 102,
-    "tokenizer.ggml.token_type": null,
-    "tokenizer.ggml.token_type_count": 2,
-    "tokenizer.ggml.tokens": null,
-    "tokenizer.ggml.unknown_token_id": 100
-  },
-  "tensors": [
-    {
-      "name": "token_embd.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        30522
-      ]
-    },
-    {
-      "name": "position_embd.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        512
-      ]
-    },
-    {
-      "name": "token_types.weight",
-      "type": "F32",
-      "shape": [
-        384,
-        2
-      ]
-    },
-    {
-      "name": "token_embd_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "token_embd_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_q.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_q.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_k.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_k.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_v.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_v.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_output.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        1536
-      ]
-    },
-    {
-      "name": "blk.0.ffn_up.bias",
-      "type": "F32",
-      "shape": [
-        1536
-      ]
-    },
-    {
-      "name": "blk.0.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        1536,
-        384
-      ]
-    },
-    {
-      "name": "blk.0.ffn_down.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.0.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_q.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_q.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_k.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_k.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_v.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_v.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_output.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        1536
-      ]
-    },
-    {
-      "name": "blk.1.ffn_up.bias",
-      "type": "F32",
-      "shape": [
-        1536
-      ]
-    },
-    {
-      "name": "blk.1.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        1536,
-        384
-      ]
-    },
-    {
-      "name": "blk.1.ffn_down.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.1.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_q.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_q.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_k.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_k.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_v.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_v.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_output.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        1536
-      ]
-    },
-    {
-      "name": "blk.2.ffn_up.bias",
-      "type": "F32",
-      "shape": [
-        1536
-      ]
-    },
-    {
-      "name": "blk.2.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        1536,
-        384
-      ]
-    },
-    {
-      "name": "blk.2.ffn_down.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.2.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_q.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_q.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_k.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_k.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_v.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_v.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_output.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        1536
-      ]
-    },
-    {
-      "name": "blk.3.ffn_up.bias",
-      "type": "F32",
-      "shape": [
-        1536
-      ]
-    },
-    {
-      "name": "blk.3.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        1536,
-        384
-      ]
-    },
-    {
-      "name": "blk.3.ffn_down.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.3.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_q.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_q.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_k.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_k.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_v.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_v.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_output.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        1536
-      ]
-    },
-    {
-      "name": "blk.4.ffn_up.bias",
-      "type": "F32",
-      "shape": [
-        1536
-      ]
-    },
-    {
-      "name": "blk.4.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        1536,
-        384
-      ]
-    },
-    {
-      "name": "blk.4.ffn_down.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.4.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_q.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_q.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_k.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_k.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_v.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_v.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_output.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        384,
-        1536
-      ]
-    },
-    {
-      "name": "blk.5.ffn_up.bias",
-      "type": "F32",
-      "shape": [
-        1536
-      ]
-    },
-    {
-      "name": "blk.5.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        1536,
-        384
-      ]
-    },
-    {
-      "name": "blk.5.ffn_down.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    },
-    {
-      "name": "blk.5.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        384
-      ]
-    }
-  ],
-  "capabilities": [
-    "embedding"
-  ],
-  "modified_at": "2026-04-12T03:10:02.270756106Z"
-}
-{
-  "license": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n",
-  "modelfile": "# Modelfile generated by \"ollama show\"\n# To build a new Modelfile based on this, replace FROM with:\n# FROM nomic-embed-text:latest\n\nFROM /root/.ollama/models/blobs/sha256-970aa74c0a90ef7482477cf803618e776e173c007bf957f635f1015bfcfef0e6\nTEMPLATE {{ .Prompt }}\nPARAMETER num_ctx 8192\nLICENSE \"\"\"                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\"\"\"\n",
-  "parameters": "num_ctx                        8192",
-  "template": "{{ .Prompt }}",
-  "details": {
-    "parent_model": "",
-    "format": "gguf",
-    "family": "nomic-bert",
-    "families": [
-      "nomic-bert"
-    ],
-    "parameter_size": "137M",
-    "quantization_level": "F16"
-  },
-  "model_info": {
-    "general.architecture": "nomic-bert",
-    "general.file_type": 1,
-    "general.parameter_count": 136727040,
-    "nomic-bert.attention.causal": false,
-    "nomic-bert.attention.head_count": 12,
-    "nomic-bert.attention.layer_norm_epsilon": 1E-12,
-    "nomic-bert.block_count": 12,
-    "nomic-bert.context_length": 2048,
-    "nomic-bert.embedding_length": 768,
-    "nomic-bert.feed_forward_length": 3072,
-    "nomic-bert.pooling_type": 1,
-    "nomic-bert.rope.freq_base": 1000,
-    "tokenizer.ggml.bos_token_id": 101,
-    "tokenizer.ggml.cls_token_id": 101,
-    "tokenizer.ggml.eos_token_id": 102,
-    "tokenizer.ggml.mask_token_id": 103,
-    "tokenizer.ggml.model": "bert",
-    "tokenizer.ggml.padding_token_id": 0,
-    "tokenizer.ggml.scores": null,
-    "tokenizer.ggml.seperator_token_id": 102,
-    "tokenizer.ggml.token_type": null,
-    "tokenizer.ggml.token_type_count": 2,
-    "tokenizer.ggml.tokens": null,
-    "tokenizer.ggml.unknown_token_id": 100
-  },
-  "tensors": [
-    {
-      "name": "token_embd_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "token_embd_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "token_types.weight",
-      "type": "F32",
-      "shape": [
-        768,
-        2
-      ]
-    },
-    {
-      "name": "token_embd.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        30522
-      ]
-    },
-    {
-      "name": "blk.0.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.0.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.0.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.0.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.0.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.0.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.0.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.0.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.0.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.1.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.1.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.1.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.1.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.1.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.1.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.1.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.1.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.1.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.10.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.10.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.10.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.10.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.10.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.10.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.10.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.10.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.10.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.11.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.11.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.11.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.11.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.11.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.11.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.11.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.11.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.11.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.2.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.2.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.2.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.2.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.2.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.2.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.2.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.2.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.2.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.3.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.3.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.3.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.3.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.3.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.3.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.3.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.3.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.3.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.4.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.4.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.4.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.4.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.4.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.4.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.4.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.4.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.4.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.5.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.5.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.5.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.5.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.5.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.5.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.5.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.5.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.5.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.6.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.6.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.6.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.6.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.6.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.6.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.6.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.6.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.6.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.7.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.7.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.7.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.7.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.7.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.7.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.7.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.7.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.7.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.8.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.8.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.8.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.8.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.8.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.8.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.8.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.8.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.8.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.9.attn_qkv.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        2304
-      ]
-    },
-    {
-      "name": "blk.9.attn_output.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        768
-      ]
-    },
-    {
-      "name": "blk.9.ffn_up.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.9.ffn_gate.weight",
-      "type": "F16",
-      "shape": [
-        768,
-        3072
-      ]
-    },
-    {
-      "name": "blk.9.ffn_down.weight",
-      "type": "F16",
-      "shape": [
-        3072,
-        768
-      ]
-    },
-    {
-      "name": "blk.9.attn_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.9.attn_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.9.layer_output_norm.bias",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    },
-    {
-      "name": "blk.9.layer_output_norm.weight",
-      "type": "F32",
-      "shape": [
-        768
-      ]
-    }
-  ],
-  "capabilities": [
-    "embedding"
-  ],
-  "modified_at": "2026-04-11T04:15:03.46833539Z"
-}
-384
-768
-INFO:     Started server process [10]
-INFO:     Waiting for application startup.
-ERROR:main_brain.startup:[STARTUP] DB init failed: unable to open database file
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8050 (Press CTRL+C to quit)
+/app/_archive/generated_20260430/enhance_rag_knowledge.py
+/app/_archive/generated_20260430/bulk_load_knowledge.py
+/app/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
+/app/_archive/generated_20260430/embed_gbim.py
+/app/_archive/generated_20260430/add_conversation_endpoint.py
+/app/_archive/generated_20260430/embed_geodb.py
+/app/_archive/generated_20260430/load_pdfs_spiritual.py
+/app/_archive/generated_20260430/embed_and_query.py
+/app/_archive/generated_20260430/bulk_load_MAXIMUM.py
+/app/_archive/generated_20260430/load_spiritual_library.py
+/app/_archive/generated_20260430/ai_server_19llm_CONSCIOUS.py
+/app/_archive/generated_20260430/extract_chroma_sqlite_to_gis.py
+/app/_archive/generated_20260430/load_gis_to_chroma.py
+/app/_archive/generated_20260430/add_conversation_storage.py
+/app/_archive/generated_20260430/rag_server.psychology_patched.py
+/app/_archive/generated_20260430/ingest_gbim_to_chroma.py
+/app/_archive/generated_20260430/ai_server_restored.py
+/app/_archive/generated_20260430/ingest_gis_features_to_chromadb.py
+/app/_archive/generated_20260430/embed_and_add.py
+/app/_archive/generated_20260430/ai_server_original_backup.py
+/app/_archive/generated_20260430/load_rag_knowledge.py
+/app/_archive/generated_20260430/load_rag_data.py
+/app/_archive/generated_20260430/ai_server_22llm.psychology_patched.py
+/app/_archive/generated_20260430/ai_server_4llm.py
+/app/_archive/generated_20260430/backfill_gbim_entities.py
+/app/_archive/generated_20260430/extract_real_knowledge_to_gis.py
+/app/_archive/service_baks_20260430/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+/app/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
+/app/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
+/app/_archive/service_baks_20260430/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+/app/msjarvis-rebuild/ms_jarvis_unified_gateway.py
+/app/msjarvis-rebuild/gbim_query_router.py
+/app/gisgeodbstorage.py
+/app/.venv/bin/dumppdf.py
+/app/.venv/lib/python3.12/site-packages/scipy/signal/_signaltools.py
+/app/.venv/lib/python3.12/site-packages/scipy/io/matlab/_mio5.py
+/app/.venv/lib/python3.12/site-packages/scipy/linalg/_basic.py
+/app/.venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_delegation.py
+/app/.venv/lib/python3.12/site-packages/scipy/stats/_multivariate.py
+/app/.venv/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py
+/app/.venv/lib/python3.12/site-packages/scipy/integrate/_ivp/radau.py
+/app/.venv/lib/python3.12/site-packages/scipy/integrate/_ivp/ivp.py
+/app/.venv/lib/python3.12/site-packages/scipy/optimize/_shgo_lib/_complex.py
+/app/.venv/lib/python3.12/site-packages/scipy/sparse/csgraph/_laplacian.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/perceiver/configuration_perceiver.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/perceiver/modeling_perceiver.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/diffllama/configuration_diffllama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/diffllama/modular_diffllama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/diffllama/modeling_diffllama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/timesformer/configuration_timesformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/timesformer/modeling_timesformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/decision_transformer/modeling_decision_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/decision_transformer/configuration_decision_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aimv2/configuration_aimv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aimv2/modular_aimv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aimv2/modeling_aimv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v/configuration_glm4v.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v/modular_glm4v.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v/modeling_glm4v.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere/modeling_cohere.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere/modular_cohere.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere/configuration_cohere.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/modeling_layoutlmv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/configuration_layoutlmv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bert_generation/modeling_bert_generation.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bert_generation/configuration_bert_generation.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rwkv/modeling_rwkv.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rwkv/configuration_rwkv.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modular_qwen3_vl_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modeling_qwen3_vl_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/configuration_qwen3_vl_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/tvp/configuration_tvp.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/tvp/modeling_tvp.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/funnel/configuration_funnel.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/funnel/modeling_tf_funnel.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/funnel/modeling_funnel.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_xglm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/configuration_xglm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_tf_xglm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_flax_xglm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi/configuration_phi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi/modeling_phi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi/modular_phi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modular_glm4v_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modeling_glm4v_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/configuration_glm4v_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics2/configuration_idefics2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modeling_dinov3_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modular_dinov3_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/configuration_dinov3_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/biogpt/modular_biogpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/biogpt/modeling_biogpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/biogpt/configuration_biogpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/modeling_xlm_roberta_xl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/configuration_xlm_roberta_xl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/configuration_hunyuan_v1_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modeling_hunyuan_v1_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modular_hunyuan_v1_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics3/modeling_idefics3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics3/configuration_idefics3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/modular_florence2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/modeling_florence2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/processing_florence2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/configuration_florence2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo2/configuration_olmo2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo2/modular_olmo2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo2/modeling_olmo2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seed_oss/configuration_seed_oss.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seed_oss/modeling_seed_oss.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seed_oss/modular_seed_oss.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zoedepth/modeling_zoedepth.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zoedepth/configuration_zoedepth.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/x_clip/configuration_x_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/x_clip/modeling_x_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert/modular_modernbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert/configuration_modernbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modeling_hgnet_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modular_hgnet_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/configuration_hgnet_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clap/configuration_clap.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clap/modeling_clap.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mamba2/modeling_mamba2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mamba2/configuration_mamba2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/nystromformer/modeling_nystromformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/nystromformer/configuration_nystromformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xmod/modeling_xmod.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xmod/configuration_xmod.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/instructblip/modeling_instructblip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/instructblip/configuration_instructblip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/persimmon/modeling_persimmon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/persimmon/configuration_persimmon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bridgetower/modeling_bridgetower.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bridgetower/configuration_bridgetower.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flava/modeling_flava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flava/configuration_flava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/configuration_blenderbot.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_tf_blenderbot.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_blenderbot.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_flax_blenderbot.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cpmant/configuration_cpmant.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cpmant/modeling_cpmant.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/voxtral/modeling_voxtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/voxtral/configuration_voxtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/voxtral/modular_voxtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longt5/modeling_longt5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longt5/modeling_flax_longt5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/d_fine/configuration_d_fine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/d_fine/modeling_d_fine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/d_fine/modular_d_fine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ijepa/modular_ijepa.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ijepa/modeling_ijepa.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ijepa/configuration_ijepa.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_tf_regnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_regnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/configuration_regnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_flax_regnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dpr/configuration_dpr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dpr/modeling_dpr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dpr/modeling_tf_dpr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/modeling_qwen2_audio.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/configuration_qwen2_audio.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modular_llava_onevision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modeling_llava_onevision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_onevision/configuration_llava_onevision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_gptj.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_tf_gptj.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_flax_gptj.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/configuration_gptj.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_flax_blenderbot_small.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_tf_blenderbot_small.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/configuration_blenderbot_small.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_blenderbot_small.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/altclip/configuration_altclip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/altclip/modeling_altclip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rag/modeling_rag.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rag/retrieval_rag.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rag/modeling_tf_rag.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rag/configuration_rag.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_vision_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_flax_vision_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_tf_vision_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_tf_blip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_tf_blip_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip/configuration_blip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modeling_falcon_h1.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modular_falcon_h1.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_h1/configuration_falcon_h1.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swin/configuration_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swin/modeling_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swin/modeling_tf_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/starcoder2/modeling_starcoder2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/starcoder2/modular_starcoder2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/starcoder2/configuration_starcoder2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/prompt_depth_anything/modeling_prompt_depth_anything.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mllama/image_processing_mllama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mllama/modeling_mllama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mllama/configuration_mllama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/parakeet/modular_parakeet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/parakeet/configuration_parakeet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/parakeet/modeling_parakeet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ibert/modeling_ibert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ibert/configuration_ibert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ibert/quant_modules.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/paligemma/modeling_paligemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/opt/modeling_tf_opt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/opt/modeling_flax_opt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/opt/configuration_opt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/opt/modeling_opt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/autoformer/modeling_autoformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/autoformer/configuration_autoformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/megatron_bert/configuration_megatron_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/megatron_bert/modeling_megatron_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modular_qwen3_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/configuration_qwen3_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swiftformer/modeling_swiftformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swiftformer/modeling_tf_swiftformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swiftformer/configuration_swiftformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_tf_data2vec_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_audio.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modular_data2vec_audio.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_audio.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modular_lfm2_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modeling_lfm2_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3/modular_gemma3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3/modeling_gemma3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3/configuration_gemma3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vitmatte/modeling_vitmatte.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/videomae/modeling_videomae.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/videomae/configuration_videomae.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam_hq/configuration_sam_hq.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam_hq/modular_sam_hq.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam_hq/modeling_sam_hq.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/configuration_seamless_m4t.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/modeling_seamless_m4t.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vitpose/modeling_vitpose.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/table_transformer/modeling_table_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/table_transformer/configuration_table_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite/configuration_granite.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite/modeling_granite.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite/modular_granite.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/canine/configuration_canine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/canine/modeling_canine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clipseg/configuration_clipseg.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clipseg/modeling_clipseg.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modular_edgetam_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam_video/configuration_edgetam_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modeling_edgetam_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next/processing_llava_next.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next/modeling_llava_next.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next/configuration_llava_next.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vaultgemma/configuration_vaultgemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modeling_vaultgemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modular_vaultgemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speecht5/modeling_speecht5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speecht5/configuration_speecht5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/efficientnet/modeling_efficientnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/marian/modeling_flax_marian.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/marian/modeling_tf_marian.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/marian/modeling_marian.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/marian/configuration_marian.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/superpoint/modeling_superpoint.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convbert/configuration_convbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convbert/modeling_convbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convbert/modeling_tf_convbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modular_qwen3_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/configuration_qwen3_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/modeling_recurrent_gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/configuration_recurrent_gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral3/modeling_mistral3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral3/modular_mistral3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral3/configuration_mistral3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/git/modeling_git.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/git/configuration_git.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/m2m_100/modeling_m2m_100.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/m2m_100/configuration_m2m_100.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xcodec/modeling_xcodec.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fsmt/configuration_fsmt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fsmt/modeling_fsmt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/internvl/modular_internvl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/internvl/configuration_internvl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/internvl/modeling_internvl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/nemotron/modeling_nemotron.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/nemotron/configuration_nemotron.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modeling_qwen3_next.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modular_qwen3_next.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_next/configuration_qwen3_next.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ministral/configuration_ministral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ministral/modular_ministral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ministral/modeling_ministral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ovis2/modeling_ovis2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ovis2/modular_ovis2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/stablelm/configuration_stablelm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/stablelm/modeling_stablelm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dbrx/modeling_dbrx.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dbrx/configuration_dbrx.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clip/modeling_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clip/modeling_tf_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clip/modeling_flax_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/configuration_gpt2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_gpt2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_tf_gpt2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_flax_gpt2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modular_kyutai_speech_to_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modeling_kyutai_speech_to_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/configuration_kyutai_speech_to_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mixtral/modeling_mixtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mixtral/configuration_mixtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mixtral/modular_mixtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mimi/modeling_mimi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mimi/configuration_mimi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glpn/configuration_glpn.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glpn/modeling_glpn.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_flax_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_tf_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/configuration_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/configuration_layoutlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/modeling_tf_layoutlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/modeling_layoutlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bit/configuration_bit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bit/modeling_bit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/conditional_detr/configuration_conditional_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/conditional_detr/modeling_conditional_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/janus/configuration_janus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/janus/modeling_janus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/janus/modular_janus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roc_bert/modeling_roc_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roc_bert/configuration_roc_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neo/modeling_gpt_neo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neo/configuration_gpt_neo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neo/modeling_flax_gpt_neo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/modular_hubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/configuration_hubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/modeling_tf_hubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/modeling_hubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4/modeling_glm4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4/modular_glm4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4/configuration_glm4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/t5/modeling_tf_t5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/t5/modeling_flax_t5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam2_video/modeling_sam2_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam2_video/modular_sam2_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam2_video/configuration_sam2_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modeling_hunyuan_v1_dense.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modular_hunyuan_v1_dense.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/configuration_hunyuan_v1_dense.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aya_vision/modeling_aya_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aya_vision/modular_aya_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/perceiver_tf.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/modeling_tf_idefics.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/modeling_idefics.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/vision_tf.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/configuration_idefics.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/perceiver.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lilt/configuration_lilt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lilt/modeling_lilt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/modeling_audio_spectrogram_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/configuration_audio_spectrogram_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mamba/configuration_mamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mamba/modeling_mamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modeling_glm4_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modular_glm4_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm4_moe/configuration_glm4_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_tf_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_flax_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/doge/modular_doge.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/doge/configuration_doge.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/doge/modeling_doge.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_whisper.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_flax_whisper.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/configuration_whisper.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_tf_whisper.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modeling_deepseek_v3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/configuration_deepseek_v3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modular_deepseek_v3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/efficientloftr/configuration_efficientloftr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/efficientloftr/modeling_efficientloftr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mt5/configuration_mt5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mt5/modeling_mt5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/plbart/modular_plbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/plbart/modeling_plbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/plbart/configuration_plbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mmbt/modeling_mmbt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/speech_to_text_2/modeling_speech_to_text_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/speech_to_text_2/configuration_speech_to_text_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/efficientformer/modeling_efficientformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/efficientformer/modeling_tf_efficientformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/efficientformer/configuration_efficientformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/trajectory_transformer/configuration_trajectory_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/trajectory_transformer/modeling_trajectory_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/image_processing_tvlt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/feature_extraction_tvlt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/configuration_tvlt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/modeling_tvlt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/deta/configuration_deta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/deta/modeling_deta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/qdqbert/configuration_qdqbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/qdqbert/modeling_qdqbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/configuration_realm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/modeling_realm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/van/modeling_van.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/van/configuration_van.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/vit_hybrid/modeling_vit_hybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/vit_hybrid/configuration_vit_hybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/jukebox/configuration_jukebox.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/jukebox/modeling_jukebox.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mega/modeling_mega.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mega/configuration_mega.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/gptsan_japanese/modeling_gptsan_japanese.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/gptsan_japanese/configuration_gptsan_japanese.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/ernie_m/tokenization_ernie_m.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/ernie_m/configuration_ernie_m.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/ernie_m/modeling_ernie_m.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/open_llama/configuration_open_llama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/open_llama/modeling_open_llama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/modeling_mctct.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/configuration_mctct.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nezha/configuration_nezha.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nezha/modeling_nezha.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nat/modeling_nat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nat/configuration_nat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/configuration_retribert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/modeling_retribert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_tf_transfo_xl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_tf_transfo_xl_utilities.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/tokenization_transfo_xl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_transfo_xl_utilities.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/configuration_transfo_xl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_transfo_xl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/graphormer/modeling_graphormer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/graphormer/configuration_graphormer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/graphormer/collating_graphormer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/xlm_prophetnet/modeling_xlm_prophetnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/xlm_prophetnet/tokenization_xlm_prophetnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/xlm_prophetnet/configuration_xlm_prophetnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox/configuration_gpt_neox.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modular_gpt_neox.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mobilevitv2/modeling_mobilevitv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mvp/modeling_mvp.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mvp/configuration_mvp.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dpt/modeling_dpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dpt/configuration_dpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longformer/modeling_tf_longformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longformer/configuration_longformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longformer/modeling_longformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/smolvlm/modular_smolvlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/smolvlm/configuration_smolvlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/smolvlm/modeling_smolvlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vits/modeling_vits.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vits/configuration_vits.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/openai/modeling_tf_openai.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/openai/configuration_openai.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/openai/modeling_openai.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/levit/configuration_levit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/levit/modeling_levit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/feature_extraction_granite_speech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/processing_granite_speech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/configuration_granite_speech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/modeling_granite_speech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_tf_deberta_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/configuration_deberta_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/poolformer/modeling_poolformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vitdet/configuration_vitdet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vitdet/modeling_vitdet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen/modeling_musicgen.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen/configuration_musicgen.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/processing_kosmos2_5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/modeling_kosmos2_5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/configuration_kosmos2_5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/configuration_mobilebert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/modeling_mobilebert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/modeling_tf_mobilebert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus_x/modeling_pegasus_x.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus_x/configuration_pegasus_x.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_tf_pegasus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/configuration_pegasus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_flax_pegasus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_pegasus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/prophetnet/modeling_prophetnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/prophetnet/configuration_prophetnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlnet/configuration_xlnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlnet/modeling_tf_xlnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlnet/modeling_xlnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mgp_str/configuration_mgp_str.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mgp_str/modeling_mgp_str.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swin2sr/modeling_swin2sr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swin2sr/configuration_swin2sr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo3/configuration_olmo3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo3/modular_olmo3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo3/modeling_olmo3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mpt/configuration_mpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mpt/modeling_mpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/perception_lm/modular_perception_lm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/perception_lm/configuration_perception_lm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/perception_lm/modeling_perception_lm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modular_qwen3_omni_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/configuration_qwen3_omni_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modeling_qwen3_omni_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/visual_bert/configuration_visual_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/visual_bert/modeling_visual_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deit/configuration_deit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deit/modeling_deit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deit/modeling_tf_deit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vilt/modeling_vilt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vilt/configuration_vilt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/moshi/modeling_moshi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/moshi/configuration_moshi.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modeling_rt_detr_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/configuration_rt_detr_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modular_rt_detr_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/exaone4/configuration_exaone4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/exaone4/modeling_exaone4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/exaone4/modular_exaone4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/modeling_colqwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/modular_colqwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/processing_colqwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/configuration_colqwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/chameleon/configuration_chameleon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/chameleon/modeling_chameleon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/chameleon/processing_chameleon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinat/modeling_dinat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinat/configuration_dinat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip_2/modeling_blip_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blip_2/configuration_blip_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/modeling_shieldgemma2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/configuration_shieldgemma2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/csm/modeling_csm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/csm/generation_csm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/csm/configuration_csm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/csm/modular_csm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swinv2/configuration_swinv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/swinv2/modeling_swinv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lightglue/modular_lightglue.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lightglue/modeling_lightglue.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mobilevit/modeling_mobilevit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mobilevit/modeling_tf_mobilevit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wavlm/configuration_wavlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wavlm/modeling_wavlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wavlm/modular_wavlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/modeling_gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/modular_gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/configuration_gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/modeling_flax_gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clvp/modeling_clvp.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/clvp/configuration_clvp.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/udop/modeling_udop.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/udop/configuration_udop.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit_mae/modeling_vit_mae.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit_mae/modeling_tf_vit_mae.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit_mae/configuration_vit_mae.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/configuration_mbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_mbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_tf_mbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_flax_mbart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_tf_distilbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_flax_distilbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/configuration_distilbert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/video_llava/processing_video_llava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/video_llava/configuration_video_llava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/video_llava/modeling_video_llava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bamba/modeling_bamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bamba/modular_bamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bamba/configuration_bamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modular_deepseek_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modeling_deepseek_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/siglip2/configuration_siglip2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/siglip2/modeling_siglip2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/siglip2/modular_siglip2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/configuration_roformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_roformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_tf_roformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_flax_roformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/codegen/modeling_codegen.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/codegen/configuration_codegen.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/oneformer/configuration_oneformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/oneformer/modeling_oneformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deformable_detr/modeling_deformable_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deformable_detr/configuration_deformable_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/configuration_phi4_multimodal.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/processing_phi4_multimodal.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modeling_phi4_multimodal.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modular_phi4_multimodal.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/feature_extraction_phi4_multimodal.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/t5gemma/configuration_t5gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/t5gemma/modeling_t5gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/t5gemma/modular_t5gemma.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mpnet/modeling_tf_mpnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mpnet/modeling_mpnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mpnet/configuration_mpnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon/configuration_falcon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon/modeling_falcon.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoe/modeling_granitemoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoe/configuration_granitemoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/superglue/modeling_superglue.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/configuration_xlm_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_tf_xlm_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_flax_xlm_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/nllb_moe/modeling_nllb_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/nllb_moe/configuration_nllb_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hiera/configuration_hiera.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/hiera/modeling_hiera.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava/modeling_llava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava/configuration_llava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava/processing_llava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma2/configuration_gemma2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma2/modeling_gemma2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma2/modular_gemma2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modular_gpt_oss.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_oss/configuration_gpt_oss.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/configuration_bigbird_pegasus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/modeling_bigbird_pegasus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/moonshine/modeling_moonshine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/moonshine/modular_moonshine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/moonshine/configuration_moonshine.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech/modular_unispeech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech/modeling_unispeech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech/configuration_unispeech.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convnext/modeling_tf_convnext.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convnext/modeling_convnext.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convnext/configuration_convnext.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie/modeling_ernie.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie/configuration_ernie.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_vision_text_dual_encoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_flax_vision_text_dual_encoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_tf_vision_text_dual_encoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sew_d/modeling_sew_d.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sew_d/configuration_sew_d.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/configuration_qwen2_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2/processing_kosmos2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2/modeling_kosmos2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2/configuration_kosmos2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/evolla/configuration_evolla.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/evolla/modeling_evolla.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/evolla/modular_evolla.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/configuration_qwen2_5_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modular_qwen2_5_vl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dia/modeling_dia.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dia/configuration_dia.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dia/modular_dia.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dia/generation_dia.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modeling_cohere2_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/configuration_cohere2_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modular_cohere2_vision.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/configuration_vitpose_backbone.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/modeling_vitpose_backbone.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2/modular_qwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2/modeling_qwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2/configuration_qwen2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vipllava/configuration_vipllava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vipllava/modeling_vipllava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vipllava/modular_vipllava.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/modeling_gpt_bigcode.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/configuration_gpt_bigcode.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_tf_mistral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_flax_mistral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modular_mistral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_mistral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/configuration_mistral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aria/modeling_aria.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aria/configuration_aria.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/aria/modular_aria.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modeling_metaclip_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/metaclip_2/configuration_metaclip_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modular_metaclip_2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modeling_granitemoeshared.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/configuration_granitemoeshared.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modular_granitemoeshared.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/jetmoe/configuration_jetmoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/jetmoe/modeling_jetmoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/reformer/configuration_reformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/reformer/modeling_reformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/arcee/modeling_arcee.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/arcee/modular_arcee.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/arcee/configuration_arcee.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/yoso/configuration_yoso.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/yoso/modeling_yoso.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pixtral/configuration_pixtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pixtral/modeling_pixtral.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit_msn/configuration_vit_msn.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit_msn/modeling_vit_msn.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/configuration_time_series_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/modeling_time_series_transformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/albert/modeling_tf_albert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/albert/modeling_albert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/albert/modeling_flax_albert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/albert/configuration_albert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/focalnet/modeling_focalnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/focalnet/configuration_focalnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/donut/modeling_donut_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/donut/configuration_donut_swin.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/helium/configuration_helium.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/helium/modeling_helium.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/helium/modular_helium.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/depth_pro/modeling_depth_pro.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/configuration_wav2vec2_conformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modeling_wav2vec2_conformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modular_wav2vec2_conformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flaubert/modeling_flaubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flaubert/modeling_tf_flaubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flaubert/configuration_flaubert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modular_got_ocr2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/got_ocr2/configuration_got_ocr2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modeling_got_ocr2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phimoe/modeling_phimoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phimoe/configuration_phimoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/modeling_omdet_turbo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/configuration_omdet_turbo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/led/modeling_tf_led.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/led/configuration_led.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/led/modeling_led.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/depth_anything/modeling_depth_anything.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/electra/configuration_electra.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/electra/modeling_flax_electra.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/electra/modeling_tf_electra.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/electra/modeling_electra.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vivit/configuration_vivit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vivit/modeling_vivit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modular_wav2vec2_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modeling_wav2vec2_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/configuration_wav2vec2_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modular_qwen2_5_omni.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modeling_qwen2_5_omni.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/configuration_qwen2_5_omni.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam/modeling_sam.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam/modeling_tf_sam.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam/configuration_sam.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blt/modular_blt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blt/modeling_blt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/blt/configuration_blt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr_resnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr_resnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mlcd/modeling_mlcd.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mlcd/modular_mlcd.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sew/modeling_sew.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sew/configuration_sew.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sew/modular_sew.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vjepa2/modeling_vjepa2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/configuration_instructblipvideo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modeling_instructblipvideo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modular_instructblipvideo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/configuration_patchtsmixer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/modeling_patchtsmixer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam/modular_edgetam.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam/configuration_edgetam.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam/modeling_edgetam.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2/modeling_cohere2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2/configuration_cohere2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2/modular_cohere2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_resnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_flax_resnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/configuration_resnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_tf_resnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/modeling_tf_tapas.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/configuration_tapas.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/modeling_tapas.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/apertus/modeling_apertus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/apertus/modular_apertus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/apertus/configuration_apertus.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bitnet/modeling_bitnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bitnet/modular_bitnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bitnet/configuration_bitnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zamba/modeling_zamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zamba/configuration_zamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bark/processing_bark.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bark/modeling_bark.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bark/configuration_bark.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/configuration_gpt_neox_japanese.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/modeling_gpt_neox_japanese.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/timesfm/modular_timesfm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/timesfm/configuration_timesfm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/timesfm/modeling_timesfm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lxmert/configuration_lxmert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lxmert/modeling_lxmert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lxmert/modeling_tf_lxmert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/switch_transformers/modeling_switch_transformers.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/chinese_clip/modeling_chinese_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/chinese_clip/configuration_chinese_clip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/big_bird/modeling_flax_big_bird.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/big_bird/modeling_big_bird.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/big_bird/configuration_big_bird.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rembert/configuration_rembert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rembert/modeling_rembert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/rembert/modeling_tf_rembert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llama4/configuration_llama4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llama4/modeling_llama4.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bart/modeling_bart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bart/modeling_tf_bart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bart/configuration_bart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bart/modeling_flax_bart.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/groupvit/modeling_groupvit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/groupvit/configuration_groupvit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/groupvit/modeling_tf_groupvit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modeling_dinov2_with_registers.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modular_dinov2_with_registers.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/configuration_dinov2_with_registers.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speech_encoder_decoder/modeling_flax_speech_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speech_encoder_decoder/modeling_speech_encoder_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ctrl/modeling_ctrl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ctrl/modeling_tf_ctrl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ctrl/configuration_ctrl.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modular_mm_grounding_dino.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modeling_mm_grounding_dino.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/configuration_mm_grounding_dino.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3/modular_qwen3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3/configuration_qwen3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_tf_wav2vec2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_wav2vec2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/configuration_wav2vec2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_flax_wav2vec2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/configuration_layoutlmv3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/modeling_tf_layoutlmv3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/modeling_layoutlmv3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/jamba/configuration_jamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/jamba/modeling_jamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmoe/modeling_olmoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmoe/configuration_olmoe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/owlv2/configuration_owlv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/owlv2/modeling_owlv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/detr/modeling_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/detr/configuration_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pop2piano/modeling_pop2piano.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pop2piano/tokenization_pop2piano.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/camembert/modeling_camembert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/camembert/configuration_camembert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/camembert/modeling_tf_camembert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llama/configuration_llama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llama/modeling_flax_llama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/configuration_colpali.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/processing_colpali.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/modular_colpali.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/modeling_colpali.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/modeling_fastspeech2_conformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/configuration_fastspeech2_conformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convnextv2/modeling_convnextv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convnextv2/modeling_tf_convnextv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/convnextv2/configuration_convnextv2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seggpt/modeling_seggpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seggpt/configuration_seggpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pvt/configuration_pvt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pvt/modeling_pvt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_roberta_prelayernorm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_tf_roberta_prelayernorm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/configuration_roberta_prelayernorm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_flax_roberta_prelayernorm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modular_unispeech_sat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/configuration_unispeech_sat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modeling_unispeech_sat.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dab_detr/modeling_dab_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dab_detr/configuration_dab_detr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cvt/modeling_tf_cvt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cvt/modeling_cvt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/cvt/configuration_cvt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mask2former/configuration_mask2former.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mask2former/modeling_mask2former.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/configuration_bloom.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/tokenization_bloom_fast.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/modeling_bloom.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/modeling_flax_bloom.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bros/modeling_bros.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bros/configuration_bros.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/configuration_granitemoehybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modeling_granitemoehybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modular_granitemoehybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/owlvit/modeling_owlvit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/owlvit/configuration_owlvit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pvt_v2/modeling_pvt_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pvt_v2/configuration_pvt_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/patchtst/configuration_patchtst.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/patchtst/modeling_patchtst.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fuyu/configuration_fuyu.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fuyu/modeling_fuyu.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fuyu/processing_fuyu.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/markuplm/modeling_markuplm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/markuplm/configuration_markuplm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modular_deepseek_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/configuration_deepseek_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modeling_deepseek_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bert/modeling_flax_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bert/configuration_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bert/modeling_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/bert/modeling_tf_bert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mra/modeling_mra.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/mra/configuration_mra.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam2/configuration_sam2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam2/modular_sam2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/sam2/modeling_sam2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/luke/modeling_luke.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/luke/configuration_luke.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modeling_falcon_mamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modular_falcon_mamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/configuration_falcon_mamba.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit/modeling_flax_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit/configuration_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit/modeling_tf_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/vit/modeling_vit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/siglip/modeling_siglip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/siglip/configuration_siglip.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esmfold.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/esm/configuration_esm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/esm/modeling_tf_esm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zamba2/configuration_zamba2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zamba2/modular_zamba2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/zamba2/modeling_zamba2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fnet/modeling_fnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/fnet/configuration_fnet.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2/modeling_dinov2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2/modeling_flax_dinov2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2/configuration_dinov2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/emu3/configuration_emu3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/emu3/modeling_emu3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/emu3/modular_emu3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speech_to_text/configuration_speech_to_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speech_to_text/modeling_speech_to_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/speech_to_text/modeling_tf_speech_to_text.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/informer/modular_informer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/informer/modeling_informer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/informer/configuration_informer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/smollm3/modeling_smollm3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/smollm3/modular_smollm3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/smollm3/configuration_smollm3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/umt5/configuration_umt5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/umt5/modeling_umt5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/segformer/configuration_segformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/segformer/modeling_tf_segformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/segformer/modeling_segformer.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/encodec/modeling_encodec.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm/modeling_xlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm/modeling_tf_xlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlm/configuration_xlm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/splinter/configuration_splinter.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/splinter/modeling_splinter.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/modeling_qwen2_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/configuration_qwen2_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/yolos/configuration_yolos.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/yolos/modeling_yolos.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modeling_deepseek_vl_hybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modular_deepseek_vl_hybrid.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modular_longcat_flash.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modeling_longcat_flash.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/longcat_flash/configuration_longcat_flash.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modeling_llava_next_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/configuration_llava_next_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/processing_llava_next_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modular_llava_next_video.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/minimax/modeling_minimax.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/minimax/configuration_minimax.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/minimax/modular_minimax.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/configuration_musicgen_melody.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/modeling_musicgen_melody.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5/configuration_ernie4_5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modeling_ernie4_5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modular_ernie4_5.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flex_olmo/configuration_flex_olmo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modeling_flex_olmo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modular_flex_olmo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/squeezebert/modeling_squeezebert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/squeezebert/configuration_squeezebert.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/trocr/configuration_trocr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/trocr/modeling_trocr.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm/configuration_glm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm/modular_glm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/glm/modeling_glm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/grounding_dino/configuration_grounding_dino.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/imagegpt/configuration_imagegpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/imagegpt/modeling_imagegpt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo/modeling_olmo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo/modular_olmo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/olmo/configuration_olmo.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modeling_ernie4_5_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/configuration_ernie4_5_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deberta/configuration_deberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deberta/modeling_deberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/deberta/modeling_tf_deberta.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlstm/configuration_xlstm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/xlstm/modeling_xlstm.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/configuration_seamless_m4t_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/modeling_seamless_m4t_v2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modular_modernbert_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modeling_modernbert_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/configuration_modernbert_decoder.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3n/modeling_gemma3n.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3n/configuration_gemma3n.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3n/modular_gemma3n.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/eomt/configuration_eomt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/eomt/modular_eomt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/eomt/modeling_eomt.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2/modeling_lfm2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2/modular_lfm2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2/configuration_lfm2.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/beit/modeling_beit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/beit/configuration_beit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/beit/modeling_flax_beit.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pix2struct/configuration_pix2struct.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/pix2struct/modeling_pix2struct.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi3/modular_phi3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi3/configuration_phi3.py
+/app/.venv/lib/python3.12/site-packages/transformers/models/phi3/modeling_phi3.py
+/app/.venv/lib/python3.12/site-packages/transformers/pipelines/mask_generation.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_flax_pytorch_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_flax_outputs.py
+/app/.venv/lib/python3.12/site-packages/transformers/trainer_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/quantizers/quantizer_torchao.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_gguf_pytorch_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_tf_outputs.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_outputs.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_rope_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/utils/auto_docstring.py
+/app/.venv/lib/python3.12/site-packages/transformers/utils/doc.py
+/app/.venv/lib/python3.12/site-packages/transformers/utils/attention_visualizer.py
+/app/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/utils/fx.py
+/app/.venv/lib/python3.12/site-packages/transformers/utils/quantization_config.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_tf_pytorch_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/integrations/tensor_parallel.py
+/app/.venv/lib/python3.12/site-packages/transformers/integrations/ggml.py
+/app/.venv/lib/python3.12/site-packages/transformers/integrations/bitsandbytes.py
+/app/.venv/lib/python3.12/site-packages/transformers/integrations/executorch.py
+/app/.venv/lib/python3.12/site-packages/transformers/integrations/deepspeed.py
+/app/.venv/lib/python3.12/site-packages/transformers/masking_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/tf_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/training_args.py
+/app/.venv/lib/python3.12/site-packages/transformers/trainer.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_layers.py
+/app/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/stopping_criteria.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/logits_process.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/tf_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/watermarking.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/candidate_generator.py
+/app/.venv/lib/python3.12/site-packages/transformers/generation/flax_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/modeling_tf_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/tokenization_utils.py
+/app/.venv/lib/python3.12/site-packages/transformers/convert_tf_hub_seq_to_seq_bert_to_pytorch.py
+/app/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py
+/app/.venv/lib/python3.12/site-packages/pyarrow/ipc.py
+/app/.venv/lib/python3.12/site-packages/pyarrow/tests/test_feather.py
+/app/.venv/lib/python3.12/site-packages/pyarrow/parquet/core.py
+/app/.venv/lib/python3.12/site-packages/pyarrow/__init__.py
+/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py
+/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py
+/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/container_attributes.py
+/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/file_attributes.py
+/app/.venv/lib/python3.12/site-packages/duckdb/experimental/spark/sql/functions.py
+/app/.venv/lib/python3.12/site-packages/torchvision/models/video/swin_transformer.py
+/app/.venv/lib/python3.12/site-packages/torchvision/models/video/mvit.py
+/app/.venv/lib/python3.12/site-packages/torchvision/models/swin_transformer.py
+/app/.venv/lib/python3.12/site-packages/torchvision/models/vision_transformer.py
+/app/.venv/lib/python3.12/site-packages/flatbuffers/flexbuffers.py
+/app/.venv/lib/python3.12/site-packages/functorch/dim/__init__.py
+/app/.venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+/app/.venv/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
+/app/.venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
+/app/.venv/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
+/app/.venv/lib/python3.12/site-packages/numpy/core/_internal.py
+/app/.venv/lib/python3.12/site-packages/ddgs/results.py
+/app/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_videos.py
+/app/.venv/lib/python3.12/site-packages/ddgs/ddgs.py
+/app/.venv/lib/python3.12/site-packages/osgeo_utils/samples/validate_jp2.py
+/app/.venv/lib/python3.12/site-packages/branca/element.py
+/app/.venv/lib/python3.12/site-packages/branca/utilities.py
+/app/.venv/lib/python3.12/site-packages/click/testing.py
+/app/.venv/lib/python3.12/site-packages/click/core.py
+/app/.venv/lib/python3.12/site-packages/sklearn/random_projection.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_mds.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_isomap.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_classical_mds.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_locally_linear.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_t_sne.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_spectral_embedding.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_mds.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_isomap.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_locally_linear.py
+/app/.venv/lib/python3.12/site-packages/sklearn/manifold/__init__.py
+/app/.venv/lib/python3.12/site-packages/sklearn/neighbors/_nca.py
+/app/.venv/lib/python3.12/site-packages/sklearn/neighbors/tests/test_neighbors_pipeline.py
+/app/.venv/lib/python3.12/site-packages/sklearn/kernel_approximation.py
+/app/.venv/lib/python3.12/site-packages/sklearn/ensemble/_forest.py
+/app/.venv/lib/python3.12/site-packages/sklearn/ensemble/tests/test_forest.py
+/app/.venv/lib/python3.12/site-packages/sklearn/decomposition/_pca.py
+/app/.venv/lib/python3.12/site-packages/sklearn/externals/_scipy/sparse/csgraph/_laplacian.py
+/app/.venv/lib/python3.12/site-packages/sklearn/feature_extraction/_hash.py
+/app/.venv/lib/python3.12/site-packages/sklearn/tests/test_random_projection.py
+/app/.venv/lib/python3.12/site-packages/sklearn/tests/test_public_functions.py
+/app/.venv/lib/python3.12/site-packages/sklearn/__init__.py
+/app/.venv/lib/python3.12/site-packages/sklearn/cluster/_spectral.py
+/app/.venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
+/app/.venv/lib/python3.12/site-packages/humanfriendly/sphinx.py
+/app/.venv/lib/python3.12/site-packages/humanfriendly/usage.py
+/app/.venv/lib/python3.12/site-packages/coloredlogs/syslog.py
+/app/.venv/lib/python3.12/site-packages/coloredlogs/__init__.py
+/app/.venv/lib/python3.12/site-packages/psycopg/types/array.py
+/app/.venv/lib/python3.12/site-packages/werkzeug/sansio/response.py
+/app/.venv/lib/python3.12/site-packages/triton/tools/compile.py
+/app/.venv/lib/python3.12/site-packages/onnx/backend/test/case/node/rotaryembedding.py
+/app/.venv/lib/python3.12/site-packages/onnx/external_data_helper.py
+/app/.venv/lib/python3.12/site-packages/onnx/tools/net_drawer.py
+/app/.venv/lib/python3.12/site-packages/onnx/test/version_converter/automatic_upgrade_test.py
+/app/.venv/lib/python3.12/site-packages/onnx/test/shape_inference_test.py
+/app/.venv/lib/python3.12/site-packages/onnx/reference/ops/_op_list.py
+/app/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_rotary_embedding.py
+/app/.venv/lib/python3.12/site-packages/fastapi/routing.py
+/app/.venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
+/app/.venv/lib/python3.12/site-packages/fastapi/param_functions.py
+/app/.venv/lib/python3.12/site-packages/fastapi/params.py
+/app/.venv/lib/python3.12/site-packages/PIL/Image.py
+/app/.venv/lib/python3.12/site-packages/PIL/ImageFont.py
+/app/.venv/lib/python3.12/site-packages/PIL/ImageDraw.py
+/app/.venv/lib/python3.12/site-packages/PIL/ImageCms.py
+/app/.venv/lib/python3.12/site-packages/PIL/JpegImagePlugin.py
+/app/.venv/lib/python3.12/site-packages/PIL/ImageText.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/ai/utils.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/consts.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/openai_agents/spans/ai_client.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/google_genai/utils.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/google_genai/__init__.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/openai.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/cohere.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/langchain.py
+/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/litellm.py
+/app/.venv/lib/python3.12/site-packages/requests_oauthlib/oauth1_session.py
+/app/.venv/lib/python3.12/site-packages/bs4/element.py
+/app/.venv/lib/python3.12/site-packages/bs4/dammit.py
+/app/.venv/lib/python3.12/site-packages/bs4/builder/__init__.py
+/app/.venv/lib/python3.12/site-packages/safetensors/torch.py
+/app/.venv/lib/python3.12/site-packages/safetensors/mlx.py
+/app/.venv/lib/python3.12/site-packages/safetensors/flax.py
+/app/.venv/lib/python3.12/site-packages/safetensors/paddle.py
+/app/.venv/lib/python3.12/site-packages/safetensors/numpy.py
+/app/.venv/lib/python3.12/site-packages/safetensors/tensorflow.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/hypothesis_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_mps.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/generated/annotated_fn_args.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_quantization.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/common_state_dict.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/distributed_test.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/rpc/dist_autograd_test.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/ddp_under_dist_autograd_test.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/_tensor/common_dtensor.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/nested.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/linalg.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/core.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_modules.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_fsdp.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/jit_metaprogramming_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/autocast_test_lists.py
+/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_methods_invocations.py
+/app/.venv/lib/python3.12/site-packages/torch/cuda/_memory_viz.py
+/app/.venv/lib/python3.12/site-packages/torch/_tensor_docs.py
+/app/.venv/lib/python3.12/site-packages/torch/linalg/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/autograd/forward_ad.py
+/app/.venv/lib/python3.12/site-packages/torch/_lobpcg.py
+/app/.venv/lib/python3.12/site-packages/torch/overrides.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/_tools/ilp_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/_tools/memory_tracker.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/algorithms/model_averaging/hierarchical_model_averager.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/_traversal_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/wrap.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fully_shard.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/nn/api/remote_module.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_attention.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_sharding_rules.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/placement_types.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/style.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/loss.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_embedding_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_tensor_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_math_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_mask_buffer.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/_common.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding_bag.py
+/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharded_tensor/_ops/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/ops/_impl.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/ops/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_torchlib/ops/nn.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_helper.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset11.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset10.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset14.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset18.py
+/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/utils.py
+/app/.venv/lib/python3.12/site-packages/torch/profiler/profiler.py
+/app/.venv/lib/python3.12/site-packages/torch/profiler/_memory_profiler.py
+/app/.venv/lib/python3.12/site-packages/torch/_meta_registrations.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/decomposition.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/codecache.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/shape_propagation.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/cpp_builder.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/fx_passes/graph_view.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/jagged_lowerings.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_gpu.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_cpu.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/codegen/mps.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/kernel/flex/flex_attention.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/config.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/utils.py
+/app/.venv/lib/python3.12/site-packages/torch/_inductor/lowering.py
+/app/.venv/lib/python3.12/site-packages/torch/distributions/kl.py
+/app/.venv/lib/python3.12/site-packages/torch/distributions/wishart.py
+/app/.venv/lib/python3.12/site-packages/torch/distributions/transforms.py
+/app/.venv/lib/python3.12/site-packages/torch/distributions/lkj_cholesky.py
+/app/.venv/lib/python3.12/site-packages/torch/distributions/lowrank_multivariate_normal.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/embedding_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantized/reference/modules/sparse.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/embedding_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantizable/modules/activation.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/fake_quantize.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/quantization_mappings.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/qconfig.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/_common_operator_config_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/fbgemm.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/onednn.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/qnnpack.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/x86.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/executorch.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/native.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/embedding_quantizer.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/composable_quantizer.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/quantization_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/base_data_sparsifier.py
+/app/.venv/lib/python3.12/site-packages/torch/_refs/nn/functional/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/_refs/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/functional.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/modules/sparse.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/modules/activation.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/modules/normalization.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/modules/adaptive.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/modules/loss.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/attention/varlen.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/quantized/modules/embedding_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/quantized/modules/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/qat/modules/embedding_ops.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/qat/modules/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/embedding_expanded_weights.py
+/app/.venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/utils/tensorboard/_embedding.py
+/app/.venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
+/app/.venv/lib/python3.12/site-packages/torch/utils/_cpp_embed_headers.py
+/app/.venv/lib/python3.12/site-packages/torch/_decomp/decompositions.py
+/app/.venv/lib/python3.12/site-packages/torch/_decomp/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/jit/_shape_functions.py
+/app/.venv/lib/python3.12/site-packages/torch/jit/_builtins.py
+/app/.venv/lib/python3.12/site-packages/torch/_functorch/top_operators_github_usage.py
+/app/.venv/lib/python3.12/site-packages/torch/_subclasses/fake_impls.py
+/app/.venv/lib/python3.12/site-packages/torch/_subclasses/complex_tensor/_ops/aten.py
+/app/.venv/lib/python3.12/site-packages/torch/_vendor/packaging/version.py
+/app/.venv/lib/python3.12/site-packages/torch/optim/_muon.py
+/app/.venv/lib/python3.12/site-packages/torch/mps/__init__.py
+/app/.venv/lib/python3.12/site-packages/torch/export/_swap.py
+/app/.venv/lib/python3.12/site-packages/torch/nested/_internal/ops.py
+/app/.venv/lib/python3.12/site-packages/torch/_torch_docs.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/variables/tensor.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/variables/nn_module.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/debug_utils.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/trace_rules.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/builtins.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/operator.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/itertools.py
+/app/.venv/lib/python3.12/site-packages/torch/_dynamo/decorators.py
+/app/.venv/lib/python3.12/site-packages/torch/_export/serde/serialize.py
+/app/.venv/lib/python3.12/site-packages/torch/contrib/_tensorboard_vis.py
+/app/.venv/lib/python3.12/site-packages/torch/fx/passes/splitter_base.py
+/app/.venv/lib/python3.12/site-packages/torch/fx/passes/backends/cudagraphs.py
+/app/.venv/lib/python3.12/site-packages/torch/fx/experimental/accelerator_partitioner.py
+/app/.venv/lib/python3.12/site-packages/torch/fx/experimental/meta_tracer.py
+/app/.venv/lib/python3.12/site-packages/torch/fx/experimental/migrate_gradual_types/constraint_generator.py
+/app/.venv/lib/python3.12/site-packages/torch/fx/_symbolic_trace.py
+/app/.venv/lib/python3.12/site-packages/regex/tests/test_regex.py
+/app/.venv/lib/python3.12/site-packages/posthog/ai/openai/openai_async.py
+/app/.venv/lib/python3.12/site-packages/posthog/ai/openai/openai_providers.py
+/app/.venv/lib/python3.12/site-packages/posthog/ai/openai/openai.py
+/app/.venv/lib/python3.12/site-packages/open_clip_train/profiler.py
+/app/.venv/lib/python3.12/site-packages/google/auth/impersonated_credentials.py
+/app/.venv/lib/python3.12/site-packages/google/protobuf/text_format.py
+/app/.venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/serialization/pkcs7.py
+/app/.venv/lib/python3.12/site-packages/pymupdf/mupdf.py
+/app/.venv/lib/python3.12/site-packages/pymupdf/__main__.py
+/app/.venv/lib/python3.12/site-packages/pymupdf/__init__.py
+/app/.venv/lib/python3.12/site-packages/timm/models/deit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/visformer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/hieradet_sam2.py
+/app/.venv/lib/python3.12/site-packages/timm/models/hiera.py
+/app/.venv/lib/python3.12/site-packages/timm/models/gcvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/efficientformer_v2.py
+/app/.venv/lib/python3.12/site-packages/timm/models/vitamin.py
+/app/.venv/lib/python3.12/site-packages/timm/models/swiftformer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/byobnet.py
+/app/.venv/lib/python3.12/site-packages/timm/models/eva.py
+/app/.venv/lib/python3.12/site-packages/timm/models/fastvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/crossvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/nextvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/beit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/naflexvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/coat.py
+/app/.venv/lib/python3.12/site-packages/timm/models/csatv2.py
+/app/.venv/lib/python3.12/site-packages/timm/models/davit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/efficientformer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/efficientvit_msra.py
+/app/.venv/lib/python3.12/site-packages/timm/models/swin_transformer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/pvt_v2.py
+/app/.venv/lib/python3.12/site-packages/timm/models/mlp_mixer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer_relpos.py
+/app/.venv/lib/python3.12/site-packages/timm/models/mobilevit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/repvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/convit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/twins.py
+/app/.venv/lib/python3.12/site-packages/timm/models/shvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/levit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/swin_transformer_v2_cr.py
+/app/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py
+/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer_hybrid.py
+/app/.venv/lib/python3.12/site-packages/timm/models/fasternet.py
+/app/.venv/lib/python3.12/site-packages/timm/models/xcit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/focalnet.py
+/app/.venv/lib/python3.12/site-packages/timm/models/vgg.py
+/app/.venv/lib/python3.12/site-packages/timm/models/pit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/tiny_vit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/sequencer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/cait.py
+/app/.venv/lib/python3.12/site-packages/timm/models/edgenext.py
+/app/.venv/lib/python3.12/site-packages/timm/models/mvitv2.py
+/app/.venv/lib/python3.12/site-packages/timm/models/maxxvit.py
+/app/.venv/lib/python3.12/site-packages/timm/models/volo.py
+/app/.venv/lib/python3.12/site-packages/timm/models/metaformer.py
+/app/.venv/lib/python3.12/site-packages/timm/models/byoanet.py
+/app/.venv/lib/python3.12/site-packages/timm/models/swin_transformer_v2.py
+/app/.venv/lib/python3.12/site-packages/timm/models/starnet.py
+/app/.venv/lib/python3.12/site-packages/timm/models/tnt.py
+/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer_sam.py
+/app/.venv/lib/python3.12/site-packages/timm/models/nest.py
+/app/.venv/lib/python3.12/site-packages/timm/optim/muon.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/patch_embed.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/lambda_layer.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/pos_embed_sincos.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/pos_embed_rel.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/ml_decoder.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/halo_attn.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/diff_attention.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/attention.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/hybrid_embed.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/attention_pool2d.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/attention_pool.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/pos_embed.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/bottleneck_attn.py
+/app/.venv/lib/python3.12/site-packages/timm/layers/__init__.py
+/app/.venv/lib/python3.12/site-packages/nltk/corpus/reader/bracket_parse.py
+/app/.venv/lib/python3.12/site-packages/nltk/featstruct.py
+/app/.venv/lib/python3.12/site-packages/pandas/tests/io/parser/test_textreader.py
+/app/.venv/lib/python3.12/site-packages/pandas/tests/io/formats/test_to_string.py
+/app/.venv/lib/python3.12/site-packages/pandas/tests/io/pytables/test_append.py
+/app/.venv/lib/python3.12/site-packages/pandas/tests/tools/test_to_numeric.py
+/app/.venv/lib/python3.12/site-packages/pandas/tests/indexing/test_chaining_and_caching.py
+/app/.venv/lib/python3.12/site-packages/pandas/_version.py
+/app/.venv/lib/python3.12/site-packages/pandas/core/config_init.py
+/app/.venv/lib/python3.12/site-packages/pandas/core/internals/construction.py
+/app/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/centrality/dispersion.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/tests/test_temporalisomorphvf2.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/temporalisomorphvf2.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/connectivity/kcomponents.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planar_drawing.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planarity.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/approximation/kcomponents.py
+/app/.venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
+/app/.venv/lib/python3.12/site-packages/networkx/generators/lattice.py
+/app/.venv/lib/python3.12/site-packages/networkx/drawing/nx_latex.py
+/app/.venv/lib/python3.12/site-packages/networkx/drawing/tests/test_layout.py
+/app/.venv/lib/python3.12/site-packages/networkx/drawing/layout.py
+/app/.venv/lib/python3.12/site-packages/fontTools/merge/tables.py
+/app/.venv/lib/python3.12/site-packages/fontTools/ttLib/tables/C_F_F__2.py
+/app/.venv/lib/python3.12/site-packages/fontTools/ttLib/tables/C_F_F_.py
+/app/.venv/lib/python3.12/site-packages/fontTools/ttLib/sfnt.py
+/app/.venv/lib/python3.12/site-packages/fontTools/fontBuilder.py
+/app/.venv/lib/python3.12/site-packages/fontTools/cffLib/CFFToCFF2.py
+/app/.venv/lib/python3.12/site-packages/fontTools/cffLib/__init__.py
+/app/.venv/lib/python3.12/site-packages/fontTools/feaLib/lookupDebugInfo.py
+/app/.venv/lib/python3.12/site-packages/fontTools/feaLib/lexer.py
+/app/.venv/lib/python3.12/site-packages/fontTools/misc/psLib.py
+/app/.venv/lib/python3.12/site-packages/folium/utilities.py
+/app/.venv/lib/python3.12/site-packages/folium/raster_layers.py
+/app/.venv/lib/python3.12/site-packages/folium/features.py
+/app/.venv/lib/python3.12/site-packages/folium/plugins/timestamped_geo_json.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/t5/t5_decoder.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/convert_to_onnx.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/convert_to_onnx.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/benchmark.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/convert_to_onnx.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_parity.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_inputs.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/bert/eval_squad.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_encoder.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_utils.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/mask_decoder.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_decoder.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/prompt_encoder.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_image_onnx_predictor.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/benchmark_sam2.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_torch.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/pipeline_stable_diffusion.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/diffusion_models.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/benchmark.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_exporter.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_keras.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/bert_test_data.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention_clip.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_rotary_attention.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_base.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_embedlayer.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/neural_compressor/onnx_model.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/registry.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/matmul_nbits_quantizer.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/operators/embed_layernorm.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/onnx_quantizer.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/tools/qnn/gen_qnn_ctx_onnx_model.py
+/app/.venv/lib/python3.12/site-packages/onnxruntime/tools/offline_tuning.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth1/rfc5849/__init__.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc8628/clients/device.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/grant_types/implicit.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/parameters.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/legacy_application.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/backend_application.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/base.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/web_application.py
+/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/service_application.py
+/app/.venv/lib/python3.12/site-packages/open_clip/zero_shot_classifier.py
+/app/.venv/lib/python3.12/site-packages/open_clip/modified_resnet.py
+/app/.venv/lib/python3.12/site-packages/open_clip/model.py
+/app/.venv/lib/python3.12/site-packages/open_clip/coca_model.py
+/app/.venv/lib/python3.12/site-packages/open_clip/hf_model.py
+/app/.venv/lib/python3.12/site-packages/open_clip/convert.py
+/app/.venv/lib/python3.12/site-packages/open_clip/hf_configs.py
+/app/.venv/lib/python3.12/site-packages/open_clip/factory.py
+/app/.venv/lib/python3.12/site-packages/open_clip/transformer.py
+/app/.venv/lib/python3.12/site-packages/open_clip/pos_embed.py
+/app/.venv/lib/python3.12/site-packages/open_clip/timm_model.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/testing/suite/test_types.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/ext/compiler.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/util.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/bulk_persistence.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/strategies.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/base.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/ext.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/base.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/mssql/pyodbc.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/mssql/base.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/util/_concurrency_py3k.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/util.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/roles.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/compiler.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/lambdas.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/dml.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/selectable.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/cache_key.py
+/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/_elements_constructors.py
+/app/.venv/lib/python3.12/site-packages/packaging/version.py
+/app/.venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
+/app/.venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
+/app/.venv/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
+/app/.venv/lib/python3.12/site-packages/sympy/concrete/summations.py
+/app/.venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+/app/.venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
+/app/.venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
+/app/.venv/lib/python3.12/site-packages/sympy/interactive/session.py
+/app/.venv/lib/python3.12/site-packages/sympy/core/numbers.py
+/app/.venv/lib/python3.12/site-packages/sympy/core/multidimensional.py
+/app/.venv/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
+/app/.venv/lib/python3.12/site-packages/pdfminer/jbig2.py
+/app/.venv/lib/python3.12/site-packages/pdfminer/image.py
+/app/.venv/lib/python3.12/site-packages/pdfminer/layout.py
+/app/.venv/lib/python3.12/site-packages/jinja2/ext.py
+/app/.venv/lib/python3.12/site-packages/mysql/ai/genai/embedding.py
+/app/.venv/lib/python3.12/site-packages/mysql/ai/genai/vector_store.py
+/app/.venv/lib/python3.12/site-packages/mysql/ai/genai/__init__.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
+/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
+/app/.venv/lib/python3.12/site-packages/kubernetes/client/models/v1_json_schema_props.py
+/app/.venv/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py
+/app/.venv/lib/python3.12/site-packages/shapely/io.py
+/app/.venv/lib/python3.12/site-packages/clickhouse_connect/driver/query.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/font_manager.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/_type1font.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/_api/__init__.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/widgets.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/rcsetup.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/cbook.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_pdf.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_webagg_core.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/backends/qt_compat.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_ps.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_webagg.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/animation.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/axes/_base.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_backend_tk.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_backend_pdf.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_animation.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_mathtext.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_backend_ps.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_cbook.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/dviread.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/figure.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/_mathtext.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/sphinxext/mathmpl.py
+/app/.venv/lib/python3.12/site-packages/matplotlib/texmanager.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/base.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/tests/support.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist_dumb.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/version.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/wheelfile.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/_bdist_wheel.py
+/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/version.py
+/app/.venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py
+/app/.venv/lib/python3.12/site-packages/setuptools/command/bdist_egg.py
+/app/.venv/lib/python3.12/site-packages/tabulate/__init__.py
+/app/.venv/lib/python3.12/site-packages/pyparsing/diagram/__init__.py
+/app/.venv/lib/python3.12/site-packages/pyparsing/results.py
+/app/.venv/lib/python3.12/site-packages/pyparsing/core.py
+/app/.venv/lib/python3.12/site-packages/pyparsing/__init__.py
+/app/.venv/lib/python3.12/site-packages/cffi/api.py
+/app/.venv/lib/python3.12/site-packages/cffi/recompiler.py
+/app/.venv/lib/python3.12/site-packages/cffi/_shimmed_dist_utils.py
+/app/.venv/lib/python3.12/site-packages/fsspec/core.py
+/app/.venv/lib/python3.12/site-packages/lxml/isoschematron/__init__.py
+/app/.venv/lib/python3.12/site-packages/lxml/builder.py
+/app/.venv/lib/python3.12/site-packages/lxml/html/builder.py
+/app/.venv/lib/python3.12/site-packages/lxml/html/defs.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/ml.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/templates.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/pony.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/php.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/css.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/perl.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/python.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/configs.py
+/app/.venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
+/app/.venv/lib/python3.12/site-packages/optimum/onnx/transformations_utils.py
+/app/.venv/lib/python3.12/site-packages/optimum/utils/input_generators.py
+/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/modeling_seq2seq.py
+/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/modeling.py
+/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/modeling_decoder.py
+/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/configuration.py
+/app/.venv/lib/python3.12/site-packages/optimum/gptq/constants.py
+/app/.venv/lib/python3.12/site-packages/optimum/exporters/onnx/base.py
+/app/.venv/lib/python3.12/site-packages/optimum/exporters/onnx/model_patcher.py
+/app/.venv/lib/python3.12/site-packages/optimum/exporters/onnx/model_configs.py
+/app/.venv/lib/python3.12/site-packages/optimum/exporters/base.py
+/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/parallel_layers/embedding.py
+/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/parallel_layers/__init__.py
+/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/passes.py
+/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/utils.py
+/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/op_registry/op_handlers.py
+/app/.venv/lib/python3.12/site-packages/rich/console.py
+/app/.venv/lib/python3.12/site-packages/ftfy/fixes.py
+/app/.venv/lib/python3.12/site-packages/ftfy/chardata.py
+/app/.venv/lib/python3.12/site-packages/pypdfium2/_helpers/document.py
+/app/.venv/lib/python3.12/site-packages/pypdfium2/_helpers/pageobjects.py
+/app/.venv/lib/python3.12/site-packages/pypdfium2/__main__.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesSymmetricRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MatryoshkaLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardSoftMarginTripletLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardTripletLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/Matryoshka2dLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/AdaptiveLayerLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/DenoisingAutoEncoderLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CosineSimilarityLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/TripletLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MegaBatchMarginLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CoSENTLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/DistillKLDivLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesSymmetricRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/SoftmaxLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/OnlineContrastiveLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchSemiHardTripletLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/GISTEmbedLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MSELoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MarginMSELoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchAllTripletLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveTensionLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/WeightedLayerPooling.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Module.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/WordWeights.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/WordEmbeddings.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Dense.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/CLIPModel.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/CNN.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Router.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Normalize.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Dropout.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/LSTM.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Pooling.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/LayerNorm.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/StaticEmbedding.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/BoW.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseCoSENTLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/CSRLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseTripletLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMSELoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMarginMSELoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMultipleNegativesRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/FlopsLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SpladeLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SpladePooling.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseAutoEncoder.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/MLMTransformer.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/search_engines.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/SparseEncoder.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseMSEEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseRerankingEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseInformationRetrievalEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTripletEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseEmbeddingSimilarityEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseBinaryClassificationEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTranslationEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/model_card.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/datasets/ParallelSentencesDataset.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/backend/utils.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/quantization.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/similarity_functions.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/MultipleNegativesRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/CachedMultipleNegativesRankingLoss.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/reranking.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/nano_beir.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/trainer.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/hard_negatives.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/retrieval.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/tensor.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/similarity.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/__init__.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/RerankingEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/ParaphraseMiningEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/BinaryClassificationEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TranslationEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TripletEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluatorFromDataFrame.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/EmbeddingSimilarityEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/NanoBEIREvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/InformationRetrievalEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/SentenceEvaluator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/trainer.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/data_collator.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/model_card.py
+/app/.venv/lib/python3.12/site-packages/sentence_transformers/__init__.py
+/app/.venv/lib/python3.12/site-packages/dns/ipv6.py
+/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/.venv/lib/python3.12/site-packages/PyPDF2/_page.py
+/app/.venv/lib/python3.12/site-packages/PyPDF2/_writer.py
+/app/.venv/lib/python3.12/site-packages/PyPDF2/_codecs/adobe_glyphs.py
+/app/.venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/app/.venv/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py
+/app/.venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+/app/.venv/lib/python3.12/site-packages/chromadb/db/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/proto/convert.py
+/app/.venv/lib/python3.12/site-packages/chromadb/quota/simple_quota_enforcer/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/quota/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/types.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/models/Collection.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/models/AsyncCollection.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/async_api.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/client.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/types.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/async_client.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/fastapi.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/rust.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/segment.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
+/app/.venv/lib/python3.12/site-packages/chromadb/ingest/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/metadata/sqlite.py
+/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_persistent_hnsw.py
+/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_hnsw.py
+/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/brute_force_index.py
+/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/batch.py
+/app/.venv/lib/python3.12/site-packages/chromadb/segment/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/results.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/data_loaders.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/baseten_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/instructor_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/google_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/fastembed_sparse_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/voyageai_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/text2vec_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cohere_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_sparse_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/registry.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/schema_utils.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/openai_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/roboflow_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/morph_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/sentence_transformer_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_langchain_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/mistral_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/open_clip_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/nomic_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/batch_utils.py
+/app/.venv/lib/python3.12/site-packages/chromadb/utils/statistics.py
+/app/.venv/lib/python3.12/site-packages/chromadb/telemetry/product/events.py
+/app/.venv/lib/python3.12/site-packages/chromadb/logservice/logservice.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/data_loader/test_data_loader.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/db/test_log_purge.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/configurations/test_collection_configuration.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_sanity.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_log_backpressure.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_repair_collection_log_offset.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_reroute.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_indexing_status.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_types.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_search_api.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_limit_offset.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_numpy_list_inputs.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_invalid_update.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_schema.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/stress/test_many_collections.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_morph_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_voyageai_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_openai_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_ollama_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_multimodal_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_default_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_custom_ef.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/test_cli.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/utils/test_result_df_transform.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/utils/test_embedding_function_schemas.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/test_api.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/conftest.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/test_multithreaded.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_fork.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_collections.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/invariants.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_embeddings.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/strategies.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_persist.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_add.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_filtering.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_schema.py
+/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_restart_persist.py
+/app/.venv/lib/python3.12/site-packages/chromadb/server/fastapi/types.py
+/app/.venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
+/app/.venv/lib/python3.12/site-packages/chromadb/execution/executor/local.py
+/app/.venv/lib/python3.12/site-packages/chromadb/execution/executor/distributed.py
+/app/.venv/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
+/app/.venv/lib/python3.12/site-packages/chromadb/execution/expression/plan.py
+/app/.venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/.venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+/app/.venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/.venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/.venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/.venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/.venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/.venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/.venv/lib/python3.12/site-packages/pypdf/_encryption.py
+/app/.venv/lib/python3.12/site-packages/pypdf/generic/_files.py
+/app/.venv/lib/python3.12/site-packages/pypdf/_page.py
+/app/.venv/lib/python3.12/site-packages/pypdf/filters.py
+/app/.venv/lib/python3.12/site-packages/pypdf/_writer.py
+/app/.venv/lib/python3.12/site-packages/pypdf/_codecs/adobe_glyphs.py
+/app/.venv/lib/python3.12/site-packages/zstandard/backend_cffi.py
+/app/.venv/lib/python3.12/site-packages/ollama/_client.py
+/app/.venv/lib/python3.12/site-packages/ollama/_types.py
+/app/.venv/lib/python3.12/site-packages/ollama/__init__.py
+/app/.venv/lib/python3.12/site-packages/torchgen/packaged/autograd/gen_variable_type.py
+/app/.venv/lib/python3.12/site-packages/torchgen/model.py
+/app/.venv/lib/python3.12/site-packages/torchgen/static_runtime/gen_static_runtime_ops.py
+/app/.venv/lib/python3.12/site-packages/torchgen/static_runtime/generator.py
+/app/.venv/lib/python3.12/site-packages/torchgen/aoti/fallback_ops.py
+/app/services/auto_fix_gateway.py
+/app/services/attention_multimodal_fuser.py
+/app/services/enhance_rag_knowledge.py
+/app/services/bulk_load_knowledge.py
+/app/services/gbim_query_router.py
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
+/app/services/jarvis_hilbert_state.py
+/app/services/gisgeodb_storage.py
+/app/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
+/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py
+/app/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/container_attributes.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/file_attributes.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/flatbuffers/flexbuffers.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/core/_internal.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/click/testing.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/click/core.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/humanfriendly/sphinx.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/humanfriendly/usage.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/coloredlogs/syslog.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/coloredlogs/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/requests_oauthlib/oauth1_session.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/posthog/ai/openai/openai_async.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/posthog/ai/openai/openai_providers.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/posthog/ai/openai/openai.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/google/protobuf/text_format.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/t5/t5_decoder.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/convert_to_onnx.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/convert_to_onnx.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/benchmark.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/convert_to_onnx.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_parity.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_inputs.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/bert/eval_squad.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_encoder.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_utils.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/mask_decoder.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_decoder.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/prompt_encoder.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_image_onnx_predictor.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/benchmark_sam2.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_torch.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/pipeline_stable_diffusion.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/diffusion_models.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/benchmark.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_exporter.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_keras.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/bert_test_data.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention_clip.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_rotary_attention.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_base.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_embedlayer.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/neural_compressor/onnx_model.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/registry.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/matmul_nbits_quantizer.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/operators/embed_layernorm.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/onnx_quantizer.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/tools/qnn/gen_qnn_ctx_onnx_model.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/tools/offline_tuning.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth1/rfc5849/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc8628/clients/device.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/grant_types/implicit.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/parameters.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/legacy_application.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/backend_application.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/base.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/web_application.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/service_application.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/packaging/version.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/concrete/summations.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/interactive/session.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/core/numbers.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/core/multidimensional.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/kubernetes/client/models/v1_json_schema_props.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/fsspec/core.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/ml.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/templates.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/pony.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/php.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/css.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/perl.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/python.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/configs.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/rich/console.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/proto/convert.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/quota/simple_quota_enforcer/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/quota/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/types.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/models/Collection.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/models/AsyncCollection.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/async_api.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/client.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/types.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/async_client.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/fastapi.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/rust.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/segment.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/ingest/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/metadata/sqlite.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_persistent_hnsw.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_hnsw.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/brute_force_index.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/batch.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/results.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/data_loaders.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/baseten_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/instructor_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/google_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/fastembed_sparse_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/voyageai_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/text2vec_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cohere_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_sparse_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/registry.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/schema_utils.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/openai_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/roboflow_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/morph_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/sentence_transformer_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_langchain_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/mistral_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/open_clip_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/nomic_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/batch_utils.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/statistics.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/telemetry/product/events.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/logservice/logservice.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/data_loader/test_data_loader.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/db/test_log_purge.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/configurations/test_collection_configuration.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_sanity.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_log_backpressure.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_repair_collection_log_offset.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_reroute.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_indexing_status.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_types.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_search_api.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_limit_offset.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_numpy_list_inputs.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_invalid_update.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_schema.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/stress/test_many_collections.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_morph_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_voyageai_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_openai_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_ollama_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_multimodal_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_default_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_custom_ef.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/test_cli.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/utils/test_result_df_transform.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/utils/test_embedding_function_schemas.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/test_api.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/conftest.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/test_multithreaded.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_fork.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_collections.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/invariants.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_embeddings.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/strategies.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_persist.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_add.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_filtering.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_schema.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_restart_persist.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/server/fastapi/types.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/executor/local.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/executor/distributed.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/expression/plan.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/services/ms_jarvis_autonomous_learner_optimized.py
+/app/services/ms_jarvis_main_gateway.backup_error.py
+/app/services/ai_server.py
+/app/services/rag/geodb_core.py
+/app/services/rag/gpu_accelerated_rag.py
+/app/services/rag/attention_router.py
+/app/services/rag/geo_rag_debug.py
+/app/services/rag/belief_revision_engine.py
+/app/services/rag/gbim_core.py
+/app/services/rag/gis_rag_service.py
+/app/services/rag/background_curator.py
+/app/services/embed_gbim.py
+/app/services/llm/ai_server.py
+/app/services/llm/ai_server_22llm.py
+/app/services/gbim_coordinate_writer.py
+/app/services/neurobiologicalbrain/i_containers/service/service_registry_client.py
+/app/services/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
+/app/services/add_conversation_endpoint.py
+/app/services/ms_mountainshares_coordinator.py
+/app/services/conversation_memory_endpoints.py
+/app/services/embed_geodb.py
+/app/services/jarvis_synth_llm.py
+/app/services/load_pdfs_spiritual.py
+/app/services/geodb_core.py
+/app/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py
+/app/services/identity_promotion.py
+/app/services/embed_and_query.py
+/app/services/bulk_load_MAXIMUM.py
+/app/services/memory_dgm_engine.py
+/app/services/.venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
+/app/services/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/services/.venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/services/ms_jarvis_main_gateway.backup_1762220815.py
+/app/services/gpu_accelerated_rag.py
+/app/services/load_spiritual_library.py
+/app/services/ai/ai_server.py
+/app/services/rag_topic_router.py
+/app/services/ai_server_19llm_CONSCIOUS.py
+/app/services/ms_jarvis_web_research_aggregate.py
+/app/services/extract_chroma_sqlite_to_gis.py
+/app/services/load_gis_to_chroma.py
+/app/services/jarvis_rag_search/main.py
+/app/services/quantum_state_engine.py
+/app/services/ms_jarvis_autonomous_learner.py
+/app/services/move_huggingface_to_cpu.py
+/app/services/attention_router.py
+/app/services/add_conversation_storage.py
+/app/services/rag_server.psychology_patched.py
+/app/services/REFERENCE_windows_swarm.py
+/app/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
+/app/services/geo_rag_debug.py
+/app/services/gpu_accelerated_rag_fixed.py
+/app/services/ingest_gbim_to_chroma.py
+/app/services/_vendor/cytoolz/tests/test_embedded_sigs.py
+/app/services/_vendor/Crypto/Cipher/_mode_ctr.py
+/app/services/_vendor/regex/tests/test_regex.py
+/app/services/_vendor/eth_account/signers/local.py
+/app/services/_vendor/bitarray/test_util.py
+/app/services/ms_jarvis_toroidal_consciousness.py
+/app/services/rag_server.py
+/app/services/ms_jarvis_showcase_api.py
+/app/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
+/app/services/ai_server_restored.py
+/app/services/ingest_gis_features_to_chromadb.py
+/app/services/embed_and_add.py
+/app/services/geo_rag_debug_app.py
+/app/services/gbim_query_router/gbim_query_router.py
+/app/services/ai_server_original_backup.py
+/app/services/gbim_chroma_fixed.py
+/app/services/chroma/chroma_psych_helper.py
+/app/services/rag_server_min.py
+/app/services/load_rag_knowledge.py
+/app/services/rag_direct_debug.py
+/app/services/belief_revision_engine.py
+/app/services/hilbert_spatial_chat.py
+/app/services/attention_pipeline.py
+/app/services/ingest_postgis_to_chroma.py
+/app/services/venv/lib/python3.12/site-packages/scipy/signal/_signaltools.py
+/app/services/venv/lib/python3.12/site-packages/scipy/io/matlab/_mio5.py
+/app/services/venv/lib/python3.12/site-packages/scipy/linalg/_basic.py
+/app/services/venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_delegation.py
+/app/services/venv/lib/python3.12/site-packages/scipy/stats/_multivariate.py
+/app/services/venv/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py
+/app/services/venv/lib/python3.12/site-packages/scipy/integrate/_ivp/radau.py
+/app/services/venv/lib/python3.12/site-packages/scipy/integrate/_ivp/ivp.py
+/app/services/venv/lib/python3.12/site-packages/scipy/optimize/_shgo_lib/_complex.py
+/app/services/venv/lib/python3.12/site-packages/scipy/sparse/csgraph/_laplacian.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/perceiver/configuration_perceiver.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/perceiver/modeling_perceiver.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/diffllama/configuration_diffllama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/diffllama/modular_diffllama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/diffllama/modeling_diffllama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/timesformer/configuration_timesformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/timesformer/modeling_timesformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/decision_transformer/modeling_decision_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/decision_transformer/configuration_decision_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/timm_wrapper/modeling_timm_wrapper.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aimv2/configuration_aimv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aimv2/modular_aimv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aimv2/modeling_aimv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v/configuration_glm4v.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v/modular_glm4v.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v/modeling_glm4v.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere/modeling_cohere.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere/modular_cohere.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere/configuration_cohere.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/modeling_layoutlmv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/configuration_layoutlmv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bert_generation/modeling_bert_generation.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bert_generation/configuration_bert_generation.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rwkv/modeling_rwkv.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rwkv/configuration_rwkv.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modular_qwen3_vl_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modeling_qwen3_vl_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/configuration_qwen3_vl_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/tvp/configuration_tvp.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/tvp/modeling_tvp.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/funnel/configuration_funnel.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/funnel/modeling_funnel.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_xglm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xglm/configuration_xglm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi/configuration_phi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi/modeling_phi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi/modular_phi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modular_glm4v_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modeling_glm4v_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/configuration_glm4v_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio_video/modular_pe_audio_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio_video/modeling_pe_audio_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio_video/configuration_pe_audio_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics2/configuration_idefics2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modeling_dinov3_vit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modular_dinov3_vit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/configuration_dinov3_vit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/biogpt/modular_biogpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/biogpt/modeling_biogpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/biogpt/configuration_biogpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/modeling_xlm_roberta_xl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/configuration_xlm_roberta_xl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/modular_xlm_roberta_xl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/configuration_hunyuan_v1_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modeling_hunyuan_v1_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modular_hunyuan_v1_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics3/modeling_idefics3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics3/configuration_idefics3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/modular_florence2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/modeling_florence2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/processing_florence2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/configuration_florence2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo2/configuration_olmo2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo2/modular_olmo2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo2/modeling_olmo2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seed_oss/configuration_seed_oss.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seed_oss/modeling_seed_oss.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seed_oss/modular_seed_oss.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zoedepth/modeling_zoedepth.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zoedepth/configuration_zoedepth.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/x_clip/configuration_x_clip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/x_clip/modeling_x_clip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert/modular_modernbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert/configuration_modernbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modeling_hgnet_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modular_hgnet_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/configuration_hgnet_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clap/configuration_clap.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clap/modeling_clap.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba2/modeling_mamba2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba2/configuration_mamba2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nystromformer/modeling_nystromformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nystromformer/configuration_nystromformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xmod/modeling_xmod.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xmod/configuration_xmod.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblip/modeling_instructblip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblip/configuration_instructblip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/persimmon/modeling_persimmon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/persimmon/configuration_persimmon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bridgetower/modeling_bridgetower.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bridgetower/configuration_bridgetower.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lasr/modular_lasr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lasr/modeling_lasr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lasr/configuration_lasr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flava/modeling_flava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flava/configuration_flava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot/configuration_blenderbot.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_blenderbot.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cpmant/configuration_cpmant.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cpmant/modeling_cpmant.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/voxtral/modeling_voxtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/voxtral/configuration_voxtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/voxtral/modular_voxtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longt5/configuration_longt5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longt5/modeling_longt5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/d_fine/configuration_d_fine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/d_fine/modeling_d_fine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/d_fine/modular_d_fine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ijepa/modular_ijepa.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ijepa/modeling_ijepa.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ijepa/configuration_ijepa.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_regnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/regnet/configuration_regnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dpr/configuration_dpr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dpr/modeling_dpr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/modeling_qwen2_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/configuration_qwen2_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modular_llava_onevision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modeling_llava_onevision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_onevision/configuration_llava_onevision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_gptj.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gptj/configuration_gptj.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/configuration_blenderbot_small.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_blenderbot_small.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/altclip/configuration_altclip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/altclip/modeling_altclip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rag/modeling_rag.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rag/retrieval_rag.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rag/configuration_rag.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_vision_encoder_decoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blip/configuration_blip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modeling_falcon_h1.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modular_falcon_h1.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_h1/configuration_falcon_h1.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swin/configuration_swin.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swin/modeling_swin.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/starcoder2/modeling_starcoder2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/starcoder2/modular_starcoder2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/starcoder2/configuration_starcoder2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/prompt_depth_anything/modeling_prompt_depth_anything.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mllama/image_processing_mllama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mllama/modeling_mllama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mllama/configuration_mllama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/parakeet/modular_parakeet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/parakeet/configuration_parakeet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/parakeet/modeling_parakeet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutxlm/configuration_layoutxlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutxlm/modular_layoutxlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ibert/modeling_ibert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ibert/configuration_ibert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ibert/quant_modules.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/paligemma/modeling_paligemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/paligemma/configuration_paligemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/opt/configuration_opt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/opt/modeling_opt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/autoformer/modeling_autoformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/autoformer/configuration_autoformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/megatron_bert/configuration_megatron_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/megatron_bert/modeling_megatron_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modular_qwen3_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/configuration_qwen3_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swiftformer/modeling_swiftformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swiftformer/configuration_swiftformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modular_data2vec_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modular_data2vec_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/configuration_lfm2_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modular_lfm2_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modeling_lfm2_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cwm/configuration_cwm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cwm/modeling_cwm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cwm/modular_cwm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker_video/modeling_sam3_tracker_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker_video/modular_sam3_tracker_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker_video/configuration_sam3_tracker_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3/modular_gemma3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3/modeling_gemma3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3/configuration_gemma3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jais2/configuration_jais2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jais2/modeling_jais2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jais2/modular_jais2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vitmatte/modeling_vitmatte.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/videomae/modeling_videomae.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/videomae/configuration_videomae.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam_hq/configuration_sam_hq.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam_hq/modular_sam_hq.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam_hq/modeling_sam_hq.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/configuration_seamless_m4t.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/modeling_seamless_m4t.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vitpose/modeling_vitpose.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/table_transformer/modeling_table_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/table_transformer/configuration_table_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite/configuration_granite.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite/modeling_granite.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite/modular_granite.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/canine/configuration_canine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/canine/modeling_canine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clipseg/configuration_clipseg.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clipseg/modeling_clipseg.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modular_edgetam_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam_video/configuration_edgetam_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modeling_edgetam_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next/processing_llava_next.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next/modeling_llava_next.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next/configuration_llava_next.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vaultgemma/configuration_vaultgemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modeling_vaultgemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modular_vaultgemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/speecht5/modeling_speecht5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/speecht5/configuration_speecht5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/efficientnet/modeling_efficientnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/marian/modeling_marian.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/marian/configuration_marian.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/superpoint/modeling_superpoint.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/convbert/configuration_convbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/convbert/modeling_convbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modular_qwen3_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/configuration_qwen3_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/modeling_recurrent_gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/configuration_recurrent_gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral3/modeling_mistral3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral3/modular_mistral3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral3/configuration_mistral3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/git/modeling_git.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/git/configuration_git.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/m2m_100/modeling_m2m_100.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/m2m_100/configuration_m2m_100.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xcodec/modeling_xcodec.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fsmt/configuration_fsmt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fsmt/modeling_fsmt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/internvl/modular_internvl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/internvl/configuration_internvl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/internvl/modeling_internvl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nemotron/modeling_nemotron.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nemotron/configuration_nemotron.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modeling_qwen3_next.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modular_qwen3_next.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_next/configuration_qwen3_next.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral/configuration_ministral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral/modular_ministral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral/modeling_ministral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ovis2/modeling_ovis2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ovis2/modular_ovis2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ovis2/configuration_ovis2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/stablelm/configuration_stablelm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/stablelm/modeling_stablelm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dbrx/modeling_dbrx.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dbrx/modular_dbrx.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dbrx/configuration_dbrx.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clip/modeling_clip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/youtu/configuration_youtu.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/youtu/modular_youtu.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/youtu/modeling_youtu.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt2/configuration_gpt2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_gpt2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modular_kyutai_speech_to_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modeling_kyutai_speech_to_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/configuration_kyutai_speech_to_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mixtral/modeling_mixtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mixtral/configuration_mixtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mixtral/modular_mixtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma2/configuration_t5gemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma2/modeling_t5gemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma2/modular_t5gemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mimi/modeling_mimi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mimi/configuration_mimi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glpn/configuration_glpn.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glpn/modeling_glpn.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_roberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta/modular_roberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta/configuration_roberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlm/configuration_layoutlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlm/modeling_layoutlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glmasr/modeling_glmasr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glmasr/modular_glmasr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glmasr/configuration_glmasr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bit/configuration_bit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bit/modeling_bit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/conditional_detr/configuration_conditional_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/conditional_detr/modular_conditional_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/conditional_detr/modeling_conditional_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/janus/configuration_janus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/janus/modeling_janus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/janus/modular_janus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/audioflamingo3/modeling_audioflamingo3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/audioflamingo3/configuration_audioflamingo3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/audioflamingo3/modular_audioflamingo3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roc_bert/modeling_roc_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roc_bert/configuration_roc_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neo/modeling_gpt_neo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neo/configuration_gpt_neo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hubert/modular_hubert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hubert/configuration_hubert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hubert/modeling_hubert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4/modeling_glm4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4/modular_glm4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4/configuration_glm4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5/configuration_t5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt_dinov3/configuration_eomt_dinov3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt_dinov3/modeling_eomt_dinov3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt_dinov3/modular_eomt_dinov3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2_video/modeling_sam2_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2_video/modular_sam2_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2_video/configuration_sam2_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modeling_hunyuan_v1_dense.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modular_hunyuan_v1_dense.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/configuration_hunyuan_v1_dense.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aya_vision/modeling_aya_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aya_vision/modular_aya_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aya_vision/configuration_aya_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/modeling_idefics.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/configuration_idefics.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/perceiver.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lilt/configuration_lilt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lilt/modeling_lilt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/modeling_audio_spectrogram_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/configuration_audio_spectrogram_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba/configuration_mamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba/modeling_mamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modeling_glm4_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modular_glm4_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe/configuration_glm4_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_encoder_decoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/doge/modular_doge.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/doge/configuration_doge.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/doge/modeling_doge.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_whisper.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/whisper/configuration_whisper.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modeling_deepseek_v3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/configuration_deepseek_v3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modular_deepseek_v3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/efficientloftr/configuration_efficientloftr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/efficientloftr/modeling_efficientloftr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mt5/configuration_mt5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mt5/modeling_mt5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/plbart/modular_plbart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/plbart/modeling_plbart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/plbart/configuration_plbart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox/configuration_gpt_neox.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modular_gpt_neox.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilevitv2/modeling_mobilevitv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mvp/modeling_mvp.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mvp/configuration_mvp.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dpt/modeling_dpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dpt/configuration_dpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longformer/configuration_longformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longformer/modeling_longformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/smolvlm/modular_smolvlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/smolvlm/configuration_smolvlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/smolvlm/modeling_smolvlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vits/modeling_vits.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vits/configuration_vits.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/openai/configuration_openai.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/openai/modeling_openai.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/levit/configuration_levit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/levit/modeling_levit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/feature_extraction_granite_speech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/processing_granite_speech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/configuration_granite_speech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/modeling_granite_speech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta_v2/configuration_deberta_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/poolformer/modeling_poolformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vitdet/configuration_vitdet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vitdet/modeling_vitdet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen/modeling_musicgen.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen/configuration_musicgen.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/afmoe/modular_afmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/afmoe/configuration_afmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/afmoe/modeling_afmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lighton_ocr/modeling_lighton_ocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lighton_ocr/modular_lighton_ocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lighton_ocr/configuration_lighton_ocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/processing_kosmos2_5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/modeling_kosmos2_5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/configuration_kosmos2_5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilebert/configuration_mobilebert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilebert/modeling_mobilebert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_ocr/configuration_glm_ocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_ocr/modular_glm_ocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_ocr/modeling_glm_ocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus_x/modeling_pegasus_x.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus_x/configuration_pegasus_x.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus/configuration_pegasus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_pegasus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/prophetnet/modeling_prophetnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/prophetnet/configuration_prophetnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlnet/configuration_xlnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlnet/modeling_xlnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mgp_str/configuration_mgp_str.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mgp_str/modeling_mgp_str.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swin2sr/modeling_swin2sr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swin2sr/configuration_swin2sr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo3/configuration_olmo3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo3/modular_olmo3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo3/modeling_olmo3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mpt/configuration_mpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mpt/modeling_mpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3/modeling_sam3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3/configuration_sam3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/perception_lm/modular_perception_lm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/perception_lm/configuration_perception_lm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/perception_lm/modeling_perception_lm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modular_qwen3_omni_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/configuration_qwen3_omni_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/processing_qwen3_omni_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modeling_qwen3_omni_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/visual_bert/configuration_visual_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/visual_bert/modeling_visual_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deit/configuration_deit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deit/modeling_deit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/paddleocr_vl/modular_paddleocr_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/paddleocr_vl/modeling_paddleocr_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/paddleocr_vl/configuration_paddleocr_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vilt/modeling_vilt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vilt/configuration_vilt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/moshi/modeling_moshi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/moshi/configuration_moshi.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe_lite/modeling_glm4_moe_lite.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe_lite/configuration_glm4_moe_lite.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe_lite/modular_glm4_moe_lite.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modeling_rt_detr_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/configuration_rt_detr_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modular_rt_detr_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone4/configuration_exaone4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone4/modeling_exaone4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone4/modular_exaone4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/modeling_colqwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/modular_colqwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/processing_colqwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/configuration_colqwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/chameleon/configuration_chameleon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/chameleon/modeling_chameleon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/chameleon/processing_chameleon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinat/modeling_dinat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinat/configuration_dinat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blip_2/modeling_blip_2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blip_2/configuration_blip_2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/modeling_shieldgemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/configuration_shieldgemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/modeling_csm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/generation_csm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/configuration_csm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/modular_csm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swinv2/configuration_swinv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/swinv2/modeling_swinv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_moe/modular_lfm2_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_moe/modeling_lfm2_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_moe/configuration_lfm2_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lightglue/modular_lightglue.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lightglue/modeling_lightglue.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilevit/modeling_mobilevit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wavlm/configuration_wavlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wavlm/modeling_wavlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wavlm/modular_wavlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma/modeling_gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma/modular_gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma/configuration_gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clvp/modeling_clvp.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/clvp/configuration_clvp.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/udop/modeling_udop.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/udop/configuration_udop.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_mae/modeling_vit_mae.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_mae/configuration_vit_mae.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mbart/configuration_mbart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_mbart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/distilbert/configuration_distilbert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llava/processing_video_llava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llava/configuration_video_llava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llava/modeling_video_llava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bamba/modeling_bamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bamba/modular_bamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bamba/configuration_bamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modular_deepseek_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/configuration_deepseek_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modeling_deepseek_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip2/configuration_siglip2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip2/modeling_siglip2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip2/modular_siglip2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roformer/configuration_roformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_roformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/codegen/modeling_codegen.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/codegen/configuration_codegen.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_convnext/modeling_dinov3_convnext.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/oneformer/modeling_oneformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deformable_detr/modular_deformable_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deformable_detr/modeling_deformable_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deformable_detr/configuration_deformable_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/configuration_phi4_multimodal.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/processing_phi4_multimodal.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modeling_phi4_multimodal.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modular_phi4_multimodal.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/feature_extraction_phi4_multimodal.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma/configuration_t5gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma/modeling_t5gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma/modular_t5gemma.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mpnet/modeling_mpnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mpnet/configuration_mpnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_video/configuration_pe_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_video/modeling_pe_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_video/modular_pe_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon/configuration_falcon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon/modeling_falcon.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoe/modular_granitemoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoe/modeling_granitemoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoe/configuration_granitemoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/superglue/modeling_superglue.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/configuration_xlm_roberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modular_xlm_roberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nllb_moe/modeling_nllb_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nllb_moe/configuration_nllb_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hiera/configuration_hiera.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/hiera/modeling_hiera.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava/modeling_llava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava/configuration_llava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava/processing_llava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma2/configuration_gemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma2/modeling_gemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma2/modular_gemma2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modular_gpt_oss.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_oss/configuration_gpt_oss.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/configuration_bigbird_pegasus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/modeling_bigbird_pegasus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/moonshine/modeling_moonshine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/moonshine/modular_moonshine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/moonshine/configuration_moonshine.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech/modular_unispeech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech/modeling_unispeech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech/configuration_unispeech.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/convnext/modeling_convnext.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/convnext/configuration_convnext.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie/modeling_ernie.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie/configuration_ernie.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie/modular_ernie.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_vision_text_dual_encoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sew_d/modeling_sew_d.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sew_d/configuration_sew_d.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/configuration_qwen2_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2/processing_kosmos2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2/modeling_kosmos2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2/configuration_kosmos2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/evolla/configuration_evolla.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/evolla/modeling_evolla.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/evolla/modular_evolla.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/configuration_qwen2_5_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modular_qwen2_5_vl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llama_3/configuration_video_llama_3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llama_3/modular_video_llama_3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llama_3/modeling_video_llama_3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/modeling_dia.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/configuration_dia.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/modular_dia.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/generation_dia.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modeling_cohere2_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/configuration_cohere2_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modular_cohere2_vision.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/configuration_vitpose_backbone.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/modeling_vitpose_backbone.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer_swin.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer_swin.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2/modular_qwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2/modeling_qwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2/configuration_qwen2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vipllava/configuration_vipllava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vipllava/modeling_vipllava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vipllava/modular_vipllava.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/modeling_gpt_bigcode.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/configuration_gpt_bigcode.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral/modular_mistral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_mistral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral/configuration_mistral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aria/modeling_aria.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aria/configuration_aria.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/aria/modular_aria.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modeling_metaclip_2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/metaclip_2/configuration_metaclip_2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modular_metaclip_2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modeling_granitemoeshared.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/configuration_granitemoeshared.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modular_granitemoeshared.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jetmoe/configuration_jetmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jetmoe/modeling_jetmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jetmoe/modular_jetmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/reformer/configuration_reformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/reformer/modeling_reformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/arcee/modeling_arcee.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/arcee/modular_arcee.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/arcee/configuration_arcee.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/yoso/configuration_yoso.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/yoso/modeling_yoso.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pixtral/modeling_pixtral.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_msn/configuration_vit_msn.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_msn/modeling_vit_msn.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/configuration_time_series_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/modeling_time_series_transformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/albert/modeling_albert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/albert/configuration_albert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/focalnet/modeling_focalnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/focalnet/configuration_focalnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/donut/modeling_donut_swin.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/donut/configuration_donut_swin.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/helium/configuration_helium.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/helium/modeling_helium.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/helium/modular_helium.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/depth_pro/modeling_depth_pro.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/configuration_wav2vec2_conformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modeling_wav2vec2_conformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modular_wav2vec2_conformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flaubert/modeling_flaubert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flaubert/configuration_flaubert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modular_got_ocr2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/got_ocr2/configuration_got_ocr2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modeling_got_ocr2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phimoe/modeling_phimoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phimoe/configuration_phimoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phimoe/modular_phimoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/modeling_omdet_turbo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/configuration_omdet_turbo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/led/configuration_led.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/led/modeling_led.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/depth_anything/modeling_depth_anything.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/electra/configuration_electra.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/electra/modeling_electra.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vivit/configuration_vivit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vivit/modeling_vivit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modular_wav2vec2_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modeling_wav2vec2_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/configuration_wav2vec2_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/processing_qwen2_5_omni.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modular_qwen2_5_omni.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modeling_qwen2_5_omni.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/configuration_qwen2_5_omni.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam/modeling_sam.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam/configuration_sam.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral3/modular_ministral3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral3/configuration_ministral3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral3/modeling_ministral3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blt/modular_blt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blt/modeling_blt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/blt/configuration_blt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/modular_rt_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr_resnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr_resnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mlcd/modeling_mlcd.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mlcd/modular_mlcd.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sew/modeling_sew.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sew/configuration_sew.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sew/modular_sew.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vjepa2/modeling_vjepa2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/configuration_instructblipvideo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modeling_instructblipvideo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modular_instructblipvideo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/configuration_patchtsmixer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/modeling_patchtsmixer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam/modular_edgetam.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam/configuration_edgetam.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam/modeling_edgetam.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2/modeling_cohere2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2/configuration_cohere2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2/modular_cohere2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_resnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/resnet/configuration_resnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/tapas/configuration_tapas.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/tapas/modeling_tapas.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/apertus/modeling_apertus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/apertus/modular_apertus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/apertus/configuration_apertus.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bitnet/modeling_bitnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bitnet/modular_bitnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bitnet/configuration_bitnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba/modeling_zamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba/configuration_zamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bark/processing_bark.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bark/modeling_bark.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bark/configuration_bark.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/configuration_gpt_neox_japanese.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/modeling_gpt_neox_japanese.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio/configuration_pe_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio/modular_pe_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio/modeling_pe_audio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/timesfm/modular_timesfm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/timesfm/configuration_timesfm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/timesfm/modeling_timesfm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lxmert/configuration_lxmert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lxmert/modeling_lxmert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/switch_transformers/modeling_switch_transformers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/switch_transformers/modular_switch_transformers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/switch_transformers/configuration_switch_transformers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pp_doclayout_v3/modeling_pp_doclayout_v3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pp_doclayout_v3/modular_pp_doclayout_v3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pp_doclayout_v3/configuration_pp_doclayout_v3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/chinese_clip/modeling_chinese_clip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/chinese_clip/configuration_chinese_clip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/big_bird/modeling_big_bird.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/big_bird/configuration_big_bird.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rembert/configuration_rembert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/rembert/modeling_rembert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llama4/configuration_llama4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llama4/modeling_llama4.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bart/modeling_bart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bart/configuration_bart.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/groupvit/modeling_groupvit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/groupvit/configuration_groupvit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modeling_dinov2_with_registers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modular_dinov2_with_registers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/configuration_dinov2_with_registers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/speech_encoder_decoder/modeling_speech_encoder_decoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ctrl/modeling_ctrl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ctrl/configuration_ctrl.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modular_mm_grounding_dino.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modeling_mm_grounding_dino.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/configuration_mm_grounding_dino.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3/modular_qwen3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3/configuration_qwen3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_wav2vec2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2/configuration_wav2vec2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/configuration_layoutlmv3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/modeling_layoutlmv3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jamba/configuration_jamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jamba/modular_jamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/jamba/modeling_jamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmoe/modeling_olmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmoe/configuration_olmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmoe/modular_olmoe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/owlv2/configuration_owlv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/owlv2/modeling_owlv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/detr/modeling_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/detr/configuration_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pop2piano/configuration_pop2piano.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pop2piano/modeling_pop2piano.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pop2piano/tokenization_pop2piano.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/camembert/modeling_camembert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/camembert/configuration_camembert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/camembert/modular_camembert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llama/configuration_llama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/configuration_colpali.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/processing_colpali.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/modular_colpali.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/modeling_colpali.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nanochat/configuration_nanochat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nanochat/modular_nanochat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/nanochat/modeling_nanochat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm46v/modular_glm46v.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm46v/configuration_glm46v.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm46v/modeling_glm46v.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/modeling_fastspeech2_conformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/configuration_fastspeech2_conformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/convnextv2/modeling_convnextv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/convnextv2/configuration_convnextv2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seggpt/modeling_seggpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seggpt/configuration_seggpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt/configuration_pvt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt/modeling_pvt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_roberta_prelayernorm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/configuration_roberta_prelayernorm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modular_unispeech_sat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/configuration_unispeech_sat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modeling_unispeech_sat.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dab_detr/modeling_dab_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dab_detr/configuration_dab_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pixio/modeling_pixio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pixio/configuration_pixio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pixio/modular_pixio.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cvt/modeling_cvt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/cvt/configuration_cvt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mask2former/configuration_mask2former.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mask2former/modeling_mask2former.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bloom/configuration_bloom.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bloom/modeling_bloom.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bros/modeling_bros.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bros/configuration_bros.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lw_detr/modeling_lw_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lw_detr/configuration_lw_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lw_detr/modular_lw_detr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/solar_open/modular_solar_open.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/solar_open/configuration_solar_open.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/solar_open/modeling_solar_open.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone_moe/modular_exaone_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone_moe/configuration_exaone_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone_moe/modeling_exaone_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/configuration_granitemoehybrid.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modeling_granitemoehybrid.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modular_granitemoehybrid.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/owlvit/modeling_owlvit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/owlvit/configuration_owlvit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt_v2/modeling_pvt_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt_v2/configuration_pvt_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtst/configuration_patchtst.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtst/modeling_patchtst.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fuyu/configuration_fuyu.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fuyu/modeling_fuyu.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fuyu/processing_fuyu.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/markuplm/modeling_markuplm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/markuplm/configuration_markuplm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modular_deepseek_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/configuration_deepseek_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modeling_deepseek_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bert/configuration_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/bert/modeling_bert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mra/modeling_mra.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/mra/configuration_mra.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2/configuration_sam2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2/modular_sam2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2/modeling_sam2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/luke/modeling_luke.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/luke/configuration_luke.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modeling_falcon_mamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modular_falcon_mamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/configuration_falcon_mamba.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vit/configuration_vit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/vit/modeling_vit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip/modeling_siglip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip/configuration_siglip.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esmfold.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/esm/configuration_esm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba2/configuration_zamba2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba2/modular_zamba2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba2/modeling_zamba2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fnet/modeling_fnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fnet/configuration_fnet.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2/modeling_dinov2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2/configuration_dinov2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/emu3/configuration_emu3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/emu3/modeling_emu3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/emu3/modular_emu3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/speech_to_text/configuration_speech_to_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/speech_to_text/modeling_speech_to_text.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/informer/modular_informer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/informer/modeling_informer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/informer/configuration_informer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/smollm3/modeling_smollm3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/smollm3/modular_smollm3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/smollm3/configuration_smollm3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/umt5/configuration_umt5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/umt5/modeling_umt5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/segformer/configuration_segformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/segformer/modeling_segformer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_video/modeling_sam3_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/encodec/modeling_encodec.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm/modeling_xlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm/configuration_xlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/splinter/configuration_splinter.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/splinter/modeling_splinter.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/modeling_qwen2_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/configuration_qwen2_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/modular_qwen2_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/yolos/configuration_yolos.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/yolos/modeling_yolos.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modeling_deepseek_vl_hybrid.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modular_deepseek_vl_hybrid.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/configuration_deepseek_vl_hybrid.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modular_longcat_flash.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modeling_longcat_flash.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/longcat_flash/configuration_longcat_flash.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_image/configuration_glm_image.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_image/modeling_glm_image.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_image/modular_glm_image.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker/modular_sam3_tracker.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker/configuration_sam3_tracker.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker/modeling_sam3_tracker.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax_m2/modular_minimax_m2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax_m2/modeling_minimax_m2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax_m2/configuration_minimax_m2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modeling_llava_next_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/configuration_llava_next_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/processing_llava_next_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modular_llava_next_video.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax/modeling_minimax.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax/configuration_minimax.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax/modular_minimax.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/configuration_musicgen_melody.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/modeling_musicgen_melody.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5/configuration_ernie4_5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modeling_ernie4_5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modular_ernie4_5.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flex_olmo/configuration_flex_olmo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modeling_flex_olmo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modular_flex_olmo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/squeezebert/modeling_squeezebert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/squeezebert/configuration_squeezebert.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/trocr/configuration_trocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/trocr/modeling_trocr.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm/configuration_glm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm/modular_glm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/glm/modeling_glm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fast_vlm/configuration_fast_vlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fast_vlm/modular_fast_vlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/fast_vlm/modeling_fast_vlm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/grounding_dino/configuration_grounding_dino.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/imagegpt/configuration_imagegpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/imagegpt/modeling_imagegpt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo/modeling_olmo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo/modular_olmo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo/configuration_olmo.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modeling_ernie4_5_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/configuration_ernie4_5_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta/configuration_deberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta/modeling_deberta.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlstm/configuration_xlstm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/xlstm/modeling_xlstm.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/configuration_seamless_m4t_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/modeling_seamless_m4t_v2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modular_modernbert_decoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modeling_modernbert_decoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/configuration_modernbert_decoder.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3n/modeling_gemma3n.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3n/configuration_gemma3n.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3n/modular_gemma3n.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt/configuration_eomt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt/modular_eomt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt/modeling_eomt.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2/modeling_lfm2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2/modular_lfm2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2/configuration_lfm2.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/beit/modeling_beit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/beit/configuration_beit.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_vl_moe/modular_ernie4_5_vl_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_vl_moe/modeling_ernie4_5_vl_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_vl_moe/configuration_ernie4_5_vl_moe.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pix2struct/configuration_pix2struct.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/pix2struct/modeling_pix2struct.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi3/modular_phi3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi3/configuration_phi3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/models/phi3/modeling_phi3.py
+/app/services/venv/lib/python3.12/site-packages/transformers/pipelines/mask_generation.py
+/app/services/venv/lib/python3.12/site-packages/transformers/conversion_mapping.py
+/app/services/venv/lib/python3.12/site-packages/transformers/modeling_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/trainer_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/quantizers/quantizer_torchao.py
+/app/services/venv/lib/python3.12/site-packages/transformers/quantizers/base.py
+/app/services/venv/lib/python3.12/site-packages/transformers/tokenization_python.py
+/app/services/venv/lib/python3.12/site-packages/transformers/modeling_gguf_pytorch_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/modeling_outputs.py
+/app/services/venv/lib/python3.12/site-packages/transformers/modeling_rope_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/utils/auto_docstring.py
+/app/services/venv/lib/python3.12/site-packages/transformers/utils/doc.py
+/app/services/venv/lib/python3.12/site-packages/transformers/utils/attention_visualizer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/utils/import_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/utils/quantization_config.py
+/app/services/venv/lib/python3.12/site-packages/transformers/integrations/peft.py
+/app/services/venv/lib/python3.12/site-packages/transformers/integrations/tensor_parallel.py
+/app/services/venv/lib/python3.12/site-packages/transformers/integrations/torchao.py
+/app/services/venv/lib/python3.12/site-packages/transformers/integrations/ggml.py
+/app/services/venv/lib/python3.12/site-packages/transformers/integrations/executorch.py
+/app/services/venv/lib/python3.12/site-packages/transformers/integrations/deepspeed.py
+/app/services/venv/lib/python3.12/site-packages/transformers/masking_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/training_args.py
+/app/services/venv/lib/python3.12/site-packages/transformers/trainer.py
+/app/services/venv/lib/python3.12/site-packages/transformers/modeling_layers.py
+/app/services/venv/lib/python3.12/site-packages/transformers/tokenization_utils_sentencepiece.py
+/app/services/venv/lib/python3.12/site-packages/transformers/configuration_utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/generation/stopping_criteria.py
+/app/services/venv/lib/python3.12/site-packages/transformers/generation/logits_process.py
+/app/services/venv/lib/python3.12/site-packages/transformers/generation/utils.py
+/app/services/venv/lib/python3.12/site-packages/transformers/generation/watermarking.py
+/app/services/venv/lib/python3.12/site-packages/transformers/generation/candidate_generator.py
+/app/services/venv/lib/python3.12/site-packages/transformers/initialization.py
+/app/services/venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py
+/app/services/venv/lib/python3.12/site-packages/functorch/dim/__init__.py
+/app/services/venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+/app/services/venv/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
+/app/services/venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
+/app/services/venv/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
+/app/services/venv/lib/python3.12/site-packages/numpy/core/_internal.py
+/app/services/venv/lib/python3.12/site-packages/click/testing.py
+/app/services/venv/lib/python3.12/site-packages/click/core.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/random_projection.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_mds.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_isomap.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_classical_mds.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_locally_linear.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_t_sne.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_spectral_embedding.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_mds.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_isomap.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_locally_linear.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/__init__.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/neighbors/_nca.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/neighbors/tests/test_neighbors_pipeline.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/kernel_approximation.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/ensemble/_forest.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/ensemble/tests/test_forest.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/decomposition/_pca.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/externals/_scipy/sparse/csgraph/_laplacian.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/feature_extraction/_hash.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/tests/test_random_projection.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/tests/test_public_functions.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/__init__.py
+/app/services/venv/lib/python3.12/site-packages/sklearn/cluster/_spectral.py
+/app/services/venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
+/app/services/venv/lib/python3.12/site-packages/triton/tools/compile.py
+/app/services/venv/lib/python3.12/site-packages/fastapi/routing.py
+/app/services/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
+/app/services/venv/lib/python3.12/site-packages/fastapi/param_functions.py
+/app/services/venv/lib/python3.12/site-packages/fastapi/params.py
+/app/services/venv/lib/python3.12/site-packages/safetensors/torch.py
+/app/services/venv/lib/python3.12/site-packages/safetensors/mlx.py
+/app/services/venv/lib/python3.12/site-packages/safetensors/flax.py
+/app/services/venv/lib/python3.12/site-packages/safetensors/paddle.py
+/app/services/venv/lib/python3.12/site-packages/safetensors/numpy.py
+/app/services/venv/lib/python3.12/site-packages/safetensors/tensorflow.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/hypothesis_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_mps.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/generated/annotated_fn_args.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_quantization.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/common_state_dict.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/distributed_test.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/rpc/dist_autograd_test.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/ddp_under_dist_autograd_test.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/_tensor/common_dtensor.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/nested.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/linalg.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/core.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_modules.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_fsdp.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/jit_metaprogramming_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/autocast_test_lists.py
+/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_methods_invocations.py
+/app/services/venv/lib/python3.12/site-packages/torch/cuda/_memory_viz.py
+/app/services/venv/lib/python3.12/site-packages/torch/_tensor_docs.py
+/app/services/venv/lib/python3.12/site-packages/torch/linalg/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/autograd/forward_ad.py
+/app/services/venv/lib/python3.12/site-packages/torch/_lobpcg.py
+/app/services/venv/lib/python3.12/site-packages/torch/overrides.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/_tools/ilp_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/_tools/memory_tracker.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/algorithms/model_averaging/hierarchical_model_averager.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/_traversal_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/wrap.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fully_shard.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/nn/api/remote_module.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_attention.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_sharding_rules.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/placement_types.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/style.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/loss.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_embedding_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_tensor_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_math_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_mask_buffer.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/_common.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding_bag.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharded_tensor/_ops/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/ops/_impl.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/ops/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_torchlib/ops/nn.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_helper.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset11.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset10.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset14.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset18.py
+/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/profiler/profiler.py
+/app/services/venv/lib/python3.12/site-packages/torch/profiler/_memory_profiler.py
+/app/services/venv/lib/python3.12/site-packages/torch/_meta_registrations.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/decomposition.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codecache.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/shape_propagation.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/cpp_builder.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/fx_passes/graph_view.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/jagged_lowerings.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_gpu.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_cpu.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codegen/mps.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/kernel/flex/flex_attention.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/config.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/_inductor/lowering.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributions/kl.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributions/wishart.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributions/transforms.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributions/lkj_cholesky.py
+/app/services/venv/lib/python3.12/site-packages/torch/distributions/lowrank_multivariate_normal.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/embedding_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantized/reference/modules/sparse.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/embedding_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantizable/modules/activation.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/fake_quantize.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/quantization_mappings.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/qconfig.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/_common_operator_config_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/fbgemm.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/onednn.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/qnnpack.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/x86.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/executorch.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/native.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/embedding_quantizer.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/composable_quantizer.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/quantization_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/base_data_sparsifier.py
+/app/services/venv/lib/python3.12/site-packages/torch/_refs/nn/functional/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/_refs/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/functional.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/sparse.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/activation.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/normalization.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/adaptive.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/loss.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/attention/varlen.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/quantized/modules/embedding_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/quantized/modules/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/qat/modules/embedding_ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/qat/modules/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/embedding_expanded_weights.py
+/app/services/venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/utils/tensorboard/_embedding.py
+/app/services/venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
+/app/services/venv/lib/python3.12/site-packages/torch/utils/_cpp_embed_headers.py
+/app/services/venv/lib/python3.12/site-packages/torch/_decomp/decompositions.py
+/app/services/venv/lib/python3.12/site-packages/torch/_decomp/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/jit/_shape_functions.py
+/app/services/venv/lib/python3.12/site-packages/torch/jit/_builtins.py
+/app/services/venv/lib/python3.12/site-packages/torch/_functorch/top_operators_github_usage.py
+/app/services/venv/lib/python3.12/site-packages/torch/_subclasses/fake_impls.py
+/app/services/venv/lib/python3.12/site-packages/torch/_subclasses/complex_tensor/_ops/aten.py
+/app/services/venv/lib/python3.12/site-packages/torch/_vendor/packaging/version.py
+/app/services/venv/lib/python3.12/site-packages/torch/optim/_muon.py
+/app/services/venv/lib/python3.12/site-packages/torch/mps/__init__.py
+/app/services/venv/lib/python3.12/site-packages/torch/export/_swap.py
+/app/services/venv/lib/python3.12/site-packages/torch/nested/_internal/ops.py
+/app/services/venv/lib/python3.12/site-packages/torch/_torch_docs.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/variables/tensor.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/variables/nn_module.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/debug_utils.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/trace_rules.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/builtins.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/operator.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/itertools.py
+/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/decorators.py
+/app/services/venv/lib/python3.12/site-packages/torch/_export/serde/serialize.py
+/app/services/venv/lib/python3.12/site-packages/torch/contrib/_tensorboard_vis.py
+/app/services/venv/lib/python3.12/site-packages/torch/fx/passes/splitter_base.py
+/app/services/venv/lib/python3.12/site-packages/torch/fx/passes/backends/cudagraphs.py
+/app/services/venv/lib/python3.12/site-packages/torch/fx/experimental/accelerator_partitioner.py
+/app/services/venv/lib/python3.12/site-packages/torch/fx/experimental/meta_tracer.py
+/app/services/venv/lib/python3.12/site-packages/torch/fx/experimental/migrate_gradual_types/constraint_generator.py
+/app/services/venv/lib/python3.12/site-packages/torch/fx/_symbolic_trace.py
+/app/services/venv/lib/python3.12/site-packages/regex/tests/test_regex.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/centrality/dispersion.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/tests/test_temporalisomorphvf2.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/temporalisomorphvf2.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/connectivity/kcomponents.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planar_drawing.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planarity.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/approximation/kcomponents.py
+/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
+/app/services/venv/lib/python3.12/site-packages/networkx/generators/lattice.py
+/app/services/venv/lib/python3.12/site-packages/networkx/drawing/nx_latex.py
+/app/services/venv/lib/python3.12/site-packages/networkx/drawing/tests/test_layout.py
+/app/services/venv/lib/python3.12/site-packages/networkx/drawing/layout.py
+/app/services/venv/lib/python3.12/site-packages/packaging/version.py
+/app/services/venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
+/app/services/venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
+/app/services/venv/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
+/app/services/venv/lib/python3.12/site-packages/sympy/concrete/summations.py
+/app/services/venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+/app/services/venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
+/app/services/venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
+/app/services/venv/lib/python3.12/site-packages/sympy/interactive/session.py
+/app/services/venv/lib/python3.12/site-packages/sympy/core/numbers.py
+/app/services/venv/lib/python3.12/site-packages/sympy/core/multidimensional.py
+/app/services/venv/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
+/app/services/venv/lib/python3.12/site-packages/jinja2/ext.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
+/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/base.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/tests/support.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist_dumb.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/wheelfile.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/_bdist_wheel.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/version.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py
+/app/services/venv/lib/python3.12/site-packages/setuptools/command/bdist_egg.py
+/app/services/venv/lib/python3.12/site-packages/fsspec/core.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/ml.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/templates.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/pony.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/php.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/css.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/perl.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/python.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/configs.py
+/app/services/venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
+/app/services/venv/lib/python3.12/site-packages/rich/console.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesSymmetricRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MatryoshkaLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardSoftMarginTripletLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardTripletLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/Matryoshka2dLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/AdaptiveLayerLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/DenoisingAutoEncoderLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CosineSimilarityLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/TripletLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MegaBatchMarginLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CoSENTLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/DistillKLDivLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesSymmetricRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/SoftmaxLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/OnlineContrastiveLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchSemiHardTripletLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/GISTEmbedLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MSELoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MarginMSELoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchAllTripletLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveTensionLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/WeightedLayerPooling.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Module.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/WordWeights.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/WordEmbeddings.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Dense.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/CLIPModel.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/CNN.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Router.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Normalize.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Dropout.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/LSTM.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Pooling.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/LayerNorm.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/StaticEmbedding.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/BoW.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseCoSENTLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/CSRLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseTripletLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMSELoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMarginMSELoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMultipleNegativesRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/FlopsLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SpladeLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SpladePooling.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseAutoEncoder.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/MLMTransformer.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/search_engines.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/SparseEncoder.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseMSEEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseRerankingEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseInformationRetrievalEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTripletEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseEmbeddingSimilarityEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseBinaryClassificationEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTranslationEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/model_card.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/datasets/ParallelSentencesDataset.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/backend/utils.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/quantization.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/similarity_functions.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/MultipleNegativesRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/CachedMultipleNegativesRankingLoss.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/reranking.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/nano_beir.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/trainer.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/hard_negatives.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/retrieval.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/tensor.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/similarity.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/__init__.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/RerankingEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/ParaphraseMiningEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/BinaryClassificationEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TranslationEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TripletEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluatorFromDataFrame.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/EmbeddingSimilarityEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/NanoBEIREvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/InformationRetrievalEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/SentenceEvaluator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/trainer.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/data_collator.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/model_card.py
+/app/services/venv/lib/python3.12/site-packages/sentence_transformers/__init__.py
+/app/services/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/services/venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/services/venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/services/venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/services/venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/services/venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/services/venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/services/venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/services/venv/lib/python3.12/site-packages/torchgen/packaged/autograd/gen_variable_type.py
+/app/services/venv/lib/python3.12/site-packages/torchgen/model.py
+/app/services/venv/lib/python3.12/site-packages/torchgen/static_runtime/gen_static_runtime_ops.py
+/app/services/venv/lib/python3.12/site-packages/torchgen/static_runtime/generator.py
+/app/services/venv/lib/python3.12/site-packages/torchgen/aoti/fallback_ops.py
+/app/services/ingest_gis_features_fixed.py
+/app/services/load_rag_data.py
+/app/services/gbim_core.py
+/app/services/ingest_watcher/ingest_runner.py
+/app/services/jarvis_llm1.py
+/app/services/rag_evidence_aggregator.py
+/app/services/msjarvisautonomouslearner.py
+/app/services/gis_rag_service.py
+/app/services/ms_jarvis_web_research.py
+/app/services/reload_all_knowledge.py
+/app/services/ai_server_22llm.psychology_patched.py
+/app/services/embed_utils.py
+/app/services/main_brain_LEGACY_32svc.py
+/app/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
+/app/services/ai_server_4llm.py
+/app/services/roche_llm.py
+/app/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
+/app/services/hardware_optimization_analyzer.py
+/app/services/host_bulk_loader.py
+/app/services/attention_priority_scheduler.py
+/app/services/ms_jarvis_rag_server.py
+/app/services/consolidate_to_chroma_db.py
+/app/services/chromadb_main.py
+/app/services/gbim_indexers/gbim_query_router.py
+/app/services/ai_server_22llm.py
+/app/services/geobim_integrated.py
+/app/services/background_curator.py
+/app/services/jarvis-gis-rag_gis_rag_service.py
+/app/services/jarvis_eeg_beta_5m.py
+/app/services/extract_real_knowledge_to_gis.py
+/app/services/unified_consciousness_gateway_PRODUCTION.py
+/app/services/ms_jarvis_unified_swagger_gateway_FINAL.py
+/app/ingest_wv_income_maintenance_manual.py
+/app/crypto-venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
+/app/crypto-venv/lib/python3.12/site-packages/fastapi/routing.py
+/app/crypto-venv/lib/python3.12/site-packages/fastapi/openapi/docs.py
+/app/crypto-venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
+/app/crypto-venv/lib/python3.12/site-packages/fastapi/param_functions.py
+/app/crypto-venv/lib/python3.12/site-packages/fastapi/params.py
+/app/crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/serialization/pkcs7.py
+/app/crypto-venv/lib/python3.12/site-packages/packaging/version.py
+/app/crypto-venv/lib/python3.12/site-packages/pip_api/_vendor/pyparsing.py
+/app/crypto-venv/lib/python3.12/site-packages/pyparsing/diagram/__init__.py
+/app/crypto-venv/lib/python3.12/site-packages/pyparsing/results.py
+/app/crypto-venv/lib/python3.12/site-packages/pyparsing/core.py
+/app/crypto-venv/lib/python3.12/site-packages/pyparsing/__init__.py
+/app/crypto-venv/lib/python3.12/site-packages/cffi/api.py
+/app/crypto-venv/lib/python3.12/site-packages/cffi/recompiler.py
+/app/crypto-venv/lib/python3.12/site-packages/cffi/_shimmed_dist_utils.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/ml.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/templates.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/pony.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/php.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/css.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/perl.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/python.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/configs.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
+/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
+/app/crypto-venv/lib/python3.12/site-packages/rich/console.py
+/app/crypto-venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/ingest_kanawha_images.py
+/app/index_gis_to_chroma.py
+/app/tmp-aaacpe-patch/main_brain.py
+/app/tools/migrate_chroma_collection.py
+/app/ingest_kanawha_resources.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/.format-venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/msjarvis_embed_gbim.py
+/app/msjarvis_embed_gbim_resume_tail.py
+/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py
+/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/container_attributes.py
+/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/file_attributes.py
+/app/.venv-chroma/lib/python3.12/site-packages/flatbuffers/flexbuffers.py
+/app/.venv-chroma/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
+/app/.venv-chroma/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
+/app/.venv-chroma/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
+/app/.venv-chroma/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
+/app/.venv-chroma/lib/python3.12/site-packages/numpy/core/_internal.py
+/app/.venv-chroma/lib/python3.12/site-packages/click/testing.py
+/app/.venv-chroma/lib/python3.12/site-packages/click/core.py
+/app/.venv-chroma/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
+/app/.venv-chroma/lib/python3.12/site-packages/humanfriendly/sphinx.py
+/app/.venv-chroma/lib/python3.12/site-packages/humanfriendly/usage.py
+/app/.venv-chroma/lib/python3.12/site-packages/coloredlogs/syslog.py
+/app/.venv-chroma/lib/python3.12/site-packages/coloredlogs/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/requests_oauthlib/oauth1_session.py
+/app/.venv-chroma/lib/python3.12/site-packages/posthog/ai/openai/openai_async.py
+/app/.venv-chroma/lib/python3.12/site-packages/posthog/ai/openai/openai_providers.py
+/app/.venv-chroma/lib/python3.12/site-packages/posthog/ai/openai/openai.py
+/app/.venv-chroma/lib/python3.12/site-packages/google/protobuf/text_format.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/t5/t5_decoder.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/convert_to_onnx.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/convert_to_onnx.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/benchmark.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/convert_to_onnx.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_parity.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_inputs.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/bert/eval_squad.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_encoder.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_utils.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/mask_decoder.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_decoder.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/prompt_encoder.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_image_onnx_predictor.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/benchmark_sam2.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_torch.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/pipeline_stable_diffusion.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/diffusion_models.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/benchmark.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_exporter.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_keras.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/bert_test_data.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention_clip.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_rotary_attention.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_base.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_embedlayer.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/neural_compressor/onnx_model.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/registry.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/matmul_nbits_quantizer.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/operators/embed_layernorm.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/onnx_quantizer.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/tools/qnn/gen_qnn_ctx_onnx_model.py
+/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/tools/offline_tuning.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth1/rfc5849/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc8628/clients/device.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/grant_types/implicit.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/parameters.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/legacy_application.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/backend_application.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/base.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/web_application.py
+/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/service_application.py
+/app/.venv-chroma/lib/python3.12/site-packages/packaging/version.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/concrete/summations.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/combinatorics/generators.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/solvers/solvers.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/interactive/session.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/core/numbers.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/core/multidimensional.py
+/app/.venv-chroma/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/hf_api.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
+/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
+/app/.venv-chroma/lib/python3.12/site-packages/kubernetes/client/models/v1_json_schema_props.py
+/app/.venv-chroma/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py
+/app/.venv-chroma/lib/python3.12/site-packages/fsspec/core.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/lisp.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/ml.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/jsx.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/templates.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/pony.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/php.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/css.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/scripting.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/javascript.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/perl.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/modula2.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/ul4.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/lilypond.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/python.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/configs.py
+/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
+/app/.venv-chroma/lib/python3.12/site-packages/rich/console.py
+/app/.venv-chroma/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/proto/convert.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/quota/simple_quota_enforcer/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/quota/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/types.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/models/Collection.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/models/AsyncCollection.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/async_api.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/client.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/types.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/async_client.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/fastapi.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/rust.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/segment.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/ingest/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/metadata/sqlite.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_persistent_hnsw.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_hnsw.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/brute_force_index.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/batch.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/results.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/data_loaders.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/baseten_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/instructor_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/google_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/fastembed_sparse_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/voyageai_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/text2vec_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cohere_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_sparse_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/registry.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/schema_utils.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/openai_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/roboflow_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/morph_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/sentence_transformer_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_langchain_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/mistral_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/open_clip_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/nomic_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/batch_utils.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/statistics.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/telemetry/product/events.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/logservice/logservice.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/data_loader/test_data_loader.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/db/test_log_purge.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/configurations/test_collection_configuration.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_sanity.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_log_backpressure.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_repair_collection_log_offset.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_reroute.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_indexing_status.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_types.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_search_api.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_limit_offset.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_numpy_list_inputs.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_invalid_update.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_schema.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/stress/test_many_collections.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_morph_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_voyageai_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_openai_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_ollama_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_multimodal_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_default_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_custom_ef.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/test_cli.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/utils/test_result_df_transform.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/utils/test_embedding_function_schemas.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/test_api.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/conftest.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/test_multithreaded.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_fork.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_collections.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/invariants.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_embeddings.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/strategies.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_persist.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_add.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_filtering.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_schema.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_restart_persist.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/server/fastapi/types.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/executor/local.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/executor/distributed.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
+/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/expression/plan.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/judge_truth_filter.py
+/app/scripts/sprint5_chromadb_backfill.py
+/app/scripts/ingest_chroma.py
+/app/scripts/mysql_to_chroma.py
+/app/scripts/oi38_seed_collections.py
+/app/scripts/ingest_health_emergency_to_chroma.py
+/app/scripts/sprint2_community_data.py
+/app/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
+/app/logs/msjarvis_embed_gbim_2026-02-24_06-53.py
+/app/.woah-venv/lib/python3.12/site-packages/click/testing.py
+/app/.woah-venv/lib/python3.12/site-packages/click/core.py
+/app/.woah-venv/lib/python3.12/site-packages/fastapi/routing.py
+/app/.woah-venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
+/app/.woah-venv/lib/python3.12/site-packages/fastapi/param_functions.py
+/app/.woah-venv/lib/python3.12/site-packages/fastapi/params.py
+/app/.woah-venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
+/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
+/app/rag_local_resources.py
+/app/neurobiological_brain/woah_algorithms/service/service_registry_client.py
+/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/service_registry_client.py
+/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
+/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
+/app/ms_jarvis_rag_server.py
+/app/load_services_attrs_and_enrich.py
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from gbim_orchestrator import gbim_query, gbim_query_with_geo
+from gbim_chroma import get_msjarvis_collection
+from services.gbim_msjarvis import search_msjarvis
+
+app = FastAPI()
+
+origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/gbim/meta")
+async def gbim_meta():
+    coll = get_msjarvis_collection()
+    return {"collection": "gbim_msjarvis_corpus", "count": coll.count()}
+
+@app.get("/gbim/search")
+async def gbim_search(q: str):
+    hits = gbim_query(q)
+    return {"query": q, "hits": hits}
+
+@app.get("/gbim/search_ms")
+async def gbim_search_ms(q: str, category: str = "mountainshares"):
+    cats = [category] if category in ("mountainshares", "spiritual", "other") else None
+    hits = search_msjarvis(q, categories=cats)
+    return {"query": q, "category": category, "hits": hits}
+
+@app.get("/gbim/query_with_geo")
+async def gbim_query_with_geo_route(q: str):
+    return gbim_query_with_geo(q)
+
+from services.gbim_entanglement import entangled_query
+
+@app.get("/gbim/entangled")
+async def gbim_entangled(q: str):
+    return entangled_query(q)
+
+from services.gbim_entangled_summary import entangled_summary
+
+@app.get("/gbim/entangled_summary")
+async def gbim_entangled_summary_route(q: str):
+    return entangled_summary(q)
+
+from api_resources import router as resources_router
+app.include_router(resources_router)
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
 
