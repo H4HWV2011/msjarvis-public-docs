@@ -1,4081 +1,690 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ # Check what the embed endpoint actually returns raw
-curl -s -X POST http://127.0.0.1:18092/embed \
-  -H 'Content-Type: application/json' \
-  -d '{"text": "test"}' | jq '.'
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ python3 << 'EOF'
+import csv
 
-# Check the service source to see what key it returns
-docker exec jarvis-hilbert-state sh -lc 'find /app -name "*.py" | xargs grep -l "embed" 2>/dev/null'
-docker exec jarvis-hilbert-state sh -lc 'cat /app/server.py 2>/dev/null || cat /app/main.py 2>/dev/null || find /app -name "*.py" | head -5 | xargs cat'
-{
-  "detail": [
-    {
-      "type": "missing",
-      "loc": [
-        "body",
-        "entity_id"
-      ],
-      "msg": "Field required",
-      "input": {
-        "text": "test"
-      }
-    }
-  ]
-}
-/app/_archive/generated_20260430/enhance_rag_knowledge.py
-/app/_archive/generated_20260430/bulk_load_knowledge.py
-/app/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/app/_archive/generated_20260430/embed_gbim.py
-/app/_archive/generated_20260430/add_conversation_endpoint.py
-/app/_archive/generated_20260430/embed_geodb.py
-/app/_archive/generated_20260430/load_pdfs_spiritual.py
-/app/_archive/generated_20260430/embed_and_query.py
-/app/_archive/generated_20260430/bulk_load_MAXIMUM.py
-/app/_archive/generated_20260430/load_spiritual_library.py
-/app/_archive/generated_20260430/ai_server_19llm_CONSCIOUS.py
-/app/_archive/generated_20260430/extract_chroma_sqlite_to_gis.py
-/app/_archive/generated_20260430/load_gis_to_chroma.py
-/app/_archive/generated_20260430/add_conversation_storage.py
-/app/_archive/generated_20260430/rag_server.psychology_patched.py
-/app/_archive/generated_20260430/ingest_gbim_to_chroma.py
-/app/_archive/generated_20260430/ai_server_restored.py
-/app/_archive/generated_20260430/ingest_gis_features_to_chromadb.py
-/app/_archive/generated_20260430/embed_and_add.py
-/app/_archive/generated_20260430/ai_server_original_backup.py
-/app/_archive/generated_20260430/load_rag_knowledge.py
-/app/_archive/generated_20260430/load_rag_data.py
-/app/_archive/generated_20260430/ai_server_22llm.psychology_patched.py
-/app/_archive/generated_20260430/ai_server_4llm.py
-/app/_archive/generated_20260430/backfill_gbim_entities.py
-/app/_archive/generated_20260430/extract_real_knowledge_to_gis.py
-/app/_archive/service_baks_20260430/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
-/app/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
-/app/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
-/app/_archive/service_baks_20260430/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
-/app/msjarvis-rebuild/ms_jarvis_unified_gateway.py
-/app/msjarvis-rebuild/gbim_query_router.py
-/app/gisgeodbstorage.py
-/app/.venv/bin/dumppdf.py
-/app/.venv/lib/python3.12/site-packages/scipy/signal/_signaltools.py
-/app/.venv/lib/python3.12/site-packages/scipy/io/matlab/_mio5.py
-/app/.venv/lib/python3.12/site-packages/scipy/linalg/_basic.py
-/app/.venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_delegation.py
-/app/.venv/lib/python3.12/site-packages/scipy/stats/_multivariate.py
-/app/.venv/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py
-/app/.venv/lib/python3.12/site-packages/scipy/integrate/_ivp/radau.py
-/app/.venv/lib/python3.12/site-packages/scipy/integrate/_ivp/ivp.py
-/app/.venv/lib/python3.12/site-packages/scipy/optimize/_shgo_lib/_complex.py
-/app/.venv/lib/python3.12/site-packages/scipy/sparse/csgraph/_laplacian.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/perceiver/configuration_perceiver.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/perceiver/modeling_perceiver.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/diffllama/configuration_diffllama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/diffllama/modular_diffllama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/diffllama/modeling_diffllama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/timesformer/configuration_timesformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/timesformer/modeling_timesformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/decision_transformer/modeling_decision_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/decision_transformer/configuration_decision_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aimv2/configuration_aimv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aimv2/modular_aimv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aimv2/modeling_aimv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v/configuration_glm4v.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v/modular_glm4v.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v/modeling_glm4v.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere/modeling_cohere.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere/modular_cohere.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere/configuration_cohere.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/modeling_layoutlmv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/configuration_layoutlmv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bert_generation/modeling_bert_generation.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bert_generation/configuration_bert_generation.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rwkv/modeling_rwkv.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rwkv/configuration_rwkv.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modular_qwen3_vl_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modeling_qwen3_vl_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/configuration_qwen3_vl_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/tvp/configuration_tvp.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/tvp/modeling_tvp.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/funnel/configuration_funnel.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/funnel/modeling_tf_funnel.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/funnel/modeling_funnel.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_xglm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/configuration_xglm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_tf_xglm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_flax_xglm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi/configuration_phi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi/modeling_phi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi/modular_phi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modular_glm4v_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modeling_glm4v_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/configuration_glm4v_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics2/configuration_idefics2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modeling_dinov3_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modular_dinov3_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/configuration_dinov3_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/biogpt/modular_biogpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/biogpt/modeling_biogpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/biogpt/configuration_biogpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/modeling_xlm_roberta_xl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/configuration_xlm_roberta_xl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/configuration_hunyuan_v1_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modeling_hunyuan_v1_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modular_hunyuan_v1_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics3/modeling_idefics3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics3/configuration_idefics3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/modular_florence2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/modeling_florence2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/processing_florence2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/florence2/configuration_florence2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo2/configuration_olmo2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo2/modular_olmo2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo2/modeling_olmo2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seed_oss/configuration_seed_oss.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seed_oss/modeling_seed_oss.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seed_oss/modular_seed_oss.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zoedepth/modeling_zoedepth.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zoedepth/configuration_zoedepth.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/x_clip/configuration_x_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/x_clip/modeling_x_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert/modular_modernbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert/configuration_modernbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modeling_hgnet_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modular_hgnet_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/configuration_hgnet_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clap/configuration_clap.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clap/modeling_clap.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mamba2/modeling_mamba2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mamba2/configuration_mamba2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/nystromformer/modeling_nystromformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/nystromformer/configuration_nystromformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xmod/modeling_xmod.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xmod/configuration_xmod.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/instructblip/modeling_instructblip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/instructblip/configuration_instructblip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/persimmon/modeling_persimmon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/persimmon/configuration_persimmon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bridgetower/modeling_bridgetower.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bridgetower/configuration_bridgetower.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flava/modeling_flava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flava/configuration_flava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/configuration_blenderbot.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_tf_blenderbot.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_blenderbot.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_flax_blenderbot.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cpmant/configuration_cpmant.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cpmant/modeling_cpmant.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/voxtral/modeling_voxtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/voxtral/configuration_voxtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/voxtral/modular_voxtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longt5/modeling_longt5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longt5/modeling_flax_longt5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/d_fine/configuration_d_fine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/d_fine/modeling_d_fine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/d_fine/modular_d_fine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ijepa/modular_ijepa.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ijepa/modeling_ijepa.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ijepa/configuration_ijepa.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_tf_regnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_regnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/configuration_regnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_flax_regnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dpr/configuration_dpr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dpr/modeling_dpr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dpr/modeling_tf_dpr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/modeling_qwen2_audio.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/configuration_qwen2_audio.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modular_llava_onevision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modeling_llava_onevision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_onevision/configuration_llava_onevision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_gptj.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_tf_gptj.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_flax_gptj.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gptj/configuration_gptj.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_flax_blenderbot_small.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_tf_blenderbot_small.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/configuration_blenderbot_small.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_blenderbot_small.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/altclip/configuration_altclip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/altclip/modeling_altclip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rag/modeling_rag.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rag/retrieval_rag.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rag/modeling_tf_rag.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rag/configuration_rag.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_vision_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_flax_vision_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_tf_vision_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_tf_blip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_tf_blip_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip/configuration_blip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modeling_falcon_h1.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modular_falcon_h1.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_h1/configuration_falcon_h1.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swin/configuration_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swin/modeling_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swin/modeling_tf_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/starcoder2/modeling_starcoder2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/starcoder2/modular_starcoder2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/starcoder2/configuration_starcoder2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/prompt_depth_anything/modeling_prompt_depth_anything.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mllama/image_processing_mllama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mllama/modeling_mllama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mllama/configuration_mllama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/parakeet/modular_parakeet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/parakeet/configuration_parakeet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/parakeet/modeling_parakeet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ibert/modeling_ibert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ibert/configuration_ibert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ibert/quant_modules.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/paligemma/modeling_paligemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/opt/modeling_tf_opt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/opt/modeling_flax_opt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/opt/configuration_opt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/opt/modeling_opt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/autoformer/modeling_autoformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/autoformer/configuration_autoformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/megatron_bert/configuration_megatron_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/megatron_bert/modeling_megatron_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modular_qwen3_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/configuration_qwen3_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swiftformer/modeling_swiftformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swiftformer/modeling_tf_swiftformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swiftformer/configuration_swiftformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_tf_data2vec_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_audio.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modular_data2vec_audio.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_audio.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modular_lfm2_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modeling_lfm2_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3/modular_gemma3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3/modeling_gemma3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3/configuration_gemma3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vitmatte/modeling_vitmatte.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/videomae/modeling_videomae.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/videomae/configuration_videomae.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam_hq/configuration_sam_hq.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam_hq/modular_sam_hq.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam_hq/modeling_sam_hq.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/configuration_seamless_m4t.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/modeling_seamless_m4t.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vitpose/modeling_vitpose.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/table_transformer/modeling_table_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/table_transformer/configuration_table_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite/configuration_granite.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite/modeling_granite.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite/modular_granite.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/canine/configuration_canine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/canine/modeling_canine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clipseg/configuration_clipseg.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clipseg/modeling_clipseg.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modular_edgetam_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam_video/configuration_edgetam_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modeling_edgetam_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next/processing_llava_next.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next/modeling_llava_next.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next/configuration_llava_next.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vaultgemma/configuration_vaultgemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modeling_vaultgemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modular_vaultgemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speecht5/modeling_speecht5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speecht5/configuration_speecht5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/efficientnet/modeling_efficientnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/marian/modeling_flax_marian.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/marian/modeling_tf_marian.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/marian/modeling_marian.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/marian/configuration_marian.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/superpoint/modeling_superpoint.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convbert/configuration_convbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convbert/modeling_convbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convbert/modeling_tf_convbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modular_qwen3_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/configuration_qwen3_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/modeling_recurrent_gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/configuration_recurrent_gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral3/modeling_mistral3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral3/modular_mistral3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral3/configuration_mistral3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/git/modeling_git.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/git/configuration_git.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/m2m_100/modeling_m2m_100.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/m2m_100/configuration_m2m_100.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xcodec/modeling_xcodec.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fsmt/configuration_fsmt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fsmt/modeling_fsmt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/internvl/modular_internvl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/internvl/configuration_internvl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/internvl/modeling_internvl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/nemotron/modeling_nemotron.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/nemotron/configuration_nemotron.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modeling_qwen3_next.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modular_qwen3_next.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_next/configuration_qwen3_next.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ministral/configuration_ministral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ministral/modular_ministral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ministral/modeling_ministral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ovis2/modeling_ovis2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ovis2/modular_ovis2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/stablelm/configuration_stablelm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/stablelm/modeling_stablelm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dbrx/modeling_dbrx.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dbrx/configuration_dbrx.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clip/modeling_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clip/modeling_tf_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clip/modeling_flax_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/configuration_gpt2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_gpt2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_tf_gpt2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_flax_gpt2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modular_kyutai_speech_to_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modeling_kyutai_speech_to_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/configuration_kyutai_speech_to_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mixtral/modeling_mixtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mixtral/configuration_mixtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mixtral/modular_mixtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mimi/modeling_mimi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mimi/configuration_mimi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glpn/configuration_glpn.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glpn/modeling_glpn.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_flax_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_tf_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta/configuration_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/configuration_layoutlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/modeling_tf_layoutlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/modeling_layoutlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bit/configuration_bit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bit/modeling_bit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/conditional_detr/configuration_conditional_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/conditional_detr/modeling_conditional_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/janus/configuration_janus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/janus/modeling_janus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/janus/modular_janus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roc_bert/modeling_roc_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roc_bert/configuration_roc_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neo/modeling_gpt_neo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neo/configuration_gpt_neo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neo/modeling_flax_gpt_neo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/modular_hubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/configuration_hubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/modeling_tf_hubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hubert/modeling_hubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4/modeling_glm4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4/modular_glm4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4/configuration_glm4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/t5/modeling_tf_t5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/t5/modeling_flax_t5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam2_video/modeling_sam2_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam2_video/modular_sam2_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam2_video/configuration_sam2_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modeling_hunyuan_v1_dense.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modular_hunyuan_v1_dense.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/configuration_hunyuan_v1_dense.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aya_vision/modeling_aya_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aya_vision/modular_aya_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/perceiver_tf.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/modeling_tf_idefics.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/modeling_idefics.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/vision_tf.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/configuration_idefics.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/idefics/perceiver.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lilt/configuration_lilt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lilt/modeling_lilt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/modeling_audio_spectrogram_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/configuration_audio_spectrogram_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mamba/configuration_mamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mamba/modeling_mamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modeling_glm4_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modular_glm4_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm4_moe/configuration_glm4_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_tf_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_flax_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/doge/modular_doge.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/doge/configuration_doge.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/doge/modeling_doge.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_whisper.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_flax_whisper.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/configuration_whisper.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_tf_whisper.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modeling_deepseek_v3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/configuration_deepseek_v3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modular_deepseek_v3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/efficientloftr/configuration_efficientloftr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/efficientloftr/modeling_efficientloftr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mt5/configuration_mt5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mt5/modeling_mt5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/plbart/modular_plbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/plbart/modeling_plbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/plbart/configuration_plbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mmbt/modeling_mmbt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/speech_to_text_2/modeling_speech_to_text_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/speech_to_text_2/configuration_speech_to_text_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/efficientformer/modeling_efficientformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/efficientformer/modeling_tf_efficientformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/efficientformer/configuration_efficientformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/trajectory_transformer/configuration_trajectory_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/trajectory_transformer/modeling_trajectory_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/image_processing_tvlt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/feature_extraction_tvlt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/configuration_tvlt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/tvlt/modeling_tvlt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/deta/configuration_deta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/deta/modeling_deta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/qdqbert/configuration_qdqbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/qdqbert/modeling_qdqbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/configuration_realm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/modeling_realm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/van/modeling_van.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/van/configuration_van.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/vit_hybrid/modeling_vit_hybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/vit_hybrid/configuration_vit_hybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/jukebox/configuration_jukebox.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/jukebox/modeling_jukebox.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mega/modeling_mega.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mega/configuration_mega.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/gptsan_japanese/modeling_gptsan_japanese.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/gptsan_japanese/configuration_gptsan_japanese.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/ernie_m/tokenization_ernie_m.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/ernie_m/configuration_ernie_m.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/ernie_m/modeling_ernie_m.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/open_llama/configuration_open_llama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/open_llama/modeling_open_llama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/modeling_mctct.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/configuration_mctct.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nezha/configuration_nezha.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nezha/modeling_nezha.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nat/modeling_nat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/nat/configuration_nat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/configuration_retribert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/modeling_retribert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_tf_transfo_xl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_tf_transfo_xl_utilities.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/tokenization_transfo_xl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_transfo_xl_utilities.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/configuration_transfo_xl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/transfo_xl/modeling_transfo_xl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/graphormer/modeling_graphormer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/graphormer/configuration_graphormer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/graphormer/collating_graphormer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/xlm_prophetnet/modeling_xlm_prophetnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/xlm_prophetnet/tokenization_xlm_prophetnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deprecated/xlm_prophetnet/configuration_xlm_prophetnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox/configuration_gpt_neox.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modular_gpt_neox.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mobilevitv2/modeling_mobilevitv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mvp/modeling_mvp.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mvp/configuration_mvp.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dpt/modeling_dpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dpt/configuration_dpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longformer/modeling_tf_longformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longformer/configuration_longformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longformer/modeling_longformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/smolvlm/modular_smolvlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/smolvlm/configuration_smolvlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/smolvlm/modeling_smolvlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vits/modeling_vits.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vits/configuration_vits.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/openai/modeling_tf_openai.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/openai/configuration_openai.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/openai/modeling_openai.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/levit/configuration_levit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/levit/modeling_levit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/feature_extraction_granite_speech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/processing_granite_speech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/configuration_granite_speech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granite_speech/modeling_granite_speech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_tf_deberta_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/configuration_deberta_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/poolformer/modeling_poolformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vitdet/configuration_vitdet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vitdet/modeling_vitdet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen/modeling_musicgen.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen/configuration_musicgen.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/processing_kosmos2_5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/modeling_kosmos2_5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/configuration_kosmos2_5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/configuration_mobilebert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/modeling_mobilebert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/modeling_tf_mobilebert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus_x/modeling_pegasus_x.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus_x/configuration_pegasus_x.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_tf_pegasus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/configuration_pegasus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_flax_pegasus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_pegasus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/prophetnet/modeling_prophetnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/prophetnet/configuration_prophetnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlnet/configuration_xlnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlnet/modeling_tf_xlnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlnet/modeling_xlnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mgp_str/configuration_mgp_str.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mgp_str/modeling_mgp_str.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swin2sr/modeling_swin2sr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swin2sr/configuration_swin2sr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo3/configuration_olmo3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo3/modular_olmo3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo3/modeling_olmo3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mpt/configuration_mpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mpt/modeling_mpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/perception_lm/modular_perception_lm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/perception_lm/configuration_perception_lm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/perception_lm/modeling_perception_lm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modular_qwen3_omni_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/configuration_qwen3_omni_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modeling_qwen3_omni_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/visual_bert/configuration_visual_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/visual_bert/modeling_visual_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deit/configuration_deit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deit/modeling_deit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deit/modeling_tf_deit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vilt/modeling_vilt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vilt/configuration_vilt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/moshi/modeling_moshi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/moshi/configuration_moshi.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modeling_rt_detr_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/configuration_rt_detr_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modular_rt_detr_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/exaone4/configuration_exaone4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/exaone4/modeling_exaone4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/exaone4/modular_exaone4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/modeling_colqwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/modular_colqwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/processing_colqwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colqwen2/configuration_colqwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/chameleon/configuration_chameleon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/chameleon/modeling_chameleon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/chameleon/processing_chameleon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinat/modeling_dinat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinat/configuration_dinat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip_2/modeling_blip_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blip_2/configuration_blip_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/modeling_shieldgemma2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/configuration_shieldgemma2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/csm/modeling_csm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/csm/generation_csm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/csm/configuration_csm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/csm/modular_csm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swinv2/configuration_swinv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/swinv2/modeling_swinv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lightglue/modular_lightglue.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lightglue/modeling_lightglue.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mobilevit/modeling_mobilevit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mobilevit/modeling_tf_mobilevit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wavlm/configuration_wavlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wavlm/modeling_wavlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wavlm/modular_wavlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/modeling_gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/modular_gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/configuration_gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma/modeling_flax_gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clvp/modeling_clvp.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/clvp/configuration_clvp.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/udop/modeling_udop.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/udop/configuration_udop.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit_mae/modeling_vit_mae.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit_mae/modeling_tf_vit_mae.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit_mae/configuration_vit_mae.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/configuration_mbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_mbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_tf_mbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_flax_mbart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_tf_distilbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_flax_distilbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/distilbert/configuration_distilbert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/video_llava/processing_video_llava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/video_llava/configuration_video_llava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/video_llava/modeling_video_llava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bamba/modeling_bamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bamba/modular_bamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bamba/configuration_bamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modular_deepseek_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modeling_deepseek_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/siglip2/configuration_siglip2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/siglip2/modeling_siglip2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/siglip2/modular_siglip2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/configuration_roformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_roformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_tf_roformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_flax_roformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/codegen/modeling_codegen.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/codegen/configuration_codegen.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/oneformer/configuration_oneformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/oneformer/modeling_oneformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deformable_detr/modeling_deformable_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deformable_detr/configuration_deformable_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/configuration_phi4_multimodal.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/processing_phi4_multimodal.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modeling_phi4_multimodal.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modular_phi4_multimodal.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/feature_extraction_phi4_multimodal.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/t5gemma/configuration_t5gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/t5gemma/modeling_t5gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/t5gemma/modular_t5gemma.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mpnet/modeling_tf_mpnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mpnet/modeling_mpnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mpnet/configuration_mpnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon/configuration_falcon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon/modeling_falcon.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoe/modeling_granitemoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoe/configuration_granitemoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/superglue/modeling_superglue.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/configuration_xlm_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_tf_xlm_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_flax_xlm_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/nllb_moe/modeling_nllb_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/nllb_moe/configuration_nllb_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hiera/configuration_hiera.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/hiera/modeling_hiera.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava/modeling_llava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava/configuration_llava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava/processing_llava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma2/configuration_gemma2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma2/modeling_gemma2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma2/modular_gemma2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modular_gpt_oss.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_oss/configuration_gpt_oss.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/configuration_bigbird_pegasus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/modeling_bigbird_pegasus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/moonshine/modeling_moonshine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/moonshine/modular_moonshine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/moonshine/configuration_moonshine.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech/modular_unispeech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech/modeling_unispeech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech/configuration_unispeech.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convnext/modeling_tf_convnext.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convnext/modeling_convnext.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convnext/configuration_convnext.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie/modeling_ernie.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie/configuration_ernie.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_vision_text_dual_encoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_flax_vision_text_dual_encoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_tf_vision_text_dual_encoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sew_d/modeling_sew_d.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sew_d/configuration_sew_d.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/configuration_qwen2_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2/processing_kosmos2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2/modeling_kosmos2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/kosmos2/configuration_kosmos2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/evolla/configuration_evolla.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/evolla/modeling_evolla.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/evolla/modular_evolla.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/configuration_qwen2_5_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modular_qwen2_5_vl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dia/modeling_dia.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dia/configuration_dia.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dia/modular_dia.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dia/generation_dia.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modeling_cohere2_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/configuration_cohere2_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modular_cohere2_vision.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/configuration_vitpose_backbone.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/modeling_vitpose_backbone.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2/modular_qwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2/modeling_qwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2/configuration_qwen2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vipllava/configuration_vipllava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vipllava/modeling_vipllava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vipllava/modular_vipllava.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/modeling_gpt_bigcode.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/configuration_gpt_bigcode.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_tf_mistral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_flax_mistral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modular_mistral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_mistral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mistral/configuration_mistral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aria/modeling_aria.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aria/configuration_aria.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/aria/modular_aria.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modeling_metaclip_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/metaclip_2/configuration_metaclip_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modular_metaclip_2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modeling_granitemoeshared.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/configuration_granitemoeshared.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modular_granitemoeshared.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/jetmoe/configuration_jetmoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/jetmoe/modeling_jetmoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/reformer/configuration_reformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/reformer/modeling_reformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/arcee/modeling_arcee.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/arcee/modular_arcee.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/arcee/configuration_arcee.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/yoso/configuration_yoso.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/yoso/modeling_yoso.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pixtral/configuration_pixtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pixtral/modeling_pixtral.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit_msn/configuration_vit_msn.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit_msn/modeling_vit_msn.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/configuration_time_series_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/modeling_time_series_transformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/albert/modeling_tf_albert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/albert/modeling_albert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/albert/modeling_flax_albert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/albert/configuration_albert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/focalnet/modeling_focalnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/focalnet/configuration_focalnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/donut/modeling_donut_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/donut/configuration_donut_swin.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/helium/configuration_helium.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/helium/modeling_helium.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/helium/modular_helium.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/depth_pro/modeling_depth_pro.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/configuration_wav2vec2_conformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modeling_wav2vec2_conformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modular_wav2vec2_conformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flaubert/modeling_flaubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flaubert/modeling_tf_flaubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flaubert/configuration_flaubert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modular_got_ocr2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/got_ocr2/configuration_got_ocr2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modeling_got_ocr2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phimoe/modeling_phimoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phimoe/configuration_phimoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/modeling_omdet_turbo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/configuration_omdet_turbo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/led/modeling_tf_led.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/led/configuration_led.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/led/modeling_led.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/depth_anything/modeling_depth_anything.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/electra/configuration_electra.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/electra/modeling_flax_electra.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/electra/modeling_tf_electra.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/electra/modeling_electra.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vivit/configuration_vivit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vivit/modeling_vivit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modular_wav2vec2_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modeling_wav2vec2_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/configuration_wav2vec2_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modular_qwen2_5_omni.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modeling_qwen2_5_omni.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/configuration_qwen2_5_omni.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam/modeling_sam.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam/modeling_tf_sam.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam/configuration_sam.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blt/modular_blt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blt/modeling_blt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/blt/configuration_blt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr_resnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr_resnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mlcd/modeling_mlcd.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mlcd/modular_mlcd.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sew/modeling_sew.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sew/configuration_sew.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sew/modular_sew.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vjepa2/modeling_vjepa2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/configuration_instructblipvideo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modeling_instructblipvideo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modular_instructblipvideo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/configuration_patchtsmixer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/modeling_patchtsmixer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam/modular_edgetam.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam/configuration_edgetam.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/edgetam/modeling_edgetam.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2/modeling_cohere2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2/configuration_cohere2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cohere2/modular_cohere2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_resnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_flax_resnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/configuration_resnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_tf_resnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/modeling_tf_tapas.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/configuration_tapas.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/tapas/modeling_tapas.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/apertus/modeling_apertus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/apertus/modular_apertus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/apertus/configuration_apertus.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bitnet/modeling_bitnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bitnet/modular_bitnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bitnet/configuration_bitnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zamba/modeling_zamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zamba/configuration_zamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bark/processing_bark.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bark/modeling_bark.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bark/configuration_bark.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/configuration_gpt_neox_japanese.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/modeling_gpt_neox_japanese.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/timesfm/modular_timesfm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/timesfm/configuration_timesfm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/timesfm/modeling_timesfm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lxmert/configuration_lxmert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lxmert/modeling_lxmert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lxmert/modeling_tf_lxmert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/switch_transformers/modeling_switch_transformers.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/chinese_clip/modeling_chinese_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/chinese_clip/configuration_chinese_clip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/big_bird/modeling_flax_big_bird.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/big_bird/modeling_big_bird.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/big_bird/configuration_big_bird.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rembert/configuration_rembert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rembert/modeling_rembert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/rembert/modeling_tf_rembert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llama4/configuration_llama4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llama4/modeling_llama4.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bart/modeling_bart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bart/modeling_tf_bart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bart/configuration_bart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bart/modeling_flax_bart.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/groupvit/modeling_groupvit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/groupvit/configuration_groupvit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/groupvit/modeling_tf_groupvit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modeling_dinov2_with_registers.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modular_dinov2_with_registers.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/configuration_dinov2_with_registers.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speech_encoder_decoder/modeling_flax_speech_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speech_encoder_decoder/modeling_speech_encoder_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ctrl/modeling_ctrl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ctrl/modeling_tf_ctrl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ctrl/configuration_ctrl.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modular_mm_grounding_dino.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modeling_mm_grounding_dino.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/configuration_mm_grounding_dino.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3/modular_qwen3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3/configuration_qwen3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_tf_wav2vec2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_wav2vec2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/configuration_wav2vec2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_flax_wav2vec2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/configuration_layoutlmv3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/modeling_tf_layoutlmv3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/modeling_layoutlmv3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/jamba/configuration_jamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/jamba/modeling_jamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmoe/modeling_olmoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmoe/configuration_olmoe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/owlv2/configuration_owlv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/owlv2/modeling_owlv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/detr/modeling_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/detr/configuration_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pop2piano/modeling_pop2piano.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pop2piano/tokenization_pop2piano.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/camembert/modeling_camembert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/camembert/configuration_camembert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/camembert/modeling_tf_camembert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llama/configuration_llama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llama/modeling_flax_llama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/configuration_colpali.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/processing_colpali.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/modular_colpali.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/colpali/modeling_colpali.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/modeling_fastspeech2_conformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/configuration_fastspeech2_conformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convnextv2/modeling_convnextv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convnextv2/modeling_tf_convnextv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/convnextv2/configuration_convnextv2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seggpt/modeling_seggpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seggpt/configuration_seggpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pvt/configuration_pvt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pvt/modeling_pvt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_roberta_prelayernorm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_tf_roberta_prelayernorm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/configuration_roberta_prelayernorm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_flax_roberta_prelayernorm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modular_unispeech_sat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/configuration_unispeech_sat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modeling_unispeech_sat.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dab_detr/modeling_dab_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dab_detr/configuration_dab_detr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cvt/modeling_tf_cvt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cvt/modeling_cvt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/cvt/configuration_cvt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mask2former/configuration_mask2former.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mask2former/modeling_mask2former.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/configuration_bloom.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/tokenization_bloom_fast.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/modeling_bloom.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bloom/modeling_flax_bloom.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bros/modeling_bros.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bros/configuration_bros.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/configuration_granitemoehybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modeling_granitemoehybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modular_granitemoehybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/owlvit/modeling_owlvit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/owlvit/configuration_owlvit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pvt_v2/modeling_pvt_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pvt_v2/configuration_pvt_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/patchtst/configuration_patchtst.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/patchtst/modeling_patchtst.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fuyu/configuration_fuyu.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fuyu/modeling_fuyu.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fuyu/processing_fuyu.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/markuplm/modeling_markuplm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/markuplm/configuration_markuplm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modular_deepseek_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/configuration_deepseek_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modeling_deepseek_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bert/modeling_flax_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bert/configuration_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bert/modeling_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/bert/modeling_tf_bert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mra/modeling_mra.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/mra/configuration_mra.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam2/configuration_sam2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam2/modular_sam2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/sam2/modeling_sam2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/luke/modeling_luke.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/luke/configuration_luke.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modeling_falcon_mamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modular_falcon_mamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/configuration_falcon_mamba.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit/modeling_flax_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit/configuration_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit/modeling_tf_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/vit/modeling_vit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/siglip/modeling_siglip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/siglip/configuration_siglip.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esmfold.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/esm/configuration_esm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/esm/modeling_tf_esm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zamba2/configuration_zamba2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zamba2/modular_zamba2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/zamba2/modeling_zamba2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fnet/modeling_fnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/fnet/configuration_fnet.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2/modeling_dinov2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2/modeling_flax_dinov2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/dinov2/configuration_dinov2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/emu3/configuration_emu3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/emu3/modeling_emu3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/emu3/modular_emu3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speech_to_text/configuration_speech_to_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speech_to_text/modeling_speech_to_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/speech_to_text/modeling_tf_speech_to_text.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/informer/modular_informer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/informer/modeling_informer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/informer/configuration_informer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/smollm3/modeling_smollm3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/smollm3/modular_smollm3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/smollm3/configuration_smollm3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/umt5/configuration_umt5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/umt5/modeling_umt5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/segformer/configuration_segformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/segformer/modeling_tf_segformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/segformer/modeling_segformer.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/encodec/modeling_encodec.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm/modeling_xlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm/modeling_tf_xlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlm/configuration_xlm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/splinter/configuration_splinter.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/splinter/modeling_splinter.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/modeling_qwen2_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/configuration_qwen2_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/yolos/configuration_yolos.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/yolos/modeling_yolos.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modeling_deepseek_vl_hybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modular_deepseek_vl_hybrid.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modular_longcat_flash.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modeling_longcat_flash.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/longcat_flash/configuration_longcat_flash.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modeling_llava_next_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/configuration_llava_next_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/processing_llava_next_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modular_llava_next_video.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/minimax/modeling_minimax.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/minimax/configuration_minimax.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/minimax/modular_minimax.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/configuration_musicgen_melody.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/modeling_musicgen_melody.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5/configuration_ernie4_5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modeling_ernie4_5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modular_ernie4_5.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flex_olmo/configuration_flex_olmo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modeling_flex_olmo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modular_flex_olmo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/squeezebert/modeling_squeezebert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/squeezebert/configuration_squeezebert.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/trocr/configuration_trocr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/trocr/modeling_trocr.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm/configuration_glm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm/modular_glm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/glm/modeling_glm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/grounding_dino/configuration_grounding_dino.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/imagegpt/configuration_imagegpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/imagegpt/modeling_imagegpt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo/modeling_olmo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo/modular_olmo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/olmo/configuration_olmo.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modeling_ernie4_5_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/configuration_ernie4_5_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deberta/configuration_deberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deberta/modeling_deberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/deberta/modeling_tf_deberta.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlstm/configuration_xlstm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/xlstm/modeling_xlstm.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/configuration_seamless_m4t_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/modeling_seamless_m4t_v2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modular_modernbert_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modeling_modernbert_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/configuration_modernbert_decoder.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3n/modeling_gemma3n.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3n/configuration_gemma3n.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/gemma3n/modular_gemma3n.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/eomt/configuration_eomt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/eomt/modular_eomt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/eomt/modeling_eomt.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2/modeling_lfm2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2/modular_lfm2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/lfm2/configuration_lfm2.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/beit/modeling_beit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/beit/configuration_beit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/beit/modeling_flax_beit.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pix2struct/configuration_pix2struct.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/pix2struct/modeling_pix2struct.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi3/modular_phi3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi3/configuration_phi3.py
-/app/.venv/lib/python3.12/site-packages/transformers/models/phi3/modeling_phi3.py
-/app/.venv/lib/python3.12/site-packages/transformers/pipelines/mask_generation.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_flax_pytorch_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_flax_outputs.py
-/app/.venv/lib/python3.12/site-packages/transformers/trainer_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/quantizers/quantizer_torchao.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_gguf_pytorch_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_tf_outputs.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_outputs.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_rope_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/utils/auto_docstring.py
-/app/.venv/lib/python3.12/site-packages/transformers/utils/doc.py
-/app/.venv/lib/python3.12/site-packages/transformers/utils/attention_visualizer.py
-/app/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/utils/fx.py
-/app/.venv/lib/python3.12/site-packages/transformers/utils/quantization_config.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_tf_pytorch_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/integrations/tensor_parallel.py
-/app/.venv/lib/python3.12/site-packages/transformers/integrations/ggml.py
-/app/.venv/lib/python3.12/site-packages/transformers/integrations/bitsandbytes.py
-/app/.venv/lib/python3.12/site-packages/transformers/integrations/executorch.py
-/app/.venv/lib/python3.12/site-packages/transformers/integrations/deepspeed.py
-/app/.venv/lib/python3.12/site-packages/transformers/masking_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/tf_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/training_args.py
-/app/.venv/lib/python3.12/site-packages/transformers/trainer.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_layers.py
-/app/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/stopping_criteria.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/logits_process.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/tf_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/watermarking.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/candidate_generator.py
-/app/.venv/lib/python3.12/site-packages/transformers/generation/flax_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/modeling_tf_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/tokenization_utils.py
-/app/.venv/lib/python3.12/site-packages/transformers/convert_tf_hub_seq_to_seq_bert_to_pytorch.py
-/app/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py
-/app/.venv/lib/python3.12/site-packages/pyarrow/ipc.py
-/app/.venv/lib/python3.12/site-packages/pyarrow/tests/test_feather.py
-/app/.venv/lib/python3.12/site-packages/pyarrow/parquet/core.py
-/app/.venv/lib/python3.12/site-packages/pyarrow/__init__.py
-/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py
-/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py
-/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/container_attributes.py
-/app/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/file_attributes.py
-/app/.venv/lib/python3.12/site-packages/duckdb/experimental/spark/sql/functions.py
-/app/.venv/lib/python3.12/site-packages/torchvision/models/video/swin_transformer.py
-/app/.venv/lib/python3.12/site-packages/torchvision/models/video/mvit.py
-/app/.venv/lib/python3.12/site-packages/torchvision/models/swin_transformer.py
-/app/.venv/lib/python3.12/site-packages/torchvision/models/vision_transformer.py
-/app/.venv/lib/python3.12/site-packages/flatbuffers/flexbuffers.py
-/app/.venv/lib/python3.12/site-packages/functorch/dim/__init__.py
-/app/.venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
-/app/.venv/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
-/app/.venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
-/app/.venv/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
-/app/.venv/lib/python3.12/site-packages/numpy/core/_internal.py
-/app/.venv/lib/python3.12/site-packages/ddgs/results.py
-/app/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_videos.py
-/app/.venv/lib/python3.12/site-packages/ddgs/ddgs.py
-/app/.venv/lib/python3.12/site-packages/osgeo_utils/samples/validate_jp2.py
-/app/.venv/lib/python3.12/site-packages/branca/element.py
-/app/.venv/lib/python3.12/site-packages/branca/utilities.py
-/app/.venv/lib/python3.12/site-packages/click/testing.py
-/app/.venv/lib/python3.12/site-packages/click/core.py
-/app/.venv/lib/python3.12/site-packages/sklearn/random_projection.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_mds.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_isomap.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_classical_mds.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_locally_linear.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_t_sne.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_spectral_embedding.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_mds.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_isomap.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/_locally_linear.py
-/app/.venv/lib/python3.12/site-packages/sklearn/manifold/__init__.py
-/app/.venv/lib/python3.12/site-packages/sklearn/neighbors/_nca.py
-/app/.venv/lib/python3.12/site-packages/sklearn/neighbors/tests/test_neighbors_pipeline.py
-/app/.venv/lib/python3.12/site-packages/sklearn/kernel_approximation.py
-/app/.venv/lib/python3.12/site-packages/sklearn/ensemble/_forest.py
-/app/.venv/lib/python3.12/site-packages/sklearn/ensemble/tests/test_forest.py
-/app/.venv/lib/python3.12/site-packages/sklearn/decomposition/_pca.py
-/app/.venv/lib/python3.12/site-packages/sklearn/externals/_scipy/sparse/csgraph/_laplacian.py
-/app/.venv/lib/python3.12/site-packages/sklearn/feature_extraction/_hash.py
-/app/.venv/lib/python3.12/site-packages/sklearn/tests/test_random_projection.py
-/app/.venv/lib/python3.12/site-packages/sklearn/tests/test_public_functions.py
-/app/.venv/lib/python3.12/site-packages/sklearn/__init__.py
-/app/.venv/lib/python3.12/site-packages/sklearn/cluster/_spectral.py
-/app/.venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-/app/.venv/lib/python3.12/site-packages/humanfriendly/sphinx.py
-/app/.venv/lib/python3.12/site-packages/humanfriendly/usage.py
-/app/.venv/lib/python3.12/site-packages/coloredlogs/syslog.py
-/app/.venv/lib/python3.12/site-packages/coloredlogs/__init__.py
-/app/.venv/lib/python3.12/site-packages/psycopg/types/array.py
-/app/.venv/lib/python3.12/site-packages/werkzeug/sansio/response.py
-/app/.venv/lib/python3.12/site-packages/triton/tools/compile.py
-/app/.venv/lib/python3.12/site-packages/onnx/backend/test/case/node/rotaryembedding.py
-/app/.venv/lib/python3.12/site-packages/onnx/external_data_helper.py
-/app/.venv/lib/python3.12/site-packages/onnx/tools/net_drawer.py
-/app/.venv/lib/python3.12/site-packages/onnx/test/version_converter/automatic_upgrade_test.py
-/app/.venv/lib/python3.12/site-packages/onnx/test/shape_inference_test.py
-/app/.venv/lib/python3.12/site-packages/onnx/reference/ops/_op_list.py
-/app/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_rotary_embedding.py
-/app/.venv/lib/python3.12/site-packages/fastapi/routing.py
-/app/.venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
-/app/.venv/lib/python3.12/site-packages/fastapi/param_functions.py
-/app/.venv/lib/python3.12/site-packages/fastapi/params.py
-/app/.venv/lib/python3.12/site-packages/PIL/Image.py
-/app/.venv/lib/python3.12/site-packages/PIL/ImageFont.py
-/app/.venv/lib/python3.12/site-packages/PIL/ImageDraw.py
-/app/.venv/lib/python3.12/site-packages/PIL/ImageCms.py
-/app/.venv/lib/python3.12/site-packages/PIL/JpegImagePlugin.py
-/app/.venv/lib/python3.12/site-packages/PIL/ImageText.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/ai/utils.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/consts.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/openai_agents/spans/ai_client.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/google_genai/utils.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/google_genai/__init__.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/openai.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/cohere.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/langchain.py
-/app/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/litellm.py
-/app/.venv/lib/python3.12/site-packages/requests_oauthlib/oauth1_session.py
-/app/.venv/lib/python3.12/site-packages/bs4/element.py
-/app/.venv/lib/python3.12/site-packages/bs4/dammit.py
-/app/.venv/lib/python3.12/site-packages/bs4/builder/__init__.py
-/app/.venv/lib/python3.12/site-packages/safetensors/torch.py
-/app/.venv/lib/python3.12/site-packages/safetensors/mlx.py
-/app/.venv/lib/python3.12/site-packages/safetensors/flax.py
-/app/.venv/lib/python3.12/site-packages/safetensors/paddle.py
-/app/.venv/lib/python3.12/site-packages/safetensors/numpy.py
-/app/.venv/lib/python3.12/site-packages/safetensors/tensorflow.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/hypothesis_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_mps.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/generated/annotated_fn_args.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_quantization.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/common_state_dict.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/distributed_test.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/rpc/dist_autograd_test.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/ddp_under_dist_autograd_test.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/_tensor/common_dtensor.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/nested.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/linalg.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/core.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_modules.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_fsdp.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/jit_metaprogramming_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/autocast_test_lists.py
-/app/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_methods_invocations.py
-/app/.venv/lib/python3.12/site-packages/torch/cuda/_memory_viz.py
-/app/.venv/lib/python3.12/site-packages/torch/_tensor_docs.py
-/app/.venv/lib/python3.12/site-packages/torch/linalg/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/autograd/forward_ad.py
-/app/.venv/lib/python3.12/site-packages/torch/_lobpcg.py
-/app/.venv/lib/python3.12/site-packages/torch/overrides.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/_tools/ilp_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/_tools/memory_tracker.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/algorithms/model_averaging/hierarchical_model_averager.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/_traversal_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/wrap.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fully_shard.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/nn/api/remote_module.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_attention.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_sharding_rules.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/placement_types.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/style.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/loss.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_embedding_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_tensor_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_math_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_mask_buffer.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/_common.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding_bag.py
-/app/.venv/lib/python3.12/site-packages/torch/distributed/_shard/sharded_tensor/_ops/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/ops/_impl.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/ops/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_torchlib/ops/nn.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_helper.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset11.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset10.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset14.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset18.py
-/app/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/utils.py
-/app/.venv/lib/python3.12/site-packages/torch/profiler/profiler.py
-/app/.venv/lib/python3.12/site-packages/torch/profiler/_memory_profiler.py
-/app/.venv/lib/python3.12/site-packages/torch/_meta_registrations.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/decomposition.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/codecache.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/shape_propagation.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/cpp_builder.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/fx_passes/graph_view.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/jagged_lowerings.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_gpu.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_cpu.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/codegen/mps.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/kernel/flex/flex_attention.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/config.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/utils.py
-/app/.venv/lib/python3.12/site-packages/torch/_inductor/lowering.py
-/app/.venv/lib/python3.12/site-packages/torch/distributions/kl.py
-/app/.venv/lib/python3.12/site-packages/torch/distributions/wishart.py
-/app/.venv/lib/python3.12/site-packages/torch/distributions/transforms.py
-/app/.venv/lib/python3.12/site-packages/torch/distributions/lkj_cholesky.py
-/app/.venv/lib/python3.12/site-packages/torch/distributions/lowrank_multivariate_normal.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/embedding_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantized/reference/modules/sparse.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/embedding_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/nn/quantizable/modules/activation.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/fake_quantize.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/quantization_mappings.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/qconfig.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/_common_operator_config_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/fbgemm.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/onednn.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/qnnpack.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/x86.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/executorch.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/native.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/embedding_quantizer.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/composable_quantizer.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/quantization/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/quantization_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/base_data_sparsifier.py
-/app/.venv/lib/python3.12/site-packages/torch/_refs/nn/functional/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/_refs/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/functional.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/modules/sparse.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/modules/activation.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/modules/normalization.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/modules/adaptive.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/modules/loss.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/attention/varlen.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/quantized/modules/embedding_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/quantized/modules/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/qat/modules/embedding_ops.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/qat/modules/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/embedding_expanded_weights.py
-/app/.venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/utils/tensorboard/_embedding.py
-/app/.venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
-/app/.venv/lib/python3.12/site-packages/torch/utils/_cpp_embed_headers.py
-/app/.venv/lib/python3.12/site-packages/torch/_decomp/decompositions.py
-/app/.venv/lib/python3.12/site-packages/torch/_decomp/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/jit/_shape_functions.py
-/app/.venv/lib/python3.12/site-packages/torch/jit/_builtins.py
-/app/.venv/lib/python3.12/site-packages/torch/_functorch/top_operators_github_usage.py
-/app/.venv/lib/python3.12/site-packages/torch/_subclasses/fake_impls.py
-/app/.venv/lib/python3.12/site-packages/torch/_subclasses/complex_tensor/_ops/aten.py
-/app/.venv/lib/python3.12/site-packages/torch/_vendor/packaging/version.py
-/app/.venv/lib/python3.12/site-packages/torch/optim/_muon.py
-/app/.venv/lib/python3.12/site-packages/torch/mps/__init__.py
-/app/.venv/lib/python3.12/site-packages/torch/export/_swap.py
-/app/.venv/lib/python3.12/site-packages/torch/nested/_internal/ops.py
-/app/.venv/lib/python3.12/site-packages/torch/_torch_docs.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/variables/tensor.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/variables/nn_module.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/debug_utils.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/trace_rules.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/builtins.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/operator.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/itertools.py
-/app/.venv/lib/python3.12/site-packages/torch/_dynamo/decorators.py
-/app/.venv/lib/python3.12/site-packages/torch/_export/serde/serialize.py
-/app/.venv/lib/python3.12/site-packages/torch/contrib/_tensorboard_vis.py
-/app/.venv/lib/python3.12/site-packages/torch/fx/passes/splitter_base.py
-/app/.venv/lib/python3.12/site-packages/torch/fx/passes/backends/cudagraphs.py
-/app/.venv/lib/python3.12/site-packages/torch/fx/experimental/accelerator_partitioner.py
-/app/.venv/lib/python3.12/site-packages/torch/fx/experimental/meta_tracer.py
-/app/.venv/lib/python3.12/site-packages/torch/fx/experimental/migrate_gradual_types/constraint_generator.py
-/app/.venv/lib/python3.12/site-packages/torch/fx/_symbolic_trace.py
-/app/.venv/lib/python3.12/site-packages/regex/tests/test_regex.py
-/app/.venv/lib/python3.12/site-packages/posthog/ai/openai/openai_async.py
-/app/.venv/lib/python3.12/site-packages/posthog/ai/openai/openai_providers.py
-/app/.venv/lib/python3.12/site-packages/posthog/ai/openai/openai.py
-/app/.venv/lib/python3.12/site-packages/open_clip_train/profiler.py
-/app/.venv/lib/python3.12/site-packages/google/auth/impersonated_credentials.py
-/app/.venv/lib/python3.12/site-packages/google/protobuf/text_format.py
-/app/.venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/serialization/pkcs7.py
-/app/.venv/lib/python3.12/site-packages/pymupdf/mupdf.py
-/app/.venv/lib/python3.12/site-packages/pymupdf/__main__.py
-/app/.venv/lib/python3.12/site-packages/pymupdf/__init__.py
-/app/.venv/lib/python3.12/site-packages/timm/models/deit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/visformer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/hieradet_sam2.py
-/app/.venv/lib/python3.12/site-packages/timm/models/hiera.py
-/app/.venv/lib/python3.12/site-packages/timm/models/gcvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/efficientformer_v2.py
-/app/.venv/lib/python3.12/site-packages/timm/models/vitamin.py
-/app/.venv/lib/python3.12/site-packages/timm/models/swiftformer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/byobnet.py
-/app/.venv/lib/python3.12/site-packages/timm/models/eva.py
-/app/.venv/lib/python3.12/site-packages/timm/models/fastvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/crossvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/nextvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/beit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/naflexvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/coat.py
-/app/.venv/lib/python3.12/site-packages/timm/models/csatv2.py
-/app/.venv/lib/python3.12/site-packages/timm/models/davit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/efficientformer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/efficientvit_msra.py
-/app/.venv/lib/python3.12/site-packages/timm/models/swin_transformer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/pvt_v2.py
-/app/.venv/lib/python3.12/site-packages/timm/models/mlp_mixer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer_relpos.py
-/app/.venv/lib/python3.12/site-packages/timm/models/mobilevit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/repvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/convit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/twins.py
-/app/.venv/lib/python3.12/site-packages/timm/models/shvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/levit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/swin_transformer_v2_cr.py
-/app/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py
-/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer_hybrid.py
-/app/.venv/lib/python3.12/site-packages/timm/models/fasternet.py
-/app/.venv/lib/python3.12/site-packages/timm/models/xcit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/focalnet.py
-/app/.venv/lib/python3.12/site-packages/timm/models/vgg.py
-/app/.venv/lib/python3.12/site-packages/timm/models/pit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/tiny_vit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/sequencer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/cait.py
-/app/.venv/lib/python3.12/site-packages/timm/models/edgenext.py
-/app/.venv/lib/python3.12/site-packages/timm/models/mvitv2.py
-/app/.venv/lib/python3.12/site-packages/timm/models/maxxvit.py
-/app/.venv/lib/python3.12/site-packages/timm/models/volo.py
-/app/.venv/lib/python3.12/site-packages/timm/models/metaformer.py
-/app/.venv/lib/python3.12/site-packages/timm/models/byoanet.py
-/app/.venv/lib/python3.12/site-packages/timm/models/swin_transformer_v2.py
-/app/.venv/lib/python3.12/site-packages/timm/models/starnet.py
-/app/.venv/lib/python3.12/site-packages/timm/models/tnt.py
-/app/.venv/lib/python3.12/site-packages/timm/models/vision_transformer_sam.py
-/app/.venv/lib/python3.12/site-packages/timm/models/nest.py
-/app/.venv/lib/python3.12/site-packages/timm/optim/muon.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/patch_embed.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/lambda_layer.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/pos_embed_sincos.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/pos_embed_rel.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/ml_decoder.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/halo_attn.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/diff_attention.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/attention.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/hybrid_embed.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/attention_pool2d.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/attention_pool.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/pos_embed.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/bottleneck_attn.py
-/app/.venv/lib/python3.12/site-packages/timm/layers/__init__.py
-/app/.venv/lib/python3.12/site-packages/nltk/corpus/reader/bracket_parse.py
-/app/.venv/lib/python3.12/site-packages/nltk/featstruct.py
-/app/.venv/lib/python3.12/site-packages/pandas/tests/io/parser/test_textreader.py
-/app/.venv/lib/python3.12/site-packages/pandas/tests/io/formats/test_to_string.py
-/app/.venv/lib/python3.12/site-packages/pandas/tests/io/pytables/test_append.py
-/app/.venv/lib/python3.12/site-packages/pandas/tests/tools/test_to_numeric.py
-/app/.venv/lib/python3.12/site-packages/pandas/tests/indexing/test_chaining_and_caching.py
-/app/.venv/lib/python3.12/site-packages/pandas/_version.py
-/app/.venv/lib/python3.12/site-packages/pandas/core/config_init.py
-/app/.venv/lib/python3.12/site-packages/pandas/core/internals/construction.py
-/app/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/centrality/dispersion.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/tests/test_temporalisomorphvf2.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/temporalisomorphvf2.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/connectivity/kcomponents.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planar_drawing.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planarity.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/approximation/kcomponents.py
-/app/.venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
-/app/.venv/lib/python3.12/site-packages/networkx/generators/lattice.py
-/app/.venv/lib/python3.12/site-packages/networkx/drawing/nx_latex.py
-/app/.venv/lib/python3.12/site-packages/networkx/drawing/tests/test_layout.py
-/app/.venv/lib/python3.12/site-packages/networkx/drawing/layout.py
-/app/.venv/lib/python3.12/site-packages/fontTools/merge/tables.py
-/app/.venv/lib/python3.12/site-packages/fontTools/ttLib/tables/C_F_F__2.py
-/app/.venv/lib/python3.12/site-packages/fontTools/ttLib/tables/C_F_F_.py
-/app/.venv/lib/python3.12/site-packages/fontTools/ttLib/sfnt.py
-/app/.venv/lib/python3.12/site-packages/fontTools/fontBuilder.py
-/app/.venv/lib/python3.12/site-packages/fontTools/cffLib/CFFToCFF2.py
-/app/.venv/lib/python3.12/site-packages/fontTools/cffLib/__init__.py
-/app/.venv/lib/python3.12/site-packages/fontTools/feaLib/lookupDebugInfo.py
-/app/.venv/lib/python3.12/site-packages/fontTools/feaLib/lexer.py
-/app/.venv/lib/python3.12/site-packages/fontTools/misc/psLib.py
-/app/.venv/lib/python3.12/site-packages/folium/utilities.py
-/app/.venv/lib/python3.12/site-packages/folium/raster_layers.py
-/app/.venv/lib/python3.12/site-packages/folium/features.py
-/app/.venv/lib/python3.12/site-packages/folium/plugins/timestamped_geo_json.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/t5/t5_decoder.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/convert_to_onnx.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/convert_to_onnx.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/benchmark.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/convert_to_onnx.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_parity.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_inputs.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/bert/eval_squad.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_encoder.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_utils.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/mask_decoder.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_decoder.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/prompt_encoder.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_image_onnx_predictor.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/benchmark_sam2.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_torch.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/pipeline_stable_diffusion.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/diffusion_models.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/benchmark.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_exporter.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_keras.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/bert_test_data.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention_clip.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_rotary_attention.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_base.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_embedlayer.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/neural_compressor/onnx_model.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/registry.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/matmul_nbits_quantizer.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/operators/embed_layernorm.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/quantization/onnx_quantizer.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/tools/qnn/gen_qnn_ctx_onnx_model.py
-/app/.venv/lib/python3.12/site-packages/onnxruntime/tools/offline_tuning.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth1/rfc5849/__init__.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc8628/clients/device.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/grant_types/implicit.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/parameters.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/legacy_application.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/backend_application.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/base.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/web_application.py
-/app/.venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/service_application.py
-/app/.venv/lib/python3.12/site-packages/open_clip/zero_shot_classifier.py
-/app/.venv/lib/python3.12/site-packages/open_clip/modified_resnet.py
-/app/.venv/lib/python3.12/site-packages/open_clip/model.py
-/app/.venv/lib/python3.12/site-packages/open_clip/coca_model.py
-/app/.venv/lib/python3.12/site-packages/open_clip/hf_model.py
-/app/.venv/lib/python3.12/site-packages/open_clip/convert.py
-/app/.venv/lib/python3.12/site-packages/open_clip/hf_configs.py
-/app/.venv/lib/python3.12/site-packages/open_clip/factory.py
-/app/.venv/lib/python3.12/site-packages/open_clip/transformer.py
-/app/.venv/lib/python3.12/site-packages/open_clip/pos_embed.py
-/app/.venv/lib/python3.12/site-packages/open_clip/timm_model.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/testing/suite/test_types.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/ext/compiler.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/util.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/bulk_persistence.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/strategies.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/orm/decl_base.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/oracle/base.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/ext.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/base.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/mssql/pyodbc.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/dialects/mssql/base.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/util/_concurrency_py3k.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/util.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/roles.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/compiler.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/lambdas.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/dml.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/selectable.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/cache_key.py
-/app/.venv/lib/python3.12/site-packages/sqlalchemy/sql/_elements_constructors.py
-/app/.venv/lib/python3.12/site-packages/packaging/version.py
-/app/.venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
-/app/.venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
-/app/.venv/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
-/app/.venv/lib/python3.12/site-packages/sympy/concrete/summations.py
-/app/.venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
-/app/.venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
-/app/.venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
-/app/.venv/lib/python3.12/site-packages/sympy/interactive/session.py
-/app/.venv/lib/python3.12/site-packages/sympy/core/numbers.py
-/app/.venv/lib/python3.12/site-packages/sympy/core/multidimensional.py
-/app/.venv/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
-/app/.venv/lib/python3.12/site-packages/pdfminer/jbig2.py
-/app/.venv/lib/python3.12/site-packages/pdfminer/image.py
-/app/.venv/lib/python3.12/site-packages/pdfminer/layout.py
-/app/.venv/lib/python3.12/site-packages/jinja2/ext.py
-/app/.venv/lib/python3.12/site-packages/mysql/ai/genai/embedding.py
-/app/.venv/lib/python3.12/site-packages/mysql/ai/genai/vector_store.py
-/app/.venv/lib/python3.12/site-packages/mysql/ai/genai/__init__.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
-/app/.venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
-/app/.venv/lib/python3.12/site-packages/kubernetes/client/models/v1_json_schema_props.py
-/app/.venv/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py
-/app/.venv/lib/python3.12/site-packages/shapely/io.py
-/app/.venv/lib/python3.12/site-packages/clickhouse_connect/driver/query.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/font_manager.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/_type1font.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/_api/__init__.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/widgets.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/rcsetup.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/cbook.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_pdf.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_webagg_core.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/backends/qt_compat.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_ps.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/backends/backend_webagg.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/animation.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/axes/_base.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_backend_tk.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_backend_pdf.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_animation.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_mathtext.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_backend_ps.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/tests/test_cbook.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/dviread.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/figure.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/_mathtext.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/sphinxext/mathmpl.py
-/app/.venv/lib/python3.12/site-packages/matplotlib/texmanager.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/base.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/tests/support.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist_dumb.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/vendored/packaging/version.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/wheelfile.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/_bdist_wheel.py
-/app/.venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/version.py
-/app/.venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py
-/app/.venv/lib/python3.12/site-packages/setuptools/command/bdist_egg.py
-/app/.venv/lib/python3.12/site-packages/tabulate/__init__.py
-/app/.venv/lib/python3.12/site-packages/pyparsing/diagram/__init__.py
-/app/.venv/lib/python3.12/site-packages/pyparsing/results.py
-/app/.venv/lib/python3.12/site-packages/pyparsing/core.py
-/app/.venv/lib/python3.12/site-packages/pyparsing/__init__.py
-/app/.venv/lib/python3.12/site-packages/cffi/api.py
-/app/.venv/lib/python3.12/site-packages/cffi/recompiler.py
-/app/.venv/lib/python3.12/site-packages/cffi/_shimmed_dist_utils.py
-/app/.venv/lib/python3.12/site-packages/fsspec/core.py
-/app/.venv/lib/python3.12/site-packages/lxml/isoschematron/__init__.py
-/app/.venv/lib/python3.12/site-packages/lxml/builder.py
-/app/.venv/lib/python3.12/site-packages/lxml/html/builder.py
-/app/.venv/lib/python3.12/site-packages/lxml/html/defs.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/ml.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/templates.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/pony.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/php.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/css.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/perl.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/python.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/configs.py
-/app/.venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
-/app/.venv/lib/python3.12/site-packages/optimum/onnx/transformations_utils.py
-/app/.venv/lib/python3.12/site-packages/optimum/utils/input_generators.py
-/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/modeling_seq2seq.py
-/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/modeling.py
-/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/modeling_decoder.py
-/app/.venv/lib/python3.12/site-packages/optimum/onnxruntime/configuration.py
-/app/.venv/lib/python3.12/site-packages/optimum/gptq/constants.py
-/app/.venv/lib/python3.12/site-packages/optimum/exporters/onnx/base.py
-/app/.venv/lib/python3.12/site-packages/optimum/exporters/onnx/model_patcher.py
-/app/.venv/lib/python3.12/site-packages/optimum/exporters/onnx/model_configs.py
-/app/.venv/lib/python3.12/site-packages/optimum/exporters/base.py
-/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/parallel_layers/embedding.py
-/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/parallel_layers/__init__.py
-/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/passes.py
-/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/utils.py
-/app/.venv/lib/python3.12/site-packages/optimum/fx/parallelization/op_registry/op_handlers.py
-/app/.venv/lib/python3.12/site-packages/rich/console.py
-/app/.venv/lib/python3.12/site-packages/ftfy/fixes.py
-/app/.venv/lib/python3.12/site-packages/ftfy/chardata.py
-/app/.venv/lib/python3.12/site-packages/pypdfium2/_helpers/document.py
-/app/.venv/lib/python3.12/site-packages/pypdfium2/_helpers/pageobjects.py
-/app/.venv/lib/python3.12/site-packages/pypdfium2/__main__.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesSymmetricRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MatryoshkaLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardSoftMarginTripletLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardTripletLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/Matryoshka2dLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/AdaptiveLayerLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/DenoisingAutoEncoderLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CosineSimilarityLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/TripletLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MegaBatchMarginLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CoSENTLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/DistillKLDivLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesSymmetricRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/SoftmaxLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/OnlineContrastiveLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchSemiHardTripletLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/GISTEmbedLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MSELoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/MarginMSELoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchAllTripletLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveTensionLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/WeightedLayerPooling.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Module.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/WordWeights.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/WordEmbeddings.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Dense.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/CLIPModel.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/CNN.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Router.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Normalize.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Dropout.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/LSTM.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/Pooling.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/LayerNorm.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/StaticEmbedding.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/models/BoW.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseCoSENTLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/CSRLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseTripletLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMSELoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMarginMSELoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMultipleNegativesRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/FlopsLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SpladeLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SpladePooling.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseAutoEncoder.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/MLMTransformer.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/search_engines.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/SparseEncoder.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseMSEEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseRerankingEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseInformationRetrievalEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTripletEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseEmbeddingSimilarityEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseBinaryClassificationEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTranslationEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/model_card.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/datasets/ParallelSentencesDataset.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/backend/utils.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/quantization.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/similarity_functions.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/MultipleNegativesRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/CachedMultipleNegativesRankingLoss.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/reranking.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/nano_beir.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/trainer.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/hard_negatives.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/retrieval.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/tensor.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/similarity.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/util/__init__.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/RerankingEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/ParaphraseMiningEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/BinaryClassificationEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TranslationEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TripletEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluatorFromDataFrame.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/EmbeddingSimilarityEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/NanoBEIREvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/InformationRetrievalEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/evaluation/SentenceEvaluator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/trainer.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/data_collator.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/model_card.py
-/app/.venv/lib/python3.12/site-packages/sentence_transformers/__init__.py
-/app/.venv/lib/python3.12/site-packages/dns/ipv6.py
-/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/.venv/lib/python3.12/site-packages/PyPDF2/_page.py
-/app/.venv/lib/python3.12/site-packages/PyPDF2/_writer.py
-/app/.venv/lib/python3.12/site-packages/PyPDF2/_codecs/adobe_glyphs.py
-/app/.venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/app/.venv/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py
-/app/.venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
-/app/.venv/lib/python3.12/site-packages/chromadb/db/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/proto/convert.py
-/app/.venv/lib/python3.12/site-packages/chromadb/quota/simple_quota_enforcer/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/quota/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/types.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/models/Collection.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/models/AsyncCollection.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/async_api.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/client.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/types.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/async_client.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/fastapi.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/rust.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/segment.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
-/app/.venv/lib/python3.12/site-packages/chromadb/ingest/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/metadata/sqlite.py
-/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_persistent_hnsw.py
-/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_hnsw.py
-/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/brute_force_index.py
-/app/.venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/batch.py
-/app/.venv/lib/python3.12/site-packages/chromadb/segment/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/results.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/data_loaders.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/baseten_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/instructor_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/google_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/fastembed_sparse_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/voyageai_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/text2vec_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cohere_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_sparse_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/registry.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/schema_utils.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/openai_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/roboflow_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/morph_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/sentence_transformer_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_langchain_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/mistral_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/open_clip_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/nomic_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/batch_utils.py
-/app/.venv/lib/python3.12/site-packages/chromadb/utils/statistics.py
-/app/.venv/lib/python3.12/site-packages/chromadb/telemetry/product/events.py
-/app/.venv/lib/python3.12/site-packages/chromadb/logservice/logservice.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/data_loader/test_data_loader.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/db/test_log_purge.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/configurations/test_collection_configuration.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_sanity.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_log_backpressure.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_repair_collection_log_offset.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/distributed/test_reroute.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_indexing_status.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_types.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_search_api.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_limit_offset.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_numpy_list_inputs.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_invalid_update.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/api/test_schema.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/stress/test_many_collections.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_morph_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_voyageai_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_openai_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_ollama_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_multimodal_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_default_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/ef/test_custom_ef.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/test_cli.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/utils/test_result_df_transform.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/utils/test_embedding_function_schemas.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/test_api.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/conftest.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/test_multithreaded.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_fork.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_collections.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/invariants.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_embeddings.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/strategies.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_persist.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_add.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_filtering.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_schema.py
-/app/.venv/lib/python3.12/site-packages/chromadb/test/property/test_restart_persist.py
-/app/.venv/lib/python3.12/site-packages/chromadb/server/fastapi/types.py
-/app/.venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
-/app/.venv/lib/python3.12/site-packages/chromadb/execution/executor/local.py
-/app/.venv/lib/python3.12/site-packages/chromadb/execution/executor/distributed.py
-/app/.venv/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
-/app/.venv/lib/python3.12/site-packages/chromadb/execution/expression/plan.py
-/app/.venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/.venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
-/app/.venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/.venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/.venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/.venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/.venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/.venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/.venv/lib/python3.12/site-packages/pypdf/_encryption.py
-/app/.venv/lib/python3.12/site-packages/pypdf/generic/_files.py
-/app/.venv/lib/python3.12/site-packages/pypdf/_page.py
-/app/.venv/lib/python3.12/site-packages/pypdf/filters.py
-/app/.venv/lib/python3.12/site-packages/pypdf/_writer.py
-/app/.venv/lib/python3.12/site-packages/pypdf/_codecs/adobe_glyphs.py
-/app/.venv/lib/python3.12/site-packages/zstandard/backend_cffi.py
-/app/.venv/lib/python3.12/site-packages/ollama/_client.py
-/app/.venv/lib/python3.12/site-packages/ollama/_types.py
-/app/.venv/lib/python3.12/site-packages/ollama/__init__.py
-/app/.venv/lib/python3.12/site-packages/torchgen/packaged/autograd/gen_variable_type.py
-/app/.venv/lib/python3.12/site-packages/torchgen/model.py
-/app/.venv/lib/python3.12/site-packages/torchgen/static_runtime/gen_static_runtime_ops.py
-/app/.venv/lib/python3.12/site-packages/torchgen/static_runtime/generator.py
-/app/.venv/lib/python3.12/site-packages/torchgen/aoti/fallback_ops.py
-/app/services/auto_fix_gateway.py
-/app/services/attention_multimodal_fuser.py
-/app/services/enhance_rag_knowledge.py
-/app/services/bulk_load_knowledge.py
-/app/services/gbim_query_router.py
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-/app/services/jarvis_hilbert_state.py
-/app/services/gisgeodb_storage.py
-/app/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/app/services/ms_jarvis_unified_swagger_gateway_FIXED.py
-/app/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/container_attributes.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/file_attributes.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/flatbuffers/flexbuffers.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/core/_internal.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/click/testing.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/click/core.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/humanfriendly/sphinx.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/humanfriendly/usage.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/coloredlogs/syslog.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/coloredlogs/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/requests_oauthlib/oauth1_session.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/posthog/ai/openai/openai_async.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/posthog/ai/openai/openai_providers.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/posthog/ai/openai/openai.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/google/protobuf/text_format.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/t5/t5_decoder.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/convert_to_onnx.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/convert_to_onnx.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/benchmark.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/convert_to_onnx.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_parity.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_inputs.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/bert/eval_squad.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_encoder.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_utils.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/mask_decoder.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_decoder.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/prompt_encoder.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_image_onnx_predictor.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/benchmark_sam2.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_torch.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/pipeline_stable_diffusion.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/diffusion_models.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/benchmark.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_exporter.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_keras.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/bert_test_data.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention_clip.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_rotary_attention.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_base.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_embedlayer.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/neural_compressor/onnx_model.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/registry.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/matmul_nbits_quantizer.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/operators/embed_layernorm.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/quantization/onnx_quantizer.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/tools/qnn/gen_qnn_ctx_onnx_model.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/tools/offline_tuning.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth1/rfc5849/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc8628/clients/device.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/grant_types/implicit.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/parameters.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/legacy_application.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/backend_application.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/base.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/web_application.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/service_application.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/packaging/version.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/concrete/summations.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/interactive/session.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/core/numbers.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/core/multidimensional.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/kubernetes/client/models/v1_json_schema_props.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/fsspec/core.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/ml.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/templates.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/pony.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/php.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/css.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/perl.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/python.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/configs.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/rich/console.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/proto/convert.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/quota/simple_quota_enforcer/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/quota/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/types.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/models/Collection.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/models/AsyncCollection.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/async_api.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/client.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/types.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/async_client.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/fastapi.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/rust.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/segment.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/ingest/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/metadata/sqlite.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_persistent_hnsw.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_hnsw.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/brute_force_index.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/vector/batch.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/results.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/data_loaders.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/baseten_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/instructor_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/google_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/fastembed_sparse_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/voyageai_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/text2vec_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cohere_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_sparse_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/registry.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/schema_utils.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/openai_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/roboflow_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/morph_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/sentence_transformer_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_langchain_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/mistral_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/open_clip_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/nomic_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/batch_utils.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/statistics.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/telemetry/product/events.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/logservice/logservice.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/data_loader/test_data_loader.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/db/test_log_purge.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/configurations/test_collection_configuration.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_sanity.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_log_backpressure.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_repair_collection_log_offset.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/distributed/test_reroute.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_indexing_status.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_types.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_search_api.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_limit_offset.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_numpy_list_inputs.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_invalid_update.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/api/test_schema.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/stress/test_many_collections.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_morph_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_voyageai_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_openai_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_ollama_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_multimodal_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_default_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/ef/test_custom_ef.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/test_cli.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/utils/test_result_df_transform.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/utils/test_embedding_function_schemas.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/test_api.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/conftest.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/test_multithreaded.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_fork.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_collections.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/invariants.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_embeddings.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/strategies.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_persist.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_add.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_filtering.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_schema.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/test/property/test_restart_persist.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/server/fastapi/types.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/executor/local.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/executor/distributed.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/execution/expression/plan.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/services/ms_jarvis_autonomous_learner_optimized.py
-/app/services/ms_jarvis_main_gateway.backup_error.py
-/app/services/ai_server.py
-/app/services/rag/geodb_core.py
-/app/services/rag/gpu_accelerated_rag.py
-/app/services/rag/attention_router.py
-/app/services/rag/geo_rag_debug.py
-/app/services/rag/belief_revision_engine.py
-/app/services/rag/gbim_core.py
-/app/services/rag/gis_rag_service.py
-/app/services/rag/background_curator.py
-/app/services/embed_gbim.py
-/app/services/llm/ai_server.py
-/app/services/llm/ai_server_22llm.py
-/app/services/gbim_coordinate_writer.py
-/app/services/neurobiologicalbrain/i_containers/service/service_registry_client.py
-/app/services/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
-/app/services/add_conversation_endpoint.py
-/app/services/ms_mountainshares_coordinator.py
-/app/services/conversation_memory_endpoints.py
-/app/services/embed_geodb.py
-/app/services/jarvis_synth_llm.py
-/app/services/load_pdfs_spiritual.py
-/app/services/geodb_core.py
-/app/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py
-/app/services/identity_promotion.py
-/app/services/embed_and_query.py
-/app/services/bulk_load_MAXIMUM.py
-/app/services/memory_dgm_engine.py
-/app/services/.venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-/app/services/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/services/.venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/services/ms_jarvis_main_gateway.backup_1762220815.py
-/app/services/gpu_accelerated_rag.py
-/app/services/load_spiritual_library.py
-/app/services/ai/ai_server.py
-/app/services/rag_topic_router.py
-/app/services/ai_server_19llm_CONSCIOUS.py
-/app/services/ms_jarvis_web_research_aggregate.py
-/app/services/extract_chroma_sqlite_to_gis.py
-/app/services/load_gis_to_chroma.py
-/app/services/jarvis_rag_search/main.py
-/app/services/quantum_state_engine.py
-/app/services/ms_jarvis_autonomous_learner.py
-/app/services/move_huggingface_to_cpu.py
-/app/services/attention_router.py
-/app/services/add_conversation_storage.py
-/app/services/rag_server.psychology_patched.py
-/app/services/REFERENCE_windows_swarm.py
-/app/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
-/app/services/geo_rag_debug.py
-/app/services/gpu_accelerated_rag_fixed.py
-/app/services/ingest_gbim_to_chroma.py
-/app/services/_vendor/cytoolz/tests/test_embedded_sigs.py
-/app/services/_vendor/Crypto/Cipher/_mode_ctr.py
-/app/services/_vendor/regex/tests/test_regex.py
-/app/services/_vendor/eth_account/signers/local.py
-/app/services/_vendor/bitarray/test_util.py
-/app/services/ms_jarvis_toroidal_consciousness.py
-/app/services/rag_server.py
-/app/services/ms_jarvis_showcase_api.py
-/app/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
-/app/services/ai_server_restored.py
-/app/services/ingest_gis_features_to_chromadb.py
-/app/services/embed_and_add.py
-/app/services/geo_rag_debug_app.py
-/app/services/gbim_query_router/gbim_query_router.py
-/app/services/ai_server_original_backup.py
-/app/services/gbim_chroma_fixed.py
-/app/services/chroma/chroma_psych_helper.py
-/app/services/rag_server_min.py
-/app/services/load_rag_knowledge.py
-/app/services/rag_direct_debug.py
-/app/services/belief_revision_engine.py
-/app/services/hilbert_spatial_chat.py
-/app/services/attention_pipeline.py
-/app/services/ingest_postgis_to_chroma.py
-/app/services/venv/lib/python3.12/site-packages/scipy/signal/_signaltools.py
-/app/services/venv/lib/python3.12/site-packages/scipy/io/matlab/_mio5.py
-/app/services/venv/lib/python3.12/site-packages/scipy/linalg/_basic.py
-/app/services/venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_delegation.py
-/app/services/venv/lib/python3.12/site-packages/scipy/stats/_multivariate.py
-/app/services/venv/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py
-/app/services/venv/lib/python3.12/site-packages/scipy/integrate/_ivp/radau.py
-/app/services/venv/lib/python3.12/site-packages/scipy/integrate/_ivp/ivp.py
-/app/services/venv/lib/python3.12/site-packages/scipy/optimize/_shgo_lib/_complex.py
-/app/services/venv/lib/python3.12/site-packages/scipy/sparse/csgraph/_laplacian.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/perceiver/configuration_perceiver.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/perceiver/modeling_perceiver.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/diffllama/configuration_diffllama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/diffllama/modular_diffllama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/diffllama/modeling_diffllama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/timesformer/configuration_timesformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/timesformer/modeling_timesformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/decision_transformer/modeling_decision_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/decision_transformer/configuration_decision_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/timm_wrapper/modeling_timm_wrapper.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aimv2/configuration_aimv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aimv2/modular_aimv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aimv2/modeling_aimv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v/configuration_glm4v.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v/modular_glm4v.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v/modeling_glm4v.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere/modeling_cohere.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere/modular_cohere.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere/configuration_cohere.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/modeling_layoutlmv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/configuration_layoutlmv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bert_generation/modeling_bert_generation.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bert_generation/configuration_bert_generation.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rwkv/modeling_rwkv.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rwkv/configuration_rwkv.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modular_qwen3_vl_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/modeling_qwen3_vl_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl_moe/configuration_qwen3_vl_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/tvp/configuration_tvp.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/tvp/modeling_tvp.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/funnel/configuration_funnel.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/funnel/modeling_funnel.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xglm/modeling_xglm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xglm/configuration_xglm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi/configuration_phi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi/modeling_phi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi/modular_phi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modular_glm4v_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/modeling_glm4v_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4v_moe/configuration_glm4v_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio_video/modular_pe_audio_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio_video/modeling_pe_audio_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio_video/configuration_pe_audio_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics2/configuration_idefics2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics2/modeling_idefics2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modeling_dinov3_vit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/modular_dinov3_vit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_vit/configuration_dinov3_vit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/biogpt/modular_biogpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/biogpt/modeling_biogpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/biogpt/configuration_biogpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/modeling_xlm_roberta_xl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/configuration_xlm_roberta_xl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta_xl/modular_xlm_roberta_xl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/configuration_hunyuan_v1_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modeling_hunyuan_v1_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_moe/modular_hunyuan_v1_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics3/modeling_idefics3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics3/configuration_idefics3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/modular_florence2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/modeling_florence2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/processing_florence2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/florence2/configuration_florence2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo2/configuration_olmo2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo2/modular_olmo2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo2/modeling_olmo2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seed_oss/configuration_seed_oss.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seed_oss/modeling_seed_oss.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seed_oss/modular_seed_oss.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zoedepth/modeling_zoedepth.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zoedepth/configuration_zoedepth.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/x_clip/configuration_x_clip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/x_clip/modeling_x_clip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert/modular_modernbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert/configuration_modernbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modeling_hgnet_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/modular_hgnet_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hgnet_v2/configuration_hgnet_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clap/configuration_clap.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clap/modeling_clap.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba2/modeling_mamba2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba2/configuration_mamba2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nystromformer/modeling_nystromformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nystromformer/configuration_nystromformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xmod/modeling_xmod.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xmod/configuration_xmod.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblip/modeling_instructblip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblip/configuration_instructblip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/persimmon/modeling_persimmon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/persimmon/configuration_persimmon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bridgetower/modeling_bridgetower.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bridgetower/configuration_bridgetower.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lasr/modular_lasr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lasr/modeling_lasr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lasr/configuration_lasr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flava/modeling_flava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flava/configuration_flava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot/configuration_blenderbot.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot/modeling_blenderbot.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cpmant/configuration_cpmant.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cpmant/modeling_cpmant.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/voxtral/modeling_voxtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/voxtral/configuration_voxtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/voxtral/modular_voxtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longt5/configuration_longt5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longt5/modeling_longt5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/d_fine/configuration_d_fine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/d_fine/modeling_d_fine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/d_fine/modular_d_fine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ijepa/modular_ijepa.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ijepa/modeling_ijepa.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ijepa/configuration_ijepa.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/regnet/modeling_regnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/regnet/configuration_regnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dpr/configuration_dpr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dpr/modeling_dpr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/modeling_qwen2_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_audio/configuration_qwen2_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modular_llava_onevision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_onevision/modeling_llava_onevision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_onevision/configuration_llava_onevision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gptj/modeling_gptj.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gptj/configuration_gptj.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/configuration_blenderbot_small.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blenderbot_small/modeling_blenderbot_small.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/altclip/configuration_altclip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/altclip/modeling_altclip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rag/modeling_rag.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rag/retrieval_rag.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rag/configuration_rag.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vision_encoder_decoder/modeling_vision_encoder_decoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blip/modeling_blip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blip/configuration_blip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modeling_falcon_h1.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_h1/modular_falcon_h1.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_h1/configuration_falcon_h1.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swin/configuration_swin.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swin/modeling_swin.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/starcoder2/modeling_starcoder2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/starcoder2/modular_starcoder2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/starcoder2/configuration_starcoder2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/prompt_depth_anything/modeling_prompt_depth_anything.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mllama/image_processing_mllama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mllama/modeling_mllama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mllama/configuration_mllama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/parakeet/modular_parakeet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/parakeet/configuration_parakeet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/parakeet/modeling_parakeet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutxlm/configuration_layoutxlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutxlm/modular_layoutxlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ibert/modeling_ibert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ibert/configuration_ibert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ibert/quant_modules.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/paligemma/modeling_paligemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/paligemma/configuration_paligemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/opt/configuration_opt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/opt/modeling_opt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/autoformer/modeling_autoformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/autoformer/configuration_autoformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/megatron_bert/configuration_megatron_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/megatron_bert/modeling_megatron_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modular_qwen3_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_moe/configuration_qwen3_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/megatron_gpt2/checkpoint_reshaping_and_interoperability.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swiftformer/modeling_swiftformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swiftformer/configuration_swiftformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modular_data2vec_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/configuration_data2vec_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modular_data2vec_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/data2vec/modeling_data2vec_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/configuration_lfm2_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modular_lfm2_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_vl/modeling_lfm2_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cwm/configuration_cwm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cwm/modeling_cwm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cwm/modular_cwm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker_video/modeling_sam3_tracker_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker_video/modular_sam3_tracker_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker_video/configuration_sam3_tracker_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3/modular_gemma3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3/modeling_gemma3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3/configuration_gemma3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jais2/configuration_jais2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jais2/modeling_jais2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jais2/modular_jais2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vitmatte/modeling_vitmatte.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/videomae/modeling_videomae.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/videomae/configuration_videomae.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam_hq/configuration_sam_hq.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam_hq/modular_sam_hq.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam_hq/modeling_sam_hq.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/configuration_seamless_m4t.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t/modeling_seamless_m4t.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vitpose/modeling_vitpose.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/table_transformer/modeling_table_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/table_transformer/configuration_table_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite/configuration_granite.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite/modeling_granite.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite/modular_granite.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/canine/configuration_canine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/canine/modeling_canine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clipseg/configuration_clipseg.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clipseg/modeling_clipseg.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modular_edgetam_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam_video/configuration_edgetam_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam_video/modeling_edgetam_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next/processing_llava_next.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next/modeling_llava_next.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next/configuration_llava_next.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vaultgemma/configuration_vaultgemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modeling_vaultgemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vaultgemma/modular_vaultgemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/speecht5/modeling_speecht5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/speecht5/configuration_speecht5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/efficientnet/modeling_efficientnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/marian/modeling_marian.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/marian/configuration_marian.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/superpoint/modeling_superpoint.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/convbert/configuration_convbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/convbert/modeling_convbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modular_qwen3_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/configuration_qwen3_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/modeling_recurrent_gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/recurrent_gemma/configuration_recurrent_gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral3/modeling_mistral3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral3/modular_mistral3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral3/configuration_mistral3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/git/modeling_git.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/git/configuration_git.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/m2m_100/modeling_m2m_100.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/m2m_100/configuration_m2m_100.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xcodec/modeling_xcodec.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fsmt/configuration_fsmt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fsmt/modeling_fsmt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/internvl/modular_internvl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/internvl/configuration_internvl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/internvl/modeling_internvl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nemotron/modeling_nemotron.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nemotron/configuration_nemotron.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modeling_qwen3_next.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_next/modular_qwen3_next.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_next/configuration_qwen3_next.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral/configuration_ministral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral/modular_ministral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral/modeling_ministral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ovis2/modeling_ovis2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ovis2/modular_ovis2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ovis2/configuration_ovis2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/stablelm/configuration_stablelm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/stablelm/modeling_stablelm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dbrx/modeling_dbrx.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dbrx/modular_dbrx.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dbrx/configuration_dbrx.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clip/modeling_clip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clip/configuration_clip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/youtu/configuration_youtu.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/youtu/modular_youtu.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/youtu/modeling_youtu.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt2/configuration_gpt2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt2/modeling_gpt2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modular_kyutai_speech_to_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/modeling_kyutai_speech_to_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kyutai_speech_to_text/configuration_kyutai_speech_to_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mixtral/modeling_mixtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mixtral/configuration_mixtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mixtral/modular_mixtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma2/configuration_t5gemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma2/modeling_t5gemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma2/modular_t5gemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mimi/modeling_mimi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mimi/configuration_mimi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glpn/configuration_glpn.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glpn/modeling_glpn.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta/modeling_roberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta/modular_roberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta/configuration_roberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlm/configuration_layoutlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlm/modeling_layoutlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glmasr/modeling_glmasr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glmasr/modular_glmasr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glmasr/configuration_glmasr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bit/configuration_bit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bit/modeling_bit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/conditional_detr/configuration_conditional_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/conditional_detr/modular_conditional_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/conditional_detr/modeling_conditional_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/janus/configuration_janus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/janus/modeling_janus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/janus/modular_janus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/audioflamingo3/modeling_audioflamingo3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/audioflamingo3/configuration_audioflamingo3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/audioflamingo3/modular_audioflamingo3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roc_bert/modeling_roc_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roc_bert/configuration_roc_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neo/modeling_gpt_neo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neo/configuration_gpt_neo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hubert/modular_hubert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hubert/configuration_hubert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hubert/modeling_hubert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4/modeling_glm4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4/modular_glm4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4/configuration_glm4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5/modeling_t5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5/configuration_t5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt_dinov3/configuration_eomt_dinov3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt_dinov3/modeling_eomt_dinov3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt_dinov3/modular_eomt_dinov3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2_video/modeling_sam2_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2_video/modular_sam2_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2_video/configuration_sam2_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modeling_hunyuan_v1_dense.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/modular_hunyuan_v1_dense.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hunyuan_v1_dense/configuration_hunyuan_v1_dense.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aya_vision/modeling_aya_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aya_vision/modular_aya_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aya_vision/configuration_aya_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/modeling_idefics.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/configuration_idefics.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/idefics/perceiver.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lilt/configuration_lilt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lilt/modeling_lilt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/modeling_audio_spectrogram_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/audio_spectrogram_transformer/configuration_audio_spectrogram_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba/configuration_mamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mamba/modeling_mamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modeling_glm4_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe/modular_glm4_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe/configuration_glm4_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/encoder_decoder/modeling_encoder_decoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/doge/modular_doge.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/doge/configuration_doge.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/doge/modeling_doge.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/whisper/modeling_whisper.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/whisper/configuration_whisper.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modeling_deepseek_v3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/configuration_deepseek_v3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v3/modular_deepseek_v3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/efficientloftr/configuration_efficientloftr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/efficientloftr/modeling_efficientloftr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mt5/configuration_mt5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mt5/modeling_mt5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/plbart/modular_plbart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/plbart/modeling_plbart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/plbart/configuration_plbart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox/configuration_gpt_neox.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modular_gpt_neox.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox/modeling_gpt_neox.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilevitv2/modeling_mobilevitv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mvp/modeling_mvp.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mvp/configuration_mvp.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dpt/modeling_dpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dpt/configuration_dpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longformer/configuration_longformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longformer/modeling_longformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/smolvlm/modular_smolvlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/smolvlm/configuration_smolvlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/smolvlm/modeling_smolvlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vits/modeling_vits.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vits/configuration_vits.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/openai/configuration_openai.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/openai/modeling_openai.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/levit/configuration_levit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/levit/modeling_levit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/feature_extraction_granite_speech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/processing_granite_speech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/configuration_granite_speech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granite_speech/modeling_granite_speech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta_v2/configuration_deberta_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/poolformer/modeling_poolformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vitdet/configuration_vitdet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vitdet/modeling_vitdet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen/modeling_musicgen.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen/configuration_musicgen.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/afmoe/modular_afmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/afmoe/configuration_afmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/afmoe/modeling_afmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lighton_ocr/modeling_lighton_ocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lighton_ocr/modular_lighton_ocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lighton_ocr/configuration_lighton_ocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/processing_kosmos2_5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/modeling_kosmos2_5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2_5/configuration_kosmos2_5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilebert/configuration_mobilebert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilebert/modeling_mobilebert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_ocr/configuration_glm_ocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_ocr/modular_glm_ocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_ocr/modeling_glm_ocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus_x/modeling_pegasus_x.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus_x/configuration_pegasus_x.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus/configuration_pegasus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pegasus/modeling_pegasus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/prophetnet/modeling_prophetnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/prophetnet/configuration_prophetnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlnet/configuration_xlnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlnet/modeling_xlnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mgp_str/configuration_mgp_str.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mgp_str/modeling_mgp_str.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swin2sr/modeling_swin2sr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swin2sr/configuration_swin2sr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo3/configuration_olmo3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo3/modular_olmo3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo3/modeling_olmo3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mpt/configuration_mpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mpt/modeling_mpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3/modeling_sam3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3/configuration_sam3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/perception_lm/modular_perception_lm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/perception_lm/configuration_perception_lm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/perception_lm/modeling_perception_lm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modular_qwen3_omni_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/configuration_qwen3_omni_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/processing_qwen3_omni_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3_omni_moe/modeling_qwen3_omni_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/visual_bert/configuration_visual_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/visual_bert/modeling_visual_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deit/configuration_deit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deit/modeling_deit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/paddleocr_vl/modular_paddleocr_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/paddleocr_vl/modeling_paddleocr_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/paddleocr_vl/configuration_paddleocr_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vilt/modeling_vilt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vilt/configuration_vilt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/moshi/modeling_moshi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/moshi/configuration_moshi.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe_lite/modeling_glm4_moe_lite.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe_lite/configuration_glm4_moe_lite.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm4_moe_lite/modular_glm4_moe_lite.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modeling_rt_detr_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/configuration_rt_detr_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr_v2/modular_rt_detr_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone4/configuration_exaone4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone4/modeling_exaone4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone4/modular_exaone4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/modeling_colqwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/modular_colqwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/processing_colqwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colqwen2/configuration_colqwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/chameleon/configuration_chameleon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/chameleon/modeling_chameleon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/chameleon/processing_chameleon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinat/modeling_dinat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinat/configuration_dinat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blip_2/modeling_blip_2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blip_2/configuration_blip_2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/modeling_shieldgemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/shieldgemma2/configuration_shieldgemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/modeling_csm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/generation_csm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/configuration_csm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/csm/modular_csm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swinv2/configuration_swinv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/swinv2/modeling_swinv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_moe/modular_lfm2_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_moe/modeling_lfm2_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2_moe/configuration_lfm2_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lightglue/modular_lightglue.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lightglue/modeling_lightglue.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mobilevit/modeling_mobilevit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wavlm/configuration_wavlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wavlm/modeling_wavlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wavlm/modular_wavlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma/modeling_gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma/modular_gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma/configuration_gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clvp/modeling_clvp.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/clvp/configuration_clvp.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/udop/modeling_udop.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/udop/configuration_udop.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_mae/modeling_vit_mae.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_mae/configuration_vit_mae.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mbart/configuration_mbart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mbart/modeling_mbart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/distilbert/configuration_distilbert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llava/processing_video_llava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llava/configuration_video_llava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llava/modeling_video_llava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bamba/modeling_bamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bamba/modular_bamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bamba/configuration_bamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modular_deepseek_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/configuration_deepseek_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl/modeling_deepseek_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip2/configuration_siglip2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip2/modeling_siglip2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip2/modular_siglip2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roformer/configuration_roformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roformer/modeling_roformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/codegen/modeling_codegen.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/codegen/configuration_codegen.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov3_convnext/modeling_dinov3_convnext.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/oneformer/modeling_oneformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deformable_detr/modular_deformable_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deformable_detr/modeling_deformable_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deformable_detr/configuration_deformable_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/configuration_phi4_multimodal.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/processing_phi4_multimodal.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modeling_phi4_multimodal.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/modular_phi4_multimodal.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi4_multimodal/feature_extraction_phi4_multimodal.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma/configuration_t5gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma/modeling_t5gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/t5gemma/modular_t5gemma.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mpnet/modeling_mpnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mpnet/configuration_mpnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_video/configuration_pe_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_video/modeling_pe_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_video/modular_pe_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon/configuration_falcon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon/modeling_falcon.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoe/modular_granitemoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoe/modeling_granitemoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoe/configuration_granitemoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/superglue/modeling_superglue.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/configuration_xlm_roberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modeling_xlm_roberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm_roberta/modular_xlm_roberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nllb_moe/modeling_nllb_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nllb_moe/configuration_nllb_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hiera/configuration_hiera.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/hiera/modeling_hiera.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava/modeling_llava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava/configuration_llava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava/processing_llava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma2/configuration_gemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma2/modeling_gemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma2/modular_gemma2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modular_gpt_oss.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_oss/configuration_gpt_oss.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/configuration_bigbird_pegasus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bigbird_pegasus/modeling_bigbird_pegasus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/moonshine/modeling_moonshine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/moonshine/modular_moonshine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/moonshine/configuration_moonshine.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech/modular_unispeech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech/modeling_unispeech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech/configuration_unispeech.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/convnext/modeling_convnext.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/convnext/configuration_convnext.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie/modeling_ernie.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie/configuration_ernie.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie/modular_ernie.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vision_text_dual_encoder/modeling_vision_text_dual_encoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sew_d/modeling_sew_d.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sew_d/configuration_sew_d.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/modeling_qwen2_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_vl/configuration_qwen2_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2/processing_kosmos2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2/modeling_kosmos2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/kosmos2/configuration_kosmos2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/evolla/configuration_evolla.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/evolla/modeling_evolla.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/evolla/modular_evolla.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/configuration_qwen2_5_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modular_qwen2_5_vl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llama_3/configuration_video_llama_3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llama_3/modular_video_llama_3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/video_llama_3/modeling_video_llama_3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/modeling_dia.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/configuration_dia.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/modular_dia.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dia/generation_dia.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modeling_cohere2_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/configuration_cohere2_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2_vision/modular_cohere2_vision.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/configuration_vitpose_backbone.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vitpose_backbone/modeling_vitpose_backbone.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer_swin.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/configuration_maskformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/maskformer/modeling_maskformer_swin.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2/modular_qwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2/modeling_qwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2/configuration_qwen2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vipllava/configuration_vipllava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vipllava/modeling_vipllava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vipllava/modular_vipllava.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/modeling_gpt_bigcode.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_bigcode/configuration_gpt_bigcode.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral/modular_mistral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral/modeling_mistral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mistral/configuration_mistral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aria/modeling_aria.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aria/configuration_aria.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/aria/modular_aria.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modeling_metaclip_2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/metaclip_2/configuration_metaclip_2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/metaclip_2/modular_metaclip_2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modeling_granitemoeshared.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/configuration_granitemoeshared.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoeshared/modular_granitemoeshared.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jetmoe/configuration_jetmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jetmoe/modeling_jetmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jetmoe/modular_jetmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/reformer/configuration_reformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/reformer/modeling_reformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/arcee/modeling_arcee.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/arcee/modular_arcee.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/arcee/configuration_arcee.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/yoso/configuration_yoso.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/yoso/modeling_yoso.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pixtral/modeling_pixtral.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_msn/configuration_vit_msn.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vit_msn/modeling_vit_msn.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/configuration_time_series_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/time_series_transformer/modeling_time_series_transformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/albert/modeling_albert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/albert/configuration_albert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/focalnet/modeling_focalnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/focalnet/configuration_focalnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/donut/modeling_donut_swin.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/donut/configuration_donut_swin.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/helium/configuration_helium.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/helium/modeling_helium.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/helium/modular_helium.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/depth_pro/modeling_depth_pro.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/configuration_wav2vec2_conformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modeling_wav2vec2_conformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_conformer/modular_wav2vec2_conformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flaubert/modeling_flaubert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flaubert/configuration_flaubert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modular_got_ocr2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/got_ocr2/configuration_got_ocr2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/got_ocr2/modeling_got_ocr2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phimoe/modeling_phimoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phimoe/configuration_phimoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phimoe/modular_phimoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/modeling_omdet_turbo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/omdet_turbo/configuration_omdet_turbo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/led/configuration_led.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/led/modeling_led.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/depth_anything/modeling_depth_anything.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/electra/configuration_electra.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/electra/modeling_electra.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vivit/configuration_vivit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vivit/modeling_vivit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modular_wav2vec2_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/modeling_wav2vec2_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2_bert/configuration_wav2vec2_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/processing_qwen2_5_omni.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modular_qwen2_5_omni.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/modeling_qwen2_5_omni.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_5_omni/configuration_qwen2_5_omni.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam/modeling_sam.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam/configuration_sam.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral3/modular_ministral3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral3/configuration_ministral3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ministral3/modeling_ministral3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blt/modular_blt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blt/modeling_blt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/blt/configuration_blt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/modular_rt_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/configuration_rt_detr_resnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr_resnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rt_detr/modeling_rt_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mlcd/modeling_mlcd.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mlcd/modular_mlcd.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sew/modeling_sew.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sew/configuration_sew.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sew/modular_sew.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vjepa2/modeling_vjepa2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/configuration_instructblipvideo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modeling_instructblipvideo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/instructblipvideo/modular_instructblipvideo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/configuration_patchtsmixer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtsmixer/modeling_patchtsmixer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam/modular_edgetam.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam/configuration_edgetam.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/edgetam/modeling_edgetam.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2/modeling_cohere2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2/configuration_cohere2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cohere2/modular_cohere2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/resnet/modeling_resnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/resnet/configuration_resnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/tapas/configuration_tapas.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/tapas/modeling_tapas.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/apertus/modeling_apertus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/apertus/modular_apertus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/apertus/configuration_apertus.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bitnet/modeling_bitnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bitnet/modular_bitnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bitnet/configuration_bitnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba/modeling_zamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba/configuration_zamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bark/processing_bark.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bark/modeling_bark.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bark/configuration_bark.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/configuration_gpt_neox_japanese.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/modeling_gpt_neox_japanese.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio/configuration_pe_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio/modular_pe_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pe_audio/modeling_pe_audio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/timesfm/modular_timesfm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/timesfm/configuration_timesfm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/timesfm/modeling_timesfm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lxmert/configuration_lxmert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lxmert/modeling_lxmert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/switch_transformers/modeling_switch_transformers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/switch_transformers/modular_switch_transformers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/switch_transformers/configuration_switch_transformers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pp_doclayout_v3/modeling_pp_doclayout_v3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pp_doclayout_v3/modular_pp_doclayout_v3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pp_doclayout_v3/configuration_pp_doclayout_v3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/chinese_clip/modeling_chinese_clip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/chinese_clip/configuration_chinese_clip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/big_bird/modeling_big_bird.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/big_bird/configuration_big_bird.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rembert/configuration_rembert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/rembert/modeling_rembert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llama4/configuration_llama4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llama4/modeling_llama4.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bart/modeling_bart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bart/configuration_bart.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/groupvit/modeling_groupvit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/groupvit/configuration_groupvit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modeling_dinov2_with_registers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/modular_dinov2_with_registers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2_with_registers/configuration_dinov2_with_registers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/speech_encoder_decoder/modeling_speech_encoder_decoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ctrl/modeling_ctrl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ctrl/configuration_ctrl.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modular_mm_grounding_dino.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/modeling_mm_grounding_dino.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mm_grounding_dino/configuration_mm_grounding_dino.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3/modular_qwen3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3/configuration_qwen3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2/modeling_wav2vec2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/wav2vec2/configuration_wav2vec2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/configuration_layoutlmv3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/layoutlmv3/modeling_layoutlmv3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jamba/configuration_jamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jamba/modular_jamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/jamba/modeling_jamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmoe/modeling_olmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmoe/configuration_olmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmoe/modular_olmoe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/owlv2/configuration_owlv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/owlv2/modeling_owlv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/detr/modeling_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/detr/configuration_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pop2piano/configuration_pop2piano.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pop2piano/modeling_pop2piano.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pop2piano/tokenization_pop2piano.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/camembert/modeling_camembert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/camembert/configuration_camembert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/camembert/modular_camembert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llama/configuration_llama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/configuration_colpali.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/processing_colpali.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/modular_colpali.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/colpali/modeling_colpali.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nanochat/configuration_nanochat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nanochat/modular_nanochat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/nanochat/modeling_nanochat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm46v/modular_glm46v.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm46v/configuration_glm46v.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm46v/modeling_glm46v.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/modeling_fastspeech2_conformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fastspeech2_conformer/configuration_fastspeech2_conformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/convnextv2/modeling_convnextv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/convnextv2/configuration_convnextv2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seggpt/modeling_seggpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seggpt/configuration_seggpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt/configuration_pvt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt/modeling_pvt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/modeling_roberta_prelayernorm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/roberta_prelayernorm/configuration_roberta_prelayernorm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modular_unispeech_sat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/configuration_unispeech_sat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/unispeech_sat/modeling_unispeech_sat.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dab_detr/modeling_dab_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dab_detr/configuration_dab_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pixio/modeling_pixio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pixio/configuration_pixio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pixio/modular_pixio.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cvt/modeling_cvt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/cvt/configuration_cvt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mask2former/configuration_mask2former.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mask2former/modeling_mask2former.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bloom/configuration_bloom.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bloom/modeling_bloom.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bros/modeling_bros.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bros/configuration_bros.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lw_detr/modeling_lw_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lw_detr/configuration_lw_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lw_detr/modular_lw_detr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/solar_open/modular_solar_open.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/solar_open/configuration_solar_open.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/solar_open/modeling_solar_open.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone_moe/modular_exaone_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone_moe/configuration_exaone_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/exaone_moe/modeling_exaone_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/configuration_granitemoehybrid.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modeling_granitemoehybrid.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/granitemoehybrid/modular_granitemoehybrid.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/owlvit/modeling_owlvit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/owlvit/configuration_owlvit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt_v2/modeling_pvt_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pvt_v2/configuration_pvt_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtst/configuration_patchtst.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/patchtst/modeling_patchtst.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fuyu/configuration_fuyu.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fuyu/modeling_fuyu.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fuyu/processing_fuyu.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/markuplm/modeling_markuplm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/markuplm/configuration_markuplm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modular_deepseek_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/configuration_deepseek_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_v2/modeling_deepseek_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bert/configuration_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/bert/modeling_bert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mra/modeling_mra.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/mra/configuration_mra.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2/configuration_sam2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2/modular_sam2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam2/modeling_sam2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/luke/modeling_luke.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/luke/configuration_luke.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modeling_falcon_mamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/modular_falcon_mamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/falcon_mamba/configuration_falcon_mamba.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vit/configuration_vit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/vit/modeling_vit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip/modeling_siglip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/siglip/configuration_siglip.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esmfold.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/esm/configuration_esm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/esm/modeling_esm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba2/configuration_zamba2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba2/modular_zamba2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/zamba2/modeling_zamba2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fnet/modeling_fnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fnet/configuration_fnet.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2/modeling_dinov2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/dinov2/configuration_dinov2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/emu3/configuration_emu3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/emu3/modeling_emu3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/emu3/modular_emu3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/speech_to_text/configuration_speech_to_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/speech_to_text/modeling_speech_to_text.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/informer/modular_informer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/informer/modeling_informer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/informer/configuration_informer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/smollm3/modeling_smollm3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/smollm3/modular_smollm3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/smollm3/configuration_smollm3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/umt5/configuration_umt5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/umt5/modeling_umt5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/segformer/configuration_segformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/segformer/modeling_segformer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_video/modeling_sam3_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/encodec/modeling_encodec.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm/modeling_xlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlm/configuration_xlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/splinter/configuration_splinter.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/splinter/modeling_splinter.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/modeling_qwen2_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/configuration_qwen2_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/qwen2_moe/modular_qwen2_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/yolos/configuration_yolos.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/yolos/modeling_yolos.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modeling_deepseek_vl_hybrid.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/modular_deepseek_vl_hybrid.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deepseek_vl_hybrid/configuration_deepseek_vl_hybrid.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modular_longcat_flash.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longcat_flash/modeling_longcat_flash.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/longcat_flash/configuration_longcat_flash.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_image/configuration_glm_image.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_image/modeling_glm_image.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm_image/modular_glm_image.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker/modular_sam3_tracker.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker/configuration_sam3_tracker.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/sam3_tracker/modeling_sam3_tracker.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax_m2/modular_minimax_m2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax_m2/modeling_minimax_m2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax_m2/configuration_minimax_m2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modeling_llava_next_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/configuration_llava_next_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/processing_llava_next_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/llava_next_video/modular_llava_next_video.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax/modeling_minimax.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax/configuration_minimax.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/minimax/modular_minimax.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/configuration_musicgen_melody.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/musicgen_melody/modeling_musicgen_melody.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5/configuration_ernie4_5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modeling_ernie4_5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5/modular_ernie4_5.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flex_olmo/configuration_flex_olmo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modeling_flex_olmo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/flex_olmo/modular_flex_olmo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/squeezebert/modeling_squeezebert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/squeezebert/configuration_squeezebert.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/trocr/configuration_trocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/trocr/modeling_trocr.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm/configuration_glm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm/modular_glm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/glm/modeling_glm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fast_vlm/configuration_fast_vlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fast_vlm/modular_fast_vlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/fast_vlm/modeling_fast_vlm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/grounding_dino/configuration_grounding_dino.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/imagegpt/configuration_imagegpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/imagegpt/modeling_imagegpt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo/modeling_olmo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo/modular_olmo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/olmo/configuration_olmo.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modeling_ernie4_5_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/configuration_ernie4_5_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta/configuration_deberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/deberta/modeling_deberta.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlstm/configuration_xlstm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/xlstm/modeling_xlstm.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/configuration_seamless_m4t_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/seamless_m4t_v2/modeling_seamless_m4t_v2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modular_modernbert_decoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/modeling_modernbert_decoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/modernbert_decoder/configuration_modernbert_decoder.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3n/modeling_gemma3n.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3n/configuration_gemma3n.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/gemma3n/modular_gemma3n.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt/configuration_eomt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt/modular_eomt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/eomt/modeling_eomt.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2/modeling_lfm2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2/modular_lfm2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/lfm2/configuration_lfm2.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/beit/modeling_beit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/beit/configuration_beit.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_vl_moe/modular_ernie4_5_vl_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_vl_moe/modeling_ernie4_5_vl_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/ernie4_5_vl_moe/configuration_ernie4_5_vl_moe.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pix2struct/configuration_pix2struct.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/pix2struct/modeling_pix2struct.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi3/modular_phi3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi3/configuration_phi3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/models/phi3/modeling_phi3.py
-/app/services/venv/lib/python3.12/site-packages/transformers/pipelines/mask_generation.py
-/app/services/venv/lib/python3.12/site-packages/transformers/conversion_mapping.py
-/app/services/venv/lib/python3.12/site-packages/transformers/modeling_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/trainer_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/modeling_attn_mask_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/quantizers/quantizer_torchao.py
-/app/services/venv/lib/python3.12/site-packages/transformers/quantizers/base.py
-/app/services/venv/lib/python3.12/site-packages/transformers/tokenization_python.py
-/app/services/venv/lib/python3.12/site-packages/transformers/modeling_gguf_pytorch_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/modeling_outputs.py
-/app/services/venv/lib/python3.12/site-packages/transformers/modeling_rope_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/utils/auto_docstring.py
-/app/services/venv/lib/python3.12/site-packages/transformers/utils/doc.py
-/app/services/venv/lib/python3.12/site-packages/transformers/utils/attention_visualizer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/utils/import_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/utils/quantization_config.py
-/app/services/venv/lib/python3.12/site-packages/transformers/integrations/peft.py
-/app/services/venv/lib/python3.12/site-packages/transformers/integrations/tensor_parallel.py
-/app/services/venv/lib/python3.12/site-packages/transformers/integrations/torchao.py
-/app/services/venv/lib/python3.12/site-packages/transformers/integrations/ggml.py
-/app/services/venv/lib/python3.12/site-packages/transformers/integrations/executorch.py
-/app/services/venv/lib/python3.12/site-packages/transformers/integrations/deepspeed.py
-/app/services/venv/lib/python3.12/site-packages/transformers/masking_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/training_args.py
-/app/services/venv/lib/python3.12/site-packages/transformers/trainer.py
-/app/services/venv/lib/python3.12/site-packages/transformers/modeling_layers.py
-/app/services/venv/lib/python3.12/site-packages/transformers/tokenization_utils_sentencepiece.py
-/app/services/venv/lib/python3.12/site-packages/transformers/configuration_utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/generation/stopping_criteria.py
-/app/services/venv/lib/python3.12/site-packages/transformers/generation/logits_process.py
-/app/services/venv/lib/python3.12/site-packages/transformers/generation/utils.py
-/app/services/venv/lib/python3.12/site-packages/transformers/generation/watermarking.py
-/app/services/venv/lib/python3.12/site-packages/transformers/generation/candidate_generator.py
-/app/services/venv/lib/python3.12/site-packages/transformers/initialization.py
-/app/services/venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py
-/app/services/venv/lib/python3.12/site-packages/functorch/dim/__init__.py
-/app/services/venv/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
-/app/services/venv/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
-/app/services/venv/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
-/app/services/venv/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
-/app/services/venv/lib/python3.12/site-packages/numpy/core/_internal.py
-/app/services/venv/lib/python3.12/site-packages/click/testing.py
-/app/services/venv/lib/python3.12/site-packages/click/core.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/random_projection.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_mds.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_isomap.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_spectral_embedding.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_classical_mds.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_locally_linear.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_t_sne.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_spectral_embedding.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_mds.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/tests/test_isomap.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/_locally_linear.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/manifold/__init__.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/neighbors/_nca.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/neighbors/tests/test_neighbors_pipeline.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/kernel_approximation.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/ensemble/_forest.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/ensemble/tests/test_forest.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/decomposition/_pca.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/externals/_scipy/sparse/csgraph/_laplacian.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/feature_extraction/_hash.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/tests/test_random_projection.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/tests/test_public_functions.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/__init__.py
-/app/services/venv/lib/python3.12/site-packages/sklearn/cluster/_spectral.py
-/app/services/venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-/app/services/venv/lib/python3.12/site-packages/triton/tools/compile.py
-/app/services/venv/lib/python3.12/site-packages/fastapi/routing.py
-/app/services/venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
-/app/services/venv/lib/python3.12/site-packages/fastapi/param_functions.py
-/app/services/venv/lib/python3.12/site-packages/fastapi/params.py
-/app/services/venv/lib/python3.12/site-packages/safetensors/torch.py
-/app/services/venv/lib/python3.12/site-packages/safetensors/mlx.py
-/app/services/venv/lib/python3.12/site-packages/safetensors/flax.py
-/app/services/venv/lib/python3.12/site-packages/safetensors/paddle.py
-/app/services/venv/lib/python3.12/site-packages/safetensors/numpy.py
-/app/services/venv/lib/python3.12/site-packages/safetensors/tensorflow.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/hypothesis_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_mps.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/generated/annotated_fn_args.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_quantization.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/common_state_dict.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/distributed_test.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/rpc/dist_autograd_test.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/ddp_under_dist_autograd_test.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/_tensor/common_dtensor.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/nested.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/definitions/linalg.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/opinfo/core.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_modules.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_fsdp.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/jit_metaprogramming_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/autocast_test_lists.py
-/app/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_methods_invocations.py
-/app/services/venv/lib/python3.12/site-packages/torch/cuda/_memory_viz.py
-/app/services/venv/lib/python3.12/site-packages/torch/_tensor_docs.py
-/app/services/venv/lib/python3.12/site-packages/torch/linalg/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/autograd/forward_ad.py
-/app/services/venv/lib/python3.12/site-packages/torch/_lobpcg.py
-/app/services/venv/lib/python3.12/site-packages/torch/overrides.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/_tools/ilp_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/_tools/memory_tracker.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/algorithms/model_averaging/hierarchical_model_averager.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/_traversal_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/wrap.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fully_shard.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/nn/api/remote_module.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_attention.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/experimental/_context_parallel/_sharding_rules.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/placement_types.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/style.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/parallel/loss.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_embedding_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_tensor_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_math_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/_mask_buffer.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/tensor/_ops/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/_common.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding_bag.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributed/_shard/sharded_tensor/_ops/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/ops/_impl.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/ops/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_torchlib/ops/nn.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_helper.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset9.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset11.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset10.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset14.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/symbolic_opset18.py
-/app/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/profiler/profiler.py
-/app/services/venv/lib/python3.12/site-packages/torch/profiler/_memory_profiler.py
-/app/services/venv/lib/python3.12/site-packages/torch/_meta_registrations.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/decomposition.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codecache.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/shape_propagation.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/cpp_builder.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/fx_passes/graph_view.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/jagged_lowerings.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_gpu.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codegen/cpp_wrapper_cpu.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/codegen/mps.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/kernel/flex/flex_attention.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/config.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/compile_fx.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/_inductor/lowering.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributions/kl.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributions/wishart.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributions/transforms.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributions/lkj_cholesky.py
-/app/services/venv/lib/python3.12/site-packages/torch/distributions/lowrank_multivariate_normal.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/embedding_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantized/modules/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantized/reference/modules/sparse.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/embedding_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/qat/modules/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/nn/quantizable/modules/activation.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/fake_quantize.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/quantization_mappings.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/qconfig.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/_common_operator_config_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/fbgemm.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/onednn.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/qnnpack.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/x86.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/executorch.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/backend_config/native.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/embedding_quantizer.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/quantizer/composable_quantizer.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/quantization/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/quantization_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/ao/pruning/_experimental/data_sparsifier/base_data_sparsifier.py
-/app/services/venv/lib/python3.12/site-packages/torch/_refs/nn/functional/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/_refs/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/functional.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/sparse.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/activation.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/normalization.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/adaptive.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/modules/loss.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/attention/flex_attention.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/attention/varlen.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/quantized/modules/embedding_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/quantized/modules/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/qat/modules/embedding_ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/qat/modules/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/embedding_expanded_weights.py
-/app/services/venv/lib/python3.12/site-packages/torch/nn/utils/_expanded_weights/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/utils/tensorboard/_embedding.py
-/app/services/venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
-/app/services/venv/lib/python3.12/site-packages/torch/utils/_cpp_embed_headers.py
-/app/services/venv/lib/python3.12/site-packages/torch/_decomp/decompositions.py
-/app/services/venv/lib/python3.12/site-packages/torch/_decomp/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/jit/_shape_functions.py
-/app/services/venv/lib/python3.12/site-packages/torch/jit/_builtins.py
-/app/services/venv/lib/python3.12/site-packages/torch/_functorch/top_operators_github_usage.py
-/app/services/venv/lib/python3.12/site-packages/torch/_subclasses/fake_impls.py
-/app/services/venv/lib/python3.12/site-packages/torch/_subclasses/complex_tensor/_ops/aten.py
-/app/services/venv/lib/python3.12/site-packages/torch/_vendor/packaging/version.py
-/app/services/venv/lib/python3.12/site-packages/torch/optim/_muon.py
-/app/services/venv/lib/python3.12/site-packages/torch/mps/__init__.py
-/app/services/venv/lib/python3.12/site-packages/torch/export/_swap.py
-/app/services/venv/lib/python3.12/site-packages/torch/nested/_internal/ops.py
-/app/services/venv/lib/python3.12/site-packages/torch/_torch_docs.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/variables/tensor.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/variables/nn_module.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/debug_utils.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/trace_rules.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/builtins.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/operator.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/polyfills/itertools.py
-/app/services/venv/lib/python3.12/site-packages/torch/_dynamo/decorators.py
-/app/services/venv/lib/python3.12/site-packages/torch/_export/serde/serialize.py
-/app/services/venv/lib/python3.12/site-packages/torch/contrib/_tensorboard_vis.py
-/app/services/venv/lib/python3.12/site-packages/torch/fx/passes/splitter_base.py
-/app/services/venv/lib/python3.12/site-packages/torch/fx/passes/backends/cudagraphs.py
-/app/services/venv/lib/python3.12/site-packages/torch/fx/experimental/accelerator_partitioner.py
-/app/services/venv/lib/python3.12/site-packages/torch/fx/experimental/meta_tracer.py
-/app/services/venv/lib/python3.12/site-packages/torch/fx/experimental/migrate_gradual_types/constraint_generator.py
-/app/services/venv/lib/python3.12/site-packages/torch/fx/_symbolic_trace.py
-/app/services/venv/lib/python3.12/site-packages/regex/tests/test_regex.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/planar_drawing.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/centrality/dispersion.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/tests/test_temporalisomorphvf2.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/isomorphism/temporalisomorphvf2.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/connectivity/kcomponents.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planar_drawing.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/tests/test_planarity.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/approximation/kcomponents.py
-/app/services/venv/lib/python3.12/site-packages/networkx/algorithms/planarity.py
-/app/services/venv/lib/python3.12/site-packages/networkx/generators/lattice.py
-/app/services/venv/lib/python3.12/site-packages/networkx/drawing/nx_latex.py
-/app/services/venv/lib/python3.12/site-packages/networkx/drawing/tests/test_layout.py
-/app/services/venv/lib/python3.12/site-packages/networkx/drawing/layout.py
-/app/services/venv/lib/python3.12/site-packages/packaging/version.py
-/app/services/venv/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
-/app/services/venv/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
-/app/services/venv/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
-/app/services/venv/lib/python3.12/site-packages/sympy/concrete/summations.py
-/app/services/venv/lib/python3.12/site-packages/sympy/combinatorics/generators.py
-/app/services/venv/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
-/app/services/venv/lib/python3.12/site-packages/sympy/solvers/solvers.py
-/app/services/venv/lib/python3.12/site-packages/sympy/interactive/session.py
-/app/services/venv/lib/python3.12/site-packages/sympy/core/numbers.py
-/app/services/venv/lib/python3.12/site-packages/sympy/core/multidimensional.py
-/app/services/venv/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
-/app/services/venv/lib/python3.12/site-packages/jinja2/ext.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
-/app/services/venv/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/compilers/C/base.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/tests/support.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_distutils/command/bdist_dumb.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/wheelfile.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_vendor/wheel/_bdist_wheel.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/_vendor/packaging/version.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/command/bdist_wheel.py
-/app/services/venv/lib/python3.12/site-packages/setuptools/command/bdist_egg.py
-/app/services/venv/lib/python3.12/site-packages/fsspec/core.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/ml.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/templates.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/pony.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/php.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/css.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/perl.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/python.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/configs.py
-/app/services/venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
-/app/services/venv/lib/python3.12/site-packages/rich/console.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesSymmetricRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MatryoshkaLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardSoftMarginTripletLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchHardTripletLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/Matryoshka2dLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/AdaptiveLayerLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/DenoisingAutoEncoderLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CosineSimilarityLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/TripletLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MegaBatchMarginLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MultipleNegativesRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CoSENTLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/DistillKLDivLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesSymmetricRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/SoftmaxLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/OnlineContrastiveLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchSemiHardTripletLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/GISTEmbedLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MSELoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/MarginMSELoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/BatchAllTripletLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/ContrastiveTensionLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/WeightedLayerPooling.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Module.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/WordWeights.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/WordEmbeddings.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Dense.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/CLIPModel.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/CNN.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Router.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Normalize.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Dropout.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/LSTM.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/Pooling.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/LayerNorm.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/StaticEmbedding.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/models/BoW.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseCoSENTLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/CSRLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseTripletLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMSELoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMarginMSELoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SparseMultipleNegativesRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/FlopsLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/losses/SpladeLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SpladePooling.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseAutoEncoder.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/MLMTransformer.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/models/SparseStaticEmbedding.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/search_engines.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/SparseEncoder.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseMSEEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseRerankingEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseInformationRetrievalEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTripletEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseEmbeddingSimilarityEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseBinaryClassificationEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/evaluation/SparseTranslationEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/sparse_encoder/model_card.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/datasets/ParallelSentencesDataset.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/backend/utils.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/quantization.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/similarity_functions.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/MultipleNegativesRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/losses/CachedMultipleNegativesRankingLoss.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/reranking.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/evaluation/nano_beir.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/cross_encoder/trainer.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/hard_negatives.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/retrieval.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/tensor.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/similarity.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/util/__init__.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/RerankingEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/ParaphraseMiningEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/BinaryClassificationEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TranslationEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/TripletEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluatorFromDataFrame.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/EmbeddingSimilarityEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/MSEEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/NanoBEIREvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/InformationRetrievalEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/evaluation/SentenceEvaluator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/trainer.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/data_collator.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/model_card.py
-/app/services/venv/lib/python3.12/site-packages/sentence_transformers/__init__.py
-/app/services/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/services/venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/services/venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/services/venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/services/venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/services/venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/services/venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/services/venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/services/venv/lib/python3.12/site-packages/torchgen/packaged/autograd/gen_variable_type.py
-/app/services/venv/lib/python3.12/site-packages/torchgen/model.py
-/app/services/venv/lib/python3.12/site-packages/torchgen/static_runtime/gen_static_runtime_ops.py
-/app/services/venv/lib/python3.12/site-packages/torchgen/static_runtime/generator.py
-/app/services/venv/lib/python3.12/site-packages/torchgen/aoti/fallback_ops.py
-/app/services/ingest_gis_features_fixed.py
-/app/services/load_rag_data.py
-/app/services/gbim_core.py
-/app/services/ingest_watcher/ingest_runner.py
-/app/services/jarvis_llm1.py
-/app/services/rag_evidence_aggregator.py
-/app/services/msjarvisautonomouslearner.py
-/app/services/gis_rag_service.py
-/app/services/ms_jarvis_web_research.py
-/app/services/reload_all_knowledge.py
-/app/services/ai_server_22llm.psychology_patched.py
-/app/services/embed_utils.py
-/app/services/main_brain_LEGACY_32svc.py
-/app/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
-/app/services/ai_server_4llm.py
-/app/services/roche_llm.py
-/app/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
-/app/services/hardware_optimization_analyzer.py
-/app/services/host_bulk_loader.py
-/app/services/attention_priority_scheduler.py
-/app/services/ms_jarvis_rag_server.py
-/app/services/consolidate_to_chroma_db.py
-/app/services/chromadb_main.py
-/app/services/gbim_indexers/gbim_query_router.py
-/app/services/ai_server_22llm.py
-/app/services/geobim_integrated.py
-/app/services/background_curator.py
-/app/services/jarvis-gis-rag_gis_rag_service.py
-/app/services/jarvis_eeg_beta_5m.py
-/app/services/extract_real_knowledge_to_gis.py
-/app/services/unified_consciousness_gateway_PRODUCTION.py
-/app/services/ms_jarvis_unified_swagger_gateway_FINAL.py
-/app/ingest_wv_income_maintenance_manual.py
-/app/crypto-venv/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-/app/crypto-venv/lib/python3.12/site-packages/fastapi/routing.py
-/app/crypto-venv/lib/python3.12/site-packages/fastapi/openapi/docs.py
-/app/crypto-venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
-/app/crypto-venv/lib/python3.12/site-packages/fastapi/param_functions.py
-/app/crypto-venv/lib/python3.12/site-packages/fastapi/params.py
-/app/crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/serialization/pkcs7.py
-/app/crypto-venv/lib/python3.12/site-packages/packaging/version.py
-/app/crypto-venv/lib/python3.12/site-packages/pip_api/_vendor/pyparsing.py
-/app/crypto-venv/lib/python3.12/site-packages/pyparsing/diagram/__init__.py
-/app/crypto-venv/lib/python3.12/site-packages/pyparsing/results.py
-/app/crypto-venv/lib/python3.12/site-packages/pyparsing/core.py
-/app/crypto-venv/lib/python3.12/site-packages/pyparsing/__init__.py
-/app/crypto-venv/lib/python3.12/site-packages/cffi/api.py
-/app/crypto-venv/lib/python3.12/site-packages/cffi/recompiler.py
-/app/crypto-venv/lib/python3.12/site-packages/cffi/_shimmed_dist_utils.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/lisp.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/ml.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/jsx.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/templates.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/pony.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/php.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/css.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/scripting.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/javascript.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/perl.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/modula2.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/ul4.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/lilypond.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/python.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/configs.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
-/app/crypto-venv/lib/python3.12/site-packages/pygments/lexers/macaulay2.py
-/app/crypto-venv/lib/python3.12/site-packages/rich/console.py
-/app/crypto-venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/crypto-venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/ingest_kanawha_images.py
-/app/index_gis_to_chroma.py
-/app/tmp-aaacpe-patch/main_brain.py
-/app/tools/migrate_chroma_collection.py
-/app/ingest_kanawha_resources.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/.format-venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/msjarvis_embed_gbim.py
-/app/msjarvis_embed_gbim_resume_tail.py
-/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/trace/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/gen_ai_attributes.py
-/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/container_attributes.py
-/app/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/file_attributes.py
-/app/.venv-chroma/lib/python3.12/site-packages/flatbuffers/flexbuffers.py
-/app/.venv-chroma/lib/python3.12/site-packages/numpy/_core/tests/test_multiarray.py
-/app/.venv-chroma/lib/python3.12/site-packages/numpy/_core/tests/test_einsum.py
-/app/.venv-chroma/lib/python3.12/site-packages/numpy/ma/tests/test_mrecords.py
-/app/.venv-chroma/lib/python3.12/site-packages/numpy/lib/tests/test_loadtxt.py
-/app/.venv-chroma/lib/python3.12/site-packages/numpy/core/_internal.py
-/app/.venv-chroma/lib/python3.12/site-packages/click/testing.py
-/app/.venv-chroma/lib/python3.12/site-packages/click/core.py
-/app/.venv-chroma/lib/python3.12/site-packages/urllib3/util/ssl_match_hostname.py
-/app/.venv-chroma/lib/python3.12/site-packages/humanfriendly/sphinx.py
-/app/.venv-chroma/lib/python3.12/site-packages/humanfriendly/usage.py
-/app/.venv-chroma/lib/python3.12/site-packages/coloredlogs/syslog.py
-/app/.venv-chroma/lib/python3.12/site-packages/coloredlogs/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/requests_oauthlib/oauth1_session.py
-/app/.venv-chroma/lib/python3.12/site-packages/posthog/ai/openai/openai_async.py
-/app/.venv-chroma/lib/python3.12/site-packages/posthog/ai/openai/openai_providers.py
-/app/.venv-chroma/lib/python3.12/site-packages/posthog/ai/openai/openai.py
-/app/.venv-chroma/lib/python3.12/site-packages/google/protobuf/text_format.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/t5/t5_decoder.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/whisper/convert_to_onnx.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/convert_to_onnx.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/benchmark.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/convert_to_onnx.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_parity.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/llama/llama_inputs.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/bert/eval_squad.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_encoder.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_utils.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/mask_decoder.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/image_decoder.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/prompt_encoder.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/sam2_image_onnx_predictor.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/sam2/benchmark_sam2.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_torch.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/pipeline_stable_diffusion.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/diffusion_models.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/models/stable_diffusion/engine_builder_ort_cuda.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/benchmark.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_exporter.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_keras.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/bert_test_data.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_attention_clip.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/convert_generation.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_rotary_attention.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_base.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_bert_tf.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_embedlayer.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/onnx_model_phi.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/neural_compressor/onnx_model.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/registry.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/matmul_nbits_quantizer.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/operators/embed_layernorm.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/quantization/onnx_quantizer.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/tools/symbolic_shape_infer.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/tools/qnn/gen_qnn_ctx_onnx_model.py
-/app/.venv-chroma/lib/python3.12/site-packages/onnxruntime/tools/offline_tuning.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth1/rfc5849/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc8628/clients/device.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/grant_types/implicit.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/parameters.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/legacy_application.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/backend_application.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/base.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/web_application.py
-/app/.venv-chroma/lib/python3.12/site-packages/oauthlib/oauth2/rfc6749/clients/service_application.py
-/app/.venv-chroma/lib/python3.12/site-packages/packaging/version.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/polys/numberfields/modules.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/polys/numberfields/subfield.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/concrete/expr_with_limits.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/concrete/summations.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/combinatorics/generators.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/tensor/array/expressions/from_array_to_matrix.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/solvers/solvers.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/interactive/session.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/core/numbers.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/core/multidimensional.py
-/app/.venv-chroma/lib/python3.12/site-packages/sympy/calculus/finite_diff.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/hf_api.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_generated/_async_client.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_generated/types/feature_extraction.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_client.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_common.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_providers/scaleway.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_providers/sambanova.py
-/app/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/inference/_providers/nebius.py
-/app/.venv-chroma/lib/python3.12/site-packages/kubernetes/client/models/v1_json_schema_props.py
-/app/.venv-chroma/lib/python3.12/site-packages/kubernetes/client/models/v1_validation_rule.py
-/app/.venv-chroma/lib/python3.12/site-packages/fsspec/core.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/int_fiction.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/lisp.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/ml.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/jsx.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/templates.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/pony.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/php.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/css.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/scripting.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/javascript.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/perl.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/modula2.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_php_builtins.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_lilypond_builtins.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/ul4.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/c_cpp.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/lilypond.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/python.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/configs.py
-/app/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_asy_builtins.py
-/app/.venv-chroma/lib/python3.12/site-packages/rich/console.py
-/app/.venv-chroma/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/mixins/sysdb.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/mixins/embeddings_queue.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/db/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/proto/convert.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/quota/simple_quota_enforcer/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/quota/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/types.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/models/Collection.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/models/AsyncCollection.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/models/CollectionCommon.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/async_api.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/client.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/types.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/async_client.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/fastapi.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/async_fastapi.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/rust.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/segment.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/api/collection_configuration.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/ingest/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/metadata/sqlite.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_persistent_hnsw.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/local_hnsw.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/brute_force_index.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/vector/batch.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/results.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/data_loaders.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cloudflare_workers_ai_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/baseten_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/instructor_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/google_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/fastembed_sparse_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/together_ai_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/voyageai_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/text2vec_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_qwen_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/bm25_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/jina_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/cohere_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/huggingface_sparse_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/registry.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/schema_utils.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/bm25_tokenizer.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/schemas/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_cloud_splade_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/openai_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/amazon_bedrock_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/roboflow_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/morph_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/sentence_transformer_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_langchain_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/chroma_bm25_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/mistral_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/open_clip_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/nomic_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/batch_utils.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/statistics.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/telemetry/product/events.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/logservice/logservice.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/data_loader/test_data_loader.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/db/test_log_purge.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/configurations/test_collection_configuration.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/client/test_database_tenant.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_sanity.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_log_backpressure.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_repair_collection_log_offset.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/distributed/test_reroute.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_indexing_status.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_schema_e2e.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_types.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_search_api.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_limit_offset.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_numpy_list_inputs.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_invalid_update.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/api/test_schema.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/stress/test_many_collections.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_morph_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_voyageai_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_openai_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_ollama_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_multimodal_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_onnx_mini_lm_l6_v2.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_default_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_chroma_bm25_embedding_function.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/ef/test_custom_ef.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/test_cli.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/utils/test_result_df_transform.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/utils/test_embedding_function_schemas.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/test_api.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/conftest.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/test_multithreaded.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_fork.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_collections.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/invariants.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_base64_conversion.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_cross_version_persist.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_embeddings.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/strategies.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_persist.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_add.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_collections_with_database_tenant_overwrite.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_filtering.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_schema.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/test/property/test_restart_persist.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/server/fastapi/types.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/server/fastapi/__init__.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/executor/local.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/executor/distributed.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/expression/operator.py
-/app/.venv-chroma/lib/python3.12/site-packages/chromadb/execution/expression/plan.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/.venv-chroma/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/judge_truth_filter.py
-/app/scripts/sprint5_chromadb_backfill.py
-/app/scripts/ingest_chroma.py
-/app/scripts/mysql_to_chroma.py
-/app/scripts/oi38_seed_collections.py
-/app/scripts/ingest_health_emergency_to_chroma.py
-/app/scripts/sprint2_community_data.py
-/app/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
-/app/logs/msjarvis_embed_gbim_2026-02-24_06-53.py
-/app/.woah-venv/lib/python3.12/site-packages/click/testing.py
-/app/.woah-venv/lib/python3.12/site-packages/click/core.py
-/app/.woah-venv/lib/python3.12/site-packages/fastapi/routing.py
-/app/.woah-venv/lib/python3.12/site-packages/fastapi/dependencies/utils.py
-/app/.woah-venv/lib/python3.12/site-packages/fastapi/param_functions.py
-/app/.woah-venv/lib/python3.12/site-packages/fastapi/params.py
-/app/.woah-venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/diagram/__init__.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/results.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/core.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__init__.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/models/link.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/network/auth.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py
-/app/.woah-venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py
-/app/rag_local_resources.py
-/app/neurobiological_brain/woah_algorithms/service/service_registry_client.py
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/service_registry_client.py
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/service_registry_client.py
-/app/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
-/app/ms_jarvis_rag_server.py
-/app/load_services_attrs_and_enrich.py
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from gbim_orchestrator import gbim_query, gbim_query_with_geo
-from gbim_chroma import get_msjarvis_collection
-from services.gbim_msjarvis import search_msjarvis
+print("=== ROUTED — ALL RESULTS FOR ANNOTATION ===\n")
+with open('/tmp/annotation_routed_v2.csv') as f:
+    rows = list(csv.DictReader(f))
 
-app = FastAPI()
+current_qid = None
+for r in rows:
+    qid = r['query_id']
+    if qid != current_qid:
+        current_qid = qid
+        print(f"\n{'─'*70}")
+        print(f"Q{qid} [{r['category']}]: {r['query']}")
+        print(f"{'─'*70}")
+    dist = r.get('distance','')
+    print(f"  Rank {r['rank']} (dist={dist}): {r['document_preview'][:120]}")
 
-origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+print("\n\n=== UNROUTED — ALL RESULTS FOR ANNOTATION ===\n")
+with open('/tmp/annotation_unrouted_v2.csv') as f:
+    rows = list(csv.DictReader(f))
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+current_qid = None
+for r in rows:
+    qid = r['query_id']
+    if qid != current_qid:
+        current_qid = qid
+EOF print(f"  Rank {r['rank']} (dist={dist}): {r['document_preview'][:120]}")
+=== ROUTED — ALL RESULTS FOR ANNOTATION ===
 
-@app.get("/gbim/meta")
-async def gbim_meta():
-    coll = get_msjarvis_collection()
-    return {"collection": "gbim_msjarvis_corpus", "count": coll.count()}
 
-@app.get("/gbim/search")
-async def gbim_search(q: str):
-    hits = gbim_query(q)
-    return {"query": q, "hits": hits}
+──────────────────────────────────────────────────────────────────────
+Q1 [emergency]: Where can I get emergency food assistance in Oak Hill?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4935): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 2 (dist=0.5188): Oak Hill Volunteer Fire Department | fire department | 582 Virginia Street Oak Hill WV 25901 Oak Hill WV | phone: 304-46
+  Rank 3 (dist=0.5386): Practical Living Words Ministry Inc. | school | 1880 Summerlee Road Oak Hill WV | phone:  | county: 54019 | state: WV
+  Rank 4 (dist=0.5407): ount Hope area)
+- WV Department of Human Services community liaisons
 
-@app.get("/gbim/search_ms")
-async def gbim_search_ms(q: str, category: str = "mountainshares"):
-    cats = [category] if category in ("mountainshares", "spiritual", "other") else None
-    hits = search_msjarvis(q, categories=cats)
-    return {"query": q, "category": category, "hits": hits}
+## Issue Intake
+Submit concerns at: docs/governanc
+  Rank 5 (dist=0.5464): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
 
-@app.get("/gbim/query_with_geo")
-async def gbim_query_with_geo_route(q: str):
-    return gbim_query_with_geo(q)
+──────────────────────────────────────────────────────────────────────
+Q2 [emergency]: Is there a food pantry near Fayetteville WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4826): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 2 (dist=0.5621): Fayette Nursing and Rehabilitation Center - AMFM Nursing & Rehab Centers | nursing home | 100 Hresan Boulevard Fayettevi
+  Rank 3 (dist=0.5663): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 4 (dist=0.5735): Hilltop Center - Genesis Healthcare | nursing home | 152 Saddle Shop Road Hilltop WV 25855 | phone: 304-469-2966 | beds:
+  Rank 5 (dist=0.5775): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
 
-from services.gbim_entanglement import entangled_query
+──────────────────────────────────────────────────────────────────────
+Q3 [emergency]: How do I apply for SNAP in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5318): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 2 (dist=0.5337): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.5476): Valley PK-8 School | school | 55 Greyhound Lane Smithers WV | phone: nan | county: Fayette | state: WV
+  Rank 4 (dist=0.5480): Boomer Christian Academy | school | 34 Christian School Drive Boomer WV | phone: nan | county: Fayette | state: WV
+  Rank 5 (dist=0.5689): Sharples Volunteer Fire Department | fire department | 25 Signature Circle Sharples WV 25183 Sharples WV | phone: 304-36
 
-@app.get("/gbim/entangled")
-async def gbim_entangled(q: str):
-    return entangled_query(q)
+──────────────────────────────────────────────────────────────────────
+Q4 [emergency]: My family needs food help this week in Mount Hope
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4724): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 2 (dist=0.5389): Mount Hope Volunteer Fire Department | fire department | 644 Main Street Mount Hope WV 25880 Mount Hope WV | phone: 304-
+  Rank 3 (dist=0.5754): Mt Hope Public Library | library | 500 Main Street Mt. Hope WV | phone: 304 877 3260 | county: ? | state: WV
+  Rank 4 (dist=0.5911): Wishing Well Health Center | nursing home | 1539 Country Club Road WV | phone: 366-9100 | county: Marion | state: WV
+  Rank 5 (dist=0.5924): Feed My Sheep | school | 260 North High Street Philippi WV | phone: nan | county: Barbour | state: WV
 
-from services.gbim_entangled_summary import entangled_summary
+──────────────────────────────────────────────────────────────────────
+Q5 [emergency]: What food banks are open in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5139): Green bank Public Library | library | P.O. Box 1, Rt 28 Green Bank WV | phone: 304 456 4507 | county: ? | state: WV
+  Rank 2 (dist=0.5173): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 3 (dist=0.5527): Ansted Center | nursing home | P.O. Drawer 400 WV | phone: 658-5271 | county: Fayette | state: WV
+  Rank 4 (dist=0.5730): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+  Rank 5 (dist=0.5734): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
 
-@app.get("/gbim/entangled_summary")
-async def gbim_entangled_summary_route(q: str):
-    return entangled_summary(q)
+──────────────────────────────────────────────────────────────────────
+Q6 [utility]: How do I apply for LIEAP in West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4653): by applicable law and policy). - Residency: Primary residence address in West Virginia. - Identity verification: KYC and
+  Rank 2 (dist=0.5040): Geographic Scope - Phase 1 deployment is limited to Users and Merchants whose primary residence or operations are locate
+  Rank 3 (dist=0.5046): with employers, landlords, or community organizations, and accessible only by Ms. Jarvis for system enforcement purposes
+  Rank 4 (dist=0.5151): West Virginia State University | higher education | 5000 Fairlawn Avenue Institute WV 25112 WV | phone: (304) 766-3000 |
+  Rank 5 (dist=0.5182): legal prerequisites to MountainShares operating at Phase 2 scale; governed by Section 7A - **Annual Regulatory Complianc
 
-from api_resources import router as resources_router
-app.include_router(resources_router)
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild$ 
+──────────────────────────────────────────────────────────────────────
+Q7 [utility]: My power is about to be shut off in Fayette County
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5760): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 2 (dist=0.6041): Fayetteville Public Library | library | 200 W Maple Avenue Fayetteville WV | phone: 304 574 0070 | county: ? | state: WV
+  Rank 3 (dist=0.6122): Fayetteville Fire Department | fire department | 177 Lively Street Fayetteville WV 25840 Fayetteville WV | phone: 304-57
+  Rank 4 (dist=0.6190): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 5 (dist=0.6217): Fayette County Sheriffs Office - Danese Detachment | police department | 6411 Meadow Bridge Road Danese WV 25831 WV | ph
+
+──────────────────────────────────────────────────────────────────────
+Q8 [utility]: Is there utility assistance for low income families near Oak Hill?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5027): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 2 (dist=0.5163): of profit distributions from Harmony for Hope. --- ## 5. Use of Program Revenues (Charitable Intent) Program revenues an
+  Rank 3 (dist=0.5163): of profit distributions from Harmony for Hope. --- ## 5. Use of Program Revenues (Charitable Intent) Program revenues an
+  Rank 4 (dist=0.5467): your community role. For all other programs — SNAP, Medicaid, WV WORKS, housing assistance — the system does not apply a
+  Rank 5 (dist=0.5470): Sand Hill Library | library | Sand Hill Elementary, Rt 1 Box 87 Dallas WV | phone: 304 547 5041 | county: ? | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q9 [utility]: Who do I call for emergency heating help in Fayette County WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.3994): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 2 (dist=0.4167): Summers County E-911 | 911 emergency center | 451 1st Avenue Suite 101 Hinton WV 25951 WV | phone: 304-466-5613 | county
+  Rank 3 (dist=0.4328): White Sulphur Springs Volunteer Fire Department | fire department | 195 Bob White Lane White Sulphur Springs WV 24986 Wh
+  Rank 4 (dist=0.4372): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 5 (dist=0.4390): Main Street Care | nursing home | 189 Summers Hospital Road Suite 300 Hinton WV 25951 | phone: 304-466-6090 | beds: 34.0
+
+──────────────────────────────────────────────────────────────────────
+Q10 [utility]: What programs help pay electric bills in southern West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5168): fee revenue is allocated between treasury reserves, organizational operations, infrastructure, and community programs. -
+  Rank 2 (dist=0.5168): fee revenue is allocated between treasury reserves, organizational operations, infrastructure, and community programs. -
+  Rank 3 (dist=0.5567): legal prerequisites to MountainShares operating at Phase 2 scale; governed by Section 7A - **Annual Regulatory Complianc
+  Rank 4 (dist=0.5600): 30% | Harmony for Hope, Inc. (H4H Operations) | Covers nonprofit administration, staffing, compliance, legal, and progra
+  Rank 5 (dist=0.5738): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+
+──────────────────────────────────────────────────────────────────────
+Q11 [housing]: How do I apply for Section 8 in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4589): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 2 (dist=0.5271): Valley PK-8 School | school | 55 Greyhound Lane Smithers WV | phone: nan | county: Fayette | state: WV
+  Rank 3 (dist=0.5391): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 4 (dist=0.5523): Wiley Ford Primary School | school | 71 Wiley Ford School Road Wiley Ford WV 26767 nan WV | phone: 304-738-0400 | county
+  Rank 5 (dist=0.5553): Boomer Christian Academy | school | 34 Christian School Drive Boomer WV | phone: nan | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q12 [housing]: Is there emergency housing assistance near Fayetteville?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4455): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 2 (dist=0.4572): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.4634): Fayette Nursing and Rehabilitation Center - AMFM Nursing & Rehab Centers | nursing home | 100 Hresan Boulevard Fayettevi
+  Rank 4 (dist=0.4684): Ansted Center | nursing home | P.O. Drawer 400 WV | phone: 658-5271 | county: Fayette | state: WV
+  Rank 5 (dist=0.4784): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+
+──────────────────────────────────────────────────────────────────────
+Q13 [housing]: Who handles HUD housing vouchers in southern WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4544): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+  Rank 2 (dist=0.5173): (add new forms, e.g., community project investment elections), *subject to legal review* ✅ **Distribution confirmation t
+  Rank 3 (dist=0.5267): may never be activated or may only apply to limited categories of MountainShares or Users. Internal buying‑power schedul
+  Rank 4 (dist=0.5520): # Benefits‑Sensitive Accounts – Plain Language Notice *(Draft – For Discussion, Not Legal Advice)* This notice explains 
+  Rank 5 (dist=0.5569): adjusts: - **Weekly:** County-level network snapshots added to the standard weekly report - **Monthly:** Per-county trea
+
+──────────────────────────────────────────────────────────────────────
+Q14 [housing]: Where can I get help with rent in Oak Hill West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4474): Oak Hill Volunteer Fire Department | fire department | 582 Virginia Street Oak Hill WV 25901 Oak Hill WV | phone: 304-46
+  Rank 2 (dist=0.4641): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
+  Rank 3 (dist=0.4772): West Virginia State Police Troop 6 - Oak Hill Detachment | police department | 3057 Main Street East Oak Hill WV 25901 W
+  Rank 4 (dist=0.4800): Practical Living Words Ministry Inc. | school | 1880 Summerlee Road Oak Hill WV | phone:  | county: 54019 | state: WV
+  Rank 5 (dist=0.4949): Oak Ridge Center - Genesis Healthcare | nursing home | 1000 Association Drive Charleston WV 25311 | phone: 304-347-4372 
+
+──────────────────────────────────────────────────────────────────────
+Q15 [housing]: What homeless shelters are in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4668): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 2 (dist=0.4998): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 3 (dist=0.5042): Fayette Nursing and Rehabilitation Center - AMFM Nursing & Rehab Centers | nursing home | 100 Hresan Boulevard Fayettevi
+  Rank 4 (dist=0.5088): Hilltop Center - Genesis Healthcare | nursing home | 152 Saddle Shop Road Hilltop WV 25855 | phone: 304-469-2966 | beds:
+  Rank 5 (dist=0.5163): Ansted Center | nursing home | P.O. Drawer 400 WV | phone: 658-5271 | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q16 [health]: How do I apply for Medicaid in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4200): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+  Rank 2 (dist=0.4863): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.4898): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 4 (dist=0.4911): Montgomery General Elderly Care | nursing home | 335 Sixth Avenue Montgomery WV 25136 | phone: 304-442-2469 | beds: 60.0
+  Rank 5 (dist=0.5043): Montgomery General Hospital, D/P | nursing home | Washington St. & 6th Ave. WV | phone: 442-5151 | county: Fayette | sta
+
+──────────────────────────────────────────────────────────────────────
+Q17 [health]: Where is the nearest DHHR office to Oak Hill WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.3973): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
+  Rank 2 (dist=0.3998): Oak Hill Volunteer Fire Department | fire department | 582 Virginia Street Oak Hill WV 25901 Oak Hill WV | phone: 304-46
+  Rank 3 (dist=0.4529): Practical Living Words Ministry Inc. | school | 1880 Summerlee Road Oak Hill WV | phone:  | county: 54019 | state: WV
+  Rank 4 (dist=0.4626): Oak Hill Parole Office | parole facility | 1307 Main Street East Oak Hill WV | county: Fayette | state: WV
+  Rank 5 (dist=0.4629): Fayette Co. Public Library | library | 531 Summit Street Oak Hill WV | phone: 304 465 0121 | county: ? | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q18 [health]: What free clinics are available in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4387): Fayetteville Clinic | health | Fayetteville WV 25840 | Free health clinic
+  Rank 2 (dist=0.4883): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+  Rank 3 (dist=0.4945): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 4 (dist=0.5004): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 5 (dist=0.5120): Montgomery General Hospital, D/P | nursing home | Washington St. & 6th Ave. WV | phone: 442-5151 | county: Fayette | sta
+
+──────────────────────────────────────────────────────────────────────
+Q19 [health]: How do I get health insurance if I cannot afford it in WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5338): West Virginia School of Osteopathic Medicine | higher education | 400 North Lee Street Lewisburg WV 24901 WV | phone: (8
+  Rank 2 (dist=0.5345): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+  Rank 3 (dist=0.5365): WV University Hospital, D/P | nursing home | Medical Center Drive WV | phone: 598-4704 | county: Monongalia | state: WV
+  Rank 4 (dist=0.5432): Care Haven Center - Genesis Healthcare | nursing home | 2720 Charles Town Road Martinsburg WV 25405 | phone: 304-263-093
+  Rank 5 (dist=0.5526): Care Haven Center | nursing home | 2720 Charles Town Road WV | phone: 263-0933 | county: Berkeley | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q20 [health]: Who helps with Medicare enrollment in southern West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5246): when making decisions about your benefits.* --- *Version 2.0 — Rewritten March 2026* *Authors: Carrie Kidd (Mamma Kidd),
+  Rank 2 (dist=0.5266): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 3 (dist=0.5438): ount Hope area)
+- WV Department of Human Services community liaisons
+
+## Issue Intake
+Submit concerns at: docs/governanc
+  Rank 4 (dist=0.5468): Valley Center - Genesis Healthcare | nursing home | 1000 Lincoln Drive South Charleston WV 25309 | phone: 304-768-4400 |
+  Rank 5 (dist=0.5470): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+
+──────────────────────────────────────────────────────────────────────
+Q21 [childcare]: Is there childcare assistance available in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4192): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 2 (dist=0.4252): Ansted Center | nursing home | P.O. Drawer 400 WV | phone: 658-5271 | county: Fayette | state: WV
+  Rank 3 (dist=0.4320): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 4 (dist=0.4387): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 5 (dist=0.4500): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q22 [childcare]: How do I apply for the WV childcare subsidy program?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4881): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+  Rank 2 (dist=0.5167): Applied Behavior Learning Center | school | 325 6th Avenue South Charleston WV | phone: nan | county: Kanawha | state: W
+  Rank 3 (dist=0.5350): Mother Goose Land Day Care | school | 401 West Virginia Avenue Nutter Fort WV | phone:  | county: 54033 | state: WV
+  Rank 4 (dist=0.5457): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 5 (dist=0.5538): The Light of the Child Montessori School | school | 112 North King Street Shepherdstown WV | phone:  | county: 54037 | s
+
+──────────────────────────────────────────────────────────────────────
+Q23 [childcare]: Where can I find affordable daycare near Oak Hill?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4847): Sand Hill Library | library | Sand Hill Elementary, Rt 1 Box 87 Dallas WV | phone: 304 547 5041 | county: ? | state: WV
+  Rank 2 (dist=0.5074): Brightwood Center | nursing home | 840 Lee Road WV | phone: 527-1100 | county: Brooke | state: WV
+  Rank 3 (dist=0.5114): Oak Ridge Center | nursing home | 1000 Association Drive WV | phone: 347-4372 | county: Kanawha | state: WV
+  Rank 4 (dist=0.5121): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
+  Rank 5 (dist=0.5257): Practical Living Words Ministry Inc. | school | 1880 Summerlee Road Oak Hill WV | phone:  | county: 54019 | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q24 [childcare]: What programs help pay for childcare in southern WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4901): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+  Rank 2 (dist=0.5207): Mother Goose Land Day Care | school | 401 West Virginia Avenue Nutter Fort WV | phone:  | county: 54033 | state: WV
+  Rank 3 (dist=0.5253): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 4 (dist=0.5495): Applied Behavior Learning Center | school | 325 6th Avenue South Charleston WV | phone: nan | county: Kanawha | state: W
+  Rank 5 (dist=0.5601): Education Dept | library | 1001 Centre Way Charleston WV | phone: 304 558 1336 | county: ? | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q25 [childcare]: I need help paying for preschool in Fayette County
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4895): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 2 (dist=0.5175): Gauley Bridge Elementary School | school | 140 Walnut Street Gauley Bridge WV 25085 nan WV | phone: 304-632-2661 | count
+  Rank 3 (dist=0.5308): Mount Hope Elementary School | school | 408 Lincoln Street Mount Hope WV 25880 nan WV | phone: 304-877-2891 | county: Fa
+  Rank 4 (dist=0.5329): Watson Elementary School | school | 1579 Mary Lou Retton Drive Fairmont WV 26554 nan WV | phone: 304-367-2156 | county: 
+  Rank 5 (dist=0.5372): West Fairmont Middle School | school | 110 Tenth Street Fairmont WV 26554 nan WV | phone: 304-366-5631 | county: Marion 
+
+──────────────────────────────────────────────────────────────────────
+Q26 [ssi]: How do I apply for SSI in West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5226): WEST VIRGINIA STATE POLICE TROOP 4 - SAINT MARYS DETACHMENT | law enforcement | 1313 SECOND STREET SAINT MARYS WV | phon
+  Rank 2 (dist=0.5229): Geographic Scope - Phase 1 deployment is limited to Users and Merchants whose primary residence or operations are locate
+  Rank 3 (dist=0.5249): West Virginia State Police Troop 4 - Saint Marys Detachment | police department | 1313 Second Street Saint Marys WV 2617
+  Rank 4 (dist=0.5250): WEST VIRGINIA STATE POLICE TROOP 4 - SOUTH CHARLESTON DETACHMENT | law enforcement | 711 JEFFERSON ROAD SOUTH CHARLESTON
+  Rank 5 (dist=0.5344): West Virginia State Police Troop 4 - South Charleston Detachment | police department | 711 Jefferson Road South Charlest
+
+──────────────────────────────────────────────────────────────────────
+Q27 [ssi]: Where is the Social Security office nearest to Oak Hill WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4121): Oak Hill Volunteer Fire Department | fire department | 582 Virginia Street Oak Hill WV 25901 Oak Hill WV | phone: 304-46
+  Rank 2 (dist=0.4322): Oak Hill Parole Office | parole facility | 1307 Main Street East Oak Hill WV | county: Fayette | state: WV
+  Rank 3 (dist=0.4337): SS Peter & Paul Catholic School | school | 123 Elmore Street Oak Hill WV | phone:  | county: 54019 | state: WV
+  Rank 4 (dist=0.4369): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
+  Rank 5 (dist=0.4437): Hidden Valley Center- Genesis Healthcare | nursing home | 422  23rd Street Oak Hill WV 25901 | phone: 304-465-1903 | bed
+
+──────────────────────────────────────────────────────────────────────
+Q28 [ssi]: What disability assistance programs are in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4591): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 2 (dist=0.4652): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.4681): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+  Rank 4 (dist=0.4728): Fayette Nursing and Rehabilitation Center - AMFM Nursing & Rehab Centers | nursing home | 100 Hresan Boulevard Fayettevi
+  Rank 5 (dist=0.4944): SunBridge Care & Rehab for Dunbar | nursing home | 501 Caldwell Lane WV | phone: 744-4761 | county: Kanawha | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q29 [ssi]: I was denied SSI who can help me appeal in WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5917): Arthur B. Hodges Center | nursing home | 300 Baker Lane Charleston WV 25302 | phone: 304-346-2323 | beds: 20.0 | county:
+  Rank 2 (dist=0.6134): West Virginia State University | higher education | 5000 Fairlawn Avenue Institute WV 25112 WV | phone: (304) 766-3000 |
+  Rank 3 (dist=0.6195): West Virginia Division of Protective Services - Capitol Police | police department | 1900 Kanawha Boulevard East State C
+  Rank 4 (dist=0.6263): DIVISION OF PROTECTIVE SERVICES | law enforcement | 1900 KANAWHA BOULEVARD EAST CHARLESTON WV | phone: 304-558-9911 | co
+  Rank 5 (dist=0.6273): Guardian Elder Care (Peterson Rehab. Hosp. D/P) | nursing home | Homestead Avenue WV | phone: 234-0500 | county: Ohio | 
+
+──────────────────────────────────────────────────────────────────────
+Q30 [ssi]: What income help is available for disabled adults in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5208): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 2 (dist=0.5249): V60.6 (Z59.3) Problem Related to Living in a Residential Institution
+This category should be used when a problem (or pro
+  Rank 3 (dist=0.5394): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 4 (dist=0.5403): to your community and a way to access community resources in return. Here is what that means for your benefits: ### Your
+  Rank 5 (dist=0.5456): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+
+
+=== UNROUTED — ALL RESULTS FOR ANNOTATION ===
+
+
+──────────────────────────────────────────────────────────────────────
+Q1 [emergency]: Where can I get emergency food assistance in Oak Hill?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4635): Fire Department: Oak Hill Volunteer Fire Department, 582 Virginia Street Oak Hill WV 25901, Oak Hill, WV
+  Rank 2 (dist=0.4934): rural_health Elk Garden Clinic health_rural_facilities lat:39.365643 lon:-79.174744 West Virginia WV
+  Rank 3 (dist=0.4934): rural_health Elk Garden Clinic health_rural_facilities lat:39.365643 lon:-79.174744 West Virginia WV
+  Rank 4 (dist=0.4934): rural_health Elk Garden Clinic health_rural_facilities lat:39.365643 lon:-79.174744 West Virginia WV
+  Rank 5 (dist=0.4934): rural_health Elk Garden Clinic health_rural_facilities lat:39.365643 lon:-79.174744 West Virginia WV
+
+──────────────────────────────────────────────────────────────────────
+Q2 [emergency]: Is there a food pantry near Fayetteville WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4059): Mountaineer Food Bank hosting pantry in Fayette County on April 28. The organization will host a pantry at the Old Mount
+  Rank 2 (dist=0.4296): Southern Appalachian Labor School hosting food pantry in Beards Fork on May 4. The Southern Appalachian Labor School wil
+  Rank 3 (dist=0.4311): West Virginia Pepperoni Roll Museum to open this spring in Fayetteville
+  Rank 4 (dist=0.4311): West Virginia Pepperoni Roll Museum to open this spring in Fayetteville
+  Rank 5 (dist=0.4762): Library: Fayetteville Public Library, 200 W Maple Avenue, Fayetteville, WV
+
+──────────────────────────────────────────────────────────────────────
+Q3 [emergency]: How do I apply for SNAP in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5318): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 2 (dist=0.5337): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.5434): Law Enforcement: MINERAL COUNTY BAILIFFS OFFICE, 150 ARMSTRONG STREET, KEYSER, MINERAL County, WV
+  Rank 4 (dist=0.5476): Valley PK-8 School | school | 55 Greyhound Lane Smithers WV | phone: nan | county: Fayette | state: WV
+  Rank 5 (dist=0.5480): Boomer Christian Academy | school | 34 Christian School Drive Boomer WV | phone: nan | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q4 [emergency]: My family needs food help this week in Mount Hope
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4724): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 2 (dist=0.5130): Mountaineer Food Bank hosting pantry in Fayette County on April 28. The organization will host a pantry at the Old Mount
+  Rank 3 (dist=0.5366): Additional Resources 
+ 
+Find Help 
+ 
+ 
+ 
+ 
+ 
+ https://www.findhelp.org/ 
+ 
+Healthy Grandfamilies  
+ 
+ 
+ 
+https://healthy
+  Rank 4 (dist=0.5385): Fire Department: Mount Hope Volunteer Fire Department, 644 Main Street Mount Hope WV 25880, Mount Hope, WV
+  Rank 5 (dist=0.5389): Mount Hope Volunteer Fire Department | fire department | 644 Main Street Mount Hope WV 25880 Mount Hope WV | phone: 304-
+
+──────────────────────────────────────────────────────────────────────
+Q5 [emergency]: What food banks are open in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4359): Mountaineer Food Bank hosting pantry in Fayette County on April 28. The organization will host a pantry at the Old Mount
+  Rank 2 (dist=0.4714): Southern Appalachian Labor School hosting food pantry in Beards Fork on May 4. The Southern Appalachian Labor School wil
+  Rank 3 (dist=0.4882): Mountaineer Food Bank stopping in Mercer and Monroe County this week. On Tuesday, May 5, the pantry will be in Mercer Co
+  Rank 4 (dist=0.5118): rural_health Fayette Clinic PLLC health_rural_facilities lat:37.976612 lon:-81.097223 West Virginia WV
+  Rank 5 (dist=0.5139): Green bank Public Library | library | P.O. Box 1, Rt 28 Green Bank WV | phone: 304 456 4507 | county: ? | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q6 [utility]: How do I apply for LIEAP in West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4653): by applicable law and policy). - Residency: Primary residence address in West Virginia. - Identity verification: KYC and
+  Rank 2 (dist=0.4667): WV opens application period for some Rural Health Transformation funds. The West Virginia Department of Health has start
+  Rank 3 (dist=0.4814): rural_health S.K. Shammaa, M.D., Inc. health_rural_facilities lat:37.673593 lon:-80.890884 West Virginia WV
+  Rank 4 (dist=0.4814): rural_health S.K. Shammaa, M.D., Inc. health_rural_facilities lat:37.673593 lon:-80.890884 West Virginia WV
+  Rank 5 (dist=0.4814): rural_health S.K. Shammaa, M.D., Inc. health_rural_facilities lat:37.673593 lon:-80.890884 West Virginia WV
+
+──────────────────────────────────────────────────────────────────────
+Q7 [utility]: My power is about to be shut off in Fayette County
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5760): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 2 (dist=0.6041): Fayetteville Public Library | library | 200 W Maple Avenue Fayetteville WV | phone: 304 574 0070 | county: ? | state: WV
+  Rank 3 (dist=0.6122): Fayetteville Fire Department | fire department | 177 Lively Street Fayetteville WV 25840 Fayetteville WV | phone: 304-57
+  Rank 4 (dist=0.6141): Fayette County Sheriff’s Office is investigating a death. The Fayette County Sheriff's Office is investigating a death i
+  Rank 5 (dist=0.6190): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+
+──────────────────────────────────────────────────────────────────────
+Q8 [utility]: Is there utility assistance for low income families near Oak Hill?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4676): Additional Resources 
+ 
+Find Help 
+ 
+ 
+ 
+ 
+ 
+ https://www.findhelp.org/ 
+ 
+Healthy Grandfamilies  
+ 
+ 
+ 
+https://healthy
+  Rank 2 (dist=0.4870): Additional Resources Find Help https://www.findhelp.org/ Healthy Grandfamilies https://healthygrandfamilies.com/ Interna
+  Rank 3 (dist=0.4887): 
+
+- **Harmony for Hope operations and staff**, which provide organizational backbone for community programming and techn
+  Rank 4 (dist=0.5027): faith communities, mutual aid, youth orgs,
+  local government, economic development, health/food access, cultural preser
+  Rank 5 (dist=0.5163): of profit distributions from Harmony for Hope. --- ## 5. Use of Program Revenues (Charitable Intent) Program revenues an
+
+──────────────────────────────────────────────────────────────────────
+Q9 [utility]: Who do I call for emergency heating help in Fayette County WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.3994): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 2 (dist=0.4095): public_health FAYETTE COUNTY HEALTH DEPARTMENT public_health_depts_2009 lat:38.054048 lon:-81.103434 West Virginia WV
+  Rank 3 (dist=0.4167): Summers County E-911 | 911 emergency center | 451 1st Avenue Suite 101 Hinton WV 25951 WV | phone: 304-466-5613 | county
+  Rank 4 (dist=0.4328): White Sulphur Springs Volunteer Fire Department | fire department | 195 Bob White Lane White Sulphur Springs WV 24986 Wh
+  Rank 5 (dist=0.4372): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q10 [utility]: What programs help pay electric bills in southern West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5168): fee revenue is allocated between treasury reserves, organizational operations, infrastructure, and community programs. -
+  Rank 2 (dist=0.5168): fee revenue is allocated between treasury reserves, organizational operations, infrastructure, and community programs. -
+  Rank 3 (dist=0.5342): Additional Resources Find Help https://www.findhelp.org/ Healthy Grandfamilies https://healthygrandfamilies.com/ Interna
+  Rank 4 (dist=0.5379): Additional Resources 
+ 
+Find Help 
+ 
+ 
+ 
+ 
+ 
+ https://www.findhelp.org/ 
+ 
+Healthy Grandfamilies  
+ 
+ 
+ 
+https://healthy
+  Rank 5 (dist=0.5456): re implemented and respected in practice.
+
+- **Program operations and partnerships**  
+  - Managing relationships with l
+
+──────────────────────────────────────────────────────────────────────
+Q11 [housing]: How do I apply for Section 8 in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4589): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 2 (dist=0.5230): ARC Seeking Applicants for Leadership Development Program Focused on Multi-Sector Economic Development. <p>Public,&#160;
+  Rank 3 (dist=0.5230): ARC Seeking Applicants for Leadership Development Program Focused on Multi-Sector Economic Development. <p>Public,&#160;
+  Rank 4 (dist=0.5271): Valley PK-8 School | school | 55 Greyhound Lane Smithers WV | phone: nan | county: Fayette | state: WV
+  Rank 5 (dist=0.5299): School: Wiley Ford Primary School, 71 Wiley Ford School Road Wiley Ford WV 26767, Mineral County, WV
+
+──────────────────────────────────────────────────────────────────────
+Q12 [housing]: Is there emergency housing assistance near Fayetteville?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4455): Fayette County E-911 | 911 emergency center | 1047 Nick Rahall Greenway Fayetteville WV 25840 WV | phone: 304-574-3590 |
+  Rank 2 (dist=0.4572): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.4613): Nursing Home: Fayette Nursing and Rehabilitation Center, Inc., 100 Hresan Boulevard, Fayetteville, Fayette County, WV
+  Rank 4 (dist=0.4634): Fayette Nursing and Rehabilitation Center - AMFM Nursing & Rehab Centers | nursing home | 100 Hresan Boulevard Fayettevi
+  Rank 5 (dist=0.4684): Ansted Center | nursing home | P.O. Drawer 400 WV | phone: 658-5271 | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q13 [housing]: Who handles HUD housing vouchers in southern WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4544): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+  Rank 2 (dist=0.4762): Emergency housing vouchers are ending early, leaving cities and renters scrambling. A New York City mom and domestic vio
+  Rank 3 (dist=0.4959): The Change Initiative receives $380K grant to expand recovery housing in North Central West Virginia
+  Rank 4 (dist=0.5173): (add new forms, e.g., community project investment elections), *subject to legal review* ✅ **Distribution confirmation t
+  Rank 5 (dist=0.5250): WV youth aging out of foster care face waitlist for resources; Morrisey vetoes bill to address issue. Children’s Home So
+
+──────────────────────────────────────────────────────────────────────
+Q14 [housing]: Where can I get help with rent in Oak Hill West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4474): Oak Hill Volunteer Fire Department | fire department | 582 Virginia Street Oak Hill WV 25901 Oak Hill WV | phone: 304-46
+  Rank 2 (dist=0.4641): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
+  Rank 3 (dist=0.4737): Fire Department: Oak Hill Volunteer Fire Department, 582 Virginia Street Oak Hill WV 25901, Oak Hill, WV
+  Rank 4 (dist=0.4772): West Virginia State Police Troop 6 - Oak Hill Detachment | police department | 3057 Main Street East Oak Hill WV 25901 W
+  Rank 5 (dist=0.4800): Practical Living Words Ministry Inc. | school | 1880 Summerlee Road Oak Hill WV | phone:  | county: 54019 | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q15 [housing]: What homeless shelters are in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4005): [empty document]
+  Rank 2 (dist=0.4668): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.4824): rural_health Fayette Clinic PLLC health_rural_facilities lat:37.976612 lon:-81.097223 West Virginia WV
+  Rank 4 (dist=0.4888): 
+
+- **Harmony for Hope operations and staff**, which provide organizational backbone for community programming and techn
+  Rank 5 (dist=0.4986): Nursing Home: Fayette Nursing and Rehabilitation Center, Inc., 100 Hresan Boulevard, Fayetteville, Fayette County, WV
+
+──────────────────────────────────────────────────────────────────────
+Q16 [health]: How do I apply for Medicaid in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4200): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+  Rank 2 (dist=0.4603): public_health FAYETTE COUNTY HEALTH DEPARTMENT public_health_depts_2009 lat:38.054048 lon:-81.103434 West Virginia WV
+  Rank 3 (dist=0.4791): rural_health Fayette Clinic PLLC health_rural_facilities lat:37.976612 lon:-81.097223 West Virginia WV
+  Rank 4 (dist=0.4863): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 5 (dist=0.4865): Many states unsure how to implement new Medicaid work requirements, KFF survey finds. WASHINGTON — State officials say t
+
+──────────────────────────────────────────────────────────────────────
+Q17 [health]: Where is the nearest DHHR office to Oak Hill WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.3710): Fire Department: Oak Hill Volunteer Fire Department, 582 Virginia Street Oak Hill WV 25901, Oak Hill, WV
+  Rank 2 (dist=0.3873): Law Enforcement: Oak Hill Police Department, 691 Virginia Street Oak Hill WV 25901, Fayette County, WV
+  Rank 3 (dist=0.3948): Law Enforcement: West Virginia State Police Troop 6 - Oak Hill Detachment, 3057 Main Street East Oak Hill WV 25901, Faye
+  Rank 4 (dist=0.3962): Library: Oak Hill Public Library, 611 Main Street, Oak Hill, WV
+  Rank 5 (dist=0.3973): Oak Hill Public Library | library | 611 Main Street Oak Hill WV | phone: 304 469 9890 | county: ? | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q18 [health]: What free clinics are available in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.3688): rural_health Fayette Clinic PLLC health_rural_facilities lat:37.976612 lon:-81.097223 West Virginia WV
+  Rank 2 (dist=0.4387): Fayetteville Clinic | health | Fayetteville WV 25840 | Free health clinic
+  Rank 3 (dist=0.4600): rural_health Summers County App. Regiona. Hospital Clinic health_rural_facilities lat:37.671504 lon:-80.890026 West Virg
+  Rank 4 (dist=0.4768): public_health FAYETTE COUNTY HEALTH DEPARTMENT public_health_depts_2009 lat:38.054048 lon:-81.103434 West Virginia WV
+  Rank 5 (dist=0.4883): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q19 [health]: How do I get health insurance if I cannot afford it in WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4502): WV opens application period for some Rural Health Transformation funds. The West Virginia Department of Health has start
+  Rank 2 (dist=0.4638): Medicaid work requirements, redeterminations will cause up to 75K to lose their health care in WV. Between 40,000 and 75
+  Rank 3 (dist=0.5184): public_health MCDOWELL COUNTY HEALTH DEPARTMENT public_health_depts_2009 lat:37.378643 lon:-81.562447 West Virginia WV
+  Rank 4 (dist=0.5244): rural_health Family Healthcare Associates, Inc. health_rural_facilities lat:37.743198 lon:-81.874845 West Virginia WV
+  Rank 5 (dist=0.5244): rural_health Family Healthcare Associates, Inc. health_rural_facilities lat:37.743198 lon:-81.874845 West Virginia WV
+
+──────────────────────────────────────────────────────────────────────
+Q20 [health]: Who helps with Medicare enrollment in southern West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4529): Hospice of Southern WV recognized for 5-star care. Hospice of Southern West Virginia has been recognized by the Centers 
+  Rank 2 (dist=0.4739): Medicaid work requirements, redeterminations will cause up to 75K to lose their health care in WV. Between 40,000 and 75
+  Rank 3 (dist=0.4782): rural_health Family Healthcare Associates, Inc. health_rural_facilities lat:37.743198 lon:-81.874845 West Virginia WV
+  Rank 4 (dist=0.4782): rural_health Family Healthcare Associates, Inc. health_rural_facilities lat:37.743198 lon:-81.874845 West Virginia WV
+  Rank 5 (dist=0.4953): Additional Resources 
+ 
+Find Help 
+ 
+ 
+ 
+ 
+ 
+ https://www.findhelp.org/ 
+ 
+Healthy Grandfamilies  
+ 
+ 
+ 
+https://healthy
+
+──────────────────────────────────────────────────────────────────────
+Q21 [childcare]: Is there childcare assistance available in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4192): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 2 (dist=0.4252): Ansted Center | nursing home | P.O. Drawer 400 WV | phone: 658-5271 | county: Fayette | state: WV
+  Rank 3 (dist=0.4320): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 4 (dist=0.4387): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 5 (dist=0.4500): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+
+──────────────────────────────────────────────────────────────────────
+Q22 [childcare]: How do I apply for the WV childcare subsidy program?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4810): WV opens application period for some Rural Health Transformation funds. The West Virginia Department of Health has start
+  Rank 2 (dist=0.4881): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+  Rank 3 (dist=0.4964): WV youth aging out of foster care face waitlist for resources; Morrisey vetoes bill to address issue. Children’s Home So
+  Rank 4 (dist=0.5011): School: Divide Elementary School, 334 Propps Ridge Lookout WV 25868, Fayette County, WV
+  Rank 5 (dist=0.5159): 26,000 West Virginia kids lack childcare access. These Clay County parents want answers from their lawmakers.. <figure><
+
+──────────────────────────────────────────────────────────────────────
+Q23 [childcare]: Where can I find affordable daycare near Oak Hill?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4847): Sand Hill Library | library | Sand Hill Elementary, Rt 1 Box 87 Dallas WV | phone: 304 547 5041 | county: ? | state: WV
+  Rank 2 (dist=0.4962): Library: Oak Hill Public Library, 611 Main Street, Oak Hill, WV
+  Rank 3 (dist=0.4970): Nursing Home: Hidden Valley Center- Genesis Healthcare, 422  23rd Street Oak Hill WV 25901, Fayette County, WV
+  Rank 4 (dist=0.5035): Nursing Home: River Oaks - Stonerise Healthcare, 100 Parkway Drive Clarksburg WV 26301, Harrison County, WV
+  Rank 5 (dist=0.5049): Nursing Home: Hidden Valley Center, 422 - 23rd Street, Oak Hill, Fayette County, WV
+
+──────────────────────────────────────────────────────────────────────
+Q24 [childcare]: What programs help pay for childcare in southern WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4546): WV youth aging out of foster care face waitlist for resources; Morrisey vetoes bill to address issue. Children’s Home So
+  Rank 2 (dist=0.4569): Additional Resources Find Help https://www.findhelp.org/ Healthy Grandfamilies https://healthygrandfamilies.com/ Interna
+  Rank 3 (dist=0.4678): Additional Resources 
+ 
+Find Help 
+ 
+ 
+ 
+ 
+ 
+ https://www.findhelp.org/ 
+ 
+Healthy Grandfamilies  
+ 
+ 
+ 
+https://healthy
+  Rank 4 (dist=0.4754): 26,000 West Virginia kids lack childcare access. These Clay County parents want answers from their lawmakers.. <figure><
+  Rank 5 (dist=0.4901): - WV WORKS/TANF; - SNAP; - Medicaid, WV CHIP, or other medical assistance; - HUD or other housing assistance; or - State
+
+──────────────────────────────────────────────────────────────────────
+Q25 [childcare]: I need help paying for preschool in Fayette County
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4738): Kiddie Fair and Pre-K Registration kicks off on April 17 at Fayetteville Memorial Building as Universal Pre-K Registrati
+  Rank 2 (dist=0.4895): Divide Elementary School | school | 334 Propps Ridge Lookout WV 25868 nan WV | phone: 304-574-1443 | county: Fayette | s
+  Rank 3 (dist=0.5175): Gauley Bridge Elementary School | school | 140 Walnut Street Gauley Bridge WV 25085 nan WV | phone: 304-632-2661 | count
+  Rank 4 (dist=0.5211): School: Mercer County Early Learning Center Bluefield, 3318 East Cumberland Road Bluefield WV 24701, Mercer County, WV
+  Rank 5 (dist=0.5251): School: Doddridge County Preschool, 2945 Smithton Road West Union WV 26456, Doddridge County, WV
+
+──────────────────────────────────────────────────────────────────────
+Q26 [ssi]: How do I apply for SSI in West Virginia?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4936): n the State of West Virginia, unless expressly authorized in writing by Harmony for Hope.  
+- Additional regions (for ex
+  Rank 2 (dist=0.5152): Law Enforcement: West Virginia State Police Troop 4 - Saint Marys Detachment, 1313 Second Street Saint Marys WV 26170, P
+  Rank 3 (dist=0.5169): LIST: Social Security offices in West Virginia, several other states temporarily closed. The agency notes the closures a
+  Rank 4 (dist=0.5193): Law Enforcement: WEST VIRGINIA STATE POLICE TROOP 4 - SAINT MARYS DETACHMENT, 1313 SECOND STREET, SAINT MARYS, PLEASANTS
+  Rank 5 (dist=0.5226): WEST VIRGINIA STATE POLICE TROOP 4 - SAINT MARYS DETACHMENT | law enforcement | 1313 SECOND STREET SAINT MARYS WV | phon
+
+──────────────────────────────────────────────────────────────────────
+Q27 [ssi]: Where is the Social Security office nearest to Oak Hill WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.3972): Correctional: OAK HILL POLICE DEPARTMENT, 100 KELLY AVENUE, OAK HILL, FAYETTE County, WV
+  Rank 2 (dist=0.3979): Fire Department: Oak Hill Volunteer Fire Department, 582 Virginia Street Oak Hill WV 25901, Oak Hill, WV
+  Rank 3 (dist=0.4054): Nursing Home: Hidden Valley Center- Genesis Healthcare, 422  23rd Street Oak Hill WV 25901, Fayette County, WV
+  Rank 4 (dist=0.4064): Parole Office: Oak Hill Parole Office, 1307 Main Street East, Oak Hill, Fayette County, WV
+  Rank 5 (dist=0.4121): Oak Hill Volunteer Fire Department | fire department | 582 Virginia Street Oak Hill WV 25901 Oak Hill WV | phone: 304-46
+
+──────────────────────────────────────────────────────────────────────
+Q28 [ssi]: What disability assistance programs are in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4591): Fayette Nursing and Rehabilitation Center, Inc. | nursing home | 100 Hresan Boulevard WV | phone: 574-0770 | county: Fay
+  Rank 2 (dist=0.4652): Hilltop Center | nursing home | P.O. Box 125 WV | phone: 469-2966 | county: Fayette | state: WV
+  Rank 3 (dist=0.4669): Nursing Home: Fayette Nursing and Rehabilitation Center, Inc., 100 Hresan Boulevard, Fayetteville, Fayette County, WV
+  Rank 4 (dist=0.4681): Montgomery General Elderly Care | nursing home | P.O. Box 1010 WV | phone: 442-2469 | county: Fayette | state: WV
+  Rank 5 (dist=0.4728): Fayette Nursing and Rehabilitation Center - AMFM Nursing & Rehab Centers | nursing home | 100 Hresan Boulevard Fayettevi
+
+──────────────────────────────────────────────────────────────────────
+Q29 [ssi]: I was denied SSI who can help me appeal in WV?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.5207): Court ruling limiting adult gender-affirming Medicaid coverage could have national impacts. A U.S. appeals court ruling 
+  Rank 2 (dist=0.5361): WV state school board files appeal to Supreme Court over vaccine ruling. Attorneys for the West Virginia Board of Educat
+  Rank 3 (dist=0.5745): Federal appeals court upholds WV school vaccine law. A federal appeals court on Wednesday ruled against a West Virginia 
+  Rank 4 (dist=0.5917): Arthur B. Hodges Center | nursing home | 300 Baker Lane Charleston WV 25302 | phone: 304-346-2323 | beds: 20.0 | county:
+  Rank 5 (dist=0.6038): WV Supreme Court considering child abuse case that involves mother’s use of Bible verses. The West Virginia Supreme Cour
+
+──────────────────────────────────────────────────────────────────────
+Q30 [ssi]: What income help is available for disabled adults in Fayette County?
+──────────────────────────────────────────────────────────────────────
+  Rank 1 (dist=0.4890): Raleigh County organizations receive more than $375,000 in state grant funding. Four local groups serving seniors, famil
+  Rank 2 (dist=0.4954): Additional Resources 
+ 
+Find Help 
+ 
+ 
+ 
+ 
+ 
+ https://www.findhelp.org/ 
+ 
+Healthy Grandfamilies  
+ 
+ 
+ 
+https://healthy
+  Rank 3 (dist=0.5147): Additional Resources Find Help https://www.findhelp.org/ Healthy Grandfamilies https://healthygrandfamilies.com/ Interna
+  Rank 4 (dist=0.5183): Grant Program Seeks To Help Those In Recovery Find Jobs. Grants of up to $500,000 will be used to help Appalachians in r
+  Rank 5 (dist=0.5194): 
+
+- **Harmony for Hope operations and staff**, which provide organizational backbone for community programming and techn
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
 
