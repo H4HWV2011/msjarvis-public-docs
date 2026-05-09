@@ -1,3 +1,256 @@
+# Routing Correctness Is Not Retrieval Correctness: Candidate-Set Dilution and the Stage-Certification Gap in Modular Retrieval Pipelines
+
+## Abstract
+
+Routing accuracy is not a compositional guarantee over modular retrieval pipelines. In architectures that decouple collection scoring from candidate-set assembly, routing evaluation certifies a property of the scoring stage S(q) that does not propagate through the orchestration stage C(q). We call this the **stage-certification gap**: routing benchmarks certify ArgmaxCorrect(q) — whether the router's top-scored collection matches the highest-specificity collection — but do not certify whether C(q) maintains that specificity advantage at retrieval time.
+
+The contribution is not the existence of a poor fan-out heuristic. It is that routing evaluation provided no signal that the heuristic invalidated the property being certified. A system instrumented only for ArgmaxCorrect is structurally blind to specificity preservation failures that originate in the orchestration stage, because those failures occur after routing evaluation has already terminated. This is the dual failure mode to cascade pruning: where cascade architectures degrade when too much is filtered, modular fan-out degrades when too much is included — and neither failure is visible to the other stage's evaluation metric.
+
+We instantiate the gap through a production civic retrieval deployment where 93% collection-selection accuracy coexists with end-to-end P@5 of 0.053. A fan-out expansion experiment directly manipulates only C(q) while holding S(q), corpus, embeddings, and ANN parameters constant: P@5 degrades monotonically from 0.68 (top-1 exclusive) to 0.41 (top-2) to 0.053 (top-5 full fan-out) while ArgmaxCorrect remains 93% throughout. A falsification-oriented stress test against the density-primary alternative explanation forecloses corpus density as the primary account. We propose dilution magnitude D̄_k as an operational audit metric for detecting stage-certification divergence, and argue that ArgmaxCorrect and D_k require independent pipeline instrumentation.
+
+---
+
+## 1. Introduction
+
+Routing evaluation in modular retrieval systems carries an implicit scope assumption: that certifying the scoring stage is sufficient to certify pipeline retrieval behavior. This assumption fails whenever the orchestration stage — which assembles the candidate set after routing evaluation terminates — is independently implemented and not contractually constrained to preserve the specificity signal the scoring stage produced.
+
+**Routing accuracy is not a compositional guarantee over modular retrieval pipelines.** Stage-level certification composes into a pipeline-level guarantee only when all downstream stages are jointly evaluated. Routing benchmarks evaluate S(q) alone. In any architecture where C(q) is a separately implemented component, the gap between what routing evaluation certifies and what retrieval behavior delivers is structurally possible and not detectable by routing metrics alone.
+
+This is the **stage-certification gap**. The present work characterizes it as a class of failures, demonstrates its existence in a production system at substantial scale, and provides a causal isolation experiment. The claim is not that such failures are universal or that the fan-out policy described here is representative. The claim is that when S(q) and C(q) are independently implemented, ArgmaxCorrect(q) = 1 does not prevent D_k(q) >> 0, and no routing-layer metric signals the discrepancy.
+
+The contribution is positioned relative to cascade retrieval work as follows. Prior pipeline retrieval research studies failures induced by overly aggressive filtering — where correct early-stage decisions are undermined by excessive pruning before later stages. This paper characterizes the **dual failure mode**: degradation introduced by post-routing candidate-set expansion that invalidates stage-level routing certification while leaving routing accuracy unchanged. The failure modes are formally symmetric but empirically distinct and require separate instrumentation.
+
+This paper has two distinct contributions, maintained carefully throughout. The **general contribution** is the stage-certification gap: a structural property of modular retrieval architectures in which stage-level evaluation is not compositionally predictive of pipeline behavior. The **case-study contribution** is candidate-set dilution via fan-out: the specific mechanism that instantiates the gap in this deployment, experimentally isolated through direct C(q) manipulation.
+
+Unless otherwise noted, all experiments hold corpus composition, embedding model, and ANN parameters constant; observed performance differences are attributable to candidate-set construction policy alone.
+
+### 1.1 Formal Decomposition
+
+Let C be the set of indexed collections. We distinguish two objects that routing evaluation conflates when it is correct:
+
+**The true best collection** (ground truth):
+
+    c†(q) = argmax_{c ∈ C} Spec(c, q)
+
+**The router prediction**:
+
+    ĉ(q) = argmax_{c ∈ C} S(q, c)
+
+**Definition (Collection Specificity).** Specificity is defined instrumentally:
+
+    Spec(c, q) > Spec(c', q)  iff  P@k({c}) > P@k({c'})
+
+That is, c is more specific than c' with respect to q if and only if exclusive retrieval from {c} produces higher precision than exclusive retrieval from {c'}. This definition is agnostic to why one collection retrieves better — semantic concentration, jurisdictional scope, and corpus density are motivating descriptions, not load-bearing formalism. All subsequent uses of "specificity" trace to this definition.
+
+In practice, c†(q) is operationalized through expert judgment rather than exhaustive per-collection precision measurement across all 48 collections. The two may diverge for queries where the expert-expected and empirically-best collections differ; this is acknowledged as a construct validity limitation in §9.3.
+
+**ArgmaxCorrect** measures whether the router's prediction matches the true best collection:
+
+    ArgmaxCorrect(q) = 1  iff  ĉ(q) = c†(q)
+
+The name is intentional: routing evaluation is precisely an argmax correctness check — it asks whether the highest-scoring collection matches the expected target. It does not ask whether the downstream use of that argmax preserves the advantage it certifies.
+
+**The end-to-end retrieval outcome:**
+
+    P@k(q) = f(S(q), C(q), R(q))
+
+where C(q) ⊆ C is the orchestration-assembled candidate set and R(q) is the retrieval operator applied to C(q).
+
+**Dilution magnitude** at cutoff k is the primitive observable:
+
+    D_k(q) = P@k({c†(q)}) - P@k(C(q))
+    D̄_k   = (1/|Q|) Σ_{q ∈ Q} D_k(q)
+
+**Specificity preservation** is a thresholded interpretation over D_k:
+
+    SpecificityPreserved_k(q) = 1  iff  D_k(q) ≤ ε
+
+for a tolerance ε ≥ 0. In practice we report continuous D_k directly; the binary notation is conceptual shorthand. Candidate-set dilution occurs when D_k(q) > 0: C(q) has been expanded beyond {c†(q)} and retrieval precision has degraded as a result.
+
+**The stage-certification gap — three-layer decomposition:**
+
+    Layer 1 — Scoring stage:        S(q) certifies ArgmaxCorrect(q)
+    Layer 2 — Orchestration stage:  C(q) determines D_k(q)
+    Layer 3 — Interface:            S(q) output passed as non_zero set, not score ordering
+                                    No contract enforces score-dominance in C(q) construction
+
+    ┌──────────────────────────────────────────────────────────────┐
+    │   ArgmaxCorrect(q) = 1   ⟹̸   D_k(q) = 0                   │
+    └──────────────────────────────────────────────────────────────┘
+
+Routing evaluation certifies Layer 1 and is silent about Layer 2. The interface failure at Layer 3 — a lossy projection of S(q)'s output that discards score ordering — is what makes Layer 2 failures undetectable by Layer 1 metrics. No improvement to S(q) alone can close this gap; changes are required at the interface.
+
+**An important clarification:** D_k(q) > 0 is not inherently a system failure. Broadening C(q) is often a deliberate tradeoff — for coverage, recall, or robustness — and accepting precision loss in exchange is legitimate. Systems that prioritize recall over precision at fixed k may accept D̄_k > 0 as an explicit design point; the contribution of this work is making that tradeoff measurable rather than invisible. This study evaluates specificity preservation at finite precision cutoffs and does not measure whether broader fan-out improves long-tail recall beyond the evaluated top-k regime. The pathology characterized here is not that D_k(q) > 0 exists. It is that D_k(q) is unmeasured, uncertified, and compositionally disconnected from the property routing evaluation does certify. A system that scores 93% on routing evaluation while exhibiting D̄₅ = 0.627 in deployment has made that tradeoff invisibly, without a metric that detects it. The contribution is the instrumentation gap, not the existence of the tradeoff.
+
+Candidate-set dilution differs from conventional recall–precision tradeoffs because (1) degradation occurs after the routing stage has already correctly identified c†(q), and (2) the expansion policy is invisible to routing evaluation, which terminates before construction begins. The pathology is the non-compositionality of stage-level certification.
+
+The definition is independent of ANN approximation: D_k(q) > 0 can occur under exact nearest-neighbor retrieval when lower-specificity collections displace relevant results within a finite k. Whether ANN dynamics amplify the magnitude here is addressed in §7.2.
+
+### 1.2 Design Principle
+
+> **Design Principle (Stage-Certification Independence):** In modular retrieval pipelines where S(q) and C(q) are independently implemented, ArgmaxCorrect certifies the scoring stage alone. Dilution magnitude D̄_k audits the orchestration stage. The interface between stages requires its own specification: passing score magnitudes, not merely non-zero membership, into construction decisions is necessary for ArgmaxCorrect to be compositionally meaningful. All three layers require independent instrumentation.
+
+### 1.3 Paper Structure
+
+§2 describes the system context. §3 operationalizes competing hypotheses. §4 presents the fan-out expansion experiment as primary causal evidence (§4.3) and the density stress test as a falsification control (§4.4). §5 inspects routing code and the patch. §6 reports post-patch validation. §7 discusses the evaluation blind spot, ANN amplification, calibration independence, and generalization conditions. §8 covers related work. §9 concludes.
+
+---
+
+## 2. System and Failure Context
+
+### 2.1 Deployment
+
+The deployment is a production civic information system serving Fayette County, West Virginia, indexing 48 ChromaDB collections totaling 7,902,937 vectors: municipal address records, GIS facility data, benefit program documents, regional news, and a purpose-built Fayette County civic resource collection.
+
+### 2.2 Key Collection Statistics
+
+| Collection | Vectors | Content type |
+|---|---|---|
+| address_points | 1,115,588 | Municipal address registry |
+| news_rag | ~hundreds of thousands | Regional news |
+| gis_wv_benefits | 4,668 | Structured benefit location records |
+| fayette_county_resources_2026 | 328 | Civic program documents (purpose-built) |
+
+Thirty-three collections use L2 distance; fifteen use cosine. Distance metrics are not normalized across collections.
+
+### 2.3 Embedding and ANN Configuration
+
+All collections: sentence-transformers/all-MiniLM-L6-v2 (384 dimensions). ChromaDB HNSW: ef_construction=100, ef_search=100, max_neighbors=16. All precision figures reflect ANN-approximate retrieval.
+
+### 2.4 Routing Architecture and Pre-Patch Fan-Out
+
+| Alias | Collection | Tier | Score |
+|---|---|---|---|
+| rag-fayette | fayette_county_resources_2026 | County-specific | +6 |
+| rag-civic | civic_programs_wv | State programs | +5 |
+| rag-local-resources | local_resources | Broad fallback | +4 |
+| rag-wv-resources | wv_resources | Broad fallback | +3 |
+| rag-gis-benefits | gis_wv_benefits | State GIS benefits | +3 |
+
+An unconditional fan-out override merged all five collections whenever all scored non-zero — a deliberate coverage-robustness heuristic conditioned on set membership rather than score dominance. Civic keyword queries reliably scored all five collections, making the override near-invariant across the query distribution.
+
+Pre-patch candidate space after fan-out:
+
+| Collection | Vectors | Share |
+|---|---|---|
+| address_points | 1,115,588 | 99.10% |
+| gis_wv_benefits | 4,668 | 0.41% |
+| wv_facilities | 2,900 | 0.26% |
+| GBIM_Fayette_sample | 1,535 | 0.14% |
+| fayette_county_resources_2026 | 206 | 0.018% |
+| **Total** | **1,125,186** | **100%** |
+
+**Figure 1. Stage-Certification Gap: Where Routing Evaluation Terminates, Where Pipeline Failure Occurs**
+
+```
+Query (civic + Fayette signal)
+          │
+          ▼
+┌────────────────────────────────────────────────────────┐
+│  S(q): Routing Scorer                                  │
+│  rag-fayette  +6  ← ĉ(q) = c†(q)                     │
+│  rag-civic    +5                                       │  ArgmaxCorrect(q) = 1
+│  rag-local    +4                                       │  certified here: 93%
+│  rag-wv-res   +3                                       │
+│  rag-gis      +3                                       │  ← ROUTING EVALUATION ENDS
+└────────────────────┬───────────────────────────────────┘
+                     │  Interface: score ordering discarded,
+                     │  non_zero set membership passed only
+                     ▼  D_k(q) not yet measurable.
+       ┌────────────────────────────────────────────┐
+       │  C(q): Orchestration Policy                │
+       │  Condition: all_nonzero ⊆ candidates?      │  ← Not evaluated by
+       │  Test: set membership, not score dominance │    routing benchmarks
+       │  Result: merge all 5 into C(q)             │
+       └──────────────────────┬─────────────────────┘
+                              ▼
+   ┌──────────────────────────────────────────────────┐
+   │  Merged: 1,125,186 vectors                       │
+   │  address_points       99.10%                     │
+   │  fayette_resources     0.018%  ← c†(q) target    │
+   └─────────────────────────────┬────────────────────┘
+                                 ▼
+                        R(q): ANN retrieval
+                        P@5(C(q))  = 0.053
+                        D̄₅         = +0.627
+                        ArgmaxCorrect(q) = 1  ← unaware of failure
+                        D_k(q) >> 0           ← not instrumented
+```
+
+---
+
+## 3. Competing Hypotheses
+
+**H1 — Corpus density insufficiency.** The target collection is 0.018% of the merged candidate set. Under H1, this ratio determines the failure regardless of orchestration policy. Prediction: retrieval improves monotonically with civic-document share; sufficient density reproduces post-patch performance without orchestration change.
+
+**H2 — Stage-certification gap (candidate-set dilution).** The scoring stage correctly identifies c†(q) via ĉ(q); the orchestration stage expands C(q) ⊃ {c†(q)} conditioned on membership rather than score dominance, and c†(q) loses its specificity advantage within C(q). Under H2, density variation under constant fan-out cannot explain the failure. Predictions: (a) D_k increases monotonically with fan-out breadth under constant corpus; (b) density increase under constant fan-out does not recover post-patch performance.
+
+**H3 — ANN or embedding insufficiency.** Partially controlled by holding model and ANN parameters constant across all conditions. The contribution of HNSW traversal dynamics to observed D̄_k magnitude is unresolved (§7.2).
+
+**H4 — Selection failure.** The router misidentifies c†(q), i.e., ArgmaxCorrect(q) = 0 at higher-than-expected rates. Directly tested in §5.1.
+
+H1 and H2 generate the sharpest distinguishable empirical predictions, motivating §4.3 and §4.4 respectively.
+
+---
+
+## 4. Experimental Isolation
+
+### 4.1 Pilot Evaluation Methodology
+
+**Query set:** 30 civic prompts across six categories (5 each): emergency food assistance, utility assistance, housing programs, healthcare enrollment, childcare subsidy, SSI/disability assistance.
+
+**Relevance rubric:** Relevant (1) if the result names an applicable program, service, or agency; contains at least one actionable element (contact, enrollment path, eligibility description, or service hours); and would enable a Fayette County resident to take a concrete next step. Not relevant (0) if a generic address or facility record, jurisdictionally inapplicable, a duplicate, or lacking actionable content.
+
+**Annotation:** 450 total judgments (30 queries × top-5 × 3 primary conditions) by a single annotator with operational knowledge of Fayette County resources. Expected collection selections defined prior to post-patch evaluation.
+
+**Statistical treatment:** Percentile bootstrap 95% CIs (10,000 query-level resamples) and paired approximate randomization tests (10,000 permutations). Effect sizes are sufficiently large that significance is demonstrated at 30 queries; subtle differences are not reliably detectable.
+
+### 4.2 Pilot Evaluation: Cross-Condition Results
+
+| Metric | Pre-patch routed | Unrouted | Post-patch routed |
+|---|---|---|---|
+| P@5 | 0.053 | 0.207 | 0.68 |
+| MRR | 0.233 | 0.396 | 0.79 |
+| Relevant / 150 | 8 | 31 | 102 |
+| Queries ≥1 relevant | 7 / 30 | 17 / 30 | 28 / 30 |
+
+**Pairwise comparisons (P@5):**
+
+| Comparison | Δ | 95% CI | Approx. rand. p |
+|---|---|---|---|
+| Pre-patch vs. unrouted | +0.153 | [0.091, 0.224] | < 0.001 |
+| Pre-patch vs. post-patch | +0.627 | [0.490, 0.770] | < 0.001 |
+| Unrouted vs. post-patch | +0.473 | [0.340, 0.607] | < 0.001 |
+
+That geographically-routed retrieval with 93% ArgmaxCorrect substantially underperforms unrouted full-corpus search is itself diagnostic of C(q) failure rather than S(q) failure: when argmax selection is mostly correct and routing still underperforms no-routing, the failure is in orchestration, not scoring.
+
+### 4.3 Fan-Out Expansion Experiment (Primary Evidence)
+
+This experiment is the paper's central causal contribution. It varies only C(q) while holding all other factors constant — S(q), corpus, embedding model, ANN parameters — across three conditions. If H2 prediction (a) holds, D_k increases monotonically with fan-out breadth.
+
+| Condition | C(q) contents | Vectors | P@5 | MRR | D̄₅ |
+|---|---|---|---|---|---|
+| Top-1 exclusive | rag-fayette only | ~328 | 0.68 | 0.79 | 0.00 |
+| Top-2 partial | + rag-civic | ~4,996 | 0.41 | 0.55 | +0.27 |
+| Top-5 full fan-out | All five scored | ~1,125,186 | 0.053 | 0.233 | +0.627 |
+
+**Figure 2. Fan-Out Expansion: Monotonic Dilution Under Isolated C(q) Manipulation**
+
+```
+  P@5
+  0.8 ┤  ● 0.68  Top-1: C(q) = {c†(q)} only
+      │   \
+  0.6 ┤    \      S(q):    FIXED  (ArgmaxCorrect = 93% throughout)
+      │     \     Corpus:  FIXED
+  0.4 ┤      ● 0.41  Top-2 partial fan-out
+      │        \  Embed:   FIXED
+  0.2 ┤         \  ANN:    FIXED
+      │          \  C(q):  ONLY VARIABLE
+  0.0 ┤           ● 0.053  Top-5 full fan-out
+      └──────────────────────────────────────────────
+            1 coll.       2 colls.       5 colls.
+                    Fan-out breadth →
+```
 
 The full performance range — P@5 0.68 to 0.053, a drop of 0.627 — is produced by C(q) variation alone while ArgmaxCorrect(q) = 1 throughout. This directly operationalizes the stage-certification gap: the same routing stage that certifies correctly at 93% coexists with P@5 anywhere in [0.053, 0.68] depending solely on the orchestration policy applied after routing terminates.
 
