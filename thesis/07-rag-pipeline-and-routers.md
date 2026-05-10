@@ -1236,9 +1236,10 @@ returned, filters/scores applied, and documents/features returned.
 The old truth and alignment judges used `heuristic_contradiction_v1` — keyword and
 pattern-matching rules with no queries to the GBIM corpus, ChromaDB collections, or any
 RAG service. They reported `truth_score: 1.0` and `alignment_verdict: pass` without
-consulting the 5.4 million GBIM entities, the `spiritual_rag` corpus, or the `gis_wv_benefits`
-collection. This has been replaced by `judge_pipeline_v2.1-rag-grounded`, which
-performs actual RAG-grounded claim verification.
+consulting the 5.4 million GBIM entities, the `spiritual_rag` corpus, or the
+`gis_wv_benefits` collection. This has been replaced by
+`judge_pipeline_v2.1-rag-grounded`, which performs actual RAG-grounded claim
+verification.
 
 **Capability comparison:**
 
@@ -1533,7 +1534,7 @@ field has been observed at **0.95** in live production as of April 17, 2026.
 
 | Service | Host Port | Container Port | Status |
 |:--|:--|:--|:--|
-| `allis-unified-gateway` | **18018** | **8001** | ✅ External entry — `docker inspect allis-unified-gateway --format '{{.NetworkSettings.Ports}}'` |
+| `allis-unified-gateway` | **18018** | **8001** | ✅ External entry |
 | `allis-main-brain` | 8050 | 8050 | ✅ Primary orchestrator |
 | `allis-rag-server` | **8003** | **8003** | ✅ Both ports confirmed 8003 |
 | `allis-gis-rag` v0.4.0 | 8004 | 8004 | ✅ 204 WV GIS datasets / 7,357 WV bridges |
@@ -1566,7 +1567,7 @@ field has been observed at **0.95** in live production as of April 17, 2026.
 410 Gone); count calls documented as UUID two-step pattern; `jarvis-gbim-query-router`
 confirmed port 7205; collection names confirmed (`msjarvis_docs`, `ms_jarvis_memory`,
 `gbim_worldview_entities`); collection count updated to 48 with historical note (was 50
-on April 17, 2026 pre-cleanup); `
+on April 17, 2026 pre-cleanup).*
 
 *Prior update history: April 17, 2026 — all five open issues (OI-05, OI-19, OI-20,
 OI-21, OI-22) closed; port corrections applied; `judge_pipeline_v2.1-rag-grounded`
