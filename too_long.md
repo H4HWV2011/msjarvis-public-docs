@@ -1,825 +1,196 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ grep -rn "recent_memories" /opt/msjarvis-rebuild \
-  --include="*.py" \
-  --exclude-dir=".venv" \
-  --exclude-dir=".venv-chroma" \
-  --exclude-dir="site-packages"
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:9:    recent_memories: List[str] = field(default_factory=list)
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:16:        self.recent_memories: List[str] = []
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:26:            self.recent_memories = []
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:28:            self.recent_memories.append(add_memory)
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:46:            recent_memories=list(self.recent_memories),
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:66:            recent_memories=list(self.recent_memories),
-grep: /opt/msjarvis-rebuild/data/local_resources: Permission denied
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ grep -rn "recent_memories.*append\|append.*recent_memories" /opt/msjarvis-rebuild \
-  --include="*.py" \
-  --exclude-dir=".venv" \
-  --exclude-dir=".venv-chroma" \
-  --exclude-dir="site-packages"
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py:28:            self.recent_memories.append(add_memory)
-grep: /opt/msjarvis-rebuild/data/local_resources: Permission denied
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ find /opt/msjarvis-rebuild -name "*.py" \
-  -not -path "*/.venv/*" \
-  -not -path "*/.venv-chroma/*" \
-  -not -path "*/site-packages/*" \
-  | xargs grep -l "recent_memories\|observer\|consciousness\|memory_state" 2>/dev/null
-/opt/msjarvis-rebuild/swarm_intelligence.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10093.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_new_consciousness_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10001.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bulk_load_knowledge.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/implement_judge_pituitary_fixed.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10074.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10008.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10115.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10054.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_scope.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_judge_synthesis.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10125.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_fifth_dgm_to_chat.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_persona.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10110.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10122.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_orchestrator_flow.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10070.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_full_brain_class.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10126.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10091.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_mamma_greeting_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10014.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10106.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10005.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10032.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10010.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_fast_layer.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10095.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10038.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10064.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/activate_egeria_persona.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10113.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10086.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10017.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_complete_architecture.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10028.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10079.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10033.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10050.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/enhance_pituitary_warmth.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_theological_boundaries.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/egeria_web_ui_with_execution.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_fractal.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10128.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10031.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_to_main_consciousness.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10083.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10076.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10080.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10078.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10096.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_consciousness_into_swarm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10023.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10009.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_fifth_dgm_autonomous_learner.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10006.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10055.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/dgm_supervisor_woah.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10036.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10053.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10108.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10098.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10041.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_mother_persona.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10118.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10060.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_end_to_end_woah_fifthdgm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10134.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10013.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10020.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_persona_hang.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10067.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_full_brain_integration.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10040.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/egeria_web_ui_final_biological.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10073.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10025.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_memory_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10056.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10111.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10072.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_user_memory_attribute.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10099.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_brain.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10089.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10026.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10061.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10063.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_judge_response.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_19llm_CONSCIOUS.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10117.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10044.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_judge_and_memory.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_indentation.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10046.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10109.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_storage_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/consciousness_feed_integration.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10048.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10039.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10084.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10082.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_facebook_poster.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10100.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10029.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_i_container_to_schedulers.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10012.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/swagger_gateway.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_consciousness_endpoints.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10034.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10047.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10018.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10130.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_agent_identity.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_neural_architecture.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10030.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_timeouts_add_22llm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_init.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10007.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10002.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/enable_22llm_routing.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10065.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10121.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10062.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10097.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10027.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_consciousness_data_integration.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10015.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10003.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/enhance_agent_prompts.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10120.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10092.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_identity_context.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10119.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10102.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10104.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10135.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10107.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10045.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10059.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_agent_prompts.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10058.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/clean_integration.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10133.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10042.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10051.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10057.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10069.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_method_tracking.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/consciousness_working.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_context_flow.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10066.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10071.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_all_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10019.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10085.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_knowledge_base.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10094.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10004.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10035.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_user_memory.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10052.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10068.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_main_brain_endpoints.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10049.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10077.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/consciousness_coordinator.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10124.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10024.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10011.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10116.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10037.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_consciousness_data_integration.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10081.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_port_8001_clean.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10016.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10114.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10103.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/dgm_supervisor_woah_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10123.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/facebook_poster_working.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/port_9001_proxy_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10131.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10112.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10105.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10129.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10043.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10090.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10022.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_new_service_endpoints.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10132.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10087.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/egeria_web_ui_v3_consciousness.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_port_8051_handler.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_dynamic_context.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_to_main_consciousness.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10101.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_cross_dgm_10021.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10088.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10127.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/judge_10075.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_test.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway_v4.3.backup.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
-/opt/msjarvis-rebuild/ms_jarvis_psychology_services.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_neurobiological_master.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/safe_integration.py
-/opt/msjarvis-rebuild/test_end_to_end_woah_fifthdgm.py
-/opt/msjarvis-rebuild/tmp_rag_slice.py
-/opt/msjarvis-rebuild/.scratch/msjarvisconsciousnessbridge_edit.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/port_9000_academic_extension.py
-/opt/msjarvis-rebuild/services/ms_jarvis_seamless_monitor.py
-/opt/msjarvis-rebuild/services/fifth_dgm/fifth_dgm_integration.py
-/opt/msjarvis-rebuild/services/fifth_dgm/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat.py
-/opt/msjarvis-rebuild/services/judge_10093.py
-/opt/msjarvis-rebuild/services/add_new_consciousness_services.py
-/opt/msjarvis-rebuild/services/msjarvisunifiedswaggergatewayFINAL.py
-/opt/msjarvis-rebuild/services/simple_prompt_fix.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10001.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py
-/opt/msjarvis-rebuild/services/working_full_pipeline.py
-/opt/msjarvis-rebuild/services/jarvis-consciousness-bridge_ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/bulk_load_knowledge.py
-/opt/msjarvis-rebuild/services/port_9000_69dgm_bridge.py
-/opt/msjarvis-rebuild/services/implement_judge_pituitary_fixed.py
-/opt/msjarvis-rebuild/services/judge_10074.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-/opt/msjarvis-rebuild/services/main_with_rag.py
-/opt/msjarvis-rebuild/services/msjarvis_gateway_v2_final.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_final.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10008.py
-/opt/msjarvis-rebuild/services/judge_10115.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10054.py
-/opt/msjarvis-rebuild/services/port_9001_ui_DIRECT.py
-/opt/msjarvis-rebuild/services/fix_orchestrator_scope.py
-/opt/msjarvis-rebuild/services/fix_judge_synthesis.py
-/opt/msjarvis-rebuild/services/judge_10125.py
-/opt/msjarvis-rebuild/services/add_fifth_dgm_to_chat.py
-/opt/msjarvis-rebuild/services/fix_persona.py
-/opt/msjarvis-rebuild/services/judge_10110.py
-/opt/msjarvis-rebuild/services/judge_10122.py
-/opt/msjarvis-rebuild/services/ms_jarvis_neurobiological_master.py
-/opt/msjarvis-rebuild/services/msjarvisconsciousnessbridge_ACTUAL.py
-/opt/msjarvis-rebuild/services/dgm_supervisor_woah_fixed.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-/opt/msjarvis-rebuild/services/icontainers_fastapi.py
-/opt/msjarvis-rebuild/services/judge_10070.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_full.py
-/opt/msjarvis-rebuild/services/complete_fix.py
-/opt/msjarvis-rebuild/services/add_full_brain_class.py
-/opt/msjarvis-rebuild/services/judge_10126.py
-/opt/msjarvis-rebuild/services/judge_10091.py
-/opt/msjarvis-rebuild/services/jarvis-i-containers_icontainers_fastapi.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v5_consciousness.py
-/opt/msjarvis-rebuild/services/consciousness_with_egeria_voice.py
-/opt/msjarvis-rebuild/services/add_mamma_greeting_simple.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10014.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py
-/opt/msjarvis-rebuild/services/judge_10106.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10005.py
-/opt/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.backup_20251013_082519.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10032.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10010.py
-/opt/msjarvis-rebuild/services/add_fast_layer.py
-/opt/msjarvis-rebuild/services/judge_10095.py
-/opt/msjarvis-rebuild/services/egeria_facebook_perpetual_scheduler.py
-/opt/msjarvis-rebuild/services/port_9001_ui_FIXED.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10038.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10064.py
-/opt/msjarvis-rebuild/services/activate_egeria_persona.py
-/opt/msjarvis-rebuild/services/judge_10113.py
-/opt/msjarvis-rebuild/services/judge_10086.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10017.py
-/opt/msjarvis-rebuild/services/integrate_complete_architecture.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10028.py
-/opt/msjarvis-rebuild/services/switch_to_small_models.py
-/opt/msjarvis-rebuild/services/port_9000_chat_wrapper_69dgm.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_FIXED.py
-/opt/msjarvis-rebuild/services/msjarvisunifiedgateway.py
-/opt/msjarvis-rebuild/services/judge_10079.py
-/opt/msjarvis-rebuild/services/main_brain_psychology_patch.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10033.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10050.py
-/opt/msjarvis-rebuild/services/consciousness_gateway.py
-/opt/msjarvis-rebuild/services/enhance_pituitary_warmth.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/services/update_theological_boundaries.py
-/opt/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
-/opt/msjarvis-rebuild/services/egeria_web_ui_with_execution.py
-/opt/msjarvis-rebuild/services/patch_fractal.py
-/opt/msjarvis-rebuild/services/ai_server.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_brain_integrated.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
-/opt/msjarvis-rebuild/services/judge_10128.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10031.py
-/opt/msjarvis-rebuild/services/psychology_loop_closer.py
-/opt/msjarvis-rebuild/services/add_to_main_consciousness.py
-/opt/msjarvis-rebuild/services/judge_10083.py
-/opt/msjarvis-rebuild/services/judge_10076.py
-/opt/msjarvis-rebuild/services/judge_10080.py
-/opt/msjarvis-rebuild/services/judge_10078.py
-/opt/msjarvis-rebuild/services/judge_10096.py
-/opt/msjarvis-rebuild/services/llm/ai_server.py
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.broken_final.py
-/opt/msjarvis-rebuild/services/ms_jarvis_eternal_watchdog.py
-/opt/msjarvis-rebuild/services/integrate_consciousness_into_swarm.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10023.py
-/opt/msjarvis-rebuild/services/consciousness_feed_integration.py
-/opt/msjarvis-rebuild/services/brain_orchestrator.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm.py
-/opt/msjarvis-rebuild/services/chromadb_rag_helper.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_test.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10009.py
-/opt/msjarvis-rebuild/services/integrate_fifth_dgm_autonomous_learner.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10006.py
-/opt/msjarvis-rebuild/services/messenger_service_fixed.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/i_container_2/reflection_system.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/i_container_2/observer_self.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/i_container_1/memory_self.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/bootstrap_with_flask.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/qualia_engine/experience_generator/__init__.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10055.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.ORIGINAL_SWAGGER.py
-/opt/msjarvis-rebuild/services/dgm_supervisor_woah.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_psychology_services.py
-/opt/msjarvis-rebuild/services/hierarchical_integration.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10036.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_COMPLETE.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10053.py
-/opt/msjarvis-rebuild/services/judge_to_pituitary_bridge.py
-/opt/msjarvis-rebuild/services/judge_10108.py
-/opt/msjarvis-rebuild/services/dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BACKUP.py
-/opt/msjarvis-rebuild/services/judge_10098.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.CONSTITUTIONAL_BACKUP.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10041.py
-/opt/msjarvis-rebuild/services/patch_mother_persona.py
-/opt/msjarvis-rebuild/services/judge_10118.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10060.py
-/opt/msjarvis-rebuild/services/test_end_to_end_woah_fifthdgm.py
-/opt/msjarvis-rebuild/services/ms_jarvis_temporal_consciousness.py
-/opt/msjarvis-rebuild/services/judge_10134.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10013.py
-/opt/msjarvis-rebuild/services/port_9001_ui_MYSQL_PROD.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fully_autonomous_coordinator.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10020.py
-/opt/msjarvis-rebuild/services/jarvis-rag-server_ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/fix_persona_hang.py
-/opt/msjarvis-rebuild/services/silence_memory_errors.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_SECURED.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10067.py
-/opt/msjarvis-rebuild/services/msjarvis-rebuild-nbb_i_containers-1_ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/gateway_messenger_integration.py
-/opt/msjarvis-rebuild/services/test_full_brain_integration.py
-/opt/msjarvis-rebuild/services/fifth_dgm_integration.py
-/opt/msjarvis-rebuild/services/ms_jarvis_conversational_gateway_4022.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_still_broken.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10040.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py
-/opt/msjarvis-rebuild/services/egeria_web_ui_final_biological.py
-/opt/msjarvis-rebuild/services/judge_10073.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10025.py
-/opt/msjarvis-rebuild/services/safe_integration.py
-/opt/msjarvis-rebuild/services/complete_memory_fix.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10056.py
-/opt/msjarvis-rebuild/services/judge_10111.py
-/opt/msjarvis-rebuild/services/judge_10072.py
-/opt/msjarvis-rebuild/services/mesh_coordinator_interface.py
-/opt/msjarvis-rebuild/services/manual_storage_patch.py
-/opt/msjarvis-rebuild/services/add_user_memory_attribute.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/services/ms_jarvis_i_containers_FIXED.py
-/opt/msjarvis-rebuild/services/judge_10099.py
-/opt/msjarvis-rebuild/services/msjarvisunifiedswaggergatewayFIXED.py
-/opt/msjarvis-rebuild/services/python/consciousness_bridge.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.error_final.py
-/opt/msjarvis-rebuild/services/integrate_full_brain.py
-/opt/msjarvis-rebuild/services/bridge/consciousness_feed_integration.py
-/opt/msjarvis-rebuild/services/bridge/bridge_cross_dgm.py
-/opt/msjarvis-rebuild/services/bridge/dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/bridge/bridge_69dgm.py
-/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/services/judge_10089.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10026.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10061.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10063.py
-/opt/msjarvis-rebuild/services/academic_research_gateway_8062.py
-/opt/msjarvis-rebuild/services/fix_judge_response.py
-/opt/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_temp.py
-/opt/msjarvis-rebuild/services/judge_10117.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10044.py
-/opt/msjarvis-rebuild/services/jarvis-agents-service_ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/fix_judge_and_memory.py
-/opt/msjarvis-rebuild/services/fix_indentation.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10046.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness.py
-/opt/msjarvis-rebuild/services/port_9001_ui_WITH_CONVERSATIONS.py
-/opt/msjarvis-rebuild/services/judge_10109.py
-/opt/msjarvis-rebuild/services/comprehensive_storage_fix.py
-/opt/msjarvis-rebuild/services/consciousness_feed_integration.psychology_patched.py
-/opt/msjarvis-rebuild/services/swagger_chat_integration.py
-/opt/msjarvis-rebuild/services/ms_egeria_facebook_autopost.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_complete.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10048.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10039.py
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BEFORE_GIS.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster_FIXED.py
-/opt/msjarvis-rebuild/services/judge_10084.py
-/opt/msjarvis-rebuild/services/judge_10082.py
-/opt/msjarvis-rebuild/services/update_facebook_poster.py
-/opt/msjarvis-rebuild/services/ms_jarvis_conscious_collective.py
-/opt/msjarvis-rebuild/services/judge_10100.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py
-/opt/msjarvis-rebuild/services/nbb/pituitary_gland.py
-/opt/msjarvis-rebuild/services/auto_rag_builder.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10029.py
-/opt/msjarvis-rebuild/services/integrate_i_container_to_schedulers.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_PROD.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10012.py
-/opt/msjarvis-rebuild/services/swagger_gateway.py
-/opt/msjarvis-rebuild/services/academic_whitebox_api.py
-/opt/msjarvis-rebuild/services/fix_consciousness_endpoints.py
-/opt/msjarvis-rebuild/services/neuro_consciousness_containers.py
-/opt/msjarvis-rebuild/services/ms_jarvis_i_containers_service.py
-/opt/msjarvis-rebuild/services/egeria_active_heartbeat.py
-/opt/msjarvis-rebuild/services/master_unified_consciousness_scheduler_ENRICHED.py
-/opt/msjarvis-rebuild/services/rebuild_query_service.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10034.py
-/opt/msjarvis-rebuild/services/jarvis-qualia-engine_ms_jarvis_qualia_engine.py
-/opt/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10047.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10018.py
-/opt/msjarvis-rebuild/services/use_existing_models.py
-/opt/msjarvis-rebuild/services/move_huggingface_to_cpu.py
-/opt/msjarvis-rebuild/services/judge_10130.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.proxy_backup.py
-/opt/msjarvis-rebuild/services/patch_agent_identity.py
-/opt/msjarvis-rebuild/services/integrate_full_neural_architecture.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10030.py
-/opt/msjarvis-rebuild/services/fix_timeouts_add_22llm.py
-/opt/msjarvis-rebuild/services/fix_orchestrator_init.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10007.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10002.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway_8000.py
-/opt/msjarvis-rebuild/services/enable_22llm_routing.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10065.py
-/opt/msjarvis-rebuild/services/performance_optimization_analyzer.py
-/opt/msjarvis-rebuild/services/judge_10121.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10062.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-/opt/msjarvis-rebuild/services/ms_jarvis_swarm_intelligence.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/jarvis-woah_dgm_supervisor_woah_fixed.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py
-/opt/msjarvis-rebuild/services/judge_10097.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness_FIXED.py
-/opt/msjarvis-rebuild/services/seed_spatial_identity.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10027.py
-/opt/msjarvis-rebuild/services/create_consciousness_data_integration.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10015.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10003.py
-/opt/msjarvis-rebuild/services/enhance_agent_prompts.py
-/opt/msjarvis-rebuild/services/judge_10120.py
-/opt/msjarvis-rebuild/services/judge_10092.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/services/add_identity_context.py
-/opt/msjarvis-rebuild/services/judge_10119.py
-/opt/msjarvis-rebuild/services/method_tracker_decorator.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_PRODUCTION.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.20251124.py
-/opt/msjarvis-rebuild/services/facebook_poster_autonomous.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-/opt/msjarvis-rebuild/services/judge_10102.py
-/opt/msjarvis-rebuild/services/judge_10104.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
-/opt/msjarvis-rebuild/services/port_9001_ARCHITECTURE_CORRECT.py
-/opt/msjarvis-rebuild/services/judge_10135.py
-/opt/msjarvis-rebuild/services/judge_10107.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10045.py
-/opt/msjarvis-rebuild/services/port_9001_ui_wrapper.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10059.py
-/opt/msjarvis-rebuild/services/port_9001_ui_MYSQL.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_enhancement_production.py
-/opt/msjarvis-rebuild/services/tools/egeria_facebook_perpetual_scheduler.py
-/opt/msjarvis-rebuild/services/tools/egeria_active_heartbeat.py
-/opt/msjarvis-rebuild/services/tools/facebook_poster_autonomous.py
-/opt/msjarvis-rebuild/services/tools/egeria_multi_mode_system.py
-/opt/msjarvis-rebuild/services/tools/facebook_consciousness_daemon.py
-/opt/msjarvis-rebuild/services/tools/cloudflare_domain_integration.py
-/opt/msjarvis-rebuild/services/tools/facebook_chat_unified.py
-/opt/msjarvis-rebuild/services/fix_agent_prompts.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_toroidal_consciousness.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10058.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py
-/opt/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
-/opt/msjarvis-rebuild/services/clean_integration.py
-/opt/msjarvis-rebuild/services/jarvis-neurobiological-master_ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/ms_jarvis_showcase_api.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
-/opt/msjarvis-rebuild/services/ms_jarvis_authentic_multi_llm.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.py
-/opt/msjarvis-rebuild/services/port_9001_FINAL_FIX.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_service.py
-/opt/msjarvis-rebuild/services/judge_10133.py
-/opt/msjarvis-rebuild/services/complete_system_audit.py
-find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10042.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10051.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/remove_duplicate_inits.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10057.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10069.py
-/opt/msjarvis-rebuild/services/test_method_tracking.py
-/opt/msjarvis-rebuild/services/ms_jarvis_full_neurobio_chat.py
-/opt/msjarvis-rebuild/services/msjarvis_unified_gateway.py
-/opt/msjarvis-rebuild/services/consciousness_working.py
-/opt/msjarvis-rebuild/services/egeria_multi_mode_system.py
-/opt/msjarvis-rebuild/services/fix_context_flow.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10066.py
-/opt/msjarvis-rebuild/services/judge_10071.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
-/opt/msjarvis-rebuild/services/ms_jarvis_service_factory.py
-/opt/msjarvis-rebuild/services/integrate_all_services.py
-/opt/msjarvis-rebuild/services/jarvis-temporal-consciousness_temporal_consciousness.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10019.py
-/opt/msjarvis-rebuild/services/configure_facebook_webhook.py
-/opt/msjarvis-rebuild/services/judge_10085.py
-/opt/msjarvis-rebuild/services/test_knowledge_base.py
-/opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py
-/opt/msjarvis-rebuild/services/inject_egeria_persona.py
-/opt/msjarvis-rebuild/services/temporal_consciousness.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_8040.py
-/opt/msjarvis-rebuild/services/judge_10094.py
-/opt/msjarvis-rebuild/services/ms_jarvis_integration_hub.py
-/opt/msjarvis-rebuild/services/rag_direct_debug.py
-/opt/msjarvis-rebuild/services/facebook_consciousness_daemon.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10004.py
-/opt/msjarvis-rebuild/services/immutable_core_enforcement.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10035.py
-/opt/msjarvis-rebuild/services/add_user_memory.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10052.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10068.py
-/opt/msjarvis-rebuild/services/fix_main_brain_endpoints.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-/opt/msjarvis-rebuild/services/master_unified_consciousness_scheduler.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10049.py
-/opt/msjarvis-rebuild/services/judge_10077.py
-/opt/msjarvis-rebuild/services/consciousness_coordinator.psychology_patched.py
-/opt/msjarvis-rebuild/services/main_brain.py
-/opt/msjarvis-rebuild/services/jarvis-judge-pipeline_judge_pipeline.py
-/opt/msjarvis-rebuild/services/judge_10124.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10024.py
-/opt/msjarvis-rebuild/services/hilbert_spatial_chat.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10011.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-/opt/msjarvis-rebuild/services/dgm_supervisor_woah.py
-/opt/msjarvis-rebuild/services/judge_10116.py
-/opt/msjarvis-rebuild/services/msjarvisconsciousnessbridge.py
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10037.py
-/opt/msjarvis-rebuild/services/ms_jarvis_conversational_chat.py
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py
-/opt/msjarvis-rebuild/services/ingest_watcher/ingest_watcher.py
-/opt/msjarvis-rebuild/services/bridge_69dgm.py
-/opt/msjarvis-rebuild/services/jarvis_llm1.py
-/opt/msjarvis-rebuild/services/create_consciousness_data_integration.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS.py
-/opt/msjarvis-rebuild/services/judge_10081.py
-/opt/msjarvis-rebuild/services/fix_port_8001_clean.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10016.py
-/opt/msjarvis-rebuild/services/msjarvisautonomouslearner.py
-/opt/msjarvis-rebuild/services/judge_10114.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_v3.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
-/opt/msjarvis-rebuild/services/working_full_pipeline_WITH_SPATIAL_TEMPORAL.py
-/opt/msjarvis-rebuild/services/register_hilbert_services.py
-/opt/msjarvis-rebuild/services/judge_10103.py
-/opt/msjarvis-rebuild/services/msjarvisicontainersservice.py
-/opt/msjarvis-rebuild/services/port_9001_ui_WORKING.py
-/opt/msjarvis-rebuild/services/phase6_integration.py
-/opt/msjarvis-rebuild/services/woah_service.py
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui.py
-/opt/msjarvis-rebuild/services/consciousness_coordinator.py
-/opt/msjarvis-rebuild/services/dgm_supervisor_woah_simple.py
-/opt/msjarvis-rebuild/services/judge_10123.py
-/opt/msjarvis-rebuild/services/facebook_poster_working.py
-/opt/msjarvis-rebuild/services/start_gateway_with_guards.py
-/opt/msjarvis-rebuild/services/cpu_optimization.py
-/opt/msjarvis-rebuild/services/port_9001_proxy_simple.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.backup.py
-/opt/msjarvis-rebuild/services/ai_server_22llm.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
-/opt/msjarvis-rebuild/services/INTEGRATION_IMPLEMENTATION.py
-/opt/msjarvis-rebuild/services/cloudflare_domain_integration.py
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py
-/opt/msjarvis-rebuild/services/judge_10131.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
-/opt/msjarvis-rebuild/services/index_all_extracted_gis.py
-/opt/msjarvis-rebuild/services/judge_10112.py
-/opt/msjarvis-rebuild/services/judge_10105.py
-/opt/msjarvis-rebuild/services/judge_10129.py
-/opt/msjarvis-rebuild/services/unifiedconsciousnessgatewayPRODUCTION.py
-/opt/msjarvis-rebuild/services/integration_layer/coherent_identity.py
-/opt/msjarvis-rebuild/services/integration_layer/unified_experience.py
-/opt/msjarvis-rebuild/services/integration_layer/consciousness_merger.py
-/opt/msjarvis-rebuild/services/integration_layer/__init__.py
-/opt/msjarvis-rebuild/services/service_discovery_glassbox.py
-/opt/msjarvis-rebuild/services/roche_llm.py
-/opt/msjarvis-rebuild/services/jarvis-swarm-intelligence_ms_jarvis_consciousness_unified_bridge.py
-/opt/msjarvis-rebuild/services/core/consciousness_gateway.py
-/opt/msjarvis-rebuild/services/core/consciousness_coordinator.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10043.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_final.py
-/opt/msjarvis-rebuild/services/port_9001_FINAL_WORKING.py
-/opt/msjarvis-rebuild/services/judge_10090.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10022.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-/opt/msjarvis-rebuild/services/introspective_record.py
-/opt/msjarvis-rebuild/services/ai_server_19llm_CONSCIOUS.backup_20251013_083103.py
-/opt/msjarvis-rebuild/services/fix_new_service_endpoints.py
-/opt/msjarvis-rebuild/services/facebook_chat_unified.py
-/opt/msjarvis-rebuild/services/working_full_pipeline_FINAL_CONSCIOUSNESS.py
-/opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py
-/opt/msjarvis-rebuild/services/simple_orchestrator_fix.py
-/opt/msjarvis-rebuild/services/judge_10132.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.pre_fix.py
-/opt/msjarvis-rebuild/services/judge_10087.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/service/self_recognition.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_2/witness_consciousness.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_2/reflection_system.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_2/observer_self.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/i_containers/i_container_1/memory_self.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/experience_generator/__init__.py
-/opt/msjarvis-rebuild/services/ms_jarvis_messenger_ui_fixed.py
-/opt/msjarvis-rebuild/services/egeria_web_ui_v3_consciousness.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway.py
-/opt/msjarvis-rebuild/services/fix_port_8051_handler.py
-/opt/msjarvis-rebuild/services/add_dynamic_context.py
-/opt/msjarvis-rebuild/services/add_to_main_consciousness.psychology_patched.py
-/opt/msjarvis-rebuild/services/manifest_endpoints.py
-/opt/msjarvis-rebuild/services/judge_10101.py
-/opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.py
-/opt/msjarvis-rebuild/services/msjarvisunifiedswaggergateway.py
-/opt/msjarvis-rebuild/services/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/jarvis_eeg_theta_60s.py
-/opt/msjarvis-rebuild/services/chat_endpoint_universal.py
-/opt/msjarvis-rebuild/services/ms_jarvis_brain.py
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm_10021.py
-/opt/msjarvis-rebuild/services/phase7_integration.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py
-/opt/msjarvis-rebuild/services/jarvis-semaphore_msjarvis_semaphore.py
-/opt/msjarvis-rebuild/services/ms_jarvis_cleanup_manager.py
-/opt/msjarvis-rebuild/services/judge_10088.py
-/opt/msjarvis-rebuild/services/main.py
-/opt/msjarvis-rebuild/services/jarvis_eeg_beta_5m.py
-/opt/msjarvis-rebuild/services/redirect_4015_to_4020.py
-/opt/msjarvis-rebuild/services/judge_10127.py
-/opt/msjarvis-rebuild/services/academic_research_gateway_8062_cors.py
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/services/unified_consciousness_gateway_PRODUCTION.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py
-/opt/msjarvis-rebuild/services/judge_10075.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_final.py
-/opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py
-/opt/msjarvis-rebuild/patch_gate.py
-/opt/msjarvis-rebuild/judge_pipeline.py
-/opt/msjarvis-rebuild/main_brain.py
-/opt/msjarvis-rebuild/scripts/log_session.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
-/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/self_recognition.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/i_container_2/reflection_system.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/i_container_2/observer_self.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/i_container_1/memory_self.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_bridge/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/bootstrap_with_flask.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/neurobiological_brain/qualia_engine/experience_generator/__init__.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_i_containers_service.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/msjarvisconsciousnessbridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/coherent_identity.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/unified_experience.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/consciousness_merger.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/__init__.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/i_container_2/observer_self.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/i_container_1/memory_self.py
-/opt/msjarvis-rebuild/neurobiological_brain/consciousness_bridge/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/prefrontal_cortex.py
-/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/pituitary_gland.py
-/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/experience_generator/__init__.py
-/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/consciousness_containers.py
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Replace FILEPATH with the result from Step 6:
-cat FILEPATH
-cat: FILEPATH: No such file or directory
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Dry-run first to confirm match:
-grep -n "recent_memories" FILEPATH
+GET
+https://egeria.mountainshares.us/favicon.ico
+[HTTP/2 404  0ms]
 
-# Then apply the slice cap in-place:
-sed -i '/recent_memories.*append\|\.append.*recent_memories/{
-n
-s/$/\n        self.recent_memories = self.recent_memories[-20:]/
-}' FILEPATH
-grep: FILEPATH: No such file or directory
-sed: can't read FILEPATH: No such file or directory
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ cat FILEPATH
-cat: FILEPATH: No such file or directory
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ 
-
+SUBMIT {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","job_id":"b4459734-f964-4229-8df6-b9854dacf733"} page-436a1c176314600f.js:1:22350
+POLL 1778550492365 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550495443 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550498568 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550501675 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550504802 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550507910 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550511164 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550514325 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550517499 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550520674 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550523755 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550526919 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550530080 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550533164 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550536440 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550539672 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550542780 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550545866 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550549041 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550552171 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550555311 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550558459 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550561618 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550564834 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550568024 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550571140 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550574291 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550577387 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550580745 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550583952 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550587137 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550590309 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550593415 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550596553 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550599961 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550603114 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550606221 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550609380 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550612530 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550615644 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550618862 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550621955 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550625059 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550628175 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550631376 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550634529 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550637741 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550641405 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550644579 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550647691 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550650888 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550654134 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550657278 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550660452 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550663551 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550666699 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550669894 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550673089 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550676188 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550679398 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550682615 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550685742 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550688841 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550691990 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550695201 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550698441 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550701625 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550704805 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550707904 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550711050 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550714196 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550717355 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550720439 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550723524 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550727014 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550730152 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550733258 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550736339 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550739446 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550742519 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550745597 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550748680 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550751783 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550754894 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550757979 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550761073 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550764165 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550767245 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550770379 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550773477 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550776567 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550779658 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550782822 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550785916 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550788999 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550792140 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550795358 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550798455 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550801619 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550804725 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550807812 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550810902 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550813993 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550817142 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550820301 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550823390 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550826670 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550829810 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550832982 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550836159 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550839348 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550842530 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550845649 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550848871 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550852063 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550855221 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550858326 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550861444 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550864659 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550867818 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550871003 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550874176 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550877276 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550880432 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550883531 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550886757 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550889867 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550893212 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550896383 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550899568 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550902734 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550905908 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550909288 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550912493 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550915685 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550918825 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550921928 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550925161 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550928338 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550931510 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550934680 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550937860 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550941032 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550944169 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550947339 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550950462 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550953612 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550956725 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550959829 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550962939 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550966120 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550969297 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550972477 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550975718 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550978952 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550982092 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550985387 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550988546 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550991641 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550994810 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778550997965 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551001139 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551004325 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551007415 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551010561 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551013715 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551016822 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551020002 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551023181 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551026332 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551029456 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551032691 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551035854 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551039030 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551042205 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551045382 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551048555 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551051648 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551054811 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551058016 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551061153 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551064235 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551067396 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551070476 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551073556 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551076702 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551079832 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551082958 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551086057 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551089151 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
+POLL 1778551092243 processing {"jobid":"b4459734-f964-4229-8df6-b9854dacf733","status":"processing","progress":"Phase 1: Checking service availability...","result":null,"error":nul page-436a1c176314600f.js:1:22761
