@@ -205,7 +205,6 @@ This is a governance and economic reality issue, not a tax issue.
 | Mar 26, 2026 | 16 | MountainShares Phase 0 beta launch; five smart contracts deployed to Arbitrum One mainnet | Live production mutual credit infrastructure |
 | Apr 16, 2026 | 16 | Thesis container audit: 112 containers thesis-verified; production baseline confirmed | Academic and operational certification of full system scope |
 | May 4, 2026 | 16 | MountainShares Phase 1 Revision 2.0: restructured as community time bank with prepaid accounts | Core economic model finalized for community deployment |
-| May 7, 2026 | 16 | Primary DOI live: https://doi.org/10.5281/zenodo.20059834 | Peer-citable academic record established |
 
 ---
 
