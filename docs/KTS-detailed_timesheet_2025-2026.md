@@ -569,7 +569,6 @@
 | Contract suite committed (SOW, COS, MSA, FA) | 2026-03-13 | msjarvis-public-docs |
 | Four papers published | 2026-04-15 | Batch Zenodo deposit |
 | Primary DOI live (Hilbert Space/ZIP Code) | 2026-05-07 | 10.5281/zenodo.20059834 |
-| KTS Timesheet master rebuild complete | 2026-05-14 | ~550 rows, corrected caretaker window |
 
 ***
 
