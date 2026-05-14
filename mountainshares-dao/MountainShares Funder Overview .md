@@ -45,7 +45,8 @@ KTS has:
   - Phase 1 Economic Safety Specification with reserve‑ratio bands and hard triggers.  
   - DAO and governance scaffolding integrated with Ms. Allis.
 
-- Contributed **5,024 hours** of senior technical work between March 23, 2025 and February 19, 2026, valued at **$150/hour** for a documented capital contribution of **$753,600**, as detailed in the Founder's Technical Investment Statement.
+- Contributed 6,067.5 hours of senior technical work between March 23, 2025 and May 14, 2026, valued at $150/hour for a documented capital contribution of $910,125, as detailed in the Founder's Technical Investment Statement.
+
 
 Intellectual property is structured so that:
 
@@ -232,9 +233,12 @@ This phased approach ensures that **PMS** behaves like stored purchasing power l
 
 Kidd’s Technical Services, LLC has made a substantial **founder’s capital contribution** to MountainShares and Ms. Allis:
 
-- **5,024 hours** of senior geospatial, AI, and systems architecture work from March 23, 2025 through February 19, 2026.  
-- Valued at **$150/hour**, totaling **$753,600** in documented founder’s technical investment.  
-- Detailed timesheets, monthly roll‑ups, and milestone logs are available to support grant audits and due diligence.
+    6,067.5 hours of senior geospatial, AI, and systems architecture work from March 23, 2025 through May 14, 2026.
+
+    Valued at $150/hour, totaling $910,125 in documented founder's technical investment.
+
+    Detailed timesheets, monthly roll‑ups, and milestone logs are available to support grant audits and due diligence.
+
 
 This contribution:
 
