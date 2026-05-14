@@ -119,7 +119,7 @@ Ongoing infrastructure support as part of the development engagement, including:
 
 All work performed by KTS under this SOW constitutes an **in-kind donation** by Kidd's Technical Services to Harmony for Hope, Inc. KTS receives no monetary compensation under this SOW.
 
-The fair market value of services contributed is documented in the Kidd's Technical Services Founder's Technical Investment Statement (March 13, 2026), on file with H4H, which records 5,308 hours at $150/hour through March 13, 2026, for a total documented in-kind contribution of $796,200. That document is incorporated by reference as supporting record of this SOW's compensation structure.
+The fair market value of services contributed is documented in the Kidd's Technical Services Founder's Technical Investment Statement (March 13, 2026), on file with H4H, which records 6,067.5 hours at $150/hour through May 14, 2026, for a total documented in-kind contribution of $910,125. That document is incorporated by reference as supporting record of this SOW's compensation structure.
 
 H4H may recognize this contribution on its financial statements as donated services under applicable GAAP guidance and may use it as documented in-kind match for grant applications, consistent with the accounting treatment described in the Investment Statement. Neither party should treat this as a tax-deductible charitable contribution of services under IRC §170.
 
