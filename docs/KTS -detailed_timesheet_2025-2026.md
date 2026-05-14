@@ -1,12 +1,14 @@
 # KTS Detailed Timesheet 2025–2026
 
-**Contractor:** Carrie Kidd (KTS)  
-**Project:** Ms. Jarvis / Ms. Egeria Allis Geospatial AI Platform & MountainShares Infrastructure  
-**Period:** 2025-03-23 – 2026-05-13  
-**Total Logged Hours:** 6268  
-**Total Work Days:** 393  
-**Days Off:** 24  
-**Total Entries:** 417
+| Field | Value |
+|-------|-------|
+| Contractor | Carrie Kidd (KTS) |
+| Project | Ms. Jarvis / Ms. Egeria Allis Geospatial AI Platform & MountainShares Infrastructure |
+| Period | 2025-03-23 – 2026-05-13 |
+| Total Logged Hours | 6,268 |
+| Total Work Days | 393 |
+| Days Off | 24 |
+| Total Entries | 417 |
 
 ---
 
