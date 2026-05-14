@@ -43,7 +43,7 @@ Founder's Vaulted EMS are **not counted as active treasury liability** for reser
 - Is reported in the annual governance transparency report as a disclosed founder commitment
 - Does not appear in the total outstanding spendable M$ figure used for reserve ratio calculation until conversion fires
 
-TThis treatment ensures that the 6,067.5 pre-launch hours do not create a reserve ratio crisis at Phase 0 activation while fully preserving the founding UEI's recognized rights to those hours.
+This treatment ensures that the 6,067.5 pre-launch hours do not create a reserve ratio crisis at Phase 0 activation while fully preserving the founding UEI's recognized rights to those hours.
 
 ### 1.3 Governance and Dividend Weight
 
