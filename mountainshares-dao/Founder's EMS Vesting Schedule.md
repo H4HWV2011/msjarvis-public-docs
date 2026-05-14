@@ -13,7 +13,7 @@
 
 This document establishes the vesting schedule, conversion rights, trust assignment terms, and governance protections governing the pre-launch Earned MountainShares (EMS) recorded to the founding UEI of Carrie Ann Kidd / Kidd's Technical Services, LLC prior to Phase 0 activation.
 
-As of May 14, 2026, the founding UEI holds approximately $910,125 pre-launch EMS hours recorded in the MountainShares recognition ledger, representing the full scope of technical infrastructure work documented in the Founder's Technical Investment Statement (FTIS). These hours were earned before the MountainShares program opened to any external participant, under conditions of sole founder contribution with no external capital, no external staffing, and no venture investment of any kind.
+As of May 14, 2026, the founding UEI holds approximately 6,067.5 pre-launch EMS hours recorded in the MountainShares recognition ledger, representing the full scope of technical infrastructure work documented in the Founder's Technical Investment Statement (FTIS), with a fair market value of $910,125 at $150/hour. These hours were earned before the MountainShares program opened to any external participant, under conditions of sole founder contribution with no external capital, no external staffing, and no venture investment of any kind.
 
 This schedule exists for three purposes:
 
