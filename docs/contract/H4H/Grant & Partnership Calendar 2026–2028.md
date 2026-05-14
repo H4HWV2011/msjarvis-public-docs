@@ -49,7 +49,7 @@ No grant applications are submitted during this phase. The entire focus is on bu
 
 - [ ] **Thurmond LOS** — receive and upload to repo
 - [ ] **NPS LOS** — confirm and receive following Thurmond engagement
-- [ ] **WVU Faculty LOS** — confirm with Dr. Srivastava / WVU Lane Department contact
+- [x] **WVU Faculty LOS** — received May 13, 2026 (Dr. Srivastava / WVU Lane Department of Computer Science & Electrical Engineering)
 - [ ] Upload all LOS documents to repo with clean filenames (e.g., `thurmond_LOS_2026.pdf`, `NPS_LOS_2026.pdf`, `WVU_LOS_2026.pdf`)
 - [ ] Rename `New River Gorge Heritage & Visitor Connectivity Mesh Pilotc.md` → remove stray `c`
 - [ ] Final repo cleanup — resolve any outstanding draft labels, broken links, filename artifacts
@@ -126,7 +126,7 @@ By the time of this application, the H4H/KTS package will include:
 - Mount Hope municipal LOS
 - Thurmond LOS
 - NPS LOS
-- WVU Faculty LOS
+- WVU Faculty LOS ✅ (Dr. Srivastava, received May 13, 2026)
 - Marshall University research partnership
 - RWJF grant relationship established
 - USDA Community Connect application submitted
@@ -202,7 +202,7 @@ ARC ARISE funds large-scale projects spanning multiple Appalachian states. This 
 | **June 2026** | Thurmond LOS pursuit · NPS follow-up |
 | **July 2026** | Thurmond LOS target receipt |
 | **August 2026** | NPS LOS target receipt |
-| **September 2026** | WVU LOS received · Repo fully cleaned and finalized · All LOS uploaded |
+| **September 2026** | Repo fully cleaned and finalized · All LOS uploaded |
 | **October 2026** | Brad Smith outreach with complete package · Watch Humanity AI for open call |
 | **November 2026** | Marshall University partnership conversation · Mellon program officer contact through WVU |
 | **December 2026** | WV Community Development Hub relationship active · Watch for ARC POWER FY2027 NOSA signals |
@@ -250,7 +250,7 @@ ARC ARISE funds large-scale projects spanning multiple Appalachian states. This 
 |---|---|---|
 | Brad Smith | ARC regional champion — update when full LOS stack in repo | October 2026 |
 | Marshall University | Research partnership — co-applicant on ARC POWER | November 2026 |
-| WVU / Dr. Srivastava | Academic validation — LOS + Mellon/Humanity AI pathway | September 2026 |
+| WVU / Dr. Srivastava (Lane Dept. CS & EE) | Academic validation — LOS ✅ received May 13, 2026 | Complete |
 | WVRESAI (Local Development District) | Required ARC application sponsor for Fayette County | April 2027 |
 | WV Community Development Hub | State network — credibility and referrals | November 2026 |
 | Mellon Foundation program officer | Path via WVU faculty — Humanities in Place / Public Knowledge | November 2026 |
