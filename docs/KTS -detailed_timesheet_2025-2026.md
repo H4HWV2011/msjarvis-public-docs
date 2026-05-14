@@ -3241,8 +3241,6 @@
 ## Notes
 
 - All times are Eastern Time (ET)
-- Duplicate date entries removed; first occurrence retained
 - 9:00am–1:30pm daily is reserved for Medicaid waiver caretaker duties (non-billable) and excluded from all billable hour calculations
-- Time blocks reflect accurate 4-hour billable segments totaling 16h per full work day
 - Tasks marked `(continued)` indicate the same task carried across blocks
 
