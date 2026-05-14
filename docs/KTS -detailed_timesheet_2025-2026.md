@@ -479,11 +479,16 @@ Date,Hours,Task_Description
 
 ## Key Project Milestones
 
-- **2025-07-04** — MountainShares smart contract system proof of concept achieved
-- **2025-09-11** — Blue screen of death event; ordered 10TB external drive, initiated data recovery
-- **2026-02-22** — Reduced-hour day: light planning and documentation
-- **2026-02-28** — Reduced-hour day: light refactoring and code review
-- **2026-03-05** — Reduced-hour day: light planning and documentation
+| Date | Event |
+|------|-------|
+| 2025-07-04 | MountainShares smart contract system — proof of concept achieved |
+| 2025-09-11 | Blue screen of death event; ordered 10TB external drive, initiated data recovery |
+| 2025-12-25 | Ms. Jarvis full system mesh achieved — all microservices integrated |
+| 2026-01-06 | GPU/CPU communication bug — OS reinstall and bare-metal rebuild |
+| 2026-03-20 | Promotion of `allis-gbim-query-router` (port 7205); ingestion of 20,593 landowner belief records |
+| 2026-03-27 | AAPCAppE corpus activation; scraper first-run (39 sources, 65 documents); RAG search validation |
+| 2026-04-01 | Autonomous learner debug sprint (LEARN-01, LEARN-02, LEARN-03); Gate 30 MountainShares validation |
+| 2026-05-06 | Polymathmatic Geography thesis updates; final live audit of 7,903,126 vectors |
 
 ---
 
