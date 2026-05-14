@@ -71,7 +71,7 @@ None.
 
 ## 5. Cost Impact
 
-The cost basis for all technical work performed under this engagement — including the expanded scope described in this Change of Scope Request — is documented in the Founder's Technical Investment Statement (FTIS), prepared by Kidd's Technical Services, LLC and dated March 13, 2026, reflecting 5,308 hours of contributed technical labor at a fair market value of $150/hour ($796,200 total) for the period March 23, 2025 through March 13, 2026. The FTIS is incorporated by reference into this agreement as Exhibit A.
+The cost basis for all technical work performed under this engagement — including the expanded scope described in this Change of Scope Request — is documented in the Founder's Technical Investment Statement (FTIS), prepared by Kidd's Technical Services, LLC and dated March 13, 2026, reflecting 6,067.5 hours of contributed technical labor at a fair market value of $150/hour ($910,125 total) for the period March 23, 2025 through May 14, 2026.
 
 No cash payment is due to KTS as a result of this Change of Scope Request. Hardware procurement costs, if any, shall be addressed in a separate Fee Amendment (FA-001) and are not included in any existing fixed-fee or contributed-labor arrangement unless explicitly stated therein.
 
