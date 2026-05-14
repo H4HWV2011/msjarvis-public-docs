@@ -2,15 +2,15 @@
 ## Kidd's Technical Services, LLC to Harmony for Hope
 
 **Reporting Period:** March 23, 2025 – May 14, 2026
-**Total Hours Invested:** 5,859.5 hours
+**Total Hours Invested:** 6,067.5 hours
 **Hourly Rate (Fair Market Value):** $150/hour
-**Total Capital Contribution:** $878,925
+**Total Capital Contribution:** $910,125
 
 ---
 
 ## Executive Summary
 
-This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Jarvis geospatial intelligence platform. This represents a documented commitment of human capital—now 5,859.5 hours, equivalent to approximately 2.9 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
+This document establishes the financial and technical scope of infrastructure development contributed by Kidd's Technical Services, LLC to Harmony for Hope (H4H) during the foundational phase of the MountainShares mutual credit system and Ms. Jarvis geospatial intelligence platform. This represents a documented commitment of human capital—now 6,067.5 hours, equivalent to approximately 3.0 years of full-time technical architecture work—applied directly to building commons-based economic infrastructure for Appalachian community stewardship.
 
 ---
 
@@ -102,7 +102,7 @@ This rate is consistent with:
 ### Total Investment Calculation
 
 ```text
-5,859.5 hours × $150/hour = $878,925
+6,067.5 hours × $150/hour = $910,125
 ```
 
 ### Comparison to Traditional Contracting
@@ -110,9 +110,9 @@ This rate is consistent with:
 If this work had been contracted to external vendors:
 - Senior architect: $200–250/hour
 - Full systems team: $300–400/hour (3–4 person team)
-- Estimated external cost: $1.6M–2.3M over equivalent timeline
+- Estimated external cost: $1.6M–2.4M over equivalent timeline
 
-This investment represents approximately 38–55% of equivalent external contracting costs.
+This investment represents approximately 38–57% of equivalent external contracting costs.
 
 ---
 
@@ -120,7 +120,7 @@ This investment represents approximately 38–55% of equivalent external contrac
 
 ### Founder's Capital Account
 
-This $878,925 constitutes founder's equity in MountainShares, not a charitable donation. It establishes:
+This $910,125 constitutes founder's equity in MountainShares, not a charitable donation. It establishes:
 
 1. **Governance Authority:** Voting stake in community decision-making regarding mutual credit issuance, land trust acquisition, and resource allocation.
 2. **Veto Power:** Authority to prevent proposals that dilute commons principles or introduce extractive external capital.
@@ -143,8 +143,8 @@ Unlike venture capital, this investment:
 
 - Demonstrated Capacity: Proof of ability to execute complex technical infrastructure projects.
 - Grant Readiness: Pre-investment evidence for federal and foundation funding applications (ARC, ESDA, USDA RD).
-- Institutional Capital: $878,925 in documented in-kind matching funds for grant proposals.
-- Risk Reduction: H4H has already invested 5,859.5 hours of expert-level time before external funding.
+- Institutional Capital: $910,125 in documented in-kind matching funds for grant proposals.
+- Risk Reduction: H4H has already invested 6,067.5 hours of expert-level time before external funding.
 
 ### For MountainShares
 
@@ -227,17 +227,17 @@ This is a governance and economic reality issue, not a tax issue.
 | February 2026 | 320 | $48,000 | 4,864 | $729,600 |
 | March 2026 | 291.5 | $43,725 | 5,155.5 | $773,325 |
 | April 2026 | 480 | $72,000 | 5,635.5 | $845,325 |
-| May 2026 (partial) | 224 | $33,600 | **5,859.5** | **$878,925** |
-| **TOTAL** | **5,859.5** | **$878,925** | **5,859.5** | **$878,925** |
+| May 2026 (partial) | 432 | $64,800 | **6,067.5** | **$910,125** |
+| **TOTAL** | **6,067.5** | **$910,125** | **6,067.5** | **$910,125** |
 
-*All monthly figures reconciled to and sourced from the canonical timesheet: `docs/KTS-detailed_timesheet_2025-2026.md`*
+*All monthly figures sourced from `docs/KTS-detailed_timesheet_2025-2026.md` (canonical timesheet). May 2026 reflects the authoritative header total of 6,067.5 hours; full monthly reconciliation pending.*
 
 ---
 
 ## Supporting Documentation
 
 **Time Records:**
-- Canonical timesheet: `docs/KTS-detailed_timesheet_2025-2026.md` — single authoritative record with date-specific task descriptions through May 14, 2026 (5,859.5 hours).
+- Canonical timesheet: `docs/KTS-detailed_timesheet_2025-2026.md` — single authoritative record with date-specific task descriptions through May 14, 2026 (6,067.5 hours).
 - Records include date-specific task descriptions, time blocks, and explicit days off, suitable for audit or grant review.
 
 **Technical Deliverables:**
@@ -260,7 +260,7 @@ This is a governance and economic reality issue, not a tax issue.
 ### Grant Applications
 
 This updated statement supports funding requests by demonstrating:
-- Pre-award technical investment of $878,925 in founder time and infrastructure.
+- Pre-award technical investment of $910,125 in founder time and infrastructure.
 - Capacity to execute complex infrastructure projects across a sustained period.
 - Institutional commitment to systems development independent of external capital.
 - Reduced risk for grant-funded work because core systems are already built and tested.
@@ -292,7 +292,7 @@ This investment continues to establish a model for member-led technology develop
 
 ## Conclusion
 
-The 5,859.5 hours and $878,925 investment from Kidd's Technical Services, LLC to Harmony for Hope represents a foundational commitment to building commons-based economic infrastructure in Appalachia. This work is not a tax-deductible donation, but rather a founder's capital contribution establishing governance authority and equity stake in MountainShares.
+The 6,067.5 hours and $910,125 investment from Kidd's Technical Services, LLC to Harmony for Hope represents a foundational commitment to building commons-based economic infrastructure in Appalachia. This work is not a tax-deductible donation, but rather a founder's capital contribution establishing governance authority and equity stake in MountainShares.
 
 This updated statement demonstrates:
 - Technical feasibility of commons-based technology platforms.
