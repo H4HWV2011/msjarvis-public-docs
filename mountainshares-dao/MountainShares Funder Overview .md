@@ -233,11 +233,11 @@ This phased approach ensures that **PMS** behaves like stored purchasing power l
 
 Kidd’s Technical Services, LLC has made a substantial **founder’s capital contribution** to MountainShares and Ms. Allis:
 
-    6,067.5 hours of senior geospatial, AI, and systems architecture work from March 23, 2025 through May 14, 2026.
+ - 6,067.5 hours of senior geospatial, AI, and systems architecture work from March 23, 2025 through May 14, 2026.
 
-    Valued at $150/hour, totaling $910,125 in documented founder's technical investment.
+  -  Valued at $150/hour, totaling $910,125 in documented founder's technical investment.
 
-    Detailed timesheets, monthly roll‑ups, and milestone logs are available to support grant audits and due diligence.
+   - Detailed timesheets, monthly roll‑ups, and milestone logs are available to support grant audits and due diligence.
 
 
 This contribution:
