@@ -1,773 +1,744 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-safe$ # 1. Find where the web research service code actually lives
-find /opt/msjarvis-rebuild ~/msjarvis-rebuild-working ~/msjarvis-safe \
-  -name "*.py" 2>/dev/null \
-  | xargs grep -l "web.research\|duckduckgo\|research_loop\|autonomous.*learn" 2>/dev/null \
-  | tee /tmp/web-research-files.txt
+find . -name 'Dockerfile*' | xargs grep -l 'autonomous\|learner' 2>/dev/null
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Find ALL docker-compose files on the system
+find / -maxdepth 6 -name 'docker-compose*.yml' -o -name 'docker-compose*.yaml' 2>/dev/null \
+  | grep -v '/proc\|/sys\|/run' \
+  | tee /tmp/compose-files.txt
 
-# 2. Show the actual file(s) found
-cat /tmp/web-research-files.txt
+# Also find where the autonomous learner service files live
+find / -maxdepth 8 -name 'ms_jarvis_autonomous_learner.py' 2>/dev/null | grep -v '.venv\|_archive'
 
-# 3. For each found file, show polling/sleep/interval lines
-while read f; do
-  echo "===== $f ====="
-  grep -n 'sleep\|interval\|schedule\|asyncio\.\|research_loop\|while True\|gather\|create_task' "$f" | head -40
-done < /tmp/web-research-files.txt
-/opt/msjarvis-rebuild/gisgeodb_storage.py
-/opt/msjarvis-rebuild/test_autonomous_learner_store.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit_with_swagger.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_autonomous_learner_gisgeodb.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/activate_dgm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_fifth_dgm_autonomous_learner.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/extract_all_chromadbs_to_gis.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_indent.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_fastapi_lifespan.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_endpoint.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_web_research_package.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_consciousness_endpoints.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_import.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_i_container_interests.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_chroma_url.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_ddg_verbose.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_web_research_storage.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_ueid_identity_layer.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_web_research_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_working_search.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_learner_clean.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_autonomous_learner_tables.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_services_to_use_port_manager.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/backfill_gbim_entities.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_web_research.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/activate_dgm_enhanced.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/autonomous_learner_gisgeodb_wrapper.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py
-/opt/msjarvis-rebuild/gisgeodbstorage.py
-/opt/msjarvis-rebuild/autonomouslearner.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/cli.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/http_client2.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_images.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_videos.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_news.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/cli.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/duckduckgo_search.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/__main__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/exceptions.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/__init__.py
-/opt/msjarvis-rebuild/rag_server_main.py
-/opt/msjarvis-rebuild/services/ms_jarvis_seamless_monitor.py
-/opt/msjarvis-rebuild/services/fifth_dgm/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_v2.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-/opt/msjarvis-rebuild/services/fix_autonomous.py
-/opt/msjarvis-rebuild/services/gisgeodb_storage.py
-/opt/msjarvis-rebuild/services/web_research_main.py
-/opt/msjarvis-rebuild/services/inject_gisgeodb_into_learner.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/services/complete_fix.py
-/opt/msjarvis-rebuild/services/ms_jarvis_attribute_table_sync_continuous.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py
-/opt/msjarvis-rebuild/services/recover_160_queries.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py
-/opt/msjarvis-rebuild/services/recover_chromadb_to_gisgeodb.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_optimized.py
-/opt/msjarvis-rebuild/services/complete_system_audit_with_swagger.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/services/patch_autonomous_learner_gisgeodb.py
-/opt/msjarvis-rebuild/services/rag/dgm_rag_integration.py
-/opt/msjarvis-rebuild/services/rag/gbim_chroma.py
-/opt/msjarvis-rebuild/services/recover_chromadb_FIXED.py
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/activate_dgm.py
-/opt/msjarvis-rebuild/services/integrate_fifth_dgm_autonomous_learner.py
-/opt/msjarvis-rebuild/services/extract_all_chromadbs_to_gis.py
-/opt/msjarvis-rebuild/services/fix_autonomous_learner_indent.py
-/opt/msjarvis-rebuild/services/comprehensive_url_fix.py
-/opt/msjarvis-rebuild/services/data_inventory_endpoint.py
-/opt/msjarvis-rebuild/services/modify_autonomous_learning_cycle.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fully_autonomous_coordinator.py
-/opt/msjarvis-rebuild/services/gisgeodb_learner_hook.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py
-/opt/msjarvis-rebuild/services/fix_fastapi_lifespan.py
-/opt/msjarvis-rebuild/services/fix_autonomous_learner_endpoint.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/services/rag_server_main.py
-/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/services/mountainshares_gbim_suggester.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_aggregate.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_fixed.py
-/opt/msjarvis-rebuild/services/update_web_research_package.py
-/opt/msjarvis-rebuild/services/run_autonomous_learner_once.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_FIXED.py
+# And find all Dockerfiles
+find / -maxdepth 8 -name 'Dockerfile*' 2>/dev/null \
+  | grep -v '/proc\|/sys\|/run\|\.venv' \
+  | tee /tmp/dockerfiles.txt
+/opt/msjarvis-rebuild/docker-compose.rag.yml
+/opt/msjarvis-rebuild/docker-compose.golden.yml
+/opt/msjarvis-rebuild/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose-patch.yml
+/opt/msjarvis-rebuild/docker-compose.llm-proxies.yml
+/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml
+/opt/msjarvis-rebuild/services/docker-compose.deduped.yml
+/opt/msjarvis-rebuild/services/gbim_indexers/docker-compose.override.yml
+/opt/msjarvis-rebuild/observability/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose.override.yml
+/opt/msjarvis-rebuild/docker-compose.working.20260118-235132.yml
+/opt/msjarvis-rebuild/docker-compose-core.yml
+/opt/msjarvis-rebuild/docker-compose.recovered.yml
+/opt/msjarvis-rebuild/docker-compose.restored.yml
+/opt/msjarvis-rebuild/docker-compose.gbim.yml
+/opt/msjarvis-rebuild/docker-compose.working.20260119-000202.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.working.20260118-235132.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.gbim.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.restored.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml
+/mnt/nvme1/msjarvis-rebuild/services/docker-compose.deduped.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.working.20260119-000202.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.golden.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.recovered.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.override.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.llm-proxies.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose-patch.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.rag.yml
+/mnt/nvme1/msjarvis-rebuild/backups/docker-compose.STABLE_20260121_162220.yml
+/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml
+/home/cakidd/ch29-closeout/backups/docker-compose.yml
+/home/cakidd/ch29-closeout/backups/docker-compose-core.yml
+/home/cakidd/ch29-closeout/backups/docker-compose.deduped.yml
+/home/cakidd/msjarvis-safe/docker-compose.yml
 /opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py
-/opt/msjarvis-rebuild/services/fix_consciousness_endpoints.py
-/opt/msjarvis-rebuild/services/fix_import.py
-/opt/msjarvis-rebuild/services/rebuild_query_service.py
-/opt/msjarvis-rebuild/services/integrate_i_container_interests.py
-/opt/msjarvis-rebuild/services/set_intelligent_accuracy_scores.py
-/opt/msjarvis-rebuild/services/fix_chroma_url.py
-/opt/msjarvis-rebuild/services/test_ddg_verbose.py
-/opt/msjarvis-rebuild/services/seed_spatial_identity.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/services/dgm_rag_integration_v2.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
-/opt/msjarvis-rebuild/services/add_web_research_storage.py
-/opt/msjarvis-rebuild/services/rag_grounded_v2.py
-/opt/msjarvis-rebuild/services/web_research_fail_tracker.py
-/opt/msjarvis-rebuild/services/create_ueid_identity_layer.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_simple.py
-/opt/msjarvis-rebuild/services/hierarchical_coordinator_autonomous.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/web_research.py
-/opt/msjarvis-rebuild/services/add_working_search.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
-/opt/msjarvis-rebuild/services/gbim_chroma_fixed.py
-/opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py
-/opt/msjarvis-rebuild/services/main_brain.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py
-/opt/msjarvis-rebuild/services/patch_learner_clean.py
-/opt/msjarvis-rebuild/services/autonomous_learner_gisgeodb_wrapper.py
-/opt/msjarvis-rebuild/services/msjarvisautonomouslearner.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py
-/opt/msjarvis-rebuild/services/start_gateway_with_guards.py
-/opt/msjarvis-rebuild/services/create_autonomous_learner_tables.py
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
-/opt/msjarvis-rebuild/services/index_all_extracted_gis.py
-/opt/msjarvis-rebuild/services/roche_llm.py
-/opt/msjarvis-rebuild/services/wire_learner_to_gisgeodb.py
-/opt/msjarvis-rebuild/services/gbim_metadata_enricher.py
-/opt/msjarvis-rebuild/services/update_services_to_use_port_manager.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-/opt/msjarvis-rebuild/services/introspective_record.py
-/opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py
-/opt/msjarvis-rebuild/services/fix_web_research.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
-/opt/msjarvis-rebuild/services/activate_dgm_enhanced.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway.py
-/opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.py
-/opt/msjarvis-rebuild/services/autonomous_learner_topic_source.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync_FIXED.py
-/opt/msjarvis-rebuild/services/autonomous_learner_gisgeodb_wrapper.psychology_patched.py
-/opt/msjarvis-rebuild/services/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py
-/opt/msjarvis-rebuild/services/gbim_chroma.py
-/opt/msjarvis-rebuild/services/main.py
-/opt/msjarvis-rebuild/services/jarvis_eeg_beta_5m.py
-/opt/msjarvis-rebuild/services/ms_jarvis_chromadb_query.py
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py
-/opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py
-/opt/msjarvis-rebuild/rag_insert_mountainshares.py
-/opt/msjarvis-rebuild/main_brain.py
-/opt/msjarvis-rebuild/ragservermain.py
-/opt/msjarvis-rebuild/scripts/sprint5_chromadb_backfill.py
-/opt/msjarvis-rebuild/scripts/audit_happiness_v2.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
-/opt/msjarvis-rebuild/gisgeodb_storage.py
-/opt/msjarvis-rebuild/test_autonomous_learner_store.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit_with_swagger.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_autonomous_learner_gisgeodb.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/activate_dgm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_fifth_dgm_autonomous_learner.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/extract_all_chromadbs_to_gis.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_indent.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_fastapi_lifespan.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_endpoint.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_web_research_package.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_consciousness_endpoints.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_import.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_i_container_interests.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_chroma_url.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_ddg_verbose.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_web_research_storage.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_ueid_identity_layer.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_web_research_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_working_search.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/patch_learner_clean.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_autonomous_learner_tables.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_services_to_use_port_manager.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/backfill_gbim_entities.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_web_research.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/activate_dgm_enhanced.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/autonomous_learner_gisgeodb_wrapper.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py
-/opt/msjarvis-rebuild/gisgeodbstorage.py
-/opt/msjarvis-rebuild/autonomouslearner.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/cli.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/http_client2.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_images.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_videos.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_news.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/cli.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/duckduckgo_search.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/__main__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/exceptions.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/__init__.py
-/opt/msjarvis-rebuild/rag_server_main.py
-/opt/msjarvis-rebuild/services/ms_jarvis_seamless_monitor.py
-/opt/msjarvis-rebuild/services/fifth_dgm/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_v2.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-/opt/msjarvis-rebuild/services/fix_autonomous.py
-/opt/msjarvis-rebuild/services/gisgeodb_storage.py
-/opt/msjarvis-rebuild/services/web_research_main.py
-/opt/msjarvis-rebuild/services/inject_gisgeodb_into_learner.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/services/complete_fix.py
-/opt/msjarvis-rebuild/services/ms_jarvis_attribute_table_sync_continuous.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py
-/opt/msjarvis-rebuild/services/recover_160_queries.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py
-/opt/msjarvis-rebuild/services/recover_chromadb_to_gisgeodb.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_optimized.py
-/opt/msjarvis-rebuild/services/complete_system_audit_with_swagger.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/services/patch_autonomous_learner_gisgeodb.py
-/opt/msjarvis-rebuild/services/rag/dgm_rag_integration.py
-/opt/msjarvis-rebuild/services/rag/gbim_chroma.py
-/opt/msjarvis-rebuild/services/recover_chromadb_FIXED.py
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/activate_dgm.py
-/opt/msjarvis-rebuild/services/integrate_fifth_dgm_autonomous_learner.py
-/opt/msjarvis-rebuild/services/extract_all_chromadbs_to_gis.py
-/opt/msjarvis-rebuild/services/fix_autonomous_learner_indent.py
-/opt/msjarvis-rebuild/services/comprehensive_url_fix.py
-/opt/msjarvis-rebuild/services/data_inventory_endpoint.py
-/opt/msjarvis-rebuild/services/modify_autonomous_learning_cycle.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fully_autonomous_coordinator.py
-/opt/msjarvis-rebuild/services/gisgeodb_learner_hook.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py
-/opt/msjarvis-rebuild/services/fix_fastapi_lifespan.py
-/opt/msjarvis-rebuild/services/fix_autonomous_learner_endpoint.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/services/rag_server_main.py
-/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/services/mountainshares_gbim_suggester.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_aggregate.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_fixed.py
-/opt/msjarvis-rebuild/services/update_web_research_package.py
-/opt/msjarvis-rebuild/services/run_autonomous_learner_once.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_FIXED.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py
-/opt/msjarvis-rebuild/services/fix_consciousness_endpoints.py
-/opt/msjarvis-rebuild/services/fix_import.py
-/opt/msjarvis-rebuild/services/rebuild_query_service.py
-/opt/msjarvis-rebuild/services/integrate_i_container_interests.py
-/opt/msjarvis-rebuild/services/set_intelligent_accuracy_scores.py
-/opt/msjarvis-rebuild/services/fix_chroma_url.py
-/opt/msjarvis-rebuild/services/test_ddg_verbose.py
-/opt/msjarvis-rebuild/services/seed_spatial_identity.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/services/dgm_rag_integration_v2.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
-/opt/msjarvis-rebuild/services/add_web_research_storage.py
-/opt/msjarvis-rebuild/services/rag_grounded_v2.py
-/opt/msjarvis-rebuild/services/web_research_fail_tracker.py
-/opt/msjarvis-rebuild/services/create_ueid_identity_layer.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research_simple.py
-/opt/msjarvis-rebuild/services/hierarchical_coordinator_autonomous.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py
-/opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/web_research.py
-/opt/msjarvis-rebuild/services/add_working_search.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
-/opt/msjarvis-rebuild/services/gbim_chroma_fixed.py
-/opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py
-/opt/msjarvis-rebuild/services/main_brain.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py
-/opt/msjarvis-rebuild/services/process_comprehensive_gis.py
-/opt/msjarvis-rebuild/services/patch_learner_clean.py
-/opt/msjarvis-rebuild/services/autonomous_learner_gisgeodb_wrapper.py
-/opt/msjarvis-rebuild/services/msjarvisautonomouslearner.py
-/opt/msjarvis-rebuild/services/ms_jarvis_web_research.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py
-/opt/msjarvis-rebuild/services/start_gateway_with_guards.py
-/opt/msjarvis-rebuild/services/create_autonomous_learner_tables.py
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
-/opt/msjarvis-rebuild/services/index_all_extracted_gis.py
-/opt/msjarvis-rebuild/services/roche_llm.py
-/opt/msjarvis-rebuild/services/wire_learner_to_gisgeodb.py
-/opt/msjarvis-rebuild/services/gbim_metadata_enricher.py
-/opt/msjarvis-rebuild/services/update_services_to_use_port_manager.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-/opt/msjarvis-rebuild/services/introspective_record.py
-/opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py
-/opt/msjarvis-rebuild/services/fix_web_research.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync_FIXED_V2.py
-/opt/msjarvis-rebuild/services/activate_dgm_enhanced.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway.py
-/opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.py
-/opt/msjarvis-rebuild/services/autonomous_learner_topic_source.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync_FIXED.py
-/opt/msjarvis-rebuild/services/autonomous_learner_gisgeodb_wrapper.psychology_patched.py
-/opt/msjarvis-rebuild/services/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py
-/opt/msjarvis-rebuild/services/gbim_chroma.py
-/opt/msjarvis-rebuild/services/main.py
-/opt/msjarvis-rebuild/services/jarvis_eeg_beta_5m.py
-/opt/msjarvis-rebuild/services/ms_jarvis_chromadb_query.py
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py
-/opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py
-/opt/msjarvis-rebuild/rag_insert_mountainshares.py
-/opt/msjarvis-rebuild/main_brain.py
-/opt/msjarvis-rebuild/ragservermain.py
-/opt/msjarvis-rebuild/scripts/sprint5_chromadb_backfill.py
-/opt/msjarvis-rebuild/scripts/audit_happiness_v2.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
-===== /opt/msjarvis-rebuild/gisgeodb_storage.py =====
-===== /opt/msjarvis-rebuild/test_autonomous_learner_store.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit_with_swagger.py =====
-121:    SELECT DISTINCT service_name FROM scheduler_coordination
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/patch_autonomous_learner_gisgeodb.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/activate_dgm.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/integrate_fifth_dgm_autonomous_learner.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/extract_all_chromadbs_to_gis.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_indent.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_fastapi_lifespan.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_endpoint.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/update_web_research_package.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_consciousness_endpoints.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_import.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/integrate_i_container_interests.py =====
-24:    r'(async def autonomous_learning_loop\(self\):.*?)(while True:.*?topic = self\.learning_topics\[self\.current_topic_index\])',
-31:    modified_loop = loop_match.group(1) + '''while True:
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_chroma_url.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/test_ddg_verbose.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/add_web_research_storage.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/create_ueid_identity_layer.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py =====
-105:            asyncio.create_task(self._evaluate_for_i_container(input_data, decision))
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_web_research_simple.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/add_working_search.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.psychology_patched.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/patch_learner_clean.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/create_autonomous_learner_tables.py =====
-29:        run_interval_minutes INTEGER DEFAULT 5,
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/update_services_to_use_port_manager.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/backfill_gbim_entities.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/fix_web_research.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/activate_dgm_enhanced.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway.py =====
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/create_dual_consciousness_i_containers.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/autonomous_learner_gisgeodb_wrapper.psychology_patched.py =====
-22:                loop = asyncio.new_event_loop()
-23:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py =====
-114:    asyncio.create_task(process_chat_job(job_id, request))
-561:        tasks: List[asyncio.Task] = []
-575:            enhancements = await asyncio.gather(
-878:    while True:
-919:        await asyncio.sleep(300)  # 5 minutes
-924:    asyncio.create_task(check_emails())
-925:    logger.info("📧 Email checker started (5 min intervals)")
-===== /opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py =====
-===== /opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py =====
-514:            asyncio.create_task(_store_to_hippo())
-===== /opt/msjarvis-rebuild/gisgeodbstorage.py =====
-===== /opt/msjarvis-rebuild/autonomouslearner.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/cli.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/http_client2.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_images.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_videos.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/duckduckgo_news.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/ddgs/engines/__init__.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/cli.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/duckduckgo_search.py =====
-11:from time import sleep, time
-81:        self.sleep_timestamp = 0.0
-99:    def _sleep(self, sleeptime: float = 0.75) -> None:
-101:        delay = 0.0 if not self.sleep_timestamp else 0.0 if time() - self.sleep_timestamp >= 20 else sleeptime
-102:        self.sleep_timestamp = time()
-103:        sleep(delay)
-117:        self._sleep()
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/__main__.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/exceptions.py =====
-===== /opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/duckduckgo_search/__init__.py =====
-===== /opt/msjarvis-rebuild/rag_server_main.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_seamless_monitor.py =====
-81:while True:
-83:    time.sleep(300)  # Check every 5 minutes
-===== /opt/msjarvis-rebuild/services/fifth_dgm/ms_jarvis_fifth_dgm_orchestrator.py =====
-144:            asyncio.create_task(self._evaluate_for_i_container(input_data, decision))
-===== /opt/msjarvis-rebuild/services/ms_jarvis_web_research_v2.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/services/fix_autonomous.py =====
-===== /opt/msjarvis-rebuild/services/gisgeodb_storage.py =====
-===== /opt/msjarvis-rebuild/services/web_research_main.py =====
-===== /opt/msjarvis-rebuild/services/inject_gisgeodb_into_learner.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync.py =====
-101:while True:
-103:    time.sleep(120)  # Sync every 2 minutes
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/services/complete_fix.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_attribute_table_sync_continuous.py =====
-65:while True:
-67:    time.sleep(60)  # Sync every 60 seconds
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py =====
-36:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-230:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/services/recover_160_queries.py =====
-===== /opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_fixed.py =====
-===== /opt/msjarvis-rebuild/services/recover_chromadb_to_gisgeodb.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_optimized.py =====
-38:        self.research_interval = 300  # 5 minutes
-39:        self.cleanup_interval = 86400  # 24 hours
-392:        if (datetime.now() - self.last_cleanup).total_seconds() >= self.cleanup_interval:
-410:                await asyncio.sleep(self.research_interval)
-414:                await asyncio.sleep(60)
-427:    asyncio.create_task(learner.continuous_learning_loop())
-===== /opt/msjarvis-rebuild/services/complete_system_audit_with_swagger.py =====
-121:    SELECT DISTINCT service_name FROM scheduler_coordination
-===== /opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_error.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/services/patch_autonomous_learner_gisgeodb.py =====
-===== /opt/msjarvis-rebuild/services/rag/dgm_rag_integration.py =====
-308:        psych, spiritual, history = await asyncio.gather(
-===== /opt/msjarvis-rebuild/services/rag/gbim_chroma.py =====
-===== /opt/msjarvis-rebuild/services/recover_chromadb_FIXED.py =====
-===== /opt/msjarvis-rebuild/services/llm/ai_server_22llm.py =====
-150:        self.ollama_semaphore = asyncio.Semaphore(4)
-341:            batch_responses = await asyncio.gather(*tasks)
-344:            await asyncio.sleep(0.5)
-===== /opt/msjarvis-rebuild/services/activate_dgm.py =====
-===== /opt/msjarvis-rebuild/services/integrate_fifth_dgm_autonomous_learner.py =====
-===== /opt/msjarvis-rebuild/services/extract_all_chromadbs_to_gis.py =====
-===== /opt/msjarvis-rebuild/services/fix_autonomous_learner_indent.py =====
-===== /opt/msjarvis-rebuild/services/comprehensive_url_fix.py =====
-===== /opt/msjarvis-rebuild/services/data_inventory_endpoint.py =====
-===== /opt/msjarvis-rebuild/services/modify_autonomous_learning_cycle.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_fully_autonomous_coordinator.py =====
-55:        self.web_research_interval = 300  # 5 minutes
-56:        self.social_discovery_interval = 3600  # 1 hour
-57:        self.facebook_post_interval = 7200  # 2 hours
-201:                            "schedule_time": "now",
-234:            (datetime.utcnow() - self.last_web_research).seconds >= self.web_research_interval):
-244:            (datetime.utcnow() - self.last_social_discovery).seconds >= self.social_discovery_interval):
-254:            (datetime.utcnow() - self.last_facebook_post).seconds >= self.facebook_post_interval):
-281:                await asyncio.sleep(300)
-285:                await asyncio.sleep(60)  # Wait 1 minute on error
-389:        "intervals": {
-390:            "web_research": f"{coordinator.web_research_interval} seconds (5 min)",
-391:            "social_discovery": f"{coordinator.social_discovery_interval} seconds (1 hour)",
-392:            "facebook_posting": f"{coordinator.facebook_post_interval} seconds (2 hours)"
-===== /opt/msjarvis-rebuild/services/gisgeodb_learner_hook.py =====
-69:        time.sleep(300)  # 5 minutes
-===== /opt/msjarvis-rebuild/services/ms_jarvis_web_research_aggregate.safe.20260119-094221.py =====
-308:                asyncio.create_task(
-312:                logger.warning("Could not schedule Hilbert store task (no event loop)")
-===== /opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py =====
-===== /opt/msjarvis-rebuild/services/fix_fastapi_lifespan.py =====
-===== /opt/msjarvis-rebuild/services/fix_autonomous_learner_endpoint.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_1762220815.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/services/rag_server_main.py =====
-===== /opt/msjarvis-rebuild/services/fix_all_consciousness_services.py =====
-===== /opt/msjarvis-rebuild/services/mountainshares_gbim_suggester.py =====
-155:    asyncio.run(main())
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.pre_manifest.backup.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_web_research_aggregate.py =====
-308:                asyncio.create_task(
-312:                logger.warning("Could not schedule Hilbert store task (no event loop)")
-===== /opt/msjarvis-rebuild/services/ms_jarvis_web_research_fixed.py =====
-===== /opt/msjarvis-rebuild/services/update_web_research_package.py =====
-===== /opt/msjarvis-rebuild/services/run_autonomous_learner_once.py =====
-9:    asyncio.run(main())
-===== /opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_FIXED.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py =====
-55:        self.research_interval = 60  # seconds
-237:        logger.info(f"💡 Learning cycle complete - Next topic in {self.research_interval/60} minutes")
-242:        logger.info(f"   Learning interval: {self.research_interval/60} minutes")
-250:                await asyncio.sleep(self.research_interval)
-253:                await asyncio.sleep(300)  # 5 minutes
-267:            "learning_interval_minutes": self.research_interval / 60,
-283:    asyncio.create_task(learner.continuous_learning_loop())
-===== /opt/msjarvis-rebuild/services/fix_consciousness_endpoints.py =====
-===== /opt/msjarvis-rebuild/services/fix_import.py =====
-===== /opt/msjarvis-rebuild/services/rebuild_query_service.py =====
-===== /opt/msjarvis-rebuild/services/integrate_i_container_interests.py =====
-24:    r'(async def autonomous_learning_loop\(self\):.*?)(while True:.*?topic = self\.learning_topics\[self\.current_topic_index\])',
-31:    modified_loop = loop_match.group(1) + '''while True:
-===== /opt/msjarvis-rebuild/services/set_intelligent_accuracy_scores.py =====
-===== /opt/msjarvis-rebuild/services/fix_chroma_url.py =====
-===== /opt/msjarvis-rebuild/services/test_ddg_verbose.py =====
-===== /opt/msjarvis-rebuild/services/seed_spatial_identity.py =====
-===== /opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.psychology_patched.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/services/dgm_rag_integration_v2.py =====
-190:        psych, spiritual, history = await asyncio.gather(
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py =====
-===== /opt/msjarvis-rebuild/services/add_web_research_storage.py =====
-===== /opt/msjarvis-rebuild/services/rag_grounded_v2.py =====
-===== /opt/msjarvis-rebuild/services/web_research_fail_tracker.py =====
-===== /opt/msjarvis-rebuild/services/create_ueid_identity_layer.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.psychology_patched.py =====
-105:            asyncio.create_task(self._evaluate_for_i_container(input_data, decision))
-===== /opt/msjarvis-rebuild/services/ms_jarvis_web_research_simple.py =====
-===== /opt/msjarvis-rebuild/services/hierarchical_coordinator_autonomous.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner_WITH_FIFTH_DGM.py =====
-59:        self.research_interval = 300  # 2 hours in seconds
-225:        logger.info(f"💡 Learning cycle complete - Next topic in {self.research_interval/60} minutes")
-230:        logger.info(f"   Learning interval: {self.research_interval/60} minutes")
-241:                await asyncio.sleep(self.research_interval)
-246:                await asyncio.sleep(300)  # 5 minutes
-260:            "learning_interval_minutes": self.research_interval / 60
-286:    asyncio.create_task(learner.continuous_learning_loop())
-===== /opt/msjarvis-rebuild/services/bridge_autonomous_to_i_container_dgm_woah.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py =====
-149:            asyncio.create_task(self._evaluate_for_i_container(input_data, decision))
-===== /opt/msjarvis-rebuild/services/web_research.py =====
-===== /opt/msjarvis-rebuild/services/add_working_search.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py =====
-97:    rag_result, web_result = await asyncio.gather(rag_task, web_task)
-125:                asyncio.create_task(store_in_rag(request.message, result['response']))
-===== /opt/msjarvis-rebuild/services/gbim_chroma_fixed.py =====
-===== /opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.psychology_patched.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/services/main_brain.py =====
-36:chat_semaphore = asyncio.Semaphore(MAX_CONCURRENT_CHATS)
-302:    except asyncio.TimeoutError:
-343:    except asyncio.TimeoutError:
-380:    except asyncio.TimeoutError:
-424:    except asyncio.TimeoutError:
-550:    tasks: List[asyncio.Task] = []
-552:        tasks.append(asyncio.create_task(check_service_health(name, url)))
-553:    results = await asyncio.gather(*tasks)
-892:                    await asyncio.sleep(delay)
-895:            _hb_task = asyncio.create_task(_progress_heartbeat(jobid_inner))
-925:    asyncio.create_task(process_chat_job(jobid, request))
-1208:            resp = await asyncio.wait_for(call_llm20(), timeout=llmtimeout + 5.0)
-1209:        except asyncio.TimeoutError:
-1532:                return await asyncio.wait_for(
-1542:                return await asyncio.wait_for(
-1552:                return await asyncio.wait_for(
-1560:        spiritualragcontext, ragcontext, webcontext = await asyncio.gather(
-1827:            guarded = await asyncio.wait_for(
-===== /opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py =====
-243:    while True:
-249:        time.sleep(60)
-===== /opt/msjarvis-rebuild/services/main_brain_legacy_backup.py =====
-112:    asyncio.create_task(process_chat_job(job_id, request))
-===== /opt/msjarvis-rebuild/services/process_comprehensive_gis.py =====
-===== /opt/msjarvis-rebuild/services/patch_learner_clean.py =====
-===== /opt/msjarvis-rebuild/services/autonomous_learner_gisgeodb_wrapper.py =====
-22:                loop = asyncio.new_event_loop()
-23:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/services/msjarvisautonomouslearner.py =====
-59:        self.research_interval = 300  # 2 hours in seconds
-225:        logger.info(f"💡 Learning cycle complete - Next topic in {self.research_interval/60} minutes")
-230:        logger.info(f"   Learning interval: {self.research_interval/60} minutes")
-241:                await asyncio.sleep(self.research_interval)
-246:                await asyncio.sleep(300)  # 5 minutes
-260:            "learning_interval_minutes": self.research_interval / 60
-286:    asyncio.create_task(learner.continuous_learning_loop())
-===== /opt/msjarvis-rebuild/services/ms_jarvis_web_research.py =====
-196:            asyncio.create_task(store_in_hilbert(query, web_results, location))
-198:            logger.warning("Could not schedule Hilbert store task (no event loop)")
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py =====
-===== /opt/msjarvis-rebuild/services/start_gateway_with_guards.py =====
-===== /opt/msjarvis-rebuild/services/create_autonomous_learner_tables.py =====
-29:        run_interval_minutes INTEGER DEFAULT 5,
-===== /opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py =====
-167:    task = asyncio.create_task(process_chat_job(job_id, request))
-958:            # Build context from all gathered data
-===== /opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py =====
-===== /opt/msjarvis-rebuild/services/index_all_extracted_gis.py =====
-===== /opt/msjarvis-rebuild/services/roche_llm.py =====
-165:        self.ollama_semaphore = asyncio.Semaphore(4)
-373:            await asyncio.sleep(0.5)
-528:        responses = await asyncio.wait_for(
-532:    except asyncio.TimeoutError:
-===== /opt/msjarvis-rebuild/services/wire_learner_to_gisgeodb.py =====
-===== /opt/msjarvis-rebuild/services/gbim_metadata_enricher.py =====
-===== /opt/msjarvis-rebuild/services/update_services_to_use_port_manager.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py =====
-243:    while True:
-249:        time.sleep(60)
-===== /opt/msjarvis-rebuild/services/introspective_record.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py =====
-===== /opt/msjarvis-rebuild/services/fix_web_research.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync_FIXED_V2.py =====
-137:while True:
-140:        time.sleep(120)
-146:        time.sleep(60)
-===== /opt/msjarvis-rebuild/services/activate_dgm_enhanced.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway.py =====
-===== /opt/msjarvis-rebuild/services/create_dual_consciousness_i_containers.py =====
-15:                loop = asyncio.new_event_loop()
-16:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/services/autonomous_learner_topic_source.py =====
-===== /opt/msjarvis-rebuild/services/ms_jarvis_gis_georeferencing_sync_FIXED.py =====
-144:                time.sleep(RETRY_DELAY)
-150:                time.sleep(RETRY_DELAY)
-170:while True:
-173:        time.sleep(120)  # Sync every 2 minutes
-179:        time.sleep(60)  # Wait before retry
-===== /opt/msjarvis-rebuild/services/autonomous_learner_gisgeodb_wrapper.psychology_patched.py =====
-22:                loop = asyncio.new_event_loop()
-23:                asyncio.set_event_loop(loop)
-===== /opt/msjarvis-rebuild/services/ai_server_22llm.py =====
-150:        self.ollama_semaphore = asyncio.Semaphore(4)
-341:            batch_responses = await asyncio.gather(*tasks)
-344:            await asyncio.sleep(0.5)
-===== /opt/msjarvis-rebuild/services/main_brain_container_2055.py =====
-53:chat_semaphore = asyncio.Semaphore(MAX_CONCURRENT_CHATS)
-435:    except asyncio.TimeoutError:
-480:    except _asyncio.TimeoutError:
-568:    except asyncio.TimeoutError:
-693:    tasks: List[asyncio.Task] = []
-695:        tasks.append(asyncio.create_task(check_service_health(name, url)))
-696:    results = await asyncio.gather(*tasks)
-1004:    asyncio.create_task(process_chat_job(jobid, request))
-1284:            resp = await asyncio.wait_for(call_llm20(), timeout=llmtimeout + 5.0)
-1285:        except asyncio.TimeoutError:
-1604:                return await asyncio.wait_for(
-1614:                return await asyncio.wait_for(
-1624:                return await asyncio.wait_for(
-1632:        spiritualragcontext, ragcontext, webcontext = await asyncio.gather(
-1899:            guarded = await asyncio.wait_for(
-===== /opt/msjarvis-rebuild/services/gbim_chroma.py =====
-===== /opt/msjarvis-rebuild/services/main.py =====
-115:    asyncio.create_task(process_chat_job(job_id, request))
-===== /opt/msjarvis-rebuild/services/jarvis_eeg_beta_5m.py =====
-57:    time.sleep(30)
-58:    while True:
-117:        time.sleep(300)
-===== /opt/msjarvis-rebuild/services/ms_jarvis_chromadb_query.py =====
-===== /opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py =====
-114:    asyncio.create_task(process_chat_job(job_id, request))
-561:        tasks: List[asyncio.Task] = []
-575:            enhancements = await asyncio.gather(
-878:    while True:
-919:        await asyncio.sleep(300)  # 5 minutes
-924:    asyncio.create_task(check_emails())
-925:    logger.info("📧 Email checker started (5 min intervals)")
-===== /opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py =====
-31:    "jarvis_scheduler": {"port": 8050, "image": "local/jarvis-scheduler:operational", "status": "UP", "type": "docker"},
-179:    cpu_percent = psutil.cpu_percent(interval=0.1)
-===== /opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py =====
-163:    task = asyncio.create_task(process_chat_job(job_id, request))
-848:            # Build context from all gathered data
-===== /opt/msjarvis-rebuild/rag_insert_mountainshares.py =====
-===== /opt/msjarvis-rebuild/main_brain.py =====
-68:chat_semaphore = asyncio.Semaphore(MAX_CONCURRENT_CHATS)
-511:    asyncio.create_task(process_chat_job(job_id, request))
-710:            resp = await asyncio.wait_for(_call_llm20(), timeout=llm_timeout + 5.0)
-711:        except asyncio.TimeoutError:
-829:                return await asyncio.wait_for(
-842:                return await asyncio.wait_for(
-853:        rag_context, web_context = await asyncio.gather(
-978:            guarded = await asyncio.wait_for(
-1046:    results = await asyncio.gather(*(t[2] for t in tasks))
-===== /opt/msjarvis-rebuild/ragservermain.py =====
-===== /opt/msjarvis-rebuild/scripts/sprint5_chromadb_backfill.py =====
-===== /opt/msjarvis-rebuild/scripts/audit_happiness_v2.py =====
-===== /opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py =====
-53:chat_semaphore = asyncio.Semaphore(MAX_CONCURRENT_CHATS)
-435:    except asyncio.TimeoutError:
-480:    except _asyncio.TimeoutError:
-568:    except asyncio.TimeoutError:
-695:    tasks: List[asyncio.Task] = []
-697:        tasks.append(asyncio.create_task(check_service_health(name, url)))
-698:    results = await asyncio.gather(*tasks)
-1006:    asyncio.create_task(process_chat_job(jobid, request))
-1286:            resp = await asyncio.wait_for(call_llm20(), timeout=llmtimeout + 5.0)
-1287:        except asyncio.TimeoutError:
-1608:                return await asyncio.wait_for(
-1618:                return await asyncio.wait_for(
-1628:                return await asyncio.wait_for(
-1636:        spiritualragcontext, ragcontext, webcontext = await asyncio.gather(
-1903:            guarded = await asyncio.wait_for(
-===== /opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py =====
-482:            asyncio.create_task(_store_to_hippo())
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-safe$ docker ps | grep web-research   # should show nothing
-wc -l /opt/msjarvis-rebuild/services/web_research_main.current.log  # should show 0
-0 /opt/msjarvis-rebuild/services/web_research_main.current.log
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-safe$ 
+/mnt/nvme1/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py
+/snap/go/11127/src/crypto/internal/boring/Dockerfile
+/snap/go/11103/src/crypto/internal/boring/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile-llm12-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm10-proxy
+/opt/msjarvis-rebuild/Dockerfile.brain
+/opt/msjarvis-rebuild/Dockerfile.brain.backup_20260318_103552
+/opt/msjarvis-rebuild/Dockerfile_rag_real
+/opt/msjarvis-rebuild/Dockerfile.qualia.bak
+/opt/msjarvis-rebuild/Dockerfile.bak_before_python3_fix
+/opt/msjarvis-rebuild/Dockerfile-llm20-proxy
+/opt/msjarvis-rebuild/Dockerfile.local_resources
+/opt/msjarvis-rebuild/Dockerfile.rag_server
+/opt/msjarvis-rebuild/Dockerfile.brain.backup_20260309_165916
+/opt/msjarvis-rebuild/ai-server/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile-llm11-proxy
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.bak_add_redis
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.bak_add_service_discovery
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.bak_add_requests
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/integration_layer.backup.1768269372/Dockerfile
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.bak_before_bbb_copy_fix
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.bak_add_deps
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.judge.bak.20260411_133131
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/Dockerfile.bak_runner_cmd
+/opt/msjarvis-rebuild/msjarvis-rebuild/Dockerfile.brain
+/opt/msjarvis-rebuild/msjarvis-rebuild/Dockerfile.fractal
+/opt/msjarvis-rebuild/msjarvis-rebuild/Dockerfile.brain.bak.20260416-133118
+/opt/msjarvis-rebuild/msjarvis-rebuild/Dockerfile.neuro
+/opt/msjarvis-rebuild/msjarvis-rebuild/Dockerfile.woah
+/opt/msjarvis-rebuild/msjarvis-rebuild/Dockerfile.neuro.bak.20260413-214218
+/opt/msjarvis-rebuild/Dockerfile-llm15-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm22-proxy
+/opt/msjarvis-rebuild/Dockerfile.session-sidecar
+/opt/msjarvis-rebuild/Dockerfile-llm1-proxy
+/opt/msjarvis-rebuild/Dockerfile.consciousnessbridge
+/opt/msjarvis-rebuild/services/fifth_dgm/Dockerfile.fifth_dgm_real
+/opt/msjarvis-rebuild/services/Dockerfile.toroidal
+/opt/msjarvis-rebuild/services/Dockerfile.bak_add_redis
+/opt/msjarvis-rebuild/services/Dockerfile-llm12-proxy
+/opt/msjarvis-rebuild/services/Dockerfile-llm10-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.steward
+/opt/msjarvis-rebuild/services/Dockerfile.semaphore
+/opt/msjarvis-rebuild/services/Dockerfile.icontainers_fastapi
+/opt/msjarvis-rebuild/services/Dockerfile.autonomous_learner
+/opt/msjarvis-rebuild/services/Dockerfile.mother_protocols
+/opt/msjarvis-rebuild/services/Dockerfile-llm20-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.bak_add_service_discovery
+/opt/msjarvis-rebuild/services/alert_venv/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.rag_server
+/opt/msjarvis-rebuild/services/Dockerfile.roche_llm
+/opt/msjarvis-rebuild/services/ai-server/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.fractal
+/opt/msjarvis-rebuild/services/Dockerfile.crypto-policy
+/opt/msjarvis-rebuild/services/Dockerfile-llm11-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.bak_add_requests
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/qualia_engine/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/qualia_engine/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/qualia_engine/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_use_nbb_base
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_bootstrap_cmd2
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_flask_explicit
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_entrypoint
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/qualia_engine/meaning_maker/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/qualia_engine/emotional_resonance/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/qualia_engine/experience_generator/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/qualia_engine/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile.bak_force_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile.bak_add_flask
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile-llm15-proxy
+/opt/msjarvis-rebuild/services/Dockerfile-llm22-proxy
+/opt/msjarvis-rebuild/services/Dockerfile-llm1-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.indexer
+/opt/msjarvis-rebuild/services/bbb_output_filter/Dockerfile
+/opt/msjarvis-rebuild/services/python/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.lm_synthesizer
+/opt/msjarvis-rebuild/services/ai/Dockerfile
+/opt/msjarvis-rebuild/services/jarvis_steward/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.decay_escalation_consumer
+/opt/msjarvis-rebuild/services/Dockerfile-llm23-proxy
+/opt/msjarvis-rebuild/services/integration_layer.backup.1768269372/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.web_research
+/opt/msjarvis-rebuild/services/Dockerfile.bak_before_bbb_copy_fix
+/opt/msjarvis-rebuild/services/Dockerfile.data_ingest
+/opt/msjarvis-rebuild/services/jarvis_rag_search/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile-llm17-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.bak_add_deps
+/opt/msjarvis-rebuild/services/Dockerfile-llm16-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm12-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm10-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile.steward
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm20-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm11-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm15-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm22-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm1-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm17-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm16-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm2-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm19-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm4-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm9-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm14-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm18-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm3-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm21-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm7-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm8-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm6-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile.policy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm13-proxy
+/opt/msjarvis-rebuild/services/archived-dockerfiles/Dockerfile-llm5-proxy
+/opt/msjarvis-rebuild/services/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile-llm2-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.hilbert.pre-hilbert-image-20260415-161150
+/opt/msjarvis-rebuild/services/Dockerfile-llm19-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.pia-sampler
+/opt/msjarvis-rebuild/services/Dockerfile.temporal_consciousness
+/opt/msjarvis-rebuild/services/Dockerfile.hilbert
+/opt/msjarvis-rebuild/services/Dockerfile-llm4-proxy
+/opt/msjarvis-rebuild/services/Dockerfile-llm9-proxy
+/opt/msjarvis-rebuild/services/Dockerfile-llm14-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.nbb_base
+/opt/msjarvis-rebuild/services/Dockerfile.nbb_*
+/opt/msjarvis-rebuild/services/Dockerfile-llm18-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.memory
+/opt/msjarvis-rebuild/services/Dockerfile.woah_algorithms
+/opt/msjarvis-rebuild/services/Dockerfile.eeg
+/opt/msjarvis-rebuild/services/Dockerfile-llm3-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.psychology_services
+/opt/msjarvis-rebuild/services/Dockerfile-llm21-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.autonomous_complete
+/opt/msjarvis-rebuild/services/Dockerfile.judge
+/opt/msjarvis-rebuild/services/gbim_benefit_indexer/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.aaacpe_scraper
+/opt/msjarvis-rebuild/services/Dockerfile.qualia
+/opt/msjarvis-rebuild/services/Dockerfile.69dgm_bridge
+/opt/msjarvis-rebuild/services/gbim_query_router/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.webdeploy
+/opt/msjarvis-rebuild/services/Dockerfile.constitutional_guardian
+/opt/msjarvis-rebuild/services/Dockerfile-llm7-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.neuro
+/opt/msjarvis-rebuild/services/Dockerfile.gateway
+/opt/msjarvis-rebuild/services/Dockerfile.woah
+/opt/msjarvis-rebuild/services/Dockerfile.autonomous_learner_complete
+/opt/msjarvis-rebuild/services/session_sidecar/Dockerfile
+/opt/msjarvis-rebuild/services/ingest_watcher/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.fifth_dgm_real
+/opt/msjarvis-rebuild/services/integration_layer.placeholder_1768012705/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile-llm8-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.icontainers
+/opt/msjarvis-rebuild/services/Dockerfile.gis_rag
+/opt/msjarvis-rebuild/services/Dockerfile-llm6-proxy
+/opt/msjarvis-rebuild/services/Dockerfile.email
+/opt/msjarvis-rebuild/services/integration_layer/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.policy
+/opt/msjarvis-rebuild/services/Dockerfile.aaacpe_rag
+/opt/msjarvis-rebuild/services/Dockerfile.spiritual_rag
+/opt/msjarvis-rebuild/services/Dockerfile-chroma-proxy
+/opt/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/meaning_maker/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/emotional_resonance/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/experience_generator/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/Dockerfile
+/opt/msjarvis-rebuild/services/neurobiological_brain/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.rag
+/opt/msjarvis-rebuild/services/Dockerfile.hippocampus
+/opt/msjarvis-rebuild/services/Dockerfile.roche_llm.disabled
+/opt/msjarvis-rebuild/services/Dockerfile.swarm
+/opt/msjarvis-rebuild/services/Dockerfile.psychological_rag
+/opt/msjarvis-rebuild/services/Dockerfile-llm13-proxy
+/opt/msjarvis-rebuild/services/gbim_indexers/Dockerfile
+/opt/msjarvis-rebuild/services/Dockerfile.bak_runner_cmd
+/opt/msjarvis-rebuild/services/Dockerfile.agents
+/opt/msjarvis-rebuild/services/Dockerfile.local-resources
+/opt/msjarvis-rebuild/services/Dockerfile.bbb
+/opt/msjarvis-rebuild/services/Dockerfile-llm5-proxy
+/opt/msjarvis-rebuild/ai/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile-llm17-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm16-proxy
+/opt/msjarvis-rebuild/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile-llm2-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm19-proxy
+/opt/msjarvis-rebuild/Dockerfile.rag_server_main
+/opt/msjarvis-rebuild/Dockerfile.lm_synthesizer.stub.bak
+/opt/msjarvis-rebuild/Dockerfile-llm4-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm9-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm14-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm18-proxy
+/opt/msjarvis-rebuild/neurobiologicalbrainmothercarrieprotocolsservice/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile-llm3-proxy
+/opt/msjarvis-rebuild/Dockerfile-llm21-proxy
+/opt/msjarvis-rebuild/Dockerfile.session-sidecar.bak
+/opt/msjarvis-rebuild/Dockerfile.qualia
+/opt/msjarvis-rebuild/Dockerfile.nbb_icontainers_fastapi
+/opt/msjarvis-rebuild/Dockerfile-llm7-proxy
+/opt/msjarvis-rebuild/Dockerfile.neuro
+/opt/msjarvis-rebuild/Dockerfile.gateway
+/opt/msjarvis-rebuild/Dockerfile.woah
+/opt/msjarvis-rebuild/build/hippocampus/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile.ragservermain
+/opt/msjarvis-rebuild/Dockerfile.20llm
+/opt/msjarvis-rebuild/Dockerfile-llm8-proxy
+/opt/msjarvis-rebuild/Dockerfile.gis_rag
+/opt/msjarvis-rebuild/Dockerfile-llm6-proxy
+/opt/msjarvis-rebuild/integration_layer/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile.forge
+/opt/msjarvis-rebuild/Dockerfile.neuro-prefrontal-patched
+/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/neurobiological_brain/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/Dockerfile.fastapi
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/Dockerfile.nbb_icontainers_fastapi
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/qualia_engine/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/meaning_maker/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/emotional_resonance/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/experience_generator/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/Dockerfile
+/opt/msjarvis-rebuild/neurobiological_brain/darwin_godel_machines/service/Dockerfile
+/opt/msjarvis-rebuild/Dockerfile.rag
+/opt/msjarvis-rebuild/Dockerfile.swarm
+/opt/msjarvis-rebuild/Dockerfile-llm13-proxy
+/opt/msjarvis-rebuild/Dockerfile.agents
+/opt/msjarvis-rebuild/Dockerfile.full_neuro
+/opt/msjarvis-rebuild/Dockerfile-llm5-proxy
+/usr/share/man/man5/Dockerfile.5.gz
+/usr/share/go-1.22/src/crypto/internal/boring/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.gis_rag
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm19-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm1-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.nbb_icontainers_fastapi
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.full_neuro
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.agents
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm16-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.qualia
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm17-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm2-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm3-proxy
+/mnt/nvme1/msjarvis-rebuild/integration_layer/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.lm_synthesizer
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.autonomous_learner
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.roche_llm.disabled
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm19-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm1-proxy
+/mnt/nvme1/msjarvis-rebuild/services/integration_layer.backup.1768269372/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.agents
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.hippocampus
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.icontainers_fastapi
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm16-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bak_add_requests
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.qualia
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm17-proxy
+/mnt/nvme1/msjarvis-rebuild/services/integration_layer.placeholder_1768012705/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm2-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.fifth_dgm_real
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm3-proxy
+/mnt/nvme1/msjarvis-rebuild/services/integration_layer/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/jarvis_steward/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.web_research
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.temporal_consciousness
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bak_add_service_discovery
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm10-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm8-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.mother_protocols
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.toroidal
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.aaacpe_rag
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.nbb_*
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.semaphore
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm4-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.rag
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.icontainers
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bak_before_bbb_copy_fix
+/mnt/nvme1/msjarvis-rebuild/services/ai/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.judge
+/mnt/nvme1/msjarvis-rebuild/services/python/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm15-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm12-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.autonomous_complete
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.woah
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/qualia_engine/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/qualia_engine/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/qualia_engine/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/blood_brain_barrier/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/darwin_godel_machines/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/qualia_engine/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/neurobiological_brain/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_use_nbb_base
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_flask_explicit
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_entrypoint
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_add_flask
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_bootstrap_cmd2
+/mnt/nvme1/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/Dockerfile.bak_force_flask
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm13-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm6-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.nbb_base
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm22-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.autonomous_learner_complete
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm20-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm21-proxy
+/mnt/nvme1/msjarvis-rebuild/services/ai-server/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bak_runner_cmd
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-chroma-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm14-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.webdeploy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm7-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.constitutional_guardian
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bbb
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm5-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bak_add_redis
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm11-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm9-proxy
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.aaacpe_scraper
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.psychological_rag
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile-llm18-proxy
+/mnt/nvme1/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/meaning_maker/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/emotional_resonance/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiological_brain/qualia_engine/experience_generator/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/neurobiological_brain/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/alert_venv/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.69dgm_bridge
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.spiritual_rag
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.gateway
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.roche_llm
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.woah_algorithms
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.bak_add_deps
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.psychology_services
+/mnt/nvme1/msjarvis-rebuild/services/Dockerfile.email
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.ragservermain
+/mnt/nvme1/msjarvis-rebuild/neurobiologicalbrainmothercarrieprotocolsservice/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm10-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm8-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm4-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.rag
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.rag_server_main
+/mnt/nvme1/msjarvis-rebuild/ai/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm15-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm12-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.woah
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.neuro
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm13-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm6-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm22-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm20-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.neuro-prefrontal-patched
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm21-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.consciousnessbridge
+/mnt/nvme1/msjarvis-rebuild/ai-server/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm14-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.local_resources
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.brain
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm7-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm5-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.bak_before_python3_fix
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm11-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm9-proxy
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.rag_server
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.20llm
+/mnt/nvme1/msjarvis-rebuild/Dockerfile-llm18-proxy
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/qualia_engine/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/i_containers/service/Dockerfile.nbb_icontainers_fastapi
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/i_containers/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/darwin_godel_machines/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/subconscious/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/meaning_maker/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/emotional_resonance/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/qualia_engine/experience_generator/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/neurobiological_brain/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/Dockerfile
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.swarm
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.gateway
+/mnt/nvme1/msjarvis-rebuild/Dockerfile.qualia.bak
+/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.judge.bak.20260406
+/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.judge
+/mnt/spiritual_drive/msjarvis-rebuild/services/Dockerfile.policy
+/mnt/spiritual_drive/msjarvis-rebuild/Dockerfile.gis-rag
+/home/cakidd/msjarvis-safe/Dockerfile.brain
+/home/cakidd/msjarvis-safe/Dockerfile.brain.before_recovered_services_20260224-221908
+/home/cakidd/msjarvis-safe/Dockerfile.brain.before_recovered_services_20260224-221840
+/home/cakidd/msjarvis-safe/Dockerfile.brain.before_live_ctx_20260224-220818
+/home/cakidd/msjarvis-safe/recovered-services_20llm_full/Dockerfile.semaphore
+/home/cakidd/msjarvis-safe/recovered-services_20llm_full/Dockerfile.gateway
+/home/cakidd/msjarvis-safe/recovered-services_20llm_full/Dockerfile.rag
+/home/cakidd/msjarvis-rebuild-working/msjarvis-rebuild/Dockerfile.brain
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ # Show compose files found
+cat /tmp/compose-files.txt
+
+# Check which one defines jarvis-autonomous-learner
+grep -l 'autonomous.learner' $(cat /tmp/compose-files.txt) 2>/dev/null
+/opt/msjarvis-rebuild/docker-compose.rag.yml
+/opt/msjarvis-rebuild/docker-compose.golden.yml
+/opt/msjarvis-rebuild/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose-patch.yml
+/opt/msjarvis-rebuild/docker-compose.llm-proxies.yml
+/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml
+/opt/msjarvis-rebuild/services/docker-compose.deduped.yml
+/opt/msjarvis-rebuild/services/gbim_indexers/docker-compose.override.yml
+/opt/msjarvis-rebuild/observability/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose.override.yml
+/opt/msjarvis-rebuild/docker-compose.working.20260118-235132.yml
+/opt/msjarvis-rebuild/docker-compose-core.yml
+/opt/msjarvis-rebuild/docker-compose.recovered.yml
+/opt/msjarvis-rebuild/docker-compose.restored.yml
+/opt/msjarvis-rebuild/docker-compose.gbim.yml
+/opt/msjarvis-rebuild/docker-compose.working.20260119-000202.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.working.20260118-235132.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.gbim.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.restored.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml
+/mnt/nvme1/msjarvis-rebuild/services/docker-compose.deduped.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.working.20260119-000202.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.golden.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.recovered.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.override.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.llm-proxies.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose-patch.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.rag.yml
+/mnt/nvme1/msjarvis-rebuild/backups/docker-compose.STABLE_20260121_162220.yml
+/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml
+/home/cakidd/ch29-closeout/backups/docker-compose.yml
+/home/cakidd/ch29-closeout/backups/docker-compose-core.yml
+/home/cakidd/ch29-closeout/backups/docker-compose.deduped.yml
+/home/cakidd/msjarvis-safe/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose.golden.yml
+/opt/msjarvis-rebuild/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose-patch.yml
+/opt/msjarvis-rebuild/msjarvis-rebuild/docker-compose.yml
+/opt/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml
+/opt/msjarvis-rebuild/docker-compose.working.20260118-235132.yml
+/opt/msjarvis-rebuild/docker-compose.working.20260119-000202.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.working.20260118-235132.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.RAG_WORKING_20260116.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.working.20260119-000202.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.golden.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose-patch.yml
+/mnt/nvme1/msjarvis-rebuild/docker-compose.yml
+/mnt/nvme1/msjarvis-rebuild/backups/docker-compose.STABLE_20260121_162220.yml
+/mnt/spiritual_drive/msjarvis-rebuild/docker-compose.yml
+/home/cakidd/ch29-closeout/backups/docker-compose.yml
+/home/cakidd/msjarvis-safe/docker-compose.yml
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ ls ~/msjarvis-rebuild-working/
+ls /opt/msjarvis-rebuild/ | grep -i compose
+ls ~/msjarvis-safe/ | grep -i compose
+msjarvis-rebuild
+docker-compose-core.yml
+docker-compose-core.yml.bak.20260430-120237
+docker-compose-core.yml.bak.20260507-222001
+docker-compose-core.yml.bak.20260507-222222
+docker-compose.gbim.yml
+docker-compose.golden.bak_bbb_clean_proxy
+docker-compose.golden.bak_bbb_proxy_cmd_fix
+docker-compose.golden.bak_bbb_uvicorn_fix
+docker-compose.golden.bak_before_bbb_proxy2
+docker-compose.golden.bak_before_brain_ports_cleanup
+docker-compose.golden.bak_before_python3_cmd_fix
+docker-compose.golden.bak_nbb_base_final
+docker-compose.golden.bak_python310_compose_all
+docker-compose.golden.bak_services_mapping_fix
+docker-compose.golden.bak_web_research_cmd
+docker-compose.golden.yml
+docker-compose.llm-proxies.yml
+docker-compose.MOTHERCARRIE.BAK.20260216-132826
+docker-compose.MOTHERCARRIE.BAK.20260216-132834
+docker-compose.ollama-override.yml.disabled
+docker-compose.override.yml
+docker-compose.override.yml.bak
+docker-compose.override.yml.bak.20260430-120221
+docker-compose.override.yml.bak_agents
+docker-compose.override.yml.bak_depends
+docker-compose.override.yml.bak_localdb
+docker-compose.override.yml.disabled
+docker-compose-patch.yml
+docker-compose.RAG_WORKING_20260116.yml
+docker-compose.RAG_WORKING_20260116.yml.bak-20260122223705
+docker-compose.RAG_WORKING_20260116.yml.bak_gateway8050
+docker-compose.RAG_WORKING_20260116.yml.bak_mainbrain8058
+docker-compose.RAG_WORKING_20260116.yml.bak-portfix-20260122224758
+docker-compose.RAG_WORKING_20260116.yml.bak_python310_fix
+docker-compose.rag.yml
+docker-compose.recovered.yml
+docker-compose.restored.yml
+docker-compose.restored.yml.pre-hilbert-fix-1768013541
+docker-compose.restored.yml.safe-1768040125
+docker-compose.working.20260118-235132.yml
+docker-compose.working.20260119-000202.yml
+docker-compose.yml
+docker-compose.yml.20llm.bak
+docker-compose.yml.after-bbb.bak
+docker-compose.yml.backup
+docker-compose.yml.backup.1768311648
+docker-compose.yml.backup.1768313257
+docker-compose.yml.backup.1768313407
+docker-compose.yml.backup.1768786837
+docker-compose.yml.backup.1768788421
+docker-compose.yml.backup_20260215_232944
+docker-compose.yml.backup_20260218_085941
+docker-compose.yml.backup_20260318_102158
+docker-compose.yml.backup_20260318_103245
+docker-compose.yml.backup_20260318_103829
+docker-compose.yml.backup_20260318_110053
+docker-compose.yml.backup_20260318_110223
+docker-compose.yml.backup_20260318_110927
+docker-compose.yml.backup_20260323_205752
+docker-compose.yml.backup_20260323_211407
+docker-compose.yml.backup_20260406_newservices
+docker-compose.yml.backup_autonomous_learner_20260109-074048
+docker-compose.yml.backup_gateway_ports_20260109-091103
+docker-compose.yml.backup_jan13_consciousness
+docker-compose.yml.backup_nbb_ports
+docker-compose.yml.backup_nbb_ports_fixed
+docker-compose.yml.bak
+docker-compose.yml.bak.1768500857
+docker-compose.yml.bak_1768574001
+docker-compose.yml.bak.1768781706
+docker-compose.yml.bak-1768791131
+docker-compose.yml.bak-1768791194
+docker-compose.yml.bak-1768791760
+docker-compose.yml.bak_1778453637
+docker-compose.yml.bak.20260110161005
+docker-compose.yml.bak.20260206142334
+docker-compose.yml.bak.20260206142646
+docker-compose.yml.bak.20260407-221457
+docker-compose.yml.bak.20260407-221640
+docker-compose.yml.bak.20260408-173239
+docker-compose.yml.bak.20260414-210440
+docker-compose.yml.bak.20260414-210516
+docker-compose.yml.bak.20260414-210743
+docker-compose.yml.bak.20260414-211038
+docker-compose.yml.bak.20260414-211257
+docker-compose.yml.bak_20260415-111118
+docker-compose.yml.bak_20260415-111235
+docker-compose.yml.bak.20260416-141203
+docker-compose.yml.bak.20260416-141224
+docker-compose.yml.bak.20260416-141309
+docker-compose.yml.bak.20260416-141316
+docker-compose.yml.bak.20260416-141425
+docker-compose.yml.bak.20260416-141603
+docker-compose.yml.bak.20260416-141709
+docker-compose.yml.bak.20260416_144451
+docker-compose.yml.bak.20260416_144808
+docker-compose.yml.bak.20260416_145312
+docker-compose.yml.bak-20260417-144354
+docker-compose.yml.bak.20260422-204609
+docker-compose.yml.bak.20260422-204722
+docker-compose.yml.bak.20260422_220748
+docker-compose.yml.bak.20260423_095331
+docker-compose.yml.bak.20260430-115408
+docker-compose.yml.bak.20260430-202630
+docker-compose.yml.bak.20260501
+docker-compose.yml.bak.20260501-200948
+docker-compose.yml.bak.20260510-192741
+docker-compose.yml.bak.20260510-194401
+docker-compose.yml.bak.20260510-195030
+docker-compose.yml.bak_add_clock
+docker-compose.yml.bak_before_unified_fix
+docker-compose.yml.bak_drop_images
+docker-compose.yml.bak_drop_roche
+docker-compose.yml.bak_hilbert_cmdfix_20260415-142151
+docker-compose.yml.bak_hilbert_depsfix_20260415-142323
+docker-compose.yml.bak_hilbert_depsfix_20260415-142332
+docker-compose.yml.bak_hilbert_depsfix_20260415-142340
+docker-compose.yml.bak_ports_20260118163828
+docker-compose.yml.bak_redis_env_1769196600
+docker-compose.yml.bak_redis_fix_1769195136
+docker-compose.yml.bak_redis_fix_1769195657
+docker-compose.yml.bak_unified_cycle_fix
+docker-compose.yml.bak_woah_20260118163402
+docker-compose.yml.bbb.bak
+docker-compose.yml.before_8010_fix_1768044953
+docker-compose.yml.before_fix
+docker-compose.yml.before_fix_20260122
+docker-compose.yml.before_neuro_fix_1768012948
+docker-compose.yml.broken
+docker-compose.yml.broken-1768013498
+docker-compose.yml.broken-20260326-175632
+docker-compose.yml.broken_backup
+docker-compose.yml.BROKEN_BACKUP
+docker-compose.yml.broken_spiritual
+docker-compose.yml.chroma-backup-20260114054916
+docker-compose.yml.chroma-backup-20260114060013
+docker-compose.yml.corrupt.20260415-1601
+docker-compose.yml.full_backup_20260122
+docker-compose.yml.hilbert-experiment.20260415-163850
+docker-compose.yml.nbb.bak
+docker-compose.yml.pre_dsn_fix
+docker-compose.yml.pre-hilbert-fix-1768013541
+docker-compose.yml.pre-hilbert-image-20260415-161150
+docker-compose.yml.pre-hilbert-noports.20260415-162654
+docker-compose.yml.pre-hilbert-portfix.20260415-162529
+docker-compose.yml.pre_judges
+docker-compose.yml.pre_ollama_env_bak
+docker-compose.yml.pre-secrets-fix
+docker-compose.yml.safe-1768040125
+docker-compose.yml
+docker-compose.yml.after_core_build_20260224-222038
+docker-compose.yml.before_bbb_image_20260224-221441
+docker-compose.yml.before_build_ctx_fix_20260224-215350
+docker-compose.yml.before_gateway_bbb_fix_20260224-215533
+docker-compose.yml.before_live_mount_20260224-220810
+docker-compose.yml.before_remove_nbb_depends_20260224-215304
+docker-compose.yml.before_safe_edit_20260224-215058
+docker-compose.yml.broken_20260306_193537
+docker-compose.yml.broken_latest
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:~/msjarvis-rebuild-working/msjarvis-rebuild$ 
 
