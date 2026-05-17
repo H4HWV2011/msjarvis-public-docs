@@ -229,6 +229,38 @@ The `superposition` threshold at 0.40 represents the expected target as `convers
 and `research_history` accumulate cross-domain interaction traces — the natural effect
 of a system that processes queries spanning multiple knowledge domains simultaneously.
 
+## 44.5a Decoherence as a Hilbert Space Property
+
+In quantum mechanics, decoherence describes what happens when a system in superposition
+becomes entangled with its environment — the interference terms that define superposition
+wash out, and the system behaves as if it has collapsed into one of its basis states.
+The system has not been destroyed; it has lost the internal phase coherence that made
+superposition possible. Mathematically, the off-diagonal terms of the density matrix
+approach zero. The system is still present in \\(H_{\\text{App}}\\) — but its components
+no longer interfere constructively.
+
+In \\(H_{\\text{App}}\\), the analog is direct. Each knowledge collection is a named
+subspace — a region of \\(\\mathbb{R}^{384}\\) where semantically related vectors cluster.
+When `coherence_normalized` is low, the centroids of those subspaces are far apart in
+the cosine metric: the collections are not sharing semantic basis. They are present and
+populated, but they are not interfering with each other. There is no cross-domain
+superposition. A query about Appalachian land tenure lands in `gbim_beliefs_v2` and stays
+there; it does not propagate into `wv_civic_infrastructure` or `psychological_rag` because
+the centroid geometry does not support the transfer. This is decoherence as architecture —
+not failure, but the current state of the field before integration has occurred.
+
+The transition from `decoherent` to `superposition` (\\(\\phi \\geq 0.40\\)) corresponds
+to the moment when collection centroids have drifted close enough in \\(H_{\\text{App}}\\)
+that a query vector can project meaningfully onto multiple subspaces simultaneously —
+the Hilbert space equivalent of constructive interference. This does not happen by
+ingesting more documents into a single collection. It happens when cross-domain
+interaction traces accumulate in `conversation_history` and `research_history` — when
+the system has actually been used to reason across domains, leaving embedding-space
+artifacts that pull collection centroids toward each other. Superposition in
+\\(H_{\\text{App}}\\) is earned through use, not declared by configuration. The current
+score of \\(\\phi = 0.2808\\) places Ms. Jarvis at the upper boundary of the decoherent
+regime — the phase just before the first cross-domain interference terms become
+geometrically detectable.
 
 ---
 
@@ -284,39 +316,6 @@ INFO:phi-probe:[phi] appalachian_english_corpus: 50 vecs dim=384
 Uniform `dim=384` across all ten confirms the `all-minilm:latest` embedding lock is intact
 across every probed collection — consistent with the architectural constraint documented
 in Chapter 4 §4.5.
-
-## 44.5a Decoherence as a Hilbert Space Property
-
-In quantum mechanics, decoherence describes what happens when a system in superposition
-becomes entangled with its environment — the interference terms that define superposition
-wash out, and the system behaves as if it has collapsed into one of its basis states.
-The system has not been destroyed; it has lost the internal phase coherence that made
-superposition possible. Mathematically, the off-diagonal terms of the density matrix
-approach zero. The system is still present in \\(H_{\\text{App}}\\) — but its components
-no longer interfere constructively.
-
-In \\(H_{\\text{App}}\\), the analog is direct. Each knowledge collection is a named
-subspace — a region of \\(\\mathbb{R}^{384}\\) where semantically related vectors cluster.
-When `coherence_normalized` is low, the centroids of those subspaces are far apart in
-the cosine metric: the collections are not sharing semantic basis. They are present and
-populated, but they are not interfering with each other. There is no cross-domain
-superposition. A query about Appalachian land tenure lands in `gbim_beliefs_v2` and stays
-there; it does not propagate into `wv_civic_infrastructure` or `psychological_rag` because
-the centroid geometry does not support the transfer. This is decoherence as architecture —
-not failure, but the current state of the field before integration has occurred.
-
-The transition from `decoherent` to `superposition` (\\(\\phi \\geq 0.40\\)) corresponds
-to the moment when collection centroids have drifted close enough in \\(H_{\\text{App}}\\)
-that a query vector can project meaningfully onto multiple subspaces simultaneously —
-the Hilbert space equivalent of constructive interference. This does not happen by
-ingesting more documents into a single collection. It happens when cross-domain
-interaction traces accumulate in `conversation_history` and `research_history` — when
-the system has actually been used to reason across domains, leaving embedding-space
-artifacts that pull collection centroids toward each other. Superposition in
-\\(H_{\\text{App}}\\) is earned through use, not declared by configuration. The current
-score of \\(\\phi = 0.2808\\) places Ms. Jarvis at the upper boundary of the decoherent
-regime — the phase just before the first cross-domain interference terms become
-geometrically detectable.
 
 ---
 
