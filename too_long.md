@@ -1,807 +1,599 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ find /opt/msjarvis-rebuild -name "*.py" | xargs grep -l "production\|brain\|llm1\|llm2\|MODEL_NAME" 2>/dev/null | grep -v "__pycache__"
-/opt/msjarvis-rebuild/ms-allis-auth-install/backend/wallet_service.py
-/opt/msjarvis-rebuild/llm21_health_proxy.py
-/opt/msjarvis-rebuild/llm10_health_proxy.py
-/opt/msjarvis-rebuild/seed_mountainshares.py
-/opt/msjarvis-rebuild/llm1_health_proxy.py
-/opt/msjarvis-rebuild/gateway8050_inline.py
-/opt/msjarvis-rebuild/llm19_health_proxy.py
-/opt/msjarvis-rebuild/ai-server/ai_server_20llm_PRODUCTION.py
-/opt/msjarvis-rebuild/llm8_health_proxy.py
-/opt/msjarvis-rebuild/brain_orchestrator.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_new_consciousness_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_scope.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm10-proxy_llm10_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_orchestrator_flow.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_full_brain_class.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm12-proxy_llm12_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_mamma_greeting_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_jarvis_personality.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_complete_architecture.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm14-proxy_llm14_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_conversation_context.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/egeria_web_ui_FIXED.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/gateway8050_simple.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm3-proxy_llm3_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_facebook_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm15-proxy_llm15_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_19llm_PRODUCTION.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm20-proxy_llm20_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm22-proxy_llm22_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_creator_recognition.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_storage.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm6-proxy_llm6_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm19-proxy_llm19_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_full_brain_integration.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/update_production_to_v9.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_brain.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm21-proxy_llm21_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/swagger_gateway.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm11-proxy_llm11_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_20llm_FINAL.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm16-proxy_llm16_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_neural_architecture.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_timeouts_add_22llm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_init.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm1-proxy_llm1_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm18-proxy_llm18_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm7-proxy_llm7_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/brain_orchestrator_stub.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_identity_context.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_agent_prompts.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/clean_integration.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_restored.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/migrate_blood_brain_barrier.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm13-proxy_llm13_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_context_flow.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_all_services.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_original_backup.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm_SMALL_TO_LARGE.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm17-proxy_llm17_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_main_brain_endpoints.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/consciousness_coordinator.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/add_security_to_chat.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm2-proxy_llm2_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_19llm_PRODUCTION_WITH_HEALTH.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm_SEQUENTIAL.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_port_8001_clean.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm4-proxy_llm4_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_rag_store.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm.psychology_patched.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_4llm.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_prompt_leak.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm8-proxy_llm8_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm9-proxy_llm9_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/test_gis_chat.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/llm5-proxy_llm5_health_proxy.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/neurobiologicalbrain/neurobrain.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py
-/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_neurobiological_master.py
-/opt/msjarvis-rebuild/llm_consensus_20_FINAL_EDIT.py
-/opt/msjarvis-rebuild/llm18_health_proxy.py
-/opt/msjarvis-rebuild/llm4_health_proxy.py
-/opt/msjarvis-rebuild/llm9_health_proxy.py
-/opt/msjarvis-rebuild/.scratch/jarvis_steward.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/spatial/transform/_rigid_transform.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/_lib/_array_api.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_lib/_utils/_helpers.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/optimize/_shgo.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/interpolate/tests/test_rbfinterp.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/tokenization_layoutlmv2.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/funnel/tokenization_funnel.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/convbert/tokenization_convbert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/tokenization_layoutlm.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/roc_bert/tokenization_roc_bert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/dots1/modular_dots1.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/tokenization_realm.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/gptsan_japanese/tokenization_gptsan_japanese.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/modeling_mctct.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/configuration_mctct.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/tokenization_retribert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/tokenization_deberta_v2.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/tokenization_mobilebert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/prophetnet/tokenization_prophetnet.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/distilbert/tokenization_distilbert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/roformer/tokenization_roformer.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/mpnet/tokenization_mpnet.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/bert_japanese/tokenization_bert_japanese.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/electra/tokenization_electra.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/tokenization_gpt_neox_japanese.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/lxmert/tokenization_lxmert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/bert/tokenization_bert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/splinter/tokenization_splinter.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/squeezebert/tokenization_squeezebert.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/align/processing_align.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/pipelines/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/trainer_pt_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/commands/chat.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/commands/serving.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/commands/add_new_model_like.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/utils/fx.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/testing_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/integrations/integration_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/trainer.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/modeling_tf_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/fastapi_cli/cli.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torchvision/models/_meta.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask/cli.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask/sansio/app.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask/app.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/osgeo_utils/samples/gdallocationinfo.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sklearn/model_selection/tests/test_split.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sklearn/externals/array_api_extra/_lib/_utils/_helpers.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/middleware/http_proxy.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/middleware/dispatcher.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/serving.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/exceptions.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/fastapi/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/PIL/WmfImagePlugin.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic_settings/main.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentry_sdk/client.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentry_sdk/consts.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/opentelemetry/integration.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/checkpoint_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/cuda/memory.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_core.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_inductor/fuzzer.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/ao/quantization/fx/_model_report/detector.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_subclasses/meta_utils.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/replay_record.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/test_minifier_common.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/repro/after_dynamo.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/repro/aoti.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_custom_op/impl.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask_cors/core.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/asymmetric/ec.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/tree/tree.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/tree/transforms.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/treetransforms.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/generate.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/earleychart.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/shiftreduce.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/recursivedescent.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/pchart.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/featurechart.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/chart.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/viterbi.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/projectivedependencyparser.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/grammar.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/app/rdparser_app.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/app/srparser_app.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/app/chartparser_app.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/draw/cfg.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/sem/lfg.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pandas/tests/groupby/test_categorical.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pandas/tests/groupby/test_apply.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/networkx/algorithms/cycles.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/networkx/algorithms/smallworld.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/folium/plugins/locate_control.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/yaml/parser.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/open_clip/zero_shot_metadata.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/ext/horizontal_shard.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/sql/schema.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/engine/events.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/huggingface_hub/constants.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/matplotlib/testing/jpl_units/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/setuptools/_distutils/util.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/setuptools/_vendor/typeguard/_decorators.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/setuptools/_vendor/more_itertools/more.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pyasn1_modules/rfc5639.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/PyPDF2/_page.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/delete_file.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/config.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/__init__.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pypdf/_page.py
-/opt/msjarvis-rebuild/rag_server_main.py
-/opt/msjarvis-rebuild/services/fifth_dgm/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat.py
-/opt/msjarvis-rebuild/services/add_new_consciousness_services.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py
-/opt/msjarvis-rebuild/services/chat_server.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
-/opt/msjarvis-rebuild/services/msjarvis_gateway_v2_final.py
-/opt/msjarvis-rebuild/services/fix_orchestrator_scope.py
-/opt/msjarvis-rebuild/services/llm21_health_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_neurobiological_master.py
-/opt/msjarvis-rebuild/services/wallet_service.py
-/opt/msjarvis-rebuild/services/neuro_subconscious.py
-/opt/msjarvis-rebuild/services/pituitary_gland.py
-/opt/msjarvis-rebuild/services/dgm_supervisor_woah_fixed.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
-/opt/msjarvis-rebuild/services/integrate_orchestrator_flow.py
-/opt/msjarvis-rebuild/services/icontainers_fastapi.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_full.py
-/opt/msjarvis-rebuild/services/complete_fix.py
-/opt/msjarvis-rebuild/services/llm10_health_proxy.py
-/opt/msjarvis-rebuild/services/add_full_brain_class.py
-/opt/msjarvis-rebuild/services/swagger_gateway_FIXED.py
-/opt/msjarvis-rebuild/services/jarvis-i-containers_icontainers_fastapi.py
-/opt/msjarvis-rebuild/services/llm_consensus_20_FINAL.py
-/opt/msjarvis-rebuild/services/add_mamma_greeting_simple.py
-/opt/msjarvis-rebuild/services/wire_layers_into_chat.py
-/opt/msjarvis-rebuild/services/ms_jarvis_blockchain_deployment.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py
-/opt/msjarvis-rebuild/services/llm1_health_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_rag.py
-/opt/msjarvis-rebuild/services/domain_service_router.py
-/opt/msjarvis-rebuild/services/add_jarvis_personality.py
-/opt/msjarvis-rebuild/services/integrate_complete_architecture.py
-/opt/msjarvis-rebuild/services/add_conversation_context.py
-/opt/msjarvis-rebuild/services/egeria_web_ui_FIXED.py
-/opt/msjarvis-rebuild/services/jarvis-lm-synthesizer_lm_synthesizer.py
-/opt/msjarvis-rebuild/services/llm19_health_proxy.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/parser.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/constants.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/delete_file.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/config.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/__init__.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/services/msjarvisunifiedgateway.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_intelligent.py
-/opt/msjarvis-rebuild/services/main_brain_psychology_patch.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_error.py
-/opt/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
-/opt/msjarvis-rebuild/services/gateway8050_simple.py
-/opt/msjarvis-rebuild/services/ai_server.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py
-/opt/msjarvis-rebuild/services/dynamic_app.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_brain_integrated.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
-/opt/msjarvis-rebuild/services/rag/gis_rag_service.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_webhook.py
-/opt/msjarvis-rebuild/services/llm8_health_proxy.py
-/opt/msjarvis-rebuild/services/llm/ai_server.py
-/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION.py
-/opt/msjarvis-rebuild/services/brain_orchestrator.py
-/opt/msjarvis-rebuild/services/bridge_cross_dgm.py
-/opt/msjarvis-rebuild/services/chromadb_rag_helper.py
-/opt/msjarvis-rebuild/services/fix_creator_recognition.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries/__init__.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/fix_storage.py
-/opt/msjarvis-rebuild/services/probe_services.py
-/opt/msjarvis-rebuild/services/rag_command_module.py
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BACKUP.py
-/opt/msjarvis-rebuild/services/llm18_health_proxy.py
-/opt/msjarvis-rebuild/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
-/opt/msjarvis-rebuild/services/ms_jarvis_temporal_consciousness.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
-/opt/msjarvis-rebuild/services/llm4_health_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fully_autonomous_coordinator.py
-/opt/msjarvis-rebuild/services/llm9_health_proxy.py
-/opt/msjarvis-rebuild/services/restore_pia_wiring.py
-/opt/msjarvis-rebuild/services/ms_jarvis_feed_reader_PRODUCTION.py
-/opt/msjarvis-rebuild/services/test_full_brain_integration.py
-/opt/msjarvis-rebuild/services/egeria_api_proxy.py
-/opt/msjarvis-rebuild/services/bbb_output_filter/app.py
-/opt/msjarvis-rebuild/services/woah_command_module.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
-/opt/msjarvis-rebuild/services/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/services/.venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/services/.venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_1762220815.py
-/opt/msjarvis-rebuild/services/rag_server_main.py
-/opt/msjarvis-rebuild/services/python/brain_orchestrator.py
-/opt/msjarvis-rebuild/services/neuro_i_containers.py
-/opt/msjarvis-rebuild/services/update_production_to_v9.py
-/opt/msjarvis-rebuild/services/integrate_full_brain.py
-/opt/msjarvis-rebuild/services/llm20_health_proxy.py
-/opt/msjarvis-rebuild/services/jarvis_steward.py
-/opt/msjarvis-rebuild/services/bridge/bridge_cross_dgm.py
-/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py
-/opt/msjarvis-rebuild/services/ai/ai_server.py
-/opt/msjarvis-rebuild/services/ai/ai_server_simple.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_temp.py
-/opt/msjarvis-rebuild/services/web_chat_server.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_async.py
-/opt/msjarvis-rebuild/services/llm3_health_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness.py
-/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BEFORE_GIS.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster_FIXED.py
-/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py
-/opt/msjarvis-rebuild/services/nbb/pituitary_gland.py
-/opt/msjarvis-rebuild/services/bbb_ethics_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_gis_enhanced_chat.py
-/opt/msjarvis-rebuild/services/swagger_gateway.py
-/opt/msjarvis-rebuild/services/llm12_health_proxy.py
-/opt/msjarvis-rebuild/services/llm6_health_proxy.py
-/opt/msjarvis-rebuild/services/neuro_consciousness_containers.py
-/opt/msjarvis-rebuild/services/ms_jarvis_i_containers_service.py
-/opt/msjarvis-rebuild/services/rebuild_query_service.py
-/opt/msjarvis-rebuild/services/egeria_web_ui.py
-/opt/msjarvis-rebuild/services/jarvis_pia_sampler.py
-/opt/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py
-/opt/msjarvis-rebuild/services/ai_server_20llm_FINAL.py
-/opt/msjarvis-rebuild/services/llm7_health_proxy.py
-/opt/msjarvis-rebuild/services/integrate_full_neural_architecture.py
-/opt/msjarvis-rebuild/services/service_registry_client.py
-/opt/msjarvis-rebuild/services/fix_timeouts_add_22llm.py
-/opt/msjarvis-rebuild/services/llm16_health_proxy.py
-/opt/msjarvis-rebuild/services/fix_orchestrator_init.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway_8000.py
-/opt/msjarvis-rebuild/services/wire_qualia_to_port8001.py
-/opt/msjarvis-rebuild/services/llm22_health_proxy.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/services/jarvis-woah_dgm_supervisor_woah_fixed.py
-/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py
-/opt/msjarvis-rebuild/services/REFERENCE_windows_swarm.py
-/opt/msjarvis-rebuild/services/add_identity_context.py
-/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
-/opt/msjarvis-rebuild/services/logging_conf.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
-/opt/msjarvis-rebuild/services/msjarvismaingateway.py
-/opt/msjarvis-rebuild/services/llm17_health_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
-/opt/msjarvis-rebuild/services/jarvis_pia_status.py
-/opt/msjarvis-rebuild/services/email_auto_checker.py
-/opt/msjarvis-rebuild/services/ultimate_web_orchestrator.py
-/opt/msjarvis-rebuild/services/_vendor/Crypto/SelfTest/Signature/test_dss.py
-/opt/msjarvis-rebuild/services/_vendor/parsimonious/grammar.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/services/_vendor/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/services/tools/egeria_api_proxy.py
-/opt/msjarvis-rebuild/services/tools/egeria_web_ui.py
-/opt/msjarvis-rebuild/services/tools/email_auto_checker.py
-/opt/msjarvis-rebuild/services/tools/egeria_safe_self_correction.py
-/opt/msjarvis-rebuild/services/tools/egeria_multi_mode_system.py
-/opt/msjarvis-rebuild/services/tools/cloudflare_domain_integration.py
-/opt/msjarvis-rebuild/services/fix_agent_prompts.py
-/opt/msjarvis-rebuild/services/ms_jarvis_toroidal_consciousness.py
-/opt/msjarvis-rebuild/services/hierarchical_coordinator_autonomous.py
-/opt/msjarvis-rebuild/services/neuro_prefrontal_cortex.py
-/opt/msjarvis-rebuild/services/llm14_health_proxy.py
-/opt/msjarvis-rebuild/services/rag_server.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py
-/opt/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
-/opt/msjarvis-rebuild/services/clean_integration.py
-/opt/msjarvis-rebuild/services/egeria_safe_self_correction.py
-/opt/msjarvis-rebuild/services/ms_jarvis_showcase_api.py
-/opt/msjarvis-rebuild/services/complete_system_audit.py
-/opt/msjarvis-rebuild/services/ai_server_restored.py
-/opt/msjarvis-rebuild/services/migrate_blood_brain_barrier.py
-/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
-/opt/msjarvis-rebuild/services/remove_duplicate_inits.py
-/opt/msjarvis-rebuild/services/method_tracking_service.py
-/opt/msjarvis-rebuild/services/msjarvis_unified_gateway.py
-/opt/msjarvis-rebuild/services/llm11_health_proxy.py
-/opt/msjarvis-rebuild/services/egeria_multi_mode_system.py
-/opt/msjarvis-rebuild/services/fix_context_flow.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
-/opt/msjarvis-rebuild/services/ms_jarvis_service_factory.py
-/opt/msjarvis-rebuild/services/integrate_all_services.py
-/opt/msjarvis-rebuild/services/tests/test_bbb_verdict_flow.py
-/opt/msjarvis-rebuild/services/ai_server_original_backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_darwin_godel_machine.py
-/opt/msjarvis-rebuild/services/neuro_qualia_engine.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_8040.py
-/opt/msjarvis-rebuild/services/ms_jarvis_integration_hub.py
-/opt/msjarvis-rebuild/services/ai_server_22llm_SMALL_TO_LARGE.py
-/opt/msjarvis-rebuild/services/rag_direct_debug.py
-/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_SIMPLE.py
-/opt/msjarvis-rebuild/services/fix_main_brain_endpoints.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
-/opt/msjarvis-rebuild/services/ms_jarvis_qualia_engine.py
-/opt/msjarvis-rebuild/services/consciousness_coordinator.psychology_patched.py
-/opt/msjarvis-rebuild/services/main_brain.py
-/opt/msjarvis-rebuild/services/wv_gis_mass_downloader.py
-/opt/msjarvis-rebuild/services/add_security_to_chat.py
-/opt/msjarvis-rebuild/services/llm13_health_proxy.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/spatial/transform/_rigid_transform.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/_lib/_array_api.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_lib/_utils/_helpers.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/optimize/_shgo.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/interpolate/tests/test_rbfinterp.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/roc_bert/tokenization_roc_bert.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/dots1/modular_dots1.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/prophetnet/tokenization_prophetnet.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/bert_japanese/tokenization_bert_japanese.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/tokenization_gpt_neox_japanese.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/bert/tokenization_bert_legacy.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/pipelines/__init__.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/modeling_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/trainer_pt_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/utils/import_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/testing_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/integrations/integration_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/trainer.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/cli/serve.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/cli/add_new_model_like.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sklearn/model_selection/tests/test_split.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sklearn/externals/array_api_extra/_lib/_utils/_helpers.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/fastapi/__init__.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/checkpoint_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/cuda/memory.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_core.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_inductor/fuzzer.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/ao/quantization/fx/_model_report/detector.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_subclasses/meta_utils.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/replay_record.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/test_minifier_common.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/repro/after_dynamo.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/repro/aoti.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_custom_op/impl.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/networkx/algorithms/cycles.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/networkx/algorithms/smallworld.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/yaml/parser.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/huggingface_hub/constants.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/setuptools/_distutils/util.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/setuptools/_vendor/more_itertools/more.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py
-/opt/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py
-/opt/msjarvis-rebuild/services/nbb_darwin_godel_machines.py
-/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py
-/opt/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL.py
-/opt/msjarvis-rebuild/services/jarvis_llm1.py
-/opt/msjarvis-rebuild/services/ms_jarvis_blood_brain_barrier.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS.py
-/opt/msjarvis-rebuild/services/gisgeodbdirectaccess.py
-/opt/msjarvis-rebuild/services/fix_port_8001_clean.py
-/opt/msjarvis-rebuild/services/neuro_blood_brain_barrier.py
-/opt/msjarvis-rebuild/services/async_polling_architecture.py
-/opt/msjarvis-rebuild/services/llm5_health_proxy.py
-/opt/msjarvis-rebuild/services/lm_synthesizer.py
-/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_FIXED.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
-/opt/msjarvis-rebuild/services/gis_rag_service.py
-/opt/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
-/opt/msjarvis-rebuild/services/msjarvisicontainersservice.py
-/opt/msjarvis-rebuild/services/phase6_integration.py
-/opt/msjarvis-rebuild/services/fix_rag_store.py
-/opt/msjarvis-rebuild/services/woah_service.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py
-/opt/msjarvis-rebuild/services/vatican_scraper_service.py
-/opt/msjarvis-rebuild/services/llm_bridge_main.py
-/opt/msjarvis-rebuild/services/sanctuary_construction_monitor.py
-/opt/msjarvis-rebuild/services/ai_server_22llm.psychology_patched.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
-/opt/msjarvis-rebuild/services/cloudflare_domain_integration.py
-/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py
-/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
-/opt/msjarvis-rebuild/services/ai_server_4llm.py
-/opt/msjarvis-rebuild/services/service_discovery_glassbox.py
-/opt/msjarvis-rebuild/services/roche_llm.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
-/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_webhooks.py
-/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
-/opt/msjarvis-rebuild/services/introspective_record.py
-/opt/msjarvis-rebuild/services/fix_prompt_leak.py
-/opt/msjarvis-rebuild/services/llm2_health_proxy.py
-/opt/msjarvis-rebuild/services/working_full_pipeline_FINAL_CONSCIOUSNESS.py
-/opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py
-/opt/msjarvis-rebuild/services/simple_orchestrator_fix.py
-/opt/msjarvis-rebuild/services/llm15_health_proxy.py
-/opt/msjarvis-rebuild/services/msjarvis_semaphore.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_DGM.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/__init__.py
-/opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/threat_detection.py
-/opt/msjarvis-rebuild/services/ethical_filter.py
-/opt/msjarvis-rebuild/services/ms_jarvis_rag_server.py
-/opt/msjarvis-rebuild/services/ai_server_22llm.py
-/opt/msjarvis-rebuild/services/ms_jarvis_brain.py
-/opt/msjarvis-rebuild/services/main_brain_container_2055.py
-/opt/msjarvis-rebuild/services/test_gis_chat.py
-/opt/msjarvis-rebuild/services/jarvis-gis-rag_gis_rag_service.py
-/opt/msjarvis-rebuild/services/phase7_integration.py
-/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py
-/opt/msjarvis-rebuild/services/jarvis-semaphore_msjarvis_semaphore.py
-/opt/msjarvis-rebuild/services/ms_jarvis_bbb_proxy.py
-/opt/msjarvis-rebuild/services/main.py
-/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
-/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py
-/opt/msjarvis-rebuild/services/ms_jarvis_facebook_dgm_woah.py
-/opt/msjarvis-rebuild/llm20_health_proxy.py
-/opt/msjarvis-rebuild/ai/llm_consensus_20_FINAL.py
-/opt/msjarvis-rebuild/ai/ai_server.py
-/opt/msjarvis-rebuild/ai/ai_server_simple.py
-/opt/msjarvis-rebuild/ai/ai_server_20llm_PRODUCTION.py
-/opt/msjarvis-rebuild/ingest_wv_income_maintenance_manual.py
-/opt/msjarvis-rebuild/llm3_health_proxy.py
-/opt/msjarvis-rebuild/llm12_health_proxy.py
-/opt/msjarvis-rebuild/llm6_health_proxy.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/Crypto/SelfTest/Signature/test_dss.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fastapi/__init__.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/PIL/WmfImagePlugin.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic_settings/main.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/parsimonious/grammar.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/asymmetric/ec.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/yaml/parser.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/redis/observability/providers.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/huggingface_hub/constants.py
-find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/delete_file.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/config.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/__init__.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/llm7_health_proxy.py
-/opt/msjarvis-rebuild/llm16_health_proxy.py
-/opt/msjarvis-rebuild/llm22_health_proxy.py
-/opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py
-/opt/msjarvis-rebuild/llm17_health_proxy.py
-/opt/msjarvis-rebuild/llm14_health_proxy.py
-/opt/msjarvis-rebuild/.format-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/.format-venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/.format-venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/llm11_health_proxy.py
-/opt/msjarvis-rebuild/patch_gate.py
-/opt/msjarvis-rebuild/judge_pipeline.py
-/opt/msjarvis-rebuild/main_brain.py
-/opt/msjarvis-rebuild/llm13_health_proxy.py
-/opt/msjarvis-rebuild/ms_jarvis_blood_brain_barrier.py
-/opt/msjarvis-rebuild/llm5_health_proxy.py
-/opt/msjarvis-rebuild/gis_rag_service.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/yaml/parser.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/sympy/utilities/enumerative.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/constants.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/rdf.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/parsers.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/esoteric.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/delete_file.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/config.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/__init__.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/scripts/sprint5_chromadb_backfill.py
-/opt/msjarvis-rebuild/scripts/health_check.py
-/opt/msjarvis-rebuild/scripts/sprint2_community_data.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py
-/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/fastapi/__init__.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
-/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
-/opt/msjarvis-rebuild/llm2_health_proxy.py
-/opt/msjarvis-rebuild/llm15_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm21_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm10_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm1_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm19_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm18_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm20_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm12_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm16_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm22_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm17_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm14_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm11_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm13_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm2_health_proxy.py
-/opt/msjarvis-rebuild/llm_health_proxies/llm15_health_proxy.py
-/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries/__init__.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_i_containers_service.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/i_container_1/ego_boundaries/__init__.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/service_registry_client.py
-/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/pituitary_gland.py
-/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/service_registry_client.py
-/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/service_registry_client.py
-/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/service_registry_client.py
-/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/service/blood_brain_barrier.py
-/opt/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/ethical_filter.py
-/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
-/opt/msjarvis-rebuild/neurobiological_brain/darwin_godel_machines/service/nbb_darwin_godel_machines.py
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
+                                      List of relations
+  Schema  |                              Name                               | Type  |  Owner   
+----------+-----------------------------------------------------------------+-------+----------
+ public   | 911centers_wvdem_032819_gcs84                                   | table | postgres
+ public   | 911centers_wvdem_032819_gcs84_attrs_raw                         | table | postgres
+ public   | 911centers_wvdem_032819_utm83                                   | table | postgres
+ public   | 911centers_wvdem_032819_utm83_attrs_raw                         | table | postgres
+ public   | amtrackrails_federalrailroadadministration_200210_ll83          | table | postgres
+ public   | amtrackrails_federalrailroadadministration_200210_ll83_attrs_ra | table | postgres
+ public   | amtrackrails_federalrailroadadministration_200210_utm83         | table | postgres
+ public   | amtrackrails_federalrailroadadministration_200210_utm83_attrs_r | table | postgres
+ public   | amtrackrails_fra_200210_ll83_attrs_raw                          | table | postgres
+public   | amtrackrails_fra_200210_utm83_attrs_raw                         | table | postgres
+ public   | attrs_files_list                                                | table | postgres
+ public   | attrs_inventory_detailed                                        | table | postgres
+ public   | authority_references                                            | table | postgres
+ public   | benefit_case                                                    | table | postgres
+ public   | benefit_county_utility20                                        | table | postgres
+ public   | bldg_join__floodplainstructuresatrisk_usarmycorpsofengineers_20 | table | postgres
+ public   | bldg_join__hospitals                                            | table | postgres
+ public   | blockgroups_census_2000_ll83                                    | table | postgres
+ public   | blockgroups_census_2000_ll83_attrs_raw                          | table | postgres
+ public   | blockgroups_census_2000_utm83                                   | table | postgres
+ public   | blockgroups_census_2000_utm83_attrs_raw                         | table | postgres
+ public   | blockgroups_census_201111_gcs83                                 | table | postgres
+ public   | blockgroups_census_201111_gcs83_attrs_raw                       | table | postgres
+ public   | blockgroups_census_201111_utm83                                 | table | postgres
+ public   | blockgroups_census_201111_utm83_attrs_raw                       | table | postgres
+ public   | blockgroups_census_2020_utm83                                   | table | postgres
+ public   | blockgroups_census_2020_utm83_attrs_raw                         | table | postgres
+ public   | blockgroups_census_2020_utm83_full                              | table | postgres
+ public   | blockgroups_census_2020_wma84                                   | table | postgres
+ public   | blockgroups_census_2020_wma84_attrs_raw                         | table | postgres
+ public   | blocks_census_2020_utm83                                        | table | postgres
+ public   | blocks_census_2020_utm83_attrs_raw                              | table | postgres
+public   | blocks_census_2020_utm83_full                                   | table | postgres
+ public   | blocks_census_2020_wma84                                        | table | postgres
+ public   | blocks_census_2020_wma84_attrs_raw                              | table | postgres
+ public   | boundaryappalachianbasin_wvges_1996_utm83                       | table | postgres
+ public   | boundaryappalachianbasin_wvges_1996_utm83_attrs_raw             | table | postgres
+ public   | boundaryappalachianbasin_wvges_1996_wma84                       | table | postgres
+ public   | bridges                                                         | table | postgres
+ public   | bridges_attrs_raw                                               | table | postgres
+ public   | building_flood_risk                                             | table | postgres
+ public   | building_metric_stage                                           | table | postgres
+ public   | buildings                                                       | table | cakidd
+ public   | calderl_reg_ll83                                                | table | postgres
+ public   | calderl_reg_ll83_attrs_raw                                      | table | postgres
+ public   | citieswithpopulation_2500_census_201111_gcs83                   | table | postgres
+ public   | citieswithpopulation_2500_census_201111_gcs83_attrs_raw         | table | postgres
+ public   | citieswithpopulation_2500_census_201111_utm83                   | table | postgres
+ public   | citieswithpopulation_2500_census_201111_utm83_attrs_raw         | table | postgres
+ public   | citieswithpopulationover10k_census_201111_gcs83                 | table | postgres
+ public   | citieswithpopulationover10k_census_201111_gcs83_attrs_raw       | table | postgres
+ public   | citieswithpopulationover10k_uscensus_1990_ll83                  | table | postgres
+ public   | citieswithpopulationover10k_uscensus_1990_ll83_attrs_raw        | table | postgres
+ public   | citieswithpopulationover10k_uscensus_1990_utm83                 | table | postgres
+ public   | citieswithpopulationover10k_uscensus_1990_utm83_attrs_raw       | table | postgres
+tgres
+ public   | citieswithpopulationover2500_uscensus_1990_ll83_attrs_raw       | table | postgres
+ public   | citieswithpopulationsover10k_census_2020_utm83                  | table | postgres
+ public   | citieswithpopulationsover10k_census_2020_utm83_attrs_raw        | table | postgres
+ public   | citieswithpopulationsover10k_census_2020_wma84                  | table | postgres
+ public   | citieswithpopulationsover10k_census_2020_wma84_attrs_raw        | table | postgres
+ public   | citieswithpopulationsover2500_census_2020_utm83                 | table | postgres
+ public   | citieswithpopulationsover2500_census_2020_utm83_attrs_raw       | table | postgres
+ public   | citieswithpopulationsover2500_census_2020_wma84                 | table | postgres
+ public   | citieswithpopulationsover2500_census_2020_wma84_attrs_raw       | table | postgres
+ public   | citieswithpopulatoinover2500_uscensus_1990_utm83                | table | postgres
+ public   | citieswithpopulatoinover2500_uscensus_1990_utm83_attrs_raw      | table | postgres
+ public   | client_utility_account                                          | table | postgres
+ public   | coals2_ll83                                                     | table | postgres
+ public   | coals2_ll83_attrs_raw                                           | table | postgres
+ public   | coals2_utm27                                                    | table | postgres
+ public   | coals2_utm27_attrs_raw                                          | table | postgres
+ public   | coals2_utm83                                                    | table | postgres
+ public   | coals2_utm83_attrs_raw                                          | table | postgres
+ public   | community_points                                                | table | postgres
+ public   | communityboundary_min_att_20250121_utm83                        | table | postgres
+ public   | communityboundary_min_att_20250121_utm83_attrs_raw              | table | postgres
+ public   | communityboundary_min_att_20250121_wma84                        | table | postgres
+public   | communityboundary_min_att_20250121_wma84_attrs_raw              | table | postgres
+ public   | communityhealthproviders_wvhealthcareauthority_200802_utm83     | table | postgres
+ public   | communityhealthproviders_wvhealthcareauthority_200802_utm83_att | table | postgres
+ public   | correctionalinstitutions_hsip_20091230_utm83                    | table | postgres
+ public   | correctionalinstitutions_hsip_20091230_utm83_attrs_raw          | table | postgres
+ public   | correctionalinstitutions_hsip_20091230_wgs84                    | table | postgres
+ public   | correctionalinstitutions_hsip_20091230_wgs84_attrs_raw          | table | postgres
+ public   | countycityparkboundaries_20201104_utm83                         | table | postgres
+ public   | countycityparkboundaries_20201104_utm83_attrs_raw               | table | postgres
+ public   | countyseats_usgs_ll83                                           | table | postgres
+ public   | countyseats_usgs_ll83_attrs_raw                                 | table | postgres
+ public   | countyseats_usgs_utm83                                          | table | posgres
+ public   | countyseats_usgs_utm83_attrs_raw                                | table | postgres
+ public   | courthousescounty_manysources_200203_ll83                       | table | postgres
+ public   | courthousescounty_manysources_200203_ll83_attrs_raw             | table | postgres
+ public   | courthousescounty_manysources_200203_utm83                      | table | postgres
+ public   | courthousescounty_manysources_200203_utm83_attrs_raw            | table | postgres
+ public   | courthousesfederal_manysources_200203_ll83                      | table | postgres
+ public   | courthousesfederal_manysources_200203_ll83_attrs_raw            | table | postgres
+ public   | courthousesfederal_manysources_200203_utm                       | table | postgres
+ public   | courthousesfederal_manysources_200203_utm_attrs_raw             | table | postgres
+ public   | cvfault_ll83                                                    | table | postgres
+ public   | cvfault_ll83_attrs_raw                                          | table | postgres
+public   | cvfault_utm27                                                   | table | postgres
+ public   | cvfault_utm27_attrs_raw                                         | table | postgres
+ public   | cvfault_utm83                                                   | table | postgres
+ public   | cvfault_utm83_attrs_raw                                         | table | postgres
+ public   | cvpoly_ll83                                                     | table | postgres
+ public   | cvpoly_ll83_attrs_raw                                           | table | postgres
+ public   | cvpoly_utm27                                                    | table | postgres
+ public   | cvpoly_utm27_attrs_raw                                          | table | postgres
+ public   | cvpoly_utm83                                                    | table | postgres
+ public   | cvpoly_utm83_attrs_raw                                          | table | postgres
+ public   | dams_usarmycorpsofengineers_200010_utm83                        | table | postgres
+ public   | dams_usarmycorpsofengineers_200010_utm83_attrs_raw              | table | posgres
+ public   | dams_usarmycropsofengineers_200010_ll83                         | table | postgres
+ public   | dams_usarmycropsofengineers_200010_ll83_attrs_raw               | table | postgres
+ public   | damsnoncoal_usgs_2002_ll27                                      | table | postgres
+ public   | damsnoncoal_usgs_2002_ll27_attrs_raw                            | table | postgres
+ public   | damsnoncoal_usgs_2002_utm83                                     | table | postgres
+ public   | damsnoncoal_usgs_2002_utm83_attrs_raw                           | table | postgres
+ public   | empowermentzonesandenterprisecommunities_uscensus_2002_utm83    | table | postgres
+ public   | empowermentzonesandenterprisecommunities_uscensus_2002_utm83_at | table | postgres
+ public   | empowermentzonesandenterprisecommunitiesbytractuscens30c72907   | table | postgres
+ public   | empowermentzonesandenterprisecommunitiesbytractuscens30c72907at | table | postgres
+ public   | evidence_documents                                              | table | postgres
+public   | excursionpassengertrains_wvdof_200102_ll83                      | table | postgres
+ public   | excursionpassengertrains_wvdof_200102_ll83_attrs_raw            | table | postgres
+ public   | excursionpassengertrains_wvdof_200102_utm83                     | table | postgres
+ public   | excursionpassengertrains_wvdof_200102_utm83_attrs_raw           | table | postgres
+ public   | facilities_epa_200203_ll83                                      | table | postgres
+ public   | facilities_epa_200203_ll83_attrs_raw                            | table | postgres
+ public   | facilities_epa_200203_utm83                                     | table | postgres
+ public   | facilities_epa_200203_utm83_attrs_raw                           | table | postgres
+ public   | fault_reg_ll83                                                  | table | postgres
+ public   | fault_reg_ll83_attrs_raw                                        | table | postgres
+ public   | faultgl_reg_ll83                                                | table | postgres
+ public   | faultgl_reg_ll83_attrs_raw                                      | table | postgres
+ public   | features                                                        | table | postgres
+ public   | features_attrs_raw                                              | table | postgres
+ public   | fire_departments                                                | table | postgres
+ public   | fire_departments_attrs_raw                                      | table | postgres
+ public   | fire_dept_wvdem_092017_utm83                                    | table | postgres
+ public   | fire_dept_wvdem_092017_utm83_attrs_raw                          | table | postgres
+ public   | floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83  | table | postgres
+ public   | floodplainstructuresatrisk_usarmycorpsofengineers_200303_utm83_ | table | postgres
+ public   | gbim_belief                                                     | table | postgres
+ public   | gbim_belief_edges                                               | table | postgres
+ public   | gbim_belief_evidence                                            | table | postgres
+public   | gbim_beliefs                                                    | table | cakidd
+ public   | gbim_entities                                                   | table | postgres
+ public   | gbim_entity_clusters                                            | table | postgres
+ public   | gbim_entity_land_candidates                                     | table | postgres
+ public   | gbim_evidence                                                   | table | postgres
+ public   | gbim_full_points                                                | table | postgres
+ public   | gbim_full_points_raw                                            | table | postgres
+ public   | gbim_layer_catalog                                              | table | postgres
+ public   | gbim_layer_config                                               | table | cakidd
+ public   | gbim_layer_manifest                                             | table | postgres
+ public   | gbim_source_epochs                                              | table | postgres
+ public   | gbim_source_tables_used                                         | table | pospublic   | gbim_worldview_entity                                           | table | postgres
+ public   | gbim_worldview_entity_backup_small                              | table | postgres
+ public   | gbim_worldviews                                                 | table | postgres
+ public   | gbimbeliefnormalized                                            | table | postgres
+ public   | geographicalnamesonusgstopomaps_usgs_200601_ll27                | table | postgres
+ public   | geographicalnamesonusgstopomaps_usgs_200601_ll27_attrs_raw      | table | postgres
+ public   | geographicalnamesonusgstopomaps_usgs_200601_utm83               | table | postgres
+ public   | geographicalnamesonusgstopomaps_usgs_200601_utm83_attrs_raw     | table | postgres
+ public   | geographicnamesonusgstopomaps_current_usgs_20110801_ll83        | table | postgres
+ public   | geographicnamesonusgstopomaps_current_usgs_20110801_ll83_attrs_ | table | postgres
+ public   | geographicnamesonusgstopomaps_current_usgs_20110801_utm83       | table | postgres
+ public   | geographicnamesonusgstopomaps_current_usgs_20110801_utm83_attrs | table | postgres
+ public   | geographicnamesonusgstopomaps_historical_usgs_20110801_ll83     | table | postgres
+ public   | geographicnamesonusgstopomaps_historical_usgs_20110801_ll83_att | table | postgres
+ public   | geographicnamesonusgstopomaps_historical_usgs_20110801_utm83    | table | postgres
+ public   | geographicnamesonusgstopomaps_historical_usgs_20110801_utm83_at | table | postgres
+ public   | geographicnamesonusgstopomaps_usgs_20110801_ll83                | table | postgres
+ public   | geographicnamesonusgstopomaps_usgs_20110801_ll83_attrs_raw      | table | postgres
+ public   | geographicnamesonusgstopomaps_usgs_20110801_utm83               | table | postgres
+ public   | geographicnamesonusgstopomaps_usgs_20110801_utm83_attrs_raw     | table | postgres
+ public   | geolgyl_reg_ll83                                                | table | postgres
+ public   | geolgyl_reg_ll83_attrs_raw                                      | table | postgres
+ public   | geolgyp_reg_ll83                                                | table | postgres
+public   | geolgyp_reg_ll83_attrs_raw                                      | table | postgres
+ public   | geospatial_features                                             | table | postgres
+ public   | geospatial_layers                                               | table | postgres
+ public   | geotextl_reg_ll83                                               | table | postgres
+ public   | geotextl_reg_ll83_attrs_raw                                     | table | postgres
+ public   | glacagl_reg_ll83                                                | table | postgres
+ public   | glacagl_reg_ll83_attrs_raw                                      | table | postgres
+ public   | glacal_reg_ll83                                                 | table | postgres
+ public   | glacal_reg_ll83_attrs_raw                                       | table | postgres
+ public   | hazardmitigationbuyout_20250929_polygons_utm83                  | table | postgres
+ public   | hazardmitigationbuyout_20250929_polygons_utm83_attrs_raw        | table | postgres
+ public   | hazardmitigationbuyout_20250929_polygons_wma84                  | table | posublic   | hazardmitigationbuyout_20250929_polygons_wma84                  | table | postgres
+ public   | hazardmitigationbuyout_20250929_polygons_wma84_attrs_raw        | table | postgres
+ public   | healthruralfacilities_manysources_utm83                         | table | postgres
+ public   | healthruralfacilities_manysources_utm83_attrs_raw               | table | postgres
+ public   | highered_wvemd_072420_utm83                                     | table | postgres
+ public   | highered_wvemd_072420_utm83_attrs_raw                           | table | postgres
+ public   | highered_wvemd_072420_wgc84                                     | table | postgres
+ public   | highered_wvemd_072420_wgc84_attrs_raw                           | table | postgres
+ public   | historicalaerialphotographycountycoverage_wvgistc_utm83         | table | postgres
+ public   | historicalaerialphotographycountycoverage_wvgistc_utm83_attrs_r | table | postgres
+ public   | hospitals                                                       | table | postgres
+ public   | hospitals_attrs_raw                                             | table | pospublic   | hospitals_wvdem_040519_gcs84                                    | table | postgres
+ public   | hospitals_wvdem_040519_gcs84_attrs_raw                          | table | postgres
+ public   | hospitals_wvdem_040519_utm83                                    | table | postgres
+ public   | hospitals_wvdem_040519_utm83_attrs_raw                          | table | postgres
+ public   | hospitalswvdem040519utm83                                       | table | postgres
+ public   | hospitalswvdem040519utm83_attrs_raw                             | table | postgres
+ public   | impact_reg_ll83                                                 | table | postgres
+ public   | impact_reg_ll83_attrs_raw                                       | table | postgres
+ public   | indexgrid15minutequads_wvgistc_ll83                             | table | postgres
+ public   | indexgrid15minutequads_wvgistc_ll83_attrs_raw                   | table | postgres
+ public   | indexgrid15minutequads_wvgistc_utm83                            | table | postgres
+ public   | indexgrid15minutequads_wvgistc_utm83_attrs_raw                  | table | postgres
+ public   | indexgrid15minutewithcounties_wvgistc_utm27                     | table | postgres
+ public   | indexgrid15minutewithcounties_wvgistc_utm27_attrs_raw           | table | postgres
+ public   | indexgrid1minutequads_wvgistc_ll83                              | table | postgres
+ public   | indexgrid1minutequads_wvgistc_ll83_attrs_raw                    | table | postgres
+ public   | industrialbuildings_wvdo_200807_utm83                           | table | postgres
+ public   | industrialbuildings_wvdo_200807_utm83_attrs_raw                 | table | postgres
+ public   | industrialparks_wvdo_200078_utm83                               | table | postgres
+ public   | industrialparks_wvdo_200078_utm83_attrs_raw                     | table | postgres
+ public   | industrialsites_wvdo_200807_utm83                               | table | postgres
+ public   | industrialsites_wvdo_200807_utm83_attrs_raw                     | table | postgres
+ public   | inedexgrid1minutequads_wvgistc_utm83                            | table | postgres
+public   | inedexgrid1minutequads_wvgistc_utm83_attrs_raw                  | table | postgres
+ public   | intake_submissions                                              | table | msjarvis
+ public   | intermodalterminalfacilities_usdot_1997_ll83                    | table | postgres
+ public   | intermodalterminalfacilities_usdot_1997_ll83_attrs_raw          | table | postgres
+ public   | intermodalterminalfacilities_usdot_1997_utm83                   | table | postgres
+ public   | intermodalterminalfacilities_usdot_1997_utm83_attrs_raw         | table | postgres
+ public   | layer_config                                                    | table | postgres
+ public   | libraries_manysources_2001_ll27                                 | table | postgres
+ public   | libraries_manysources_2001_ll27_attrs_raw                       | table | postgres
+ public   | libraries_manysources_2001_utm83                                | table | postgres
+ public   | libraries_manysources_2001_utm83_attrs_raw                      | table | postgres
+ public   | local_resources                                                 | table | cakidd Thisis importnat with regard to our data public   | metfacp_reg_ll83_attrs_raw                                      | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareas_census_2020_utm83   | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareas_census_2020_utm83_a | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareas_census_2020_wma84   | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareas_census_2020_wma84_a | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareascensus201111gcs83    | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareascensus201111gcs83att | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareascensus201111utm83    | table | postgres
+ public   | metropolitanandmicropolitanstatisticalareascensus201111utm83att | table | postgres
+ public   | metropolitanstatisticalareas_uscensus_199901_ll83               | table | postgres
+ public   | metropolitanstatisticalareas_uscensus_199901_ll83_attrs_raw     | table | postgres
+ public   | metropolitanstatisticalareas_uscensus_199901_utm83              | table | postgres
+ public   | metropolitanstatisticalareas_uscensus_199901_utm83_attrs_raw    | table | postgres
+ public   | mineraloperations_usgs_200204_ll83                              | table | postgres
+ public   | mineraloperations_usgs_200204_ll83_attrs_raw                    | table | postgres
+ public   | mineraloperations_usgs_200204_utm83                             | table | postgres
+ public   | mineraloperations_usgs_200204_utm83_attrs_raw                   | table | postgres
+ public   | minesabandonedlandsline_wvdep_1996_noprojectoin                 | table | postgres
+ public   | minesabandonedlandsline_wvdep_1996_noprojectoin_attrs_raw       | table | postgres
+ public   | minesabandonedlandspoint_wvdep_1996_noprojection                | table | postgres
+ public   | minesabandonedlandspoint_wvdep_1996_noprojection_attrs_raw      | table | postgres
+ public   | minesabandonedlandspolygon_wvdep_1996_noprojection              | table | postgres
+ public   | minesabandonedlandspolygon_wvdep_1996_noprojection_attrs_raw    | table | postgres
+public   | ms_jarvis_learning_log                                          | table | postgres
+ public   | nationalatlasstreams_usgs_199903_ll83                           | table | postgres
+ public   | nationalatlasstreams_usgs_199903_ll83_attrs_raw                 | table | postgres
+ public   | nationalatlasstreams_usgs_199903_utm83                          | table | postgres
+ public   | nationalatlasstreams_usgs_199903_utm83_attrs_raw                | table | postgres
+ public   | nationalregister_point_20200923                                 | table | postgres
+ public   | nationalregister_point_20200923_attrs_raw                       | table | postgres
+ public   | nationalregister_point_20200923_utm27                           | table | postgres
+ public   | nationalregister_point_20200923_utm27_attrs_raw                 | table | postgres
+ public   | nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83        | table | postgres
+ public   | nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | table | postgres
+ public   | nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | table | postgres
+ public   | nationalwaterwaynetwork_usarmycorpsofengineers_2001_ll83_attrs_ | table | postgres
+ public   | nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83       | table | postgres
+ public   | nationalwaterwaynetwork_usarmycorpsofengineers_2001_utm83_attrs | table | postgres
+ public   | nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83   | table | postgres
+ public   | nationalwaterwaynetworkports_usarmycorpsofengineers_2001_ll83_a | table | postgres
+ public   | nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83  | table | postgres
+ public   | nationalwaterwaynetworkports_usarmycorpsofengineers_2001_utm83_ | table | postgres
+ public   | naviagablewaterways_usarmycropsofengineers_2006_utm83           | table | postgres
+ public   | naviagablewaterways_usarmycropsofengineers_2006_utm83_attrs_raw | table | postgres
+ public   | navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83  | table | postgres
+ public   | navigablewaterwaysrivermiles_usarmycropsofengineers_2006_utm83_ | table | postgres
+public   | navigablewaterwaysstructures_usarmycorpsofengineers_2006_utm83_ | table | postgres
+ public   | nursinghomes_wvdem_041219_gcs84                                 | table | postgres
+ public   | nursinghomes_wvdem_041219_gcs84_attrs_raw                       | table | postgres
+ public   | nursinghomes_wvdem_041219_utm83                                 | table | postgres
+ public   | nursinghomes_wvdem_041219_utm83_attrs_raw                       | table | postgres
+ public   | officebuildings_wvdo_200807_utm83                               | table | postgres
+ public   | officebuildings_wvdo_200807_utm83_attrs_raw                     | table | postgres
+ public   | paroleoffices_manysources_2008_utm83                            | table | postgres
+ public   | paroleoffices_manysources_2008_utm83_attrs_raw                  | table | postgres
+ public   | paroleoffices_manysources_2008_wgs84                            | table | postgres
+ public   | paroleoffices_manysources_2008_wgs84_attrs_raw                  | table | postgres
+ public   | placesofworship_hsip_20080723_utm83                             | table | postgres
+ public   | policedept_wvdem_012319_gcs84                                   | table | postgres
+ public   | policedept_wvdem_012319_gcs84_attrs_raw                         | table | postgres
+ public   | policedept_wvdem_012319_utm83                                   | table | postgres
+ public   | policedept_wvdem_012319_utm83_attrs_raw                         | table | postgres
+ public   | populatedplaces_census_201112_utm83                             | table | postgres
+ public   | populatedplaces_census_201112_utm83_attrs_raw                   | table | postgres
+ public   | populatedplaces_census_20112_gcs83                              | table | postgres
+ public   | populatedplaces_census_20112_gcs83_attrs_raw                    | table | postgres
+ public   | populatedplaces_census_2020_utm83                               | table | postgres
+ public   | populatedplaces_census_2020_utm83_attrs_raw                     | table | postgres
+ public   | populatedplaces_census_2020_wma84                               | table | postgres
+public   | populatedplaces_uscensus_1990_ll83                              | table | postgres
+ public   | populatedplaces_uscensus_1990_ll83_attrs_raw                    | table | postgres
+ public   | populatedplaces_uscensus_1990_utm83                             | table | postgres
+ public   | populatedplaces_uscensus_1990_utm83_attrs_raw                   | table | postgres
+ public   | populationdatablockgroups_uscensus_2000_ll83                    | table | postgres
+ public   | populationdatablockgroups_uscensus_2000_ll83_attrs_raw          | table | postgres
+ public   | populationdatablockgroups_uscensus_2000_utm83                   | table | postgres
+ public   | populationdatablockgroups_uscensus_2000_utm83_attrs_raw         | table | postgres
+ public   | pow_wvgistc_062919_utm83                                        | table | postgres
+ public   | pow_wvgistc_062919_utm83_attrs_raw                              | table | postgres
+ public   | pow_wvgistc_062919_wgs84                                        | table | postgres
+ public   | pow_wvgistc_062919_wgs84_attrs_raw                              | table | pos:
 
+tgres
+ public   | program                                                         | table | postgres
+ public   | program_authority_links                                         | table | postgres
+ public   | program_catalog                                                 | table | postgres
+ public   | program_eligibility                                             | table | postgres
+ public   | program_entity_links                                            | table | postgres
+ public   | program_evidence_links                                          | table | postgres
+ public   | program_income_limit_rules                                      | table | postgres
+ public   | program_income_source_policy                                    | table | postgres
+ public   | program_manual_rule_links                                       | table | postgres
+ public   | program_name_crosswalk                                          | table | postgres
+ public   | program_target_config                                           | table | postgres
+public   | publichealthdepts_hsip_20091229_gcs83                           | table | postgres
+ public   | publichealthdepts_hsip_20091229_gcs83_attrs_raw                 | table | postgres
+ public   | publichealthdepts_hsip_20091229_utm83                           | table | postgres
+ public   | publichealthdepts_hsip_20091229_utm83_attrs_raw                 | table | postgres
+ public   | railnetworkregion_usdot_200203_ll83                             | table | postgres
+ public   | railnetworkregion_usdot_200203_ll83_attrs_raw                   | table | postgres
+ public   | railnetworkregion_usdot_200203_utm83                            | table | postgres
+ public   | railnetworkregion_usdot_200203_utm83_attrs_raw                  | table | postgres
+ public   | railnetworkwv_usdot_200203_ll83                                 | table | postgres
+ public   | railnetworkwv_usdot_200203_ll83_attrs_raw                       | table | postgres
+ public   | railnetworkwv_usdot_200203_utm83                                | table | postgres
+ public   | railnetworkwv_usdot_200203_utm83_attrs_raw                      | table | pos:
+tgres
+ public   | railroads_rahalltransportationinstitute_2005_utm83              | table | postgres
+ public   | railroads_rahalltransportationinstitute_2005_utm83_attrs_raw    | table | postgres
+ public   | realtimestreamflowstations_usgs_200012_ll27                     | table | postgres
+ public   | realtimestreamflowstations_usgs_200012_ll27_attrs_raw           | table | postgres
+ public   | realtimestreamflowstations_usgs_200012_utm27                    | table | postgres
+ public   | realtimestreamflowstations_usgs_200012_utm27_attrs_raw          | table | postgres
+ public   | realtimestreamflowstations_usgs_200012_utm83                    | table | postgres
+ public   | realtimestreamflowstations_usgs_200012_utm83_attrs_raw          | table | postgres
+ public   | recreationalwwtrails_ofwv_20151117_utm83                        | table | postgres
+ public   | recreationalwwtrails_ofwv_20151117_utm83_attrs_raw              | table | postgres
+ public   | regionalplanninganddevelopmentcouncil_wvdo_1971_ll83            | table | postgres
+public   | regionalplanninganddevelopmentcouncil_wvdo_1971_ll83_attrs_raw  | table | postgres
+ public   | regionalplanninganddevelopmentcouncil_wvdo_1971_utm83           | table | postgres
+ public   | regionalplanninganddevelopmentcouncil_wvdo_1971_utm83_attrs_raw | table | postgres
+ public   | resource_county_coverage                                        | table | postgres
+ public   | resource_eligibility                                            | table | postgres
+ public   | sewertreatmentplants_wvdep_200203_utm83                         | table | postgres
+ public   | sewertreatmentplants_wvdep_200203_utm83_attrs_raw               | table | postgres
+ public   | solidwastefacilities_wvdep_200202_ll83                          | table | postgres
+ public   | solidwastefacilities_wvdep_200202_ll83_attrs_raw                | table | postgres
+ public   | solidwastefacilities_wvdep_200202_utm83                         | table | postgres
+ public   | solidwastefacilities_wvdep_200202_utm83_attrs_raw               | table | postgres
+ public   | spatial_ref_sys                                                 | table | pospublic   | springs_wvges_1986_ll83                                         | table | postgres
+ public   | springs_wvges_1986_ll83_attrs_raw                               | table | postgres
+ public   | springs_wvges_1986_utm83                                        | table | postgres
+ public   | springs_wvges_1986_utm83_attrs_raw                              | table | postgres
+ public   | stateofwvhousedistricts_wvlegislativeservices_2010              | table | postgres
+ public   | stateofwvhousedistricts_wvlegislativeservices_2010_attrs_raw    | table | postgres
+ public   | stateofwvsenatedistricts_wvlegislativeservices_2010             | table | postgres
+ public   | stateofwvsenatedistricts_wvlegislativeservices_2010_attrs_raw   | table | postgres
+ public   | states_region_ll83                                              | table | postgres
+ public   | states_region_ll83_attrs_raw                                    | table | postgres
+ public   | structurepointsnorth_samb_2003_utm83                            | table | postgres
+ public   | structurepointsnorth_samb_2003_utm83_attrs_raw                  | table | postgres
+ public   | structurepointssouth_samb_2003_utm83                            | table | postgres
+ public   | structurepointssouth_samb_2003_utm83_attrs_raw                  | table | postgres
+ public   | structurepolygons_samb_2003_utm83                               | table | postgres
+ public   | structurepolygons_samb_2003_utm83_attrs_raw                     | table | postgres
+ public   | summits_gistc_052012_utm83_shp                                  | table | postgres
+ public   | summits_gistc_052012_utm83_shp_attrs_raw                        | table | postgres
+ public   | summits_gistc_052012_wgs84_shp                                  | table | postgres
+ public   | summits_gistc_052012_wgs84_shp_attrs_raw                        | table | postgres
+ public   | surveycontrol_nationalgeodeticsurvey_102011_gcs83               | table | postgres
+ public   | surveycontrol_nationalgeodeticsurvey_102011_gcs83_attrs_raw     | table | postgres
+ public   | tiger_county_2022                                               | table | postgres
+public   | timberremovalvolume_usfs_1996_utm83                             | table | postgres
+ public   | timberremovalvolume_usfs_1996_utm83_attrs_raw                   | table | postgres
+ public   | tl_2020_54_bg                                                   | table | postgres
+ public   | tl_2020_54_tabblock20                                           | table | postgres
+ public   | tmp_building_block_nearest_sample                               | table | postgres
+ public   | towers_wvpublicbroadcasting_2002_ll83                           | table | postgres
+ public   | towers_wvpublicbroadcasting_2002_ll83_attrs_raw                 | table | postgres
+ public   | towers_wvpublicbroadcasting_2002_utm83                          | table | postgres
+ public   | towers_wvpublicbroadcasting_2002_utm83_attrs_raw                | table | postgres
+ public   | towersam_fcc_200202_utm83                                       | table | postgres
+ public   | towersam_fcc_200202_utm83_attrs_raw                             | table | postgres
+ public   | towersasr_fcc_200202_ll83                                       | table | postgres
+ public   | towersasr_fcc_200202_ll83_attrs_raw                             | table | postgres
+ public   | towersasr_fcc_200202_utm83                                      | table | postgres
+ public   | towersasr_fcc_200202_utm83_attrs_raw                            | table | postgres
+ public   | towerscellular_fcc_200202_ll83                                  | table | postgres
+ public   | towerscellular_fcc_200202_ll83_attrs_raw                        | table | postgres
+ public   | towerscellular_fcc_200202_utm83                                 | table | postgres
+ public   | towerscellular_fcc_200202_utm83_attrs_raw                       | table | postgres
+ public   | towersfm_fcc_200202_utm83                                       | table | postgres
+ public   | towersfm_fcc_200202_utm83_attrs_raw                             | table | postgres
+ public   | towersmicrowave_fcc_200202_ll83                                 | table | postgres
+ public   | towersmicrowave_fcc_200202_ll83_attrs_raw                       | table | postgres
+gres
+ public   | towersmicrowave_fcc_200202_utm83                                | table | postgres
+ public   | towersmicrowave_fcc_200202_utm83_attrs_raw                      | table | postgres
+ public   | towerspager_fcc_200202_ll83                                     | table | postgres
+ public   | towerspager_fcc_200202_ll83_attrs_raw                           | table | postgres
+ public   | towerspager_fcc_200202_utm83                                    | table | postgres
+ public   | towerspager_fcc_200202_utm83_attrs_raw                          | table | postgres
+ public   | towersprivate_fcc_200202_ll83                                   | table | postgres
+ public   | towersprivate_fcc_200202_ll83_attrs_raw                         | table | postgres
+ public   | towersprivate_fcc_200202_utm83                                  | table | postgres
+ public   | towersprivate_fcc_200202_utm83_attrs_raw                        | table | postgres
+ public   | uei_registry                                                    | table | msjarvis
+ public   | us_counties                                                     | table | postgres
+ public   | us_counties_tmp                                                 | table | postgres
+ public   | us_zips                                                         | table | postgres
+ public   | us_zips_tmp                                                     | table | postgres
+ public   | user_compliance_task                                            | table | postgres
+ public   | utility_discount_enrollment                                     | table | postgres
+ public   | veteransaffairsfacilities_manysources_200503_utm83              | table | postgres
+ public   | veteransaffairsfacilities_manysources_200503_utm83_attrs_raw    | table | postgres
+ public   | veteransaffairsfacilities_manysources_200503_wgs84              | table | postgres
+ public   | veteransaffairsfacilities_manysources_200503_wgs84_attrs_raw    | table | postgres
+ public   | votingdistrictswv_legislativeservices_2002_ll83                 | table | pospublic   | votingdistrictswv_legislativeservices_2002_ll83                 | table | postgres
+ public   | votingdistrictswv_legislativeservices_2002_ll83_attrs_raw       | table | postgres
+ public   | votingdistrictswv_legislativeservices_2002_utm83                | table | postgres
+ public   | votingdistrictswv_legislativeservices_2002_utm83_attrs_raw      | table | postgres
+ public   | votingdistrictswv_uscensus_2000_utm83                           | table | postgres
+ public   | votingdistrictswv_uscensus_2000_utm83_attrs_raw                 | table | postgres
+ public   | weatherstations_nationalclimatedatacenter_1999_gcs83            | table | postgres
+ public   | weatherstations_nationalclimatedatacenter_1999_gcs83_attrs_raw  | table | postgres
+ public   | weatherstations_nationalclimatedatacenter_1999_utm27            | table | postgres
+ public   | weatherstations_nationalclimatedatacenter_1999_utm27_attrs_raw  | table | postgres
+ public   | windenergyresource_nationalrenewableenergylab_200901_utm83      | table | postgres
+ public   | windenergyresource_nationalrenewableenergylab_200901_utm83_attr | table | pos:
+
+public   | windenergyresource_nationalrenewableenergylab_200901_wgs84      | table | postgres
+ public   | windenergyresource_nationalrenewableenergylab_200901_wgs84_attr | table | postgres
+ public   | workforceinvestmentareas_wvgistc_200208_ll83                    | table | postgres
+ public   | workforceinvestmentareas_wvgistc_200208_ll83_attrs_raw          | table | postgres
+ public   | wv_county_bbox_geom                                             | table | postgres
+ public   | wv_county_boundaries_24k_topo_updated_2022_utm83_attrs_raw      | table | postgres
+ public   | wv_county_names                                                 | table | postgres
+ public   | wv_income_manual_income_limits                                  | table | postgres
+ public   | wv_income_manual_income_sources                                 | table | postgres
+ public   | wv_income_manual_income_treatment                               | table | postgres
+ public   | wv_income_manual_income_treatment_extended                      | table | postgres
+ public   | wv_income_manual_rules                                          | table | pos:
+
+tgres
+ public   | wv_microsoft_20180207_utm17n83                                  | table | postgres
+ public   | wv_microsoft_20180207_utm17n83_attrs_raw                        | table | postgres
+ public   | wv_tax_districts_ll83                                           | table | postgres
+ public   | wv_tax_districts_ll83_attrs_raw                                 | table | postgres
+ public   | wv_tax_districts_utm83_attrs_raw                                | table | postgres
+ public   | wv_tax_districts_wma84                                          | table | postgres
+ public   | wv_tax_districts_wma84_attrs_raw                                | table | postgres
+ public   | wvgistc_building_footprints                                     | table | postgres
+ public   | wvgistc_building_footprints_attrs_raw                           | table | postgres
+ public   | wvgistcbuildingfootprints                                       | table | postgres
+ public   | wvgistcbuildingfootprints_attrs_raw                             | table | postgres
+gres
+ public   | wvgistcbuildingfootprints_attrs_raw                             | table | postgres
+ public   | wvgistcbuildingfootprintsattrsraw                               | table | postgres
+ public   | wvstatebounadary100k_usgs_200203_utm83                          | table | postgres
+ public   | wvstatebounadary100k_usgs_200203_utm83_attrs_raw                | table | postgres
+ public   | wvstateboundary100k_usgs_200203_ll83                            | table | postgres
+ public   | wvstateboundary100k_usgs_200203_ll83_attrs_raw                  | table | postgres
+ public   | wvstateboundary24k_usgs_200203_ll83                             | table | postgres
+ public   | wvstateboundary24k_usgs_200203_ll83_attrs_raw                   | table | postgres
+ public   | wvstateboundary24k_usgs_200203_utm83                            | table | postgres
+ public   | wvstateboundary24k_usgs_200203_utm83_attrs_raw                  | table | postgres
+ public   | wvstatehousedistricts_manysources_1992_ll83                     | table | postgres
+ public   | wvstatehousedistricts_manysources_1992_ll83_attrs_raw           | table | postgres
+ public   | wvstatehousedistricts_manysources_1992_utm83                    | table | postgres
+ public   | wvstatehousedistricts_manysources_1992_utm83_attrs_raw          | table | postgres
+ public   | wvstatehousedistricts_manysources_2002_ll83                     | table | postgres
+ public   | wvstatehousedistricts_manysources_2002_ll83_attrs_raw           | table | postgres
+ public   | wvstatehousedistricts_manysources_2002_utm83                    | table | postgres
+ public   | wvstatehousedistricts_manysources_2002_utm83_attrs_raw          | table | postgres
+ public   | wvstatehousedistricts_wvlegislativeservices_2020_utm83_attrs_ra | table | postgres
+ public   | wvstatesenatedistricts_manysources_1992_ll83                    | table | postgres
+ public   | wvstatesenatedistricts_manysources_1992_ll83_attrs_raw          | table | postgres
+ public   | wvstatesenatedistricts_manysources_1992_utm83                   | table | postgres
+ public   | wvstatesenatedistricts_manysources_1992_utm83_attrs_raw         | table | pospublic   | wvstatesenatedistricts_manysources_2002_ll83                    | table | postgres
+ public   | wvstatesenatedistricts_manysources_2002_ll83_attrs_raw          | table | postgres
+ public   | wvstatesenatedistricts_manysources_2002_utm83                   | table | postgres
+ public   | wvstatesenatedistricts_manysources_2002_utm83_attrs_raw         | table | postgres
+ public   | wvstatesenatedistricts_wvlegislativeservices_2020_utm83_attrs_r | table | postgres
+ public   | zcta_county_rel                                                 | table | postgres
+ public   | zipcodetabulationarea_census_2020_raw                           | table | postgres
+ public   | zipcodetabulationarea_census_2020_utm83_attrs_raw               | table | postgres
+ public   | zipcodetabulationarea_census_2020_wma84                         | table | postgres
+ public   | zipcodetabulationarea_census_2020_wma84_attrs_raw               | table | postgres
+ tiger    | addr                                                            | table | postgres
+ tiger    | addrfeat                                                        | table | posgres
+ tiger    | bg                                                              | table | postgres
+ tiger    | county                                                          | table | postgres
+ tiger    | county_lookup                                                   | table | postgres
+ tiger    | countysub_lookup                                                | table | postgres
+ tiger    | cousub                                                          | table | postgres
+ tiger    | direction_lookup                                                | table | postgres
+ tiger    | edges                                                           | table | postgres
+ tiger    | faces                                                           | table | postgres
+ tiger    | featnames                                                       | table | postgres
+ tiger    | geocode_settings                                                | table | postgres
+ tiger    | geocode_settings_default                                        | table | postgres
+res
+ tiger    | loader_lookuptables                                             | table | postgres
+ tiger    | loader_platform                                                 | table | postgres
+ tiger    | loader_variables                                                | table | postgres
+ tiger    | pagc_gaz                                                        | table | postgres
+ tiger    | pagc_lex                                                        | table | postgres
+ tiger    | pagc_rules                                                      | table | postgres
+ tiger    | place                                                           | table | postgres
+ tiger    | place_lookup                                                    | table | postgres
+ tiger    | secondary_unit_lookup                                           | table | postgres
+ tiger    | state                                                           | table | postgres
+ tiger    | state_lookup                                                    | table | postgres
+gres
+ tiger    | street_type_lookup                                              | table | postgres
+ tiger    | tabblock                                                        | table | postgres
+ tiger    | tabblock20                                                      | table | postgres
+ tiger    | tract                                                           | table | postgres
+ tiger    | zcta5                                                           | table | postgres
+ tiger    | zip_lookup                                                      | table | postgres
+ tiger    | zip_lookup_all                                                  | table | postgres
+ tiger    | zip_lookup_base                                                 | table | postgres
+ tiger    | zip_state                                                       | table | postgres
+ tiger    | zip_state_loc                                                   | table | postgres
+ topology | layer                                                           | table | postgres
+topology | topology                                                        | table | postgres
+(551 rows)
+
+(END)
+
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Find all tables with user/champion/founder/token in the name
+sudo -u postgres psql -p 5433 -d msjarvisgis -c \\
+  "\\dt" | grep -i "user\\|champion\\|founder\\|token"
+Password for user postgres: 
+ public   | user_compliance_task                                            | table | postgres
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ 
+
+crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Also get the actual postgres password for port 5433
+sudo -u postgres psql -p 5433 -c "SELECT rolname, rolpassword FROM pg_authid WHERE rolname='postgres';" 2>/dev/null | head -5
+# Or just check the pg_hba config
+sudo cat /etc/postgresql/16/msjarvis/pg_hba.conf | grep -v "^#" | grep -v "^$"
+Password for user postgres: 
+ rolname  |                                                              rolpassword                                                              
+----------+---------------------------------------------------------------------------------------------------------------------------------------
+ postgres | SCRAM-SHA-256$4096:HoGwXaCknocX2WDZY1qtlg==$ATmuMcwNlHovNUbOC0GmW3IJGJVLljywKAbX0uBhSAU=:Kc4iyxmpB4AvTwCObEw0+CevCXSmk9dbsAYzForJzFM=
+(1 row)
+
+local   all             postgres                                md5
+local   all             all                                     md5
+host    all             all             127.0.0.1/32            scram-sha-256
+host    all             all             ::1/128                 scram-sha-256
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            scram-sha-256
+host    replication     all             ::1/128                 scram-sha-256
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+host    all             all             172.18.0.0/16           md5
+local   all             all                                     md5
+host    all             all             127.0.0.1/32            md5
+host    all             all             ::1/128                 md5
+host    all             postgres        172.17.0.0/16           md5
+host    gisdb           postgres        172.17.0.0/16           md5
+host    msjarvisgis     msjarvis        172.18.0.0/16           md5
+host    msjarvisgis     msjarvis        192.168.0.0/24          md5
+host    all             msjarvis        172.18.0.0/16           md5
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ 
+
+
+ public   | majorriversandlakesline_nhd_2002_ll83                           | table | postgres
+ public   | majorriversandlakesline_nhd_2002_ll83_attrs_raw                 | table | postgres
+ public   | majorriversandlakesline_nhd_2002_utm83                          | table | postgres
+ public   | majorriversandlakesline_nhd_2002_utm83_attrs_raw                | table | postgres
+ public   | majorriversandlakespolygon_nhd_2002_poly_ll83                   | table | postgres
+ public   | majorriversandlakespolygon_nhd_2002_poly_ll83_attrs_raw         | table | postgres
+ public   | majorriversandlakespolygon_nhd_2002_utm83                       | table | postgres
+ public   | majorriversandlakespolygon_nhd_2002_utm83_attrs_raw             | table | postgres
+ public   | manufacturingandbusiness_wvdo_200803_utm83                      | table | postgres
+ public   | manufacturingandbusiness_wvdo_200803_utm83_attrs_raw            | table | postgres
+ public   | metfacp_reg_ll83                                                | table | postgres
