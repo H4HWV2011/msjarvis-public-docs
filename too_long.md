@@ -1,6686 +1,807 @@
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059154Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059166Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:02:45.059138Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059172Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059177Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323145Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323152Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:04:30.323135Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323156Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323159Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596578Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596587Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:06:15.596561Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596592Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596596Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832329Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832335Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:08:00.832317Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832338Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832341Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232111Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232119Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "hello Egeria",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "hello Egeria",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 12,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:08:53.232101Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "hello Egeria",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232123Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232126Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                }
-                            ],
-                            "confidence": 0.9
-                        },
-                        "message": {
-                            "self_recognition": {
-                                "recognized": true,
-                                "reason": "implicit self-recognition within configured identity profile",
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232111Z",
-                                    "identity_coherence": 0.6,
-                                    "active_self_aspects": [
-                                        "developer",
-                                        "creator",
-                                        "observer"
-                                    ],
-                                    "confidence": 0.7
-                                },
-                                "message": null,
-                                "metadata": {}
-                            },
-                            "identity_core": {
-                                "recognized": true,
-                                "reason": "identity-core aligned with configured values",
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232119Z",
-                                    "core_stability": 0.9,
-                                    "core_values": [
-                                        "care",
-                                        "learning",
-                                        "integrity"
-                                    ],
-                                    "confidence": 0.9
-                                },
-                                "message": null,
-                                "metadata": {}
-                            },
-                            "ego_check": {
-                                "input": "hello Egeria",
-                                "within_bounds": true,
-                                "category": "unspecified",
-                                "severity": "info",
-                                "reason": "within configured ego-boundary limits",
-                                "details": {
-                                    "input": "hello Egeria",
-                                    "within_bounds": true,
-                                    "category": "unspecified",
-                                    "severity": "info",
-                                    "reason": "within configured ego-boundary limits",
-                                    "details": {
-                                        "allowed": true,
-                                        "reason": "within configured ego-boundary limits",
-                                        "boundary_mode": "healthy",
-                                        "active_limits": [
-                                            "no_recursive_overload",
-                                            "respect_rate_limits",
-                                            "filter_high_risk_content"
-                                        ],
-                                        "metadata": {
-                                            "length": 12,
-                                            "has_risk_keywords": false
-                                        }
-                                    },
-                                    "ego_boundaries": {},
-                                    "experiential_processing": {},
-                                    "timestamp": "2026-05-19T06:08:53.232101Z"
-                                },
-                                "ego_boundaries": {},
-                                "experiential_processing": {}
-                            },
-                            "narrative_context": {
-                                "summary": "hello Egeria",
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232123Z",
-                                    "story_coherence": 0.9,
-                                    "key_events": [],
-                                    "confidence": 0.9
-                                },
-                                "metadata": {}
-                            },
-                            "memory_state": {
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232126Z",
-                                    "recent_memories": [
-                                        "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "test",
-                                        "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "test",
-                                        "test",
-                                        "test",
-                                        "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                    ],
-                                    "memory_load": 0.3,
-                                    "confidence": 0.9
-                                },
-                                "metadata": {}
-                            }
-                        },
-                        "metadata": {}
-                    },
-                    "metacognitive": {
-                        "observed": true,
-                        "state": {
-                            "timestamp": "2026-05-19T06:08:53.232134Z",
-                            "monitoring_active": true,
-                            "monitored_patterns": [
-                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "test",
-                                "test",
-                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "test",
-                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "test",
-                                "test",
-                                "test",
-                                "test",
-                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "test",
-                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "test",
-                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "test",
-                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                "hello Egeria"
-                            ],
-                            "confidence": 0.9
-                        },
-                        "message": "hello Egeria",
-                        "metadata": {}
-                    },
-                    "observer": {
-                        "observed": true,
-                        "state": {
-                            "timestamp": "2026-05-19T06:08:53.232137Z",
-                            "observing": true,
-                            "observed_events": [
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:09:03.619205Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:09:03.619585Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:09:03.618803Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:09:03.619755Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:09:03.619924Z",
-                                            "recent_memories": [],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:10:49.638974Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:10:49.639336Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:10:49.638658Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:10:49.639391Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:10:49.639494Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:12:34.930275Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:12:34.930288Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:12:34.930254Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:12:34.930294Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:12:34.930302Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:37.739971Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:37.739981Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:13:37.739959Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:37.739985Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:37.739989Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:49.817884Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:49.817892Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:13:49.817873Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:49.817895Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:13:49.817899Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:20.113456Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:20.113471Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:14:20.113297Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:20.113478Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:20.113486Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:23.273303Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:23.273311Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:14:23.273290Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:23.273314Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:14:23.273319Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:04.407317Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:04.407328Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 189,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:16:04.407298Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:04.407333Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:04.407341Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:05.407137Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:05.407144Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:16:05.407128Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:05.407147Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:16:05.407150Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:17:50.648513Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:17:50.648520Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:17:50.648502Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:17:50.648523Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:17:50.648526Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:19:35.908660Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:19:35.908672Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:19:35.908639Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:19:35.908677Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:19:35.908685Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:21:21.110552Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:21:21.110559Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:21:21.110542Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:21:21.110562Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:21:21.110566Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:23:06.346203Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:23:06.346221Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:23:06.346176Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:23:06.346229Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:23:06.346238Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:24:51.565073Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:24:51.565088Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:24:51.565065Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:24:51.565091Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:24:51.565095Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:26:36.851723Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:26:36.851733Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:26:36.851707Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:26:36.851737Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:26:36.851742Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:28:22.062558Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:28:22.062565Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:28:22.062546Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:28:22.062568Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:28:22.062572Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:30:07.322464Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:30:07.322473Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:30:07.322451Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:30:07.322477Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:30:07.322481Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:31:54.355954Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:31:54.355961Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:31:54.355944Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:31:54.355964Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:31:54.355968Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:32:56.649108Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:32:56.649124Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:32:56.649089Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:32:56.649132Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:32:56.649139Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:33:58.984923Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:33:58.984931Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:33:58.984913Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:33:58.984934Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:33:58.984938Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:35:03.353238Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:35:03.353247Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:35:03.353212Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:35:03.353250Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:35:03.353254Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:36:06.028335Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:36:06.028344Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:36:06.028325Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:36:06.028348Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:36:06.028352Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:37:08.845376Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:37:08.845387Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:37:08.845359Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:37:08.845392Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:37:08.845397Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:11.178735Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:11.178749Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 254,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:38:11.178718Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:11.178755Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:11.178761Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:48.750271Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:48.750278Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 189,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:38:48.750260Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:48.750281Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:38:48.750285Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:39:56.300971Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:39:56.300979Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:39:56.300961Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:39:56.300982Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:39:56.300985Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:41:41.498047Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:41:41.498059Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:41:41.498029Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:41:41.498066Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:41:41.498072Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:27.080950Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:27.080957Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:43:27.080940Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:27.080960Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:27.080963Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:45.034981Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:45.034987Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:43:45.034970Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:45.034990Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:43:45.034993Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.723602Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.723609Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:45:08.723591Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.723613Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.723617Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.727499Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.727505Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:45:08.727493Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.727507Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.727510Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.858705Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.858712Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:45:08.858694Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.858715Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:08.858718Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:12.339089Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:12.339100Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:45:12.339068Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:12.339105Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:45:12.339110Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:46:57.599336Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:46:57.599348Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:46:57.599322Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:46:57.599353Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:46:57.599358Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:47:43.572711Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:47:43.572717Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:47:43.572701Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:47:43.572721Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:47:43.572724Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:48:42.762263Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:48:42.762270Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:48:42.762254Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:48:42.762273Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:48:42.762276Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:50:28.004747Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:50:28.004758Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:50:28.004731Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:50:28.004763Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:50:28.004768Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:51:20.462505Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:51:20.462511Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:51:20.462495Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:51:20.462514Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:51:20.462517Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:52:13.242763Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:52:13.242776Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:52:13.242744Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:52:13.242782Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:52:13.242788Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:53:58.480870Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:53:58.480879Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:53:58.480856Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:53:58.480883Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:53:58.480887Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:05.235338Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:05.235347Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "test",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "test",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 4,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:55:05.235325Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "test",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:05.235351Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:05.235355Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:43.727125Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:43.727136Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:55:43.727113Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:43.727140Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:55:43.727145Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test"
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:57:29.213574Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:57:29.213580Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:57:29.213564Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:57:29.213583Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:57:29.213586Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:59:14.501775Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:59:14.501786Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T05:59:14.501760Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:59:14.501792Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T05:59:14.501798Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:00:59.743111Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:00:59.743119Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:00:59.743098Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:00:59.743125Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:00:59.743128Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059154Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059166Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:02:45.059138Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059172Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:02:45.059177Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323145Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323152Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:04:30.323135Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323156Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:04:30.323159Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596578Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596587Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:06:15.596561Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596592Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:06:15.596596Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832329Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832335Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 165,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:08:00.832317Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832338Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:00.832341Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                },
-                                {
-                                    "self_recognition": {
-                                        "recognized": true,
-                                        "reason": "implicit self-recognition within configured identity profile",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232111Z",
-                                            "identity_coherence": 0.6,
-                                            "active_self_aspects": [
-                                                "developer",
-                                                "creator",
-                                                "observer"
-                                            ],
-                                            "confidence": 0.7
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "identity_core": {
-                                        "recognized": true,
-                                        "reason": "identity-core aligned with configured values",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232119Z",
-                                            "core_stability": 0.9,
-                                            "core_values": [
-                                                "care",
-                                                "learning",
-                                                "integrity"
-                                            ],
-                                            "confidence": 0.9
-                                        },
-                                        "message": null,
-                                        "metadata": {}
-                                    },
-                                    "ego_check": {
-                                        "input": "hello Egeria",
-                                        "within_bounds": true,
-                                        "category": "unspecified",
-                                        "severity": "info",
-                                        "reason": "within configured ego-boundary limits",
-                                        "details": {
-                                            "input": "hello Egeria",
-                                            "within_bounds": true,
-                                            "category": "unspecified",
-                                            "severity": "info",
-                                            "reason": "within configured ego-boundary limits",
-                                            "details": {
-                                                "allowed": true,
-                                                "reason": "within configured ego-boundary limits",
-                                                "boundary_mode": "healthy",
-                                                "active_limits": [
-                                                    "no_recursive_overload",
-                                                    "respect_rate_limits",
-                                                    "filter_high_risk_content"
-                                                ],
-                                                "metadata": {
-                                                    "length": 12,
-                                                    "has_risk_keywords": false
-                                                }
-                                            },
-                                            "ego_boundaries": {},
-                                            "experiential_processing": {},
-                                            "timestamp": "2026-05-19T06:08:53.232101Z"
-                                        },
-                                        "ego_boundaries": {},
-                                        "experiential_processing": {}
-                                    },
-                                    "narrative_context": {
-                                        "summary": "hello Egeria",
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232123Z",
-                                            "story_coherence": 0.9,
-                                            "key_events": [],
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    },
-                                    "memory_state": {
-                                        "state": {
-                                            "timestamp": "2026-05-19T06:08:53.232126Z",
-                                            "recent_memories": [
-                                                "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                                "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                                "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "test",
-                                                "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "test",
-                                                "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                                "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                            ],
-                                            "memory_load": 0.3,
-                                            "confidence": 0.9
-                                        },
-                                        "metadata": {}
-                                    }
-                                }
-                            ],
-                            "confidence": 0.9
-                        },
-                        "message": {
-                            "self_recognition": {
-                                "recognized": true,
-                                "reason": "implicit self-recognition within configured identity profile",
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232111Z",
-                                    "identity_coherence": 0.6,
-                                    "active_self_aspects": [
-                                        "developer",
-                                        "creator",
-                                        "observer"
-                                    ],
-                                    "confidence": 0.7
-                                },
-                                "message": null,
-                                "metadata": {}
-                            },
-                            "identity_core": {
-                                "recognized": true,
-                                "reason": "identity-core aligned with configured values",
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232119Z",
-                                    "core_stability": 0.9,
-                                    "core_values": [
-                                        "care",
-                                        "learning",
-                                        "integrity"
-                                    ],
-                                    "confidence": 0.9
-                                },
-                                "message": null,
-                                "metadata": {}
-                            },
-                            "ego_check": {
-                                "input": "hello Egeria",
-                                "within_bounds": true,
-                                "category": "unspecified",
-                                "severity": "info",
-                                "reason": "within configured ego-boundary limits",
-                                "details": {
-                                    "input": "hello Egeria",
-                                    "within_bounds": true,
-                                    "category": "unspecified",
-                                    "severity": "info",
-                                    "reason": "within configured ego-boundary limits",
-                                    "details": {
-                                        "allowed": true,
-                                        "reason": "within configured ego-boundary limits",
-                                        "boundary_mode": "healthy",
-                                        "active_limits": [
-                                            "no_recursive_overload",
-                                            "respect_rate_limits",
-                                            "filter_high_risk_content"
-                                        ],
-                                        "metadata": {
-                                            "length": 12,
-                                            "has_risk_keywords": false
-                                        }
-                                    },
-                                    "ego_boundaries": {},
-                                    "experiential_processing": {},
-                                    "timestamp": "2026-05-19T06:08:53.232101Z"
-                                },
-                                "ego_boundaries": {},
-                                "experiential_processing": {}
-                            },
-                            "narrative_context": {
-                                "summary": "hello Egeria",
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232123Z",
-                                    "story_coherence": 0.9,
-                                    "key_events": [],
-                                    "confidence": 0.9
-                                },
-                                "metadata": {}
-                            },
-                            "memory_state": {
-                                "state": {
-                                    "timestamp": "2026-05-19T06:08:53.232126Z",
-                                    "recent_memories": [
-                                        "[EEG-THETA pulse 2796] Memory consolidation complete. Topic: Memory consolidation pulse 2796. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2797] Memory consolidation complete. Topic: Memory consolidation pulse 2797. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2798] Memory consolidation complete. Topic: Memory consolidation pulse 2798. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "test",
-                                        "[EEG-THETA pulse 2799] Memory consolidation complete. Topic: Memory consolidation pulse 2799. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "[EEG-THETA pulse 2800] Memory consolidation complete. Topic: Memory consolidation pulse 2800. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2801] Memory consolidation complete. Topic: Memory consolidation pulse 2801. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2802] Memory consolidation complete. Topic: Memory consolidation pulse 2802. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2803] Memory consolidation complete. Topic: Memory consolidation pulse 2803. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2804] Memory consolidation complete. Topic: Memory consolidation pulse 2804. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2805] Memory consolidation complete. Topic: Memory consolidation pulse 2805. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2806] Memory consolidation complete. Topic: Memory consolidation pulse 2806. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2807] Memory consolidation complete. Topic: Memory consolidation pulse 2807. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2808] Memory consolidation complete. Topic: Memory consolidation pulse 2808. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2809] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are several community resources available in West Virginia, inc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2810] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community resources . Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2811] Memory consolidation complete. Topic: The core memory to consolidate: PRIDE Additional Resources and Healthy Grandfamilies are community resources available i. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2812] Memory consolidation complete. Topic: The core memory to consolidate is that PRIDE Additional Resources and Healthy Grandfamilies are two community organizati. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2813] Memory consolidation complete. Topic: The core memory to consolidate is: Community resources in West Virginia include PRIDE Additional Resources for finding h. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2814] Memory consolidation complete. Topic: The key theme or insight worth remembering is that there are various community resources available in West Virginia, suc. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2815] Memory consolidation complete. Topic: Key theme: Various community resources are available in West Virginia, including PRIDE Additional Resources, Healthy Gra. Coherence: 0.950. Short-term memory integrated into autonomous_learner.",
-                                        "We are actively making changes, i'm curious if you respond faster and if you were cutoff again. Also, do you notice a difference since our last communication? If so, what is the difference?",
-                                        "[EEG-THETA pulse 2816] Memory consolidation complete. Topic: Memory consolidation pulse 2816. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2817] Memory consolidation complete. Topic: Memory consolidation pulse 2817. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2818] Memory consolidation complete. Topic: Memory consolidation pulse 2818. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "test",
-                                        "test",
-                                        "test",
-                                        "[EEG-THETA pulse 2819] Memory consolidation complete. Topic: Memory consolidation pulse 2819. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2820] Memory consolidation complete. Topic: Memory consolidation pulse 2820. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "[EEG-THETA pulse 2821] Memory consolidation complete. Topic: Memory consolidation pulse 2821. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2822] Memory consolidation complete. Topic: Memory consolidation pulse 2822. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "[EEG-THETA pulse 2823] Memory consolidation complete. Topic: Memory consolidation pulse 2823. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2824] Memory consolidation complete. Topic: Memory consolidation pulse 2824. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "test",
-                                        "[EEG-THETA pulse 2825] Memory consolidation complete. Topic: Memory consolidation pulse 2825. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2826] Memory consolidation complete. Topic: Memory consolidation pulse 2826. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2827] Memory consolidation complete. Topic: Memory consolidation pulse 2827. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2828] Memory consolidation complete. Topic: Memory consolidation pulse 2828. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2829] Memory consolidation complete. Topic: Memory consolidation pulse 2829. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2830] Memory consolidation complete. Topic: Memory consolidation pulse 2830. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2831] Memory consolidation complete. Topic: Memory consolidation pulse 2831. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
-                                        "[EEG-THETA pulse 2832] Memory consolidation complete. Topic: Memory consolidation pulse 2832. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
-                                    ],
-                                    "memory_load": 0.3,
-                                    "confidence": 0.9
-                                },
-                                "metadata": {}
-                            }
-                        },
-                        "metadata": {}
-                    }
-                }
-            },
-            {
-                "kind": "ego_boundaries",
-                "weight": 1.0,
-                "data": {
-                    "input": "hello Egeria",
-                    "within_bounds": true,
-                    "category": "unspecified",
-                    "severity": "info",
-                    "reason": "within configured ego-boundary limits",
-                    "details": {
-                        "input": "hello Egeria",
-                        "within_bounds": true,
-                        "category": "unspecified",
-                        "severity": "info",
-                        "reason": "within configured ego-boundary limits",
-                        "details": {
-                            "allowed": true,
-                            "reason": "within configured ego-boundary limits",
-                            "boundary_mode": "healthy",
-                            "active_limits": [
-                                "no_recursive_overload",
-                                "respect_rate_limits",
-                                "filter_high_risk_content"
-                            ],
-                            "metadata": {
-                                "length": 12,
-                                "has_risk_keywords": false
-                            }
-                        },
-                        "ego_boundaries": {},
-                        "experiential_processing": {},
-                        "timestamp": "2026-05-19T06:08:53.232101Z"
-                    },
-                    "ego_boundaries": {},
-                    "experiential_processing": {}
-                }
-            }
-        ],
-        "icontainersstate": {
-            "ego_boundaries": {},
-            "experiential_processing": {},
-            "observer_processing": {
-                "stance": "observer",
-                "meta_level": "ego-boundaries-v1"
-            }
-        }
-    },
-    "error": null,
-    "job_id": "1a0b98b8-3a04-4a4d-9714-a2faa51f310d"
-}
-{
-    "detail": "Invalid API key"
-}
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ 
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ find /opt/msjarvis-rebuild -name "*.py" | xargs grep -l "production\|brain\|llm1\|llm2\|MODEL_NAME" 2>/dev/null | grep -v "__pycache__"
+/opt/msjarvis-rebuild/ms-allis-auth-install/backend/wallet_service.py
+/opt/msjarvis-rebuild/llm21_health_proxy.py
+/opt/msjarvis-rebuild/llm10_health_proxy.py
+/opt/msjarvis-rebuild/seed_mountainshares.py
+/opt/msjarvis-rebuild/llm1_health_proxy.py
+/opt/msjarvis-rebuild/gateway8050_inline.py
+/opt/msjarvis-rebuild/llm19_health_proxy.py
+/opt/msjarvis-rebuild/ai-server/ai_server_20llm_PRODUCTION.py
+/opt/msjarvis-rebuild/llm8_health_proxy.py
+/opt/msjarvis-rebuild/brain_orchestrator.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_new_consciousness_services.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_scope.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm10-proxy_llm10_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_BACKUP.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_orchestrator_flow.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/complete_fix.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_full_brain_class.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm12-proxy_llm12_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_mamma_greeting_simple.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_jarvis_personality.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_complete_architecture.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm14-proxy_llm14_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_conversation_context.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/egeria_web_ui_FIXED.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/gateway8050_simple.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm3-proxy_llm3_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_facebook_dgm_woah.psychology_patched.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm15-proxy_llm15_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_19llm_PRODUCTION.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm20-proxy_llm20_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm22-proxy_llm22_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_creator_recognition.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_storage.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm6-proxy_llm6_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm19-proxy_llm19_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/test_full_brain_integration.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/update_production_to_v9.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_brain.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_all_consciousness_services.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm21-proxy_llm21_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/swagger_gateway.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm11-proxy_llm11_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_20llm_FINAL.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm16-proxy_llm16_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_full_neural_architecture.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_timeouts_add_22llm.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_orchestrator_init.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm1-proxy_llm1_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm18-proxy_llm18_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm7-proxy_llm7_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/brain_orchestrator_stub.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_identity_context.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_agent_prompts.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/clean_integration.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/complete_system_audit.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_restored.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/migrate_blood_brain_barrier.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm13-proxy_llm13_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_context_flow.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/integrate_all_services.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_original_backup.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm_SMALL_TO_LARGE.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm17-proxy_llm17_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_main_brain_endpoints.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/consciousness_coordinator.psychology_patched.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/add_security_to_chat.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm2-proxy_llm2_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_19llm_PRODUCTION_WITH_HEALTH.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm_SEQUENTIAL.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_port_8001_clean.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm4-proxy_llm4_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_rag_store.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_22llm.psychology_patched.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_4llm.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/fix_prompt_leak.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm8-proxy_llm8_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm9-proxy_llm9_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/test_gis_chat.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/llm5-proxy_llm5_health_proxy.py
+/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_error.py
+/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_main_gateway.backup_1762220815.py
+/opt/msjarvis-rebuild/neurobiologicalbrain/neurobrain.py
+/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_unified_gateway.py
+/opt/msjarvis-rebuild/msjarvis-rebuild/ms_jarvis_neurobiological_master.py
+/opt/msjarvis-rebuild/llm_consensus_20_FINAL_EDIT.py
+/opt/msjarvis-rebuild/llm18_health_proxy.py
+/opt/msjarvis-rebuild/llm4_health_proxy.py
+/opt/msjarvis-rebuild/llm9_health_proxy.py
+/opt/msjarvis-rebuild/.scratch/jarvis_steward.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/spatial/transform/_rigid_transform.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/_lib/_array_api.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_lib/_utils/_helpers.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/optimize/_shgo.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/scipy/interpolate/tests/test_rbfinterp.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/layoutlmv2/tokenization_layoutlmv2.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/funnel/tokenization_funnel.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/convbert/tokenization_convbert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/layoutlm/tokenization_layoutlm.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/roc_bert/tokenization_roc_bert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/dots1/modular_dots1.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/realm/tokenization_realm.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/gptsan_japanese/tokenization_gptsan_japanese.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/modeling_mctct.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/mctct/configuration_mctct.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deprecated/retribert/tokenization_retribert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/deberta_v2/tokenization_deberta_v2.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/mobilebert/tokenization_mobilebert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/prophetnet/tokenization_prophetnet.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/distilbert/tokenization_distilbert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/roformer/tokenization_roformer.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/mpnet/tokenization_mpnet.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/bert_japanese/tokenization_bert_japanese.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/electra/tokenization_electra.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/tokenization_gpt_neox_japanese.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/lxmert/tokenization_lxmert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/bert/tokenization_bert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/splinter/tokenization_splinter.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/squeezebert/tokenization_squeezebert.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/align/processing_align.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/pipelines/__init__.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/trainer_pt_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/commands/chat.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/commands/serving.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/commands/add_new_model_like.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/utils/fx.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/testing_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/integrations/integration_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/trainer.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/transformers/modeling_tf_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/fastapi_cli/cli.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torchvision/models/_meta.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask/cli.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask/sansio/app.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask/app.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/osgeo_utils/samples/gdallocationinfo.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sklearn/model_selection/tests/test_split.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sklearn/externals/array_api_extra/_lib/_utils/_helpers.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/middleware/http_proxy.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/middleware/dispatcher.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/serving.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/werkzeug/exceptions.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/fastapi/__init__.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/PIL/WmfImagePlugin.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic_settings/main.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentry_sdk/client.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentry_sdk/consts.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentry_sdk/integrations/opentelemetry/integration.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/checkpoint_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/testing/_internal/common_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/cuda/memory.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_core.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_inductor/fuzzer.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/ao/quantization/fx/_model_report/detector.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_subclasses/meta_utils.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/replay_record.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/test_minifier_common.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/repro/after_dynamo.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_dynamo/repro/aoti.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/torch/_custom_op/impl.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/flask_cors/core.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/asymmetric/ec.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/tree/tree.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/tree/transforms.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/treetransforms.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/generate.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/earleychart.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/shiftreduce.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/recursivedescent.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/pchart.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/featurechart.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/chart.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/viterbi.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/parse/projectivedependencyparser.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/grammar.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/app/rdparser_app.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/app/srparser_app.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/app/chartparser_app.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/draw/cfg.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/nltk/sem/lfg.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pandas/tests/groupby/test_categorical.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pandas/tests/groupby/test_apply.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/networkx/algorithms/cycles.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/networkx/algorithms/smallworld.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/folium/plugins/locate_control.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/yaml/parser.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/open_clip/zero_shot_metadata.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/ext/horizontal_shard.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/sql/schema.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/engine/events.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/huggingface_hub/constants.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/matplotlib/testing/jpl_units/__init__.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/setuptools/_distutils/util.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/setuptools/_vendor/typeguard/_decorators.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/setuptools/_vendor/more_itertools/more.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pyasn1_modules/rfc5639.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/PyPDF2/_page.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/delete_file.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/config.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/chromadb/__init__.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/.venv/lib/python3.12/site-packages/pypdf/_page.py
+/opt/msjarvis-rebuild/rag_server_main.py
+/opt/msjarvis-rebuild/services/fifth_dgm/ms_jarvis_fifth_dgm_orchestrator.py
+/opt/msjarvis-rebuild/services/ms_jarvis_production_chat.py
+/opt/msjarvis-rebuild/services/add_new_consciousness_services.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway.py
+/opt/msjarvis-rebuild/services/chat_server.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED_BACKUP.py
+/opt/msjarvis-rebuild/services/msjarvis_gateway_v2_final.py
+/opt/msjarvis-rebuild/services/fix_orchestrator_scope.py
+/opt/msjarvis-rebuild/services/llm21_health_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_neurobiological_master.py
+/opt/msjarvis-rebuild/services/wallet_service.py
+/opt/msjarvis-rebuild/services/neuro_subconscious.py
+/opt/msjarvis-rebuild/services/pituitary_gland.py
+/opt/msjarvis-rebuild/services/dgm_supervisor_woah_fixed.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_BACKUP.py
+/opt/msjarvis-rebuild/services/integrate_orchestrator_flow.py
+/opt/msjarvis-rebuild/services/icontainers_fastapi.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_full.py
+/opt/msjarvis-rebuild/services/complete_fix.py
+/opt/msjarvis-rebuild/services/llm10_health_proxy.py
+/opt/msjarvis-rebuild/services/add_full_brain_class.py
+/opt/msjarvis-rebuild/services/swagger_gateway_FIXED.py
+/opt/msjarvis-rebuild/services/jarvis-i-containers_icontainers_fastapi.py
+/opt/msjarvis-rebuild/services/llm_consensus_20_FINAL.py
+/opt/msjarvis-rebuild/services/add_mamma_greeting_simple.py
+/opt/msjarvis-rebuild/services/wire_layers_into_chat.py
+/opt/msjarvis-rebuild/services/ms_jarvis_blockchain_deployment.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FIXED.py
+/opt/msjarvis-rebuild/services/llm1_health_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_rag.py
+/opt/msjarvis-rebuild/services/domain_service_router.py
+/opt/msjarvis-rebuild/services/add_jarvis_personality.py
+/opt/msjarvis-rebuild/services/integrate_complete_architecture.py
+/opt/msjarvis-rebuild/services/add_conversation_context.py
+/opt/msjarvis-rebuild/services/egeria_web_ui_FIXED.py
+/opt/msjarvis-rebuild/services/jarvis-lm-synthesizer_lm_synthesizer.py
+/opt/msjarvis-rebuild/services/llm19_health_proxy.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/yaml/parser.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/huggingface_hub/constants.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/delete_file.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/config.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/chromadb/__init__.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/services/chroma_inspect_venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/services/msjarvisunifiedgateway.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_intelligent.py
+/opt/msjarvis-rebuild/services/main_brain_psychology_patch.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_error.py
+/opt/msjarvis-rebuild/services/jarvis-wv-entangled-gateway_msjarvis_wv_entangled_gateway.py
+/opt/msjarvis-rebuild/services/gateway8050_simple.py
+/opt/msjarvis-rebuild/services/ai_server.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_dgm_woah.psychology_patched.py
+/opt/msjarvis-rebuild/services/dynamic_app.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_brain_integrated.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.psychology_patched.py
+/opt/msjarvis-rebuild/services/rag/gis_rag_service.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_webhook.py
+/opt/msjarvis-rebuild/services/llm8_health_proxy.py
+/opt/msjarvis-rebuild/services/llm/ai_server.py
+/opt/msjarvis-rebuild/services/llm/ai_server_22llm.py
+/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION.py
+/opt/msjarvis-rebuild/services/brain_orchestrator.py
+/opt/msjarvis-rebuild/services/bridge_cross_dgm.py
+/opt/msjarvis-rebuild/services/chromadb_rag_helper.py
+/opt/msjarvis-rebuild/services/fix_creator_recognition.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries/__init__.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/fix_storage.py
+/opt/msjarvis-rebuild/services/probe_services.py
+/opt/msjarvis-rebuild/services/rag_command_module.py
+/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BACKUP.py
+/opt/msjarvis-rebuild/services/llm18_health_proxy.py
+/opt/msjarvis-rebuild/services/jarvis-69dgm-bridge_jarvis-fractal-consciousness_baseline.py
+/opt/msjarvis-rebuild/services/ms_jarvis_temporal_consciousness.py
+/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator.py
+/opt/msjarvis-rebuild/services/llm4_health_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_fully_autonomous_coordinator.py
+/opt/msjarvis-rebuild/services/llm9_health_proxy.py
+/opt/msjarvis-rebuild/services/restore_pia_wiring.py
+/opt/msjarvis-rebuild/services/ms_jarvis_feed_reader_PRODUCTION.py
+/opt/msjarvis-rebuild/services/test_full_brain_integration.py
+/opt/msjarvis-rebuild/services/egeria_api_proxy.py
+/opt/msjarvis-rebuild/services/bbb_output_filter/app.py
+/opt/msjarvis-rebuild/services/woah_command_module.py
+/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5_backup.py
+/opt/msjarvis-rebuild/services/.venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/services/.venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/services/.venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.backup_1762220815.py
+/opt/msjarvis-rebuild/services/rag_server_main.py
+/opt/msjarvis-rebuild/services/python/brain_orchestrator.py
+/opt/msjarvis-rebuild/services/neuro_i_containers.py
+/opt/msjarvis-rebuild/services/update_production_to_v9.py
+/opt/msjarvis-rebuild/services/integrate_full_brain.py
+/opt/msjarvis-rebuild/services/llm20_health_proxy.py
+/opt/msjarvis-rebuild/services/jarvis_steward.py
+/opt/msjarvis-rebuild/services/bridge/bridge_cross_dgm.py
+/opt/msjarvis-rebuild/services/fix_all_consciousness_services.py
+/opt/msjarvis-rebuild/services/ai/ai_server.py
+/opt/msjarvis-rebuild/services/ai/ai_server_simple.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_temp.py
+/opt/msjarvis-rebuild/services/web_chat_server.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_async.py
+/opt/msjarvis-rebuild/services/llm3_health_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_fractal_consciousness.py
+/opt/msjarvis-rebuild/services/ms_jarvis_production_chat_BEFORE_GIS.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster_FIXED.py
+/opt/msjarvis-rebuild/services/ms_jarvis_autonomous_learner.py
+/opt/msjarvis-rebuild/services/nbb/pituitary_gland.py
+/opt/msjarvis-rebuild/services/bbb_ethics_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_gis_enhanced_chat.py
+/opt/msjarvis-rebuild/services/swagger_gateway.py
+/opt/msjarvis-rebuild/services/llm12_health_proxy.py
+/opt/msjarvis-rebuild/services/llm6_health_proxy.py
+/opt/msjarvis-rebuild/services/neuro_consciousness_containers.py
+/opt/msjarvis-rebuild/services/ms_jarvis_i_containers_service.py
+/opt/msjarvis-rebuild/services/rebuild_query_service.py
+/opt/msjarvis-rebuild/services/egeria_web_ui.py
+/opt/msjarvis-rebuild/services/jarvis_pia_sampler.py
+/opt/msjarvis-rebuild/services/msjarvis_wv_entangled_gateway.py
+/opt/msjarvis-rebuild/services/ai_server_20llm_FINAL.py
+/opt/msjarvis-rebuild/services/llm7_health_proxy.py
+/opt/msjarvis-rebuild/services/integrate_full_neural_architecture.py
+/opt/msjarvis-rebuild/services/service_registry_client.py
+/opt/msjarvis-rebuild/services/fix_timeouts_add_22llm.py
+/opt/msjarvis-rebuild/services/llm16_health_proxy.py
+/opt/msjarvis-rebuild/services/fix_orchestrator_init.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway_8000.py
+/opt/msjarvis-rebuild/services/wire_qualia_to_port8001.py
+/opt/msjarvis-rebuild/services/llm22_health_proxy.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v8_spiritual_complete.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/services/jarvis-woah_dgm_supervisor_woah_fixed.py
+/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_autonomous_social.py
+/opt/msjarvis-rebuild/services/REFERENCE_windows_swarm.py
+/opt/msjarvis-rebuild/services/add_identity_context.py
+/opt/msjarvis-rebuild/services/ai_server_20llm_PRODUCTION.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.BEFORE_69DGM_INTEGRATION.py
+/opt/msjarvis-rebuild/services/logging_conf.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v9_dgm_complete.py
+/opt/msjarvis-rebuild/services/msjarvismaingateway.py
+/opt/msjarvis-rebuild/services/llm17_health_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.corrupted37_backup_1762223499.py
+/opt/msjarvis-rebuild/services/jarvis_pia_status.py
+/opt/msjarvis-rebuild/services/email_auto_checker.py
+/opt/msjarvis-rebuild/services/ultimate_web_orchestrator.py
+/opt/msjarvis-rebuild/services/_vendor/Crypto/SelfTest/Signature/test_dss.py
+/opt/msjarvis-rebuild/services/_vendor/parsimonious/grammar.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/services/_vendor/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/services/tools/egeria_api_proxy.py
+/opt/msjarvis-rebuild/services/tools/egeria_web_ui.py
+/opt/msjarvis-rebuild/services/tools/email_auto_checker.py
+/opt/msjarvis-rebuild/services/tools/egeria_safe_self_correction.py
+/opt/msjarvis-rebuild/services/tools/egeria_multi_mode_system.py
+/opt/msjarvis-rebuild/services/tools/cloudflare_domain_integration.py
+/opt/msjarvis-rebuild/services/fix_agent_prompts.py
+/opt/msjarvis-rebuild/services/ms_jarvis_toroidal_consciousness.py
+/opt/msjarvis-rebuild/services/hierarchical_coordinator_autonomous.py
+/opt/msjarvis-rebuild/services/neuro_prefrontal_cortex.py
+/opt/msjarvis-rebuild/services/llm14_health_proxy.py
+/opt/msjarvis-rebuild/services/rag_server.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_gateway_v4.3.py
+/opt/msjarvis-rebuild/services/ms_jarvis_brain_orchestrator_advanced.py
+/opt/msjarvis-rebuild/services/clean_integration.py
+/opt/msjarvis-rebuild/services/egeria_safe_self_correction.py
+/opt/msjarvis-rebuild/services/ms_jarvis_showcase_api.py
+/opt/msjarvis-rebuild/services/complete_system_audit.py
+/opt/msjarvis-rebuild/services/ai_server_restored.py
+/opt/msjarvis-rebuild/services/migrate_blood_brain_barrier.py
+/opt/msjarvis-rebuild/services/ms_jarvis_fifth_dgm_orchestrator.py
+/opt/msjarvis-rebuild/services/remove_duplicate_inits.py
+/opt/msjarvis-rebuild/services/method_tracking_service.py
+/opt/msjarvis-rebuild/services/msjarvis_unified_gateway.py
+/opt/msjarvis-rebuild/services/llm11_health_proxy.py
+/opt/msjarvis-rebuild/services/egeria_multi_mode_system.py
+/opt/msjarvis-rebuild/services/fix_context_flow.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_enhanced.py
+/opt/msjarvis-rebuild/services/ms_jarvis_service_factory.py
+/opt/msjarvis-rebuild/services/integrate_all_services.py
+/opt/msjarvis-rebuild/services/tests/test_bbb_verdict_flow.py
+/opt/msjarvis-rebuild/services/ai_server_original_backup.py
+/opt/msjarvis-rebuild/services/ms_jarvis_darwin_godel_machine.py
+/opt/msjarvis-rebuild/services/neuro_qualia_engine.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_poster_8040.py
+/opt/msjarvis-rebuild/services/ms_jarvis_integration_hub.py
+/opt/msjarvis-rebuild/services/ai_server_22llm_SMALL_TO_LARGE.py
+/opt/msjarvis-rebuild/services/rag_direct_debug.py
+/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_SIMPLE.py
+/opt/msjarvis-rebuild/services/fix_main_brain_endpoints.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v6_biologics.py
+/opt/msjarvis-rebuild/services/ms_jarvis_qualia_engine.py
+/opt/msjarvis-rebuild/services/consciousness_coordinator.psychology_patched.py
+/opt/msjarvis-rebuild/services/main_brain.py
+/opt/msjarvis-rebuild/services/wv_gis_mass_downloader.py
+/opt/msjarvis-rebuild/services/add_security_to_chat.py
+/opt/msjarvis-rebuild/services/llm13_health_proxy.py
+/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_v5.0_preachy.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/spatial/transform/_rigid_transform.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/_lib/_array_api.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/_lib/array_api_extra/_lib/_utils/_helpers.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/optimize/_shgo.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/scipy/interpolate/tests/test_rbfinterp.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/roc_bert/tokenization_roc_bert.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/dots1/modular_dots1.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/dots1/modeling_dots1.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/dots1/configuration_dots1.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/prophetnet/tokenization_prophetnet.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/bert_japanese/tokenization_bert_japanese.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/tapas/tokenization_tapas.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/gpt_neox_japanese/tokenization_gpt_neox_japanese.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/bert/tokenization_bert_legacy.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/align/configuration_align.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/models/align/modeling_align.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/pipelines/__init__.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/modeling_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/trainer_pt_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/utils/import_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/testing_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/integrations/integration_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/trainer.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/cli/serve.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/cli/add_new_model_like.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sklearn/model_selection/tests/test_split.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sklearn/externals/array_api_extra/_lib/_utils/_helpers.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/fastapi/__init__.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/testing/_internal/distributed/checkpoint_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_nn.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/testing/_internal/common_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/cuda/memory.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/onnx/_internal/exporter/_core.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_inductor/fuzzer.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/ao/quantization/fx/_model_report/detector.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/utils/tensorboard/writer.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_subclasses/meta_utils.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/replay_record.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/test_minifier_common.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/repro/after_dynamo.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_dynamo/repro/aoti.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/torch/_custom_op/impl.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/networkx/algorithms/cycles.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/networkx/algorithms/smallworld.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/yaml/parser.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sympy/utilities/enumerative.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/huggingface_hub/constants.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/setuptools/_distutils/util.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/setuptools/_vendor/more_itertools/more.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedMultipleNegativesRankingLoss.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sentence_transformers/losses/CachedGISTEmbedLoss.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/sentence_transformers/model_card_templates.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/services/venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/services/main_brain_legacy_backup.py
+/opt/msjarvis-rebuild/services/ms_jarvis_llm_bridge.py
+/opt/msjarvis-rebuild/services/nbb_darwin_godel_machines.py
+/opt/msjarvis-rebuild/services/ai_server_19llm_PRODUCTION_WITH_HEALTH.py
+/opt/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL.py
+/opt/msjarvis-rebuild/services/jarvis_llm1.py
+/opt/msjarvis-rebuild/services/ms_jarvis_blood_brain_barrier.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS.py
+/opt/msjarvis-rebuild/services/gisgeodbdirectaccess.py
+/opt/msjarvis-rebuild/services/fix_port_8001_clean.py
+/opt/msjarvis-rebuild/services/neuro_blood_brain_barrier.py
+/opt/msjarvis-rebuild/services/async_polling_architecture.py
+/opt/msjarvis-rebuild/services/llm5_health_proxy.py
+/opt/msjarvis-rebuild/services/lm_synthesizer.py
+/opt/msjarvis-rebuild/services/ms_jarvis_venv_scheduler_FIXED.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_bridge_WITH_FIFTH_DGM.py
+/opt/msjarvis-rebuild/services/gis_rag_service.py
+/opt/msjarvis-rebuild/services/ai_server_22llm_SEQUENTIAL_OPTIMIZED_ORDER.py
+/opt/msjarvis-rebuild/services/msjarvisicontainersservice.py
+/opt/msjarvis-rebuild/services/phase6_integration.py
+/opt/msjarvis-rebuild/services/fix_rag_store.py
+/opt/msjarvis-rebuild/services/woah_service.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_rag_bridge.py
+/opt/msjarvis-rebuild/services/vatican_scraper_service.py
+/opt/msjarvis-rebuild/services/llm_bridge_main.py
+/opt/msjarvis-rebuild/services/sanctuary_construction_monitor.py
+/opt/msjarvis-rebuild/services/ai_server_22llm.psychology_patched.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_CONSCIOUSNESS_FIXED.py
+/opt/msjarvis-rebuild/services/cloudflare_domain_integration.py
+/opt/msjarvis-rebuild/services/main_brain_LEGACY_32svc.py
+/opt/msjarvis-rebuild/services/ms_jarvis_main_gateway.py.30endpoints_backup.py
+/opt/msjarvis-rebuild/services/ai_server_4llm.py
+/opt/msjarvis-rebuild/services/service_discovery_glassbox.py
+/opt/msjarvis-rebuild/services/roche_llm.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_dynamic.py
+/opt/msjarvis-rebuild/services/master_chat_orchestrator_v7_complete.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_webhooks.py
+/opt/msjarvis-rebuild/services/ms_jarvis_command_orchestrator_FINAL.py
+/opt/msjarvis-rebuild/services/introspective_record.py
+/opt/msjarvis-rebuild/services/fix_prompt_leak.py
+/opt/msjarvis-rebuild/services/llm2_health_proxy.py
+/opt/msjarvis-rebuild/services/working_full_pipeline_FINAL_CONSCIOUSNESS.py
+/opt/msjarvis-rebuild/services/ms_jarvis_api_docs.py
+/opt/msjarvis-rebuild/services/simple_orchestrator_fix.py
+/opt/msjarvis-rebuild/services/llm15_health_proxy.py
+/opt/msjarvis-rebuild/services/msjarvis_semaphore.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_DGM.py
+/opt/msjarvis-rebuild/services/neurobiological_brain/__init__.py
+/opt/msjarvis-rebuild/services/neurobiological_brain/blood_brain_barrier/threat_detection.py
+/opt/msjarvis-rebuild/services/ethical_filter.py
+/opt/msjarvis-rebuild/services/ms_jarvis_rag_server.py
+/opt/msjarvis-rebuild/services/ai_server_22llm.py
+/opt/msjarvis-rebuild/services/ms_jarvis_brain.py
+/opt/msjarvis-rebuild/services/main_brain_container_2055.py
+/opt/msjarvis-rebuild/services/test_gis_chat.py
+/opt/msjarvis-rebuild/services/jarvis-gis-rag_gis_rag_service.py
+/opt/msjarvis-rebuild/services/phase7_integration.py
+/opt/msjarvis-rebuild/services/ms_jarvis_consciousness_poster.py
+/opt/msjarvis-rebuild/services/jarvis-semaphore_msjarvis_semaphore.py
+/opt/msjarvis-rebuild/services/ms_jarvis_bbb_proxy.py
+/opt/msjarvis-rebuild/services/main.py
+/opt/msjarvis-rebuild/services/ai_server_11llm_OPTIMIZED.py
+/opt/msjarvis-rebuild/services/ms_jarvis_unified_swagger_gateway_FINAL.py
+/opt/msjarvis-rebuild/services/ms_jarvis_facebook_dgm_woah.py
+/opt/msjarvis-rebuild/llm20_health_proxy.py
+/opt/msjarvis-rebuild/ai/llm_consensus_20_FINAL.py
+/opt/msjarvis-rebuild/ai/ai_server.py
+/opt/msjarvis-rebuild/ai/ai_server_simple.py
+/opt/msjarvis-rebuild/ai/ai_server_20llm_PRODUCTION.py
+/opt/msjarvis-rebuild/ingest_wv_income_maintenance_manual.py
+/opt/msjarvis-rebuild/llm3_health_proxy.py
+/opt/msjarvis-rebuild/llm12_health_proxy.py
+/opt/msjarvis-rebuild/llm6_health_proxy.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/Crypto/SelfTest/Signature/test_dss.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/fastapi/__init__.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/PIL/WmfImagePlugin.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic_settings/main.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/parsimonious/grammar.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/cryptography/hazmat/primitives/asymmetric/ec.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/yaml/parser.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/redis/observability/providers.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/huggingface_hub/constants.py
+find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
+find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/rdf.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pygments/lexers/esoteric.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/delete_file.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/config.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/chromadb/__init__.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/crypto-venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/llm7_health_proxy.py
+/opt/msjarvis-rebuild/llm16_health_proxy.py
+/opt/msjarvis-rebuild/llm22_health_proxy.py
+/opt/msjarvis-rebuild/tmp-aaacpe-patch/main_brain.py
+/opt/msjarvis-rebuild/llm17_health_proxy.py
+/opt/msjarvis-rebuild/llm14_health_proxy.py
+/opt/msjarvis-rebuild/.format-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/.format-venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/.format-venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/llm11_health_proxy.py
+/opt/msjarvis-rebuild/patch_gate.py
+/opt/msjarvis-rebuild/judge_pipeline.py
+/opt/msjarvis-rebuild/main_brain.py
+/opt/msjarvis-rebuild/llm13_health_proxy.py
+/opt/msjarvis-rebuild/ms_jarvis_blood_brain_barrier.py
+/opt/msjarvis-rebuild/llm5_health_proxy.py
+/opt/msjarvis-rebuild/gis_rag_service.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/resource/__init__.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/device_attributes.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/host_attributes.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/opentelemetry/semconv/_incubating/attributes/deployment_attributes.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/numpy/_core/einsumfunc.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/numpy/f2py/tests/test_callback.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/onnxruntime/transformers/fusion_options.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/yaml/parser.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/sympy/utilities/tests/test_enumerative.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/sympy/utilities/enumerative.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/sympy/physics/biomechanics/musculotendon.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/utils/_http.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/huggingface_hub/constants.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/rdf.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/parsers.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pygments/lexers/esoteric.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/db/impl/sqlite.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/segment/impl/distributed/segment_directory.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/delete_file.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/async_to_sync.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/onnx_mini_lm_l6_v2.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/utils/embedding_functions/ollama_embedding_function.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/config.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/chromadb/__init__.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/.venv-chroma/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/scripts/sprint5_chromadb_backfill.py
+/opt/msjarvis-rebuild/scripts/health_check.py
+/opt/msjarvis-rebuild/scripts/sprint2_community_data.py
+/opt/msjarvis-rebuild/logs/ch40_closeout/main_brain.py.pre_otel_cleanup.snapshot.py
+/opt/msjarvis-rebuild/logs/ch40_closeout/ms_jarvis_unified_gateway.snapshot.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/fastapi/__init__.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/parse.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/class_validators.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/config.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/json.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/decorator.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/deprecated/tools.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pydantic/v1/env_settings.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/_mapping.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_codes.py
+/opt/msjarvis-rebuild/.woah-venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py
+/opt/msjarvis-rebuild/llm2_health_proxy.py
+/opt/msjarvis-rebuild/llm15_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm21_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm10_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm1_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm19_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm18_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm20_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm12_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm16_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm22_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm17_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm14_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm11_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm13_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm2_health_proxy.py
+/opt/msjarvis-rebuild/llm_health_proxies/llm15_health_proxy.py
+/opt/msjarvis-rebuild/neurobiological_brain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/woah_algorithms/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/i_containers/i_container_1/ego_boundaries/__init__.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/neurobiologicalbrain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_i_containers_service.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/i_containers/i_container_1/ego_boundaries/__init__.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_root/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/service_registry_client.py
+/opt/msjarvis-rebuild/neurobiological_brain/prefrontal_cortex/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/pituitary_gland.py
+/opt/msjarvis-rebuild/neurobiological_brain/pituitary_gland/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/subconscious/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/service_registry_client.py
+/opt/msjarvis-rebuild/neurobiological_brain/mother_carrie_protocols/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/service_registry_client.py
+/opt/msjarvis-rebuild/neurobiological_brain/spiritual_maternal_integration/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/service_registry_client.py
+/opt/msjarvis-rebuild/neurobiological_brain/heteroglobulin_transport/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/service/blood_brain_barrier.py
+/opt/msjarvis-rebuild/neurobiological_brain/blood_brain_barrier/ethical_filter.py
+/opt/msjarvis-rebuild/neurobiological_brain/consciousness_containers/service/ms_jarvis_consciousness_bridge.py
+/opt/msjarvis-rebuild/neurobiological_brain/darwin_godel_machines/service/nbb_darwin_godel_machines.py
+(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild$ 
+
