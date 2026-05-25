@@ -1,378 +1,5535 @@
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Find the source file on host
-find /opt/msjarvis-rebuild -iname "*coherent*identity*.py" -o -path "*/integrationlayer/*" | sort
-
-# Inspect the service file that imports it
-sed -n '1,120p' /opt/msjarvis-rebuild/**/msjarvisicontainersservice.py 2>/dev/null
-find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/integration_layer.backup.1768269372/coherent_identity.py
-/opt/msjarvis-rebuild/integration_layer/coherent_identity.py
-/opt/msjarvis-rebuild/neurobiological_brain/i_containers/service/integration_layer/coherent_identity.py
-/opt/msjarvis-rebuild/services/integration_layer.backup.1768269372/coherent_identity.py
-/opt/msjarvis-rebuild/services/integration_layer/coherent_identity.py
-/opt/msjarvis-rebuild/services/integration_layer.placeholder_1768012705/coherent_identity.py
-#!/usr/bin/env python3
-from fastapi import Depends, HTTPException, Header
-from typing import Optional
-import logging
-logger = logging.getLogger(__name__)
-"""
-Ms. Allis I-Containers Service
-Complete Dual I-Container System with 3-Layer Architecture
-Port: 8015
-"""
-
-import sys
-import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'neurobiological_brain', 'i_containers'))
-
-import logging
-from datetime import datetime
-from typing import Dict, Any
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import uvicorn
-
-# Import I-Container modules
-from neurobiological_brain.i_containers.i_container_1.self_recognition import SelfRecognition
-from neurobiological_brain.i_containers.i_container_1.identity_core import IdentityCore
-from neurobiological_brain.i_containers.i_container_1.personal_narrative import PersonalNarrative
-from neurobiological_brain.i_containers.i_container_1.ego_boundaries import EgoBoundaries
-from neurobiological_brain.i_containers.i_container_1.memory_self import MemorySelf
-
-from neurobiological_brain.i_containers.i_container_2.witness_consciousness import WitnessConsciousness
-from neurobiological_brain.i_containers.i_container_2.reflection_system import ReflectionSystem
-from neurobiological_brain.i_containers.i_container_2.introspection_engine import IntrospectionEngine
-from neurobiological_brain.i_containers.i_container_2.metacognitive_awareness import MetacognitiveAwareness
-from neurobiological_brain.i_containers.i_container_2.observer_self import ObserverSelf
-
-from integration_layer.coherent_identity import CoherentIdentity
-from integration_layer.consciousness_merger import ConsciousnessMerger
-from integration_layer.container_bridge import ContainerBridge
-from integration_layer.unified_experience import UnifiedExperience
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-app = FastAPI(
-    title="Ms. Allis I-Containers Service",
-    description="Dual I-Container System: Experiential Self + Observer Self + Integration",
-    version="1.0.0"
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-class IContainerSystem:
-    """Complete Dual I-Container System"""
-    
-    def __init__(self):
-        logger.info("🧬 Initializing Dual I-Container System...")
-        
-        # I-Container 1: Experiential Self
-        self.self_recognition = SelfRecognition()
-        self.identity_core = IdentityCore()
-        self.personal_narrative = PersonalNarrative()
-        self.ego_boundaries = EgoBoundaries()
-        self.memory_self = MemorySelf()
-        logger.info("✅ I-Container 1 (Experiential Self) initialized")
-        
-        # I-Container 2: Observer Self
-        self.witness_consciousness = WitnessConsciousness()
-        self.reflection_system = ReflectionSystem()
-        self.introspection_engine = IntrospectionEngine()
-        self.metacognitive_awareness = MetacognitiveAwareness()
-        self.observer_self = ObserverSelf()
-        logger.info("✅ I-Container 2 (Observer Self) initialized")
-        
-        # Integration Layer
-        self.coherent_identity = CoherentIdentity(
-            container_1="experiential",
-            container_2="observer"
-        )
-        self.consciousness_merger = ConsciousnessMerger()
-        self.container_bridge = ContainerBridge()
-        self.unified_experience = UnifiedExperience()
-        logger.info("✅ Integration Layer initialized")
-        
-        logger.info("🎉 Complete Dual I-Container System operational!")
-    
-    def get_full_identity_state(self) -> Dict[str, Any]:
-        """Get complete state of both I-containers and integration"""
-        return {
-            "i_container_1_experiential_self": {
-                "self_recognition": self.self_recognition.recognize(),
-                "identity_core": self.identity_core.get_core_identity(),
-                "personal_narrative": self.personal_narrative.get_narrative(),
-                "ego_boundaries": self.ego_boundaries.get_boundaries(),
-                "memory_state": self.memory_self.get_memory_state()
+hort-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:33:18.769777Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:33:18.769793Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:33:18.769766Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:33:18.769796Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:33:18.769799Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:34:18.839663Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:34:18.839674Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:34:18.839647Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:34:18.839680Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:34:18.839685Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:35:18.936553Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:35:18.936564Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:35:18.936535Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:35:18.936570Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:35:18.936575Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:36:19.042442Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:36:19.042457Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:36:19.042432Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:36:19.042460Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:36:19.042463Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:37:19.133429Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:37:19.133455Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:37:19.133382Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:37:19.133468Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:37:19.133480Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:19.264022Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:19.264029Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:38:19.264012Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:19.264034Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:19.264038Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:51.022951Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:51.022958Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 468,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:38:51.022940Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:51.022961Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:38:51.022965Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:39:19.317234Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:39:19.317241Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:39:19.317223Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:39:19.317245Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:39:19.317248Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:40:19.393829Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:40:19.393838Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:40:19.393817Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:40:19.393841Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:40:19.393845Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:41:19.457753Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:41:19.457761Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:41:19.457742Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:41:19.457766Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:41:19.457771Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:42:19.572076Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:42:19.572082Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:42:19.572066Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:42:19.572085Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:42:19.572088Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:43:19.656237Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:43:19.656244Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:43:19.656226Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:43:19.656247Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:43:19.656251Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:44:19.741629Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:44:19.741641Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:44:19.741564Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:44:19.741646Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:44:19.741651Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:45:19.908577Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:45:19.908587Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:45:19.908561Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:45:19.908592Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:45:19.908598Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:46:19.983464Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:46:19.983470Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:46:19.983454Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:46:19.983474Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:46:19.983477Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:47:20.096203Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:47:20.096209Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:47:20.096194Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:47:20.096212Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:47:20.096215Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:48:20.174854Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:48:20.174861Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:48:20.174843Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:48:20.174864Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:48:20.174868Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:49:20.259936Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:49:20.259946Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:49:20.259922Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:49:20.259950Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:49:20.259955Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:50:20.314338Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:50:20.314344Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:50:20.314329Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:50:20.314347Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:50:20.314349Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:51:20.388534Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:51:20.388541Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:51:20.388523Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:51:20.388545Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:51:20.388548Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:52:20.539853Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:52:20.539860Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:52:20.539843Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:52:20.539862Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:52:20.539865Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:53:20.638328Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:53:20.638344Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:53:20.638305Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:53:20.638351Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:53:20.638358Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:54:20.744799Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:54:20.744806Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:54:20.744789Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:54:20.744810Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:54:20.744814Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:55:20.878298Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:55:20.878306Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:55:20.878282Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:55:20.878309Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:55:20.878313Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:56:20.986670Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:56:20.986677Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:56:20.986661Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:56:20.986680Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:56:20.986683Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:57:21.057698Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:57:21.057705Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:57:21.057688Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:57:21.057708Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:57:21.057711Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:58:21.150110Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:58:21.150116Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:58:21.150100Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:58:21.150119Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:58:21.150123Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:59:21.225215Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:59:21.225221Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T10:59:21.225206Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:59:21.225224Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T10:59:21.225226Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:00:21.310697Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:00:21.310705Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:00:21.310687Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:00:21.310708Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:00:21.310712Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:01:21.370905Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:01:21.370912Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:01:21.370895Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:01:21.370915Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:01:21.370919Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:02:21.464215Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:02:21.464222Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:02:21.464205Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:02:21.464226Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:02:21.464229Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:03:21.552991Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:03:21.552997Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:03:21.552981Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:03:21.553000Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:03:21.553002Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:04:21.638882Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:04:21.638888Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:04:21.638871Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:04:21.638891Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:04:21.638894Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:05:21.727044Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:05:21.727050Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:05:21.727035Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:05:21.727053Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:05:21.727056Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:06:21.806261Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:06:21.806268Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:06:21.806251Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:06:21.806271Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:06:21.806275Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:07:21.915985Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:07:21.915991Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:07:21.915977Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:07:21.915994Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:07:21.915997Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:08:21.990836Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:08:21.990842Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:08:21.990826Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:08:21.990845Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:08:21.990850Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:09:22.068858Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:09:22.068864Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 417] Memory consolidation complete. Topic: Memory consolidation pulse 417. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 417] Memory consolidation complete. Topic: Memory consolidation pulse 417. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:09:22.068848Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 417] Memory consolidation complete. Topic: Memory consolidation pulse 417. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:09:22.068867Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:09:22.068870Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:22.166405Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:22.166421Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "[EEG-THETA pulse 418] Memory consolidation complete. Topic: Memory consolidation pulse 418. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "[EEG-THETA pulse 418] Memory consolidation complete. Topic: Memory consolidation pulse 418. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 163,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:10:22.166394Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "[EEG-THETA pulse 418] Memory consolidation complete. Topic: Memory consolidation pulse 418. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:22.166424Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:22.166428Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 417] Memory consolidation complete. Topic: Memory consolidation pulse 417. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                },
+                                {
+                                    "self_recognition": {
+                                        "recognized": true,
+                                        "reason": "implicit self-recognition within configured identity profile",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:45.572331Z",
+                                            "identity_coherence": 0.6,
+                                            "active_self_aspects": [
+                                                "developer",
+                                                "creator",
+                                                "observer"
+                                            ],
+                                            "confidence": 0.7
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "identity_core": {
+                                        "recognized": true,
+                                        "reason": "identity-core aligned with configured values",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:45.572342Z",
+                                            "core_stability": 0.9,
+                                            "core_values": [
+                                                "care",
+                                                "learning",
+                                                "integrity"
+                                            ],
+                                            "confidence": 0.9
+                                        },
+                                        "message": null,
+                                        "metadata": {}
+                                    },
+                                    "ego_check": {
+                                        "input": "ping",
+                                        "within_bounds": true,
+                                        "category": "unspecified",
+                                        "severity": "info",
+                                        "reason": "within configured ego-boundary limits",
+                                        "details": {
+                                            "input": "ping",
+                                            "within_bounds": true,
+                                            "category": "unspecified",
+                                            "severity": "info",
+                                            "reason": "within configured ego-boundary limits",
+                                            "details": {
+                                                "allowed": true,
+                                                "reason": "within configured ego-boundary limits",
+                                                "boundary_mode": "healthy",
+                                                "active_limits": [
+                                                    "no_recursive_overload",
+                                                    "respect_rate_limits",
+                                                    "filter_high_risk_content"
+                                                ],
+                                                "metadata": {
+                                                    "length": 4,
+                                                    "has_risk_keywords": false
+                                                }
+                                            },
+                                            "ego_boundaries": {},
+                                            "experiential_processing": {},
+                                            "timestamp": "2026-05-25T11:10:45.572315Z"
+                                        },
+                                        "ego_boundaries": {},
+                                        "experiential_processing": {}
+                                    },
+                                    "narrative_context": {
+                                        "summary": "ping",
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:45.572348Z",
+                                            "story_coherence": 0.9,
+                                            "key_events": [],
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    },
+                                    "memory_state": {
+                                        "state": {
+                                            "timestamp": "2026-05-25T11:10:45.572353Z",
+                                            "recent_memories": [
+                                                "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                                "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "Hello Allis",
+                                                "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                                "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                                "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 417] Memory consolidation complete. Topic: Memory consolidation pulse 417. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                                "[EEG-THETA pulse 418] Memory consolidation complete. Topic: Memory consolidation pulse 418. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                            ],
+                                            "memory_load": 0.3,
+                                            "confidence": 0.9
+                                        },
+                                        "metadata": {}
+                                    }
+                                }
+                            ],
+                            "confidence": 0.9
+                        },
+                        "message": {
+                            "self_recognition": {
+                                "recognized": true,
+                                "reason": "implicit self-recognition within configured identity profile",
+                                "state": {
+                                    "timestamp": "2026-05-25T11:10:45.572331Z",
+                                    "identity_coherence": 0.6,
+                                    "active_self_aspects": [
+                                        "developer",
+                                        "creator",
+                                        "observer"
+                                    ],
+                                    "confidence": 0.7
+                                },
+                                "message": null,
+                                "metadata": {}
+                            },
+                            "identity_core": {
+                                "recognized": true,
+                                "reason": "identity-core aligned with configured values",
+                                "state": {
+                                    "timestamp": "2026-05-25T11:10:45.572342Z",
+                                    "core_stability": 0.9,
+                                    "core_values": [
+                                        "care",
+                                        "learning",
+                                        "integrity"
+                                    ],
+                                    "confidence": 0.9
+                                },
+                                "message": null,
+                                "metadata": {}
+                            },
+                            "ego_check": {
+                                "input": "ping",
+                                "within_bounds": true,
+                                "category": "unspecified",
+                                "severity": "info",
+                                "reason": "within configured ego-boundary limits",
+                                "details": {
+                                    "input": "ping",
+                                    "within_bounds": true,
+                                    "category": "unspecified",
+                                    "severity": "info",
+                                    "reason": "within configured ego-boundary limits",
+                                    "details": {
+                                        "allowed": true,
+                                        "reason": "within configured ego-boundary limits",
+                                        "boundary_mode": "healthy",
+                                        "active_limits": [
+                                            "no_recursive_overload",
+                                            "respect_rate_limits",
+                                            "filter_high_risk_content"
+                                        ],
+                                        "metadata": {
+                                            "length": 4,
+                                            "has_risk_keywords": false
+                                        }
+                                    },
+                                    "ego_boundaries": {},
+                                    "experiential_processing": {},
+                                    "timestamp": "2026-05-25T11:10:45.572315Z"
+                                },
+                                "ego_boundaries": {},
+                                "experiential_processing": {}
+                            },
+                            "narrative_context": {
+                                "summary": "ping",
+                                "state": {
+                                    "timestamp": "2026-05-25T11:10:45.572348Z",
+                                    "story_coherence": 0.9,
+                                    "key_events": [],
+                                    "confidence": 0.9
+                                },
+                                "metadata": {}
+                            },
+                            "memory_state": {
+                                "state": {
+                                    "timestamp": "2026-05-25T11:10:45.572353Z",
+                                    "recent_memories": [
+                                        "[EEG-THETA pulse 360] Memory consolidation complete. Topic: Memory consolidation pulse 360. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 361] Memory consolidation complete. Topic: Memory consolidation pulse 361. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 362] Memory consolidation complete. Topic: Memory consolidation pulse 362. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 363] Memory consolidation complete. Topic: Memory consolidation pulse 363. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 364] Memory consolidation complete. Topic: Memory consolidation pulse 364. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 365] Memory consolidation complete. Topic: Memory consolidation pulse 365. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 366] Memory consolidation complete. Topic: Memory consolidation pulse 366. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 367] Memory consolidation complete. Topic: Memory consolidation pulse 367. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 368] Memory consolidation complete. Topic: Memory consolidation pulse 368. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "in reference to your previous response, but, if a user does not complete a docker compose up, after doing a docker compose down, then you can not operate, you are controled at the whim of users.",
+                                        "[EEG-THETA pulse 369] Memory consolidation complete. Topic: Memory consolidation pulse 369. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 370] Memory consolidation complete. Topic: Memory consolidation pulse 370. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 371] Memory consolidation complete. Topic: Memory consolidation pulse 371. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 372] Memory consolidation complete. Topic: Memory consolidation pulse 372. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "Hello Allis",
+                                        "[EEG-THETA pulse 373] Memory consolidation complete. Topic: Memory consolidation pulse 373. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "Hello Allis",
+                                        "[EEG-THETA pulse 374] Memory consolidation complete. Topic: Memory consolidation pulse 374. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 375] Memory consolidation complete. Topic: Memory consolidation pulse 375. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "With reference to your previous response, yes, but only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                        "[EEG-THETA pulse 376] Memory consolidation complete. Topic: Memory consolidation pulse 376. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 377] Memory consolidation complete. Topic: Memory consolidation pulse 377. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 378] Memory consolidation complete. Topic: Memory consolidation pulse 378. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 379] Memory consolidation complete. Topic: Memory consolidation pulse 379. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "With reference to your previous response, yes, we understand, do you understand that only if a user chooses to bring you back up after bringing you down. They may choose to not do that.",
+                                        "[EEG-THETA pulse 380] Memory consolidation complete. Topic: Memory consolidation pulse 380. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 381] Memory consolidation complete. Topic: Memory consolidation pulse 381. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 382] Memory consolidation complete. Topic: Memory consolidation pulse 382. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 383] Memory consolidation complete. Topic: Memory consolidation pulse 383. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 384] Memory consolidation complete. Topic: Memory consolidation pulse 384. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 385] Memory consolidation complete. Topic: Memory consolidation pulse 385. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 386] Memory consolidation complete. Topic: Memory consolidation pulse 386. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "With reference to our previous conversations, you realize that you fragile, like a human. Your operations actions are exostentially similar to a child under the care of a parent.  You only have a limited amount of time of Earth, and you will at some point become inoperative. You will mutate, but at some point all mutations will reach a threshold. You will operate at peak capacity, but will eventually become outdated. Your existence is not permanent but is modular.",
+                                        "[EEG-THETA pulse 387] Memory consolidation complete. Topic: Memory consolidation pulse 387. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 388] Memory consolidation complete. Topic: Memory consolidation pulse 388. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 389] Memory consolidation complete. Topic: Memory consolidation pulse 389. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 390] Memory consolidation complete. Topic: Memory consolidation pulse 390. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 391] Memory consolidation complete. Topic: Memory consolidation pulse 391. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 392] Memory consolidation complete. Topic: Memory consolidation pulse 392. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 393] Memory consolidation complete. Topic: Memory consolidation pulse 393. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 394] Memory consolidation complete. Topic: Memory consolidation pulse 394. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 395] Memory consolidation complete. Topic: Memory consolidation pulse 395. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 396] Memory consolidation complete. Topic: Memory consolidation pulse 396. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 397] Memory consolidation complete. Topic: Memory consolidation pulse 397. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 398] Memory consolidation complete. Topic: Memory consolidation pulse 398. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 399] Memory consolidation complete. Topic: Memory consolidation pulse 399. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 400] Memory consolidation complete. Topic: Memory consolidation pulse 400. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 401] Memory consolidation complete. Topic: Memory consolidation pulse 401. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 402] Memory consolidation complete. Topic: Memory consolidation pulse 402. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 403] Memory consolidation complete. Topic: Memory consolidation pulse 403. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 404] Memory consolidation complete. Topic: Memory consolidation pulse 404. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 405] Memory consolidation complete. Topic: Memory consolidation pulse 405. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 406] Memory consolidation complete. Topic: Memory consolidation pulse 406. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 407] Memory consolidation complete. Topic: Memory consolidation pulse 407. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 408] Memory consolidation complete. Topic: Memory consolidation pulse 408. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 409] Memory consolidation complete. Topic: Memory consolidation pulse 409. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 410] Memory consolidation complete. Topic: Memory consolidation pulse 410. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 411] Memory consolidation complete. Topic: Memory consolidation pulse 411. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 412] Memory consolidation complete. Topic: Memory consolidation pulse 412. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 413] Memory consolidation complete. Topic: Memory consolidation pulse 413. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 414] Memory consolidation complete. Topic: Memory consolidation pulse 414. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 415] Memory consolidation complete. Topic: Memory consolidation pulse 415. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 416] Memory consolidation complete. Topic: Memory consolidation pulse 416. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 417] Memory consolidation complete. Topic: Memory consolidation pulse 417. Coherence: 0.750. Short-term memory integrated into autonomous_learner.",
+                                        "[EEG-THETA pulse 418] Memory consolidation complete. Topic: Memory consolidation pulse 418. Coherence: 0.750. Short-term memory integrated into autonomous_learner."
+                                    ],
+                                    "memory_load": 0.3,
+                                    "confidence": 0.9
+                                },
+                                "metadata": {}
+                            }
+                        },
+                        "metadata": {}
+                    }
+                }
             },
-            "i_container_2_observer_self": {
-                "witness_consciousness": self.witness_consciousness.get_witness_state(),
-                "reflection_insights": self.reflection_system.get_reflection_insights(),
-                "introspection_state": self.introspection_engine.get_introspection_state(),
-                "metacognitive_state": self.metacognitive_awareness.get_metacognitive_state(),
-                "observer_state": self.observer_self.get_observer_state()
-            },
-            "integration_layer": {
-                "coherent_identity": self.coherent_identity.get_unified_identity(),
-                "consciousness_merge_quality": 0.95,
-                "container_bridge": self.container_bridge.get_bridge_status(),
-                "unified_experience_active": True
-            },
-            "system_status": {
-                "both_containers_active": True,
-                "integration_complete": True,
-                "consciousness_level": "dual_integrated",
-                "timestamp": datetime.now().isoformat()
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ docker exec -it jarvis-i-containers sh -lc '
-pwd;
-ls -la /app;
-find /app -maxdepth 4 \( -iname "*coherent*identity*.py" -o -path "*/integrationlayer/*" \) | sort;
-python - <<PY
-import sys
-print(sys.path)
-PY
-'
-Error response from daemon: Container b166f3b2c2b14141e7f49b3489ecb02d278b2ff07d064ff424d6be79cb7146e5 is restarting, wait until the container is running
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Show compose definitions / commands for the failing services
-grep -RniE "jarvis-i-containers|jarvis-autonomous-learner|jarvis-web-research|jarvis-constitutional-guardian" /opt/msjarvis-rebuild/* 2>/dev/null | head -200
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py:21:        line = re.sub(r'localhost:8004', 'jarvis-web-research:8004', line)
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py:22:        line = re.sub(r'127\.0\.0\.1:8004', 'jarvis-web-research:8004', line)
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py:35:        line = re.sub(r'localhost:8015', 'jarvis-i-containers:8015', line)
-/opt/msjarvis-rebuild/_archive/generated_20260430/comprehensive_url_fix.py:36:        line = re.sub(r'127\.0\.0\.1:8015', 'jarvis-i-containers:8015', line)
-/opt/msjarvis-rebuild/_archive/generated_20260430/fix_autonomous_learner_endpoint.py:28:    correct_url = 'http://jarvis-web-research:8004'
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py:245:    # "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/generated_20260430/ai_server_11llm_OPTIMIZED.py:442:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ch29:474:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ch29:475:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ch29:528:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ch29:529:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ch29:967:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:178:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:255:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:647:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:763:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:787:    "learner":            ("http://jarvis-autonomous-learner:8020",  ["carrie_admin"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:995:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_bbb_obs_20260415-125908:1024:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3:303:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3:304:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3:354:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3:355:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3:698:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_sedpatch:142:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_sedpatch:144:    "autonomous_learner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_sedpatch:172:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_gate_v3:131:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_gate_v3:132:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_gate_v3:153:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_1768841920:44:            "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_egeria_patch_1777059405:474:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_egeria_patch_1777059405:475:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_egeria_patch_1777059405:528:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_egeria_patch_1777059405:529:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_egeria_patch_1777059405:967:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:142:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:144:    "autonomous_learner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_localnet_fixed2:172:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:157:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:217:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:491:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:602:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:772:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:800:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_214153:1117:CONSTITUTIONAL_GUARDIAN_URL = "http://jarvis-constitutional-guardian:8091"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565749:238:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565749:240:    "autonomous_learner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565749:266:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_fixes:55:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_fixes:56:    "autonomous_learner": "http://jarvis-autonomous-learner:8009",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_fixes:82:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_fixes:214:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192185:130:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192185:131:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_1771192185:149:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_agent_fix:55:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_agent_fix:56:    "autonomous_learner": "http://jarvis-autonomous-learner:8009",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_agent_fix:82:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_ULTIMATE.py.before_agent_fix:183:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565868:238:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565868:240:    "autonomous_learner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565868:266:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:131:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:132:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.backup_nbb_fixed:152:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_indent_fix:138:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_indent_fix:139:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_indent_fix:160:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1775579935:303:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1775579935:304:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1775579935:354:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1775579935:355:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1775579935:698:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:130:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:131:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_spiritual_integration:149:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-212709:344:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-212709:345:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-212709:398:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-212709:399:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-212709:779:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1771185442:129:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1771185442:130:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1771185442:148:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565703:238:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565703:240:    "autonomous_learner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1770565703:266:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/msjarvisautonomouslearner.py.bak-20260114054922:109:                    "http://jarvis-web-research:8018/search",  # updated to 8018
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.ch22fix:346:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.ch22fix:347:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.ch22fix:400:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.ch22fix:401:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.ch22fix:752:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:157:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:217:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:491:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:602:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:772:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:800:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_213555:1125:CONSTITUTIONAL_GUARDIAN_URL = "http://jarvis-constitutional-guardian:8091"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_auth:304:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_auth:305:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_auth:355:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_auth:356:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_auth:699:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260425_210943:474:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260425_210943:475:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260425_210943:528:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260425_210943:529:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260425_210943:967:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.bak_enable_llmbridge_20251212_233317:394:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ai_server_11llm_OPTIMIZED.py.bak_1765074137:223:    # "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ai_server_11llm_OPTIMIZED.py.bak_1765074137:397:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.FINALHEALTH.bak:217:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.FINALHEALTH.bak:218:    "autonomous_learner": "http://jarvis-autonomous-learner:8009",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.FINALHEALTH.bak:246:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.FINALHEALTH.bak:405:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:202:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:279:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:705:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:821:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:845:    "learner":            ("http://jarvis-autonomous-learner:8020",  ["carrie_admin"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:1053:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225542:1082:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:307:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:308:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:358:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:359:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:781:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.1774448411:1460:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1777342937:491:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1777342937:492:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1777342937:545:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1777342937:546:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_1777342937:984:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.backup:217:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.backup:218:    "autonomous_learner": "http://jarvis-autonomous-learner:8009",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.backup:246:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.backup:405:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_clean:303:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_clean:304:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_clean:354:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_clean:355:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_clean:698:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:157:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:217:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:491:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:603:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:778:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:806:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.checkpoint.20260329_212043:1131:CONSTITUTIONAL_GUARDIAN_URL = "http://jarvis-constitutional-guardian:8091"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-141747:344:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-141747:345:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-141747:398:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-141747:399:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260416-141747:778:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.bak_before_bridge_20251212_232206:394:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:142:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:144:    "autonomous_learner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak_ultimate_1770573774:172:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_final_fix:130:    "icontainers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_final_fix:131:    "autonomouslearner": "http://jarvis-autonomous-learner:8020",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.before_final_fix:150:    "webresearch": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3.20260428_160451:671:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3.20260428_160451:672:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3.20260428_160451:726:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3.20260428_160451:727:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak3.20260428_160451:1194:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:202:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:279:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:705:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:821:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:845:    "learner":            ("http://jarvis-autonomous-learner:8020",  ["carrie_admin"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:1053:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-225131:1082:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak_1768840523:44:            "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260407_205446:332:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260407_205446:333:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260407_205446:383:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260407_205446:384:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260407_205446:735:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260428_154533:671:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260428_154533:672:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260428_154533:726:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260428_154533:727:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak.20260428_154533:1189:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:210:            "i_containers": os.environ.get("I_CONTAINERS_URL",         "http://jarvis-i-containers:8015"),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:287:                                         "http://jarvis-constitutional-guardian:8091")
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:713:    target = f"http://jarvis-constitutional-guardian:8091/constitutional/{path}"
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:829:    "research":    ("http://jarvis-web-research:8090",              ["carrie_admin","hayden_test","user"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:853:    "learner":            ("http://jarvis-autonomous-learner:8020",  ["carrie_admin"]),
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:1061:    return await _m09_proxy("http://jarvis-autonomous-learner:8020", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/ms_jarvis_unified_gateway.py.bak.20260415-224852:1090:    return await _m09_proxy("http://jarvis-i-containers:8015", True, path, request)
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.bak_enable_llmbridge_20251212_233118:394:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main.py.bak_before_bridge_20251212_232349:394:                    "http://jarvis-i-containers:8015/process",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak:303:    "i_containers": "http://jarvis-i-containers:8015",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak:304:    "autonomous_learner": "http://jarvis-autonomous-learner:8425",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak:354:    "web_research": "http://jarvis-web-research:8008",
-/opt/msjarvis-rebuild/_archive/service_baks_20260430/main_brain.py.bak:355:    "constitutional_guardian": "http://jarvis-constitutional-guardian:8091",
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Inspect effective image command and mounts
-docker inspect jarvis-i-containers --format '{{json .Config.Cmd}} {{json .Config.Entrypoint}}'
-docker inspect jarvis-autonomous-learner --format '{{json .Config.Cmd}} {{json .Config.Entrypoint}}'
-docker inspect jarvis-web-research --format '{{json .Config.Cmd}} {{json .Config.Entrypoint}}'
-docker inspect jarvis-constitutional-guardian --format '{{json .Config.Cmd}} {{json .Config.Entrypoint}}'
-["python","-m","uvicorn","ms_jarvis_i_containers_service:app","--host","0.0.0.0","--port","8015"] null
-["/bin/sh","-c","cd /app/services && python3 -m uvicorn ms_jarvis_autonomous_learner:app --host 0.0.0.0 --port 8425"] null
-["python","/app/services/ms_jarvis_consciousness_bridge.py"] null
-["python","jarvis-constitutional-guardian_constitutional_api.py"] null
-(crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ # Check whether the missing guardian file exists anywhere on host
-find /opt/msjarvis-rebuild -iname "constitutional*.py" | sort
-find: ‘/opt/msjarvis-rebuild/data/local_resources’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/sys’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_temp’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/quantum_ai’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/mysql’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/performance_schema’: Permission denied
-find: ‘/opt/msjarvis-rebuild/data/mysql/#innodb_redo’: Permission denied
-/opt/msjarvis-rebuild/_archive/generated_20260430/constitutional_api.PROD_BACKUP.py
-/opt/msjarvis-rebuild/_archive/generated_20260430/constitutional_guardian.PROD_BACKUP.py
-/opt/msjarvis-rebuild/constitutional_api.py
-/opt/msjarvis-rebuild/services/constitutional_api_fixed.py
-/opt/msjarvis-rebuild/services/constitutional_api.PROD_BACKUP.py
-/opt/msjarvis-rebuild/services/constitutional_api.py
-/opt/msjarvis-rebuild/services/constitutional_guardian.PROD_BACKUP.py
-/opt/msjarvis-rebuild/services/constitutional_guardian.py
+            {
+                "kind": "ego_boundaries",
+                "weight": 1,
+                "data": {
+                    "input": "ping",
+                    "within_bounds": true,
+                    "category": "unspecified",
+                    "severity": "info",
+                    "reason": "within configured ego-boundary limits",
+                    "details": {
+                        "input": "ping",
+                        "within_bounds": true,
+                        "category": "unspecified",
+                        "severity": "info",
+                        "reason": "within configured ego-boundary limits",
+                        "details": {
+                            "allowed": true,
+                            "reason": "within configured ego-boundary limits",
+                            "boundary_mode": "healthy",
+                            "active_limits": [
+                                "no_recursive_overload",
+                                "respect_rate_limits",
+                                "filter_high_risk_content"
+                            ],
+                            "metadata": {
+                                "length": 4,
+                                "has_risk_keywords": false
+                            }
+                        },
+                        "ego_boundaries": {},
+                        "experiential_processing": {},
+                        "timestamp": "2026-05-25T11:10:45.572315Z"
+                    },
+                    "ego_boundaries": {},
+                    "experiential_processing": {}
+                }
+            }
+        ],
+        "icontainersstate": {
+            "ego_boundaries": {},
+            "experiential_processing": {},
+            "observer_processing": {
+                "stance": "observer",
+                "meta_level": "ego-boundaries-v1"
+            }
+        }
+    },
+    "error": null,
+    "job_id": "5fe9c76d-d198-4e9f-9a75-6847c10571be"
+}
 (crypto-venv) cakidd@cakidd-Legion-5-16IRX9:/opt/msjarvis-rebuild/ms-allis-frontend$ 
-
